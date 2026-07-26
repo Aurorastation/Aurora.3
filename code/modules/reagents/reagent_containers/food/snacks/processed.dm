@@ -614,7 +614,7 @@
 	icon_state = "getmore_readies_ball"
 
 	reagents_to_add = list(/singleton/reagent/sugar = 1, /singleton/reagent/nutriment/glucose = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("overwhelming sweetness" = 8, "sweet caramel" = 4))
+	reagent_data = list(/singleton/reagent/nutriment/glucose = list("overwhelming sweetness" = 8, "sweet caramel" = 4))
 	bitesize = 3
 	w_class = WEIGHT_CLASS_TINY
 
