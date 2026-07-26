@@ -3552,7 +3552,7 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "mT" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8;
 	req_access = list(111)
 	},

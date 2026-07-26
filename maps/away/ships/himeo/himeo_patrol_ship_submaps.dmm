@@ -319,7 +319,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "py" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = null;
 	dir = 1
 	},

@@ -723,7 +723,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Ku" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "KC" = (
@@ -939,7 +939,7 @@
 /area/konyang/robotics_factory)
 "XD" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "XI" = (

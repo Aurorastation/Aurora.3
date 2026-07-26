@@ -6886,7 +6886,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/bridge)
 "vX" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 4;
 	req_access = null
 	},

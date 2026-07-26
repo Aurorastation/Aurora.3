@@ -1147,7 +1147,7 @@
 /area/overgrown_mining_station)
 "yw" = (
 /obj/structure/platform,
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "yy" = (

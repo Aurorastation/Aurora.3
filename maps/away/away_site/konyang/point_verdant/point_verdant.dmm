@@ -22353,7 +22353,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "mGn" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = list(219)
 	},
 /obj/structure/machinery/light{
@@ -32321,7 +32321,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/interior/offices/kaf)
 "sKK" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = list(219)
 	},
 /obj/random/dirt_75,

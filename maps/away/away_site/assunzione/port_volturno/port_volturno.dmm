@@ -19093,7 +19093,7 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/chapel)
 "ntu" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = list(219)
 	},
 /obj/structure/machinery/light{
@@ -33804,7 +33804,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/port_volturno/interior/stafylia)
 "xLh" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = list(219)
 	},
 /obj/random/dirt_75,

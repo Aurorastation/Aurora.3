@@ -4020,7 +4020,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "dVz" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -5822,7 +5822,7 @@
 /turf/simulated/floor/carpet/green,
 /area/enviro_testing_facility/inside/medical/chief_office)
 "fQy" = (
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "fQJ" = (
@@ -6686,7 +6686,7 @@
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/meeting)
 "gBG" = (
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -11587,7 +11587,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "lDw" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -15696,7 +15696,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "pMv" = (
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
@@ -16463,7 +16463,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/storage)
 "qDv" = (
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "qDB" = (

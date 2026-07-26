@@ -864,7 +864,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "dNX" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /obj/structure/machinery/light/small/red{
 	dir = 4
 	},

@@ -7443,7 +7443,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/port)
 "aWi" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -10307,7 +10307,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/rnd/lab)
 "bot" = (
@@ -21204,7 +21204,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -128057,7 +128057,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "qDL" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -164280,7 +164280,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_dininghall)
 "vhY" = (
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 9
 	},
@@ -176997,7 +176997,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/platform,
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 10
 	},

@@ -4918,7 +4918,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/operations,
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8;
 	req_access = list(203)
 	},

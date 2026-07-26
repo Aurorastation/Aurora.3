@@ -6427,7 +6427,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/cic)
 "Ko" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = null
 	},
 /obj/structure/machinery/light{

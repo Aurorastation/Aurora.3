@@ -384,7 +384,7 @@
 /area/shuttle/lone_spacer/storage)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = null;
 	dir = 1
 	},
