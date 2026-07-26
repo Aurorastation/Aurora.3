@@ -1,0 +1,19 @@
+author: mineymonkey
+
+delete-after: True
+
+changes:
+  - rscadd: "Added electronic radio headsets, wearable radios with internal integrated circuit assemblies, encryption key support, and private text-to-speech output."
+  - rscadd: "Added integrated circuit printer cloning and blueprint import/export support for assemblies and supported hosted assemblies."
+  - rscadd: "Added new integrated circuit tools for data storage, database commands, radio commands, references, coordinates, access checks, card/item slots, power cells, and item trays."
+  - rscadd: "Added expanded math circuits, including algebra, geometry, list math, statistics, vectors, matrices, calculus, and vector calculus."
+  - rscadd: "Added practical automation circuits, including edge detection, cooldown limiting, pulse counting, pulse routing, state display, list utilities, coordinate navigation, and command parsing."
+  - rscadd: "Added xenoarch precision excavator circuit support with anomaly depth, clearance, excavation, and target direction outputs."
+  - rscadd: "Added additional manipulation circuits and a low-complexity debug circuit for organizing circuit layouts."
+  - rscadd: "Made the circuit cloner upgrade disk printable in the protolathe."
+  - qol: "Reorganized integrated circuit printer categories, math subgroups, logic/comparison groups, circuit descriptions, and circuit box descriptions."
+  - qol: "Improved cloning preservation for circuit names, pin data, constant memory values, built-in circuit links, hosted assembly state, and electronic radio headset internals."
+  - qol: "Improved scanner, server, command pad, reference, coordinate, list, ticker, and printer workflows with clearer outputs, safer invalid-input handling, and bounded pulse behavior."
+  - bugfix: "Fixed imported electronic radio headset blueprints failing to recreate the headset wrapper item or correctly bind the internal assembly."
+  - bugfix: "Fixed large integrated circuit blueprint imports losing or corrupting JSON characters during chunked transfer."
+  - bugfix: "Fixed several integrated circuit edge cases involving invalid refs, empty or null lists, injector targets, radio command receiver declarations, and abstract math circuits appearing in printers."
