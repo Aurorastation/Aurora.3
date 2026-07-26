@@ -2871,7 +2871,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/structure/sign/flag/old_xanu{
+/obj/structure/sign/flag/xanu_old{
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
