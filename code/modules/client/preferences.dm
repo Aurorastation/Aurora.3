@@ -122,10 +122,10 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
-		"1" = list(1, 0, 5, -12),
-		"2" = list(1, 0, 3, 15),
-		"4" = list(1, 0, 2, 10),
-		"8" = list(1, 0, 1, 5)
+		"1" = list(5, -8, 9, 0),
+		"2" = list(10, 8, 9, 0),
+		"4" = list(5, -8, 1, 0),
+		"8" = list(10, 8, 1, 0)
 	)
 
 		//Jobs, uses bitflags
@@ -235,6 +235,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			load_and_update_character()
 
 /datum/preferences/Destroy()
+	SStgui.close_uis(src)
 	QDEL_LIST(char_render_holders)
 	return ..()
 
@@ -265,33 +266,103 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	return mob_species.species_height
 
 /datum/preferences/proc/ShowChoices(mob/user)
-	if(!user || !user.client)	return
-	var/dat = "<center>"
-
-	if(path)
-		dat += "<a href='byond://?src=[REF(src)];load=1'>Load slot</a> - "
-		dat += "<a href='byond://?src=[REF(src)];save=1'>Save slot</a> - "
-		dat += "<a href='byond://?src=[REF(src)];reload=1'>Reload slot</a>"
-		if (GLOB.config.sql_saves)
-			dat += " - <a href='byond://?src=[REF(src)];delete=1'>Permanently delete slot</a>"
-
-	else
-		dat += "Please create an account to save your preferences."
+	if(!user || !user.client)
+		return
 
 	if(!char_render_holders)
 		update_preview_icon()
 	show_character_previews()
 
-	dat += "<br>"
-	dat += player_setup.header()
-	dat += "<br><HR></center>"
-	dat += player_setup.content(user)
+	ui_interact(user)
 
-	winshow(user, "preferences_window", TRUE)
-	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
-	popup.set_content(dat)
-	popup.open(FALSE) // Skip registering onclose on the browser pane
-	onclose(user, "preferences_window", src) // We want to register on the window itself
+/datum/preferences/ui_state(mob/user)
+	return GLOB.always_state
+
+/datum/preferences/ui_status(mob/user, datum/ui_state/state)
+	if(user?.client?.prefs != src)
+		return UI_CLOSE
+	return UI_INTERACTIVE
+
+/datum/preferences/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CharacterSetup", "Character Setup", 1280, 900)
+		ui.set_autoupdate(FALSE)
+		ui.open()
+
+/datum/preferences/ui_close(mob/user)
+	. = ..()
+	clear_character_previews()
+
+/datum/preferences/ui_data(mob/user)
+	var/list/data = list()
+	data["can_save"] = !!path
+	data["character_name"] = real_name
+	data["content"] = player_setup.content(user)
+	data["sql_saves"] = GLOB.config.sql_saves
+	var/datum/faction/character_faction = SSjobs.name_factions[faction] || SSjobs.default_faction
+	data["faction_name"] = character_faction.name
+	data["faction_suffix"] = character_faction.title_suffix
+
+	var/list/categories = list()
+	for(var/datum/category_group/player_setup_category/category in player_setup.categories)
+		categories += list(list(
+			"name" = category.name,
+			"ref" = REF(category),
+			"selected" = (category == player_setup.selected_category)
+		))
+	data["categories"] = categories
+
+	return data
+
+/datum/preferences/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/mob/user = ui.user
+	switch(action)
+		if("select_category")
+			var/datum/category_group/player_setup_category/category = locate(params["category"])
+			if(category && (category in player_setup.categories))
+				player_setup.selected_category = category
+				return TRUE
+
+		if("save")
+			save_character()
+			save_preferences()
+			return TRUE
+
+		if("reload")
+			load_preferences()
+			load_character()
+			update_preview_icon()
+			show_character_previews()
+			return TRUE
+
+		if("load")
+			if(IsGuestKey(user.key))
+				return FALSE
+			if(GLOB.config.sql_saves)
+				open_load_dialog_sql(user)
+			else
+				open_load_dialog_file(user)
+			return FALSE
+
+		if("delete")
+			if(!GLOB.config.sql_saves)
+				return FALSE
+			if(alert(user, "You will be unable to re-create a character with the same name! Are you sure you want to permanently delete [real_name]? The slot cannot be restored.", "Permanently Delete Character", "No", "Yes") != "Yes")
+				return FALSE
+			if(alert(user, "Are you sure you want to PERMANENTLY delete your character?", "Confirm Permanent Deletion", "Yes", "No") != "Yes")
+				return FALSE
+			delete_character_sql(user.client)
+			clear_character_previews()
+			update_preview_icon()
+			show_character_previews()
+			return TRUE
+
+	return FALSE
 
 /datum/preferences/proc/update_character_previews(mutable_appearance/MA, var/big_mob = FALSE)
 	if(!client)
@@ -310,7 +381,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
-	BG.screen_loc = "character_preview_map:1,1 to 1,5"
+	BG.screen_loc = "character_setup_preview:2,1 to 13,12"
 
 	var/index = 0
 	for(var/D in GLOB.cardinals)
@@ -320,6 +391,9 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			LAZYSET(char_render_holders, "[D]", O)
 			client.screen |= O
 		O.appearance = MA
+		var/matrix/preview_transform = matrix(MA.transform)
+		preview_transform.Scale(8)
+		O.transform = preview_transform
 		O.dir = D
 		O.hud_layerise()
 		var/list/screen_locs = preview_screen_locs["[D]"]
@@ -331,7 +405,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		if(big_mob)
 			screen_y_minor += round(30 - (index * 15))
 		screen_y_minor -= MA.pixel_y
-		O.screen_loc = "character_preview_map:[screen_x]:[screen_x_minor],[screen_y]:[screen_y_minor]"
+		O.screen_loc = "character_setup_preview:[screen_x]:[screen_x_minor],[screen_y]:[screen_y_minor]"
 		index++
 
 /datum/preferences/proc/show_character_previews()
