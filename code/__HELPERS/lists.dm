@@ -436,7 +436,7 @@
 	if(L.len < 2)
 		return L
 	var/middle = L.len / 2 + 1
-	return mergeKeyedLists(sortByKeyText(L.Copy(0, middle), key), sortByKeyText(L.Copy(middle), key), key, value_is_number = TRUE)
+	return mergeKeyedLists(sortByKeyNumber(L.Copy(0, middle), key), sortByKeyNumber(L.Copy(middle), key), key, value_is_number = TRUE)
 
 /proc/mergeKeyedLists(var/list/L, var/list/R, var/key, var/value_is_number = FALSE)
 	var/Li=1
