@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now hear someone speak even if they aren't in your line of sight. The range is ten turfs by default, fourteen if there's a single exclamation mark, and twenty-one if there are two."
