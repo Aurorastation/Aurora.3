@@ -16876,9 +16876,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/rnd/xenoarch/presentation)
 "cir" = (
-/obj/effect/floor_decal/corner/dark_teal/full{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/dark_teal/full,
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
@@ -18641,9 +18639,7 @@
 /obj/item/vitals_monitor,
 /obj/item/vitals_monitor,
 /obj/item/vitals_monitor,
-/obj/effect/floor_decal/corner/dark_teal/full{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/dark_teal/full,
 /obj/structure/table/steel,
 /obj/structure/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
@@ -72704,9 +72700,7 @@
 /obj/item/reagent_containers/hypospray{
 	pixel_y = -4
 	},
-/obj/effect/floor_decal/corner/dark_teal/full{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/dark_teal/full,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/equipment)
 "jvE" = (
@@ -100768,9 +100762,7 @@
 "naH" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/structure/machinery/light,
-/obj/effect/floor_decal/corner/dark_teal/full{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/dark_teal/full,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/equipment)
 "naO" = (
@@ -124197,9 +124189,7 @@
 /area/horizon/maintenance/deck_2/wing/port/near)
 "qev" = (
 /obj/structure/machinery/light,
-/obj/effect/floor_decal/corner/dark_teal/full{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/dark_teal/full,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "qex" = (
@@ -140358,9 +140348,7 @@
 /area/horizon/operations/mail_room)
 "sfA" = (
 /obj/structure/roller_rack/three,
-/obj/effect/floor_decal/corner/dark_teal/full{
-	dir = 2
-	},
+/obj/effect/floor_decal/corner/dark_teal/full,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
