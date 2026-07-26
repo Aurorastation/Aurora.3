@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Adds a door that allows access to the smelters in Mining from the maintenance tunnels."
+  - qol: "Swaps the placement of the ICU and the storage room in Medical."
+  - qol: "Moves the Pharmacy and the Recovery Ward, with the lobby centered between them."
+  - qol: "The Medical Department's floor decals are now seafoam green, for less eye strain and greater difference with Service green."
