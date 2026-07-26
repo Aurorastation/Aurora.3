@@ -149,8 +149,9 @@
 	if(!client || !can_hear())
 		return
 
-	if(volume_channel == SOUND_VOLUME_CHANNEL_LOOPING && client.prefs)
-		vol *= client.prefs.looping_sound_volume / 100
+	if (client.prefs)
+		switch (volume_channel)
+			if (SOUND_VOLUME_CHANNEL_LOOPING) vol *= client.prefs.looping_sound_volume / 100
 
 	if(!sound_to_use)
 		sound_to_use = sound(get_sfx(soundin))
