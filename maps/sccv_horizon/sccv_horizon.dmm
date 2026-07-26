@@ -45779,6 +45779,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/controlroom)
 "fVa" = (
@@ -124566,6 +124569,9 @@
 /obj/structure/machinery/light/floor{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "qfa" = (
@@ -137593,6 +137599,9 @@
 	id_tag = "conference_room";
 	name = "Conference Room";
 	req_one_access = list(19,38,72)
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/meeting_room)
@@ -161053,6 +161062,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/controlroom)
 "uKC" = (
@@ -163559,13 +163571,13 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/obj/random/pottedplant,
 /obj/structure/machinery/power/apc/north{
 	is_critical = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "vbW" = (
