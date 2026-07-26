@@ -2090,9 +2090,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/meeting_room)
 "alx" = (
@@ -6796,8 +6793,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/reactor/indra/monitoring)
 "aRj" = (
-/turf/simulated/wall/r_wall,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "xo_conference_tint"
+	},
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "aRo" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -8407,31 +8410,23 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior/no_shields)
 "bcP" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/door/airlock/command{
-	dir = 1;
-	id_tag = "hopdoor";
-	name = "Executive Officer's Office";
-	req_access = list(57)
-	},
 /obj/structure/machinery/door/firedoor,
-/obj/structure/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/machinery/door/airlock/command{
+	dir = 1;
+	name = "Executive Officer's Office";
+	req_access = list(57)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "bcT" = (
 /obj/structure/machinery/alarm/north,
 /obj/structure/machinery/chem_heater,
@@ -11143,7 +11138,25 @@
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
 "btM" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, executive officers office"
+	},
+/obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 4;
+	id = "xo_office_window_shutter";
+	name = "Safety Shutter"
+	},
 /obj/structure/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -11151,20 +11164,8 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, executive officers office"
-	},
-/obj/structure/machinery/door/blast/shutters{
-	dir = 4;
-	id = "shutters_deck3_xo";
-	name = "Safety Shutter"
-	},
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "btO" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	dir = 1;
@@ -13901,7 +13902,7 @@
 /area/horizon/engineering/bluespace_drive)
 "bOF" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "bOL" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d2-3-f"
@@ -15795,15 +15796,23 @@
 /area/horizon/maintenance/deck_1/auxatmos)
 "cbw" = (
 /obj/structure/table/reinforced/wood,
-/obj/structure/machinery/light{
-	dir = 1
+/obj/structure/machinery/controlhub/xo_office/private{
+	pixel_x = -8;
+	pixel_y = -3
 	},
-/obj/random/pottedplant_small{
-	pixel_x = 5;
-	pixel_y = -1
+/obj/structure/machinery/requests_console/north{
+	announcementConsole = 1;
+	department = "Executive Officer's Office";
+	departmentType = 5;
+	name = "XO's Office Requests Console";
+	pixel_y = 32
+	},
+/obj/structure/machinery/power/outlet{
+	pixel_y = 4;
+	pixel_x = 6
 	},
 /turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "cbx" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -16471,14 +16480,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/machinery/status_display{
-	pixel_y = 32
-	},
-/obj/structure/machinery/camera/network/command{
-	c_tag = "Bridge - Conference room";
-	dir = 8
-	},
 /obj/structure/machinery/light_switch/east,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "cgc" = (
@@ -17188,11 +17191,20 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/starboard)
 "clg" = (
-/obj/structure/bed/stool/chair/padded/brown{
+/obj/item/modular_computer/console/preset/command/hop{
 	dir = 4
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/obj/effect/floor_decal/industrial/outline_corner/security{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "clj" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -18710,16 +18722,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "cvw" = (
-/obj/structure/table/reinforced/wood,
-/obj/item/storage/box/fancy/cookiesnack,
-/obj/item/storage/box/fancy/cookiesnack{
-	pixel_y = 9
+/obj/structure/closet/secure_closet/xo,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/alarm/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "cvx" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/nitrogen{
@@ -19568,13 +19578,23 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/equipment)
 "cAx" = (
-/obj/structure/machinery/hologram/holopad,
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "cAz" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -21873,10 +21893,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/machinery/light_switch{
-	dir = 1;
-	pixel_y = 28
-	},
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "cRs" = (
@@ -23383,6 +23399,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/meeting_room)
@@ -27213,11 +27232,17 @@
 /turf/simulated/floor/tiled,
 /area/horizon/rnd/hallway)
 "dxT" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+/obj/structure/table/reinforced/wood,
+/obj/item/toy/desk/newtoncradle{
+	pixel_x = -4;
+	pixel_y = 7
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/item/flashlight/lamp/green{
+	pixel_x = 7;
+	pixel_y = 3
+	},
+/turf/simulated/floor/carpet,
+/area/horizon/command/heads/xo_office)
 "dxX" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -28627,17 +28652,6 @@
 	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
-"dGA" = (
-/obj/item/modular_computer/console/preset/command/account,
-/obj/structure/machinery/requests_console/north{
-	announcementConsole = 1;
-	department = "Executive Officer's Desk";
-	departmentType = 5;
-	name = "Executive Officer RC";
-	pixel_y = 32
-	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
 "dGB" = (
 /obj/structure/machinery/button/remote/blast_door{
 	id = "odincheckpoint_starboard";
@@ -38682,37 +38696,22 @@
 /area/shuttle/mercenary)
 "eXv" = (
 /obj/structure/machinery/door/firedoor,
-/obj/structure/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "hop_office_desk";
-	name = "XO Office Privacy Shutters";
-	opacity = 0
-	},
-/obj/structure/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/machinery/ringer_button{
-	id = "xo_ringer";
-	pixel_x = 12;
-	pixel_y = 3
-	},
-/obj/structure/machinery/door/window/desk/southright{
-	name = "Executive Officer's Desk";
-	req_access = list(57)
-	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/door/window/desk/northleft{
+	req_access = list(57)
+	},
+/obj/structure/machinery/door/blast/shutters{
+	dir = 2;
+	id = "xo_office_privacy_shutter"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "eXB" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -42976,22 +42975,19 @@
 	},
 /area/horizon/hangar/intrepid)
 "fCP" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/machinery/light/spot,
-/obj/structure/machinery/camera/network/command{
-	c_tag = "Bridge - XO office";
+/obj/structure/machinery/disposal/small/north,
+/obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "fCV" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -45783,6 +45779,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/controlroom)
 "fVa" = (
@@ -47314,11 +47313,10 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/rnd/xenobiology)
 "gfL" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/hologram/holopad,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "gfP" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform_deco{
@@ -49116,11 +49114,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/operations/starboard/far)
 "grD" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
+/obj/item/modular_computer/console/preset/command/account{
+	dir = 4
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/effect/floor_decal/industrial/outline_corner/security,
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "grG" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/hatch/emergency_closet,
@@ -56998,14 +57003,9 @@
 /turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
 "hsB" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/hologram/holopad,
+/turf/simulated/floor/carpet,
+/area/horizon/command/heads/xo_office)
 "hsD" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -59778,12 +59778,14 @@
 /area/horizon/engineering/reactor/indra/mainchamber)
 "hKt" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+	dir = 8
 	},
-/obj/structure/machinery/alarm/north,
-/obj/structure/closet/secure_closet/xo2,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "hKu" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -61350,14 +61352,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/storage/tech)
 "hWd" = (
-/obj/structure/bed/stool/chair{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
-/obj/structure/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "xo_privacy_tint"
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_desk)
 "hWe" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/railing/mapped{
@@ -63377,12 +63386,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/storage/eva)
 "ijx" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
-/obj/structure/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "xo_conference_tint"
+	},
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "ijD" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -67767,11 +67778,17 @@
 /turf/simulated/wall,
 /area/horizon/hallway/primary/deck_1/central)
 "iNl" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "iNn" = (
 /obj/structure/table/stone/marble,
 /obj/structure/machinery/reagentgrinder{
@@ -68855,6 +68872,8 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/controlroom)
 "iUH" = (
@@ -70368,8 +70387,11 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "jeR" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
-	id = "XO"
+	id = "xo_privacy_tint"
 	},
 /obj/structure/machinery/door/blast/regular{
 	density = 0;
@@ -70379,11 +70401,8 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /turf/simulated/floor,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_desk)
 "jeW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/corner/green,
@@ -75151,30 +75170,14 @@
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/port/docks)
 "jKX" = (
-/obj/structure/table/reinforced/wood,
-/obj/structure/machinery/computer/guestpass{
-	pixel_y = 27
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
-/obj/item/paper_bin,
-/obj/item/pen/blue{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "xo_office_tint"
 	},
-/obj/item/pen,
-/obj/item/stamp/xo{
-	pixel_x = 6;
-	pixel_y = 14
-	},
-/obj/item/stamp/denied{
-	pixel_y = 14;
-	pixel_x = -2
-	},
-/obj/item/paper/stickynotes/pad/random{
-	pixel_x = 10;
-	pixel_y = -3
-	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "jLa" = (
 /obj/item/stack/material/cyborg/steel,
 /turf/unsimulated/floor,
@@ -77130,12 +77133,8 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
 "jXm" = (
-/obj/structure/cable/green,
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
-	id = "XO"
-	},
-/turf/simulated/floor,
-/area/horizon/command/heads/xo)
+/turf/simulated/wall/r_wall,
+/area/horizon/command/heads/xo_desk)
 "jXo" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/machinery/light/floor,
@@ -80323,25 +80322,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
 "ksI" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/structure/machinery/atm{
+	pixel_y = -10
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/structure/machinery/disposal/small/north,
+/obj/structure/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
-	dir = 1
+	dir = 4
 	},
-/obj/structure/machinery/keycard_auth{
-	pixel_x = 1;
-	pixel_y = -26
+/obj/structure/machinery/light_switch/west,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/effect/floor_decal/corner/dark_green/full,
+/obj/structure/machinery/light/floor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "ksL" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/spline/plain{
@@ -81237,24 +81235,33 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew/chargebay)
 "kxU" = (
-/obj/structure/table/reinforced/wood,
-/obj/item/folder/blue{
-	pixel_x = -3
+/obj/structure/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
 	},
-/obj/item/folder/red,
-/obj/item/folder/yellow{
-	pixel_x = 3
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 9;
-	id = "shutters_deck3_xo";
-	name = "Window Shutter Control";
-	pixel_x = 5;
-	pixel_y = 10;
-	icon_rotation = 90
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/machinery/door/airlock/command{
+	dir = 4;
+	name = "Executive Officer's Office";
+	req_access = list(57)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "kxV" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/fake_object{
@@ -81630,12 +81637,28 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_battlemonsters)
 "kzR" = (
-/obj/structure/table/standard,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
+/obj/structure/machinery/controlhub/xo_office/desk{
+	pixel_y = -3;
+	pixel_x = -6
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/requests_console/north{
+	announcementConsole = 1;
+	department = "Executive Officer's Desk";
+	departmentType = 5;
+	name = "XO's Desk Requests Console";
+	pixel_y = 32
+	},
+/obj/structure/machinery/power/outlet{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/structure/machinery/vending/encryption{
+	pixel_y = 32;
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "kzS" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -81778,6 +81801,10 @@
 	},
 /obj/effect/landmark/start{
 	name = "Bridge Crew"
+	},
+/obj/structure/machinery/camera/network/command{
+	c_tag = "Bridge - Conference room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/meeting_room)
@@ -84054,21 +84081,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/lab)
 "kPh" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = -4
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/item/folder/sec{
+	pixel_x = -4;
+	pixel_y = 3
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+/obj/item/pen/multi{
+	pixel_x = -4;
+	pixel_y = 4
 	},
-/obj/structure/engineer_maintenance/electric,
-/obj/structure/engineer_maintenance/pipe{
-	dir = 4
+/obj/structure/machinery/recharger{
+	pixel_x = 9;
+	pixel_y = 3
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/firealarm/north{
+	pixel_y = 29;
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "kPl" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -85403,18 +85438,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "kYG" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/carpet,
+/area/horizon/command/heads/xo_office)
 "kYJ" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
 /obj/structure/disposalpipe/segment{
@@ -92919,20 +92947,15 @@
 /turf/simulated/floor/lino,
 /area/merchant_station)
 "lYC" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/structure/machinery/papershredder{
+	pixel_x = -6
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 9;
+	pixel_y = 1
 	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 1
-	},
-/obj/structure/machinery/light_switch{
-	pixel_y = -19
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "lYJ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -94211,8 +94234,7 @@
 	},
 /obj/structure/machinery/camera/network/command{
 	c_tag = "Bridge - XO Line";
-	dir = 1;
-	network = list("Command","XO_Office")
+	dir = 1
 	},
 /obj/structure/table/standard,
 /obj/structure/machinery/recharger{
@@ -99691,18 +99713,17 @@
 /area/horizon/ai/upload_foyer)
 "mSm" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+	dir = 1
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "mSo" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -101792,6 +101813,24 @@
 /obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/hangar/starboard)
+"ngg" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/coatrack{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/obj/structure/machinery/camera/network/command{
+	c_tag = "Bridge - XO Office";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/horizon/command/heads/xo_office)
 "ngj" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced/airless,
@@ -104211,15 +104250,10 @@
 /area/horizon/stairwell/starboard/deck_3)
 "nyU" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/carpet,
+/area/horizon/command/heads/xo_office)
 "nza" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -106076,20 +106110,18 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/engineering/hallway/fore)
 "nKk" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
+/obj/item/modular_computer/console/preset/command/account{
+	dir = 8
 	},
-/obj/structure/machinery/papershredder{
-	pixel_x = 7
+/obj/effect/floor_decal/industrial/outline_corner/security,
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 8
 	},
-/obj/structure/filingcabinet{
-	pixel_x = -9
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 5
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "nKl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -107696,20 +107728,24 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigators_office)
 "nVX" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/item/modular_computer/console/preset/command/hop{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+/obj/effect/floor_decal/industrial/outline_corner/security{
+	dir = 1
 	},
+/obj/structure/machinery/alarm/east,
 /obj/structure/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/security{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 10
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "nVY" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -109463,12 +109499,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/transport1)
 "oip" = (
-/obj/structure/table/reinforced/wood,
-/obj/item/modular_computer/laptop/preset/command/xo{
-	pixel_y = 10
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "xo_office_tint"
+	},
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "oiq" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/borosilicate/reinforced{
@@ -109563,12 +109604,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/service/custodial)
 "oiP" = (
-/obj/structure/table/reinforced/wood,
-/obj/item/paper_scanner{
-	pixel_x = -1
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 4
 	},
 /turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "oiQ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -110187,15 +110227,20 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/air)
 "ong" = (
-/mob/living/simple_animal/corgi/Ian,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "oni" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -111514,15 +111559,8 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "ovB" = (
-/obj/structure/table/reinforced/wood,
-/obj/structure/machinery/photocopier/faxmachine{
-	department = "Executive Officer's Office"
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/wall/r_wall,
+/area/horizon/command/heads/xo_office)
 "ovG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -118764,51 +118802,18 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "psh" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/structure/bed/stool/chair/office/bridge/generic{
+/obj/structure/bed/stool/chair/office/bridge{
 	dir = 1
 	},
 /obj/structure/cable/green{
-	icon_state = "2-4"
+	icon_state = "1-2"
 	},
-/obj/structure/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for shutters.";
-	dir = 1;
-	id = "hop_office_desk";
-	name = "Desk Privacy Shutter";
-	pixel_x = -26;
-	pixel_y = 8
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
 	},
-/obj/structure/machinery/button/switch/windowtint{
-	dir = 1;
-	id = "XO";
-	pixel_x = -41;
-	pixel_y = -5
-	},
-/obj/structure/machinery/light_switch{
-	dir = 1;
-	pixel_x = -32;
-	pixel_y = -5
-	},
-/obj/structure/machinery/button/remote/airlock{
-	desc = "A remote control-switch for the command foyer doors.";
-	dir = 1;
-	id = "command_foyer";
-	name = "Bridge Door Control";
-	pixel_x = -39;
-	pixel_y = 8;
-	req_access = list(57)
-	},
-/obj/structure/machinery/computer/security/telescreen{
-	name = "Access Monitor";
-	console_networks = list("XO_Office");
-	pixel_y = 24;
-	pixel_x = -32
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "psm" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -118846,9 +118851,6 @@
 	name = "post";
 	pixel_y = -4
 	},
-/obj/structure/machinery/door/window/holowindoor{
-	dir = 1
-	},
 /obj/effect/decal/fake_object{
 	desc = "A lovely umbrella for those rainy Konyanger days.";
 	dir = 4;
@@ -118863,6 +118865,9 @@
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "plank_shadow";
 	name = "floor planks"
+	},
+/obj/structure/machinery/door/window/holowindoor{
+	dir = 1
 	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
@@ -124573,6 +124578,9 @@
 /obj/structure/machinery/light/floor{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "qfa" = (
@@ -127090,19 +127098,31 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos)
 "qwG" = (
-/obj/structure/machinery/door/airlock/command{
-	dir = 4;
-	id_tag = "hopdoor";
-	name = "Executive Officer's Office";
-	req_access = list(57)
-	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,73);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/turf/simulated/floor/tiled/full,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/machinery/door/airlock/command{
+	dir = 4;
+	name = "Executive Officer's Desk";
+	req_access = list(57)
+	},
+/obj/structure/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "qwI" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
@@ -128230,6 +128250,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/reactor/indra/mainchamber)
+"qEH" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/modular_computer/laptop/preset/command/xo{
+	pixel_y = 10
+	},
+/turf/simulated/floor/carpet,
+/area/horizon/command/heads/xo_office)
 "qEQ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -132303,6 +132330,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "reJ" = (
@@ -137574,6 +137602,9 @@
 	name = "Conference Room";
 	req_one_access = list(19,38,72)
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/meeting_room)
 "rNE" = (
@@ -140607,25 +140638,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/tcommsat/chamber)
 "sgz" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
+/obj/structure/noticeboard{
+	pixel_y = 30
 	},
-/obj/structure/machinery/power/apc/north{
-	is_critical = 1
-	},
-/obj/structure/coatrack{
-	pixel_x = -10;
-	pixel_y = 24
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/closet/secure_closet/xo,
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/carpet,
+/area/horizon/command/heads/xo_office)
 "sgA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -142484,11 +142501,6 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/light/floor{
 	dir = 1
 	},
@@ -143207,20 +143219,10 @@
 /area/shuttle/syndicate_elite)
 "swV" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "swW" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/random/dirt_75,
@@ -143720,8 +143722,27 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
 "szR" = (
-/turf/simulated/wall/r_wall,
-/area/horizon/repoffice/representative_two)
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/wood,
+/area/horizon/command/heads/xo_office)
 "szT" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
@@ -146642,18 +146663,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/rnd/xenobiology/foyer)
 "sTk" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
+/obj/structure/table/reinforced/wood,
+/obj/structure/machinery/photocopier/faxmachine{
+	department = "Executive Officer's Office";
+	pixel_y = 5
 	},
-/obj/structure/machinery/ringer/north{
-	department = "XO office";
-	id = "xo_ringer";
-	pixel_y = 30;
-	req_access = null;
-	req_one_access = list(57)
+/obj/item/storage/secure/safe/id_lock{
+	req_access = list(57);
+	pixel_y = 32
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "sTm" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/machinery/door/blast/regular/open{
@@ -147846,20 +147866,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_3/aft/holodeck)
 "tco" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
-	},
-/obj/structure/machinery/power/apc/north{
-	is_critical = 1
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /obj/structure/cable/green{
-	icon_state = "0-2"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/bridge/meeting_room)
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "xo_conference_tint"
+	},
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "tcr" = (
 /obj/structure/tank_wall/oxygen{
 	density = 0;
@@ -149404,6 +149421,16 @@
 	},
 /turf/simulated/floor/carpet/cyan,
 /area/centcom/ferry)
+"tmD" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/obj/structure/machinery/light/small/floor,
+/turf/simulated/floor/wood,
+/area/horizon/command/heads/xo_office)
 "tmF" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "2,4";
@@ -150954,23 +150981,26 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "twf" = (
-/obj/structure/table/reinforced/wood,
-/obj/structure/machinery/chemical_dispenser/bar_soft{
-	dir = 1;
-	pixel_y = 1
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+	dir = 5
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = 16;
-	pixel_x = 7
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
-	pixel_y = 16
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "twh" = (
 /obj/structure/machinery/hologram/holopad,
 /obj/structure/bed/stool/chair/office/dark{
@@ -151420,6 +151450,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
+"tyM" = (
+/obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "xo_privacy_tint"
+	},
+/obj/structure/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_desk)
 "tyT" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -152560,8 +152604,19 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/xenoarch/atrium)
 "tGg" = (
-/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 4;
+	id = "xo_office_window_shutter";
+	name = "Safety Shutter"
+	},
 /obj/structure/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -152569,16 +152624,8 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/machinery/door/blast/shutters{
-	dir = 4;
-	id = "shutters_deck3_xo";
-	name = "Safety Shutter"
-	},
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "tGl" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -153062,18 +153109,29 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/tcommsat/entrance)
 "tJS" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
+	dir = 6
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+/obj/structure/machinery/power/apc/south,
+/obj/structure/cable/green,
+/obj/structure/machinery/light_switch/west{
+	dir = 4;
+	pixel_x = 22
 	},
-/obj/structure/machinery/firealarm/south,
+/obj/item/towel_flat{
+	pixel_x = -2;
+	pixel_y = 4;
+	name = "Ian's Bed";
+	desc = "A dog blanket laid out on the floor; Ian prefers to sleep on the office chair.";
+	accent_color = "#336699";
+	color = "#336699"
+	},
+/obj/item/toy/figure/corgi{
+	pixel_x = -10
+	},
+/mob/living/simple_animal/corgi/Ian,
 /turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "tJU" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -153804,10 +153862,17 @@
 /area/tdome/tdomeobserve)
 "tPk" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "tPl" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/purple,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -155354,6 +155419,22 @@
 /obj/effect/landmark/latejoin,
 /turf/simulated/floor/tiled,
 /area/horizon/crew/resdeck/living_quarters_lift)
+"ubj" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/junction,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/command/heads/xo_desk)
 "ubm" = (
 /obj/structure/machinery/air_sensor{
 	frequency = 1442;
@@ -155870,6 +155951,37 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/evac)
+"uet" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/power/apc/south,
+/obj/structure/cable/green,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/item/paper_scanner,
+/obj/item/stack/wrapping_paper{
+	pixel_y = 4;
+	pixel_x = 6
+	},
+/obj/item/stack/packageWrap,
+/obj/item/destTagger{
+	pixel_x = 13;
+	pixel_y = -2
+	},
+/obj/item/clipboard{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/hand_labeler{
+	pixel_y = 8;
+	pixel_x = 1
+	},
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "uez" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/maintenance/deck_3/security/port)
@@ -156219,8 +156331,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
 "uhj" = (
+/obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 4;
+	id = "xo_office_window_shutter";
+	name = "Safety Shutter"
+	},
 /obj/structure/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
@@ -156228,16 +156354,8 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/obj/structure/machinery/door/blast/shutters{
-	dir = 4;
-	id = "shutters_deck3_xo";
-	name = "Safety Shutter"
-	},
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "uhm" = (
 /obj/structure/machinery/door/airlock/command{
 	id_tag = "rep_office_a";
@@ -157598,12 +157716,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/checkpoint)
 "uqc" = (
-/obj/structure/machinery/door/airlock/command{
-	dir = 1;
-	id_tag = "hopdoor";
-	name = "Executive Officer's Office";
-	req_access = list(57)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -157612,8 +157724,15 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/command{
+	dir = 1;
+	name = "Executive Officer's Desk";
+	req_access = list(57)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "uqd" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -158876,14 +158995,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/reactor/indra/mainchamber)
 "uxB" = (
+/obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
-	id = "XO"
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
+	id = "xo_privacy_tint"
 	},
 /turf/simulated/floor,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_desk)
 "uxI" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/unsimulated/floor,
@@ -159312,6 +159429,22 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
+"uAL" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 1
+	},
+/obj/structure/machinery/keycard_auth{
+	dir = 1;
+	pixel_y = 34;
+	pixel_x = 1
+	},
+/obj/item/radio/intercom/ship/north{
+	pixel_y = 16;
+	pixel_x = -2
+	},
+/obj/structure/machinery/light/small/floor,
+/turf/simulated/floor/wood,
+/area/horizon/command/heads/xo_office)
 "uAN" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
@@ -160944,11 +161077,10 @@
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/controlroom)
@@ -161353,11 +161485,31 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/storage_hard/upper)
 "uNB" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 8
+/obj/structure/machinery/door/firedoor{
+	dir = 4
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 4;
+	id = "xo_office_window_shutter";
+	name = "Safety Shutter"
+	},
+/obj/structure/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/turf/simulated/floor,
+/area/horizon/command/heads/xo_office)
 "uNC" = (
 /obj/structure/undies_wardrobe,
 /obj/structure/machinery/light{
@@ -163072,19 +163224,18 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
@@ -163437,7 +163588,12 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/power/apc/north{
+	is_critical = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
@@ -171582,12 +171738,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
-/obj/structure/machinery/requests_console/south{
-	department = "Conference Room";
-	name = "Conference Room Requests Console";
-	dir = 1;
-	pixel_y = 37
-	},
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "wgB" = (
@@ -172002,7 +172152,7 @@
 "wjx" = (
 /obj/structure/sign/flag/scc/unmovable,
 /turf/simulated/wall/r_wall,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_desk)
 "wjB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -172697,11 +172847,16 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "wnY" = (
-/obj/structure/machinery/vending/encryption{
-	pixel_y = 29
+/obj/structure/machinery/photocopier,
+/obj/structure/machinery/firealarm/north{
+	pixel_y = 37
 	},
-/turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/obj/structure/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = 20
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_office)
 "woc" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
@@ -173042,17 +173197,29 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
 "wql" = (
-/obj/structure/bed/stool/chair{
-	dir = 8
+/obj/structure/table/reinforced/wood,
+/obj/item/paper_bin{
+	pixel_y = 3;
+	pixel_x = 4
 	},
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/item/stamp/denied{
+	pixel_x = -7;
+	pixel_y = 6
 	},
-/obj/item/storage/secure/safe{
-	pixel_y = 36
+/obj/item/stamp/xo{
+	pixel_x = -7
 	},
+/obj/item/folder/sec{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/pen/multi{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/structure/machinery/newscaster/security_unit/north,
 /turf/simulated/floor/carpet,
-/area/horizon/command/heads/xo)
+/area/horizon/command/heads/xo_office)
 "wqm" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -184045,30 +184212,28 @@
 	},
 /area/shuttle/legion)
 "xIe" = (
+/obj/structure/table/reinforced/steel,
 /obj/structure/cable/green{
-	icon_state = "2-8"
+	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/structure/machinery/camera/network/command{
+	c_tag = "Bridge - XO Desk";
+	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+/obj/structure/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 8;
+	pixel_x = 2
 	},
-/obj/structure/table/standard,
-/obj/item/taperecorder{
-	pixel_x = -4;
-	pixel_y = 5
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc{
+	pixel_x = -1;
+	pixel_y = 2
 	},
-/obj/structure/machinery/recharger{
-	pixel_x = 8;
-	pixel_y = 6
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/scc/alt{
+	pixel_x = 7;
+	pixel_y = 2
 	},
-/obj/random/pottedplant_small{
-	pixel_x = 3;
-	pixel_y = -2
-	},
-/turf/simulated/floor/wood,
-/area/horizon/command/heads/xo)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "xIi" = (
 /obj/effect/floor_decal/corner_wide/pink/diagonal{
 	dir = 4
@@ -186346,6 +186511,20 @@
 "xZn" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/maintenance/deck_1/main/starboard)
+"xZo" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/eftpos{
+	eftpos_name = "Executive Officers EFTPOS scanner";
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/quikpay{
+	pixel_y = 4;
+	shop_name = "Executive Officers Quikpay";
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/command/heads/xo_desk)
 "xZp" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -348468,11 +348647,11 @@ lwL
 lwL
 beS
 mXo
-lwL
+bOF
 tGg
 btM
 uhj
-uhj
+uNB
 bOF
 xDY
 rKQ
@@ -348725,12 +348904,12 @@ dca
 lmW
 lWf
 dHF
-szR
+ovB
 sTk
 clg
 grD
 cvw
-aRj
+ovB
 vbV
 daS
 kAG
@@ -348982,13 +349161,13 @@ crD
 lch
 cvV
 rWS
-szR
+ovB
 cbw
 oiP
-dxT
-ovB
+hsB
+tmD
 aRj
-tco
+wgy
 alr
 yeP
 xtz
@@ -349239,12 +349418,12 @@ crD
 mVF
 kvX
 cOY
-szR
+ovB
 wql
-hWd
+qEH
 dxT
-twf
-aRj
+ngg
+tco
 wgy
 kxt
 nQb
@@ -349496,7 +349675,7 @@ msH
 vJK
 xEj
 tJd
-szR
+ovB
 sgz
 kYG
 nyU
@@ -349753,12 +349932,12 @@ ffl
 tnj
 pIb
 tMK
-szR
+ovB
+uAL
 hKt
-iNl
+szR
+fCP
 ijx
-lYC
-aRj
 cRp
 xDc
 rnO
@@ -350010,12 +350189,12 @@ beT
 azE
 ouc
 pvW
-szR
+ovB
 wnY
-clg
-clg
+lYC
+twf
 tJS
-aRj
+ovB
 cga
 qeZ
 fvW
@@ -350267,12 +350446,12 @@ sBx
 iRZ
 iRZ
 qUt
-szR
+ovB
 jKX
 oip
 kxU
-fCP
-aRj
+ovB
+ovB
 hiO
 rNC
 hiO
@@ -350524,12 +350703,12 @@ buH
 oFp
 jPx
 vFx
-aRj
-dGA
-uNB
+jXm
+kPh
+xZo
 cAx
 ksI
-aRj
+jXm
 vQu
 fUX
 wnq
@@ -350781,11 +350960,11 @@ iIj
 poi
 dbR
 mgO
-aRj
+jXm
 kzR
 gfL
 ong
-swV
+ubj
 uqc
 iUC
 uKB
@@ -351040,10 +351219,10 @@ kxX
 gYo
 eXv
 psh
-hsB
+swV
 tPk
-kPh
-aRj
+uet
+jXm
 iFv
 lWt
 ceu
@@ -351300,7 +351479,7 @@ nVX
 nKk
 iNl
 xIe
-jXm
+uxB
 jll
 sJe
 mCu
@@ -351552,11 +351731,11 @@ izA
 khS
 wJp
 rUH
-aRj
-aRj
-uxB
+jXm
+jXm
+hWd
 qwG
-uxB
+tyM
 wjx
 tZI
 sJe

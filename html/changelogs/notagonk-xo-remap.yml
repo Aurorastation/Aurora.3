@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: SimpleMaroon
+author: notagonk
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscdel: "Bridge Crew can no longer utilize Hivenet Receivers or the Ve'katak Phalanx facial plate after Vaurca lore team request."
+  - rscadd: "Implemented a remap of the Executive Officer's Office."
+  - rscdel: "The XO's flash .45 pistol was removed, they now only have their energy pistol."
