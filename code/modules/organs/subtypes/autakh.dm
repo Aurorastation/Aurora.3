@@ -453,8 +453,10 @@
 /obj/item/melee/baton/autakh
 	name = "integrated stun baton"
 	desc = "An electroshock baton integrated into an Aut'akh security grasper. It retracts when released."
-	icon_state = "stunbaton"
-	item_state = "baton"
+	icon = 'icons/obj/item/autakh_baton.dmi'
+	icon_state = "autakh_baton"
+	item_state = "autakh_baton"
+	contained_sprite = TRUE
 	force = 5
 	agonyforce = 50
 	status = TRUE
@@ -473,7 +475,7 @@
 	. += "The baton is powered by its user's energy reserves."
 
 /obj/item/melee/baton/autakh/update_icon()
-	icon_state = status ? "stunbaton_active" : "stunbaton"
+	icon_state = status ? "[initial(icon_state)]_active" : initial(icon_state)
 	if(status)
 		set_light(1.3, 1, baton_color)
 	else
