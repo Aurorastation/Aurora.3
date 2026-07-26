@@ -358,7 +358,15 @@
 		/obj/item/reagent_containers/food/snacks/seaweed = 4,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 3,
-		/obj/item/reagent_containers/food/snacks/sosjerky = 3
+		/obj/item/reagent_containers/food/snacks/sosjerky = 3,
+		// chocolate
+		/obj/item/reagent_containers/food/snacks/getmore = 3,
+		/obj/item/reagent_containers/food/snacks/getmore_nuts = 2,
+		/obj/item/reagent_containers/food/snacks/getmore_bubbles = 2,
+		/obj/item/reagent_containers/food/snacks/getmore_kelp = 2,
+		/obj/item/reagent_containers/food/snacks/idrisbar = 2,
+		/obj/item/reagent_containers/food/snacks/cetibar = 5,
+		/obj/item/storage/box/fancy/readies = 3
 	)
 
 /obj/item/storage/box/fancy/commissary_restock/food/xeno

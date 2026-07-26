@@ -1,0 +1,9 @@
+
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Replaces some of the IRL chocolate bars with lore chocolate bars (GetMore chocolate, Readies, an Idris Bar)."
+  - rscadd: "Adds the chocolate bars (old and new) to commissary restock vendors."
+ 

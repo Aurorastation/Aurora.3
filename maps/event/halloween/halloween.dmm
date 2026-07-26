@@ -3945,12 +3945,12 @@
 /area/city/costumeroom)
 "qH" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
@@ -7312,13 +7312,13 @@
 /area/city/bar)
 "EO" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
-/obj/item/reagent_containers/food/snacks/cb07,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
 /turf/simulated/floor/carpet/red,
 /area/city/bar)
 "EP" = (
@@ -7394,501 +7394,501 @@
 /obj/structure/sign/flag/halloween/left{
 	pixel_y = 29
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb01{
+/obj/random/chocolate{
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb02{
+/obj/random/chocolate{
 	pixel_y = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb03{
+/obj/random/chocolate{
 	pixel_x = 16;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb04{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb05{
+/obj/random/chocolate{
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb06{
+/obj/random/chocolate{
 	pixel_y = -2;
 	pixel_x = 10
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb07{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = -6
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate9{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb09{
+/obj/random/chocolate{
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/cb10{
+/obj/random/chocolate{
 	pixel_y = 8
 	},
 /turf/simulated/floor/marble/dark,
@@ -8515,15 +8515,15 @@
 /area/city/horrorhouse)
 "If" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
-/obj/item/reagent_containers/food/snacks/cb08,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
+/obj/random/chocolate,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},

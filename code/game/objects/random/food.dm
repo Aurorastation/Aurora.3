@@ -41,17 +41,18 @@
 		/obj/item/reagent_containers/food/snacks/cb03,
 		/obj/item/reagent_containers/food/snacks/cb04,
 		/obj/item/reagent_containers/food/snacks/cb05,
-		/obj/item/reagent_containers/food/snacks/cb06,
-		/obj/item/reagent_containers/food/snacks/cb07,
-		/obj/item/reagent_containers/food/snacks/cb08,
-		/obj/item/reagent_containers/food/snacks/cb09,
-		/obj/item/reagent_containers/food/snacks/cb10,
 		/obj/item/reagent_containers/food/snacks/proteinbar,
 		/obj/item/reagent_containers/food/snacks/donut/normal,
 		/obj/item/reagent_containers/food/snacks/donut/cherryjelly,
 		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/cookie,
 		/obj/item/reagent_containers/food/snacks/poppypretzel,
+		/obj/item/reagent_containers/food/snacks/getmore,
+		/obj/item/reagent_containers/food/snacks/getmore_nuts,
+		/obj/item/reagent_containers/food/snacks/getmore_bubbles,
+		/obj/item/reagent_containers/food/snacks/getmore_kelp,
+		/obj/item/reagent_containers/food/snacks/cetibar,
+		/obj/item/reagent_containers/food/snacks/idrisbar,
 		/obj/item/storage/box/fancy/gum
 	)
 
@@ -60,17 +61,6 @@
 	desc = "This is a random vegan dessert for MREs."
 	spawnlist = list(
 		/obj/item/reagent_containers/food/snacks/candy,
-		/obj/item/reagent_containers/food/snacks/cb01,
-		/obj/item/reagent_containers/food/snacks/cb02,
-		/obj/item/reagent_containers/food/snacks/cb03,
-		/obj/item/reagent_containers/food/snacks/cb04,
-		/obj/item/reagent_containers/food/snacks/cb05,
-		/obj/item/reagent_containers/food/snacks/cb06,
-		/obj/item/reagent_containers/food/snacks/cb07,
-		/obj/item/reagent_containers/food/snacks/cb08,
-		/obj/item/reagent_containers/food/snacks/cb09,
-		/obj/item/reagent_containers/food/snacks/cb10,
-		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/donut/cherryjelly,
 		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
 	)
@@ -277,4 +267,23 @@
 
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
+	)
+
+/obj/random/chocolate
+	name = "random chocolate"
+	desc = "This is a random chocolate."
+	icon_state = "mre_desert"
+	spawnlist = list(
+		/obj/item/reagent_containers/food/snacks/cb01,
+		/obj/item/reagent_containers/food/snacks/cb02,
+		/obj/item/reagent_containers/food/snacks/cb03,
+		/obj/item/reagent_containers/food/snacks/cb04,
+		/obj/item/reagent_containers/food/snacks/cb05,
+		/obj/item/reagent_containers/food/snacks/getmore,
+		/obj/item/reagent_containers/food/snacks/getmore_nuts,
+		/obj/item/reagent_containers/food/snacks/getmore_bubbles,
+		/obj/item/reagent_containers/food/snacks/getmore_kelp,
+		/obj/item/reagent_containers/food/snacks/cetibar,
+		/obj/item/reagent_containers/food/snacks/idrisbar,
+		/obj/item/storage/box/fancy/readies
 	)

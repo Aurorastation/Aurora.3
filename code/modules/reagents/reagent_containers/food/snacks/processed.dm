@@ -509,115 +509,158 @@
 	flavor = pick("chocolate", "peanut butter cookie", "scrambled eggs", "beef taco", "tofu", "pizza", "spaghetti", "cheesy potatoes", "hamburger", "baked beans", "maple sausage", "chili macaroni", "veggie burger")
 	return ..()
 
-/obj/item/reagent_containers/food/snacks/cb01
+/obj/item/reagent_containers/food/snacks/cetibar
 	name = "tau ceti bar"
-	desc = "A dark chocolate caramel and nougat bar made famous in Biesel."
+	desc = "A dark chocolate caramel and nougat bar, a favourite in the Republic of Biesel. Made by GetMore Corporation!"
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb01"
+	icon_state = "cetibar"
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
 	bitesize = 2
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb02
+/obj/item/reagent_containers/food/snacks/idrisbar
 	name = "hundred thousand credit bar"
-	desc = "An ironically cheap puffed rice caramel milk chocolate bar."
+	desc = "An ironically cheap puffed rice caramel milk chocolate bar. Made by Idris Incorporated!"
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb02"
+	icon_state = "idrisbar"
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
 	bitesize = 2
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb03
-	name = "spacewind bar"
-	desc = "Bubbly milk chocolate."
+/obj/item/reagent_containers/food/snacks/getmore_bubbles
+	name = "getmore bubbles bar"
+	desc = "Bubbly milk chocolate. Made by GetMore Corporation!"
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb03"
+	icon_state = "getmore_3"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 4))
 	bitesize = 2
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb04
-	name = "crunchy crisp"
-	desc = "An almond flake bar covered in milk chocolate."
+/obj/item/reagent_containers/food/snacks/getmore_nuts
+	name = "getmore nuts bar"
+	desc = "An almond flake bar covered in milk chocolate. Made by GetMore Corporation!"
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb04"
+	icon_state = "getmore_2"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
 	bitesize = 2
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb05
-	name = "hearsay bar"
-	desc = "A cheap milk chocolate bar loaded with sugar."
+/obj/item/reagent_containers/food/snacks/getmore_kelp
+	name = "getmore kelp bar"
+	desc = "A milk chocolate bar with sea salt and kelp. A favourite on New Gibson. Made by GetMore Corporation!"
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb05"
+	icon_state = "getmore_4"
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/sugar = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "sea salt" = 2, "sugar kelp" = 2))
+	bitesize = 3
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/reagent_containers/food/snacks/getmore
+	name = "getmore chocolate bar"
+	desc = "The basic GetMore bar. Cheap milk chocolate loaded with sugar."
+	filling_color = "#552200"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "getmore"
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/sugar = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "vomit" = 1))
 	bitesize = 3
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb06
+/obj/item/storage/box/fancy/readies
+	name = "readies eleta balls"
+	desc = "A packet of ultra-sweet, caramelised soy milk balls in a chocolate shell. A knock off Readian Elata, in turn a knock off of Cytherean Elata. Made by GetMore Corporation!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "getmore_readies"
+	icon_type = "getmore_readies"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/readies = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/readies)
+	make_exact_fit = TRUE
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/foysnack
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/readies
+	name = "readies ball"
+	desc = "An ultra-sweet, caramelised soy milk balls in a chocolate shell."
+	filling_color = "#552200"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "getmore_readies_ball"
+
+	reagents_to_add = list(/singleton/reagent/sugar = 1, /singleton/reagent/nutriment/glucose = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("overwhelming sweetness" = 8, "sweet caramel" = 4))
+	bitesize = 3
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/reagent_containers/food/snacks/cb01
 	name = "latte crunch"
 	desc = "A large latte flavored wafer chocolate bar."
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb06"
+	icon_state = "cb01"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
 	bitesize = 3
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb07
+/obj/item/reagent_containers/food/snacks/cb02
 	name = "martian bar"
 	desc = "Dark chocolate with a nougat and caramel center. Known as the first chocolate bar grown and produced on Mars."
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb07"
+	icon_state = "cb02"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
 	bitesize = 3
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb08
+/obj/item/reagent_containers/food/snacks/cb03
 	name = "crisp bar"
 	desc = "A large puffed rice milk chocolate bar."
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb08"
+	icon_state = "cb03"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "puffed rice" = 1))
 	bitesize = 3
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb09
+/obj/item/reagent_containers/food/snacks/cb04
 	name = "oh daddy bar"
 	desc = "A massive cluster of peanuts covered in caramel and chocolate."
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb09"
+	icon_state = "cb04"
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2))
 	bitesize = 3
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/reagent_containers/food/snacks/cb10
+/obj/item/reagent_containers/food/snacks/cb05
 	name = "laughter bar"
 	desc = "Nuts, nougat, peanuts, and caramel covered in chocolate."
 	filling_color = "#552200"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "cb10"
+	icon_state = "cb5"
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1))

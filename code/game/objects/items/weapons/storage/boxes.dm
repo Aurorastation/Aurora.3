@@ -1075,16 +1075,17 @@
 
 /obj/item/storage/box/large/candy/fill()
 	var/list/assorted_list = list(
+		/obj/item/reagent_containers/food/snacks/getmore = 1,
+		/obj/item/reagent_containers/food/snacks/getmore_nuts = 1,
+		/obj/item/reagent_containers/food/snacks/getmore_bubbles = 1,
+		/obj/item/reagent_containers/food/snacks/getmore_kelp = 1,
+		/obj/item/reagent_containers/food/snacks/cetibar = 1,
+		/obj/item/reagent_containers/food/snacks/idrisbar = 1,
 		/obj/item/reagent_containers/food/snacks/cb01 = 1,
 		/obj/item/reagent_containers/food/snacks/cb02 = 1,
 		/obj/item/reagent_containers/food/snacks/cb03 = 1,
 		/obj/item/reagent_containers/food/snacks/cb04 = 1,
-		/obj/item/reagent_containers/food/snacks/cb05 = 1,
-		/obj/item/reagent_containers/food/snacks/cb06 = 1,
-		/obj/item/reagent_containers/food/snacks/cb07 = 1,
-		/obj/item/reagent_containers/food/snacks/cb08 = 1,
-		/obj/item/reagent_containers/food/snacks/cb09 = 1,
-		/obj/item/reagent_containers/food/snacks/cb10 = 1
+		/obj/item/reagent_containers/food/snacks/cb05 = 1
 	)
 
 	for(var/i in 1 to 24)
