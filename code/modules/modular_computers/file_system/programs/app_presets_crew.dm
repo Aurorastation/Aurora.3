@@ -125,7 +125,12 @@
 
 /datum/modular_computer_app_presets/command/hop/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/records/security)
+	program_list += list(/datum/computer_file/program/civilian/cargocontrol,
+						/datum/computer_file/program/records/security,
+						/datum/computer_file/program/digitalwarrant,
+						/datum/computer_file/program/camera_monitor,
+						/datum/computer_file/program/alarm_monitor/all,
+						)
 
 
 /datum/modular_computer_app_presets/command/captain
