@@ -38,13 +38,14 @@ pub fn to_dict_map(grid_map: &GridMap) -> eyre::Result<dmm::Map> {
             if used_dict_keys.contains(&tile.key_suggestion) {
                 let next_free_key = (0..65534)
                     .map(int_to_key)
-                    .find(|k| !used_dict_keys.contains(k))
-                    .wrap_err("ran out of free keys")?;
+                    .filter(|k| !used_dict_keys.contains(k))
+                    .next()
+                    .wrap_err(format!("ran out of free keys"))?;
                 dictionary_reverse.insert(tile.prefabs.clone(), next_free_key);
                 used_dict_keys.insert(next_free_key);
             } else {
-                dictionary_reverse.insert(tile.prefabs.clone(), tile.key_suggestion);
-                used_dict_keys.insert(tile.key_suggestion);
+                dictionary_reverse.insert(tile.prefabs.clone(), tile.key_suggestion.clone());
+                used_dict_keys.insert(tile.key_suggestion.clone());
             }
         }
     }
@@ -54,7 +55,7 @@ pub fn to_dict_map(grid_map: &GridMap) -> eyre::Result<dmm::Map> {
             for z in 1..(grid_map.size.z + 1) {
                 let coord = Coord3::new(x, y, z);
                 if let Some(tile) = grid_map.grid.get(&coord) {
-                    let key = *dictionary_reverse.get(&tile.prefabs).unwrap();
+                    let key = dictionary_reverse.get(&tile.prefabs).unwrap().clone();
                     dict_map.dictionary.insert(key, tile.prefabs.clone());
                     dict_map.grid[coord3_to_index(coord, grid_map.size)] = key;
                 } else {
