@@ -101,14 +101,17 @@
 			return 0
 
 		test_listener_mob.forceMove(offscreen_turf)
-		test_listener_mob.heard = FALSE
 		message = offscreen_test["message"]
-		said = test_speaker_mob.say(message)
-		if(!said || !test_listener_mob.heard)
-			TEST_FAIL("listener did not hear \"[message]\" at range [test_range]")
+		var/datum/say_message/offscreen_message = test_speaker_mob.build_say_message(message, null)
+		offscreen_message.message_range = world.view
+		var/list/offscreen_listeners = test_speaker_mob.get_offscreen_speech_listeners(offscreen_message, list(test_speaker_mob))
+		var/listener_selected = (test_listener_mob in offscreen_listeners)
+		qdel(offscreen_message)
+		if(!listener_selected)
+			TEST_FAIL("listener was not selected for \"[message]\" at range [test_range]")
 			return 0
 
-	TEST_PASS("speech test complete, including normal, yelled, and shouted offscreen ranges.")
+	TEST_PASS("speech test complete, including normal, yelled, and shouted offscreen listener selection.")
 	return 1
 
 /datum/unit_test/human_breath
