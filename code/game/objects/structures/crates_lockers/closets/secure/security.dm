@@ -57,45 +57,31 @@
 /obj/structure/closet/secure_closet/xo/fill()
 	..()
 	//Supply
+	new /obj/item/storage/briefcase/black(src)
+	new /obj/item/storage/secure/briefcase (src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/storage/box/fancy/keypouch/sec(src)
-	new /obj/item/storage/box/fancy/keypouch/service(src)
+	new /obj/item/radio/headset/heads/xo(src)
+	new /obj/item/radio/headset/heads/xo/alt(src)
 	//Appearance
+	new /obj/item/storage/backpack/satchel/pocketbook(src)
+	new /obj/item/clothing/shoes/laceup/brown(src)
+	new /obj/item/clothing/under/rank/xo(src)
+	new /obj/item/clothing/head/caphat/xo(src)
+	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
+	new /obj/item/clothing/gloves/captain/white/xo(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	//Tools
-	new /obj/item/radio/headset/heads/xo(src)
-	new /obj/item/radio/headset/heads/xo/alt(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/storage/stickersheet/goldstar(src)
+	new /obj/item/journal/notepad/scc/filled(src)
 	new /obj/item/gun/energy/repeater/pistol(src)
-	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/flash(src)
-	new /obj/item/eftpos(src)
-	new /obj/item/book/manual/wiki/security_space_law(src)
-	new /obj/item/radio/off(src)
-
-/obj/structure/closet/secure_closet/xo2
-	name = "executive officer's attire"
-	req_access = list(ACCESS_HOP)
-	icon_state = "sec"
-	icon_door = "hop"
-
-/obj/structure/closet/secure_closet/xo2/fill()
-	..()
-	new /obj/item/clothing/under/rank/xo(src)
-	new /obj/item/clothing/head/caphat/xo(src)
-	new /obj/random/suit(src)
-	new /obj/random/suit(src)
-	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/shoes/sneakers/black(src)
-	new /obj/item/clothing/shoes/laceup/brown(src)
-	new /obj/item/clothing/shoes/sneakers(src)
-	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
-	new /obj/item/clothing/gloves/captain/white/xo(src)
+	new /obj/item/radio(src)
+	new /obj/item/taperecorder(src)
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"

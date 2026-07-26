@@ -1,0 +1,7 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+
+changes:
+  - bugfix: "Operating table less likely to get non-real occupant bug when installed on a shuttle."
+  - bugfix: "Antifuel grenades now reliably neutralize spilled welding fuel and napalm gel."
+  - balance: "Generic cleaning products/tools no longer remove spilled welding fuel or napalm gel- requires antifuel reagent."
