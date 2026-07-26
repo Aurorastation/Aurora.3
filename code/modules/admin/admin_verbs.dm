@@ -198,6 +198,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/kill_air,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_debug_make_powernets,
+	/client/proc/cmd_debug_spawn_team_test_crew,
 	/client/proc/kill_airgroup,
 	/client/proc/debug_controller,
 	/client/proc/debug_antagonist_template,

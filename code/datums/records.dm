@@ -241,14 +241,6 @@ GLOBAL_VAR_INIT(warrant_uid, 0)
 	..()
 	id = GLOB.warrant_uid++
 
-// Virus record
-/datum/record/virus
-	name = "Unknown"
-	var/description = ""
-	var/antigen
-	var/spread_type = "Unknown"
-	cmp_field = "name"
-
 //Manifest record
 /datum/record/shuttle_manifest
 	name = "Unknown"

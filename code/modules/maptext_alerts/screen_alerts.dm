@@ -60,7 +60,7 @@
 	screen_loc = "LEFT,TOP-3"
 
 	letters_per_update = 2
-	fade_out_delay = 4.5 SECONDS
+	fade_out_delay = 8 SECONDS
 	style_open = "<span class='langchat' style=font-size:16pt;text-align:center valign='top'>"
 	style_close = "</span>"
 

@@ -29,6 +29,6 @@
 	build_path = /obj/item/circuitboard/telecomms/receiver
 
 /datum/design/circuit/tcom/ntnet_relay
-	name = "NTNet Quantum Relay"
+	name = "NTNet Field Relay"
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/ntnet_relay

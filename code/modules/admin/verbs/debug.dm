@@ -139,6 +139,100 @@
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/// This proc was used for the team management app testing.
+/// It generates a bunch of crew members that have real records.
+/// It'll probably be useful to others, though it ought to eventually have configurable crew counts/roles.
+/client/proc/cmd_debug_spawn_team_test_crew()
+	set category = "Debug"
+	set name = "Spawn crew team"
+	set desc = "Spawns clientless dummy crew for team mgmt testing."
+
+	if(!check_rights(R_DEBUG|R_DEV))
+		return
+	if(!ROUND_IS_STARTED)
+		to_chat(src, SPAN_WARNING("Wait until the game starts."))
+		return
+
+	if(tgui_alert(src, "Spawn some REAL BADASSES at your location?", "Spawn Crew", list("OORAH", "Cancel")) != "OORAH")
+		return
+
+	var/turf/destination = get_turf(mob)
+	if(!destination && length(GLOB.latejoin))
+		destination = pick(GLOB.latejoin)
+	if(!destination)
+		to_chat(src, SPAN_WARNING("No valid turf found for dummy crew."))
+		return
+
+	var/list/jobs_to_spawn = list(
+		"Security Officer" = 3,
+		"Ship Engineer" = 1,
+		"Paramedic" = 1
+	)
+
+	var/created = 0
+	var/list/failures = list()
+	for(var/rank in jobs_to_spawn)
+		var/datum/job/job = SSjobs.GetJob(rank)
+		if(!job)
+			failures += "[rank]: missing job datum"
+			continue
+
+		for(var/i = 1 to jobs_to_spawn[rank])
+			var/mob/living/carbon/human/dummy = spawn_debug_team_member(rank, destination, created + 1)
+			if(dummy)
+				created++
+				dummy.throw_at_random(TRUE, 7, 7)
+			else
+				failures += "[rank] #[i]"
+
+	if(GLOB.crew_repository?.cache_data)
+		GLOB.crew_repository.cache_data.Cut()
+
+	if(created)
+		SSrecords.reset_manifest()
+
+	var/message = "Spawned [created] dummy team crew member[created == 1 ? "" : "s"]."
+	if(length(failures))
+		message += " Failed: [english_list(failures)]."
+	to_chat(src, SPAN_NOTICE(message))
+	log_admin("[key_name(src)] spawned [created] dummy team crew member[created == 1 ? "" : "s"] at [destination.x], [destination.y], [destination.z].")
+	message_admins(SPAN_NOTICE("[key_name_admin(src)] spawned [created] dummy team crew member[created == 1 ? "" : "s"]."), 1)
+	feedback_add_details("admin_verb","DTCM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/spawn_debug_team_member(var/rank, var/turf/destination, var/sequence)
+	var/datum/job/job = SSjobs.GetJob(rank)
+	if(!job || !istype(destination))
+		return
+
+	var/mob/living/carbon/human/dummy = new(destination)
+	var/debug_name = capitalize(pick(GLOB.first_names_female + GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
+	dummy.real_name = debug_name
+	dummy.name = debug_name
+	dummy.voice_name = debug_name
+	if(dummy.dna)
+		dummy.dna.ready_dna(dummy)
+		dummy.dna.real_name = debug_name
+		dummy.sync_organ_dna()
+		dummy.fixblood()
+
+	dummy.mind_initialize()
+	dummy.mind.name = debug_name
+	dummy.mind.assigned_role = rank
+	dummy.mind.role_alt_title = null
+
+	var/mob/living/carbon/human/equipped = SSjobs.EquipRank(dummy, rank, TRUE, null, FALSE)
+	if(!istype(equipped))
+		qdel(dummy)
+		return
+
+	equipped.forceMove(destination)
+	equipped.lastarea = get_area(destination)
+	if(equipped.mind && !equipped.mind.selected_faction)
+		equipped.mind.selected_faction = SSjobs.default_faction
+	SSrecords.generate_record(equipped)
+
+	return equipped
+
 /client/proc/cmd_admin_grantfullaccess(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Grant Full Access"
