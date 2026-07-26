@@ -227,8 +227,8 @@
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 150,
-		SPECIES_SKRELL_AXIORI = 150
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
 	)
 
 	job_access = list(ACCESS_CONSULAR)
