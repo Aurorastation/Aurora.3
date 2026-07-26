@@ -2908,7 +2908,7 @@
 	frequency = 1380;
 	id_tag = "fsf_hangar";
 	name = "\improper shuttle docking port controller";
-	req_one_access = list(111);
+	req_one_access = list(204);
 	pixel_y = 28
 	},
 /turf/simulated/floor,

@@ -7162,6 +7162,7 @@
 "Cf" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
+/obj/item/portable_whiteboard,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},

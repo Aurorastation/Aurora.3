@@ -176,11 +176,12 @@ GLOBAL_LIST_INIT(breach_burn_descriptors, list(
 /obj/item/clothing/suit/space/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material))
 		var/repair_power = 0
-		switch(attacking_item.get_material_name())
-			if(DEFAULT_WALL_MATERIAL)
-				repair_power = 2
-			if("plastic")
-				repair_power = 1
+		var/obj/item/stack/material/repair_stack = attacking_item
+		var/singleton/material/repair_material = repair_stack.get_material()
+		if(repair_material?.type == MATERIAL_STEEL)
+			repair_power = 2
+		else if(repair_material?.type == MATERIAL_PLASTIC)
+			repair_power = 1
 
 		if(!repair_power)
 			return

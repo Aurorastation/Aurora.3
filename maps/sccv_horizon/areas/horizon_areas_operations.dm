@@ -122,6 +122,7 @@
 	icon_state = "machinist_workshop"
 	area_blurb = "Back in the workshop's surgical bay, the sharp-edged odor of sterilized equipment predominates."
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /// OPERATIONS_AREAS - MINING_AREAS
 /area/horizon/operations/mining_main

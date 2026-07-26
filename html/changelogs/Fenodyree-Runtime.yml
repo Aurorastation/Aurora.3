@@ -1,7 +1,0 @@
-
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - rscadd: "Fixes a runtime on the runtime map. All jobs now have spawnpoints."

@@ -66,6 +66,8 @@
 		"C'thur: Unbound Xetl" = "#370078"
 	)
 
+	mass_modifier = REFERENCE_MASS_VAURCA_ZA / REFERENCE_MASS_HUMAN
+
 /datum/species/bug/type_b/type_bb
 	name = SPECIES_VAURCA_ATTENDANT
 	name_plural = "Type BB"
@@ -220,6 +222,8 @@
 		"C'thur: Mouv" = "#7D75FF"
 	)
 
+	mass_modifier = REFERENCE_MASS_VAURCA_TA / REFERENCE_MASS_HUMAN
+
 /datum/species/bug/type_c/New()
 	..()
 	equip_adjust = list(
@@ -308,6 +312,7 @@
 	default_h_style = "Bald"
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
 	valid_prosthetics = null
+	mass_modifier = REFERENCE_MASS_VAURCA_BA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= HULK
@@ -406,6 +411,8 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 		"C'thur: Unbound Mouv" = "#7D75FF", "C'thur: Bound Mouv" = "#4A8AFC",
 		"C'thur: Unbound Xetl" = "#3F0876", "C'thur: Bound Xetl" = "#330563"
 	)
+
+	mass_modifier = REFERENCE_MASS_VAURCA_RA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/type_e/New()
 	..()

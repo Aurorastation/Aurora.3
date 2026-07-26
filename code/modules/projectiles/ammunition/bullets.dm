@@ -35,7 +35,7 @@
 	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/projectile/ion/small
 	icon_state = "empcasing"
-	matter = list(DEFAULT_WALL_MATERIAL = 130, MATERIAL_URANIUM = 100)
+	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)
 
 /obj/item/ammo_casing/c38/spent/Initialize()
 	. = ..()
@@ -132,7 +132,7 @@
 	spent_icon = "slshell-spent"
 	caliber = "shotgun"
 	projectile_type = /obj/projectile/bullet/shotgun
-	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	matter = list(MATERIAL_STEEL = 360)
 	reload_sound = SFX_RELOAD_SHOTGUN
 	drop_sound = SFX_CASING_DROP_SHOTGUN
 	max_stack = 8
@@ -149,7 +149,7 @@
 	icon_state = "gshell"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun
-	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	matter = list(MATERIAL_STEEL = 360)
 
 /obj/item/ammo_casing/shotgun/pellet/used/Initialize()
 	. = ..()
@@ -163,7 +163,7 @@
 	icon_state = "blshell"
 	spent_icon = "blshell-spent"
 	projectile_type = /obj/projectile/bullet/blank
-	matter = list(DEFAULT_WALL_MATERIAL = 90)
+	matter = list(MATERIAL_STEEL = 90)
 
 /obj/item/ammo_casing/shotgun/practice
 	name = "shotgun shell"
@@ -179,7 +179,7 @@
 	icon_state = "bshell"
 	spent_icon = "bshell-spent"
 	projectile_type = /obj/projectile/bullet/shotgun/beanbag
-	matter = list(DEFAULT_WALL_MATERIAL = 180)
+	matter = list(MATERIAL_STEEL = 180)
 
 //Can stun in one hit if aimed at the head, but
 //is blocked by clothing that stops tasers and is vulnerable to EMP
@@ -189,7 +189,7 @@
 	icon_state = "stunshell"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/projectile/energy/electrode/stunshot
-	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_GLASS = 720)
+	matter = list(MATERIAL_STEEL = 360, MATERIAL_GLASS = 720)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
@@ -207,7 +207,7 @@
 	icon_state = "fshell"
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/projectile/energy/flash/flare
-	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
+	matter = list(MATERIAL_STEEL = 90, MATERIAL_GLASS = 90)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/incendiary
@@ -216,7 +216,7 @@
 	icon_state = "ishell"
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/projectile/bullet/shotgun/incendiary
-	matter = list(DEFAULT_WALL_MATERIAL = 450)
+	matter = list(MATERIAL_STEEL = 450)
 
 /obj/item/ammo_casing/shotgun/emp
 	name = "haywire slug"
@@ -224,7 +224,7 @@
 	icon_state = "empshell"
 	spent_icon = "empshell-spent"
 	projectile_type = /obj/projectile/ion
-	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
+	matter = list(MATERIAL_STEEL = 260, MATERIAL_URANIUM = 200)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/tracking
@@ -293,7 +293,7 @@
 	desc = "A 14.5mm shell."
 	caliber = "14.5mm"
 	projectile_type = /obj/projectile/bullet/rifle/a145
-	matter = list(DEFAULT_WALL_MATERIAL = 1250)
+	matter = list(MATERIAL_STEEL = 1250)
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	max_stack = 2
@@ -441,7 +441,7 @@
 	icon_state = "cannonball"
 	caliber = "cannon"
 	projectile_type = /obj/projectile/bullet/cannonball
-	matter = list(DEFAULT_WALL_MATERIAL = 800)
+	matter = list(MATERIAL_STEEL = 800)
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	max_stack = 1

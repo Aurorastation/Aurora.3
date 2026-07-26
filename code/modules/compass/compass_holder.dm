@@ -61,8 +61,14 @@
 	rebuild_overlay_lists(TRUE)
 
 /obj/compass_holder/Destroy()
-	QDEL_LIST(compass_waypoints)
-	. = ..()
+	if (length(compass_waypoints))
+		for (var/key, value in compass_waypoints)
+			// For reasons now known only to God, the key-value pairs here are allowed to be either String/Integer or String/Datum pairs.
+			// Make sure to thank Byond 516 for giving us what are basically dynamically typed hashmaps instead of statically typed key-value pairs.
+			if (isdatum(value))
+				qdel(value)
+		compass_waypoints.Cut()
+	return ..()
 
 /obj/compass_holder/proc/get_heading()
 	var/atom/A = loc?.loc // is there a get_holder_recursive() equivalent on Polaris?

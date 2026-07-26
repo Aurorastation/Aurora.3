@@ -163,22 +163,49 @@
 	)
 	shuttle_missions = list("Exploration", "Research", "Prospecting", "Salvaging", "Transport", "Combat", "Rescue", "Training", "Humanitarian", "Expedition", "Recreation", "Other")
 
-/datum/map/sccv_horizon/send_welcome()
+/singleton/persistent_type/generic/horizon_overmap_position/finalization_hook()
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/ship/sccv_horizon/ship = locate(/obj/effect/overmap/visitable/ship/sccv_horizon) in GLOB.map_overmap
+		if(ship)
+			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_overmap_position, list("x" = ship.x, "y" = ship.y), 1)
+
+/datum/map/sccv_horizon/post_gamemode_setup()
+	// ##### Set persistent Horizon position on the overmap
+	var/datum/persistent_generic/horizon_location_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_overmap_position)
+	if(horizon_location_generic)
+		var/area/overmap/map = GLOB.map_overmap
+		// Set Horizon location
+		var/obj/effect/overmap/visitable/ship/sccv_horizon/ship = locate(/obj/effect/overmap/visitable/ship/sccv_horizon) in map
+		ship.x = horizon_location_generic.content["x"]
+		ship.y = horizon_location_generic.content["y"]
+		// Make safe space for the Horizon
+		for(var/obj/effect/overmap/hazard in map)
+			if(hazard.x == ship.x && hazard.y == ship.y && istype(hazard, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
+				qdel(hazard)
+
+	// ##### Send different faxes after slight delay
+	var/faxes_send_delay = rand(60 SECONDS , 180 SECONDS)
+	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map/sccv_horizon, send_roundstart_faxes)), faxes_send_delay)
+
+/datum/map/sccv_horizon/proc/send_roundstart_faxes()
+
+	// #### Send welcome fax with overmap information
+
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)
 
-	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
+	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br />"
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"
-	welcome_text += "<hr>Current sector:<br /><b>[SSatlas.current_sector.name]</b><br /><br>"
+	welcome_text += "<hr>Current sector:<br /><b>[SSatlas.current_sector.name]</b><br /><br />"
 
 	if (horizon) //If the overmap is disabled, it's possible for there to be no Horizon.
 		var/list/space_things = list()
-		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br>"
-		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call, "none")]</b><br>"
+		welcome_text += "Current Coordinates:<br /><b>[horizon.x]:[horizon.y]</b><br /><br />"
+		welcome_text += "Available Ports of Call: <b>[english_list(SSatlas.current_sector.ports_of_call, "none")]</b><br />"
 		if(SSatlas.current_sector.next_port_visit)
-			welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br>"
+			welcome_text += "Next Port Visit: <b>in [SSatlas.current_sector.next_port_visit] days</b><br />"
 		else
-			welcome_text += "<b>There is no port visit scheduled.</b><br><br>"
-		welcome_text += "<b>It is advised to inform crew of the available ports of call and the date of the next port visit.</b><br><br>"
+			welcome_text += "<b>There is no port visit scheduled.</b><br /><br />"
+		welcome_text += "<b>It is advised to inform crew of the available ports of call and the date of the next port visit.</b><br /><br />"
 		welcome_text += "Scan results show the following points of interest:<br />"
 
 		for(var/zlevel in GLOB.map_sectors)
@@ -205,6 +232,56 @@
 	post_comm_message("SCCV Horizon Sensor Report", welcome_text)
 	var/report = "The long-range sensor readings have been printed out at all communication consoles."
 	priority_announcement.Announce(message = report)
+
+	// #### Mining yield report for operations
+
+	var/list/name_points_kvps = SSpersistence.historyGetAllRecordsForAllAttributes(/singleton/persistent_type/history/character/mining_points)
+	if(name_points_kvps && length(name_points_kvps) > 0)
+		var/list/leaderboard_kvps = list()
+		for(var/kvp in name_points_kvps) // Get name, validate, add to leaderboard
+			var/char_name = SSpersistence.historyGetCharnameByID(kvp["attribute"])
+			if(!char_name)
+				continue
+			var/point_sum = 0
+			for(var/datum/persistent_record/r in kvp["records"])
+				point_sum += text2num(r.value)
+			if(point_sum <= 0)
+				continue
+			leaderboard_kvps += list(list("score" = point_sum, "name" = char_name, "claims" = length(kvp["records"])))
+
+		if(length(leaderboard_kvps))
+			var/report_text = ""
+			report_text += "<center><H3>7-day mining yield report</H3>"
+			report_text += "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'></td><tr>"
+			report_text += "<td><img src = scclogo_small.png>"
+			report_text += "<td><font size = \"1\">7-day history of worker mining yields.<br />Manifest version: [worlddate2text()] [worldtime2text()]</font>"
+			report_text += "</td></tr></table><br />"
+
+			leaderboard_kvps = sortByKeyNumber(leaderboard_kvps, "score")
+
+			report_text += "<font size=\"4\"><b>[leaderboard_kvps[1]["name"]]</b> is leading the 7-day<br />yield report with <b>[leaderboard_kvps[1]["score"]]</b> points.</font><br /><br />"
+
+			report_text += "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'>"
+			for(var/leaderboard_kvp in leaderboard_kvps)
+				report_text += "</td><tr><td><font size=\"4\"><B>[leaderboard_kvp["name"]]</font></B><br />Points: <B>[leaderboard_kvp["score"]]</B><br />Claims: [leaderboard_kvp["claims"]]<br />"
+			report_text += "</td></tr></table><br />"
+
+			report_text += "<font size = \"1\"><table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'>"
+			report_text += "</td><tr><td>Powered by Orion Express logistics software.<br /><center><I>Faster than light.</I></center><td><img src = orionlogo_small.png>"
+			report_text += "</td></tr></table></font>"
+
+			report_text += "<br /><I>This report has been generated based of all mining yield claims in the past 7 days. Points are aggregated, claim count does not reflect on shift or trip count. Point claims are authenticated by identification cards.</I>"
+			report_text += "</font><br /><font size = \"1\"></center>"
+			report_text += "Generated by OE.SCC.MiningOps 1.7<br />Manifest form version 5.87, Hash:<br />576520646F206C6F7665206F7572207061706572776F726B21</font>"
+
+			for(var/obj/structure/machinery/requests_console/console in GLOB.allConsoles)
+				var/area/console_area = get_area(console)
+				if(console_area.type in typesof(/area/horizon/command/heads/om, /area/horizon/operations/office, /area/horizon/operations/mining_main/refinery, /area/horizon/command/bridge/controlroom))
+					if(console.paperstock <= 0)
+						continue
+					new /obj/item/paper(get_turf(console), report_text, "7-day mining yield report")
+					console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
+					console.paperstock -= 1
 
 /datum/map/sccv_horizon/load_holodeck_programs()
 	// loads only if at least two engineers are present

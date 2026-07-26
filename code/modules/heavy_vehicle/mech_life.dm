@@ -132,6 +132,7 @@
 			eject(pilot, silent=1)
 			if(remote_network && istype(pilot, /mob/living/simple_animal/spiderbot))
 				pilot.gib()
+				pilots.Remove(pilot)
 
 	// Handle the rest of things.
 	..(gibbed, (gibbed ? "explodes!" : "grinds to a halt before collapsing!"))

@@ -10,7 +10,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	force = 11
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/energy/blaster
 	max_shots = 12

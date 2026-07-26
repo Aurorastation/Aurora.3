@@ -41,6 +41,10 @@
 	var/fire_stacks_temperature = 0
 
 	var/footstep = 0
+	/// The type of footstep components spawned for the mob. Particularly important for humans, which have barefoot sounds.
+	var/footstep_component_type = /datum/component/mob_footsteps
+	/// The footstep sounds we want to play.
+	var/list/footstep_sound
 
 	/// This is used to determine if the mob failed a breath. If they did fail a breath, they will attempt to breathe each tick, otherwise just once per 4 ticks.
 	var/failed_last_breath = 0
@@ -129,3 +133,5 @@
 	var/datum/weakref/last_weather
 
 	var/tmp/last_push_notif
+
+	var/seer = 0 //for cult//Carbon, probably Human

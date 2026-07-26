@@ -314,9 +314,9 @@
 	unlink_scanner()
 
 /obj/structure/machinery/body_scanconsole/proc/unlink_scanner()
-	connected = null
 	UnregisterSignal(connected, COMSIG_QDELETING)
 	update_icon()
+	connected = null
 
 /obj/structure/machinery/body_scanconsole/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))

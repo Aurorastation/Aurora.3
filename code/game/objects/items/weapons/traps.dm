@@ -11,7 +11,7 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 18750)
+	matter = list(MATERIAL_STEEL = 18750)
 	can_buckle = list(/mob/living)
 
 	update_icon_on_init = TRUE
@@ -419,7 +419,7 @@
 	force = 1
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 1750)
+	matter = list(MATERIAL_STEEL = 1750)
 	health = 100
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 	time_to_escape = 3 MINUTES
@@ -442,6 +442,9 @@
 
 	/// A weakref to the mob currently held inside the trap
 	var/datum/weakref/captured = null
+
+	/// TRUE while an entered signal has queued an async capture that has not finished yet.
+	var/tmp/capture_pending = FALSE
 
 /obj/item/trap/animal/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = list()
@@ -486,10 +489,19 @@
 	if(!deployed || !anchored)
 		return
 
-	if(captured) // just in case but this shouldn't happen
+	if(captured || capture_pending) // just in case but this shouldn't happen
+		return
+
+	capture_pending = TRUE
+	INVOKE_ASYNC(src, PROC_REF(capture_from_entered), arrived)
+
+/obj/item/trap/animal/proc/capture_from_entered(atom/movable/arrived)
+	if(!deployed || !anchored || captured || arrived?.loc != loc)
+		capture_pending = FALSE
 		return
 
 	capture(arrived)
+	capture_pending = FALSE
 
 /obj/item/trap/animal/proc/capture(var/atom/movable/movable_atom, var/msg = 1)
 	if(!isliving(movable_atom))
@@ -505,9 +517,14 @@
 	if(capturing_mob.loc != loc)
 		capturing_mob.forceMove(loc)
 
-	captured = WEAKREF(capturing_mob)
-	INVOKE_ASYNC(src, PROC_REF(buckle), capturing_mob)
+	var/old_layer = layer
 	layer = capturing_mob.layer + 0.1
+	if(!buckle(capturing_mob))
+		layer = old_layer
+		unbuckle()
+		return
+
+	captured = WEAKREF(capturing_mob)
 
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 
@@ -735,18 +752,32 @@
 	else
 		..()
 
+/// Split behavior into its own proc because the original behavior only used to work on Move(), not forceMove().
+/obj/item/trap/animal/proc/sync_captured_mob()
+	if(!captured)
+		return
+
+	var/datum/M = captured.resolve()
+	if(!isliving(M))
+		captured = null
+		return
+
+	var/mob/living/L = M
+	if(buckled == L && L.buckled_to == src)
+		if(L.loc != loc)
+			L.forceMove(loc)
+	else
+		captured = null
+
 /obj/item/trap/animal/Move()
 	. = ..()
-	if(captured)
-		var/datum/M = captured.resolve()
-		if(isliving(M))
-			var/mob/living/L = M
-			if(L && buckled.buckled_to == src)
-				L.forceMove(loc)
-			else if(L)
-				captured = null
-		else
-			captured = null
+	if(.)
+		sync_captured_mob()
+
+/obj/item/trap/animal/forceMove(atom/destination)
+	. = ..()
+	if(.)
+		sync_captured_mob()
 
 /obj/item/trap/animal/attack_hand(mob/user)
 	if(user.loc == src || captured)
@@ -771,6 +802,9 @@
 			user.visible_message("[SPAN_BOLD("[user]")] successfully moves around \the [src] without triggering it.", SPAN_NOTICE("You successfully move around \the [src] without triggering it."))
 
 /obj/item/trap/animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user)
+		return ..()
+
 	if(!isliving(user) || !src.Adjacent(user))
 		return
 
@@ -829,7 +863,7 @@
 	force = 11
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 5750)
+	matter = list(MATERIAL_STEEL = 5750)
 
 	max_mob_size = MOB_SMALL
 	resources = list(/obj/item/stack/rods = 12)
@@ -848,7 +882,7 @@
 	w_class = 6
 	density = TRUE
 	origin_tech = list(TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 15750)
+	matter = list(MATERIAL_STEEL = 15750)
 
 	max_mob_size = 20
 	resources = list(/obj/item/stack/rods = 12, /obj/item/stack/material/steel = 4)
@@ -894,6 +928,9 @@
 		..()
 
 /obj/item/trap/animal/large/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user)
+		return ..()
+
 	if(captured)
 		to_chat(user, SPAN_WARNING("The trap door's down, you can't get through there!"))
 		return
@@ -953,7 +990,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need at least twelve rods to complete \the [src]."))
 			return
-	else if(istype(attacking_item, /obj/item/screwdriver))
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		return
 	else
 		..()

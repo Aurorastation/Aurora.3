@@ -208,7 +208,7 @@
 			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 			return TRUE
 
-		var/material/M = SSmaterials.get_material_by_name(S.default_type)
+		var/singleton/material/M = GET_SINGLETON(S.default_type)
 		if(!istype(M))
 			return TRUE
 		if(M.integrity < 50)

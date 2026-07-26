@@ -325,7 +325,7 @@
 	desc = "A specialized charge card that holds a certain amount of money. This type of charge card is in use for special purposes and not generally available."
 	icon_state = "efundcard_special"
 	var/initial_worth = 0 // Used for calculating how much cash was spend, needs to be set using VV after spawning it.
-	persistant_objects_expiration_time_days = 360
+	persistent_objects_expiration_time_days = 360
 
 /obj/item/spacecash/ewallet/persistent_charge_card/Initialize()
 	. = ..()

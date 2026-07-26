@@ -24,7 +24,6 @@
 	maneuvers = list(
 		/singleton/maneuver/leap/tajara
 	)
-	darksight = 8
 	slowdown = -0.4
 
 	brute_mod = 1.1
@@ -130,6 +129,8 @@
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	valid_prosthetics = list(PROSTHETIC_TESLA)
+
+	mass_modifier = REFERENCE_MASS_TAJARA / REFERENCE_MASS_HUMAN
 
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

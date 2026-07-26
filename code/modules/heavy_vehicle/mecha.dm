@@ -66,7 +66,7 @@
 	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
-	var/material/material
+	var/singleton/material/material
 
 	// Cockpit access vars.
 	var/hatch_closed = FALSE
@@ -113,7 +113,8 @@
 		if(pilot.client)
 			pilot.client.screen -= hud_elements
 			pilot.client.images -= hud_elements
-		pilot.forceMove(get_turf(src))
+		if (!QDELETED(pilot)) // Forcemove doesn't accept QDELETED inputs.
+			pilot.forceMove(get_turf(src))
 	pilots = null
 
 	QDEL_LIST(hud_elements)

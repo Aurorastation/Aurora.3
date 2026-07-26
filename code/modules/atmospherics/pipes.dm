@@ -190,7 +190,6 @@
 	alert_pressure = ATMOS_DEFAULT_ALERT_PRESSURE
 
 	level = 1
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 
 /obj/structure/machinery/atmospherics/pipe/simple/Initialize(mapload)
 	if(mapload)
@@ -487,7 +486,6 @@
 
 	level = 1
 
-	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/structure/machinery/atmospherics/pipe/manifold/Initialize(mapload)
 	if(mapload)
@@ -1426,7 +1424,6 @@
 	desc = "An adapter for regular, supply, scrubbers, fuel, and auxiliary pipes."
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	icon_state = "map_universal"
-	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/structure/machinery/atmospherics/pipe/simple/visible/universal/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -1465,7 +1462,6 @@
 	desc = "An adapter for regular, supply, scrubbers, fuel, and auxiliary pipes."
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL|CONNECT_TYPE_AUX
 	icon_state = "map_universal"
-	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/universal/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
