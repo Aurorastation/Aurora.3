@@ -180,7 +180,7 @@ GLOBAL_LIST_EMPTY_TYPED(all_ringers, /obj/structure/machinery/ringer)
 
 /// Links a PDA if it is not already receiving this ringer's notifications.
 /obj/structure/machinery/ringer/proc/add_pda(obj/item/modular_computer/P)
-	if(!istype(P) || P in rings_pdas)
+	if(!istype(P) || (P in rings_pdas))
 		return
 	rings_pdas += P
 	update_icon()
