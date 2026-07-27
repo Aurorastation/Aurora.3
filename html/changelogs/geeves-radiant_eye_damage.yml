@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - balance: "Welding arcs now damage the eyes of visible onlookers who are facing the welder and are not wearing eye protection."
