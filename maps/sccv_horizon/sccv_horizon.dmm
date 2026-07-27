@@ -76750,7 +76750,7 @@
 	dir = 4;
 	pixel_y = 0;
 	pixel_x = 10;
-	department = "Consular B";
+	department = "Security";
 	id = "security_ringer";
 	req_access = null;
 	req_one_access = list(1)
@@ -91936,7 +91936,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/atmos)
 "lNv" = (
-/obj/item/radio/intercom/south,
 /obj/structure/disposalpipe/junction{
 	dir = 4;
 	icon_state = "pipe-j2"
@@ -109015,6 +109014,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/disposal/small/east,
+/obj/item/radio/intercom/south,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "ocb" = (
@@ -175584,11 +175584,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/port_compartment)
 "wFf" = (
-/obj/structure/sign/directions/prop{
-	dir = 4;
-	pixel_x = 32;
-	pixel_y = 24
-	},
 /obj/structure/sign/directions/prop{
 	dir = 4;
 	pixel_y = 24
