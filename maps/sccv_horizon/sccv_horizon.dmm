@@ -150359,10 +150359,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/port)
-"tqi" = (
-/obj/effect/floor_decal/industrial/hatch/operations,
-/turf/simulated/wall,
-/area/horizon/service/custodial/auxiliary)
 "tqj" = (
 /obj/item/storage/box/fancy/candle_box{
 	icon_state = "candlepack5"
@@ -285493,7 +285489,7 @@ bGP
 vam
 kcv
 vam
-tqi
+qch
 jEo
 qeU
 udL
