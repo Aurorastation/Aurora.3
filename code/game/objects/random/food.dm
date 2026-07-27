@@ -274,11 +274,6 @@
 	desc = "This is a random chocolate."
 	icon_state = "mre_desert"
 	spawnlist = list(
-		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch,
-		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar,
-		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar,
-		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar,
-		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar,
 		/obj/item/reagent_containers/food/snacks/chocolate_bar,
 		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts,
 		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles,
