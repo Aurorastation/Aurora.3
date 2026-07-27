@@ -238,21 +238,29 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		out += "Skin Tone: <a href='byond://?src=[REF(src)];skin_tone=1'>[-pref.s_tone + 35]/[mob_species.upper_skin_tone_bound]</a><br>"
 	out += "Disabilities: <a href='byond://?src=[REF(src)];trait_add=1'>Adjust</a><br>"
+	if(length(pref.disabilities))
+		out += "<ul class='preference-detail-list'>"
 	for(var/M in pref.disabilities)
-		out += "     [M] <a href='byond://?src=[REF(src)];trait_remove=[M]'>-</a><br>"
+		out += "<li>[M] <a href='byond://?src=[REF(src)];trait_remove=[M]'>-</a></li>"
+	if(length(pref.disabilities))
+		out += "</ul>"
 	out += "Limbs: <a href='byond://?src=[REF(src)];limbs=1'>Adjust</a><br>"
 	if(length(mob_species.alterable_internal_organs))
 		out += "Internal Organs: <a href='byond://?src=[REF(src)];organs=1'>Adjust</a><br>"
+		if(length(pref.organ_data))
+			out += "<ul class='preference-detail-list'>"
 		for(var/organ in pref.organ_data)
 			var/output_pref = pref.organ_data[organ]
 			if(!pref.organ_data[organ])
 				output_pref = "Default"
-			out += "- <b>[capitalize_first_letters(organ)]</b>: [capitalize(output_pref)] <br>"
+			out += "<li>- <b>[capitalize_first_letters(parse_zone(organ))]</b>: [capitalize(output_pref)]</li>"
+		if(length(pref.organ_data))
+			out += "</ul>"
 	out += "Prosthesis/Amputations: <a href='byond://?src=[REF(src)];reset_organs=1'>Reset</a><br>"
 
 	//display limbs below
 	if(length(pref.organ_data))
-		out += "<ul>"
+		out += "<ul class='preference-detail-list'>"
 
 	for(var/name in pref.organ_data)
 		var/status = pref.organ_data[name]

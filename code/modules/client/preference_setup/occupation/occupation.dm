@@ -169,10 +169,10 @@
 	)
 
 	dat += list(
-		"<tt><center>",
-		"<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>",
-		"<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>", // Table within a table for alignment, also allows you to easily add more colomns.
-		"<table width='100%' cellpadding='1' cellspacing='0'>"
+		"<tt class='occupation-layout'><center>",
+		"<div class='occupation-heading'><b>Choose occupation chances</b><br><small>Unavailable occupations are crossed out.</small></div>",
+		"<table class='occupation-grid'><tr><td>", // Table within a table for alignment, also allows you to easily add more columns.
+		"<table class='occupation-column'>"
 	)
 	var/index = -1
 
@@ -180,12 +180,12 @@
 	for(var/datum/job/job in SSjobs.occupations)
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
-			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
+			dat += "</table></td><td><table class='occupation-column'>"
 			index = 0
 
 		var/rank = job.title
 		var/head = (rank in command_positions) || (rank == "AI")
-		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.5)];'><td width='60%' align='right'>"
+		dat += "<tr class='occupation-job' style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.5)];'><td class='occupation-job__title'>"
 
 		var/list/available = pref.GetValidTitles(job)
 		var/dispRank = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
@@ -249,7 +249,7 @@
 		else
 			dat += "[dispRank]"
 
-		dat += "</td><td width='40%'>"
+		dat += "</td><td class='occupation-job__status'>"
 
 		dat += "<a href='byond://?src=[REF(src)];set_job=[rank]'>"
 
@@ -271,9 +271,8 @@
 			dat += " <span class='none'>\[NEVER]</span>"
 		dat += "</a></td></tr>"
 
-	dat += "</td'></tr></table>"
-
-	dat += "</center></table>"
+	dat += "</table></td></tr></table>"
+	dat += "</center>"
 
 	switch(pref.alternate_option)
 		if(BE_ASSISTANT)

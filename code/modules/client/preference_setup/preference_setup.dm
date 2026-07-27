@@ -203,24 +203,33 @@
 		. = . || PI.update_setup(preferences, character)
 
 /datum/category_group/player_setup_category/proc/content(var/mob/user)
+	var/list/item_contents = list()
+	for(var/datum/category_item/player_setup_item/PI in items)
+		var/item_content = PI.content(user)
+		if(length(item_content))
+			item_contents[PI] = item_content
+
 	. = "<div class='preference-columns'><div class='preference-column'>"
 	var/current = 0
-	var/halfway = items.len / 2.5
-	for(var/datum/category_item/player_setup_item/PI in items)
+	var/halfway = item_contents.len / 2.5
+	for(var/datum/category_item/player_setup_item/PI in item_contents)
 		if(halfway && current++ >= halfway)
 			halfway = 0
 			. += "</div><div class='preference-column'>"
 		. += "<div class='preference-card'>"
 		. += "<div class='preference-card__title'>[PI.name]</div>"
-		. += "<div class='preference-card__content'>[PI.content(user)]</div>"
+		. += "<div class='preference-card__content'>[item_contents[PI]]</div>"
 		. += "</div>"
 	. += "</div></div>"
 
 /datum/category_group/player_setup_category/occupation_preferences/content(var/mob/user)
 	for(var/datum/category_item/player_setup_item/PI in items)
+		var/item_content = PI.content(user)
+		if(!length(item_content))
+			continue
 		. += "<div class='preference-card preference-card--wide'>"
 		. += "<div class='preference-card__title'>[PI.name]</div>"
-		. += "<div class='preference-card__content'>[PI.content(user)]</div>"
+		. += "<div class='preference-card__content'>[item_content]</div>"
 		. += "</div>"
 
 /**********************

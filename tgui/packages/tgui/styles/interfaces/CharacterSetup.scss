@@ -8,11 +8,18 @@
 
 .CharacterSetup {
   --character-accent: #777777;
+  --character-link: hsl(
+    from var(--character-accent) h s calc(l + 30)
+  );
 
   @each $name, $color in faction.$company-colors {
     &--#{$name} {
       --character-accent: #{$color};
     }
+  }
+
+  &--PMCG {
+    --character-link: #b58b3f;
   }
 
   background:
@@ -165,8 +172,96 @@
       border-spacing: var(--space-xs);
     }
 
+    .preference-detail-list {
+      margin: var(--space-xs) 0 var(--space-s);
+      padding-left: 1em;
+      list-style: none;
+    }
+
+    .occupation-layout {
+      display: block;
+      font-family: inherit;
+    }
+
+    .occupation-heading {
+      margin-bottom: var(--space-m);
+      padding: var(--space-m);
+      border-block: var(--border-thickness-small) solid
+        hsla(0, 0%, 100%, 0.12);
+      line-height: 1.45;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        hsla(0, 0%, 100%, 0.035),
+        transparent
+      );
+    }
+
+    .occupation-grid {
+      display: block;
+
+      > tbody {
+        display: block;
+      }
+
+      > tbody > tr {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+        gap: var(--space-s);
+      }
+
+      > tbody > tr > td {
+        min-width: 0;
+        padding: 0;
+        vertical-align: top;
+      }
+    }
+
+    .occupation-column {
+      table-layout: fixed;
+      border-spacing: 0 var(--space-xs);
+
+      .occupation-job {
+        box-shadow: 0 0.18em 0.4em hsla(0, 0%, 0%, 0.25);
+
+        > td {
+          padding: var(--space-s);
+          border-block: var(--border-thickness-small) solid
+            hsla(0, 0%, 100%, 0.09);
+          line-height: 1.25;
+          overflow-wrap: anywhere;
+          vertical-align: middle;
+        }
+
+        &__title {
+          width: 58%;
+          border-left: var(--border-thickness-small) solid
+            hsla(0, 0%, 100%, 0.12);
+          border-radius: var(--border-radius-small) 0 0
+            var(--border-radius-small);
+          font-weight: 500;
+          text-align: left;
+        }
+
+        &__status {
+          width: 42%;
+          border-right: var(--border-thickness-small) solid
+            hsla(0, 0%, 0%, 0.24);
+          border-radius: 0 var(--border-radius-small)
+            var(--border-radius-small) 0;
+          background-color: hsla(0, 0%, 0%, 0.14);
+          font-size: 0.92em;
+          text-align: center;
+        }
+
+        &:hover > td {
+          filter: brightness(1.12);
+        }
+      }
+    }
+
     a {
-      color: hsl(from var(--character-accent) h s calc(l + 30));
+      color: var(--character-link);
       cursor: var(--cursor-pointer);
       text-decoration-color: hsl(
         from var(--character-accent) h s l / 0.45
