@@ -36,11 +36,6 @@
 	icon_state = "mre_desert"
 	spawnlist = list(
 		/obj/item/reagent_containers/food/snacks/candy,
-		/obj/item/reagent_containers/food/snacks/lattecrunch,
-		/obj/item/reagent_containers/food/snacks/marsbar,
-		/obj/item/reagent_containers/food/snacks/crispbar,
-		/obj/item/reagent_containers/food/snacks/ohdaddybar,
-		/obj/item/reagent_containers/food/snacks/laughterbar,
 		/obj/item/reagent_containers/food/snacks/proteinbar,
 		/obj/item/reagent_containers/food/snacks/donut/normal,
 		/obj/item/reagent_containers/food/snacks/donut/cherryjelly,

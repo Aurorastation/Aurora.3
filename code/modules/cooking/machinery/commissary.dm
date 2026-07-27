@@ -370,7 +370,7 @@
 		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
 		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
 		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
-		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1,
 		/obj/item/storage/box/fancy/readies = 3
 	)
 
