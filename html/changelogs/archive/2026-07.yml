@@ -453,3 +453,36 @@
   kermit:
   - rscadd: Reduces the captain piloting skill requirement from Professional to Trained.
   - rscadd: Reduces the skrell consular age requirement to 100.
+2026-07-26:
+  ASmallCuteCat:
+  - qol: Adds a door that allows access to the smelters in Mining from the maintenance
+      tunnels.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed captured creatures in large animal traps/cages potentially causing
+      runtimes when the cage was placed on tables.
+  - bugfix: Fixed dragging large animal traps/cages onto tables being treated as the
+      mover trying to step through the trap.
+  - bugfix: Fixed captured creatures not following large animal traps/cages when the
+      cage was dragged onto tables.
+  Hellfirejag:
+  - bugfix: Fixed a small logic error in melee weapon sound effects.
+  - rscadd: Psiren Darters, Omens, and Beckoners can now shoot through windows, while
+      dealing less damage overall.
+  - rscadd: Psiren attacks are now less likely to cause bleeds.
+  - rscadd: Psiren variants now have specific names.
+  - rscadd: Psychic damage messages now print to random locations on the screen.
+  - rscadd: Added a new psiren subtype, the Beckoner.
+  - rscadd: Psiren Beckoners can now appear in wandering psiren events
+  - rscadd: Technomancers can now summon Psiren Beckoners
+  - balance: Stasis Bags now only provide 10x stasis to start off, rather than 20x.
+  SimpleMaroon:
+  - rscdel: Bridge Crew can no longer utilize Hivenet Receivers or the Ve'katak Phalanx
+      facial plate after Vaurca lore team request.
+  Wowzewow (Wezzy):
+  - rscadd: Adds the bartending codex.
+  - rscadd: Only the chef starts with the cooking codex and the bartender with the
+      bartending codex now. They still can be downloaded by anyone, though.
+  diggiez:
+  - qol: 'Updated vaurca namegen to not be terrible: now checks for species to give
+      an accurate caste, Warforms and Cargo drones automatically get Viax.'
+  - qol: Warforms get body color set when spawning in.

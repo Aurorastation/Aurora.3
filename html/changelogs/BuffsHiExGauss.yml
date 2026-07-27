@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: SimpleMaroon
+author: Fenodyree
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscdel: "Bridge Crew can no longer utilize Hivenet Receivers or the Ve'katak Phalanx facial plate after Vaurca lore team request."
+  - balance: "Buffs mech mounted gauss weapons with anti-armor potential, similar to the PEAC. It can now destroy doors with repeated hits."
+  - balance: "Buffs the gauss high explosive shell to do explosion damage directly to a mob it hits. It now does the same damage as a heavy explosion, without destroying the floor."
