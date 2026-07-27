@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Whitewolftamer
+author: ASmallCuteCat
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,10 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-<<<<<<<< HEAD:html/changelogs/MedFacelift - ASmallCuteCat.yml
+
   - qol: "Swaps the placement of the ICU and the storage room in Medical."
   - qol: "Moves the Pharmacy and the Recovery Ward, with the lobby centered between them."
   - qol: "The Medical Department's floor decals are now seafoam green, for less eye strain and greater difference with Service green."
-========
-  - rscadd: "Adds new prosthetic limbs for Vaurca bulwarks."
->>>>>>>> master:html/changelogs/bulwark_prosthetic.yml
+
