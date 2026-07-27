@@ -17,6 +17,7 @@
 // ##### Persistent generics
 
 CREATE_PERSISTENT_TYPE_GENERIC(horizon_overmap_position, "SCCV Horizon sector position", "Position of the SCCV Horizon on the overmap.", FALSE)
+CREATE_PERSISTENT_TYPE_GENERIC(mining_point_balance, "Mining point balance", "Unspent mining points belonging to individual characters.", TRUE)
 
 // ##### Persistent history
 

@@ -244,6 +244,42 @@
 	id_card.citizenship			= SSrecords.get_citizenship_record_name(citizenship)
 	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
+	INVOKE_ASYNC(id_card, TYPE_PROC_REF(/obj/item/card/id, load_mining_points))
+
+/obj/item/card/id/proc/load_mining_points()
+	var/mob/living/carbon/human/card_owner = mob_id?.resolve()
+	if(!card_owner?.character_id)
+		return
+
+	var/datum/persistent_generic/saved_balance = SSpersistence.genericLoad(
+		/singleton/persistent_type/generic/mining_point_balance,
+		"[card_owner.character_id]"
+	)
+	if(!saved_balance)
+		return
+
+	var/list/balance_data = saved_balance.content
+	// Newly cached generics contain encoded content, while database-loaded ones
+	// have already been decoded by the persistence subsystem.
+	if(istext(balance_data))
+		balance_data = json_decode(balance_data)
+	if(islist(balance_data))
+		mining_points = clamp(text2num(balance_data["balance"]), 0, MINING_POINTS_CARRYOVER_MAX)
+
+/obj/item/card/id/proc/save_mining_points()
+	var/mob/living/carbon/human/card_owner = mob_id?.resolve()
+	if(!card_owner?.character_id)
+		return
+
+	SSpersistence.genericSave(
+		/singleton/persistent_type/generic/mining_point_balance,
+		list("balance" = clamp(mining_points, 0, MINING_POINTS_CARRYOVER_MAX)),
+		"[card_owner.character_id]"
+	)
+
+/obj/item/card/id/proc/adjust_mining_points(amount)
+	mining_points = max(0, mining_points + amount)
+	save_mining_points()
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
