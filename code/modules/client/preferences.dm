@@ -364,7 +364,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	return FALSE
 
-/datum/preferences/proc/update_character_previews(mutable_appearance/MA, var/big_mob = FALSE)
+/datum/preferences/proc/update_character_previews(list/directional_appearances, var/big_mob = FALSE)
 	if(!client)
 		return
 
@@ -385,6 +385,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	var/index = 0
 	for(var/D in GLOB.cardinals)
+		var/mutable_appearance/MA = directional_appearances["[D]"]
 		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
 			O = new

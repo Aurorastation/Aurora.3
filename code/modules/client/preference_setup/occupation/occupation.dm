@@ -157,7 +157,20 @@
 
 	sanitize_faction()
 
-/datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
+/datum/category_item/player_setup_item/occupation/proc/get_display_department(datum/job/job)
+	if(istype(job, /datum/job/captain) || istype(job, /datum/job/xo))
+		return DEPARTMENT_COMMAND
+
+	for(var/department in job.departments)
+		if(department != DEPARTMENT_COMMAND)
+			return department
+
+	if(DEPARTMENT_COMMAND in job.departments)
+		return DEPARTMENT_COMMAND
+
+	return DEPARTMENT_MISCELLANEOUS
+
+/datum/category_item/player_setup_item/occupation/content(mob/user)
 	if (!SSjobs.initialized || !SSrecords.initialized)
 		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 
@@ -171,17 +184,43 @@
 	dat += list(
 		"<tt class='occupation-layout'><center>",
 		"<div class='occupation-heading'><b>Choose occupation chances</b><br><small>Unavailable occupations are crossed out.</small></div>",
-		"<table class='occupation-grid'><tr><td>", // Table within a table for alignment, also allows you to easily add more columns.
-		"<table class='occupation-column'>"
+		"<div class='occupation-departments'>"
 	)
-	var/index = -1
+
+	var/list/department_order = list(
+		DEPARTMENT_COMMAND,
+		DEPARTMENT_ENGINEERING,
+		DEPARTMENT_MEDICAL,
+		DEPARTMENT_SCIENCE,
+		DEPARTMENT_SECURITY,
+		DEPARTMENT_CARGO,
+		DEPARTMENT_SERVICE,
+		DEPARTMENT_CIVILIAN,
+		DEPARTMENT_EQUIPMENT,
+		DEPARTMENT_COMMAND_SUPPORT,
+		DEPARTMENT_MISCELLANEOUS,
+		DEPARTMENT_OFFSHIP
+	)
+	var/list/job_departments = list()
+	var/list/sorted_jobs = list()
+	for(var/datum/job/job in SSjobs.occupations)
+		job_departments[job] = get_display_department(job)
+	for(var/department in department_order)
+		for(var/datum/job/job in SSjobs.occupations)
+			if(job_departments[job] == department)
+				sorted_jobs += job
 
 	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
-	for(var/datum/job/job in SSjobs.occupations)
-		index += 1
-		if((index >= limit) || (job.title in splitJobs))
-			dat += "</table></td><td><table class='occupation-column'>"
-			index = 0
+	var/current_department
+	for(var/datum/job/job in sorted_jobs)
+		var/job_department = job_departments[job]
+		if(job_department != current_department)
+			if(current_department)
+				dat += "</table></div>"
+			current_department = job_department
+			dat += "<div class='occupation-department'>"
+			dat += "<div class='occupation-department__title'>[current_department]</div>"
+			dat += "<table class='occupation-column'>"
 
 		var/rank = job.title
 		var/head = (rank in command_positions) || (rank == "AI")
@@ -271,7 +310,9 @@
 			dat += " <span class='none'>\[NEVER]</span>"
 		dat += "</a></td></tr>"
 
-	dat += "</table></td></tr></table>"
+	if(current_department)
+		dat += "</table></div>"
+	dat += "</div>"
 	dat += "</center>"
 
 	switch(pref.alternate_option)

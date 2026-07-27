@@ -137,6 +137,7 @@ export const CharacterSetup = () => {
                     icon="folder-open"
                     disabled={!data.can_save}
                     onClick={() => act('load')}
+                    verticalAlignContent="middle"
                   >
                     Load Slot
                   </Button>
@@ -147,6 +148,7 @@ export const CharacterSetup = () => {
                     icon="floppy-disk"
                     disabled={!data.can_save}
                     onClick={() => act('save')}
+                    verticalAlignContent="middle"
                   >
                     Save Slot
                   </Button>
@@ -157,6 +159,7 @@ export const CharacterSetup = () => {
                     icon="rotate"
                     disabled={!data.can_save}
                     onClick={() => act('reload')}
+                    verticalAlignContent="middle"
                   >
                     Reload Slot
                   </Button>
@@ -169,6 +172,7 @@ export const CharacterSetup = () => {
                       icon="trash"
                       disabled={!data.can_save}
                       onClick={() => act('delete')}
+                      verticalAlignContent="middle"
                     >
                       Permanently Delete Slot
                     </Button>

@@ -272,13 +272,19 @@
 
 /datum/preferences/proc/update_preview_icon()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = update_mannequin()
-	var/mutable_appearance/MA = new /mutable_appearance(mannequin)
-	MA.appearance_flags = PIXEL_SCALE
-	if(mannequin.species?.icon_x_offset)
-		MA.pixel_x = mannequin.species.icon_x_offset
-	if(mannequin.species?.icon_y_offset)
-		MA.pixel_y = mannequin.species.icon_y_offset
-	var/matrix/M = matrix()
-	M.Scale(scale_x, scale_y)
-	MA.transform = M
-	update_character_previews(MA, (MA.pixel_x != 0 || MA.pixel_y != 0))
+	var/list/directional_appearances = list()
+	var/big_mob = FALSE
+	for(var/direction in GLOB.cardinals)
+		mannequin.set_dir(direction)
+		var/mutable_appearance/MA = new /mutable_appearance(mannequin)
+		MA.appearance_flags = PIXEL_SCALE
+		if(mannequin.species?.icon_x_offset)
+			MA.pixel_x = mannequin.species.icon_x_offset
+		if(mannequin.species?.icon_y_offset)
+			MA.pixel_y = mannequin.species.icon_y_offset
+		var/matrix/M = matrix()
+		M.Scale(scale_x, scale_y)
+		MA.transform = M
+		directional_appearances["[direction]"] = MA
+		big_mob ||= (MA.pixel_x != 0 || MA.pixel_y != 0)
+	update_character_previews(directional_appearances, big_mob)

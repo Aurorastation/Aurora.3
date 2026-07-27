@@ -67,6 +67,20 @@
   &__action {
     min-height: 2.4em;
     padding-inline: var(--space-m);
+    line-height: 1;
+
+    .Button__content {
+      display: inline-flex;
+      align-items: center;
+      align-self: auto;
+    }
+
+    .Button--icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
   }
 
   &__tabs {
@@ -197,23 +211,43 @@
       );
     }
 
-    .occupation-grid {
-      display: block;
+    .occupation-departments {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(22em, 1fr));
+      align-items: start;
+      gap: var(--space-m);
+      text-align: left;
+    }
 
-      > tbody {
-        display: block;
-      }
+    .occupation-department {
+      min-width: 0;
+      padding: var(--space-s);
+      border: var(--border-thickness-small) solid hsla(0, 0%, 100%, 0.1);
+      border-top-color: hsl(from var(--character-accent) h s l / 0.7);
+      border-radius: var(--border-radius-small);
+      background: linear-gradient(
+        145deg,
+        hsla(0, 0%, 100%, 0.035),
+        hsla(0, 0%, 0%, 0.1)
+      );
+      box-shadow: 0 0.25em 0.7em hsla(0, 0%, 0%, 0.2);
 
-      > tbody > tr {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-        gap: var(--space-s);
-      }
-
-      > tbody > tr > td {
-        min-width: 0;
-        padding: 0;
-        vertical-align: top;
+      &__title {
+        margin: calc(-1 * var(--space-s)) calc(-1 * var(--space-s))
+          var(--space-s);
+        padding: var(--space-s) var(--space-m);
+        border-bottom: var(--border-thickness-small) solid
+          hsla(0, 0%, 100%, 0.1);
+        color: hsl(from var(--character-accent) h s calc(l + 28));
+        font-size: 1.05em;
+        font-weight: bold;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        background: linear-gradient(
+          90deg,
+          hsl(from var(--character-accent) h s l / 0.25),
+          transparent
+        );
       }
     }
 
