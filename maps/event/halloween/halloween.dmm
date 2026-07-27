@@ -2668,13 +2668,13 @@
 /area/city/bar)
 "iM" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/reagent_containers/food/snacks/cb04,
-/obj/item/reagent_containers/food/snacks/cb04,
-/obj/item/reagent_containers/food/snacks/cb04,
-/obj/item/reagent_containers/food/snacks/cb04,
-/obj/item/reagent_containers/food/snacks/cb04,
-/obj/item/reagent_containers/food/snacks/cb04,
-/obj/item/reagent_containers/food/snacks/cb04,
+/obj/item/reagent_containers/food/snacks/ohdaddybar,
+/obj/item/reagent_containers/food/snacks/ohdaddybar,
+/obj/item/reagent_containers/food/snacks/ohdaddybar,
+/obj/item/reagent_containers/food/snacks/ohdaddybar,
+/obj/item/reagent_containers/food/snacks/ohdaddybar,
+/obj/item/reagent_containers/food/snacks/ohdaddybar,
+/obj/item/reagent_containers/food/snacks/ohdaddybar,
 /obj/effect/map_effect/perma_light{
 	color = "#300056";
 	light_color = "#300056"

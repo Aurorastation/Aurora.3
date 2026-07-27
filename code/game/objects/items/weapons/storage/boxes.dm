@@ -1075,17 +1075,17 @@
 
 /obj/item/storage/box/large/candy/fill()
 	var/list/assorted_list = list(
-		/obj/item/reagent_containers/food/snacks/getmore = 1,
-		/obj/item/reagent_containers/food/snacks/getmore_nuts = 1,
-		/obj/item/reagent_containers/food/snacks/getmore_bubbles = 1,
-		/obj/item/reagent_containers/food/snacks/getmore_kelp = 1,
-		/obj/item/reagent_containers/food/snacks/cetibar = 1,
-		/obj/item/reagent_containers/food/snacks/idrisbar = 1,
-		/obj/item/reagent_containers/food/snacks/cb01 = 1,
-		/obj/item/reagent_containers/food/snacks/cb02 = 1,
-		/obj/item/reagent_containers/food/snacks/cb03 = 1,
-		/obj/item/reagent_containers/food/snacks/cb04 = 1,
-		/obj/item/reagent_containers/food/snacks/cb05 = 1
+		/obj/item/reagent_containers/food/snacks/chocolate_bar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1
 	)
 
 	for(var/i in 1 to 24)
