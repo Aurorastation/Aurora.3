@@ -8,9 +8,6 @@
 #define SQL_CHARACTER	0x1
 #define SQL_PREFERENCES	0x2
 
-// General-purpose helper for drawing a colored box.
-#define HTML_RECT(color) "&nbsp;<div style=\"display:inline-block;height:10px;width:30px;background:[color || "#FFFFFF"]\"></div>&nbsp;"
-
 // A bit of a hack to allow unit testing of category items.
 #ifdef UNIT_TEST
 #	define PREF_CLIENT_CKEY ""
@@ -101,19 +98,6 @@
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		. = . || PS.update_setup(preferences, character)
 
-/datum/category_collection/player_setup_collection/proc/header()
-	var/dat = ""
-	for(var/datum/category_group/player_setup_category/PS in categories)
-		if(PS == selected_category)
-			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
-		else
-			dat += "<a href='byond://?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a> "
-	return dat
-
-/datum/category_collection/player_setup_collection/proc/content(var/mob/user)
-	if(selected_category)
-		return selected_category.content(user)
-
 /datum/category_collection/player_setup_collection/Topic(var/href,var/list/href_list)
 	if(..())
 		return 1
@@ -202,35 +186,12 @@
 	for(var/datum/category_item/player_setup_item/PI in items)
 		. = . || PI.update_setup(preferences, character)
 
-/datum/category_group/player_setup_category/proc/content(var/mob/user)
-	var/list/item_contents = list()
+/datum/category_group/player_setup_category/ui_data(var/mob/user)
+	. = list()
 	for(var/datum/category_item/player_setup_item/PI in items)
-		var/item_content = PI.content(user)
-		if(length(item_content))
-			item_contents[PI] = item_content
-
-	. = "<div class='preference-columns'><div class='preference-column'>"
-	var/current = 0
-	var/halfway = item_contents.len / 2.5
-	for(var/datum/category_item/player_setup_item/PI in item_contents)
-		if(halfway && current++ >= halfway)
-			halfway = 0
-			. += "</div><div class='preference-column'>"
-		. += "<div class='preference-card'>"
-		. += "<div class='preference-card__title'>[PI.name]</div>"
-		. += "<div class='preference-card__content'>[item_contents[PI]]</div>"
-		. += "</div>"
-	. += "</div></div>"
-
-/datum/category_group/player_setup_category/occupation_preferences/content(var/mob/user)
-	for(var/datum/category_item/player_setup_item/PI in items)
-		var/item_content = PI.content(user)
-		if(!length(item_content))
-			continue
-		. += "<div class='preference-card preference-card--wide'>"
-		. += "<div class='preference-card__title'>[PI.name]</div>"
-		. += "<div class='preference-card__content'>[item_content]</div>"
-		. += "</div>"
+		var/list/item_data = PI.ui_data(user)
+		if(length(item_data))
+			. += list(item_data)
 
 /**********************
 * Category Item Setup *
@@ -321,8 +282,13 @@
 /datum/category_item/player_setup_item/proc/gather_save_parameters()
 	return list()
 
-/datum/category_item/player_setup_item/proc/content(var/mob/user)
-	return
+/datum/category_item/player_setup_item/ui_data(var/mob/user)
+	return list(
+		"kind" = "notice",
+		"name" = name,
+		"ref" = REF(src),
+		"message" = "This preference section has no TGUI renderer."
+	)
 
 /datum/category_item/player_setup_item/proc/sanitize_character(var/sql_load = 0)
 	return
@@ -351,6 +317,16 @@
 
 /datum/category_item/player_setup_item/proc/OnTopic(var/href,var/list/href_list, var/mob/user)
 	return TOPIC_NOACTION
+
+/datum/category_item/player_setup_item/proc/handle_ui_topic(var/list/topic, var/mob/user)
+	var/result = OnTopic(null, topic, user)
+	if(result == TOPIC_NOACTION)
+		return FALSE
+	var/datum/category_group/player_setup_category/cat = category
+	cat.modified = TRUE
+	if(result & TOPIC_UPDATE_PREVIEW)
+		pref.update_preview_icon()
+	return TRUE
 
 /datum/category_item/player_setup_item/proc/preference_mob()
 	if(pref && pref.client && pref.client.mob)

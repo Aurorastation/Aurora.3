@@ -226,142 +226,99 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		to_chat(pref.client, SPAN_WARNING("Synthetic Blood Substitute (SBS) is intended for heavily augmented characters. To pick it, you must have at least eight augmented limbs or organs. Resetting blood type..."))
 		pref.b_type = initial(pref.b_type)
 
-/datum/category_item/player_setup_item/general/body/content(var/mob/user)
-	var/list/out = list()
+/datum/category_item/player_setup_item/general/body/proc/get_prosthesis_label(organ_name, status)
+	var/pretty_name = capitalize_first_letters(parse_zone(organ_name))
+	if(status == ORGAN_PREF_CYBORG || status == ORGAN_PREF_MECHANICAL)
+		var/datum/robolimb/R = GLOB.basic_robolimb
+		if(pref.rlimb_data[organ_name] && GLOB.all_robolimbs[pref.rlimb_data[organ_name]])
+			R = GLOB.all_robolimbs[pref.rlimb_data[organ_name]]
+		return status == ORGAN_PREF_CYBORG ? "[R.company] [pretty_name] Prosthesis" : "[R.company] Mechanical [pretty_name]"
+	if(status == ORGAN_PREF_AMPUTATED)
+		return "Amputated [pretty_name]"
+	if(status == ORGAN_PREF_NYMPH)
+		return "Diona Nymph [pretty_name]"
+	if(status == ORGAN_PREF_ASSISTED)
+		switch(organ_name)
+			if(BP_HEART)
+				return "Pacemaker-Assisted [pretty_name]"
+			if("voicebox")
+				return "Surgically Altered [pretty_name]"
+			if(BP_EYES)
+				return "Retinal Overlayed [pretty_name]"
+			if(BP_BRAIN)
+				return "Pseudoneuron-Assisted [pretty_name]"
+			else
+				return "Mechanically Assisted [pretty_name]"
+	if(status == ORGAN_PREF_REMOVED)
+		return "Removed [pretty_name]"
 
+/datum/category_item/player_setup_item/general/body/ui_data(var/mob/user)
 	var/datum/species/mob_species = GLOB.all_species[pref.species]
-	out += "<table><tr style='vertical-align:top'><td><b>Body</b> "
-	out += "(<a href='byond://?src=[REF(src)];random=1'>&reg;</A>)"
-	out += "<br>"
-	out += "Species: <a href='byond://?src=[REF(src)];show_species=1'>[pref.species]</a><br>"
-	out += "Blood Type: <a href='byond://?src=[REF(src)];blood_type=1'>[pref.b_type]</a><br>"
+	var/list/fields = list(
+		list("label" = "Species", "value" = pref.species, "action" = "show_species"),
+		list("label" = "Blood Type", "value" = pref.b_type, "action" = "blood_type")
+	)
 	if(has_flag(mob_species, HAS_SKIN_TONE))
-		out += "Skin Tone: <a href='byond://?src=[REF(src)];skin_tone=1'>[-pref.s_tone + 35]/[mob_species.upper_skin_tone_bound]</a><br>"
-	out += "Disabilities: <a href='byond://?src=[REF(src)];trait_add=1'>Adjust</a><br>"
-	if(length(pref.disabilities))
-		out += "<ul class='preference-detail-list'>"
-	for(var/M in pref.disabilities)
-		out += "<li>[M] <a href='byond://?src=[REF(src)];trait_remove=[M]'>-</a></li>"
-	if(length(pref.disabilities))
-		out += "</ul>"
-	out += "Limbs: <a href='byond://?src=[REF(src)];limbs=1'>Adjust</a><br>"
+		fields += list(list("label" = "Skin Tone", "value" = "[-pref.s_tone + 35]/[mob_species.upper_skin_tone_bound]", "action" = "skin_tone"))
+
+	var/list/internal_organs = list()
 	if(length(mob_species.alterable_internal_organs))
-		out += "Internal Organs: <a href='byond://?src=[REF(src)];organs=1'>Adjust</a><br>"
-		if(length(pref.organ_data))
-			out += "<ul class='preference-detail-list'>"
 		for(var/organ in pref.organ_data)
-			var/output_pref = pref.organ_data[organ]
-			if(!pref.organ_data[organ])
-				output_pref = "Default"
-			out += "<li>- <b>[capitalize_first_letters(parse_zone(organ))]</b>: [capitalize(output_pref)]</li>"
-		if(length(pref.organ_data))
-			out += "</ul>"
-	out += "Prosthesis/Amputations: <a href='byond://?src=[REF(src)];reset_organs=1'>Reset</a><br>"
+			var/output_pref = pref.organ_data[organ] || "Default"
+			internal_organs += list(list("name" = capitalize_first_letters(parse_zone(organ)), "status" = capitalize(output_pref)))
 
-	//display limbs below
-	if(length(pref.organ_data))
-		out += "<ul class='preference-detail-list'>"
+	var/list/prostheses = list()
+	for(var/organ_name in pref.organ_data)
+		var/label = get_prosthesis_label(organ_name, pref.organ_data[organ_name])
+		if(label)
+			prostheses += label
 
-	for(var/name in pref.organ_data)
-		var/status = pref.organ_data[name]
-		var/organ_name = name
+	var/list/preview_actions = list(
+		list("label" = "Cycle Background", "action" = "cycle_bg", "value" = 1),
+		list("label" = "Select Background", "action" = "select_bg", "value" = 1),
+		list("label" = "Set Preview Scale: [pref.scale_x] × [pref.scale_y]", "action" = "set_preview_scale", "value" = 1),
+		list("label" = pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout", "action" = "toggle_preview_value", "value" = EQUIP_PREVIEW_LOADOUT),
+		list("label" = pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear", "action" = "toggle_preview_value", "value" = EQUIP_PREVIEW_JOB),
+		list("label" = pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide hat" : "Show hat", "action" = "toggle_preview_value", "value" = EQUIP_PREVIEW_JOB_HAT),
+		list("label" = pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide uniform" : "Show uniform", "action" = "toggle_preview_value", "value" = EQUIP_PREVIEW_JOB_UNIFORM),
+		list("label" = pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide suit" : "Show suit", "action" = "toggle_preview_value", "value" = EQUIP_PREVIEW_JOB_SUIT),
+		list("label" = pref.equip_preview_mob & EQUIP_PREVIEW_CUSTOM_ITEMS ? "Hide custom items" : "Show custom items", "action" = "toggle_preview_value", "value" = EQUIP_PREVIEW_CUSTOM_ITEMS)
+	)
 
-		if(status == ORGAN_PREF_CYBORG)
-			var/datum/robolimb/R
-			if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[name]])
-				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
-			else
-				R = GLOB.basic_robolimb
-			out += "<li>- [R.company] [capitalize_first_letters(parse_zone(organ_name))] Prosthesis</li>"
-		else if(status == ORGAN_PREF_AMPUTATED)
-			out += "<li>- Amputated [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == ORGAN_PREF_MECHANICAL)
-			var/datum/robolimb/R
-			if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[name]])
-				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
-			else
-				R = GLOB.basic_robolimb
-			out += "<li>- [R.company] Mechanical [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == ORGAN_PREF_NYMPH)
-			out += "<li>- Diona Nymph [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == ORGAN_PREF_ASSISTED)
-			switch(organ_name)
-				if(BP_HEART)
-					out += "<li>- Pacemaker-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
-				if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
-					out += "<li>- Surgically Altered [capitalize_first_letters(parse_zone(organ_name))]</li>"
-				if(BP_EYES)
-					out += "<li>- Retinal Overlayed [capitalize_first_letters(parse_zone(organ_name))]</li>"
-				if(BP_BRAIN)
-					out += "<li>- Pseudoneuron-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
-				else
-					out += "<li>- Mechanically Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == ORGAN_PREF_REMOVED)
-			out += "<li>- Removed [capitalize_first_letters(parse_zone(organ_name))]</li>"
-
-	if(length(pref.organ_data))
-		out += "</ul><br><br>"
-	else
-		out += "<br><br>"
-
-	out += "</td><td><b>Preview</b>"
-	out += "<br><a href='byond://?src=[REF(src)];cycle_bg=1'>Cycle Background</a>"
-	out += "<br><a href='byond://?src=[REF(src)];select_bg=1'>Select Background</a>"
-	out += "<br><a href='byond://?src=[REF(src)];set_preview_scale=1'>Set Preview Scale - [pref.scale_x] - [pref.scale_y]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_HAT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide hat" : "Show hat"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_UNIFORM]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide uniform" : "Show uniform"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_SUIT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide suit" : "Show suit"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_CUSTOM_ITEMS]'>[pref.equip_preview_mob & EQUIP_PREVIEW_CUSTOM_ITEMS ? "Hide custom items" : "Show custom items"]</a>"
-	out += "</td></tr></table>"
-
-	var/tail_spacing = FALSE
+	var/list/appearance = list()
 	if(length(mob_species.selectable_tails))
-		out += "<b>Tail</b><br>"
-		out += "<a href='byond://?src=[REF(src)];tail_style=1'>[pref.tail_style ? "Style: [pref.tail_style]" : "Style: None"]</a><br>"
-		tail_spacing = TRUE
-
-	out += "[tail_spacing ? "<br>" : ""]<b>Hair</b><br>"
-	if(has_flag(mob_species, HAS_HAIR_COLOR))
-		out += "<a href='byond://?src=[REF(src)];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
-	out += " Style: " \
-		+ "<a href='byond://?src=[REF(src)];previous_hair_style=1'> < </a>" \
-		+ "<a href='byond://?src=[REF(src)];next_hair_style=1'> > </a>" \
-		+ "<a href='byond://?src=[REF(src)];hair_style=1'>[pref.h_style]</a><br>"
-
-	out += "<br><b>Facial</b><br>"
-	if(has_flag(mob_species, HAS_HAIR_COLOR))
-		out += "<a href='byond://?src=[REF(src)];facial_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_facial, pref.g_facial, pref.b_facial))] "
-	out += " Style: " \
-		+ "<a href='byond://?src=[REF(src)];previous_facial_style=1'> < </a>" \
-		+ "<a href='byond://?src=[REF(src)];next_facial_style=1'> > </a>" \
-		+ "<a href='byond://?src=[REF(src)];facial_style=1'>[pref.f_style]</a><br>"
-
-	out += "<br><b>Gradient</b><br>"
-	if(has_flag(mob_species, HAS_HAIR_COLOR))
-		out += "<a href='byond://?src=[REF(src)];gradient_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_grad, pref.g_grad, pref.b_grad))] "
-	out += " Style: <a href='byond://?src=[REF(src)];gradient_style=1'>[pref.g_style]</a><br>"
-
+		appearance += list(list("name" = "Tail", "style" = pref.tail_style || "None", "style_action" = "tail_style"))
+	appearance += list(list("name" = "Hair", "style" = pref.h_style, "style_action" = "hair_style", "previous_action" = "previous_hair_style", "next_action" = "next_hair_style", "color" = rgb(pref.r_hair, pref.g_hair, pref.b_hair), "color_action" = has_flag(mob_species, HAS_HAIR_COLOR) ? "hair_color" : null))
+	appearance += list(list("name" = "Facial", "style" = pref.f_style, "style_action" = "facial_style", "previous_action" = "previous_facial_style", "next_action" = "next_facial_style", "color" = rgb(pref.r_facial, pref.g_facial, pref.b_facial), "color_action" = has_flag(mob_species, HAS_HAIR_COLOR) ? "facial_color" : null))
+	appearance += list(list("name" = "Gradient", "style" = pref.g_style, "style_action" = "gradient_style", "color" = rgb(pref.r_grad, pref.g_grad, pref.b_grad), "color_action" = has_flag(mob_species, HAS_HAIR_COLOR) ? "gradient_color" : null))
 	if(has_flag(mob_species, HAS_EYE_COLOR))
-		out += "<br><b>Eyes</b><br>"
-		out += "<a href='byond://?src=[REF(src)];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))] <br>"
-
+		appearance += list(list("name" = "Eyes", "color" = rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes), "color_action" = "eye_color"))
 	if(has_flag(mob_species, HAS_SKIN_COLOR))
-		out += "<br><b>Body Color</b><br>"
-		out += "<a href='byond://?src=[REF(src)];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
+		appearance += list(list("name" = "Body Color", "color" = rgb(pref.r_skin, pref.g_skin, pref.b_skin), "color_action" = "skin_color"))
 
-	if(has_flag(mob_species, HAS_SKIN_PRESET))
-		out += "<br><b>Body Color Presets</b><br>"
-		out += "<a href='byond://?src=[REF(src)];skin_preset=1'>Choose Preset</a><br>"
+	var/list/markings = list()
+	for(var/marking in pref.body_markings)
+		markings += list(list(
+			"name" = marking,
+			"color" = pref.body_markings[marking],
+			"can_reorder" = pref.body_markings.len > 1,
+			"has_preset" = length(mob_species.character_color_presets)
+		))
 
-	out += "<br><a href='byond://?src=[REF(src)];marking_style=1'>Body Markings +</a><br>"
-	for(var/M in pref.body_markings)
-		out += "[M] [pref.body_markings.len > 1 ? "<a href='byond://?src=[REF(src)];marking_up=[M]'>&#708;</a> <a href='byond://?src=[REF(src)];marking_down=[M]'>&#709;</a> " : ""]<a href='byond://?src=[REF(src)];marking_remove=[M]'>-</a> <a href='byond://?src=[REF(src)];marking_color=[M]'>Color</a>[length(mob_species.character_color_presets) ? "<a href='byond://?src=[REF(src)];marking_preset=[M]'>Preset</a>" : ""]"
-		out += HTML_RECT(pref.body_markings[M])
-		out += "<br>"
-
-	. = out.Join()
+	return list(
+		"kind" = "body",
+		"name" = name,
+		"ref" = REF(src),
+		"fields" = fields,
+		"disabilities" = pref.disabilities,
+		"has_internal_organs" = length(mob_species.alterable_internal_organs),
+		"internal_organs" = internal_organs,
+		"prostheses" = prostheses,
+		"preview_actions" = preview_actions,
+		"appearance" = appearance,
+		"has_skin_preset" = has_flag(mob_species, HAS_SKIN_PRESET),
+		"markings" = markings
+	)
 
 /datum/category_item/player_setup_item/general/body/proc/has_flag(var/datum/species/mob_species, var/flag)
 	return mob_species && (mob_species.appearance_flags & flag)
@@ -380,25 +337,64 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			return TOPIC_REFRESH
 
 	else if(href_list["show_species"])
-		// Actual whitelist checks are handled elsewhere, this is just for accessing the preview window.
 		var/species_choice = tgui_input_list(usr, "Which species would you like to look at?", "Species Selection", GLOB.playable_species)
 		if(!species_choice)
-			return
+			return TOPIC_NOACTION
 		var/choice
 		if(length(GLOB.playable_species[species_choice]) == 1)
 			choice = GLOB.playable_species[species_choice][1]
 		else
 			choice = tgui_input_list(usr, "Which subspecies would you like to look at?", "Sub-species Selection", GLOB.playable_species[species_choice])
 			if(!choice)
-				return
+				return TOPIC_NOACTION
 		choice = html_decode(choice)
 		pref.species_preview = choice
-		SetSpecies(preference_mob())
-		pref.alternate_languages.Cut() // Reset their alternate languages. Todo: attempt to just fix it instead?
-		return TOPIC_HANDLED
+		var/datum/species/selected_species = GLOB.all_species[choice]
+		if(!selected_species)
+			return TOPIC_NOACTION
+		var/restricted = FALSE
+		if(GLOB.config.usealienwhitelist)
+			if(!(selected_species.spawn_flags & CAN_JOIN))
+				restricted = TRUE
+			else if((selected_species.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(preference_mob(), selected_species.name))
+				restricted = TRUE
+		if(restricted && !check_rights(R_ADMIN, 0))
+			tgui_alert(user, "You cannot play as [selected_species.name]. This species is unavailable or requires a whitelist.", "Species Unavailable", list("OK"))
+			return TOPIC_NOACTION
+		var/list/species_traits = list()
+		if(selected_species.spawn_flags & CAN_JOIN)
+			species_traits += "Often present on human stations"
+		if(selected_species.spawn_flags & IS_WHITELISTED)
+			species_traits += "Whitelist restricted"
+		if(selected_species.flags & NO_BLOOD)
+			species_traits += "Does not have blood"
+		if(selected_species.flags & NO_BREATHE)
+			species_traits += "Does not breathe"
+		if(selected_species.flags & NO_SCAN)
+			species_traits += "Does not have DNA"
+		if(selected_species.flags & NO_PAIN)
+			species_traits += "Does not feel pain"
+		if(selected_species.flags & NO_SLIP)
+			species_traits += "Has excellent traction"
+		if(selected_species.flags & NO_POISON)
+			species_traits += "Immune to most poisons"
+		if(selected_species.appearance_flags & HAS_SKIN_TONE)
+			species_traits += "Has a variety of skin tones"
+		if(selected_species.appearance_flags & HAS_SKIN_COLOR)
+			species_traits += "Has a variety of skin colours"
+		if(selected_species.appearance_flags & HAS_EYE_COLOR)
+			species_traits += "Has a variety of eye colours"
+		if(selected_species.flags & IS_PLANT)
+			species_traits += "Has a plantlike physiology"
+		var/species_summary = "[strip_html(selected_species.blurb)]\n\nLanguage: [selected_species.language]"
+		if(length(species_traits))
+			species_summary += "\n\n[english_list(species_traits)]"
+		if(tgui_alert(user, species_summary, selected_species.name, list("Select", "Cancel")) != "Select")
+			return TOPIC_NOACTION
+		pref.alternate_languages.Cut()
+		return OnTopic(null, list("set_species" = choice), user)
 
 	else if(href_list["set_species"])
-		user << browse(null, "window=species")
 		if(!pref.species_preview || !(pref.species_preview in GLOB.all_species))
 			return TOPIC_NOACTION
 
@@ -968,71 +964,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()
-
-/datum/category_item/player_setup_item/general/body/proc/SetSpecies(mob/user)
-	if(!pref.species_preview || !(pref.species_preview in GLOB.all_species))
-		pref.species_preview = SPECIES_HUMAN
-	var/datum/species/current_species = GLOB.all_species[pref.species_preview]
-	var/list/dat = list(
-		"<center><h2>[current_species.name] \[<a href='byond://?src=[REF(src)];show_species=1'>change</a>\]</h2></center><hr/>",
-		"<table padding='8px'>",
-		"<tr>",
-		"<td width = 400>[current_species.blurb]</td>",
-		"<td width = 200 align='center'>"
-	)
-	if(current_species.preview_icon)
-		var/icon/preview = icon(current_species.preview_icon, "")
-		preview.Scale(64, 64)	// Scale it here to stop it blurring.
-		send_rsc(usr, icon(icon = preview, icon_state = ""), "species_preview_[current_species.short_name].png")
-		dat += "<img src='species_preview_[current_species.short_name].png' width='64px' height='64px'><br/><br/>"
-	dat += "<b>Language:</b> [current_species.language]<br/>"
-	dat += "<small>"
-	if(current_species.spawn_flags & CAN_JOIN)
-		dat += "</br><b>Often present on human stations.</b>"
-	if(current_species.spawn_flags & IS_WHITELISTED)
-		dat += "</br><b>Whitelist restricted.</b>"
-	if(current_species.flags & NO_BLOOD)
-		dat += "</br><b>Does not have blood.</b>"
-	if(current_species.flags & NO_BREATHE)
-		dat += "</br><b>Does not breathe.</b>"
-	if(current_species.flags & NO_SCAN)
-		dat += "</br><b>Does not have DNA.</b>"
-	if(current_species.flags & NO_PAIN)
-		dat += "</br><b>Does not feel pain.</b>"
-	if(current_species.flags & NO_SLIP)
-		dat += "</br><b>Has excellent traction.</b>"
-	if(current_species.flags & NO_POISON)
-		dat += "</br><b>Immune to most poisons.</b>"
-	if(current_species.appearance_flags & HAS_SKIN_TONE)
-		dat += "</br><b>Has a variety of skin tones.</b>"
-	if(current_species.appearance_flags & HAS_SKIN_COLOR)
-		dat += "</br><b>Has a variety of skin colours.</b>"
-	if(current_species.appearance_flags & HAS_EYE_COLOR)
-		dat += "</br><b>Has a variety of eye colours.</b>"
-	if(current_species.flags & IS_PLANT)
-		dat += "</br><b>Has a plantlike physiology.</b>"
-	dat += "</small></td>"
-	dat += "</tr>"
-	dat += "</table><center><hr/>"
-
-	var/restricted = 0
-	if(GLOB.config.usealienwhitelist) //If we're using the whitelist, make sure to check it!
-		if(!(current_species.spawn_flags & CAN_JOIN))
-			restricted = 2
-		else if((current_species.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(preference_mob(),current_species.name))
-			restricted = 1
-
-	if(restricted)
-		if(restricted == 1)
-			dat += SPAN_WARNING("<b>You cannot play as this species.</br><small>If you wish to be whitelisted, you can make an application post on <a href='byond://?src=[REF(user)];preference=open_whitelist_forum'>the forums</a>.</small></b></br>")
-		else if(restricted == 2)
-			dat += SPAN_WARNING("<b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></br>")
-	if(!restricted || check_rights(R_ADMIN, 0))
-		dat += "\[<a href='byond://?src=[REF(src)];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
-	dat += "</center>"
-
-
-	user << browse(HTML_SKELETON(dat.Join()), "window=species;size=700x400")
 
 /// This proc verifies if a sprite accessory can be put on a robolimb, checking its manufacturer.
 /datum/category_item/player_setup_item/general/body/proc/verify_robolimb_appropriate(datum/sprite_accessory/S)

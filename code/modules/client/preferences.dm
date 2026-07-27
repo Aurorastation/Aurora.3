@@ -298,7 +298,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/list/data = list()
 	data["can_save"] = !!path
 	data["character_name"] = real_name
-	data["content"] = player_setup.content(user)
 	data["sql_saves"] = GLOB.config.sql_saves
 	var/datum/faction/character_faction = SSjobs.name_factions[faction] || SSjobs.default_faction
 	data["faction_name"] = character_faction.name
@@ -312,6 +311,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			"selected" = (category == player_setup.selected_category)
 		))
 	data["categories"] = categories
+	data["items"] = player_setup.selected_category?.ui_data(user) || list()
 
 	return data
 
@@ -327,6 +327,13 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			if(category && (category in player_setup.categories))
 				player_setup.selected_category = category
 				return TRUE
+
+		if("preference_topic")
+			var/datum/category_item/player_setup_item/item = locate(params["item"])
+			var/list/topic = params["topic"]
+			if(!item || !(item in player_setup.selected_category?.items) || !islist(topic))
+				return FALSE
+			return item.handle_ui_topic(topic, user)
 
 		if("save")
 			save_character()
