@@ -50,6 +50,7 @@
 
 /obj/item/modular_computer/handheld/preset/engineering
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
+	notification_department = DEPARTMENT_ENGINEERING
 
 /obj/item/modular_computer/handheld/preset/engineering/set_icon()
 	icon_state += "-brown"
@@ -73,6 +74,7 @@
 // Supply
 /obj/item/modular_computer/handheld/preset/supply
 	_app_preset_type = /datum/modular_computer_app_presets/supply
+	notification_department = DEPARTMENT_CARGO
 
 /obj/item/modular_computer/handheld/preset/supply/set_icon()
 	icon_state += "-brown"
@@ -107,6 +109,7 @@
 
 /obj/item/modular_computer/handheld/preset/medical
 	_app_preset_type = /datum/modular_computer_app_presets/medical
+	notification_department = DEPARTMENT_MEDICAL
 
 /obj/item/modular_computer/handheld/preset/medical/set_icon()
 	icon_state += "-green"
@@ -128,6 +131,7 @@
 
 /obj/item/modular_computer/handheld/preset/research
 	_app_preset_type = /datum/modular_computer_app_presets/research
+	notification_department = DEPARTMENT_SCIENCE
 
 /obj/item/modular_computer/handheld/preset/research/Initialize()
 	. = ..()
@@ -144,6 +148,7 @@
 
 /obj/item/modular_computer/handheld/preset/security
 	_app_preset_type = /datum/modular_computer_app_presets/security
+	notification_department = DEPARTMENT_SECURITY
 
 /obj/item/modular_computer/handheld/preset/security/set_icon()
 	icon_state += "-blue"
@@ -160,9 +165,11 @@
 
 /obj/item/modular_computer/handheld/preset/bridge
 	_app_preset_type = /datum/modular_computer_app_presets/bridge
+	notification_department = DEPARTMENT_COMMAND
 
 /obj/item/modular_computer/handheld/preset/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
+	notification_department = DEPARTMENT_COMMAND
 
 /obj/item/modular_computer/handheld/preset/command/Initialize()
 	. = ..()

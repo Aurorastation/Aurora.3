@@ -53,6 +53,21 @@
 		if(prs.type == preset_type)
 			return prs.return_install_programs(src)
 
+/// Connects an issued departmental device to notification machinery in its department.
+/obj/item/modular_computer/proc/connect_departmental_notifications()
+	if(!notification_department)
+		return
+
+	for(var/obj/structure/machinery/requests_console/console in GLOB.allConsoles)
+		var/area/console_area = get_area(console)
+		if(console_area?.department == notification_department)
+			console.add_alert_pda(src)
+
+	for(var/obj/structure/machinery/ringer/ringer in GLOB.all_ringers)
+		var/area/ringer_area = get_area(ringer)
+		if(ringer_area?.department == notification_department)
+			ringer.add_pda(src)
+
 // Used to perform preset-specific hardware changes.
 /obj/item/modular_computer/proc/install_default_hardware()
 	return TRUE
