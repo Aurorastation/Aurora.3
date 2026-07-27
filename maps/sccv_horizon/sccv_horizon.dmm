@@ -34596,8 +34596,8 @@
 /obj/effect/floor_decal/spline/plain/purple{
 	dir = 8
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/operations/machinist)
@@ -42141,14 +42141,10 @@
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "fvK" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = 5;
-	pixel_y = 4
-	},
 /obj/structure/machinery/power/outlet{
 	pixel_y = 3
 	},
+/obj/structure/table/reinforced/glass,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
 "fvR" = (
@@ -59779,7 +59775,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
 "hJy" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
@@ -69889,10 +69885,10 @@
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/operations/machinist)
@@ -84163,13 +84159,15 @@
 /area/horizon/maintenance/deck_1/main/port/shortcut)
 "kNf" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/effect/floor_decal/spline/plain/purple{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/effect/floor_decal/spline/plain/purple{
+	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain/corner/purple,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/operations/machinist)
 "kNj" = (
@@ -101747,7 +101745,6 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 4
@@ -101760,6 +101757,7 @@
 	pixel_x = -3;
 	pixel_y = 4
 	},
+/obj/structure/table/reinforced/glass,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
 "ndW" = (
@@ -104028,17 +104026,12 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/lab)
 "ntQ" = (
-/obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 3;
+	pixel_y = 4
 	},
-/obj/effect/floor_decal/spline/plain/cee/purple{
-	dir = 4
-	},
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
 "ntU" = (
 /obj/structure/railing/mapped{
@@ -162160,7 +162153,9 @@
 /obj/effect/floor_decal/spline/plain/purple{
 	dir = 9
 	},
-/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/operations/machinist)
 "uRY" = (
