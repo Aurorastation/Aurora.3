@@ -1484,34 +1484,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		usr.update_inv_w_uniform()
 		usr.update_inv_wear_suit()
 
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_cloak()
-	set name = "Change Cloak"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return
-
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
-	if(!K)
-		return
-
-	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
-	K.changed = !K.changed
-	K.update_icon()
-	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/on_attached(obj/item/clothing/S, mob/user as mob)
-	..()
-	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_cloak
-	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood
-
-/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/on_removed(mob/user as mob)
-	if(has_suit)
-		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_cloak
-		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood
-	..()
-
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood()
 	set name = "Toggle Hood"
 	set category = "Object"
