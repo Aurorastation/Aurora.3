@@ -1472,11 +1472,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/update_icon(var/hooded = FALSE)
 	var//obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
-	SEND_SIGNAL(K, COMSIG_ITEM_STATE_CHECK, args)
+	SEND_SIGNAL(S, COMSIG_ITEM_STATE_CHECK, args)
 	. = ..()
-	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
-	K.accessory_mob_overlay = null
-	SEND_SIGNAL(K, COMSIG_ITEM_ICON_UPDATE)
+	S.item_state = "[S.icon_state][hooded ? "_up" : ""]"
+	S.accessory_mob_overlay = null
+	SEND_SIGNAL(S, COMSIG_ITEM_ICON_UPDATE)
 	if(usr)
 		usr.update_inv_w_uniform()
 		usr.update_inv_wear_suit()
@@ -1489,9 +1489,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
-	if(!K)
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/S = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
+	if(!S)
 		return
 
-	SEND_SIGNAL(K, COMSIG_ITEM_UPDATE_STATE, K)
-	K.update_icon()
+	SEND_SIGNAL(S, COMSIG_ITEM_UPDATE_STATE, S)
+	S.update_icon()
