@@ -6,7 +6,6 @@
 	icon_state = "pda"
 	item_state = "electronic"
 	contained_sprite = TRUE
-	icon_state_screensaver = "off"
 	icon_state_unpowered = "pda"
 	var/icon_add // this is the "bar" part in "pda-bar"
 	enrolled = DEVICE_PRIVATE
