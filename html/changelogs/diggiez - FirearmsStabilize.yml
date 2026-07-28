@@ -50,7 +50,7 @@ delete-after: True
 
 changes:
   - bugfix: "Safety fumbles for Firearms actually works, and is also actually triggered by the safety, but it's no longer the only gun fumble."
-  - balance: "Firearms dispersion-per-rank under Trained is now +15, meaning Unfamiliar will only have a 30-degree dispersion instead of the Stormtrooper-level 60-degrees."
+  - balance: "Firearms dispersion under Trained is now 30 degrees for either rank, but using non-energy guns adds an extra 15 degrees when unsteadied."
   - rscadd: "Characters under Trained Firearms can now stabilize for two shots without skill penalties by staying still for 1 second after entering a tile with a gun in their active hand."
   - balance: "Unfamiliar and Familiar Firearms now get 3/5 normal shots before getting unsteadied with penalties for 4.5/2.5 seconds. Stabilized shots ignore being unsteadied."
   - rscadd: "Firing warmups! 18 shots grant a moodlet of +3 morale points for a duration, which can refresh and stack an extra time. Chars under Trained Firearms gain a 30%-40% chance of firing without skill penalties during it."

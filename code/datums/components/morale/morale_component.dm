@@ -307,9 +307,8 @@
 	SIGNAL_HANDLER
 	*power = *power * (1 + (melee_damage_contribution * morale_ratio))
 
-/datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase, obj/item/gun/bang)
 /// Increases gun accuracy with positive morale. Psi-panic from negative morale makes it much worse.
-/datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
+/datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase, obj/item/gun/bang)
 	SIGNAL_HANDLER
 	var/effective_morale = morale_ratio
 	if (effective_morale < 0)
@@ -320,9 +319,8 @@
 	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * effective_morale
 	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * effective_morale
 
-/datum/component/morale/proc/gun_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 /// Psi-panic from negative morale can cause a shooter to fail to disengage a gun's safety. This includes the automatic disengage when firing on harm intent.
-/datum/component/morale/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
+/datum/component/morale/proc/gun_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
 	// Up to 50% chance to fumble a safety or firing mode when in a psionically-induced panic.
 	if (morale_points >= 0 || !prob(floor(5 * panic_chance_ceiling * -morale_ratio)))

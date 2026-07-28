@@ -6,8 +6,8 @@
 	/// Accuracy modifier to fired guns per point of "Skill Diff" as an "Effective increase" in tiles to the target being shot.
 	var/accuracy_per_skill_diff = 0.5
 
-	/// Dispersion modifier to fired guns per point of "Skill Diff" as an arc-length in Degrees.
-	var/dispersion_per_skill_diff = 15
+	/// Dispersion modifier to fired guns as an arc-length in Degrees.
+	var/dispersion = 30
 
 	/// %chance per point of "Skill Diff" to fumble changing a weapon's safety or firing mode.
 	var/gun_fumble_per_skill_diff = 15
@@ -105,6 +105,7 @@
 	if(next_steady && world.time >= next_steady || forced)
 		next_steady = null
 		unsteadied = FALSE
+		playsound(shooter, 'sound/weapons/magazine_insert.ogg', 70)
 		to_chat(shooter, SPAN_NOTICE("<i>Your grip feels steadier again.</i>"))
 		shooter.balloon_alert(shooter, "Steadied shots!")
 
@@ -171,6 +172,7 @@
 		count_to_unsteady = 0
 		next_steady = world.time + ((4/skill_level) + 0.5) SECONDS
 		addtimer(CALLBACK(src, PROC_REF(set_steady), shooter), next_steady - world.time)
+		playsound(shooter, 'sound/weapons/magazine_eject.ogg', 70) // since you're out of realistically-usable ammo for a bit
 		to_chat(shooter, SPAN_DANGER("<i>Your grip becomes unsteadied!</i>"))
 		shooter.balloon_alert(shooter, "Unsteadied shots!")
 
@@ -184,7 +186,7 @@
 	if(stabilized) // First to go because it's the most common and contextual
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			*accuracy_decrease = *accuracy_decrease - 1 // +1 tile closer, equal to +2 ranks as a boon for the higher level cost
-			*dispersion_increase = *dispersion_increase + dispersion_per_skill_diff * skill_diff // Only negative at this level
+			*dispersion_increase = *dispersion_increase - dispersion // 30-degree dispersion DECREASE
 		return .
 	if(!unsteadied)
 		return
@@ -201,12 +203,15 @@
 			SPAN_DANGER("You micro-adjust for better aim before firing."))
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			*accuracy_decrease = *accuracy_decrease - 1
-			*dispersion_increase = *dispersion_increase + dispersion_per_skill_diff * skill_diff
+			*dispersion_increase = *dispersion_increase + dispersion * skill_diff
 		return .
 	// Count target as being half a tile further away from shooter per difference between a skilled professional, and shooter's skill level
 	*accuracy_decrease = *accuracy_decrease + accuracy_per_skill_diff * skill_diff
-	// Unskilled shooters get an increased firing arc for their guns to a maximum of 30 degrees when fully untrained.
-	*dispersion_increase = *dispersion_increase + dispersion_per_skill_diff * skill_diff
+	// Untrained shooters get an increased firing arc for their guns to 30 degrees.
+	if(skill_level < SKILL_LEVEL_TRAINED)
+		*dispersion_increase = *dispersion_increase + dispersion
+		if(!istype(bang, /obj/item/gun/energy))
+			*dispersion_increase += 15
 
 /datum/component/skill/firearms/proc/gun_fumble(mob/living/shooter, obj/item/gun/shoota, cancelled, signaltype)
 	SIGNAL_HANDLER

@@ -62,15 +62,15 @@
 	component_type = FIREARMS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have little-to-no knowledge of how firearms work at all, getting unsteadied and inaccurate quickly.<br>" \
-			+ " - Firearms you shoot have a <b>30-degree</b> spread-angle increase, making them very inaccurate.<br>" \
-			+ " - Firearms you shoot count as <b>1 tile further</b> from the target.<br>" \
+			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied, making them less accurate. Non-energy firearms have an extra 15-degrees when unsteadied.<br>" \
+			+ " - Firearms you shoot count as <b>1 tile further</b> from the target when unsteadied.<br>" \
 			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two penalty-free shots.<br>" \
 			+ " - You can fire <b>three normal shots</b> before becoming unsteadied for <b>4.5 seconds</b>, where non-stabilized shots all have penalties.<br>" \
 			+ " - You have a <b>30% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope (<b>which can also hurt your eye</b>).<br>" \
 			+ " - You're warmed up for <b>10 minutes</b> after firing 18 shots, gaining a 55% chance of firing penalty-free and +3 morale points. This can stack a second time for no fumbling, a 65% chance, double the duration, and <b>+4</b> morale points.<br>",
 		SKILL_LEVEL_FAMILIAR = "You have fired a gun once or twice in your life, but are by no means fully trained. At least you know how to not shoot yourself in the foot or get scope-eye.<br>" \
-			+ " - Firearms you shoot have a <b>15-degree</b> spread-angle increase, making them somewhat less accurate.<br>" \
-			+ " - Firearms you shoot count as <b>0.5 tiles further</b> from the target.<br>" \
+			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied, making them less accurate. Non-energy firearms have an extra 15-degrees when unsteadied.<br>" \
+			+ " - Firearms you shoot count as <b>0.5 tiles further</b> from the target when unsteadied.<br>" \
 			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two penalty-free shots.<br>" \
 			+ " - You can fire <b>five normal shots</b> before becoming unsteadied for <b>2.5 seconds</b>, where non-stabilized shots all have penalties.<br>" \
 			+ " - You have a <b>15% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope.<br>" \
@@ -79,9 +79,8 @@
 			+ " - You suffer no skill penalties to firearms use and cannot get unsteadied.<br>" \
 			+ " - You're warmed up for <b>20 minutes</b> after firing 18 shots, gaining +3 morale points. This can stack a second time for double the duration and <b>+6</b> morale points.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of experience with firearms, potentially even in actual combat. Retired special forces, police marksmen, and hardened mercenaries fall under this category.<br>" \
-			+ " - Firearms you shoot have a <b>15-degree</b> spread-angle <i>decrease</i>, making them somewhat more accurate. This generally doesn't apply to weapons fired in semi-auto, but will make burst and automatic fire more manageable.<br>" \
 			+ " - Firearms you shoot count as <b>0.5 tiles closer</b> to the target.<br>" \
-			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two shots with <i>boosted accuracy</i>, equivalent to being <b>1 tile closer</b>.<br>" \
+			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two shots with <i>boosted accuracy</i>, equivalent to being <b>1 tile closer</b> and having a <b>30-degree</b> spread angle <i>decrease</i>.<br>" \
 			+ " - You're warmed up for <b>25 minutes</b> after firing 18 shots, gaining a <b>55% chance</b> of firing with <i>boosted accuracy</i> and +3 morale points. This can stack a second time for a <b>65% chance</b>, double the duration, and <b>+7</b> morale points."
 	)
 
