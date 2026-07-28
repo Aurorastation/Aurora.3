@@ -15,12 +15,14 @@
 		SKILL_LEVEL_UNFAMILIAR = "You have zero training or experience with synthetics.<br>" \
 			+ " - You suffer a large penalty to the chances of successfully performing any surgery on synthetics.",
 		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of synthetic repair and maintenance. This could be the level of a hobbyist, or someone currently pursuing a degree in robotics.<br>" \
+			+ " - You can recognize what a few wires do in mechatronic devices by sight.<br>" \
 			+ "You can perform the following procedures without penalties: <br>" \
 			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
 			+ " - Repairing basic damage with a welder or cables.<br>" \
 			+ " - Repairing external damage to mechanical limbs.<br>" \
 			+ " - Cutting someone out of a hardsuit.",
 		SKILL_LEVEL_TRAINED = "You have years of formal training or experience on repairing and maintaining synthetics equivalent to a Bachelor's degree in Robotics.<br>" \
+			+ " - You can recognize what several wires do in mechatronic devices by sight.<br>" \
 			+ "You can perform the following procedures without penalties:<br>" \
 			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
 			+ " - Repairing basic damage with a welder or cables.<br>" \
@@ -33,7 +35,8 @@
 			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
 			+ " - Perform all forms of internal repairs to IPCs.<br>" \
 			+ " - Prepare an MMI for cyborgification.",
-		SKILL_LEVEL_PROFESSIONAL = "Not currently implemented, functions exactly as per Trained.<br>" \
+		SKILL_LEVEL_PROFESSIONAL = "You have years of formal training or experience on repairing and maintaining synthetics equivalent to a Master's degree in Robotics or better.<br>" \
+			+ " - You can recognize what many wires do in mechatronic devices by sight.<br>" \
 			+ "You can perform the following procedures without penalties:<br>" \
 			+ " - Opening or closing external maintenance panels to make superficial repairs.<br>" \
 			+ " - Repairing basic damage with a welder or cables.<br>" \
@@ -118,3 +121,20 @@
 	)
 	required = TRUE
 	component_type = PILOT_MECHS_SKILL_COMPONENT
+
+/singleton/skill/conditioning
+	name = "Conditioning"
+	description = "Governs a character's ability to pick up, drag, and throw heavy objects, particularly crates and people. " \
+		+ "By default, most characters can comfortably lift or drag 1.25x their body weight without penalty. " \
+		+ "This includes determining how heavy a character you can fireman carry, and with how much slowdown. "
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
+	category =  /singleton/skill_category/occupational
+	subcategory = SKILL_SUBCATEGORY_OPERATIONS
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from your Conditioning.",
+		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%",
+		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%",
+		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%"
+	)
+	component_type = CONDITIONING_SKILL_COMPONENT

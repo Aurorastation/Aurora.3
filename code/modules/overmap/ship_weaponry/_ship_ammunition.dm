@@ -273,7 +273,7 @@
 			P = new /obj/projectile/bullet/pellet/fragment/spall/metalrod(O)
 		else if(istype(thing_pierced, /obj/structure/machinery/door/airlock))
 			var/obj/structure/machinery/door/airlock/D = thing_pierced
-			if(D.window_material && D.window_material == SSmaterials.get_material_by_name(MATERIAL_GLASS))
+			if(D.window_material && D.window_material == GET_SINGLETON(MATERIAL_GLASS))
 				P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
 			else
 				P = new /obj/projectile/bullet/pellet/fragment/spall(O)

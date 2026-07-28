@@ -81,7 +81,7 @@
  * It will be called during the process of spawning a player character in.
  */
 /singleton/skill/proc/on_spawn(mob/owner, skill_level)
-	SHOULD_CALL_PARENT(TRUE)
+	// Note that this can be directly overridden for skills that wish to use the ECS hook to provide an effect other than the standard "adding a component".
 	if (!owner || !component_type || (!required && skill_level == SKILL_LEVEL_UNFAMILIAR))
 		return
 

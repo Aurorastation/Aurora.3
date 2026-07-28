@@ -59,9 +59,13 @@
 	if(!ispath(recipe.path, /obj/item/stack) && multiplier > 1)
 		multiplier = 1
 
+	normalize_material_storage()
+	SSmaterials.normalize_material_amounts(recipe.resources)
+
 	// Check if sufficient resources exist.
 	for(var/material in recipe.resources)
-		if(stored_material[material] < round(recipe.resources[material] * mat_efficiency) * multiplier)
+		var/material_path = SSmaterials.material_to_path(material, FALSE)
+		if(!material_path || isnull(stored_material[material_path]) || stored_material[material_path] < round(recipe.resources[material] * mat_efficiency) * multiplier)
 			return
 
 	// Generate and track a new order.
@@ -73,9 +77,10 @@
 
 	// Remove/earmark resources.
 	for(var/material in recipe.resources)
+		var/material_path = SSmaterials.material_to_path(material, FALSE)
 		var/removed_mat = round(recipe.resources[material] * mat_efficiency) * multiplier
-		stored_material[material] = max(0, stored_material[material] - removed_mat)
-		order.earmarked_materials[material] = removed_mat
+		SSmaterials.remove_material_amount(stored_material, material_path, removed_mat)
+		order.earmarked_materials[material_path] = removed_mat
 
 	if(!currently_printing)
 		get_next_build()
@@ -86,9 +91,14 @@
 /obj/structure/machinery/fabricator/proc/try_cancel_build(datum/fabricator_build_order/order)
 	if(istype(order) && currently_printing != order && is_functioning())
 		if(order in print_queue)
+			normalize_material_storage()
+			SSmaterials.normalize_material_amounts(order.earmarked_materials)
 			// Refund some mats.
 			for(var/mat in order.earmarked_materials)
-				stored_material[mat] = min(stored_material[mat] + (order.earmarked_materials[mat] * 0.9), storage_capacity[mat])
+				var/material_path = SSmaterials.material_to_path(mat, FALSE)
+				if(!material_path || isnull(stored_material[material_path]) || isnull(storage_capacity[material_path]))
+					continue
+				stored_material[material_path] = min(stored_material[material_path] + (order.earmarked_materials[mat] * 0.9), storage_capacity[material_path])
 			print_queue -= order
 		qdel(order)
 		return TRUE

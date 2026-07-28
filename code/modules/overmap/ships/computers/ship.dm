@@ -108,12 +108,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
 	// NPCs, Ghostroles, and Offship Antags that don't generate skills are unaffected by this check by intentional design so that we don't have to account for them.
-	if (!connected.pilot_class && pilot_level <= SKILL_LEVEL_UNFAMILIAR)
+	if (!connected.pilot_class && pilot_level && pilot_level <= SKILL_LEVEL_UNFAMILIAR)
 	// No pilot_class means it's probably a station, so only Unfamiliar is checked for
 		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin."))
 		return FALSE
 	// A lack of a difference means skill level (1-4) is less than pilot_class (1-3)
-	if(piloting_difference <= 0)
+	if(pilot_level && piloting_difference <= 0)
 		if(connected.pilot_class == PILOTING_CLASS_SHUTTLE)
 			user.visible_message("<b>[user]</b> starts indecisively messing with \the [src].", SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, but..."))
 			if(do_after(user, 10 SECONDS) && Adjacent(user))
@@ -130,7 +130,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		else
 			to_chat(user, SPAN_WARNING("This ship's class is notably more complex than you're used to, but you can still grasp the core controls."))
 	// Conversely, Non-Unfamiliar skill level (2-4) will always be higher than pilot class (1-3)
-	if(pilot_level < connected.pilot_class)
+	if(pilot_level && pilot_level < connected.pilot_class)
 		to_chat(user, SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, this is far too complex for you."))
 		return
 	if(use_check_and_message(user))

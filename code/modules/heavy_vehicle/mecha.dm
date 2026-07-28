@@ -66,7 +66,7 @@
 	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
-	var/material/material
+	var/singleton/material/material
 
 	// Cockpit access vars.
 	var/hatch_closed = FALSE

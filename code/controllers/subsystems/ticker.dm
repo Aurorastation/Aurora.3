@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(ticker)
 		'sound/music/lobby/snow.ogg',
 		'sound/music/lobby/saturn.ogg',
 		'sound/music/lobby/kaaistoep.ogg',
-		'sound/music/lobby/saturn.ogg'
+		'sound/music/lobby/spatial_audio.ogg'
 	)
 
 	var/lobby_ready = FALSE
@@ -439,6 +439,7 @@ SUBSYSTEM_DEF(ticker)
 			login_music = SSatlas.current_sector.lobby_tracks
 		else
 			login_music = default_lobby_tracks
+		login_music = shuffle(login_music)
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME

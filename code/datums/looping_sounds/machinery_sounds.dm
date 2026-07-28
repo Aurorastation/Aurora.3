@@ -178,3 +178,21 @@
 	mid_length = 3 SECONDS
 	end_sound = 'sound/machines/synthfab/synthfab_end.ogg'
 	volume = 75
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/ventilation_humming
+	skip_starting_sounds = TRUE
+	mid_sounds = list('sound/machines/ventilation_humming.ogg' = 1)
+	mid_length = 3 SECONDS
+	volume = 5
+	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/electrical_humming
+	skip_starting_sounds = TRUE
+	mid_sounds = list('sound/machines/electrical_humming.ogg' = 1)
+	mid_length = 3 SECONDS
+	volume = 75 // This sounds is rather quiet and needs a higher volume then anticipated for a background noise
+	ignore_walls = FALSE

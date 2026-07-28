@@ -48,13 +48,24 @@
 		var/list/turf/good_turfs = list()
 		var/list/turf/bad_turfs = list()
 		var/turf/T = get_turf(adestination)
+		if(!T)
+			return adestination
+		var/list/invalid_inhibitors
 		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+			if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+			if(QDELETED(AB))
+				LAZYADD(invalid_inhibitors, found_inhibitor)
+				continue
 			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)
 			bad_turfs += circle_range_turfs(get_turf(AB),8)
 			good_turfs += circle_range_turfs(get_turf(AB),9)
+		if(invalid_inhibitors)
+			GLOB.bluespace_inhibitors -= invalid_inhibitors
 		if(length(good_turfs) && length(bad_turfs))
 			good_turfs -= bad_turfs
 			if(length(good_turfs))

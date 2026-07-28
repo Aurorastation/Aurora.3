@@ -443,8 +443,9 @@
 		to_chat(H, SPAN_WARNING("You can only fireman carry humanoids!"))
 		return
 	var/mob/living/carbon/human/affected_human = affecting
-	if(affected_human.mob_weight > H.get_mob_strength())
-		to_chat(H, SPAN_WARNING("\The [affected_human] is way too big to fireman carry!"))
+	var/grabber_strength = H.get_effective_mass() * H.mob_strength
+	if(affected_human.mass > grabber_strength)
+		to_chat(H, SPAN_WARNING("\The [affected_human] is heavier than your Lift Limit of [grabber_strength]kg, you cannot fireman carry then!"))
 		return
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))

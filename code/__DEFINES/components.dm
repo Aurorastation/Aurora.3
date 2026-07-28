@@ -30,6 +30,7 @@
 #define CAROUSING_SKILL_COMPONENT /datum/component/skill/carousing
 #define TENACITY_SKILL_COMPONENT /datum/component/skill/tenacity
 #define MINISTRY_SKILL_COMPONENT /datum/component/skill/ministry
+#define CONDITIONING_SKILL_COMPONENT /datum/component/skill/conditioning
 
 /**
  * Trinary-Boolean helper that either returns null, or the skill level of a given skill component(which can be zero).

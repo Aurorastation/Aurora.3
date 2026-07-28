@@ -38,7 +38,7 @@
 	name = "magnetic 'pin'"
 	desc = "Finally, a hair pin even a robot chassis can use."
 	slot_flags = SLOT_HEAD
-	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	matter = list(MATERIAL_STEEL = 10)
 
 /obj/item/clothing/head/pin/flower
 	name = "red flower pin"

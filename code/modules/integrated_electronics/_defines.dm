@@ -39,6 +39,9 @@
 
 // Data limits.
 #define IC_MAX_LIST_LENGTH 200
+#define IC_DEFAULT_PHORON_COST 0.005
+#define IC_BLUEPRINT_CHUNK_LIMIT 1000
+#define IC_BLUEPRINT_BUFFER_LIMIT 500000
 
 /obj/item/integrated_circuit
 	name = "integrated circuit"
@@ -61,6 +64,7 @@
 	var/power_draw_idle = 0         // How much power is drawn when doing nothing.
 	var/spawn_flags                 // Used for world initializing, see the #defines above.
 	var/category_text = "NO CATEGORY THIS IS A BUG" // To show up on circuit printer, and perhaps other places.
+	var/phoron_cost = IC_DEFAULT_PHORON_COST
 	var/removable = TRUE            // Determines if a circuit is removable from the assembly.
 	var/displayed_name = ""
 	var/allow_multitool = TRUE      // Allows additional multitool functionality

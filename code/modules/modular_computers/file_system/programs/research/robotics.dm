@@ -79,7 +79,7 @@
 
 			organ_data["name"] = organ.name
 			organ_data["desc"] = organ.desc
-			organ_data["damage"] = organ.damage
+			organ_data["damage"] = organ.get_damage()
 			organ_data["max_damage"] = organ.max_damage
 
 			data["organs"] += list(organ_data)

@@ -86,3 +86,32 @@
 		SKILL_LEVEL_TRAINED = "You gain the \"Offer Blessing\" ability, which provides a +6.666 morale bonus to a recipient that lasts for 2 hours.",
 		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Offer Blessing\" ability, which provides a +10 morale bonus to a recipient that lasts for 2 hours."
 	)
+
+/singleton/skill/resolve
+	name = "Resolve"
+	description = "Represents a character's mental resilience, emotional stability, and ability to remain steadfast under stress. " \
+		+ "Characters with greater Resolve receive a permanent passive bonus to their effective morale value. This can provide small bonuses to a variety of interactions. " \
+		+ "This morale bonus can also act as a pool of resistance towards psychic damage. " \
+		+ "This skill has no effect for species which do not interact with Morale."
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
+	category = /singleton/skill_category/everyday
+	subcategory = SKILL_SUBCATEGORY_PHYSICAL
+	component_type = null // No component, this skill is flexing the ECS hook in a different way entirely.
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Resolve.",
+		SKILL_LEVEL_FAMILIAR = "You have a passive permanent bonus of +3 morale points.",
+		SKILL_LEVEL_TRAINED = "You have a passive permanent bonus of +6 morale points.",
+		SKILL_LEVEL_PROFESSIONAL = "You have a passive permanent bonus of +9 morale points."
+	)
+
+/singleton/skill/resolve/on_spawn(mob/owner, skill_level)
+	var/mob/living/carbon/character = astype(owner)
+	if (!character || skill_level == SKILL_LEVEL_UNFAMILIAR || !character.species || !character.species.has_morale)
+		return
+
+	// Using LoadComponent here lets me defeat any possible race conditions coming out of character creation.
+	// Uniquely among skills, this skill works by modifying a pre-existing component used by player characters, rather than adding its own.
+	// If you're a contributor reading up on skills, consider this your tutorial on how to make a skill modify some statistic directly.
+	var/datum/component/morale/morale_comp = character.LoadComponent(MORALE_COMPONENT)
+	morale_comp.set_phi_value(morale_comp.get_phi_value() + (3 * (skill_level - 1)))
+

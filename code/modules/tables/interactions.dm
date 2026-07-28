@@ -66,6 +66,11 @@
 /obj/structure/table/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
+	if(isliving(arrived))
+		var/mob/living/L = arrived
+		if(L.buckled_to)
+			return
+
 	if(ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
 		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
@@ -325,7 +330,7 @@
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				return ..()
 			if(health < maxhealth)
 				if(D.get_amount() < 1)

@@ -71,7 +71,7 @@
 
 	if(istype(A, /obj/item/stack/material))
 		var/obj/item/stack/material/P = A
-		if(P.material.name == MATERIAL_PHORON)
+		if(P.material.type == MATERIAL_PHORON)
 			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
 			if(!do_after(src, 1 SECOND, P))
 				return

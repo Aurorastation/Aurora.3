@@ -152,7 +152,7 @@ emp_act
 	return null
 
 /mob/living/carbon/human/check_shields(damage, atom/damage_source, mob/attacker, def_zone, attack_text = "the attack")
-	var/result
+	var/result = BULLET_ACT_HIT
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
