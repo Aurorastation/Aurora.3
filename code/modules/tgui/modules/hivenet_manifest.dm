@@ -38,9 +38,9 @@
 				klax_vaurca += vaurca_to_data(vaurca)
 
 	data["all_vaurca"] = list(
-		"Zo'ra" = list("vaurca" = sort_vaurca_list(zora_vaurca), "color" = "Security"),
-		"C'thur" = list("vaurca" = sort_vaurca_list(cthur_vaurca), "color" = "Command"),
-		"K'lax" = list("vaurca" = sort_vaurca_list(klax_vaurca), "color" = "Medical")
+		"Zo'ra" = list("vaurca" = sort_vaurca_list(zora_vaurca), "color" = "red"),
+		"C'thur" = list("vaurca" = sort_vaurca_list(cthur_vaurca), "color" = "violet"),
+		"K'lax" = list("vaurca" = sort_vaurca_list(klax_vaurca), "color" = "gold")
 	)
 
 	return data
