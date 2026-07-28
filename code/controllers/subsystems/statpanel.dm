@@ -248,6 +248,7 @@ SUBSYSTEM_DEF(statpanels)
 		to_make += turf_item
 		already_seen[turf_item] = OBJ_IMAGE_LOADING
 		obj_window.RegisterSignal(turf_item, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted)) // we reset cache if anything in it gets deleted
+		obj_window.RegisterSignal(turf_item, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf)) // we reset cache if anything in it moves
 	return turf_items
 
 #undef OBJ_IMAGE_LOADING
@@ -405,6 +406,22 @@ SUBSYSTEM_DEF(statpanels)
 	atoms_to_show -= deleted
 	atoms_to_imagify -= deleted
 	atoms_to_images -= deleted
+
+/*
+ * Immediately removes an item from the statpanel if it is no longer on the turf.
+ * This is used to immediately update the panel when an item is picked up.
+ * Prevents many bugs related to items that should no longer be accessible to the player, still being able to be clicked on.
+ * Eg. Loading a bullet into a magazine, the panel does not update, the bullet can be clicked again, despite already being in the magazine.
+ * The bullet can then be loaded into the magazine twice.
+ */
+/datum/object_window_info/proc/item_moved_from_turf(atom/moved)
+	SIGNAL_HANDLER
+	if(!actively_tracking)
+		return
+	atoms_to_show -= moved
+	atoms_to_imagify -= moved
+	atoms_to_images -= moved
+	SSstatpanels.refresh_client_obj_view(parent)
 
 /mob/proc/set_listed_turf(turf/new_turf)
 	listed_turf = new_turf
