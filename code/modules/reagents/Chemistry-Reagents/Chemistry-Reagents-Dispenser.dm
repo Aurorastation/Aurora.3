@@ -207,7 +207,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 			M.adjustToxLoss(3 * removed * (strength / 100))
 
 		if (has_valid_aug | alien != IS_UNATHI)
-			for (var/organ as anything in M.internal_organs)
+			for (var/datum/organ as anything in M.internal_organs)
 				if (istype(organ, /obj/item/organ/internal/stomach) || istype(organ, /obj/item/organ/internal/liver))
 					START_PROCESSING(SSprocessing, organ)
 			M.intoxication += (strength / 100) * removed * 6
@@ -284,7 +284,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 
 /singleton/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
 	if (alien == IS_UNATHI)
-		for (var/organ as anything in M.internal_organs)
+		for (var/datum/organ as anything in M.internal_organs)
 			if (istype(organ, /obj/item/organ/internal/stomach) || istype(organ, /obj/item/organ/internal/liver))
 				START_PROCESSING(SSprocessing, organ)
 		M.intoxication += (strength / 100) * removed * 6

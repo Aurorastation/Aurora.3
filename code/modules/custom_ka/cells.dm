@@ -92,6 +92,9 @@
 
 /obj/item/custom_ka_upgrade/cells/cell04/on_update(var/obj/item/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + 3,cell_increase)
+	if (stored_charge == cell_increase)
+		return FALSE
+	else return TRUE
 
 /obj/item/custom_ka_upgrade/cells/cell05
 	name = "recoil reloader KA cell"
@@ -138,12 +141,13 @@
 /obj/item/custom_ka_upgrade/cells/cyborg/on_update(var/obj/item/gun/custom_ka/the_gun)
 	var/mob/living/silicon/robot/owner_robot = the_gun.loc
 	if(!istype(owner_robot))
-		return
+		return FALSE
 
 	var/obj/item/cell/external = owner_robot.cell
 	var/charge_to_give = cell_increase - stored_charge
 	if(istype(external) && external.use(charge_to_give*5))
 		stored_charge += charge_to_give
+		return TRUE
 
 /obj/item/custom_ka_upgrade/cells/exosuit
 	name = "exosuit KA cell"
@@ -166,19 +170,20 @@
 /obj/item/custom_ka_upgrade/cells/exosuit/on_update(var/obj/item/gun/custom_ka/the_gun)
 	var/charge_to_give = cell_increase - stored_charge
 	if(!charge_to_give)
-		return
+		return FALSE
 
 	var/obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/owner_equipment = the_gun.loc
 	if(!istype(owner_equipment))
-		return
+		return FALSE
 
 	var/mob/living/heavy_vehicle/owner_exosuit = owner_equipment.loc
 	if(!istype(owner_exosuit))
-		return
+		return FALSE
 
 	var/obj/item/cell/external = owner_exosuit.get_cell()
 	if(istype(external) && external.use(charge_to_give * 5))
 		stored_charge += charge_to_give
+		return TRUE
 
 /obj/item/custom_ka_upgrade/cells/illegal
 	//Pump Action
@@ -219,7 +224,9 @@
 
 /obj/item/custom_ka_upgrade/cells/inertia_charging/on_update(var/obj/item/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + round(stored_charge*0.2),cell_increase)
-
+	if (stored_charge == cell_increase)
+		return FALSE
+	else return TRUE
 
 /obj/item/custom_ka_upgrade/cells/loader
 	name = "phoron loading KA cell"
