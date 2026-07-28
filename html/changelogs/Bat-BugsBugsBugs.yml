@@ -5,3 +5,4 @@ changes:
   - bugfix: "Fixes Hivenet Manifest hive color assignments."
   - bugfix: "Fixes Crew Manifest color defines."
   - bugfix: "Inbuilt /silicon modular computers no longer broken by EMPs."
+  - bugfix: "Fixes energy gun desc_extended inheritances."
