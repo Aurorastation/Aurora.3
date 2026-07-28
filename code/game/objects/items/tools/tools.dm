@@ -531,7 +531,7 @@
 	if(!welding_turf)
 		return
 
-	var/list/potential_viewers = viewers(world.view, welding_turf)
+	var/list/potential_viewers = viewers(2, welding_turf)
 	// Preserve the existing behaviour for the user if their container keeps them out of viewers().
 	if(!(user in potential_viewers))
 		potential_viewers += user
