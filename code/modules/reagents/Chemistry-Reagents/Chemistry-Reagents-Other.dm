@@ -404,9 +404,24 @@
 	description = "This compound is very specifically designed to react with and break up common combustible fuels."
 	taste_description = "varnish"
 
+/singleton/reagent/antifuel/proc/neutralize_fuel_spill(var/obj/O)
+	if(istype(O, /obj/effect/decal/cleanable/liquid_fuel) || istype(O, /obj/effect/decal/cleanable/napalm))
+		qdel(O)
+		return TRUE
+	return FALSE
+
+/singleton/reagent/antifuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(!istype(T))
+		return
+
+	for(var/obj/effect/decal/cleanable/liquid_fuel/fuel in T)
+		neutralize_fuel_spill(fuel)
+
+	for(var/obj/effect/decal/cleanable/napalm/napalm in T)
+		neutralize_fuel_spill(napalm)
+
 /singleton/reagent/antifuel/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
-	if (istype(O, /obj/effect/decal/cleanable/liquid_fuel))
-		O.clean_blood()
+	neutralize_fuel_spill(O)
 
 /singleton/reagent/antifuel/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
