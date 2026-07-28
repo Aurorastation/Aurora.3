@@ -392,3 +392,196 @@
       the engineering hallway.
   - qol: Added an recommended escape hatch location marker and sign to the bridge.
       The marked location leads into hydroponics, unrestricted access on exit added.
+2026-07-22:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Updates map_path var for mapping unit tests to be a list instead of
+      a var, allowing for opting-in of unit tests on by-map basis.
+  - code_imp: Updates fire alarm directionality map test for (almost) all directional
+      wall-mounted objects, with only sccv_horizon map currently opted-in.
+  - bugfix: Adds extra safety for GLOB.SortedAreas having entries removed but not
+      later re-generated.
+  - bugfix: Fixes all the incorrectly mapped areas on the Horizon exposed by newly-run
+      unit tests.
+  - imageadd: Adds currently unused map_helper sprites for airlocks- prep for future
+      work.
+  Fenodyree:
+  - bugfix: Fixes light rigs getting slowdown from having undeployed boots.
+  - bugfix: Fixes light rigs having no energy armour.
+  - bugfix: Fixes one more no chest deployment without boots check.
+  Wowzewow (Wezzy):
+  - rscadd: Shaves off some pixels from arm and leg guard sprites so they look better
+      when attached.
+  - bugfix: Attempts to fix the hivebot harddel.
+  - bugfix: Fixes warrant program on consoles being invisible.
+  - rscadd: Sabrage skill now uses the bartending skill component to determine success
+      chance.
+  - rscadd: A successful Sabrage also gives a minor morale boost.
+2026-07-24:
+  ChangeMe:
+  - rscadd: Added a new system in charge of dynamic footsteps.
+  - rscadd: Greimorians now have footstep sounds.
+  - rscadd: Armour vests and voidsuits now make sound when you walk around.
+  Fendoyree:
+  - bugfix: Fixes airbubble pressure setting. It's now high enough that you don't
+      die from using one.
+  - bugfix: Fixes airbubble blinding you forever when you get out of it.
+  - bugfix: Fixes airbubble sprite not updating when it is opened from inside.
+  Fenodyree:
+  - bugfix: Fixes flora rays dealing full toxin damage, despite not being combat modulators.
+      Also updates the message if they are powerful enough to deal damage.
+  - bugfix: Fixes flora rays not checking radiation armor, despite being radiation
+      beams.
+  - bugfix: Fixes Phoron bolts dealing the wrong damage and respecting the wrong armour
+      type. They now do toxin and check bio armor. They also irradiate more, as radiation
+      now goes up to 1000.
+  - rscadd: Adds a hardsuit module press to the machinist's office.
+  MattAtlas:
+  - rscadd: Natural darkvision has been added to Himeo.
+  - rscadd: Natural darkvision for humans has been nerfed quite a bit.
+  - bugfix: Fixes glasses overriding darkvision.
+  The_Ill_Fated, hazelmouse, Batrachophrenoboocosmomachia:
+  - imageadd: Adds flags and banners for a large number of Solarian and formerly Solarian
+      worlds, all now accessible in the loadout (with the exception of original Lycoris).
+      (The_Ill_Fated)
+  - imageadd: Adds flag and banner for the Ecclesiastical Authority of Axiom, both
+      now accessible in the loadout. (hazelmouse)
+  - code_imp: Rearrangement of icons/obj/structures/flags.dmi contents to sort flags
+      by nations, removes old Sol canton template, adds new Sol stripe template. (Batrachophrenoboocosmomachia)
+  diggiez:
+  - bugfix: Repairing an IPC's endoskeleton with nanopaste no longer says the datum
+      path
+  kermit:
+  - rscadd: Reduces the captain piloting skill requirement from Professional to Trained.
+  - rscadd: Reduces the skrell consular age requirement to 100.
+2026-07-26:
+  ASmallCuteCat:
+  - qol: Adds a door that allows access to the smelters in Mining from the maintenance
+      tunnels.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed captured creatures in large animal traps/cages potentially causing
+      runtimes when the cage was placed on tables.
+  - bugfix: Fixed dragging large animal traps/cages onto tables being treated as the
+      mover trying to step through the trap.
+  - bugfix: Fixed captured creatures not following large animal traps/cages when the
+      cage was dragged onto tables.
+  Hellfirejag:
+  - bugfix: Fixed a small logic error in melee weapon sound effects.
+  - rscadd: Psiren Darters, Omens, and Beckoners can now shoot through windows, while
+      dealing less damage overall.
+  - rscadd: Psiren attacks are now less likely to cause bleeds.
+  - rscadd: Psiren variants now have specific names.
+  - rscadd: Psychic damage messages now print to random locations on the screen.
+  - rscadd: Added a new psiren subtype, the Beckoner.
+  - rscadd: Psiren Beckoners can now appear in wandering psiren events
+  - rscadd: Technomancers can now summon Psiren Beckoners
+  - balance: Stasis Bags now only provide 10x stasis to start off, rather than 20x.
+  SimpleMaroon:
+  - rscdel: Bridge Crew can no longer utilize Hivenet Receivers or the Ve'katak Phalanx
+      facial plate after Vaurca lore team request.
+  Wowzewow (Wezzy):
+  - rscadd: Adds the bartending codex.
+  - rscadd: Only the chef starts with the cooking codex and the bartender with the
+      bartending codex now. They still can be downloaded by anyone, though.
+  diggiez:
+  - qol: 'Updated vaurca namegen to not be terrible: now checks for species to give
+      an accurate caste, Warforms and Cargo drones automatically get Viax.'
+  - qol: Warforms get body color set when spawning in.
+2026-07-27:
+  Baldos:
+  - bugfix: Fixed silicons (and anything with a magnetic gripper) not being able to
+      insert fuel assemblies into the INDRA's solid fuel injectors.
+  Batrachophrenoboocosmomachia:
+  - qol: 'Eligible non-random wire panels now use relevant domain skills where applicable:
+      engineering skills, robotics, and xenobiology implemented, instead of only Electrical
+      Engineering 4.'
+  - rscadd: Adds new wire to APCs that blows out all the lights if you pulse it with
+      the safeties off.
+  - rscadd: Adds the Signal Manager NTOS app for signaler-capable network cards. Pre-installed
+      in Engineering, Research, and Machinist app presets.
+  - rscadd: Engineering, Research, and Machinist character modular computers now come
+      with signaler-capable network cards.
+  - qol: Increases remote signaler availability in EngiTech vendors and made assembly
+      items tiny.
+  - bugfix: Fixes air alarm wiring to use the correct wire datum path.
+  - bugfix: Fixes canister-attached signaler regression.
+  - bugfix: Fixes assembly holders failing silently when unsecured to fuel tanks;
+      fuel tanks now reject unsecured assembly holders.
+  - bugfix: Fixes runtime when an activation deletes or detaches one of the paired
+      assemblies.
+  - qol: Reduces the Fusion Codex program size.
+  - bugfix: Operating table less likely to get non-real occupant bug when installed
+      on a shuttle.
+  - bugfix: Antifuel grenades now reliably neutralize spilled welding fuel and napalm
+      gel.
+  - balance: Generic cleaning products/tools no longer remove spilled welding fuel
+      or napalm gel- requires antifuel reagent.
+  FabianK3:
+  - bugfix: Fixed dictionary number sort.
+  Fenodyree:
+  - balance: Buffs mech mounted gauss weapons with anti-armor potential, similar to
+      the PEAC. It can now destroy doors with repeated hits.
+  - balance: Buffs the gauss high explosive shell to do explosion damage directly
+      to a mob it hits. It now does the same damage as a heavy explosion, without
+      destroying the floor.
+  Geeves:
+  - bugfix: Fix starlight not working on overmap and overship maps.
+  Hellfirejag:
+  - rscadd: Added feedback messages for when psychic damage is penalizing a user's
+      skills.
+  - balance: Increased the penalties to skills from psychic damage by a factor of
+      3.
+  MattAtlas:
+  - rscdel: Simple mobs don't dodge backwards anymore.
+  Whitewolftamer:
+  - rscadd: Adds new prosthetic limbs for Vaurca bulwarks.
+  Wowzewow (Wezzy):
+  - rscadd: Can yoke interaction has been flipped for consistency - mousedrag to remove
+      a can, click to pick up the whole yoke.
+  diggiez:
+  - rscadd: Vaurcae can use Hivenet in the Lemurian Sea, but only on connected Horizon
+      z-levels. This extends to any far sector with Hivenet echoes disabled.
+  fyni:
+  - rscadd: Buffs technomancer slightly by changing their starting loadout. They will
+      now have chameleon armour, a proper agent ID and an antag headset.
+  kano:
+  - rscadd: Ports Hauberk Mazegen from Paradise Station.
+  mineymonkey:
+  - rscadd: Added electronic radio headsets, wearable radios with internal integrated
+      circuit assemblies, encryption key support, and private text-to-speech output.
+  - rscadd: Added integrated circuit printer cloning and blueprint import/export support
+      for assemblies and supported hosted assemblies.
+  - rscadd: Added new integrated circuit tools for data storage, database commands,
+      radio commands, references, coordinates, access checks, card/item slots, power
+      cells, and item trays.
+  - rscadd: Added expanded math circuits, including algebra, geometry, list math,
+      statistics, vectors, matrices, calculus, and vector calculus.
+  - rscadd: Added practical automation circuits, including edge detection, cooldown
+      limiting, pulse counting, pulse routing, state display, list utilities, coordinate
+      navigation, and command parsing.
+  - rscadd: Added xenoarch precision excavator circuit support with anomaly depth,
+      clearance, excavation, and target direction outputs.
+  - rscadd: Added additional manipulation circuits and a low-complexity debug circuit
+      for organizing circuit layouts.
+  - rscadd: Made the circuit cloner upgrade disk printable in the protolathe.
+  - qol: Reorganized integrated circuit printer categories, math subgroups, logic/comparison
+      groups, circuit descriptions, and circuit box descriptions.
+  - qol: Improved cloning preservation for circuit names, pin data, constant memory
+      values, built-in circuit links, hosted assembly state, and electronic radio
+      headset internals.
+  - qol: Improved scanner, server, command pad, reference, coordinate, list, ticker,
+      and printer workflows with clearer outputs, safer invalid-input handling, and
+      bounded pulse behavior.
+  - bugfix: Fixed imported electronic radio headset blueprints failing to recreate
+      the headset wrapper item or correctly bind the internal assembly.
+  - bugfix: Fixed large integrated circuit blueprint imports losing or corrupting
+      JSON characters during chunked transfer.
+  - bugfix: Fixed several integrated circuit edge cases involving invalid refs, empty
+      or null lists, injector targets, radio command receiver declarations, and abstract
+      math circuits appearing in printers.
+  notagonk:
+  - rscadd: Implemented a remap of the Executive Officer's Office.
+  - rscdel: The XO's flash .45 pistol was removed, they now only have their energy
+      pistol.
+2026-07-28:
+  Hellfirejag:
+  - bugfix: Fixed a bad pointer error with psiblock drugs.

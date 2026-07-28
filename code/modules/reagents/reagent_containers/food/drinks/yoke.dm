@@ -19,10 +19,6 @@
 		list(-10, 2)
 	)
 
-/obj/item/storage/box/fancy/yoke/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "Click drag it to pick it up, click on it to take out a can."
-
 /obj/item/storage/box/fancy/yoke/fill()
 	. = ..()
 	for(var/obj/item/reagent_containers/food/drinks/cans/C in contents)
@@ -66,13 +62,6 @@
 	name = can_name_string
 
 /obj/item/storage/box/fancy/yoke/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	var/mob/mob_dropped_over = over
-	if(use_check_and_message(mob_dropped_over))
-		return
-	to_chat(mob_dropped_over, SPAN_NOTICE("You pick up \the [src]."))
-	mob_dropped_over.put_in_hands(src)
-
-/obj/item/storage/box/fancy/yoke/attack_hand(mob/user)
 	if(!length(contents)) // no more cans, continue as normal
 		return ..()
 

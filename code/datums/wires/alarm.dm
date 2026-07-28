@@ -1,8 +1,9 @@
 /datum/wires/alarm
 	proper_name = "Air Alarm"
 	holder_type = /obj/structure/machinery/alarm
+	associated_skill = ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT
 
-/datum/wires/airalarm/New(atom/holder)
+/datum/wires/alarm/New(atom/holder)
 	wires = list(
 		WIRE_POWER,
 		WIRE_IDSCAN, WIRE_AI,
@@ -12,7 +13,7 @@
 	add_duds(3)
 	..()
 
-/datum/wires/airalarm/interactable(mob/user)
+/datum/wires/alarm/interactable(mob/user)
 	if(!..())
 		return FALSE
 	var/obj/structure/machinery/alarm/A = holder
@@ -23,7 +24,7 @@
 	var/obj/structure/machinery/alarm/A = holder
 	. = ..()
 	. += A.locked ? "The air alarm is locked." : "The air alarm is unlocked."
-	. += (A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "The Air Alarm is offline." : "The Air Alarm is working properly!"
+	. += (A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "The air alarm is offline." : "The air alarm is working properly!"
 	. += A.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on."
 	. += A.rcon_setting ? "The remote control link is enabled." : "The remote control link is disabled."
 

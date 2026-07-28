@@ -244,6 +244,7 @@
 	for (var/obj/structure/machinery/machine as anything in machines)
 		machine.power_change()
 
+	var/list/space_turfs_to_update
 	for (var/turf/T as anything in turfs)
 		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
@@ -252,12 +253,21 @@
 		if(istype(T,/turf/simulated))
 			var/turf/simulated/sim = T
 			sim.update_air_properties()
+			if(GLOB.config.starlight)
+				for(var/direction in GLOB.alldirs)
+					var/turf/neighbor = get_step(sim, direction)
+					if(istype(neighbor, /turf/space))
+						LAZYSET(space_turfs_to_update, neighbor, TRUE)
 
 		if(SSlighting.initialized) //don't generate lighting overlays before SSlighting in case these templates are loaded before
 			var/area/A = T.loc
 			if(A?.area_has_base_lighting)
 				continue
 			T.static_lighting_build_overlay()
+
+	// New z-level space initializes before its template is placed, so refresh each affected space turf once.
+	for(var/turf/space/space_turf as anything in space_turfs_to_update)
+		space_turf.update_starlight(TRUE)
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	last_load_error = null
