@@ -38,6 +38,12 @@
 /obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"hK" = (
+/obj/structure/machinery/door/airlock/glass{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
 "id" = (
 /obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
@@ -51,12 +57,28 @@
 /obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
+"jr" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/machinery/shower{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
 "kb" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "kk" = (
 /obj/structure/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lk" = (
+/obj/structure/mirror{
+	pixel_y = 30
+	},
+/obj/structure/sink{
+	pixel_y = 20
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "lE" = (
@@ -100,7 +122,9 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "ql" = (
-/obj/structure/machinery/ammunition_loader/lammergeier,
+/obj/structure/machinery/ammunition_loader/lammergeier{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "rf" = (
@@ -165,6 +189,7 @@
 /area/space)
 "wN" = (
 /obj/structure/machinery/ship_weapon/autocannon,
+/obj/structure/lattice,
 /turf/template_noop,
 /area/space)
 "xk" = (
@@ -244,10 +269,8 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "JC" = (
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Docking Bay";
-	req_access = list(212)
+/obj/structure/toilet{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -29336,7 +29359,7 @@ Oc
 Oc
 Oc
 mY
-mY
+ad
 mY
 mY
 mY
@@ -29593,7 +29616,7 @@ KZ
 KZ
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -30101,14 +30124,14 @@ ez
 ez
 ez
 ez
-ez
-ez
-ez
 KZ
 KZ
+KZ
+KZ
+KZ
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -30358,14 +30381,14 @@ ez
 ez
 ez
 ez
-ez
-ez
-ez
 KZ
 KZ
-mY
-mY
-mY
+KZ
+KZ
+KZ
+ad
+ad
+ad
 mY
 mY
 mY
@@ -30622,7 +30645,7 @@ KZ
 KZ
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -31393,7 +31416,7 @@ Oc
 Oc
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -31650,7 +31673,7 @@ KZ
 KZ
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -31892,7 +31915,7 @@ KZ
 KZ
 KZ
 KZ
-KZ
+Me
 KZ
 ez
 ez
@@ -31902,12 +31925,12 @@ tc
 KZ
 ez
 ez
-ez
 KZ
 KZ
-mY
-mY
-mY
+KZ
+ad
+ad
+ad
 mY
 mY
 mY
@@ -32146,10 +32169,10 @@ ez
 kb
 xk
 KZ
-KZ
-mY
-mY
-mY
+ez
+ez
+ez
+ez
 KZ
 KZ
 KZ
@@ -32157,14 +32180,14 @@ KZ
 ez
 ez
 KZ
-ez
-ez
-ez
 KZ
 KZ
+KZ
+KZ
+KZ
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -32403,10 +32426,10 @@ ez
 kb
 xk
 KZ
-KZ
-mY
-mY
-mY
+ez
+ez
+ez
+ez
 KZ
 KZ
 ez
@@ -32414,14 +32437,14 @@ KZ
 ez
 ez
 KZ
-ez
-ez
-ez
 KZ
 KZ
+KZ
+KZ
+KZ
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -32661,9 +32684,9 @@ ez
 ez
 KZ
 KZ
-mY
-mY
-mY
+KZ
+KZ
+KZ
 KZ
 ez
 ez
@@ -32909,8 +32932,8 @@ ez
 KZ
 BN
 KZ
-Gu
-JC
+hK
+KZ
 KZ
 zy
 ez
@@ -33167,7 +33190,7 @@ KZ
 KZ
 KZ
 Gu
-Gu
+JC
 KZ
 Fq
 ez
@@ -33423,8 +33446,8 @@ ez
 KZ
 mY
 KZ
-Gu
-Gu
+lk
+jr
 KZ
 Gl
 ez
@@ -33448,7 +33471,7 @@ Oc
 Oc
 mY
 mY
-mY
+ad
 mY
 mY
 mY
@@ -33705,7 +33728,7 @@ KZ
 KZ
 mY
 mY
-mY
+ad
 mY
 mY
 mY
