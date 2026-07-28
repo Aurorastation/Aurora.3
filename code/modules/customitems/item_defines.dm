@@ -1465,7 +1465,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "furred hood"
 	desc = "A furred hood attached to a cloak."
 	icon = 'icons/obj/custom_items/dido_cape.dmi'
-	icon_override = ''icons/obj/custom_items/dido_cape.dmi'
+	icon_override = 'icons/obj/custom_items/dido_cape.dmi'
 	icon_state = "sophonisa_cape_hood"
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
