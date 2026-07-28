@@ -52,16 +52,17 @@
 	light_color = LIGHT_COLOR_GREEN
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenglow"
+	var/longevity = 2 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/Initialize(mapload)
 	. = ..()
 	if (!mapload)	// Round-start goo should stick around.
-		QDEL_IN(src, 2 MINUTES)
+		QDEL_IN(src, longevity)
 
 /obj/effect/decal/cleanable/greenglow/post_sweep(var/mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.apply_radiation(3)
+		H.rad_act(30)
 	STOP_PROCESSING(SSprocessing, src)
 
 ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
@@ -70,6 +71,13 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	light_range = 2
 	light_power = 0.6
 	light_color = "#64C864"
+
+/obj/effect/decal/cleanable/greenglow/radioactive/post_sweep(var/mob/user)
+	if(radioactivity)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.rad_act(radioactivity)
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -85,6 +93,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/medium
 	radioactivity = RAD_LEVEL_MODERATE
+	longevity = 5 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/medium/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -93,6 +102,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high
 	radioactivity = RAD_LEVEL_HIGH
+	longevity = 10 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -101,6 +111,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/very_high
 	radioactivity = RAD_LEVEL_VERY_HIGH
+	longevity = 15 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/very_high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -110,6 +121,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme
 	/// This is higher than radsuits can absorb! Use with caution.
 	radioactivity = RAD_LEVEL_CATASTROPHIC
+	longevity = 20 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -122,7 +134,6 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/process()
 	SSradiation.radiate(src, radioactivity)
-
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"

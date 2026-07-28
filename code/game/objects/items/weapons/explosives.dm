@@ -48,7 +48,6 @@
 /obj/item/plastique/Destroy()
 	qdel(wires)
 	wires = null
-	qdel(target)
 	target = null
 	return ..()
 
@@ -110,7 +109,7 @@
 
 	log_and_message_admins("planted [src.name] on [target.name] with [timetext] fuse", user, get_turf(target))
 
-	new plastic_explosive_type(get_turf(user), target, src)
+	var/obj/effect/plastic_explosive/effect = new plastic_explosive_type(get_turf(user), target, src)
 	to_chat(user, SPAN_WARNING("Bomb has been planted. Timer counting down from [timetext]."))
 
 	detonate_time = world.time + (timer)
@@ -195,11 +194,40 @@
 	desc = "A small explosive laced with radium. The explosion is small, but the radioactive material will remain for a fair while."
 	timer = 30 SECONDS
 
-/obj/item/plastique/dirty/explode(turf/location)
+/obj/item/plastique/dirty/explode(turf/location) //Does not call parent because we need a different order of operations.
+	if(!target)
+		target = get_atom_on_turf(src)
+	if(!target)
+		target = src
+	if(target)
+		if (istype(target, /turf/simulated/wall))
+			var/turf/simulated/wall/W = target
+			W.dismantle_wall(1, no_product = TRUE)
+		else if(istype(target, /mob/living))
+			target.ex_act(2) // c4 can't gib mobs anymore.
+			target.rad_act(800) //A dirty bomb going off on top of you completely irradiates you, radsuit or not.
+		else
+			target.ex_act(1)
+
 	if(location)
-		SSradiation.radiate(src, 250)
-		new /obj/effect/decal/cleanable/greenglow/radioactive/medium(get_turf(src))
-	..()
+		explosion(location, devastation_range, heavy_impact_range, light_impact_range, 3, spreading = 0)
+		SSradiation.radiate(location, 250)
+		new /obj/effect/decal/cleanable/greenglow/radioactive/extreme(location)
+
+		for(var/turf/T in RANGE_TURFS(4, location))
+			if(T == location)
+				continue
+
+			if(T in RANGE_TURFS(1, location)) //High radioactive puddles 1 tile from the epicenter, medium up to 4 tiles away.
+				if(prob(75))
+					new /obj/effect/decal/cleanable/greenglow/radioactive/high(T)
+			else if(prob(25))
+				new /obj/effect/decal/cleanable/greenglow/radioactive/medium(T)
+
+	var/obj/effect/plastic_explosive/effect = locate(/obj/effect/plastic_explosive) in get_turf(src)
+	if(effect)
+		qdel(effect)
+	qdel(src)
 
 /obj/item/plastique/strong
 	name = "bundled plastic explosives"

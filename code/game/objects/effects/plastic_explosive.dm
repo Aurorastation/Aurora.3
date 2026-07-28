@@ -9,6 +9,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	var/obj/item/plastique/parent
 
+
 /obj/effect/plastic_explosive/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)
@@ -16,8 +17,8 @@
 
 /obj/effect/plastic_explosive/Initialize(var/atom/owner_pos, var/atom/target, var/obj/item/plastique/c4)
 	. = ..()
+	parent = c4
 	if(parent)
-		parent = c4
 		parent.forceMove(src)
 		name = parent.name
 		desc = parent.desc
@@ -46,8 +47,8 @@
 /obj/effect/plastic_explosive/attack_hand(mob/living/user)
 	to_chat(user, SPAN_WARNING("\The [src] is solidly attached, it doesn't budge!"))
 
-/obj/effect/plastic_explosive/attackby(obj/item/attacking_item, mob/user)
-	return parent.attackby(attacking_item, user)
+/obj/effect/plastic_explosive/attackby(obj/item/attacking_item, mob/user, click_parameters)
+	return parent.attackby(attacking_item, user, click_parameters)
 
 /obj/effect/plastic_explosive/big
 	name = "bundled plastic explosives"

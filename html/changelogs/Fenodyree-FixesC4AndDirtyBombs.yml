@@ -1,0 +1,7 @@
+author: Fenodyree
+delete-after: True
+changes:
+  - bugfix: "Fixes C4 effects not correctly getting their parent item."
+  - bugfix: "Fixes C4 not being placed correctly."
+  - bugfix: "Fixes Dirty Bombs deleting their own radiation source."
+  - bugfix: "Fixes Dirty Bomb goop puddles disapearing long before the radiation does."
