@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Mining points now carry over between rounds for each character."
-  - balance: "Mining point carryover is capped at 15,000 points."
+  - balance: "Mining point carryover is capped at 15,000 points and expires after one week of inactivity."

@@ -251,30 +251,24 @@
 	if(!card_owner?.character_id)
 		return
 
-	var/datum/persistent_generic/saved_balance = SSpersistence.genericLoad(
-		/singleton/persistent_type/generic/mining_point_balance,
-		"[card_owner.character_id]"
+	var/datum/persistent_record/saved_balance = SSpersistence.historyGetLastRecord(
+		/singleton/persistent_type/history/character/mining_point_balance,
+		card_owner.character_id
 	)
 	if(!saved_balance)
 		return
 
-	var/list/balance_data = saved_balance.content
-	// Newly cached generics contain encoded content, while database-loaded ones
-	// have already been decoded by the persistence subsystem.
-	if(istext(balance_data))
-		balance_data = json_decode(balance_data)
-	if(islist(balance_data))
-		mining_points = clamp(text2num(balance_data["balance"]), 0, MINING_POINTS_CARRYOVER_MAX)
+	mining_points = clamp(text2num(saved_balance.value), 0, MINING_POINTS_CARRYOVER_MAX)
 
 /obj/item/card/id/proc/save_mining_points()
 	var/mob/living/carbon/human/card_owner = mob_id?.resolve()
 	if(!card_owner?.character_id)
 		return
 
-	SSpersistence.genericSave(
-		/singleton/persistent_type/generic/mining_point_balance,
-		list("balance" = clamp(mining_points, 0, MINING_POINTS_CARRYOVER_MAX)),
-		"[card_owner.character_id]"
+	SSpersistence.historyAddCharacterRecord(
+		/singleton/persistent_type/history/character/mining_point_balance,
+		card_owner.character_id,
+		"[clamp(mining_points, 0, MINING_POINTS_CARRYOVER_MAX)]"
 	)
 
 /obj/item/card/id/proc/adjust_mining_points(amount)
