@@ -61,7 +61,7 @@
  */
 /obj/item/radio/microphone/proc/add_listener(mob/living/target_mob)
 	LAZYADD(listeners, target_mob)
-	RegisterSignal(target_mob, COMSIG_MOVABLE_MOVED, check_listener_distance())
+	RegisterSignal(target_mob, COMSIG_MOVABLE_MOVED, PROC_REF(check_listener_distance))
 
 /**
  * Remove a mob from the list of listeners allowed to speak into the microphone.
