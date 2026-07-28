@@ -6,13 +6,17 @@
 	icon_state = "pda"
 	item_state = "electronic"
 	contained_sprite = TRUE
+	icon_state_screensaver = "off"
 	icon_state_unpowered = "pda"
 	var/icon_add // this is the "bar" part in "pda-bar"
 	enrolled = DEVICE_PRIVATE
 
 /obj/item/modular_computer/handheld/pda/set_icon()
+	ClearOverlays()
 	if(icon_add)
 		icon_state += "-[icon_add]"
+	if(!enabled)
+		AddOverlays("off")
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state
 
