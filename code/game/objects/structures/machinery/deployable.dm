@@ -382,7 +382,7 @@ Deployable Kits
 		deployed_machine = new machine_type(deployment_turf)
 		deployed_machine.set_dir(user.dir)
 
-	user.visible_message(SPAN_NOTICE("[user] deploys \a [deployed_machine] from \a flatpak."), SPAN_NOTICE("You deploy \a [deployed_machine] from \the [src]."))
+	user.visible_message(SPAN_NOTICE("[user] deploys \a [deployed_machine] from \the [src]."), SPAN_NOTICE("You deploy \a [deployed_machine] from \the [src]."))
 	playsound(deployment_turf, 'sound/items/Deconstruct.ogg', 50, TRUE)
 	deployed_machine.add_fingerprint(user)
 	qdel(src)
