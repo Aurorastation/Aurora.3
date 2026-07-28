@@ -82411,6 +82411,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/gun/projectile/shotgun/pump/unloaded,
 /obj/item/gun/projectile/shotgun/pump/unloaded,
+/obj/item/gun/launcher/grenade,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "kDV" = (

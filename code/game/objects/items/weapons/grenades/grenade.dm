@@ -18,6 +18,10 @@
 	var/det_time = 30
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
+	/// If TRUE, grenade launchers defer projectile processing and post-fire handling to this ammunition.
+	var/special_launcher_handling = FALSE
+	/// If TRUE, firing this ammunition from a grenade launcher sends a live notification to admins.
+	var/notify_admins_on_launcher_fire = TRUE
 	pickup_sound = 'sound/items/pickup/grenade.ogg'
 	drop_sound = 'sound/items/drop/grenade.ogg'
 
@@ -87,6 +91,14 @@
 	// Randomize the timing a bit. You wouldn't be aware of when exactly a grenade is going to pop.
 	// Nor do we want people to instantly know when to throw a perfectly timed grenade.
 	animate(src, det_time + rand(-5, 5), -1, LINEAR_EASING, color = COLOR_RED)
+
+/// Handles firing behavior for ammunition with special_launcher_handling.
+/obj/item/grenade/proc/process_launcher_projectile(obj/item/gun/launcher/grenade/launcher, mob/user, atom/target, target_zone, params)
+	return FALSE
+
+/// Handles cleanup after special launcher ammunition has been successfully fired.
+/obj/item/grenade/proc/handle_launcher_post_fire(obj/item/gun/launcher/grenade/launcher)
+	return
 
 /obj/item/grenade/proc/prime()
 	var/turf/T = get_turf(src)
