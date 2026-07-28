@@ -12,13 +12,16 @@
 	enrolled = DEVICE_PRIVATE
 
 /obj/item/modular_computer/handheld/pda/set_icon()
-	ClearOverlays()
 	if(icon_add)
 		icon_state += "-[icon_add]"
-	if(!enabled)
-		AddOverlays("off")
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state
+
+/obj/item/modular_computer/handheld/pda/update_icon()
+	. = ..()
+	if(!enabled)
+		AddOverlays("off")
+		return
 
 /obj/item/modular_computer/handheld/pda/old
 	icon = 'icons/obj/modular_computers/pda_old.dmi'
