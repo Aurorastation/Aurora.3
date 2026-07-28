@@ -9,7 +9,6 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	var/obj/item/plastique/parent
 
-
 /obj/effect/plastic_explosive/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)
