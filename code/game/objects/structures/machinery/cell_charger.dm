@@ -8,10 +8,16 @@
 	active_power_usage = 90 KILO WATTS
 	power_channel = AREA_USAGE_EQUIP
 	update_icon_on_init = TRUE
+	component_types = list(
+		/obj/item/circuitboard/cell_charger,
+		/obj/item/stock_parts/capacitor = 2
+	)
 
 	var/obj/item/cell/charging = null
 	var/charge_level = -1
-	var/const/CHARGE_EFFICIENCY = 1.38
+	var/charging_efficiency = 2
+	var/charging_efficiency_per_capacitor = 0.1
+	var/charging_speed_per_capacitor = 25 KILO WATTS
 
 /obj/structure/machinery/cell_charger/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -26,6 +32,16 @@
 		. += "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%."
 	else
 		. += SPAN_WARNING("The charger is empty.")
+
+/obj/structure/machinery/cell_charger/RefreshParts()
+	..()
+
+	var/cap_rating = 0
+	for(var/obj/item/stock_parts/capacitor/capacitor in component_parts)
+		cap_rating += capacitor.rating
+
+	charging_efficiency = initial(charging_efficiency) * (1 + (cap_rating * charging_efficiency_per_capacitor))
+	active_power_usage = cap_rating * charging_speed_per_capacitor
 
 /obj/structure/machinery/cell_charger/proc/update_charge_level()
 	if(!charging)
@@ -56,16 +72,6 @@
 	if(stat & BROKEN)
 		return TRUE
 
-	if(attacking_item.tool_behaviour == TOOL_WRENCH)
-		if(charging)
-			to_chat(user, SPAN_WARNING("Remove the cell first!"))
-			return TRUE
-
-		anchored = !anchored
-		to_chat(user, "You [anchored ? "" : "un"]secure \the [src].")
-		attacking_item.play_tool_sound(src, 50)
-		return TRUE
-
 	if(istype(attacking_item, /obj/item/cell))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("You need to secure \the [src] first."))
@@ -75,12 +81,34 @@
 			to_chat(user, SPAN_WARNING("There is already a cell in \the [src]."))
 			return TRUE
 
+		if(panel_open)
+			to_chat(user, SPAN_WARNING("You need to close the maintenance panel on \the [src] first."))
+			return TRUE
+
 		user.drop_from_inventory(attacking_item, src)
 		charging = attacking_item
 		user.visible_message("[user] inserts \the [charging.name] into \the [src].", "You insert \the [charging.name] into \the [src].")
 
 		update_icon()
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		return TRUE
+
+	if(charging)
+		to_chat(user, SPAN_WARNING("Remove the cell first!"))
+		return TRUE
+
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
+		anchored = !anchored
+		to_chat(user, "You [anchored ? "" : "un"]secure \the [src].")
+		attacking_item.play_tool_sound(src, 50)
+		return TRUE
+
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		update_icon()
+		return TRUE
+	else if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 /obj/structure/machinery/cell_charger/attack_hand(mob/user)
@@ -129,7 +157,7 @@
 	if (charging && !charging.fully_charged())
 		if(use_power < POWER_USE_ACTIVE)
 			update_use_power(POWER_USE_ACTIVE)
-		charging.give(active_power_usage * CELLRATE * CHARGE_EFFICIENCY)
+		charging.give(active_power_usage * CELLRATE * charging_efficiency)
 		update_icon()
 	else
 		update_use_power(POWER_USE_IDLE)

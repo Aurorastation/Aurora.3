@@ -2,24 +2,43 @@
  * Persistence subsystem
  * Subsytem for managing any form of persistent content across rounds.
  *
- * This subsystem consists of multiple partial files, following the structure:
- * - persistence.dm						- Subsystem definition and generic code.
- * - persistence_objects.dm				- Persistent objects related code.
- * - persistence_objects_sql.dm			- Persistent objects database code.
- * - persistence_objects_public.dm		- Persistent objects public procs.
+ * This subsystem consists of multiple partial files, split into different responsibilities:
+ *   persistence.dm - Subsystem define and related code
+ *   Objects and types (with Generics and History respectively), each containing:
+ *     Base file (no suffix), public procs (_public.dm suffix), SQL code (_sql.dm suffix)
  */
 
 SUBSYSTEM_DEF(persistence)
 	name = "Persistence"
 	init_order = INIT_ORDER_PERSISTENCE // The order is tied with the init and maploading subsystem.
 	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init and shutdown only.
-	var/prevent_saving = FALSE // Toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
+	/// Sanity check to confirm init was a success before finalizing.
+	var/init_success = FALSE
+	/// Global toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
+	var/prevent_saving = FALSE
+	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
+	var/object_track_register = list()
+	/// Dictionary<"[type](+[attribute])" cache of persistent history records.
+	var/history_cache = alist()
+	/// Manual record counter of cache containers.
+	var/history_cache_count = 0
+	/// ID of last found history record.
+	/// Higher found IDs mean the record is not yet found in the database, lower or equal found ID means the are record that are already in the database.
+	/// Used during history_virtual_id init and read-through cache hits.
+	var/history_last_database_id = 0
+	/// ID used for instanciating new history records during the round, used for cache tracking.
+	/// Their database ID will be set during insert/finalization.
+	var/history_virtual_id = 0
+	/// Dictionary<char_id, charname> cache of Character name by ID for history/character helper.
+	var/char_cache = alist()
+	/// Dictionary<"[type](+[attribute])", container> cache of persistent generics.
+	var/generic_cache = alist()
 
 /**
  * Subsystem info stub message generation.
  */
 /datum/controller/subsystem/persistence/stat_entry(msg)
-	msg = ("Register: [length(GLOB.persistence_object_track_register)] | Prevent saving: [SSpersistence.prevent_saving ? "TRUE" : "FALSE"]")
+	msg = ("[init_success ? "" : "INIT FAILED!!!|"][prevent_saving ? "SAVING DISABLED!|" : ""]Objects:[length(object_track_register)]|Containers:[length(history_cache)];Records:[history_cache_count]|Generics:[length(generic_cache)]")
 	return msg
 
 /**
@@ -77,7 +96,7 @@ SUBSYSTEM_DEF(persistence)
 	else
 		return
 
-	feedback_add_details("admin_verb","TP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	feedback_add_details("admin_verb","TPS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /**
  * Initialization of the persistence subsystem.
@@ -90,14 +109,22 @@ SUBSYSTEM_DEF(persistence)
 		return SS_INIT_SUCCESS
 
 	if(!databaseCheckConnection("subsystem init"))
+		log_subsystem_persistence_error("SQL connection unavailable. Init not possible.")
 		return SS_INIT_FAILURE
 
 	try
 		objectsInitialize()
-	catch(var/exception/e)
-		log_subsystem_persistence_panic("Unhandled exception during persistent objects initialization: [e]")
+	catch(var/exception/e_objects)
+		log_subsystem_persistence_panic("Unhandled exception during persistent objects initialization!", e_objects)
 		return SS_INIT_FAILURE
 
+	try
+		typesInitialize()
+	catch(var/exception/e_types)
+		log_subsystem_persistence_panic("Unhandled exception during persistent type initialization!", e_types)
+		return SS_INIT_FAILURE
+
+	init_success = TRUE
 	return SS_INIT_SUCCESS
 
 /**
@@ -105,6 +132,10 @@ SUBSYSTEM_DEF(persistence)
  * The shutdown consists of finalization steps for each persistent data type.
  */
 /datum/controller/subsystem/persistence/Shutdown()
+	if(!init_success)
+		log_subsystem_persistence_panic("Init success flag is FALSE. Something went wrong during subsystem init! Aborting finalization to prevent corrupt data!")
+		return
+
 	if(prevent_saving)
 		log_subsystem_persistence_warning("Persistence subsystem was toggled to not save. Skipping subsystem finalization.")
 		return
@@ -115,6 +146,10 @@ SUBSYSTEM_DEF(persistence)
 
 	try
 		objectsFinalize()
-	catch(var/exception/e)
-		log_subsystem_persistence_panic("Unhandled exception during persistent objects finalization: [e]")
-		return
+	catch(var/exception/e_objects)
+		log_subsystem_persistence_panic("Unhandled exception during persistent objects finalization!", e_objects)
+
+	try
+		typesFinalize()
+	catch(var/exception/e_types)
+		log_subsystem_persistence_panic("Unhandled exception during persistent types finalization!", e_types)

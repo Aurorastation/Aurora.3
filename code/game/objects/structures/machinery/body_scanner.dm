@@ -935,11 +935,7 @@
 
 /obj/structure/machinery/body_scanconsole/embedded/get_occupant()
 	if(monitor_console?.table)
-
-		if(istype(monitor_console.table.occupant, /datum/weakref))
-			return monitor_console.table.occupant.resolve()
-		else
-			return monitor_console.table.occupant
+		return monitor_console?.table?.get_valid_occupant()
 
 	return null
 
