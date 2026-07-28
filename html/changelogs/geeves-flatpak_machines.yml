@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds machine flatpaks, printable by machinists using exosuit fabricators after researching the corresponding circuit board."
+  - balance: "Deploying a flatpak requires trained mechanical engineering skill and takes 15 seconds."

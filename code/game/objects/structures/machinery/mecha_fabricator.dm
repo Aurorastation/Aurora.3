@@ -147,7 +147,7 @@
 	data["manufacturer"] = manufacturer
 	var/datum/design/current = queue.len ? queue[1] : null
 	if(current)
-		data["current"] = current.name
+		data["current"] = current.GetFabricationName(src)
 	data["queue"] = get_queue_names()
 	data["buildable"] = get_build_options()
 	data["category"] = category
@@ -387,18 +387,19 @@
 		//No queue removal here because we show how long it takes to build in the UI
 
 	else
-		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: Insufficient materials to complete build: [D.name]."))
+		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: Insufficient materials to complete build: [D.GetFabricationName(src)]."))
 		remove_from_queue(1)
 
 	update_icon()
 
 /obj/structure/machinery/mecha_part_fabricator/proc/can_build(var/datum/design/D)
 	SSmaterials.normalize_material_amounts(materials)
-	for(var/M in D.materials)
+	var/list/design_materials = D.GetFabricationMaterials(src)
+	for(var/M in design_materials)
 		var/material = SSmaterials.material_to_path(M, FALSE)
 		if(!material)
 			material = M
-		if((materials[material] || 0) < D.materials[M] * mat_efficiency)
+		if((materials[material] || 0) < design_materials[M] * mat_efficiency)
 			return 0
 	return 1
 
@@ -410,8 +411,9 @@
 /obj/structure/machinery/mecha_part_fabricator/proc/build(datum/design/design_to_build)
 	//Consume the materials
 	SSmaterials.normalize_material_amounts(materials)
-	for(var/M in design_to_build.materials)
-		SSmaterials.remove_material_amount(materials, M, design_to_build.materials[M] * mat_efficiency)
+	var/list/design_materials = design_to_build.GetFabricationMaterials(src)
+	for(var/M in design_materials)
+		SSmaterials.remove_material_amount(materials, M, design_materials[M] * mat_efficiency)
 
 	intent_message(MACHINE_SOUND)
 
@@ -435,7 +437,7 @@
 	. = list()
 	for(var/i = 1 to queue.len)
 		var/datum/design/D = queue[i]
-		. += list(list("name" = D.name, "time" = get_design_time(D), "index" = i))
+		. += list(list("name" = D.GetFabricationName(src), "time" = get_design_time(D), "index" = i))
 
 /obj/structure/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()
@@ -443,12 +445,13 @@
 		var/datum/design/D = files.known_designs[path]
 		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category || (D.category != category))
 			continue
-		. += list(list("name" = D.name, "desc" = D.desc, "type" = D.type, "category" = D.category, "resources" = get_design_resourses(D), "time" = get_design_time(D)))
+		. += list(list("name" = D.GetFabricationName(src), "desc" = D.GetFabricationDesc(src), "type" = D.type, "category" = D.category, "resources" = get_design_resourses(D), "time" = get_design_time(D)))
 
 /obj/structure/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
-	for(var/T in D.materials)
-		F += "[SSmaterials.material_display_name(T)]: [D.materials[T] * mat_efficiency]"
+	var/list/design_materials = D.GetFabricationMaterials(src)
+	for(var/T in design_materials)
+		F += "[SSmaterials.material_display_name(T)]: [design_materials[T] * mat_efficiency]"
 	return english_list(F, and_text = ", ")
 
 /obj/structure/machinery/mecha_part_fabricator/proc/get_design_time(var/datum/design/D)
