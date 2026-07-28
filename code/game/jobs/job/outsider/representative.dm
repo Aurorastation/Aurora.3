@@ -22,12 +22,8 @@
 		"Corporate Journalist" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
 		"Independent Reporter" = list("Independent"),
 		"Independent Journalist" = list("Independent"),
-		"Media Broadcaster" = list("Independent")
+		"Media Broadcaster" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate", "Independent")
 	)
-	alt_outfits = list(
-		"Independent Journalist" = /obj/outfit/job/journalistf,
-		"Independent Reporter" = /obj/outfit/job/journalistf,
-		"Media Broadcaster" = /obj/outfit/job/journalistf)
 
 	title_accesses = list(
 		"Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE),
