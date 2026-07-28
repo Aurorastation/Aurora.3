@@ -114,7 +114,6 @@
 	if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL && stabilized && last_tile == shooter.loc)
 		stabilized_shots++
 	count_to_warmup++
-	to_world("STEADY SHOTS: [count_to_unsteady]")
 	if(count_to_warmup % 18 == 0)
 		var/datum/component/morale/morale_comp = shooter.GetComponent(MORALE_COMPONENT)
 		if(warmup_tier < 2)
