@@ -172,7 +172,7 @@
 	if (is_station_level(z))
 		GLOB.station_turfs -= src
 
-	remove_cleanables()
+	remove_cleanables(TRUE)
 	cleanup_roof()
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -600,7 +600,8 @@
 
 		for(var/obj/effect/O in src)
 			if(istype(O, /obj/effect/decal/cleanable))
-				qdel(O)
+				var/obj/effect/decal/cleanable/cleanable = O
+				cleanable.clean_with_basic_cleaner()
 
 			if(istype(O, /obj/effect/overlay))
 				var/obj/effect/overlay/OV = O
@@ -798,9 +799,16 @@
 		if(below)
 			below.update_weather(new_weather)
 
-/turf/proc/remove_cleanables()
+/turf/proc/remove_cleanables(var/force = FALSE)
 	for(var/obj/effect/O in src)
-		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
+		if(istype(O, /obj/effect/decal/cleanable))
+			var/obj/effect/decal/cleanable/cleanable = O
+			if(force)
+				qdel(cleanable)
+			else
+				cleanable.clean_with_basic_cleaner()
+			continue
+		if(istype(O,/obj/effect/rune))
 			qdel(O)
 	clean_blood()
 
