@@ -52,12 +52,9 @@
 	light_color = LIGHT_COLOR_GREEN
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenglow"
-	var/longevity = 2 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/Initialize(mapload)
 	. = ..()
-	if (!mapload)	// Round-start goo should stick around.
-		QDEL_IN(src, longevity)
 
 /obj/effect/decal/cleanable/greenglow/post_sweep(var/mob/user)
 	if(ishuman(user))
@@ -93,7 +90,6 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/medium
 	radioactivity = RAD_LEVEL_MODERATE
-	longevity = 5 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/medium/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -102,7 +98,6 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high
 	radioactivity = RAD_LEVEL_HIGH
-	longevity = 10 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -111,7 +106,6 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/very_high
 	radioactivity = RAD_LEVEL_VERY_HIGH
-	longevity = 15 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/very_high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -121,7 +115,6 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme
 	/// This is higher than radsuits can absorb! Use with caution.
 	radioactivity = RAD_LEVEL_CATASTROPHIC
-	longevity = 20 MINUTES
 
 /obj/effect/decal/cleanable/greenglow/radioactive/extreme/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
