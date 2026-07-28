@@ -211,7 +211,7 @@
 	if(skill_level < SKILL_LEVEL_TRAINED)
 		*dispersion_increase = *dispersion_increase + dispersion
 		if(!istype(bang, /obj/item/gun/energy))
-			*dispersion_increase += 15
+			*dispersion_increase += 15 // recoil
 
 /datum/component/skill/firearms/proc/gun_fumble(mob/living/shooter, obj/item/gun/shoota, cancelled, signaltype)
 	SIGNAL_HANDLER
