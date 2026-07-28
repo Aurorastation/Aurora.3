@@ -518,6 +518,9 @@
  */
 /mob/living/carbon/proc/add_chemical_effect(var/effect, var/magnitude = 1)
 	SHOULD_NOT_SLEEP(TRUE)
+	for (var/obj/item/organ/internal/internal_organ in internal_organs)
+		if (effect == internal_organ.toxin_type)
+			START_PROCESSING(SSprocessing, internal_organ)
 
 	if(effect in chem_effects)
 		chem_effects[effect] += magnitude
@@ -534,6 +537,9 @@
  */
 /mob/living/carbon/proc/add_up_to_chemical_effect(var/effect, var/magnitude = 1)
 	SHOULD_NOT_SLEEP(TRUE)
+	for (var/obj/item/organ/internal/internal_organ in internal_organs)
+		if (effect == internal_organ.toxin_type)
+			START_PROCESSING(SSprocessing, internal_organ)
 
 	if(effect in chem_effects)
 		chem_effects[effect] = max(magnitude, chem_effects[effect])

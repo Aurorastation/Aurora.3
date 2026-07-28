@@ -151,21 +151,13 @@
 			. = "necrotic and dead [.]"
 	. = "[.][name]"
 
-/obj/item/organ/internal/process(seconds_per_tick)
-	..()
-	if(!owner)
-		return
-
-	if(owner.stasis_value > 0)
-		// Putting a body in stasis will simultaneously slow down the rate at which organs die
-		// while also slowing down the rate at which they are healed.
-		seconds_per_tick /= owner.stasis_value
-
-	if(toxin_type in owner.chem_effects)
+/obj/item/organ/internal/need_process(seconds_per_tick)
+	. = ..()
+	if (toxin_type in owner.chem_effects)
 		take_damage(owner.chem_effects[toxin_type] * seconds_per_tick)
-
-	handle_regeneration(seconds_per_tick)
-	tick_surge_damage(seconds_per_tick) //Yes, this is intentional.
+		. = TRUE
+	if (handle_regeneration(seconds_per_tick))
+		return TRUE
 
 /obj/item/organ/internal/proc/handle_regeneration(seconds_per_tick)
 	SHOULD_CALL_PARENT(TRUE)
@@ -175,4 +167,4 @@
 	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || organ_self_heal_per_second
 	if(damage < repair_modifier*max_damage)
 		heal_damage(repair_modifier * seconds_per_tick)
-	return TRUE // regeneration is allowed
+	return damage // True if there's any damage left to heal on the next tick

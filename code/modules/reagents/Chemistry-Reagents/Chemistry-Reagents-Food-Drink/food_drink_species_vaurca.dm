@@ -149,6 +149,9 @@
 	if(!istype(M))
 		return
 	if(alien == IS_VAURCA)
+		for (var/organ as anything in M.internal_organs)
+			if (istype(organ, /obj/item/organ/internal/stomach) || istype(organ, /obj/item/organ/internal/liver))
+				START_PROCESSING(SSprocessing, organ)
 		M.intoxication += (strength / 100) * removed * 6
 
 /singleton/reagent/drink/toothpaste/cold_gate

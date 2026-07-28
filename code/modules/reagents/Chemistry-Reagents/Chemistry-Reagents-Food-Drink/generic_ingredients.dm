@@ -69,6 +69,9 @@
 
 /singleton/reagent/nutriment/coating/beerbatter/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
+	for (var/organ as anything in M.internal_organs)
+		if (istype(organ, /obj/item/organ/internal/stomach) || istype(organ, /obj/item/organ/internal/liver))
+			START_PROCESSING(SSprocessing, organ)
 	M.intoxication += removed*0.02 //Very slightly alcoholic
 
 //
