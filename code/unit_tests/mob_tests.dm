@@ -122,6 +122,45 @@
 
 	return 1	// return 1 to show we're done and don't want to recheck the result.
 
+/datum/unit_test/closed_eyes
+	name = "MOB: Closing eyes blinds and protects from flashes"
+	groups = list("mob")
+
+/datum/unit_test/closed_eyes/start_test()
+	var/mob/living/carbon/human/H = new(pick(GLOB.tdome1))
+	var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
+
+	if(!eyes)
+		TEST_FAIL("Test human spawned without an eye organ.")
+		qdel(H)
+		return TRUE
+
+	eyes.eyes_closed = TRUE
+	if(!H.is_blind())
+		TEST_FAIL("A human with closed eyes was not considered blind.")
+		qdel(H)
+		return TRUE
+
+	if(H.flash_act(affect_silicon = TRUE, ignore_inherent = TRUE))
+		TEST_FAIL("A flash affected a human with closed eyes.")
+		qdel(H)
+		return TRUE
+
+	eyes.eyes_closed = FALSE
+	if(H.is_blind())
+		TEST_FAIL("Opening healthy eyes did not restore the human's vision.")
+		qdel(H)
+		return TRUE
+
+	if(!H.flash_act(ignore_inherent = TRUE))
+		TEST_FAIL("A flash did not affect a human with open, unprotected eyes.")
+		qdel(H)
+		return TRUE
+
+	TEST_PASS("Closed eyes blind their owner and prevent flash effects.")
+	qdel(H)
+	return TRUE
+
 // ============================================================================
 
 /proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
