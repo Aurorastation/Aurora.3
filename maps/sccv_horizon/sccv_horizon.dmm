@@ -45239,14 +45239,6 @@
 /obj/structure/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
-"fRs" = (
-/obj/structure/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch_door/engineering{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_teal/full,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/engineering/hallway/fore)
 "fRu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -286321,7 +286313,7 @@ rMj
 gBD
 cap
 kYa
-fRs
+uFY
 kYa
 kYa
 pXi
