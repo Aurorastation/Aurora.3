@@ -5,4 +5,4 @@ changes:
   - bugfix: "Fixes C4 not being placed correctly."
   - bugfix: "Fixes Dirty Bombs deleting their own radiation source."
   - bugfix: "Fixes Dirty Bomb goop puddles disapearing long before the radiation does."
-  - bugfix: "Fixes drinking radioactive waste not irradiatin you."
+  - bugfix: "Fixes drinking radioactive waste not irradiating you."
