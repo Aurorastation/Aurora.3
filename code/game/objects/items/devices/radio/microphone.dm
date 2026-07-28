@@ -57,17 +57,17 @@
 
 	if(get_dist(target, get_turf(src)) < MICROPHONE_LISTEN_RANGE)
 		if(!(target in listeners))
-			to_chat(user, SPAN_NOTICE("You angle the microphone to allow [target_mob] to speak into it."))
+			to_chat(user, SPAN_NOTICE("You angle the microphone to allow [target] to speak into it."))
 			add_listener(target)
 		else
-			to_chat(user, SPAN_NOTICE("You angle the microphone away from [target_mob]."))
+			to_chat(user, SPAN_NOTICE("You angle the microphone away from [target]."))
 			remove_listener(target)
 
 /**
  * Add a mob to the list of listeners allowed to speak into the microphone.
  */
 /obj/item/radio/microphone/proc/add_listener(mob/living/target_mob)
-	LAZYADD(listeners, target_mob)
+	LAZYDISTINCTADD(listeners, target_mob)
 	RegisterSignal(target_mob, COMSIG_MOVABLE_MOVED, PROC_REF(check_listener_distance))
 
 /**
