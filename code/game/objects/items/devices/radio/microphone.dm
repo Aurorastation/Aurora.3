@@ -5,6 +5,7 @@
 	icon_state = "microphone"
 	item_state = "microphone"
 	canhear_range = MICROPHONE_LISTEN_RANGE
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	/// If we have specific people we want to be able to speak into the microphone.
 	var/directed_listening = TRUE
 	/// A lazylist of the people allowed to talk into the microphone. Essentially acts as a filter.
@@ -21,7 +22,7 @@
 	LAZYNULL(listeners)
 	return ..()
 
-/obj/item/radio/microphone/attack_hand(mob/user)
+/obj/item/radio/microphone/AltClick(mob/user)
 	. = ..()
 	directed_listening = !directed_listening
 	to_chat(user, SPAN_NOTICE("You are now [directed_listening ? "" : "no longer "]listening to specific people."))
@@ -29,12 +30,15 @@
 /obj/item/radio/microphone/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
 	. = ..()
 	. += SPAN_NOTICE("You are [directed_listening ? "" : SPAN_BOLD("not ")]listening to specific people with the microphone.")
-	if(LAZYLEN(listeners))
-		. += SPAN_NOTICE("You are angling the microphone specifically towards the following people: [SPAN_BOLD(english_list(listeners))].")
+	if(directed_listening)
+		if(LAZYLEN(listeners))
+			. += SPAN_NOTICE("You are angling the microphone specifically towards the following people: [SPAN_BOLD(english_list(listeners))].")
+		else
+			. += SPAN_NOTICE("You are not angling the microphone towards anyone.")
 
 /obj/item/radio/microphone/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	. += "By default, your microphone will not allow anyone other than you to speak into it."
+	. += "By default, your microphone will not allow anyone other than you to speak into it. [SPAN_BOLD("Alt-Click")] to disable this functionality."
 	. += "You can [SPAN_BOLD("click")] someone with the microphone in hand to allow them to speak into it. [SPAN_BOLD("Click")] them again to disallow them again."
 	. += "If someone moves more than 5 tiles away from your microphone, they will automatically be removed from the list."
 
@@ -46,15 +50,18 @@
 	. = ..()
 	remove_listener(user)
 
-/obj/item/radio/microphone/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/radio/microphone/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
-	if(get_dist(target_mob, get_turf(src)) < MICROPHONE_LISTEN_RANGE)
-		if(!(target_mob in listeners))
+	if(!isliving(target))
+		return
+
+	if(get_dist(target, get_turf(src)) < MICROPHONE_LISTEN_RANGE)
+		if(!(target in listeners))
 			to_chat(user, SPAN_NOTICE("You angle the microphone to allow [target_mob] to speak into it."))
-			add_listener(target_mob)
+			add_listener(target)
 		else
 			to_chat(user, SPAN_NOTICE("You angle the microphone away from [target_mob]."))
-			remove_listener(target_mob)
+			remove_listener(target)
 
 /**
  * Add a mob to the list of listeners allowed to speak into the microphone.

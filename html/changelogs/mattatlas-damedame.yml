@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "The journalist's microphone by default no longer allows everyone to speak into it. Click someone with the microphone in hand to allow the microphone to pick up their voice. You can activate the microphone in hand to disable this functionality. If you move more than 5 tiles away from the microphone, you will automatically be de-registered from its allowed listeners. People screaming will bypass the allowed listeners."
+  - rscadd: "The journalist's microphone by default no longer allows everyone to speak into it. Click someone with the microphone in hand to allow the microphone to pick up their voice. You can alt-click the microphone to disable this functionality. If you move more than 5 tiles away from the microphone, you will automatically be de-registered from its allowed listeners. People screaming will bypass the allowed listeners."
