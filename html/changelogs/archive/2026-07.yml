@@ -582,3 +582,6 @@
   - rscadd: Implemented a remap of the Executive Officer's Office.
   - rscdel: The XO's flash .45 pistol was removed, they now only have their energy
       pistol.
+2026-07-28:
+  Hellfirejag:
+  - bugfix: Fixed a bad pointer error with psiblock drugs.
