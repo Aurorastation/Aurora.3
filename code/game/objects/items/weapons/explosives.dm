@@ -109,7 +109,7 @@
 
 	log_and_message_admins("planted [src.name] on [target.name] with [timetext] fuse", user, get_turf(target))
 
-	var/obj/effect/plastic_explosive/effect = new plastic_explosive_type(get_turf(user), target, src)
+	new plastic_explosive_type(get_turf(user), target, src)
 	to_chat(user, SPAN_WARNING("Bomb has been planted. Timer counting down from [timetext]."))
 
 	detonate_time = world.time + (timer)
