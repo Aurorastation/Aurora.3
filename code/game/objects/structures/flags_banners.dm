@@ -3719,8 +3719,7 @@
 /obj/structure/sign/flag/venus/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
-// Venus
-
+// Eris
 /obj/item/flag/eris
 	name = "\improper Erisian Banner"
 	desc = "The banner of the Sovereign Solarian Union of Eris and Dysnomia, a pair of distant dwarf worlds in the Sol System, dominated by the dual influence of the system’s largest communications array and the Solarian Navy."
