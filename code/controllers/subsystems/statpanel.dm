@@ -204,6 +204,14 @@ SUBSYSTEM_DEF(statpanels)
 	if(!target.obj_window)
 		target.obj_window = new /datum/object_window_info(target)
 	var/datum/object_window_info/obj_window = target.obj_window
+	// Unregister signals for any atoms we used to track but will no longer show
+	var/list/old_atoms = obj_window.atoms_to_show
+	if(old_atoms)
+		for(var/atom as anything in old_atoms)
+			if(!(atom in atoms_to_display))
+				obj_window.UnregisterSignal(atom, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+				obj_window.UnregisterSignal(atom, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
+
 	obj_window.atoms_to_show = atoms_to_display
 	START_PROCESSING(SSobj_tab_items, obj_window)
 	refresh_client_obj_view(target)
@@ -339,6 +347,10 @@ SUBSYSTEM_DEF(statpanels)
 	src.parent = parent
 
 /datum/object_window_info/Destroy(force)
+	if(atoms_to_show)
+		for(var/atom as anything in atoms_to_show)
+			UnregisterSignal(atom, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+			UnregisterSignal(atom, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
 	atoms_to_show = null
 	atoms_to_images = null
 	atoms_to_imagify = null
@@ -403,6 +415,8 @@ SUBSYSTEM_DEF(statpanels)
 /// We use hard refs cause we'd need a signal for this anyway. Cleaner this way
 /datum/object_window_info/proc/viewing_atom_deleted(atom/deleted)
 	SIGNAL_HANDLER
+	UnregisterSignal(deleted, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+	UnregisterSignal(deleted, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
 	atoms_to_show -= deleted
 	atoms_to_imagify -= deleted
 	atoms_to_images -= deleted
@@ -418,6 +432,8 @@ SUBSYSTEM_DEF(statpanels)
 	SIGNAL_HANDLER
 	if(!actively_tracking)
 		return
+	UnregisterSignal(moved, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+	UnregisterSignal(moved, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
 	atoms_to_show -= moved
 	atoms_to_imagify -= moved
 	atoms_to_images -= moved
