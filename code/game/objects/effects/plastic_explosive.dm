@@ -7,6 +7,7 @@
 	anchored = TRUE
 	density = FALSE
 	mouse_opacity = MOUSE_OPACITY_ICON
+	layer = ABOVE_DOOR_LAYER
 	var/obj/item/plastique/parent
 
 /obj/effect/plastic_explosive/feedback_hints(mob/user, distance, is_adjacent)
