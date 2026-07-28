@@ -268,7 +268,7 @@
 	SIGNAL_HANDLER
 	*power = *power * (1 + (melee_damage_contribution * morale_ratio))
 
-/datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
+/datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase, obj/item/gun/bang)
 	SIGNAL_HANDLER
 	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * morale_ratio
 	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * morale_ratio

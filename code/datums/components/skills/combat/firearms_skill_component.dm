@@ -3,40 +3,37 @@
  * but only if this component is present. Essentially it provides a penalty to gun accuracy at ranks below the "Skill Diff", and a bonus for ranks above it.
  */
 /datum/component/skill/firearms
-	/**
-	 * Accuracy modifier to fired guns per point of "Skill Diff".
-	 * As an "Effective increase" in tiles to the target being shot.
-	 */
+	/// Accuracy modifier to fired guns per point of "Skill Diff" as an "Effective increase" in tiles to the target being shot.
 	var/accuracy_per_skill_diff = 0.5
 
-	/**
-	 * Dispersion modifier to fired guns per point of "Skill Diff".
-	 * As an arc-length in Degrees.
-	 */
-	var/dispersion_per_skill_diff = 30
+	/// Dispersion modifier to fired guns per point of "Skill Diff" as an arc-length in Degrees.
+	var/dispersion_per_skill_diff = 15
 
 	/// %chance per point of "Skill Diff" to fumble changing a weapon's safety or firing mode.
 	var/gun_fumble_per_skill_diff = 15
-	/// How long a character must not move from a tile to get stabilized, which assures a penalty-free shot.
+	/// How long a character must not move from a tile to get stabilized, which assures some penalty-free shots.
 	var/stabilize_delay
 	var/stabilized
+	var/stabilized_shots
 	var/last_tile
-	/** Shots count to the steady threshsold, when reached: the next shot is penalty-free. Lower threshold used for Familiar, but
-	 *unneeded for Trained and up as its purpose is to be a pity/fallback system against excessive innaccuracies.
-	 */
-	var/steady_threshold = 5
-	var/count_to_steady = 0
-	var/steadied
+	/// Shots until skill penalties kick in. 3 for Unfamiliar, 5 for Familiar, but unneeded for Trained and up
+	var/count_to_unsteady
+	var/unsteadied
+	/// How long you're unsteadied for after reaching the threshold. 4 seconds for Unfamiliar, 2 for Familiar
+	var/next_steady
 	/** Firing practice warms you up long-term: every 18, stack up to 2 warmup tiers lasting for a duration & reducing penalties
 	 *The 18 isn't random, it's between the common ammo capacities of 15 -> 20 shots. Trained only gets morale from warmups as they
 	 *are meant to be the unchanged level, but Professional gets actual accuracy buffs.
 	 */
 	var/count_to_warmup
 	var/bonus_mins_per_rank = 5
-	var/accuracy_boost_chance = 30 // Warmup tier boost chance to be referenced in moodlet description
-	var/warmup_end // +10m for Unskilled
+	/// Warmup tier boost chance to be referenced in moodlet description, 55 for tier 1 and 65 for tier 2
+	var/accuracy_boost_chance = 55
+	/// +10m for Unskilled, +5 per rank
+	var/warmup_end
 	var/warmup_tier
-	var/morale_value = 3 //Slightly less than a Familiar Leadership buff
+	/// Slightly less than a Familiar Leadership buff
+	var/morale_value = 3
 
 /datum/moodlet/firearms_practice // Macros can't be multi-line, so occasional raw html for readibility
 	moodlet_descriptor = SPAN_GOOD("Firing Warmup")
@@ -89,29 +86,35 @@
 /datum/component/skill/firearms/proc/set_stabilize(mob/user, turf/new_turf, old_loc)
 	if(!istype(user.get_active_hand(), /obj/item/gun))
 		return
-	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-		stabilize_delay = world.time + 1 SECOND
-	if(skill_level >= SKILL_LEVEL_FAMILIAR)
-		stabilize_delay = world.time + 1.25 SECONDS
-	else
-		stabilize_delay = world.time + 1.5 SECONDS
+	stabilize_delay = world.time + 1 SECOND
 	if(!last_tile)
 		last_tile = new_turf
 	addtimer(CALLBACK(src, PROC_REF(check_stabilize), user), stabilize_delay - world.time)
 
 /datum/component/skill/firearms/proc/check_stabilize(mob/shooter)
 	if(stabilize_delay && world.time >= stabilize_delay && last_tile == shooter.loc && istype(shooter.get_active_hand(), /obj/item/gun))
-		to_chat(shooter, SPAN_NOTICE("<i>You feel stable and confident for your next shot.</i>"))
+		stabilized_shots = 0
+		to_chat(shooter, SPAN_NOTICE("<i>You feel stable and confident for your next two shots here.</i>"))
 		stabilized = TRUE
-		shooter.balloon_alert(shooter, "Stabilized shot!")
+		shooter.balloon_alert(shooter, "Stabilized shots!")
 		playsound(shooter, 'sound/weapons/push.ogg', 30)
 		stabilize_delay = null
 	last_tile = null
 
-/datum/component/skill/firearms/proc/warmup(mob/shooter)
-	if(skill_level < SKILL_LEVEL_TRAINED) // Trained and up OOCly don't need accuracy fallbacks & ICly would always be steadied
-		count_to_steady++
+/datum/component/skill/firearms/proc/set_steady(mob/shooter, forced)
+	if(next_steady && world.time >= next_steady || forced)
+		next_steady = null
+		unsteadied = FALSE
+		to_chat(shooter, SPAN_NOTICE("<i>Your grip feels steadier again.</i>"))
+		shooter.balloon_alert(shooter, "Steadied shots!")
+
+/datum/component/skill/firearms/proc/warmup(mob/shooter) // Trained and up ICly would always be steadied
+	if(!stabilized && skill_level < SKILL_LEVEL_TRAINED && !unsteadied && count_to_unsteady < 5)
+		count_to_unsteady++
+	if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL && stabilized && last_tile == shooter.loc)
+		stabilized_shots++
 	count_to_warmup++
+	to_world("STEADY SHOTS: [count_to_unsteady]")
 	if(count_to_warmup % 18 == 0)
 		var/datum/component/morale/morale_comp = shooter.GetComponent(MORALE_COMPONENT)
 		if(warmup_tier < 2)
@@ -127,7 +130,7 @@
 				moodlet.owner = parent
 				moodlet.owner_lvl = skill_level
 			if(warmup_tier == 2)
-				accuracy_boost_chance = 40
+				accuracy_boost_chance = 65
 				warmed_up.set_moodlet(morale_value + skill_level)
 		if(warmup_tier == 2)
 			var/time_left = warmup_end - world.time
@@ -139,10 +142,10 @@
 			+ "\n\t - remaining duration: [minutes] minutes"
 			)
 			if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-				to_chat(shooter, "\t - a 40% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
+				to_chat(shooter, "\t - a [accuracy_boost_chance]% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
 			else
 				if(skill_level < SKILL_LEVEL_TRAINED)
-					to_chat(shooter, "\t - a 40% chance of firing a shot without skill penalties under the duration.")
+					to_chat(shooter, "\t - a [accuracy_boost_chance]% chance of firing a shot without skill penalties under the duration.")
 
 			shooter.balloon_alert(shooter, "WARMED UP!")
 		else
@@ -152,40 +155,47 @@
 			+ "\n\t - remaining duration: [minutes] minutes"
 			)
 			if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-				to_chat(shooter, "\t - 30% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
+				to_chat(shooter, "\t - [accuracy_boost_chance]% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
 			else
 				if(skill_level < SKILL_LEVEL_TRAINED)
-					to_chat(shooter, "\t - 30% chance of firing a shot without skill penalties under the duration.")
+					to_chat(shooter, "\t - [accuracy_boost_chance]% chance of firing a shot without skill penalties under the duration.")
 				to_chat(shooter, SPAN_NOTICE("You feel you've gotten the hang of this for a while."))
 			shooter.balloon_alert(shooter, "Warmed up!")
 		count_to_warmup = 0
 
-	if(count_to_steady == steady_threshold || skill_level >= SKILL_LEVEL_FAMILIAR && count_to_steady == 3)
-		steadied = TRUE
-		count_to_steady = 0
-		to_chat(shooter, SPAN_NOTICE("<i>You feel steadier and confident for your next shot.</i>"))
-		shooter.balloon_alert(shooter, "Steadied shot!")
+	if(stabilized && stabilized_shots == 2)
+		stabilized = FALSE
+		stabilized_shots = 0
 
-/datum/component/skill/firearms/proc/handle_accuracy(mob/living/shooter, accuracy_decrease, dispersion_increase)
+	if((skill_level >= SKILL_LEVEL_FAMILIAR && count_to_unsteady == 5) || (skill_level < SKILL_LEVEL_FAMILIAR && count_to_unsteady == 3))
+		unsteadied = TRUE
+		count_to_unsteady = 0
+		next_steady = world.time + ((4/skill_level) + 0.5) SECONDS
+		addtimer(CALLBACK(src, PROC_REF(set_steady), shooter), next_steady - world.time)
+		to_chat(shooter, SPAN_DANGER("<i>Your grip becomes unsteadied!</i>"))
+		shooter.balloon_alert(shooter, "Unsteadied shots!")
+
+/datum/component/skill/firearms/proc/handle_accuracy(mob/living/shooter, accuracy_decrease, dispersion_increase, obj/item/gun/bang)
 	SIGNAL_HANDLER
 	var/skill_diff = skill_diff_reference - skill_level
 	// When stabilized, steadied, or warmed up: return before any negative skill adjustments. Ordered on reliability.
-	if(stabilized) // First to go because it's the most common and contextual
+	if(last_tile && last_tile != shooter.loc)
 		stabilized = FALSE
+		stabilized_shots = 0
+	if(stabilized) // First to go because it's the most common and contextual
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			*accuracy_decrease = *accuracy_decrease - 1 // +1 tile closer, equal to +2 ranks as a boon for the higher level cost
 			*dispersion_increase = *dispersion_increase + dispersion_per_skill_diff * skill_diff // Only negative at this level
 		return .
-	if(steadied)
-		steadied = FALSE
+	if(!unsteadied)
 		return
 	if(warmup_tier && world.time >= warmup_end)
 		warmup_tier = 0
 		warmup_end = null
-		accuracy_boost_chance = 30
+		accuracy_boost_chance = 55
 		to_chat(shooter, SPAN_WARNING("You feel your aim has wavered without practice."))
 		return
-	if((warmup_tier == 1 && prob(30)) || (warmup_tier == 2 && prob(40))) // Last to go as its effect is least common, & unpredictable
+	if((warmup_tier == 1 && prob(55)) || (warmup_tier == 2 && prob(65))) // Last to go as its effect is least common, & unpredictable
 		if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			playsound(shooter, 'sound/weapons/ammo_load.ogg', 90) // Actually tough to notice with gun fire
 			shooter.visible_message(SPAN_DANGER("[shooter] adjusts [shooter.get_pronoun("his")] angling!"),
