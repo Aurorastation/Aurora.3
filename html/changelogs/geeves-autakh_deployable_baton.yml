@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The Autakh integrated stun baton can now be deployed and used like a normal baton. The ten second cooldown between hits, reduced stats, and nutrition loss for use remains as before."
