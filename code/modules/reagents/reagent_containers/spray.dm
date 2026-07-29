@@ -104,12 +104,11 @@
 		D.set_color()
 		D.set_up(my_target, spray_size, 10)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.back,/obj/item/rig))
 			var/obj/item/rig/R = H.back
-			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate()
+			R.attack_disrupt_check()  //This currently handles decloaking ninjas who spray acid or lube. Other modules could use attack_disrupt_check() in future.
 
 /obj/item/reagent_containers/spray/attack_self(var/mob/user)
 	if(!possible_transfer_amounts)
@@ -295,3 +294,14 @@
 		return
 
 	..()
+
+/obj/item/reagent_containers/spray/cleaner/glass_glue
+	name = "single-use glass adhesive spray"
+	desc = "A small spray tube of a Hephaestus Industries ultra-strong silicate epoxy adhesive. For window and glass repair. Single-use!"
+	volume = 20
+	icon_state = "deodorant"
+	item_state = "deodorant"
+	possible_transfer_amounts = null
+	spray_size = 1
+	spray_sizes = null
+	reagents_to_add = list(/singleton/reagent/silicate = 20)

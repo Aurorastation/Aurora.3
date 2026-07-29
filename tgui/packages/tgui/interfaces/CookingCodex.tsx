@@ -8,6 +8,7 @@ export type CodexData = {
 };
 
 type Recipe = {
+  id: string;
   result: string;
   result_image: any; // base64 icon
   ingredients: string;
@@ -45,21 +46,17 @@ export const CookingCodex = (props) => {
             </Table.Row>
             {data.recipes
               .filter((recipe) => {
+                const query = searchTerm.toLocaleLowerCase();
+
                 return (
-                  recipe.result
-                    .toLocaleLowerCase()
-                    .includes(searchTerm.toLocaleLowerCase()) ||
-                  recipe.ingredients
-                    .toLocaleLowerCase()
-                    .includes(searchTerm.toLocaleLowerCase()) ||
-                  recipe.appliances
-                    .toLocaleLowerCase()
-                    .includes(searchTerm.toLocaleLowerCase())
+                  recipe.result?.toLocaleLowerCase().includes(query) ||
+                  recipe.ingredients?.toLocaleLowerCase().includes(query) ||
+                  recipe.appliances?.toLocaleLowerCase().includes(query)
                 );
               })
               .sort((a, b) => a.result.localeCompare(b.result))
               .map((recipe) => (
-                <Table.Row header className="candystripe" key={recipe.result}>
+                <Table.Row header className="candystripe" key={recipe.id}>
                   <Table.Cell textAlign="right" verticalAlign="middle" pl="5px">
                     {recipe.result.toLocaleLowerCase()}
                   </Table.Cell>

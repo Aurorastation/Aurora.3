@@ -264,3 +264,9 @@
 	desc = "A mask which allows the wearer to view local camera feeds they have access to."
 	telecrystal_cost = 6
 	path = /obj/item/clothing/mask/ai
+
+/datum/uplink_item/item/tools/tactical_axe
+	name = "Tactical Axe"
+	desc = "An emergency tool meant to pry and chop, while also being sharp enough to kill."
+	bluecrystal_cost = 1
+	path = /obj/item/crowbar/rescue_axe/tactical

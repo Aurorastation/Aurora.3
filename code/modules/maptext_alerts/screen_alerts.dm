@@ -76,7 +76,7 @@
 	style_open = "<span class='langchat' style=font-size:20pt;text-align:center valign='top'>"
 	style_close = "</span>"
 
-/atom/movable/screen/text/screen_text/adpi_message
+/atom/movable/screen/text/screen_text/mental_message
 	maptext_height = 64
 	maptext_width = 480
 	maptext_x = 0

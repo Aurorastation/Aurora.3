@@ -472,3 +472,50 @@
 2026-06-21:
   Yonnimer:
   - rscadd: Adds a new voidtamer lantern to the voidtamer ship and as a loadout option.
+2026-06-23:
+  ASmallCuteCat:
+  - admin: The category of admin commands which trigger round-ending events has been
+      renamed to Round-Ending Secrets.
+  Fenodyree:
+  - rscadd: Fixes a runtime on the runtime map. All jobs now have spawnpoints.
+  - balance: Nerfs human shields. You can now aim for the head, legs or opposite arm
+      to bypass the human shield. Additionally, shooting destroyed limbs causes shots
+      to hit both the hostage and the hostage taker.
+  - bugfix: Fixes HTML interfaces not updating when a user hits a UI button.
+  - bugfix: Fixes immortal robot organs.
+  kermit:
+  - rscadd: Reflavours all existing TCAF stuff to fit the new TCAF expansion/rework.
+  - rscdel: Deletes or repurposes 4-years-defunct TCFL stuff from the codebase.
+2026-06-24:
+  TheGreyWolf:
+  - bugfix: Smoking while drinking no longer risks hallucinations.
+2026-06-25:
+  MattAtlas:
+  - bugfix: Removed defunct darksight variables on species. Unathi now have the darksight
+      they were supposed to have.
+2026-06-27:
+  FabianK3:
+  - bugfix: Fixed missing disposal pipe segment.
+  MattAtlas:
+  - rscadd: Antagonists can now see what other types of antagonists there are and
+      how many in the Status tab.
+  - rscadd: If the gamemode contains revolutionaries, the Captain will now receive
+      specific instructions on how to play the gamemode when they spawn in order to
+      avoid confusion.
+  hazelmouse:
+  - rscadd: Modified description and name of the portable cooling unit to make it
+      more clear that it is important for IPC medical mechanics.
+  - bugfix: Portable cooling units now appear on mobs correctly.
+  kano:
+  - bugfix: Fixed runtime map throwing a runtime error whenever the player tried to
+      latejoin.
+  - rscadd: Added a kitchen section to the runtime map.
+  - rscdel: Removed ancient and unused area definitions from code.
+2026-06-30:
+  Roostercat:
+  - experiment: Swaps the Chapel and the Machinist Lab and moves the Mass Driver to
+      the Security Checkpoint.
+  TheGreyWolf:
+  - rscadd: Added regular messages when under the effect of a mindblanker or psi-protect
+      drugs.
+  - balance: Tweaked the seizure effects of the cheap psi-protect drugs.

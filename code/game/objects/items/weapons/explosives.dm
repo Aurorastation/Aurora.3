@@ -133,6 +133,9 @@
 		else
 			target.ex_act(1)
 
+	var/obj/effect/plastic_explosive/effect = locate(/obj/effect/plastic_explosive) in get_turf(src)
+	if(effect)
+		qdel(effect)
 	qdel(src)
 
 /obj/item/plastique/attack(mob/living/target_mob, mob/living/user, target_zone)

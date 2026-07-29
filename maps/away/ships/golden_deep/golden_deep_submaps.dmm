@@ -684,19 +684,9 @@
 /obj/item/versebook/biesel,
 /obj/item/storage/stickersheet/biesel,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
-/obj/item/clothing/suit/storage/tcaf{
-	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces. It looks a little knocked about."
-	},
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf,
-/obj/item/clothing/head/beret/tcaf/field,
-/obj/item/clothing/head/beret/tcaf,
 /obj/item/clothing/head/softcap/tcaf_cap,
-/obj/structure/closet/crate/secure/tcaf{
-	name = "tau ceti armed forces supply crate";
-	req_access = null;
-	req_one_access = list(229, 217)
-	},
 /obj/random/dirt_75,
+/obj/structure/whiteboard/portable,
 /turf/template_noop,
 /area/template_noop)
 "Tw" = (

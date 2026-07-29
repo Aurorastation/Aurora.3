@@ -162,7 +162,7 @@ GLOBAL_VAR_INIT(photo_count, 1)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	var/black_white = FALSE
 	var/pictures_max = 10
 	var/pictures_left = 10

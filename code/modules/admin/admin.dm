@@ -1302,7 +1302,11 @@ var/global/enabled_spooking = 0
 
 	var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 	message_admins("[key_name(usr)] attempting to force latespawn with template [antag.id].")
-	antag.attempt_auto_spawn()
+	if(antag.attempt_auto_spawn())
+		if(SSticker.round_canon.antagonist_actions_canon == ANTAGONIST_ACTIONS_NOT_EXPECTED)
+			var/change_canon = tgui_alert(usr, "You have added antagonists to a gamemode type that does not expect antagonists. Would you like to also change the round canon to Limited?", "Canon Change", list("Yes", "No"))
+			if(change_canon == "Yes")
+				SSticker.set_round_canon(/singleton/canonicity/limited)
 
 /datum/admins/proc/force_mode_latespawn()
 	set category = "Admin"
@@ -1321,6 +1325,28 @@ var/global/enabled_spooking = 0
 
 	log_and_message_admins("attempting to force mode autospawn.")
 	SSticker.mode.process_autoantag()
+
+/datum/admins/proc/force_round_canon_pregame()
+	set category = "Admin"
+	set name = "Set Pre-Game Round Canon"
+
+	if (!istype(src,/datum/admins))
+		src = usr.client.holder
+	if (!istype(src,/datum/admins) || !check_rights(R_ADMIN))
+		to_chat(usr, "Error: you are not an admin!")
+		return
+
+	if(SSticker.current_state == GAME_STATE_PLAYING)
+		to_chat(usr, SPAN_WARNING("You cannot use this verb after the round has started! Use the Canon Panel from the Status panel."))
+		return
+
+	var/singleton/canonicity/canon_type = tgui_input_list(usr, "Choose a round canon type.", "Force Round Canon", GET_SINGLETON_SUBTYPE_LIST(/singleton/canonicity))
+	if(!istype(canon_type))
+		return
+
+	SSticker.set_round_canon(canon_type, TRUE, TRUE)
+	SSticker.round_canon_admin_forced = TRUE
+	log_and_message_admins("forced the round canon to [canon_type.name].")
 
 /datum/admins/proc/paralyze_mob(mob/living/H as mob)
 	set category = "Admin"
@@ -1433,26 +1459,6 @@ var/global/enabled_spooking = 0
 	SSodyssey.scenario = chosen_scenario
 	log_and_message_admins("has manually set the Odyssey to [chosen_scenario.name]", usr)
 	feedback_add_details("admin_verb","SEOT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/datum/admins/proc/set_odyssey_canonicity()
-	set name = "Set Odyssey Canonicity"
-	set category = "Special Verbs"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	if(!SSodyssey.scenario)
-		to_chat(usr, SPAN_WARNING("There needs to be an Odyssey selected first! Use the Set Odyssey Type verb."))
-		return
-
-	var/canonicity = tgui_input_list(usr, "Set the Odyssey canonicity.", "Set Odyssey Canonicity", list(SCENARIO_TYPE_CANON, SCENARIO_TYPE_NONCANON))
-	if(!canonicity)
-		return
-
-	SSodyssey.scenario.scenario_type = canonicity
-	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY(SPAN_NOTICE("The scenario canonicity has been changed to [SPAN_BOLD(canonicity)] by an administrator."))))
-	log_and_message_admins("has set the Odyssey canonicity to [canonicity]", usr)
-	feedback_add_details("admin_verb","SEOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/open_narrate_panel()
 	set category = "Special Verbs.Narration/Messaging"

@@ -2132,11 +2132,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/synthroom)
 "eqW" = (
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = -7
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
 	},
-/turf/template_noop,
-/area/space)
+/obj/item/portable_whiteboard,
+/turf/simulated/floor/wood/birch,
+/area/ship/ssrm_corvette/crew_lounge)
 "esV" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
@@ -2288,7 +2289,7 @@
 "eCm" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Pilot's Amenities";
-	req_access = list(111)
+	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/clothing/head/helmet/pilot,
@@ -3695,7 +3696,7 @@
 /obj/structure/machinery/vending/wallmed1{
 	pixel_x = 9;
 	pixel_y = 32;
-	req_access = list(111)
+	req_access = list(204)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ssrm_shuttle)
@@ -38278,7 +38279,7 @@ jTb
 hGn
 txv
 waK
-hwL
+eqW
 mtj
 prd
 cdz
@@ -49042,7 +49043,7 @@ xRX
 xRX
 xRX
 xRX
-eqW
+xRX
 xRX
 xRX
 xRX

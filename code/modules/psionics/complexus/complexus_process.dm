@@ -1,7 +1,8 @@
 /datum/psi_complexus/proc/update(var/force)
 	set waitfor = FALSE
 
-	if(force || last_psionic_rank != psionic_rank)
+	var/rank_changed = (get_rank() != last_psionic_rank)
+	if(force || rank_changed)
 		if(psionic_rank == 0)
 			qdel(src)
 			return
@@ -29,23 +30,26 @@
 				else if(psionic_rank == PSI_RANK_HARMONIOUS)
 					aura_color = "#64c464"
 
-	if(psionic_rank > PSI_RANK_SENSITIVE && (get_rank() != last_psionic_rank))
+	if(psionic_rank > PSI_RANK_SENSITIVE && rank_changed)
+		var/base_psi_points = 0
 		switch(psionic_rank)
 			if(PSI_RANK_HARMONIOUS)
-				psi_points = PSI_POINTS_HARMONIOUS
+				base_psi_points = PSI_POINTS_HARMONIOUS
 			if(PSI_RANK_APEX)
-				psi_points = PSI_POINTS_APEX
+				base_psi_points = PSI_POINTS_APEX
 			if(PSI_RANK_LIMITLESS)
-				psi_points = PSI_POINTS_LIMITLESS
-			else
-				psi_points = 0
+				base_psi_points = PSI_POINTS_LIMITLESS
+		ensure_base_psi_points(base_psi_points)
 		/// We had special abilities unique to our level, so get rid of 'em.
 		if(last_psionic_rank > PSI_RANK_HARMONIOUS)
 			wipe_user_abilities()
 
-	if(last_psionic_rank > PSI_RANK_SENSITIVE && psionic_rank < PSI_RANK_HARMONIOUS && (get_rank() != last_psionic_rank))
+	if(last_psionic_rank > PSI_RANK_SENSITIVE && psionic_rank < PSI_RANK_HARMONIOUS && rank_changed)
 		psi_points = 0
 		wipe_user_abilities()
+
+	if(rank_changed)
+		last_psionic_rank = psionic_rank
 
 	if(!announced && owner && owner.client && !QDELETED(src))
 		announced = TRUE

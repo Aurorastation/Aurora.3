@@ -67,7 +67,7 @@
 					to_chat(user, SPAN_WARNING("You notice some irregularity in the psionic flow through their [I]."))
 				if(I.is_broken())
 					to_chat(user, SPAN_WARNING("Your psionic flow through their [I] is <b>highly irregular</b>."))
-				if(I.damage)
+				if(I.get_damage())
 					to_chat(user, SPAN_WARNING("You are sure there is some damage in their [I]."))
 			var/pulse = target.get_pulse()
 			to_chat(user, SPAN_NOTICE("Their pulse is [pulse]."))

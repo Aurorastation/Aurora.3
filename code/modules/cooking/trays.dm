@@ -18,7 +18,7 @@
 	throw_range = 5
 	w_class = 3.0
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	matter = list(DEFAULT_WALL_MATERIAL = 3000)
+	matter = list(MATERIAL_STEEL = 3000)
 	recyclable = TRUE
 	hitsound = SFX_BOTTLE_HIT_BROKEN
 	drop_sound = SFX_BOTTLE_HIT_BROKEN

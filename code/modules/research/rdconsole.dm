@@ -60,25 +60,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	req_access = list(ACCESS_TOX)	//Data and setting manipulation requires scientist access.
 
 /obj/structure/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
-	var/return_name = ID
-	switch(return_name)
-		if("metal")
-			return_name = "Metal"
-		if("glass")
-			return_name = "Glass"
-		if("gold")
-			return_name = "Gold"
-		if("silver")
-			return_name = "Silver"
-		if("phoron")
-			return_name = "Solid Phoron"
-		if("uranium")
-			return_name = "Uranium"
-		if("diamond")
-			return_name = "Diamond"
-		if("plasteel")
-			return_name = "Plasteel"
-	return return_name
+	return SSmaterials.material_display_name(ID)
 
 /obj/structure/machinery/computer/rdconsole/proc/CallReagentName(ID)
 	var/singleton/reagent/R = GET_SINGLETON(ID)
@@ -279,9 +261,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 						for(var/T in linked_destroy.loaded_item.origin_tech)
 							files.UpdateTech(T, linked_destroy.loaded_item.origin_tech[T])
 						if(linked_lathe && linked_destroy.loaded_item.matter) // Also sends salvaged materials to a linked protolathe, if any.
+							SSmaterials.normalize_material_amounts(linked_lathe.materials)
 							for(var/t in linked_destroy.loaded_item.matter)
-								if(t in linked_lathe.materials)
-									linked_lathe.materials[t] += min(linked_lathe.max_material_storage - linked_lathe.TotalMaterials(), linked_destroy.loaded_item.matter[t] * linked_destroy.decon_mod)
+								var/material = SSmaterials.material_to_path(t, FALSE)
+								if(material)
+									var/salvage_amount = min(linked_lathe.max_material_storage - linked_lathe.TotalMaterials(), linked_destroy.loaded_item.matter[t] * linked_destroy.decon_mod)
+									if(salvage_amount > 0)
+										SSmaterials.add_material_amount(linked_lathe.materials, material, salvage_amount)
 
 						linked_destroy.loaded_item = null
 						for(var/obj/I in linked_destroy.contents)
@@ -371,28 +357,42 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_lathe?.removeFromQueue(text2num(href_list["removeP"]))
 
 	else if(href_list["lathe_ejectsheet"] && linked_lathe) //Causes the protolathe to eject a sheet of material
-		var/num_sheets = min(text2num(href_list["amount"]), round(linked_lathe.materials[href_list["lathe_ejectsheet"]] / SHEET_MATERIAL_AMOUNT))
+		SSmaterials.normalize_material_amounts(linked_lathe.materials)
+		var/material = SSmaterials.material_to_path(href_list["lathe_ejectsheet"], FALSE)
+		if(!material)
+			return
+
+		var/num_sheets = min(text2num(href_list["amount"]), round((linked_lathe.materials[material] || 0) / SHEET_MATERIAL_AMOUNT))
 
 		if(num_sheets < 1)
 			return
 
-		var/mattype = linked_lathe.getMaterialType(href_list["lathe_ejectsheet"])
+		var/mattype = linked_lathe.getMaterialType(material)
+		if(!mattype)
+			return
 
 		var/obj/item/stack/material/M = new mattype(linked_lathe.loc)
 		M.amount = num_sheets
-		linked_lathe.materials[href_list["lathe_ejectsheet"]] -= num_sheets * SHEET_MATERIAL_AMOUNT
+		SSmaterials.remove_material_amount(linked_lathe.materials, material, num_sheets * SHEET_MATERIAL_AMOUNT)
 
 	else if(href_list["imprinter_ejectsheet"] && linked_imprinter) //Causes the protolathe to eject a sheet of material
-		var/num_sheets = min(text2num(href_list["amount"]), round(linked_imprinter.materials[href_list["imprinter_ejectsheet"]] / SHEET_MATERIAL_AMOUNT))
+		SSmaterials.normalize_material_amounts(linked_imprinter.materials)
+		var/material = SSmaterials.material_to_path(href_list["imprinter_ejectsheet"], FALSE)
+		if(!material)
+			return
+
+		var/num_sheets = min(text2num(href_list["amount"]), round((linked_imprinter.materials[material] || 0) / SHEET_MATERIAL_AMOUNT))
 
 		if(num_sheets < 1)
 			return
 
-		var/mattype = linked_imprinter.getMaterialType(href_list["imprinter_ejectsheet"])
+		var/mattype = linked_imprinter.getMaterialType(material)
+		if(!mattype)
+			return
 
 		var/obj/item/stack/material/M = new mattype(linked_imprinter.loc)
 		M.amount = num_sheets
-		linked_imprinter.materials[href_list["imprinter_ejectsheet"]] -= num_sheets * SHEET_MATERIAL_AMOUNT
+		SSmaterials.remove_material_amount(linked_imprinter.materials, material, num_sheets * SHEET_MATERIAL_AMOUNT)
 
 	else if(href_list["find_device"]) //The R&D console looks for devices nearby to link up with.
 		screen = 0.0
@@ -595,8 +595,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					if(PROTOLATHE) dat += "Lathe Type: Proto-lathe<BR>"
 				dat += "Required Materials:<BR>"
 				for(var/M in d_disk.blueprint.materials)
-					if(copytext(M, 1, 2) == "$") dat += "* [copytext(M, 2)] x [d_disk.blueprint.materials[M]]<BR>"
-					else dat += "* [M] x [d_disk.blueprint.materials[M]]<BR>"
+					var/material_name = "[M]"
+					if(copytext(material_name, 1, 2) == "$")
+						material_name = copytext(material_name, 2)
+					else
+						material_name = CallMaterialName(M)
+					dat += "* [material_name] x [d_disk.blueprint.materials[M]]<BR>"
 				dat += "<HR>Operations: "
 				dat += "<A href='byond://?src=[ref_for_ui];updt_design=1'>Upload to Database</A> || "
 				dat += "<A href='byond://?src=[ref_for_ui];clear_design=1'>Clear Disk</A> || "
@@ -734,9 +738,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='byond://?src=[ref_for_ui];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
+			SSmaterials.normalize_material_amounts(linked_lathe.materials)
 			for(var/M in linked_lathe.materials)
 				var/amount = linked_lathe.materials[M]
-				dat += "<LI><B>[capitalize(M)]</B>: [amount] cm<sup>3</sup>"
+				dat += "<LI><B>[CallMaterialName(M)]</B>: [amount] cm<sup>3</sup>"
 				if(amount >= SHEET_MATERIAL_AMOUNT)
 					dat += " || Eject "
 					for (var/C in list(1, 3, 5, 10, 15, 20, 25, 30, 40))
@@ -832,9 +837,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='byond://?src=[ref_for_ui];menu=4.1'>Circuit Imprinter Menu</A><HR>"
 			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
+			SSmaterials.normalize_material_amounts(linked_imprinter.materials)
 			for(var/M in linked_imprinter.materials)
 				var/amount = linked_imprinter.materials[M]
-				dat += "<LI><B>[capitalize(M)]</B>: [amount] cm<sup>3</sup>"
+				dat += "<LI><B>[CallMaterialName(M)]</B>: [amount] cm<sup>3</sup>"
 				if(amount >= SHEET_MATERIAL_AMOUNT)
 					dat += " || Eject: "
 					for (var/C in list(1, 3, 5, 10, 15, 20, 25, 30, 40))

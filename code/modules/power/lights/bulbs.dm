@@ -8,7 +8,7 @@
 	force = 2
 	throwforce = 5
 	w_class = WEIGHT_CLASS_TINY
-	matter = list(DEFAULT_WALL_MATERIAL = 60)
+	matter = list(MATERIAL_STEEL = 60)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN

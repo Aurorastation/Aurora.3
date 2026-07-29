@@ -15,7 +15,7 @@
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
 	var/affected_area = 3
 
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
+	matter = list(MATERIAL_STEEL = 700, MATERIAL_GLASS = 300)
 
 /obj/item/grenade/chem_grenade/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -199,7 +199,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	affected_area = 4
 
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
+	matter = list(MATERIAL_STEEL = 1000, MATERIAL_GLASS = 500)
 
 /obj/item/grenade/chem_grenade/metalfoam
 	name = "metal-foam grenade"
