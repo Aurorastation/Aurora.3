@@ -5,12 +5,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	interact(user)
-	external_examine(user)
+	. += external_examine(user)
 	. = ..()
 
 // This should be used when someone is examining from an 'outside' perspective, e.g. reading a screen or LED.
 /obj/item/integrated_circuit/proc/external_examine(mob/user)
-	any_examine(user)
+	return any_examine(user)
 
 /obj/item/integrated_circuit/proc/any_examine(mob/user)
 	. = list()

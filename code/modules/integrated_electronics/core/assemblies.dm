@@ -200,8 +200,11 @@
 
 /obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(is_adjacent && opened)
-		for(var/obj/item/integrated_circuit/IC in contents)
+	for(var/obj/item/integrated_circuit/IC in contents)
+		var/examined = IC.external_examine()
+		if(length(examined))
+			. += examined
+		if(is_adjacent && opened)
 			. += SPAN_NOTICE("It contains \a [IC].")
 
 /obj/item/electronic_assembly/proc/get_part_complexity()
