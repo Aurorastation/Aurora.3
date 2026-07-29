@@ -64331,8 +64331,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/machinery/light{
-	dir = 1
+/obj/structure/noticeboard{
+	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
@@ -152674,9 +152674,6 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew/washroom/deck_3)
 "tJv" = (
-/obj/structure/noticeboard{
-	pixel_y = 31
-	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/machinery/door/window{
 	name = "Reception Desk";
@@ -152684,6 +152681,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/hologram/holopad,
+/obj/structure/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "tJw" = (
