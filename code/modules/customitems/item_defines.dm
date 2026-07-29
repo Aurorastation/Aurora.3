@@ -1471,7 +1471,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/update_icon(var/hooded = FALSE)
-	var//obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
+	var//obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/S = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
 	SEND_SIGNAL(S, COMSIG_ITEM_STATE_CHECK, args)
 	. = ..()
 	S.item_state = "[S.icon_state][hooded ? "_up" : ""]"
