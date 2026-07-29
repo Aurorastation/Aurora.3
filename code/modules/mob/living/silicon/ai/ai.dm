@@ -521,7 +521,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	if((world.time - last_emergency_message_time) < AI_EMERGENCY_MESSAGE_COOLDOWN)
 		to_chat(src, SPAN_WARNING("Arrays are recycling. You need to wait <b>[DisplayTimeText(AI_EMERGENCY_MESSAGE_COOLDOWN - (world.time - last_emergency_message_time))]</b> before you can send another message."))
 		return FALSE
-	var/input = sanitize(input(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
+	var/input = sanitize(input(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_short] via bluespace.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
 		return FALSE
 

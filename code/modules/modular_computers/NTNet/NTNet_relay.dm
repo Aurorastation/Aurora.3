@@ -1,6 +1,6 @@
 // Relays don't handle any actual communication. Global NTNet datum does that, relays only tell the datum if it should or shouldn't work.
 /obj/structure/machinery/ntnet_relay
-	name = "NTNet Quantum Relay"
+	name = "NTNet Bluespace Relay"
 	desc = "A very complex router and transmitter capable of connecting electronic devices together. Looks fragile."
 	use_power = POWER_USE_ACTIVE
 	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
@@ -61,12 +61,12 @@
 	if((dos_overload > dos_capacity) && !dos_failure)
 		dos_failure = TRUE
 		update_icon()
-		GLOB.ntnet_global.add_log("Quantum relay switched from normal operation mode to overload recovery mode.")
+		GLOB.ntnet_global.add_log("Bluespace relay switched from normal operation mode to overload recovery mode.")
 	// If the DoS buffer reaches 0 again, restart.
 	if((dos_overload == 0) && dos_failure)
 		dos_failure = FALSE
 		update_icon()
-		GLOB.ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
+		GLOB.ntnet_global.add_log("Bluespace relay switched from overload recovery mode to normal operation mode.")
 	..()
 
 /obj/structure/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
@@ -92,11 +92,11 @@
 		dos_overload = FALSE
 		dos_failure = FALSE
 		update_icon()
-		GLOB.ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
+		GLOB.ntnet_global.add_log("Bluespace relay manually restarted from overload recovery mode to normal operation mode.")
 		. = TRUE
 	if(action=="toggle")
 		enabled = !enabled
-		GLOB.ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
+		GLOB.ntnet_global.add_log("Bluespace relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
 		. = TRUE
 
@@ -113,12 +113,12 @@
 	if(GLOB.ntnet_global)
 		GLOB.ntnet_global.relays.Add(src)
 		NTNet = GLOB.ntnet_global
-		GLOB.ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
+		GLOB.ntnet_global.add_log("New bluespace relay activated. Current amount of linked relays: [NTNet.relays.len]")
 
 /obj/structure/machinery/ntnet_relay/Destroy()
 	if(GLOB.ntnet_global)
 		GLOB.ntnet_global.relays.Remove(src)
-		GLOB.ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
+		GLOB.ntnet_global.add_log("Bluespace relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
 	return ..()
 
 /obj/structure/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)

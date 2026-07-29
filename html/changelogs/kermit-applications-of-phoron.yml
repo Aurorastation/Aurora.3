@@ -1,0 +1,10 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Represents phoron lore in SMES units via descs + purple accenting on SMES sprites."
+  - rscadd: "Adds a phoron-free, cryogenic SMES unit."
+  - rscadd: "Represents phoron lore in telecomms component descriptions."
+  - rscadd: "The Quantum Relay has been renamed to Bluespace Relay, as Quantum FTL Communications are not in lore."
+
