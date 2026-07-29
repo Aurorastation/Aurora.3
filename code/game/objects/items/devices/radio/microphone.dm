@@ -89,8 +89,8 @@
 			to_chat(M, SPAN_NOTICE("[source] moves away from the microphone."))
 
 /obj/item/radio/microphone/hear_talk(mob/M, msg, var/verb = "says", datum/language/speaking)
-    var/message_ending = copytext(msg, length(msg) - 1, length(msg)) //copies the last 2 letters
-    if(directed_listening && ((M in listeners) || (message_ending in word_bypasses)))
-        return ..()
+	var/message_ending = copytext(msg, length(msg) - 1, length(msg)) //copies the last 2 letters
+	if(directed_listening && ((M in listeners) || (message_ending in word_bypasses)))
+		return ..()
 
 #undef MICROPHONE_LISTEN_RANGE
