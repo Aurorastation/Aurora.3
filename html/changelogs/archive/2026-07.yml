@@ -486,3 +486,102 @@
   - qol: 'Updated vaurca namegen to not be terrible: now checks for species to give
       an accurate caste, Warforms and Cargo drones automatically get Viax.'
   - qol: Warforms get body color set when spawning in.
+2026-07-27:
+  Baldos:
+  - bugfix: Fixed silicons (and anything with a magnetic gripper) not being able to
+      insert fuel assemblies into the INDRA's solid fuel injectors.
+  Batrachophrenoboocosmomachia:
+  - qol: 'Eligible non-random wire panels now use relevant domain skills where applicable:
+      engineering skills, robotics, and xenobiology implemented, instead of only Electrical
+      Engineering 4.'
+  - rscadd: Adds new wire to APCs that blows out all the lights if you pulse it with
+      the safeties off.
+  - rscadd: Adds the Signal Manager NTOS app for signaler-capable network cards. Pre-installed
+      in Engineering, Research, and Machinist app presets.
+  - rscadd: Engineering, Research, and Machinist character modular computers now come
+      with signaler-capable network cards.
+  - qol: Increases remote signaler availability in EngiTech vendors and made assembly
+      items tiny.
+  - bugfix: Fixes air alarm wiring to use the correct wire datum path.
+  - bugfix: Fixes canister-attached signaler regression.
+  - bugfix: Fixes assembly holders failing silently when unsecured to fuel tanks;
+      fuel tanks now reject unsecured assembly holders.
+  - bugfix: Fixes runtime when an activation deletes or detaches one of the paired
+      assemblies.
+  - qol: Reduces the Fusion Codex program size.
+  - bugfix: Operating table less likely to get non-real occupant bug when installed
+      on a shuttle.
+  - bugfix: Antifuel grenades now reliably neutralize spilled welding fuel and napalm
+      gel.
+  - balance: Generic cleaning products/tools no longer remove spilled welding fuel
+      or napalm gel- requires antifuel reagent.
+  FabianK3:
+  - bugfix: Fixed dictionary number sort.
+  Fenodyree:
+  - balance: Buffs mech mounted gauss weapons with anti-armor potential, similar to
+      the PEAC. It can now destroy doors with repeated hits.
+  - balance: Buffs the gauss high explosive shell to do explosion damage directly
+      to a mob it hits. It now does the same damage as a heavy explosion, without
+      destroying the floor.
+  Geeves:
+  - bugfix: Fix starlight not working on overmap and overship maps.
+  Hellfirejag:
+  - rscadd: Added feedback messages for when psychic damage is penalizing a user's
+      skills.
+  - balance: Increased the penalties to skills from psychic damage by a factor of
+      3.
+  MattAtlas:
+  - rscdel: Simple mobs don't dodge backwards anymore.
+  Whitewolftamer:
+  - rscadd: Adds new prosthetic limbs for Vaurca bulwarks.
+  Wowzewow (Wezzy):
+  - rscadd: Can yoke interaction has been flipped for consistency - mousedrag to remove
+      a can, click to pick up the whole yoke.
+  diggiez:
+  - rscadd: Vaurcae can use Hivenet in the Lemurian Sea, but only on connected Horizon
+      z-levels. This extends to any far sector with Hivenet echoes disabled.
+  fyni:
+  - rscadd: Buffs technomancer slightly by changing their starting loadout. They will
+      now have chameleon armour, a proper agent ID and an antag headset.
+  kano:
+  - rscadd: Ports Hauberk Mazegen from Paradise Station.
+  mineymonkey:
+  - rscadd: Added electronic radio headsets, wearable radios with internal integrated
+      circuit assemblies, encryption key support, and private text-to-speech output.
+  - rscadd: Added integrated circuit printer cloning and blueprint import/export support
+      for assemblies and supported hosted assemblies.
+  - rscadd: Added new integrated circuit tools for data storage, database commands,
+      radio commands, references, coordinates, access checks, card/item slots, power
+      cells, and item trays.
+  - rscadd: Added expanded math circuits, including algebra, geometry, list math,
+      statistics, vectors, matrices, calculus, and vector calculus.
+  - rscadd: Added practical automation circuits, including edge detection, cooldown
+      limiting, pulse counting, pulse routing, state display, list utilities, coordinate
+      navigation, and command parsing.
+  - rscadd: Added xenoarch precision excavator circuit support with anomaly depth,
+      clearance, excavation, and target direction outputs.
+  - rscadd: Added additional manipulation circuits and a low-complexity debug circuit
+      for organizing circuit layouts.
+  - rscadd: Made the circuit cloner upgrade disk printable in the protolathe.
+  - qol: Reorganized integrated circuit printer categories, math subgroups, logic/comparison
+      groups, circuit descriptions, and circuit box descriptions.
+  - qol: Improved cloning preservation for circuit names, pin data, constant memory
+      values, built-in circuit links, hosted assembly state, and electronic radio
+      headset internals.
+  - qol: Improved scanner, server, command pad, reference, coordinate, list, ticker,
+      and printer workflows with clearer outputs, safer invalid-input handling, and
+      bounded pulse behavior.
+  - bugfix: Fixed imported electronic radio headset blueprints failing to recreate
+      the headset wrapper item or correctly bind the internal assembly.
+  - bugfix: Fixed large integrated circuit blueprint imports losing or corrupting
+      JSON characters during chunked transfer.
+  - bugfix: Fixed several integrated circuit edge cases involving invalid refs, empty
+      or null lists, injector targets, radio command receiver declarations, and abstract
+      math circuits appearing in printers.
+  notagonk:
+  - rscadd: Implemented a remap of the Executive Officer's Office.
+  - rscdel: The XO's flash .45 pistol was removed, they now only have their energy
+      pistol.
+2026-07-28:
+  Hellfirejag:
+  - bugfix: Fixed a bad pointer error with psiblock drugs.

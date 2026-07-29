@@ -1,0 +1,6 @@
+author: mineymonkey
+
+delete-after: True
+
+changes:
+ - bugfix: "Steel is needed to make the cloning disk properly now."
