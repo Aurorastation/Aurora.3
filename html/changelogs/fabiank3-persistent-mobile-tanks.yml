@@ -1,0 +1,8 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added persistence to roller water/fuel/extinguisher tanks."
+  - rscdel: "Added water and extinguisher tanks to cargo orders."
+  - balance: "Reduce the cargo bounty for water and fuel tanks down to 1."

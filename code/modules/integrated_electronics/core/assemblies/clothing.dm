@@ -111,7 +111,7 @@
 
 /obj/item/clothing/under/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/under/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -134,7 +134,7 @@
 
 /obj/item/clothing/gloves/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/gloves/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -167,7 +167,7 @@
 
 /obj/item/clothing/glasses/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/glasses/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -205,7 +205,7 @@
 
 /obj/item/clothing/shoes/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/shoes/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -228,7 +228,7 @@
 
 /obj/item/clothing/head/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/head/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -250,7 +250,7 @@
 
 /obj/item/clothing/ears/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -273,7 +273,7 @@
 
 /obj/item/clothing/suit/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/large, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/suit/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
