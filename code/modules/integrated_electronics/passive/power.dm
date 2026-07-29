@@ -24,7 +24,7 @@
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3, TECH_DATA = 2)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
-	var/power_factor = 15
+	var/power_factor = 100 //Light levels are 0-1, this gives a range of 0-100W.
 
 /obj/item/integrated_circuit/passive/power/solar_cell/make_energy()
 	var/turf/T = get_turf(src)
