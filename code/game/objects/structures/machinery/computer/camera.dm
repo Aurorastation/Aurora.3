@@ -105,7 +105,7 @@
 		. = camera_monitor_program.ui_act(action, params, ui, state)
 
 /obj/structure/machinery/computer/security/attack_hand(var/mob/user as mob)
-	if (!(src.z in GetConnectedZlevels(starting_z_level)))
+	if (!(src.z in GetConnectedZlevels(starting_z_level)) && !SSatlas.current_map.is_always_available_network_level(src.z))
 		to_chat(user, "Unable to establish a connection.")
 		return
 	if(stat & (NOPOWER|BROKEN))	return
@@ -133,7 +133,7 @@
 		return 0
 	set_current(C)
 
-	if (!(C.z in GetConnectedZlevels(starting_z_level)))
+	if (!(C.z in GetConnectedZlevels(starting_z_level)) && !(SSatlas.current_map.is_always_available_network_level(src.z) && C.z == src.z))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 

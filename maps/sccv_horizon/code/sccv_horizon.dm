@@ -20,6 +20,7 @@
 
 	admin_levels = list(4)
 	contact_levels = list(1, 2, 3)
+	always_available_network_levels = list(4)
 	player_levels = list(1, 2, 3, 5)
 	restricted_levels = list()
 	accessible_z_levels = list("1" = 5, "2" = 5, "3" = 5, "5" = 75)

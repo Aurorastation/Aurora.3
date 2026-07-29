@@ -99,7 +99,18 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 /// 'For endpoint' signifies that sometimes we will abstract a device as being a modular computer when really all we care about is whether it is networked.
 /// This will likely need to be simplified in future.
 /datum/ntnet/proc/get_signal_for_endpoint(var/atom/endpoint, var/specific_action = 0, var/ethernet = FALSE, var/long_range = FALSE)
-	if(!istype(endpoint) || !check_endpoint_function(specific_action, ethernet))
+	if(!istype(endpoint))
+		return 0
+
+	var/turf/endpoint_turf = get_turf(endpoint)
+	if(SSatlas.current_map.is_always_available_network_level(endpoint_turf?.z))
+		if(ethernet)
+			return 3
+		if(long_range)
+			return 2
+		return 1
+
+	if(!check_endpoint_function(specific_action, ethernet))
 		return 0
 
 	var/area/A = get_area(endpoint)
@@ -118,6 +129,10 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 
 /datum/ntnet/proc/get_reachable_z_levels_for_endpoint(var/atom/endpoint, var/specific_action = 0, var/ethernet = FALSE, var/long_range = FALSE)
 	. = list()
+	var/turf/endpoint_turf = get_turf(endpoint)
+	if(SSatlas.current_map.is_always_available_network_level(endpoint_turf?.z))
+		. |= endpoint_turf.z
+		return
 	if(get_signal_for_endpoint(endpoint, specific_action, ethernet, long_range) <= 0)
 		return
 
@@ -127,6 +142,10 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 
 /datum/ntnet/proc/get_reachable_z_levels(var/obj/item/computer_hardware/network_card/card, var/specific_action = 0)
 	. = list()
+	var/turf/endpoint_turf = get_turf(card?.parent_computer)
+	if(SSatlas.current_map.is_always_available_network_level(endpoint_turf?.z))
+		. |= endpoint_turf.z
+		return
 	if(get_signal(card, specific_action) <= 0)
 		return
 
