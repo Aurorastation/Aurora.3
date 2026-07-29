@@ -51687,15 +51687,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/clothing/suit/trinary_robes{
-	pixel_x = 17
-	},
-/obj/item/clothing/suit/trinary_robes{
-	pixel_x = 17
-	},
-/obj/item/clothing/suit/trinary_robes{
-	pixel_x = 17
-	},
 /obj/item/versebook/trinary,
 /obj/item/versebook/trinary,
 /obj/item/versebook/trinary,

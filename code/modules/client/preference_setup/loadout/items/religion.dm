@@ -18,15 +18,15 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/trinary/robe
 	display_name = "trinary perfection robes selection"
 	description = "A selection of robes worn by adherents of the Trinary Perfection."
-	path = /obj/item/clothing/suit/trinary_robes
+	path = /obj/item/clothing/suit/storage/hooded/trinary_robes
 	slot = slot_wear_suit
 
 /datum/gear/religion/trinary/robe/New()
 	..()
 	var/list/trinaryrobe = list()
-	trinaryrobe["trinary perfection robes"] = /obj/item/clothing/suit/trinary_robes
-	trinaryrobe["trinary perfection habit"] = /obj/item/clothing/suit/trinary_robes/habit
-	trinaryrobe["templeist robes"] = /obj/item/clothing/suit/trinary_robes/templeist
+	trinaryrobe["trinary perfection robes"] = /obj/item/clothing/suit/storage/hooded/trinary_robes
+	trinaryrobe["trinary perfection habit"] = /obj/item/clothing/suit/storage/hooded/trinary_robes/habit
+	trinaryrobe["templeist robes"] = /obj/item/clothing/suit/storage/hooded/trinary_robes/templeist
 	gear_tweaks += new /datum/gear_tweak/path(trinaryrobe)
 
 /datum/gear/religion/trinary/cape

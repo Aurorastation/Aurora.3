@@ -27,6 +27,8 @@
 		"Null Orb" = /obj/item/nullrod/orb,
 		"Null Athame" = /obj/item/nullrod/athame,
 	)
+	/// For funny sprites which cover the hair from the back.
+	var/normal_layer = BACK_LAYER
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -232,14 +234,21 @@
 
 /obj/item/nullrod/clockworkstave
 	name = "\improper clockwork stave"
-	desc = "A long, wooden stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
+	desc = "A long brass stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
 	hand-crafted by synthetics from the monastic Order of Pitters and exported off the planet of Axiom."
 	icon = 'icons/obj/trinary_stave.dmi'
 	icon_state = "trinary_stave"
 	item_state = "trinary_stave"
 	contained_sprite = TRUE
-
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = SLOT_BACK
+
+/obj/item/nullrod/clockworkstave/check_equipped(mob/user, slot, assisted_equip = FALSE)
+	. = ..()
+	if(slot == slot_back)
+		layer = ABOVE_HUMAN_LAYER
+	else
+		layer = OBJ_LAYER
 
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"

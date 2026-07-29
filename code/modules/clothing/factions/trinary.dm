@@ -1,18 +1,50 @@
-/obj/item/clothing/suit/trinary_robes/habit
+// Orthodox Trinarist gear
+/obj/item/clothing/suit/storage/hooded/trinary_robes
+	name = "trinary perfection robe"
+	desc = "Robes worn by those who serve The Trinary Perfection."
+	icon_state = "trinary_robe"
+	item_state = "trinary_robe"
+	icon = 'icons/obj/item/clothing/suit/trinarist_robes.dmi'
+	hoodtype = /obj/item/clothing/head/winterhood/trinary
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/winterhood/trinary
+	name = "trinary perfection hood"
+	desc = "A hood worn by those who serve the Trinary Perfection."
+	icon_state = "trinary_robe_hood"
+	item_state = "trinary_robe_hood"
+	icon = 'icons/obj/item/clothing/suit/trinarist_robes.dmi'
+	flags_inv = HIDEEARS | HIDEEARS // We don't want this to block hair.
+
+/obj/item/clothing/suit/storage/hooded/trinary_robes/templeist
+	name = "templeist robes"
+	desc = "A robe worn by members of the Lodge of Temple Architect, an order within the Trinary Perfection \
+	focused on technological and industrial development."
+	icon_state = "templeist_robe"
+	item_state = "templeist_robe"
+	hoodtype = /obj/item/clothing/head/winterhood/trinary/templeist
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/winterhood/trinary/templeist
+	name = "templeist hood"
+	desc = "A hood worn by members of the Lodge of Temple Architect, an order within the Trinary Perfection \
+	focused on technological and industrial development."
+	icon_state = "templeist_robe_hood"
+	item_state = "templeist_robe_hood"
+
+/obj/item/clothing/suit/storage/hooded/trinary_robes/habit
 	name = "trinary perfection habit"
 	desc = "Robes worn by those who serve The Trinary Perfection."
 	icon_state = "trinary_habit"
 	item_state = "trinary_habit"
-	icon = 'icons/obj/item/clothing/suit/trinarist_robes.dmi'
+	hoodtype = /obj/item/clothing/head/winterhood/trinary/habit
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/trinary_robes/templeist
-	name = "templeist robe"
-	desc = "A robe worn by members of the Lodge of Temple Architect, an order within the Trinary Perfection focused on technological and industrial development."
-	icon_state = "templeist_robe"
-	item_state = "templeist_robe"
-	icon = 'icons/obj/item/clothing/suit/trinarist_robes.dmi'
-	contained_sprite = TRUE
+/obj/item/clothing/head/winterhood/trinary/habit
+	name = "trinary perfection habit hood"
+	desc = "A hood worn by those who serve the Trinary Perfection."
+	icon_state = "trinary_habit_hood"
+	item_state = "trinary_habit_hood"
 
 /obj/item/clothing/head/trinary
 	name = "trinary coif"
