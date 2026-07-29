@@ -69,7 +69,8 @@
 		/obj/item/firealarm_electronics = 10,
 		/obj/item/cell/high = 10,
 		/obj/item/grenade/chem_grenade/antifuel = 5,
-		/obj/item/geiger = 5
+		/obj/item/geiger = 5,
+		/obj/item/reagent_containers/spray/cleaner/glass_glue = 8
 	)
 	contraband = list(
 		/obj/item/cell/potato = 3
