@@ -455,3 +455,14 @@
 	name = "empty algae chips bag"
 	desc = "It looks like someone left some strands of algae in it."
 	icon_state = "algaechips"
+
+/obj/item/trash/foilwrapper
+	name = "foil wrapper"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi' //icon is located here instead of in the trash icon file because of how wrapper code works.
+	icon_state = "foil_trash"
+	desc = "A foil wrapper, the kind you may find many industrially-packaged products packed in. Now it's just empty trash, though."
+
+/obj/item/trash/popsiclestick
+	name = "popsicle stick"
+	icon_state = "popsicle_trash"
+	desc = "Used by doctors to suppress tongues. Well, at least when it's clean. This one isn't, so you may as well just chuck it in the trash."
