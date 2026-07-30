@@ -16,3 +16,7 @@
 
 /// Sent to turf contents when the turf no longer fully blocks light.
 #define COMSIG_TURF_NO_LONGER_BLOCK_LIGHT "turf_no_longer_block_light"
+
+/// From base of /datum/turf_reservation/proc/Release: (datum/turf_reservation/reservation)
+#define COMSIG_TURF_RESERVATION_RELEASED "turf_reservation_released"
+

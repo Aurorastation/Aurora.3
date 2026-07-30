@@ -6,6 +6,7 @@
 	icon_state = "fuel"
 	layer = CLEANABLE_FLOOR_OBJECT_LAYER
 	anchored = 1
+	cleanable_by_basic_cleaners = FALSE
 	var/amount = 1
 
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, nologs = 0)

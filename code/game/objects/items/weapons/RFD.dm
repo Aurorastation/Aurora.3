@@ -30,7 +30,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 50000)
+	matter = list(MATERIAL_STEEL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 
@@ -180,7 +180,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	item_state = "rfdammo"
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	matter = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 2000)
 	recyclable = TRUE
 
 

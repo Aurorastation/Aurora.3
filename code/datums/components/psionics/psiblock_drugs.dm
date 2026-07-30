@@ -194,7 +194,7 @@
 	*accuracy_decrease = *accuracy_decrease + accuracy_penalty
 	*dispersion_increase = *dispersion_increase + dispersion_penalty
 
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_surgery(mob/living/user, success_rate)
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_surgery(mob/living/user, mob/living/target, success_rate, duration)
 	SIGNAL_HANDLER
 	*success_rate = *success_rate + surgery_success_penalty
 

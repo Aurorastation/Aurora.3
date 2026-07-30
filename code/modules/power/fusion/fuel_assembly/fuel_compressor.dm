@@ -48,7 +48,7 @@
 		if(!M.use(5))
 			to_chat(user, SPAN_WARNING("You need at least five [mat.sheet_plural_name] to make a fuel rod."))
 			return
-		var/obj/item/fuel_assembly/F = new(get_turf(src), mat.name)
+		var/obj/item/fuel_assembly/F = new(get_turf(src), mat.type)
 		visible_message(SPAN_NOTICE("\The [src] compresses the [mat.use_name] into a new fuel assembly."))
 		user.put_in_hands(F)
 		return 1

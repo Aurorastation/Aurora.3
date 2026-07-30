@@ -70,7 +70,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 // Handles starlight logic unique to space turfs.
-/turf/space/update_starlight()
+/turf/space/update_starlight(has_simulated_neighbor = FALSE)
 	. = ..() // We also run the parent proc here, since space may also require starlight from needs_starlight!
 
 	// Our parent proc already handled starlight for us, we don't have to do our own checks
@@ -78,7 +78,8 @@
 		return
 
 	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
-	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+	// Some callers already know this and can skip building another range list.
+	if(has_simulated_neighbor || locate(/turf/simulated) in RANGE_TURFS(1, src))
 		enable_starlight()
 
 /// Turns on starlight for space turfs when the caller already knows this turf should be starlit.

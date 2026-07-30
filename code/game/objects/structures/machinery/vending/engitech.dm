@@ -21,7 +21,7 @@
 		/obj/item/flash/synthetic = 4,
 		/obj/item/cell/high = 12,
 		/obj/item/assembly/prox_sensor = 8,
-		/obj/item/assembly/signaler = 8,
+		/obj/item/assembly/signaler = 20,
 		/obj/item/healthanalyzer = 3,
 		/obj/item/surgery/scalpel = 2,
 		/obj/item/surgery/circular_saw = 2,
@@ -60,13 +60,15 @@
 		/obj/item/multitool = 4,
 		/obj/item/taperoll/engineering = 4,
 		/obj/item/clothing/glasses/safety/goggles = 4,
+		/obj/item/assembly/signaler = 20,
 		/obj/item/airlock_electronics = 20,
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
 		/obj/item/cell/high = 10,
 		/obj/item/grenade/chem_grenade/antifuel = 5,
-		/obj/item/geiger = 5
+		/obj/item/geiger = 5,
+		/obj/item/reagent_containers/spray/cleaner/glass_glue = 8
 	)
 	contraband = list(
 		/obj/item/cell/potato = 3

@@ -567,7 +567,23 @@ update_flag
 /obj/structure/machinery/portable_atmospherics/canister/do_signaler()
 	valve_open = !valve_open
 	if(valve_open)
+		if(holding)
+			release_log += "Valve was <b>opened</b> by a signaler, starting the transfer into [holding]<br>"
+		else
+			release_log += "Valve was <b>opened</b> by a signaler, starting the transfer into the <span class='warning'><b>air</b></span><br>"
 		log_open_userless("a signaler")
+		if(!(processing_flags & MACHINERY_PROCESS_SELF))
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		process()
+	else
+		if(holding)
+			release_log += "Valve was <b>closed</b> by a signaler, stopping the transfer into [holding]<br>"
+		else
+			release_log += "Valve was <b>closed</b> by a signaler, stopping the transfer into the <span class='warning'><b>air</b></span><br>"
+
+	update_connected_network()
+	update_icon()
+	SStgui.update_uis(src)
 
 /**
  * Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0

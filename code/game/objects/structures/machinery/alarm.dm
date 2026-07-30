@@ -1073,7 +1073,7 @@ Just a object used in constructing air alarms
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
+	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
 
 #undef AALARM_MODE_SCRUBBING
 #undef AALARM_MODE_REPLACEMENT

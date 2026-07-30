@@ -14,21 +14,4 @@
 	return
 
 /obj/structure/machinery/r_n_d/proc/getMaterialType(var/name)
-	switch(name)
-		if(DEFAULT_WALL_MATERIAL)
-			return /obj/item/stack/material/steel
-		if("glass")
-			return /obj/item/stack/material/glass
-		if("gold")
-			return /obj/item/stack/material/gold
-		if("silver")
-			return /obj/item/stack/material/silver
-		if("phoron")
-			return /obj/item/stack/material/phoron
-		if("uranium")
-			return /obj/item/stack/material/uranium
-		if("diamond")
-			return /obj/item/stack/material/diamond
-		if("plasteel")
-			return /obj/item/stack/material/plasteel
-	return null
+	return SSmaterials.material_stack_type(name)

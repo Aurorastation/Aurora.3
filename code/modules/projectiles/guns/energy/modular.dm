@@ -12,7 +12,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	can_turret = TRUE
 	zoomdevicename = null
 	max_shots = 0

@@ -120,6 +120,6 @@
 
 /// Returns a sorted version of GLOB.areas, by name
 /proc/get_sorted_areas()
-	if(!GLOB.sortedAreas)
+	if(!GLOB.sortedAreas || (length(GLOB.sortedAreas) < length(GLOB.areas)))
 		GLOB.sortedAreas = sortTim(GLOB.areas.Copy(), /proc/cmp_name_asc)
 	return GLOB.sortedAreas
