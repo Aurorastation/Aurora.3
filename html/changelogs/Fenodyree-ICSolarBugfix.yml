@@ -1,7 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes solar cells producing 1.5% of their intended output. This was caused by light levels now being between 0-1, not 0-100."
-

@@ -1,8 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Fixes Mechatronic Fabricator's emissive overlay."
-  - bugfix: "Fixes Hivenet Manifest hive color assignments."
-  - bugfix: "Fixes Crew Manifest color defines."
-  - bugfix: "Inbuilt /silicon modular computers no longer broken by EMPs."
-  - bugfix: "Fixes energy gun desc_extended inheritances."
