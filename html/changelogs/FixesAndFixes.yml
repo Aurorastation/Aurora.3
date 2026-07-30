@@ -63,3 +63,4 @@ changes:
   - bugfix: "Harvesting a plant multiple times by clicking it repeatedly before it finishes is no longer possible."
   - bugfix: "The kitchen machinery can now be upgraded."
   - bugfix: "The farmbot requirement in bounties was reduced."
+  - bugfix: "Fixes the inability to put custom pizzas in the pizza box."
