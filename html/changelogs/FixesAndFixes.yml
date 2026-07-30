@@ -60,3 +60,4 @@ changes:
   - bugfix: "Fixed that the integrated circuit kit had the wrong tools."
   - bugfix: "Fixed that the integrated circuit printer put things on the turf instead of in hand."
   - bugfix: "Fixed that removing integrated circuit components put them on the turf, and that they were dropped if they did not fit inside the device."
+  - bugfix: "Harvesting a plant multiple times by clicking it repeatedly before it finishes is no longer possible."
