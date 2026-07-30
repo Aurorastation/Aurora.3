@@ -62,3 +62,4 @@ changes:
   - bugfix: "Fixed that removing integrated circuit components put them on the turf, and that they were dropped if they did not fit inside the device."
   - bugfix: "Harvesting a plant multiple times by clicking it repeatedly before it finishes is no longer possible."
   - bugfix: "The kitchen machinery can now be upgraded."
+  - bugfix: "The farmbot requirement in bounties was reduced."
