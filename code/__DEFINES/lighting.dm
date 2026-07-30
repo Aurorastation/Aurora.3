@@ -77,6 +77,8 @@
 #define LIGHT_RESEARCH_COLORS list(LIGHT_COLOR_LAVENDER, LIGHT_COLOR_PALE_PURPLE)
 /// Foreboding blue. Ominous. You are in a high security area.
 #define LIGHT_HIGHSEC_COLORS list(LIGHT_COLOR_BLUE, LIGHT_COLOR_LIGHT_BLUE)
+/// For event.
+#define OUTER_EYES_COLORS list(LIGHT_COLOR_VIOLET, LIGHT_COLOR_PALE_PURPLE, LIGHT_COLOR_SCARLET)
 
 #define LIGHT_MODE_RED      "red"
 #define LIGHT_MODE_DELTA    "delta"
