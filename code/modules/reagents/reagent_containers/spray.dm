@@ -134,6 +134,11 @@
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
 
+/obj/item/reagent_containers/spray/cleaner/surgical
+	name = "surgical cleaner"
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back."
+	icon_state = "sterilespray"
+
 /obj/item/reagent_containers/spray/cleaner/drone
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
