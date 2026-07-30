@@ -249,6 +249,9 @@
 		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', since this setup's too complicated for the case."))
 		return FALSE
 
+	if(!user.unEquip(IC))
+		return FALSE
+
 	if(!IC.forceMove(src))
 		return FALSE
 
@@ -267,9 +270,6 @@
 
 /obj/item/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/integrated_circuit))
-		if(!user.unEquip(attacking_item))
-			return FALSE
-
 		if(add_circuit(attacking_item, user))
 			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] inside \the [src]."))
 			playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
