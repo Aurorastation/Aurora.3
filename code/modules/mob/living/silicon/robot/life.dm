@@ -161,10 +161,10 @@
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
 		set_sight(sight|SEE_TURFS|SEE_MOBS)
-		lighting_cutoff = LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE
+		lighting_cutoff = LIGHTING_CUTOFF_ALMOST_FULLBRIGHT
 	else if(sight_mode & BORGMESON)
 		set_sight(sight|SEE_TURFS)
-		lighting_cutoff = LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE
+		lighting_cutoff = LIGHTING_CUTOFF_ALMOST_FULLBRIGHT
 	else if(sight_mode & BORGMATERIAL)
 		set_sight(sight|SEE_OBJS)
 	else if(sight_mode & BORGTHERM)

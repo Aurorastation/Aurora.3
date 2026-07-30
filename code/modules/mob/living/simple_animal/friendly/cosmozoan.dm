@@ -31,7 +31,7 @@
 	minbodytemp = 0
 
 	flying = TRUE
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 	sample_data = list("Cellular biochemistry include bioluminescent reactions", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/cosmozoan/Initialize()

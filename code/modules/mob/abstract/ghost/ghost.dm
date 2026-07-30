@@ -58,12 +58,12 @@
 	var/level_message
 	switch(lighting_cutoff)
 		if(LIGHTING_CUTOFF_VISIBLE)
-			lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+			lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 			level_message = "half night vision"
-		if(LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE)
-			lighting_cutoff = LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE
+		if(LIGHTING_CUTOFF_VERY_HIGH)
+			lighting_cutoff = LIGHTING_CUTOFF_ALMOST_FULLBRIGHT
 			level_message = "three quarters night vision"
-		if(LIGHTING_CUTOFF_AURORA_MOSTLY_INVISIBLE)
+		if(LIGHTING_CUTOFF_ALMOST_FULLBRIGHT)
 			lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
 			level_message = "full night vision"
 		if(LIGHTING_CUTOFF_FULLBRIGHT)

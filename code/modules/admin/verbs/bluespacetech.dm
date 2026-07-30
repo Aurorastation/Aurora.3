@@ -428,7 +428,7 @@
 	name = "bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 	canremove = 0
 	flash_protection = FLASH_PROTECTION_MAJOR
 
@@ -447,7 +447,7 @@
 			lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 		if ("Darkvision")
 			vision_flags = SEE_SELF
-			lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+			lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 		if ("Normal vision")
 			vision_flags = 0
 			lighting_cutoff = LIGHTING_CUTOFF_VISIBLE

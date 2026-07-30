@@ -54,7 +54,7 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
 
@@ -320,7 +320,7 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/hostile/gnat/Initialize()

@@ -10,7 +10,7 @@
 	light_range = 1.2
 	light_power = 0.5
 	light_color = LIGHT_COLOR_HALOGEN
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 	light_on = FALSE
 

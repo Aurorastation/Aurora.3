@@ -14,7 +14,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	looping_sound = FALSE
 
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 /obj/item/modular_computer/handheld/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

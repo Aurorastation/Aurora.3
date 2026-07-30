@@ -197,7 +197,7 @@
 
 	tameable = FALSE
 	flying = TRUE
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 
 	emote_sounds = list('sound/effects/creatures/PRA_drone.ogg')
 

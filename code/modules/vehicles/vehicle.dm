@@ -21,26 +21,35 @@
 	var/on = 0
 	var/fire_dam_coeff = 1.0
 	var/brute_dam_coeff = 1.0
-	var/open = 0	//Maint panel
+	/// Maint panel
+	var/open = 0
 	var/locked = 1
 	var/stat = 0
 	var/emagged = 0
-	var/powered = 0		//set if vehicle is powered and should use fuel when moving
-	var/move_delay = 1	//set this to limit the speed of the vehicle
+	/// Set if vehicle is powered and should use fuel when moving
+	var/powered = 0
+	/// Set this to limit the speed of the vehicle
+	var/move_delay = 1
 
 	var/obj/item/cell/cell
-	var/charge_use = 5	//set this to adjust the amount of power the vehicle uses per move
+	/// Set this to adjust the amount of power the vehicle uses per move
+	var/charge_use = 5
 
-	var/atom/movable/load		//all vehicles can take a load, since they should all be a least drivable
-	var/load_item_visible = 1	//set if the loaded item should be overlayed on the vehicle sprite
-	var/load_offset_x = 0		//pixel_x offset for item overlay
-	var/load_offset_y = 0		//pixel_y offset for item overlay
-	var/mob_offset_y = 0		//pixel_y offset for mob overlay
+	/// All vehicles can take a load, since they should all be a least drivable
+	var/atom/movable/load
+	/// Set if the loaded item should be overlayed on the vehicle sprite
+	var/load_item_visible = 1
+	/// Pixel_x offset for item overlay
+	var/load_offset_x = 0
+	/// Pixel_y offset for item overlay
+	var/load_offset_y = 0
+	/// Pixel_y offset for mob overlay
+	var/mob_offset_y = 0
 	var/flying = FALSE
 	var/organic = FALSE
 	var/corpse = null
 
-	light_system = DIRECTIONAL_LIGHT
+	light_system = OVERLAY_LIGHT
 
 //-------------------------------------------
 // Standard procs

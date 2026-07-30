@@ -46,7 +46,7 @@
 	max_damage = 50
 	power_use = 50000
 	vision_flags = SEE_MOBS
-	lighting_cutoff = LIGHTING_CUTOFF_AURORA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 
 /obj/item/mech_component/sensors/combat/prebuild()
 	..()
