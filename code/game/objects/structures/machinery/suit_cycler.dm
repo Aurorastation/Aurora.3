@@ -621,12 +621,12 @@
 				suit.item_state = "atmos"
 		if("Operations")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 				helmet.name = "operations voidsuit helmet"
 				helmet.icon_state = "hangartech_helm"
 				helmet.item_state = "hangartech_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 				suit.name = "operations voidsuit"
 				suit.icon_state = "hangartech"
 				suit.item_state = "hangartech"

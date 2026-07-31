@@ -341,7 +341,7 @@
 /obj/item/clothing/head/helmet/space/void/ops
 	name = "operations voidsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environments. This one is standard issue for Orion personnel doing EVA deliveries."
-	icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 	icon_state = "hangartech_helm"
 	item_state = "hangartech_helm"
 	item_state_slots = list( //so that it isn't overridden on refit
@@ -363,7 +363,7 @@
 /obj/item/clothing/suit/space/void/ops
 	name = "operations voidsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. This one is standard issue for Orion personnel doing EVA deliveries."
-	icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 	icon_state = "hangartech"
 	item_state = "hangartech"
 	item_state_slots = list( //so that it isn't overridden on refit

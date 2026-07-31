@@ -1211,7 +1211,7 @@
 	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
 	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
 	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	icon_state = "newgibson_helm"
 	item_state = "newgibson_helm"
 	item_state_slots = list(
@@ -1230,7 +1230,7 @@
 	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
 	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the mining teams of New Gibson \
 	or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	item_state = "newgibson"
 	icon_state = "newgibson"
 	item_state_slots = list(
@@ -1246,7 +1246,7 @@
 	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
 	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
 	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	item_state = "newgibson_helm"
 	icon_state = "newgibson_helm"
 	light_overlay = "helmet_light_dual"
@@ -1263,7 +1263,7 @@
 	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
 	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the mining teams of New Gibson \
 	or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	item_state = "newgibson"
 	icon_state = "newgibson"
 	item_state_slots = list(
@@ -1279,7 +1279,7 @@
 	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
 	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
 	from a past or current owner. Commonly seen in use by the mining and EVA engineering teams of New Gibson or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	item_state = "newgibson_helm"
 	icon_state = "newgibson_helm"
 	item_state_slots = list(
@@ -1296,7 +1296,7 @@
 	name = "new gibsonite atmospherics voidsuit"
 	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
 	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the EVA mining, engineering, and courier teams of New Gibson or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	item_state = "newgibson"
 	icon_state = "newgibson"
 	item_state_slots = list(
@@ -1313,7 +1313,7 @@
 	desc = "A sleek and high-tech space helmet fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry.\
 	Much of the advanced sensor equipment usually installed appears to have been stripped out. It has splotches of fluorescent uranium paint on it, \
 	from a past or current owner. Commonly seen in use by the EVA mining, engineering, and courier teams of New Gibson or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	item_state = "newgibson_helm"
 	icon_state = "newgibson_helm"
 	item_state_slots = list(
@@ -1330,7 +1330,7 @@
 	name = "new gibsonite operations voidsuit"
 	desc = "A sleek and high-tech space suit fitted with advanced life support systems and reactive systems enhanced with phoronic circuitry. \
 	It has splotches of fluorescent uranium paint on it, from a past or current owner. Commonly seen in use by the EVA mining, engineering, and courier teams of New Gibson or the small satellites of Reade."
-	icon = 'icons/obj/clothing/voidsuit/newgibson_voidsuit.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/newgibson_voidsuit.dmi'
 	item_state = "newgibson"
 	icon_state = "newgibson"
 	item_state_slots = list(
