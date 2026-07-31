@@ -624,3 +624,11 @@
   - rscadd: Adds the chocolate bars (old and new) to commissary restock vendors.
   mineymonkey:
   - bugfix: Steel is needed to make the cloning disk properly now.
+2026-07-31:
+  fyni:
+  - rscadd: Updates all references to the Hegemony to the Karszekani Moghes for accents,
+      origins, citizenships and consulars.
+  - rscadd: Add the Kreshwan title to Karszekani consulars.
+  hazelmouse:
+  - rscadd: Implemented a remap of the Machinist Workshop.
+  - rscadd: North-facing platforms now layer correctly over humans.
