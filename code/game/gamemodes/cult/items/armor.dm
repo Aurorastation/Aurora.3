@@ -1,18 +1,3 @@
-/obj/item/clothing/head/culthood/magus
-	name = "magus helm"
-	icon_state = "magus"
-	desc = "A helm worn by the followers of Nar-Sie."
-	flags_inv = HIDEFACE | BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-
-/obj/item/clothing/suit/cultrobes/magusred
-	name = "magus robes"
-	desc = "A set of armored robes worn by the followers of Nar-Sie."
-	icon_state = "magusred"
-	item_state = "magusred"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT
-
 /obj/item/clothing/head/helmet/space/cult
 	name = "eldritch voidsuit helmet"
 	desc = "A bulky armored voidsuit helmet, bristling with menacing spikes. It looks space proof."
