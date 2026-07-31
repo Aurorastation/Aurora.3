@@ -24,6 +24,8 @@
 	var/list/choices = list()
 	/// A assoc list of [ckey] to [what they voted for in the current running vote].
 	var/list/choices_by_ckey = list()
+	/// An associative list of voter ckeys to the weight applied to their current vote.
+	var/list/weights_by_ckey = list()
 	/// The world time this vote was started.
 	var/started_time
 	/// The time remaining in this vote's run.
@@ -45,6 +47,15 @@
 	return !!length(default_choices)
 
 /**
+ * Returns how much influence a voter's selection has.
+ *
+ * Vote subtypes may override this to assign different weights
+ * to different kinds of voters.
+ */
+/datum/vote/proc/get_vote_weight(mob/voter)
+	return 1
+
+/**
  * Resets our vote to its default state.
  */
 /datum/vote/proc/reset()
@@ -52,6 +63,7 @@
 
 	choices.Cut()
 	choices_by_ckey.Cut()
+	weights_by_ckey.Cut()
 	started_time = null
 	time_remaining = null
 

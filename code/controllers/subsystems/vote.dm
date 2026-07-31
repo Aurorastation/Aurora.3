@@ -122,19 +122,32 @@ SUBSYSTEM_DEF(vote)
 		return
 	if(!voter?.ckey)
 		return
-	if(FALSE && voter.stat == DEAD && !voter.client?.holder) //Used to be "CONFIG_GET(flag/no_dead_vote)"
+	if(FALSE && voter.stat == DEAD && !voter.client?.holder)
 		return
 
-	// If user has already voted, remove their specific vote
+	// Do not accept a choice that does not belong to the current vote.
+	if(!(their_vote in current_vote.choices))
+		return
+
+	// If the user has already voted, remove the weight that was originally
+	// applied to their previous choice.
 	if(voter.ckey in current_vote.choices_by_ckey)
 		var/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
-		current_vote.choices[their_old_vote]--
+		var/their_old_weight = current_vote.weights_by_ckey[voter.ckey]
+
+		if(isnull(their_old_weight))
+			their_old_weight = 1
+
+		current_vote.choices[their_old_vote] -= their_old_weight
 
 	else
 		voted += voter.ckey
 
+	var/their_new_weight = current_vote.get_vote_weight(voter)
+
 	current_vote.choices_by_ckey[voter.ckey] = their_vote
-	current_vote.choices[their_vote]++
+	current_vote.weights_by_ckey[voter.ckey] = their_new_weight
+	current_vote.choices[their_vote] += their_new_weight
 
 	return TRUE
 

@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Transfer votes can now be called on red alert, but observers only get half vote weight during them."

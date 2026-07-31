@@ -24,7 +24,7 @@ GLOBAL_VAR(last_transfer_vote)
 	if(forced)
 		return TRUE
 
-	if(GLOB.security_level >= SEC_LEVEL_RED)
+	if(GLOB.security_level >= SEC_LEVEL_DELTA)
 		to_chat(by_who, "The current alert status is too high to call for a crew transfer!")
 		return FALSE
 
@@ -72,3 +72,16 @@ GLOBAL_VAR(last_transfer_vote)
 
 	if(winning_option == "Initiate Crew Transfer")
 		init_shift_change(null, TRUE)
+
+/**
+ * Observers and players who have not entered the round count as half a vote
+ * during crew-transfer votes.
+ */
+/datum/vote/crewtransfer/get_vote_weight(mob/voter)
+	if(GLOB.security_level >= SEC_LEVEL_RED)
+		if(isobserver(voter) || isnewplayer(voter))
+			return 0.5
+		else
+			return 0.5
+
+	return 1
