@@ -108,6 +108,7 @@
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
+	icon = 'icons/obj/item/clothing/accessory/vest_waistcoat.dmi'
 	icon_state = "wcoat"
 	item_state = "wcoat"
 
