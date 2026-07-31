@@ -1107,6 +1107,9 @@ There are several things that need to be remembered:
 				overlay_layer = BACK_LAYER_OVER
 
 		overlays_raw[overlay_layer] = back.get_mob_overlay(src, mob_icon, mob_state, slot_back_str)
+	else
+		overlays_raw[BACK_LAYER] = null
+		overlays_raw[BACK_LAYER_OVER] = null
 
 	if(update_icons)
 		update_icon()
