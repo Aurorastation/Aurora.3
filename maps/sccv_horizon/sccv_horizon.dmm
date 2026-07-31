@@ -157,6 +157,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
 	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "abh" = (
@@ -2591,6 +2594,9 @@
 	pixel_y = 21
 	},
 /obj/effect/floor_decal/corner_wide/seafoam/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -13697,7 +13703,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/slate,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "bMG" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -17564,6 +17570,9 @@
 "cnZ" = (
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
@@ -26880,6 +26889,11 @@
 "dwl" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 2;
+	pixel_y = 2
+	},
 /turf/simulated/floor/wood,
 /area/horizon/hallway/primary/deck_2/central)
 "dwn" = (
@@ -31290,19 +31304,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/primary/deck_2/fore)
-"eaJ" = (
-/obj/structure/closet/walllocker/medical/secure{
-	name = "PPE Storage";
-	pixel_y = -30
-	},
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/masks,
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/hatch/medical,
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/gen_treatment)
 "eaM" = (
 /turf/simulated/wall,
 /area/horizon/maintenance/substation/engineering/lower)
@@ -32568,10 +32569,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#708090"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "egy" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -40263,10 +40261,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#708090"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "fix" = (
 /obj/structure/cable/green{
@@ -43522,6 +43517,9 @@
 	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
@@ -50504,7 +50502,9 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/port)
 "gBw" = (
-/obj/structure/roller_rack/three,
+/obj/structure/roller_rack/three{
+	pixel_y = 3
+	},
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/seafoam/full,
 /turf/simulated/floor/tiled/white,
@@ -52507,6 +52507,14 @@
 	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
+"gPJ" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/bed/stool/chair/padded/black{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/horizon/hallway/primary/deck_2/central)
 "gPS" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -59904,7 +59912,7 @@
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/slate,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "hMw" = (
 /obj/item/modular_computer/console/preset/command/hop{
@@ -65856,9 +65864,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate{
 	color = "#FFFFFF"
-	},
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/horizon/medical/surgery)
@@ -75305,7 +75310,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/slate,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "jLM" = (
 /obj/effect/landmark/entry_point/aft{
@@ -90883,7 +90888,7 @@
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/slate,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "lJh" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -94501,9 +94506,17 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/ai/chamber)
 "miV" = (
-/obj/structure/machinery/light/floor,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/item/storage/box/masks{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 4;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
@@ -99954,6 +99967,7 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
 	},
+/obj/structure/machinery/light/floor,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "mUT" = (
@@ -100552,7 +100566,6 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/structure/engineer_maintenance/electric/wall,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
 "mYR" = (
@@ -101280,10 +101293,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#708090"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "ndg" = (
 /obj/structure/cable/green{
@@ -110882,10 +110892,8 @@
 /obj/structure/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
 /area/horizon/medical/hallway)
 "oqt" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -115485,9 +115493,6 @@
 	},
 /area/centcom/control)
 "oUG" = (
-/obj/effect/floor_decal/industrial/hatch_door/yellow{
-	dir = 8
-	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
@@ -115508,6 +115513,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/icu)
 "oUL" = (
@@ -120949,6 +120955,9 @@
 "pFC" = (
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
@@ -136160,6 +136169,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "rEo" = (
@@ -139801,6 +139813,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
+/obj/structure/bed/stool/chair/padded/black{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/hallway/primary/deck_2/central)
 "saM" = (
@@ -141653,8 +141668,8 @@
 /obj/structure/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
 /area/horizon/medical/icu)
 "slO" = (
 /obj/structure/machinery/hologram/holopad,
@@ -152770,6 +152785,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "tHL" = (
@@ -157795,10 +157813,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#708090"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "urx" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -159909,13 +159924,6 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/starboard/deck_2)
-"uEY" = (
-/obj/structure/machinery/door/firedoor{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/hallway)
 "uFa" = (
 /turf/simulated/floor/beach/sand{
 	dir = 8;
@@ -160687,6 +160695,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
 	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "uJw" = (
@@ -160863,8 +160874,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
 /area/horizon/medical/hallway)
 "uKo" = (
 /obj/effect/decal/cleanable/spiderling_remains,
@@ -160914,8 +160925,8 @@
 /obj/structure/machinery/door/firedoor{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
 /area/horizon/medical/icu)
 "uKM" = (
 /obj/structure/cable/green{
@@ -163293,9 +163304,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/command/teleporter)
 "vbv" = (
-/obj/effect/floor_decal/industrial/hatch_door/yellow{
-	dir = 8
-	},
 /obj/structure/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -163304,6 +163312,7 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/icu)
 "vby" = (
@@ -170996,6 +171005,9 @@
 "wdp" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/seafoam/full,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "wdq" = (
@@ -281807,7 +281819,7 @@ fXk
 fXk
 fXk
 fXk
-uEY
+oqq
 oqq
 uKl
 qap
@@ -282575,7 +282587,7 @@ vcm
 mqS
 mqS
 oJv
-qHI
+bSh
 mYQ
 eMd
 mAu
@@ -282838,7 +282850,7 @@ ngT
 nYC
 tRI
 iYv
-eaJ
+eTd
 bGP
 bGP
 ofQ
@@ -286686,7 +286698,7 @@ nVR
 drr
 stI
 bzi
-dwl
+gPJ
 eMD
 vKv
 vKv
