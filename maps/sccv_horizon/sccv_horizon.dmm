@@ -9758,16 +9758,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
-"bjQ" = (
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/primary/deck_2/starboard)
 "bkd" = (
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,73);
@@ -31829,9 +31819,6 @@
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet/north,
-/obj/effect/floor_decal/spline/plain/corner/red{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/starboard)
 "ecI" = (
@@ -90276,9 +90263,6 @@
 /area/horizon/maintenance/deck_2/wing/starboard/far)
 "lFn" = (
 /obj/effect/floor_decal/industrial/arrow/yellow,
-/obj/effect/floor_decal/spline/plain/red{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 1
 	},
@@ -143262,15 +143246,6 @@
 /obj/structure/lattice,
 /turf/space,
 /area/horizon/exterior)
-"swv" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/primary/deck_2/starboard)
 "sww" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -148892,9 +148867,6 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain/corner/red{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/starboard)
@@ -281318,7 +281290,7 @@ won
 tuo
 tar
 ebS
-bjQ
+tvJ
 uzs
 iMU
 nqF
@@ -281575,7 +281547,7 @@ ssp
 gMh
 nNT
 ebS
-swv
+gEF
 uNA
 mpt
 nqF
