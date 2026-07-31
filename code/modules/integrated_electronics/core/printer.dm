@@ -300,17 +300,6 @@
 			to_chat(user, SPAN_WARNING("No blueprint chunk text was received from the UI."))
 		return FALSE
 
-	// The TGUI sends each chunk through encodeURIComponent() after slicing the
-	// original JSON. Decode each complete encoded chunk before appending it.
-	// This avoids BYOND/TGUI transport edge cases where raw JSON punctuation
-	// can be lost or altered inside action parameters.
-	if(length(import_chunk) > max_chunk_length * 6)
-		if(user)
-			to_chat(user, SPAN_WARNING("That encoded blueprint chunk is [length(import_chunk)] characters, but chunks must be [max_chunk_length] decoded characters or less."))
-		return FALSE
-
-	import_chunk = url_decode(import_chunk)
-
 	if(!length(import_chunk))
 		if(user)
 			to_chat(user, SPAN_WARNING("The received blueprint chunk was empty."))
