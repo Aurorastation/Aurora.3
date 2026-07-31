@@ -1,7 +1,7 @@
 GLOBAL_VAR(bomb_set)
 // Security needs time to respond to it
-#define MIN_BOMB_TIMER = 600
-#define MAX_BOMB_TIMER = 900
+#define MIN_BOMB_TIMER 600
+#define MAX_BOMB_TIMER 900
 
 /obj/structure/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
@@ -14,7 +14,7 @@ GLOBAL_VAR(bomb_set)
 	var/deployable = 0
 	var/extended = 0
 	var/lighthack = 0
-	var/timeleft = 600
+	var/timeleft = MIN_BOMB_TIMER
 	var/timing = 0
 	var/alerted = 0
 	var/r_code = "ADMIN"
