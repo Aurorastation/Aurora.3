@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The nuke can no lonnger be deployed or detonate in rad shielded or non-Horizon areas."
+  - rscadd: "The nuke's minimum timer was raised to 10 min and the max timer to 15 min."
+  - rscadd: "The nuke now announces its location when activated."
