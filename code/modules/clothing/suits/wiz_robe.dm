@@ -8,11 +8,6 @@
 		)
 	body_parts_covered = 0
 
-/obj/item/clothing/head/wizard/red
-	name = "red wizard hat"
-	desc = "Strange-looking, red, hat-wear that most certainly belongs to a real magic user."
-	icon_state = "redwizard"
-
 /obj/item/clothing/head/wizard/magus
 	name = "magus Helm"
 	desc = "A mysterious helmet that hums with an unearthly power"

@@ -107,11 +107,6 @@
 	desc = "WARNING! Offers no real protection, or luminosity, but it is damn fancy!"
 	icon_state = "hardhat_yellow"
 
-/obj/item/clothing/head/collectable/HoS
-	name = "collectable HoS hat"
-	desc = "Now you can beat prisoners, set silly sentences and arrest for no reason too!"
-	icon_state = "hoscap"
-
 /obj/item/clothing/head/collectable/thunderdome
 	name = "collectable Thunderdome helmet"
 	desc = "Go Red! I mean Green! I mean Red! No Green!"
