@@ -27,8 +27,9 @@
 		"Null Orb" = /obj/item/nullrod/orb,
 		"Null Athame" = /obj/item/nullrod/athame,
 	)
-	/// For funny sprites which cover the hair from the back.
-	var/normal_layer = BACK_LAYER
+	/// Do we want this to layer over a character's hair when placed on their back?
+	/// Useful for more eccentric sprites.
+	var/layer_over_hair_on_back = FALSE
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -233,7 +234,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/nullrod/clockworkstave
-	name = "\improper clockwork stave"
+	name = "\improper stave of ecclesiastical office"
 	desc = "A long brass stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
 	hand-crafted by synthetics from the monastic Order of Pitters and exported off the planet of Axiom."
 	icon = 'icons/obj/trinary_stave.dmi'
@@ -242,6 +243,7 @@
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
+	layer_over_hair_on_back = TRUE
 
 /obj/item/nullrod/clockworkstave/check_equipped(mob/user, slot, assisted_equip = FALSE)
 	. = ..()
