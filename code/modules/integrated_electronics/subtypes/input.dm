@@ -270,19 +270,23 @@
 	)
 	activators = list(
 		"locate" = IC_PINTYPE_PULSE_IN,
-		"on locate" = IC_PINTYPE_PULSE_OUT
+		"on locate" = IC_PINTYPE_PULSE_OUT,
+		"not located" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/local_locator/do_work()
-	if(assembly && istype(assembly.loc, /mob/living))
-		set_pin_data(IC_OUTPUT, 1, assembly.loc)
-	else
-		set_pin_data(IC_OUTPUT, 1, null)
-
+	if(assembly)
+		var/mob/living/holder = get_highest_loc(assembly.loc, /mob/living)
+		if(holder)
+			set_pin_data(IC_OUTPUT, 1, holder)
+			activate_pin(2)
+		else
+			set_pin_data(IC_OUTPUT, 1, null)
+			activate_pin(3)
 	push_data()
-	activate_pin(2)
+
 
 /obj/item/integrated_circuit/input/adjacent_locator
 	name = "adjacent locator"

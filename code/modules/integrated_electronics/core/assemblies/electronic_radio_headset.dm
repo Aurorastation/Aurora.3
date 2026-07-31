@@ -29,6 +29,9 @@
 	return ..()
 
 
+/obj/item/radio/headset/circuitry/proc/get_action_circuit()
+	return circuit_action
+
 /obj/item/radio/headset/circuitry/proc/setup_headset_integrated_circuit()
 	if(circuit_assembly)
 		circuit_assembly.forceMove(src)
