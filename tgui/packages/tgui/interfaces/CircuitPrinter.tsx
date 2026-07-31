@@ -185,7 +185,7 @@ export const CircuitPrinter = (props) => {
         const chunk = importText.slice(offset, offset + chunkLimit);
 
         await act('append_import_chunk_tgui', {
-          chunk,
+          chunk: encodeURIComponent(chunk),
         });
 
         offset += chunk.length;
