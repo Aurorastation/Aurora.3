@@ -1,3 +1,42 @@
+// Axiomite cloaks
+/obj/item/clothing/accessory/poncho/axiom_cloak
+	name = "axiomite cloak"
+	desc = "Keep dry!"
+	icon = 'icons/obj/item/clothing/suit/trinarist_robes.dmi'
+	icon_state = "axiomite_cloak"
+	item_state = "axiomite_cloak"
+	overlay_state = "axiomite_cloak"
+	icon_override = null
+	contained_sprite = TRUE
+	protects_against_weather = TRUE
+
+// Axiomite tunic variants
+/obj/item/clothing/under/dressshirt/axiom_tunic
+	name = "axiomite tunic"
+	desc = "Keep cool!"
+	icon = 'icons/obj/item/clothing/under/synthetic/trinary_tunics.dmi'
+	icon_state = "axiomite_tunic"
+	item_state = "axiomite_tunic"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/dressshirt/axiom_tunic/black
+	icon_state = "axiomite_tunic_black"
+	item_state = "axiomite_tunic_black"
+
+/obj/item/clothing/under/dressshirt/axiom_tunic/blue
+	icon_state = "axiomite_tunic_blue"
+	item_state = "axiomite_tunic_blue"
+
+/obj/item/clothing/under/dressshirt/axiom_tunic/green
+	icon_state = "axiomite_tunic_green"
+	item_state = "axiomite_tunic_green"
+
+/obj/item/clothing/under/dressshirt/axiom_tunic/directory
+	name = "grand dicastery tunic"
+	desc = "Bureaucracy!"
+	icon_state = "axiomite_tunic_posh"
+	item_state = "axiomite_tunic_posh"
+
 // Orthodox Trinarist gear
 /obj/item/clothing/suit/storage/hooded/trinary_robes
 	name = "trinary perfection robe"
