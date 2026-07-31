@@ -1,5 +1,5 @@
 /obj/item/frame_holder
-	matter = list(DEFAULT_WALL_MATERIAL = 65000, MATERIAL_PLASTIC = 10000, MATERIAL_OSMIUM = 10000)
+	matter = list(MATERIAL_STEEL = 65000, MATERIAL_PLASTIC = 10000, MATERIAL_OSMIUM = 10000)
 
 /obj/item/frame_holder/Initialize(mapload, var/newloc)
 	..()
@@ -215,7 +215,7 @@
 	// Installing metal.
 	else if(istype(attacking_item, /obj/item/stack/material))
 		var/obj/item/stack/material/M = attacking_item
-		if(M.material?.name == MATERIAL_STEEL)
+		if(M.material?.type == MATERIAL_STEEL)
 			if(is_reinforced)
 				to_chat(user, SPAN_WARNING("There is already metal reinforcement installed in \the [src]."))
 				return

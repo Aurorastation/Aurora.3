@@ -1,9 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed that skills with education didn't let one pick higher levels of it than the education gave."
-  - bugfix: "Fixed age restrictions for educations not applying to tajara or unathi."
-  - bugfix: "The doctor of pharmacy education is now correctly allowed for 25 years old, bringing it in line with both the description and the pharmacist job."
-  - rscdel: "Reduced the max unarmed combat, armed combat and firearms skill to trained. No player facing changes as it was not possible to get professional before."

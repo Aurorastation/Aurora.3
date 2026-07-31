@@ -112,8 +112,22 @@
 
 	var/atmos_canpass = CANPASS_ALWAYS
 
+	/**
+	 * Mass of an object in Kilograms (Kg) to be used for physics systems and kinematics.
+	 * EG: Linear Impulse (m/s) = Momentum (kg m/s) / Mass (kg)
+	 * Acceleration (m/s^2) = Force (kg m/s^2) / Mass (kg)
+	 *
+	 * This is ASSERTED to ALWAYS be a POSITIVE, NONZERO number. It is therefore always safe to divide by.
+	 *
+	 * For the love of god don't spam #define for each and every single object.
+	 * It's perfectly reasonable to set crowbar/mass = 5.0 and voidsuit/mass = 68.0
+	 * And leave it at that. It's a float. You're going to go insane if you make 10 million defines for it.
+	 **/
+	var/mass = 1.0 //kg
+
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
+	ENFORCE_POSITIVE_MASS(mass)
 	update_emissive_blocker()
 
 	if(opacity)
@@ -124,10 +138,9 @@
 		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 
 /atom/movable/Destroy(force)
-	if(orbiting)
-		orbiting.end_orbit(src)
-
+	orbiting?.end_orbit(src)
 	QDEL_NULL(emissive_overlay)
+	particles = null
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -687,6 +700,8 @@
 	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		if (!location)
+			continue
 		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
 		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] -= src
 		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
@@ -1292,3 +1307,18 @@
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
 	glide_size = target
 
+/**
+ * Returns the "effective mass" of a kinematic (movable) object with signal modifiers.
+ * Which is useful for "Strength" calculations, or for representing an object as being "Unwieldy".
+ *
+ * This will ALWAYS return a POSITIVE, NONZERO number. Meaning it is safe to divide by.
+ */
+/atom/movable/proc/get_effective_mass()
+	ENFORCE_POSITIVE_MASS(mass)
+
+	var/effective_mass = mass
+	SEND_SIGNAL(src, COMSIG_GET_EFFECTIVE_MASS, &effective_mass)
+	if (effective_mass <= 0)
+		stack_trace("[caller.name] requested an Effective Mass and got a non-positive number")
+		return 1.0
+	return effective_mass

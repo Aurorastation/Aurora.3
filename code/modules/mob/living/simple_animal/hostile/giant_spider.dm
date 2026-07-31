@@ -43,7 +43,6 @@
 	pass_flags = PASSTABLE
 	speed = 6
 	mob_size = 6
-	smart_melee = FALSE
 
 	attacktext = "bites"
 	attack_vis_effect = ATTACK_EFFECT_BITE
@@ -51,6 +50,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Tissue sample contains high muscle content")
+	footstep_sound = 'sound/effects/creatures/spider_walk.ogg'
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -111,7 +111,6 @@
 	venom_per_bite = 5
 	speed = 4
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
 	name = "greimorian jackal"
@@ -128,7 +127,6 @@
 	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
 	name = "greimorian bombardier"
@@ -147,7 +145,6 @@
 	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic acid synthesis detected")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
@@ -169,6 +166,7 @@
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
 	remove_language(LANGUAGE_TCB)
 	default_language = GLOB.all_languages[LANGUAGE_GREIMORIAN]
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
 	. = ..()

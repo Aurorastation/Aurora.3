@@ -150,6 +150,11 @@
 	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = SFX_DROP
+	/// Sound played on movement. This is a list. If the list has ONE item, then it's treated as ONE sound. If the list has more than one item, then it's treated as a list where
+	/// the system will randomly play one of these sounds.
+	var/list/movement_sounds = null
+	/// The volume we want movement sounds to happen at for this object. Remember that on run intent, it's raised by 30.
+	var/movement_sound_volume = 40
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -508,6 +513,8 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	in_inventory = FALSE
 
+	SEND_SIGNAL(user, COMSIG_MOB_REMOVE_FOOTSTEP_SOUND, src, movement_sounds)
+
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
 
@@ -531,7 +538,7 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistant_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			persistent_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
 			SSpersistence.objectsRegisterTrack(src, usr == null ? null : ckey(usr.key))
 			return
 
@@ -601,8 +608,8 @@
 	equipped(user, slot, initial)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_POST_EQUIPPED, user, slot) && COMPONENT_EQUIPPED_FAILED)
 		return FALSE
+	SEND_SIGNAL(user, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, movement_sounds, movement_sound_volume)
 	return TRUE
-
 
 /**
  * Called by on_equipped. Don't call this directly, we want the ITEM_POST_EQUIPPED signal to be sent after everything else.
@@ -641,9 +648,6 @@
 	else
 		remove_item_verbs(user)
 
-	//Ěent for observable
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
-
 	user.update_equipment_speed_mods()
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
@@ -672,11 +676,13 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 	"[slot_pants]" = SLOT_PANTS
 	))
 
-//the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
-//If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
-//Set disable_warning to 1 if you wish it to not give you outputs.
-//Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
-/obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
+/**
+ * the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
+ * If you are making custom procs but would like to retain partial or complete functionality of this one, include a 'return ..()' to where you want this to happen.
+ * Set disable_warning to 1 if you wish it to not give you outputs.
+ * Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
+ */
+/obj/item/proc/mob_can_equip(mob/M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	if(!slot) return 0
 	if(!M) return 0
 
@@ -851,7 +857,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 			)
 
 		eyes.take_damage(rand(3,4))
-		if(eyes.damage >= eyes.min_bruised_damage)
+		if(eyes.get_damage() >= eyes.min_bruised_damage)
 			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
 					to_chat(H, SPAN_DANGER("Your eyes start to bleed profusely!"))
@@ -862,7 +868,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				H.eye_blurry += 10
 				H.Paralyse(1)
 				H.Weaken(4)
-			if (eyes.damage >= eyes.min_broken_damage)
+			if (eyes.get_damage() >= eyes.min_broken_damage)
 				if(H.stat != DEAD)
 					to_chat(H, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)

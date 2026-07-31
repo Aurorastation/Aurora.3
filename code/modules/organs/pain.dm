@@ -26,11 +26,11 @@
 		last_pain_message = message
 		if(power >= 110)
 			flash_strong_pain()
-			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_HUGE("[message]")))
 		else if(power >= 70)
-			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_LARGE("[message]")))
 		else if(power >= 40)
-			to_chat(src, SPAN_DANGER("<font size=2>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_LARGE("[message]")))
 		else if(power >= 10)
 			to_chat(src, SPAN_DANGER("[message]"))
 		else
@@ -83,7 +83,7 @@
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/internal/I in internal_organs)
-		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5 && I.parent_organ)
+		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.get_damage() > 5 && I.parent_organ)
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
 			if (!parent) continue
 			var/pain = 10

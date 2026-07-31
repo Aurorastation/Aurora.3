@@ -75,7 +75,7 @@
 	H.update_icon()
 	H.update_inv_back()
 
-/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
+/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
@@ -345,9 +345,9 @@
 	icon_state = "pmcgpack"
 	item_state = "pmcgpack"
 
-/obj/item/storage/backpack/legion
-	name = "military rucksack"
-	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
+/obj/item/storage/backpack/tcaf
+	name = "TCAF rucksack"
+	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Armed Forces."
 	icon_state = "legion_bag"
 	item_state = "legion_bag"
 	empty_delay = 0.8 SECOND

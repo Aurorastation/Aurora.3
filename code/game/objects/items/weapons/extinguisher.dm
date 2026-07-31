@@ -12,7 +12,7 @@
 	throw_speed = 2
 	throw_range = 10
 	force = 18
-	matter = list(DEFAULT_WALL_MATERIAL = 90)
+	matter = list(MATERIAL_STEEL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	amount_per_transfer_from_this = 150
 	possible_transfer_amounts = null
@@ -96,7 +96,7 @@
 	throw_speed = 2
 	throw_range = 10
 	force = 15
-	matter = list(DEFAULT_WALL_MATERIAL = 90)
+	matter = list(MATERIAL_STEEL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	drop_sound = 'sound/items/drop/gas_tank.ogg'
 	pickup_sound = 'sound/items/pickup/gas_tank.ogg'

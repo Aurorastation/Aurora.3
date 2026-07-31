@@ -99,15 +99,9 @@
 	. += ..()
 	. += SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")
 
-/obj/item/mop/advanced/Initialize()
-	. = ..()
-
-	START_PROCESSING(SSprocessing, src)
-
 /obj/item/mop/advanced/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-
-	. = ..()
+	return ..()
 
 /obj/item/mop/advanced/attack_self(mob/user)
 	refill_enabled = !refill_enabled
@@ -121,3 +115,9 @@
 /obj/item/mop/advanced/process()
 	if(reagents.total_volume < 30)
 		reagents.add_reagent(refill_reagent, refill_rate)
+	else STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/mop/advanced/afterattack(atom/A, mob/user, proximity)
+	. = ..()
+	if (reagents.total_volume < 30)
+		START_PROCESSING(SSprocessing, src)

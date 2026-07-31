@@ -495,5 +495,5 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
 	light_range = 6
-	camera = /obj/structure/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
 	on = 0

@@ -204,6 +204,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		else
 			var/atom/creation = new type_path(spawn_at)
 			if(QDELETED(creation))
+				creation = null
 				continue
 			//Go all in
 			qdel(creation, force = TRUE)
@@ -214,8 +215,11 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		//There's a lot of stuff that either spawns stuff in on create, or removes stuff on destroy. Let's cut it all out so things are easier to deal with
 		var/list/to_del = spawn_at.contents - cached_contents
 		if(length(to_del))
-			for(var/atom/to_kill in to_del)
+			var/atom/to_kill
+			for(to_kill in to_del)
 				qdel(to_kill)
+			to_kill = null
+			to_del.Cut()
 
 	GLOB.running_create_and_destroy = FALSE
 

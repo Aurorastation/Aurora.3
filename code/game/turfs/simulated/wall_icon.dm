@@ -7,7 +7,7 @@
 	else
 		construction_stage = null
 	if(!material)
-		material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+		material = GET_SINGLETON(MATERIAL_STEEL)
 	if(material)
 		explosion_resistance = material.explosion_resistance
 		if (material.wall_icon)
@@ -38,7 +38,7 @@
 
 	update_icon()
 
-/turf/simulated/wall/proc/set_material(var/material/newmaterial, var/material/newrmaterial)
+/turf/simulated/wall/proc/set_material(var/singleton/material/newmaterial, var/singleton/material/newrmaterial)
 	material = newmaterial
 	reinf_material = newrmaterial
 	update_material()

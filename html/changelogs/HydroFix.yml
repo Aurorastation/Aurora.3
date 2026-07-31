@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "The hydroponics tray no longer delete the harvests if the action is interrupted."

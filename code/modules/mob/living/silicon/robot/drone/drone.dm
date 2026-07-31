@@ -169,8 +169,8 @@
 		return default_language
 	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
-/mob/living/silicon/robot/drone/fall_impact()
-	..(damage_mod = 0.05) //reduces fall damage by 95%
+/mob/living/silicon/robot/drone/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+	..(levels_fallen, stopped_early, damage_mod * 0.05) //reduces fall damage by 95%
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel

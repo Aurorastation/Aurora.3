@@ -18,18 +18,23 @@
 /obj/item/storage/internal/attack_hand()
 	return		//make sure this is never picked up
 
-/obj/item/storage/internal/mob_can_equip(M, slot, disable_warning = FALSE)
+/obj/item/storage/internal/mob_can_equip(M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	return 0	//make sure this is never picked up
 
-//Helper procs to cleanly implement internal storages - storage items that provide inventory slots for other items.
-//These procs are completely optional, it is up to the master item to decide when it's storage get's opened by calling open()
-//However they are helpful for allowing the master item to pretend it is a storage item itself.
-//If you are using these you will probably want to override attackby() as well.
-//See /obj/item/clothing/suit/storage for an example.
-
-//items that use internal storage have the option of calling this to emulate default storage MouseDrop behaviour.
-//returns 1 if the master item's parent's MouseDrop() should be called, 0 otherwise. It's strange, but no other way of
-//doing it without the ability to call another proc's parent, really.
+/**
+ * Helper procs to cleanly implement internal storages - storage items that provide inventory slots for other items.
+ * These procs are completely optional, it is up to the master item to decide when it's storage get's opened by calling open()
+ *
+ * However they are helpful for allowing the master item to pretend it is a storage item itself.
+ *
+ * If you are using these you will probably want to override attackby() as well.
+ * See /obj/item/clothing/suit/storage for an example.
+ *
+ * items that use internal storage have the option of calling this to emulate default storage MouseDrop behaviour.
+ *
+ * Returns 1 if the master item's parent's MouseDrop() should be called, 0 otherwise.
+ * It's strange, but no other way of doing it without the ability to call another proc's parent, really.
+ */
 /obj/item/storage/internal/proc/handle_mousedrop(mob/user as mob, obj/over_object as obj)
 	if (ishuman(user) || issmall(user)) //so monkeys can take off their backpacks -- Urist
 
@@ -48,20 +53,22 @@
 			return 0
 
 		if (!( user.restrained() ) && !( user.stat ))
+			if(!user.prepare_for_slotmove(real_master_item)) //Prevents removing hardsuits when they have storage modules in them.
+				return 0
 			switch(over_object.name)
 				if("right hand")
-					user.u_equip(real_master_item)
 					user.equip_to_slot_if_possible(real_master_item, slot_r_hand)
 				if("left hand")
-					user.u_equip(real_master_item)
 					user.equip_to_slot_if_possible(real_master_item, slot_l_hand)
 			real_master_item.add_fingerprint(user)
 			return 0
 	return 0
 
-//items that use internal storage have the option of calling this to emulate default storage attack_hand behaviour.
-//returns 1 if the master item's parent's attack_hand() should be called, 0 otherwise.
-//It's strange, but no other way of doing it without the ability to call another proc's parent, really.
+/**
+ * items that use internal storage have the option of calling this to emulate default storage attack_hand behaviour.
+ * returns 1 if the master item's parent's attack_hand() should be called, 0 otherwise.
+ * It's strange, but no other way of doing it without the ability to call another proc's parent, really.
+ */
 /obj/item/storage/internal/proc/handle_attack_hand(mob/user as mob)
 	var/obj/item/real_master_item = special_master_item_handling ? get_master_item() : master_item
 

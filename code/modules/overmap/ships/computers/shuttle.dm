@@ -3,6 +3,33 @@
 	name = "general shuttle control console"
 	ui_template = "ShuttleControlConsoleMultiExplore"
 	var/obj/effect/overmap/visitable/ship/connected //Ship we're connected to
+	var/emergency_power_window //Time window for emergency power from Pilot: Spacecraft + Electrical Engineering skills
+
+/obj/structure/machinery/computer/shuttle_control/explore/attackby(obj/item/attacking_item, mob/user)
+	var/electrical_level = user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT)?.skill_level
+
+	if(electrical_level > SKILL_LEVEL_UNFAMILIAR && (emergency_power_window || stat & NOPOWER) && istype(attacking_item, /obj/item/cell))
+		var/obj/item/cell/battery = attacking_item
+		var/pilot_level = user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level
+		user.visible_message("<b>[user]<b> opens a panel underneath \the [src]...", SPAN_NOTICE("You start searching for the power port to attempt an emergency power bypass..."))
+		emergency_power_window = world.time
+		if(pilot_level == SKILL_LEVEL_UNFAMILIAR && Adjacent(user) && user.get_active_hand() == battery)
+			if(do_after(user, 3 SECONDS))
+				to_chat(user, SPAN_NOTICE("Although unfamiliar with spacecraft to find it fast, your electrical intuition knows there's a port somewhere..."))
+			else
+				user.visible_message("<b>[user]</b> closes the panel underneath \the [src].", SPAN_WARNING("You need to stay and look longer if you want to perform a bypass."))
+				return
+		while(battery.percent() > 0 && Adjacent(user) && user.get_active_hand() == battery)
+			if(do_after(user, 3 SECONDS))
+				if((pilot_level == SKILL_LEVEL_UNFAMILIAR && do_after(user, 2 SECONDS)) || pilot_level >= SKILL_LEVEL_FAMILIAR)
+					var/bypass_value = battery.maxcharge/10
+					emergency_power_window += bypass_value/((100 - pilot_level * 3)/electrical_level) SECONDS // should be 10m for high-caps
+					playsound(src.loc, 'sound/machines/click.ogg', 30)
+					battery.charge -= bypass_value
+					user.visible_message("<b>[user]</b> presses into some port with a click.<BR><i>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining.</i>", SPAN_NOTICE("You press into the port with \the [battery] transferring 10% into \the [src] and leaving \the [battery] with [battery.percent()]%<BR>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining."))
+					stat &= ~NOPOWER
+					update_icon()
+		return
 
 /obj/structure/machinery/computer/shuttle_control/explore/Initialize()
 	. = ..()

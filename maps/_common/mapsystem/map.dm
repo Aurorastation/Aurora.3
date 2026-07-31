@@ -283,7 +283,7 @@
 
 	return list(spawn_cost, player_cost, ship_cost)
 
-/datum/map/proc/send_welcome()
+/datum/map/proc/post_gamemode_setup()
 	return
 
 /datum/map/proc/load_holodeck_programs()
@@ -296,6 +296,9 @@
 #else
 	if(!GLOB.config.awaysites["enable_loading"])
 		log_admin("Not loading away sites because the config specifies not to")
+		return
+	if(SSatlas.current_sector && !SSatlas.current_sector.away_sites_enabled)
+		log_admin("Not loading away sites because the current sector disables them")
 		return
 
 	log_admin("Loading away sites...")

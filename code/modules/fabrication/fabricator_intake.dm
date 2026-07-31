@@ -16,11 +16,14 @@
 	var/mass_per_sheet = 0 // Amount of material constituting one sheet.
 	var/is_stack = FALSE //Affects the fill message
 
+	normalize_material_storage()
 	for(var/material in eating.matter)
-		if(isnull(stored_material[material]) || isnull(storage_capacity[material]))
+		var/material_path = SSmaterials.material_to_path(material, FALSE)
+		if(!material_path || isnull(stored_material[material_path]) || isnull(storage_capacity[material_path]))
 			continue
-		if(stored_material[material] >= storage_capacity[material])
-			LAZYADD(fill_status[NO_SPACE], material)
+		var/material_name = SSmaterials.material_display_name(material_path)
+		if(stored_material[material_path] >= storage_capacity[material_path])
+			LAZYADD(fill_status[NO_SPACE], material_name)
 			continue
 
 		var/total_material = eating.matter[material]
@@ -31,20 +34,24 @@
 			is_stack = TRUE
 			total_material *= stack.get_amount()
 
-		if(stored_material[material] + total_material > storage_capacity[material])
-			total_material = storage_capacity[material] - stored_material[material]
-			LAZYADD(fill_status[FILL_COMPLETELY], material)
+		if(stored_material[material_path] + total_material > storage_capacity[material_path])
+			total_material = storage_capacity[material_path] - stored_material[material_path]
+			LAZYADD(fill_status[FILL_COMPLETELY], material_name)
 		else
-			LAZYADD(fill_status[FILL_INCOMPLETELY], material)
+			LAZYADD(fill_status[FILL_INCOMPLETELY], material_name)
 
-		stored_material[material] += total_material
+		stored_material[material_path] += total_material
 		total_used += total_material
 		mass_per_sheet += eating.matter[material]
 
-	if(fill_status[NO_SPACE])
-		to_chat(user, SPAN_WARNING("\The [src] is full of [english_list(fill_status[NO_SPACE])]. Please remove some material in order to insert more."))
+	if(total_used <= 0 || mass_per_sheet <= 0)
+		if(fill_status[NO_SPACE])
+			to_chat(user, SPAN_WARNING("\The [src] is full of [english_list(fill_status[NO_SPACE])]. Please remove some material in order to insert more."))
+		else
+			to_chat(user, SPAN_WARNING("\The [src] cannot accept any materials from \the [eating]."))
 		return
-	else if(fill_status[FILL_COMPLETELY])
+
+	if(fill_status[FILL_COMPLETELY])
 		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with [english_list(fill_status[FILL_COMPLETELY])][is_stack ? "." : " from \the [eating]."]"))
 	else if(fill_status[FILL_INCOMPLETELY])
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [english_list(fill_status[FILL_INCOMPLETELY])][is_stack ? "." : " from \the [eating]."]"))

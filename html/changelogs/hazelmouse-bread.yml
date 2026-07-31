@@ -1,5 +1,0 @@
-author: hazelmouse
-
-delete-after: True
-changes:
-  - rscadd: "Shifted the teleporter to the central ring, to be more accessible. Replaced former position with maintenance."

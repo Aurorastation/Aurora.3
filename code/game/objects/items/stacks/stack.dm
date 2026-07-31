@@ -195,6 +195,7 @@
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	var/doafter_time = recipe.time
+	SEND_SIGNAL(user, COMSIG_GET_CRAFTING_MODIFIERS, &doafter_time)
 	if (doafter_time)
 
 		// Approximately no crafting time if you beat the skill req by 4, approximately twice as long to craft if you're under by 4.

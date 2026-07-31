@@ -57,15 +57,15 @@
 	req_access = null
 	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
 
-/obj/item/magnetic_lock/security/legion
-	name = "legion magnetic door lock"
+/obj/item/magnetic_lock/security/tcaf
+	name = "tcaf magnetic door lock"
 	req_access = null
-	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
+	req_one_access = list(ACCESS_TCAF)
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/magnetic_lock/security/legion/Initialize()
+/obj/item/magnetic_lock/security/tcaf/Initialize()
 	. = ..()
-	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
+	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Armed Forces."
 
 /obj/item/magnetic_lock/Initialize()
 	. = ..()

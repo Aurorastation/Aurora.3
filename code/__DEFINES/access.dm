@@ -549,10 +549,10 @@
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_LEGION 111//tau ceti foreign legion access
-/datum/access/legion
-	id = ACCESS_LEGION
-	desc = "Tau Ceti Foreign Legion Access"
+#define ACCESS_TCAF 111//tau ceti armed forces access
+/datum/access/tcaf
+	id = ACCESS_TCAF
+	desc = "Tau Ceti Armed Forces Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_DISTRESS 112
@@ -623,10 +623,7 @@
 	id = ACCESS_SOL_SHIPS
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_TCAF_SHIPS 204
-/datum/access/tcfl_peacekeeper_ship
-	id = ACCESS_TCAF_SHIPS
-	access_type = ACCESS_TYPE_CENTCOM
+/// 204 is vacant
 
 #define ACCESS_EE_SPY_SHIP 205
 /datum/access/ee_spy_ship

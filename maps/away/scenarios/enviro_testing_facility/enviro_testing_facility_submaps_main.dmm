@@ -168,9 +168,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
 "ajR" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -2983,9 +2981,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/medical/hallway)
 "cVb" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/storage/box/syringes{
 	pixel_x = -4;
 	pixel_y = 7
@@ -4833,9 +4829,7 @@
 /area/enviro_testing_facility/inside/security/lobby)
 "ePg" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 14;
 	pixel_x = 2
@@ -5193,9 +5187,7 @@
 /area/enviro_testing_facility/inside/maintenance/engineering_south)
 "fmW" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 9
@@ -5303,9 +5295,7 @@
 /area/enviro_testing_facility/inside/research/hallway)
 "frZ" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 8
 	},
@@ -7375,9 +7365,7 @@
 /area/enviro_testing_facility/inside/maintenance/security)
 "hpM" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 9
@@ -8379,9 +8367,7 @@
 	},
 /area/template_noop)
 "ita" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 8
 	},
@@ -8706,9 +8692,7 @@
 /turf/simulated/floor/reinforced,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "iFu" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/structure/machinery/light{
 	dir = 8
 	},
@@ -9869,9 +9853,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/crew/quarters)
 "jSV" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/structure/machinery/light{
 	dir = 8
 	},
@@ -10750,9 +10732,7 @@
 	},
 /area/template_noop)
 "kIo" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -11554,9 +11534,7 @@
 /area/enviro_testing_facility/inside/security/lobby)
 "lBb" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
@@ -13221,9 +13199,7 @@
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/crew/quarters)
 "nre" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/recovery_1)
@@ -13554,9 +13530,7 @@
 /area/enviro_testing_facility/inside/security/cells_2)
 "nHS" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/structure/bedsheetbin{
 	pixel_x = 3;
 	pixel_y = 7
@@ -13868,9 +13842,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/lobby)
 "nVk" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/paper_bin{
 	pixel_x = 4;
 	pixel_y = 4
@@ -17372,9 +17344,7 @@
 /area/enviro_testing_facility/inside/research/hallway)
 "rGp" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 2;
 	pixel_x = -7
@@ -17949,9 +17919,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "sjM" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
@@ -19093,9 +19061,7 @@
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
 "tqb" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 8
 	},
@@ -19640,9 +19606,7 @@
 /area/enviro_testing_facility/inside/security/hallway)
 "tSe" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/paper_bin{
 	pixel_x = 4;
 	pixel_y = 4
@@ -19687,9 +19651,7 @@
 /area/enviro_testing_facility/inside/maintenance/medical)
 "tVj" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 9
@@ -19912,9 +19874,7 @@
 	},
 /area/template_noop)
 "uaw" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 8
 	},
@@ -20298,9 +20258,7 @@
 /area/enviro_testing_facility/inside/research/rnd)
 "uyu" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/storage/firstaid/regular{
 	pixel_x = -2;
 	pixel_y = 9
@@ -20767,9 +20725,7 @@
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/medical/lobby)
 "uYU" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/structure/machinery/light{
 	dir = 8
 	},
@@ -20859,9 +20815,7 @@
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/template_noop)
 "vdw" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/healthanalyzer{
 	pixel_x = -3
 	},
@@ -20877,7 +20831,7 @@
 /area/enviro_testing_facility/inside/crew/canteen)
 "vdJ" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl{
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf{
 	pixel_x = 2;
 	pixel_y = 2
 	},

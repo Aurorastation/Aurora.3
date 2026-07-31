@@ -197,6 +197,11 @@
 	set category = "Storyteller"
 	set desc = "Switch if Vaurcae can hear faint echoes (fluff) of the greater Hivenet. They will notice."
 
+	if(is_lemurian_sea_sector())
+		SSatlas.current_sector.hivenet_echoes = FALSE
+		to_chat(src, "The Fog prevents Hivenet Echoes from being restored in the Lemurian Sea.")
+		return
+
 	if(SSatlas.current_sector.hivenet_echoes)
 		SSatlas.current_sector.hivenet_echoes = FALSE
 		to_chat(src, "Vaurcae have been cut off from echoes (fluff) of the greater Hivenet.")

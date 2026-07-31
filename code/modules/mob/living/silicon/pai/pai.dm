@@ -202,7 +202,7 @@
 /mob/living/silicon/pai/LateLogin()
 	if(!greeted)
 		// Basic intro text.
-		to_chat(src, SPAN_DANGER("<font size=3>You are a Personal AI!</font>"))
+		to_chat(src, SPAN_DANGER("<font size=5>You are a Personal AI!</font>"))
 		to_chat(src, SPAN_NOTICE("You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world."))
 		playsound(usr, 'sound/effects/pai/pai_login.ogg', 75)
 		greeted = 1

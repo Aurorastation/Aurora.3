@@ -24,6 +24,7 @@
 @include meta.load-css('./interfaces/ExperimentConfigure.scss');
 @include meta.load-css('./interfaces/Fabricator.scss');
 @include meta.load-css('./interfaces/HellishRunes.scss');
+@include meta.load-css('./interfaces/HivenetManifest.scss');
 @include meta.load-css('./interfaces/HotKeysHelp.scss');
 @include meta.load-css('./interfaces/Hypertorus.scss');
 @include meta.load-css('./interfaces/IntegratedCircuit.scss');
@@ -51,6 +52,7 @@
 @include meta.load-css('./interfaces/AnomalyTower.scss');
 @include meta.load-css('./interfaces/CivCargoHoldTerminal.scss');
 @include meta.load-css('./interfaces/EventLogger.scss');
+@include meta.load-css('./interfaces/CaseDossier.scss');
 @include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/FactionSelect.scss');
 @include meta.load-css('./interfaces/HealthAnalyzer.scss');

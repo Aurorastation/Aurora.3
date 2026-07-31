@@ -52,7 +52,7 @@
 ///Mob is trying to open the wires of a target [/atom], from /datum/wires/interactable(): (atom/target)
 #define COMSIG_TRY_WIRES_INTERACT "try_wires_interact"
 	#define COMPONENT_CANT_INTERACT_WIRES (1<<0)
-
+#define COMSIG_GET_EFFECTIVE_MASS "get_effective_mass"
 
 /// Sent from /proc/do_after if someone starts a do_after action bar.
 #define COMSIG_DO_AFTER_BEGAN "mob_do_after_began"
@@ -140,3 +140,9 @@
 
 /// Signal raised against a character attempting to deliver a speech.
 #define COMSIG_GET_LEADERSHIP_MODIFIERS "get_leadership_modifiers"
+
+/// Signal raised against a character attempting to butcher a mob, to check for butchering bonuses from skills.
+#define COMSIG_GET_BUTCHERING_MODIFIERS "get_butchering_modifiers"
+
+// Crafting Signals
+#define COMSIG_GET_CRAFTING_MODIFIERS "get_crafting_modifiers"
