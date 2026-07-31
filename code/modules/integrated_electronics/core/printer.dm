@@ -206,8 +206,6 @@
 			to_chat(user, SPAN_WARNING("No cloning blueprint text was provided."))
 		return FALSE
 
-	import_text = html_decode(import_text)
-
 	if(length(import_text) > IC_BLUEPRINT_BUFFER_LIMIT)
 		to_chat(user, SPAN_WARNING("That cloning blueprint is [length(import_text)] characters, but the maximum import size is [IC_BLUEPRINT_BUFFER_LIMIT] characters."))
 		return FALSE
