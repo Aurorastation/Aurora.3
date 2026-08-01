@@ -10,10 +10,13 @@
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with electrical systems.",
 		SKILL_LEVEL_FAMILIAR = "You have some experience working with electrical systems, though are not formally trained.<br>" \
-		+ " - You can use a power cell to attempt emergency power bypasses on piloting consoles when they're unpowered.",
-		SKILL_LEVEL_TRAINED = "You have formal training in electrical engineering concepts, equivalent to a Bachelor's Degree.",
+			+ " - You can use a power cell to attempt emergency power bypasses on piloting consoles when they're unpowered.<br>" \
+			+ " - You can recognize what a few wires do in electrical devices by sight.",
+		SKILL_LEVEL_TRAINED = "You have formal training in electrical engineering concepts, equivalent to a Bachelor's Degree.<br>" \
+			+ " - You can use a power cell to attempt emergency power bypasses on piloting consoles when they're unpowered.<br>" \
+			+ " - You can recognize what several wires do in electrical devices by sight.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in electrical related Engineering concepts, equivalent to a Master's Degree or better.<br>" \
-			+ " - You can tell what most machinery and airlock wires do just by looking at them." \
+			+ " - You can recognize what many wires do in electrical devices by sight." \
 	)
 
 /singleton/skill/mechanical_engineering
@@ -35,14 +38,17 @@
 		SKILL_LEVEL_FAMILIAR = "You have some experience working with physical machinery, though are not formally trained.<br>" \
 			+ " - Items you craft will be of slightly lower than average quality.<br>" \
 			+ " - You take 50% longer to craft anything.<br>" \
-			+ " - You can interact with some Engineering-related machinery.",
+			+ " - You can interact with some Engineering-related machinery.<br>" \
+			+ " - You can recognize what a few wires do in mechanical devices by sight.",
 		SKILL_LEVEL_TRAINED = "You have formal training in general Engineering concepts, equivalent to a Bachelor's Degree. <br>" \
 			+ " - You can craft items at the standard speed.<br>" \
-			+ " - Items you craft are generally at average quality.<br>" \
-			+ " - You can interact with most if not all Engineering equipment.",
+			+ " - You can craft a wider variety of items.<br>" \
+			+ " - You can interact with most if not all Engineering equipment.<br>" \
+			+ " - You can recognize what several wires do in mechanical devices by sight.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
 			+ " - You can craft items 50% faster.<br>" \
-			+ " - Items you craft are of much higher quality on average.<br>" \
+			+ " - You can craft a much wider variety of items.<br>" \
+			+ " - You can recognize what many wires do in mechanical devices by sight.",
 	)
 
 /singleton/skill/atmospherics_systems
@@ -54,6 +60,16 @@
 	subcategory = SKILL_SUBCATEGORY_ENGINEERING
 	required = TRUE
 	component_type = ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with atmospherics systems.<br>" \
+			+ " - No mechanical changes implemented at this skill level.",
+		SKILL_LEVEL_FAMILIAR = "You have some experience working with atmospherics systems, though are not formally trained.<br>" \
+			+ " - You can recognize what a few wires do in atmospherics devices by sight.",
+		SKILL_LEVEL_TRAINED = "You have formal training in general Engineering concepts, equivalent to a Bachelor's Degree. <br>" \
+			+ " - You can recognize what some wires do in atmospherics devices by sight.",
+		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
+			+ " - You can recognize what many wires do in atmospherics devices by sight." \
+	)
 
 /singleton/skill/reactor_systems
 	name = "Reactor Systems"
@@ -66,9 +82,9 @@
 	required = TRUE
 	component_type = REACTOR_SYSTEMS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with Reactor systems.<br>" \
+		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with reactor systems.<br>" \
 			+ " - You cannot interact with Reactor computers such as the INDRA controllers.",
-		SKILL_LEVEL_FAMILIAR = "You have some experience working with physical machinery, though are not formally trained.<br>" \
+		SKILL_LEVEL_FAMILIAR = "You have some experience working with reactor systems, though are not formally trained.<br>" \
 			+ " - You cannot interact with Reactor computers such as the INDRA controller.",
 		SKILL_LEVEL_TRAINED = "You have formal training in general Engineering concepts, equivalent to a Bachelor's Degree. <br>" \
 			+ " - This is the minimum skill level required to operate the INDRA.",

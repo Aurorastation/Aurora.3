@@ -39,16 +39,19 @@
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have little to no knowledge of Xenobiology",
 		SKILL_LEVEL_FAMILIAR = "You have a passing experience with Xenobiology.<br>" \
+			+ " - You can recognize what a few wires do in xenobiological sciences hardware by sight.<br>" \
 			+ " - Your melee attacks made against Xenofauna such as Space Carp deal 10% more damage.<br>" \
 			+ " - You harvest one additional part when butchering Xenofauna.<br>" \
 			+ " - You are +2.5% more likely to succeed when performing surgery on a patient that is a different species than your own.<br>" \
 			+ " - You can perform surgeries 5% faster on a patient that is a different species than your own.",
 		SKILL_LEVEL_TRAINED = "You have a moderate experience with Xenobiology.<br>" \
+			+ " - You can recognize what several wires do in xenobiological sciences hardware by sight.<br>" \
 			+ " - Your melee attacks made against Xenofauna such as Space Carp deal 15% more damage.<br>" \
 			+ " - You harvest two additional parts when butchering Xenofauna.<br>" \
 			+ " - You are +5% more likely to succeed when performing surgery on a patient that is a different species than your own. <br>" \
 			+ " - You can perform surgeries 10% faster on a patient that is a different species than your own.",
 		SKILL_LEVEL_PROFESSIONAL = "You have extensive experience with Xenobiology.<br>" \
+			+ " - You can recognize what many wires do in xenobiological sciences hardware by sight.<br>" \
 			+ " - Your melee attacks made against Xenofauna such as Space Carp deal 20% more damage.<br>" \
 			+ " - You harvest three additional parts when butchering Xenofauna.<br>" \
 			+ " - You are +7.5% more likely to succeed when performing surgery on a patient that is a different species than your own.<br>" \
