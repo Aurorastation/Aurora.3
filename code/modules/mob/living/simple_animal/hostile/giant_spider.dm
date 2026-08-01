@@ -83,7 +83,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armor_penetration = 30
-	venom_per_bite = 1
+	venom_per_bite = 8
 	speed = -2
 	venom_type = /singleton/reagent/toxin/greimorian_eggs
 	fed = 1

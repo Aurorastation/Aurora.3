@@ -1,0 +1,6 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - balance: "Extends minimum time to organ rupture due to Greimorian egg implantation by 33%."
+  - balance: "Removes egg spread chance from Greimorian egg implantation stage 4."
+  - balance: "Minor other adjustments to Greimorian egg behavior (ensures increased duration does not increase final larva count, etc.)"
