@@ -83759,8 +83759,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/hatch/service,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "kNc" = (
@@ -94826,11 +94825,6 @@
 /obj/structure/machinery/recharger{
 	pixel_x = -6;
 	pixel_y = 10
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/machinery/r_n_d/protolathe,
 /obj/structure/machinery/camera{
@@ -146633,7 +146627,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/reactor/supermatter/mainchamber)
 "sVq" = (
-/obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -146643,7 +146636,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "kitchen_divider"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "sVs" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -177575,11 +177568,6 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/smartfridge/drying_rack,
 /obj/structure/machinery/firealarm/west,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
