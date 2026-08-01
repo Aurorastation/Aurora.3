@@ -8,7 +8,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/frame/apc/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		new /obj/item/stack/material/steel( get_turf(src.loc), 2 )
 		qdel(src)
 		return TRUE
@@ -42,7 +42,7 @@
 		to_chat(user, SPAN_WARNING("This area already has an APC."))
 		return //only one APC per area
 
-	for(var/obj/machinery/power/terminal/T in user_turf)
+	for(var/obj/structure/machinery/power/terminal/T in user_turf)
 		if (T.master)
 			to_chat(user, SPAN_WARNING("There is another network terminal here."))
 			return
@@ -56,13 +56,13 @@
 	var/apc_path
 	switch(ndir)
 		if(NORTH)
-			apc_path = /obj/machinery/power/apc/north
+			apc_path = /obj/structure/machinery/power/apc/north
 		if(SOUTH)
-			apc_path = /obj/machinery/power/apc/south
+			apc_path = /obj/structure/machinery/power/apc/south
 		if(EAST)
-			apc_path = /obj/machinery/power/apc/east
+			apc_path = /obj/structure/machinery/power/apc/east
 		if(WEST)
-			apc_path = /obj/machinery/power/apc/west
+			apc_path = /obj/structure/machinery/power/apc/west
 
 	if(!apc_path)
 		stack_trace("APC being built by a non-mob, or somehow the direction grabbing or the cardinal directions are fucked!")

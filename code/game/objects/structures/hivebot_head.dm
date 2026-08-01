@@ -3,8 +3,8 @@
 	desc = "The central core of the Hivebot Secondary Transmitter Drone - all that remains after the machine's destruction. Perhaps some data as to the threat can be gleaned from this?"
 	icon = 'icons/obj/structure/hivebot_head.dmi'
 	icon_state = "hivebot_head"
+	maxhealth = null
 	w_class = WEIGHT_CLASS_BULKY
-	breakable = FALSE
 	climbable = FALSE
 	density = FALSE
 

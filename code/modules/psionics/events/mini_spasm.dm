@@ -18,23 +18,23 @@
 		SIGNAL SOURCE TRIANGULATED TO DISTANT SITE: All personnel are advised to avoid \
 		exposure to active audio transmission equipment including radio headsets and intercoms \
 		for the duration of the signal broadcast.", \
-		"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/security_level_old.ogg', zlevels = affecting_z)
+		"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/ai/announcements/security_level_old.ogg', zlevels = affecting_z)
 
 /datum/event/minispasm/start()
 	..()
 
 	var/list/victims = list()
-	for(var/obj/item/device/radio/radio in GLOB.listening_objects)
+	for(var/obj/item/radio/radio in GLOB.listening_objects)
 		if(radio.is_on())
 			for(var/mob/living/victim in range(radio.canhear_range, radio.loc))
 				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !isdeaf(victim))
 					victims[victim] = radio
 	for(var/thing in victims)
 		var/mob/living/victim = thing
-		var/obj/item/device/radio/source = victims[victim]
+		var/obj/item/radio/source = victims[victim]
 		do_spasm(victim, source)
 
-/datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
+/datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/radio/source)
 	set waitfor = 0
 	playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
 
@@ -62,4 +62,4 @@
 	if(.)
 		command_announcement.Announce( \
 			"PRIORITY ALERT: SIGNAL BROADCAST HAS CEASED. Personnel are cleared to resume use of non-hardened radio transmission equipment. Have a nice day.", \
-			"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/nightlight_old.ogg', zlevels = affecting_z)
+			"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/ai/announcements/nightlight_old.ogg', zlevels = affecting_z)

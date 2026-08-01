@@ -2,7 +2,7 @@
 
 /datum/wires/camera
 	proper_name = "Camera"
-	holder_type = /obj/machinery/camera
+	holder_type = /obj/structure/machinery/camera
 
 /datum/wires/camera/New(atom/holder)
 	wires = list(
@@ -13,7 +13,7 @@
 	..()
 
 /datum/wires/camera/get_status()
-	var/obj/machinery/camera/C = holder
+	var/obj/structure/machinery/camera/C = holder
 	. = ..()
 	. += "[(C.view_range == initial(C.view_range) ? "The focus light is on." : "The focus light is off.")]"
 	. += "[(C.can_use() ? "The power link light is on." : "The power link light is off.")]"
@@ -23,11 +23,11 @@
 /datum/wires/camera/interactable(mob/user)
 	if(!..())
 		return FALSE
-	var/obj/machinery/camera/C = holder
+	var/obj/structure/machinery/camera/C = holder
 	return C.panel_open
 
 /datum/wires/camera/on_cut(wire, mend, source)
-	var/obj/machinery/camera/C = holder
+	var/obj/structure/machinery/camera/C = holder
 
 	switch(wire)
 		if(WIRE_FOCUS)
@@ -49,7 +49,7 @@
 	return
 
 /datum/wires/camera/on_pulse(wire)
-	var/obj/machinery/camera/C = holder
+	var/obj/structure/machinery/camera/C = holder
 	if(is_cut(wire))
 		return
 	switch(wire)

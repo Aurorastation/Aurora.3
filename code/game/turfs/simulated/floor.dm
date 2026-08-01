@@ -17,7 +17,7 @@
 	var/flooring_override
 	var/initial_flooring
 	var/singleton/flooring/flooring
-	var/mineral = DEFAULT_WALL_MATERIAL
+	var/mineral = MATERIAL_STEEL
 
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
@@ -25,6 +25,9 @@
 
 	/// If the turf should generate details. Default: TRUE
 	var/has_edge_icon = TRUE
+
+/turf/simulated/floor/examine_descriptor(mob/user)
+	return "floor"
 
 /turf/simulated/floor/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -90,11 +93,15 @@
 			new flooring.build_type(src)
 		flooring = null
 
-	set_light(0)
 	broken = null
 	burnt = null
 	flooring_override = null
 	levelupdate()
+
+	// Set light to zero, so glowing turfs cease to glow if turned into plating.
+	set_light(0)
+	// Check if this still needs to have starlight - if it does, it'll be given back its starlight.
+	update_starlight()
 
 	if(!defer_icon_update)
 		update_icon(1)
@@ -120,3 +127,9 @@
 	name = "hull plating"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced_light"
+
+/turf/simulated/IgniteTurf(power, fire_color)
+	if(turf_fire)
+		turf_fire.AddPower(power)
+		return
+	new /obj/turf_fire(src, power, fire_color)

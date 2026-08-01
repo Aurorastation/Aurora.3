@@ -23,7 +23,7 @@
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsehelmet = /obj/item/clothing/head/konyang/police
 	corpsebelt = /obj/item/storage/belt/security
-	corpsepocket2 = /obj/item/device/radio
+	corpsepocket2 = /obj/item/radio
 	corpsepocket1 = /obj/item/storage/wallet/random
 	corpseback = /obj/item/storage/backpack/satchel
 	corpseid = FALSE

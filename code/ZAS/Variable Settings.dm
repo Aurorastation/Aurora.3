@@ -62,7 +62,7 @@ GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 	var/airflow_delay_NAME = "Airflow Retrigger Delay"
 	var/airflow_delay_DESC = "Time in deciseconds before things can be moved by airflow again."
 
-	var/airflow_mob_slowdown = 1
+	var/airflow_mob_slowdown = 0.5
 	var/airflow_mob_slowdown_NAME = "Airflow Slowdown"
 	var/airflow_mob_slowdown_DESC = "Time in tenths of a second to add as a delay to each movement by a mob if they are fighting the pull of the airflow."
 
@@ -246,7 +246,7 @@ GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 			airflow_damage = 2
 			airflow_speed_decay = 1.5
 			airflow_delay = 30
-			airflow_mob_slowdown = 1
+			airflow_mob_slowdown = 0.5
 
 		if("ZAS - Forgiving")
 			airflow_lightest_pressure = 45
@@ -274,7 +274,7 @@ GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 			airflow_damage = 3
 			airflow_speed_decay = 1.2
 			airflow_delay = 25
-			airflow_mob_slowdown = 2
+			airflow_mob_slowdown = 1
 
 		if("ZAS - Hellish")
 			airflow_lightest_pressure = 20
@@ -288,7 +288,7 @@ GLOBAL_DATUM_INIT(vsc, /vs_control, new())
 			airflow_damage = 4
 			airflow_speed_decay = 1
 			airflow_delay = 20
-			airflow_mob_slowdown = 3
+			airflow_mob_slowdown = 1.5
 			connection_insulation = 0
 
 		if("ZAS/Phoron - Initial")

@@ -22,7 +22,7 @@
 /// SCCV Horizon master areas
 /area/horizon
 	name = "Horizon (PARENT AREA - DON'T USE)"
-	icon_state = "unknown"
+	icon_state = "horizon"
 	station_area = TRUE
 	ambience = AMBIENCE_GENERIC
 	// Remember to set this for new areas!!
@@ -37,11 +37,17 @@
 	name = "Horizon - Exterior"
 	icon_state = "exterior"
 	base_turf = /turf/space
-	dynamic_lighting = TRUE
 	requires_power = FALSE
+	// This area will place starlight on any turf it's put on!
+	needs_starlight = TRUE
 	has_gravity = FALSE
 	no_light_control = TRUE
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	area_blurb = "The sheer scale of the SCCV Horizon is never more apparent when crawling across its hull like an ant."
+
+// Same as above, except shields will not wrap around it.
+// For bits of space or the outer hull that shouldn't be covered by shields.
+/area/horizon/exterior/no_shields
+	icon_state = "exterior_noshield"

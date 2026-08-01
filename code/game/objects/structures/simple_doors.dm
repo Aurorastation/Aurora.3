@@ -2,18 +2,19 @@
 	name = "door"
 	density = 1
 	anchored = 1
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
 	build_amt = 10
+
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
 	var/datum/lock/lock
 	var/initial_lock_value //for mapping purposes. Basically if this value is set, it sets the lock to this value.
-	var/health = 100
-	var/maxhealth = 100
+
 
 /obj/structure/simple_door/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -29,11 +30,11 @@
 	health -= material.combustion_effect(get_turf(src),temperature, 0.3)
 	CheckHealth()
 
-/obj/structure/simple_door/New(var/newloc, var/material_name, var/locked)
+/obj/structure/simple_door/New(var/newloc, var/newmaterial, var/locked)
 	..()
-	if(!material_name)
-		material_name = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(material_name)
+	if(!newmaterial)
+		newmaterial = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(newmaterial)
 	if(!material)
 		qdel(src)
 		return
@@ -41,8 +42,8 @@
 	name = "[material.display_name] door"
 	color = material.icon_colour
 
-	maxhealth = max(1,round(material.integrity))
-	health = maxhealth
+	set_health(material.integrity)
+	set_health(maxhealth)
 
 	if(initial_lock_value)
 		locked = initial_lock_value

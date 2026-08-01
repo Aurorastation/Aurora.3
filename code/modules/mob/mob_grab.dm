@@ -12,7 +12,7 @@
 
 /obj/item/grab
 	name = "grab"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "reinforce"
 	atom_flags = 0
 	var/atom/movable/screen/grab/hud = null
@@ -294,7 +294,7 @@
 		if(isslime(affecting))
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, SFX_GRAB, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
@@ -313,7 +313,7 @@
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
-		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, SFX_GRAB, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
@@ -408,7 +408,7 @@
 
 /obj/item/grab/Destroy()
 	if(!QDELETED(linked_grab))
-		qdel(linked_grab)
+		QDEL_NULL(linked_grab)
 
 	UnregisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE)
 
@@ -443,8 +443,9 @@
 		to_chat(H, SPAN_WARNING("You can only fireman carry humanoids!"))
 		return
 	var/mob/living/carbon/human/affected_human = affecting
-	if(affected_human.species.mob_size > 25)
-		to_chat(H, SPAN_WARNING("\The [affected_human] is way too big to fireman carry!"))
+	var/grabber_strength = H.get_effective_mass() * H.mob_strength
+	if(affected_human.mass > grabber_strength)
+		to_chat(H, SPAN_WARNING("\The [affected_human] is heavier than your Lift Limit of [grabber_strength]kg, you cannot fireman carry then!"))
 		return
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))
@@ -512,6 +513,12 @@
 	linked_grab = linked
 	linked.linked_grab = src
 	linked_grab.set_wielding()
+
+/obj/item/grab/offhand/Destroy()
+	if(linked_grab)
+		linked_grab.linked_grab = null
+		linked_grab.wielded = FALSE
+	. = ..()
 
 /obj/item/grab/offhand/process()
 	return

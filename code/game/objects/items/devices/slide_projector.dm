@@ -144,7 +144,8 @@
 	icon_state = "white"
 	anchored = TRUE
 	simulated = FALSE
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	alpha = 100
 	var/datum/weakref/source
 
@@ -163,7 +164,7 @@
 		return
 	ClearOverlays()
 	var/mutable_appearance/MA = new(I)
-	MA.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	MA.plane = ABOVE_LIGHTING_PLANE
 	MA.appearance_flags = RESET_ALPHA
 	MA.alpha = 170
 	MA.pixel_x = 0

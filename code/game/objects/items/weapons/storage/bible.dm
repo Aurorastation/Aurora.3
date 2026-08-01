@@ -8,8 +8,8 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL // POKKET - geeves
 	var/mob/affecting = null
-	use_sound = 'sound/bureaucracy/bookopen.ogg'
-	drop_sound = 'sound/bureaucracy/bookclose.ogg'
+	use_sound = 'sound/items/bureaucracy/bookopen.ogg'
+	drop_sound = 'sound/items/bureaucracy/bookclose.ogg'
 
 /obj/item/storage/bible/booze
 	name = "bible"

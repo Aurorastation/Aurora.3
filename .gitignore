@@ -70,3 +70,9 @@ define_sanity_output.txt
 
 # Unit test / coverage reports
 .cache
+
+# Tracy dumps
+*.utracy
+
+# JavaScript tools
+**/node_modules

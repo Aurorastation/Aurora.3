@@ -5,9 +5,10 @@
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	contained_sprite = TRUE
 	action_button_name = "Toggle Headlamp"
-	brightness_on = 4 //luminosity when on
+	light_range = 4 //luminosity when on
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -21,9 +22,13 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	siemens_coefficient = 0.9
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
-	light_wedge = LIGHT_WIDE
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+
+/obj/item/clothing/head/hardhat/dropped(mob/user)
+	. = ..()
+	if(user?.dir)
+		set_dir(user.dir)
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat_orange"

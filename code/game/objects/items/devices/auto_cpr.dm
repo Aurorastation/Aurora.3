@@ -71,7 +71,7 @@
 		else
 			. += SPAN_DANGER("It currently has a battery with no charge left!")
 	if(tank)
-		. += "It has \the [tank] installed. The meter shows <b>[round(tank.air_contents.return_pressure())] kPa</b>, \
+		. += "It has \the [tank] installed. The meter shows <b>[round(XGM_PRESSURE(tank.air_contents))] kPa</b>, \
 		with the pressure set to <b>[round(tank.distribute_pressure)] kPa</b>.[epp_active ? " The [EPP] is active." : ""]"
 	if(breath_mask)
 		. += "It has \the [breath_mask] installed."
@@ -163,7 +163,7 @@
 	if(panel_open)
 		AddOverlays("panel_open[battery ? "_battery" : ""]")
 
-/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
+/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	. = ..()
 	if(slot == slot_wear_suit)
 		if(panel_open)
@@ -199,7 +199,7 @@
 		return ..()
 
 /obj/item/auto_cpr/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			if(H.get_inventory_slot(src) == slot_wear_suit)
@@ -211,7 +211,7 @@
 		return TRUE
 
 	if(panel_open)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			if(!tank)
 				to_chat(user, "There isn't a tank to remove!")
 				return TRUE
@@ -221,7 +221,7 @@
 			tank = null
 			update_icon()
 			return TRUE
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if(!battery)
 				to_chat(user, "There isn't a battery to remove!")
 				return TRUE
@@ -274,8 +274,8 @@
 		update_icon()
 		return
 	var/list/options = list(
-		"Toggle CPR" = image('icons/mob/screen/radial.dmi', "cpr_mode"),
-		"Toggle EPP" = image('icons/mob/screen/radial.dmi', "iv_epp"))
+		"Toggle CPR" = image('icons/hud/mob/radial.dmi', "cpr_mode"),
+		"Toggle EPP" = image('icons/hud/mob/radial.dmi', "iv_epp"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
@@ -381,7 +381,7 @@
 
 	var/obj/item/organ/internal/lungs/lungs = H.internal_organs_by_name[BP_LUNGS]
 	var/safe_pressure_min = H.species.breath_pressure + 2
-	safe_pressure_min *= 1 + rand(1,4) * lungs.damage/lungs.max_damage
+	safe_pressure_min *= 1 + rand(1,4) * lungs.get_damage()/lungs.max_damage
 	if(!lungs)
 		epp_off()
 		return
@@ -389,7 +389,7 @@
 		src.visible_message(SPAN_WARNING("Error! Patient safety check triggered! Turning the [EPP] off."))
 		epp_off()
 		return
-	if(tank.air_contents.return_pressure() <= 10)
+	if(XGM_PRESSURE(tank.air_contents) <= 10)
 		src.visible_message(SPAN_WARNING("Error! Installed [tank] is low or near empty! Turning the [EPP] off."))
 		epp_off()
 		return

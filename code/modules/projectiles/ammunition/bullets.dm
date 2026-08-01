@@ -35,7 +35,7 @@
 	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/projectile/ion/small
 	icon_state = "empcasing"
-	matter = list(DEFAULT_WALL_MATERIAL = 130, MATERIAL_URANIUM = 100)
+	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)
 
 /obj/item/ammo_casing/c38/spent/Initialize()
 	. = ..()
@@ -132,9 +132,9 @@
 	spent_icon = "slshell-spent"
 	caliber = "shotgun"
 	projectile_type = /obj/projectile/bullet/shotgun
-	matter = list(DEFAULT_WALL_MATERIAL = 360)
-	reload_sound = /singleton/sound_category/shotgun_reload
-	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+	matter = list(MATERIAL_STEEL = 360)
+	reload_sound = SFX_RELOAD_SHOTGUN
+	drop_sound = SFX_CASING_DROP_SHOTGUN
 	max_stack = 8
 
 /obj/item/ammo_casing/shotgun/used/Initialize()
@@ -149,7 +149,7 @@
 	icon_state = "gshell"
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun
-	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	matter = list(MATERIAL_STEEL = 360)
 
 /obj/item/ammo_casing/shotgun/pellet/used/Initialize()
 	. = ..()
@@ -163,7 +163,7 @@
 	icon_state = "blshell"
 	spent_icon = "blshell-spent"
 	projectile_type = /obj/projectile/bullet/blank
-	matter = list(DEFAULT_WALL_MATERIAL = 90)
+	matter = list(MATERIAL_STEEL = 90)
 
 /obj/item/ammo_casing/shotgun/practice
 	name = "shotgun shell"
@@ -179,7 +179,7 @@
 	icon_state = "bshell"
 	spent_icon = "bshell-spent"
 	projectile_type = /obj/projectile/bullet/shotgun/beanbag
-	matter = list(DEFAULT_WALL_MATERIAL = 180)
+	matter = list(MATERIAL_STEEL = 180)
 
 //Can stun in one hit if aimed at the head, but
 //is blocked by clothing that stops tasers and is vulnerable to EMP
@@ -189,7 +189,7 @@
 	icon_state = "stunshell"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/projectile/energy/electrode/stunshot
-	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_GLASS = 720)
+	matter = list(MATERIAL_STEEL = 360, MATERIAL_GLASS = 720)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
@@ -207,7 +207,7 @@
 	icon_state = "fshell"
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/projectile/energy/flash/flare
-	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
+	matter = list(MATERIAL_STEEL = 90, MATERIAL_GLASS = 90)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/incendiary
@@ -216,7 +216,7 @@
 	icon_state = "ishell"
 	spent_icon = "ishell-spent"
 	projectile_type = /obj/projectile/bullet/shotgun/incendiary
-	matter = list(DEFAULT_WALL_MATERIAL = 450)
+	matter = list(MATERIAL_STEEL = 450)
 
 /obj/item/ammo_casing/shotgun/emp
 	name = "haywire slug"
@@ -224,7 +224,7 @@
 	icon_state = "empshell"
 	spent_icon = "empshell-spent"
 	projectile_type = /obj/projectile/ion
-	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
+	matter = list(MATERIAL_STEEL = 260, MATERIAL_URANIUM = 200)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/tracking
@@ -263,6 +263,27 @@
 	. = ..()
 	expend()
 
+/obj/item/ammo_casing/a68
+	desc = "A Z33 Tamparii bullet casing."
+	caliber = "6.8mm"
+	projectile_type = /obj/projectile/bullet/rifle/a68
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	max_stack = 5
+
+/obj/item/ammo_casing/a68/spent/Initialize()
+	. = ..()
+	expend()
+
+/obj/item/ammo_casing/a68/ap
+	desc = "A Z33r Tamparii bullet casing."
+	projectile_type = /obj/projectile/bullet/rifle/a68/ap
+	max_stack = 5
+
+/obj/item/ammo_casing/a68/blank
+	desc = "A Z33t Tamparii blank casing."
+	projectile_type = /obj/projectile/bullet/blank
+
 /obj/item/ammo_casing/a762/blank
 	desc = "A 7.62mm blank casing."
 	projectile_type = /obj/projectile/bullet/blank
@@ -272,7 +293,7 @@
 	desc = "A 14.5mm shell."
 	caliber = "14.5mm"
 	projectile_type = /obj/projectile/bullet/rifle/a145
-	matter = list(DEFAULT_WALL_MATERIAL = 1250)
+	matter = list(MATERIAL_STEEL = 1250)
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	max_stack = 2
@@ -386,9 +407,9 @@
 	projectile_type = /obj/projectile/bullet/gauss
 	max_stack = 2
 
-/obj/item/ammo_casing/gauss/carbine
-	name = "compact tungsten slug"
-	desc = "A heavy tungsten gauss slug. This one has a casing adapated for carbine models."
+/obj/item/ammo_casing/gauss/old
+	name = "depleted uranium slug"
+	desc = "A depleted uranium gauss slug. It seems quite old."
 	projectile_type = /obj/projectile/bullet/gauss/carbine
 
 /obj/item/ammo_casing/gauss/emp
@@ -420,12 +441,12 @@
 	icon_state = "cannonball"
 	caliber = "cannon"
 	projectile_type = /obj/projectile/bullet/cannonball
-	matter = list(DEFAULT_WALL_MATERIAL = 800)
+	matter = list(MATERIAL_STEEL = 800)
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	max_stack = 1
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
-	drop_sound = /singleton/sound_category/generic_drop_sound
+	drop_sound = SFX_DROP
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -446,7 +467,7 @@
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/projectile/bullet/nuke
-	drop_sound = /singleton/sound_category/generic_drop_sound
+	drop_sound = SFX_DROP
 	max_stack = 2
 
 /obj/item/ammo_casing/musket
@@ -488,12 +509,39 @@
 	name = "anti-materiel FRAG cannon cartridge"
 	projectile_type = /obj/projectile/bullet/peac/shrapnel
 
+/obj/item/ammo_casing/peac/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!istype(target_mob, /mob/living/carbon/human))
+		return ..()
+
+	var/mob/living/carbon/human/H = target_mob
+	if(!user.Adjacent(H))
+		return ..()
+
+	var/obj/item/gun/projectile/peac/G = null
+	var/obj/item/I = H.get_active_hand()
+	if(istype(I, /obj/item/gun/projectile/peac))
+		G = I
+	else
+		I = H.get_inactive_hand()
+		if(istype(I, /obj/item/gun/projectile/peac)) //we check the other hand as well so the wield error message can get sent despite what hand it is in, to avoid confusion
+			G = I
+	if(G && !G.wielded)
+		to_chat(H, SPAN_WARNING("You need to wield [G] before it can be loaded!"))
+		to_chat(user, SPAN_WARNING("[H] needs to wield [G] before you can load it!"))
+		return TRUE
+	if(G && G.get_ammo() <= 0 && G.loaded.len < G.max_shells && G.caliber == caliber && src.loc == user)
+		if(!do_after(user, 0.5 SECONDS, G))
+			return TRUE
+		G.load_ammo(src, user, TRUE)
+		return TRUE
+	..()
+
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = ".599 Kumar Super"
-	projectile_type = /obj/projectile/bullet
+	projectile_type = /obj/projectile/bullet/rifle/kumar_super
 	max_stack = 5
 
 /obj/item/ammo_casing/c6mm

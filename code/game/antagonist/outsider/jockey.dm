@@ -51,6 +51,7 @@ GLOBAL_DATUM(jockeys, /datum/antagonist/jockey)
 	player.update_eyes()
 	player.regenerate_icons()
 
+
 	return TRUE
 
 /datum/antagonist/jockey/get_antag_radio()

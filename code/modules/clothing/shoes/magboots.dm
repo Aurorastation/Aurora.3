@@ -27,9 +27,9 @@
 	. += "Its mag-pulse traction system appears to be [state]."
 
 /obj/item/clothing/shoes/magboots/Destroy()
-	. = ..()
 	src.shoes = null
 	src.wearer = null
+	return ..()
 
 /obj/item/clothing/shoes/magboots/proc/set_slowdown(mob/user)
 	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
@@ -79,7 +79,7 @@
 	else
 		return 0
 
-/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE)
+/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	if(slot != slot_shoes)
 		return ..()
 

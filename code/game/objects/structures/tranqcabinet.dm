@@ -1,7 +1,7 @@
 /obj/structure/tranqcabinet
 	name = "tranquilizer rifle cabinet"
 	desc = "A wall mounted cabinet designed to hold a tranquilizer rifle."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "tranq_closed"
 	anchored = 1
 	density = 0

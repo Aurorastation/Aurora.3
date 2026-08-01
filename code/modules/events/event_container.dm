@@ -1,7 +1,7 @@
 #define ASSIGNMENT_ANY "Any"
 #define ASSIGNMENT_AI "AI"
 #define ASSIGNMENT_CYBORG "Cyborg"
-#define ASSIGNMENT_ENGINEER "Engineer"
+#define ASSIGNMENT_ENGINEER "Ship Engineer"
 #define ASSIGNMENT_GARDENER "Gardener"
 #define ASSIGNMENT_JANITOR "Janitor"
 #define ASSIGNMENT_MEDICAL "Medical"
@@ -11,7 +11,7 @@
 #define ASSIGNMENT_COMMAND_SUPPORT "Command Support"
 #define ASSIGNMENT_BRIDGE_CREW "Bridge Crew"
 
-GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major"))
+GLOBAL_LIST_INIT(severity_to_string, alist(EVENT_LEVEL_MUNDANE = "Mundane", EVENT_LEVEL_MODERATE = "Moderate", EVENT_LEVEL_MAJOR = "Major"))
 
 /datum/event_container
 	var/severity = -1
@@ -335,6 +335,9 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "APC Damage", /datum/event/apc_damage,
 			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
 
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Wandering Psirens", /datum/event/wandering_psirens,
+			10, list(ASSIGNMENT_SECURITY = 15)),
+
 	)
 
 // Severity Level, Event Name, Event Type, Base Weight, Role Weight(s), One Shot (TRUE/FALSE), Min Weight, Max Weight. Last two only used if set and non-zero.
@@ -383,6 +386,13 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "APC Damage", /datum/event/apc_damage,
 			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Dark Matter Influx", /datum/event/gravity_anomaly,
+			35, list(ASSIGNMENT_ENGINEER = 20), is_one_shot = TRUE,
+			pop_needed = 12),
+
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Wandering Psiren School", /datum/event/wandering_psirens,
+			10, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5)),
 
 	)
 

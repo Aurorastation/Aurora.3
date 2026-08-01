@@ -38,7 +38,7 @@
 	name = "magnetic 'pin'"
 	desc = "Finally, a hair pin even a robot chassis can use."
 	slot_flags = SLOT_HEAD
-	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	matter = list(MATERIAL_STEEL = 10)
 
 /obj/item/clothing/head/pin/flower
 	name = "red flower pin"
@@ -425,14 +425,6 @@
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
-//Tau Ceti Foreign Legion
-
-/obj/item/clothing/head/legion/legate
-	name = "TCFL peaked cap"
-	desc = "A stark red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."
-	icon_state = "legion_cap"
-	item_state = "legion_cap"
-
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"
 	icon_state = "culthood"
@@ -770,6 +762,15 @@
 	desc = "A military-style corporate peaked cap. This one bears the colors of the Private Military Contracting Group."
 	icon_state = "pmc_warden_hat_nologo"
 	item_state = "pmc_warden_hat_nologo"
+
+// Assunzione security overseer hat
+/obj/item/clothing/head/peaked_cap/zenghu
+	name = "\improper Zeng-Hu peaked cap"
+	desc = "A military-style corporate peaked cap. This one bears the emblem of Zeng-Hu Pharmaceuticals."
+	icon_state = "zh_warden_hat"
+	item_state = "zh_warden_hat"
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	contained_sprite = TRUE
 
 //goblin.stev's stuff
 /obj/item/clothing/head/qeburger_visor

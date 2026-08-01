@@ -27,7 +27,7 @@
 
 	id = /obj/item/card/id/ranger_ship
 
-	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
+	l_ear = /obj/item/radio/headset/ship/coalition_navy
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
@@ -56,7 +56,7 @@
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 	if(isipc(H)) // All Ranger synthetics are tagged, self-owned, and have Coalition citizenship.
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 			tag.ownership_info = IPC_OWNERSHIP_SELF

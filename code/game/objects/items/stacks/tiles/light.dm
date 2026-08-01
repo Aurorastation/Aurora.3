@@ -18,7 +18,7 @@
 		state = 0 //fine
 
 /obj/item/stack/tile/light/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		amount--
 		to_chat(user, SPAN_NOTICE("You pry off the steel sheet from the [name]."))
 		attacking_item.play_tool_sound(get_turf(src), 100)
@@ -32,6 +32,6 @@
 /obj/item/stack/tile/light/attack_self(mob/user)
 	amount--
 	playsound(src.loc, 'sound/items/Deconstruct.ogg', 80, 1)
-	new /obj/machinery/floor_light(user.loc)
+	new /obj/structure/machinery/floor_light(user.loc)
 	if(amount <= 0)
 		qdel(src)

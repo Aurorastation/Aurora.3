@@ -24,7 +24,7 @@
 		return TRUE
 	return FALSE
 
-/obj/machinery/seed_storage
+/obj/structure/machinery/seed_storage
 	name = "seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
 	icon = 'icons/obj/vending.dmi'
@@ -42,7 +42,7 @@
 	/// What properties we can view.
 	var/list/scanner = list()
 
-/obj/machinery/seed_storage/Initialize()
+/obj/structure/machinery/seed_storage/Initialize()
 	. = ..()
 	for(var/typepath in starting_seeds)
 		var/amount = starting_seeds[typepath]
@@ -52,21 +52,21 @@
 			var/O = new typepath
 			add(O)
 
-/obj/machinery/seed_storage/Destroy()
+/obj/structure/machinery/seed_storage/Destroy()
 	QDEL_LIST(piles)
 
 	. = ..()
 
-/obj/machinery/seed_storage/attack_hand(mob/user)
+/obj/structure/machinery/seed_storage/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/seed_storage/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/seed_storage/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SeedStorage", "Seed Storage", screen_x, screen_y)
 		ui.open()
 
-/obj/machinery/seed_storage/ui_data(mob/user)
+/obj/structure/machinery/seed_storage/ui_data(mob/user)
 	var/list/data = list()
 	data["seeds"] = list()
 	for(var/datum/seed_pile/S in piles)
@@ -78,101 +78,101 @@
 
 		if("stats" in scanner)
 			data["scan_stats"] = TRUE
-			seed_type["endurance"] = seed.get_trait(TRAIT_ENDURANCE)
-			seed_type["yield"] = seed.get_trait(TRAIT_YIELD)
-			seed_type["maturation"] = seed.get_trait(TRAIT_MATURATION)
-			seed_type["production"] = seed.get_trait(TRAIT_PRODUCTION)
-			seed_type["potency"] = seed.get_trait(TRAIT_POTENCY)
-			if(seed.get_trait(TRAIT_HARVEST_REPEAT))
+			seed_type["endurance"] = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
+			seed_type["yield"] = GET_SEED_TRAIT(seed, TRAIT_YIELD)
+			seed_type["maturation"] = GET_SEED_TRAIT(seed, TRAIT_MATURATION)
+			seed_type["production"] = GET_SEED_TRAIT(seed, TRAIT_PRODUCTION)
+			seed_type["potency"] = GET_SEED_TRAIT(seed, TRAIT_POTENCY)
+			if(GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
 				seed_type["harvest"] = "multiple"
 			else
 				seed_type["harvest"] = "single"
 
 		if("temperature" in scanner)
 			data["scan_temperature"] = TRUE
-			seed_type["ideal_heat"] = "[seed.get_trait(TRAIT_IDEAL_HEAT)] K"
+			seed_type["ideal_heat"] = "[GET_SEED_TRAIT(seed, TRAIT_IDEAL_HEAT)] K"
 
 		if("light" in scanner)
 			data["scan_light"] = TRUE
-			seed_type["ideal_light"] = "[seed.get_trait(TRAIT_IDEAL_LIGHT)] L"
+			seed_type["ideal_light"] = "[GET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT)] L"
 
 		if("soil" in scanner)
 			data["scan_soil"] = TRUE
-			if(seed.get_trait(TRAIT_REQUIRES_NUTRIENTS))
-				if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) < 0.05)
+			if(GET_SEED_TRAIT(seed, TRAIT_REQUIRES_NUTRIENTS))
+				if(GET_SEED_TRAIT(seed, TRAIT_NUTRIENT_CONSUMPTION) < 0.05)
 					seed_type["nutrient_consumption"] = "Low"
-				else if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) > 0.2)
+				else if(GET_SEED_TRAIT(seed, TRAIT_NUTRIENT_CONSUMPTION) > 0.2)
 					seed_type["nutrient_consumption"] = "High"
 				else
 					seed_type["nutrient_consumption"] = "Average"
 			else
 				seed_type["nutrient_consumption"] = "No"
 
-			if(seed.get_trait(TRAIT_REQUIRES_WATER))
-				if(seed.get_trait(TRAIT_WATER_CONSUMPTION) < 1)
+			if(GET_SEED_TRAIT(seed, TRAIT_REQUIRES_WATER))
+				if(GET_SEED_TRAIT(seed, TRAIT_WATER_CONSUMPTION) < 1)
 					seed_type["water_consumption"] = "Low"
-				else if(seed.get_trait(TRAIT_WATER_CONSUMPTION) > 5)
+				else if(GET_SEED_TRAIT(seed, TRAIT_WATER_CONSUMPTION) > 5)
 					seed_type["water_consumption"] = "High"
 				else
 					seed_type["water_consumption"] =  "Average"
 			else
 				seed_type["water_consumption"] = "No"
 
-		switch(seed.get_trait(TRAIT_CARNIVOROUS))
+		switch(GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS))
 			if(1)
 				traits += "CARN"
 			if(2)
 				traits	+= "CARN (!)"
 
-		switch(seed.get_trait(TRAIT_SPREAD))
+		switch(GET_SEED_TRAIT(seed, TRAIT_SPREAD))
 			if(1)
 				traits += "VINE"
 			if(2)
 				traits	+= "VINE (!)"
 
 		if ("pressure" in scanner)
-			if(seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
+			if(GET_SEED_TRAIT(seed, TRAIT_LOWKPA_TOLERANCE) < 20)
 				traits += "LP"
-			if(seed.get_trait(TRAIT_HIGHKPA_TOLERANCE) > 220)
+			if(GET_SEED_TRAIT(seed, TRAIT_HIGHKPA_TOLERANCE) > 220)
 				traits += "HP"
 
 		if ("temperature" in scanner)
-			if(seed.get_trait(TRAIT_HEAT_TOLERANCE) > 30)
+			if(GET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE) > 30)
 				traits += "TEMRES"
-			else if(seed.get_trait(TRAIT_HEAT_TOLERANCE) < 10)
+			else if(GET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE) < 10)
 				traits += "TEMSEN"
 
 		if ("light" in scanner)
-			if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) > 10)
+			if(GET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE) > 10)
 				traits += "LIGRES"
-			else if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) < 3)
+			else if(GET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE) < 3)
 				traits += "LIGSEN"
 
-		if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) < 3)
+		if(GET_SEED_TRAIT(seed, TRAIT_TOXINS_TOLERANCE) < 3)
 			traits += "TOXSEN"
-		else if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) > 6)
+		else if(GET_SEED_TRAIT(seed, TRAIT_TOXINS_TOLERANCE) > 6)
 			traits += "TOXRES"
 
-		if(seed.get_trait(TRAIT_PEST_TOLERANCE) < 3)
+		if(GET_SEED_TRAIT(seed, TRAIT_PEST_TOLERANCE) < 3)
 			traits += "PESTSEN"
-		else if(seed.get_trait(TRAIT_PEST_TOLERANCE) > 6)
+		else if(GET_SEED_TRAIT(seed, TRAIT_PEST_TOLERANCE) > 6)
 			traits += "PESTRES"
 
-		if(seed.get_trait(TRAIT_WEED_TOLERANCE) < 3)
+		if(GET_SEED_TRAIT(seed, TRAIT_WEED_TOLERANCE) < 3)
 			traits += "WEEDSEN"
-		else if(seed.get_trait(TRAIT_WEED_TOLERANCE) > 6)
+		else if(GET_SEED_TRAIT(seed, TRAIT_WEED_TOLERANCE) > 6)
 			traits += "WEEDRES"
 
-		if(seed.get_trait(TRAIT_PARASITE))
+		if(GET_SEED_TRAIT(seed, TRAIT_PARASITE))
 			traits += "PAR"
 
 		if("temperature" in scanner)
-			if(seed.get_trait(TRAIT_ALTER_TEMP) > 0)
+			if(GET_SEED_TRAIT(seed, TRAIT_ALTER_TEMP) > 0)
 				traits += "TEMP+"
-			if(seed.get_trait(TRAIT_ALTER_TEMP) < 0)
+			if(GET_SEED_TRAIT(seed, TRAIT_ALTER_TEMP) < 0)
 				traits += "TEMP-"
 
-		if(seed.get_trait(TRAIT_BIOLUM))
+		if(GET_SEED_TRAIT(seed, TRAIT_BIOLUM))
 			traits += "LUM"
 
 		seed_type["amount"] = S.amount
@@ -180,7 +180,7 @@
 		data["seeds"] += list(seed_type)
 	return data
 
-/obj/machinery/seed_storage/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/seed_storage/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if (.)
 		return
@@ -209,7 +209,7 @@
 					qdel(N)
 			. = TRUE
 
-/obj/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/seeds))
 		add(attacking_item)
 		user.visible_message(SPAN_NOTICE("[user] puts \the [attacking_item.name] into \the [src]."), SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
@@ -226,12 +226,12 @@
 		else
 			to_chat(user, SPAN_WARNING("There are no seeds in \the [attacking_item.name]."))
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 
-/obj/machinery/seed_storage/proc/add(obj/item/seeds/O)
+/obj/structure/machinery/seed_storage/proc/add(obj/item/seeds/O)
 	if (istype(O.loc, /mob))
 		var/mob/user = O.loc
 		user.remove_from_mob(O)
@@ -266,12 +266,12 @@
 			SUBTYPES
 ################################*/
 
-/obj/machinery/seed_storage/random // This is mostly for testing, but I guess admins could spawn it
+/obj/structure/machinery/seed_storage/random // This is mostly for testing, but I guess admins could spawn it
 	name = "random seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	starting_seeds = list(/obj/item/seeds/random = 50)
 
-/obj/machinery/seed_storage/garden
+/obj/structure/machinery/seed_storage/garden
 	name = "garden seed storage"
 	scanner = list("stats")
 	starting_seeds = list(
@@ -296,6 +296,7 @@
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/cucumberseed = 3,
 		/obj/item/seeds/cranberryseed = 2,
 		/obj/item/seeds/dirtberries = 2,
 		/obj/item/seeds/dynseed = 3,
@@ -358,13 +359,13 @@
 		/obj/item/seeds/ylpha = 2
 	)
 
-/obj/machinery/seed_storage/garden/hydroponics
+/obj/structure/machinery/seed_storage/garden/hydroponics
 	name = "Hydroponics seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	screen_x = 1000
 	screen_y = 700
 
-/obj/machinery/seed_storage/garden/hydroponics/Initialize()
+/obj/structure/machinery/seed_storage/garden/hydroponics/Initialize()
 	starting_seeds = src.starting_seeds.Copy() + list(
 		/obj/item/seeds/libertymycelium = 2,
 		/obj/item/seeds/koisspore = 3,
@@ -373,13 +374,13 @@
 	)
 	return ..()
 
-/obj/machinery/seed_storage/garden/xenobotany
+/obj/structure/machinery/seed_storage/garden/xenobotany
 	name = "Xenobotany seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
 	screen_x = 1000
 	screen_y = 700
 
-/obj/machinery/seed_storage/garden/xenobotany/Initialize()
+/obj/structure/machinery/seed_storage/garden/xenobotany/Initialize()
 	starting_seeds = src.starting_seeds.Copy() + list(
 		/obj/item/seeds/libertymycelium = 2,
 		/obj/item/seeds/cocaseed = 3,

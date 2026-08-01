@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { Box, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Box, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type VitalsData = {
@@ -13,11 +13,11 @@ export type VitalsData = {
   blood_o2: number;
 };
 
-export const VitalsMonitor = (props, context) => {
-  const { act, data } = useBackend<VitalsData>(context);
+export const VitalsMonitor = (props) => {
+  const { act, data } = useBackend<VitalsData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Patient Vitals">
           {data.has_occupant ? (
@@ -31,8 +31,8 @@ export const VitalsMonitor = (props, context) => {
   );
 };
 
-const PatientVitals = (props, context) => {
-  const { act, data } = useBackend<VitalsData>(context);
+const PatientVitals = (props) => {
+  const { act, data } = useBackend<VitalsData>();
   return (
     <Section>
       <LabeledList>
@@ -41,22 +41,26 @@ const PatientVitals = (props, context) => {
         </LabeledList.Item>
         <LabeledList.Item
           label="Brain Activity"
-          color={ProgressClass(data.brain_activity)}>
+          color={ProgressClass(data.brain_activity)}
+        >
           {data.brain_activity}%
         </LabeledList.Item>
         <LabeledList.Item
           label="BP"
-          color={PressureClass(data.blood_pressure_level)}>
+          color={PressureClass(data.blood_pressure_level)}
+        >
           {data.blood_pressure}
         </LabeledList.Item>
         <LabeledList.Item
           label="Blood Oxygenation"
-          color={ProgressClass(Math.round(data.blood_o2))}>
+          color={ProgressClass(Math.round(data.blood_o2))}
+        >
           {Math.round(data.blood_o2)}%
         </LabeledList.Item>
         <LabeledList.Item
           label="Blood Volume"
-          color={ProgressClass(Math.round(data.blood_volume))}>
+          color={ProgressClass(Math.round(data.blood_volume))}
+        >
           {Math.round(data.blood_volume)}%
         </LabeledList.Item>
       </LabeledList>

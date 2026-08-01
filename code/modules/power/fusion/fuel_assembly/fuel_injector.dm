@@ -1,4 +1,4 @@
-/obj/machinery/fusion_fuel_injector
+/obj/structure/machinery/fusion_fuel_injector
 	name = "fuel injector"
 	icon = 'icons/obj/machinery/fusion.dmi'
 	icon_state = "injector0"
@@ -14,29 +14,29 @@
 	var/obj/item/fuel_assembly/cur_assembly
 	var/injection_rate = 1
 
-/obj/machinery/fusion_fuel_injector/Initialize()
+/obj/structure/machinery/fusion_fuel_injector/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	. = ..()
 
-/obj/machinery/fusion_fuel_injector/Destroy()
+/obj/structure/machinery/fusion_fuel_injector/Destroy()
 	if(cur_assembly)
 		cur_assembly.dropInto(loc)
 		cur_assembly = null
 	. = ..()
 
-/obj/machinery/fusion_fuel_injector/mapped
+/obj/structure/machinery/fusion_fuel_injector/mapped
 	anchored = TRUE
 
-/obj/machinery/fusion_fuel_injector/process()
+/obj/structure/machinery/fusion_fuel_injector/process()
 	if(injecting)
 		if(!operable())
 			StopInjecting()
 		else
 			Inject()
 
-/obj/machinery/fusion_fuel_injector/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/fusion_fuel_injector/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
@@ -57,7 +57,7 @@
 		cur_assembly = attacking_item
 		return
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(injecting)
 			to_chat(user, SPAN_WARNING("Shut \the [src] off first!"))
 			return
@@ -71,7 +71,7 @@
 
 	return ..()
 
-/obj/machinery/fusion_fuel_injector/attack_hand(mob/user)
+/obj/structure/machinery/fusion_fuel_injector/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -81,6 +81,11 @@
 		return TRUE
 
 	if(cur_assembly)
+		if(istype(user, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = user
+			var/active_module = R.get_active_hand()
+			if(istype(active_module, /obj/item/gripper))
+				return TRUE
 		cur_assembly.dropInto(loc)
 		user.put_in_hands(cur_assembly)
 		visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."))
@@ -90,19 +95,19 @@
 		to_chat(user, SPAN_WARNING("There is no fuel rod in \the [src]."))
 		return TRUE
 
-/obj/machinery/fusion_fuel_injector/proc/BeginInjecting()
+/obj/structure/machinery/fusion_fuel_injector/proc/BeginInjecting()
 	if(!injecting && cur_assembly)
 		icon_state = "injector1"
 		injecting = 1
 		update_use_power(POWER_USE_IDLE)
 
-/obj/machinery/fusion_fuel_injector/proc/StopInjecting()
+/obj/structure/machinery/fusion_fuel_injector/proc/StopInjecting()
 	if(injecting)
 		injecting = 0
 		icon_state = "injector0"
 		update_use_power(POWER_USE_OFF)
 
-/obj/machinery/fusion_fuel_injector/proc/Inject()
+/obj/structure/machinery/fusion_fuel_injector/proc/Inject()
 	if(!injecting)
 		return
 	if(cur_assembly)
@@ -112,6 +117,7 @@
 				var/amount = cur_assembly.rod_quantities[reagent] * fuel_usage * injection_rate
 				if(amount < 1)
 					amount = 1
+				amount = min(amount, cur_assembly.rod_quantities[reagent])
 				var/obj/effect/accelerated_particle/A = new/obj/effect/accelerated_particle(get_turf(src), dir)
 				A.particle_type = reagent
 				A.additional_particles = amount
@@ -120,12 +126,16 @@
 					cur_assembly.rod_quantities[reagent] -= amount
 					amount_left += cur_assembly.rod_quantities[reagent]
 		if(cur_assembly)
-			cur_assembly.percent_depleted = amount_left / cur_assembly.initial_amount
+			if(cur_assembly.initial_amount > 0)
+				cur_assembly.percent_depleted = amount_left / cur_assembly.initial_amount
+			else
+				cur_assembly.percent_depleted = 0
+				StopInjecting()
 		flick("injector-emitting",src)
 	else
 		StopInjecting()
 
-/obj/machinery/fusion_fuel_injector/verb/rotate_clock()
+/obj/structure/machinery/fusion_fuel_injector/verb/rotate_clock()
 	set category = "Object"
 	set name = "Rotate Generator (Clockwise)"
 	set src in view(1)
@@ -135,7 +145,7 @@
 
 	src.dir = turn(src.dir, -90)
 
-/obj/machinery/fusion_fuel_injector/verb/rotate_anticlock()
+/obj/structure/machinery/fusion_fuel_injector/verb/rotate_anticlock()
 	set category = "Object"
 	set name = "Rotate Generator (Counter-clockwise)"
 	set src in view(1)

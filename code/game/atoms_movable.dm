@@ -1,8 +1,8 @@
 /atom/movable
 	layer = OBJ_LAYER
-	glide_size = 6
+	glide_size = 8
 	animate_movement = SLIDE_STEPS
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
 
 	var/last_move = null
 	/// A list containing arguments for Moved().
@@ -76,24 +76,71 @@
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
 	var/mutable_appearance/em_block
 
+	///Lazylist to keep track on the sources of illumination.
+	var/list/affected_movable_lights
+	///Highest-intensity light affecting us, which determines our visibility.
+	var/affecting_dynamic_lumi = 0
+
+	/// Holds a reference to the emissive blocker overlay
+	var/emissive_overlay
+
 	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
 	var/set_dir_on_move = TRUE
 
+	var/tmp/turf/airflow_dest
+	var/tmp/airflow_speed = 0
+	var/tmp/airflow_time = 0
+	var/tmp/last_airflow = 0
+
+	var/can_be_unanchored = 0
+	var/obj/buckled_to
+	var/can_be_buckled = FALSE
+
+	/** Used to check wether or not an atom is being handled by SSfalling. */
+	var/tmp/multiz_falling = 0
+
+	var/tmp/airflow_xo
+	var/tmp/airflow_yo
+	var/tmp/airflow_od
+	var/tmp/airflow_process_delay
+	var/tmp/airflow_skip_speedcheck
+
+	/// The mimic (if any) that's *directly* copying us.
+	var/tmp/atom/movable/openspace/mimic/bound_overlay
+	/// If TRUE, this atom is ignored by Z-Mimic.
+	var/z_flags
+
+	var/atmos_canpass = CANPASS_ALWAYS
+
+	/**
+	 * Mass of an object in Kilograms (Kg) to be used for physics systems and kinematics.
+	 * EG: Linear Impulse (m/s) = Momentum (kg m/s) / Mass (kg)
+	 * Acceleration (m/s^2) = Force (kg m/s^2) / Mass (kg)
+	 *
+	 * This is ASSERTED to ALWAYS be a POSITIVE, NONZERO number. It is therefore always safe to divide by.
+	 *
+	 * For the love of god don't spam #define for each and every single object.
+	 * It's perfectly reasonable to set crowbar/mass = 5.0 and voidsuit/mass = 68.0
+	 * And leave it at that. It's a float. You're going to go insane if you make 10 million defines for it.
+	 **/
+	var/mass = 1.0 //kg
+
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
+	ENFORCE_POSITIVE_MASS(mass)
 	update_emissive_blocker()
-	if (em_block)
-		AddOverlays(em_block)
+
+	if(opacity)
+		AddElement(/datum/element/light_blocking)
+	if(light_system == MOVABLE_LIGHT)
+		AddComponent(/datum/component/overlay_lighting)
+	if(light_system == DIRECTIONAL_LIGHT)
+		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 
 /atom/movable/Destroy(force)
-	if(orbiting)
-		stop_orbit()
-
-	//Recalculate opacity
-	var/turf/T = loc
-	if(opacity && istype(T))
-		T.recalc_atom_opacity()
-		T.reconsider_lights()
+	orbiting?.end_orbit(src)
+	QDEL_NULL(emissive_overlay)
+	particles = null
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -105,14 +152,11 @@
 
 	QDEL_LAZYLIST(contained_mobs)
 
-	. = ..()
-
 	for(var/movable_content in contents)
 		qdel(movable_content)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
-	loc = null
 
 	//This absolutely must be after moveToNullspace()
 	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
@@ -133,11 +177,13 @@
 			M.pulling = null
 		pulledby = null
 
-	if (bound_overlay)
-		QDEL_NULL(bound_overlay)
-
-	if(em_block)
-		QDEL_NULL(em_block)
+	QDEL_NULL(bound_overlay)
+	QDEL_NULL(em_block)
+	airflow_dest = null
+	loc = null
+	buckled_to?.buckled = null
+	buckled_to = null
+	return ..()
 
 /atom/movable/proc/moveToNullspace()
 	. = TRUE
@@ -370,20 +416,23 @@
 	src.throw_at(pick(turfs), maxrange, speed)
 
 /atom/movable/proc/update_emissive_blocker()
-	switch (blocks_emissive)
-		if (EMISSIVE_BLOCK_GENERIC)
-			em_block = fast_emissive_blocker(src)
-		if (EMISSIVE_BLOCK_UNIQUE)
-			if (!em_block && !QDELING(src))
-				appearance_flags |= KEEP_TOGETHER
-				render_target = REF(src)
-				em_block = emissive_blocker(
-					icon = icon,
-					icon_state = icon_state,
-					appearance_flags = appearance_flags,
-					source = render_target
-				)
-	return em_block
+	if(emissive_overlay)
+		CutOverlays(emissive_overlay)
+
+	switch(blocks_emissive)
+		if(EMISSIVE_BLOCK_GENERIC)
+			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
+			gen_emissive_blocker.color = GLOB.em_block_color
+			gen_emissive_blocker.dir = dir
+			gen_emissive_blocker.appearance_flags |= appearance_flags
+			emissive_overlay = gen_emissive_blocker
+			AddOverlays(emissive_overlay)
+
+		if(EMISSIVE_BLOCK_UNIQUE)
+			render_target = REF(src)
+			em_block = new(src, render_target)
+			emissive_overlay = em_block
+			AddOverlays(emissive_overlay)
 
 /atom/movable/update_icon()
 	..()
@@ -523,13 +572,6 @@
 	if(opacity)
 		updateVisibility(src)
 
-	//Lighting recalculation
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
-
 	RESOLVE_ACTIVE_MOVEMENT
 
 	return TRUE
@@ -568,6 +610,21 @@
 		SSspatial_grid.enter_cell(src, new_turf)
 	/* END Spatial grid stuffs */
 
+	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
+		if(!light) // datum was deleted but list entry not yet pruned
+			LAZYREMOVE(hybrid_light_sources, light)
+			continue
+		if(!light.source_atom)
+			continue
+		light.source_atom.update_light()
+		if(!isturf(loc))
+			light.find_containing_atom()
+	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.
+		if(!L) // datum was deleted but list entry not yet pruned
+			LAZYREMOVE(static_light_sources, L)
+			continue
+		L.source_atom?.static_update_light()
+
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
 
@@ -580,7 +637,7 @@
 				LAZYINITLIST(recursive_contents[channel])
 				recursive_contents[channel] -= gone.important_recursive_contents[channel]
 				switch(channel)
-					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE,RECURSIVE_CONTENTS_AI_TARGETS)
 						if(!length(recursive_contents[channel]))
 							// This relies on a nice property of the linked recursive and gridmap types
 							// They're defined in relation to each other, so they have the same value
@@ -601,7 +658,7 @@
 				var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
 				LAZYINITLIST(recursive_contents[channel])
 				switch(channel)
-					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE,RECURSIVE_CONTENTS_AI_TARGETS)
 						if(!length(recursive_contents[channel]))
 							SSspatial_grid.add_grid_awareness(location, channel)
 				recursive_contents[channel] |= arrived.important_recursive_contents[channel]
@@ -643,6 +700,8 @@
 	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 
 	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		if (!location)
+			continue
 		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
 		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] -= src
 		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
@@ -701,25 +760,29 @@
 // This proc adds atom/movables to the AI targetable list, i.e. things that the AI (turrets, hostile animals) will attempt to target
 /atom/movable/proc/add_to_target_grid()
 	for (var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
+		LAZYINITLIST(location.important_recursive_contents)
+		var/list/recursive_contents = location.important_recursive_contents
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS]))
+			SSspatial_grid.add_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS] |= src
 
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.initialized)
-		SSspatial_grid.add_grid_awareness(src, RECURSIVE_CONTENTS_AI_TARGETS)
-		SSspatial_grid.add_grid_membership(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-
-	else if(our_turf && !SSspatial_grid.initialized)//SSspatial_grid isnt init'd yet, add ourselves to the queue
-		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
 
 /atom/movable/proc/clear_from_target_grid()
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.initialized)
-		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-	else if(our_turf && !SSspatial_grid.initialized)
-		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
 
-	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS]))
+			SSspatial_grid.remove_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS)
+		UNSETEMPTY(movable_loc.important_recursive_contents)
 
 /atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
 	return FALSE
@@ -797,6 +860,192 @@
 
 	// This is instant on byond's end, but to our clients this looks like a quick drop
 	animate(src, alpha = old_alpha, pixel_x = old_x, pixel_y = old_y, transform = old_transform, time = 3, easing = CUBIC_EASING)
+
+/atom/movable/proc/do_item_attack_animation(atom/attacked_atom, visual_effect_icon, obj/item/used_item, animation_type)
+	if (!visual_effect_icon)
+		if (used_item)
+			used_item.animate_attack(src, attacked_atom, animation_type)
+		return
+
+	var/image/attack_image = image(icon = 'icons/effects/effects.dmi', icon_state = visual_effect_icon)
+	attack_image.plane = attacked_atom.plane + 1
+	// Scale the icon.
+	attack_image.transform *= 0.4
+	// The icon should not rotate.
+	attack_image.appearance_flags = APPEARANCE_UI
+	var/atom/movable/flick_visual/attack = attacked_atom.flick_overlay_view(attack_image, 1 SECONDS)
+	var/matrix/copy_transform = new(transform)
+	animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), time = 0.3 SECONDS)
+	animate(time = 0.1 SECONDS)
+	animate(alpha = 0, time = 0.3 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+
+/obj/item/proc/animate_attack(atom/movable/attacker, atom/attacked_atom, animation_type)
+	var/list/image_override = list()
+	var/list/animation_override = list()
+	var/used_icon_angle = icon_angle
+	var/list/angle_override = list()
+	SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_ANIMATION, attacker, attacked_atom, animation_type, image_override, animation_override, angle_override)
+	var/image/attack_image = null
+	if (!length(image_override))
+		attack_image = isnull(attack_icon) ? image(icon = src) : image(icon = attack_icon, icon_state = attack_icon_state)
+	else
+		attack_image = image_override[1]
+
+	if (length(animation_override))
+		animation_type = animation_override[1]
+	else if (!animation_type)
+		var/damage_flags = damage_flags()
+		if(damage_flags & DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
+			animation_type = pick(ATTACK_ANIMATION_SLASH, ATTACK_ANIMATION_PIERCE)
+		else if(damage_flags & DAMAGE_FLAG_SHARP)
+			animation_type = ATTACK_ANIMATION_SLASH
+		else if (damage_flags & DAMAGE_FLAG_EDGE)
+			animation_type = ATTACK_ANIMATION_PIERCE
+		else
+			animation_type = ATTACK_ANIMATION_BLUNT
+
+	if (length(angle_override))
+		used_icon_angle = angle_override[1]
+
+	attack_image.plane = attacked_atom.plane + 1
+	attack_image.pixel_w = attacker.get_standard_pixel_x() + attacker.pixel_w - attacked_atom.get_standard_pixel_x() - attacked_atom.pixel_w
+	attack_image.pixel_z = attacker.get_standard_pixel_y() + attacker.pixel_z - attacked_atom.get_standard_pixel_y() - attacked_atom.pixel_z
+	// Scale the icon.
+	attack_image.transform *= 0.5
+	// The icon should not rotate.
+	attack_image.appearance_flags = APPEARANCE_UI
+
+	var/atom/movable/flick_visual/attack = attacked_atom.flick_overlay_view(attack_image, 1 SECONDS)
+	var/matrix/copy_transform = new(attacker.transform)
+	var/x_sign = 0
+	var/y_sign = 0
+	var/direction = get_dir(attacker, attacked_atom)
+	if (direction & NORTH)
+		y_sign = -1
+	else if (direction & SOUTH)
+		y_sign = 1
+
+	if (direction & EAST)
+		x_sign = -1
+	else if (direction & WEST)
+		x_sign = 1
+
+	// Attacking self, or something on the same turf as us
+	if (!direction)
+		y_sign = 1
+		// Not a fan of this, but its the "cleanest" way to animate this
+		x_sign = 0.25 * (prob(50) ? 1 : -1)
+		// For piercing attacks
+		direction = SOUTH
+
+	// And animate the attack!
+	switch (animation_type)
+		if (ATTACK_ANIMATION_BLUNT)
+			attack.pixel_x = 14 * x_sign
+			attack.pixel_y = 12 * y_sign
+			animate(attack, alpha = 175, transform = copy_transform.Scale(0.75), pixel_x = 4 * x_sign, pixel_y = 3 * y_sign, time = 0.2 SECONDS)
+			animate(time = 0.1 SECONDS)
+			animate(alpha = 0, time = 0.1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+
+		if (ATTACK_ANIMATION_PIERCE)
+			var/attack_angle = dir2angle(direction) + rand(-7, 7)
+			// Deducting 90 because we're assuming that icon_angle of 0 means an east-facing sprite
+			var/anim_angle = attack_angle - 90 - used_icon_angle
+			var/angle_mult = 1
+			if (x_sign && y_sign)
+				angle_mult = 1.4
+			attack.pixel_x = 22 * x_sign * angle_mult
+			attack.pixel_y = 18 * y_sign * angle_mult
+			attack.transform = attack.transform.Turn(anim_angle)
+			copy_transform = copy_transform.Turn(anim_angle)
+			animate(
+				attack,
+				pixel_x = (22 * x_sign - 12 * sin(attack_angle)) * angle_mult,
+				pixel_y = (18 * y_sign - 8 * cos(attack_angle)) * angle_mult,
+				time = 0.1 SECONDS,
+				easing = CUBIC_EASING|EASE_IN,
+			)
+			animate(
+				attack,
+				alpha = 175,
+				transform = copy_transform.Scale(0.75),
+				pixel_x = (22 * x_sign + 26 * sin(attack_angle)) * angle_mult,
+				pixel_y = (18 * y_sign + 22 * cos(attack_angle)) * angle_mult,
+				time = 0.3 SECONDS,
+				easing = CUBIC_EASING|EASE_OUT,
+			)
+			animate(
+				alpha = 0,
+				pixel_x = -3 * -(x_sign + sin(attack_angle)),
+				pixel_y = -2 * -(y_sign + cos(attack_angle)),
+				time = 0.1 SECONDS,
+				easing = CIRCULAR_EASING|EASE_OUT
+			)
+
+		if (ATTACK_ANIMATION_SLASH)
+			attack.pixel_x = 18 * x_sign
+			attack.pixel_y = 14 * y_sign
+			var/x_rot_sign = 0
+			var/y_rot_sign = 0
+			var/attack_dir = (prob(50) ? 1 : -1)
+			var/anim_angle = dir2angle(direction) - 90 - used_icon_angle
+
+			if (x_sign)
+				y_rot_sign = attack_dir
+			if (y_sign)
+				x_rot_sign = attack_dir
+
+			// Animations are flipped, so flip us too!
+			if (x_sign > 0 || y_sign < 0)
+				attack_dir *= -1
+
+			// We're swinging diagonally, use separate logic
+			var/anim_dir = attack_dir
+			if (x_sign && y_sign)
+				if (attack_dir < 0)
+					x_rot_sign = -x_sign * 1.4
+					y_rot_sign = 0
+				else
+					x_rot_sign = 0
+					y_rot_sign = -y_sign * 1.4
+
+				// Flip us if we've been flipped *unless* we're flipped due to both axis
+				if ((x_sign < 0 && y_sign > 0) || (x_sign > 0 && y_sign < 0))
+					anim_dir *= -1
+
+			attack.pixel_x += 10 * x_rot_sign
+			attack.pixel_y += 8 * y_rot_sign
+			attack.transform = attack.transform.Turn(anim_angle - 45 * anim_dir)
+			copy_transform = copy_transform.Scale(0.75)
+			animate(attack, alpha = 175, time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
+			animate(time = 0.1 SECONDS)
+			animate(alpha = 0, time = 0.1 SECONDS, easing = CIRCULAR_EASING|EASE_OUT)
+
+			animate(attack, transform = copy_transform.Turn(anim_angle + 45 * anim_dir), time = 0.3 SECONDS, flags = ANIMATION_PARALLEL)
+
+			var/x_return = 10 * -x_rot_sign
+			var/y_return = 8 * -y_rot_sign
+
+			if (!x_rot_sign)
+				x_return = 18 * x_sign
+			if (!y_rot_sign)
+				y_return = 14 * y_sign
+
+			var/angle_mult = 1
+			if (x_sign && y_sign)
+				angle_mult = 1.4
+				if (attack_dir > 0)
+					x_return = 8 * x_sign
+					y_return = 14 * y_sign
+				else
+					x_return = 18 * x_sign
+					y_return = 6 * y_sign
+
+			animate(attack, pixel_x = 4 * x_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+			animate(pixel_x = x_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
+
+			animate(attack, pixel_y = 3 * y_sign * angle_mult, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_IN, flags = ANIMATION_PARALLEL)
+			animate(pixel_y = y_return, time = 0.2 SECONDS, easing = CIRCULAR_EASING | EASE_OUT)
 
 /atom/movable/proc/get_floating_chat_x_offset()
 	return 0
@@ -923,14 +1172,6 @@
 	if(oldarea != newarea)
 		newarea.Entered(src, oldarea)
 
-	// Lighting.
-	if(light_sources)
-		var/datum/light_source/L
-		var/thing
-		for(thing in light_sources)
-			L = thing
-			L.source_atom.update_light()
-
 	// Openturf.
 	if(bound_overlay)
 		// The overlay will handle cleaning itself up on non-openspace turfs.
@@ -1032,3 +1273,52 @@
 /atom/movable/proc/add_point_filter()
 	add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
 	addtimer(CALLBACK(src, PROC_REF(remove_filter), "pointglow"), 2 SECONDS)
+
+///Keeps track of the sources of dynamic luminosity and updates our visibility with the highest.
+/atom/movable/proc/update_dynamic_luminosity()
+	var/highest = 0
+	for(var/i in affected_movable_lights)
+		if(affected_movable_lights[i] <= highest)
+			continue
+		highest = affected_movable_lights[i]
+	if(highest == affecting_dynamic_lumi)
+		return
+	luminosity -= affecting_dynamic_lumi
+	affecting_dynamic_lumi = highest
+	luminosity += affecting_dynamic_lumi
+
+
+///Helper to change several lighting overlay settings.
+/atom/movable/proc/set_light_range_power_color(range, power, color)
+	set_light_range(range)
+	set_light_power(power)
+	set_light_color(color)
+
+/**
+ * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
+ */
+/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	if(light)
+		update_light()
+
+/atom/movable/proc/set_glide_size(target = 8)
+	if (HAS_TRAIT(src, TRAIT_NO_GLIDE))
+		return
+	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
+	glide_size = target
+
+/**
+ * Returns the "effective mass" of a kinematic (movable) object with signal modifiers.
+ * Which is useful for "Strength" calculations, or for representing an object as being "Unwieldy".
+ *
+ * This will ALWAYS return a POSITIVE, NONZERO number. Meaning it is safe to divide by.
+ */
+/atom/movable/proc/get_effective_mass()
+	ENFORCE_POSITIVE_MASS(mass)
+
+	var/effective_mass = mass
+	SEND_SIGNAL(src, COMSIG_GET_EFFECTIVE_MASS, &effective_mass)
+	if (effective_mass <= 0)
+		stack_trace("[caller.name] requested an Effective Mass and got a non-positive number")
+		return 1.0
+	return effective_mass

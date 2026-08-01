@@ -5,7 +5,7 @@
 	description = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/stokcubes
+		/obj/item/storage/box/unique/monkeycubes/stokcubes
 	)
 	access = 0
 	container_type = "crate"
@@ -19,7 +19,7 @@
 	description = "Drymate brand vkrexi cubes. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/vkrexicubes
+		/obj/item/storage/box/unique/monkeycubes/vkrexicubes
 	)
 	access = 0
 	container_type = "crate"
@@ -33,7 +33,7 @@
 	description = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/farwacubes
+		/obj/item/storage/box/unique/monkeycubes/farwacubes
 	)
 	access = 0
 	container_type = "crate"
@@ -47,7 +47,7 @@
 	description = "Drymate brand monkey cubes. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes
+		/obj/item/storage/box/unique/monkeycubes
 	)
 	access = 0
 	container_type = "crate"
@@ -58,10 +58,10 @@
 	category = "science"
 	name = "neaera cube box"
 	supplier = "nanotrasen"
-	description = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
+	description = "Drymate brand neaera cubes, shipped from Nralakk IV. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/neaeracubes
+		/obj/item/storage/box/unique/monkeycubes/neaeracubes
 	)
 	access = 0
 	container_type = "crate"
@@ -102,7 +102,7 @@
 	description = "This implant - locked firing pin authorizes the weapon for only mindshield-implanted users."
 	price = 800
 	items = list(
-		/obj/item/device/firing_pin/implant/loyalty
+		/obj/item/firing_pin/implant/loyalty
 	)
 	access = ACCESS_HEADS
 	container_type = "crate"
@@ -186,7 +186,7 @@
 	description = "Used for scanning and alerting when someone enters a certain proximity."
 	price = 35
 	items = list(
-		/obj/item/device/assembly/prox_sensor
+		/obj/item/assembly/prox_sensor
 	)
 	access = 0
 	container_type = "crate"
@@ -200,7 +200,7 @@
 	description = "This safety firing pin allows weapons to be fired within proximity to a firing range."
 	price = 200
 	items = list(
-		/obj/item/device/firing_pin/test_range
+		/obj/item/firing_pin/test_range
 	)
 	access = ACCESS_RESEARCH
 	container_type = "crate"
@@ -214,7 +214,7 @@
 	description = "Used to time things. Works well with contraptions which has to count down. Tick tock."
 	price = 22
 	items = list(
-		/obj/item/device/assembly/timer
+		/obj/item/assembly/timer
 	)
 	access = 0
 	container_type = "crate"
@@ -228,7 +228,7 @@
 	description = "A small electronic device able to ignite combustable substances."
 	price = 23
 	items = list(
-		/obj/item/device/assembly/igniter
+		/obj/item/assembly/igniter
 	)
 	access = 0
 	container_type = "crate"

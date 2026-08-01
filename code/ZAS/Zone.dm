@@ -45,7 +45,6 @@ Class Procs:
 	var/invalid = 0
 	var/list/contents = list()
 	var/list/fire_tiles
-	var/list/fuel_objs
 
 	var/needs_update = 0
 
@@ -72,12 +71,9 @@ Class Procs:
 	add_tile_air(turf_air)
 	T.zone = src
 	contents += T
-	if(T.fire)
-		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
+	if(T.hotspot)
 		LAZYADD(fire_tiles, T)
 		SSair.active_fire_zones |= src
-		if (fuel)
-			LAZYADD(fuel_objs, fuel)
 	T.update_graphic(air.graphic)
 
 /zone/proc/remove(turf/simulated/T)
@@ -89,9 +85,6 @@ Class Procs:
 #endif
 	contents -= T
 	LAZYREMOVE(fire_tiles, T)
-	if(T.fire)
-		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
-		LAZYREMOVE(fuel_objs, fuel)
 	T.zone = null
 	T.update_graphic(graphic_remove = air.graphic)
 	if(contents.len)
@@ -152,10 +145,13 @@ Class Procs:
 
 /zone/proc/tick()
 	// Update fires.
-	if(air.temperature >= PHORON_FLASHPOINT && !(src in SSair.active_fire_zones) && air.check_combustibility() && contents.len)
-		var/turf/T = pick(contents)
-		if(istype(T))
-			T.create_fire(GLOB.vsc.fire_firelevel_multiplier)
+	if(air.temperature >= PHORON_FLASHPOINT && !(src in SSair.active_fire_zones) && contents.len)
+		var/is_cmb = 0
+		CHECK_COMBUSTIBLE(is_cmb, air)
+		if(is_cmb)
+			var/turf/T = pick(contents)
+			if(istype(T))
+				T.create_fire(GLOB.vsc.fire_firelevel_multiplier)
 
 	// Update gas overlays.
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
@@ -173,7 +169,7 @@ Class Procs:
 	to_chat(M, name)
 	for(var/g in air.gas)
 		to_chat(M, "[gas_data.name[g]]: [air.gas[g]]")
-	to_chat(M, "P: [air.return_pressure()] kPa V: [air.volume]L T: [air.temperature]�K ([air.temperature - T0C]�C)")
+	to_chat(M, "P: [XGM_PRESSURE(air)] kPa V: [air.volume]L T: [air.temperature]�K ([air.temperature - T0C]�C)")
 	to_chat(M, "O2 per N2: [(air.gas[GAS_NITROGEN] ? air.gas[GAS_OXYGEN]/air.gas[GAS_NITROGEN] : "N/A")] Moles: [air.total_moles]")
 	to_chat(M, "Simulated: [contents.len] ([air.group_multiplier])")
 	//to_chat(M, "Unsimulated: [unsimulated_contents.len]")
@@ -188,7 +184,7 @@ Class Procs:
 		else
 			space_edges++
 			space_coefficient += E.coefficient
-			to_chat(M, "[E:air:return_pressure()]kPa")
+			to_chat(M, "[XGM_PRESSURE(air)]kPa")
 
 	to_chat(M, "Zone Edges: [zone_edges]")
 	to_chat(M, "Space Edges: [space_edges] ([space_coefficient] connections)")

@@ -130,6 +130,7 @@ ABSTRACT_TYPE(/obj/item/implant)
 	if(part)
 		part.implants.Remove(src)
 		part = null
+	imp_in = null
 	STOP_PROCESSING(SSprocessing, src)
 	GLOB.implants -= src
 	return ..()

@@ -59,35 +59,35 @@
 /datum/export/flashlight
 	cost = 5
 	unit_name = "flashlight"
-	export_types = list(/obj/item/device/flashlight)
+	export_types = list(/obj/item/flashlight)
 	include_subtypes = FALSE
 
 /datum/export/flashlight/flare
 	cost = 2
 	unit_name = "flare"
-	export_types = list(/obj/item/device/flashlight/flare)
+	export_types = list(/obj/item/flashlight/flare)
 
 /datum/export/flashlight/seclite
 	cost = 10
 	unit_name = "seclite"
-	export_types = list(/obj/item/device/flashlight/maglight)
+	export_types = list(/obj/item/flashlight/maglight)
 
 
 /datum/export/analyzer
 	cost = 5
 	unit_name = "analyzer"
-	export_types = list(/obj/item/device/analyzer)
+	export_types = list(/obj/item/analyzer)
 
 /datum/export/analyzer/t_scanner
 	cost = 10
 	unit_name = "t-ray scanner"
-	export_types = list(/obj/item/device/t_scanner)
+	export_types = list(/obj/item/t_scanner)
 
 
 /datum/export/radio
 	cost = 5
 	unit_name = "radio"
-	export_types = list(/obj/item/device/radio)
+	export_types = list(/obj/item/radio)
 
 
 /datum/export/rfd_construction

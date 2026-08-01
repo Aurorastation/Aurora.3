@@ -101,38 +101,40 @@
 
 /obj/item/organ/internal/stomach/process()
 	..()
-	if(owner)
-		var/functioning = is_usable()
-		if(damage >= min_bruised_damage && prob((damage / max_damage) * 100))
-			functioning = FALSE
+	if(!owner)
+		return
 
-		if(functioning)
-			for(var/mob/living/M in contents)
-				if(M.stat == DEAD)
-					addtimer(CALLBACK(src, PROC_REF(digest_mob), M), 5 MINUTES, TIMER_UNIQUE)
+	var/functioning = is_usable()
+	if(damage >= min_bruised_damage && prob((damage / max_damage) * 100))
+		functioning = FALSE
 
-				M.adjustBruteLoss(2)
-				M.adjustFireLoss(2)
+	if(functioning)
+		for(var/mob/living/M in contents)
+			if(M.stat == DEAD)
+				addtimer(CALLBACK(src, PROC_REF(digest_mob), M), 5 MINUTES, TIMER_UNIQUE)
 
-				var/digestion_product = M.get_digestion_product()
-				if(digestion_product)
-					ingested.add_reagent(digestion_product, rand(1,3))
+			M.adjustBruteLoss(2)
+			M.adjustFireLoss(2)
 
-		else if(world.time >= next_cramp)
-			next_cramp = world.time + rand(200,800)
-			owner.custom_pain("Your stomach cramps agonizingly!",1)
+			var/digestion_product = M.get_digestion_product()
+			if(digestion_product)
+				ingested.add_reagent(digestion_product, rand(1,3))
 
-		if(should_process_alcohol)
+	else if(world.time >= next_cramp)
+		next_cramp = world.time + rand(200,800)
+		owner.custom_pain("Your stomach cramps agonizingly!",1)
 
-			var/alcohol_volume = REAGENT_VOLUME(ingested, /singleton/reagent/alcohol)
+	if(should_process_alcohol)
 
-			// Alcohol counts as double volume for the purposes of vomit probability
-			var/effective_volume = ingested.total_volume + alcohol_volume
+		var/alcohol_volume = REAGENT_VOLUME(ingested, /singleton/reagent/alcohol)
 
-			// Just over the limit, the probability will be low. It rises a lot such that at double ingested it's 64% chance.
-			var/vomit_probability = (effective_volume / stomach_volume) ** 6
-			if(prob(vomit_probability))
-				owner.vomit()
+		// Alcohol counts as double volume for the purposes of vomit probability
+		var/effective_volume = ingested.total_volume + alcohol_volume
+
+		// Just over the limit, the probability will be low. It rises a lot such that at double ingested it's 64% chance.
+		var/vomit_probability = (effective_volume / stomach_volume) ** 6
+		if(prob(vomit_probability))
+			owner.vomit()
 
 /obj/item/organ/internal/stomach/proc/digest_mob(mob/M)
 	if(!QDELETED(M))

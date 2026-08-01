@@ -28,7 +28,7 @@
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
-		return istype(B.container, /obj/item/device/mmi)
+		return istype(B.container, /obj/item/mmi)
 
 /mob/living/bot/isSynthetic()
 	return 1
@@ -349,11 +349,20 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	return target.calculate_zone_with_miss_chance(zone, miss_chance_mod)
 
+/mob/proc/get_modifier_miss_chance_modifier()
+	if(!modifiers)
+		return 0
+	var/total_modifier = 0
+	for(var/datum/modifier/M in modifiers)
+		if(M.active)
+			total_modifier += M.miss_chance_modifier
+	return total_modifier
+
 /mob/proc/calculate_zone_with_miss_chance(var/zone, var/miss_chance_mod)
 	var/miss_chance = 10
 	if (zone in GLOB.base_miss_chance)
 		miss_chance = GLOB.base_miss_chance[zone]
-	miss_chance = max(miss_chance + miss_chance_mod, 0)
+	miss_chance = max(miss_chance + miss_chance_mod + get_modifier_miss_chance_modifier(), 0)
 	if(prob(miss_chance))
 		if(prob(70))
 			return null
@@ -367,7 +376,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	var/miss_chance = 10
 	if(zone in GLOB.base_miss_chance)
 		miss_chance = GLOB.base_miss_chance[zone]
-	miss_chance = max(miss_chance + miss_chance_mod, 0)
+	miss_chance = max(miss_chance + miss_chance_mod + get_modifier_miss_chance_modifier(), 0)
 	if(prob(miss_chance))
 		return pick(GLOB.base_miss_chance)
 	return zone
@@ -479,23 +488,56 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		p=p+n_mod
 	return sanitize(t)
 
-#define TICKS_PER_RECOIL_ANIM 2
-#define PIXELS_PER_STRENGTH_VAL 16
+#define TILES_PER_SECOND 0.7
+/// Shake the camera of the person viewing the mob SO REAL!
+/// Takes the mob to shake, the time span to shake for, and the amount of tiles we're allowed to shake by in tiles.
+/// Set drift to exactly TRUE for slower, gentler movement instead of impact-like shaking.
+/// Duration isn't taken as a strict limit, since we don't trust our coders to not make things feel shitty. So it's more like a soft cap.
+/proc/shake_camera(mob/M, duration, strength=1, drift = FALSE)
+	if(!M || !M.client || duration < 1)
+		return
+	// This variable exists simply to reduce total strength of screenshake; in the future, it should be hooked to a client preference setting (standard/reduced screenshake for motion-sickness)
+	var/reduction_modifier = 2/3
+	var/drift_mode = (drift == TRUE)
+	var/client/C = M.client
+	var/oldx = C.pixel_x
+	var/oldy = C.pixel_y
+	var/max_x = strength*ICON_SIZE_X*(reduction_modifier)
+	var/max_y = strength*ICON_SIZE_Y*(reduction_modifier)
+	var/min_x = -(strength*ICON_SIZE_X)*(reduction_modifier)
+	var/min_y = -(strength*ICON_SIZE_Y)*(reduction_modifier)
 
-/proc/shake_camera(mob/M, duration, strength = 1)
-	var/current_time = world.time
-	if(!M || !M.client || (M.shakecamera > current_time)|| M.stat || isEye(M) || isAI(M))
-		return
-	if(((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
-		return
-	M.shakecamera = current_time + max(TICKS_PER_RECOIL_ANIM, duration)
-	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
-	var/steps = min(1, FLOOR(duration/TICKS_PER_RECOIL_ANIM, 1))-1
-	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
-	if(steps)
-		for(var/i = 1 to steps)
-			animate(pixel_x =  0 + rand(-(strength), strength), pixel_y = 0 + rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM, easing = JUMP_EASING|EASE_IN)
-	animate(pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
+	//How much time to allot for each pixel moved
+	var/time_scalar = (1 / ICON_SIZE_ALL) * TILES_PER_SECOND
+	var/last_x = oldx
+	var/last_y = oldy
+
+	var/time_spent = 0
+	while(time_spent < duration)
+		//Get a random pos in our box
+		var/x_pos = rand(min_x, max_x) + oldx
+		var/y_pos = rand(min_y, max_y) + oldy
+
+		var/time
+		if(drift_mode)
+			time = round(clamp(max(abs(last_x - x_pos), abs(last_y - y_pos)) * time_scalar * 6, 6, 20))
+		else
+			//We take the smaller of our two distances so things still have the propencity to feel somewhat jerky
+			time = round(max(min(abs(last_x - x_pos), abs(last_y - y_pos)) * time_scalar, 1))
+
+		if (time_spent == 0)
+			animate(C, pixel_x=x_pos, pixel_y=y_pos, time=time)
+		else
+			animate(pixel_x=x_pos, pixel_y=y_pos, time=time)
+
+		last_x = x_pos
+		last_y = y_pos
+		//We go based on time spent, so there is a chance we'll overshoot our duration. Don't care
+		time_spent += time
+
+	animate(pixel_x=oldx, pixel_y=oldy, time = drift_mode ? 10 : 3)
+
+#undef TILES_PER_SECOND
 
 /proc/findname(msg)
 	for(var/mob/M in GLOB.mob_list)
@@ -661,13 +703,13 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		else
 			say_dead_direct("<span class='name'>[name]</span> no longer [pick("skulks","lurks","prowls","creeps","stalks")] in the realm of the dead. [message]")
 
-/mob/proc/switch_to_camera(var/obj/machinery/camera/C)
+/mob/proc/switch_to_camera(var/obj/structure/machinery/camera/C)
 	if (!C.can_use() || stat || (get_dist(C, src) > 1 || machine != src || blinded || !canmove))
 		return 0
 	check_eye(src)
 	return 1
 
-/mob/living/silicon/ai/switch_to_camera(var/obj/machinery/camera/C)
+/mob/living/silicon/ai/switch_to_camera(var/obj/structure/machinery/camera/C)
 	if(!C.can_use() || !is_in_chassis())
 		return 0
 
@@ -1116,8 +1158,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 #undef SAFE_PERP
 
-/mob/proc/get_multitool(var/obj/P)
-	if(P?.ismultitool())
+/mob/proc/get_multitool(var/obj/item/P)
+	if(P?.tool_behaviour == TOOL_MULTITOOL)
 		return P
 
 /mob/abstract/ghost/observer/get_multitool()
@@ -1227,6 +1269,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent
+	SEND_SIGNAL(src, COMSIG_INTENT_CHANGE, set_intent)
 
 /mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
@@ -1269,6 +1312,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 			if(M.client)
 				M.client.eye = M.client.mob
 				M.client.perspective = MOB_PERSPECTIVE
+
+
 
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)

@@ -104,13 +104,15 @@
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /singleton/sound_category/bodyfall_skrell_sound
-	footsound = /singleton/sound_category/footstep_skrell_sound
+	bodyfall_sound = SFX_BODYFALL_SKRELL
+	footsound = SFX_FOOTSTEP_SKRELL
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 	has_psionics = PSI_RANK_SENSITIVE
 	character_creation_psi_points = 2
+	mass_modifier = REFERENCE_MASS_SKRELL / REFERENCE_MASS_HUMAN
+	mob_strength = 1.8 // Offset for very low mass.
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()

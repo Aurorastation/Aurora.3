@@ -1,7 +1,7 @@
 /obj/item/gun/energy/blaster
-	name = "blaster pistol"
-	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams."
-	icon = 'icons/obj/guns/blaster_pistol.dmi'
+	name = "NT-62P blaster pistol"
+	desc = "A NanoTrasen Corporation-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_pistol.dmi'
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	has_item_ratio = FALSE
@@ -10,7 +10,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	force = 11
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/energy/blaster
 	max_shots = 12
@@ -24,8 +24,8 @@
 		)
 
 /obj/item/gun/energy/blaster/mounted/mech
-	name = "rapidfire blaster"
-	desc = "An aged but reliable rapidfire blaster tuned to expel projectiles at high fire rates."
+	name = "NT-1000X rapidfire blaster"
+	desc = "An exosuit-mounted blaster cannon that fires bursts of ionised phoron bolts."
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/projectile/energy/blaster/heavy
 	burst = 5
@@ -38,17 +38,10 @@
 	dispersion = list(3,6,9,12)
 	firemodes = list()
 
-/obj/item/gun/energy/blaster/pilot_special
-	name = "pilot's sidearm"
-	desc = "A robust, low in maintenance blaster pistol. Customized for peak performance and perfect for self-defense purposes."
-	max_shots = 12
-	accuracy = 2 // Likely to get nothing else, so they gotta know how to make it count.
-	offhand_accuracy = 2
-
 /obj/item/gun/energy/blaster/revolver
-	name = "blaster revolver"
-	desc = "A robust eight-shot blaster."
-	icon = 'icons/obj/guns/blaster_revolver.dmi'
+	name = "NT-62R blaster revolver"
+	desc = "A NanoTrasen Corporation-designed energy handgun that fires ionised bolts of phoron. Often seen among the Tau Ceti Armed Forces. This one appears to have a revolver-like design."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
 	item_state = "blaster_revolver"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
@@ -61,9 +54,9 @@
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 
 /obj/item/gun/energy/blaster/carbine
-	name = "blaster carbine"
-	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
-	icon = 'icons/obj/guns/blaster_carbine.dmi'
+	name = "NT-62C blaster carbine"
+	desc = "A NanoTrasen Corporation-designed short-barreled blaster carbine meant for easy handling and comfort when in close-quarters combat. Often seen among the Tau Ceti Armed Forces."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_carbine.dmi'
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
 	max_shots = 16
@@ -74,9 +67,9 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/gun/energy/blaster/rifle
-	name = "bolt slinger"
-	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts."
-	icon = 'icons/obj/guns/blaster_rifle.dmi'
+	name = "NT-62M bolt slinger"
+	desc = "A NanoTrasen Corporation-designed blaster rifle that fires powerful bolts of ionised phoron. Often used by markspeople of the Tau Ceti Armed Forces."
+	icon = 'icons/obj/guns/faction/nanotrasen_corporation/blaster_rifle.dmi'
 	icon_state = "blaster_rifle"
 	item_state = "blaster_rifle"
 	max_shots = 20
@@ -109,11 +102,10 @@
 	else
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
-/obj/item/gun/energy/blaster/tcaf
-	name = "blaster rifle"
-	desc = "Developed by Zavodskoi Interstellar, the Z.I. Guardian is a burst-fire blaster rifle designed for the armed forces of the Republic of Biesel. Cheap, reliable and easy to mass-produce, these weapons can be seen across the branches of the TCAF."
-	desc_extended = "Released in early 2464, the Guardian is a modernisation of the outdated blasters previously used by the TCFL developed in conjunction with the Zo'ra Hive. Since its release, it has been widely adopted by Biesel, leading to a slight fall in NanoTrasen market share as Zavodskoi took their place as the main arms supplier of the TCAF."
-	icon = 'icons/obj/guns/blaster_ar.dmi'
+/obj/item/gun/energy/blaster/guardian
+	name = "\improper NT-67 Guardian blaster rifle"
+	desc = "An improvement of older blaster weapon models. The Guardian makes use of various upgrades to fire more impactful, faster bolts of ionised phoron. The go-to service weapon of the Tau Ceti Armed Forces."
+	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/blaster_ar.dmi'
 	icon_state = "blaster_ar"
 	item_state = "blaster_ar"
 	max_shots = 24
@@ -137,12 +129,12 @@
 		)
 
 /obj/item/gun/energy/blaster/himeo
-	name = "himean assault blaster"
+	name = "\improper Type-11 assault blaster"
 	desc = "The standard infantry blaster of the Himean Planetary Guard. 'TO RESIST EVIL BY FORCE' is stamped on the side."
 	desc_extended = "Originally developed in 2351, the Type-11 \"Guthrie\" is a descendant of the first Himean-made weapons; haphazardly overcharged mining equipment. If it ain't broke, don't fix it; variants \
 	of this rifle have served in the United Syndicates' arsenal for generations, although none have matched modern improvements 'borrowed' from Zavodskoi Interstellar. Waterproof, spaceproof, idiot-proof; it's here to stay, even as advanced Xanan ballistics \
 	creep their way into the market. Ironically, lend-lease aid to the now-defunct League of Independent Corporate-Free Systems have seen a great deal of these end up in the hands of pirates."
-	icon = 'icons/obj/guns/himeo_blaster.dmi'
+	icon = 'icons/obj/guns/faction/himeo_free_consortium/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
 	projectile_type = /obj/projectile/energy/blaster/heavy
@@ -169,16 +161,20 @@
 		list(mode_name="full auto",	can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)) //same as the assault rifle
 		)
 
-/obj/item/gun/energy/blaster/himeo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix) //stolen from the plasma cutter
-	. = ..()
+/obj/item/gun/energy/blaster/himeo/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When fully drained, this weapon will automatically eject the empty energy cell, allowing for rapid reload."
+
+/obj/item/gun/energy/blaster/himeo/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		if(power_supply)
-			. += FONT_SMALL(SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> in the cell mount."))
+			. += SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> in the cell mount.")
 		else
-			. += FONT_SMALL(SPAN_WARNING("It has no cell installed."))
+			. += SPAN_WARNING("It has no cell installed.")
 
 /obj/item/gun/energy/blaster/himeo/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(power_supply)
 			playsound(user, 'sound/machines/compbeep1.ogg', 40, FALSE)
 			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))
@@ -216,11 +212,11 @@
 		update_icon()
 
 /obj/item/gun/energy/blaster/himeo/pistol
-	name = "himean heavy blaster pistol"
+	name = "\improper Type-45 heavy blaster pistol"
 	desc = "The standard sidearm of the Himean Planetary Guard. For those revolutions you cannot fight with fists."
 	desc_extended = "A plasma cutter gave its life for the first Type-45 \"Sabo-Tabby\" pistol. Powered by the same hydrogen cells as the Type-11 \"Guthrie\" rifle, this robust model has earned the nickname of \
 	the 'One Big Handgun' in those foreign markets it has cropped up. What was initially seen as a flaw in the power converter led to its 'magnum'-sized blaster bolts."
-	icon = 'icons/obj/guns/himeo_pistol.dmi'
+	icon = 'icons/obj/guns/faction/himeo_free_consortium/himeo_pistol.dmi'
 	icon_state = "himeopistol"
 	item_state = "himeopistol"
 	projectile_type = /obj/projectile/energy/blaster/heavy

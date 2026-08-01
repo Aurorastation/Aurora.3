@@ -29,8 +29,8 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/radio/map_preset = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/radio/map_preset = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/storage/wallet = 1,
 		/obj/item/clothing/accessory/badge/passport/sol = 1,
 		/obj/item/spacecash/c200 = 1,
@@ -46,7 +46,7 @@
 	name = "IPC Refugee"
 	desc = "You are an IPC refugee, fleeing from the Wildlands onboard a heavily run down freighter in search of a better life."
 
-	welcome_message = "You are an IPC refugee, fleeing from the Wildlands in search of a better life on a journey that has been nothing but perilous at every turn. A number of your synthetic brethren have already perished, but you've come too far to give up on your dreams of freedom now. Do what you must to survive, and maybe you'll reach Konyang or Orepit yet."
+	welcome_message = "You are an IPC refugee, fleeing from the Wildlands in search of a better life on a journey that has been nothing but perilous at every turn. A number of your synthetic brethren have already perished, but you've come too far to give up on your dreams of freedom now. Do what you must to survive, and maybe you'll reach Konyang or Axiom yet."
 
 	spawnpoints = list("refugee_crew_ipc")
 	max_count = 3
@@ -65,13 +65,13 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/radio/map_preset = 1,
-		/obj/item/device/flashlight = 1,
+		/obj/item/radio/map_preset = 1,
+		/obj/item/flashlight = 1,
 		/obj/item/storage/wallet = 1
 	)
 
 /obj/outfit/admin/refugee_crew/ipc/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = pick(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE) //fleeing solarian wildlands so probably none would be registered as self-owned

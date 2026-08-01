@@ -21,7 +21,7 @@ In short:
 /datum/universal_state/hell/DecayTurf(var/turf/T)
 	if(!T.holy)
 		T.cultify()
-		for(var/obj/machinery/light/L in T.contents)
+		for(var/obj/structure/machinery/light/L in T.contents)
 			new /obj/structure/cult/pylon(L.loc)
 			qdel(L)
 	return
@@ -61,32 +61,22 @@ In short:
 /datum/universal_state/hell/OverlayAndAmbientSet()
 	set waitfor = FALSE
 	for(var/turf/T in world)	// Expensive, but CHECK_TICK should prevent lag.
-		if(istype(T, /turf/space))
-			T.AddOverlays("hell01")
-		else
-			var/static/image/I = image('icons/turf/space.dmi', "hell01")
-			T.underlays += I
+		var/static/image/I = image('icons/turf/space.dmi', "hell01")
+		T.underlays += I
 
 		if (istype(T, /turf/simulated/floor) && !T.holy && prob(1))
 			new /obj/effect/gateway/active/cult(T)
 
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
-		if (!C.active)
-			continue
-
-		C.update_lumcount(0.5, 0, 0)
-		CHECK_TICK
-
 /datum/universal_state/hell/proc/MiscSet()
-	for (var/obj/machinery/firealarm/alm in SSmachinery.processing)
+	for (var/obj/structure/machinery/firealarm/alm in SSmachinery.processing)
 		if (!(alm.stat & BROKEN))
 			alm.ex_act(2)
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/APCSet()
-	for (var/obj/machinery/power/apc/APC in SSmachinery.processing)
+	for (var/obj/structure/machinery/power/apc/APC in SSmachinery.processing)
 		if (!(APC.stat & BROKEN) && !APC.is_critical)
 			APC.chargemode = 0
 			if(APC.cell)

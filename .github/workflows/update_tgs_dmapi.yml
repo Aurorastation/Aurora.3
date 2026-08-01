@@ -8,6 +8,7 @@ on:
 jobs:
   update-dmapi:
     runs-on: ubuntu-24.04
+    if: github.repository == 'Aurorastation/Aurora.3' # to prevent this running on forks
     name: Update the TGS DMAPI
     steps:
     - name: Clone

@@ -203,7 +203,7 @@
 			module_string += "[O]: <A href='byond://?src=[REF(src)];act=[REF(O)]'>Activate</A><BR>"
 
 		var/obj/item/I = O
-		if((istype(I, /obj/item) || istype(I, /obj/item/device)) && !(I.iscoil()))
+		if((istype(I, /obj/item) || istype(I, /obj/item/device)) && !(I.tool_behaviour == TOOL_CABLECOIL))
 			tools += module_string
 		else
 			resources += module_string

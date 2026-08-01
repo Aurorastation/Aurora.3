@@ -35,7 +35,7 @@
 
 	id = /obj/item/card/id/sadar_scout
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	accessory = /obj/item/clothing/accessory/offworlder/bracer/grey
 	backpack_contents = list(

@@ -24,6 +24,7 @@
 	hazard_low_pressure = 10
 
 	examine_color = "#C2AE95"
+	mass_modifier = REFERENCE_MASS_HUMAN_OFFWORLDER / REFERENCE_MASS_HUMAN
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack))
@@ -32,6 +33,11 @@
 	H.put_in_hands(PB)
 
 /datum/species/human/offworlder/get_species_tally(var/mob/living/carbon/human/H)
+	// Check via cancelable reference signal if arbitrarily anything on the character wants to negate the offworlder weakness.
+	var/canceled = FALSE
+	SEND_SIGNAL(H, COMSIG_GRAVITY_WEAKNESS_EVENT, &canceled)
+	if(canceled)
+		return 0
 
 	if(istype(H.back, /obj/item/rig/light/offworlder))
 		var/obj/item/rig/light/offworlder/rig = H.back
@@ -46,10 +52,6 @@
 	if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
 		return
 
-	if(H.w_uniform)
-		var/obj/item/clothing/under/suit = H.w_uniform
-		if(locate(/obj/item/clothing/accessory/offworlder/bracer) in suit.accessories)
-			return 0
 
 	var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 	if(S)
@@ -68,6 +70,12 @@
 		if(A && !A.has_gravity())
 			return
 
+		// Check via cancelable reference signal if arbitrarily anything on the character wants to negate the offworlder weakness.
+		var/canceled = FALSE
+		SEND_SIGNAL(H, COMSIG_GRAVITY_WEAKNESS_EVENT, &canceled)
+		if(canceled)
+			return
+
 		var/obj/item/organ/external/l_leg = H.get_organ(BP_L_LEG)
 		var/obj/item/organ/external/r_leg = H.get_organ(BP_R_LEG)
 
@@ -77,11 +85,6 @@
 		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/rig = H.back
 			if(!rig.offline)
-				return
-
-		if(H.w_uniform)
-			var/obj/item/clothing/under/uniform = H.w_uniform
-			if(locate(/obj/item/clothing/accessory/offworlder/bracer) in uniform.accessories)
 				return
 
 		var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]

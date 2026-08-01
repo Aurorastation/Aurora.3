@@ -13,10 +13,10 @@
 	id = /obj/item/card/id/distress/kataphract
 	back = /obj/item/storage/backpack/satchel/hegemony
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	l_hand = /obj/item/martial_manual/swordsmanship
 
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 
 	belt_contents = null
 
@@ -24,7 +24,7 @@
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/shield/energy/hegemony/kataphract = 1,
 		/obj/item/crowbar = 1,
-		/obj/item/storage/box/donkpockets = 1
+		/obj/item/storage/box/unique/donkpockets = 1
 	)
 
 	id_iff = IFF_KATAPHRACT
@@ -58,8 +58,8 @@
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/shield/energy/hegemony/kataphract = 1,
 		/obj/item/crowbar = 1,
-		/obj/item/storage/box/smokebombs = 1,
-		/obj/item/storage/box/anti_photons = 1,
+		/obj/item/storage/box/tactical/smokebombs = 1,
+		/obj/item/storage/box/tactical/anti_photons = 1,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 3
 	)
 
@@ -99,10 +99,10 @@
 	backpack_contents = list(
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/shield/energy/hegemony = 1,
-		/obj/item/storage/box/donkpockets = 1,
+		/obj/item/storage/box/unique/donkpockets = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)

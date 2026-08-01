@@ -6,7 +6,6 @@ SUBSYSTEM_DEF(mobs)
 	wait = 2 SECONDS
 
 	var/list/currentrun = list()
-	var/list/processing = list()
 
 	var/list/all_rats = list()	// Contains all *living* rats.
 
@@ -15,9 +14,6 @@ SUBSYSTEM_DEF(mobs)
 
 	var/list/greatworms = list()
 	var/list/greatasses = list()
-
-	var/list/ghost_darkness_images = list()	//this is a list of images for things ghosts should still be able to see when they toggle darkness
-	var/list/ghost_sightless_images = list()	//this is a list of images for things ghosts should still be able to see even without ghost sight
 
 	// Devour types (these are typecaches). Only simple_animals check these, other types are handled specially.
 	var/list/mtl_synthetic = list(
@@ -75,29 +71,18 @@ SUBSYSTEM_DEF(mobs)
 /datum/controller/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)
 		src.currentrun = GLOB.mob_list.Copy()
-		src.currentrun += processing.Copy()
 
 	//Mobs might have been removed between the previous and a resumed fire, yet we want to maintain the priority to process
 	//the mobs that we didn't in the previous run, hence we have to pay the price of a list subtraction
 	//with &= we say to remove any item in the first list that is not in the second one
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
-	var/list/currentrun = resumed ? (src.currentrun &= (GLOB.mob_list + processing)) : src.currentrun
+	var/list/currentrun = resumed ? (src.currentrun &= GLOB.mob_list) : src.currentrun
 
-	var/seconds_per_tick = (1 SECONDS) / wait
+	var/seconds_per_tick = wait * 0.1
 
 	while(length(currentrun))
 		var/datum/thing = currentrun[length(currentrun)]
 		currentrun.len--
-		if(!ismob(thing))
-			if(!QDELETED(thing))
-				if(thing.process(wait, times_fired) == PROCESS_KILL)
-					stop_processing(thing)
-			else
-				processing -= thing
-			if(MC_TICK_CHECK)
-				return
-			continue
-
 		var/mob/M = thing
 
 		if(QDELETED(M))
@@ -154,7 +139,3 @@ SUBSYSTEM_DEF(mobs)
 				deltimer(mannequins_del_timers[ckey])
 			mannequins_del_timers[ckey] = null
 			mannequins_del_timers -= ckey
-
-// Helper so PROCESS_KILL works.
-/datum/controller/subsystem/mobs/proc/stop_processing(datum/D)
-	STOP_PROCESSING(src, D)

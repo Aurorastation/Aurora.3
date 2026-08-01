@@ -4,6 +4,7 @@
 
 // If you modify this file you ALSO need to modify tgui/packages/tgui-panel/styles/tgchat/chat-light.scss and chat-dark.scss
 // BUT you have to use PX font sizes with are on a x8 scale of these font sizes
+// For radio channel colors, ensure you update the 'say' window colors in 'tgui/packages/tgui-say/styles/colors.scss' as well.
 // Sample font-size: DM: 8 CSS: 64px
 
 /client/script = {"<style>
@@ -70,7 +71,7 @@ em						{font-style: normal;font-weight: bold;}
 .engradio				{color: #A66300;}
 .medradio				{color: #0a5c47;}
 .sciradio				{color: #993399;}
-.supradio				{color: #5F4519;}
+.opsradio				{color: #5F4519;}
 .srvradio				{color: #6eaa2c;}
 
 /* Miscellaneous */
@@ -92,9 +93,11 @@ h1.alert, h2.alert		{color: #000000;}
 
 .danger					{color: #ff0000; font-weight: bold;}
 .warning				{color: #ff0000; font-style: italic;}
+.boldwarning			{color: #ff0000; font-weight: bold; font-style: italic;}
 .rose					{color: #ff5050;}
 .info					{color: #0000CC;}
 .notice					{color: #000099;}
+.boldnotice				{color: #000099; font-weight: bold;}
 .hear					{color: #000099; font-style: italic;}
 .subtle					{color: #000099; font-size: 75%; font-style: italic;}
 .alium					{color: #00ff00;}

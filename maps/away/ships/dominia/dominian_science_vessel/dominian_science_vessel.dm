@@ -5,8 +5,9 @@
 	prefix = "ships/dominia/dominian_science_vessel/"
 	suffix = "dominian_science_vessel.dmm"
 
-	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "dominian_science_vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_science_shuttle)
@@ -117,7 +118,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/dominian_science_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/dominian_science_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Science Shuttle"
 	req_access = list(ACCESS_HOUSE_VOLVALAAD_SHIP)

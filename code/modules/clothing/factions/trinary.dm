@@ -16,8 +16,8 @@
 
 /obj/item/clothing/head/trinary
 	name = "trinary coif"
-	desc = "A coif worn primarily by members of the Monastic Sorority of Our Lady Corkfell, a religious order within the Trinary Perfection focused on the medical needs of its human practicioners. It seems to be made out of a light \
-	and breathable material in order to cope with Orepit's hot summers."
+	desc = "A coif worn primarily by members of the monastic Sodality of Our Lady Corkfell, a religious order within the Trinary Perfection focused on the medical needs of its human practicioners. It seems to be made out of a light \
+	and breathable material in order to cope with Axiom's hot summers."
 	icon = 'icons/obj/item/clothing/head/ipc/trinary_coif.dmi'
 	icon_state = "trinary_coif"
 	item_state = "trinary_coif"
@@ -70,8 +70,8 @@
 		BOMB = ARMOR_BOMB_PADDED,
 	)
 	contained_sprite = TRUE
-	slowdown = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	slowdown = 0.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 /obj/item/clothing/mask/exclusionist
 	name = "exclusionist mask"

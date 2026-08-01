@@ -1,9 +1,16 @@
-import { paginate } from 'common/collections';
-import { BooleanLike } from '../../common/react';
+import { chunk } from 'es-toolkit';
+import {
+  Box,
+  Button,
+  Section,
+  Table,
+  Tabs,
+  Tooltip,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Table, Tabs, Tooltip } from '../components';
-import { TableCell, TableRow } from '../components/Table';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type SpawnerData = {
   spawners: Spawner[];
@@ -29,67 +36,61 @@ type Spawner = {
   manifest: string[];
 };
 
-const ManifestTable = function (act, spawner: Spawner) {
-  return (
-    <Table>
-      {paginate(spawner.manifest, 2).map((page) => {
-        const spawned_mob_name_1 = page[0];
-        const spawned_mob_name_2 = page[1];
+const ManifestTable = (act, spawner: Spawner) => (
+  <Table>
+    {chunk(spawner.manifest, 2).map((page) => {
+      const spawned_mob_name_1 = page[0];
+      const spawned_mob_name_2 = page[1];
 
-        const ManifestCell = function (
-          act,
-          spawner: Spawner,
-          spawned_mob_name: string
-        ) {
-          if (spawned_mob_name) {
-            return (
-              <TableCell>
-                {' - ' + spawned_mob_name + ' '}
-                {spawner.can_jump_to ? (
-                  <Tooltip content="Follow mob">
-                    <Button
-                      content="F"
-                      onClick={() =>
-                        act('follow_manifest_entry', {
-                          spawner_id: spawner.short_name,
-                          spawned_mob_name: spawned_mob_name,
-                        })
-                      }
-                    />
-                  </Tooltip>
-                ) : (
-                  ''
-                )}
-              </TableCell>
-            );
-          } else {
-            return '';
-          }
-        };
+      const ManifestCell = (
+        act,
+        spawner: Spawner,
+        spawned_mob_name: string,
+      ) => {
+        if (spawned_mob_name) {
+          return (
+            <Table.Cell>
+              {` - ${spawned_mob_name} `}
+              {spawner.can_jump_to ? (
+                <Tooltip content="Follow mob">
+                  <Button
+                    content="F"
+                    onClick={() =>
+                      act('follow_manifest_entry', {
+                        spawner_id: spawner.short_name,
+                        spawned_mob_name: spawned_mob_name,
+                      })
+                    }
+                  />
+                </Tooltip>
+              ) : (
+                ''
+              )}
+            </Table.Cell>
+          );
+        } else {
+          return '';
+        }
+      };
 
-        return (
-          <TableRow pb={1} key={page} overflow="hidden">
-            {ManifestCell(act, spawner, spawned_mob_name_1)}
-            {ManifestCell(act, spawner, spawned_mob_name_2)}
-          </TableRow>
-        );
-      })}
-    </Table>
-  );
-};
+      return (
+        <Table.Row pb={1} key={page[0]} overflow="hidden">
+          {ManifestCell(act, spawner, spawned_mob_name_1)}
+          {ManifestCell(act, spawner, spawned_mob_name_2)}
+        </Table.Row>
+      );
+    })}
+  </Table>
+);
 
-export const GhostSpawner = (props, context) => {
-  const { act, data } = useBackend<SpawnerData>(context);
+export const GhostSpawner = (props) => {
+  const { act, data } = useBackend<SpawnerData>();
 
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+  const [tab, setTab] = useLocalState('tab', 'All');
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   const spawners = data.spawners?.filter(
-    (S) => S.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+    (S) => S.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
   );
 
   const colors = [
@@ -104,41 +105,25 @@ export const GhostSpawner = (props, context) => {
     'yellow',
   ];
 
-  let loc_to_color: Map<string, string> = new Map();
-
-  if (spawners) {
-    paginate(
-      Array.from(
-        new Set(
-          spawners
-            .filter((s) => s.spawn_overmap_location)
-            .map((s) => s.spawn_overmap_location)
-        )
-      ),
-      colors.length
-    ).map((p) =>
-      p.map((l, i) => (loc_to_color[l] = colors[i % colors.length]))
-    );
-  }
+  const loc_to_color: Map<string, string> = new Map();
 
   return (
-    <Window resizable width={1000} height={700}>
+    <Window width={1000} height={700}>
       <Window.Content scrollable>
         <Section
           title="Spawners"
           buttons={
-            <Input
+            <SearchBar
               autoFocus
-              autoSelect
               placeholder="Search by name"
-              width="40vw"
-              maxLength={512}
-              onInput={(e, value) => {
+              query={searchTerm}
+              onSearch={(value) => {
                 setSearchTerm(value);
               }}
-              value={searchTerm}
+              style={{ width: '40vw' }}
             />
-          }>
+          }
+        >
           <Tabs>
             <Tabs.Tab selected={tab === 'All'} onClick={() => setTab('All')}>
               All
@@ -147,7 +132,8 @@ export const GhostSpawner = (props, context) => {
               <Tabs.Tab
                 key={cat}
                 selected={tab === cat}
-                onClick={() => setTab(cat)}>
+                onClick={() => setTab(cat)}
+              >
                 {cat}
               </Tabs.Tab>
             ))}
@@ -166,10 +152,12 @@ export const GhostSpawner = (props, context) => {
                   <Table.Row
                     key={spawner.short_name}
                     className="candystripe"
-                    color={spawner.cant_spawn ? 'gray' : null}>
+                    color={spawner.cant_spawn ? 'gray' : null}
+                  >
                     <Table.Cell>{spawner.name}</Table.Cell>
                     <Table.Cell
-                      color={loc_to_color[spawner.spawn_overmap_location]}>
+                      color={loc_to_color[spawner.spawn_overmap_location]}
+                    >
                       {spawner.spawn_overmap_location}
                     </Table.Cell>
                     <Table.Cell>
@@ -185,13 +173,14 @@ export const GhostSpawner = (props, context) => {
                         {spawner.manifest.length > 0 ? (
                           <Box
                             style={{
-                              'background-color': 'rgba(0, 0, 0, 0.25)',
-                              'border': '1px solid rgba(0, 0, 0, 0.5)',
+                              backgroundColor: 'rgba(0, 0, 0, 0.25)',
+                              border: '1px solid rgba(0, 0, 0, 0.5)',
                             }}
                             mt={2}
                             pb={1}
                             pt={1}
-                            pl={1}>
+                            pl={1}
+                          >
                             <Box fontSize="1.2rem" textAlign="center">
                               Manifest
                             </Box>
@@ -203,9 +192,9 @@ export const GhostSpawner = (props, context) => {
                     <Table.Cell>
                       {spawner.max_count > 0
                         ? spawner.max_count -
-                        spawner.count +
-                        ' / ' +
-                        spawner.max_count
+                          spawner.count +
+                          ' / ' +
+                          spawner.max_count
                         : spawner.spawn_atoms}
                     </Table.Cell>
                     <Table.Cell inline nowrap>
@@ -250,7 +239,7 @@ export const GhostSpawner = (props, context) => {
                       )}
                     </Table.Cell>
                   </Table.Row>
-                )
+                ),
             )}
           </Table>
         </Section>

@@ -7,6 +7,7 @@
 	priority = 2
 	can_infect = TRUE
 	blood_level = 1
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/open_encased/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -18,14 +19,12 @@
 
 /singleton/surgery_step/open_encased/saw
 	allowed_tools = list(
-	/obj/item/surgery/circular_saw = 100,
+	TOOL_SAW = 100,
 	/obj/item/melee/energy = 100,
 	/obj/item/melee/chainsword = 70,
 	/obj/item/material/hatchet = 75
 	)
-
-	min_duration = 30
-	max_duration = 50
+	base_surgery_time = 5 SECONDS
 
 /singleton/surgery_step/open_encased/saw/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -67,12 +66,11 @@
 /singleton/surgery_step/open_encased/retract
 	name = "Retract Sawed Bone"
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100, 	\
-	/obj/item/crowbar = 75
+	TOOL_RETRACTOR = 100, 	\
+	TOOL_CROWBAR = 75
 	)
-
-	min_duration = 20
-	max_duration = 30
+	base_surgery_time = 3 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/open_encased/retract/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -121,12 +119,11 @@
 /singleton/surgery_step/open_encased/close
 	name = "Bend Sawed Bone Closed"
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100, 	\
-	/obj/item/crowbar = 75
+	TOOL_RETRACTOR = 100, 	\
+	TOOL_CROWBAR = 75
 	)
-
-	min_duration = 20
-	max_duration = 30
+	base_surgery_time = 3 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/open_encased/close/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -182,9 +179,8 @@
 	/obj/item/surgery/bone_gel = 100,	\
 	/obj/item/tape_roll = 60
 	)
-
-	min_duration = 20
-	max_duration = 30
+	base_surgery_time = 3 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/open_encased/mend/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

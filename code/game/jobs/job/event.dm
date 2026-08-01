@@ -17,8 +17,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_MAINT_TUNNELS, ACCESS_MORGUE, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS)
-	minimal_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS)
+	job_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS)
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/officer/event
 
@@ -37,7 +36,7 @@
 	accessory_contents = list(
 		/obj/item/gun/projectile/sec = 1
 	)
-	belt = /obj/item/storage/belt/security/full/disruptor
+	belt = /obj/item/storage/belt/security/full/pistol45
 
 
 /datum/job/eventmed
@@ -58,8 +57,7 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PSYCHIATRIST, ACCESS_PARAMEDIC)
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
+	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
 	outfit = /obj/outfit/job/med_tech/event
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -69,11 +67,11 @@
 	belt = /obj/item/storage/belt/medical/paramedic
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/healthanalyzer = 1
 	)
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	r_ear = /obj/item/device/flashlight/pen
+	r_ear = /obj/item/flashlight/pen
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/latex/nitrile/tajara,
@@ -102,8 +100,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_LEVIATHAN)
-	minimal_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN)
+	job_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN)
 	outfit = /obj/outfit/job/engineer/event
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -129,7 +126,7 @@
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/device/multitool = 1,
+		/obj/item/multitool = 1,
 		/obj/item/hammer = 1
 	)
 
@@ -151,8 +148,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
-	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
+	job_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist/event
@@ -162,9 +158,9 @@
 	name = "Research Personnel"
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/device/camera = 1,
-		/obj/item/device/camera_film = 2,
-		/obj/item/device/taperecorder = 1
+		/obj/item/camera = 1,
+		/obj/item/camera_film = 2,
+		/obj/item/taperecorder = 1
 	)
 	belt = /obj/item/storage/belt/archaeology/full
 
@@ -185,8 +181,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_ROBOTICS)
-	minimal_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
+	job_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
 	outfit = /obj/outfit/job/hangar_tech/event
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -216,5 +211,5 @@
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	job_access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
 	outfit = /obj/outfit/job/bartender

@@ -209,29 +209,28 @@
 	desc = "This is a random soap."
 	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
-
-/obj/random/soap/item_to_spawn()
-		return pick(/obj/item/soap, \
-					/obj/item/soap/nanotrasen, \
-					/obj/item/soap/deluxe,\
-					/obj/item/soap/space_soap,\
-					/obj/item/soap/space_soap,\
-					/obj/item/soap/water_soap,\
-					/obj/item/soap/fire_soap,\
-					/obj/item/soap/rainbow_soap,\
-					/obj/item/soap/diamond_soap,\
-					/obj/item/soap/uranium_soap,\
-					/obj/item/soap/silver_soap,\
-					/obj/item/soap/brown_soap,\
-					/obj/item/soap/white_soap,\
-					/obj/item/soap/grey_soap,\
-					/obj/item/soap/pink_soap,\
-					/obj/item/soap/purple_soap,\
-					/obj/item/soap/blue_soap,\
-					/obj/item/soap/cyan_soap,\
-					/obj/item/soap/green_soap,\
-					/obj/item/soap/yellow_soap,\
-					/obj/item/soap/orange_soap,\
-					/obj/item/soap/red_soap,\
-					/obj/item/soap/golden_soap,\
+	spawnlist = list(
+		/obj/item/soap,
+		/obj/item/soap/nanotrasen,
+		/obj/item/soap/deluxe,
+		/obj/item/soap/space_soap,
+		/obj/item/soap/space_soap,
+		/obj/item/soap/water_soap,
+		/obj/item/soap/fire_soap,
+		/obj/item/soap/rainbow_soap,
+		/obj/item/soap/diamond_soap,
+		/obj/item/soap/uranium_soap,
+		/obj/item/soap/silver_soap,
+		/obj/item/soap/brown_soap,
+		/obj/item/soap/white_soap,
+		/obj/item/soap/grey_soap,
+		/obj/item/soap/pink_soap,
+		/obj/item/soap/purple_soap,
+		/obj/item/soap/blue_soap,
+		/obj/item/soap/cyan_soap,
+		/obj/item/soap/green_soap,
+		/obj/item/soap/yellow_soap,
+		/obj/item/soap/orange_soap,
+		/obj/item/soap/red_soap,
+		/obj/item/soap/golden_soap,
 )

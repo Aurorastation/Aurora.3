@@ -126,6 +126,9 @@
 	icon_state = "azubarre_torch"
 	item_state = "azubarre_torch"
 	contained_sprite = TRUE
+	light_range = 3
+	light_power = 1
+	light_color = LIGHT_COLOR_FIRE
 	var/lit = FALSE
 
 /obj/item/nullrod/azubarre/attack_self(mob/user)
@@ -135,6 +138,7 @@
 	else
 		to_chat(user, SPAN_NOTICE("You extinguish \the [src]!"))
 
+	set_light_on(lit)
 	update_icon()
 	user.update_inv_l_hand(FALSE)
 	user.update_inv_r_hand()
@@ -142,10 +146,10 @@
 /obj/item/nullrod/azubarre/update_icon()
 	if(lit)
 		icon_state = "azubarre_torch-on"
-		set_light(3, 1, LIGHT_COLOR_FIRE)
+		set_light_on(TRUE)
 	else
 		icon_state = "azubarre_torch-empty"
-		set_light(0)
+		set_light_on(FALSE)
 	item_state = icon_state
 
 /obj/item/nullrod/azubarre/isFlameSource()
@@ -221,10 +225,15 @@
 	light_power = 2
 	light_color = LIGHT_COLOR_BLUE
 
+/obj/item/nullrod/luceiansceptre/Initialize(mapload)
+	set_light_on(TRUE)
+	..()
+	return INITIALIZE_HINT_NORMAL
+
 /obj/item/nullrod/clockworkstave
 	name = "\improper clockwork stave"
 	desc = "A long, wooden stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
-	hand-crafted by synthetics from the monastic Society of Pitters and exported off the planet of Orepit."
+	hand-crafted by synthetics from the monastic Order of Pitters and exported off the planet of Axiom."
 	icon = 'icons/obj/trinary_stave.dmi'
 	icon_state = "trinary_stave"
 	item_state = "trinary_stave"
@@ -428,6 +437,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/assunzioneorb/Initialize(mapload)
+	set_light_on(TRUE)
+	..()
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/assunzioneorb/proc/shatter()
 	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))

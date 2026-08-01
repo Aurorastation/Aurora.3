@@ -7,6 +7,6 @@
 #define ORE_GOLD		"gold"
 #define ORE_DIAMOND		"diamond"
 #define ORE_PLATINUM	"platinum"
-#define ORE_HYDROGEN	"mhydrogen"
+#define ORE_HYDROGEN	"metallic hydrogen"
 #define ORE_BAUXITE		"aluminium"
 #define ORE_GALENA		"lead"

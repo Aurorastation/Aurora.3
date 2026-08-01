@@ -18,10 +18,10 @@
 	var/created_window = /obj/structure/window/basic
 	var/is_reinforced = 0
 	var/list/construction_options = list("One Direction", "Full Window")
-	default_type = "glass"
+	default_type = MATERIAL_GLASS
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/glass_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/glass_sheet.ogg'
 
 /obj/item/stack/material/glass/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -91,7 +91,7 @@
 				to_chat(user, SPAN_WARNING("There is already a windoor assembly in that location."))
 				return 1
 
-			if(isturf(user.loc) && locate(/obj/machinery/door/window/, user.loc))
+			if(isturf(user.loc) && locate(/obj/structure/machinery/door/window/, user.loc))
 				to_chat(user, SPAN_WARNING("There is already a windoor in that location."))
 				return 1
 
@@ -112,7 +112,7 @@
 	name = "reinforced glass"
 	singular_name = "reinforced glass sheet"
 	icon_state = "sheet-rglass"
-	default_type = "reinforced glass"
+	default_type = MATERIAL_GLASS_REINFORCED
 	created_window = /obj/structure/window/reinforced
 	is_reinforced = 1
 	construction_options = list("One Direction", "Full Window", "Windoor")
@@ -127,7 +127,7 @@
 	icon = 'icons/obj/item/stacks/tiles.dmi'
 	icon_state = "glass_wire"
 	created_window = null
-	default_type = "wired glass"
+	default_type = MATERIAL_GLASS_WIRED
 	construction_options = list()
 	icon_has_variants = FALSE
 
@@ -142,7 +142,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need one metal sheet to finish the light tile!"))
 
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		user.drop_from_inventory(attacking_item, get_turf(src))
 		to_chat(user, SPAN_NOTICE("You detach the wire from the [name]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
@@ -160,7 +160,7 @@
 	singular_name = "phoron glass sheet"
 	icon_state = "sheet-phoronglass"
 	created_window = /obj/structure/window/borosilicate
-	default_type = "phoron glass"
+	default_type = MATERIAL_GLASS_PHORON
 	icon_has_variants = FALSE
 
 /*
@@ -170,7 +170,7 @@
 	name = "reinforced phoron glass"
 	singular_name = "reinforced phoron glass sheet"
 	icon_state = "sheet-phoronrglass"
-	default_type = "reinforced phoron glass"
+	default_type = MATERIAL_GLASS_REINFORCED_PHORON
 	created_window = /obj/structure/window/borosilicate/reinforced
 	is_reinforced = 1
 	icon_has_variants = FALSE

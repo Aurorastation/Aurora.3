@@ -6,8 +6,8 @@
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	w_class = WEIGHT_CLASS_HUGE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	var/obj/machinery/mining/drill/held_drill
-	var/list/obj/machinery/mining/brace/held_braces
+	var/obj/structure/machinery/mining/drill/held_drill
+	var/list/obj/structure/machinery/mining/brace/held_braces
 	var/charging = FALSE
 	module_hints = list(
 		"<b>Left Click (Target Mining Drill or Brace):</b> Load the target into the module's internal storage.",
@@ -19,9 +19,9 @@
 	. = ..()
 
 	if(.)
-		for(var/obj/machinery/M in range(1, target))
-			if(istype(M, /obj/machinery/mining/brace))
-				var/obj/machinery/mining/brace/B = M
+		for(var/obj/structure/machinery/M in range(1, target))
+			if(istype(M, /obj/structure/machinery/mining/brace))
+				var/obj/structure/machinery/mining/brace/B = M
 				B.anchored = FALSE
 				B.disconnect()
 				if(length(held_braces) < 2)
@@ -30,8 +30,8 @@
 						owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [B] into \the [src]."))
 						B.forceMove(src)
 						LAZYADD(held_braces, B)
-			if(!held_drill && istype(M, /obj/machinery/mining/drill))
-				var/obj/machinery/mining/drill/D = M
+			if(!held_drill && istype(M, /obj/structure/machinery/mining/drill))
+				var/obj/structure/machinery/mining/drill/D = M
 				owner.visible_message(SPAN_NOTICE("\The [owner] starts loading \the [D] into \the [src]."))
 				if(do_after(user, 5 SECONDS, owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), D, D.loc)))
 					owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [D] into \the [src]."))
@@ -58,7 +58,7 @@
 		held_drill.forceMove(deployment_turfs[1])
 		held_drill.anchored = TRUE
 		deployment_turfs -= deployment_turfs[1]
-	for(var/obj/machinery/mining/brace/B in held_braces)
+	for(var/obj/structure/machinery/mining/brace/B in held_braces)
 		B.forceMove(deployment_turfs[1])
 		B.anchored = TRUE
 		B.connect()

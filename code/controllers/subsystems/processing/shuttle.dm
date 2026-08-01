@@ -28,6 +28,9 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/tmp/list/working_shuttles
 
+	/// The destination helper for the cargo elevator.
+	var/obj/effect/landmark/destination_helper/cargo_elevator/cargo_dest_helper
+
 /datum/controller/subsystem/shuttle/Initialize()
 	last_landmark_registration_time = world.time
 	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
@@ -70,7 +73,7 @@ SUBSYSTEM_DEF(shuttle)
 	entry_points_to_initialize.Cut()
 
 /datum/controller/subsystem/shuttle/proc/initialize_ship_weapons()
-	for(var/obj/machinery/ship_weapon/SW in weapons_to_initialize)
+	for(var/obj/structure/machinery/ship_weapon/SW in weapons_to_initialize)
 		SW.sync_linked()
 		if(SW.linked)
 			LAZYADD(SW.linked.ship_weapons, SW)

@@ -1,7 +1,7 @@
 /obj/aura/personal_shield
 	name = "personal shield"
 	icon = 'icons/effects/effects.dmi'
-	icon_state = "shield"
+	icon_state = "personal_shield"
 
 /obj/aura/personal_shield/handle_bullet_act(datum/source, obj/projectile/projectile)
 	user.visible_message(SPAN_WARNING("\The [user]'s [src.name] flashes before \the [projectile] can hit them!"))
@@ -31,7 +31,7 @@
 	..()
 
 /obj/aura/personal_shield/device
-	var/obj/item/device/personal_shield/shield
+	var/obj/item/personal_shield/shield
 
 /obj/aura/personal_shield/device/bullet_act()
 	. = ..()

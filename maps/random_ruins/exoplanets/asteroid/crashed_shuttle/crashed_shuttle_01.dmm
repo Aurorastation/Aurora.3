@@ -16,7 +16,7 @@
 /area/template_noop)
 "ck" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1;
 	pixel_x = 8;
 	pixel_y = 2
@@ -106,7 +106,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "kU" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -160,7 +160,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 1
 	},
 /obj/random/powercell,
@@ -209,7 +209,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	pixel_x = 8;
 	pixel_y = 3
 	},
@@ -240,7 +240,7 @@
 "AN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 1298.5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -248,7 +248,7 @@
 /area/template_noop)
 "Bu" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
@@ -305,7 +305,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8;
 	pixel_x = 16;
 	pixel_y = -4
@@ -314,7 +314,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "HN" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -430,7 +430,7 @@
 /area/template_noop)
 "RS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 2965.7
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -453,7 +453,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Tr" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8;
 	pixel_x = 16;
 	pixel_y = -4

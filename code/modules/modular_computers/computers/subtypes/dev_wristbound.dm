@@ -3,7 +3,7 @@
 	lexical_name = "wristbound"
 	desc = "A portable wristbound device for your needs on the go. Quite comfortable."
 	desc_extended = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
-	icon = 'icons/obj/modular_wristbound.dmi'
+	icon = 'icons/obj/modular_computers/modular_wristbound.dmi'
 	icon_state = "wristbound"
 	icon_state_unpowered = "wristbound"
 	icon_state_menu = "menu"
@@ -17,6 +17,12 @@
 /obj/item/modular_computer/handheld/wristbound/set_icon()
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state
+
+/obj/item/modular_computer/handheld/wristbound/update_icon()
+	. = ..()
+	if(!enabled)
+		AddOverlays("off")
+		return
 
 /obj/item/modular_computer/handheld/wristbound/attack_hand(mob/user)
 	if(ishuman(user))

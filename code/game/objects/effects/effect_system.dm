@@ -12,11 +12,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	unacidable = 1//So effect are not targeted by alien acid.
 	pass_flags = PASSTABLE | PASSGRILLE
-
-/obj/effect/Destroy()
-	if(reagents)
-		reagents.delete()
-	return ..()
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 /datum/effect/effect/system
 	var/number = 3
@@ -121,6 +117,11 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/obj/effect/smoke/Destroy()
+	if(opacity)
+		set_opacity(FALSE)
+	return ..()
+
 /obj/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
@@ -156,7 +157,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "sparks"
 
-/obj/effect/smoke/illumination/New(var/newloc, var/brightness=15, var/lifetime=10)
+/obj/effect/smoke/illumination/New(var/newloc, var/brightness=15, var/lifetime=5)
 	time_to_live=lifetime
 	..()
 	set_light(brightness)
@@ -258,9 +259,8 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	var/smoke_duration
 
 /datum/effect/effect/system/smoke_spread/set_up(n = 5, c = 0, loca, direct, duration = 0)
-	smoke_duration = duration
-	if(n > 10)
-		n = 10
+	if (!smoke_duration)
+		smoke_duration = duration
 	number = n
 	cardinals = c
 	if(istype(loca, /turf/))

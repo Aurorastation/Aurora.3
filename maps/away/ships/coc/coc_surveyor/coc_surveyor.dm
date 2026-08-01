@@ -9,6 +9,7 @@
 	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_XANU)
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "coc_surveyor"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/coc_survey_shuttle)
@@ -97,7 +98,7 @@
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/coc_survey_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/coc_survey_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "COC Survey Shuttle"
 

@@ -9,7 +9,7 @@
 	suit = /obj/item/clothing/suit/space/void/hephaestus
 	head = /obj/item/clothing/head/helmet/space/void/hephaestus
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	id = /obj/item/card/id/hephaestus
 	mask = /obj/item/clothing/mask/gas/tactical
 	glasses = /obj/item/clothing/glasses/night
@@ -29,8 +29,8 @@
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/sec/lethal = 1,
-		/obj/item/storage/box/shotgunammo = 1,
-		/obj/item/storage/box/shotgunshells = 1
+		/obj/item/storage/box/shells/slugs = 1,
+		/obj/item/storage/box/shells/buckshot = 1
 	)
 
 	id_iff = IFF_HEPH
@@ -57,14 +57,14 @@
 		/obj/item/ammo_magazine/c45m = 3,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/shield/energy = 1,
 		/obj/item/gun/projectile/sec/lethal = 1,
-		/obj/item/storage/box/shotgunammo = 1,
-		/obj/item/storage/box/shotgunshells = 1
+		/obj/item/storage/box/shells/slugs = 1,
+		/obj/item/storage/box/shells/buckshot = 1
 	)
 
 	belt_contents = list(
@@ -95,8 +95,8 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
 		/obj/item/gun/projectile/sec/lethal = 1,
-		/obj/item/storage/box/shotgunammo = 1,
-		/obj/item/storage/box/shotgunshells = 1
+		/obj/item/storage/box/shells/slugs = 1,
+		/obj/item/storage/box/shells/buckshot = 1
 	)
 	belt_contents = null
 

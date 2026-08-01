@@ -56,9 +56,9 @@ SUBSYSTEM_DEF(arrivals)
 		return 1
 	if(istype(A,/obj/item/disk/nuclear))
 		return 1
-	if(istype(A,/obj/machinery/nuclearbomb))
+	if(istype(A,/obj/structure/machinery/nuclearbomb))
 		return 1
-	if(istype(A,/obj/item/device/radio/beacon))
+	if(istype(A,/obj/item/radio/beacon))
 		return 1
 	if(istype(A,/obj/item/phylactery))
 		return 1

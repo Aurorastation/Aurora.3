@@ -121,7 +121,7 @@
 	sizeclass = "Jloqup-class Cargo Transport"
 	shiptype = "All-environment cargo transport"
 
-/obj/machinery/computer/shuttle_control/explore/tirakqi_smuggler_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/tirakqi_smuggler_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ti'Rakqi Shuttle"
 	req_access = list(ACCESS_SKRELL)
@@ -158,29 +158,29 @@
 
 
 // wall nav console
-/obj/machinery/computer/ship/navigation/wall
-	icon = 'icons/obj/modular_telescreen.dmi'
+/obj/structure/machinery/computer/ship/navigation/wall
+	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "command"
 	density = FALSE
 
 // doors
-/obj/machinery/door/airlock/hatch/tirakqi
+/obj/structure/machinery/door/airlock/hatch/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
 	req_access = list(ACCESS_SKRELL)
 
-/obj/machinery/door/airlock/glass/tirakqi
+/obj/structure/machinery/door/airlock/glass/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
 	req_access = list(ACCESS_SKRELL)
 
-/obj/machinery/door/airlock/tirakqi
+/obj/structure/machinery/door/airlock/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
 	req_access = list(ACCESS_SKRELL)
 
-/obj/machinery/door/airlock/multi_tile/glass/tirakqi
+/obj/structure/machinery/door/airlock/multi_tile/glass/tirakqi
 	door_color = "#704470"
 	req_access = list(ACCESS_SKRELL)
 
@@ -202,7 +202,6 @@
 	icon_state = "void"
 	footstep_sound = null
 	plane = SPACE_PLANE
-	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/tirakqi_cosmocage/update_dirt()
 	return	// Space doesn't become dirty

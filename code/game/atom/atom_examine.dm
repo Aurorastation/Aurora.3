@@ -87,6 +87,15 @@
 	if(src.desc)
 		. += src.desc
 
+	var/list/tags_list = examine_tags(user)
+	if(length(tags_list))
+		var/tag_string = list()
+		for (var/atom_tag in tags_list)
+			tag_string += (isnull(tags_list[atom_tag]) ? atom_tag : SPAN_TOOLTIP(tags_list[atom_tag], atom_tag))
+		// some regex to ensure that we don't add another "and" if the final element's main text (not tooltip) has one
+		tag_string = english_list(tag_string, and_text = (findtext(tag_string[length(tag_string)], regex(@">.*?and .*?<"))) ? " " : " and ")
+		. += "It is a [tag_string] [examine_descriptor(user)]."
+
 	// Returns a SPAN_* based on health, if configured.
 	var/list/condition_hints = src.condition_hints()
 	if(length(condition_hints))
@@ -100,7 +109,7 @@
 		// If the item has a description regarding game mechanics, show it.
 		if(desc_mechanics)
 			. += FONT_SMALL(SPAN_NOTICE("<b>Mechanics</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("[desc_mechanics]"))
+			. += FONT_SMALL("[desc_mechanics]")
 		// If the item has a description with assembly/disassembly instructions, show it.
 		if(desc_build)
 			. += FONT_SMALL(SPAN_NOTICE("<b>Assembly/Disassembly</b>"))
@@ -109,12 +118,12 @@
 		// If the item has a description about its upgrade components and what they do, show it.
 		// This one doesnt come prepended with a hyphen because theyre added when the desc is dynamically built.
 		if(desc_upgrade)
-			. += FONT_SMALL(SPAN_NOTICE("<b>Upgrades</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("[desc_upgrade]"))
+			. += FONT_SMALL("<b>Upgrades</b>")
+			. += FONT_SMALL("[desc_upgrade]")
 		// If the item has an antagonist description and the user is an antagonist/ghost, show it.
 		if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
 			. += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
-			. += FONT_SMALL(SPAN_ALERT("[desc_antag]"))
+			. += FONT_SMALL("[desc_antag]")
 	else
 		// Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
 		if(desc_extended || desc_mechanics || desc_build || desc_upgrade || (desc_antag && player_is_antag(user.mind)))
@@ -144,6 +153,35 @@
 		var/mob/living/carbon/human/H = user
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
+
+/// What this atom should be called in examine tags
+/atom/proc/examine_descriptor(mob/user)
+	return "object"
+
+/**
+ * A list of "tags" displayed after atom's description in examine.
+ * This should return an assoc list of tags -> tooltips for them. If item is null, then no tooltip is assigned.
+ *
+ * * TGUI tooltips (not the main text) in chat cannot use HTML stuff at all, so
+ * trying something like `<b><big>ffff</big></b>` will not work for tooltips.
+ *
+ * For example:
+ * ```byond
+ * . = list()
+ * .["small"] = "It is a small item."
+ * .["fireproof"] = "It is made of fire-retardant materials."
+ * .["and conductive"] = "It's made of conductive materials and whatnot. Blah blah blah." // having "and " in the end tag's main text/key works too!
+ * ```
+ * will result in
+ *
+ * It is a *small*, *fireproof* *and conductive* item.
+ *
+ * where "item" is pulled from [/atom/proc/examine_descriptor]
+ */
+/atom/proc/examine_tags(mob/user)
+	. = list()
+
+	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE_TAGS, user, .)
 
 /**
  * Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
@@ -204,7 +242,7 @@
 			if(!first_line)
 				desc_mechanics += "</br>"
 			first_line = FALSE
-			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
+			desc_mechanics += SPAN_NOTICE("[mechanics_hint]")
 
 	desc_build = ""
 	if(length(assembly_hints) || length(disassembly_hints))
@@ -213,7 +251,7 @@
 			if(!first_line)
 				desc_build += "</br>"
 			first_line = FALSE
-			desc_build += SPAN_NOTICE("- [assembly_hint]")
+			desc_build += SPAN_NOTICE("[assembly_hint]")
 		// Make sure line breaks work reliably whether or not there's only assembly, only disassembly, or both types available.
 		if (length(assembly_hints) && length(disassembly_hints))
 			desc_build += "</br>"
@@ -222,7 +260,7 @@
 			if(!first_line)
 				desc_build += "</br>"
 			first_line = FALSE
-			desc_build += SPAN_ALERT("- [disassembly_hint]")
+			desc_build += SPAN_ALERT("[disassembly_hint]")
 
 	desc_upgrade = ""
 	if(length(upgrade_hints))
@@ -230,7 +268,7 @@
 		for(var/upgrade_hint in upgrade_hints)
 			if(!first_line)
 				desc_upgrade += "<br>"
-			desc_upgrade += "- [upgrade_hint]"
+			desc_upgrade += "[upgrade_hint]"
 			first_line = FALSE
 
 	desc_antag = ""
@@ -240,7 +278,7 @@
 			if(!first_line)
 				desc_antag += "</br>"
 			first_line = FALSE
-			desc_antag += SPAN_WARNING("- [antagonist_hint]")
+			desc_antag += SPAN_WARNING("[antagonist_hint]")
 
 	desc_feedback = ""
 	if(length(feedback_hints))
@@ -256,13 +294,13 @@
  * Accepted style is SPAN_NOTICE for minor damage and SPAN_ALERT for anything worse. If the object's destruction
  * could have major adverse consequences, you might use SPAN_DANGER for critical damage.
  */
-/atom/proc/condition_hints()
+/atom/proc/condition_hints(mob/user, distance, is_adjacent)
 	. = list()
 
 /**
  * Should return a list() of regular strings.
  */
-/atom/proc/mechanics_hints()
+/atom/proc/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
 
 /*

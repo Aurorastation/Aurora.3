@@ -13,7 +13,7 @@
 	var/list/all_types = list()
 	var/list/unfound_types = list()
 
-	for (var/obj/machinery/M in world)
+	for (var/obj/structure/machinery/M in world)
 		if (!LAZYISIN(SSmachinery.machinery, M) && !QDELETED(M))
 			if (!unfound_types[M.type])
 				unfound_types[M.type] = 1
@@ -69,8 +69,8 @@
 /datum/unit_test/check_vending_products/start_test()
 	var/list/vending_products = list()
 	var/list/valid_keys = list()
-	for(var/v_type in typesof(/obj/machinery/vending))
-		var/obj/machinery/vending/V = new v_type
+	for(var/v_type in typesof(/obj/structure/machinery/vending))
+		var/obj/structure/machinery/vending/V = new v_type
 		for(var/list/p in list(V.products, V.contraband, V.premium))
 			for(var/k in p)
 				vending_products += k

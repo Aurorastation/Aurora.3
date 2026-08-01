@@ -12,7 +12,6 @@
 	network_destination = "station long-range communication array"
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "CommandCommunications"
-	ui_auto_update = FALSE
 	var/datum/comm_message_listener/message_core
 	var/intercept = FALSE
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
@@ -272,7 +271,12 @@ GLOBAL_VAR_INIT(last_message_id, 0)
 /datum/comm_message_listener/proc/Add(var/list/message)
 	messages[++messages.len] = message
 
-/datum/comm_message_listener/proc/Remove(var/list/message)
+/datum/comm_message_listener/proc/Remove(var/message)
+	if(isnum(message))
+		for(var/list/stored_message in messages)
+			if(stored_message["id"] == message)
+				message = stored_message
+				break
 	messages -= list(message)
 /*
 Command action procs
@@ -321,7 +325,7 @@ Command action procs
 
 
 /proc/is_relay_online()
-	for(var/obj/machinery/bluespacerelay/M in SSmachinery.machinery)
+	for(var/obj/structure/machinery/bluespacerelay/M in SSmachinery.machinery)
 		if(M.stat == 0)
 			return TRUE
 	return FALSE

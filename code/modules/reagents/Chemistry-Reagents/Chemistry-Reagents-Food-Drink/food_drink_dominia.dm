@@ -252,3 +252,14 @@
 	glass_name = "rapturous sacrament of the threefold goddess"
 	glass_desc = "And Our Lady did come down from the mountain, and She was flanked in radiant and ever-burning cosmic fires. And She spoke with the Lady Caladius for what seemed an eternity, \
 	and the Lady Caladius did finally emerge. And we happy few were so blessed as to hear her- the Prophetess Giovanna- say, 'Drink today not as warriors, but as immortals.'."
+
+/singleton/reagent/alcohol/witchspirit
+	name = "Witch-spirit"
+	color = "#33EDA3"
+	description = "The most fashionable new cocktail in Nova Luxembourg."
+	strength = 45
+	taste_description = "herbal and citrus sting"
+
+	glass_icon_state = "witchspirit"
+	glass_name = "glass of witch-spirit"
+	glass_desc = "The most fashionable new cocktail in Nova Luxembourg, and the only Witch-spirit the Primaries will put up with."

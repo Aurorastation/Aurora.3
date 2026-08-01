@@ -19,7 +19,7 @@
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 	blood_type = COLOR_OIL
 	speed = 8
 	projectiletype = /obj/projectile/beam/drone
@@ -56,7 +56,7 @@
 	tameable = FALSE
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	psi_pingable = FALSE
 	sample_data = null
@@ -132,12 +132,12 @@
 		return TRUE
 	return FALSE
 
-/mob/living/simple_animal/hostile/icarus_drone/validator_bot(var/obj/machinery/bot/B, var/atom/current)
+/mob/living/simple_animal/hostile/icarus_drone/validator_bot(var/obj/structure/machinery/bot/B, var/atom/current)
 	if(malfunctioning)
 		return ..()
 	return FALSE
 
-/mob/living/simple_animal/hostile/icarus_drone/validator_turret(var/obj/machinery/porta_turret/T, var/atom/current)
+/mob/living/simple_animal/hostile/icarus_drone/validator_turret(var/obj/structure/machinery/porta_turret/T, var/atom/current)
 	if(malfunctioning)
 		return ..()
 	if(is_station_area(get_area(T))) // any turrets not on station turf is probably hostile
@@ -168,7 +168,7 @@
 		speak_chance = 5
 
 	//repair a bit of damage
-	if(prob(1) && health < maxHealth)
+	if(prob(1) && health < maxhealth)
 		visible_message(SPAN_NOTICE("\The [src] shudders and shakes as some of its damaged systems come back online."))
 		spark(src, 3, GLOB.alldirs)
 		health += rand(25, 100)
@@ -186,16 +186,16 @@
 			src.visible_message(SPAN_ALERT("\The [src] suddenly lights up, and additional targetting vanes slide into place."))
 			hostile_drone = TRUE
 
-	if(health / maxHealth > 0.9)
+	if(health / maxhealth > 0.9)
 		icon_state = "drone3"
 		explode_chance = 0
-	else if(health / maxHealth > 0.7)
+	else if(health / maxhealth > 0.7)
 		icon_state = "drone2"
 		explode_chance = 0
-	else if(health / maxHealth > 0.5)
+	else if(health / maxhealth > 0.5)
 		icon_state = "drone1"
 		explode_chance = 0.5
-	else if(health / maxHealth > 0.3)
+	else if(health / maxhealth > 0.3)
 		icon_state = "drone0"
 		explode_chance = 5
 	else if(health > 0)
@@ -238,10 +238,11 @@
 
 /mob/living/simple_animal/hostile/icarus_drone/death()
 	..(null, "suddenly breaks apart.")
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/icarus_drone/Destroy()
 	QDEL_NULL(ion_trail)
+	patrol_target = null
 	//some random debris left behind
 	if(has_loot)
 		spark(src, 3, GLOB.alldirs)

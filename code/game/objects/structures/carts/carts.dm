@@ -6,31 +6,28 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	density = TRUE
 	climbable = TRUE
 	build_amt = 15
-	material = DEFAULT_WALL_MATERIAL
+	material = MATERIAL_STEEL
 	slowdown = 0
+	atom_flags = CRITICAL_ATOM
 	var/movesound = 'sound/effects/roll.ogg'
 	var/driving
 	var/mob/living/pulling
 
 /obj/structure/cart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "\
-		You can <b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
-		directs the cart and the character is subsequently pulled by it. \
-		"
+	. += "<b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
+		directs the cart and the character is subsequently pulled by it."
 
 /obj/structure/cart/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
-
-/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/I)
+	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore. If it contains anything when disassembled, these contents will spill onto the floor."
+/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/item/object)
 	if(user)
-		if(iswelder(I))
-			var/obj/item/welder = I
+		if(object.tool_behaviour == TOOL_WELDER)
+			var/obj/item/welder = object
 			welder.play_tool_sound(get_turf(src), 50)
-
 		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
-		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
+		if(!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			return
 
 	dismantle()
@@ -47,7 +44,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	. = ..()
 
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
-		if(user==pulling)
+		if(user == pulling)
 			pulling = null
 			user.pulledby = null
 			to_chat(user, SPAN_WARNING("You lost your grip!"))
@@ -61,38 +58,33 @@ ABSTRACT_TYPE(/obj/structure/cart)
 		user.pulledby = null
 		if(user==pulling)
 			return
-	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, SPAN_WARNING("You cannot go there."))
-		return
 
-	driving = 1
-	var/turf/T = null
+	var/turf/turf = null
 	if(pulling)
-		T = pulling.loc
+		turf = pulling.loc
 		if(get_dist(src, pulling) >= 1)
 			step(pulling, get_dir(pulling.loc, src.loc))
 	step(src, direction)
 	set_dir(direction)
 	if(pulling)
 		if(pulling.loc == src.loc)
-			pulling.forceMove(T)
+			pulling.forceMove(turf)
 		else
 			spawn(0)
 			if(get_dist(src, pulling) > 1)
 				pulling = null
 				user.pulledby = null
 			pulling.set_dir(get_dir(pulling, src))
-	driving = 0
-
 
 /obj/structure/cart/Move()
 	. = ..()
-	if (pulling && (get_dist(src, pulling) > 1))
-		pulling.pulledby = null
-		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
-		pulling = null
-	if(has_gravity())
-		playsound(src, movesound, 50, 1)
+	if(.)
+		if(pulling && (get_dist(src, pulling) > 1))
+			pulling.pulledby = null
+			to_chat(pulling, SPAN_WARNING("You lost your grip!"))
+			pulling = null
+		if(has_gravity())
+			playsound(src, movesound, 10, TRUE)
 
 /obj/structure/cart/CtrlClick(var/mob/user)
 	if(in_range(src, user))
@@ -135,7 +127,7 @@ ABSTRACT_TYPE(/obj/structure/cart/storage)
 
 /obj/structure/cart/storage/proc/get_storage_contents_list()
 
-/obj/structure/cart/storage/take_apart(var/mob/user = null, var/obj/I)
+/obj/structure/cart/storage/take_apart(var/mob/user = null, var/obj/object)
 	if(has_items)
 		spill()
 	. = ..()

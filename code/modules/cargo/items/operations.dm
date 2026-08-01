@@ -14,20 +14,6 @@
 	groupable = TRUE
 	spawn_amount = 2
 
-/singleton/cargo_item/camera
-	category = "operations"
-	name = "camera"
-	supplier = "nanotrasen"
-	description = "A polaroid camera. 10 photos left."
-	price = 45
-	items = list(
-		/obj/item/device/camera
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/cargotraintrolley
 	category = "operations"
 	name = "cargo train trolley"
@@ -77,7 +63,7 @@
 	description = "Swipe your ID card to make purchases electronically."
 	price = 35
 	items = list(
-		/obj/item/device/eftpos
+		/obj/item/eftpos
 	)
 	access = 0
 	container_type = "crate"
@@ -105,25 +91,11 @@
 	description = "Needed office equipment for any space based corporation to function."
 	price = 300
 	items = list(
-		/obj/machinery/photocopier/faxmachine
+		/obj/structure/machinery/photocopier/faxmachine
 	)
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/filmcartridge
-	category = "operations"
-	name = "film cartridge"
-	supplier = "nanotrasen"
-	description = "A camera film cartridge. Insert it into a camera to reload it."
-	price = 8
-	items = list(
-		/obj/item/device/camera_film
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
 	spawn_amount = 1
 
 /singleton/cargo_item/flare
@@ -133,7 +105,7 @@
 	description = "Good for illuminating dark areas or burning someones face off."
 	price = 8
 	items = list(
-		/obj/item/device/flashlight/flare
+		/obj/item/flashlight/flare
 	)
 	access = 0
 	container_type = "crate"
@@ -267,7 +239,7 @@
 	description = "When you're too lazy to write a copy yourself."
 	price = 300
 	items = list(
-		/obj/machinery/photocopier
+		/obj/structure/machinery/photocopier
 	)
 	access = 0
 	container_type = "box"
@@ -276,7 +248,7 @@
 
 /singleton/cargo_item/poster19
 	category = "operations"
-	name = "rolled-up poster - No. 19"
+	name = "random poster"
 	supplier = "orion"
 	description = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	price = 3.50
@@ -435,7 +407,7 @@
 	description = "A vending machine restock cart."
 	price = 2250
 	items = list(
-		/obj/item/device/vending_refill/battlemonsters
+		/obj/item/vending_refill/battlemonsters
 	)
 	access = 0
 	container_type = "crate"
@@ -449,7 +421,7 @@
 	description = "A vending machine restock cart."
 	price = 4500
 	items = list(
-		/obj/item/device/vending_refill/booze
+		/obj/item/vending_refill/booze
 	)
 	access = 0
 	container_type = "crate"
@@ -463,7 +435,7 @@
 	description = "A vending machine restock cart."
 	price = 1255
 	items = list(
-		/obj/item/device/vending_refill/zora
+		/obj/item/vending_refill/zora
 	)
 	access = 0
 	container_type = "crate"
@@ -477,7 +449,7 @@
 	description = "A vending machine restock cart."
 	price = 2450
 	items = list(
-		/obj/item/device/vending_refill/tools
+		/obj/item/vending_refill/tools
 	)
 	access = 0
 	container_type = "crate"
@@ -491,7 +463,7 @@
 	description = "A vending machine restock cart."
 	price = 2250
 	items = list(
-		/obj/item/device/vending_refill/smokes
+		/obj/item/vending_refill/smokes
 	)
 	access = 0
 	container_type = "crate"
@@ -505,7 +477,7 @@
 	description = "A vending machine restock cart."
 	price = 1255
 	items = list(
-		/obj/item/device/vending_refill/snack
+		/obj/item/vending_refill/snack
 	)
 	access = 0
 	container_type = "crate"
@@ -519,7 +491,7 @@
 	description = "A vending machine restock cart."
 	price = 2500
 	items = list(
-		/obj/item/device/vending_refill/robo
+		/obj/item/vending_refill/robo
 	)
 	access = 0
 	container_type = "crate"
@@ -533,7 +505,7 @@
 	description = "A vending machine restock cart."
 	price = 4500
 	items = list(
-		/obj/item/device/vending_refill/robust
+		/obj/item/vending_refill/robust
 	)
 	access = 0
 	container_type = "crate"
@@ -547,7 +519,7 @@
 	description = "A vending machine restock cart."
 	price = 5500
 	items = list(
-		/obj/item/device/vending_refill/meds
+		/obj/item/vending_refill/meds
 	)
 	access = 0
 	container_type = "crate"
@@ -561,7 +533,7 @@
 	description = "A vending machine restock cart."
 	price = 2500
 	items = list(
-		/obj/item/device/vending_refill/hydro
+		/obj/item/vending_refill/hydro
 	)
 	access = 0
 	container_type = "crate"
@@ -575,7 +547,7 @@
 	description = "A vending machine restock cart."
 	price = 1350
 	items = list(
-		/obj/item/device/vending_refill/coffee
+		/obj/item/vending_refill/coffee
 	)
 	access = 0
 	container_type = "crate"
@@ -589,7 +561,7 @@
 	description = "A vending machine restock cart."
 	price = 1250
 	items = list(
-		/obj/item/device/vending_refill/cola
+		/obj/item/vending_refill/cola
 	)
 	access = 0
 	container_type = "crate"
@@ -603,9 +575,262 @@
 	description = "A vending machine restock cart."
 	price = 850
 	items = list(
-		/obj/item/device/vending_refill/cutlery
+		/obj/item/vending_refill/cutlery
 	)
 	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cigarette_restock
+	category = "operations"
+	name = "commissary cigarette restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 240
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/rollable_restock
+	category = "operations"
+	name = "commissary tobacco leaves restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 100
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/rollable
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chewable_restock
+	category = "operations"
+	name = "commissary chewing tobacco restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 240
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/chewable
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/smoking_accessory_restock
+	category = "operations"
+	name = "commissary smoking accessories restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 140
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/electric_cig_restock
+	category = "operations"
+	name = "commissary electronic cigarette restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 80
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/snack_restock
+	category = "operations"
+	name = "commissary snack restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 100
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/food
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/xeno_restock
+	category = "operations"
+	name = "commissary xeno snack restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 60
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/food/xeno
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/candy_restock
+	category = "operations"
+	name = "commissary candy restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 65
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/food/candy
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/microwave_restock
+	category = "operations"
+	name = "commissary microwave meal restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 220
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/food/microwave
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/drink_restock
+	category = "operations"
+	name = "commissary drink restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 150
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/drink
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cheap_booze_restock
+	category = "operations"
+	name = "commissary beer restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 100
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/toys_restock
+	category = "operations"
+	name = "commissary toy restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 110
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dice_cards_restock
+	category = "operations"
+	name = "commissary dice and card restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 120
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/toy_mech_restock
+	category = "operations"
+	name = "commissary toy mech restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 200
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/mech
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/comic_restock
+	category = "operations"
+	name = "commissary comic restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 25
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/comic
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/nka_comic_restock
+	category = "operations"
+	name = "commissary az'marian comic series restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 50
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/music_restock
+	category = "operations"
+	name = "commissary music restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 50
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/music
+	)
+	access = ACCESS_CARGO
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/tea_restock
+	category = "operations"
+	name = "commissary tea restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	// Bulk commissary orders are at a discount, so cheaper per tin of tea than regularly ordering tea
+	price = 75
+	items = list(
+		/obj/item/storage/box/fancy/commissary_restock/tea
+	)
+	access = ACCESS_CARGO
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

@@ -3,7 +3,7 @@
 	icon = 'icons/obj/organs/augments.dmi'
 	icon_state = "augment"
 	parent_organ = BP_CHEST
-	organ_tag = "augment"
+	organ_tag = "augment" // All augments are required to have a UNIQUE organ_tag. This is used to check organ stacking.
 	robotic = ROBOTIC_MECHANICAL
 	emp_coeff = 2
 	is_augment = TRUE
@@ -34,6 +34,9 @@
 	var/bypass_implant = FALSE
 	/// If true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
 	var/supports_limb = FALSE
+
+/obj/item/organ/internal/augment/process_initialize()
+	return
 
 /obj/item/organ/internal/augment/Initialize()
 	if(robotic == ROBOTIC_MECHANICAL)

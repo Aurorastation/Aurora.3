@@ -1,6 +1,14 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Flex,
+  Knob,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, LabeledList, Knob, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type SpaceHeaterData = {
@@ -9,29 +17,30 @@ export type SpaceHeaterData = {
   power_cell_inserted: BooleanLike;
   power_cell_charge: number;
   panel_open: BooleanLike;
-  heating_power: number;
   current_temperature: number;
   set_temperature: number;
   set_temperature_max: number;
   set_temperature_min: number;
 };
 
-export const SpaceHeater = (props, context) => {
-  const { act, data } = useBackend<SpaceHeaterData>(context);
+export const SpaceHeater = (props) => {
+  const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
-    <Window width="382" height="277">
+    <Window width={415} height={280}>
       <Window.Content>
         <Section
           title="Device Configuration"
           buttons={
             <Button
               content={data.is_on ? 'On' : 'Off'}
+              disabled={!data.power_cell_inserted}
               icon={data.is_on ? 'power-off' : 'times'}
               color={!data.is_on ? 'red' : 'green'}
               onClick={() => act('powerToggle')}
             />
-          }>
+          }
+        >
           <Box>
             <Section fill title="Power Status">
               <LabeledList>
@@ -100,7 +109,7 @@ export const SpaceHeater = (props, context) => {
                     maxValue={data.set_temperature_max}
                     step={1}
                     stepPixelSize={2}
-                    onDrag={(e, value) =>
+                    onChange={(_, value) =>
                       act('tempSet', {
                         set_temperature: value,
                       })

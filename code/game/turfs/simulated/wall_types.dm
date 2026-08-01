@@ -11,7 +11,7 @@
 	Pry off the sheath with a crowbar to expose the girder."
 
 /turf/simulated/wall/r_wall/Initialize(mapload)
-	. = ..(mapload, "plasteel","plasteel") //3strong
+	. = ..(mapload, MATERIAL_PLASTEEL,MATERIAL_PLASTEEL) //3strong
 
 /turf/simulated/wall/cult
 	icon_state = "cult"
@@ -81,6 +81,13 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_SANDSTONE)
 	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/brick
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "brick"
+
+/turf/simulated/wall/brick/Initialize(mapload)
+	. = ..(mapload, MATERIAL_BRICK)
 
 /turf/simulated/wall/ironphoron/Initialize(mapload)
 	canSmoothWith = list(src.type)

@@ -1,7 +1,3 @@
-/mob
-	var/list/default_emotes = list()
-	var/list/usable_emotes = list()
-
 /mob/proc/update_emotes(var/skip_sort)
 	usable_emotes.Cut()
 	for(var/emote in default_emotes)
@@ -63,7 +59,7 @@
 		)
 
 /mob/living/carbon/brain/can_emote()
-	return (istype(container, /obj/item/device/mmi) && ..())
+	return (istype(container, /obj/item/mmi) && ..())
 
 /mob/living/carbon/brain
 	default_emotes = list(

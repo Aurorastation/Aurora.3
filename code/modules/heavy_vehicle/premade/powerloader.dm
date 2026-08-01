@@ -27,7 +27,7 @@
 
 /mob/living/heavy_vehicle/premade/ripley/loader/tcaf
 	name = "TCAF powerloader"
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 
 /mob/living/heavy_vehicle/premade/ripley/janitorial
 	name = "janitorial power loader"
@@ -42,7 +42,7 @@
 /obj/item/mech_component/manipulators/ripley
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
-	max_damage = 150
+	max_damage = 225
 	power_use = 1000
 	melee_damage = 40
 	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
@@ -123,7 +123,7 @@
 
 /mob/living/heavy_vehicle/premade/firefighter/Initialize()
 	. = ..()
-	material = SSmaterials.get_material_by_name(MATERIAL_PLASTEEL)
+	material = GET_SINGLETON(MATERIAL_PLASTEEL)
 
 /obj/item/mech_component/sensors/firefighter/prebuild()
 	..()
@@ -144,7 +144,7 @@
 	e_body = /obj/item/mech_component/chassis/ripley/nuclear
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/ripley
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
@@ -160,7 +160,7 @@
 	gender = PLURAL
 	power_use = 50000
 	vision_flags = SEE_MOBS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 /obj/item/mech_component/sensors/combatripley/prebuild()
 	..()

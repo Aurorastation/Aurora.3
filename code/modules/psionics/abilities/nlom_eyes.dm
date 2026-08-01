@@ -41,7 +41,7 @@
 	for(var/mob/living/L in GLOB.mob_list)
 		if(L == user)
 			continue
-		if(!L.is_psi_blocked(user))
+		if(!L.is_psi_blocked(user, TRUE))
 			continue
 		if(GET_Z(L) != GET_Z(user))
 			continue
@@ -55,7 +55,7 @@
 /obj/item/spell/track/process()
 	if(!tracking)
 		icon_state = "track"
-		return
+		return PROCESS_KILL
 
 	if(!tracked)
 		icon_state = "track_unknown"

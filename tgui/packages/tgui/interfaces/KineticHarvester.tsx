@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
-import { capitalize } from '../../common/string';
+import { Box, Button, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type HarvesterData = {
@@ -12,17 +12,18 @@ export type HarvesterData = {
 };
 
 type Material = {
+  id: string;
   material: string;
   rawamount: number;
   amount: number;
   harvest: BooleanLike;
 };
 
-export const KineticHarvester = (props, context) => {
-  const { act, data } = useBackend<HarvesterData>(context);
+export const KineticHarvester = (props) => {
+  const { act, data } = useBackend<HarvesterData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.id ? (
           <HarvestWindow />
@@ -34,8 +35,8 @@ export const KineticHarvester = (props, context) => {
   );
 };
 
-export const HarvestWindow = (props, context) => {
-  const { act, data } = useBackend<HarvesterData>(context);
+export const HarvestWindow = (props) => {
+  const { act, data } = useBackend<HarvesterData>();
 
   return (
     <Section
@@ -47,9 +48,10 @@ export const HarvestWindow = (props, context) => {
           color={data.status ? 'good' : 'bad'}
           onClick={() => act('toggle_power')}
         />
-      }>
+      }
+    >
       {data.status ? (
-        data.materials && data.materials.length ? (
+        data.materials?.length ? (
           data.materials.map((material) => (
             <Section
               title={
@@ -58,17 +60,18 @@ export const HarvestWindow = (props, context) => {
                 material.rawamount +
                 ' cubic units)'
               }
-              key={material.material}
+              key={material.id}
               buttons={
                 <Button
                   content={material.harvest ? 'Stop Harvesting' : 'Harvest'}
                   icon="arrow-circle-up"
                   color={material.harvest ? 'good' : 'bad'}
                   onClick={() =>
-                    act('toggle_harvest', { toggle_harvest: material.material })
+                    act('toggle_harvest', { toggle_harvest: material.id })
                   }
                 />
-              }>
+              }
+            >
               {material.harvest ? (
                 material.amount ? (
                   <>
@@ -81,12 +84,12 @@ export const HarvestWindow = (props, context) => {
                       content="Extract"
                       icon="compress-arrows-alt"
                       onClick={() =>
-                        act('remove_mat', { remove_mat: material.material })
+                        act('remove_mat', { remove_mat: material.id })
                       }
                     />
                   </>
                 ) : (
-                  <NoticeBox warning>
+                  <NoticeBox danger>
                     Not enough cubic units harvested.
                   </NoticeBox>
                 )

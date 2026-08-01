@@ -62,10 +62,10 @@
 		r_contents = reverselist(contents)
 		to_chat(user, SPAN_NOTICE("You clip the [attacking_item] onto \the [src]."))
 
-	else if(istype(toppaper) && attacking_item.ispen())
+	else if(istype(toppaper) && attacking_item.tool_behaviour == TOOL_PEN)
 		toppaper.attackby(attacking_item, user)
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		add_pen(user)
 
 	if(ui_open)
@@ -106,7 +106,7 @@
 /obj/item/clipboard/proc/add_pen(mob/user)
 	if(!haspen)
 		var/obj/item/pen/W = user.get_active_hand()
-		if(W.ispen())
+		if(W.tool_behaviour == TOOL_PEN)
 			user.drop_from_inventory(W,src)
 			haspen = W
 			to_chat(user, SPAN_NOTICE("You slot the pen into \the [src]."))
@@ -136,7 +136,7 @@
 
 				var/obj/item/I = usr.get_active_hand()
 
-				if(I.ispen())
+				if(I.tool_behaviour == TOOL_PEN)
 					P.attackby(I, usr)
 				else if (haspen)
 					P.attackby(haspen, usr)

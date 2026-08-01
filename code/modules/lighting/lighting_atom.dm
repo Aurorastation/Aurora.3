@@ -1,123 +1,185 @@
-/atom
-	var/light_power = 1 // Intensity of the light.
-	var/light_range = 0 // Range in tiles of the light.
-	var/light_color     // Hexadecimal RGB string representing the colour of the light.
-	var/uv_intensity = 255	// How much UV light is being emitted by this object. Valid range: 0-255.
-	var/light_wedge		// The angle that the light's emission should be restricted to. null for omnidirectional.
-#ifdef ENABLE_SUNLIGHT
-	var/light_novis     // If TRUE, visibility checks will be skipped when calculating this light.
-#endif
-
-	var/tmp/datum/light_source/light // Our light source. Don't fuck with this directly unless you have a good reason!
-	var/tmp/list/light_sources       // Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
-
-// Nonesensical value for l_color default, so we can detect if it gets set to null.
-#define NONSENSICAL_VALUE -99999
 
 // The proc you should always use to set the light of this atom.
-/atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/angle = NONSENSICAL_VALUE, var/no_update = FALSE)
-	//L_PROF(src, "atom_setlight")
-	. = FALSE // don't update if nothing changed
-
+// Nonesensical value for l_color default, so we can detect if it gets set to null.
+#define NONSENSICAL_VALUE -99999
+/atom/proc/set_light(l_range, l_power, l_color = NONSENSICAL_VALUE, mask_type = null)
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
-		. = TRUE
-	if (l_power != null && light_power != l_power)
+
+	if(l_power != null && l_power != light_power)
 		light_power = l_power
 		. = TRUE
-	if (l_range != null && light_range != l_range)
+
+	if(l_range != null && l_range != light_range)
 		light_range = l_range
+		light_on = (light_range>0) ? TRUE : FALSE
 		. = TRUE
 
-	if (l_color != NONSENSICAL_VALUE && light_color != l_color)
+	if(l_color != NONSENSICAL_VALUE && l_color != light_color)
 		light_color = l_color
 		. = TRUE
 
-	if (uv != NONSENSICAL_VALUE && uv_intensity != uv)
-		set_uv(uv, no_update = TRUE)
+	if(mask_type != null && mask_type != light_mask_type)
+		light_mask_type = mask_type
 		. = TRUE
 
-	if (angle != NONSENSICAL_VALUE && light_wedge != angle)
-		light_wedge = angle
-		. = TRUE
-
-	if(!no_update && .)
+	if(.)
 		update_light()
 
-#undef NONSENSICAL_VALUE
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT, l_range, l_power, l_color)
 
-/atom/proc/set_uv(var/intensity, var/no_update)
-	//L_PROF(src, "atom_setuv")
-	if (intensity < 0 || intensity > 255)
-		intensity = min(max(intensity, 255), 0)
 
-	uv_intensity = intensity
+/atom/proc/fade_light(new_colour, time)
+	light_color = new_colour
+	if(light?.our_mask)
+		animate(light.our_mask, color = new_colour, time = time)
 
-	if (no_update)
-		return
-
-	update_light()
-
-// Will update the light (duh).
-// Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
+/// Will update the light (duh).Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
 /atom/proc/update_light()
-	SHOULD_NOT_SLEEP(TRUE)
+	set waitfor = FALSE
 
-	if (QDELING(src))
+	if(QDELETED(src))
+		return
+	if(light_system == STATIC_LIGHT)
+		static_update_light()
 		return
 
-	//L_PROF(src, "atom_update")
-
-	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
+	if((!light_power || !light_range) && light) // We won't emit light anyways, destroy the light source.
 		QDEL_NULL(light)
-	else
-		. = get_light_atom()
-
-#ifdef ENABLE_SUNLIGHT
-		if (light) // Update the light or create it if it does not exist.
-			light.update(.)
-		else if (light_novis)
-			light = new/datum/light_source/sunlight(src, .)
-		else
-			light = new/datum/light_source(src, .)
-#else
-		if (light)
-			light.update(.)
-		else
-			light = new /datum/light_source(src, .)
-#endif
-
-/atom/proc/get_light_atom()
-	if (!istype(loc, /atom/movable)) // We choose what atom should be the top atom of the light here.
-		return src
-	return loc
+		return
+	if(light && light_mask_type && (light_mask_type != light.mask_type))
+		QDEL_NULL(light)
+	if(!light) // Update the light or create it if it does not exist.
+		light = new /datum/dynamic_light_source(src, light_mask_type)
+		return
+	light.set_light(light_range, light_power, light_color)
+	light.update_position()
 
 
-// Should always be used to change the opacity of an atom.
-// It notifies (potentially) affected light sources so they can update (if needed).
-/atom/proc/set_opacity(var/new_opacity)
-	if (new_opacity == opacity)
-		return FALSE
-
-	//L_PROF(src, "atom_setopacity")
+/**
+ * Updates the atom's opacity value.
+ *
+ * This exists to act as a hook for associated behavior.
+ * It notifies (potentially) affected light sources so they can update (if needed).
+ */
+/atom/proc/set_opacity(new_opacity)
+	if(new_opacity == opacity)
+		return
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_OPACITY, new_opacity)
+	. = opacity
 
 	opacity = new_opacity
-	var/turf/T = loc
-	if (!isturf(T))
-		return FALSE
 
-	if (new_opacity == TRUE)
-		T.has_opaque_atom = TRUE
-		T.reconsider_lights()
-#ifdef AO_USE_LIGHTING_OPACITY
-		T.regenerate_ao()
-#endif
+/atom/movable/set_opacity(new_opacity)
+	. = ..()
+	if(isnull(.) || !isturf(loc))
+		return
+
+	if(opacity)
+		AddElement(/datum/element/light_blocking)
 	else
-		var/old_has_opaque_atom = T.has_opaque_atom
-		T.recalc_atom_opacity()
-		if (old_has_opaque_atom != T.has_opaque_atom)
-			T.reconsider_lights()
+		RemoveElement(/datum/element/light_blocking)
 
-	updateVisibility(src, FALSE)
 
-	return TRUE
+/turf/set_opacity(new_opacity)
+	. = ..()
+	if(isnull(.))
+		return
+	recalculate_directional_opacity()
+
+/atom/vv_edit_var(var_name, var_value)
+	switch(var_name)
+		if("light_range")
+			if(light_system != MOVABLE_LIGHT)
+				set_light(l_range = var_value)
+			else
+				set_light_range(var_value)
+			datum_flags |= DF_VAR_EDITED
+			return TRUE
+
+		if("light_power")
+			if(light_system != MOVABLE_LIGHT)
+				set_light(l_power = var_value)
+			else
+				set_light_power(var_value)
+			datum_flags |= DF_VAR_EDITED
+			return TRUE
+
+		if("light_color")
+			if(light_system != MOVABLE_LIGHT)
+				set_light(l_color = var_value)
+			else
+				set_light_color(var_value)
+			datum_flags |= DF_VAR_EDITED
+			return TRUE
+	return ..()
+
+
+/atom/proc/flash_lighting_fx(
+		_range = FLASH_LIGHT_RANGE,
+		_power = FLASH_LIGHT_POWER,
+		_color = COLOR_WHITE,
+		_duration = FLASH_LIGHT_DURATION,
+		_reset_lighting = TRUE,
+		_flash_times = 1)
+	new /obj/effect/light_flash(get_turf(src), _range, _power, _color, _duration, _flash_times)
+
+
+/obj/effect/light_flash/Initialize(mapload, _range = FLASH_LIGHT_RANGE, _power = FLASH_LIGHT_POWER, _color = COLOR_WHITE, _duration = FLASH_LIGHT_DURATION, _flash_times = 1)
+	light_range = _range
+	light_power = _power
+	light_color = _color
+	. = ..()
+	do_flashes(_flash_times, _duration)
+
+/obj/effect/light_flash/proc/do_flashes(_flash_times, _duration)
+	set waitfor = FALSE
+	for(var/i in 1 to _flash_times)
+		//Something bad happened
+		if(!(light?.our_mask))
+			break
+		light.our_mask.alpha = 255
+		animate(light.our_mask, time = _duration, easing = SINE_EASING, alpha = 0, flags = ANIMATION_END_NOW)
+		sleep(_duration) //this is extremely short so it's ok to sleep
+	qdel(src)
+
+/atom/proc/set_light_range(new_range)
+	if(new_range == light_range)
+		return
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_RANGE, new_range)
+	. = light_range
+	light_range = new_range
+
+
+/atom/proc/set_light_power(new_power)
+	if(new_power == light_power)
+		return
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_POWER, new_power)
+	. = light_power
+	light_power = new_power
+
+
+/atom/proc/set_light_color(new_color)
+	if(new_color == light_color)
+		return
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_COLOR, new_color)
+	. = light_color
+	light_color = new_color
+
+
+/atom/proc/set_light_on(new_value)
+	if(new_value == light_on)
+		return
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_ON, new_value)
+	. = light_on
+	light_on = new_value
+
+
+/// Setter for the light flags of this atom.
+/atom/proc/set_light_flags(new_value)
+	if(new_value == light_flags)
+		return
+	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_FLAGS, new_value)
+	. = light_flags
+	light_flags = new_value
+

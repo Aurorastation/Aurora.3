@@ -13,10 +13,17 @@
 GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
-	return user.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
+	return user?.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
 
 /mob/proc/default_can_use_topic(src_object)
 	return UI_CLOSE // Don't allow interaction by default.
+
+/mob/abstract/eye/freelook/aiEye/default_can_use_topic(src_object)
+	if(!isAI(owner))
+		return UI_CLOSE
+
+	var/mob/living/silicon/ai/ai = owner
+	return ai.default_can_use_topic(src_object)
 
 /mob/living/default_can_use_topic(src_object)
 	. = shared_ui_interaction(src_object)
@@ -41,8 +48,8 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 	if(. < UI_INTERACTIVE)
 		return
 
-	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
-	if(!control_disabled)
+	// The AI can interact with anything visible from its eye while wireless control is enabled.
+	if(can_use_remote_ui(src_object))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 
@@ -64,3 +71,14 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 	if(ismech(src_object))
 		return UI_INTERACTIVE
 	return ..()
+
+/mob/living/carbon/human/default_can_use_topic(src_object)
+	. = ..()
+
+	var/obj/item/organ/internal/machine/wireless_access/access_point = internal_organs_by_name[BP_WIRELESS_ACCESS]
+	if(istype(access_point))
+		// Just like robots, these IPCs can interact with anything they can see.
+		var/list/clientviewlist = getviewsize(client.view)
+		if(get_dist(src, src_object) <= min(clientviewlist[1], clientviewlist[2]))
+			return UI_INTERACTIVE
+		return UI_DISABLED // Otherwise they can keep the UI open.

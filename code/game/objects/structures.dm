@@ -4,23 +4,26 @@
 	layer = STRUCTURE_LAYER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSSTRUCTURE
+	should_use_health = TRUE
 
-	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	/// Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
+	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/climbable
-	var/breakable
 	var/parts
 	var/list/climbers
-	var/list/footstep_sound	//footstep sounds when stepped on
+	/// Footstep sounds when stepped on
+	var/list/footstep_sound
 
-	var/material/material
-	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
-
-	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
+	var/singleton/material/material
+	/// Used by some structures to determine into how many pieces they should disassemble into or be made with
+	var/build_amt = 2
+	/// Amount that pulling mobs have their movement delayed by
+	var/slowdown = 0
 
 /obj/structure/Initialize(mapload)
 	. = ..()
 	if(!isnull(material) && !istype(material))
-		material = SSmaterials.get_material_by_name(material)
+		material = SSmaterials.get_material_by_id(material)
 	if (!mapload)
 		updateVisibility(src)	// No point checking this before visualnet initializes.
 	if(climbable)
@@ -37,18 +40,34 @@
 		QUEUE_SMOOTH_NEIGHBORS(src)
 
 	climbers = null
-
+	material = null
 	return ..()
 
+/obj/structure/examine_descriptor(mob/user)
+	return "structure"
+
+/obj/structure/examine_tags(atom/source, mob/user, list/examine_list)
+	. = ..()
+	if(climbable)
+		.["climbable"] = "It can be climbed on, either by dragging your mob onto it or middle-clicking it."
+
+/obj/structure/attackby(obj/item/attacking_item, mob/user, params)
+	. = ..()
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		if(hitsound)
+			playsound(user, hitsound, attacking_item.get_clamped_volume())
+
 /obj/structure/attack_hand(mob/living/user)
-	if(breakable)
-		if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
-			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
-			attack_generic(user,1,"smashes")
-		else if(istype(user,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
-			if(H.species.can_shred(user))
-				attack_generic(user,1,"slices")
+	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
+		user.say(pick("RAAAAAAAARGH!!!", "HNNNNNNNNNGGGGGGH!!!", "GWAAAAAAAARRRHHH!!!", "NNNNNNNNGGGGGGGGHH!!!", "AAAAAAARRRGH!!!" ))
+		attack_generic(user, 25, "smashes")
+	else if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		if(H.species.can_shred(user))
+			attack_generic(user, 25, "slices")
 
 	if(LAZYLEN(climbers) && !(user in climbers))
 		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
@@ -58,25 +77,42 @@
 	return ..()
 
 /obj/structure/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if(prob(50))
+	// If this object doesn't use health for whatever reason, default to ancient ex_act() code.
+	if(!should_use_health)
+		switch(severity)
+			if(1.0)
 				qdel(src)
 				return
-		if(3.0)
-			return
+			if(2.0)
+				if(prob(50))
+					qdel(src)
+					return
+			if(3.0)
+				return
+	// If we do use health, normal atom health behavior.
+	else
+		switch(severity)
+			if(1)
+				add_damage(maxhealth)
+			if(2)
+				add_damage(maxhealth * 0.5)
+			if(3)
+				add_damage(maxhealth * 0.25)
 
 /obj/structure/proc/dismantle()
-	var/material/dismantle_material
+	var/singleton/material/dismantle_material
 	if(!get_material())
-		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
+		dismantle_material = GET_SINGLETON(MATERIAL_STEEL)
 	else
 		dismantle_material = get_material()
-	for(var/i = 1 to build_amt)
-		dismantle_material.place_sheet(loc)
+	if(should_use_health && health <= 0)
+		build_amt /= rand(2, 4) //if the structure is destroyed by damage, it will yield less materials.
+		build_amt = max(1, min(build_amt, 5)) //Bound between 5 and 1, as shards don't stack into sheets.
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_shard(loc)
+	else
+		for(var/i = 1 to build_amt)
+			dismantle_material.place_sheet(loc)
 	qdel(src)
 
 /obj/structure/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
@@ -84,7 +120,10 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	bullet_ping(hitting_projectile)
+	if(hitting_projectile.get_structure_damage() > 5)
+		bullet_ping(hitting_projectile)
+
+	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/proc/climb_on()
 
@@ -103,28 +142,24 @@
 	return FALSE
 
 /obj/structure/mouse_drop_receive(atom/dropped, mob/user, params)
-
 	var/mob/living/H = user
 	if(istype(H) && can_climb(H) && dropped == user)
 		do_climb(dropped)
-	else
-		return ..()
+	return ..()
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
 	if (!climbable)
-		to_chat(user, SPAN_WARNING("\The [src] cannot be climbed!"))
 		return FALSE
 
 	if (!can_touch(user) || (!post_climb_check && (user in climbers)))
 		return FALSE
 
 	if (!user.Adjacent(src))
-		to_chat(user, SPAN_WARNING("You must be next to \the [src] to climb it."))
 		return FALSE
 
 	var/obj/occupied = turf_is_crowded()
 	if(occupied)
-		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way of climbing this."))
 		return FALSE
 	return TRUE
 
@@ -145,7 +180,7 @@
 
 /obj/structure/proc/do_climb(var/mob/living/user)
 	if (!can_climb(user))
-		return
+		return FALSE
 
 	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
@@ -231,13 +266,8 @@
 		return 0
 	return 1
 
-/obj/structure/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
-	if(!breakable || !damage || !environment_smash)
-		return 0
-	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
-	user.do_attack_animation(src)
-	qdel(src)
-	return 1
+/obj/structure/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle()
 
 /obj/structure/get_material()
 	return material

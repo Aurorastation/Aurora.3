@@ -23,7 +23,7 @@
 	language = LANGUAGE_CULT
 	name_language = LANGUAGE_CULT
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
-	darksight = 8
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
@@ -158,7 +158,7 @@
 	default_language = LANGUAGE_GIBBERING
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious, /datum/unarmed_attack/claws/strong/zombie)
-	darksight = 8
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 
 	has_fine_manipulation = FALSE
 
@@ -198,6 +198,7 @@
 	slowdown = 1
 
 	vision_flags = DEFAULT_SIGHT
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 
 	reagent_tag = IS_UNDEAD
 
@@ -256,7 +257,7 @@
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
 
-	slowdown = -1
+	slowdown = -0.4
 	brute_mod = 1.2
 	fall_mod = 0.5
 
@@ -382,7 +383,7 @@
 
 	stamina = 80
 	sprint_speed_factor = 1.2
-	slowdown = -2
+	slowdown = -0.6
 	standing_jump_range = 5
 	natural_climbing = TRUE
 
@@ -510,7 +511,7 @@
 			if(target.reagents)
 				target.reagents.add_reagent(/singleton/reagent/toxin/hylemnomil, min(10, ZOMBIE_MAX_HYLEMNOMIL - hylemnomil_amount))
 
-		if (target.getBruteLoss() > target.maxHealth * 3)
+		if (target.getBruteLoss() > target.maxhealth * 3)
 			if (target.stat != DEAD)
 				to_chat(src,SPAN_WARNING("You've scraped \the [target] down to the bones already!."))
 			else
@@ -538,7 +539,7 @@
 
 		playsound(loc, 'sound/effects/splat.ogg', 20, 1)
 		new /obj/effect/decal/cleanable/blood/splatter(get_turf(src), target.get_blood_color())
-		if (target.getBruteLoss() > target.maxHealth*0.75)
+		if (target.getBruteLoss() > target.maxhealth*0.75)
 			if (prob(50))
 				gibs(get_turf(src), target.dna)
 				src.visible_message(SPAN_DANGER("\The [src] tears out \the [target]'s insides!"))

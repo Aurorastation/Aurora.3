@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
+import { BlockQuote, Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { capitalizeAll } from '../../common/string';
-import { BlockQuote, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type AnalyzerData = {
@@ -63,11 +63,11 @@ type Item = {
   shield_power: number;
 };
 
-export const WeaponsAnalyzer = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const WeaponsAnalyzer = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
-    <Window resizable theme="zavodskoi">
+    <Window theme="zavodskoi">
       <Window.Content scrollable>
         {data.item ? (
           <ItemWindow />
@@ -83,8 +83,8 @@ export const WeaponsAnalyzer = (props, context) => {
   );
 };
 
-export const ItemWindow = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const ItemWindow = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <Section title={data.item.name}>
@@ -140,8 +140,8 @@ export const ItemWindow = (props, context) => {
   );
 };
 
-export const GunWindow = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const GunWindow = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <>
@@ -217,8 +217,8 @@ export const GunWindow = (props, context) => {
   );
 };
 
-export const GunMods = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const GunMods = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <Section title="Modifications">
@@ -227,24 +227,48 @@ export const GunMods = (props, context) => {
           {data.gun_mods.map((mod) => (
             <Section key={mod.name} title={capitalizeAll(mod.name)}>
               <LabeledList>
-                <LabeledList.Item label="Reliability">
-                  {mod.reliability}
-                </LabeledList.Item>
-                <LabeledList.Item label="Damage Modifier">
-                  {mod.damage_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Fire Delay Modifier">
-                  {mod.fire_delay_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Shots Modifier">
-                  {mod.shots_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Burst Modifier">
-                  {mod.burst_modifier}
-                </LabeledList.Item>
-                <LabeledList.Item label="Accuracy Modifier">
-                  {mod.accuracy_modifier}
-                </LabeledList.Item>
+                {mod.reliability ? (
+                  <LabeledList.Item label="Reliability">
+                    {mod.reliability}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.damage_modifier ? (
+                  <LabeledList.Item label="Damage Modifier">
+                    {mod.damage_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.fire_delay_modifier ? (
+                  <LabeledList.Item label="Fire Delay Modifier">
+                    {mod.fire_delay_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.shots_modifier ? (
+                  <LabeledList.Item label="Shots Modifier">
+                    {mod.shots_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.burst_modifier ? (
+                  <LabeledList.Item label="Burst Modifier">
+                    {mod.burst_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
+                {mod.accuracy_modifier ? (
+                  <LabeledList.Item label="Accuracy Modifier">
+                    {mod.accuracy_modifier}
+                  </LabeledList.Item>
+                ) : (
+                  ''
+                )}
                 <LabeledList.Item label="Repair Tool">
                   {capitalizeAll(mod.repair_tool)}
                 </LabeledList.Item>
@@ -264,8 +288,8 @@ export const GunMods = (props, context) => {
   );
 };
 
-export const AssemblyWindow = (props, context) => {
-  const { act, data } = useBackend<AnalyzerData>(context);
+export const AssemblyWindow = (props) => {
+  const { act, data } = useBackend<AnalyzerData>();
 
   return (
     <>

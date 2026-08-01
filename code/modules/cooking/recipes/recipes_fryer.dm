@@ -102,6 +102,22 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //So we don't end up with a ton of potato juice
 	result = /obj/item/reagent_containers/food/snacks/fries_olympia
 
+/singleton/recipe/fried_pickles
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliced_pickle
+	)
+	result = /obj/item/reagent_containers/food/snacks/fried_pickles
+
+/singleton/recipe/poutine
+	appliance = MIX
+	reagents = list(/singleton/reagent/condiment/gravy = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fries,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/poutine
+
 //Fishy Recipes
 //==================
 /singleton/recipe/fishandchips

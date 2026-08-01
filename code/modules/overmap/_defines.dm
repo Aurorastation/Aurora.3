@@ -12,17 +12,16 @@ GLOBAL_LIST_EMPTY(map_sectors)
 /// to an instance of `/datum/map_template`.
 GLOBAL_LIST_EMPTY(map_templates)
 
-/area/overmap/
+/area/overmap
 	name = "System Map"
 	icon_state = "start"
 	requires_power = 0
 	base_turf = /turf/unsimulated/map
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 
 /turf/unsimulated/map
 	icon = 'icons/obj/overmap/overmap.dmi'
 	icon_state = "map"
-	permit_ao = FALSE
 
 /turf/unsimulated/map/edge
 	opacity = 1

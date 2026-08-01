@@ -2,7 +2,7 @@
 /obj/item/portable_map_reader
 	name = "portable map reader"
 	desc = "Displays a map of the local space, as well as any marked points of interest."
-	icon = 'icons/obj/item/device/gps.dmi'
+	icon = 'icons/obj/item/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
 	contained_sprite = TRUE
@@ -13,6 +13,8 @@
 	/// If zero/null, show the z-level of the user, otherwise show `z_override` z-level.
 	/// Set by GUI to, for example, show bottom deck of a multi-z ship while the user is on the top deck.
 	var/z_override = 0
+	/// If FALSE, do not display the Show/Hide Legend button
+	var/legend_enabled = FALSE
 
 /obj/item/portable_map_reader/Initialize()
 	..()
@@ -57,6 +59,7 @@
 
 	data["station_levels"] = connected_z_levels
 	data["z_override"] = z_override
+	data["legend_enabled"] = legend_enabled
 
 	data["pois"] = list()
 	for(var/obj/effect/landmark/minimap_poi/poi as anything in SSholomap.pois)

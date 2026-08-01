@@ -99,7 +99,7 @@
 	shell_type = /obj/item/trash/mollusc_shell/clam
 
 /obj/item/mollusc/proc/crack_shell(var/mob/user)
-	playsound(loc, /singleton/sound_category/pickaxe_sound, 40, TRUE)
+	playsound(loc, SFX_PICKAXE, 40, TRUE)
 	if(user && loc == user)
 		user.drop_from_inventory(src)
 	if(meat_type)
@@ -135,3 +135,17 @@
 	filling_color = "#FFDEFE"
 	bitesize = 6
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/hyperzine = 15, /singleton/reagent/acid/polyacid = 6)
+
+/obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
+	name = "raw psiren tentacle"
+	desc = "A long smooth tentacle. It's an off putting blue colour."
+	icon_state = "psiren_tentacle_meat"
+	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 3)
+	filling_color = "#1S7399"
+
+/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat
+	name = "raw psiren ring"
+	desc = "A ring of blue flesh."
+	icon_state = "psiren_body_meat"
+	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 3)
+	filling_color = "#1S7399"

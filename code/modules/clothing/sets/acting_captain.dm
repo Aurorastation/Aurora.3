@@ -30,5 +30,5 @@
 		/obj/item/clothing/head/acapcap = 1,
 		/obj/item/clothing/suit/acapjacket = 1,
 		/obj/item/clothing/accessory/armband/acap = 1,
-		/obj/item/device/radio/headset/heads/captain = 1
+		/obj/item/radio/headset/heads/captain = 1
 	)

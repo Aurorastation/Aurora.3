@@ -14,7 +14,7 @@
 	respawn_flag = null
 
 /obj/outfit/admin/konyang/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF
@@ -31,7 +31,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/konyang/zh/get_id_access()
-	return list(ACCESS_KONYANG_CORPORATE)
+	return list(ACCESS_PORTOFCALL_CORPORATE)
 
 /datum/ghostspawner/human/konyang_ee
 	short_name = "konyang_ee"
@@ -56,7 +56,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/konyang/ee/get_id_access()
-	return list(ACCESS_KONYANG_CORPORATE)
+	return list(ACCESS_PORTOFCALL_CORPORATE)
 
 //Police
 /datum/ghostspawner/human/konyang_cop
@@ -80,13 +80,13 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/police
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	belt = /obj/item/storage/belt/security
 	r_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel
 
 /obj/outfit/admin/konyang/cop/get_id_access()
-	return list(ACCESS_KONYANG_POLICE)
+	return list(ACCESS_PORTOFCALL_POLICE)
 
 /datum/ghostspawner/human/konyang_cop/senior
 	short_name = "konyang_senior_cop"
@@ -128,7 +128,7 @@
 
 /obj/outfit/admin/konyang/goon
 	name = "5-Cheung Thug"
-	uniform = /obj/item/clothing/pants/tan
+	uniform = /obj/item/clothing/pants/jeans
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	id = null
 	l_pocket = /obj/item/storage/wallet/random
@@ -180,7 +180,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/konyang/vendor/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_clinic
 	short_name = "konyang_clinic"
@@ -205,7 +205,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/konyang/clinic/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_pharm
 	short_name = "konyang_pharm"
@@ -230,7 +230,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/konyang/pharm/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_bar
 	short_name = "konyang_bar"
@@ -255,7 +255,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/konyang/bar/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 /datum/ghostspawner/human/konyang_utility
 	short_name = "konyang_utility"
@@ -280,7 +280,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 	back = /obj/item/storage/backpack/satchel/eng
 	belt = /obj/item/storage/belt/utility/full
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 
 /datum/ghostspawner/human/konyang_gwok
 	short_name = "konyang_gwok"
@@ -307,7 +307,7 @@
 	back = /obj/item/storage/backpack/satchel
 
 /obj/outfit/admin/konyang/gwok/get_id_access()
-	return list(ACCESS_KONYANG_VENDORS)
+	return list(ACCESS_PORTOFCALL_VENDORS)
 
 //Konyang Army Personnel - basically a pseudo-ert for if shit's going down on Point Verdant
 /datum/ghostspawner/human/konyang_army
@@ -332,7 +332,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/army
 	l_pocket = /obj/item/storage/wallet/random
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/rucksack/tan
 	id = /obj/item/card/id
@@ -346,7 +346,7 @@
 
 
 /obj/outfit/admin/konyang/army_response/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_KONYANG_POLICE, ACCESS_KONYANG_CORPORATE, ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(ACCESS_DISTRESS, ACCESS_PORTOFCALL_POLICE, ACCESS_PORTOFCALL_CORPORATE, ACCESS_PORTOFCALL_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/konyang_army/medic
 	name = "Konyang Army Medic"
@@ -368,7 +368,7 @@
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/stack/nanopaste = 1,
@@ -427,7 +427,7 @@
 	belt = /obj/item/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat/ert
 	glasses = /obj/item/clothing/glasses
-	l_ear = /obj/item/device/radio/headset/ert
+	l_ear = /obj/item/radio/headset/ert
 	id = /obj/item/card/id/zeng_hu
 	belt_contents = list(
 		/obj/item/handcuffs = 2,
@@ -436,7 +436,7 @@
 	back = null
 
 /obj/outfit/admin/corporate_solutions/get_id_access()
-	return list(ACCESS_CENT_SPECOPS, ACCESS_KONYANG_CORPORATE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(ACCESS_CENT_SPECOPS, ACCESS_PORTOFCALL_CORPORATE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/corporate_solutions/einstein
 	name = "Einstein Corporate Solutions Agent"
@@ -477,7 +477,7 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1
 	)

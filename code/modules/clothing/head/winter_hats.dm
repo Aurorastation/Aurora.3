@@ -65,8 +65,8 @@
 /obj/item/clothing/head/beanie/submariner
 	name = "submariner's beanie"
 	desc = "A design of tightly fitting beanie particularly popular among the dock workers of Europa. Favored among anyone who prides a warm head."
-	icon_state = "beaner_submariner"
-	item_state = "beaner_submariner"
+	icon_state = "beanie_submariner"
+	item_state = "beanie_submariner"
 
 /obj/item/clothing/head/beanie/submariner/random/Initialize()
 	. = ..()

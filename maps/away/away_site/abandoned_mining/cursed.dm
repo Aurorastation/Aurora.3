@@ -5,7 +5,7 @@
 	prefix = "away_site/abandoned_mining/"
 	suffix = "cursed.dmm"
 
-	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS)
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //you're not gonna have a station left alone for 2 years in the middle of inhabited space
 	spawn_weight = 1
 	spawn_cost = 1

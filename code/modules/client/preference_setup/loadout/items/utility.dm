@@ -46,14 +46,20 @@
 /datum/gear/utility/journal
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."
-	path = /obj/item/journal
+	path = /obj/item/journal/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/notepad
 	display_name = "notepad"
 	description = "A notepad for jotting down notes in meetings or interrogations."
-	path = /obj/item/journal/notepad
+	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/stickynote
+	display_name = "sticky note pad"
+	description = "A pad full of sticky notes, to stick notes to places with."
+	path = /obj/item/paper/stickynotes/pad
+	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/fountainpen
 	display_name = "fountain pen selection"
@@ -72,7 +78,7 @@
 
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
-	path = /obj/item/device/paicard
+	path = /obj/item/paicard
 
 /datum/gear/utility/classicwallet
 	display_name = "wallet"
@@ -98,17 +104,23 @@
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
-	path = /obj/item/device/taperecorder
+	path = /obj/item/taperecorder
 
 /datum/gear/utility/camera
 	display_name = "camera"
-	path = /obj/item/device/camera
+	path = /obj/item/camera
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
 	path = /obj/item/voidsuit_modkit/himeo
-	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
+
+/datum/gear/utility/newgibson_voidsuit_kit
+	display_name = "new gibsonite voidsuit kit"
+	path = /obj/item/voidsuit_modkit/newgibson
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel) //A New Gibsonite tajara origin will also need to be added here if/when one is made.
 
 // See the IPC-exclusive tab for the human variant.
 /datum/gear/utility/assunzione_kit
@@ -209,5 +221,6 @@
 	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
 	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
 	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Adhomai Vibes"] = /obj/item/music_cartridge/adhomai_vibes
 	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

@@ -21,14 +21,13 @@
 
 	charge = maxcharge
 
-	if(self_charge_percentage)
+	if(self_charge_percentage && charge < maxcharge)
 		START_PROCESSING(SSprocessing, src)
 
 	update_icon()
 
 /obj/item/cell/Destroy()
-	if(self_charge_percentage)
-		STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/cell/process(seconds_per_tick)
@@ -41,6 +40,8 @@
 		var/recharge_for_this_process = round(recharge_amount_per_second * (seconds_per_tick / 10)) // divides seconds_per_tick by 10 to turn deciseconds into seconds
 		// finally, charge the cell
 		give(recharge_for_this_process)
+	if (charge >= maxcharge)
+		return PROCESS_KILL // No need to constantly process self-charging cells that are full.
 
 /obj/item/cell/Created()
 	//Newly built cells spawn with no charge to prevent power exploits
@@ -51,13 +52,12 @@
 	return src
 
 /obj/item/cell/drain_power(var/drain_check, var/surge, var/power = 0)
-
 	if(drain_check)
 		return 1
 
 	if(charge <= 0)
 		return 0
-
+	START_PROCESSING(SSprocessing, src) // Always attempt at least one process if the battery level is ever reduced.
 	var/cell_amt = power * CELLRATE
 
 	return use(cell_amt) / CELLRATE
@@ -132,18 +132,18 @@
 
 		S.reagents.clear_reagents()
 		return
-	else if(istype(attacking_item, /obj/item/device/assembly_holder))
-		var/obj/item/device/assembly_holder/assembly = attacking_item
-		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
+	else if(istype(attacking_item, /obj/item/assembly_holder))
+		var/obj/item/assembly_holder/assembly = attacking_item
+		if (istype(assembly.a_left, /obj/item/assembly/signaler) && istype(assembly.a_right, /obj/item/assembly/signaler))
 			//TODO: Look into this bad code
 			user.drop_item()
 			user.drop_from_inventory(src)
 
-			new /obj/item/device/radiojammer/improvised(assembly, src, user)
+			new /obj/item/radiojammer/improvised(assembly, src, user)
 		else
 			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 		return
-	else if(attacking_item.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL && ishuman(user) && user.get_inactive_hand() == src)
 		if(charge < 10)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
 			return

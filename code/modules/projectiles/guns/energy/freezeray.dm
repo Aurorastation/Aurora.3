@@ -1,6 +1,6 @@
 /obj/item/gun/energy/freeze
-	name = "freeze ray gun"
-	desc = "A portable freezing ray gun designated to quickly lower temperatures."
+	name = "freeze ray"
+	desc = "A portable freezing ray designed to quickly lower temperatures."
 	icon = 'icons/obj/guns/freezeray.dmi'
 	icon_state = "icer"
 	item_state = "icer"

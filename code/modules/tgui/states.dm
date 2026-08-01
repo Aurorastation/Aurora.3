@@ -70,7 +70,7 @@
 	// Disable UIs if unconscious.
 	else if(stat)
 		return UI_DISABLED
-	// Update UIs if incapicitated but concious.
+	// Update UIs if incapicitated but conscious.
 	else if(incapacitated())
 		return UI_UPDATE
 	return UI_INTERACTIVE
@@ -86,8 +86,22 @@
 		return UI_DISABLED
 	return ..()
 
+/**
+ * Handles remote view for AIs.
+ * To open a UI, the AI needs to be able to see the source machine on cameras.
+ * If a camera is disabled while the AI is viewing a machine's UI, the UI closes.
+ */
+/mob/living/silicon/ai/proc/can_use_remote_ui(src_object)
+	if(src_object == src)
+		return TRUE
+
+	if(control_disabled || !istype(src_object, /atom))
+		return FALSE
+
+	return GLOB.cameranet.is_visible(src_object)
+
+/// Disable UIs if the object isn't installed in the borg AND the borg has a dead cell, or no cell.
 /mob/living/silicon/robot/shared_ui_interaction(src_object)
-	// Disable UIs if the object isn't installed in the borg AND the borg has a dead cell, or no cell.
 	var/atom/device = src_object
 	if((istype(device) && device.loc != src) && (!cell || cell.charge <= 0))
 		return UI_DISABLED
@@ -129,6 +143,3 @@
 
 /datum/ui_state/proc/href_list(mob/user)
 	return list()
-
-/datum/proc/nano_container()
-	return src

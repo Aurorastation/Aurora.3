@@ -9,6 +9,7 @@
 /obj/item/spell/barrier
 	name = "psionic barrier"
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 20

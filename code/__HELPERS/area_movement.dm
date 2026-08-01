@@ -110,8 +110,7 @@
 
 		for (var/thing in ST)
 			var/atom/movable/AM = thing
-			var/atom/movable/copy = DuplicateObject(AM, 1)
-			copy.forceMove(TT)
+			var/atom/movable/copy = duplicate_object(AM, TT)
 			. += copy
 
 		SSair.mark_for_update(TT)

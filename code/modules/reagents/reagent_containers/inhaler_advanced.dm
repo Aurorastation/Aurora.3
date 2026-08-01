@@ -16,7 +16,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 250)
+	matter = list(MATERIAL_STEEL = 250)
 	center_of_mass = null
 	storage_slot_sort_by_name = TRUE
 
@@ -62,7 +62,7 @@
 	return
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver() && !is_open_container())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !is_open_container())
 		to_chat(user,SPAN_NOTICE("Using \the [attacking_item], you unsecure the inhaler cartridge's lid.")) // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		return

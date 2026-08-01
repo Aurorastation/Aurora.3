@@ -27,7 +27,7 @@
 
 /area/centcom/start
 	name = "New Player Spawn"
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 	sound_environment = SOUND_ENVIRONMENT_OFF
 
 /area/centcom/evac
@@ -96,7 +96,6 @@
 	name = "Merchant Station"
 	icon_state = "merchant"
 	requires_power = 0
-	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
 	area_flags = AREA_FLAG_NO_CREW_EXPECTED

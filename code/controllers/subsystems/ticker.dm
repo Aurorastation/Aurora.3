@@ -7,9 +7,7 @@
 ///The time at which the next automatic transfer vote will be called
 GLOBAL_VAR_INIT(next_transfer_time, null)
 
-var/datum/controller/subsystem/ticker/SSticker
-
-/datum/controller/subsystem/ticker
+SUBSYSTEM_DEF(ticker)
 	// -- Subsystem stuff --
 	name = "Ticker"
 
@@ -57,7 +55,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		'sound/music/lobby/snow.ogg',
 		'sound/music/lobby/saturn.ogg',
 		'sound/music/lobby/kaaistoep.ogg',
-		'sound/music/lobby/saturn.ogg'
+		'sound/music/lobby/spatial_audio.ogg'
 	)
 
 	var/lobby_ready = FALSE
@@ -73,8 +71,10 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/total_players_ready = 0
 	var/list/ready_player_jobs
 
-/datum/controller/subsystem/ticker/New()
-	NEW_SS_GLOBAL(SSticker)
+	/// The round canonicity. Set by either admins or by the gamemode.
+	var/singleton/canonicity/round_canon
+	/// Round canon forced by admins in the lobby; prevents gamemodes from overriding.
+	var/round_canon_admin_forced = FALSE
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
@@ -439,6 +439,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			login_music = SSatlas.current_sector.lobby_tracks
 		else
 			login_music = default_lobby_tracks
+		login_music = shuffle(login_music)
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
@@ -468,18 +469,19 @@ var/datum/controller/subsystem/ticker/SSticker
 	// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
 	var/list/available_ghostroles = list()
 
-	for(var/s in SSghostroles.spawners)
-		var/datum/ghostspawner/G = SSghostroles.spawners[s]
-		if(G.enabled \
-			&& !("Antagonist" in G.tags) \
-			&& !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)) \
-			&& (G.req_perms == null) \
-		)
-			available_ghostroles |= G.name
+	if(SSatlas.current_sector?.ghostroles_enabled)
+		for(var/s in SSghostroles.spawners)
+			var/datum/ghostspawner/G = SSghostroles.spawners[s]
+			if(G.enabled \
+				&& !("Antagonist" in G.tags) \
+				&& !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)) \
+				&& (G.req_perms == null) \
+			)
+				available_ghostroles |= G.name
 
-	// Special case, to list the Merchant in case it is available at roundstart
-	if(SSjobs.type_occupations[/datum/job/merchant]?.total_positions)
-		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
+		// Special case, to list the Merchant in case it is available at roundstart
+		if(SSjobs.type_occupations[/datum/job/merchant]?.total_positions)
+			available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
 
 	if(length(available_ghostroles))
 		to_world("<br>" \
@@ -565,22 +567,20 @@ var/datum/controller/subsystem/ticker/SSticker
 		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
 
 	if(can_start != GAME_FAILURE_NONE)
-		to_world("<B>Unable to start the game mode, due to lack of available antagonists.</B> [english_list(fail_reasons,"No reason specified",". ",". ")]")
+		message_admins("<B>Unable to start the game mode, due to lack of available antagonists.</B> [english_list(fail_reasons,"No reason specified",". ",". ")]")
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
 		SSjobs.ResetOccupations()
 		if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
-			to_world("<B>Reselecting gamemode...</B>")
 			return SETUP_REATTEMPT
 		else
-			to_world("<B>Reverting to pre-game lobby.</B>")
 			return SETUP_REVOTE
 
 	var/starttime = REALTIMEOFDAY
 
 	if(hide_mode)
-		to_world("<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
+		to_world("<B>The current game mode is [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)
@@ -813,6 +813,18 @@ var/datum/controller/subsystem/ticker/SSticker
 		sites_win.open()
 		return TRUE
 	. = ..()
+
+/datum/controller/subsystem/ticker/proc/set_round_canon(canon_type, pre_game = FALSE, announce = FALSE)
+	round_canon = GET_SINGLETON(canon_type)
+	if(!istype(round_canon))
+		round_canon = GET_SINGLETON(/singleton/canonicity/limited)
+
+	if(pre_game)
+		round_canon.pre_game_setup()
+
+	if(announce)
+		var/announcement = SPAN_NOTICE("The round canonicity has been set to [SPAN_DANGER(round_canon.name)].<br> For more information, press the [round_canon.name] button in your Status panel.")
+		to_world(EXAMINE_BLOCK_ODYSSEY(FONT_LARGE(announcement)))
 
 #undef SETUP_OK
 #undef SETUP_REVOTE

@@ -1,4 +1,4 @@
-/obj/machinery/r_n_d/protolathe
+/obj/structure/machinery/r_n_d/protolathe
 	name = "protolathe"
 	desc = "An upgraded variant of a common Autolathe, this can only be operated via a nearby RnD console, but can manufacture cutting edge technology, provided it has the design and the correct materials."
 	icon_state = "protolathe"
@@ -8,7 +8,7 @@
 	active_power_usage = 25 KILO WATTS
 
 	var/max_material_storage = 100000
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
+	var/list/materials = list(MATERIAL_STEEL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
 
 	/**
 	 * A `/list` of enqueued `/datum/design` to be printed, processed in the queue
@@ -35,19 +35,23 @@
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/protolathe/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/r_n_d/protolathe/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage capacity is <b>[max_material_storage / 2000]</b> sheets")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += SPAN_NOTICE("	- The current speed increase is <b>[round((1 - (1 / production_speed)) * 100)]%</b>")
+	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
 ///Returns the total of all the stored materials
-/obj/machinery/r_n_d/protolathe/proc/TotalMaterials()
+/obj/structure/machinery/r_n_d/protolathe/proc/TotalMaterials()
+	SSmaterials.normalize_material_amounts(materials)
 	var/t = 0
 	for(var/f in materials)
 		t += materials[f]
 	return t
 
-/obj/machinery/r_n_d/protolathe/RefreshParts()
+/obj/structure/machinery/r_n_d/protolathe/RefreshParts()
 	..()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
@@ -71,10 +75,11 @@
 	production_speed = T / 2
 	update_icon()
 
-/obj/machinery/r_n_d/protolathe/dismantle()
+/obj/structure/machinery/r_n_d/protolathe/dismantle()
 	for(var/obj/I in component_parts)
 		if(istype(I, /obj/item/reagent_containers/glass/beaker))
 			reagents.trans_to_obj(I, reagents.total_volume)
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/f in materials)
 		if(materials[f] >= SHEET_MATERIAL_AMOUNT)
 			var/path = getMaterialType(f)
@@ -83,11 +88,11 @@
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
-/obj/machinery/r_n_d/protolathe/power_change()
+/obj/structure/machinery/r_n_d/protolathe/power_change()
 	. = ..()
 	update_icon()
 
-/obj/machinery/r_n_d/protolathe/update_icon()
+/obj/structure/machinery/r_n_d/protolathe/update_icon()
 	ClearOverlays()
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
@@ -99,36 +104,39 @@
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
 		AddOverlays("[icon_state]_lights_working")
 
-/obj/machinery/r_n_d/protolathe/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/r_n_d/protolathe/attackby(obj/item/attacking_item, mob/user)
+	if(user.a_intent == I_HURT)
+		return ..()
+
 	if(build_callback_timer)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
-		return 1
+		return TRUE
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		if(linked_console)
 			linked_console.linked_lathe = null
 			linked_console = null
-		return
+		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
-		return
+		return TRUE
 	if(default_part_replacement(user, attacking_item))
-		return
+		return TRUE
 	if(attacking_item.is_open_container())
-		return 1
+		return TRUE
 	if(panel_open)
 		to_chat(user, SPAN_NOTICE("You can't load \the [src] while it's opened."))
-		return 1
+		return TRUE
 	if(!linked_console)
 		to_chat(user, SPAN_NOTICE("The [src] must be linked to an R&D console first!"))
-		return 1
+		return TRUE
 	if(!istype(attacking_item, /obj/item/stack/material))
 		to_chat(user, SPAN_NOTICE("You cannot insert this item into \the [src]!"))
-		return 1
+		return TRUE
 	if(stat)
-		return 1
+		return TRUE
 
 	if(TotalMaterials() + SHEET_MATERIAL_AMOUNT > max_material_storage)
 		to_chat(user, SPAN_NOTICE("The [src]'s material bin is full. Please remove material before adding more."))
-		return 1
+		return TRUE
 
 	var/obj/item/stack/material/stack = attacking_item
 	if(!stack.default_type)
@@ -162,7 +170,7 @@
 				to_chat(user, SPAN_NOTICE("You add [amount] [stack.material.sheet_plural_name] of [stack.material.name] to \the [src]."))
 			else
 				to_chat(user, SPAN_NOTICE("You add [amount] [stack.material.sheet_singular_name] of [stack.material.name] to \the [src]."))
-			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
+			SSmaterials.add_material_amount(materials, stack.default_type, amount * SHEET_MATERIAL_AMOUNT)
 
 			//In case there's things queued up, we run the queue handler
 			handle_queue()
@@ -177,7 +185,7 @@
  *
  * * design_to_add: The design to add
  */
-/obj/machinery/r_n_d/protolathe/proc/addToQueue(datum/design/design_to_add)
+/obj/structure/machinery/r_n_d/protolathe/proc/addToQueue(datum/design/design_to_add)
 	queue += design_to_add
 
 	//Wake up, we have things to do
@@ -188,7 +196,7 @@
  *
  * * index: The index of the design to remove
  */
-/obj/machinery/r_n_d/protolathe/proc/removeFromQueue(index)
+/obj/structure/machinery/r_n_d/protolathe/proc/removeFromQueue(index)
 	queue.Cut(index, index + 1)
 
 	//Wake up, we have things to do
@@ -197,7 +205,7 @@
 /**
  * Handle the construction queue
  */
-/obj/machinery/r_n_d/protolathe/proc/handle_queue()
+/obj/structure/machinery/r_n_d/protolathe/proc/handle_queue()
 
 	//No work to do or already busy, stop
 	if(!length(queue) || build_callback_timer)
@@ -220,6 +228,8 @@
 
 	else
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: Insufficient materials: [getLackingMaterials(D)]."))
+		if(linked_console)
+			linked_console.updateUsrDialog()
 
 	update_icon()
 
@@ -231,9 +241,13 @@
  *
  * Returns `TRUE` if the design can be built, `FALSE` otherwise
  */
-/obj/machinery/r_n_d/protolathe/proc/canBuild(datum/design/design_to_check)
+/obj/structure/machinery/r_n_d/protolathe/proc/canBuild(datum/design/design_to_check)
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in design_to_check.materials)
-		if(materials[M] < design_to_check.materials[M])
+		var/material = SSmaterials.material_to_path(M, FALSE)
+		if(!material)
+			material = M
+		if((materials[material] || 0) < design_to_check.materials[M])
 			return FALSE
 
 	for(var/C in design_to_check.chemicals)
@@ -249,13 +263,15 @@
  *
  * Returns a string of the materials that are missing
  */
-/obj/machinery/r_n_d/protolathe/proc/getLackingMaterials(var/datum/design/design_to_check)
+/obj/structure/machinery/r_n_d/protolathe/proc/getLackingMaterials(var/datum/design/design_to_check)
+	SSmaterials.normalize_material_amounts(materials)
 	var/ret = ""
 	for(var/M in design_to_check.materials)
-		if(materials[M] < design_to_check.materials[M])
+		var/amount = SSmaterials.get_material_amount(materials, M)
+		if(amount < design_to_check.materials[M])
 			if(ret != "")
 				ret += ", "
-			ret += "[design_to_check.materials[M] - materials[M]] [M]"
+			ret += "[design_to_check.materials[M] - amount] [SSmaterials.material_display_name(M)]"
 	for(var/C in design_to_check.chemicals)
 		if(!reagents.has_reagent(C, design_to_check.chemicals[C]))
 			var/singleton/reagent/R = GET_SINGLETON(C)
@@ -269,7 +285,7 @@
  *
  * * design_to_build: The design to build
  */
-/obj/machinery/r_n_d/protolathe/proc/build(datum/design/design_to_build)
+/obj/structure/machinery/r_n_d/protolathe/proc/build(datum/design/design_to_build)
 	//Consume some power
 	var/power = active_power_usage
 	for(var/M in design_to_build.materials)
@@ -278,8 +294,9 @@
 	use_power_oneoff(power)
 
 	//Consume the materials
+	SSmaterials.normalize_material_amounts(materials)
 	for(var/M in design_to_build.materials)
-		materials[M] = max(0, materials[M] - design_to_build.materials[M] * mat_efficiency)
+		SSmaterials.remove_material_amount(materials, M, design_to_build.materials[M] * mat_efficiency)
 	for(var/C in design_to_build.chemicals)
 		reagents.remove_reagent(C, design_to_build.chemicals[C] * mat_efficiency)
 
@@ -292,9 +309,6 @@
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
 					new_item.matter[i] = new_item.matter[i] * mat_efficiency
-
-	if(linked_console)
-		linked_console.updateUsrDialog()
 
 	//We finished building, clear the timer
 	build_callback_timer = null

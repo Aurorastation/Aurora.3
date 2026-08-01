@@ -6,7 +6,6 @@
 	status_flags = GODMODE
 	invisibility = INVISIBILITY_OBSERVER
 	see_invisible = SEE_INVISIBLE_OBSERVER
-	layer = OBSERVER_LAYER
 	incorporeal_move = INCORPOREAL_GHOST
 	simulated = FALSE
 
@@ -46,11 +45,11 @@
 	if(!can_reenter_corpse)
 		SSodyssey.remove_storyteller(src)
 
-/mob/abstract/ghost/storyteller/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
-	if (!message)
+/mob/abstract/ghost/storyteller/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+	if (!text)
 		return
 
-	var/msg = sanitize(message)
+	var/msg = sanitize(text)
 	if(!msg)
 		return
 

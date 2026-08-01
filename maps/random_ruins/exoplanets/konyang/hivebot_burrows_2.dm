@@ -17,17 +17,16 @@
 	name = "Derelict Archaelogy Outpost"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	base_turf = /turf/simulated/floor/exoplanet/basalt/cave
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
 
-/obj/machinery/door/airlock/hatch/broken
+/obj/structure/machinery/door/airlock/hatch/broken
 	name = "Broken Hatch"
 
-/obj/machinery/door/airlock/hatch/broken/Initialize() // to make door start already broken and open
+/obj/structure/machinery/door/airlock/hatch/broken/Initialize() // to make door start already broken and open
 	. = ..()
 	p_open = 1
 	opacity = 0

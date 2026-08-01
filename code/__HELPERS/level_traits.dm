@@ -21,6 +21,8 @@ GLOBAL_VAR(station_level_z_scratch)
 			: GLOB.station_levels_cache[GLOB.station_level_z_scratch] \
 	)
 
+#define is_portofcall_level(z) SSmapping.level_trait(z, ZTRAIT_PORTOFCALL)
+
 #define is_mining_level(z) SSmapping.level_trait(z, ZTRAIT_MINING)
 
 #define is_reserved_level(z) SSmapping.level_trait(z, ZTRAIT_RESERVED)

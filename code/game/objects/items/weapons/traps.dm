@@ -11,7 +11,7 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 18750)
+	matter = list(MATERIAL_STEEL = 18750)
 	can_buckle = list(/mob/living)
 
 	update_icon_on_init = TRUE
@@ -256,7 +256,7 @@
 /obj/item/trap/punji/attack_mob(mob/living/L)
 
 	//Reveal the trap, if not already visible
-	hide(FALSE)
+	invisibility = 0
 
 	//Select a target zone
 	var/target_zone
@@ -300,7 +300,10 @@
 			//If it's a Vaurca, there's a chance the spear wouldn't go in deep enough to apply an infection
 			//You're still damaged by falling on it though, which happens above, but at least you're spared the infection
 			//Glory to your carapace
-			if(isvaurca(L) && prob(50))
+
+			//Also, don't infect robotic limbs with infections!!!!!!!!!!!
+			//Something something the certainty of steel
+			if(isvaurca(L) && prob(50) || organ.robotic == ROBOTIC_MECHANICAL)
 				return
 
 			organ.germ_level += INFECTION_LEVEL_TWO
@@ -352,6 +355,57 @@
 	deployed = TRUE
 	anchored = TRUE
 
+/obj/item/trap/punji/deployed/hidden
+	invisibility = INVISIBILITY_MAXIMUM
+
+/obj/item/trap/jagged_rock
+	name = "treacherous rock"
+	desc = "A jagged and dangerous outcropping."
+	icon = 'icons/obj/flora/rocks_grey.dmi'
+	icon_state = "basalt"
+	anchored = TRUE
+	invisibility = 0
+
+/obj/item/trap/jagged_rock/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(isliving(arrived))
+		var/mob/living/L = arrived
+		attack_mob(L)
+		update_icon()
+
+/obj/item/trap/jagged_rock/attack_mob(mob/living/L)
+
+	//Select a target zone
+	var/target_zone
+	if(L.lying)
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_L_HAND, BP_L_ARM, BP_R_HAND, BP_R_ARM)
+	else
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+
+	//Try to apply the damage
+	var/success = L.apply_damage(50, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	//Apply weakness, so the victim doesn't walk immediately back out of the trap
+	L.Weaken(10)
+
+	//If successfully applied, give the message
+	if(success)
+
+		//Give a simple message and return if it's not a human
+		if(!ishuman(L))
+			L.visible_message(SPAN_DANGER("[L] slams into \the [src]!"))
+			return
+
+		var/mob/living/carbon/human/human = L
+		var/obj/item/organ/organ = human.get_organ(target_zone)
+
+		if(isipc(L) || isrobot(L))
+			playsound(src, 'sound/weapons/smash.ogg', 100, TRUE)
+		else
+			playsound(src, 'sound/weapons/heavysmash.ogg', 100, TRUE)
+
+		human.visible_message(SPAN_DANGER("\The [human] slams into \the [src]!"),
+								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You crash on \the [src], feel your body crumble, and something sharp penetrate your [organ.name]!"))),
+								SPAN_WARNING("<b>You feel your body crumble, and something sharp penetrate your [organ.name]!</b>"))
+
 /**
  * # Animal trap
  *
@@ -365,7 +419,7 @@
 	force = 1
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 1750)
+	matter = list(MATERIAL_STEEL = 1750)
 	health = 100
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 	time_to_escape = 3 MINUTES
@@ -388,6 +442,9 @@
 
 	/// A weakref to the mob currently held inside the trap
 	var/datum/weakref/captured = null
+
+	/// TRUE while an entered signal has queued an async capture that has not finished yet.
+	var/tmp/capture_pending = FALSE
 
 /obj/item/trap/animal/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = list()
@@ -432,10 +489,19 @@
 	if(!deployed || !anchored)
 		return
 
-	if(captured) // just in case but this shouldn't happen
+	if(captured || capture_pending) // just in case but this shouldn't happen
+		return
+
+	capture_pending = TRUE
+	INVOKE_ASYNC(src, PROC_REF(capture_from_entered), arrived)
+
+/obj/item/trap/animal/proc/capture_from_entered(atom/movable/arrived)
+	if(!deployed || !anchored || captured || arrived?.loc != loc)
+		capture_pending = FALSE
 		return
 
 	capture(arrived)
+	capture_pending = FALSE
 
 /obj/item/trap/animal/proc/capture(var/atom/movable/movable_atom, var/msg = 1)
 	if(!isliving(movable_atom))
@@ -451,9 +517,14 @@
 	if(capturing_mob.loc != loc)
 		capturing_mob.forceMove(loc)
 
-	captured = WEAKREF(capturing_mob)
-	INVOKE_ASYNC(src, PROC_REF(buckle), capturing_mob)
+	var/old_layer = layer
 	layer = capturing_mob.layer + 0.1
+	if(!buckle(capturing_mob))
+		layer = old_layer
+		unbuckle()
+		return
+
+	captured = WEAKREF(capturing_mob)
 
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 
@@ -646,7 +717,7 @@
 				return
 			capture(capturing_mob)
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
@@ -662,7 +733,7 @@
 				release(user)
 				qdel(src)
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, SPAN_WARNING("There is nothing to secure \the [src] to!"))
@@ -681,18 +752,32 @@
 	else
 		..()
 
+/// Split behavior into its own proc because the original behavior only used to work on Move(), not forceMove().
+/obj/item/trap/animal/proc/sync_captured_mob()
+	if(!captured)
+		return
+
+	var/datum/M = captured.resolve()
+	if(!isliving(M))
+		captured = null
+		return
+
+	var/mob/living/L = M
+	if(buckled == L && L.buckled_to == src)
+		if(L.loc != loc)
+			L.forceMove(loc)
+	else
+		captured = null
+
 /obj/item/trap/animal/Move()
 	. = ..()
-	if(captured)
-		var/datum/M = captured.resolve()
-		if(isliving(M))
-			var/mob/living/L = M
-			if(L && buckled.buckled_to == src)
-				L.forceMove(loc)
-			else if(L)
-				captured = null
-		else
-			captured = null
+	if(.)
+		sync_captured_mob()
+
+/obj/item/trap/animal/forceMove(atom/destination)
+	. = ..()
+	if(.)
+		sync_captured_mob()
 
 /obj/item/trap/animal/attack_hand(mob/user)
 	if(user.loc == src || captured)
@@ -717,6 +802,9 @@
 			user.visible_message("[SPAN_BOLD("[user]")] successfully moves around \the [src] without triggering it.", SPAN_NOTICE("You successfully move around \the [src] without triggering it."))
 
 /obj/item/trap/animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user)
+		return ..()
+
 	if(!isliving(user) || !src.Adjacent(user))
 		return
 
@@ -775,7 +863,7 @@
 	force = 11
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 5750)
+	matter = list(MATERIAL_STEEL = 5750)
 
 	max_mob_size = MOB_SMALL
 	resources = list(/obj/item/stack/rods = 12)
@@ -794,7 +882,7 @@
 	w_class = 6
 	density = TRUE
 	origin_tech = list(TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 15750)
+	matter = list(MATERIAL_STEEL = 15750)
 
 	max_mob_size = 20
 	resources = list(/obj/item/stack/rods = 12, /obj/item/stack/material/steel = 4)
@@ -815,7 +903,7 @@
 		..()
 
 /obj/item/trap/animal/large/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, SPAN_WARNING("There is nothing to secure \the [src] to!"))
@@ -833,13 +921,16 @@
 			user.visible_message(SPAN_NOTICE("[user] [anchored ? "" : "un" ]secures \the [src]!"),
 								SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		// Unlike smaller traps, screwdriver shouldn't work on this.
 		return
 	else
 		..()
 
 /obj/item/trap/animal/large/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user)
+		return ..()
+
 	if(captured)
 		to_chat(user, SPAN_WARNING("The trap door's down, you can't get through there!"))
 		return
@@ -899,7 +990,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need at least twelve rods to complete \the [src]."))
 			return
-	else if(istype(attacking_item, /obj/item/screwdriver))
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		return
 	else
 		..()

@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -39,7 +46,7 @@ export type CargoData = {
   have_printer: BooleanLike;
   shuttle_available: BooleanLike;
   shuttle_has_arrive_time: BooleanLike;
-  shuttle_eta_minutes: number;
+  shuttle_eta_seconds: string;
   shuttle_can_launch: BooleanLike;
   shuttle_can_cancel: BooleanLike;
   shuttle_can_force: BooleanLike;
@@ -103,12 +110,12 @@ type Bounty = {
   background: string;
 };
 
-export const CargoControl = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const CargoControl = (props) => {
+  const { act, data } = useBackend<CargoData>();
   // FUCK THE WAY THESE FUCKING TOPIC CALLS WERE MADE
   // THIS BULLSHIT GAVE ME ARTHRITIS
   return (
-    <NtosWindow resizable width={1200} height={800}>
+    <NtosWindow resizable width={1200} height={800} theme="orion">
       <NtosWindow.Content scrollable>
         <Section
           title="Operations Management"
@@ -133,53 +140,74 @@ export const CargoControl = (props, context) => {
                 onClick={() => act('shuttle_force')}
               />
             </>
-          }>
+          }
+        >
+          <Box className="OrionNotice" mb={2} p={1}>
+            {data.status_message}
+          </Box>
           <Tabs>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_main' })}
-              selected={data.page === 'overview_main'}>
+              selected={data.page === 'overview_main'}
+            >
               Main
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_submitted' })}
-              selected={data.page === 'overview_submitted'}>
+              selected={data.page === 'overview_submitted'}
+            >
               Submitted
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_approved' })}
-              selected={data.page === 'overview_approved'}>
+              selected={data.page === 'overview_approved'}
+            >
               Approved
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_shipped' })}
-              selected={data.page === 'overview_shipped'}>
+              selected={data.page === 'overview_shipped'}
+            >
               Shipped
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_delivered' })}
-              selected={data.page === 'overview_delivered'}>
+              selected={data.page === 'overview_delivered'}
+            >
               Delivered
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_shipments' })}
-              selected={data.page === 'overview_shipments'}>
+              selected={data.page === 'overview_shipments'}
+            >
               Shipments
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'bounties' })}
-              selected={data.page === 'bounties'}>
+              selected={data.page === 'bounties'}
+            >
               Bounties
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'settings' })} // WHY IS IT DIFFERENT NOW? WHY AREN'T THEY ALL THE SAME FORMAT??
-              selected={data.page === 'settings'}>
+              selected={data.page === 'settings'}
+            >
               Settings
             </Tabs.Tab>
           </Tabs>
           {showAppropriateWindow(data.page)}
         </Section>
         {data.order_details && (
-          <Section title="Order Details">
+          <Section
+            title="Order Details"
+            buttons={
+              <Button
+                content="Clear Selected Order"
+                icon="times"
+                onClick={() => act('clear_order')}
+              />
+            }
+          >
             <LabeledList>
               <LabeledList.Item label="ID">
                 {data.order_details.order_id}
@@ -199,16 +227,13 @@ export const CargoControl = (props, context) => {
                   : 'Unauthorised'}
               </LabeledList.Item>
               <LabeledList.Item label="Price">
-                {data.order_details.price.toFixed(2)} 电
+                {data.order_details.price.toFixed(2)}电
               </LabeledList.Item>
               <LabeledList.Item label="Operations Expense">
-                {data.order_details.price_cargo.toFixed(2)} 电
+                {data.order_details.price_cargo.toFixed(2)}电
               </LabeledList.Item>
               <LabeledList.Item label="Personal Expense">
-                {data.order_details.price_customer.toFixed(2)} 电
-              </LabeledList.Item>
-              <LabeledList.Item label="Personal Expense">
-                {data.order_details.price_customer.toFixed(2)} 电
+                {data.order_details.price_customer.toFixed(2)}电
               </LabeledList.Item>
               <LabeledList.Item label="Ordered At">
                 {data.order_details.time_submitted}
@@ -243,10 +268,10 @@ export const CargoControl = (props, context) => {
                   <Table.Cell>Price</Table.Cell>
                 </Table.Row>
                 {data.order_details.items.map((item) => (
-                  <Table.Row key={item.name}>
+                  <Table.Row key={item.item_id}>
                     <Table.Cell>{item.name}</Table.Cell>
                     <Table.Cell>{item.supplier_name}</Table.Cell>
-                    <Table.Cell>{item.price.toFixed(2)} 电</Table.Cell>
+                    <Table.Cell>{item.price.toFixed(2)}电</Table.Cell>
                   </Table.Row>
                 ))}
               </Table>
@@ -280,21 +305,21 @@ const showAppropriateWindow = (page) => {
   }
 };
 
-export const MainWindow = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const MainWindow = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Main Window">
       <Box bold>Welcome, {data.username}.</Box>
       <LabeledList>
         <LabeledList.Item label="Operations Fund">
-          {data.cargo_money.toFixed(2)} 电
+          {data.cargo_money.toFixed(2)}电
         </LabeledList.Item>
       </LabeledList>
       {data.shuttle_has_arrive_time ? (
         <Section title="Elevator Information">
           <LabeledList>
             <LabeledList.Item label="ETA">
-              {data.shuttle_eta_minutes} minutes
+              {data.shuttle_eta_seconds}
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -305,8 +330,8 @@ export const MainWindow = (props, context) => {
   );
 };
 
-export const OverviewSubmitted = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const OverviewSubmitted = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Submitted Orders">
       <LabeledList>
@@ -320,7 +345,7 @@ export const OverviewSubmitted = (props, context) => {
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
         <LabeledList.Item label="Estimated Elevator Fee">
-          {data.order_approved_shuttle_price.toFixed(2)} 电
+          {data.order_approved_shuttle_price.toFixed(2)}电
         </LabeledList.Item>
       </LabeledList>
       <Table>
@@ -334,20 +359,21 @@ export const OverviewSubmitted = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)}电</Table.Cell>
             <Table.Cell>
               <Button
                 content="Approve"
-                color="green"
+                color="approve"
                 onClick={() =>
                   act('order_approve', {
                     order_approve: order.order_id.toString(),
                   })
                 }
               />
+
               <Button
                 content="Reject"
-                color="red"
+                color="reject"
                 onClick={() =>
                   act('order_reject', {
                     order_reject: order.order_id.toString(),
@@ -378,8 +404,8 @@ export const OverviewSubmitted = (props, context) => {
   );
 };
 
-export const OverviewApproved = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const OverviewApproved = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Approved Orders">
       <LabeledList>
@@ -393,7 +419,7 @@ export const OverviewApproved = (props, context) => {
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
         <LabeledList.Item label="Estimated Elevator Fee">
-          {data.order_approved_shuttle_price.toFixed(2)} 电
+          {data.order_approved_shuttle_price.toFixed(2)}电
         </LabeledList.Item>
       </LabeledList>
       <Table>
@@ -407,8 +433,17 @@ export const OverviewApproved = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)}电</Table.Cell>
             <Table.Cell>
+              <Button
+                content="Reject"
+                color="reject"
+                onClick={() =>
+                  act('order_reject', {
+                    order_reject: order.order_id.toString(),
+                  })
+                }
+              />
               <Button
                 content="Details"
                 onClick={() =>
@@ -433,8 +468,8 @@ export const OverviewApproved = (props, context) => {
   );
 };
 
-export const OverviewShipped = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const OverviewShipped = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Shipped Orders">
       <LabeledList>
@@ -456,7 +491,7 @@ export const OverviewShipped = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)}电</Table.Cell>
             <Table.Cell>
               <Button
                 content="Details"
@@ -482,8 +517,8 @@ export const OverviewShipped = (props, context) => {
   );
 };
 
-export const OverviewDelivered = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const OverviewDelivered = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Delivered Orders">
       <LabeledList>
@@ -505,7 +540,7 @@ export const OverviewDelivered = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)}电</Table.Cell>
             <Table.Cell>
               <Button
                 content="Details"
@@ -531,8 +566,8 @@ export const OverviewDelivered = (props, context) => {
   );
 };
 
-export const OverviewShipments = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const OverviewShipments = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Shipments Overview">
       <Table>
@@ -564,8 +599,8 @@ export const OverviewShipments = (props, context) => {
   );
 };
 
-export const Bounties = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Bounties = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section
       title="Operations Bounties"
@@ -575,7 +610,8 @@ export const Bounties = (props, context) => {
           icon="print"
           onClick={() => act('bounty_print')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>
@@ -612,14 +648,14 @@ export const Bounties = (props, context) => {
   );
 };
 
-export const Settings = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Settings = (props) => {
+  const { act, data } = useBackend<CargoData>();
   return (
     <Section title="Settings">
       <LabeledList>
         <LabeledList.Item label="Handling Fee">
           <Button
-            content={data.handling_fee}
+            content={`${data.handling_fee}%`}
             icon="edit"
             onClick={() => act('handling_fee')}
           />

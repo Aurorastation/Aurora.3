@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebotharvester"
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	blood_type = COLOR_OIL
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	melee_damage_lower = 30
@@ -12,7 +12,7 @@
 	destroy_surroundings = 0
 	wander = 0
 	ranged = 1
-	attacktext = "skewered"
+	attacktext = "skewers"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/projectile/beam/hivebot/incendiary/heavy
 	organ_names = list("head", "core", "side thruster", "harvesting array")
@@ -32,7 +32,10 @@
 	mob_size = MOB_LARGE
 	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
-	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
+
+	/// Weakref to the beacon that potentially spawned us.
+	var/datum/weakref/parent_beacon
+
 	var/turf/last_processed_turf
 	var/turf/last_prospect_target
 	var/turf/last_prospect_loc
@@ -45,26 +48,28 @@
 	psi_pingable = FALSE
 	sample_data = null
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
-	if(hivebotbeacon)
-		linked_parent = hivebotbeacon
-		linked_parent.harvester_amt ++
-	.=..()
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebotbeacon/beacon)
+	. = ..()
+	if (beacon)
+		parent_beacon = WEAKREF(beacon)
+		beacon.harvester_amt++
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
 		spark(get_turf(src), 3, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
 	..(null,"teleports away!")
-	if(linked_parent)
-		linked_parent.harvester_amt --
 	spark(get_turf(src), 3, GLOB.alldirs)
-	qdel(src)
+	QDEL_IN(src, 0)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
-	. = ..()
-	if(linked_parent)
-		linked_parent.linked_bots -= src
+	var/mob/living/simple_animal/hostile/hivebotbeacon/beacon = parent_beacon?.resolve()
+	if (beacon)
+		beacon.linked_bots.Remove(src)
+		beacon.harvester_amt--
+
+	parent_beacon = null
+	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Allow_Spacemove(var/check_drift = 0)
 	return 1
@@ -208,7 +213,7 @@
 			update_icon()
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
-				playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
+				playsound(src.loc, SFX_CROWBAR, 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()
@@ -270,8 +275,8 @@
 			busy = 0
 			continue
 
-		if((istype(O, /obj/machinery/door/firedoor) && O.density) || (istype(O, /obj/machinery/door/airlock) && O.density) || istype(O, /obj/machinery/door/blast) && O.density)
-			var/obj/machinery/door/D = O
+		if((istype(O, /obj/structure/machinery/door/firedoor) && O.density) || (istype(O, /obj/structure/machinery/door/airlock) && O.density) || istype(O, /obj/structure/machinery/door/blast) && O.density)
+			var/obj/structure/machinery/door/D = O
 			if(D.stat & BROKEN)
 				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."))
 				busy = 1
@@ -285,7 +290,7 @@
 					new /obj/item/stack/material/steel(get_turf(D))
 					qdel(D)
 				busy = 0
-			else if(istype(D, /obj/machinery/door/airlock/multi_tile))
+			else if(istype(D, /obj/structure/machinery/door/airlock/multi_tile))
 				D.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				rapid = 1

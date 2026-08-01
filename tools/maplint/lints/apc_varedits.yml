@@ -1,5 +1,5 @@
 help: "Do not edit those vars on APCs, use or make subtypes if appropriate instead."
-/obj/machinery/power/apc:
+/obj/structure/machinery/power/apc:
   banned_variables:
   - pixel_x
   - pixel_y

@@ -4,7 +4,7 @@
 	reward_low = 170
 	reward_high = 220
 	random_count = 1
-	wanted_types = list(/obj/item/device/radio/headset/headset_sec , /obj/item/device/radio/headset/heads/hos)
+	wanted_types = list(/obj/item/radio/headset/headset_sec , /obj/item/radio/headset/heads/hos)
 
 /datum/bounty/item/security/securitybelt
 	name = "Security Belt"
@@ -44,7 +44,7 @@
 	reward_high = 300
 	required_count = 2
 	random_count = 1
-	wanted_types = list(/obj/item/device/flashlight/maglight)
+	wanted_types = list(/obj/item/flashlight/maglight)
 
 /datum/bounty/item/security/handcuffs
 	name = "Handcuffs"
@@ -89,10 +89,10 @@
 	reward_high = 220
 	required_count = 4
 	random_count = 1
-	wanted_types = list(/obj/item/device/flash)
+	wanted_types = list(/obj/item/flash)
 	include_subtypes = FALSE
 
-/datum/bounty/item/security/flash/applies_to(var/obj/item/device/flash/O)
+/datum/bounty/item/security/flash/applies_to(var/obj/item/flash/O)
 	if(!..())
 		return FALSE
 	if(!istype(O))

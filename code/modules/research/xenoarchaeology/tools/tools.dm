@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Miscellaneous xenoarchaeology tools
 
-/obj/item/device/measuring_tape
+/obj/item/measuring_tape
 	name = "measuring tape"
 	desc = "A coiled metallic tape used to check dimensions and lengths."
 	icon = 'icons/obj/xenoarchaeology.dmi'

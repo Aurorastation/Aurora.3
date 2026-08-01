@@ -31,7 +31,7 @@
 			visible_message(SPAN_WARNING("\The [user] is taking a look at \the [src]'s air tank."))
 			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				var/obj/item/tank/T = internal
-				to_chat(user, SPAN_NOTICE("\The [T] has [T.air_contents.return_pressure()] kPA left."))
+				to_chat(user, SPAN_NOTICE("\The [T] has [XGM_PRESSURE(T.air_contents)] kPA left."))
 				to_chat(user, SPAN_NOTICE("The [T] is set to release [T.distribute_pressure] kPA."))
 			return TRUE
 		if("pockets")

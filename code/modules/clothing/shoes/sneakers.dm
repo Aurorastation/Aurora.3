@@ -28,7 +28,7 @@
 
 	user.drop_from_inventory(cuffs,src)
 	src.chained = cuffs
-	src.slowdown = 15
+	src.slowdown = 7.5
 	src.icon_state = "orange1"
 	src.item_state = "orange1"
 	if(ismob(src.loc))

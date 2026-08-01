@@ -79,7 +79,6 @@
 	var/list/sandals = list()
 	sandals["sandals"] = /obj/item/clothing/shoes/sandals
 	sandals["rubber clogs"] = /obj/item/clothing/shoes/sandals/clogs
-	sandals["flip flops"] = /obj/item/clothing/shoes/sandals/flipflop
 	sandals["geta"] = /obj/item/clothing/shoes/sandals/geta
 	gear_tweaks += new /datum/gear_tweak/path(sandals)
 
@@ -152,6 +151,12 @@
 	slippers["bunny slippers"] = /obj/item/clothing/shoes/slippers
 	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers/worn
 	gear_tweaks += new /datum/gear_tweak/path(slippers)
+
+/datum/gear/shoes/recolourable_slippers
+	display_name = "slippers (colourable)"
+	description = "Slippers, in a selection of colours."
+	path = /obj/item/clothing/shoes/slippers/recolourable_slippers
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/recolourable_shoes
 	display_name = "shoe selection (colourable)"

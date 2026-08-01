@@ -23,7 +23,7 @@
 	qdel(src)
 
 /obj/structure/sign/attackby(obj/item/attacking_item, mob/user) // Deconstruction.
-	if(attacking_item.isscrewdriver() && !istype(src, /obj/structure/sign/double))
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !istype(src, /obj/structure/sign/double))
 		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), SPAN_NOTICE("You start to unfasten \the [src]."))
 		if(attacking_item.use_tool(src, user, 0, volume = 50))
 			unfasten(user)
@@ -54,7 +54,7 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
-	if(attacking_item.isscrewdriver() && isturf(user.loc))
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && isturf(user.loc))
 		var/direction = tgui_input_list(user, "In which direction?", "Select Direction", list("North", "East", "South", "West", "Cancel"))
 		if(direction == "Cancel") return
 		if(QDELETED(src)) //Prevents spawning multiple new signs with queued dialogues
@@ -73,6 +73,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
+		S.icon = icon
 		S.sign_type = src.type
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
@@ -353,6 +354,11 @@
 	name = "\improper RADIATION HAZARD sign"
 	desc = "A hazard sign which reads \"RADIATION HAZARD\"."
 	icon_state = "radiation"
+
+/obj/structure/sign/radshield
+	name = "\improper RADIATION SHELTER sign"
+	desc = "A sign that gives directions towards radiation-shielded areas."
+	icon_state = "radshield_arrow"
 
 /obj/structure/sign/drop
 	name = "\improper DANGER: DROP HAZARD sign"
@@ -746,3 +752,16 @@
 	name = "Fancy Plaque"
 	desc = "Infinity Bridge."
 	desc_extended = "You're currently standing on the Infinity Bridge. This bridge is over 150 floors high!"
+
+/obj/structure/sign/floor_plaque/peoples_station
+	name = "People's Station Plaque"
+	desc = "A plaque commemorating the founding of the People's Space Station."
+
+/obj/structure/sign/floor_plaque/quarantined_outpost
+	name = "SSF Nemora plaque"
+	desc = "On the plaque's bronze surface, the old emblem of the Alliance of Sovereign Solarian Nations is engraved. Just below it, the text reads: <i>'SSF Nemora: Research Rooted in Discovery'</i>."
+	desc_extended = "At the bottom, there is an engraved text stained in dried blood that reads: <i>'Department of Colonization. Taking necessary steps today, charting the future.'</i>."
+
+/obj/structure/sign/floor_plaque/runtime
+	name = "Runtime"
+	desc = "Abandon hope all ye who enter here. May your runtimes be few and debugging sessions fruitful."

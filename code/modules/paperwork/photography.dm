@@ -9,7 +9,7 @@
 /*******
 * film *
 *******/
-/obj/item/device/camera_film
+/obj/item/camera_film
 	name = "film cartridge"
 	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
@@ -17,7 +17,7 @@
 	item_state = "electropack"
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/device/camera_film/taj_film
+/obj/item/camera_film/taj_film
 	name = "film canister"
 	icon = 'icons/obj/tajara_items.dmi'
 	desc = "A rolle of 35mm film intended for cameras of Tajaran make."
@@ -26,7 +26,7 @@
 /********
 * photo *
 ********/
-GLOBAL_VAR_INIT(photo_count, 0)
+GLOBAL_VAR_INIT(photo_count, 1)
 
 /obj/item/photo
 	name = "photo"
@@ -35,19 +35,33 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	icon_state = "photo"
 	item_state = "paper"
 	w_class = WEIGHT_CLASS_TINY
-	var/picture_desc // Who and/or what's in the picture.
+	/// Who and/or what's in the picture.
+	var/picture_desc
+	/// The photo's id
 	var/id
-	var/icon/img	//Big photo image
-	var/scribble	//Scribble on the back.
+	/// Big photo image
+	var/icon/img
+	/// Scribble on the back.
+	var/scribble
+	/// The small size of the photo used for the icon
 	var/icon/tiny
+	/// The size of the photo
 	var/photo_size = 3
+	/// The time the photo was taken
+	var/time_taken
+	/// The place the photo was taken
+	var/location_taken
+	/// Who took the photo
+	var/taken_by
+	/// The photo's name/caption
+	var/caption
 
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/photo/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(distance <= 1)
+	if(distance <= 1 || in_slide_projector(user))
 		show(user)
 		. += SPAN_NOTICE("[picture_desc]")
 	else
@@ -61,9 +75,9 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	examinate(user, src)
 
 /obj/item/photo/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/txt = sanitize( tgui_input_text(user, "What would you like to write on the back?", "Photo Writing", max_length = 128), 128 )
-		if(loc == user && user.stat == 0)
+		if((loc == user || Adjacent(user)) && user.stat == 0)
 			scribble = txt
 	..()
 
@@ -95,8 +109,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	if(surface_atom == usr || surface_atom.Adjacent(usr))
 		if(n_name)
 			name = "[initial(name)] ([n_name])"
+			caption = n_name
 		else
 			name = initial(name)
+			caption = null
 		add_fingerprint(usr)
 
 
@@ -116,7 +132,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		var/mob/M = user
 		if(!( istype(over, /atom/movable/screen) ))
 			return ..()
-		playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
+		playsound(loc, SFX_RUSTLE, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over.name)
 				if("right hand")
@@ -137,7 +153,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 /*********
 * camera *
 *********/
-/obj/item/device/camera
+/obj/item/camera
 	name = "camera"
 	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A polaroid camera."
@@ -146,7 +162,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	var/black_white = FALSE
 	var/pictures_max = 10
 	var/pictures_left = 10
@@ -155,12 +171,12 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	var/icon_off = "camera_off"
 	var/size = 3
 
-/obj/item/device/camera/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/camera/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("It has <b>[pictures_left] photos</b> left.")
 
-/obj/item/device/camera/verb/change_size()
+/obj/item/camera/verb/change_size()
 	set name = "Set Photo Focus"
 	set category = "Object"
 	set src in usr
@@ -170,10 +186,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		size = nsize
 		to_chat(usr, SPAN_NOTICE("Camera will now take [size]x[size] photos."))
 
-/obj/item/device/camera/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/camera/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/device/camera/attack_self(mob/user as mob)
+/obj/item/camera/attack_self(mob/user as mob)
 	on = !on
 	if(on)
 		src.icon_state = icon_on
@@ -182,8 +198,8 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	to_chat(user, "You switch the camera [on ? "on" : "off"].")
 	return
 
-/obj/item/device/camera/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/camera_film))
+/obj/item/camera/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/camera_film))
 		if(pictures_left)
 			to_chat(user, SPAN_NOTICE("[src] still has some film in it!"))
 			return TRUE
@@ -194,10 +210,10 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		return TRUE
 	return ..()
 
-/obj/item/device/camera/AltClick(var/mob/user)
+/obj/item/camera/AltClick(var/mob/user)
 	change_size()
 
-/obj/item/device/camera/proc/get_mobs(turf/the_turf as turf)
+/obj/item/camera/proc/get_mobs(turf/the_turf as turf)
 	var/mob_detail
 	for(var/mob/living/carbon/A in the_turf)
 		if(A.invisibility) continue
@@ -216,7 +232,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 			mob_detail += "You can also see [A] in the photo[A.health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
 	return mob_detail
 
-/obj/item/device/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+/obj/item/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
 	if(!on || !pictures_left || ismob(target.loc)) return
 	captureimage(target, user, flag)
 
@@ -230,23 +246,29 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		icon_state = icon_on
 		on = 1
 
-/obj/item/device/camera/proc/do_photo_sound()
-	playsound(loc, /singleton/sound_category/print_sound, 75, 1, -3)
+/obj/item/camera/proc/do_photo_sound()
+	playsound(loc, SFX_PRINT, 75, 1, -3)
 
-/obj/item/device/camera/detective
+/obj/item/camera/detective
 	name = "detectives camera"
 	desc = "A one use - polaroid camera."
 	pictures_left = 30
+
+// Detective cameras have build in data recording, so no need for a skill check
+/obj/item/camera/detective/record_data(mob/living/user, obj/item/photo/pic)
+	pic.time_taken = worldtime2text()
+	pic.location_taken = get_area_display_name(get_area(user))
+	pic.taken_by = user.name
 
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
 
-/obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
+/obj/item/camera/proc/captureimage(atom/target, mob/living/user, flag)
 	var/obj/item/photo/p = createpicture(get_turf(target), user, flag)
 	printpicture(user, p)
 
-/obj/item/device/camera/proc/createpicture(atom/target, mob/living/user, flag)
+/obj/item/camera/proc/createpicture(atom/target, mob/living/user, flag)
 	var/mobs = ""
 	var/list/turfs = list()
 
@@ -288,10 +310,22 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	p.pixel_x = rand(-10, 10)
 	p.pixel_y = rand(-10, 10)
 	p.photo_size = size
+	record_data(user, p)
 
 	return p
 
-/obj/item/device/camera/proc/printpicture(mob/user, obj/item/photo/p)
+/// Data recorded on photos.
+/obj/item/camera/proc/record_data(mob/living/user, obj/item/photo/pic)
+	var/forensic = GET_SKILL_LEVEL(user, FORENSICS_SKILL_COMPONENT)
+	forensic = forensic ? forensic : SKILL_LEVEL_TRAINED
+
+	// Trained people would know to add this data
+	if(forensic >= SKILL_LEVEL_FAMILIAR)
+		pic.time_taken = worldtime2text()
+		pic.location_taken = get_area_display_name(get_area(user))
+		pic.taken_by = user.name
+
+/obj/item/camera/proc/printpicture(mob/user, obj/item/photo/p)
 	p.forceMove(user.loc)
 	if(!user.get_inactive_hand())
 		user.put_in_inactive_hand(p)
@@ -314,7 +348,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 
 	return p
 
-/obj/item/device/camera/adhomai
+/obj/item/camera/adhomai
 	name = "adhomian camera"
 	icon = 'icons/obj/tajara_items.dmi'
 	desc = "A slightly antiquated camera with a large flash bulb. Still popular with Tajara all over Adhomai."
@@ -325,6 +359,6 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	icon_on = "taj_camera_on"
 	icon_off = "taj_camera_off"
 
-/obj/item/device/camera/adhomai/do_photo_sound()
+/obj/item/camera/adhomai/do_photo_sound()
 	flick("taj_camera_flash", src)
 	playsound(loc, 'sound/items/camerabulb.ogg', 75, 1, -3)

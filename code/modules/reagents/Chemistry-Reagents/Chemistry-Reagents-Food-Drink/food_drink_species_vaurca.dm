@@ -86,6 +86,7 @@
 	taste_description = "sharp tangy cheese"
 	reagent_state = SOLID
 	taste_mult = 3
+	fallback_specific_heat = 1
 
 /singleton/reagent/nakarka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()

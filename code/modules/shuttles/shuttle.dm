@@ -35,7 +35,7 @@
 	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
 
 	var/squishes = TRUE //decides whether or not things get squished when it moves.
-	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not.
+	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
@@ -63,7 +63,7 @@
 	if(src.name in SSshuttle.shuttles)
 		CRASH("A shuttle with the name '[name]' is already defined.")
 	SSshuttle.shuttles[src.name] = src
-	for(var/obj/machinery/computer/shuttle_control/SC as anything in SSshuttle.lonely_shuttle_computers)
+	for(var/obj/structure/machinery/computer/shuttle_control/SC as anything in SSshuttle.lonely_shuttle_computers)
 		if(SC.shuttle_tag == name)
 			SSshuttle.lonely_shuttle_computers -= SC
 			shuttle_computers += SC
@@ -261,16 +261,8 @@
 					TA.ChangeTurf(ceiling_type, TRUE, TRUE, TRUE)
 
 	for(var/area/sub_area in shuttle_area)
-		for(var/obj/structure/shuttle_part/part in sub_area)
-			var/turf/target_turf = get_turf(part)
-			if(part.outside_part)
-				target_turf.ChangeTurf(destination.base_turf)
-		for(var/obj/structure/window/shuttle/unique/SW in sub_area)
-			if(SW.outside_window)
-				var/turf/target_turf = get_turf(SW)
-				target_turf.ChangeTurf(destination.base_turf)
-		for(var/obj/effect/energy_field/ef in sub_area)
-			qdel(ef)
+		for(var/atom/movable/movable in sub_area)
+			movable.afterShuttleMove(destination)
 
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()
@@ -320,7 +312,7 @@
 
 /datum/shuttle/proc/set_process_state(var/new_state)
 	process_state = new_state
-	for(var/obj/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
+	for(var/obj/structure/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
 		SC.update_helmets(src)
 
 /datum/shuttle/proc/on_move_interim()

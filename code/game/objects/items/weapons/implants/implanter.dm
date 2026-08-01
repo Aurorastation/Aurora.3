@@ -6,7 +6,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
+	matter = list(MATERIAL_STEEL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
 /obj/item/implanter/New()
@@ -68,11 +68,11 @@
 /obj/item/implanter/ipc_tag
 	name = "IPC tag implanter"
 	desc = "A special implanter used for implanting synthetics with a special tag."
-	var/obj/item/organ/internal/ipc_tag/ipc_tag
+	var/obj/item/organ/internal/machine/ipc_tag/ipc_tag
 
 /obj/item/implanter/ipc_tag/Initialize()
 	. = ..()
-	ipc_tag = new /obj/item/organ/internal/ipc_tag(src)
+	ipc_tag = new /obj/item/organ/internal/machine/ipc_tag(src)
 	update_icon()
 
 /obj/item/implanter/ipc_tag/update_icon()
@@ -111,7 +111,7 @@
 	update_icon()
 
 /obj/item/implanter/ipc_tag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded."))
 			return
@@ -121,7 +121,7 @@
 		ipc_tag = null
 		update_icon()
 		return
-	if(istype(attacking_item, /obj/item/organ/internal/ipc_tag))
+	if(istype(attacking_item, /obj/item/organ/internal/machine/ipc_tag))
 		if(ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] already has an IPC tag loaded."))
 			return

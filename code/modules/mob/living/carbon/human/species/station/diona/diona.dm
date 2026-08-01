@@ -35,7 +35,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		/mob/living/carbon/proc/sample,
 	)
 	//primitive_form = "Nymph"
-	slowdown = 4
+	slowdown = 1.6
 	rarity_value = 4
 	hud_type = /datum/hud_data/diona
 	siemens_coefficient = 0.3
@@ -57,12 +57,12 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	Dionae survive primarily on off of the electromagnetic spectrum and biological matter."
 
 	organ_low_pain_message = "<b>The nymph making up our %PARTNAME% feels injured.</b>"
-	organ_med_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
-	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
+	organ_med_pain_message = "<b><font size=4>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
+	organ_high_pain_message = "<b><font size=5>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
 
 	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
-	organ_med_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% burns terribly!</font>")
-	organ_high_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
+	organ_med_burn_message = SPAN_DANGER("<font size=4>The nymph making up our %PARTNAME% burns terribly!</font>")
+	organ_high_burn_message = SPAN_DANGER("<font size=5>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
 
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
@@ -148,6 +148,8 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	tail_animation = 'icons/mob/species/diona/tail.dmi'
 	selectable_tails = list("No Tail", "Unathi Tail")
 
+	mass_modifier = REFERENCE_MASS_DIONA / REFERENCE_MASS_HUMAN
+
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
@@ -197,7 +199,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		H.adjustHalLoss(cost*0.3)
 		H.updatehealth()
 
-	if(H.getHalLoss() > (H.maxHealth*0.6))
+	if(H.getHalLoss() > (H.maxhealth*0.6))
 		var/shock = H.get_shock()
 		if(prob(shock * 2))
 			to_chat(H, SPAN_DANGER("You feel a sharp pain in your nervous system! You can't run anymore, or you might die!"))
@@ -217,7 +219,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 			if(SB)
 				break
 	if(SB)
-		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
+		SB.handle_item_insertion(new /obj/item/flashlight/survival(get_turf(H)), TRUE)
 
 /datum/species/diona/is_naturally_insulated()
 	return TRUE

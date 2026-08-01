@@ -64,7 +64,7 @@
 		/mob/living/simple_animal/corgi/fox              = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/retaliate/goat = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/commanded/dog  = TRADER_ALL,
-		/obj/item/device/dociler                         = TRADER_THIS_TYPE
+		/obj/item/dociler                         = TRADER_THIS_TYPE
 	)
 
 /datum/trader/prank_shop
@@ -107,7 +107,7 @@
 		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
-		/obj/item/gun/bang                               = TRADER_SUBTYPES_ONLY
+		/obj/item/gun/bang/deagle                               = TRADER_SUBTYPES_ONLY
 	)
 	species_bias = list(
 		ALL_DIONA_SPECIES = TRADER_BIAS_DISCOUNT
@@ -266,6 +266,7 @@
 		/obj/item/clothing/suit/storage/toggle/tajaran/wool             = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim                           = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/poncho/tajarancloak                  = TRADER_ALL,
+		/obj/item/clothing/accessory/poncho/tajarancloak/fluff                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/suit/storage/hooded/tajaran                  = TRADER_ALL,
 		/obj/item/clothing/under/tajaran/fancy			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tajaran/summer			= TRADER_THIS_TYPE,
@@ -275,7 +276,7 @@
 		/obj/item/clothing/under/tajaran/nka_noble			= TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/tajaran/nka_waistcoat			= TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/tajaran/nka_vest			= TRADER_THIS_TYPE,
-		/obj/item/clothing/under/dress/tajaran/summer			= TRADER_THIS_TYPE,
+		/obj/item/clothing/pants/skirt/tajaran			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/dress/tajaran/fancy/black		= TRADER_THIS_TYPE,
 		/obj/item/clothing/under/dress/tajaran/fancy			= TRADER_THIS_TYPE,
@@ -285,7 +286,7 @@
 		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
 		/obj/item/clothing/head/beret/tajaran/nka/officer	= TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/tajara/fancy	= TRADER_THIS_TYPE,
-		/obj/item/device/versebook/nka			= TRADER_THIS_TYPE,
+		/obj/item/versebook/nka			= TRADER_THIS_TYPE,
 		/obj/item/clothing/wrists/watch/pocketwatch/adhomai			= TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/amohda			= TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/amohda			= TRADER_THIS_TYPE,

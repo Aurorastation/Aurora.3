@@ -14,11 +14,11 @@
 #define ATM_2H		9	//Deuterium
 #define ATM_3H		10	//Tritium
 #define ATM_HE		11	//Helium
-#define ATM_B		12	//Boron
+#define ATM_3HE		12	//Helium-3
 #define ATM_SO2		13	//Sulfur Dioxide
 #define ATM_NO2		14	//Nitrogen Dioxide
 #define ATM_CL2		15	//Chlorine
-#define ATM_H2O 	16	//Steam
+#define ATM_H2O 	16	//Water vapor
 
 //--------------------------------------------
 // Omni port datum
@@ -27,7 +27,7 @@
 //  to other atmospheric objects.
 //--------------------------------------------
 /datum/omni_port
-	var/obj/machinery/atmospherics/omni/master
+	var/obj/structure/machinery/atmospherics/omni/master
 	var/dir
 	var/update = 1
 	var/mode = 0
@@ -35,16 +35,24 @@
 	var/con_lock = 0
 	var/transfer_moles = 0
 	var/datum/gas_mixture/air
-	var/obj/machinery/atmospherics/node
+	var/obj/structure/machinery/atmospherics/node
 	var/datum/pipe_network/network
 
-/datum/omni_port/New(var/obj/machinery/atmospherics/omni/M, var/direction = NORTH)
+/datum/omni_port/New(var/obj/structure/machinery/atmospherics/omni/M, var/direction = NORTH)
 	..()
 	dir = direction
 	if(istype(M))
 		master = M
 	air = new
 	air.volume = 200
+
+/datum/omni_port/Destroy(force)
+	if(node)
+		disconnect()
+		QDEL_NULL(network)
+		node = null
+	master = null
+	. = ..()
 
 /datum/omni_port/proc/connect()
 	if(node)
@@ -121,8 +129,8 @@
 			return GAS_TRITIUM
 		if(ATM_HE)
 			return GAS_HELIUM
-		if(ATM_B)
-			return GAS_BORON
+		if(ATM_3HE)
+			return GAS_HELIUMFUEL
 		if(ATM_SO2)
 			return GAS_SULFUR
 		if(ATM_NO2)
@@ -130,6 +138,6 @@
 		if(ATM_CL2)
 			return GAS_CHLORINE
 		if(ATM_H2O)
-			return GAS_STEAM
+			return GAS_WATERVAPOR
 		else
 			return null

@@ -10,12 +10,12 @@
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/industrial
 
 /datum/design/circuit/hardsuit/eva
-	name = "EVA suit central circuit Board"
+	name = "EVA Suit Central Circuit Board"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva
 
 /datum/design/circuit/hardsuit/eva/pilot
-	name = "pilot suit central circuit Board"
+	name = "Pilot Suit Central Circuit Board"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva/pilot
 

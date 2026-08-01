@@ -15,10 +15,10 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	faction = "Moghes"
 
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 	mob_size = 12
 	pixel_x = -15
@@ -61,10 +61,10 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "gored"
+	attacktext = "gores"
 	faction = "Moghes"
 
-	maxHealth = 200
+	maxhealth = 200
 	health = 200
 	mob_size = 16
 	pixel_x = -14
@@ -109,7 +109,7 @@
 	icon_state = "otzek"
 	icon_living = "otzek"
 	icon_dead = "otzek-dead"
-	maxHealth = 80
+	maxhealth = 80
 	health = 80
 	mob_size = 10
 	speak_emote = list("chuffs", "hisses", "bellows")
@@ -123,7 +123,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 	speed = -1
@@ -141,7 +141,7 @@
 	icon_living = "miervesh-1"
 	icon_dead = "miervesh-1-dead"
 	speed = -2
-	maxHealth = 30
+	maxhealth = 30
 	health = 30
 	speak_emote = list("chirps", "hisses", "croons")
 	emote_hear = list("chirps", "hisses", "croons")
@@ -154,7 +154,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "swats"
-	attacktext = "swatted"
+	attacktext = "swats"
 	flying = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes

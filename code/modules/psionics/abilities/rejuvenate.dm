@@ -10,6 +10,7 @@
 	name = "rejuvenate"
 	desc = "Blood bag who?"
 	icon_state = "mend_life"
+	item_icons = null
 	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 50

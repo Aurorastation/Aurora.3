@@ -1,5 +1,5 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 export type ShuttleControlConsoleMultiLiftData = {
@@ -14,13 +14,14 @@ export type ShuttleControlConsoleMultiLiftData = {
   can_pick: boolean;
   destination_name: string;
   destinations: string[];
+  current_location: string;
 };
 
-export const ShuttleControlConsoleMultiLift = (props, context) => {
-  const { act, data } = useBackend<ShuttleControlConsoleMultiLiftData>(context);
+export const ShuttleControlConsoleMultiLift = (props) => {
+  const { act, data } = useBackend<ShuttleControlConsoleMultiLiftData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Lift Panel">
           <Box pb={2}>{data.shuttle_status}</Box>
@@ -30,7 +31,9 @@ export const ShuttleControlConsoleMultiLift = (props, context) => {
                 <Button
                   content="Go To"
                   icon="arrow-right-to-bracket"
-                  disabled={!data.can_pick}
+                  disabled={
+                    !data.can_pick || data.current_location === destination
+                  }
                   onClick={() => act('pick', { destination: destination })}
                 />
               </LabeledList.Item>

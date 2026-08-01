@@ -20,7 +20,7 @@
 	zippolighters["fisanduhian zippo"] = /obj/item/flame/lighter/zippo/fisanduh
 	zippolighters["coalition zippo"] = /obj/item/flame/lighter/zippo/coalition
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
-	zippolighters["biesellite zippo"] = /obj/item/flame/lighter/zippo/tcfl
+	zippolighters["biesellite zippo"] = /obj/item/flame/lighter/zippo/biesel
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
 	zippolighters["san colettish zippo"] = /obj/item/flame/lighter/zippo/sancolette
 	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
@@ -39,13 +39,13 @@
 /datum/gear/drugs_meds/cigarcase
 	display_name = "cigar case"
 	path = /obj/item/storage/box/fancy/cigarettes/cigar
-	cost = 2
+	cost = 1
 
 /datum/gear/drugs_meds/cigarettes
 	display_name = "cigarette packet selection"
 	description = "A selection of cigarette packets."
 	path = /obj/item/storage/box/fancy/cigarettes
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/drugs_meds/cigarettes/New()
@@ -55,12 +55,16 @@
 	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/box/fancy/cigarettes
 	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dromedaryco
 	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nicotine
-	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
-	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
-	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
+
+	cigarettes["Labourer's Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
+	cigarettes["Shastar List'ya cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
+	cigarettes["Gato Royales menthol cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
+
 	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
 	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
+
 	cigarettes["Natural Vysokan Soothsayer oracle cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/oracle
+
 	cigarettes["Ha'zana Corsair Afterburners cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/koko
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
@@ -68,7 +72,7 @@
 	display_name = "chewing tobacco selection"
 	description = "A selection of chewing tobacco."
 	path = /obj/item/storage/chewables/tobacco
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/drugs_meds/chew/New()
@@ -81,13 +85,14 @@
 	chews["Weibi's Breeze chewing tobacco"] = /obj/item/storage/chewables/tobacco/dyn
 	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
 	chews["Ha'zana chewing koko"] = /obj/item/storage/chewables/tobacco/koko
+	chews["tin of solar salve"] = /obj/item/storage/chewables/solar_salve
 	gear_tweaks += new /datum/gear_tweak/path(chews)
 
 /datum/gear/drugs_meds/leaves
 	display_name = "smokable leaf selection"
 	description = "A selection of smokable leaves."
 	path = /obj/item/storage/chewables/rollable
-	cost = 2
+	cost = 1
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/drugs_meds/leaves/New()
@@ -209,3 +214,16 @@
 	legal_rec["Wulumunusha extract bottle"] = /obj/item/reagent_containers/food/condiment/wulumunusha
 	legal_rec["Ambrosia extract bottle"] = /obj/item/reagent_containers/food/condiment/ambrosia
 	gear_tweaks += new /datum/gear_tweak/path(legal_rec)
+
+/datum/gear/drugs_meds/psi_pills
+	display_name = "psi-protect pill selection"
+	description = "Select from the different kinds of YomiGenetics Psi-protect pills, used to protect against Acute Debilitating Psionic Interference and to treat other psionic related conditions such as psionic echoes."
+	path = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+
+/datum/gear/drugs_meds/psi_pills/New()
+	..()
+	var/list/psipills = list()
+	psipills["Psi-protect Broad-Use pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap
+	psipills["Psi-protect Personalized pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+	psipills["Psi-protect Personalized Gold pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
+	gear_tweaks += new /datum/gear_tweak/path(psipills)

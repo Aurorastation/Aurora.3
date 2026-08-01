@@ -6,7 +6,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -65,7 +65,7 @@
 	},
 /area/ouerea_farm)
 "dO" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass{
 	temperature = 298.15
 	},
@@ -92,7 +92,7 @@
 /area/ouerea_farm)
 "gx" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Living Quarters"
 	},
 /turf/simulated/floor/tiled{
@@ -110,7 +110,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -175,7 +175,7 @@
 /obj/item/clothing/under/unathi,
 /obj/item/clothing/under/unathi/zozo,
 /obj/item/clothing/under/unathi/zozo,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -203,7 +203,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -231,7 +231,7 @@
 	},
 /area/ouerea_farm)
 "zj" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
@@ -369,13 +369,13 @@
 /obj/item/material/hatchet,
 /obj/item/material/hatchet,
 /obj/item/material/hatchet,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/machinery/light{
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -390,7 +390,7 @@
 /area/ouerea_farm)
 "IP" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -444,7 +444,7 @@
 /area/ouerea_farm)
 "Qi" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
@@ -474,9 +474,9 @@
 /obj/item/material/minihoe,
 /obj/item/material/minihoe,
 /obj/item/material/minihoe,
-/obj/item/device/analyzer/plant_analyzer,
-/obj/item/device/analyzer/plant_analyzer,
-/obj/item/device/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
+/obj/item/analyzer/plant_analyzer,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -500,7 +500,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/vending/hydronutrients/xenobotany,
+/obj/structure/machinery/vending/hydronutrients/xenobotany,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -509,7 +509,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled{
@@ -534,8 +534,8 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/machinery/vending/hydroseeds,
-/obj/machinery/light{
+/obj/structure/machinery/vending/hydroseeds,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -543,7 +543,7 @@
 	},
 /area/ouerea_farm)
 "UQ" = (
-/obj/machinery/door/airlock/glass_service{
+/obj/structure/machinery/door/airlock/glass_service{
 	name = "Storage and Habitation"
 	},
 /turf/simulated/floor/tiled{
@@ -561,7 +561,7 @@
 /area/ouerea_farm)
 "VI" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/bookcase/libraryspawn/fiction,

@@ -1,5 +1,5 @@
 
-/obj/machinery/light_construct
+/obj/structure/machinery/light_construct
 	name = "light fixture frame"
 	desc = "A light fixture under construction."
 	icon = 'icons/obj/machinery/light.dmi'
@@ -9,11 +9,11 @@
 	var/stage = 1
 	var/fixture_type = "tube"
 	var/sheets_refunded = 2
-	var/obj/machinery/light/newlight = null
+	var/obj/structure/machinery/light/newlight = null
 	var/obj/item/cell/cell
 	var/cell_connectors = TRUE
 
-/obj/machinery/light_construct/Initialize()
+/obj/structure/machinery/light_construct/Initialize()
 	. = ..()
 	if (fixture_type == "bulb")
 		icon_state = "bulb-construct-stage1"
@@ -24,11 +24,11 @@
 	if (fixture_type == "floorlight")
 		icon_state = "floortube-construct-stage1"
 
-/obj/machinery/light_construct/Destroy()
+/obj/structure/machinery/light_construct/Destroy()
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/light_construct/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/light_construct/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		switch(stage)
@@ -47,9 +47,9 @@
 		else
 			. += SPAN_WARNING("This casing doesn't support a backup power cell.")
 
-/obj/machinery/light_construct/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/light_construct/attackby(obj/item/attacking_item, mob/user)
 	add_fingerprint(user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		switch(stage)
 			if(1)
 				to_chat(user, SPAN_NOTICE("You begin taking \the [src] apart..."))
@@ -69,7 +69,7 @@
 				to_chat(user, SPAN_WARNING("You have to unscrew the case first."))
 				return
 
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(stage != 2)
 			return
 		stage = 1
@@ -91,7 +91,7 @@
 		playsound(get_turf(src), 'sound/items/Wirecutter.ogg', 100, TRUE)
 		return
 
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		if(stage != 1)
 			return
 		var/obj/item/stack/cable_coil/coil = attacking_item
@@ -112,7 +112,7 @@
 									SPAN_NOTICE("You add wires to \the [src]."))
 		return
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(stage == 2)
 			switch(fixture_type)
 				if("tube")
@@ -133,15 +133,15 @@
 
 			switch(fixture_type)
 				if("tube")
-					newlight = new /obj/machinery/light/built(get_turf(src))
+					newlight = new /obj/structure/machinery/light/built(get_turf(src))
 				if("bulb")
-					newlight = new /obj/machinery/light/small/built(get_turf(src))
+					newlight = new /obj/structure/machinery/light/small/built(get_turf(src))
 				if("spotlight")
-					newlight = new /obj/machinery/light/spot/built(get_turf(src))
+					newlight = new /obj/structure/machinery/light/spot/built(get_turf(src))
 				if("floorbulb")
-					newlight = new /obj/machinery/light/small/floor/built(get_turf(src))
+					newlight = new /obj/structure/machinery/light/small/floor/built(get_turf(src))
 				if("floorlight")
-					newlight = new /obj/machinery/light/floor/built(get_turf(src))
+					newlight = new /obj/structure/machinery/light/floor/built(get_turf(src))
 
 			newlight.dir = src.dir
 			if(cell)
@@ -173,7 +173,7 @@
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
 		return
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!cell_connectors)
 			to_chat(user, SPAN_WARNING("\The [src] does not have a power cell connector."))
 			return
@@ -190,7 +190,7 @@
 		return
 	..()
 
-/obj/machinery/light_construct/small
+/obj/structure/machinery/light_construct/small
 	name = "small light fixture frame"
 	desc = "A small light fixture under construction."
 	icon = 'icons/obj/machinery/light.dmi'
@@ -200,7 +200,7 @@
 	fixture_type = "bulb"
 	sheets_refunded = 1
 
-/obj/machinery/light_construct/spot
+/obj/structure/machinery/light_construct/spot
 	name = "spotlight fixture frame"
 	desc = "A spotlight fixture under construction."
 	icon = 'icons/obj/machinery/light.dmi'
@@ -210,7 +210,7 @@
 	fixture_type = "spotlight"
 	sheets_refunded = 3
 
-/obj/machinery/light_construct/small/floor
+/obj/structure/machinery/light_construct/small/floor
 	name = "small floor light fixture frame"
 	desc = "A small floor light fixture under construction."
 	icon = 'icons/obj/machinery/light.dmi'
@@ -221,7 +221,7 @@
 	fixture_type = "floorbulb"
 	sheets_refunded = 1
 
-/obj/machinery/light_construct/floor
+/obj/structure/machinery/light_construct/floor
 	name = "floor light fixture frame"
 	desc = "A floor light fixture under construction."
 	icon = 'icons/obj/machinery/light.dmi'

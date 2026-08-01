@@ -23,7 +23,7 @@
 	hunger_enabled = TRUE
 	canbrush = TRUE
 
-	maxHealth = 30
+	maxhealth = 30
 	health = 30
 
 	can_be_milked = TRUE
@@ -146,7 +146,7 @@
 			current_size = BABY_SCHLORRGO
 			max_nutrition = 100
 			nutrition_threshold = 80
-			maxHealth = 30
+			maxhealth = 30
 			health = 30
 			mob_size = MOB_TINY
 			meat_amount = 1
@@ -163,7 +163,7 @@
 			current_size = NORMAL_SCHLORRGO
 			max_nutrition = 200
 			nutrition_threshold = 150
-			maxHealth = 50
+			maxhealth = 50
 			health = 50
 			mob_size = MOB_SMALL
 			meat_amount = 3
@@ -180,7 +180,7 @@
 			current_size = FAT_SCHLORRGO
 			max_nutrition = 400
 			nutrition_threshold = 300
-			maxHealth = 100
+			maxhealth = 100
 			health = 100
 			mob_size = MOB_MEDIUM
 			meat_amount = 6
@@ -198,7 +198,7 @@
 			current_size = WIDE_SCHLORRGO
 			max_nutrition = 1000
 			nutrition_threshold = 800
-			maxHealth = 250
+			maxhealth = 250
 			health = 250
 			mob_size = MOB_LARGE
 			meat_amount = 12
@@ -209,7 +209,7 @@
 			response_help = "rubs [name]'s belly"
 			melee_damage_lower = 15
 			melee_damage_upper = 15
-			attacktext = "crushed"
+			attacktext = "crushes"
 			environment_smash = 1
 			resistance = 2
 			mob_swap_flags = HUMAN|ROBOT
@@ -225,7 +225,7 @@
 			desc = "A fat creature native to the world of Hro'zamal. This one has been immobilized by its massive weight."
 			current_size = COLOSSAL_SCHLORRGO
 			max_nutrition = 1500
-			maxHealth = 450
+			maxhealth = 450
 			health = 450
 			mob_size = MOB_LARGE
 			meat_amount = 25
@@ -290,7 +290,7 @@
 
 	hunger_enabled = FALSE
 
-	maxHealth = 80
+	maxhealth = 80
 	health = 80
 
 	can_be_milked = FALSE
@@ -338,12 +338,12 @@
 
 	faction = "PRA" // Evil PRA Machine
 
-	maxHealth = 80
+	maxhealth = 80
 	health = 80
 
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attacktext = "sawed"
+	attacktext = "saws"
 	attack_sound = 'sound/weapons/saw/circsawhit.ogg'
 
 	mob_size = MOB_SMALL

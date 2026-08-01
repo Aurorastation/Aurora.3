@@ -12,7 +12,6 @@
 
 // Movable flags.
 #define ZMM_IGNORE 1	//! Do not copy this movable.
-#define ZMM_MANGLE_PLANES  2	//! Check this movable's overlays/underlays for explicit plane use and mangle for compatibility with Z-Mimic. If you're using emissive overlays, you probably should be using this flag. Expensive, only use if necessary.
 
 // Convenience flag.
 #define ZM_MIMIC_DEFAULTS (ZM_MIMIC_BELOW)
@@ -66,6 +65,11 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 ///Shuttle transition will delete this.
 #define MOVABLE_FLAG_DEL_SHUTTLE FLAG(3)
 
+// Atom flags
+
+/// Use when this shouldn't be obscured by large icons.
+#define CRITICAL_ATOM FLAG(20)
+
 // Obj flags
 
 /// Can this object be rotated?
@@ -109,3 +113,6 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 #define ITEM_FLAG_NO_MOVE FLAG(12)
 /// Can be used for surgery, giving the "You're not sure what you can do with this." message if no surgery is available.
 #define ITEM_FLAG_SURGERY FLAG(13)
+
+///All the cardinal direction bitflags.
+#define ALL_CARDINALS (NORTH|SOUTH|EAST|WEST)

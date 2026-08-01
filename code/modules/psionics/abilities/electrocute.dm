@@ -9,6 +9,7 @@
 /obj/item/spell/electrocute
 	name = "electrocute"
 	icon_state = "chain_lightning"
+	item_icons = null
 	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10

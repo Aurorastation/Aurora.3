@@ -39,18 +39,18 @@
 	to_chat(src, SPAN_DANGER("You can use 'say' to speak with them and the rest of the hivemind."))
 	to_chat(src, SPAN_DANGER("What you say can only be heard by [ling] and the other members of their local hivemind."))
 
-/mob/abstract/hivemind/say(message)
-	message = sanitize_text(message)
+/mob/abstract/hivemind/say(text)
+	text = sanitize_text(text)
 
-	if(!message)
+	if(!text)
 		return
 
-	log_say("[changeling_mob] Hivemind/[src.key] : [message]")
+	log_say("[changeling_mob] Hivemind/[src.key] : [text]")
 
 	if(src.client?.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
 		to_chat(src, SPAN_WARNING("You cannot talk. (Admin Muted)"))
 		return
-	relay_hivemind(changeling_message_process(message), changeling_mob)
+	relay_hivemind(changeling_message_process(text), changeling_mob)
 
 /mob/abstract/hivemind/emote()
 	to_chat(src, SPAN_WARNING("You cannot emote."))

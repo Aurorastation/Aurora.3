@@ -77,6 +77,7 @@
 /area/ship/freebooter_ship/exterior
 	name = "Freebooter Ship Exterior"
 	requires_power = FALSE
+	needs_starlight = TRUE
 
 /area/shuttle/freebooter_shuttle
 	name = "Freebooter Shuttle"

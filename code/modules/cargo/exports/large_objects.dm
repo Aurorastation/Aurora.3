@@ -11,7 +11,7 @@
 		. += " Thanks for participating in NanoTrasen Crates Recycling Program."
 
 /datum/export/large/crate/wooden
-	cost = 25
+	cost = 15
 	unit_name = "large wooden crate"
 	export_types = list(/obj/structure/closet/crate/large)
 	exclude_types = list()
@@ -62,12 +62,12 @@
 /datum/export/large/emitter
 	cost = 200
 	unit_name = "emitter"
-	export_types = list(/obj/machinery/power/emitter)
+	export_types = list(/obj/structure/machinery/power/emitter)
 
 /datum/export/large/field_generator
 	cost = 200
 	unit_name = "field generator"
-	export_types = list(/obj/machinery/field_generator)
+	export_types = list(/obj/structure/machinery/field_generator)
 
 /datum/export/large/pa
 	cost = 300
@@ -77,26 +77,26 @@
 /datum/export/large/pa/controls
 	cost = 500
 	unit_name = "particle accelerator control console"
-	export_types = list(/obj/machinery/particle_accelerator/control_box)
+	export_types = list(/obj/structure/machinery/particle_accelerator/control_box)
 
 /datum/export/large/pipedispenser
 	cost = 500
 	unit_name = "pipe dispenser"
-	export_types = list(/obj/machinery/pipedispenser)
+	export_types = list(/obj/structure/machinery/pipedispenser)
 
 /datum/export/large/supermatter
 	cost = 9000
 	unit_name = "supermatter shard"
-	export_types = list(/obj/machinery/power/supermatter)
+	export_types = list(/obj/structure/machinery/power/supermatter)
 
 
 /datum/export/large/iv
 	cost = 50
 	unit_name = "iv drip"
-	export_types = list(/obj/machinery/iv_drip)
+	export_types = list(/obj/structure/machinery/iv_drip)
 
 /datum/export/large/barrier
 	cost = 25
 	unit_name = "security barrier"
-	export_types = list(/obj/machinery/deployable/barrier)
+	export_types = list(/obj/structure/machinery/deployable/barrier)
 

@@ -24,3 +24,10 @@
 
 //macros
 #define IS_ORGAN_FULLY_OPEN affected.open == ((affected.encased || affected.robotic) ? ORGAN_ENCASED_RETRACTED : ORGAN_OPEN_RETRACTED)
+
+//skill difficulty ratings
+#define SURGERY_DIFFICULTY_TRIVIAL 10
+#define SURGERY_DIFFICULTY_EASY 15
+#define SURGERY_DIFFICULTY_MEDIUM 20
+#define SURGERY_DIFFICULTY_HARD 25
+#define SURGERY_DIFFICULTY_EXTREME 33

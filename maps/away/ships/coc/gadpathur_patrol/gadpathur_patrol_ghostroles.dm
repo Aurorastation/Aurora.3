@@ -31,7 +31,7 @@
 
 	id = /obj/item/card/id
 
-	l_ear = /obj/item/device/radio/headset/ship/coalition_navy
+	l_ear = /obj/item/radio/headset/ship/coalition_navy
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 

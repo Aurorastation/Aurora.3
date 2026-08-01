@@ -1,4 +1,4 @@
-// Attempts to install the hardware into appropriate slot.
+/// Attempts to install the hardware into appropriate slot.
 /obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = FALSE)
 	// "USB" flash drive.
 	if(istype(H, /obj/item/computer_hardware/hard_drive/portable))
@@ -61,7 +61,7 @@
 			return
 		found = TRUE
 		tesla_link = H
-	else if(istype(H, /obj/item/device/paicard))
+	else if(istype(H, /obj/item/paicard))
 		if(personal_ai)
 			to_chat(user, SPAN_WARNING("\The [src]'s personal AI slot is already occupied by \the [personal_ai]."))
 			return
@@ -78,14 +78,27 @@
 			return
 		found = TRUE
 		flashlight = H
+	else if(istype(H, /obj/item/computer_hardware/universal_port))
+		if(universal_port)
+			to_chat(user, SPAN_WARNING("\The [src]'s port slot is already occupied by \the [universal_port]."))
+			return
+		found = TRUE
+		universal_port = H
+	else if(istype(H, /obj/item/computer_hardware/access_cable_dongle))
+		if(access_cable_dongle)
+			to_chat(user, SPAN_WARNING("\The [src]'s port slot is already occupied by \the [access_cable_dongle]."))
+			return
+		found = TRUE
+		access_cable_dongle = H
 	if(found)
 		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
 		H.parent_computer = src
 		user.drop_from_inventory(H, src)
 		update_icon()
 
-// Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
-/obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = FALSE, var/critical = FALSE, var/put_in_hands = FALSE)
+/// Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
+/// Eject_id should only ever be made false if we're trying to delete the whole thing, such as when using cryo to leave the round.
+/obj/item/modular_computer/proc/uninstall_component(mob/living/user, obj/item/computer_hardware/H, found = FALSE, critical = FALSE, put_in_hands = FALSE, eject_id = TRUE)
 	if(portable_drive == H)
 		portable_drive = null
 		found = TRUE
@@ -100,6 +113,8 @@
 		nano_printer = null
 		found = TRUE
 	else if(card_slot == H)
+		if(eject_id)
+			astype(H, /obj/item/computer_hardware/card_slot)?.eject_id()
 		card_slot = null
 		found = TRUE
 	else if(battery_module == H)
@@ -128,6 +143,12 @@
 		personal_ai.pai.parent_computer = null
 		update_icon()
 		personal_ai = null
+	else if(universal_port == H)
+		universal_port = null
+		found = TRUE
+	else if(access_cable_dongle == H)
+		access_cable_dongle = null
+		found = TRUE
 
 	if(found)
 		if(user)
@@ -141,7 +162,7 @@
 			to_chat(user, SPAN_WARNING("\The [src]'s screen freezes for few seconds and then displays, \"HARDWARE ERROR: Critical component disconnected. Please verify component connection and reboot the device. If the problem persists contact technical support for assistance.\"."))
 			shutdown_computer()
 
-// Checks all hardware pieces to determine if name matches, if yes, returns the hardware piece, otherwise returns null
+/// Checks all hardware pieces to determine if name matches, if yes, returns the hardware piece, otherwise returns null
 /obj/item/modular_computer/proc/find_hardware_by_name(var/name)
 	if(portable_drive && (initial(portable_drive.name) == name))
 		return portable_drive
@@ -165,9 +186,13 @@
 		return tesla_link
 	if(flashlight && initial(flashlight.name) == name)
 		return flashlight
+	if(universal_port && initial(universal_port.name) == name)
+		return universal_port
+	if(access_cable_dongle && initial(access_cable_dongle.name) == name)
+		return access_cable_dongle
 	return null
 
-// Returns list of all components
+/// Returns list of all components
 /obj/item/modular_computer/proc/get_all_components()
 	var/list/all_components = list()
 	if(hard_drive)
@@ -192,4 +217,8 @@
 		all_components.Add(tesla_link)
 	if(flashlight)
 		all_components.Add(flashlight)
+	if(universal_port)
+		all_components.Add(universal_port)
+	if(access_cable_dongle)
+		all_components.Add(access_cable_dongle)
 	return all_components

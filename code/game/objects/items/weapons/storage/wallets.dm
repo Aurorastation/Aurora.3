@@ -16,7 +16,7 @@
 		/obj/item/clothing/accessory/badge,
 		/obj/item/clothing/accessory/locket,
 		/obj/item/clothing/ring,
-		/obj/item/device/flashlight/pen,
+		/obj/item/flashlight/pen,
 		/obj/item/seeds,
 		/obj/item/coin,
 		/obj/item/stack/dice,
@@ -32,8 +32,8 @@
 		/obj/item/photo,
 		/obj/item/reagent_containers/pill,
 		/obj/item/stamp,
-		/obj/item/device/paicard,
-		/obj/item/device/encryptionkey,
+		/obj/item/paicard,
+		/obj/item/encryptionkey,
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
 		/obj/item/sample,
@@ -150,8 +150,8 @@
 		/obj/item/paper_bundle,
 		/obj/item/pen,
 		/obj/item/photo)
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 
 	var/front_id_overlay_state
 	var/image/plastic_film

@@ -8,12 +8,12 @@
 	icon_gib = "brownbear_gib"
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 
 	density = TRUE
 	belongs_to_station = FALSE
 
-	attacktext = "swatted"
+	attacktext = "swats"
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	resist_mod = 5
@@ -38,6 +38,8 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
 	meat_amount = 5
+
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 /mob/living/simple_animal/hostile/commanded/bear/hit_with_weapon(obj/item/O, mob/living/user, var/effective_force, var/hit_zone)
 	. = ..()

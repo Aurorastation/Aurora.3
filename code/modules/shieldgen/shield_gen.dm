@@ -5,49 +5,73 @@
 //heavy explosion range will do 3 renwick's damage
 //explosion damage is cumulative. if a tile is in range of light, medium and heavy damage, it will take a hit from all three
 
-/obj/machinery/shield_gen
+/obj/structure/machinery/shield_gen
 	name = "bubble shield generator"
 	desc = "Machine that generates an impenetrable field of energy when activated."
 	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "generator0"
-	var/active = FALSE
-	var/field_radius = 3
-	var/max_field_radius = 100
-	var/list/field
 	density = TRUE
-	var/locked = FALSE
-	var/average_field_strength = 0
-	var/strengthen_rate = 0.2
-	var/max_strengthen_rate = 0.5	//the maximum rate that the generator can increase the average field strength
-	var/dissipation_rate = 0.030	//the percentage of the shield strength that needs to be replaced each second
-	var/min_dissipation = 0.01		//will dissipate by at least this rate in renwicks per field tile (otherwise field would never dissipate completely as dissipation is a percentage)
-	var/powered = FALSE
-	var/check_powered = TRUE
-	var/obj/machinery/shield_capacitor/owned_capacitor
-	var/target_field_strength = 10
-	var/max_field_strength = 10
-	var/time_since_fail = 100
-	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
 	use_power = POWER_USE_OFF	//doesn't use APC power
-	var/multiz = TRUE
-	var/multi_unlocked = TRUE
 	req_one_access = list(ACCESS_CAPTAIN, ACCESS_SECURITY, ACCESS_ENGINE)
+	/// Our owned energy field.
+	var/datum/energy_field/energy_field
+	/// If the machine is powered or not.
+	var/powered = FALSE
+	/// Whether the shield generator is active or not.
+	var/active = FALSE
+	/// ID lock.
+	var/locked = FALSE
+	/// Radius of the field.
+	var/field_radius = 3
+	/// Maximum field radius.
+	var/max_field_radius = 100
+	/// The shield capacitors attached to this shield generator.
+	var/list/owned_capacitors = list()
+	/// If this shield generator supports multi-z.
+	var/multiz = TRUE
+	///How much the manipulator rating increases the maximum field strengthen rate. This increases how fast the shield can strengthen, allowing it to recover faster.
+	var/manipulator_bonus = 0.1 //Maximum recovery rate with base components is 0.5 renwicks per second, with maxed out manipulators it's 0.9 renwicks per second.
+	///How much the capacitor rating increases the field conversion rate. This increases the efficiency of converting power into shield strength, decreasing all shield power costs.
+	var/capacitor_bonus = 0.000005
+	///How much the micro laser rating decreased the field dissipation rate. This reduces the amount of shield strength lost per tick, reducing the shield upkeep.
+	var/micro_laser_bonus = 0.002
 
-/obj/machinery/shield_gen/Initialize()
-	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
-		if(get_dir(possible_cap, src) == possible_cap.dir)
-			owned_capacitor = possible_cap
-			break
-	field = list()
+	component_types = list(
+		/obj/item/circuitboard/shield_gen,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/micro_laser = 2,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/stock_parts/subspace/transmitter = 1,
+		/obj/item/stock_parts/subspace/crystal = 1,
+		/obj/item/stock_parts/subspace/amplifier = 1,
+		/obj/item/stock_parts/console_screen = 1,
+		/obj/item/stack/cable_coil = 5
+	)
+
+/obj/structure/machinery/shield_gen/Initialize()
+	owned_capacitors = list()
+	for(var/obj/structure/machinery/shield_capacitor/possible_cap in range(1, src)) //Attach nearby capacitors
+		attach_capacitor(possible_cap)
+	energy_field = new(src, get_shielded_turfs())
 	. = ..()
 
-/obj/machinery/shield_gen/Destroy()
-	for(var/obj/effect/energy_field/D as anything in field)
-		field.Remove(D)
-		D.loc = null
+/obj/structure/machinery/shield_gen/Destroy()
+	for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors) //Detach any owned capacitors
+		detach_capacitor(cap)
+	owned_capacitors = list()
 	return ..()
 
-/obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/shield_gen/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>manipulators</b> will increase the maximum field strengthen rate."
+	. += SPAN_NOTICE("\t- The current maximum field strengthen rate is <b>[energy_field.max_strengthen_rate]</b> renwicks per second.")
+	. += "Upgraded <b>capacitors</b> will increase the field conversion rate."
+	. += SPAN_NOTICE("\t- The current field conversion efficiency increase is: <b>[(initial(energy_field.energy_conversion_rate) + (2 * capacitor_bonus)) / energy_field.energy_conversion_rate * 100]%</b>")
+	. += "Upgraded <b>micro lasers</b> will decrease the energy field dispersion rate."
+	. += SPAN_NOTICE("\t- The current field dissipation rate decrease is: <b>[(initial(energy_field.dissipation_rate) - (2 * micro_laser_bonus)) / energy_field.dissipation_rate * 100]%</b>")
+
+
+/obj/structure/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
 		locked = !locked
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
@@ -56,7 +80,14 @@
 
 	spark(src, 5, GLOB.alldirs)
 
-/obj/machinery/shield_gen/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/shield_gen/attackby(obj/item/attacking_item, mob/user)
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/card/id))
 		if(allowed(user))
 			locked = !locked
@@ -64,39 +95,56 @@
 			updateDialog()
 		else
 			to_chat(user, SPAN_ALERT("Access denied."))
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
 
 		if(active)
 			toggle()
 		if(anchored)
-			for(var/obj/machinery/shield_capacitor/cap in range(1, src))
-				if(cap.owned_gen)
-					continue
-				if(get_dir(cap, src) == cap.dir && cap.anchored)
-					owned_capacitor = cap
-					owned_capacitor.owned_gen = src
-					updateDialog()
-					break
+			// Attach nearby capacitors wrenching down the shield
+			owned_capacitors = list()
+			for(var/obj/structure/machinery/shield_capacitor/cap in range(1, src))
+				attach_capacitor(cap)
 		else
-			if(owned_capacitor && owned_capacitor.owned_gen == src)
-				owned_capacitor.owned_gen = null
-			owned_capacitor = null
+			// Detach any owned capacitors when unwrenching
+			for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors)
+				detach_capacitor(cap)
+			owned_capacitors = list()
 	else
 		..()
 
-/obj/machinery/shield_gen/attack_ai(mob/user)
+/obj/structure/machinery/shield_gen/RefreshParts()
+	..()
+	var/max_strengthen_rate_increase = 0
+	var/energy_conversion_rate_increase = 0
+	var/dissipation_rate_decrease = 0
+
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(ismanipulator(P))
+			max_strengthen_rate_increase += P.rating
+		else if(iscapacitor(P))
+			energy_conversion_rate_increase += P.rating
+		else if(ismicrolaser(P))
+			dissipation_rate_decrease += P.rating
+
+	if(energy_field)
+		energy_field.max_strengthen_rate = initial(energy_field.max_strengthen_rate) + (max_strengthen_rate_increase * manipulator_bonus)
+		energy_field.energy_conversion_rate = initial(energy_field.energy_conversion_rate) + (energy_conversion_rate_increase * capacitor_bonus)
+		energy_field.dissipation_rate = max(0, initial(energy_field.dissipation_rate) - (dissipation_rate_decrease * micro_laser_bonus))
+		energy_field.strengthen_rate = min(energy_field.strengthen_rate, energy_field.max_strengthen_rate) ///If the strengthen rate got decreased and the current strengthen rate is now above the max, reduce it to the max.
+
+/obj/structure/machinery/shield_gen/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-/obj/machinery/shield_gen/attack_hand(mob/user)
+/obj/structure/machinery/shield_gen/attack_hand(mob/user)
 	if(stat & BROKEN)
 		return
 	interact(user)
 
-/obj/machinery/shield_gen/interact(mob/user)
+/obj/structure/machinery/shield_gen/interact(mob/user)
 	if(locked)
 		to_chat(user, SPAN_WARNING("The device is locked. Swipe your ID to unlock it."))
 		return
@@ -104,23 +152,39 @@
 		to_chat(user, SPAN_WARNING("The device needs to be bolted to the ground first."))
 		return
 	else
-		if(owned_capacitor)
-			if(!((owned_capacitor in range(1, src)) && get_dir(owned_capacitor, src) == owned_capacitor.dir && owned_capacitor.anchored))
-				if(owned_capacitor.owned_gen == src)
-					owned_capacitor.owned_gen = null
-				owned_capacitor = null
-	if(!owned_capacitor)
-		for(var/obj/machinery/shield_capacitor/cap in range(1, src))
-			if(cap.owned_gen)
-				continue
-			if(get_dir(cap, src) == cap.dir && cap.anchored)
-				owned_capacitor = cap
-				owned_capacitor.owned_gen = src
-				updateDialog()
-				break
+		for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors) //Make sure the capacitors weren't blown up
+			if(!(cap in range(1, src)) || get_dir(cap, src) != cap.dir || !cap.anchored)
+				if(cap && cap.owned_gen == src)
+					cap.owned_gen = null
+				owned_capacitors -= cap
+	if(!owned_capacitors || owned_capacitors.len == 0) // Try to attach any valid adjacent capacitors
+		for(var/obj/structure/machinery/shield_capacitor/cap in range(1, src))
+			attach_capacitor(cap)
 	return ui_interact(user)
 
-/obj/machinery/shield_gen/process()
+/obj/structure/machinery/shield_gen/proc/attach_capacitor(obj/structure/machinery/shield_capacitor/cap)
+	if(!cap || cap.owned_gen || !cap.anchored)
+		return FALSE
+	if(!(cap in range(1, src)) || get_dir(cap, src) != cap.dir)
+		return FALSE
+	if(!owned_capacitors)
+		owned_capacitors = list()
+	owned_capacitors += cap
+	cap.owned_gen = src
+	updateDialog()
+	return TRUE
+
+/obj/structure/machinery/shield_gen/proc/detach_capacitor(obj/structure/machinery/shield_capacitor/cap)
+	if(!cap)
+		return FALSE
+	if(owned_capacitors && (cap in owned_capacitors))
+		owned_capacitors -= cap
+	if(cap.owned_gen == src)
+		cap.owned_gen = null
+	updateDialog()
+	return TRUE
+
+/obj/structure/machinery/shield_gen/process()
 	if(active)
 		if(!anchored)
 			toggle()
@@ -128,74 +192,79 @@
 			toggle()
 			return PROCESS_KILL
 
-	average_field_strength = max(average_field_strength, 0)
+	if(istype(energy_field))
+		var/required_energy = energy_field.get_required_energy()
+		var/assumed_charge = assume_charge(required_energy)
+		energy_field.handle_strength(assumed_charge)
 
-	if(field.len)
-		time_since_fail++
-		var/total_renwick_increase = 0 //the amount of renwicks that the generator can add this tick, over the entire field
-		var/renwick_upkeep_per_field = max(average_field_strength * dissipation_rate, min_dissipation)
+/**
+ * Called whenever the field needs to take charge from attached capacitors.
+ */
+/obj/structure/machinery/shield_gen/proc/assume_charge(required_energy)
+	if(!owned_capacitors || owned_capacitors.len == 0)
+		return 0
+	var/list/active_capacitors = list()
+	var/available_charge = 0
+	for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors) //Loop through capacitors that can provide charge
+		if(!cap || !cap.active || cap.stored_charge <= 0)
+			continue
+		active_capacitors += cap
+		available_charge += cap.stored_charge
 
-		//figure out how much energy we need to draw from the capacitor
-		if(active && owned_capacitor?.active)
-			var/target_renwick_increase = min(target_field_strength - average_field_strength, strengthen_rate) + renwick_upkeep_per_field //per field tile
+	if(!active_capacitors.len || available_charge <= 0) //If we have no capacitors, or they're not charged stop
+		return 0
 
-			var/required_energy = field.len * target_renwick_increase / energy_conversion_rate
-			var/assumed_charge = min(owned_capacitor.stored_charge, required_energy)
-			total_renwick_increase = assumed_charge * energy_conversion_rate
-			assumed_charge = max(assumed_charge, 0)
-			owned_capacitor.stored_charge -= assumed_charge
-		else
-			renwick_upkeep_per_field = max(renwick_upkeep_per_field, 0.5)
+	var/assumed_charge = min(available_charge, required_energy)
+	if(assumed_charge >= available_charge)
+		for(var/obj/structure/machinery/shield_capacitor/cap in active_capacitors)
+			cap.stored_charge = 0
+		return assumed_charge
 
-		var/renwick_increase_per_field = total_renwick_increase/field.len //per field tile
+	var/remaining = assumed_charge
+	for(var/i = 1, i <= active_capacitors.len, i++)
+		var/obj/structure/machinery/shield_capacitor/cap = active_capacitors[i]
+		var/took = (i == active_capacitors.len) ? remaining : round(assumed_charge * (cap.stored_charge / available_charge))
+		took = min(took, cap.stored_charge, remaining)
+		if(took <= 0)
+			continue
+		cap.stored_charge -= took
+		remaining -= took
+		if(remaining <= 0)
+			break
 
-		average_field_strength = 0 //recalculate the average field strength
-		for(var/obj/effect/energy_field/E as anything in field)
-			if(!E)
-				field -= E
-				continue
-			var/amount_to_strengthen = renwick_increase_per_field - renwick_upkeep_per_field
-			if(E.ticks_recovering > 0 && amount_to_strengthen > 0)
-				E.Strengthen( min(amount_to_strengthen / 10, 0.1) )
-				E.ticks_recovering -= 1
-			else
-				E.Strengthen(amount_to_strengthen)
+	return assumed_charge - remaining
 
-			average_field_strength += E.strength
-
-		average_field_strength /= field.len
-		if(average_field_strength < 1)
-			time_since_fail = 0
-	else
-		average_field_strength = 0
-
-/obj/machinery/shield_gen/ex_act(var/severity)
+/obj/structure/machinery/shield_gen/ex_act(var/severity)
 	if(active)
 		toggle()
 	return ..()
 
-/obj/machinery/shield_gen/proc/toggle()
+/obj/structure/machinery/shield_gen/proc/toggle()
+	if(!active)
+		if(!owned_capacitors || owned_capacitors.len == 0)
+			balloon_alert_to_viewers("no capacitor")
+			return
+		else
+			var/has_active = FALSE
+			for(var/obj/structure/machinery/shield_capacitor/cap in owned_capacitors)
+				if(cap && cap.active)
+					has_active = TRUE
+					break
+			if(!has_active)
+				balloon_alert_to_viewers("capacitors offline")
+				return
 	active = !active
 	update_icon()
 	if(active)
-		var/list/covered_turfs = get_shielded_turfs()
-		var/turf/T = get_turf(src)
-		for(var/turf/O as anything in covered_turfs - T)
-			var/obj/effect/energy_field/E = new(O)
-			field.Add(E)
-		covered_turfs = null
-
 		for(var/mob/M as anything in hearers(5,src))
-			to_chat(M, "[icon2html(src, M)] You hear heavy droning start up.")
+			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning start up."))
+			energy_field.set_shielded_turfs(get_shielded_turfs())
 	else
-		for(var/obj/effect/energy_field/D as anything in field)
-			field.Remove(D)
-			D.loc = null
-
 		for(var/mob/M as anything in hearers(5,src))
-			to_chat(M, "[icon2html(src, M)] You hear heavy droning fade out.")
+			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning fade out."))
+			energy_field.clear_field()
 
-/obj/machinery/shield_gen/update_icon()
+/obj/structure/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)
 		icon_state = "broke"
 	else
@@ -205,14 +274,14 @@
 			icon_state = "generator0"
 
 //grab the border tiles in a square around this machine
-/obj/machinery/shield_gen/proc/get_shielded_turfs()
+/obj/structure/machinery/shield_gen/proc/get_shielded_turfs()
 	var/turf/T = get_turf(src)
 	. = list()
 
 	if(field_radius > 0 && T)
 		var/connected_levels = list(T.z)
 		if(multiz)
-			for(var/turf/connected_z_turf as anything in (getzabove(src) + getzbelow(src)))
+			for(var/turf/connected_z_turf as anything in (getzabove(T) + getzbelow(T)))
 				connected_levels += connected_z_turf.z
 
 		. += block(\
@@ -235,34 +304,30 @@
 			locate(T.x + field_radius, T.y - field_radius + 1, max(connected_levels))\
 			)
 
-/obj/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
+	return . - get_turf(src)
+
+/obj/structure/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ShieldGenerator", "Shield Generator", 480, 400)
 		ui.open()
 
-/obj/machinery/shield_gen/ui_data(mob/user)
+/obj/structure/machinery/shield_gen/ui_data(mob/user)
 	var/list/data = list()
 
-	data["owned_capacitor"] = !!owned_capacitor
+	data["owned_capacitor"] = length(owned_capacitors)
+	data["owned_capacitor_count"] = length(owned_capacitors)
 	data["active"] = active
-	data["time_since_fail"] = time_since_fail
-	data["multi_unlocked"] = multi_unlocked
+	data["time_since_fail"] = energy_field ? energy_field.time_since_fail : 0
 	data["multiz"] = multiz
 	data["field_radius"] = field_radius
 	data["min_field_radius"] = 1
 	data["max_field_radius"] = max_field_radius
-	data["average_field"] = round(average_field_strength, 0.01)
-	data["progress_field"] = (target_field_strength ? round(100 * average_field_strength / target_field_strength, 0.1) : "NA")
-	data["power_take"] = round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)
-	data["shield_power"] = round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)
-	data["strengthen_rate"] = (strengthen_rate * 10)
-	data["max_strengthen_rate"] = (max_strengthen_rate * 10)
-	data["target_field_strength"] = target_field_strength
+	data = energy_field.add_field_ui_data(data)
 
 	return data
 
-/obj/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -278,14 +343,14 @@
 			field_radius = between(1, text2num(params["size_set"]), max_field_radius)
 
 		if ("charge_set")
-			strengthen_rate = (between(1, text2num(params["charge_set"]), (max_strengthen_rate * 10)) / 10)
+			energy_field.strengthen_rate = (between(1, text2num(params["charge_set"]), (energy_field.max_strengthen_rate * 10)) / 10)
 
 		if ("field_set")
-			target_field_strength = between(1, text2num(params["field_set"]), 10)
+			energy_field.target_field_strength = between(1, text2num(params["field_set"]), 10)
 
 	add_fingerprint(usr)
 
-/obj/machinery/shield_gen/proc/getzabove(var/turf/location)
+/obj/structure/machinery/shield_gen/proc/getzabove(var/turf/location)
 	var/connected = list()
 	var/turf/above = GET_TURF_ABOVE(location)
 
@@ -297,7 +362,7 @@
 
 	return connected
 
-/obj/machinery/shield_gen/proc/getzbelow(var/turf/location)
+/obj/structure/machinery/shield_gen/proc/getzbelow(var/turf/location)
 	var/connected = list()
 	var/turf/below = GET_TURF_BELOW(location)
 

@@ -15,10 +15,6 @@
 	. = ..()
 	return
 
-/obj/effect/expl_particles/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
-
 /datum/effect/system/expl_particles
 	var/number = 10
 	var/turf/location

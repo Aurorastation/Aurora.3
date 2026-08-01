@@ -3,6 +3,9 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "tiled_preview"
 
+/turf/unsimulated/floor/examine_descriptor(mob/user)
+	return "floor"
+
 /turf/unsimulated/floor/monotile
 	icon_state = "monotile_preview"
 
@@ -19,7 +22,7 @@
 	name = "snow"
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "snow0"
-	footstep_sound = /singleton/sound_category/snow_footstep
+	footstep_sound = SFX_FOOTSTEP_SNOW
 
 /turf/unsimulated/floor/concrete
 	name = "concrete"

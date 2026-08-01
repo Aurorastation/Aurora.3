@@ -14,7 +14,7 @@
 	thrown_force_divisor = 0.4 // 4 with weight 15 (glass)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
-	default_material = "glass"
+	default_material = MATERIAL_GLASS
 	unbreakable = 1 //It's already broken.
 	drops_debris = FALSE
 	drop_sound = 'sound/effects/glass_step.ogg'
@@ -28,10 +28,6 @@
 	)
 
 	AddElement(/datum/element/connect_loc, loc_connections)
-
-/obj/item/material/shard/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)
@@ -64,7 +60,7 @@
 		alpha = 255
 
 /obj/item/material/shard/attackby(obj/item/attacking_item, mob/user as mob)
-	if(attacking_item.iswelder() && material.shard_can_repair)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && material.shard_can_repair)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			material.place_sheet(user.loc)
@@ -109,6 +105,11 @@
 // Preset types - left here for the code that uses them
 /obj/item/material/shard/shrapnel/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_STEEL)
+
+/obj/item/material/shard/shrapnel/large/Initialize(newloc, material_key) //Shrapnel large enough to be removed by hand. Used by ship weapons.
+	. = ..(loc, MATERIAL_STEEL)
+	icon_state = "large"
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
 	. = ..(loc, MATERIAL_TITANIUM)

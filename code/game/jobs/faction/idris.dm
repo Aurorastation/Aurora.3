@@ -1,16 +1,17 @@
 /datum/faction/idris_incorporated
 	name = "Idris Incorporated"
-	description = {"<p>
+	description = {"
 	The Orion Spur's largest interstellar banking conglomerate, Idris Incorporated
 	is operated by the mysterious Idris family. Idris Incorporated's influence
 	can be found in nearly every corner of human space with their financing of
-	nearly every type of business and enterprise. Their higher risk ventures have
+	nearly every type of business and enterprise.<br> Their higher risk ventures have
 	payment enforced by the infamous Idris Reclamation Units, shell IPCs sent to
 	claim payment from negligent loan takers. In recent years, they have begun
 	diversifying into more service-based industries.
-	</p>"}
-	departments = {"Security<br>Service"}
+	"}
+	departments = list(DEPARTMENT_SECURITY, DEPARTMENT_SERVICE)
 	title_suffix = "Idris"
+	wiki_page = "Idris_Incorporated"
 
 	allowed_role_types = IDRIS_ROLES
 
@@ -69,6 +70,22 @@
 		"Security Personnel" = /obj/outfit/job/officer/event/idris,
 		"Service Personnel" = /obj/outfit/job/bartender/idris
 	)
+
+/datum/faction/idris_incorporated/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Recruit economically disadvantaged crew to inform on inter-megacorporate conflict aboard the [station_name()]",
+						"Identify crew members with severe financial difficulties and refer them to Idris Incorporated's financial aide services")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Renew an Idris Incorporated employee's Non-Disclosure Agreement concerning all internal Idris operations",
+						"Have an Idris Incorporated sign a contract extension in exchange for discounted Le Soleil Royal purchases",
+						"Ensure owned Idris Incorporated synthetics are maintaining brand standards")
+		else
+			return pick("Conduct a survey on Idris Incorporated employee morale",
+						"Evaluate the cost of Idris Incorporated operations aboard the [station_name()] against the completion of SCC and/or Idris agenda goals",
+						"Evaluate crew opinions on Le Soleil Royal products",
+						"Identify and resolve a complaint of an Idris Incorporated employee")
+
 
 /obj/outfit/job/officer/idris
 	name = "Security Officer - Idris"
@@ -194,7 +211,7 @@
 	name = "Curator - Idris"
 	jobtype = /datum/job/librarian
 
-	r_pocket = /obj/item/device/price_scanner
+	r_pocket = /obj/item/price_scanner
 	l_hand = null
 
 /obj/outfit/job/librarian/idris/tech_support
@@ -204,7 +221,7 @@
 	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/device/debugger
+	l_hand = /obj/item/debugger
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/chaplain/idris
@@ -244,7 +261,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/idris = 1
 	)

@@ -29,6 +29,9 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/proc/on_data_written() //Override this for special behaviour when new data gets pushed to the circuit.
 	return
 
+/obj/item/integrated_circuit/proc/get_printer_spawn_flags()
+	return spawn_flags
+
 /obj/item/integrated_circuit/Destroy()
 	for(var/datum/integrated_io/I in inputs)
 		qdel(I)
@@ -49,8 +52,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	. = ..()
 
 /obj/item/integrated_circuit/ui_host()
-	if(istype(src.loc, /obj/item/device/electronic_assembly))
-		var/obj/item/device/electronic_assembly/assembly = loc
+	if(istype(src.loc, /obj/item/electronic_assembly))
+		var/obj/item/electronic_assembly/assembly = loc
 		return assembly.resolve_ui_host()
 	return ..()
 
@@ -70,7 +73,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/verb/rename_component()
 	set name = "Rename Circuit"
 	set category = "Object"
-	set desc = "Rename your circuit, useful to stay organized."
+	set desc = "Renames the circuit to make assemblies easier to organize."
 
 	var/mob/M = usr
 	if(!check_interactivity(M))
@@ -169,12 +172,14 @@ a creative player the means to solve many problems.  Circuits are held inside an
 //	HTML += "<br><font color='33CC33'>Meta Variables;</font>" // If more meta vars get introduced, uncomment this.
 //	HTML += "<br>"
 
+	HTML += "<br><span class='highlight'>Size: [size]</span>"
 	HTML += "<br><span class='highlight'>Complexity: [complexity]</span>"
 	if(power_draw_idle)
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_idle] W (Idle)</span>"
 	if(power_draw_per_use)
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_per_use] W (Active)</span>" // Borgcode says that powercells' checked_use() takes joules as input.
-	HTML += "<br><span class='highlight'>[extended_desc]</span>"
+	if(extended_desc)
+		HTML += "<br><span class='highlight'>[extended_desc]</span>"
 
 	var/datum/browser/B = new(user, assembly ? "assembly-[REF(assembly)]" : "circuit-[REF(src)]", (displayed_name && displayed_name != name) ? "[displayed_name] ([name])" : name, window_width, window_height)
 	B.set_content(HTML.Join())
@@ -190,19 +195,19 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return 1
 
 	var/update = 1
-	var/obj/item/device/electronic_assembly/A = src.assembly
+	var/obj/item/electronic_assembly/A = src.assembly
 	var/update_to_assembly = 0
 	var/datum/integrated_io/pin = locate(href_list["pin"]) in inputs + outputs + activators
 	var/datum/integrated_io/linked = null
 	if(href_list["link"])
 		linked = locate(href_list["link"]) in pin.linked
 
-	var/obj/held_item = usr.get_active_hand()
-	var/obj/off_hand = usr.get_inactive_hand()
-	var/obj/item/device/multitool/M
-	if(held_item?.ismultitool())
+	var/obj/item/held_item = usr.get_active_hand()
+	var/obj/item/off_hand = usr.get_inactive_hand()
+	var/obj/item/multitool/M
+	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		M = held_item
-	if(!M && off_hand?.ismultitool())
+	if(!M && off_hand?.tool_behaviour == TOOL_MULTITOOL)
 		M = off_hand
 	if(M?.tracking_apc)
 		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
@@ -212,7 +217,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		rename_component(usr)
 		if(href_list["from_assembly"])
 			update = 0
-			var/obj/item/device/electronic_assembly/ea = loc
+			var/obj/item/electronic_assembly/ea = loc
 			if(istype(ea))
 				ea.interact(usr)
 
@@ -236,15 +241,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			M.unwire(pin, linked, usr)
 
 	if(href_list["wire"])
-		if(istype(held_item, /obj/item/device/integrated_electronics/wirer))
-			var/obj/item/device/integrated_electronics/wirer/wirer = held_item
+		if(istype(held_item, /obj/item/integrated_electronics/wirer))
+			var/obj/item/integrated_electronics/wirer/wirer = held_item
 			if(linked)
 				wirer.wire(linked, usr)
 			else if(pin)
 				wirer.wire(pin, usr)
 
-		else if(istype(held_item, /obj/item/device/integrated_electronics/debugger))
-			var/obj/item/device/integrated_electronics/debugger/debugger = held_item
+		else if(istype(held_item, /obj/item/integrated_electronics/debugger))
+			var/obj/item/integrated_electronics/debugger/debugger = held_item
 			if(pin)
 				debugger.write_data(pin, usr)
 		else
@@ -270,8 +275,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		update_to_assembly = 1
 
 	if(href_list["scan"])
-		if(istype(held_item, /obj/item/device/integrated_electronics/debugger))
-			var/obj/item/device/integrated_electronics/debugger/D = held_item
+		if(istype(held_item, /obj/item/integrated_electronics/debugger))
+			var/obj/item/integrated_electronics/debugger/D = held_item
 			if(D.accepting_refs)
 				D.afterattack(src, usr, TRUE)
 			else
@@ -293,7 +298,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		if(!removable)
 			to_chat(usr, SPAN_WARNING("\The [src] seems to be permanently attached to the case."))
 			return
-		var/obj/item/device/electronic_assembly/ea = loc
+		var/obj/item/electronic_assembly/ea = loc
 		disconnect_all()
 		var/turf/T = get_turf(src)
 		forceMove(T)
@@ -318,7 +323,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/proc/pull_data()
 	for(var/datum/integrated_io/I in inputs)
-		I.push_data()
+		I.pull_data()
 
 /obj/item/integrated_circuit/proc/draw_idle_power()
 	if(assembly)

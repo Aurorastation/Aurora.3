@@ -5,7 +5,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/black
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
-	l_ear = /obj/item/device/radio/headset/ert/siib
+	l_ear = /obj/item/radio/headset/ert/siib
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/ammo_magazine/mc9mm
 
@@ -14,7 +14,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/handcuffs/ziptie = 2
 	)
 	id = null
@@ -30,7 +30,7 @@
 	suit_store = /obj/item/gun/projectile/automatic/c20r/sol/siib
 	mask = /obj/item/clothing/mask/balaclava
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/ert/siib
+	l_ear = /obj/item/radio/headset/ert/siib
 	head = /obj/item/clothing/head/helmet/merc
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/ammo_magazine/mc9mm
@@ -46,7 +46,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/crowbar/red = 1,
 		/obj/item/handcuffs/ziptie = 2
 	)

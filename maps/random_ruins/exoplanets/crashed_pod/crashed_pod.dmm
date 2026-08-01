@@ -13,7 +13,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "e" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "f" = (
@@ -37,13 +37,13 @@
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "i" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
 /obj/structure/cable{
 	dir = 8
 	},
-/obj/machinery/power/apc/super/south,
+/obj/structure/machinery/power/apc/super/south,
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "k" = (
@@ -55,14 +55,14 @@
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "l" = (
-/obj/machinery/power/smes/buildable,
+/obj/structure/machinery/power/smes/buildable,
 /obj/structure/cable{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "n" = (
-/obj/machinery/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/map_template/crashed_pod)
 "o" = (

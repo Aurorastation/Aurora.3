@@ -46,7 +46,7 @@
 
 	You can use "MAP <expression>" to run some code per object and use the result. For example:
 
-	"SELECT /obj/machinery/power/smes MAP [charge / capacity * 100, RCon_tag, src]"
+	"SELECT /obj/structure/machinery/power/smes MAP [charge / capacity * 100, RCon_tag, src]"
 
 	This will give you a list of all the APCs, their charge AND RCon tag. Useful eh?
 

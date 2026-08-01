@@ -1,11 +1,7 @@
 /mob/living
+	health = 100
+	maxhealth = 100
 	see_invisible = SEE_INVISIBLE_LIVING
-
-	//Health and life related vars
-	/// Maximum health that should be possible.
-	var/maxHealth = 100
-	/// A mob's current health
-	var/health = 100
 
 	var/hud_updateflag = 0
 
@@ -45,6 +41,10 @@
 	var/fire_stacks_temperature = 0
 
 	var/footstep = 0
+	/// The type of footstep components spawned for the mob. Particularly important for humans, which have barefoot sounds.
+	var/footstep_component_type = /datum/component/mob_footsteps
+	/// The footstep sounds we want to play.
+	var/list/footstep_sound
 
 	/// This is used to determine if the mob failed a breath. If they did fail a breath, they will attempt to breathe each tick, otherwise just once per 4 ticks.
 	var/failed_last_breath = 0
@@ -68,7 +68,6 @@
 	/// Maximum stamina. We start taking oxyloss when this runs out while sprinting
 	var/max_stamina = 100
 	var/sprint_speed_factor = 0.4
-	var/lying_speed_factor = 0
 	var/sprint_cost_factor = 1
 	var/stamina_recovery = 1
 	/// When move intent is walk, movedelay is clamped to this value as a lower bound
@@ -91,6 +90,9 @@
 	var/burn_mod = 1
 	var/brute_mod = 1
 
+	/// Override for the visual attack effect shown on 'do_attack_animation()'.
+	var/attack_vis_effect
+
 	/// used to limit people from queuing up limb-breaks
 	var/limb_breaking = FALSE
 	/// Basically a catch-all aura/force-field thing.
@@ -104,3 +106,32 @@
 
 	/// If true, ignores weather effects
 	var/resists_weather = FALSE
+
+	/// Time since last weather effect
+	var/weather_cooldown_time = 0
+
+	var/datum/psi_complexus/psi
+
+	///The obj to overlay on the aim target
+	var/obj/aiming_overlay/aiming
+
+	///A list of mobs the target is being aimed at by
+	var/list/aimed_at_by
+
+	var/singleton/maneuver/prepared_maneuver
+	var/list/available_maneuvers = list()
+
+	var/datum/language/default_language
+
+	var/atom/movable/z_observer/z_eye
+
+	atom_flags = CRITICAL_ATOM
+	var/instability = 0
+	var/last_instability = 0 // Used to calculate instability delta.
+	var/last_instability_event = null // most recent world.time that something bad happened due to instability.
+
+	var/datum/weakref/last_weather
+
+	var/tmp/last_push_notif
+
+	var/seer = 0 //for cult//Carbon, probably Human

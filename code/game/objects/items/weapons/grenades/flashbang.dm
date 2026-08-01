@@ -20,14 +20,14 @@
 	new /obj/effect/smoke/illumination(T, brightness=15)
 	qdel(src)
 
-/obj/item/grenade/flashbang/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+/obj/item/grenade/flashbang/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)
 	. = ..()
-	if(exploded_hand)
-		victim.apply_damage(30, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
-		victim.apply_damage(20, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
-	else
-		victim.apply_damage(20, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
-		victim.apply_damage(30, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+	if(exploded_organ)
+		victim.apply_damage(20, DAMAGE_BRUTE, exploded_organ, src, DAMAGE_FLAG_EXPLODE, 20)
+		victim.apply_damage(30, DAMAGE_BURN, exploded_organ, src, DAMAGE_FLAG_EXPLODE, 20)
+
+	victim.apply_damage(20, DAMAGE_BRUTE, null, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+	victim.apply_damage(30, DAMAGE_BURN, null, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
 
 /obj/item/grenade/flashbang/proc/bang(turf/T, mob/living/M)
 	to_chat(M, SPAN_HIGHDANGER("BANG!"))
@@ -36,13 +36,21 @@
 	if(M.flash_act(ignore_inherent = TRUE))
 		M.Weaken(10)
 
-	// 1 - 9x/70 gives us 100% at zero, 87% at 1 turf, all the way to 10% at 7
-	var/bang_intensity = 1 - (9 * get_dist(T, M) / 70)
-	M.noise_act(intensity = EAR_PROTECTION_MODERATE, damage_pwr = 10 * bang_intensity, deafen_pwr = 15 * (1 - bang_intensity))
+	var/distance_to_grenade = get_dist(T, M)
 
-	if(M.get_hearing_sensitivity()) // we only stun if they've got sensitive ears
+	// 1 - 9x/70 gives us 100% at zero, 87% at 1 turf, all the way to 10% at 7
+	var/bang_intensity = 1 - (9 * distance_to_grenade / 70)
+
+	var/ear_damage = 10 * bang_intensity
+	var/deafen_damage = 15 * (1 - bang_intensity)
+
+
+	// we only stun if they've got sensitive ears and got it active as well as if it is close enough.
+	if(M.get_hearing_sensitivity() && astype(M, /mob/living/carbon/human)?.is_listening() && distance_to_grenade < 5)
 		// checking for protection is handled by noise_act
-		M.noise_act(intensity = EAR_PROTECTION_MAJOR, stun_pwr = 2)
+		M.noise_act(intensity = EAR_PROTECTION_MAJOR, stun_pwr = 2, damage_pwr = ear_damage, deafen_pwr = deafen_damage)
+	else
+		M.noise_act(intensity = EAR_PROTECTION_MODERATE, damage_pwr = ear_damage, deafen_pwr = deafen_damage)
 
 	M.disable_cloaking_device()
 	M.update_icon()
@@ -52,9 +60,6 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "clusterbang"
 
-/obj/item/grenade/flashbang/clusterbang/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
@@ -117,6 +122,3 @@
 	addtimer(CALLBACK(src, PROC_REF(prime)), dettime)
 	..()
 
-/obj/item/grenade/flashbang/cluster/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL

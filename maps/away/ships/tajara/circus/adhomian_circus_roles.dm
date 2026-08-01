@@ -3,7 +3,7 @@
 /obj/outfit/admin/adhomian_circus
 	id = /obj/item/card/id
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/adhomian_circus/get_id_access()

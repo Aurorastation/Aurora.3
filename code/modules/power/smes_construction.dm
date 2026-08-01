@@ -1,22 +1,26 @@
-// BUILDABLE SMES(Superconducting Magnetic Energy Storage) UNIT
-//
-// Last Change 1.1.2015 by Atlantis - Happy New Year!
-//
-// This is subtype of SMES that should be normally used. It can be constructed, deconstructed and hacked.
-// It also supports RCON System which allows you to operate it remotely, if properly set.
+/**
+ * BUILDABLE SMES (Superconducting Magnetic Energy Storage) UNIT
+ * AKA PSUs- both 'SMES unit' and 'PSU' will be used interchangeably in documentation and in-game.
+ *
+ * PSUs are linked by the RCON System, allowing for remote management of all linked
+ * It also supports RCON System which allows you to operate it remotely, if properly set.
+ *
+ * This is subtype of SMES that should be normally used. It can be constructed, deconstructed and hacked.
+ */
 
-//MAGNETIC COILS - These things actually store and transmit power within the SMES. Different types have different
+/// MAGNETIC COILS - These things actually store and transmit power within the SMES. Different types have different properties
 /obj/item/smes_coil
 	name = "superconductive magnetic coil"
 	desc = "Standard superconductive magnetic coil with balanced capacity and I/O rating."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
-	w_class = WEIGHT_CLASS_BULKY 			// It's LARGE (backpack size)
-	var/ChargeCapacity = 5000000
-	var/IOCapacity = 250000
+	/// It's LARGE (backpack sized)
+	w_class = WEIGHT_CLASS_BULKY
+	var/ChargeCapacity = 2500000
+	var/IOCapacity = 500000
 
-/obj/item/smes_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/smes_coil/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		. += "The label reads: Only certified professionals are allowed to handle and install this component."
 		. += "Charge capacity: [ChargeCapacity/1000000] MJ."
@@ -27,102 +31,128 @@
 	name = "basic superconductive magnetic coil"
 	desc = "Cheaper model of the standard superconductive magnetic coil. Its capacity and I/O rating are considerably lower."
 	icon_state = "smes_coil_weak"
-	ChargeCapacity = 1000000
-	IOCapacity = 150000
+	ChargeCapacity = 500000
+	IOCapacity = 300000
 
 // 1000% Charge Capacity, 20% I/O Capacity
 /obj/item/smes_coil/super_capacity
 	name = "superconductive capacitance coil"
 	desc = "Specialised version of the standard superconductive magnetic coil. It has significantly stronger containment field, allowing for immense power storage. However its I/O rating is much lower."
 	icon_state = "smes_coil_capacitance"
-	ChargeCapacity = 50000000
-	IOCapacity = 50000
+	ChargeCapacity = 25000000
+	IOCapacity = 100000
 
 // 10% Charge Capacity, 400% I/O Capacity. Technically turns SMES into large super capacitor.Ideal for shields.
 /obj/item/smes_coil/super_io
 	name = "superconductive transmission coil"
 	desc = "Specialised version of the standard superconductive magnetic coil. While it's almost useless for power storage it can rapidly transfer power, making it useful in systems that require large throughput."
 	icon_state = "smes_coil_transmission"
-	ChargeCapacity = 500000
-	IOCapacity = 1000000
-
+	ChargeCapacity = 250000
+	IOCapacity = 2000000
 
 // SMES SUBTYPES - THESE ARE MAPPED IN AND CONTAIN DIFFERENT TYPES OF COILS
 
 // These are used on individual outposts as backup should power line be cut, or engineering outpost lost power.
 // 1M Charge, 150K I/O
-/obj/machinery/power/smes/buildable/outpost_substation/Initialize()
+/obj/structure/machinery/power/smes/buildable/outpost_substation/Initialize()
 	. = ..()
 	component_parts += new /obj/item/smes_coil/weak(src)
 
 // This one is pre-installed on engineering shuttle. Allows rapid charging/discharging for easier transport of power to outpost
 // 11M Charge, 2.5M I/O
-/obj/machinery/power/smes/buildable/power_shuttle/Initialize()
+/obj/structure/machinery/power/smes/buildable/power_shuttle/Initialize()
 	. = ..()
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil(src)
 
-/obj/machinery/power/smes/buildable/main_engine
+/obj/structure/machinery/power/smes/buildable/main_engine
 	cur_coils = 4
 	input_attempt = TRUE
-	input_level = 500000
+	input_level = 1000000
 	output_attempt = TRUE
-	output_level = 500000
+	output_level = 1000000
 	charge =1.5e+7
 
-// For the substation SMES around the Horizon.
-/obj/machinery/power/smes/buildable/substation
-	input_level = 150000
-	output_level = 140000
+/// For the substation SMES around the Horizon.
+/obj/structure/machinery/power/smes/buildable/substation
+	input_level = 250000
+	output_level = 240000
+
+// Telecomms substation. Based on shuttle settings; those boxes are power-hungry.
+/obj/structure/machinery/power/smes/buildable/telecomms/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 2000000
+	output_level = 2000000
+	charge = 5.55e+007
 
 // The Horizon's shuttles want something with decent capacity to sustain themselves and enough transmission to meet their energy needs.
-/obj/machinery/power/smes/buildable/horizon_shuttle/Initialize()
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle/Initialize()
 	. = ..()
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	input_attempt = TRUE
-	output_attempt = TRUE
-	input_level = 1300000
-	output_level = 1300000
-	charge = 5.55e+007
-
-/obj/machinery/power/smes/buildable/third_party_shuttle/Initialize() //Identical to the horizon_shuttle for now as we try to work out specifics
-	. = ..()
-	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 1300000
-	output_level = 1300000
+	input_level = 2700000
+	output_level = 2700000
 	charge = 5.55e+007
 
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty/Initialize()
+//Identical to the horizon_shuttle for now as we try to work out specifics
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 2700000
+	output_level = 2700000
+	charge = 5.55e+007
+
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/empty/Initialize()
 	. = ..()
 	charge = 0
 
-/obj/machinery/power/smes/buildable/autosolars/Initialize() //for third parties that have their solars autostart, It's slightly upgraded for them
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle/low_charge/Initialize()
 	. = ..()
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	output_level = 0
+	charge = 10.55e+005
+
+//for third parties that have their solars autostart, It's slightly upgraded for them
+/obj/structure/machinery/power/smes/buildable/autosolars/Initialize()
+	. = ..()
 	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 1000000
-	output_level = 1000000
+	input_level = 2700000
+	output_level = 2700000
 	charge = 3.02024e+006
 
 // END SMES SUBTYPES
 
 // SMES itself
-/obj/machinery/power/smes/buildable
-	max_coils = 6 				// 30M capacity, 1.5MW input/output when fully upgraded /w default coils
-	var/cur_coils = 1 			// Current amount of installed coils
-	var/safeties_enabled = 1 	// If 0 modifications can be done without discharging the SMES, at risk of critical failure.
-	var/failing = 0 			// If 1 critical failure has occured and SMES explosion is imminent.
+/obj/structure/machinery/power/smes/buildable
+	/// 20 MJ capacity, 8 MW input/output when fully upgraded /w default coils
+	max_coils = 8
+	/// Current amount of installed coils
+	var/cur_coils = 1
+	/// If 0 modifications can be done without discharging the SMES, at risk of critical failure.
+	var/safeties_enabled = 1
+	/// If 1 critical failure has occured and SMES explosion is imminent.
+	var/failing = 0
 	var/datum/wires/smes/wires
-	var/grounding = 1			// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
-	var/RCon = 1				// Cut to disable AI and remote control.
-	var/RCon_tag = "NO_TAG"		// RCON tag, change to show it on SMES Remote control console.
+	/// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
+	var/grounding = 1
+	/// Cut to disable AI and remote control.
+	var/RCon = 1
+	/// RCON tag, change to show it on SMES Remote control console.
+	var/RCon_tag = "NO_TAG"
 	charge = 0
 	should_be_mapped = 1
 	component_types = list(
@@ -130,12 +160,12 @@
 		/obj/item/circuitboard/smes
 	)
 
-/obj/machinery/power/smes/buildable/Destroy()
+/obj/structure/machinery/power/smes/buildable/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
 
-/obj/machinery/power/smes/buildable/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/power/smes/buildable/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -143,7 +173,7 @@
 	visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
 	health_check(hitting_projectile.damage)
 
-/obj/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
+/obj/structure/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
 	health -= health_reduction
 	if(health < 0)
 		visible_message(SPAN_DANGER("\The [src] blows apart!"))
@@ -165,7 +195,7 @@
 // Parameters: None
 // Description: Uses parent process, but if grounding wire is cut causes sparks to fly around.
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
-/obj/machinery/power/smes/buildable/process()
+/obj/structure/machinery/power/smes/buildable/process()
 	if(!grounding && (Percentage() > 5))
 		spark(src, 5, GLOB.alldirs)
 		charge -= (output_level_max * SMESRATE)
@@ -177,7 +207,7 @@
 // Proc: attack_ai()
 // Parameters: None
 // Description: AI requires the RCON wire to be intact to operate the SMES.
-/obj/machinery/power/smes/buildable/attack_ai(mob/user)
+/obj/structure/machinery/power/smes/buildable/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if(RCon)
@@ -192,7 +222,7 @@
 // Proc: Initialize()
 // Parameters: 2 (dir - direction machine should face, install_coils - if coils should be spawned)
 // Description: Adds standard components for this SMES, and forces recalculation of properties.
-/obj/machinery/power/smes/buildable/Initialize(mapload, dir)
+/obj/structure/machinery/power/smes/buildable/Initialize(mapload, dir)
 	wires = new /datum/wires/smes(src)
 	..()
 
@@ -203,13 +233,14 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/power/smes/buildable/LateInitialize()
+/obj/structure/machinery/power/smes/buildable/LateInitialize()
+	. = ..()
 	recalc_coils()
 
 // Proc: attack_hand()
 // Parameters: None
 // Description: Opens the UI as usual, and if cover is removed opens the wiring panel.
-/obj/machinery/power/smes/buildable/attack_hand()
+/obj/structure/machinery/power/smes/buildable/attack_hand()
 	..()
 	if(open_hatch)
 		wires.interact(usr)
@@ -217,7 +248,7 @@
 // Proc: recalc_coils()
 // Parameters: None
 // Description: Updates properties (IO, capacity, etc.) of this SMES by checking internal components.
-/obj/machinery/power/smes/buildable/proc/recalc_coils()
+/obj/structure/machinery/power/smes/buildable/proc/recalc_coils()
 	if ((cur_coils <= max_coils) && (cur_coils >= 1))
 		capacity = 0
 		input_level_max = 0
@@ -234,7 +265,7 @@
 // Proc: total_system_failure()
 // Parameters: 2 (intensity - how strong the failure is, user - person which caused the failure)
 // Description: Checks the sensors for alerts. If change (alerts cleared or detected) occurs, calls for icon update.
-/obj/machinery/power/smes/buildable/proc/total_system_failure(var/intensity = 0, var/mob/user as mob)
+/obj/structure/machinery/power/smes/buildable/proc/total_system_failure(var/intensity = 0, var/mob/user as mob)
 	// SMESs store very large amount of power. If someone screws up (ie: Disables safeties and attempts to modify the SMES) very bad things happen.
 	// Bad things are based on charge percentage.
 	// Possible effects:
@@ -347,18 +378,16 @@
 					// Not sure if this is necessary, but just in case the SMES *somehow* survived..
 					qdel(src)
 
-
-
 // Proc: apcs_overload()
 // Parameters: 3 (failure_chance - chance to actually break the APC, overload_chance - Chance of breaking lights, reboot_chance - Chance of temporarily disabling the APC)
 // Description: Damages output powernet by power surge. Destroys few APCs and lights, depending on parameters.
-/obj/machinery/power/smes/buildable/proc/apcs_overload(var/failure_chance, var/overload_chance, var/reboot_chance)
+/obj/structure/machinery/power/smes/buildable/proc/apcs_overload(var/failure_chance, var/overload_chance, var/reboot_chance)
 	if (!src.powernet)
 		return
 
-	for(var/obj/machinery/power/terminal/T in src.powernet.nodes)
-		if(istype(T.master, /obj/machinery/power/apc))
-			var/obj/machinery/power/apc/A = T.master
+	for(var/obj/structure/machinery/power/terminal/T in src.powernet.nodes)
+		if(istype(T.master, /obj/structure/machinery/power/apc))
+			var/obj/structure/machinery/power/apc/A = T.master
 			if (prob(overload_chance))
 				A.overload_lighting()
 			if (prob(failure_chance))
@@ -369,7 +398,7 @@
 // Proc: update_icon()
 // Parameters: None
 // Description: Allows us to use special icon overlay for critical SMESs
-/obj/machinery/power/smes/buildable/update_icon()
+/obj/structure/machinery/power/smes/buildable/update_icon()
 	if(failing)
 		ClearOverlays()
 		AddOverlays("smes-crit")
@@ -379,7 +408,7 @@
 
 // Proc: attackby()
 // Description: Handles tool interaction. Allows deconstruction/upgrading/fixing.
-/obj/machinery/power/smes/buildable/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/smes/buildable/attackby(obj/item/attacking_item, mob/user)
 	// No more disassembling of overloaded SMESs. You broke it, now enjoy the consequences.
 	if (failing)
 		to_chat(user, SPAN_WARNING("The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea."))
@@ -388,8 +417,8 @@
 	// - Hatch is open, so we can modify the SMES
 	// - No action was taken in parent function (terminal de/construction atm).
 	if (..())
-		if(attacking_item.iswelder())
-			if(health == initial(health))
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
+			if(health == maxhealth)
 				to_chat(user, SPAN_WARNING("\The [src] is already repaired."))
 				return
 			var/obj/item/weldingtool/WT = attacking_item
@@ -400,13 +429,13 @@
 				to_chat(user, SPAN_WARNING("You don't have enough fuel to repair \the [src]."))
 				return
 			if(WT.use_tool(src, user, 50, volume = 50) && WT.use(2, user))
-				health = min(health + 100, initial(health))
-				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / initial(health)) * 100)]% repaired."))
-				if(health == initial(health))
+				health = min(health + 100, maxhealth)
+				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / maxhealth) * 100)]% repaired."))
+				if(health == maxhealth)
 					busted = FALSE
 				return
 		// Multitool - change RCON tag
-		if(attacking_item.ismultitool())
+		if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
@@ -431,7 +460,7 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if (terminal)
 				to_chat(user, SPAN_WARNING("You have to disassemble the terminal first!"))
 				return
@@ -445,7 +474,7 @@
 					return
 
 				to_chat(usr, SPAN_WARNING("You have disassembled the SMES cell!"))
-				var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
+				var/obj/structure/machinery/constructable_frame/machine_frame/M = new /obj/structure/machinery/constructable_frame/machine_frame(src.loc)
 				M.state = 2
 				M.icon_state = "box_1"
 				for(var/obj/I in component_parts)
@@ -473,27 +502,27 @@
 // Proc: toggle_input()
 // Parameters: None
 // Description: Switches the input on/off depending on previous setting
-/obj/machinery/power/smes/buildable/proc/toggle_input()
+/obj/structure/machinery/power/smes/buildable/proc/toggle_input()
 	inputting(!input_attempt)
 	update_icon()
 
 // Proc: toggle_output()
 // Parameters: None
 // Description: Switches the output on/off depending on previous setting
-/obj/machinery/power/smes/buildable/proc/toggle_output()
+/obj/structure/machinery/power/smes/buildable/proc/toggle_output()
 	outputting(!output_attempt)
 	update_icon()
 
 // Proc: set_input()
 // Parameters: 1 (new_input - New input value in Watts)
 // Description: Sets input setting on this SMES. Trims it if limits are exceeded.
-/obj/machinery/power/smes/buildable/proc/set_input(var/new_input = 0)
+/obj/structure/machinery/power/smes/buildable/proc/set_input(var/new_input = 0)
 	input_level = between(0, new_input, input_level_max)
 	update_icon()
 
 // Proc: set_output()
 // Parameters: 1 (new_output - New output value in Watts)
 // Description: Sets output setting on this SMES. Trims it if limits are exceeded.
-/obj/machinery/power/smes/buildable/proc/set_output(var/new_output = 0)
+/obj/structure/machinery/power/smes/buildable/proc/set_output(var/new_output = 0)
 	output_level = between(0, new_output, output_level_max)
 	update_icon()

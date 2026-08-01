@@ -28,7 +28,9 @@
 				H.drop_from_inventory(W)
 				add_warhead(W)
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
-	update_status()
+		update_status()
+
+	return ..()
 
 /obj/item/ship_ammunition/longbow/can_be_loaded()
 	if(primer && warhead)
@@ -126,7 +128,7 @@
 	warhead_state = "high_ex"
 	caliber = SHIP_CALIBER_406MM
 	warhead_type = SHIP_AMMO_IMPACT_HE
-	slowdown = 2
+	slowdown = 1
 	var/drop_counter = 0
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 3

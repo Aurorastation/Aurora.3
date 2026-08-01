@@ -3,13 +3,13 @@
 	desc = "A synthetic computer."
 	hardware_flag = PROGRAM_SILICON
 	icon_state_unpowered = "laptop-open"
-	icon = 'icons/obj/modular_laptop.dmi'
+	icon = 'icons/obj/modular_computers/modular_laptop.dmi'
 	icon_state = "laptop-open"
 	icon_state_broken = "laptop-broken"
 	base_idle_power_usage = 5
 	base_active_power_usage = 25
 	max_hardware_size = 3
-	max_damage = 50
+	maxhealth = OBJECT_HEALTH_LOW
 	w_class = WEIGHT_CLASS_NORMAL
 	enrolled = DEVICE_PRIVATE
 	/// Thing that contains this computer. Used for silicon computers
@@ -19,6 +19,9 @@
 /obj/item/modular_computer/silicon/ui_host()
 	. = computer_host
 
+/obj/item/modular_computer/silicon/ui_state(mob/user)
+	return GLOB.self_state
+
 /obj/item/modular_computer/silicon/Initialize(mapload)
 	if(istype(loc, /mob/living/silicon))
 		computer_host = loc
@@ -26,10 +29,15 @@
 		return INITIALIZE_HINT_QDEL
 	. = ..()
 
+/// Yes- they're computers. They're electronic. However, we don't want to disassemble a
+/// computer in a silicon's var/list/contents- let the silicon just be fucked up normally.
+/obj/item/modular_computer/silicon/emp_act(severity)
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
 /obj/item/modular_computer/silicon/Destroy()
 	computer_host = null
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle their power
@@ -61,7 +69,7 @@
 	hard_drive.store_file(new /datum/computer_file/program/atmos_control(src))
 	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
 	hard_drive.store_file(new /datum/computer_file/program/law_manager(src, computer_host))
-	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"), TRUE)
 	addtimer(CALLBACK(src, PROC_REF(register_chat)), 1 SECOND)
 
 /obj/item/modular_computer/silicon/proc/register_chat()
@@ -73,4 +81,4 @@
 	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
 	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
 	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
-	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"), TRUE)

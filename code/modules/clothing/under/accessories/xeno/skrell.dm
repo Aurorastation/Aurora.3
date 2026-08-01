@@ -64,8 +64,8 @@
 	desc_extended = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Nralakk Federation - specifically, the inner systems."
 	icon = 'icons/obj/item/clothing/accessory/poncho/nationcapes.dmi'
 	icon_override = 'icons/obj/item/clothing/accessory/poncho/nationcapes.dmi'
-	item_state = "jargcape"
-	icon_state = "jargcape"
+	item_state = "nralcape"
+	icon_state = "nralcape"
 	flippable = TRUE
 	contained_sprite = TRUE
 

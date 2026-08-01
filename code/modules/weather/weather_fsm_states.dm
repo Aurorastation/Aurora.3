@@ -31,10 +31,10 @@ ABSTRACT_TYPE(/singleton/state/weather)
 
 	// Temporarily removing the material checks, we do not have the same material system as Nebula
 	// if(is_liquid && weather.water_material)
-	// 	var/material/mat = SSmaterials.get_material_by_name(weather.water_material)
+	// 	var/material/mat = SSmaterials.get_material_name(weather.water_material)
 	// 	weather.color = mat.icon_colour
 	// else if(is_ice && weather.ice_material)
-	// 	var/material/mat = SSmaterials.get_material_by_name(weather.ice_material)
+	// 	var/material/mat = SSmaterials.get_material_name(weather.ice_material)
 	// 	weather.color = mat.icon_colour
 
 	if(is_liquid)
@@ -70,7 +70,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 		if(!weather.show_weather(M))
 			weather.show_wind(M)
 
-	if(exposure != WEATHER_IGNORE && weather.set_cooldown(M))
+	if(exposure != WEATHER_IGNORE)
 		if(exposure == WEATHER_EXPOSED)
 			handle_exposure_effects(M, weather)
 		else if(exposure == WEATHER_ROOFED)

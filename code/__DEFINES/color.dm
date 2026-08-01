@@ -18,6 +18,7 @@
 #define COLOR_GRAY15           "#151515"
 #define COLOR_SEDONA           "#cc6600"
 #define COLOR_DARK_BROWN       "#917448"
+#define COLOR_MUTED_BROWN      "#5c503f"
 #define COLOR_BLUE             "#0000ff"
 #define COLOR_DEEP_SKY_BLUE    "#00e1ff"
 #define COLOR_LIME             "#00ff00"
@@ -90,7 +91,7 @@
 #define COLOR_ASTEROID_ROCK    "#735555"
 #define COLOR_HOT_PINK         "#ff6088"
 #define COLOR_DIAMOND          "#d8d4ea"
-#define COLOR_TCFL             "#849bc1"
+#define COLOR_TCAF             "#849bc1"
 #define COLOR_IAC              "#96bcde"
 #define COLOR_COALITION		   "#949ea3"
 #define COLOR_RIPLEY           "#ffbc37"
@@ -104,6 +105,9 @@
 #define COLOR_LINOLEUM         "#4E4D41"
 #define COLOR_LEATHER          "#5C4831"
 #define COLOR_RAIDER           "#6C7364"
+#define COLOR_CARDBOARD        "#7A7F8B"
+#define COLOR_REDBOX           "#B62B2B"
+#define COLOR_SPRING_GREEN     "#00ff88"
 
 #define COLOR_TOOLS            "#eac041"
 

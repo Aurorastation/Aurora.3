@@ -5,7 +5,7 @@
 	prefix = "away_site/racers/"
 	suffix = "racers.dmm"
 
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_TABITI, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_TABITI, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "racers"
@@ -95,11 +95,11 @@
 	range = 1
 	defer_initialisation = TRUE
 
-/obj/machinery/computer/shuttle_control/explore/red_racer
+/obj/structure/machinery/computer/shuttle_control/explore/red_racer
 	name = "shuttle control console"
 	shuttle_tag = "Red Racer"
 
-/obj/machinery/computer/shuttle_control/explore/blue_racer
+/obj/structure/machinery/computer/shuttle_control/explore/blue_racer
 	name = "shuttle control console"
 	shuttle_tag = "Blue Racer"
 

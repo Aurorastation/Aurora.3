@@ -17,7 +17,7 @@
 	},
 /area/heph_mining_station/quarters)
 "as" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -28,13 +28,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/mineral/equipment_vendor,
+/obj/structure/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/mining)
 "aE" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced{
@@ -68,17 +68,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Crew Quarters";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -86,7 +86,7 @@
 	},
 /area/heph_mining_station/mess)
 "bv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -119,7 +119,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -127,10 +127,10 @@
 	},
 /area/heph_mining_station/engineer)
 "cq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -153,11 +153,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -170,8 +170,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -186,13 +186,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -206,14 +206,14 @@
 	},
 /area/heph_mining_station/engineer)
 "dB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -231,7 +231,7 @@
 	},
 /area/heph_mining_station/equipmentstorage)
 "dJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -240,7 +240,7 @@
 	},
 /area/heph_mining_station/storage)
 "dQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
@@ -253,7 +253,7 @@
 	dir = 9
 	},
 /obj/structure/bed/roller,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -266,8 +266,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -285,10 +285,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/sign/flag/heph/large/north{
@@ -305,10 +305,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -338,7 +338,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -369,20 +369,20 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/medical{
 	name = "Infirmary";
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
 /area/heph_mining_station)
 "fZ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -394,7 +394,7 @@
 	name = "airlock_heph_uueoa";
 	req_one_access = list(216)
 	},
-/obj/machinery/light/colored/dying{
+/obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -417,7 +417,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -430,7 +430,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -445,8 +445,8 @@
 	},
 /area/heph_mining_station/entry)
 "gK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -459,10 +459,10 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -471,7 +471,7 @@
 	},
 /area/heph_mining_station)
 "gQ" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -487,10 +487,10 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -501,8 +501,8 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/machinery/iv_drip,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -516,7 +516,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -530,10 +530,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -541,7 +541,7 @@
 	},
 /area/heph_mining_station/storage)
 "ic" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -551,7 +551,7 @@
 "iy" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -577,8 +577,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
 	temperature = 303.15
@@ -595,10 +595,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -610,14 +610,14 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
 /area/heph_mining_station/medbay)
 "jI" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -629,7 +629,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -640,14 +640,14 @@
 /obj/structure/plasticflaps/mining{
 	dir = 4
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -655,7 +655,7 @@
 	},
 /area/heph_mining_station/mining)
 "kb" = (
-/obj/machinery/mineral/unloading_machine{
+/obj/structure/machinery/mineral/unloading_machine{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -671,10 +671,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor{
@@ -687,9 +687,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -703,23 +703,23 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
+/obj/structure/machinery/power/apc/high{
 	name = "north bump";
 	req_access = null
 	},
 /obj/structure/table/rack,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
-/obj/item/device/radio/hailing,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
+/obj/item/radio/hailing,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -730,12 +730,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor";
 	dir = 4;
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced{
@@ -752,14 +752,14 @@
 	dir = 10
 	},
 /obj/structure/closet/crate,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/mining)
 "lb" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "processing_1"
 	},
@@ -769,12 +769,12 @@
 /obj/structure/plasticflaps/mining{
 	dir = 4
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -782,9 +782,9 @@
 	},
 /area/heph_mining_station/mining)
 "lo" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/miner,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -797,10 +797,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -809,8 +809,8 @@
 /area/heph_mining_station/eva)
 "lu" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/appliance/cooker/stove,
-/obj/machinery/light{
+/obj/structure/machinery/appliance/cooker/stove,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -834,7 +834,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/heph_mining_station/equipmentstorage)
 "mg" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -894,18 +894,18 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance{
+/obj/structure/machinery/door/airlock/maintenance{
 	name = "Warehouse";
 	dir = 4;
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -913,10 +913,10 @@
 	},
 /area/heph_mining_station/mess)
 "mV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -929,7 +929,7 @@
 	},
 /area/heph_mining_station/quarters)
 "nf" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -958,7 +958,7 @@
 	},
 /area/heph_mining_station/eva)
 "nt" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -972,13 +972,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -997,10 +997,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1017,8 +1017,8 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
-/obj/machinery/cell_charger,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/cell_charger,
+/obj/structure/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -1034,7 +1034,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1043,7 +1043,7 @@
 	},
 /area/heph_mining_station/mining)
 "os" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1055,7 +1055,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
@@ -1072,18 +1072,18 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Equipment Storage";
 	dir = 8;
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1091,7 +1091,7 @@
 	},
 /area/heph_mining_station/equipmentstorage)
 "oL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1101,13 +1101,13 @@
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/equipmentstorage)
 "pH" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
@@ -1126,7 +1126,7 @@
 	},
 /area/heph_mining_station/engineer)
 "qg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1160,7 +1160,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	dir = 8;
 	id = "stacking_2"
 	},
@@ -1174,12 +1174,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Entry"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1190,7 +1190,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1199,7 +1199,7 @@
 	},
 /area/heph_mining_station/engineer)
 "rp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1212,8 +1212,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/sign/flag/heph/large/east{
 	pixel_x = 32
 	},
@@ -1233,8 +1233,8 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1256,7 +1256,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1269,7 +1269,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1282,8 +1282,8 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/machinery/iv_drip,
-/obj/machinery/light{
+/obj/structure/machinery/iv_drip,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1292,7 +1292,7 @@
 	},
 /area/heph_mining_station/medbay)
 "sp" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1314,7 +1314,7 @@
 /obj/item/reagent_containers/food/snacks/koisburger,
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koissteak,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/freezer/kois/spores,
@@ -1338,7 +1338,7 @@
 	},
 /area/heph_mining_station/medbay)
 "sI" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1355,8 +1355,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
 	temperature = 303.15
@@ -1368,10 +1368,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1385,7 +1385,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1409,7 +1409,7 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1427,13 +1427,13 @@
 	req_one_access = list(216)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station/entry)
 "uu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1450,7 +1450,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
@@ -1489,8 +1489,8 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
 	temperature = 303.15
@@ -1500,10 +1500,10 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1516,7 +1516,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1525,10 +1525,10 @@
 /area/heph_mining_station/quarters)
 "wr" = (
 /obj/structure/cable/green,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1551,7 +1551,7 @@
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle/large,
@@ -1565,7 +1565,7 @@
 	},
 /area/heph_mining_station/storage)
 "xc" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -1574,7 +1574,7 @@
 	},
 /area/heph_mining_station/equipmentstorage)
 "xs" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1585,13 +1585,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/heph/large/north{
@@ -1609,13 +1609,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
-/obj/machinery/mineral/rigpress,
+/obj/structure/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/mining)
 "xW" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -1628,10 +1628,10 @@
 	req_one_access = list(216)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1642,10 +1642,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1657,7 +1657,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
@@ -1690,7 +1690,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/suit_cycler/mining{
+/obj/structure/machinery/suit_cycler/mining{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1703,7 +1703,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/blue,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
 	temperature = 303.15
@@ -1713,7 +1713,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/structure/sign/flag/heph/large/east{
 	pixel_x = 32
 	},
@@ -1732,7 +1732,7 @@
 	},
 /area/heph_mining_station/engineer)
 "zT" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = 32;
 	id = "stacking_2"
 	},
@@ -1746,7 +1746,7 @@
 /obj/item/reagent_containers/food/condiment/shaker/peppermill,
 /obj/item/reagent_containers/food/condiment/shaker/salt,
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
-/obj/machinery/reagentgrinder,
+/obj/structure/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1765,8 +1765,8 @@
 	req_one_access = list(216)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -8
 	},
@@ -1775,7 +1775,7 @@
 	},
 /area/heph_mining_station/entry)
 "Ad" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -1791,15 +1791,15 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station/engineer)
 "Ax" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1808,17 +1808,17 @@
 	},
 /area/heph_mining_station/engineer)
 "AD" = (
-/obj/machinery/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station/engineer)
 "AH" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -1827,13 +1827,13 @@
 	},
 /area/heph_mining_station/entry)
 "AX" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/quarters)
 "Bp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1847,7 +1847,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
@@ -1874,7 +1874,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -1898,8 +1898,8 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
 	temperature = 303.15
@@ -1911,10 +1911,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1922,7 +1922,7 @@
 	},
 /area/heph_mining_station/equipmentstorage)
 "Ec" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
@@ -1943,7 +1943,7 @@
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/fire,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1956,7 +1956,7 @@
 	dir = 6
 	},
 /obj/structure/ore_box,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1980,7 +1980,7 @@
 	},
 /area/heph_mining_station/eva)
 "EI" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /obj/structure/sign/flag/heph/large/east{
 	pixel_x = 32
 	},
@@ -1993,7 +1993,7 @@
 /area/heph_mining_station/medbay)
 "EY" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2004,8 +2004,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -2016,8 +2016,8 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
@@ -2029,7 +2029,7 @@
 	},
 /area/heph_mining_station/mining)
 "FD" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = 32;
 	id = "stacking_1"
 	},
@@ -2051,17 +2051,17 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /obj/item/rig/industrial,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/eva)
 "Gf" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -2075,8 +2075,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2088,7 +2088,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2097,10 +2097,10 @@
 	},
 /area/heph_mining_station/engineer)
 "GB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2109,7 +2109,7 @@
 /area/heph_mining_station/eva)
 "GS" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -2126,10 +2126,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2145,8 +2145,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark{
@@ -2154,8 +2154,8 @@
 	},
 /area/heph_mining_station/mess)
 "HB" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -2164,7 +2164,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white{
@@ -2172,10 +2172,10 @@
 	},
 /area/heph_mining_station/medbay)
 "HJ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2190,7 +2190,7 @@
 	},
 /area/heph_mining_station/entry)
 "HR" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2201,11 +2201,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -2215,7 +2215,7 @@
 	},
 /area/heph_mining_station/engineer)
 "Ih" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2232,7 +2232,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "processing_2"
 	},
@@ -2244,10 +2244,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2261,10 +2261,10 @@
 	name = "airlock_heph_uueoa";
 	req_one_access = list(216)
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -20;
 	dir = 4
 	},
@@ -2297,10 +2297,10 @@
 	},
 /area/heph_mining_station/storage)
 "IV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2308,7 +2308,7 @@
 	},
 /area/heph_mining_station/entry)
 "IY" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "heph_mining_station";
 	dir = 8
 	},
@@ -2318,7 +2318,7 @@
 	},
 /area/heph_mining_station/mining)
 "Jg" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -2340,11 +2340,11 @@
 	},
 /area/heph_mining_station/medbay)
 "Kc" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(209)
 	},
@@ -2390,7 +2390,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/mask/breath,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/sign/flag/heph/large/south{
 	pixel_y = -32
 	},
@@ -2405,14 +2405,14 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
 /area/heph_mining_station/medbay)
 "Ld" = (
-/obj/machinery/vending/tool,
-/obj/machinery/light{
+/obj/structure/machinery/vending/tool,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -2420,10 +2420,10 @@
 	},
 /area/heph_mining_station/engineer)
 "Le" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2454,7 +2454,7 @@
 /area/heph_mining_station/mess)
 "LV" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2467,10 +2467,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2490,7 +2490,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/mask/breath,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2501,8 +2501,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -2518,10 +2518,10 @@
 	},
 /area/heph_mining_station/mess)
 "Of" = (
-/obj/machinery/conveyor_switch{
+/obj/structure/machinery/conveyor_switch{
 	id = "heph_mining_station"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -2544,12 +2544,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Mess Hall"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2563,7 +2563,7 @@
 	},
 /area/heph_mining_station/medbay)
 "OF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2593,7 +2593,7 @@
 /obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/material/kitchen/rollingpin,
 /obj/item/material/kitchen/utensil/knife,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2608,7 +2608,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = list(216)
 	},
 /turf/simulated/floor/tiled/white{
@@ -2616,14 +2616,14 @@
 	},
 /area/heph_mining_station/medbay)
 "PA" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station/engineer)
 "PF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -2637,10 +2637,10 @@
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -2653,7 +2653,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	dir = 8;
 	id = "stacking_1"
 	},
@@ -2672,10 +2672,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -2684,7 +2684,7 @@
 	},
 /area/heph_mining_station/mess)
 "Qb" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -2697,7 +2697,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -2711,10 +2711,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -2732,7 +2732,7 @@
 	},
 /area/heph_mining_station/medbay)
 "QI" = (
-/obj/machinery/atmospherics/binary/pump/scrubber{
+/obj/structure/machinery/atmospherics/binary/pump/scrubber{
 	dir = 8;
 	name = "scrubbers to waste"
 	},
@@ -2777,7 +2777,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -2791,7 +2791,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/alarm/south{
+/obj/structure/machinery/alarm/south{
 	req_one_access = null;
 	req_access = list(216)
 	},
@@ -2808,7 +2808,7 @@
 	},
 /area/heph_mining_station/mining)
 "RF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/steel,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
@@ -2836,7 +2836,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2849,10 +2849,10 @@
 	name = "airlock_heph_uueoa";
 	req_one_access = list(216)
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_y = -6;
 	pixel_x = 20
@@ -2870,7 +2870,7 @@
 /obj/item/clothing/under/rank/miner/heph,
 /obj/item/clothing/head/hardhat/green,
 /obj/item/clothing/shoes/workboots/toeless,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2879,16 +2879,16 @@
 /area/heph_mining_station/quarters)
 "SQ" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -2910,15 +2910,15 @@
 /area/heph_mining_station/medbay)
 "TV" = (
 /obj/structure/cable/green,
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station/engineer)
 "Ui" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /obj/structure/mech_wreckage/powerloader,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2936,14 +2936,14 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/entry)
 "Vo" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_y = 28;
 	id = "processing_1"
 	},
@@ -2969,8 +2969,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/light{
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3006,7 +3006,7 @@
 	},
 /area/heph_mining_station/medbay)
 "WC" = (
-/obj/machinery/mineral/unloading_machine{
+/obj/structure/machinery/mineral/unloading_machine{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3021,20 +3021,20 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/mining{
 	name = "Processing";
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station)
 "WT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3048,7 +3048,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_y = 28;
 	id = "processing_2"
 	},
@@ -3062,10 +3062,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -3082,10 +3082,10 @@
 	},
 /area/heph_mining_station/entry)
 "Xt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3109,18 +3109,18 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass_mining{
+/obj/structure/machinery/door/airlock/glass_mining{
 	name = "EVA Storage";
 	dir = 4;
 	req_access = list(216)
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3129,7 +3129,7 @@
 /area/heph_mining_station/entry)
 "Yr" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -3138,7 +3138,7 @@
 	},
 /area/heph_mining_station/mess)
 "YB" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3146,10 +3146,10 @@
 	},
 /area/heph_mining_station/quarters)
 "YF" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor{
@@ -3177,9 +3177,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3200,11 +3200,11 @@
 	req_one_access = list(216)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -24;
 	pixel_y = 32;
 	dir = 4
@@ -3215,7 +3215,7 @@
 /area/heph_mining_station/entry)
 "ZH" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -3224,7 +3224,7 @@
 	},
 /area/heph_mining_station/storage)
 "ZK" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15

@@ -68,6 +68,16 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
+/datum/gear/teaset
+	display_name = "tea set"
+	description = "A box containing a tea set."
+	cost = 2
+	path = /obj/item/storage/box/blank/teabox
+
+/datum/gear/teaset/New()
+	..()
+	gear_tweaks += new /datum/gear_tweak/contents(teas_tea_type(), teas_teapot_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type())
+
 /datum/gear/coffeecup
 	display_name = "coffee cups"
 	description = "A coffee cup in various designs."
@@ -105,7 +115,7 @@
 	coffeecups["Zeng-Hu coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zeng
 	coffeecups["Zavod coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zavod
 	coffeecups["Orion coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion
-	coffeecups["TCFL coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
+	coffeecups["TCAF coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf
 	coffeecups["EE coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein
 	coffeecups["EE coffee cup, alt"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/einstein/alt
 	// symbols, markings
@@ -168,19 +178,22 @@
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
-/datum/gear/chatins
-	display_name = "konyang-cha tins"
-	description = "Tins of tea leaves made by Konyang-cha."
+/datum/gear/teatins
+	display_name = "tea tin selection"
+	description = "A selction of various tins of tea."
 	cost = 1
-	path = /obj/item/storage/box/tea
+	path = /obj/item/storage/box/unique/tea
 
-/datum/gear/chatins/New()
+/datum/gear/teatins/New()
 	..()
-	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
-	gear_tweaks += new /datum/gear_tweak/path(chatins)
+	var/list/teatins = list()
+	teatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	teatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	teatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
+	teatins["messa's tear tea"] = /obj/item/storage/box/unique/tea/messa
+	teatins["ras'nif tea"] = /obj/item/storage/box/unique/tea/rasnif
+
+	gear_tweaks += new /datum/gear_tweak/path(teatins)
 
 /datum/gear/teapots
 	display_name = "teapots"
@@ -221,8 +234,11 @@
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
-	banners["banner, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique
+	banners["banner, Solarian Biesel"] = /obj/item/flag/biesel/old
+	banners["banner, Tau Cetian Colonial Mandate Flag"] = /obj/item/flag/biesel/antique
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
+	banners["banner, Ecclesiastical Axiom"] = /obj/item/flag/ecclesiastical_axiom
+	banners["banner, Salamasian Republic"] = /obj/item/flag/salamasian_republic
 	banners["banner, Golden Deep"] = /obj/item/flag/goldendeep
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
 	banners["banner, Idris Incorporated"] = /obj/item/flag/idris
@@ -234,6 +250,7 @@
 	banners["banner, Gadpathur"] = /obj/item/flag/gadpathur
 	banners["banner, Vysoka"] = /obj/item/flag/vysoka
 	banners["banner, Konyang"] = /obj/item/flag/konyang
+	banners["banner, Solarian Konyang"] = /obj/item/flag/konyang/old
 	banners["banner, Red Coalition"] = /obj/item/flag/red_coalition
 	banners["banner, Private Military Contracting Group"] = /obj/item/flag/pmcg
 	banners["banner, United Syndicates of Himeo"] = /obj/item/flag/himeo
@@ -241,7 +258,9 @@
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old
+	banners["banner, Sankt Frederick"] = /obj/item/flag/sfk
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
+	banners["banner, Solarian Mictlan"] = /obj/item/flag/mictlan/old
 	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
 	banners["banner, Silversun"] = /obj/item/flag/silversun
 	banners["banner, Luna"] = /obj/item/flag/luna
@@ -263,22 +282,33 @@
 	banners["banner, Empyrean"] = /obj/item/flag/empyrean
 	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
 	banners["banner, Callisto"] = /obj/item/flag/callisto
+	banners["banner, Ganymede"] = /obj/item/flag/ganymede
+	banners["banner, Europa"] = /obj/item/flag/europa
+	banners["banner, Novo Igman"] = /obj/item/flag/novo_igman
+	banners["banner, Unity Station"] = /obj/item/flag/unity
+	banners["banner, Enceladus"] = /obj/item/flag/enceladus
+	banners["banner, Lycoris"] = /obj/item/flag/lycoris
+	banners["banner, New Peoria"] = /obj/item/flag/new_peoria
+	banners["banner, Lhokgon"] = /obj/item/flag/lhokgon
 	banners["banner, Venus"] = /obj/item/flag/venus
 	banners["banner, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium
 	banners["banner, Eternal Republic of the Ekane"] = /obj/item/flag/ekane
 	banners["banner, Union of Gla'orr"] = /obj/item/flag/glaorr
 	banners["banner, New Gibson"] = /obj/item/flag/newgibson
+	banners["banner, Solarian New Gibson"] = /obj/item/flag/newgibson/old
 	banners["banner, Valkyrie"] = /obj/item/flag/valkyrie
-	banners["banner, Antique Xanu"] = /obj/item/flag/old_xanu
+	banners["banner, Solarian Xanu"] = /obj/item/flag/xanu_old
 	banners["banner, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm
 	banners["banner, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm
 	banners["banner, Provisional Government of Mars"] = /obj/item/flag/mars
+	banners["banner, Martian Union"] = /obj/item/flag/mars/old
 	banners["banner, Pluto"] = /obj/item/flag/pluto
-	banners["banner, Antique Visegrad"] = /obj/item/flag/old_visegrad
+	banners["banner, Antique Visegrad"] = /obj/item/flag/visegrad_old
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Burzsia"] = /obj/item/flag/burzsia
 	banners["banner, HPS Narrows"] = /obj/item/flag/narrows
 	banners["banner, Zhurong"] = /obj/item/flag/zhurong
+	banners["banner, Caria"] = /obj/item/flag/caria
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -293,6 +323,9 @@
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
+	standards["standard, Seok"] = /obj/item/flag/seok
+	standards["standard, Kaneko"] = /obj/item/flag/kaneko
+	standards["standard, von Sinzendorf"] = /obj/item/flag/sinzendorf
 	gear_tweaks += new /datum/gear_tweak/path(standards)
 
 /datum/gear/flag
@@ -321,8 +354,11 @@
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
 	flags["flag, Free Tajaran Council"] = /obj/item/flag/ftc/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
-	flags["flag, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique/l
+	flags["flag, Solarian Biesel"] = /obj/item/flag/biesel/old/l
+	flags["flag, Tau Cetian Colonial Mandate Flag"] = /obj/item/flag/biesel/antique/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
+	flags["flag, Ecclesiastical Axiom"] = /obj/item/flag/ecclesiastical_axiom/l
+	flags["flag, Salamasian Republic"] = /obj/item/flag/salamasian_republic/l
 	flags["flag, Golden Deep"] = /obj/item/flag/goldendeep/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
 	flags["flag, Idris Incorporated"] = /obj/item/flag/idris/l
@@ -334,14 +370,18 @@
 	flags["flag, Gadpathur"] = /obj/item/flag/gadpathur/l
 	flags["flag, Vysoka"] = /obj/item/flag/vysoka/l
 	flags["flag, Konyang"] = /obj/item/flag/konyang/l
+	flags["flag, Solarian Konyang"] = /obj/item/flag/konyang/old/l
 	flags["flag, Red Coalition"] = /obj/item/flag/red_coalition/l
 	flags["flag, Private Military Contracting Group"] = /obj/item/flag/pmcg/l
 	flags["flag, United Syndicates of Himeo"] = /obj/item/flag/himeo/l
 	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
+	flags["flag, Luceist"] = /obj/item/flag/luceist/l
 	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
 	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
 	flags["flag, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old/l
+	flags["flag, Sankt Frederick"] = /obj/item/flag/sfk/l
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
+	flags["flag, Solarian Mictlan"] = /obj/item/flag/mictlan/old/l
 	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
 	flags["flag, Silversun"] = /obj/item/flag/silversun/l
 	flags["flag, Luna"] = /obj/item/flag/luna/l
@@ -363,22 +403,33 @@
 	flags["flag, Empyrean"] = /obj/item/flag/empyrean/l
 	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
 	flags["flag, Callisto"] = /obj/item/flag/callisto/l
+	flags["flag, Ganymede"] = /obj/item/flag/ganymede/l
+	flags["flag, Europa"] = /obj/item/flag/europa/l
+	flags["flag, Novo Igman"] = /obj/item/flag/novo_igman/l
+	flags["flag, Unity Station"] = /obj/item/flag/unity/l
+	flags["flag, Enceladus"] = /obj/item/flag/enceladus/l
+	flags["flag, Lycoris"] = /obj/item/flag/lycoris/l
+	flags["flag, New Peoria"] = /obj/item/flag/new_peoria/l
+	flags["flag, Lhokgon"] = /obj/item/flag/lhokgon/l
 	flags["flag, Venus"] = /obj/item/flag/venus/l
 	flags["flag, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium/l
 	flags["flag, Eternal Republic of the Ekane"] = /obj/item/flag/ekane/l
 	flags["flag, Union of Gla'orr"] = /obj/item/flag/glaorr/l
 	flags["flag, New Gibson"] = /obj/item/flag/newgibson/l
+	flags["flag, Solarian New Gibson"] = /obj/item/flag/newgibson/old/l
 	flags["flag, Valkyrie"] = /obj/item/flag/valkyrie/l
-	flags["flag, Antique Xanu"] = /obj/item/flag/old_xanu/l
+	flags["flag, Solarian Xanu"] = /obj/item/flag/xanu_old/l
 	flags["flag, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm/l
 	flags["flag, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm/l
 	flags["flag, Provisional Government of Mars"] = /obj/item/flag/mars/l
+	flags["flag, Martian Union"] = /obj/item/flag/mars/old
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
-	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad/l
+	flags["flag, Antique Visegrad"] = /obj/item/flag/visegrad_old/l
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
 	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
 	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
 	flags["flag, Zhurong"] = /obj/item/flag/zhurong/l
+	flags["flag, Caria"] = /obj/item/flag/caria/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -450,7 +501,7 @@
 
 /datum/gear/gadbook
 	display_name = "gadpathurian morale manual"
-	path = /obj/item/device/versebook/gadpathur
+	path = /obj/item/versebook/gadpathur
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature
@@ -461,16 +512,16 @@
 /datum/gear/instruments
 	display_name = "instrument selection"
 	description = "A selection of instruments for the musically inclined."
-	path = /obj/item/device/synthesized_instrument
+	path = /obj/item/synthesized_instrument
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 
 /datum/gear/instruments/New()
 	..()
 	var/list/instruments = list()
-	instruments["guitar"] = /obj/item/device/synthesized_instrument/guitar
-	instruments["polyguitar"] = /obj/item/device/synthesized_instrument/guitar/multi
-	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
-	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
+	instruments["guitar"] = /obj/item/synthesized_instrument/guitar
+	instruments["polyguitar"] = /obj/item/synthesized_instrument/guitar/multi
+	instruments["violin"] = /obj/item/synthesized_instrument/violin
+	instruments["Omnitrumpet"] = /obj/item/synthesized_instrument/trumpet
 	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio
@@ -492,8 +543,36 @@
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
 
+/datum/gear/pottedplant_small/luce_vine
+	display_name = "potted luce vine"
+	description = "A small luce vine growth. Considered a miracle by followers of Luceism."
+	cost = 1
+	path = /obj/item/flora/pottedplant_small/luce_vine
+	origin_restriction = list(/singleton/origin_item/origin/assunzione)
+
 /datum/gear/candles
 	display_name = "candle pack"
 	description = "A pack of red candles."
 	cost = 1
 	path = /obj/item/storage/box/fancy/candle_box
+
+/datum/gear/mre
+	display_name = "mre selection"
+	description = "A selection of different MREs."
+	cost = 2
+	path = /obj/item/storage/box/fancy/mre
+
+/datum/gear/mre/New()
+	..()
+	var/list/mres = list()
+	mres["meat pizza"] = /obj/item/storage/box/fancy/mre
+	mres["margherita pizza"] = /obj/item/storage/box/fancy/mre/menu2
+	mres["vegetable pizza"] = /obj/item/storage/box/fancy/mre/menu3
+	mres["hamburger"] = /obj/item/storage/box/fancy/mre/menu4
+	mres["taco"] = /obj/item/storage/box/fancy/mre/menu5
+	mres["meatbread"] = /obj/item/storage/box/fancy/mre/menu6
+	mres["salad"] = /obj/item/storage/box/fancy/mre/menu7
+	mres["hot chili"] = /obj/item/storage/box/fancy/mre/menu8
+	mres["boiled rice"] = /obj/item/storage/box/fancy/mre/menu9
+	mres["protein"] = /obj/item/storage/box/fancy/mre/menu10
+	gear_tweaks += new /datum/gear_tweak/path(mres)

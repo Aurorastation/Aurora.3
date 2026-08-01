@@ -19,7 +19,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/dummy/mannequin/Destroy()
 	SSmobs.free_mannequin(src)
-	. = ..()
+	return ..()
 
 /mob/living/carbon/human/vatgrown/Initialize(mapload)
 	. = ..(mapload, SPECIES_HUMAN_VATGROWN)
@@ -86,13 +86,21 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	internal = P
 	// Set colour, default is grey, no biggie
 	var/list/hive = splittext(name, " ")
+	src.name = src.species.get_random_name(src.gender, hive[2], TRUE) // TRUE ensures it's Viax, gender is for argument complications,
+	src.real_name = src.name
 	switch(hive[length(hive)])
 		if("K'lax")
 			change_skin_color(20, 170, 20) // Vedhra does bioresearch.
+			src.set_origin(GET_SINGLETON(/singleton/origin_item/origin/vedhra))
+			src.set_culture(GET_SINGLETON(/singleton/origin_item/culture/klax))
 		if("C'thur")
 			change_skin_color(10, 35, 55) // Vytel tolerates the SCC the most.
+			src.set_origin(GET_SINGLETON(/singleton/origin_item/origin/cthur))
+			src.set_culture(GET_SINGLETON(/singleton/origin_item/culture/cthur))
 		if("Zo'ra")
 			change_skin_color(71 ,11, 51) // Scay does bioresearch.
+			src.set_origin(GET_SINGLETON(/singleton/origin_item/origin/scay))
+			src.set_culture(GET_SINGLETON(/singleton/origin_item/culture/zora))
 
 /mob/living/carbon/human/type_b/Initialize(mapload)
 	h_style = "Classic Antennae"
@@ -110,6 +118,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, SPECIES_VAURCA_WARFORM)
 	src.gender = NEUTER
 	src.mutations |= HULK
+	src.name = src.species.get_random_name(src.gender, "Zo'ra")
+	src.real_name = src.name
+	change_skin_color(121, 0, 21) // Only Zo'ra have a lot of biped warforms on standby w/ Zoleth using them for TCAF
+	src.set_origin(GET_SINGLETON(/singleton/origin_item/origin/zoleth))
+	src.set_culture(GET_SINGLETON(/singleton/origin_item/culture/zora))
 
 /mob/living/carbon/human/type_big
 	layer = 5
@@ -185,7 +198,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear)
 
 	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -200,7 +213,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_penal(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_penal(src), slot_l_ear)
 
 	remote_network = REMOTE_PRISON_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -222,7 +235,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(ID, slot_wear_id)
 	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden/remote(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_warden(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_warden(src), slot_l_ear)
 
 	remote_network = REMOTE_WARDEN_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
@@ -261,7 +274,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/radio/headset/headset_com(src), slot_l_ear)
 
 	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)

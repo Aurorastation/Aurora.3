@@ -3,8 +3,7 @@
 	filedesc = "Map Program"
 	extended_desc = "This program may be used to see the decks or levels of the vessel, station, or ship."
 	program_icon_state = "map"
-	program_key_icon_state = "lightblue_key"
-	color = LIGHT_COLOR_BLUE
+	program_key_icon_state = "black_key"
 	size = 4
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
@@ -12,6 +11,8 @@
 
 	/// If zero/null, show the z-level of the user, otherwise show `z_override` z-level.
 	var/z_override = 0
+	/// If FALSE, do not display the Show/Hide Legend button
+	var/legend_enabled = TRUE
 
 /datum/computer_file/program/map/ui_data(mob/user)
 	var/list/data = list()
@@ -33,6 +34,7 @@
 	data["user_z"] = user.z
 	data["station_levels"] = zlevels_affected
 	data["z_override"] = z_override
+	data["legend_enabled"] = legend_enabled
 
 	data["dept_colors_map"] = list(
 		list("d"="Command", "c"=HOLOMAP_AREACOLOR_COMMAND),

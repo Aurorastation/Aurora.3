@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 515 && !defined(OPENDREAM)
-#error Your version of BYOND is too old to compile the code. At least BYOND 515 is required.
+#if DM_VERSION < 516 && !defined(OPENDREAM)
+#error Your version of BYOND is too old to compile the code. At least BYOND 516 is required.
 #endif
 
 
@@ -97,8 +97,6 @@ GLOBAL_DATUM(debugobj, /datum/debug)
 
 GLOBAL_DATUM_INIT(mods, /datum/moduletypes, new())
 
-GLOBAL_VAR_INIT(gravity_is_on, 1)
-
 GLOBAL_LIST_EMPTY(awaydestinations) // Away missions. A list of landmarks that the warpgate can take you to.
 
 // For FTP requests. (i.e. downloading runtime logs.)
@@ -110,10 +108,6 @@ GLOBAL_VAR(custom_event_msg)
 // Ideally, the connection dies when the server restarts (After feedback logging.).
 GLOBAL_DATUM(dbcon, /DBConnection)
 GLOBAL_PROTECT(dbcon)
-
-// Persistence subsystem track register - List of all persistent data tracks managed by the subsystem.
-GLOBAL_LIST_EMPTY(persistence_register)
-GLOBAL_PROTECT(persistence_register)
 
 // Added for Xenoarchaeology, might be useful for other stuff.
 GLOBAL_LIST_INIT(alphabet_uppercase, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))
@@ -136,12 +130,6 @@ GLOBAL_LIST_INIT(scarySounds, list(
 	'sound/weapons/thudswoosh.ogg',
 	'sound/weapons/Taser.ogg',
 	'sound/weapons/armbomb.ogg',
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg',
-	'sound/voice/hiss5.ogg',
-	'sound/voice/hiss6.ogg',
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg',
@@ -155,7 +143,7 @@ GLOBAL_LIST_INIT(scarySounds, list(
 GLOBAL_VAR_INIT(max_explosion_range, 14)
 
 // Announcer intercom, because too much stuff creates an intercom for one message then hard del()s it.
-GLOBAL_DATUM_INIT(global_announcer, /obj/item/device/radio/all_channels, new)
+GLOBAL_DATUM_INIT(global_announcer, /obj/item/radio/all_channels, new)
 
 // the number next to it denotes how much money the department receives when its account is generated
 GLOBAL_LIST_INIT(department_funds, list(
@@ -171,3 +159,8 @@ GLOBAL_LIST_INIT(department_funds, list(
 
 //List of exosuit tracking beacons, to save performance
 GLOBAL_LIST_EMPTY(exo_beacons)
+
+GLOBAL_VAR_INIT(minimum_exterior_lighting_alpha, 255)
+
+/// The minimum amount of armour for objects in the game. Stops things from being destroyed by objects with a small force.
+GLOBAL_LIST_INIT(default_object_armor, list(MELEE = ARMOR_MELEE_MINOR))

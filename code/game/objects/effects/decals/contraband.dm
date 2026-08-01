@@ -127,7 +127,7 @@
 	icon_state = design.icon_state
 
 /obj/structure/sign/poster/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
 			to_chat(user, SPAN_NOTICE("You remove the remnants of the poster."))

@@ -162,6 +162,12 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/adrenaline = 60)
 
+/obj/item/reagent_containers/glass/bottle/dexalin
+	name = "dexalin bottle"
+	desc = "A small bottle. Contains Dexalin that is used in the treatment of oxygen deprivation. It is somewhat effective, and is twice as powerful and lasts twice as long when inhaled."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/dexalin = 60)
+
 /obj/item/reagent_containers/glass/bottle/dexalin_plus
 	name = "dexalin plus bottle"
 	desc = "A small bottle. Contains Dexalin Plus that is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
@@ -185,6 +191,12 @@
 	desc = "A small bottle of thetamycin. Used for disinfecting whatever wounds security caused."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/thetamycin = 60)
+
+/obj/item/reagent_containers/glass/bottle/tricordrazine
+	name = "tricordrazine bottle"
+	desc = "A small bottle. Contains bicaridine - treats all wounds slowly."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/singleton/reagent/tricordrazine = 60)
 
 /obj/item/reagent_containers/glass/bottle/bicaridine
 	name = "bicaridine bottle"

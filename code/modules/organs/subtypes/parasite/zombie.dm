@@ -108,7 +108,7 @@
 					var/list/brute_wounds = list()
 					for(var/wound in O.wounds)
 						var/datum/wound/W = wound
-						if(W.damage_type in list(CUT, BRUISE, PIERCE))
+						if(W.damage_type in list(INJURY_TYPE_CUT, INJURY_TYPE_BRUISE, INJURY_TYPE_PIERCE))
 							brute_wounds += W
 					for(var/wound in brute_wounds)
 						var/datum/wound/W = wound

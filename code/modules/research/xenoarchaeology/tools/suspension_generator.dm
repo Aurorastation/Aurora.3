@@ -1,4 +1,4 @@
-/obj/machinery/suspension_gen
+/obj/structure/machinery/suspension_gen
 	name = "suspension field generator"
 	desc = "Multi-phase mobile suspension field generator MK III \"Stalwart\". It has stubby bolts up against its treads for stabilising."
 	icon = 'icons/obj/xenoarchaeology.dmi'
@@ -19,15 +19,15 @@
 	. += SPAN_NOTICE("You can see something floating inside it:")
 	. += SPAN_NOTICE(english_list(contents))
 
-/obj/machinery/suspension_gen/Initialize()
+/obj/structure/machinery/suspension_gen/Initialize()
 	. = ..()
 	cell = new /obj/item/cell/high(src)
 
-/obj/machinery/suspension_gen/Destroy()
+/obj/structure/machinery/suspension_gen/Destroy()
 	deactivate()
 	return ..()
 
-/obj/machinery/suspension_gen/process()
+/obj/structure/machinery/suspension_gen/process()
 	if(suspension_field)
 		if(!cell.charge)
 			deactivate()
@@ -35,14 +35,14 @@
 		if(suspension_field.victim_number)
 			cell.use(active_power_usage * suspension_field.victim_number)
 
-/obj/machinery/suspension_gen/attack_hand(mob/user)
+/obj/structure/machinery/suspension_gen/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
 
 	ui_interact(user)
 
-/obj/machinery/suspension_gen/operable(additional_flags)
+/obj/structure/machinery/suspension_gen/operable(additional_flags)
 	if(stat & (BROKEN|additional_flags))
 		return FALSE
 	if(!cell.charge)
@@ -50,8 +50,8 @@
 
 	return TRUE
 
-/obj/machinery/suspension_gen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+/obj/structure/machinery/suspension_gen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!open)
 			screwed = !screwed
 			to_chat(user, SPAN_NOTICE("You [screwed ? "screw" : "unscrew"] the battery panel."))
@@ -59,7 +59,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open!"))
 		return
-	else if (attacking_item.iscrowbar())
+	else if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!screwed)
 			if(!suspension_field)
 				open = !open
@@ -69,7 +69,7 @@
 				to_chat(user, SPAN_WARNING("[src]'s safety locks are engaged, shut it down first."))
 		else
 			to_chat(user, SPAN_WARNING("Unscrew [src]'s battery panel first."))
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!suspension_field)
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You wrench the stabilising bolts [anchored ? "into place" : "loose"]."))
@@ -91,13 +91,13 @@
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
 				update_icon()
 
-/obj/machinery/suspension_gen/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/suspension_gen/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "SuspensionGenerator", "Suspension Field Generator", 400, 500)
 		ui.open()
 
-/obj/machinery/suspension_gen/ui_data(mob/user)
+/obj/structure/machinery/suspension_gen/ui_data(mob/user)
 	var/list/data = list()
 
 	data["charge"] = 0
@@ -119,7 +119,7 @@
 
 	return data
 
-/obj/machinery/suspension_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/suspension_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -144,7 +144,7 @@
 			. = TRUE
 
 //checks for whether the machine can be activated or not should already have occurred by this point
-/obj/machinery/suspension_gen/proc/activate()
+/obj/structure/machinery/suspension_gen/proc/activate()
 	var/turf/T = get_turf(get_step(src,dir))
 	suspension_field = new(T)
 	suspension_field.field_type = field_type
@@ -153,21 +153,21 @@
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/machinery/suspension_gen/proc/deactivate()
+/obj/structure/machinery/suspension_gen/proc/deactivate()
 	STOP_PROCESSING(SSprocessing, src)
 	visible_message(SPAN_NOTICE("\The [src] deactivates with a gentle shudder and a soft tone."))
 	playsound(loc, 'sound/machines/softbeep.ogg', 40)
 	QDEL_NULL(suspension_field)
 	update_icon()
 
-/obj/machinery/suspension_gen/update_icon()
+/obj/structure/machinery/suspension_gen/update_icon()
 	icon_state = "suspension_[anchored ? (suspension_field ? "on" : "wrenched") : "loose"]"
 	if(!screwed)
 		AddOverlays("suspension_panel")
 	else
 		CutOverlays("suspension_panel")
 
-/obj/machinery/suspension_gen/get_cell()
+/obj/structure/machinery/suspension_gen/get_cell()
 	return cell
 
 /obj/effect/suspension_field

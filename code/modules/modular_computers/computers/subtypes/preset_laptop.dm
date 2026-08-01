@@ -4,8 +4,7 @@
 	icon_state = "laptop-closed"
 
 /obj/item/modular_computer/laptop/preset/Destroy()
-	. = ..()
-	GC_TEMPORARY_HARDDEL
+	return ..()
 
 /obj/item/modular_computer/laptop/preset/install_default_hardware()
 	..()
@@ -18,6 +17,7 @@
 	nano_printer.max_paper = 10
 	nano_printer.stored_paper = 5
 	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
+	universal_port = new /obj/item/computer_hardware/universal_port(src)
 
 // the laptop in the modular computer loadout
 /obj/item/modular_computer/laptop/preset/loadout/install_default_hardware()
@@ -30,6 +30,11 @@
 	desc = "A portable computer belonging to the engineering department. It appears to have been used as a door stop at one point or another."
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 	enrolled = DEVICE_COMPANY
+
+/obj/item/modular_computer/laptop/preset/engineering/install_default_hardware()
+	..()
+	QDEL_NULL(network_card)
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 /obj/item/modular_computer/laptop/preset/engineering/ce
 	name = "chief engineer's laptop"
@@ -58,6 +63,8 @@
 /obj/item/modular_computer/laptop/preset/research/install_default_hardware()
 	..()
 	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
+	QDEL_NULL(network_card)
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 /obj/item/modular_computer/laptop/preset/research/rd
 	name = "research director's laptop"
@@ -121,6 +128,17 @@
 	name = "operations manager's laptop"
 	desc = "A portable computer belonging to the operation's manager."
 	_app_preset_type = /datum/modular_computer_app_presets/supply/om
+
+/obj/item/modular_computer/laptop/preset/supply/robotics
+	name = "robotics laptop"
+	desc = "A portable computer with support for specialized robotics software."
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
+
+/obj/item/modular_computer/laptop/preset/supply/robotics/install_default_hardware()
+	..()
+	access_cable_dongle = new /obj/item/computer_hardware/access_cable_dongle(src)
+	QDEL_NULL(network_card)
+	network_card = new /obj/item/computer_hardware/network_card/signaler(src)
 
 // Representative
 /obj/item/modular_computer/laptop/preset/representative

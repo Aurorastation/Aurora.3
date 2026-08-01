@@ -9,34 +9,39 @@
 				return 0
 
 /obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
-	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.iswrench() || attacking_item.iscrowbar() || \
-				istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || \
-				attacking_item.ismultitool() || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device)))
+	if(IC)
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
+			IC.attackby(attacking_item, user)
+			return TRUE
 
-		IC.attackby(attacking_item, user)
+		if(IC.opened && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.tool_behaviour == TOOL_WRENCH || \
+				istype(attacking_item, /obj/item/integrated_electronics/wirer) || istype(attacking_item, /obj/item/integrated_electronics/debugger) || \
+				attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_SCREWDRIVER || istype(attacking_item, /obj/item/cell/device)))
+			IC.attackby(attacking_item, user)
+			return TRUE
 
 	else if(istype(attacking_item, /obj/item/clothing/accessory))
 
 		if(!valid_accessory_slots || !valid_accessory_slots.len)
-			to_chat(usr, SPAN_WARNING("You cannot attach accessories of any kind to \the [src]."))
-			return
+			to_chat(user, SPAN_WARNING("You cannot attach accessories of any kind to \the [src]."))
+			return TRUE
 
 		var/obj/item/clothing/accessory/A = attacking_item
 		A.before_attached(src, user)
 		if(can_attach_accessory(A))
 			user.drop_item()
 			attach_accessory(user, A)
-			return
+			return TRUE
 		else
 			to_chat(user, SPAN_WARNING("You cannot attach more accessories of this type to [src]."))
-		return
+		return TRUE
 
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.attackby(attacking_item, user)
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/item/clothing/attack_hand(var/mob/user)
 	//only forward to the attached accessory if the clothing is equipped (not in a storage)
@@ -152,6 +157,9 @@
 	set category = "Object.Equipped"
 	set src in usr
 
+	remove_accessory_handler(usr, FALSE)
+
+/obj/item/clothing/AltShiftClick(user)
 	remove_accessory_handler(usr, FALSE)
 
 /obj/item/clothing/proc/remove_accessory_handler(var/mob/living/user, var/force_radial = FALSE)

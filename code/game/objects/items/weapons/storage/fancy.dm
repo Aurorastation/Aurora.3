@@ -25,6 +25,7 @@
 	var/opened_icon_state = null //for items that have unique base icons but look the same opened, such as all the various microwave pizzas.
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 	contained_sprite = TRUE
+	color = COLOR_WHITE
 
 /obj/item/storage/box/fancy/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -555,7 +556,6 @@
 		/obj/item/reagent_containers/food/snacks/truffle/random
 	)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/truffle/random = 8)
-	maxHealth = 40
 
 /obj/item/storage/box/fancy/chocolate_box/fill()
 	for(var/i=1; i <= storage_slots; i++)
@@ -712,7 +712,7 @@
 			to_chat(user, SPAN_WARNING("You try to push \the [attacking_item] through the lid but it doesn't work!"))
 		return
 
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 
 		if(src.open)
 			return

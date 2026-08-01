@@ -505,48 +505,20 @@
 
 /obj/item/clothing/under/medical_gown
 	name = "medical gown"
-	desc = "A loose pieces of clothing, commonly worn by medical patients."
+	desc = "A loose piece of clothing, commonly worn by medical patients."
 	icon_state = "medicalgown"
 	item_state = "medicalgown"
 	has_sensor = SUIT_LOCKED_SENSORS
 	sensor_mode = SUIT_SENSOR_TRACKING
 
-/obj/item/clothing/under/medical_gown/white
-	icon_state = "whitemedicalgown"
-	worn_state = "whitemedicalgown"
+/obj/item/clothing/under/medical_gown/blue
+	color = "#99ccff"
 
-/obj/item/clothing/under/legion
-	name = "Tau Ceti Foreign Legion uniform"
-	desc = "A blue field uniform worn by Tau Ceti Foreign Legion forces."
-	icon = 'icons/obj/item/clothing/under/human/biesel/tcfl_uniform.dmi'
-	icon_state = "tauceti_volunteer"
-	item_state = "tauceti_volunteer"
-	worn_state = "tauceti_volunteer"
-	contained_sprite = TRUE
-	siemens_coefficient = 0.7
-	armor = list(
-		MELEE = ARMOR_MELEE_MINOR)
+/obj/item/clothing/under/medical_gown/green
+	color = "#8dd7a3"
 
-/obj/item/clothing/under/legion/sentinel
-	name = "Tau Ceti Foreign Legion sentinel uniform"
-	desc = "A blue field uniform with black trimming, indicating that the wearer is a sentinel of the TCFL."
-	icon_state = "tauceti_sentinel"
-	item_state = "tauceti_sentinel"
-	worn_state = "tauceti_sentinel"
-
-/obj/item/clothing/under/legion/legate
-	name = "Tau Ceti Foreign Legion legate uniform"
-	desc = "A stark red field uniform worn by senior officers of the Tau Ceti Foreign Legion."
-	icon_state = "tauceti_legate"
-	item_state = "tauceti_legate"
-	worn_state = "tauceti_legate"
-
-/obj/item/clothing/under/legion/pilot
-	name = "Tau Ceti Foreign Legion flightsuit"
-	desc = "A green flightsuit worn by Tau Ceti Foreign Legion pilots."
-	icon_state = "tauceti_pilot"
-	item_state = "tauceti_pilot"
-	worn_state = "tauceti_pilot"
+/obj/item/clothing/under/medical_gown/pink
+	color = "#ffb7db"
 
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
@@ -568,33 +540,6 @@
 		)
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/under/lance
-	name = "ceres lance fatigues"
-	desc = "A set of drab fatigues meant to be worn by the Ceres' Lance Regiment, with their emblem found on the shoulder."
-	icon_state = "lance_fatigues"
-	item_state = "lance_fatigues"
-	worn_state = "lance_fatigues"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(
-		MELEE = ARMOR_MELEE_MINOR
-		)
-	siemens_coefficient = 0.7
-
-/obj/item/clothing/under/dress/lance_dress
-	name = "lance dress uniform"
-	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest. This one seems tailored  to take on a more feminine look, with a long skirt."
-	icon_state = "lance_dress_f"
-	item_state = "lance_dress_f"
-	worn_state = "lance_dress_f"
-
-/obj/item/clothing/under/dress/lance_dress/male
-	name = "lance dress uniform"
-	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
-	icon_state = "lance_dress_m"
-	item_state = "lance_dress_m"
-	worn_state = "lance_dress_m"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
 /obj/item/clothing/under/qipao
 	name = "qipao"
 	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk."
@@ -612,7 +557,6 @@
 /obj/item/clothing/under/rank/elyran_fatigues
 	name = "elyran navy uniform"
 	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
-	icon = ""
 	icon_state = "elyran_fatigues"
 	item_state = "elyran_fatigues"
 	armor = list(
@@ -826,6 +770,48 @@
 		MELEE = ARMOR_MELEE_MINOR
 		)
 
+//Ceres Lance
+
+/obj/item/clothing/under/lance
+	name = "ceres lance fatigues"
+	desc = "A set of drab fatigues meant to be worn by the Ceres' Lance Regiment, with their emblem found on the shoulder."
+	icon_state = "lance_fatigues"
+	item_state = "lance_fatigues"
+	worn_state = "lance_fatigues"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR
+		)
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/dress/lance_dress
+	name = "lance dress uniform"
+	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest. This one seems tailored  to take on a more feminine look, with a long skirt."
+	icon_state = "lance_dress_f"
+	item_state = "lance_dress_f"
+	worn_state = "lance_dress_f"
+
+/obj/item/clothing/under/dress/lance_dress/male
+	name = "lance dress uniform"
+	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
+	icon_state = "lance_dress_m"
+	item_state = "lance_dress_m"
+	worn_state = "lance_dress_m"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/rank/lance
+	name = "\improper Ceres Lance tactical uniform"
+	desc = "A newly-issued dark grey uniform worn by Ceres Lance operatives during combat situations."
+	icon = 'icons/obj/item/clothing/under/human/corporation/lancer_uniform.dmi'
+	icon_state = "lancer_uniform"
+	item_state = "lancer_uniform"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(
+		MELEE = ARMOR_MELEE_SMALL
+		)
+	siemens_coefficient = 0.7
+	contained_sprite = TRUE
+
 //Himean Army
 /obj/item/clothing/under/himeo
 	name = "himean planetary guard fatigues"
@@ -903,3 +889,13 @@
 	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with red detailing, signalling the wearer as a fighter pilot."
 	icon_state = "himeo_coveralls_pilot"
 	item_state = "himeo_coveralls_pilot"
+
+// Assunzione
+/obj/item/clothing/under/rank/assunzione/stafylia
+	name = "\improper Stafylia uniform"
+	desc = "Only true masters of the art of gyro have the right to wear this uniform. Only at Stafylia will you find such ones."
+	icon = 'icons/obj/item/clothing/under/human/coc/assunzione.dmi'
+	icon_state = "stafylia"
+	item_state = "stafylia"
+	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS

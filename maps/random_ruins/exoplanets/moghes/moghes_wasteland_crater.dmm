@@ -19,13 +19,13 @@
 /area/template_noop)
 "L" = (
 /obj/effect/landmark/scorcher,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/desert/rough{
 	temperature = 315.15
 	},
 /area/template_noop)
 "S" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/desert/rough{
 	temperature = 315.15
 	},
@@ -36,7 +36,7 @@
 	},
 /area/template_noop)
 "Y" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},

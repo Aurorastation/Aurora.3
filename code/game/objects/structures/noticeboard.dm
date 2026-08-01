@@ -28,17 +28,18 @@
 
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper))
-		if(notice_limit > notices)
-			attacking_item.add_fingerprint(user)
-			add_fingerprint(user)
-			user.drop_from_inventory(attacking_item,src)
-			notices++
-			update_icon()
-			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
-			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
-		else
-			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))
+	if(!istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/paper/stickynotes)) //Stickynotes on a noticeboard are redundant and have overlapping persistence.
+		return
+	if(notice_limit > notices)
+		attacking_item.add_fingerprint(user)
+		add_fingerprint(user)
+		user.drop_from_inventory(attacking_item, src)
+		notices++
+		update_icon()
+		SSpersistence.objectsRegisterTrack(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
+		to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
+	else
+		to_chat(user, SPAN_NOTICE("\The [src] is already full of papers and can not fit another."))
 
 /obj/structure/noticeboard/attack_hand(var/mob/user)
 	examine(user)
@@ -47,6 +48,7 @@
 // level, it should be fine to let anyone mess with the board other than ghosts.
 /obj/structure/noticeboard/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(is_adjacent)
+		user.face_atom(src)
 		var/dat = "<B>Noticeboard</B><BR>"
 		for(var/obj/item/paper/P in src)
 			dat += "<A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> <A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A><BR>"
@@ -69,7 +71,7 @@
 			add_fingerprint(usr)
 			notices--
 			update_icon()
-			SSpersistence.deregister_track(P) // Remove paper from persistent tracker
+			SSpersistence.objectsDeregisterTrack(P) // Remove paper from persistent tracker
 	if(href_list["write"])
 		if((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
 			return
@@ -77,9 +79,9 @@
 		if((P && P.loc == src)) //ifthe paper's on the board
 			var/obj/item/R = usr.r_hand
 			var/obj/item/L = usr.l_hand
-			if(R.ispen())
+			if(R.tool_behaviour == TOOL_PEN)
 				P.attackby(R, usr)
-			else if(L.ispen())
+			else if(L.tool_behaviour == TOOL_PEN)
 				P.attackby(L, usr)
 			else
 				to_chat(usr, SPAN_NOTICE("You'll need something to write with!"))
@@ -88,8 +90,7 @@
 	if(href_list["read"])
 		var/obj/item/paper/P = locate(href_list["read"])
 		if((P && P.loc == src))
-			usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY><TT>[P.info]</TT></BODY></HTML>", "window=[P.name]")
-			onclose(usr, "[P.name]")
+			P.show_content(usr)
 	return
 
 /obj/structure/noticeboard/command
@@ -97,7 +98,7 @@
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comboard0"
-	req_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
+	req_one_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
 	base_icon = "comboard"
 	notice_limit = 6
 	var/open

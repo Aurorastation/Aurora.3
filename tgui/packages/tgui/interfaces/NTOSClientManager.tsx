@@ -1,6 +1,15 @@
-import { BooleanLike } from 'common/react';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Dropdown, LabeledList, NoticeBox, Section, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 type NTOSClientData = {
@@ -9,23 +18,15 @@ type NTOSClientData = {
   ntnet_status: BooleanLike;
 };
 
-const DeviceEnrollment = (props, context) => {
-  const { act, data } = useBackend<NTOSClientData>(context);
+const DeviceEnrollment = (props) => {
+  const { act, data } = useBackend<NTOSClientData>();
   const { available_presets, ntnet_status } = data;
-  const [deviceType, setDeviceType] = useLocalState(
-    context,
-    'setDeviceType',
-    1
-  );
-  const [devicePreset, setDevicePreset] = useLocalState(
-    context,
-    'setDevicePreset',
-    ''
-  );
+  const [deviceType, setDeviceType] = useLocalState('setDeviceType', 1);
+  const [devicePreset, setDevicePreset] = useLocalState('setDevicePreset', '');
   if (!ntnet_status) {
     return (
       <Section title="Device Enrollment">
-        <NoticeBox warning>
+        <NoticeBox danger>
           NTNet download servers are currently unavailable. Enrollment is not
           possible at this time.
         </NoticeBox>
@@ -37,12 +38,14 @@ const DeviceEnrollment = (props, context) => {
         <Tabs>
           <Tabs.Tab
             selected={deviceType === 1}
-            onClick={() => setDeviceType(1)}>
+            onClick={() => setDeviceType(1)}
+          >
             Company Device
           </Tabs.Tab>
           <Tabs.Tab
             selected={deviceType === 2}
-            onClick={() => setDeviceType(2)}>
+            onClick={() => setDeviceType(2)}
+          >
             Private Device
           </Tabs.Tab>
         </Tabs>
@@ -69,10 +72,11 @@ const DeviceEnrollment = (props, context) => {
               }
               onClick={() =>
                 act('enroll', {
-                  'enroll_type': deviceType,
-                  'enroll_preset': devicePreset,
+                  enroll_type: deviceType,
+                  enroll_preset: devicePreset,
                 })
-              }>
+              }
+            >
               Confirm
             </Button>
           </LabeledList.Item>
@@ -82,8 +86,8 @@ const DeviceEnrollment = (props, context) => {
   }
 };
 
-export const NTOSClientManager = (props, context) => {
-  const { act, data } = useBackend<NTOSClientData>(context);
+export const NTOSClientManager = (props) => {
+  const { act, data } = useBackend<NTOSClientData>();
   const { enrollment } = data;
   return (
     <NtosWindow>

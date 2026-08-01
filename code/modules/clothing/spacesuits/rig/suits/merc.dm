@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/rig/merc
 	light_overlay = "merc_rig_lights"
 	light_color = "#ffffff"
-	camera = /obj/machinery/camera/network/mercenary
+	camera = /obj/structure/machinery/camera/network/mercenary
 
 /obj/item/rig/merc
 	name = "crimson hardsuit control module"
@@ -20,13 +20,13 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 30
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
 	req_access = list(ACCESS_SYNDICATE)
 
@@ -89,11 +89,11 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 20
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc/distress
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk

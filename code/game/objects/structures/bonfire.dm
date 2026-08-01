@@ -75,14 +75,14 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	if(fuel >= max(max_fuel * 0.1, 50) && on_fire)
 		to_chat(H, SPAN_NOTICE("You grab a burning stick from the fire."))
 		fuel -= 40
-		var/obj/item/device/flashlight/flare/torch/stick/torch = new(get_turf(user))
+		var/obj/item/flashlight/flare/torch/stick/torch = new(get_turf(user))
 		H.put_in_active_hand(torch)
 
 /obj/structure/bonfire/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isFlameSource() && !on_fire) // needs to go last or else nothing else will work
 		light(user)
 		return
-	if(on_fire && (istype(attacking_item, /obj/item/flame) || istype(attacking_item, /obj/item/device/flashlight/flare/torch) || istype(attacking_item, /obj/item/clothing/mask/smokable))) //light unlit stuff
+	if(on_fire && (istype(attacking_item, /obj/item/flame) || istype(attacking_item, /obj/item/flashlight/flare/torch) || istype(attacking_item, /obj/item/clothing/mask/smokable))) //light unlit stuff
 		attacking_item.attackby(src, user)
 		return
 	if(fuel < max_fuel)
@@ -102,7 +102,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			return
 		else if(istype(attacking_item, /obj/item/material))
 			var/obj/item/material/M = attacking_item
-			if(M.material.name in burnable_materials)
+			if(M.material.type in burnable_materials)
 				var/fuel_add = burnable_materials[M.material] * (M.w_class / 5) //if you crafted a small item, it's not worth as much fuel
 				fuel = min(fuel + fuel_add, max_fuel)
 				user.visible_message(SPAN_NOTICE("\The [user] tosses \the [M] into \the [src]."))
@@ -359,7 +359,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	fuel = 0	//don't start with fuel
 	if(!material_name)
 		material_name = MATERIAL_MARBLE
-	material = SSmaterials.get_material_by_name(material_name)
+	material = SSmaterials.get_material_by_id(material_name)
 	if(!material)
 		qdel(src)
 		return

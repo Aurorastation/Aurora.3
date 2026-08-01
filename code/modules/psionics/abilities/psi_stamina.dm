@@ -10,6 +10,7 @@
 	name = "psi-stamina weave"
 	desc = "Kind of like charging up your aura."
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 0

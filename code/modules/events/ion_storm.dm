@@ -19,7 +19,7 @@
 
 	give_ion_law()
 
-	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 		if(!(MS.z in affecting_z))
 			continue
 		MS.spamfilter.Cut()
@@ -38,7 +38,7 @@
 
 /datum/event/ionstorm/tick()
 	if(botEmagChance)
-		for(var/obj/machinery/bot/bot in SSmachinery.machinery)
+		for(var/obj/structure/machinery/bot/bot in SSmachinery.machinery)
 			if(prob(botEmagChance) && (bot.z in affecting_z))
 				bot.emag_act(1)
 

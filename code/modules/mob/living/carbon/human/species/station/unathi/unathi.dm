@@ -24,11 +24,10 @@
 		/datum/unarmed_attack/bite/sharp
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
-	darksight = 3
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
 	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
 	slowdown = 0.5
-
 	brute_mod = 0.8
 	fall_mod = 1.2
 	radiation_mod = 0.9 // how else did they survive nuclear armageddon?
@@ -46,8 +45,8 @@
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
 	stamina_recovery = 5
 
-	sprint_cost_factor = 1.45
-	sprint_speed_factor = 3.2
+	sprint_cost_factor = 1.75
+	sprint_speed_factor = 1.6
 	exhaust_threshold = 65
 	bp_base_systolic = 80 // Default 120
 	bp_base_disatolic = 50 // Default 80
@@ -61,6 +60,7 @@
 	rarity_value = 3
 	break_cuffs = TRUE
 	mob_size = 10
+	mob_weight = MOB_WEIGHT_HEAVY
 	climb_coeff = 1.35
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
@@ -106,7 +106,7 @@
 		"Your scales bristle against the cold."
 		)
 
-	footsound = /singleton/sound_category/footstep_unathi_sound
+	footsound = SFX_FOOTSTEP_UNATHI
 
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
@@ -137,6 +137,7 @@
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 	valid_prosthetics = list(PROSTHETIC_AUTAKH)
+	mass_modifier = REFERENCE_MASS_UNATHI / REFERENCE_MASS_HUMAN
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

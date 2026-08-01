@@ -31,9 +31,10 @@
 	icon_state = "retractor"
 	item_state = "retractor"
 	surgerysound = 'sound/items/surgery/retractor.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
+	matter = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	tool_behaviour = TOOL_RETRACTOR
 
 /*
  * Hemostat
@@ -44,10 +45,11 @@
 	icon_state = "hemostat"
 	item_state = "hemostat"
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
+	matter = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 2500)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
+	tool_behaviour = TOOL_HEMOSTAT
 
 /*
  * Cautery
@@ -58,10 +60,11 @@
 	icon_state = "cautery"
 	item_state = "cautery"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
+	matter = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 2500)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
+	tool_behaviour = TOOL_CAUTERY
 
 /*
  * Surgical Drill
@@ -72,8 +75,8 @@
 	icon_state = "drill"
 	item_state = "drill"
 	surgerysound = 'sound/items/surgery/surgicaldrill.ogg'
-	hitsound = /singleton/sound_category/drillhit_sound
-	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
+	hitsound = SFX_DRILL_HIT
+	matter = list(MATERIAL_STEEL = 15000, MATERIAL_GLASS = 10000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 22
 	w_class = WEIGHT_CLASS_NORMAL
@@ -81,6 +84,7 @@
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	tool_behaviour = TOOL_DRILL
 
 /*
  * Scalpel
@@ -101,10 +105,11 @@
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
+	matter = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
+	tool_behaviour = TOOL_SCALPEL
 
 /*
  * Researchable Scalpels
@@ -115,17 +120,19 @@
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
 	icon_state = "scalpel_laser"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
+	matter = list(MATERIAL_STEEL = 12500, MATERIAL_GLASS = 7500)
 	damtype = "fire"
 	force = 18
+	tool_quality = STANDARD_TOOL_LEVEL + 1
 
 /obj/item/surgery/scalpel/manager
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
 	icon_state = "scalpel_manager"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	matter = list (DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
+	matter = list (MATERIAL_STEEL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
 	force = 8
+	tool_quality = STANDARD_TOOL_LEVEL + 2
 
 /*
  * Circular Saw
@@ -144,12 +151,13 @@
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
+	matter = list(MATERIAL_STEEL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = TRUE
 	edge = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	tool_behaviour = TOOL_SAW
 
 // Miscellanous
 /obj/item/surgery/bone_gel
@@ -187,6 +195,7 @@
 	throw_speed = 3
 	throw_range = 5
 	attack_verb = list("attacked", "hit", "bludgeoned")
+	tool_behaviour = TOOL_BONESET
 
 /obj/item/storage/box/fancy/tray
 	name = "surgery tray"
@@ -246,7 +255,7 @@
 		/obj/item/surgery/fix_o_vein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack",
 		/obj/item/autopsy_scanner = "tray_autopsy_scanner",
-		/obj/item/device/mass_spectrometer = "tray_mass_spectrometer",
+		/obj/item/mass_spectrometer = "tray_mass_spectrometer",
 		/obj/item/reagent_containers/glass/beaker/vial = "tray_vial",
 		/obj/item/reagent_containers/syringe = "tray_syringe"
 	)
@@ -289,7 +298,7 @@
 /obj/item/storage/box/fancy/tray/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(target_mob))
-		playsound(target_mob, /singleton/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
+		playsound(target_mob, SFX_TRAY_HIT, 50, 1)  //sound playin' again
 		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [target_mob], causing it to spill its contents across the area!"))
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)
@@ -306,7 +315,7 @@
 		/obj/item/surgery/surgicaldrill = 1,
 		/obj/item/surgery/cautery = 1,
 		/obj/item/autopsy_scanner = 1,
-		/obj/item/device/mass_spectrometer = 1,
+		/obj/item/mass_spectrometer = 1,
 		/obj/item/reagent_containers/glass/beaker/vial = 1,
 		/obj/item/reagent_containers/syringe = 1
 	)
@@ -319,7 +328,7 @@
 		/obj/item/surgery/surgicaldrill,
 		/obj/item/surgery/cautery,
 		/obj/item/autopsy_scanner,
-		/obj/item/device/mass_spectrometer,
+		/obj/item/mass_spectrometer,
 		/obj/item/reagent_containers/glass/beaker/vial,
 		/obj/item/reagent_containers/syringe
 	)
@@ -327,6 +336,8 @@
 /obj/item/storage/box/fancy/tray/machinist
 	name = "machinist operation tray"
 	desc = "A tray of various tools for use by machinists in repairing robots."
+	// So additional tools can be added.
+	max_storage_space = 23
 	can_hold = list(
 		/obj/item/surgery/cautery,
 		/obj/item/surgery/circular_saw,

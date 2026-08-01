@@ -1,7 +1,6 @@
 /turf/space/transit
 	plane = 0
 	use_space_appearance = TRUE
-	use_starlight = TRUE
 	var/pushdirection
 
 //Overwrite because we dont want people building rods in space.

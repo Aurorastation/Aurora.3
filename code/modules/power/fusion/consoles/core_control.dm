@@ -1,10 +1,10 @@
-/obj/machinery/computer/fusion/core_control
+/obj/structure/machinery/computer/fusion/core_control
 	name = "\improper INDRA fusion core control"
 	ui_template = "FusionCoreControl"
 
-/obj/machinery/computer/fusion/core_control/terminal
+/obj/structure/machinery/computer/fusion/core_control/terminal
 	name = "\improper INDRA fusion core control"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "solar_screen"
 	icon_keyboard = "id_key"
 	icon_keyboard_emis = "id_key_mask"
@@ -13,12 +13,12 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	var/obj/machinery/power/fusion_core/C = locate(params["machine"])
+	var/obj/structure/machinery/power/fusion_core/C = locate(params["machine"])
 	if(!istype(C))
 		return
 
@@ -42,26 +42,36 @@
 			C.set_strength(params["strength"])
 			return TRUE
 
-/obj/machinery/computer/fusion/core_control/ui_data(mob/user)
+/obj/structure/machinery/computer/fusion/core_control/ui_data(mob/user)
 	var/list/data = ..()
 	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 
 	var/list/cores = list()
 	if(lan)
-		var/list/fusion_cores = lan.get_devices(/obj/machinery/power/fusion_core)
+		var/list/fusion_cores = lan.get_devices(/obj/structure/machinery/power/fusion_core)
 		for(var/i = 1 to LAZYLEN(fusion_cores))
 			var/list/core = list()
-			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
+			var/obj/structure/machinery/power/fusion_core/C = fusion_cores[i]
+			var/power_available = POWER_AVAIL(C)
+			var/power_usage = C.active_power_usage
+			var/power_generated = C.owned_field?.output_avg
+
 			core["id"] = "#[i]"
 			core["ref"] = "[REF(C)]"
 			core["field"] = !isnull(C.owned_field)
 			core["power"] = "[C.field_strength / 10]"
 			core["field_strength"] = C.field_strength
+			core["field_strength_max"] = C.field_strength_max
+			core["entropy_multiplier"] =  C.owned_field ? round(C.owned_field.field_strength_entropy_multiplier, 0.01) : 1
+			core["instability_multiplier"] =  C.owned_field ? round(C.owned_field.field_strength_instability_multiplier, 0.01) : 1
+			core["power_multiplier"] = C.owned_field ? round(C.owned_field.field_strength_power_multiplier, 0.01) : 1
 			core["size"] =  C.owned_field ? C.owned_field.size : 0
 			core["instability"] = C.owned_field ? C.owned_field.percent_unstable * 100 : -1 //%
 			core["temperature"] = C.owned_field ? C.owned_field.plasma_temperature + 295 : -1 //K
-			core["power_status"] = "[C.avail()]/[C.active_power_usage]"
+			core["power_available"] = "[power_wattage_readable(power_available)]"
+			core["power_usage"] = "[power_wattage_readable(power_usage)]"
+			core["power_generated"] = "[power_wattage_readable(power_generated)]"
 			core["shutdown_safe"] = C.owned_field ? C.owned_field.is_shutdown_safe() : TRUE
 
 			var/list/reactants = list()

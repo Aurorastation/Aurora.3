@@ -4,12 +4,12 @@
 	uniform = /obj/item/clothing/under/rank/scc
 	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/ert/ccia
+	l_ear = /obj/item/radio/headset/ert/ccia
 	glasses = /obj/item/clothing/glasses/sunglasses
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
-	r_pocket = /obj/item/device/taperecorder/cciaa
+	r_pocket = /obj/item/taperecorder/cciaa
 
 	id = /obj/item/card/id
 
@@ -36,12 +36,12 @@
 	head = /obj/item/clothing/head/helmet/merc/scc
 	uniform = /obj/item/clothing/under/tactical
 	suit = /obj/item/clothing/suit/armor/carrier/heavy/scc
-	l_ear = /obj/item/device/radio/headset/ert/ccia/alt
+	l_ear = /obj/item/radio/headset/ert/ccia/alt
 	shoes = /obj/item/clothing/shoes/jackboots
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
 
 	l_pocket = /obj/item/shield/energy
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 
 	accessory = /obj/item/clothing/accessory/holster/armpit
 	accessory_contents = list(/obj/item/gun/energy/repeater)
@@ -51,7 +51,7 @@
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/grenade/chem_grenade/gas = 1,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/handcuffs/ziptie = 2
 	)
 

@@ -4,7 +4,7 @@
 GLOBAL_LIST_EMPTY(radial_menus)
 
 /atom/movable/screen/radial
-	icon = 'icons/mob/screen/radial.dmi'
+	icon = 'icons/hud/mob/radial.dmi'
 	layer = RADIAL_BASE_LAYER
 	var/datum/radial_menu/parent
 
@@ -283,11 +283,12 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	hide()
 	close_button.parent = null
 	menu_holder.vis_contents = null
-	elements -= src
 
 	for(var/atom/movable/screen/radial/slice/possibly_our_child in elements)
 		if(possibly_our_child.parent == src)
 			possibly_our_child.parent = null
+
+	elements.Cut()
 
 	QDEL_NULL(menu_holder)
 	QDEL_NULL(close_button)

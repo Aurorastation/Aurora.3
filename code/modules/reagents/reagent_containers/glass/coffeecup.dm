@@ -81,7 +81,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk
 	name = "\improper Nralakk coffee cup"
 	desc = "A purple coffee cup emblazoned with the flag of the Nralakk Federation."
-	icon_state = "coffeecup_jarg"
+	icon_state = "coffeecup_nral"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sancolette
 	name = "\improper San Colette coffee cup"
@@ -123,9 +123,9 @@
 	desc = "A blue NanoTrasen coffee cup."
 	icon_state = "coffeecup_NT"
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcfl
-	name = "\improper Tau Ceti Foreign Legion coffee cup"
-	desc = "A coffee cup with the TCFL emblem emblazoned on it."
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/tcaf
+	name = "\improper Tau Ceti Armed Forces coffee cup"
+	desc = "A coffee cup with the TCAF emblem emblazoned on it."
 	icon_state = "coffeecup_tcfl"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht

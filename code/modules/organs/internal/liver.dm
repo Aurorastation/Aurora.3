@@ -55,7 +55,7 @@
 	var/filter_effect_from_broken = 2
 
 	/// Modifier on how efficiently this liver eliminates booze while blackout drunk.
-	var/blackout_booze_filtering_modifier = 0.015
+	var/blackout_booze_filtering_modifier = 0.5
 
 	/// Message to play in chat to a liver-haver when they have an infection.
 	var/infection_level_one_warning = "Your skin itches."
@@ -75,6 +75,9 @@
 
 	if(!owner)
 		return
+
+	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
+		seconds_per_tick /= owner.stasis_value
 
 	if(germ_level > INFECTION_LEVEL_ONE)
 		owner.notify_message(SPAN_WARNING(infection_level_one_warning), 2 MINUTES)
@@ -160,6 +163,7 @@
 		return TRUE
 	return FALSE
 
+// Galatean bioaugmented liver. Dramatically enhanced over a base human liver.
 /obj/item/organ/internal/liver/boosted_liver
 	name = "boosted liver"
 	desc = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."
@@ -169,7 +173,7 @@
 	base_filter_effect = 5
 	toxin_critical_mass = 90
 	booze_filtering_modifier = 0.5 // "Impossible to get drunk", this should make it impossible. :)
-	blackout_booze_filtering_modifier = 0.25
+	blackout_booze_filtering_modifier = 1
 
 /obj/item/organ/internal/liver/alien_liver
 	name = "anomalous mercurial flesh"

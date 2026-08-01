@@ -61,7 +61,10 @@
 	if(istype(creator, /obj/item/hand_tele))
 		var/obj/item/hand_tele/HT = creator
 		HT.remove_portal(src)
-	. = ..()
+
+	target = null
+	creator = null
+	return ..()
 
 /obj/effect/portal/CollidedWith(atom/bumped_atom)
 	. = ..()

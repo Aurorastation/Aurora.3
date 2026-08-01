@@ -41,7 +41,7 @@
 		/obj/item/storage/backpack/duffel
 	)
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	id = /obj/item/card/id
 

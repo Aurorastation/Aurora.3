@@ -627,7 +627,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/heist/kidnap
 
 /datum/objective/heist/kidnap/choose_target()
-	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Engineer")
+	var/list/roles = list("Chief Engineer","Research Director","Machinist","Pharmacist","Ship Engineer")
 	var/list/possible_targets = list()
 	var/list/priority_targets = list()
 
@@ -674,15 +674,15 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target_amount = 6
 			loot = "a complete particle accelerator"
 		if(2)
-			target = /obj/machinery/the_singularitygen
+			target = /obj/structure/machinery/the_singularitygen
 			target_amount = 1
 			loot = "a gravitational generator"
 		if(3)
-			target = /obj/machinery/power/emitter
+			target = /obj/structure/machinery/power/emitter
 			target_amount = 4
 			loot = "four emitters"
 		if(4)
-			target = /obj/machinery/nuclearbomb
+			target = /obj/structure/machinery/nuclearbomb
 			target_amount = 1
 			loot = "a nuclear bomb"
 		if(5)
@@ -694,7 +694,7 @@ GLOBAL_LIST_EMPTY(process_objectives)
 			target_amount = 4
 			loot = "four energy guns"
 		if(7)
-			target = /obj/item/gun/energy/laser
+			target = /obj/item/gun/energy/rifle/laser
 			target_amount = 2
 			loot = "two laser guns"
 		if(8)
@@ -726,31 +726,31 @@ GLOBAL_LIST_EMPTY(process_objectives)
 /datum/objective/heist/salvage/choose_target()
 	switch(rand(1,8))
 		if(1)
-			target = DEFAULT_WALL_MATERIAL
+			target = MATERIAL_STEEL
 			target_amount = 300
 		if(2)
-			target = "glass"
+			target = MATERIAL_GLASS
 			target_amount = 200
 		if(3)
-			target = "plasteel"
+			target = MATERIAL_PLASTEEL
 			target_amount = 100
 		if(4)
 			target = MATERIAL_PHORON
 			target_amount = 100
 		if(5)
-			target = "silver"
+			target = MATERIAL_SILVER
 			target_amount = 50
 		if(6)
-			target = "gold"
+			target = MATERIAL_GOLD
 			target_amount = 20
 		if(7)
-			target = "uranium"
+			target = MATERIAL_URANIUM
 			target_amount = 20
 		if(8)
-			target = "diamond"
+			target = MATERIAL_DIAMOND
 			target_amount = 20
 
-	explanation_text = "Ransack the [SSatlas.current_map.station_name] and escape with [target_amount] [target]."
+	explanation_text = "Ransack the [SSatlas.current_map.station_name] and escape with [target_amount] [lowertext(SSmaterials.material_display_name(target))]."
 
 /datum/objective/heist/salvage/check_completion()
 	var/total_amount = 0
@@ -759,21 +759,24 @@ GLOBAL_LIST_EMPTY(process_objectives)
 
 		var/obj/item/stack/material/S
 		if(istype(O,/obj/item/stack/material))
-			if(O.name == target)
-				S = O
+			S = O
+			var/singleton/material/held_material = S.get_material()
+			if(held_material?.type == target)
 				total_amount += S.get_amount()
 		for(var/obj/I in O.contents)
 			if(istype(I,/obj/item/stack/material))
-				if(I.name == target)
-					S = I
+				S = I
+				var/singleton/material/contained_material = S.get_material()
+				if(contained_material?.type == target)
 					total_amount += S.get_amount()
 
 	for(var/datum/mind/raider in GLOB.raiders.current_antagonists)
 		if(raider.current)
 			for(var/obj/item/O in raider.current.get_contents())
 				if(istype(O,/obj/item/stack/material))
-					if(O.name == target)
-						var/obj/item/stack/material/S = O
+					var/obj/item/stack/material/S = O
+					var/singleton/material/raider_material = S.get_material()
+					if(raider_material?.type == target)
 						total_amount += S.get_amount()
 
 	if(total_amount >= target_amount) return 1

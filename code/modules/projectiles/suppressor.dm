@@ -1,7 +1,7 @@
 /obj/item/suppressor
 	name = "suppressor"
 	desc = "A suppressor"
-	icon = 'icons/obj/guns/suppressor.dmi'
+	icon = 'icons/obj/guns/attachments/suppressor.dmi'
 	icon_state = "suppressor_item"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 3)
 	w_class = WEIGHT_CLASS_SMALL

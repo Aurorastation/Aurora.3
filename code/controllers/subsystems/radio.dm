@@ -161,7 +161,7 @@ SUBSYSTEM_DEF(radio)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	var/datum/signal/subspace/testsig = new(O, test_freq)
-	for (var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+	for (var/obj/structure/machinery/telecomms/R in SSmachinery.all_receivers)
 		if(R.receive_range(testsig) >= 0)
 			return TRUE
 
@@ -199,8 +199,8 @@ SUBSYSTEM_DEF(radio)
 			return "sciradio"
 		if (MED_FREQ,MED_I_FREQ)
 			return"medradio"
-		if (SUP_FREQ)	// cargo
-			return "supradio"
+		if (SUP_FREQ)	// operations
+			return "opsradio"
 		if (SRV_FREQ)	// service
 			return "srvradio"
 		if (ENT_FREQ) //entertainment
@@ -238,10 +238,10 @@ SUBSYSTEM_DEF(radio)
 	LAZYREPLACEKEY(ALL_RADIO_CHANNELS, old_channel, new_channel)
 	reverseradiochannels["[freq]"] = new_channel
 
-	for(var/obj/item/device/radio/R in RF.devices[RADIO_CHAT])
-		var/obj/item/device/radio/headset/H = R
+	for(var/obj/item/radio/R in RF.devices[RADIO_CHAT])
+		var/obj/item/radio/headset/H = R
 		if(istype(H))
-			for(var/obj/item/device/encryptionkey/EK in list(H.keyslot1, H.keyslot2))
+			for(var/obj/item/encryptionkey/EK in list(H.keyslot1, H.keyslot2))
 				if(old_channel in EK.channels)
 					LAZYREPLACEKEY(EK.channels, old_channel, new_channel)
 

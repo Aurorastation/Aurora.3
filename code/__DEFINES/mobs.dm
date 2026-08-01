@@ -51,8 +51,6 @@
 #define LEFT  1
 #define RIGHT 2
 
-#define FIST_ATTACK_ANIMATION -1
-
 // Pulse levels, very simplified.
 #define PULSE_NONE    0 // So !M.pulse checks would be possible.
 #define PULSE_SLOW    1 // <60     bpm
@@ -91,7 +89,6 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
-#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -141,6 +138,23 @@
 #define BP_CELL     "cell"
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
+#define BP_REACTOR "reactor"
+#define BP_VOICE_SYNTHESIZER "voice synthesizer"
+#define BP_DIAGNOSTICS_SUITE "internal diagnostics suite"
+#define BP_HYDRAULICS		 "hydraulics system"
+#define BP_COOLING_UNIT		"cooling unit"
+#define BP_ACCESS_PORT "universal access port"
+#define BP_ACTUATORS_LEFT	"left arm actuators"
+#define BP_ACTUATORS_RIGHT	"right arm actuators"
+#define BP_SURGE_PROTECTOR "surge"
+#define BP_DATACORE "data core"
+#define BP_TARGETING_CORE "targeting core"
+
+// Bishop frame only.
+#define BP_WIRELESS_ACCESS "wireless access point"
+
+// G2 frame only.
+#define BP_INTERNAL_STORAGE "internal storage system"
 
 // Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
@@ -148,6 +162,7 @@
 #define BP_WORM_NERVE "nerve fluke"
 #define BP_TUMOUR_NONSPREADING "benign tumour"
 #define BP_TUMOUR_SPREADING "malignant tumour"
+#define BP_GREIMORIAN_EGGCLUSTER "greimorian egg cluster"
 
 //Augment organs
 #define BP_AUG_ACC_CORDS          "modified synthetic vocal cords"
@@ -165,11 +180,27 @@
 #define BP_AUG_ETHANOL_BURNER     "integrated ethanol burner"
 #define BP_AUG_EYE_SENSORS        "integrated eyes sensors"
 #define BP_AUG_FUEL_CELL          "integrated fuel cell"
+#define BP_AUG_FLUFF_HEAD		  "head augmentation"
+#define BP_AUG_FLUFF_HEAD_BIO	  "head bioaug"
+#define BP_AUG_FLUFF_CHEST		  "chest augmentation"
+#define BP_AUG_FLUFF_CHEST_BIO	  "chest bioaug"
+#define BP_AUG_FLUFF_R_HAND		  "right hand augmentation"
+#define BP_AUG_FLUFF_R_HAND_BIO	  "right hand bioaug"
+#define BP_AUG_FLUFF_L_HAND		  "left hand augmentation"
+#define BP_AUG_FLUFF_L_HAND_BIO	  "left hand bioaug"
 #define BP_AUG_GLARE_DAMPENER     "glare dampeners"
 #define BP_AUG_GUSTATORIAL        "integrated gustatorial centre"
+#define BP_AUG_GRAV_ADAPTATION	  "gravity adaptations"
 #define BP_AUG_HAIR               "synthetic hair extensions"
 #define BP_AUG_HEALTHSCAN         "integrated health scanner"
 #define BP_AUG_LANGUAGE           "integrated language processor"
+#define BP_AUG_LANGUAGE_CTHUR     "cthur language processor"
+#define BP_AUG_LANGUAGE_KLAX      "klaxan language processor"
+#define BP_AUG_LANGUAGE_MIKUETZ   "mikuetz language processor"
+#define BP_AUG_LANGUAGE_TRADEBAND "tradeband language processor"
+#define BP_AUG_LANGUAGE_VEKATAK   "vekatak language processor"
+#define BP_AUG_LANGUAGE_ZENG      "zeng language processor"
+#define BP_AUG_LANGUAGE_ZINO      "zino language processor"
 #define BP_AUG_LIGHTER            "retractable lighter"
 #define BP_AUG_MAGBOOT            "integrated mag-claws"
 #define BP_AUG_MEMORY             "memory inhibitor"
@@ -285,6 +316,99 @@
 #define MOB_SMALL 		6
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
+
+// Mob weight, separate from mob size. Affects how easy a mob is to lift.
+/// Light mobs, can be lifted by anyone.
+#define MOB_WEIGHT_LIGHT 1
+/// Medium weight mobs, the default for humanoids. Can be lifted by medium+.
+#define MOB_WEIGHT_MEDIUM 2
+/// Heavy mobs. They need speecial equipment or a heavy+ mob to lift.
+#define MOB_WEIGHT_HEAVY 3
+/// Superheavy mobs. Gonna need a lot of help with those.
+#define MOB_WEIGHT_SUPERHEAVY 4
+
+/*
+		Mob Reference Masses
+								*/
+// Reference Masses of different Mobs. Unlike MOB_WEIGHT, these represent a physics-typed value, and thus can be used directly in Kinematic Equations.
+// Note: These values absolutely must be in Kilograms, I'm terribly sorry for any Americans reading this, but these get included in physics equations that require Kg inputs.
+
+// For any species with sexual dimorphism, the Reference Mass is 1/n * (sum of average mass of each sex).
+// To give an example, an average adult female human weighs 62kg, and 80kg for an average adult male human.
+// 62 + 80.7 = 142.7. Since there's two examples, 142.7 / 2 = 71.35, which to "fudge things a little" I round up to 72kg.
+// Hence humans being 72.0kg and not 62.0kg.
+
+// If you're making an alien with sexual dimorphism (or trimorphism, or polymorphism), the same pattern as humans can be followed.
+// Whereas for aliens without notable differences, you can just use a single average number.
+// It's perfectly reasonable to just give a rough guess, none of these numbers need to be perfectly exact or even clean, just in a general ballpark.
+
+/// Average mass of a human (in Kg)
+#define REFERENCE_MASS_HUMAN 72.0
+
+/// Average mass of an Offworlder (in Kg)
+#define REFERENCE_MASS_HUMAN_OFFWORLDER 62.0
+
+/// Average mass of an Interstellar Megacorporation CEO (in Kg)
+#define REFERENCE_MASS_CEO 76.4 // Megacorp lore requested this. :)
+
+/// Average mass of a Skrell (in Kg)
+#define REFERENCE_MASS_SKRELL 40.8
+
+/// Average mass of an Axiori Skrell (in Kg)
+#define REFERENCE_MASS_SKRELL_AXIORI 52.3
+
+/// Average mass of a Diona (in Kg)
+#define REFERENCE_MASS_DIONA 200
+
+/// Average mass of a Diona Coeus (in Kg)
+#define REFERENCE_MASS_DIONA_COEUS 100
+
+/// Average mass of an Unathi (in Kg)
+#define REFERENCE_MASS_UNATHI 120
+
+/// Average mass of an IPC (in Kg)
+#define REFERENCE_MASS_IPC 125
+
+/// Average mass of a Shell (in Kg)
+#define REFERENCE_MASS_IPC_SHELL 92.0
+
+/// Average mass of an Industrial IPC (in Kg)
+#define REFERENCE_MASS_IPC_INDUSTRIAL 200
+
+/// Average mass of a (Njarir or Hharar) Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA 80.0
+
+/// Average mass of a M'sai Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA_MSAI 85.2
+
+/// Average mass of a Zhan Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA_ZHAN 92.9
+
+/// Average mass of a Tesla Rejuv Suit (in Kg)
+#define REFERENCE_MASS_TAJARA_TESLA 500
+
+/// Average mass of a Vaurca Worker (in Kg)
+#define REFERENCE_MASS_VAURCA_KA 85.0
+
+/// Average mass of a Vaurca Warrior (in Kg)
+#define REFERENCE_MASS_VAURCA_ZA 80.2
+
+/// Average mass of a Vaurca Breeder (in Kg)
+#define REFERENCE_MASS_VAURCA_TA 1000 // BEEG
+
+/// Average mass of a Vaurca Bulwark (in Kg)
+#define REFERENCE_MASS_VAURCA_RA 363
+
+/// Average mass of a Vaurca Warform (in Kg)
+#define REFERENCE_MASS_VAURCA_BA 800
+
+// Mob strength. This allows us to represent stronger mobs with a bit more granularity. Robots should be stronger than normal people. A bonus to the checks on lifting/throwing mobs, essentially.
+/// A normal mob, basically. Does not get us any buffs.
+#define MOB_STRENGTH_NORMAL 1.25
+/// A strong mob. Small bonus.
+#define MOB_STRENGTH_STRONG 1.5
+/// A very strong mob. Big bonus.
+#define MOB_STRENGTH_VERY_STRONG 2.0
 
 #define BASE_MAX_NUTRITION	600
 #define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
@@ -431,6 +555,7 @@
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 #define PROSTHETIC_VAURCA_WARRIOR "Vaurca Warrior Robotic Limb"
+#define PROSTHETIC_VAURCA_BULWARK "Vaurca Bulwark Robotic Limb"
 #define PROSTHETIC_UNBRANDED "Unbranded"
 #define PROSTHETIC_UNBRANDED_EMISSIVE "Unbranded Emissive"
 #define PROSTHETIC_HOPLAN "Hoplan Head"
@@ -510,6 +635,10 @@
 #define HEIGHT_CLASS_HUGE 240
 #define HEIGHT_CLASS_GIGANTIC 300
 
+#define UNBUCKLED 0
+#define PARTIALLY_BUCKLED 1
+#define FULLY_BUCKLED 2
+
 #define MOB_IS_INCAPACITATED(incapacitation_flags)\
 (\
 	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\
@@ -556,3 +685,25 @@
 #define DO_MISSING_TARGET (-2)
 #define DO_INCAPACITATED (-3)
 #define DO_EXTRA_CHECKS (-4)
+
+// Threshold defines for integrity damage. Used for when you want to check for a specific threshold to do damage effects.
+
+#define IPC_INTEGRITY_THRESHOLD_LOW 75
+#define IPC_INTEGRITY_THRESHOLD_MEDIUM 50
+#define IPC_INTEGRITY_THRESHOLD_HIGH 25
+#define IPC_INTEGRITY_THRESHOLD_VERY_HIGH 10
+
+// These are the power supply organ defines.
+// They are bitflags because it should be technically possible to have a power supply do multiple things at once if you wish.
+// Just be wary of balancing issues.
+
+/// The default functioning of a power reactor. Externally powered only. Allows recharging from APCs. Has a multiplier for faster recharging from power stations.
+#define POWER_SUPPLY_ELECTRIC 1
+/// Recharges by walking/running. Far slower at charging from external sources.
+#define POWER_SUPPLY_KINETIC 2
+/// Recharges through consuming nutrients/food. Slower at recharging from external sources.
+#define POWER_SUPPLY_BIOLOGICAL 4
+/// Recharges from external lighting. Slower at recharging from external sources.
+#define POWER_SUPPLY_SOLAR 8
+
+#define WEATHER_COOLDOWN_TIME (5 SECONDS)

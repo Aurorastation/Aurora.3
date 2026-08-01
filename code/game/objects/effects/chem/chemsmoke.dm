@@ -153,13 +153,11 @@
 		var/mobnames = ""
 		if (touched_mobs.len > 1)
 			mobnames += "Affected players: "
-			var/i = 1
-			do
+			var/num_players = length(touched_mobs)
+			for (var/i = 1, i <= num_players, i++)
 				mobnames += "<A href='byond://?_src_=holder;adminmoreinfo=[REF(touched_mobs[i])]'>?</a>"
-				if (touched_mobs[i+1])
+				if (i < num_players)
 					mobnames += ", "
-				i++
-			while (touched_mobs[i])
 			mobnames += "."
 		else mobnames += "Affected player: [touched_mobs[1]]."
 		var/containing = ""
@@ -200,7 +198,7 @@
 
 	var/pressure = 0
 	var/datum/gas_mixture/environment = location.return_air()
-	if(environment) pressure = environment.return_pressure()
+	pressure = SAFE_XGM_PRESSURE(environment)
 	duration = between(5, (duration*pressure)/(ONE_ATMOSPHERE), duration*2)
 
 	var/const/arcLength = 2.3559 //distance between each smoke cloud
@@ -232,20 +230,20 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/start()
 	..()
-	if(seed && seed.get_trait(TRAIT_SPREAD))
+	if(seed && GET_SEED_TRAIT(seed, TRAIT_SPREAD))
 		var/sporecount = 0
 		for(var/turf/T in targetTurfs)
 			var/bad_turf = 0
 			for(var/obj/O in T)
-				if(O.density || istype(O, /obj/machinery/portable_atmospherics/hydroponics))
+				if(O.density || istype(O, /obj/structure/machinery/portable_atmospherics/hydroponics))
 					bad_turf = 1
 					break
 			if(bad_turf)
 				continue
-			if(prob(min(seed.get_trait(TRAIT_POTENCY), 50)))
-				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
+			if(prob(min(GET_SEED_TRAIT(seed, TRAIT_POTENCY), 50)))
+				new /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
 				sporecount++
-			if(sporecount < max(1, round(seed.get_trait(TRAIT_POTENCY) / 20), 1))
+			if(sporecount < max(1, round(GET_SEED_TRAIT(seed, TRAIT_POTENCY) / 20), 1))
 				break
 
 

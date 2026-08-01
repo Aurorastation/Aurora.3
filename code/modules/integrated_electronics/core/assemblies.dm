@@ -1,52 +1,66 @@
-/obj/item/device/electronic_assembly
-	name = "electronic assembly"
-	desc = "It's a case, for building small electronics with."
+/*
+ * core/assemblies.dm
+ * Base electronic assembly behavior: circuit storage, open/closed handling, interaction, icon updates, cloning hooks, and wiring rules.
+ */
+
+/obj/item/electronic_assembly
+	name = "small circuit case"
+	desc = "A case for building small electronic assemblies."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
+	light_system = MOVABLE_LIGHT
+
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
+	var/max_components_device = 16
+	var/max_complexity_device = 42
+	var/max_components_implant = 16
+	var/max_complexity_implant = 42
+	// Whether the assembly panel is open for direct circuit access.
 	var/opened = 0
 	var/can_anchor = FALSE // If true, wrenching it will anchor it.
-	var/obj/item/cell/device/battery // Internal cell which most circuits need to work.
+	// Power cell or battery object feeding the assembly.
+	var/obj/item/cell/battery // Internal cell which most circuits need to work.
+	// User-selected detail color used for assembly and wearable overlays.
 	var/detail_color = COLOR_ASSEMBLY_BLACK
 	var/obj/item/card/id/access_card
 
-/obj/item/device/electronic_assembly/implant
+/obj/item/electronic_assembly/implant
 	name = "electronic implant"
 	icon_state = "setup_implant"
-	desc = "It's a case, for building very tiny electronics with."
+	desc = "A case for building very small electronic assemblies."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = IC_COMPONENTS_BASE / 2
-	max_complexity = IC_COMPLEXITY_BASE / 2
+	max_components = /obj/item/electronic_assembly::max_components_implant
+	max_complexity = /obj/item/electronic_assembly::max_complexity_implant
 	var/obj/item/implant/integrated_circuit/implant = null
 
-/obj/item/device/electronic_assembly/Initialize(mapload, printed = FALSE)
+/obj/item/electronic_assembly/Initialize(mapload, printed = FALSE)
 	. = ..()
 	if (!printed)
-		battery = new(src)
+		battery = new /obj/item/cell/device(src)
 	START_PROCESSING(SSelectronics, src)
 	access_card = new /obj/item/card/id(src)
 
-/obj/item/device/electronic_assembly/Destroy()
+/obj/item/electronic_assembly/Destroy()
 	QDEL_NULL(battery)
 	STOP_PROCESSING(SSelectronics, src)
 	QDEL_NULL(access_card)
 	return ..()
 
-/obj/item/device/electronic_assembly/Collide(atom/AM)
+/obj/item/electronic_assembly/Collide(atom/AM)
 	var/collw = AM
 	.=..()
-	if((istype(collw, /obj/machinery/door/airlock) ||  istype(collw, /obj/machinery/door/window)) && (!isnull(access_card)))
-		var/obj/machinery/door/D = collw
+	if((istype(collw, /obj/structure/machinery/door/airlock) ||  istype(collw, /obj/structure/machinery/door/window)) && (!isnull(access_card)))
+		var/obj/structure/machinery/door/D = collw
 		if(D.check_access(access_card))
 			D.open()
 
-/obj/item/device/electronic_assembly/process()
+/obj/item/electronic_assembly/process()
 	handle_idle_power()
 
-/obj/item/device/electronic_assembly/proc/handle_idle_power()
+/obj/item/electronic_assembly/proc/handle_idle_power()
 	// First we generate power.
 	for(var/obj/item/integrated_circuit/passive/power/P in contents)
 		P.make_energy()
@@ -56,25 +70,25 @@
 		if(IC.power_draw_idle && !draw_power(IC.power_draw_idle))
 			IC.power_fail()
 
-/obj/item/device/electronic_assembly/implant/update_icon()
+/obj/item/electronic_assembly/implant/update_icon()
 	..()
 	implant.icon_state = icon_state
 
-/obj/item/device/electronic_assembly/implant/ui_host()
+/obj/item/electronic_assembly/implant/ui_host()
 	return implant
 
-/obj/item/device/electronic_assembly/proc/resolve_ui_host()
+/obj/item/electronic_assembly/proc/resolve_ui_host()
 	return src
 
-/obj/item/device/electronic_assembly/implant/resolve_ui_host()
+/obj/item/electronic_assembly/implant/resolve_ui_host()
 	return implant
 
-/obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
+/obj/item/electronic_assembly/proc/check_interactivity(mob/user)
 	if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
-/obj/item/device/electronic_assembly/interact(mob/user)
+/obj/item/electronic_assembly/interact(mob/user)
 	if(!check_interactivity(user))
 		return
 
@@ -84,11 +98,13 @@
 		total_parts += part.size
 		total_complexity = total_complexity + part.complexity
 	var/list/HTML = list()
+	var/effective_component_limit = get_effective_component_limit(total_complexity)
+	var/effective_complexity_limit = get_effective_complexity_limit(total_parts)
 
 	HTML += "<br><a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
 	HTML += "<a href='byond://?src=[REF(src)];rename=1'>Rename</a><br>"
-	HTML += "[total_parts]/[max_components] ([round((total_parts / max_components) * 100, 0.1)]%) space taken up in the assembly.<br>"
-	HTML += "[total_complexity]/[max_complexity] ([round((total_complexity / max_complexity) * 100, 0.1)]%) maximum complexity.<br>"
+	HTML += "[total_parts]/[max_components] space taken up in the assembly[effective_component_limit > max_components ? " ([effective_component_limit] with headroom)" : ""].<br>"
+	HTML += "[total_complexity]/[max_complexity] maximum complexity[effective_complexity_limit > max_complexity ? " ([effective_complexity_limit] with headroom)" : ""].<br>"
 	if(battery)
 		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='byond://?src=[REF(src)];remove_cell=1'>Remove</a>"
 	else
@@ -123,7 +139,7 @@
 	B.set_content(HTML.Join())
 	B.open(FALSE)
 
-/obj/item/device/electronic_assembly/Topic(href, href_list[])
+/obj/item/electronic_assembly/Topic(href, href_list[])
 	if(..())
 		return 1
 	if(!opened)
@@ -145,10 +161,10 @@
 
 	interact(usr) // To refresh the UI.
 
-/obj/item/device/electronic_assembly/verb/rename()
+/obj/item/electronic_assembly/verb/rename()
 	set name = "Rename Circuit"
 	set category = "Object"
-	set desc = "Rename your circuit, useful to stay organized."
+	set desc = "Renames the circuit to make assemblies easier to organize."
 	set src in usr
 
 	var/mob/M = usr
@@ -162,10 +178,10 @@
 		return input
 	return null
 
-/obj/item/device/electronic_assembly/proc/can_move()
+/obj/item/electronic_assembly/proc/can_move()
 	return FALSE
 
-/obj/item/device/electronic_assembly/update_icon()
+/obj/item/electronic_assembly/update_icon()
 	if(opened)
 		icon_state = "[initial(icon_state)]-open"
 	else
@@ -177,31 +193,39 @@
 	detail_overlay.color = detail_color
 	AddOverlays(detail_overlay)
 
-/obj/item/device/electronic_assembly/GetAccess()
+/obj/item/electronic_assembly/GetAccess()
 	. = list()
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/device/electronic_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/electronic_assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance <= 1)
+	if(is_adjacent && opened)
 		for(var/obj/item/integrated_circuit/IC in contents)
-			. += IC.external_examine(user)
-		if(opened)
-			interact(user)
+			. += SPAN_NOTICE("It contains \a [IC].")
 
-/obj/item/device/electronic_assembly/proc/get_part_complexity()
+/obj/item/electronic_assembly/proc/get_part_complexity()
 	. = 0
 	for(var/obj/item/integrated_circuit/part in contents)
 		. += part.complexity
 
-/obj/item/device/electronic_assembly/proc/get_part_size()
+/obj/item/electronic_assembly/proc/get_part_size()
 	. = 0
 	for(var/obj/item/integrated_circuit/part in contents)
 		. += part.size
 
+/obj/item/electronic_assembly/proc/get_effective_complexity_limit(total_part_size)
+	var/remaining_size = max(0, max_components - total_part_size)
+	var/overflow_limit = round(max_complexity * IC_OVERFLOW_LIMIT)
+	return max_complexity + min(remaining_size * IC_OVERFLOW_COMPONENT_TO_COMPLEXITY, overflow_limit)
+
+/obj/item/electronic_assembly/proc/get_effective_component_limit(total_complexity)
+	var/remaining_complexity = max(0, max_complexity - total_complexity)
+	var/overflow_limit = round(max_components * IC_OVERFLOW_LIMIT)
+	return max_components + min(round(remaining_complexity / IC_OVERFLOW_COMPLEXITY_TO_COMPONENT), overflow_limit)
+
 // Returns true if the circuit made it inside.
-/obj/item/device/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
+/obj/item/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
 	if(!opened)
 		to_chat(user, SPAN_WARNING("\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar."))
 		return FALSE
@@ -212,11 +236,13 @@
 
 	var/total_part_size = get_part_size()
 	var/total_complexity = get_part_complexity()
+	var/new_part_size = total_part_size + IC.size
+	var/new_complexity = total_complexity + IC.complexity
 
-	if((total_part_size + IC.size) > max_components)
+	if(new_part_size > get_effective_component_limit(new_complexity))
 		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', as there's insufficient space."))
 		return FALSE
-	if((total_complexity + IC.complexity) > max_complexity)
+	if(new_complexity > get_effective_complexity_limit(new_part_size))
 		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', since this setup's too complicated for the case."))
 		return FALSE
 
@@ -228,15 +254,15 @@
 	return TRUE
 
 // Non-interactive version of above that always succeeds, intended for build-in circuits that get added on assembly initialization.
-/obj/item/device/electronic_assembly/proc/force_add_circuit(var/obj/item/integrated_circuit/IC)
+/obj/item/electronic_assembly/proc/force_add_circuit(var/obj/item/integrated_circuit/IC)
 	IC.forceMove(src)
 	IC.assembly = src
 
-/obj/item/device/electronic_assembly/afterattack(atom/target, mob/user, proximity)
+/obj/item/electronic_assembly/afterattack(atom/target, mob/user, proximity)
 	for(var/obj/item/integrated_circuit/input/sensor/S in contents)
 		S.sense(target, user)
 
-/obj/item/device/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
+/obj/item/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/integrated_circuit))
 		if(!user.unEquip(attacking_item))
 			return FALSE
@@ -247,7 +273,7 @@
 			interact(user)
 			return TRUE
 
-	else if(attacking_item.iswrench() && can_anchor)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && can_anchor)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		if(anchored)
@@ -257,14 +283,14 @@
 		user.visible_message("[user] has wrenched [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You wrench [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You hear the sound of a ratcheting wrench turning.")
 		return TRUE
 
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		opened = !opened
 		to_chat(user, SPAN_NOTICE("You [opened ? "open" : "close"] \the [src]."))
 		update_icon()
 		return TRUE
 
-	else if(istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || attacking_item.ismultitool() || attacking_item.isscrewdriver())
+	else if(istype(attacking_item, /obj/item/integrated_electronics/wirer) || istype(attacking_item, /obj/item/integrated_electronics/debugger) || attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(opened)
 			interact(user)
 		else
@@ -273,7 +299,7 @@
 
 		return TRUE
 
-	else if(istype(attacking_item, /obj/item/cell/device))
+	else if(istype(attacking_item, /obj/item/cell))
 		if(!opened)
 			to_chat(user, SPAN_WARNING("\The [src] isn't open, so you can't put anything inside.  Try using a crowbar."))
 			for(var/obj/item/integrated_circuit/input/S in contents)
@@ -286,15 +312,15 @@
 				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE
 
-		var/obj/item/cell/device/cell = attacking_item
+		var/obj/item/cell/cell = attacking_item
 		user.drop_from_inventory(cell,src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("You slot \the [cell] inside \the [src]'s power supply."))
 		interact(user)
 		return TRUE
-	else if(istype(attacking_item, /obj/item/device/integrated_electronics/detailer))
-		var/obj/item/device/integrated_electronics/detailer/D = attacking_item
+	else if(istype(attacking_item, /obj/item/integrated_electronics/detailer))
+		var/obj/item/integrated_electronics/detailer/D = attacking_item
 		detail_color = D.detail_color
 		update_icon()
 		return TRUE
@@ -308,11 +334,12 @@
 				return TRUE
 		return ..()
 
-/obj/item/device/electronic_assembly/attack_self(mob/user)
+/obj/item/electronic_assembly/attack_self(mob/user)
 	if(!check_interactivity(user))
 		return
 	if(opened)
 		interact(user)
+		return
 
 	var/list/input_selection = list()
 	var/list/available_inputs = list()
@@ -338,28 +365,28 @@
 	if(choice)
 		choice.ask_for_input(user)
 
-/obj/item/device/electronic_assembly/emp_act(severity)
+/obj/item/electronic_assembly/emp_act(severity)
 	. = ..()
 
 	for(var/atom/movable/AM in contents)
 		AM.emp_act(severity)
 
 // Returns true if power was successfully drawn.
-/obj/item/device/electronic_assembly/proc/draw_power(amount)
+/obj/item/electronic_assembly/proc/draw_power(amount)
 	if(battery && battery.checked_use(amount * CELLRATE))
 		return TRUE
 	return FALSE
 
 // Ditto for giving.
-/obj/item/device/electronic_assembly/proc/give_power(amount)
+/obj/item/electronic_assembly/proc/give_power(amount)
 	if(battery && battery.give(amount * CELLRATE))
 		return TRUE
 	return FALSE
 
-/obj/item/device/electronic_assembly/proc/on_anchored()
+/obj/item/electronic_assembly/proc/on_anchored()
 	for(var/obj/item/integrated_circuit/IC in contents)
 		IC.on_anchored()
 
-/obj/item/device/electronic_assembly/proc/on_unanchored()
+/obj/item/electronic_assembly/proc/on_unanchored()
 	for(var/obj/item/integrated_circuit/IC in contents)
 		IC.on_unanchored()

@@ -18,7 +18,6 @@
 			failed_species |= species.type
 
 	if(failed_species.len)
-		for(var/fail in failed_species)
 		TEST_FAIL("SPECIES: Invalid injection_mod var set on species: [english_list(failed_species)]")
 	else
 		TEST_PASS("SPECIES: All species had valid injection_mod vars set.")

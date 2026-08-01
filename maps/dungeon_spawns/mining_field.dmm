@@ -59,7 +59,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "o" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	on = 1
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -90,7 +90,7 @@
 /area/mine/unexplored)
 "v" = (
 /mob/living/heavy_vehicle/premade/ripley,
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "w" = (

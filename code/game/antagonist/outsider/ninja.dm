@@ -116,6 +116,8 @@ GLOBAL_DATUM(ninjas, /datum/antagonist/ninja)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
+
+
 	return TRUE
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)

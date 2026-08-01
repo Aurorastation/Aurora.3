@@ -15,7 +15,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 	speed = 4
-	maxHealth = 20
+	maxhealth = 20
 	health = 20
 	mob_size = 2.5
 
@@ -24,6 +24,7 @@
 	melee_damage_upper = 10
 	resist_mod = 10 // can't grab a cloud of bats easily
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	//Space carp aren't affected by atmos.
@@ -79,7 +80,3 @@
 
 /mob/living/simple_animal/hostile/scarybat/cult/cultify()
 	return
-
-/mob/living/simple_animal/hostile/scarybat/cult/Life(seconds_per_tick, times_fired)
-	..()
-	check_horde()

@@ -6,6 +6,11 @@
 	item_state = "hat"
 	contained_sprite = TRUE
 
+/obj/item/clothing/head/wool/colorable
+	icon_state = "hat_colorable"
+	item_state = "hat_colorable"
+	has_accents = TRUE
+
 /obj/item/clothing/head/wool/idris
 	name = "idris woolen hat"
 	desc = "A warm woolen hat in Idris Incorporated colors. Have an Idris (and warm) day!"

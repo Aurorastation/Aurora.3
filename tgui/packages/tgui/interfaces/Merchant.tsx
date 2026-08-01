@@ -1,7 +1,14 @@
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
+import {
+  Box,
+  Button,
+  LabeledControls,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, LabeledList, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MerchantData = {
@@ -17,8 +24,8 @@ export type MerchantData = {
   trades: string[];
 };
 
-export const Merchant = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const Merchant = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <NtosWindow resizable width={900} height={600}>
@@ -29,12 +36,12 @@ export const Merchant = (props, context) => {
   );
 };
 
-export const ModeWindow = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const ModeWindow = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section
-      title={'Orion Express Goods Trading' + ' (Balance: ' + data.bank + '电)'}
+      title={`Orion Express Goods Trading (Balance: ${data.bank}电)`}
       buttons={
         <>
           <Button
@@ -47,7 +54,8 @@ export const ModeWindow = (props, context) => {
             onClick={() => act('PRG_scroll', { PRG_scroll: 'right' })}
           />
         </>
-      }>
+      }
+    >
       <Box fontSize={1.5} bold>
         {data.traderName}
       </Box>
@@ -58,8 +66,8 @@ export const ModeWindow = (props, context) => {
   );
 };
 
-export const Hailed = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const Hailed = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section>
@@ -68,16 +76,16 @@ export const Hailed = (props, context) => {
           title="Communications"
           buttons={
             <Button icon="arrow-left" onClick={() => act('PRG_show_trades')} />
-          }>
+          }
+        >
           {data.trades.map((trade) => (
             <Section key={trade}>
               <Box fontSize={1.5} textAlign="centre" bold>
                 {capitalizeAll(trade)}
               </Box>
               <LabeledControls>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Trade">
                   <Button
-                    content="Trade"
                     onClick={() =>
                       act('PRG_offer_item', {
                         PRG_offer_item: data.trades.indexOf(trade),
@@ -85,9 +93,8 @@ export const Hailed = (props, context) => {
                     }
                   />
                 </LabeledControls.Item>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Money">
                   <Button
-                    content="Money"
                     onClick={() =>
                       act('PRG_offer_money_for_item', {
                         PRG_offer_money_for_item: data.trades.indexOf(trade),
@@ -95,9 +102,8 @@ export const Hailed = (props, context) => {
                     }
                   />
                 </LabeledControls.Item>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Ask Cost">
                   <Button
-                    content="Ask Cost"
                     onClick={() =>
                       act('PRG_how_much_do_you_want', {
                         PRG_how_much_do_you_want: data.trades.indexOf(trade),
@@ -105,9 +111,8 @@ export const Hailed = (props, context) => {
                     }
                   />
                 </LabeledControls.Item>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Bulk">
                   <Button
-                    content="Bulk"
                     onClick={() =>
                       act('PRG_bulk_money_for_item', {
                         PRG_bulk_money_for_item: data.trades.indexOf(trade),
@@ -122,34 +127,20 @@ export const Hailed = (props, context) => {
       ) : (
         <Section title="Communications">
           <LabeledControls>
-            <LabeledControls.Item>
-              <Button
-                content="Show Goods"
-                onClick={() => act('PRG_show_trades')}
-              />
+            <LabeledControls.Item label="Trade">
+              <Button onClick={() => act('PRG_show_trades')} />
             </LabeledControls.Item>
-            <LabeledControls.Item>
-              <Button
-                content="Sell Items"
-                onClick={() => act('PRG_sell_items')}
-              />
+            <LabeledControls.Item label="Sell Items">
+              <Button onClick={() => act('PRG_sell_items')} />
             </LabeledControls.Item>
-            <LabeledControls.Item />
-            <LabeledControls.Item>
-              <Button
-                content="Compliment"
-                onClick={() => act('PRG_compliment')}
-              />
+            <LabeledControls.Item label="Compliment">
+              <Button onClick={() => act('PRG_compliment')} />
             </LabeledControls.Item>
-            <LabeledControls.Item>
-              <Button content="Insult" onClick={() => act('PRG_insult')} />
+            <LabeledControls.Item label="Insult">
+              <Button onClick={() => act('PRG_insult')} />
             </LabeledControls.Item>
-            <LabeledControls.Item>
-              <Button
-                content="Information"
-                tooltip="This will give you information on what the merchant would want for a trade."
-                onClick={() => act('PRG_what_do_you_want')}
-              />
+            <LabeledControls.Item label="Information">
+              <Button onClick={() => act('PRG_what_do_you_want')} />
             </LabeledControls.Item>
           </LabeledControls>
           <LabeledList>
@@ -177,8 +168,8 @@ export const Hailed = (props, context) => {
   );
 };
 
-export const NotHailed = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const NotHailed = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section title="Communications">
@@ -187,45 +178,29 @@ export const NotHailed = (props, context) => {
   );
 };
 
-export const MainMenu = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const MainMenu = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
-    <Section
-      title={
-        'Orion Express Trade Interface' + ' (Balance: ' + data.bank + '电)'
-      }>
+    <Section title={`Orion Express Trade Interface (Balance: ${data.bank}电)`}>
       <LabeledControls>
-        <LabeledControls.Item>
-          <Button
-            content="Open Communications"
-            onClick={() => act('PRG_merchant_list')}
-          />
+        <LabeledControls.Item label="Open Communications">
+          <Button onClick={() => act('PRG_merchant_list')} />
         </LabeledControls.Item>
-        <LabeledControls.Item>
+        <LabeledControls.Item label="Test Fire">
           <Button
-            content="Test Fire"
             tooltip="This will test fire your transponder."
             onClick={() => act('PRG_test_fire')}
           />
         </LabeledControls.Item>
-        <LabeledControls.Item>
-          <Button
-            content="Connect Pad"
-            onClick={() => act('PRG_connect_pad')}
-          />
+        <LabeledControls.Item label="Connect Pad">
+          <Button onClick={() => act('PRG_connect_pad')} />
         </LabeledControls.Item>
-        <LabeledControls.Item>
-          <Button
-            content="Deposit Credits"
-            onClick={() => act('PRG_transfer_to_bank')}
-          />
+        <LabeledControls.Item label="Deposit Credits">
+          <Button onClick={() => act('PRG_transfer_to_bank')} />
         </LabeledControls.Item>
-        <LabeledControls.Item>
-          <Button
-            content="Retrieve Credits"
-            onClick={() => act('PRG_get_money')}
-          />
+        <LabeledControls.Item label="Retrieve Credits">
+          <Button onClick={() => act('PRG_get_money')} />
         </LabeledControls.Item>
       </LabeledControls>
       <LabeledList>
@@ -237,8 +212,8 @@ export const MainMenu = (props, context) => {
   );
 };
 
-export const TempWindow = (props, context) => {
-  const { act, data } = useBackend<MerchantData>(context);
+export const TempWindow = (props) => {
+  const { act, data } = useBackend<MerchantData>();
 
   return (
     <Section
@@ -249,7 +224,8 @@ export const TempWindow = (props, context) => {
           icon="play"
           onClick={() => act('PRG_continue')}
         />
-      }>
+      }
+    >
       <NoticeBox>{data.temp}</NoticeBox>
     </Section>
   );

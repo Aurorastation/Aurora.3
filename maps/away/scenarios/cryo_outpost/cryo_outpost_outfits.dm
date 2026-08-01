@@ -3,9 +3,9 @@
 
 /obj/outfit/admin/generic/cryo_outpost_crew
 	name = "Desert Oasis Planet Outpost Crew Uniform"
-	l_ear = /obj/item/device/radio/headset/ship
-	id = /obj/item/device/radio/headset/syndicate
-	l_pocket = /obj/item/device/radio/hailing
+	l_ear = /obj/item/radio/headset/ship
+	id = /obj/item/radio/headset/syndicate
+	l_pocket = /obj/item/radio/hailing
 
 /obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
 	return list(
@@ -30,7 +30,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -64,7 +64,7 @@
 		/obj/item/ammo_magazine/c45m = 1,
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/coagzolug = 1
 	)
 
@@ -97,7 +97,7 @@
 		/obj/item/storage/box/survival = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
-		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/storage/box/shells/buckshot = 1,
 		/obj/item/landmine/frag = 1,
 		/obj/item/landmine/emp = 1,
 		/obj/item/storage/belt/utility/very_full = 1,
@@ -109,7 +109,7 @@
 		/obj/item/ammo_magazine/c45m = 2,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/shield/energy = 1,
-		/obj/item/device/flashlight/flare = 1,
+		/obj/item/flashlight/flare = 1,
 	)
 
 // ------------------ merc leader
@@ -195,7 +195,7 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 		/obj/item/clothing/suit/storage/toggle/highvis,
 		/obj/item/clothing/suit/storage/toggle/highvis,
-		/obj/item/clothing/suit/storage/toggle/highvis_alt,
+		/obj/item/clothing/suit/storage/toggle/highvis/alt,
 		/obj/item/clothing/suit/storage/toggle/track,
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/suit/storage/hazardvest/green,

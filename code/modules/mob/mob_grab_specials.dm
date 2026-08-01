@@ -10,7 +10,7 @@
 	user.visible_message(SPAN_NOTICE("[user] starts inspecting [affecting]'s [E.name] carefully."))
 	if(!do_mob(user,H, 10))
 		to_chat(user, SPAN_NOTICE("You must stand still to inspect [E] for wounds."))
-	else if(E.wounds.len)
+	else if(LAZYLEN(E.wounds))
 		to_chat(user, SPAN_WARNING("You find [E.get_wounds_desc()]"))
 	else
 		to_chat(user, SPAN_NOTICE("You find no visible wounds."))
@@ -112,7 +112,7 @@
 		attacker.apply_effect(20, PARALYZE)
 		attacker.visible_message(SPAN_DANGER("[attacker] [attacker.species.knockout_message]"))
 
-	playsound(attacker.loc, /singleton/sound_category/swing_hit_sound, 25, 1, -1)
+	playsound(attacker.loc, SFX_SWING_HIT, 25, 1, -1)
 	attacker.attack_log += "\[[time_stamp()]\] <span class='warning'>Headbutted [target.name] ([target.ckey])</span>"
 	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>"
 	msg_admin_attack("[key_name(attacker)] has headbutted [key_name(target)]",ckey=key_name(attacker),ckey_target=key_name(target))

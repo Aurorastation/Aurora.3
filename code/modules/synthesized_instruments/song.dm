@@ -31,7 +31,10 @@
 	available_channels = GLOB.musical_config.channels_per_instrument
 
 /datum/synthesized_song/Destroy()
+	playing = null
 	player.event_manager.deactivate()
+	player = null
+	instrument_data = null
 	return ..()
 
 /datum/synthesized_song/proc/sanitize_tempo(new_tempo) // Identical to datum/song
@@ -129,7 +132,7 @@
 			var/obj/structure/synthesized_instrument/S = src.player.actual_instrument
 			var/datum/real_instrument/R = S.real_instrument
 			if (R.song_editor)
-				SSnanoui.update_uis(R.song_editor)
+				SStgui.update_uis(R.song_editor)
 		for (var/notes in splittext(lowertext(line), ","))
 			var/list/components = splittext(notes, "/")
 			var/duration = sanitize_tempo(src.tempo)

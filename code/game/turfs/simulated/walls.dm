@@ -1,10 +1,11 @@
 /turf/simulated/wall
 	name = "wall"
-	desc = "A huge chunk of metal used to seperate rooms."
+	desc = "A huge chunk of metal used to seperate compartments."
 	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "wall"
 	opacity = TRUE
 	density = TRUE
+	should_use_health = TRUE
 	blocks_air = TRUE
 	pass_flags_self = PASSCLOSEDTURF
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
@@ -19,22 +20,21 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door,
-		/obj/machinery/door/airlock
+		/obj/structure/machinery/door,
+		/obj/structure/machinery/door/airlock,
+		/obj/structure/arch
 	)
-
+	hitsound = 'sound/weapons/Genhit.ogg'
 	explosion_resistance = 10
 
-	var/damage = 0
 	var/damage_overlay = 0
 	var/global/damage_overlays[16]
 	var/active
 	var/can_open = 0
-	var/material/material
-	var/material/reinf_material
+	var/singleton/material/material
+	var/singleton/material/reinf_material
 	var/last_state
 	var/construction_stage
-	var/hitsound = 'sound/weapons/Genhit.ogg'
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating
@@ -44,36 +44,26 @@
 	var/tmp/image/fake_wall_image
 	var/tmp/cached_adjacency
 
-	/// A lazylist of humans leaning on this wall.
-	var/list/hiding_humans
-
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
 
+/turf/simulated/wall/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	var/state
+	var/current_damage = health / maxhealth
+	switch(current_damage)
+		if(0 to 0.2)
+			state = SPAN_DANGER("\The [src] is about to collapse into shattered debris!")
+		if(0.2 to 0.4)
+			state = SPAN_WARNING("\The [src] shows massive cracks across its surface and is in dire need of repairs!")
+		if(0.4 to 0.8)
+			state = SPAN_NOTICE("\The [src] is dented, but still sturdy.")
+		if(0.8 to 1)
+			state = SPAN_NOTICE("\The [src] seems completely intact.")
+	. = state
 
-/turf/simulated/wall/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(!damage)
-		. += SPAN_NOTICE("It looks fully intact.")
-	else
-		// Total damage is based of base material integrity and optionally, if reinforced, reinforcement material integrity on top
-		var/integrity = material.integrity
-		if(reinf_material)
-			integrity += reinf_material.integrity
-
-		var/relative_damage = damage / integrity
-
-		if(relative_damage <= 0.25)
-			. += SPAN_NOTICE("It looks slightly damaged.")
-		else if(relative_damage <= 0.5)
-			. += SPAN_WARNING("It looks damaged.")
-		else if(relative_damage <= 0.75)
-			. += SPAN_WARNING("It looks moderately damaged.")
-		else if(relative_damage <= 0.9)
-			. += SPAN_DANGER("It looks heavily damaged.")
-		else
-			. += SPAN_DANGER("It looks critically damaged and on the verge of structural collapse.")
+/turf/simulated/wall/examine_descriptor(mob/user)
+	return "wall"
 
 /turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -94,6 +84,10 @@
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		. += SPAN_WARNING("There is fungus growing on [src].")
 
+/turf/simulated/wall/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
+
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
@@ -106,12 +100,13 @@
 	if(!use_set_icon_state)
 		icon_state = "blank"
 	if(!materialtype)
-		materialtype = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(materialtype)
+		materialtype = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(materialtype)
 	if(!isnull(rmaterialtype))
-		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
+		reinf_material = SSmaterials.get_material_by_id(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
+	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0), TRUE)
 
 	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
 		START_PROCESSING(SSprocessing, src)
@@ -119,7 +114,6 @@
 /turf/simulated/wall/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	dismantle_wall(null, null, TRUE, TRUE)
-	LAZYNULL(hiding_humans)
 	return ..()
 
 /turf/simulated/wall/process()
@@ -149,10 +143,10 @@
 	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	if(hitting_projectile.anti_materiel_potential > 1)
+	if(hitting_projectile.anti_materiel_potential <= 1)
 		damage = min(proj_damage, 100)
 
-	take_damage(damage)
+	add_damage(damage)
 
 /turf/simulated/wall/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
@@ -166,7 +160,7 @@
 		var/tforce = O.throwforce * (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 		playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
 		if(tforce >= 15)
-			take_damage(tforce)
+			add_damage(tforce)
 
 /turf/simulated/wall/proc/clear_plants()
 	for(var/obj/effect/overlay/wallrot/WR in src)
@@ -191,32 +185,22 @@
 	if(!can_melt())
 		return
 
-	new /obj/effect/overlay/burnt_wall(get_turf(src), name, material, reinf_material)
 	src.ChangeTurf(under_turf)
+	// Create a gooey mass of slag.
+	new /obj/effect/decal/cleanable/molten_item(src)
 
 	if(do_message)
-		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
+		visible_message(SPAN_DANGER("\The [src] melts into slag!")) //!!OH SHIT!!
 
-/turf/simulated/wall/proc/take_damage(dam)
-	if(dam)
-		damage = max(0, damage + dam)
-		update_damage()
-	return
-
-/turf/simulated/wall/proc/update_damage()
-	var/cap = material.integrity
-	if(reinf_material)
-		cap += reinf_material.integrity
-
+/turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		cap = cap / 10
+		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"))
+		damage *= 10
+	. = ..()
+	update_icon()
 
-	if(damage >= cap)
-		dismantle_wall()
-	else
-		update_icon()
-
-	return
+/turf/simulated/wall/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle_wall()
 
 /turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
 	. = ..()
@@ -225,7 +209,7 @@
 /turf/simulated/wall/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)
 	burn(adj_temp)
 	if(adj_temp > material.melting_point)
-		take_damage(log(RAND_F(0.9, 1.1) * (adj_temp - material.melting_point)))
+		add_damage(log(RAND_F(0.9, 1.1) * (adj_temp - material.melting_point)))
 
 	return ..()
 
@@ -249,7 +233,7 @@
 
 	INVOKE_ASYNC(src, PROC_REF(clear_plants))
 	clear_bulletholes()
-	material = SSmaterials.get_material_by_name("placeholder")
+	material = GET_SINGLETON(MATERIAL_STEEL)
 	reinf_material = null
 
 	if (!no_change)
@@ -262,11 +246,11 @@
 			return
 		if(2.0)
 			if(prob(75))
-				take_damage(rand(150, 250))
+				add_damage(rand(150, 250))
 			else
 				dismantle_wall(1,1)
 		if(3.0)
-			take_damage(rand(0, 250))
+			add_damage(rand(0, 250))
 
 	return
 
@@ -287,11 +271,14 @@
 	if(!can_melt())
 		return
 
-	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
 	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
-	QDEL_IN(O, 100)
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 100)
+	create_melt_overlay(10 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 10 SECONDS)
+
+/turf/simulated/wall/proc/create_melt_overlay(overlay_lifetime = 2 SECONDS)
+	var/obj/effect/overlay/thermite/O = new /obj/effect/overlay/thermite(src)
+	QDEL_IN(O, overlay_lifetime)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)
@@ -308,86 +295,8 @@
 			src.ChangeTurf(/turf/simulated/floor)
 			for(var/turf/simulated/wall/W in range(3,src))
 				W.burn((temperature/4))
-			for(var/obj/machinery/door/airlock/phoron/D in range(3,src))
+			for(var/obj/structure/machinery/door/airlock/phoron/D in range(3,src))
 				D.ignite(temperature/4)
 
 /turf/simulated/wall/is_wall()
 	return TRUE
-
-/turf/simulated/wall/mouse_drop_receive(atom/dropped, mob/user, params)
-	if(!ismob(dropped))
-		return
-
-	var/mob/living/carbon/human/current_mob = dropped
-
-	// wall leaning by androbetel
-	if(!ishuman(current_mob))
-		return
-
-	if(current_mob != user)
-		return
-
-	var/mob/living/carbon/hiding_human = current_mob
-	var/can_lean = TRUE
-
-	if(istype(user.l_hand, /obj/item/grab) || istype(user.r_hand, /obj/item/grab))
-		to_chat(user, SPAN_WARNING("You can't lean while grabbing someone!"))
-		can_lean = FALSE
-	if(current_mob.incapacitated())
-		to_chat(user, SPAN_WARNING("You can't lean while incapacitated!"))
-		can_lean = FALSE
-	if(current_mob.resting)
-		to_chat(user, SPAN_WARNING("You can't lean while resting!"))
-		can_lean = FALSE
-	if(current_mob.buckled_to)
-		to_chat(user, SPAN_WARNING("You can't lean while buckled!"))
-		can_lean = FALSE
-
-	var/direction = get_dir(src, current_mob)
-	var/shift_pixel_x = 0
-	var/shift_pixel_y = 0
-
-	if(!can_lean)
-		return
-	switch(direction)
-		if(NORTH)
-			shift_pixel_y = -10
-		if(SOUTH)
-			shift_pixel_y = 16
-		if(WEST)
-			shift_pixel_x = 10
-		if(EAST)
-			shift_pixel_x = -10
-		else
-			return
-
-	for(var/mob/living/carbon/human/hiding in hiding_humans)
-		if(hiding_humans[hiding] == direction)
-			return
-
-	LAZYADD(hiding_humans, current_mob)
-	hiding_humans[current_mob] = direction
-	hiding_human.Moved() //just to be safe
-	hiding_human.set_dir(direction)
-	animate(hiding_human, pixel_x = shift_pixel_x, pixel_y = shift_pixel_y, time = 1)
-	if(direction == NORTH)
-		hiding_human.add_filter("cutout", 1, alpha_mask_filter(icon = icon('icons/effects/effects.dmi', "cutout")))
-	hiding_human.density = FALSE
-	ADD_TRAIT(hiding_human, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
-	RegisterSignals(hiding_human, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED), PROC_REF(unhide_human), hiding_human)
-	..()
-
-/turf/simulated/wall/proc/unhide_human(mob/living/carbon/human/to_unhide)
-	SIGNAL_HANDLER
-	if(!to_unhide)
-		return
-
-	to_unhide.density = FALSE
-	to_unhide.pixel_x = initial(to_unhide.pixel_x)
-	to_unhide.pixel_y = initial(to_unhide.pixel_y)
-	to_unhide.layer = initial(to_unhide.layer)
-	LAZYREMOVE(hiding_humans, to_unhide)
-	UnregisterSignal(to_unhide, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED))
-	to_chat(to_unhide, SPAN_NOTICE("You stop leaning on the wall."))
-	REMOVE_TRAIT(to_unhide, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
-	to_unhide.remove_filter("cutout")

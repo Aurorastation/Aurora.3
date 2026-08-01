@@ -131,7 +131,8 @@
 			pilot.body_return()
 			eject(pilot, silent=1)
 			if(remote_network && istype(pilot, /mob/living/simple_animal/spiderbot))
-				gib(pilot)
+				pilot.gib()
+				pilots.Remove(pilot)
 
 	// Handle the rest of things.
 	..(gibbed, (gibbed ? "explodes!" : "grinds to a halt before collapsing!"))
@@ -168,6 +169,7 @@
 	if(head)
 		sight = head.get_sight(powered)
 		see_invisible = head.get_invisible(powered)
+		lighting_alpha = head.get_lighting_alpha(power_profiled_time)
 	if(!hatch_closed || (body && (body.pilot_coverage < 100 || body.transparent_cabin)))
 		sight &= ~BLIND
 

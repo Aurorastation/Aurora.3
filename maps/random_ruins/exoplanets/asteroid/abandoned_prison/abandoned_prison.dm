@@ -18,7 +18,6 @@
 	name = "abandoned prison"
 	icon_state = "unknown"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = TRUE
 	is_outside = OUTSIDE_NO
 

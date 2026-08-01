@@ -62,21 +62,25 @@ SUBSYSTEM_DEF(odyssey)
  * If successful, makes the SS start firing.
  */
 /datum/controller/subsystem/odyssey/proc/pick_odyssey()
-	var/list/singleton/scenario/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
-	var/list/possible_scenarios = list()
-	for(var/singleton/scenario/S as anything in all_scenarios)
-		if((SSatlas.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
-			possible_scenarios[S] = S.weight
+	if(!scenario) //scenario can be forced with adminverb
+		var/list/singleton/scenario/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
+		var/list/possible_scenarios = list()
+		for(var/singleton/scenario/S as anything in all_scenarios)
+			if((SSatlas.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
+				possible_scenarios[S] = S.weight
 
-	if(!length(possible_scenarios))
-		log_subsystem_odyssey("CRITICAL ERROR: No available odyssey for sector [SSatlas.current_sector.name]!")
-		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR!")))
-		return FALSE
+		if(!length(possible_scenarios))
+			log_subsystem_odyssey("CRITICAL ERROR: No available odyssey for sector [SSatlas.current_sector.name]!")
+			log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR!")))
+			return FALSE
 
-	scenario = pickweight(possible_scenarios)
+		scenario = pickweight(possible_scenarios)
+
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
 	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
+	if(!SSticker.round_canon_admin_forced)
+		SSticker.set_round_canon(scenario.scenario_canonicity_type, TRUE)
 
 	// Now that we actually have an odyssey, the subsystem can fire!
 	can_fire = TRUE
@@ -93,13 +97,13 @@ SUBSYSTEM_DEF(odyssey)
 		ody_gamemode.required_players = scenario.min_player_amount
 		ody_gamemode.required_enemies = scenario.min_actor_amount
 
-		//Setting the scenario_type variable for use here in UI info and chat notices.
-		if(!length(scenario.possible_scenario_types))
-			scenario.scenario_type = SCENARIO_TYPE_NONCANON
+		//Setting the scenario_canonicity_type variable for use here in UI info and chat notices.
+		if(!length(scenario.possible_scenario_canonicity_types))
+			scenario.scenario_canonicity_type = /singleton/canonicity/limited
 		else if(SSatlas.current_sector in ALL_EVENT_ONLY_SECTORS) // If we are in an exclusive event area for an arc (EG. The Horizon finds itself isolated and alone), we may not want canon odysseys spawning.
-			scenario.scenario_type = SCENARIO_TYPE_NONCANON // Noncanon odysseys are fine though!
+			scenario.scenario_canonicity_type = /singleton/canonicity/limited // Noncanon odysseys are fine though!
 		else
-			scenario.scenario_type = pick(scenario.possible_scenario_types)
+			scenario.scenario_canonicity_type = pick(scenario.possible_scenario_canonicity_types)
 
 	site_landing_restricted = scenario.site_landing_restricted
 
@@ -151,7 +155,7 @@ SUBSYSTEM_DEF(odyssey)
 	if(scenario)
 		data["scenario_name"] = SSodyssey.scenario.name
 		data["scenario_desc"] = SSodyssey.scenario.desc
-		data["scenario_canonicity"] = SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON ? "Canon" : "Non-Canon"
+		data["scenario_canonicity"] = SSticker.round_canon.name
 		data["is_storyteller"] = isstoryteller(user) || check_rights(R_ADMIN, FALSE, user)
 
 		if(length(scenario.roles))

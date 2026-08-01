@@ -1,4 +1,4 @@
-/obj/machinery/atmospherics/unary/vent_scrubber
+/obj/structure/machinery/atmospherics/unary/vent_scrubber
 	name = "air scrubber"
 	desc = "Has a valve and pump attached to it."
 	icon = 'icons/atmos/vent_scrubber.dmi'
@@ -31,13 +31,15 @@
 
 	var/broadcast_status_next_process = FALSE
 
-/obj/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
+	var/datum/looping_sound/ventilation_humming/ventilation_humming
+
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This filters the atmosphere of harmful gas. Filtered gas goes to the pipes connected to it, typically a scrubber pipe."
 	. += "It can be controlled from an Air Alarm."
 	. += "It can be configured to drain all air rapidly with a 'panic siphon' from an air alarm."
 
-/obj/machinery/atmospherics/unary/vent_scrubber/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
 		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
@@ -46,20 +48,21 @@
 	if(welded)
 		. += "It seems welded shut."
 
-/obj/machinery/atmospherics/unary/vent_scrubber/on
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = POWER_USE_IDLE
 	icon_state = "map_scrubber_on"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/Initialize(mapload)
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
 
 	. = ..()
+	ventilation_humming = new(src)
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_FILTER
 
 	initial_loc = get_area(loc)
@@ -76,7 +79,7 @@
 	if (!scrubbing_gas)
 		reset_scrubbing()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/reset_scrubbing()
 	if (initial(scrubbing_gas))
 		scrubbing_gas = initial(scrubbing_gas)
 	else
@@ -85,17 +88,17 @@
 			if (g != GAS_OXYGEN && g != GAS_NITROGEN)
 				add_to_scrubbing(g)
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/add_to_scrubbing(new_gas)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/add_to_scrubbing(new_gas)
 	scrubbing_gas |= new_gas
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/remove_from_scrubbing(old_gas)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/remove_from_scrubbing(old_gas)
 	scrubbing_gas -= old_gas
 
-/obj/machinery/atmospherics/unary/vent_scrubber/atmos_init()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/atmos_init()
 	..()
 	broadcast_status()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/Destroy()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/Destroy()
 	unregister_radio(src, frequency)
 	if(initial_loc)
 		initial_loc.air_scrub_info -= id_tag
@@ -103,7 +106,7 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/update_icon(var/safety = 0)
 	var/turf/T = get_turf(src)
 	if(!istype(T))
 		return
@@ -119,13 +122,13 @@
 	else
 		icon_state = "in"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/update_underlays()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())
 		underlays.Cut()
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -134,12 +137,12 @@
 				add_underlay(T,, dir)
 			underlays += "frame"
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, radio_filter_in)
 
-/obj/machinery/atmospherics/unary/vent_scrubber/proc/broadcast_status()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/proc/broadcast_status()
 	if(!radio_connection)
 		return 0
 
@@ -163,11 +166,11 @@
 		"filter_2h" = (GAS_DEUTERIUM in scrubbing_gas),
 		"filter_3h" = (GAS_TRITIUM in scrubbing_gas),
 		"filter_he" = (GAS_HELIUM in scrubbing_gas),
-		"filter_b" = (GAS_BORON in scrubbing_gas),
+		"filter_b" = (GAS_HELIUMFUEL in scrubbing_gas),
 		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
 		"filter_no2" = (GAS_NO2 in scrubbing_gas),
 		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
-		"filter_h2o" = (GAS_STEAM in scrubbing_gas),
+		"filter_h2o" = (GAS_WATERVAPOR in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -181,7 +184,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/process()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/process()
 	..()
 
 	if (hibernate > world.time)
@@ -194,10 +197,13 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
-	if(!use_power || (stat & (NOPOWER|BROKEN)) || !loc)
+	if((!use_power || (stat & (NOPOWER|BROKEN)) || !loc) || welded)
+		if(ventilation_humming && ventilation_humming.loop_started)
+			ventilation_humming.stop()
 		return 0
-	if(welded)
-		return 0
+	else
+		if(ventilation_humming && !ventilation_humming.loop_started)
+			ventilation_humming.start()
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
@@ -226,11 +232,11 @@
 
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_scrubber/hide(var/i) //to make the little pipe section invisible, the icon changes.
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/hide(var/i) //to make the little pipe section invisible, the icon changes.
 	update_icon()
 	update_underlays()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/receive_signal(datum/signal/signal)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!signal.data["tag"] || (signal.data["tag"] != id_tag) || (signal.data["sigtype"]!="command"))
@@ -312,10 +318,10 @@
 	else if(signal.data["toggle_he_scrub"])
 		toggle += GAS_HELIUM
 
-	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_BORON in scrubbing_gas))
-		toggle += GAS_BORON
+	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_HELIUMFUEL in scrubbing_gas))
+		toggle += GAS_HELIUMFUEL
 	else if(signal.data["toggle_b_scrub"])
-		toggle += GAS_BORON
+		toggle += GAS_HELIUMFUEL
 
 	if(!isnull(signal.data["so2_scrub"]) && text2num(signal.data["so2_scrub"]) != (GAS_SULFUR in scrubbing_gas))
 		toggle += GAS_SULFUR
@@ -332,10 +338,10 @@
 	else if(signal.data["toggle_cl_scrub"])
 		toggle += GAS_CHLORINE
 
-	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_STEAM in scrubbing_gas))
-		toggle += GAS_STEAM
+	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_WATERVAPOR in scrubbing_gas))
+		toggle += GAS_WATERVAPOR
 	else if(signal.data["toggle_h2o_scrub"])
-		toggle += GAS_STEAM
+		toggle += GAS_WATERVAPOR
 
 	scrubbing_gas ^= toggle
 
@@ -351,14 +357,14 @@
 	update_icon()
 	return
 
-/obj/machinery/atmospherics/unary/vent_scrubber/power_change()
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/power_change()
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (!(stat & NOPOWER) && use_power)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
 			return TRUE
@@ -369,7 +375,7 @@
 		var/datum/gas_mixture/int_air = return_air()
 		if(!loc) return FALSE
 		var/datum/gas_mixture/env_air = loc.return_air()
-		if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+		if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
 			return TRUE
@@ -383,7 +389,7 @@
 			qdel(src)
 		return TRUE
 
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 
 		if(!WT.isOn())
@@ -412,13 +418,13 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded scrubbers!"))
 			return TRUE
 		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
-		user.do_attack_animation(src, attacking_item)
+		user.do_attack_animation(src, used_item = attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
 			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
-			user.do_attack_animation(src, attacking_item)
+			user.do_attack_animation(src, used_item = attacking_item)
 			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)

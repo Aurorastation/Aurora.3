@@ -36,22 +36,23 @@
 	icon_state = "mre_desert"
 	spawnlist = list(
 		/obj/item/reagent_containers/food/snacks/candy,
-		/obj/item/reagent_containers/food/snacks/cb01,
-		/obj/item/reagent_containers/food/snacks/cb02,
-		/obj/item/reagent_containers/food/snacks/cb03,
-		/obj/item/reagent_containers/food/snacks/cb04,
-		/obj/item/reagent_containers/food/snacks/cb05,
-		/obj/item/reagent_containers/food/snacks/cb06,
-		/obj/item/reagent_containers/food/snacks/cb07,
-		/obj/item/reagent_containers/food/snacks/cb08,
-		/obj/item/reagent_containers/food/snacks/cb09,
-		/obj/item/reagent_containers/food/snacks/cb10,
 		/obj/item/reagent_containers/food/snacks/proteinbar,
 		/obj/item/reagent_containers/food/snacks/donut/normal,
 		/obj/item/reagent_containers/food/snacks/donut/cherryjelly,
 		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/cookie,
 		/obj/item/reagent_containers/food/snacks/poppypretzel,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1,
 		/obj/item/storage/box/fancy/gum
 	)
 
@@ -60,17 +61,6 @@
 	desc = "This is a random vegan dessert for MREs."
 	spawnlist = list(
 		/obj/item/reagent_containers/food/snacks/candy,
-		/obj/item/reagent_containers/food/snacks/cb01,
-		/obj/item/reagent_containers/food/snacks/cb02,
-		/obj/item/reagent_containers/food/snacks/cb03,
-		/obj/item/reagent_containers/food/snacks/cb04,
-		/obj/item/reagent_containers/food/snacks/cb05,
-		/obj/item/reagent_containers/food/snacks/cb06,
-		/obj/item/reagent_containers/food/snacks/cb07,
-		/obj/item/reagent_containers/food/snacks/cb08,
-		/obj/item/reagent_containers/food/snacks/cb09,
-		/obj/item/reagent_containers/food/snacks/cb10,
-		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/donut/cherryjelly,
 		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
 	)
@@ -182,7 +172,62 @@
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 		/obj/item/reagent_containers/food/drinks/bottle/small/ale,
-		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice
+		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+		/obj/random/yoke
+	)
+
+/obj/random/yoke
+	name = "random yoke"
+	desc = "This is a random yoke of alcoholic cans."
+	icon_state = "broken_bottle"
+	spawnlist = list(
+		/obj/item/storage/box/fancy/yoke/beer,
+		/obj/item/storage/box/fancy/yoke/ebisu,
+		/obj/item/storage/box/fancy/yoke/shimauma,
+		/obj/item/storage/box/fancy/yoke/moonlabor,
+		/obj/item/storage/box/fancy/yoke/earthmover,
+		/obj/item/storage/box/fancy/yoke/whistlingforest,
+		/obj/item/storage/box/fancy/yoke/threetowns,
+		/obj/item/storage/box/fancy/yoke/alcoholic/random // one yoke of randomly different cans
+	)
+
+/obj/random/yoke/soda
+	name = "random soda yoke"
+	desc = "This is a random yoke of soda cans."
+	spawnlist = list(
+		/obj/item/storage/box/fancy/yoke/cola,
+		/obj/item/storage/box/fancy/yoke/space_mountain_wind,
+		/obj/item/storage/box/fancy/yoke/thirteenloko,
+		/obj/item/storage/box/fancy/yoke/dr_gibb,
+		/obj/item/storage/box/fancy/yoke/starkist,
+		/obj/item/storage/box/fancy/yoke/space_up,
+		/obj/item/storage/box/fancy/yoke/lemon_lime,
+		/obj/item/storage/box/fancy/yoke/iced_tea,
+		/obj/item/storage/box/fancy/yoke/grape_juice,
+		/obj/item/storage/box/fancy/yoke/tonic,
+		/obj/item/storage/box/fancy/yoke/sodawater,
+		/obj/item/storage/box/fancy/yoke/root_beer,
+		/obj/item/storage/box/fancy/yoke/diet_cola,
+		/obj/item/storage/box/fancy/yoke/peach_soda,
+		/obj/item/storage/box/fancy/yoke/melon_soda,
+		/obj/item/storage/box/fancy/yoke/himeokvass,
+		/obj/item/storage/box/fancy/yoke/xanuchai,
+		/obj/item/storage/box/fancy/yoke/beetle_milk,
+		/obj/item/storage/box/fancy/yoke/random
+	)
+
+/obj/random/yoke/energy
+	name = "random energy yoke"
+	desc = "This is a random yoke of energy drink cans."
+	spawnlist = list(
+		/obj/item/storage/box/fancy/yoke/energy/zoracherry,
+		/obj/item/storage/box/fancy/yoke/energy/zoraphoron,
+		/obj/item/storage/box/fancy/yoke/energy/zoraklax,
+		/obj/item/storage/box/fancy/yoke/energy/zoracthur,
+		/obj/item/storage/box/fancy/yoke/energy/zoravenom,
+		/obj/item/storage/box/fancy/yoke/energy/zorahozm,
+		/obj/item/storage/box/fancy/yoke/energy/zorakois,
+		/obj/item/storage/box/fancy/yoke/energy/random
 	)
 
 /obj/random/keg
@@ -222,4 +267,23 @@
 
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
+	)
+
+/obj/random/chocolate
+	name = "random chocolate"
+	desc = "This is a random chocolate."
+	icon_state = "mre_desert"
+	spawnlist = list(
+		/obj/item/reagent_containers/food/snacks/chocolate_bar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1,
+		/obj/item/storage/box/fancy/readies
 	)

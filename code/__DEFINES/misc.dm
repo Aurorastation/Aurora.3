@@ -17,7 +17,6 @@
 #define INVISIBILITY_SYSTEM			99
 
 #define SEE_INVISIBLE_LIVING		25
-#define SEE_INVISIBLE_NOLIGHTING	15
 #define SEE_INVISIBLE_LEVEL_ONE		35
 #define SEE_INVISIBLE_LEVEL_TWO		45
 #define SEE_INVISIBLE_CULT			60
@@ -110,13 +109,6 @@
 #define WAIT_ARRIVE  3
 #define WAIT_FINISH  4
 
-// Setting this much higher than 1024 could allow spammers to DOS the server easily.
-#define MAX_MESSAGE_LEN       1024
-#define MAX_PAPER_MESSAGE_LEN 3072
-#define MAX_BOOK_MESSAGE_LEN  9216
-#define MAX_LNAME_LEN         64
-#define MAX_NAME_LEN          63
-
 // Event defines.
 #define EVENT_LEVEL_MUNDANE  1
 #define EVENT_LEVEL_MODERATE 2
@@ -159,7 +151,6 @@
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_TABLE_REINF_MATERIAL "plasteel"
 #define DEFAULT_TABLE_FLIP_WEIGHT 22
-#define DEFAULT_WALL_MATERIAL "steel"
 
 #define SHARD_SHARD "shard"
 #define SHARD_SHRAPNEL "shrapnel"
@@ -239,7 +230,7 @@
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	180//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	120//The total number of items we'll spawn in cargo stock
 
 #define STOCK_UNCOMMON_PROB	25
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
@@ -290,15 +281,24 @@
 #define MAP_MAXY 5
 #define MAP_MAXZ 6
 
-// /atom/proc/use_check flags.
+// `/atom/proc/use_check()` flags, used for customizing guard clauses.
+
+/// Allows ghosts to interact with the action.
 #define USE_ALLOW_NONLIVING 1
+/// If set, check result will be dictated by whatever value `IsAdvancedToolUser()` has returned from mob users.
 #define USE_ALLOW_NON_ADV_TOOL_USR 2
+/// Allows deads to interact with the action.
 #define USE_ALLOW_DEAD 4
+/// Allows users to interact with the action even if they are incapacitated.
 #define USE_ALLOW_INCAPACITATED 8
+/// Allows users to interact with the action regardless of their distance to the object.
 #define USE_ALLOW_NON_ADJACENT 16
+/// Checks if the item is in possession of a user.
 #define USE_FORCE_SRC_IN_USER 32
+/// Disallows interaction from silicon users.
 #define USE_DISALLOW_SILICONS 64
-#define USE_DISALLOW_SPECIALS 128 // revenants, zombies, etc
+/// Disallows interaction from the mobs specified at `is_mob_special()`, such as zombies and revenants.
+#define USE_DISALLOW_SPECIALS 128
 
 #define USE_SUCCESS 0
 #define USE_FAIL_NON_ADJACENT 1
@@ -453,15 +453,10 @@ example:
 
 //Ruin map template flags
 /// Ruin is not available during spawning unless another ruin permits it, whitelisted by the exoplanet or tied to an external subsystem like Odyssey gamemode.
-/// This should also be added to Odssey maps.
+/// This should also be added to Odyssey maps.
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
-
-#define RAD_LEVEL_LOW 1 // Around the level at which radiation starts to become harmful
-#define RAD_LEVEL_MODERATE 25
-#define RAD_LEVEL_HIGH 40
-#define RAD_LEVEL_VERY_HIGH 100
 
 #define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
 

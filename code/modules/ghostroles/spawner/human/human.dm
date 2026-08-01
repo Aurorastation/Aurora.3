@@ -72,7 +72,7 @@
 			pick_message = "[pick_message] Auto Prefix: \"[mob_name_prefix]\" "
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
-		mname = sanitizeName(sanitize_readd_odd_symbols(sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))))
+		mname = sanitizeName(tgui_input_text(user, pick_message, "Name for a [species] (without prefix/suffix)"))
 
 	if(!length(mname))
 		if(mob_name_prefix || mob_name_suffix)
@@ -200,7 +200,3 @@
 	M.ghost_spawner = WEAKREF(src)
 
 	return M
-
-/// Used for cryo to free up a slot when a ghost cryos.
-/mob/living/carbon/human
-	var/datum/weakref/ghost_spawner

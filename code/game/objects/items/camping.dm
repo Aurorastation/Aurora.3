@@ -63,14 +63,14 @@
 		return
 
 	var/mob/M = entering
-	var/atom/movable/renderer/roofs/roof_plane = M.GetRenderer(/atom/movable/renderer/roofs)
+	var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
 	if(roof_plane)
 		roof_plane.alpha = 76
 
 /datum/large_structure/tent/mob_moved(mob/mover, turf/exit_point)
 	. = ..()
 	if(!.)
-		var/atom/movable/renderer/roofs/roof_plane = mover.GetRenderer(/atom/movable/renderer/roofs)
+		var/atom/movable/screen/plane_master/roof/roof_plane = mover.hud_used?.plane_masters["[ROOF_PLANE]"]
 		if(roof_plane)
 			roof_plane.alpha = 255
 
@@ -269,13 +269,14 @@
 
 /obj/structure/component/tent_canvas/Destroy() //When we're destroyed, make sure we return the roof plane to anyone inside
 	for(var/mob/M in loc)
-		var/atom/movable/renderer/roofs/roof_plane = M.GetRenderer(/atom/movable/renderer/roofs)
+		var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
 		if(roof_plane)
 			roof_plane.alpha = 255
 	return ..()
 
 /obj/structure/component/tent_canvas/roof
 	plane = ROOF_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/component/tent_canvas/roof/CanPass(atom/movable/mover, turf/target, height, air_group)
 	return TRUE
@@ -359,7 +360,7 @@
 	base_icon = "sleepingbag_floor"
 	density = FALSE
 	anchored = FALSE
-	buckling_sound = 'sound/items/drop/cloth.ogg'
+	buckling_sound = 'sound/items/drop/clothing.ogg'
 	held_item = /obj/item/sleeping_bag
 	can_dismantle = FALSE
 	can_pad = FALSE

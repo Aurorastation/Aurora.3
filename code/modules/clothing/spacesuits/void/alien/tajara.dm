@@ -17,9 +17,9 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -29,6 +29,8 @@
 	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/pra
 	name = "kosmostrelki voidsuit helmet"
@@ -64,9 +66,9 @@
 	item_state = "okonsuit-red"
 	contained_sprite = TRUE
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -139,9 +141,9 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -151,6 +153,8 @@
 	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/nka
 	name = "new kingdom mercantile voidsuit helmet"
@@ -188,9 +192,9 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
-		/obj/item/device/suit_cooling_unit,
+		/obj/item/suit_cooling_unit,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
@@ -200,6 +204,8 @@
 	)
 	species_restricted = list(BODYTYPE_TAJARA)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/dpra
 	name = "people's volunteer spacer militia voidsuit helmet"

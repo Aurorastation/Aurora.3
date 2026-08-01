@@ -7,7 +7,7 @@
 /datum/movespeed_modifier/equipment_speedmod/immutable
 
 /datum/movespeed_modifier/config_walk_run
-	multiplicative_slowdown = 1
+	multiplicative_slowdown = 0.5
 	id = MOVESPEED_ID_MOB_WALK_RUN
 	flags = IGNORE_NOSLOW
 
@@ -26,7 +26,7 @@
 	flags = IGNORE_NOSLOW
 
 /datum/movespeed_modifier/encumbered
-	multiplicative_slowdown = 2
+	multiplicative_slowdown = 1
 	id = "encumbered"
 
 /datum/movespeed_modifier/zoomzoomkitty

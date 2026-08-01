@@ -683,12 +683,7 @@ world
 			addY1 = min(flatY1, layer_image.pixel_y + 1)
 			addY2 = max(flatY2, layer_image.pixel_y + add.Height())
 
-			if (
-				addX1 != flatX1 \
-				&& addX2 != flatX2 \
-				&& addY1 != flatY1 \
-				&& addY2 != flatY2 \
-			)
+			if(addX1 != flatX1 || addX2 != flatX2 || addY1 != flatY1 || addY2 != flatY2)
 				// Resize the flattened icon so the new icon fits
 				flat.Crop(
 					addX1 - flatX1 + 1,
@@ -698,8 +693,8 @@ world
 				)
 
 				flatX1 = addX1
-				flatX2 = addY1
-				flatY1 = addX2
+				flatX2 = addX2
+				flatY1 = addY1
 				flatY2 = addY2
 
 			// Blend the overlay into the flattened icon
@@ -880,9 +875,6 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	for(var/turf/T in turfstocapture)
 		atoms += T
 		for(var/atom/A in T)
-			if(istype(A, /atom/movable/lighting_overlay)) //Special case for lighting
-				continue
-
 			if(A.invisibility)
 				continue
 
@@ -904,14 +896,6 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 				var/xoff = (A.x - tx) * 32
 				var/yoff = (A.y - ty) * 32
 				cap.Blend(img, blendMode2iconMode(A.blend_mode),  A.pixel_x + xoff, A.pixel_y + yoff)
-
-	if (lighting)
-		for (var/turf/T in turfstocapture)
-			var/icon/im = new(LIGHTING_ICON, "blank")
-			var/color = T.get_avg_color()	// We're going to lose some detail, but it's all we can do without color matrixes.
-			if (color)
-				im.Blend(color, ICON_MULTIPLY)
-				cap.Blend(im, ICON_MULTIPLY, (T.x - tx) * 32, (T.y - ty) * 32)
 
 	return cap
 

@@ -17,7 +17,6 @@
 	name = "PSIS Outpost"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -68,7 +67,7 @@
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/psis_outpost/get_id_access()
 	return list(ACCESS_PRA)

@@ -1,7 +1,7 @@
 /client/proc/clear_toxins()
 	set category = "Special Verbs"
 	set name = "Clear Toxin/Fire in Zone"
-	set desc = "Remove fires from your current zone and reset the atmosphere to human-perfect gas mix, pressure, and temp."
+	set desc = "Remove hotspots & fires from your current zone and reset the atmosphere to human-perfect gas mix, pressure, and temp."
 
 	if (!check_rights(R_ADMIN) && !isstoryteller(usr))
 		return
@@ -23,7 +23,9 @@
 
 	if (location.zone)
 		for (var/turf/T in location.zone.contents)
-			for (var/obj/fire/F in T.contents)
+			for (var/obj/hotspot/H in T.contents)
+				qdel(H)
+			for (var/obj/turf_fire/F in T.contents)
 				qdel(F)
 
 		log_and_message_admins("cleared air and fire in area [get_area(usr)].")

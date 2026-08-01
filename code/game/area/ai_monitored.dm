@@ -1,11 +1,11 @@
 /area/ai_monitored
 	name = "AI Monitored Area"
-	var/obj/machinery/camera/motioncamera = null
+	var/obj/structure/machinery/camera/motioncamera = null
 	station_area = TRUE
 
 /area/ai_monitored/LateInitialize()
 	// locate and store the motioncamera
-	for (var/obj/machinery/camera/M in src)
+	for (var/obj/structure/machinery/camera/M in src)
 		if(M.isMotion())
 			motioncamera = M
 			M.area_motion = src

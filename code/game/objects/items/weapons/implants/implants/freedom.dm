@@ -29,9 +29,7 @@
 		if(C_imp_in.handcuffed)
 			var/obj/item/W = C_imp_in.handcuffed
 			C_imp_in.handcuffed = null
-			if(C_imp_in.buckled_to && C_imp_in.buckled_to.buckle_require_restraints)
-				C_imp_in.buckled_to.unbuckle()
-			C_imp_in.update_inv_handcuffed()
+			C_imp_in.handcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)
@@ -42,7 +40,7 @@
 		if(C_imp_in.legcuffed)
 			var/obj/item/W = C_imp_in.legcuffed
 			C_imp_in.legcuffed = null
-			C_imp_in.update_inv_legcuffed()
+			C_imp_in.legcuff_update()
 			if(C_imp_in.client)
 				C_imp_in.client.screen -= W
 			if(W)
@@ -95,7 +93,7 @@ No Implant Specifics"}
 	action_button_name = "Activate Telefreedom Implant"
 
 	/**
-	 * The linked telepad to teleport to, a weakref to an `/obj/machinery/telepad` object
+	 * The linked telepad to teleport to, a weakref to an `/obj/structure/machinery/telepad` object
 	 */
 	var/datum/weakref/linked_telepad = null
 
@@ -132,6 +130,6 @@ No Implant Specifics"}
 
 /obj/item/implant/telefreedom/resolve_attackby(atom/A, mob/user, click_parameters)
 	. = ..()
-	if(istype(A, /obj/machinery/telepad))
+	if(istype(A, /obj/structure/machinery/telepad))
 		linked_telepad = WEAKREF(A)
 		to_chat(user, SPAN_NOTICE("You link the telepad to your telefreedom implant."))

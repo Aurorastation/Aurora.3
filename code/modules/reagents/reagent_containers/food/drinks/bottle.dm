@@ -12,7 +12,7 @@
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 11
-	hitsound = /singleton/sound_category/bottle_hit_intact_sound
+	hitsound = SFX_BOTTLE_HIT_INTACT
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
 
@@ -80,7 +80,7 @@
 		var/mob/living/L = against
 		L.IgniteMob()
 
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	src.transfer_fingerprints_to(B)
 
 	qdel(src)
@@ -241,7 +241,7 @@
 	attack_verb = list("stabbed", "slashed", "attacked")
 	sharp = TRUE
 	edge = FALSE
-	hitsound = /singleton/sound_category/bottle_hit_broken
+	hitsound = SFX_BOTTLE_HIT_BROKEN
 	///The mask image for mimicking a broken-off bottom of the bottle
 	var/static/icon/broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken")
 	///The mask image for mimicking a broken-off neck of the bottle
@@ -249,7 +249,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	persistency_considered_trash = TRUE
 
-/obj/item/broken_bottle/persistence_apply_content(content, x, y, z)
+/obj/item/broken_bottle/persistent_objects_apply_content(content, x, y, z)
 	src.x = x
 	src.y = y
 	src.z = z
@@ -390,12 +390,13 @@
 			src.reagents.remove_any(reagents.total_volume / 5)
 		return
 
-	///The bonus to success chance that the user gets for being a command role
-	var/command_bonus = (user.mind?.assigned_role in command_positions) ? 20 : 0
+	var/skill_bonus = 0
 
-	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
+	var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+	if(bar_skill)
+		skill_bonus = 6.25 * bar_skill.skill_level
 
-	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + command_bonus + job_bonus
+	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + skill_bonus
 
 	if(prob(sabrage_chance))
 		///Severity of the resulting froth to pass to make_froth()
@@ -439,6 +440,28 @@
 		user.visible_message(SPAN_DANGER("[user] cleanly slices off the cork of [src], causing it to fly off the bottle with great force."), \
 								SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
 								"You can hear a pop.")
+
+		var/moodlet_value = 5
+		if (!moodlet_value)
+			return
+
+		var/list/listening = get_hearers_in_view(world.view, user)
+		if (!listening)
+			return
+		listening -= user
+
+		for (var/mob/player_mob in listening)
+			var/datum/component/morale/receiver_morale = player_mob.GetComponent(MORALE_COMPONENT)
+			if (!receiver_morale)
+				continue
+
+			if (astype(receiver_morale.moodlets[/datum/moodlet/bartender_sabrage], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+				receiver_morale.load_moodlet(/datum/moodlet/bartender_sabrage)?.refresh_moodlet()
+				continue // Don't overwrite stronger moodlets.
+
+			var/datum/moodlet/sabraged = receiver_morale.load_moodlet(/datum/moodlet/bartender_sabrage, moodlet_value)
+			sabraged.refresh_moodlet()
+			sabraged.moodlet_descriptor += " from [user.name]."
 	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
@@ -504,10 +527,10 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/patron = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/rum
-	name = "Undirstader Broeckhouser rum"
-	desc = "If Getmore gets any alcohol right, it's certainly rum, according to (most) New Gibsoners (only Ovanstaders were polled)! This is <b>real</b>, <i><b>GENUINE</b></i> Undirstader rum, made using <b>OLD WORLD</b> recipes! The most authentic \
-	Undirstader drink in Getmore's wide arsenal! Or so the advertisements say. Undirstader critics often point to this rum as a corporate mockery of their culture, yet it remains the most \
-	popular Getmore product in New Gibson's Ovanstads by far, and most people simply know it as a famous Undirstader drink produced by Getmore."
+	name = "Fallanland Broeckhouser rum"
+	desc = "If Getmore gets any alcohol right, it's certainly rum, according to (most) New Gibsoners (only Respiters were polled)! This is <b>real</b>, <i><b>GENUINE</b></i> Fallanlander rum, made using <b>OLD WORLD</b> recipes! The most authentic \
+	Fallanlander drink in Getmore's wide arsenal! Or so the advertisements say; critics often point to this rum as a corporate mockery of their culture, yet it remains one of the most \
+	popular Getmore products around Tau Ceti by far, and most people simply know it as a famous New Gibsonite drink produced by Getmore."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -687,8 +710,8 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer
 	name = "Virklunder beer"
-	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
-	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in \
+	Respite in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel, to the chagrin of Virklunders, and has since been in stock in practically every bar across the nation."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "beer"
 
@@ -708,7 +731,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/ale
 	name = "\improper Burszi-ale"
-	desc = "Manufactured in Virklund on New Gibson by Getmore, this is a true Burszian's drink of choice. That is, if you're not an IPC. You wouldn't be able to buy this ale then. Or think of buying it. Or afford it."
+	desc = "Manufactured in Respite on New Gibson by Getmore, this is a true Burszian's drink of choice. That is, if you're not an IPC. You wouldn't be able to buy this ale then. Or think of buying it. Or afford it."
 	icon_state = "alebottle"
 	item_state = "beer"
 	reagents_to_add = list(/singleton/reagent/alcohol/ale = 30)
@@ -1043,6 +1066,31 @@
 	icon_state = "burukutu"
 	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
 
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal
+	name = "Marienthal Stout"
+	desc = "A full-bodied stout brewed in the river valleys of Marienthal County, Sankt Frederick. Strong and dark as tilled soil, Marienthal Stout has become one of the Free State’s most recognizable exports, carving out a respectable presence within the rest of Alliance due to its rich, earthy flavor, and affordable price tag."
+	icon_state = "marienthal"
+	item_state = "beer"
+	reagents_to_add = list(/singleton/reagent/alcohol/beer/marienthal_stout = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal/update_icon()
+	. = ..()
+	if(is_open_container())
+		icon_state = "[initial(icon_state)]_open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal/open(mob/user)
+	. = ..()
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/bottle/small/prince_pallav
+	name = "\improper Prince Pallav Blonde Ale"
+	desc = "A golden ale brewed in Foy-Niljen, Prince Pallav has defined Xanan brewing for over two decades. Smooth, lightly sweet, and impeccably balanced, it remains the undisputed favorite of the Republic, edging out Whistling Forest by a wide margin."
+	icon_state = "prince_pallav"
+	item_state = "beer"
+	reagents_to_add = list(/singleton/reagent/alcohol/beer/prince_pallav_blonde_ale = 30)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -1060,6 +1108,13 @@
 	icon_state = "sarezhibottle"
 	center_of_mass = list("x" = 16,"y" = 6)
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/redstaff
+	name = "Redstaff"
+	desc = "Less of a unique spirit and instead a mixture of butanol, spices, and algae; either Gukhe bloom, Koko, or whatever is at hand when making it. The end result is a fairly strong drink with a spicy kick. \
+	Though it’s more used as a cocktail ingredient rather than drank by itself."
+	icon_state = "redstaff"
+	reagents_to_add = list(/singleton/reagent/alcohol/butanol/redstaff = 100)
 
 // Synnono Meme (Bottled) Drinks
 //======================================

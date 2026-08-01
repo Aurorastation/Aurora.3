@@ -36,6 +36,7 @@
 	var/related_accounts_ip = "Requires database" //So admins know why it isn't working - Used to determine what other accounts previously logged in from this ip
 	var/related_accounts_cid = "Requires database" //So admins know why it isn't working - Used to determine what other accounts previously logged in from this computer id
 	var/whitelist_status = 0 //Used to determine what whitelists the player has access to. Uses bitflag values!
+	var/whitelist_status_loaded = FALSE //Set to TRUE once log_client_to_db() has written whitelist_status from the DB. Prevents false whitelist failures during login before the async query completes.
 	var/need_saves_migrated = "Requires database" //Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
 	var/account_age = -1 // Age on the BYOND account in days.
 	var/account_join_date = null // Date of the BYOND account creation in ISO 8601 format.

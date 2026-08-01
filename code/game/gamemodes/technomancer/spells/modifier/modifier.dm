@@ -11,7 +11,8 @@
 
 /obj/item/spell/modifier/Initialize()
 	. = ..()
-	set_light(spell_light_range, spell_light_intensity, l_color = light_color)
+	set_light_range_power_color(spell_light_range, spell_light_intensity, light_color)
+	set_light_on(TRUE)
 
 /obj/item/spell/modifier/on_melee_cast(atom/hit_atom, mob/user)
 	. = ..()

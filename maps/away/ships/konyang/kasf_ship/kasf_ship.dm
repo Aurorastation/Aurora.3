@@ -141,7 +141,7 @@
 	sizeclass = "Stalwart-class Transport Craft"
 	shiptype = "All-environment troop transport"
 
-/obj/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/kasf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "KASF Shuttle"
 

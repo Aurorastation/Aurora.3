@@ -25,7 +25,7 @@
 	},
 /area/moghes/hegemony_base/outdoors)
 "aW" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -45,7 +45,7 @@
 /area/moghes/hegemony_base/outdoors)
 "cb" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -59,7 +59,7 @@
 	},
 /area/moghes/hegemony_base)
 "ct" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(113);
 	name = "Barracks";
 	dir = 4
@@ -77,7 +77,7 @@
 	},
 /area/exoplanet/moghes)
 "cC" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
 /obj/effect/floor_decal/concrete{
@@ -114,7 +114,7 @@
 	},
 /area/moghes/hegemony_base/outdoors)
 "dj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
@@ -123,7 +123,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -132,11 +132,11 @@
 	},
 /area/moghes/hegemony_base/outdoors)
 "ek" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = -8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 32
 	},
@@ -164,14 +164,14 @@
 	},
 /area/moghes/hegemony_base/outdoors)
 "fE" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
 "gb" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
 	req_access = list(113)
 	},
@@ -194,7 +194,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -207,7 +207,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes/hegemony_base/outdoors)
 "gR" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
 	req_one_access = list(113);
 	dir = 4
@@ -222,7 +222,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes/hegemony_base/outdoors)
 "hk" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -230,7 +230,7 @@
 	},
 /area/moghes/hegemony_base)
 "hD" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -312,7 +312,7 @@
 	},
 /area/moghes/hegemony_base)
 "jh" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -321,7 +321,7 @@
 	},
 /area/moghes/hegemony_base)
 "jo" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
 /obj/effect/floor_decal/concrete{
@@ -398,7 +398,7 @@
 	},
 /area/moghes/hegemony_base)
 "kH" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
@@ -449,14 +449,14 @@
 	},
 /area/moghes/hegemony_base)
 "lA" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes/hegemony_base/outdoors)
 "lM" = (
-/obj/machinery/hologram/holopad,
+/obj/structure/machinery/hologram/holopad,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -593,14 +593,14 @@
 	},
 /area/moghes/hegemony_base)
 "qR" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
 "rb" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Brig";
 	req_one_access = list(113)
 	},
@@ -635,7 +635,7 @@
 	},
 /area/moghes/hegemony_base)
 "sS" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -644,7 +644,7 @@
 /area/moghes/hegemony_base)
 "ta" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_base)
 "tl" = (
@@ -654,7 +654,7 @@
 /area/exoplanet/moghes)
 "tH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -676,7 +676,7 @@
 "ux" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -693,7 +693,7 @@
 	},
 /area/exoplanet/moghes)
 "uL" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113);
 	name = "body armor cabinet"
@@ -720,7 +720,7 @@
 /area/moghes/hegemony_base)
 "uV" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -745,11 +745,11 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -772,7 +772,7 @@
 	},
 /area/moghes/hegemony_base)
 "xA" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -851,13 +851,13 @@
 /area/moghes/hegemony_base)
 "zf" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(113)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
 	req_access = list(113);
@@ -868,11 +868,11 @@
 	},
 /area/moghes/hegemony_base)
 "zp" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = -8
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = -30;
 	pixel_x = 4
 	},
@@ -883,11 +883,11 @@
 	dir = 6
 	},
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -899,7 +899,7 @@
 	},
 /area/moghes/hegemony_base)
 "zv" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/concrete{
@@ -926,7 +926,7 @@
 	},
 /area/moghes/hegemony_base)
 "Al" = (
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Hegemony Base"
 	},
 /obj/structure/table/wood,
@@ -945,11 +945,11 @@
 	},
 /area/moghes/hegemony_base)
 "AQ" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -977,7 +977,7 @@
 	},
 /area/moghes/hegemony_base)
 "BS" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "hegemony_base_garage";
 	name = "Garage"
 	},
@@ -995,7 +995,7 @@
 	},
 /area/moghes/hegemony_base)
 "Dg" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/concrete{
 	dir = 5
 	},
@@ -1019,7 +1019,7 @@
 /area/moghes/hegemony_base/outdoors)
 "DF" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
@@ -1036,7 +1036,7 @@
 	},
 /area/moghes/hegemony_base)
 "Ee" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = 32
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1061,7 +1061,7 @@
 	},
 /area/moghes/hegemony_base)
 "ER" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes/hegemony_base/outdoors)
 "FK" = (
@@ -1104,7 +1104,7 @@
 	pixel_y = 4;
 	pixel_x = -5
 	},
-/obj/item/device/healthanalyzer,
+/obj/item/healthanalyzer,
 /obj/item/storage/belt/medical,
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -1121,7 +1121,7 @@
 	},
 /area/moghes/hegemony_base)
 "GU" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
 	name = "Garage";
 	req_access = list(113);
@@ -1140,7 +1140,7 @@
 	},
 /area/moghes/hegemony_base/outdoors)
 "Hs" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete{
@@ -1158,7 +1158,7 @@
 /area/moghes/hegemony_base)
 "Id" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/item/clothing/mask/breath/medical,
 /obj/item/tank/oxygen,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1186,7 +1186,7 @@
 	},
 /area/moghes/hegemony_base)
 "Jf" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1227,7 +1227,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/concrete,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1278,7 +1278,7 @@
 	},
 /area/moghes/hegemony_base)
 "Ky" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Armory";
 	req_access = list(113);
 	dir = 4
@@ -1294,7 +1294,7 @@
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/thakh,
+/obj/item/versebook/thakh,
 /obj/item/toy/crossbow,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1302,13 +1302,13 @@
 /area/moghes/hegemony_base)
 "KK" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8;
 	req_access = list(113)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
 	req_access = list(113);
@@ -1333,11 +1333,11 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1354,7 +1354,7 @@
 	},
 /area/moghes/hegemony_base/outdoors)
 "LT" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
 	name = "Garage";
 	req_access = list(113);
@@ -1363,7 +1363,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes/hegemony_base/outdoors)
 "Me" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
@@ -1375,7 +1375,7 @@
 	},
 /area/moghes/hegemony_base)
 "ML" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1385,7 +1385,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -1442,7 +1442,7 @@
 	},
 /area/moghes/hegemony_base)
 "Qb" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
 /obj/structure/roller_rack,
@@ -1460,7 +1460,7 @@
 	},
 /area/moghes/hegemony_base)
 "Qp" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1472,7 +1472,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1501,7 +1501,7 @@
 	},
 /area/moghes/hegemony_base)
 "Ra" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
@@ -1540,7 +1540,7 @@
 	},
 /area/moghes/hegemony_base)
 "So" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -1562,12 +1562,12 @@
 	},
 /area/moghes/hegemony_base)
 "UI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -1622,7 +1622,7 @@
 /area/moghes/hegemony_base)
 "VP" = (
 /obj/structure/closet/secure_closet/cabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1640,7 +1640,7 @@
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_base)
 "VY" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1668,7 +1668,7 @@
 	},
 /area/moghes/hegemony_base)
 "Wr" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/vehicle/bike/speeder/izweski,
@@ -1678,7 +1678,7 @@
 /area/moghes/hegemony_base)
 "Wz" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Healer's Bay";
 	dir = 4
 	},
@@ -1698,7 +1698,7 @@
 /area/moghes/hegemony_base)
 "WS" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Briefing Room";
 	req_access = list(113)
 	},
@@ -1718,8 +1718,8 @@
 /obj/item/storage/box/handcuffs,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1738,7 +1738,7 @@
 /area/moghes/hegemony_base)
 "XP" = (
 /obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(113)
 	},
@@ -1756,7 +1756,7 @@
 	},
 /area/moghes/hegemony_base)
 "YI" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
 	req_access = list(113);
@@ -1789,7 +1789,7 @@
 "Zz" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1797,7 +1797,7 @@
 	},
 /area/moghes/hegemony_base)
 "ZD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/closet/secure_closet{
@@ -1811,13 +1811,13 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/clothing/under/unathi/izweski,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/accessory/poncho/red,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},

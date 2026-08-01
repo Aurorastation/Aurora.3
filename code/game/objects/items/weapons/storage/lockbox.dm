@@ -42,7 +42,7 @@
 			var/obj/item/melee/energy/blade/blade = attacking_item
 			blade.spark_system.queue()
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(src.loc, SFX_SPARKS, 50, 1)
 	if(!locked)
 		..()
 	else
@@ -101,7 +101,7 @@
 	name = "weapons lockbox"
 	desc = "A high security weapons lockbox"
 	req_access = list(ACCESS_ARMORY)
-	starts_with = list(/obj/item/gun/energy/lawgiver = 1)
+	starts_with = list(/obj/item/gun/energy/acp = 1)
 
 /obj/item/storage/lockbox/medal
 	name = "medal box"

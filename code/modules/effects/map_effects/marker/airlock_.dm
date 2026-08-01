@@ -39,14 +39,35 @@
 	var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in loc
 	var/is_exterior = locate(/obj/effect/map_effect/marker_helper/airlock/exterior) in loc
 	var/is_out = locate(/obj/effect/map_effect/marker_helper/airlock/out) in loc
+	var/found_controller = FALSE
 
 	// iterate over airlock components under this marker
 	// and actually set them up
 	for(var/thing in loc)
-		// set up the controller
-		var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/controller = thing
-		if(istype(controller))
+		// Check for an advanced controller to set up.
+		var/obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/advanced_controller = thing
+		if(istype(advanced_controller))
 			// common controller vars
+			found_controller = TRUE
+			advanced_controller.set_frequency(frequency)
+			advanced_controller.id_tag = MARKER_AIRLOCK_TAG_MASTER
+			advanced_controller.tag_airpump = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
+			advanced_controller.tag_chamber_sensor = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
+			advanced_controller.tag_exterior_sensor = MARKER_AIRLOCK_TAG_SENSOR_EXTERIOR
+			advanced_controller.tag_exterior_door = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
+			advanced_controller.tag_interior_door = MARKER_AIRLOCK_TAG_DOOR_INTERIOR
+			advanced_controller.cycle_to_external_air = cycle_to_external_air
+			advanced_controller.req_access = req_access
+			advanced_controller.req_one_access = req_one_access
+			// controller subtype specific vars
+			advanced_controller.program = new /datum/computer/file/embedded_program/airlock(advanced_controller)
+			continue
+
+		// If we didn't find an advanced controller, fall back to the basic kind
+		var/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/controller = thing
+		if(istype(controller) && !found_controller)
+			// common controller vars
+			found_controller = TRUE
 			controller.set_frequency(frequency)
 			controller.id_tag = MARKER_AIRLOCK_TAG_MASTER
 			controller.tag_airpump = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
@@ -61,9 +82,8 @@
 			controller.program = new /datum/computer/file/embedded_program/airlock(controller)
 			continue
 
-		// and all the other airlock components
-
-		var/obj/machinery/door/airlock/door = thing
+		// Now all the other airlock components
+		var/obj/structure/machinery/door/airlock/door = thing
 		if(istype(door))
 			door.set_frequency(frequency)
 			door.req_access = req_access
@@ -75,7 +95,7 @@
 				door.id_tag = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
 			continue
 
-		var/obj/machinery/airlock_sensor/sensor = thing
+		var/obj/structure/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.req_access = req_access
 			sensor.req_one_access = req_one_access
@@ -89,7 +109,7 @@
 				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
 			continue
 
-		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
+		var/obj/structure/machinery/atmospherics/unary/vent_pump/pump = thing
 		if(istype(pump))
 			pump.frequency = frequency
 			unregister_radio(pump, frequency)
@@ -102,7 +122,7 @@
 				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
 			continue
 
-		var/obj/machinery/access_button/button = thing
+		var/obj/structure/machinery/access_button/button = thing
 		if(istype(button))
 			button.set_frequency(frequency)
 			button.master_tag = MARKER_AIRLOCK_TAG_MASTER

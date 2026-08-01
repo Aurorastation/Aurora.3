@@ -28,31 +28,31 @@
 				. += chassis_armor
 
 /mob/living/heavy_vehicle/updatehealth()
-	maxHealth = body.mech_health
-	health = maxHealth-(getFireLoss()+getBruteLoss())
+	maxhealth = body.mech_health
+	health = maxhealth-(getFireLoss()+getBruteLoss())
 
 /mob/living/heavy_vehicle/adjustFireLoss(var/amount, var/obj/item/mech_component/C)
 	if(C)
 		C.take_brute_damage(amount)
-		C.update_health()
+		C.update_component_damage()
 	else
 		var/list/components = list(body, arms, legs, head)
 		components = shuffle(components)
 		for(var/obj/item/mech_component/MC in components)
 			MC.take_burn_damage(amount)
-			MC.update_health()
+			MC.update_component_damage()
 			break
 
 /mob/living/heavy_vehicle/adjustBruteLoss(var/amount, var/obj/item/mech_component/C)
 	if(C)
 		C.take_brute_damage(amount)
-		C.update_health()
+		C.update_component_damage()
 	else
 		var/list/components = list(body, arms, legs, head)
 		components = shuffle(components)
 		for(var/obj/item/mech_component/MC in components)
 			MC.take_burn_damage(amount)
-			MC.update_health()
+			MC.update_component_damage()
 			break
 
 /mob/living/heavy_vehicle/proc/zoneToComponent(var/zone)

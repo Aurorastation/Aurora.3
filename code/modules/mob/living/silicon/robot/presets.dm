@@ -10,7 +10,7 @@
 	law_update = FALSE
 	law_preset = /datum/ai_laws/conglomerate_aggressive
 	id_card_type = /obj/item/card/id/ert
-	key_type = /obj/item/device/encryptionkey/ert
+	key_type = /obj/item/encryptionkey/ert
 	has_jetpack = TRUE
 
 /mob/living/silicon/robot/scrambled //should not stand linked to the station or the ai

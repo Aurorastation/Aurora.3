@@ -27,6 +27,7 @@
 	icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
 	item_state = icon_state
 	to_chat(usr, "You flip the hat [flipped ? "backwards" : "forwards"].")
+	update_icon()
 	update_clothing_icon()	// So our mob-overlays update.
 
 /obj/item/clothing/head/softcap/colorable
@@ -51,12 +52,6 @@
 	desc = "It's a softcap in a menacing crimson red."
 	icon_state = "softcap_red"
 	item_state = "softcap_red"
-
-/obj/item/clothing/head/softcap/tcfl
-	name = "tcfl cap"
-	desc = "A rugged softcap in TCFL colours, go Biesel!"
-	icon_state = "tcfl"
-	item_state = "tcfl"
 
 // Departmental Softcaps (By Wowzewow (Wezzy))
 /obj/item/clothing/head/softcap/captain

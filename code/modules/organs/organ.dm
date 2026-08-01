@@ -16,9 +16,19 @@
 	var/death_time
 
 	//Organ damage stats.
-	var/damage = 0 // amount of damage to the organ
-	var/surge_damage = 0 // EMP damage counter.
-	var/surge_time   = 0
+	/**
+	 * amount of damage to the organ. THIS IS PRIVATE FOR A REASON.
+	 * USE get_damage and set_damage IF YOU NEED TO CHANGE OR RETRIEVE THIS.
+	 */
+	VAR_PRIVATE/damage = 0
+	/// Total amount of EMP damage a mechanical organ has taken. Effectively equal to "number of seconds the organ EMP effect will last".
+	var/surge_damage = 0.0
+	/**
+	 * The amount of EMP damage a mechanical organ will recover per second.
+	 * Fractional and floating points are allowed, but it shouldn't ever be negative.
+	 */
+	var/surge_recovery_per_second = 1.0
+
 	var/min_broken_damage = 30
 	var/min_bruised_damage = 10 // Damage before considered bruised
 	var/max_damage = 30
@@ -65,7 +75,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
 		var/mob/living/carbon/human/H = holder
 		if(istype(H))
-			if(internal)
+			if(internal && parent_organ)
 				var/obj/item/organ/external/E = H.get_organ(parent_organ)
 				if(E)
 					if(E.internal_organs == null)
@@ -77,11 +87,19 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 				blood_DNA[dna.unique_enzymes] = dna.b_type
 		if(internal)
 			holder.internal_organs |= src
-	START_PROCESSING(SSprocessing, src)
+	process_initialize()
 
+/**
+ * This proc exists so that organs which do not require "always processing" can override it
+ * in order to opt-out of processing for performance reasons.
+ */
+/obj/item/organ/proc/process_initialize()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(dna)
+
 	if(!owner)
 		return ..()
 
@@ -90,14 +108,15 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			owner.internal_organs -= src
 		if(istype(owner, /mob/living/carbon/human))
 			if(owner.internal_organs_by_name)
-				owner.internal_organs_by_name -= src
+				owner.internal_organs_by_name[organ_tag] = null
+				owner.internal_organs_by_name -= organ_tag
 			if(owner.organs)
 				owner.organs -= src
 			if(owner.organs_by_name)
-				owner.organs_by_name -= src
+				owner.organs_by_name[organ_tag] = null
+				owner.organs_by_name -= organ_tag
 
 	owner = null
-	QDEL_NULL(dna)
 
 	return ..()
 
@@ -107,7 +126,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/attack_self(var/mob/user)
 	return (owner && loc == owner && owner == user)
 
-/obj/item/organ/proc/update_health()
+/obj/item/organ/proc/update_organ_health()
 	return
 
 /obj/item/organ/proc/set_dna(var/datum/dna/new_dna)
@@ -119,6 +138,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/die()
 	if(status & ORGAN_ROBOT)
+		damage = max_damage
+		STOP_PROCESSING(SSprocessing, src)
 		return
 	damage = max_damage
 	status |= ORGAN_DEAD
@@ -131,6 +152,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	return damage >= min_bruised_damage
 
 /obj/item/organ/proc/bruise()
+	START_PROCESSING(SSprocessing, src)
 	damage = max(damage, min_bruised_damage)
 
 #define ORGAN_RECOVERY_THRESHOLD (5 MINUTES)
@@ -150,57 +172,66 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(status & ORGAN_DEAD)
 		return
 	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
-	if(istype(loc,/obj/item/device/mmi))
+	if(istype(loc,/obj/item/mmi))
 		return
-	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/freezer))
+	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/unique/freezer))
 		return
 	//Process infections
-	if ((status & ORGAN_ROBOT) || (owner && owner.species && (owner.species.flags & IS_PLANT)))
+	var/is_immune = ((status & ORGAN_ROBOT) || robotic >= ROBOTIC_MECHANICAL || (owner && owner.species && (owner.species.flags & IS_PLANT)))
+	if (is_immune)
 		germ_level = 0
-		return
 
-	if(BP_IS_ROBOTIC(src) && surge_damage)
-		tick_surge_damage()
+	if((BP_IS_ROBOTIC(src) || robotic >= ROBOTIC_MECHANICAL) && surge_damage)
+		tick_surge_damage(seconds_per_tick)
 
 	if(!owner)
 		if (QDELETED(reagents))
 			LOG_DEBUG("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
-		if(REAGENT_VOLUME(reagents, /singleton/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))
+		if(REAGENT_VOLUME(reagents, /singleton/reagent/blood) && !is_immune && prob(40))
 			reagents.remove_reagent(/singleton/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,src,TRUE)
 		if(GLOB.config.organs_decay) damage += rand(1,3)
 		if(damage >= max_damage)
 			damage = max_damage
-		germ_level += rand(2,6)
-		if(germ_level >= INFECTION_LEVEL_TWO)
+		if(!is_immune)
 			germ_level += rand(2,6)
-		if(germ_level >= INFECTION_LEVEL_THREE)
-			die()
+			if(germ_level >= INFECTION_LEVEL_TWO)
+				germ_level += rand(2,6)
+			if(germ_level >= INFECTION_LEVEL_THREE)
+				die()
 
 
 	else if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Handle antibiotics and curing infections
 		handle_antibiotics()
-		handle_immunosuppressants()
-		handle_rejection()
-		handle_germ_effects()
+		if(!is_immune)
+			handle_immunosuppressants()
+			handle_rejection()
+			handle_germ_effects()
 
 	//check if we've hit max_damage
 	if(damage >= max_damage)
 		die()
 
-/obj/item/organ/proc/tick_surge_damage()
-	if(surge_damage)
-		do_surge_effects()
-	if(surge_time + 1 SECOND < world.time)
-		surge_damage = max(0, surge_damage - 10)
-		surge_time = world.time
-		if(!surge_damage)
-			surge_time = 0
-			clear_surge_effects()
+/**
+ * Handles per-second EMP damage effects.
+ * returns FALSE if there's no EMP effects left.
+ * returns "Truthy" if there's still more EMP to handle on the next tick.
+ * It will wrap back around to FALSE if the surge damage recovery ticked it back down to 0.
+ */
+/obj/item/organ/proc/tick_surge_damage(seconds_per_tick)
+	ENFORCE_CALCULUS(seconds_per_tick)
+
+	if(!surge_damage)
+		clear_surge_effects()
+		return FALSE
+
+	do_surge_effects()
+	surge_damage = max(0, surge_damage - (surge_recovery_per_second * seconds_per_tick))
+	return surge_damage
 
 /obj/item/organ/proc/do_surge_effects()
 	return
@@ -229,10 +260,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		if(antibiotics < 5 && prob(round(germ_level/7)))
 			germ_level++
 
-	if (germ_level >= INFECTION_LEVEL_TWO)
+	if (germ_level >= INFECTION_LEVEL_TWO && parent_organ)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 		//spread germs
-		if (antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
+		if (parent && antibiotics < 5 && parent.germ_level < germ_level && ( parent.germ_level < INFECTION_LEVEL_ONE*2 || prob(30) ))
 			parent.germ_level++
 
 		if (prob(3))	//about once every 30 seconds
@@ -266,7 +297,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
-		damage = between(0, damage - round(amount, 0.1), max_damage)
+		damage = between(0, damage - amount, max_damage)
 
 /obj/item/organ/proc/is_broken()
 	return (damage >= min_broken_damage || (status & ORGAN_CUT_AWAY) || (status & ORGAN_BROKEN))
@@ -420,9 +451,15 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		return //We check earlier, but just to make sure.
 
 	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
-	surge_time = world.time
 
-/obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
+/**
+ *  Remove an organ
+ *
+ *  drop_organ - if true, organ will be dropped at the loc of its former owner
+ *  detach - if true, organ will be detached from parent. Keep false for organs
+ *           removed together with parent, as with an amputation.
+ */
+/obj/item/organ/proc/removed(mob/living/carbon/human/target, mob/living/user, drop_organ = TRUE, detach = TRUE)
 	if(!istype(owner))
 		return
 
@@ -433,10 +470,13 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	owner.internal_organs_by_name -= null
 	owner.internal_organs -= src
 
-	var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
-	if(affected) affected.internal_organs -= src
+	if(detach && parent_organ)
+		var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
+		if(affected)
+			affected.internal_organs -= src
 
-	loc = get_turf(owner)
+	if(drop_organ)
+		dropInto(owner.loc)
 	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)
@@ -456,13 +496,14 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	owner.update_action_buttons()
 	owner = null
 
+/// Sets the organ's owner to the proc's target, and ensures its forceMoved into that target.
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
 	action_button_name = initial(action_button_name)
 	forceMove(owner) //just in case
 	if(BP_IS_ROBOTIC(src))
 		set_dna(owner.dna)
-	return 1
+	return TRUE
 
 /obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
 
@@ -501,3 +542,16 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 //used by stethoscope
 /obj/item/organ/proc/listen()
 	return
+
+/obj/item/organ/proc/get_damage()
+	return damage
+
+/obj/item/organ/proc/set_damage(to_set)
+	damage = to_set
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/organ/add_damage(to_add)
+	START_PROCESSING(SSprocessing, src)
+	if (..(to_add))
+		return
+	damage += to_add

@@ -73,7 +73,7 @@
 		to_chat(user, SPAN_WARNING("You are dead!"))
 		return
 
-	var/obj/item/device/radio/radio = new/obj/item/device/radio()
+	var/obj/item/radio/radio = new/obj/item/radio()
 	var/datum/weakref/nuke
 	//Time control for the self destruct
 	//It works in 3 stages:
@@ -105,7 +105,7 @@
 		return
 
 	//Lets find the first self destruct terminal
-	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.machinery)
+	for(var/obj/structure/machinery/nuclearbomb/station/N in SSmachinery.machinery)
 		nuke = WEAKREF(N)
 		continue
 
@@ -131,7 +131,7 @@
 
 	while(timer)
 		sleep(10)
-		var/obj/machinery/nuclearbomb/station/N = nuke.resolve()
+		var/obj/structure/machinery/nuclearbomb/station/N = nuke.resolve()
 		if(!user || !user.bombing_station || user.stat == DEAD || !N)
 			if(timer < stage2)
 				radio.autosay("Self-destruct sequence has been cancelled.", "[SSatlas.current_map.station_short] Authentication Control")

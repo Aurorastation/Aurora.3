@@ -256,16 +256,16 @@ and some alternative things that are toxic to other life, such as radium and mut
 	if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 		if (bad_internal_organs.len)
 			for (var/obj/item/organ/O in bad_internal_organs)
-				var/CL = O.damage
+				var/CL = O.get_damage()
 				var/value
 				if(total_radiation > 0)
 					value = min(CL, total_radiation, 2 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-					O.damage += value/-1.5
+					O.add_damage(value/-1.5)
 					total_radiation -= value
 					CL = getCloneLoss()
 
 				value = min(CL, DS.stored_energy, 1 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-				O.damage += value/-3
+				O.add_damage(value/-3)
 				DS.stored_energy -= value
 
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
@@ -370,15 +370,14 @@ and some alternative things that are toxic to other life, such as radium and mut
 
 	updatehealth()
 
-/mob/living/carbon/human/proc/diona_regen_progress(var/datum/dionastats/DS)
+/mob/living/carbon/human/proc/diona_regen_progress(datum/dionastats/DS)
 	if(!DS)
 		return
 	if(DS.regen_limb_progress > LIMB_REGROW_REQUIREMENT)
-		DS.regen_limb.Invoke()
+		DS.regen_limb?.Invoke()
 		DS.regen_limb = null
-		if(DS.regen_extra)
-			DS.regen_extra.Invoke()
-			DS.regen_extra = null
+		DS.regen_extra?.Invoke()
+		DS.regen_extra = null
 	var/progress = nutrition * 0.45
 	adjustNutritionLoss(nutrition * 0.15)
 	progress += DS.stored_energy * 0.3
@@ -493,7 +492,7 @@ Lightstates:
 		light_factor = 1
 
 	if (T)
-		var/raw = min(T.get_uv_lumcount(0, 2) * light_factor * 5.5, 5.5)
+		var/raw = min(T.get_lumcount(0, 1) * light_factor * 5.5, 5.5)
 		return raw - 1.5
 
 /// Getter for health.
@@ -501,7 +500,7 @@ Lightstates:
 	if (DS.dionatype == 0)
 		return health
 	else
-		return health+(maxHealth*0.5)
+		return health+(maxhealth*0.5)
 
 /mob/living/carbon/proc/get_dionastats()
 	return
@@ -637,7 +636,8 @@ Most of these values are calculated from information configured at authortime in
 	last_location = null
 	regen_limb = null
 	regen_extra = null
-	. = ..()
+	nym = null
+	return ..()
 
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))

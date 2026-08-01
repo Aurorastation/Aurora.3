@@ -12,6 +12,8 @@ SUBSYSTEM_DEF(plants)
 	var/list/seeds = list()
 	/// Gene obfuscation for delicious trial and error goodness.
 	var/list/gene_tag_masks = list()
+	/// Reverse lookup for gene_tag_masks, keyed by real gene tag.
+	var/list/gene_masks_by_tag = list()
 	/// Stores images of growth, fruits and seeds.
 	var/list/plant_icon_cache = list()
 	/// List of all harvested product sprites.
@@ -83,6 +85,7 @@ SUBSYSTEM_DEF(plants)
 		used_masks += gene_mask
 		plant_traits -= gene_tag
 		gene_tag_masks[gene_mask] = gene_tag
+		gene_masks_by_tag[gene_tag] = gene_mask
 		plant_gene_datums[gene_mask] = G
 		gene_masked_list += (list(list("tag" = gene_tag, "mask" = gene_mask)))
 
@@ -93,6 +96,7 @@ SUBSYSTEM_DEF(plants)
 		src.product_descs = SSplants.product_descs
 		src.seeds = SSplants.seeds
 		src.gene_tag_masks = SSplants.gene_tag_masks
+		src.gene_masks_by_tag = SSplants.gene_masks_by_tag
 		src.plant_icon_cache = SSplants.plant_icon_cache
 		src.plant_sprites = SSplants.plant_sprites
 		src.plant_product_sprites = SSplants.plant_product_sprites
@@ -106,12 +110,13 @@ SUBSYSTEM_DEF(plants)
 		processing = old
 
 	var/list/queue = current
+	var/seconds_per_tick = wait * 0.1
 	while (queue.len)
 		var/obj/effect/plant/P = queue[queue.len]
 		queue.len--
 
 		if (!QDELETED(P))
-			P.process()
+			P.process(seconds_per_tick)
 
 		if (MC_TICK_CHECK)
 			return
@@ -137,13 +142,16 @@ SUBSYSTEM_DEF(plants)
 		if(seed.chems && !isnull(seed.chems[/singleton/reagent/acid/polyacid]))
 			seed.chems[/singleton/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
 			seed.chems -= null // Setting to null does not actually remove the entry, which is weird.
-		seed.set_trait(TRAIT_IDEAL_HEAT,293)
-		seed.set_trait(TRAIT_HEAT_TOLERANCE,20)
-		seed.set_trait(TRAIT_IDEAL_LIGHT,8)
-		seed.set_trait(TRAIT_LIGHT_TOLERANCE,5)
-		seed.set_trait(TRAIT_LOWKPA_TOLERANCE,25)
-		seed.set_trait(TRAIT_HIGHKPA_TOLERANCE,200)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_HEAT, 293)
+		SET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE, 20)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT, 8)
+		SET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE, 5)
+		SET_SEED_TRAIT(seed, TRAIT_LOWKPA_TOLERANCE, 25)
+		SET_SEED_TRAIT(seed, TRAIT_HIGHKPA_TOLERANCE, 200)
 	return seed
+
+/datum/controller/subsystem/plants/proc/get_gene_mask(var/gene_tag)
+	return gene_masks_by_tag[gene_tag] || gene_tag
 
 /// Debug for testing seed genes.
 /client/proc/show_plant_genes()

@@ -19,10 +19,6 @@
 		list(-10, 2)
 	)
 
-/obj/item/storage/box/fancy/yoke/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "Click drag it to pick it up, click on it to take out a can."
-
 /obj/item/storage/box/fancy/yoke/fill()
 	. = ..()
 	for(var/obj/item/reagent_containers/food/drinks/cans/C in contents)
@@ -66,13 +62,6 @@
 	name = can_name_string
 
 /obj/item/storage/box/fancy/yoke/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	var/mob/mob_dropped_over = over
-	if(use_check_and_message(mob_dropped_over))
-		return
-	to_chat(mob_dropped_over, SPAN_NOTICE("You pick up \the [src]."))
-	mob_dropped_over.put_in_hands(src)
-
-/obj/item/storage/box/fancy/yoke/attack_hand(mob/user)
 	if(!length(contents)) // no more cans, continue as normal
 		return ..()
 
@@ -80,10 +69,14 @@
 		return
 
 	var/obj/item/reagent_containers/food/drinks/cans/C = cans[length(cans)]
-	cans -= C
 	remove_from_storage(C, get_turf(user))
 	user.put_in_hands(C)
 	update_icon()
+
+/obj/item/storage/box/fancy/yoke/remove_from_storage(obj/item/W, atom/new_location)
+	. = ..()
+	if(.)
+		cans -= W
 
 /obj/item/storage/box/fancy/yoke/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("\The [src] cannot be refilled with items!"))
@@ -103,6 +96,7 @@
 			/obj/item/reagent_containers/food/drinks/cans/lemon_lime,
 			/obj/item/reagent_containers/food/drinks/cans/iced_tea,
 			/obj/item/reagent_containers/food/drinks/cans/grape_juice,
+			/obj/item/reagent_containers/food/drinks/cans/cherry_juice,
 			/obj/item/reagent_containers/food/drinks/cans/tonic,
 			/obj/item/reagent_containers/food/drinks/cans/sodawater,
 			/obj/item/reagent_containers/food/drinks/cans/root_beer,
@@ -171,6 +165,9 @@
 
 /obj/item/storage/box/fancy/yoke/grape_juice
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6)
+
+/obj/item/storage/box/fancy/yoke/cherry_juice
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/cherry_juice = 6)
 
 /obj/item/storage/box/fancy/yoke/tonic
 	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/tonic = 6)

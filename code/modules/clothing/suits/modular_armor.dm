@@ -10,6 +10,8 @@
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
+	movement_sounds = SFX_LIGHT_ARMOUR_FOOTSTEPS
+	movement_sound_volume = 10
 
 /obj/item/clothing/suit/armor/carrier/dominia
 	name = "imperial army flak vest"
@@ -59,6 +61,8 @@
 		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
+
 /obj/item/clothing/suit/armor/carrier/ballistic
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/ballistic,
@@ -66,6 +70,8 @@
 		/obj/item/clothing/accessory/arm_guard/ballistic,
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
+
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/ablative
 	starting_accessories = list(
@@ -75,6 +81,8 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
+
 /obj/item/clothing/suit/armor/carrier/military
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/military,
@@ -83,6 +91,8 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
+
 /obj/item/clothing/suit/armor/carrier/heavy
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/heavy,
@@ -90,6 +100,8 @@
 		/obj/item/clothing/accessory/arm_guard/heavy,
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
+
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/suit/armor/carrier/heavy/scc
 	starting_accessories = list(
@@ -116,6 +128,8 @@
 		/obj/item/clothing/accessory/storage/chestpouch
 	)
 
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
+
 /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light,
@@ -130,6 +144,18 @@
 		/obj/item/clothing/accessory/arm_guard/hoplan,
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
+
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
+
+/obj/item/clothing/suit/armor/carrier/lance
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/riot/lancer,
+		/obj/item/clothing/accessory/leg_guard/riot/lancer,
+		/obj/item/clothing/accessory/arm_guard/riot/lancer,
+		/obj/item/clothing/accessory/storage/modular_pouch/large
+	)
+
+	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
@@ -192,7 +218,7 @@
 		ENERGY = ARMOR_ENERGY_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -206,7 +232,7 @@
 		ENERGY = ARMOR_ENERGY_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -219,7 +245,7 @@
 		LASER = ARMOR_LASER_MAJOR,
 		ENERGY = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 0.4
+	slowdown = 0.2
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -234,7 +260,7 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -248,14 +274,14 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/heavy/scc
 	name = "heavy SCC armor plate"
 	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	name = "imperial army steel body armor"
@@ -274,8 +300,12 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/armor_plate/tcaf
-	name = "\improper TCAF legionnaire carapace"
+	name = "\improper TCAF carapace body armour"
 	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
+	desc_extended = "The NT Tactical Segmented 'Carapace' Body Armour 3 (NT-TSBA3) is the standard, segmented, carapace-like body armour used \
+	across the Tau Ceti Armed Forces that combines effective armour with high manoeuvrability. The plate inserts are designed with \
+	a Caprician Weave kevlar-like synthetic fibre, with incredible tensile strength, overlaying a final titanium plate. Designed by \
+	NanoTrasen Corporation in 2465 alongside the Zo’ra Hive"
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "tcaf_plate"
 	item_state = "tcaf_plate"
@@ -287,11 +317,15 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
-	name = "\improper TCAF legionnaire light carapace"
+	name = "\improper TCAF light carapace body armour"
 	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
+	desc_extended = "The NT Tactical Segmented 'Carapace' Body Armour 3 LIGHT (NT-TSBA3L) is the light variant of the segmented, carapace-like body armour \
+	used across the Tau Ceti Armed Forces that combines effective armour with high manoeuvrability. The plate inserts are designed with \
+	a Caprician Weave kevlar-like synthetic fibre, with incredible tensile strength. The usual additional titanium plate is not included. Designed by \
+	NanoTrasen Corporation in 2465 alongside the Zo’ra Hive"
 	icon_state = "tcaf_plate_light"
 	item_state = "tcaf_plate_light"
 	armor = list(
@@ -302,6 +336,19 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	slowdown = 0
+
+/obj/item/clothing/accessory/armor_plate/riot/lancer
+	name = "ceres lance armor plate"
+	desc = "A state-of-the-art armor plate used by Ceres Lance. It is made with an additional layer of padding and is designed to protect operatives attempting to physically restrain hostile IPCs, but has poor heat dissipation characteristics as a result."
+	icon_state = "lancer_plate"
+	item_state = "lancer_plate"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
 
 /obj/item/clothing/accessory/armor_plate/military/navy
 	name = "konyang navy armor plate"
@@ -370,7 +417,7 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.4
+	slowdown = 0.2
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"
@@ -457,7 +504,7 @@
 	item_state = "dom_helmet_nco"
 
 /obj/item/clothing/head/helmet/tcaf
-	name = "\improper TCAF legionnaire faceplate helmet"
+	name = "\improper TCAF carapace faceplate helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one equipped with the signature faceplate."
 	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
@@ -472,13 +519,13 @@
 	)
 
 /obj/item/clothing/head/helmet/tcaf/tcaf_novisor
-	name = "\improper TCAF legionnaire helmet"
+	name = "\improper TCAF carapace helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_helm_novisor"
 	item_state = "tcaf_helm_novisor"
 
 /obj/item/clothing/head/helmet/tcaf/tcaf_visor
-	name = "\improper TCAF legionnaire visored helmet"
+	name = "\improper TCAF carapace visored helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
 	icon_state = "tcaf_helm_visor"
 	item_state = "tcaf_helm_visor"

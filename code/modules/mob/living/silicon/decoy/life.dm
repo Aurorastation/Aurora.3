@@ -13,7 +13,7 @@
 
 /mob/living/silicon/decoy/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss()
+		health = maxhealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss()

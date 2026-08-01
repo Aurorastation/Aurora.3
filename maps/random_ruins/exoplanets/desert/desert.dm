@@ -70,5 +70,4 @@
 	name = "Abandoned Solarian Relay Station"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE

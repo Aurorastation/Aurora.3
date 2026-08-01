@@ -127,7 +127,7 @@
 	if(!underlays.len)
 		underlays += image(firstaid_item.icon, firstaid_item.icon_state)
 		var/matrix/M = matrix()
-		var/image/ha_image = image('icons/obj/item/device/healthanalyzer.dmi', "health")
+		var/image/ha_image = image('icons/obj/item/scanner.dmi', "healthanalyzer")
 		M.Translate(5, 0)
 		ha_image.transform = M
 		underlays += ha_image
@@ -273,8 +273,8 @@
 		firstaid_item.forceMove(Tsec)
 		firstaid_item.contents = null
 		firstaid_item = null
-	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/device/healthanalyzer(Tsec)
+	new /obj/item/assembly/prox_sensor(Tsec)
+	new /obj/item/healthanalyzer(Tsec)
 	if (prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -359,7 +359,7 @@
 
 /obj/item/firstaid_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
@@ -369,14 +369,14 @@
 	else
 		switch(build_step)
 			if(0)
-				if(istype(attacking_item, /obj/item/device/healthanalyzer))
+				if(istype(attacking_item, /obj/item/healthanalyzer))
 					user.drop_from_inventory(attacking_item,get_turf(src))
 					qdel(attacking_item)
 					build_step++
 					to_chat(user, SPAN_NOTICE("You add the health sensor to [src]."))
 					name = "first-aid/robot arm/health analyzer assembly"
 					var/matrix/M = matrix()
-					var/image/ha_image = image('icons/obj/item/device/healthanalyzer.dmi', "health")
+					var/image/ha_image = image('icons/obj/item/scanner.dmi', "health")
 					M.Translate(5, 0)
 					ha_image.transform = M
 					underlays += ha_image

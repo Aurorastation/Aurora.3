@@ -190,6 +190,7 @@
 	action_button_icon = "hunterseye"
 	cooldown = 30
 	activable = TRUE
+	zoom_out_message = " eyes whirrs loudly as the zoom lenses retract."
 
 /obj/item/organ/internal/augment/farseer_eye/attack_self(var/mob/user)
 	. = ..()
@@ -226,7 +227,7 @@
 		return FALSE
 
 	if(!online)
-		set_light(3, 2, LIGHT_COLOR_RED, uv = 0, angle = LIGHT_WIDE)
+		set_light(3, 2, LIGHT_COLOR_RED)
 		owner.change_eye_color(250, 130, 130)
 		owner.update_eyes()
 		online = TRUE
@@ -364,6 +365,10 @@
 	name = "medical grasper"
 	action_button_name = "Deploy Mounted Health Scanner"
 
+/obj/item/organ/external/hand/right/autakh/medical/Initialize(mapload)
+	. = ..()
+	src.LoadComponent(/datum/component/health_analyzer)
+
 /obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
 	. = ..()
 	if(.)
@@ -399,11 +404,15 @@
 		owner.last_special = world.time + 50
 		if(ishuman(G.affecting))
 			var/mob/living/carbon/human/H = G.affecting
-			health_scan_mob(H, owner)
+			var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
+			if(!h_analyzer)
+				return
+			h_analyzer.health_scan_mob(H, owner, FALSE, TRUE)
 
 /obj/item/organ/external/hand/right/autakh/security
 	name = "security grasper"
-	action_button_name = "Activate Integrated Electroshock Weapon"
+	action_button_name = "Deploy Integrated Stun Baton"
+	var/augment_type = /obj/item/melee/baton/autakh
 
 /obj/item/organ/external/hand/right/autakh/security/refresh_action_button()
 	. = ..()
@@ -425,6 +434,10 @@
 			to_chat(owner, SPAN_DANGER("You can not use \the [src] in your current state!"))
 			return
 
+		if(owner.get_active_hand())
+			to_chat(owner, SPAN_DANGER("You must empty your active hand before enabling your [src]!"))
+			return
+
 		if(is_broken())
 			to_chat(owner, SPAN_DANGER("\The [src] is too damaged to be used!"))
 			return
@@ -432,30 +445,76 @@
 		if(is_bruised())
 			spark(get_turf(owner), 3)
 
-		var/obj/item/grab/G = owner.get_active_hand()
-		if(!istype(G))
-			to_chat(owner, SPAN_DANGER("You must grab someone before trying to use your [src]!"))
-			return
+		var/obj/item/M = new augment_type(owner)
+		owner.put_in_active_hand(M)
+		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src]."),
+								SPAN_NOTICE("You deploy \the [M]!"))
 
-		if(owner.nutrition <= 200)
-			to_chat(owner, SPAN_DANGER("Your energy reserves are too low to use your [src]!"))
-			return
+/obj/item/melee/baton/autakh
+	name = "integrated stun baton"
+	desc = "An electroshock baton integrated into an Aut'akh security grasper. It retracts when released."
+	icon = 'icons/obj/item/autakh_baton.dmi'
+	icon_state = "autakh_baton"
+	item_state = "autakh_baton"
+	contained_sprite = TRUE
+	force = 5
+	agonyforce = 50
+	status = TRUE
+	sheathed = TRUE
 
-		if(ishuman(G.affecting))
+/obj/item/melee/baton/autakh/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "Left-click the baton in-hand to toggle its electroshock function."
+	. += "On Harm intent, it inflicts damage whether or not the electroshock function is on."
+	. += "The baton draws power from its user's energy reserves and retracts when dropped."
 
-			var/mob/living/carbon/human/H = G.affecting
-			var/target_zone = check_zone(owner.zone_sel.selecting)
+/obj/item/melee/baton/autakh/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	if(distance > 1)
+		return
+	. += "The baton is powered by its user's energy reserves."
 
-			owner.last_special = world.time + 100
-			owner.adjustNutritionLoss(50)
+/obj/item/melee/baton/autakh/update_icon()
+	icon_state = status ? "[initial(icon_state)]_active" : initial(icon_state)
+	if(status)
+		set_light(1.3, 1, baton_color)
+	else
+		set_light(0)
 
-			if(owner.a_intent == I_HURT)
-				H.electrocute_act(10, owner, def_zone = target_zone)
-			else
-				H.stun_effect_act(0, 50, target_zone, owner)
+/obj/item/melee/baton/autakh/attack_self(mob/user)
+	status = !status
+	to_chat(user, SPAN_NOTICE("[src] is now [status ? "on" : "off"]."))
+	playsound(loc, SFX_SPARKS, 75, 1, -1)
+	update_icon()
+	add_fingerprint(user)
 
-			owner.visible_message(SPAN_DANGER("[H] has been prodded with [src] by [owner]!"))
-			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)
+/obj/item/melee/baton/autakh/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(status)
+		if(user.last_special > world.time)
+			to_chat(user, SPAN_DANGER("\The [src] is still recharging!"))
+			return FALSE
+		if(user.nutrition <= 200)
+			to_chat(user, SPAN_DANGER("Your energy reserves are too low to use \the [src]!"))
+			return FALSE
+
+	. = ..()
+	if(. && status)
+		user.last_special = world.time + 10 SECONDS
+		user.adjustNutritionLoss(50)
+
+/obj/item/melee/baton/autakh/deductcharge(chrgdeductamt)
+	return TRUE
+
+/obj/item/melee/baton/autakh/attackby(obj/item/attacking_item, mob/user)
+	return
+
+/obj/item/melee/baton/autakh/throw_at()
+	usr.drop_from_inventory(src)
+
+/obj/item/melee/baton/autakh/dropped()
+	. = ..()
+	loc = null
+	qdel(src)
 
 /obj/item/organ/external/hand/right/autakh/tool/nullrod
 	name = "blessed prosthesis"

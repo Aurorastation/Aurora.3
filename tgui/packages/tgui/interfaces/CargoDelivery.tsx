@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -15,6 +21,7 @@ export type CargoData = {
   order_details: Order;
   page: string;
   status_message: string;
+  paying_account: string;
 };
 
 type Order = {
@@ -51,40 +58,48 @@ type Item = {
   supplier_name: string;
 };
 
-export const CargoDelivery = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+const hasValidOrder = (order?: Order | null) => !!order?.order_id;
+
+export const CargoDelivery = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow resizable theme="orion" width={620} height={800}>
       <NtosWindow.Content scrollable>
         <Section>
           <Tabs>
             <Tabs.Tab onClick={() => act('page', { page: 'overview_main' })}>
               Main
             </Tabs.Tab>
-            {data.order_details && (
-              <>
-                {' '}
-                <Tabs.Tab
-                  onClick={() =>
-                    act('page', {
-                      page: 'order_overview',
-                      order_overview: data.order_details.order_id.toString(),
-                    })
-                  }>
-                  Overview
-                </Tabs.Tab>
-                <Tabs.Tab
-                  onClick={() =>
-                    act('page', {
-                      page: 'order_payment',
-                      order_payment: data.order_details.order_id.toString(),
-                    })
-                  }>
-                  Payment
-                </Tabs.Tab>
-              </>
-            )}
+
+            <Tabs.Tab
+              onClick={() =>
+                act('page', {
+                  page: 'order_overview',
+                  order_overview: data.order_details?.order_id?.toString(),
+                })
+              }
+            >
+              Overview
+            </Tabs.Tab>
+
+            <Tabs.Tab
+              onClick={() =>
+                act('page', {
+                  page: 'order_payment',
+                  order_payment: data.order_details?.order_id?.toString(),
+                })
+              }
+            >
+              Payment
+            </Tabs.Tab>
+            <Button
+              content="Clear Selected Order"
+              icon="times"
+              disabled={!data.order_details?.order_id}
+              onClick={() => act('clear_order')}
+              style={{ marginLeft: 'auto' }}
+            />
           </Tabs>
         </Section>
         {data.page === 'overview_main' ? (
@@ -99,8 +114,8 @@ export const CargoDelivery = (props, context) => {
   );
 };
 
-export const MainView = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const MainView = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section>
@@ -134,8 +149,16 @@ export const MainView = (props, context) => {
   );
 };
 
-export const Overview = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Overview = (props) => {
+  const { act, data } = useBackend<CargoData>();
+
+  if (!hasValidOrder(data.order_details)) {
+    return (
+      <Section title="Overview">
+        No order selected. Please select an order from the main list first.
+      </Section>
+    );
+  }
 
   return (
     <Section title="Overview">
@@ -158,16 +181,13 @@ export const Overview = (props, context) => {
             : 'Unauthorised'}
         </LabeledList.Item>
         <LabeledList.Item label="Price">
-          {data.order_details.price}.toFixed(2) 电
+          {data.order_details.price.toFixed(2)}电
         </LabeledList.Item>
         <LabeledList.Item label="Operations Expense">
-          {data.order_details.price_cargo.toFixed(2)} 电
+          {data.order_details.price_cargo.toFixed(2)}电
         </LabeledList.Item>
         <LabeledList.Item label="Personal Expense">
-          {data.order_details.price_customer.toFixed(2)} 电
-        </LabeledList.Item>
-        <LabeledList.Item label="Personal Expense">
-          {data.order_details.price_customer.toFixed(2)} 电
+          {data.order_details.price_customer.toFixed(2)}电
         </LabeledList.Item>
         <LabeledList.Item label="Ordered At">
           {data.order_details.time_submitted}
@@ -202,10 +222,10 @@ export const Overview = (props, context) => {
             <Table.Cell>Price</Table.Cell>
           </Table.Row>
           {data.order_details.items.map((item) => (
-            <Table.Row key={item.name}>
+            <Table.Row key={item.id}>
               <Table.Cell>{item.name}</Table.Cell>
               <Table.Cell>{item.supplier_name}</Table.Cell>
-              <Table.Cell>{item.price} 电</Table.Cell>
+              <Table.Cell>{item.price}电</Table.Cell>
             </Table.Row>
           ))}
         </Table>
@@ -214,35 +234,63 @@ export const Overview = (props, context) => {
   );
 };
 
-export const Payment = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const Payment = (props) => {
+  const { act, data } = useBackend<CargoData>();
+
+  if (!hasValidOrder(data.order_details)) {
+    return (
+      <Section title="Payment">
+        No order selected. Please select an order from the main list first.
+      </Section>
+    );
+  }
 
   return (
     <Section
-      title={'Payment: Order No. ' + data.order_details.order_id}
+      title={`Payment: Order No. ${data.order_details.order_id}`}
       buttons={
-        <Button
-          content={
-            data.order_details.status === 'shipped'
-              ? 'Confirm Delivery and Pay'
+        <>
+          <Button
+            content="Account"
+            color="caution"
+            onClick={() => act('accountselect')}
+          />
+          <Button
+            disabled={data.order_details.status !== 'shipped'}
+            icon="check"
+            color="approve"
+            onClick={() => act('deliver', { deliver: 'true' })}
+          >
+            {data.order_details.status === 'shipped'
+              ? 'Deliver'
               : data.order_details.status === 'delivered'
-                ? 'Delivered Already'
-                : data.order_details.needs_payment
-                  ? 'Pay'
-                  : 'Paid but not Shipped'
-          }
-          disabled={
-            !data.order_details.needs_payment ||
-            data.order_details.status === 'delivered'
-          }
-          icon="check"
-          color="green"
-          onClick={() => act('deliver', { deliver: 'true' })}
-        />
-      }>
+                ? 'Delivered'
+                : 'Not Shipped'}
+          </Button>
+          <Button
+            content="Pay"
+            disabled={!data.order_details.needs_payment}
+            icon="credit-card"
+            color="approve"
+            onClick={() => act('pay', { deliver: 'true' })}
+          />
+          <Button
+            content="Print"
+            onClick={() =>
+              act('order_print', {
+                order_print: data.order_details.order_id.toString(),
+              })
+            }
+          />
+        </>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Price">
-          {data.order_details.price.toFixed(2)} 电
+          {data.order_details.price_customer.toFixed(2)}电
+        </LabeledList.Item>
+        <LabeledList.Item label="Paying Account">
+          {data.paying_account}
         </LabeledList.Item>
         <LabeledList.Item label="Customer">
           {data.order_details.ordered_by}

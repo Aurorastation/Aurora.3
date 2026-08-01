@@ -45,3 +45,7 @@
 	density = TRUE
 	layer = 9
 	pixel_x = -16
+
+/obj/structure/crane/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)

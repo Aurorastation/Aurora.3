@@ -1,6 +1,14 @@
-import { BooleanLike } from '../../common/react';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Flex,
+  LabeledList,
+  Section,
+  Table,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Flex, LabeledList, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type ScannerData = {
@@ -58,6 +66,7 @@ type Organ = {
   brute_damage: string;
   wounds: string;
   infection: string;
+  amputation: BooleanLike;
 };
 
 type InternalOrgan = {
@@ -68,11 +77,11 @@ type InternalOrgan = {
   infection: string;
 };
 
-export const BodyScanner = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const BodyScanner = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
-    <Window resizable theme="zenghu">
+    <Window theme="zenghu">
       <Window.Content scrollable>
         {data.invalid ? <InvalidWindow /> : <ScannerWindow />}
       </Window.Content>
@@ -80,8 +89,8 @@ export const BodyScanner = (props, context) => {
   );
 };
 
-export const InvalidWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const InvalidWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -90,7 +99,7 @@ export const InvalidWindow = (props, context) => {
           <Section>
             <BlockQuote>
               {data.nocons
-                ? 'No scanner bed detected.'
+                ? 'No scanner bed detected. TEST EDIT'
                 : !data.occupied
                   ? 'No occupant detected.'
                   : data.ipc
@@ -106,8 +115,8 @@ export const InvalidWindow = (props, context) => {
   );
 };
 
-export const ScannerWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const ScannerWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Flex fontSize="1.2rem" wrap="wrap">
@@ -133,7 +142,8 @@ export const ScannerWindow = (props, context) => {
                 />
               </>
             ) : null
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
             {data.has_detailed_view ? (
@@ -144,18 +154,21 @@ export const ScannerWindow = (props, context) => {
             {data.has_detailed_view ? (
               <LabeledList.Item
                 label="Status"
-                color={consciousnessLabel(data.stat)}>
+                color={consciousnessLabel(data.stat)}
+              >
                 {consciousnessText(data.stat)}
               </LabeledList.Item>
             ) : null}
             <LabeledList.Item
               label="Brain Activity"
-              color={progressClass(data.brain_activity)}>
+              color={progressClass(data.brain_activity)}
+            >
               {brainText(data.brain_activity)}
             </LabeledList.Item>
             <LabeledList.Item
               label="Pulse"
-              color={progressClass(data.brain_activity)}>
+              color={progressClass(data.brain_activity)}
+            >
               {data.pulse} BPM
             </LabeledList.Item>
             {data.has_detailed_view ? (
@@ -166,14 +179,16 @@ export const ScannerWindow = (props, context) => {
             {data.has_detailed_view ? null : (
               <LabeledList.Item
                 label="Blood Oxygenation"
-                color={progressClass(data.blood_o2)}>
+                color={progressClass(data.blood_o2)}
+              >
                 {Math.round(data.blood_o2)}%
               </LabeledList.Item>
             )}
             {data.has_detailed_view ? null : (
               <LabeledList.Item
                 label="Blood Volume"
-                color={progressClass(data.brain_activity)}>
+                color={progressClass(data.brain_activity)}
+              >
                 {Math.round(data.blood_volume)}%
               </LabeledList.Item>
             )}
@@ -186,17 +201,20 @@ export const ScannerWindow = (props, context) => {
             <LabeledList>
               <LabeledList.Item
                 label="Blood Pressure"
-                color={getPressureClass(data.blood_pressure_level)}>
+                color={getPressureClass(data.blood_pressure_level)}
+              >
                 {data.blood_pressure}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Blood Oxygenation"
-                color={progressClass(data.blood_o2)}>
+                color={progressClass(data.blood_o2)}
+              >
                 {Math.round(data.blood_o2)}%
               </LabeledList.Item>
               <LabeledList.Item
                 label="Blood Volume"
-                color={progressClass(data.brain_activity)}>
+                color={progressClass(data.brain_activity)}
+              >
                 {Math.round(data.blood_volume)}%
               </LabeledList.Item>
               <LabeledList.Item label="Blood Type">
@@ -261,17 +279,19 @@ export const ScannerWindow = (props, context) => {
             <LabeledList>
               <LabeledList.Item
                 label="Radiation Level"
-                color={data.rads !== 0 ? 'yellow' : 'white'}>
+                color={data.rads !== 0 ? 'yellow' : 'white'}
+              >
                 {Math.round(data.rads)} Gy
               </LabeledList.Item>
               <LabeledList.Item
                 label="Genetic Damage"
-                color={data.cloneLoss !== 'None' ? 'orange' : 'white'}>
+                color={data.cloneLoss !== 'None' ? 'orange' : 'white'}
+              >
                 {data.cloneLoss}
               </LabeledList.Item>
               <LabeledList.Item label="Est. Paralysis Level">
                 {data.paralysis
-                  ? Math.round(data.paralysis / 4) + ' Seconds Left'
+                  ? `${Math.round(data.paralysis / 4)} Seconds Left`
                   : 'None'}
               </LabeledList.Item>
             </LabeledList>
@@ -284,22 +304,26 @@ export const ScannerWindow = (props, context) => {
             <LabeledList>
               <LabeledList.Item
                 label="Brute Trauma"
-                color={damageLabel(data.bruteLoss)}>
+                color={damageLabel(data.bruteLoss)}
+              >
                 {data.bruteLoss}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Burn Severity"
-                color={damageLabel(data.fireLoss)}>
+                color={damageLabel(data.fireLoss)}
+              >
                 {data.fireLoss}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Oxygen Deprivation"
-                color={damageLabel(data.oxyLoss)}>
+                color={damageLabel(data.oxyLoss)}
+              >
                 {data.oxyLoss}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Toxin Exposure"
-                color={damageLabel(data.toxLoss)}>
+                color={damageLabel(data.toxLoss)}
+              >
                 {data.toxLoss}
               </LabeledList.Item>
             </LabeledList>
@@ -354,8 +378,8 @@ export const ScannerWindow = (props, context) => {
   );
 };
 
-export const OrganWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const OrganWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -375,7 +399,8 @@ export const OrganWindow = (props, context) => {
             {organ.wounds}
           </Table.Cell>
           <Table.Cell
-            color={organ.infection !== 'Healthy' ? 'yellow' : 'white'}>
+            color={organ.infection !== 'Healthy' ? 'yellow' : 'white'}
+          >
             {organ.infection}
           </Table.Cell>
         </Table.Row>
@@ -384,8 +409,8 @@ export const OrganWindow = (props, context) => {
   );
 };
 
-export const ExternalOrganWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const ExternalOrganWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -406,7 +431,13 @@ export const ExternalOrganWindow = (props, context) => {
             {organ.burn_damage}
           </Table.Cell>
           <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
-            {organ.wounds}
+            {organ.amputation ? (
+              <Box color="red" bold>
+                (AMPUTATION REQUIRED)
+              </Box>
+            ) : (
+              organ.wounds
+            )}
           </Table.Cell>
           <Table.Cell color={organ.infection !== 'None' ? 'yellow' : 'white'}>
             {organ.infection}
@@ -417,8 +448,8 @@ export const ExternalOrganWindow = (props, context) => {
   );
 };
 
-export const MissingOrgans = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const MissingOrgans = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <BlockQuote>
@@ -430,8 +461,8 @@ export const MissingOrgans = (props, context) => {
   );
 };
 
-export const MissingLimbs = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const MissingLimbs = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <BlockQuote>
@@ -486,16 +517,18 @@ const brainText = (value) => {
 };
 
 const damageLabel = (value) => {
-  if (value === 'Fatal' || value < 10) {
-    return 'bad';
+  if (value === 'Irreparable') {
+    return 'purple';
   }
-  if (value === 'Critical' || value < 20) {
+  if (value === 'Critical' || value === 0) {
+    return 'red';
+  } else if (value === 'Extreme' || value < 25) {
     return 'bad';
-  } else if (value === 'Severe' || value < 40) {
+  } else if (value === 'Severe' || value < 50) {
     return 'average';
-  } else if (value === 'Significant' || value < 60) {
+  } else if (value === 'Significant' || value < 75) {
     return 'orange';
-  } else if (value === 'Moderate' || value < 80) {
+  } else if (value === 'Moderate' || value < 90) {
     return 'yellow';
   } else if (value === 'Minor' || value < 100) {
     return 'good';

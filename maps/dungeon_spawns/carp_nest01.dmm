@@ -33,7 +33,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine/unexplored)
 "j" = (
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	on = 1
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,

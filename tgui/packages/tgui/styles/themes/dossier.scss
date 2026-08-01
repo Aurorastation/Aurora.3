@@ -1,0 +1,73 @@
+// To be combined with CaseDossier.scss in most cases
+.theme-dossier {
+  --color-base: #101922;
+  --color-primary: #d8e2ec;
+  --color-label: #d7b45f;
+  --color-bad: #ad2727;
+
+  --base-gradient-spread: 5;
+  --border-radius-unit: 2px;
+
+  --button-color: #d8e2ec;
+  --button-background-default: #263f56;
+  --button-background-disabled: #363636;
+  --button-background-selected: #c89b3c;
+  --button-background-caution: #be6209;
+  --button-background-danger: #ad2727;
+
+  --input-background: rgba(5, 12, 18, 0.72);
+  --input-border-color: #9fb3c8;
+  --input-border-color-focus: #d7b45f;
+  --number-input-border-color: #9fb3c8;
+  --number-input-border-color-active: #d7b45f;
+
+  --notice-box-background: #24394d;
+  --notice-box-color: var(--color-text-fixed-white);
+
+  --progress-bar-background: rgba(0, 0, 0, 0.5);
+  --progress-bar-fill: #c89b3c;
+
+  --tooltip-background: #182735;
+  --titlebar-background: #111c26;
+
+  --section-background: rgba(0, 0, 0, 0.36);
+  --section-separator-color: #31475d;
+
+  .Layout__content {
+    background-image: url('../../assets/bg-nanotrasen.svg');
+  }
+
+  .Section {
+    border-left: 2px solid rgba(215, 180, 95, 0.45);
+  }
+
+  .Section__titleText {
+    color: #d7b45f;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .Tabs__tab--selected {
+    color: #f0d48a;
+  }
+
+  .Table {
+    background-color: rgba(5, 12, 18, 0.42);
+    border: 1px solid rgba(159, 179, 200, 0.24);
+  }
+
+  .Table__row--header {
+    color: #f0d48a;
+    background-color: rgba(38, 63, 86, 0.42);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .Table__cell {
+    border-bottom: 1px solid rgba(159, 179, 200, 0.13);
+  }
+
+  .NoticeBox {
+    border-left: 3px solid #d7b45f;
+  }
+}

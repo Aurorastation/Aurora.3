@@ -22,8 +22,6 @@ SUBSYSTEM_DEF(statpanels)
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		num_fires++
-		var/current_month = text2num(time2text(world.realtime, "MM"))
-		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/eta_status = "No ETA"
 		if(GLOB.evacuation_controller)
 			eta_status = GLOB.evacuation_controller.get_status_panel_eta()
@@ -31,13 +29,21 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [SSatlas.current_map.name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
+			"Current Date: [worlddate2text()]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",
 			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
 			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 		)
+
+		if(istype(SSticker.round_canon))
+			global_data[++global_data.len] = list(
+				"Round Canon: ",
+				"[SSticker.round_canon.name]",
+				"src=[REF(src)];open_canon_panel=1"
+			)
+
 		if(eta_status)
 			global_data += eta_status
 
@@ -101,6 +107,10 @@ SUBSYSTEM_DEF(statpanels)
 
 		if(MC_TICK_CHECK)
 			return
+
+/datum/controller/subsystem/statpanels/Topic(href, href_list)
+	if(href_list["open_canon_panel"])
+		SSticker.round_canon.ui_interact(usr)
 
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
@@ -188,6 +198,11 @@ SUBSYSTEM_DEF(statpanels)
 		atoms_to_display += turf_content
 
 	/// Set the atoms we're meant to display
+	// Lazy-init: SSstatpanels can fire for a client whose obj_window was never
+	// created (mob transfer / relogin) or was nulled by /datum/object_window_info/Destroy()
+	// while mob.listed_turf survived. Without this guard we'd null-deref atoms_to_show.
+	if(!target.obj_window)
+		target.obj_window = new /datum/object_window_info(target)
 	var/datum/object_window_info/obj_window = target.obj_window
 	obj_window.atoms_to_show = atoms_to_display
 	START_PROCESSING(SSobj_tab_items, obj_window)
@@ -212,6 +227,9 @@ SUBSYSTEM_DEF(statpanels)
 	// No turf? go away
 	if(!load_from.mob?.listed_turf)
 		return list()
+	// Lazy-init for the same lifecycle reasons as set_turf_examine_tab
+	if(!load_from.obj_window)
+		load_from.obj_window = new /datum/object_window_info(load_from)
 	var/datum/object_window_info/obj_window = load_from.obj_window
 	var/list/already_seen = obj_window.atoms_to_images
 	var/list/to_make = obj_window.atoms_to_imagify

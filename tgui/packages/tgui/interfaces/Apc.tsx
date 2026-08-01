@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Box, Button, BlockQuote, LabeledList, ProgressBar } from '../components';
 import { Window } from '../layouts';
 
 export type APCData = {
@@ -10,8 +17,8 @@ export type APCData = {
   fail_time: number;
   silicon_user: BooleanLike;
   is_AI_or_robot: BooleanLike;
-  total_load: number;
-  total_charging: number;
+  total_load: string;
+  total_charging: string;
   is_operating: BooleanLike;
   external_power: number;
   charge_mode: BooleanLike;
@@ -26,15 +33,15 @@ export type APCData = {
 
 type PowerChannel = {
   name: string;
-  power_load: number;
+  power_load: string;
   status: number;
 };
 
-export const Apc = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const Apc = (props) => {
+  const { act, data } = useBackend<APCData>();
 
   return (
-    <Window resizable theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content scrollable>
         {data.fail_time > 0 ? <FailWindow /> : <APCWindow />}
       </Window.Content>
@@ -42,8 +49,8 @@ export const Apc = (props, context) => {
   );
 };
 
-export const FailWindow = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const FailWindow = (props) => {
+  const { act, data } = useBackend<APCData>();
 
   return (
     <Section
@@ -55,7 +62,8 @@ export const FailWindow = (props, context) => {
           color="bad"
           onClick={() => act('reboot')}
         />
-      }>
+      }
+    >
       <Box color="red">
         I/O regulator malfuction detected! Waiting for system reboot...
       </Box>
@@ -64,8 +72,8 @@ export const FailWindow = (props, context) => {
   );
 };
 
-export const APCWindow = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const APCWindow = (props) => {
+  const { act, data } = useBackend<APCData>();
   return (
     <Section>
       {data.silicon_user ? (
@@ -169,29 +177,32 @@ export const APCWindow = (props, context) => {
             <LabeledList.Item label={channel.name} key={channel.name}>
               <Box color={channelStatClass(channel.status)}>
                 [{channelStatus(channel.status)}] | [
-                {channelPower(channel.status)}] | {channel.power_load} W
+                {channelPower(channel.status)}] | {channel.power_load}
               </Box>
               {(!data.locked && !data.silicon_user) || data.is_AI_or_robot ? (
                 <Section>
                   <Button
                     content="Auto"
                     icon="sync"
-                    color={
-                      channel.status === 1 || channel.status === 3 ? 'good' : ''
+                    color={channel.status & (1 << 1) ? 'good' : ''}
+                    onClick={() =>
+                      act('set', {
+                        set: channel.status | (1 << 1),
+                        chan: channel.name,
+                      })
                     }
-                    onClick={() => act('set', { set: 3, chan: channel.name })}
                   />
                   <Button
                     content="On"
                     icon="power-off"
-                    color={channel.status === 2 ? 'good' : ''}
-                    onClick={() => act('set', { set: 2, chan: channel.name })}
+                    color={channel.status === 1 << 0 ? 'good' : ''}
+                    onClick={() => act('set', { set: 1, chan: channel.name })}
                   />
                   <Button
                     content="Off"
                     icon="times"
                     color={channel.status === 0 ? 'good' : ''}
-                    onClick={() => act('set', { set: 1, chan: channel.name })}
+                    onClick={() => act('set', { set: 0, chan: channel.name })}
                   />
                 </Section>
               ) : (
@@ -200,9 +211,9 @@ export const APCWindow = (props, context) => {
             </LabeledList.Item>
           ))}
           <LabeledList.Item label="Total Load">
-            {data.total_load}W
+            {data.total_load}
             {data.total_charging
-              ? ` (+ ${data.total_charging}W Charging)`
+              ? ` (+ ${data.total_charging} Charging)`
               : null}
           </LabeledList.Item>
         </LabeledList>
@@ -240,8 +251,8 @@ export const APCWindow = (props, context) => {
   );
 };
 
-export const SiliconWindow = (props, context) => {
-  const { act, data } = useBackend<APCData>(context);
+export const SiliconWindow = (props) => {
+  const { act, data } = useBackend<APCData>();
   return (
     <Section
       title="Interface Lock"
@@ -274,21 +285,21 @@ const ChargeClass = (value) => {
 };
 
 const channelStatus = (channelStat) => {
-  if (channelStat <= 1) {
-    return 'Off';
-  } else return 'On';
+  if (channelStat & (1 << 0)) {
+    return 'On';
+  } else return 'Off';
 };
 
 const channelPower = (channelStat) => {
-  if (channelStat === 1 || channelStat === 3) {
+  if (channelStat & (1 << 1)) {
     return 'Auto';
   }
   return 'Manual';
 };
 
 const channelStatClass = (channelStat) => {
-  if (channelStat <= 1) {
-    return 'bad';
+  if (channelStat & (1 << 0)) {
+    return 'good';
   }
-  return 'good';
+  return 'bad';
 };

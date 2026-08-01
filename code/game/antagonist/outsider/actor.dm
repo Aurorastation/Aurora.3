@@ -43,6 +43,7 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 	player.update_eyes()
 	player.regenerate_icons()
 
+
 	return TRUE
 
 /obj/effect/landmark/actor_spawn

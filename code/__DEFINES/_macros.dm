@@ -40,6 +40,7 @@
 #define isweakref(target) istype(target, /datum/weakref)
 #define isopenspace(A) istype(A, /turf/simulated/open)
 #define isatom(D) istype(D, /atom)
+#define ismovableatom(A) (ismovable(A))
 #define isdatum(target) istype(target, /datum)
 #define isitem(D) istype(D, /obj/item)
 #define islist(D) istype(D, /list)

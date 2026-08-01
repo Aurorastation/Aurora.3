@@ -1,6 +1,6 @@
 GLOBAL_LIST_EMPTY(connected_z_cache)
 
-// If the height is more than 1, we mark all contained levels as connected.
+/// If the height is more than 1, we mark all contained levels as connected.
 /obj/effect/landmark/map_data/New(turf/loc, _height)
 	..()
 	if(!istype(loc)) // Using loc.z is safer when using the maploader and New.

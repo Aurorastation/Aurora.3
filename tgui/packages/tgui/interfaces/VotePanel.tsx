@@ -1,7 +1,15 @@
-import { BooleanLike } from 'common/react';
-
+import {
+  Box,
+  Button,
+  Collapsible,
+  Icon,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Collapsible, Icon, LabeledList, NoticeBox, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 enum VoteConfig {
@@ -51,8 +59,8 @@ type Data = {
   voting: string[];
 };
 
-export const VotePanel = (props, context) => {
-  const { data } = useBackend<Data>(context);
+export const VotePanel = (props) => {
+  const { data } = useBackend<Data>();
   const { currentVote, user } = data;
 
   /**
@@ -63,7 +71,7 @@ export const VotePanel = (props, context) => {
     windowTitle +=
       ': ' +
       (currentVote.question || currentVote.vote.name).replace(/^\w/, (c) =>
-        c.toUpperCase()
+        c.toUpperCase(),
       );
   }
 
@@ -87,8 +95,8 @@ export const VotePanel = (props, context) => {
  * The create vote options menu. Only upper admins can disable voting.
  * @returns A section visible to everyone with vote options.
  */
-const VoteOptions = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+const VoteOptions = (props) => {
+  const { act, data } = useBackend<Data>();
   const { possibleVotes, user } = data;
 
   return (
@@ -137,15 +145,16 @@ const VoteOptions = (props, context) => {
  * View Voters by ckey. Admin only.
  * @returns A collapsible list of voters
  */
-const VotersList = (props, context) => {
-  const { data } = useBackend<Data>(context);
+const VotersList = (props) => {
+  const { data } = useBackend<Data>();
 
   return (
     <Stack.Item>
       <Collapsible
         title={`View Voters${
           data.voting.length ? `: ${data.voting.length}` : ''
-        }`}>
+        }`}
+      >
         <Section height={8} fill scrollable>
           {data.voting.map((voter) => {
             return <Box key={voter}>{voter}</Box>;
@@ -160,8 +169,8 @@ const VotersList = (props, context) => {
  * The choices panel which displays all options in the list.
  * @returns A section visible to all users.
  */
-const ChoicesPanel = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+const ChoicesPanel = (props) => {
+  const { act, data } = useBackend<Data>();
   const { currentVote, user } = data;
 
   return (
@@ -184,10 +193,12 @@ const ChoicesPanel = (props, context) => {
                       disabled={user.singleSelection === choice.name}
                       onClick={() => {
                         act('voteSingle', { voteOption: choice.name });
-                      }}>
+                      }}
+                    >
                       Vote
                     </Button>
-                  }>
+                  }
+                >
                   {user.singleSelection &&
                     choice.name === user.singleSelection && (
                       <Icon
@@ -220,10 +231,12 @@ const ChoicesPanel = (props, context) => {
                     <Button
                       onClick={() => {
                         act('voteMulti', { voteOption: choice.name });
-                      }}>
+                      }}
+                    >
                       Vote
                     </Button>
-                  }>
+                  }
+                >
                   {user.multiSelection &&
                   user.multiSelection[user.ckey.concat(choice.name)] === 1 ? (
                     <Icon align="right" mr={2} color="blue" name="vote-yea" />
@@ -245,8 +258,8 @@ const ChoicesPanel = (props, context) => {
  * Countdown timer at the bottom. Includes a cancel vote option for admins.
  * @returns A section visible to everyone.
  */
-const TimePanel = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+const TimePanel = (props) => {
+  const { act, data } = useBackend<Data>();
   const { currentVote, user } = data;
 
   return (
@@ -261,7 +274,8 @@ const TimePanel = (props, context) => {
             <Button
               color="red"
               disabled={!user.isLowerAdmin || !currentVote}
-              onClick={() => act('cancel')}>
+              onClick={() => act('cancel')}
+            >
               Cancel Vote
             </Button>
           )}

@@ -137,29 +137,6 @@
 	mob_name_prefix = "Spec. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
-/datum/ghostspawner/human/admin/tcflsentinel
-	short_name = "tcflsentinel"
-	name = "TCFL Sentinel"
-	desc = "Secure BLV The Tower from any would-be interlopers, provide assistance to returning personnel and/or evacuees."
-
-	enabled = FALSE
-	spawnpoints = list("TCFLSentinel")
-	req_perms = null
-	req_perms_edit = R_CCIAA
-	max_count = 4
-
-	outfit = /obj/outfit/admin/ert/legion/sentinel
-	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
-	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-
-	assigned_role = "TCFL Sentinel"
-	special_role = "TCFL Sentinel"
-	respawn_flag = null
-
-	mob_name = null
-	mob_name_prefix = "Sent. "
-	mob_name_pick_message = "Pick a callsign or last-name."
-
 /client/proc/despawn()
 	set name = "Despawn"
 	set desc = "Your work is done. Leave this realm."

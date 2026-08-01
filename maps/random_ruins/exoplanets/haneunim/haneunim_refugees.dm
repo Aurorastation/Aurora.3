@@ -21,7 +21,7 @@
 	corpseuniform = /obj/item/clothing/under/gearharness
 	corpsesuit = /obj/item/clothing/suit/space/emergency
 	corpsehelmet = /obj/item/clothing/head/helmet/space/emergency
-	corpseback = /obj/item/device/suit_cooling_unit/no_cell
+	corpseback = /obj/item/suit_cooling_unit/no_cell
 	corpseshoes = /obj/item/clothing/shoes/magboots
 	corpseid = FALSE
 	species = SPECIES_IPC

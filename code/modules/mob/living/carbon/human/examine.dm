@@ -306,6 +306,12 @@
 
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
+			if(temp.CheckNeedsAmputation())
+				var/damage_descriptor = "mangled"
+				if(!(temp.burn_ratio < 100))
+					damage_descriptor = "charred"
+				wound_flavor_text["[temp.name]"] = SPAN_DANGER("<b>[get_pronoun("He")] [get_pronoun("has")] \a [temp.name] that is [damage_descriptor] beyond recognition.</b>\n")
+				continue//If it's this bad, we don't care about the rest of the wounds. The limb is gone.
 			var/body_part = temp.body_part
 			if(temp.body_part & HEAD)
 				body_part &= ~HEAD
@@ -374,6 +380,7 @@
 	if(hasHUD(user,MED_HUDTYPE))
 		var/perpname = "wot"
 		var/medical = "None"
+		var/bloodtype = "Unknown"
 
 		var/obj/item/card/id/ID = GetIdCard()
 		if(ID)
@@ -384,10 +391,12 @@
 		var/datum/record/general/R = SSrecords.find_record("name", perpname)
 		if(istype(R))
 			medical = R.physical_status
+			bloodtype = R.medical.blood_type
 
 		msg += "<span class = 'deptradio'>Physical Status:</span> <a href='byond://?src=[REF(src)];medical=1'>\[[medical]\]</a>\n"
 		msg += "<span class = 'deptradio'>Medical Records:</span> <a href='byond://?src=[REF(src)];medrecord=`'>\[View\]</a> <a href='byond://?src=[REF(src)];medrecordadd=`'>\[Add Comment\]</a>\n"
 		msg += "<span class = 'deptradio'>Triage Tag:</span> <a href='byond://?src=[REF(src)];triagetag=1'>\[[triage_tag]\]</a>\n"
+		msg += "<span class = 'deptradio'>Blood type:</span> [bloodtype]\n"
 
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"

@@ -12,17 +12,17 @@
 
 /datum/seed/shand/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION, 3)
-	set_trait(TRAIT_PRODUCTION, 5)
-	set_trait(TRAIT_YIELD, 4)
-	set_trait(TRAIT_POTENCY, 10)
-	set_trait(TRAIT_PRODUCT_ICON,"alien3")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#378C61")
-	set_trait(TRAIT_PLANT_COLOUR,"#378C61")
-	set_trait(TRAIT_PLANT_ICON,"tree5")
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "alien3")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#378C61")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#378C61")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "tree5")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/shandseed
 	seed_type = "shand"
@@ -38,17 +38,17 @@
 
 /datum/seed/mtear/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION, 3)
-	set_trait(TRAIT_PRODUCTION, 5)
-	set_trait(TRAIT_YIELD, 4)
-	set_trait(TRAIT_POTENCY, 10)
-	set_trait(TRAIT_PRODUCT_ICON,"alien4")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#4CC5C7")
-	set_trait(TRAIT_PLANT_COLOUR,"#4CC789")
-	set_trait(TRAIT_PLANT_ICON,"bush7")
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "alien4")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#4CC5C7")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#4CC789")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush7")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/mtearseed
 	seed_type = "mtear"
@@ -64,17 +64,17 @@
 
 /datum/seed/earthenroot/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION, 7)
-	set_trait(TRAIT_PRODUCTION, 5)
-	set_trait(TRAIT_YIELD, 5)
-	set_trait(TRAIT_POTENCY, 8)
-	set_trait(TRAIT_PRODUCT_ICON,"carrot2")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#87CEEB")
-	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
-	set_trait(TRAIT_PLANT_ICON,"alien2")
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
-	set_trait(TRAIT_WATER_CONSUMPTION, 8)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 7)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 5)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 8)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "carrot2")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#87CEEB")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#4D8F53")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "alien2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 8)
 
 /obj/item/seeds/earthenroot
 	seed_type = "earthenroot"
@@ -90,20 +90,20 @@
 
 /datum/seed/dirtberries/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT, 1)
-	set_trait(TRAIT_JUICY, 1)
-	set_trait(TRAIT_MATURATION, 5)
-	set_trait(TRAIT_PRODUCTION, 5)
-	set_trait(TRAIT_YIELD, 2)
-	set_trait(TRAIT_POTENCY, 10)
-	set_trait(TRAIT_PRODUCT_ICON,"bean")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
-	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
-	set_trait(TRAIT_PLANT_ICON,"bush4")
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bean")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#C4AE7A")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#4D8F53")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush4")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 
 /obj/item/seeds/dirtberries
 	seed_type = "dirtberries"
@@ -122,23 +122,23 @@
 
 /datum/seed/mushroom/nfrihi/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION, 6)
-	set_trait(TRAIT_PRODUCTION, 1)
-	set_trait(TRAIT_YIELD, 4)
-	set_trait(TRAIT_POTENCY, 1)
-	set_trait(TRAIT_PRODUCT_ICON,"nfrihi")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#DBDA72")
-	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
-	set_trait(TRAIT_PLANT_ICON,"nfrihi")
-	set_trait(TRAIT_WATER_CONSUMPTION, 4)
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 1)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 1)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "nfrihi")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#DBDA72")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#31331c")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "nfrihi")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 4)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
 
 /obj/item/seeds/blizzard
 	seed_type = "nfrihi"
 
 /datum/seed/sugartree
-	name = "sugar tree"
+	name = "sugartree"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
 	product_desc = "The fruit of the Sugar Tree, native to Adhomai. It is sweet and commonly used in candies."
@@ -150,17 +150,44 @@
 
 /datum/seed/sugartree/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT, 1)
-	set_trait(TRAIT_MATURATION, 9)
-	set_trait(TRAIT_PRODUCTION, 5)
-	set_trait(TRAIT_YIELD, 2)
-	set_trait(TRAIT_PRODUCT_ICON,"nmshaan")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#fffdf7")
-	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
-	set_trait(TRAIT_PLANT_ICON,"nmshaan")
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
-	set_trait(TRAIT_WATER_CONSUMPTION, 4)
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 9)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "sugartree")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#fffdf7")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#31331c")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "sugartree")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 4)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 
 /obj/item/seeds/sugartree
-	seed_type = "sugar tree"
+	seed_type = "sugartree"
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea
+	name = "messa's tear leaves"
+	desc = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+			Its leaves, while traditionally used for treating burns, is a common choice for making traditional teas."
+	plantname = "mtear"
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "messas_tear"
+	color = "#4CC5C7"
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent(/singleton/reagent/nutriment/teagrounds/messa, 5)
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/update_desc()
+	return
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/afterattack(atom/target, mob/user, proximity, params)
+	if(proximity && target.is_open_container() && target.reagents)
+		if(!target.reagents.total_volume)
+			to_chat(user, SPAN_WARNING("You can't steep tea inside of an empty pot!"))
+			return
+		to_chat(user, SPAN_NOTICE("You steep \the [src] inside \the [target]."))
+
+		reagents.trans_to(target, reagents.total_volume)
+		qdel(src)

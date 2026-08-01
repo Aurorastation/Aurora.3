@@ -88,7 +88,6 @@
 	icon_state = "exterior"
 	base_turf = /turf/space
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	has_gravity = FALSE
 	no_light_control = TRUE
 	allow_nightmode = FALSE

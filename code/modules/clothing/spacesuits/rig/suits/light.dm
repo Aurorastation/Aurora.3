@@ -6,16 +6,16 @@
 	icon_state = "ninja_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	suit_type = "light suit"
-	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
 		BULLET = ARMOR_BALLISTIC_SMALL,
 		LASER = ARMOR_LASER_RIFLE,
-		energy = ARMOR_MELEE_MINOR,
+		ENERGY = ARMOR_MELEE_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	emp_protection = 100
-	slowdown = -1
+	slowdown = -0.15
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	offline_slowdown = 0
@@ -28,6 +28,16 @@
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
 	glove_type = /obj/item/clothing/gloves/rig/light
 
+/obj/item/rig/light/update_slowdown() //Light rigs do not suffer a penalty for undeployed boots
+	var/new_slowdown = initial(slowdown)
+
+	if(offline)
+		new_slowdown = offline_slowdown
+
+	if(slowdown != new_slowdown)
+		slowdown = new_slowdown
+		wearer?.update_equipment_speed_mods() //This should only proc if worn, but just in case we check.
+
 /obj/item/clothing/suit/space/rig/light
 	name = "suit"
 	breach_threshold = 18 //comparable to voidsuits
@@ -37,7 +47,7 @@
 
 /obj/item/clothing/shoes/magboots/rig/light
 	name = "shoes"
-	footstep_sound_override = null
+	movement_sounds = null
 
 /obj/item/clothing/head/helmet/space/rig/light
 	name = "hood"
@@ -51,7 +61,7 @@
 
 	req_access = list(ACCESS_SYNDICATE)
 
-	airtight = 0
+	airtight = FALSE
 	seal_delay = 5 //not being vaccum-proof has an upside I guess
 
 	helm_type = /obj/item/clothing/head/lightrig/hacker
@@ -209,13 +219,13 @@
 	icon = 'icons/obj/item/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
 	icon_supported_species_tags = null
-	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
+	allowed = list(/obj/item/tank, /obj/item/flashlight)
 	armor = list(
 		BIO = ARMOR_BIO_MINOR,
 		RAD = ARMOR_RAD_MINOR
 	)
 	slowdown = 0
-	airtight = 0
+	airtight = FALSE
 	seal_delay = 5
 	helm_type = /obj/item/clothing/head/lightrig/offworlder
 	chest_type = /obj/item/clothing/suit/lightrig/offworlder
@@ -223,7 +233,7 @@
 	boot_type = null
 
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/storage
 		)
@@ -260,15 +270,15 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
-	slowdown = -1
+	slowdown = -0.3
 	offline_slowdown = 0
-	airtight = 1
+	airtight = TRUE
 	offline_vision_restriction = TINT_HEAVY
 	siemens_coefficient = 0.2
 	icon_supported_species_tags = null
 
 	allowed = list(
-		/obj/item/device/flashlight,
+		/obj/item/flashlight,
 		/obj/item/tank,
 		/obj/item/gun,
 		/obj/item/ammo_magazine,
@@ -278,7 +288,7 @@
 	)
 
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/chem_dispenser/combat
@@ -293,7 +303,7 @@
 
 /obj/item/rig/light/offworlder/frontier/equipped
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,
@@ -302,7 +312,7 @@
 		)
 /obj/item/rig/light/offworlder/frontier/ninja
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,
@@ -329,11 +339,11 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA, BODYTYPE_IPC, BODYTYPE_TAJARA)
 
 	seal_delay = 3 // Its only deploying the myomers and helmet.
-	offline_slowdown = 3
-	slowdown = 1
+	offline_slowdown = 1.5
+	slowdown = 0.5
 	offline_vision_restriction = TINT_BLIND // Visorless helmet sprite, the helmet's face is just a camera.
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
+	allowed = list(/obj/item/gun,/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/melee/baton)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
 	chest_type = /obj/item/clothing/suit/space/rig/light/falcata

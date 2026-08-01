@@ -103,9 +103,9 @@
 	description = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
 	price = 5000
 	items = list(
-		/obj/machinery/mining/drill,
-		/obj/machinery/mining/brace,
-		/obj/machinery/mining/brace
+		/obj/structure/machinery/mining/drill,
+		/obj/structure/machinery/mining/brace,
+		/obj/structure/machinery/mining/brace
 	)
 	access = ACCESS_MINING
 	container_type = "crate"

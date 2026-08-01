@@ -96,7 +96,7 @@
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacc"
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 	gender = NEUTER
 	status_flags = 0
 	anchored = 1
@@ -135,9 +135,8 @@
 
 /mob/living/simple_animal/hostile/greatworm/Destroy()
 	SSmobs.greatworms -= src
-	if(sarlacc)
-		qdel(sarlacc)
-		sarlacc = null
+	QDEL_NULL(sarlacc)
+	QDEL_LIST(active_tentacles)
 	return ..()
 
 /mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
@@ -168,11 +167,11 @@
 			sated -= 1
 		if(prob(5) && tentacles < 6)
 			tentacles += 1
-		if(health < maxHealth)
+		if(health < maxhealth)
 			health += 1
 			sated -= 1
-			if(health >= maxHealth)
-				health = maxHealth
+			if(health >= maxhealth)
+				health = maxhealth
 		if(sarlacc && sarlacc.deployed)
 			sarlacc.deployed = 0
 	else
@@ -260,7 +259,7 @@
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacctentacle"
 	health = 25
-	maxHealth = 25
+	maxhealth = 25
 	gender = NEUTER
 	status_flags = 0
 	anchored = 1
@@ -289,6 +288,7 @@
 /mob/living/simple_animal/hostile/lesserworm/Destroy()
 	if(originator)
 		originator.active_tentacles -= src
+	originator = null
 	return ..()
 
 /mob/living/simple_animal/hostile/lesserworm/proc/Penetrate()
@@ -316,13 +316,13 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	universal_speak = 1
 	universal_understand = 1
 
 	health = 450
-	maxHealth = 450
+	maxhealth = 450
 
 	gender = MALE
 	status_flags = 0

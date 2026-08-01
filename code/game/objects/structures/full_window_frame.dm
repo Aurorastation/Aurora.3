@@ -3,14 +3,15 @@
 	desc = "A steel window frame."
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	icon_state = "window_frame"
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	color = COLOR_GRAY20
 	build_amt = 4
+	pass_flags_self = PASSRAILING
 	layer = WINDOW_FRAME_LAYER
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
 	smoothing_flags = SMOOTH_MORE
-	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -19,15 +20,16 @@
 		/turf/unsimulated/wall/steel, // Centcomm wall.
 		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
 		/turf/unsimulated/wall/riveted, // Centcomm wall.
+		/turf/unsimulated/wall/fakepdoor,
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 	blend_overlay = "wall"
 	can_blend_with = list(
 		/turf/simulated/wall,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
@@ -58,8 +60,13 @@
 		return TRUE
 	return FALSE
 
+/obj/structure/window_frame/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
 /obj/structure/window_frame/attackby(obj/item/attacking_item, mob/user)
-	if((attacking_item.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
+	if((attacking_item.tool_behaviour == TOOL_SCREWDRIVER) && (istype(loc, /turf/simulated) || anchored))
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't unfasten \the [src] if it has glass installed."))
 			return
@@ -79,7 +86,7 @@
 				update_nearby_icons()
 				return
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't disassemble \the [src] if it has glass installed."))
 			return
@@ -111,27 +118,26 @@
 			to_chat(user, SPAN_NOTICE("\The [src] needs to be anchored."))
 			return
 
-		var/material_name = attacking_item.get_material_name()
-		if(material_name in list(MATERIAL_GLASS_REINFORCED, MATERIAL_GLASS_REINFORCED_PHORON))
+		var/obj/item/stack/material/glass_stack = attacking_item
+		var/singleton/material/glass_material = glass_stack.get_material()
+		if(glass_material?.type in list(MATERIAL_GLASS_REINFORCED, MATERIAL_GLASS_REINFORCED_PHORON))
 			if(has_glass_installed)
 				to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
 				return
-
-			var/obj/item/stack/material/glass_stack = attacking_item
 
 			if(!do_after(user, 2 SECONDS))
 				return
 
 			if(!glass_stack.use(glass_needed))
 				var/message = "You need at least [glass_needed] sheets of " \
-					+ "[material_name] to install a window in \the [src]."
+					+ "[glass_material.use_name] to install a window in \the [src]."
 				to_chat(user, SPAN_NOTICE(message))
 				return
 
 			playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
-			to_chat(user, SPAN_NOTICE("You place the [material_name] in the window frame."))
+			to_chat(user, SPAN_NOTICE("You place the [glass_material.use_name] in the window frame."))
 
-			switch(material_name)
+			switch(glass_material.type)
 				if(MATERIAL_GLASS_REINFORCED)
 					new /obj/structure/window/full/reinforced(get_turf(src), constructed = TRUE)
 				if(MATERIAL_GLASS_REINFORCED_PHORON)
@@ -169,6 +175,7 @@
 		new_grille.shock(user, 70) // You haven't forgotten your precautions, have you?
 		has_grille_installed = TRUE
 		return
+	else return ..()
 
 /obj/structure/window_frame/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -177,6 +184,7 @@
 		W.hitby(arglist(args))
 
 /obj/structure/window_frame/wood
+	maxhealth = OBJECT_HEALTH_LOW
 	color = "#8f5847"
 
 /obj/structure/window_frame/unanchored // Used during in-game construction.
@@ -187,6 +195,7 @@
 	should_check_mapload = FALSE // No glass.
 
 /obj/structure/window_frame/shuttle
+	maxhealth = OBJECT_HEALTH_HIGH
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	color = null
 	smoothing_flags = SMOOTH_MORE
@@ -196,13 +205,13 @@
 		/turf/simulated/wall/shuttle/dark,
 		/turf/simulated/wall/shuttle/dark/cardinal,
 		/obj/structure/window_frame/shuttle,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 
 	can_blend_with = list(
 		/turf/simulated/wall/shuttle,
 		/turf/simulated/wall/shuttle/cardinal,
-		/obj/machinery/door
+		/obj/structure/machinery/door
 	)
 
 /obj/structure/window_frame/shuttle/merc

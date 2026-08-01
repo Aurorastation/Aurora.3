@@ -24,6 +24,12 @@
 // Real modulus that handles decimals
 #define MODULUS(x, y) ( (x) - FLOOR(x, y))
 
+/// clamp() but in order of low - mid - high instead of mid - low - high.
+#define between(low, mid, high) ( clamp(mid, low, high) )
+
+/// returns current_value as % of max_value, e.g. 60 is 60% of 100
+
+#define AS_PCT(current_value, max_value) ( round((current_value / max_value) * 100, 1) )
 
 // Similar to clamp but the bottom rolls around to the top and vice versa. min is inclusive, max is exclusive
 #define WRAP(val, min, max) clamp(( min == max ? min : (val) - (round(((val) - (min))/((max) - (min))) * ((max) - (min))) ),min,max)

@@ -7,7 +7,7 @@
 	else
 		construction_stage = null
 	if(!material)
-		material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+		material = GET_SINGLETON(MATERIAL_STEEL)
 	if(material)
 		explosion_resistance = material.explosion_resistance
 		if (material.wall_icon)
@@ -38,7 +38,7 @@
 
 	update_icon()
 
-/turf/simulated/wall/proc/set_material(var/material/newmaterial, var/material/newrmaterial)
+/turf/simulated/wall/proc/set_material(var/singleton/material/newmaterial, var/singleton/material/newrmaterial)
 	material = newmaterial
 	reinf_material = newrmaterial
 	update_material()
@@ -91,12 +91,12 @@
 		if (reinforcement_images)
 			overlays_to_add += reinforcement_images
 
-	if(damage != 0)
+	if(health < maxhealth)
 		var/integrity = material.integrity
 		if(reinf_material)
 			integrity += reinf_material.integrity
 
-		var/overlay = round(damage / integrity * damage_overlays.len) + 1
+		var/overlay = round(abs(health - maxhealth) / integrity * damage_overlays.len) + 1
 		if(overlay > damage_overlays.len)
 			overlay = damage_overlays.len
 

@@ -20,22 +20,22 @@ STOCK_ITEM_UNCOMMON(phoronsheets, 0.25)
 STOCK_ITEM_UNCOMMON(phoronglass, 0.5)
 	new /obj/item/stack/material/glass/phoronglass(L, rand(10,20))
 
-STOCK_ITEM_UNCOMMON(sandstone, 2)
-	new /obj/item/stack/material/sandstone(L, 50)
-
-STOCK_ITEM_UNCOMMON(marble, 2)
-	new /obj/item/stack/material/marble(L, 50)
+STOCK_ITEM_UNCOMMON(stone, 2)
+	if(prob(50))
+		new /obj/item/stack/material/sandstone(L, 50)
+	else
+		new /obj/item/stack/material/marble(L, 50)
 
 STOCK_ITEM_UNCOMMON(iron, 2)
 	new /obj/item/stack/material/iron(L, 50)
 
 STOCK_ITEM_UNCOMMON(other_mat, 0.5)
 	var/obj/item/stack/material/M = pick(/obj/item/stack/material/osmium, /obj/item/stack/material/mhydrogen, /obj/item/stack/material/tritium, /obj/item/stack/material/bronze)
-	new M(L, rand(1, 10))
+	new M(L, rand(1, 20))
 
 STOCK_ITEM_UNCOMMON(flare, 2)
-	new /obj/item/device/flashlight/flare(L)
-	new /obj/item/device/flashlight/flare(L)
+	new /obj/item/flashlight/flare(L)
+	new /obj/item/flashlight/flare(L)
 	if (prob(50))
 		new /obj/random/glowstick(L)
 
@@ -43,30 +43,30 @@ STOCK_ITEM_UNCOMMON(implants, 1)
 	if(prob(50))
 		new /obj/item/storage/box/cdeathalarm_kit(L)
 	else
-		new /obj/item/storage/box/trackimp(L)
+		new /obj/item/storage/box/tactical/trackimp(L)
 
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
-	new /obj/item/storage/box/flashbangs(L)
+	new /obj/item/storage/box/tactical/flashbangs(L)
 
 STOCK_ITEM_UNCOMMON(stinger, 0.75)
-	new /obj/item/storage/box/stingers(L)
+	new /obj/item/storage/box/tactical/stingers(L)
 
 STOCK_ITEM_UNCOMMON(arrest, 1)
 	if(prob(60))
 		new /obj/item/storage/box/handcuffs(L)
 	else
-		new /obj/item/device/holowarrant(L)
+		new /obj/item/holowarrant(L)
 
 STOCK_ITEM_UNCOMMON(monkey, 2)
 	if(prob(40))
 		var/type = pick( \
-			/obj/item/storage/box/monkeycubes/farwacubes, \
-			/obj/item/storage/box/monkeycubes/stokcubes, \
-			/obj/item/storage/box/monkeycubes/neaeracubes \
+			/obj/item/storage/box/unique/monkeycubes/farwacubes, \
+			/obj/item/storage/box/unique/monkeycubes/stokcubes, \
+			/obj/item/storage/box/unique/monkeycubes/neaeracubes \
 		)
 		new type(L)
 	else
-		new /obj/item/storage/box/monkeycubes(L)
+		new /obj/item/storage/box/unique/monkeycubes(L)
 
 STOCK_ITEM_UNCOMMON(specialcrayon, 1.5)
 	if(prob(50))
@@ -82,7 +82,6 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 	for(var/i in 1 to rand(1,2))
 		var/type = pick( \
 			/obj/item/cell/super, \
-			/obj/item/cell/potato, \
 			/obj/item/cell/high \
 		)
 		new type(L)
@@ -120,9 +119,15 @@ STOCK_ITEM_UNCOMMON(circuitboards, 3)
 	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
 		/obj/item/circuitboard/unary_atmos,
-		/obj/item/circuitboard/telecomms
+		/obj/item/circuitboard/telecomms,
+		/* Remove abstract hardsuit circuit boards.
+			These 4 aren't used in hardsuit construction.
+			Their children are used instead. */
+		/obj/item/circuitboard/rig_assembly,
+		/obj/item/circuitboard/rig_assembly/civilian,
+		/obj/item/circuitboard/rig_assembly/combat,
+		/obj/item/circuitboard/rig_assembly/illegal
 	)
-	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
 	for(var/i in 1 to rand(1, 2))
@@ -161,20 +166,20 @@ STOCK_ITEM_UNCOMMON(watch, 3)
 	new /obj/random/watches(L)
 
 STOCK_ITEM_UNCOMMON(MMI, 1.5)
-	new /obj/item/device/mmi(L)
+	new /obj/item/mmi(L)
 
 STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
 
 STOCK_ITEM_UNCOMMON(violin, 1)
-	new /obj/item/device/synthesized_instrument/violin(L)
+	new /obj/item/synthesized_instrument/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
 	new /obj/item/clothing/head/hardhat/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
 STOCK_ITEM_UNCOMMON(debugger, 2)
-	new /obj/item/device/debugger(L)
+	new /obj/item/debugger(L)
 
 STOCK_ITEM_UNCOMMON(surgerykit, 2.5)
 	new /obj/item/storage/firstaid/surgery(L)
@@ -212,13 +217,14 @@ STOCK_ITEM_UNCOMMON(robot, 2)
 
 STOCK_ITEM_UNCOMMON(headset, 2)
 	var/list/sets = list(
-		/obj/item/device/radio/headset/headset_eng = 1,
-		/obj/item/device/radio/headset/headset_rob = 0.4,
-		/obj/item/device/radio/headset/headset_med = 1,
-		/obj/item/device/radio/headset/headset_sci = 0.8,
-		/obj/item/device/radio/headset/headset_medsci = 0.4,
-		/obj/item/device/radio/headset/headset_cargo = 1,
-		/obj/item/device/radio/headset/headset_service = 1
+		/obj/item/radio/headset/headset_eng = 1,
+		/obj/item/radio/headset/headset_rob = 0.4,
+		/obj/item/radio/headset/headset_med = 1,
+		/obj/item/radio/headset/headset_sci = 0.8,
+		/obj/item/radio/headset/headset_medsci = 0.4,
+		/obj/item/radio/headset/headset_cargo = 1,
+		/obj/item/radio/headset/headset_service = 1,
+		/obj/item/radio/headset/headset_sec = 0.5
 	)
 
 	var/type = pickweight(sets)
@@ -231,20 +237,46 @@ STOCK_ITEM_UNCOMMON(scythe, 0.75)
 	new /obj/item/material/scythe(L)
 
 STOCK_ITEM_UNCOMMON(laserpoint, 0.75)
-	new /obj/item/device/laser_pointer(L)
+	new /obj/item/laser_pointer(L)
 
 STOCK_ITEM_UNCOMMON(manual, 2)
-	var/list/booklist = subtypesof(/obj/item/book/manual)
-	booklist -= /obj/item/book/manual/wiki //just this one. we want to keep the subtypes.
-	booklist -= /obj/item/book/manual/nuclear //yeah no
-	var/type = pick(booklist)
-	new type(L)
+	if(prob(20))
+		var/list/booklist = subtypesof(/obj/item/book/manual)
+		booklist -= /obj/item/book/manual/wiki //just this one. we want to keep the subtypes.
+		booklist -= /obj/item/book/manual/nuclear //yeah no
+		var/type = pick(booklist)
+		new type(L)
+	else
+		if (!establish_db_connection(GLOB.dbcon))
+			return
+
+		var/query_str = "SELECT author, title, content FROM ss13_library ORDER BY RAND() LIMIT :amount:"
+		var/list/query_data = list("amount" = 3)
+
+		var/DBQuery/query_books = GLOB.dbcon.NewQuery(query_str)
+		query_books.Execute(query_data)
+
+		while (query_books.NextRow())
+			CHECK_TICK
+			var/author = query_books.item[1]
+			var/title = query_books.item[2]
+			var/content = query_books.item[3]
+			var/obj/item/book/B = new(L)
+			B.name = "Book: [title]"
+			B.title = title
+			B.author = author
+			B.dat = content
+			var/randbook = "book[rand(1,16)]"
+			B.icon_state = randbook
+			B.item_state = randbook
 
 STOCK_ITEM_UNCOMMON(spystuff, 0.75)
 	if(prob(40))
-		new /obj/item/device/radiojammer(L)
+		new /obj/item/radiojammer(L)
 	else
 		new /obj/item/clothing/glasses/night(L)
+	if(prob(10))
+		new /obj/item/storage/box/syndie_kit/spy/hidden(L)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
 	for(var/i in 1 to rand(1, 3))
@@ -286,7 +318,7 @@ STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
 	new /obj/item/surgery/scalpel/laser(L)
 
 STOCK_ITEM_UNCOMMON(electropack, 1)
-	new /obj/item/device/radio/electropack(L)
+	new /obj/item/radio/electropack(L)
 
 STOCK_ITEM_UNCOMMON(randomhide, 0.5)
 	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))
@@ -340,9 +372,9 @@ STOCK_ITEM_UNCOMMON(wristbound, 0.5)
 
 STOCK_ITEM_UNCOMMON(pops, 0.5)
 	if(prob(85))
-		new /obj/item/storage/box/snappops(L)
+		new /obj/item/storage/box/unique/snappops(L)
 	else if (prob(25))
-		new /obj/item/storage/box/snappops/syndi(L)
+		new /obj/item/storage/box/unique/snappops/syndi(L)
 	else
 		new /obj/item/storage/box/partypopper(L)
 
@@ -376,8 +408,11 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 STOCK_ITEM_UNCOMMON(gumballs, 3)
 	new /obj/item/glass_jar/gumball(L)
 
-STOCK_ITEM_UNCOMMON(googly, 0.75)
-	new /obj/item/storage/stickersheet/googly_eye(L)
+STOCK_ITEM_UNCOMMON(stickers, 1)
+	var/list/all_stickers = subtypesof(/obj/item/storage/stickersheet)
+
+	var/type = pick(all_stickers)
+	new type(L)
 
 STOCK_ITEM_UNCOMMON(wizarddressup, 1)
 	new /obj/random/wizard_dressup(L)

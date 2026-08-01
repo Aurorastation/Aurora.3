@@ -13,6 +13,10 @@
 	var/stumptype = /obj/structure/flora/stump //stump to make when chopped
 	var/static/list/fall_forbid = list(/obj/structure/flora, /obj/effect, /obj/structure/bonfire, /obj/structure/pit)
 
+/obj/structure/flora/tree/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
 /obj/structure/flora/tree/proc/update_desc()
 	desc = initial(desc)
 	switch(chop_health / max_chop_health)

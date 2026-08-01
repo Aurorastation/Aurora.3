@@ -35,7 +35,7 @@
 	gender = NEUTER
 
 	// Health
-	maxHealth = 35
+	maxhealth = 35
 	health = 35
 
 	// Components
@@ -73,7 +73,7 @@
 
 	// Laws
 	var/datum/drone_matrix/master_matrix
-	var/obj/machinery/drone_fabricator/master_fabricator
+	var/obj/structure/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
 
 	// Self-Mailing
@@ -94,6 +94,7 @@
 	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
 	add_verb(src, /mob/living/proc/hide)
+	RegisterSignal(src, COMSIG_MOB_ON_HIDE, PROC_REF(on_hide))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, FALSE)
 	add_language(LANGUAGE_DRONE, TRUE)
@@ -168,8 +169,8 @@
 		return default_language
 	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
-/mob/living/silicon/robot/drone/fall_impact()
-	..(damage_mod = 0.05) //reduces fall damage by 95%
+/mob/living/silicon/robot/drone/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+	..(levels_fallen, stopped_early, damage_mod * 0.05) //reduces fall damage by 95%
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
@@ -227,7 +228,7 @@
 	module_type = /obj/item/robot_module/drone/construction/matriarch
 	law_type = /datum/ai_laws/matriarch_drone
 	can_swipe = FALSE
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 
 	var/matrix_tag
@@ -264,14 +265,14 @@
 		request_player()
 
 /mob/living/silicon/robot/drone/construction/matriarch/Destroy()
-	. = ..()
 	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	return ..()
 
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
+	ai_camera = new /obj/item/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
 	if(!laws)
 		laws = new law_type
@@ -297,29 +298,31 @@
 
 /mob/living/silicon/robot/drone/setup_eye_cache()
 	cached_eye_overlays = list(
-		I_HELP = image(icon, "[icon_state]-eyes_help"),
-		I_HURT = image(icon, "[icon_state]-eyes_harm"),
-		"emag" = image(icon, "[icon_state]-eyes_emag")
+		I_HELP = mutable_appearance(icon, "[icon_state]-eyes_help"),
+		I_HURT = mutable_appearance(icon, "[icon_state]-eyes_harm"),
+		"emag" = mutable_appearance(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
-		CutOverlays(eye_overlay)
+		CutOverlays(list(eye_overlay, eye_emissive))
 	eye_overlay = cached_eye_overlays[a_intent]
-	AddOverlays(eye_overlay)
+	// Disables emissives while hiding due to table-clipping issues
+	eye_emissive = (layer == MOB_LAYER ? emissive_appearance(icon, "[icon_state]-eyes_help") : null)
+	AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/setup_panel_cache()
 	cached_panel_overlays = list(
-		ROBOT_PANEL_EXPOSED = image(icon, "[icon_state]-openpanel+w"),
-		ROBOT_PANEL_CELL = image(icon, "[icon_state]-openpanel+c"),
-		ROBOT_PANEL_NO_CELL = image(icon, "[icon_state]-openpanel-c")
+		ROBOT_PANEL_EXPOSED = mutable_appearance(icon, "[icon_state]-openpanel+w"),
+		ROBOT_PANEL_CELL = mutable_appearance(icon, "[icon_state]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = mutable_appearance(icon, "[icon_state]-openpanel-c")
 	)
 
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
-	CutOverlays(eye_overlay)
+	CutOverlays(list(eye_overlay, eye_emissive))
 	if(!stat)
 		eye_overlay = cached_eye_overlays[emagged ? "emag" : set_intent]
-		AddOverlays(eye_overlay)
+		AddOverlays(list(eye_overlay, eye_emissive))
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -348,7 +351,7 @@
 	else if(istype(attacking_item, /obj/item/borg/upgrade/))
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
 	else if(attacking_item.GetID() || istype(attacking_item, /obj/item/card/robot))
@@ -356,7 +359,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
 			return
 		if(stat == DEAD)
-			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxhealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 			if(!allowed(usr))
@@ -411,7 +414,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
-	set_intent(I_HURT) // force them to hurt to update the eyes, they can swap to and fro if they wish, though - geeves
+	set_intent(a_intent) // Send an intent update so their eyes change to "emag"
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
@@ -454,17 +457,17 @@
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 		return
-	health = maxHealth - (getBruteLoss() + getFireLoss())
+	health = maxhealth - (getBruteLoss() + getFireLoss())
 	return
 
 //Easiest to check this here, then check again in the robot proc.
 //Standard robots use config for crit, which is somewhat excessive for these guys.
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
-	if(health <= -maxHealth && src.stat != DEAD)
+	if(health <= -maxhealth && src.stat != DEAD)
 		gib()
 		return
 	..()

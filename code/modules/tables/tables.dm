@@ -8,7 +8,6 @@
 	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
 	layer = TABLE_LAYER
-	breakable = TRUE
 	build_amt = 1
 
 	//Preset shit
@@ -17,15 +16,15 @@
 	var/no_cargo
 
 	var/flipped = 0
-	var/maxhealth = 10
-	var/health = 10
+	maxhealth = 10
 
 	// For racks (which cannot be either of these things)
 	var/can_reinforce = 1
 	var/can_plate = 1
 
 	var/manipulating = 0
-	var/material/reinforced = null
+	var/singleton/material/reinforced = null
+	var/obj/item/stack/dismantle_mat = /obj/item/stack/rods
 
 	// Gambling tables. I'd prefer reinforced with carpet/felt/cloth/whatever, but AFAIK it's either harder or impossible to get /obj/item/stack/material of those.
 	// Convert if/when you can easily get stacks of these.
@@ -33,8 +32,7 @@
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
-/obj/structure/table/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/table/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)
@@ -135,11 +133,10 @@
 
 /obj/structure/table/Initialize()
 	if(table_mat)
-		material = SSmaterials.get_material_by_name(table_mat)
+		material = SSmaterials.get_material_by_id(table_mat)
 	if(table_reinf)
-		reinforced = SSmaterials.get_material_by_name(table_reinf)
-	if(reinforced)
-		breakable = FALSE
+		reinforced = SSmaterials.get_material_by_id(table_reinf)
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 	. = ..()
 
@@ -193,10 +190,10 @@
 
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
-		breakable = FALSE
 		update_desc()
 		queue_icon_update()
 		update_material()
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 /obj/structure/table/proc/update_desc()
 	if(material)
@@ -213,7 +210,7 @@
 
 // Returns the material to set the table to.
 /obj/structure/table/proc/common_material_add(obj/item/stack/material/S, mob/user, verb) // Verb is actually verb without 'e' or 'ing', which is added. Works for 'plate'/'plating' and 'reinforce'/'reinforcing'.
-	var/material/M = S.get_material()
+	var/singleton/material/M = S.get_material()
 	if(!istype(M))
 		to_chat(user, SPAN_WARNING("You cannot [verb]e \the [src] with \the [S]."))
 		return null
@@ -231,7 +228,7 @@
 	return M
 
 // Returns the material to set the table to.
-/obj/structure/table/proc/common_material_remove(mob/user, material/M, delay, what, type_holding, sound)
+/obj/structure/table/proc/common_material_remove(mob/user, singleton/material/M, delay, what, type_holding, sound)
 	if(!M.stack_type)
 		to_chat(user, SPAN_WARNING("You are unable to remove the [what] from this table!"))
 		return M
@@ -253,7 +250,6 @@
 
 /obj/structure/table/proc/remove_reinforced(obj/item/screwdriver/S, mob/user)
 	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
-	breakable = TRUE
 
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
@@ -269,7 +265,7 @@
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
 						SPAN_NOTICE("You dismantle \the [src]."))
-	new /obj/item/stack/rods(src.loc, 2)
+	new dismantle_mat(src.loc)
 	qdel(src)
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
@@ -290,7 +286,7 @@
 			S = reinforced.place_shard(loc)
 			if(S) shards += S
 	if(material)
-		if(material.stack_type && (full_return || prob(20)))
+		if(material?.stack_type && (full_return || prob(20)))
 			material.place_sheet(loc)
 		else
 			S = material.place_shard(loc)
@@ -298,9 +294,7 @@
 	if(carpeted && (full_return || prob(50))) // Higher chance to get the carpet back intact, since there's no non-intact option
 		new /obj/item/stack/tile/carpet(src.loc)
 	if(full_return || prob(20))
-		new /obj/item/stack/rods(src.loc, 2)
-	else
-		new /obj/item/stack/rods(src.loc)
+		new dismantle_mat(src.loc)
 	qdel(src)
 	return shards
 
@@ -349,7 +343,7 @@
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
 			var/obj/structure/table/T = locate(/obj/structure/table ,get_step(src,direction))
-			if(T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.name == material.name)
+			if(T && T.flipped == 1 && T.dir == src.dir && material && T.material && T.material.type == material.type)
 				type++
 				tabledirs |= direction
 
@@ -442,7 +436,7 @@
 	for(var/obj/structure/table/T in orange(src, 1))
 		var/T_dir = get_dir(src, T)
 		if(T_dir in blocked_dirs) continue
-		if(material && T.material && material.name == T.material.name && flipped == T.flipped)
+		if(material && T.material && material.type == T.material.type && flipped == T.flipped)
 			connection_dirs |= T_dir
 		if(propagate)
 			INVOKE_ASYNC(T, PROC_REF(update_connections))

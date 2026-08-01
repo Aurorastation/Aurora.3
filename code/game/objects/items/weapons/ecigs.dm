@@ -52,6 +52,11 @@
 		cig_cell = new cell_type(src)
 	ec_cartridge = new cartridge_type(src)
 
+/obj/item/clothing/mask/smokable/ecig/Destroy()
+	QDEL_NULL(ec_cartridge)
+	QDEL_NULL(cig_cell)
+	return ..()
+
 /obj/item/clothing/mask/smokable/ecig/get_cell()
 	return cig_cell
 
@@ -125,7 +130,7 @@
 			update_icon()
 			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cig_cell) //if contains powercell
 			cig_cell.update_icon()
 			user.put_in_hands(cig_cell)

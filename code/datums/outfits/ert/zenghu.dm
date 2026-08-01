@@ -6,7 +6,7 @@
 	suit = /obj/item/clothing/suit/space/void/zenghu
 	head = /obj/item/clothing/head/helmet/space/void/zenghu
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	id = /obj/item/card/id/zeng_hu
 	mask = /obj/item/clothing/mask/gas/tactical
 	glasses = /obj/item/clothing/glasses/night
@@ -15,11 +15,11 @@
 	suit_store = /obj/item/gun/energy/rifle
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(
-		/obj/item/gun/energy/toxgun = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 	belt_contents = list(
 			/obj/item/shield/energy = 1,
-			/obj/item/device/flash = 1,
+			/obj/item/flash = 1,
 			/obj/item/handcuffs/ziptie = 2,
 			/obj/item/melee/baton/loaded = 1,
 			/obj/item/grenade/flashbang = 2
@@ -39,12 +39,12 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/shield/energy = 1,
-		/obj/item/gun/energy/toxgun = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 
 	belt_contents = list(
@@ -72,7 +72,7 @@
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
-		/obj/item/gun/energy/toxgun = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 	belt_contents = null
 

@@ -19,7 +19,8 @@
 
 /obj/item/spell/shield/Initialize()
 	. = ..()
-	set_light(3, 2, l_color = "#006AFF")
+	set_light_range_power_color(3, 2, "#006AFF")
+	set_light_on(TRUE)
 
 /obj/item/spell/shield/update_icon()
 	var/mob/living/carbon/human/H = owner
@@ -41,7 +42,7 @@
 		if(istype(H.get_other_hand(src), src.type)) // Two shields in both hands.
 			damage_to_energy_cost *= 0.75
 
-	else if(check_for_scepter())
+	if(check_for_scepter())
 		damage_to_energy_cost *= 0.50
 
 	if(!pay_energy(damage_to_energy_cost))

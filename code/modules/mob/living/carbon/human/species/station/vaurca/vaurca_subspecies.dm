@@ -66,6 +66,8 @@
 		"C'thur: Unbound Xetl" = "#370078"
 	)
 
+	mass_modifier = REFERENCE_MASS_VAURCA_ZA / REFERENCE_MASS_HUMAN
+
 /datum/species/bug/type_b/type_bb
 	name = SPECIES_VAURCA_ATTENDANT
 	name_plural = "Type BB"
@@ -73,7 +75,7 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	eyes = "vaurca_attendant_eyes"
 
-	slowdown = -0.8
+	slowdown = -0.6
 	brute_mod = 0.9
 	oxy_mod = 1
 	radiation_mod = 0.5
@@ -151,10 +153,6 @@
 	default_genders = list(FEMALE)
 	economic_modifier = 12
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 100
-
-	death_sound = 'sound/voice/hiss6.ogg'
 	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
@@ -224,6 +222,8 @@
 		"C'thur: Mouv" = "#7D75FF"
 	)
 
+	mass_modifier = REFERENCE_MASS_VAURCA_TA / REFERENCE_MASS_HUMAN
+
 /datum/species/bug/type_c/New()
 	..()
 	equip_adjust = list(
@@ -264,11 +264,9 @@
 	total_health = 200
 	break_cuffs = TRUE
 	mob_size = 30
+	mob_weight = MOB_WEIGHT_SUPERHEAVY
+	mob_strength = MOB_STRENGTH_VERY_STRONG
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 100
-
-	death_sound = 'sound/voice/hiss6.ogg'
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
@@ -314,10 +312,14 @@
 	default_h_style = "Bald"
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
 	valid_prosthetics = null
+	mass_modifier = REFERENCE_MASS_VAURCA_BA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= HULK
 	return ..()
+
+/datum/species/bug/type_big/New()
+	..()
 
 /datum/species/bug/type_e
 	name = SPECIES_VAURCA_BULWARK
@@ -372,6 +374,8 @@
 	resist_mod = 14 //also very strong
 
 	mob_size = 28
+	mob_weight = MOB_WEIGHT_SUPERHEAVY
+	mob_strength = MOB_STRENGTH_STRONG
 	taste_sensitivity = TASTE_DULL
 	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C'thur and Nralakk scientists. Originally only the C'thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo'ra and K'lax as well, causing an even more strained relationship between the Hives.<br>
 Similar to Workers, Bulwarks are generally passive, and prefer to flee a fight rather than resist. Though due to their speed, they may still choose to defend themselves should they be unable to properly escape a battle. The main exception to this is when another Vaurca is in danger. When this occurs, they tend to put themselves in between the attacker and the Vaurca, acting as a shield of sorts. They won't go out of their way to take down the attacker, but will ensure the others get away safely.<br>
@@ -384,8 +388,7 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 
 	sprint_speed_factor = 1.0
 	stamina = 50
-	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
-	valid_prosthetics = null
+	valid_prosthetics = list(PROSTHETIC_VAURCA_BULWARK)
 
 	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN | NO_EQUIP_SPEEDMODS
 
@@ -407,6 +410,8 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 		"C'thur: Unbound Mouv" = "#7D75FF", "C'thur: Bound Mouv" = "#4A8AFC",
 		"C'thur: Unbound Xetl" = "#3F0876", "C'thur: Bound Xetl" = "#330563"
 	)
+
+	mass_modifier = REFERENCE_MASS_VAURCA_RA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/type_e/New()
 	..()

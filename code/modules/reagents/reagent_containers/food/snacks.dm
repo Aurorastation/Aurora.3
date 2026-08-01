@@ -110,7 +110,7 @@
 
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if (H.species && H.species.bypass_food_fullness())
+			if (H.species && H.species.bypass_food_fullness(H))
 				is_full = FALSE
 
 		if(user == target)
@@ -187,7 +187,7 @@
 		var/obj/item/material/kitchen/utensil/U = attacking_item
 		if(istype(attacking_item, /obj/item/material/kitchen/utensil/fork) && (is_liquid))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]."))
-			playsound(user.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
+			playsound(user.loc, SFX_POUR, 10, 1)
 			return
 		else
 			if(U.scoop_food)
@@ -215,7 +215,7 @@
 
 	if(is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
-		var/can_slice_here = isturf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/machinery/optable) in src.loc) || (locate(/obj/item/tray) in src.loc))
+		var/can_slice_here = isturf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/structure/machinery/optable) in src.loc) || (locate(/obj/item/tray) in src.loc))
 		var/hide_item = !has_edge(attacking_item) || !can_slice_here
 
 		if(hide_item && user.a_intent == I_HURT)

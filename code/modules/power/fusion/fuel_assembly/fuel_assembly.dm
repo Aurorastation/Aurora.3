@@ -8,7 +8,7 @@
 	var/list/rod_quantities = list()
 	var/fuel_type
 	var/fuel_colour
-	var/radioactivity = 0
+	var/radioactivity = RAD_LEVEL_NONE
 	var/initial_amount
 
 /obj/item/fuel_assembly/New(newloc, _material, _colour)
@@ -21,14 +21,15 @@
 /obj/item/fuel_assembly/Initialize()
 	. = ..()
 
-	if(ispath(fuel_type, /singleton/reagent))
+	if(ispath(fuel_type) && ispath(fuel_type, /singleton/reagent))
 		var/singleton/reagent/R = GET_SINGLETON(fuel_type)
 		fuel_type = lowertext(initial(R.name))
 		fuel_colour = initial(R.color)
 		initial_amount = 50000
 
-	var/material/material = SSmaterials.get_material_by_name(fuel_type)
+	var/singleton/material/material = SSmaterials.get_material_by_id(fuel_type, FALSE)
 	if(istype(material))
+		material_name = material.type
 		initial_amount = SHEET_MATERIAL_AMOUNT * 5 // Fuel compressor eats 5 sheets.
 		name = "[material.use_name] fuel rod assembly"
 		desc = "A fuel rod for a fusion reactor. This one is made from [material.use_name]."
@@ -77,3 +78,9 @@
 
 /obj/item/fuel_assembly/hydrogen/New(newloc)
 	..(newloc, MATERIAL_HYDROGEN_METALLIC)
+
+/obj/item/fuel_assembly/iron/New(newloc)
+	..(newloc, MATERIAL_IRON)
+
+/obj/item/fuel_assembly/boron/New(newloc)
+	..(newloc, MATERIAL_BORON)

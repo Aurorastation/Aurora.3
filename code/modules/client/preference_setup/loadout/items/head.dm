@@ -97,7 +97,7 @@
 /datum/gear/head/hardhat
 	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -191,17 +191,18 @@
 
 /datum/gear/head/tcaf
 	display_name = "tcaf hat selection"
-	path = /obj/item/clothing/head/beret/legion
+	path = /obj/item/clothing/head/beret/tcaf
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/tcaf/New()
 	..()
 	var/list/tcaf = list()
-	tcaf["tcaf beret, dress"] = /obj/item/clothing/head/beret/legion/tcaf
-	tcaf["tcaf beret, field"] = /obj/item/clothing/head/beret/legion/tcaf/tcaf_field
-	tcaf["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
-	tcaf["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
-	tcaf["tcfl softcap"] = /obj/item/clothing/head/softcap/tcfl
+	tcaf["tcaf beret, dress"] = /obj/item/clothing/head/beret/tcaf
+	tcaf["tcaf beret, field"] = /obj/item/clothing/head/beret/tcaf/field
+	tcaf["tcaf foreign legions beret, dress"] = /obj/item/clothing/head/beret/tcaf/foreign_legion
+	tcaf["tcaf foreign legions, field"] = /obj/item/clothing/head/beret/tcaf/foreign_legion/field
+	tcaf["tcaf elite espatier beret"] = /obj/item/clothing/head/beret/tcaf/elite_espatier
+	tcaf["tcaf softcap"] = /obj/item/clothing/head/softcap/tcaf_cap
 	gear_tweaks += new /datum/gear_tweak/path(tcaf)
 
 /datum/gear/head/peakedcap
@@ -256,6 +257,7 @@
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	hats["hat, bear pelt"] = /obj/item/clothing/head/bearpelt
+	hats["hat, woolen"] = /obj/item/clothing/head/wool
 	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 /datum/gear/head/hats_colourable
@@ -269,7 +271,7 @@
 	var/list/hats_colourable = list()
 	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
 	hats_colourable["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
-	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool
+	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool/colorable
 	hats_colourable["hat, fedora"] = /obj/item/clothing/head/fedora
 	hats_colourable["hat, top hat"] = /obj/item/clothing/head/top_hat
 	hats_colourable["hat, cowboy"] = /obj/item/clothing/head/cowboy

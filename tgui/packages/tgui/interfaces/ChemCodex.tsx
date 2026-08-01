@@ -1,12 +1,14 @@
+import { LabeledList, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Input, LabeledList, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type CodexData = {
   reactions: Reaction[];
 };
 
 type Reaction = {
+  id: string;
   result: Result;
   reagents: Reagent[];
   catalysts: Reagent[];
@@ -26,13 +28,9 @@ type Reagent = {
   amount: number;
 };
 
-export const ChemCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+export const ChemCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow resizable>
@@ -41,16 +39,14 @@ export const ChemCodex = (props, context) => {
           title="Codex Search"
           fitted
           buttons={
-            <Input
+            <SearchBar
               autoFocus
-              autoSelect
-              placeholder="Search by name"
-              width="40vw"
-              maxLength={512}
-              onInput={(e, value) => {
+              placeholder="Search"
+              query={searchTerm}
+              onSearch={(value) => {
                 setSearchTerm(value);
               }}
-              value={searchTerm}
+              style={{ width: '40vw' }}
             />
           }
         />
@@ -59,13 +55,14 @@ export const ChemCodex = (props, context) => {
             (reaction) =>
               reaction.result.name
                 .toLowerCase()
-                .indexOf(searchTerm.toLowerCase()) > -1
+                .indexOf(searchTerm.toLowerCase()) > -1,
           )
           .map((reaction) => (
             <Section
-              title={reaction.result.name + '(' + reaction.result.amount + 'u)'}
-              key={reaction.result.name}>
-              <NoticeBox>{reaction.result.description}</NoticeBox>
+              title={`${reaction.result.name}(${reaction.result.amount}u)`}
+              key={reaction.id}
+            >
+              <Section>{reaction.result.description}</Section>
               <Section title="Required Reagents">
                 <LabeledList>
                   {reaction.reagents.map((reagent) => (
@@ -74,42 +71,46 @@ export const ChemCodex = (props, context) => {
                     </LabeledList.Item>
                   ))}
                 </LabeledList>
-                <Section title="Catalysts">
-                  <LabeledList>
-                    {reaction.catalysts.length
-                      ? reaction.catalysts.map((catalyst) => (
+                {reaction.catalysts.length ? (
+                  <Section title="Catalysts">
+                    <LabeledList>
+                      {reaction.catalysts.map((catalyst) => (
                         <LabeledList.Item
                           label={catalyst.name}
-                          key={catalyst.name}>
+                          key={catalyst.name}
+                        >
                           {catalyst.amount}u
                         </LabeledList.Item>
-                      ))
-                      : 'No catalysts present for this recipe.'}
-                  </LabeledList>
-                </Section>
-                <Section title="Inhibitors">
-                  <LabeledList>
-                    {reaction.inhibitors.length
-                      ? reaction.inhibitors.map((inhibitor) => (
+                      ))}
+                    </LabeledList>
+                  </Section>
+                ) : null}
+                {reaction.inhibitors.length ? (
+                  <Section title="Inhibitors">
+                    <LabeledList>
+                      {reaction.inhibitors.map((inhibitor) => (
                         <LabeledList.Item
                           label={inhibitor.name}
-                          key={inhibitor.name}>
+                          key={inhibitor.name}
+                        >
                           {inhibitor.amount}u
                         </LabeledList.Item>
-                      ))
-                      : 'No inhibitors present for this recipe.'}
-                  </LabeledList>
-                </Section>
-                <Section title="Other">
-                  <LabeledList>
-                    <LabeledList.Item label="Minimum Required Temperature">
-                      {reaction.temp_min ? reaction.temp_min : 'None.'}
-                    </LabeledList.Item>
-                    <LabeledList.Item label="Maximum Required Temperature">
-                      {reaction.temp_max ? reaction.temp_max : 'None.'}
-                    </LabeledList.Item>
-                  </LabeledList>
-                </Section>
+                      ))}
+                    </LabeledList>
+                  </Section>
+                ) : null}
+                {reaction.temp_min || reaction.temp_max ? (
+                  <Section title="Temperature">
+                    <LabeledList>
+                      <LabeledList.Item label="Minimum">
+                        {reaction.temp_min ? `${reaction.temp_min}K` : 'N/A'}
+                      </LabeledList.Item>
+                      <LabeledList.Item label="Maximum">
+                        {reaction.temp_max ? `${reaction.temp_max}K` : 'N/A'}
+                      </LabeledList.Item>
+                    </LabeledList>
+                  </Section>
+                ) : null}
               </Section>
             </Section>
           ))}

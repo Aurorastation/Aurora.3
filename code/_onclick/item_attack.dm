@@ -11,6 +11,10 @@ mob/attacked_with_item() should then do mob-type specific stuff (like determinin
 Item Hit Effects:
 item/apply_hit_effect() can be overriden to do whatever you want. However "standard" physical damage based weapons should make use of the target mob's hit_with_weapon() proc to
 avoid code duplication. This includes items that may sometimes act as a standard weapon in addition to having other effects (e.g. stunbatons on harm intent).
+
+[obj/item/proc/base_item_interaction] handles all non-combat interactions of an item with an atom.
+This calls [atom/proc/tool_act], among others.
+
 */
 
 // Called when the item is in the active hand, and clicked; alternately, there is an 'activate held object' verb or you can hit pagedown.
@@ -51,13 +55,37 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return TRUE
 	return FALSE
 
+/**
+ * Handles HARM intent attackbys, handling click cooldown, attack anim, visible messaging, and any sounds.
+ *
+ * When executed without the HARM intent, it calls base_item_interaction(), which generally handles tool use.
+ *
+ * This proc will always return FALSE, letting us proceed to execute child attackby code, except in the case of
+ * an ITEM_INTERACT_SUCCESS result. That is to say, if we successfully used a tool, we don't do anything else.
+ */
 /atom/movable/attackby(obj/item/attacking_item, mob/user, params)
 	if(..())
 		return TRUE
 
 	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
-		visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item]."))
+		if(attacking_item.force && should_use_health && maxhealth)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.do_attack_animation(src)
+			visible_message(SPAN_DANGER("[user] [pick(attacking_item.attack_verb)] \the [src]!"))
+			add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+			if(hitsound)
+				playsound(src, hitsound, attacking_item.get_clamped_volume(), 1, falloff_distance = 0)
+			else
+				playsound(src, attacking_item.hitsound, attacking_item.get_clamped_volume(), 1, falloff_distance = 0)
+			return FALSE
 
+	var/item_interact_result = src.base_item_interaction(user, attacking_item, modifiers)
+	if(item_interact_result & ITEM_INTERACT_SUCCESS)
+		return TRUE
+	if(item_interact_result & ITEM_INTERACT_BLOCKING)
+		return FALSE
+
+/// Handles surgery behaviors.
 /mob/living/attackby(obj/item/attacking_item, mob/user, params)
 	if(..())
 		return TRUE
@@ -80,6 +108,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	else
 		return attacking_item.attack(src, user, selected_zone)
 
+/// Handles DEVOURING THINGS! Used when on Grab intent and targeting your own mouth!
 /mob/living/carbon/human/attackby(obj/item/attacking_item, mob/user, params)
 	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(attacking_item, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
@@ -90,8 +119,8 @@ avoid code duplication. This includes items that may sometimes act as a standard
 			return TRUE
 	return ..()
 
-// Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
-// Click parameters is the params string from byond Click() code, see that documentation.
+/// Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
+/// Click parameters is the params string from byond Click() code, see that documentation.
 /obj/item/proc/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	return
 
@@ -131,7 +160,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return 0
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(target_mob, src)
+	user.do_attack_animation(target_mob, used_item = src)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 
@@ -169,6 +198,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 //Called when a weapon is used to make a successful melee attack on a mob. Returns whether damage was dealt.
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
+	SEND_SIGNAL(user, COMSIG_APPLY_HIT_EFFECT, target, src, &power, &hit_zone)
 	if((user.mutations & HULK))
 		power *= 1.25
 	if(user.is_berserk())

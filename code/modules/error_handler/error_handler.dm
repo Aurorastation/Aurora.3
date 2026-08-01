@@ -137,6 +137,9 @@ GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
 
 	// This writes the regular format (unwrapping newlines and inserting timestamps as needed).
 	log_runtime("runtime error: [E.name]\n[E.desc]")
+
+	if(SSsentry)
+		SSsentry.capture_exception(E, desclines, usr)
 #undef ERROR_USEFUL_LEN
 
 
