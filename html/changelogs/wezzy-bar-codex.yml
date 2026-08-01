@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixes warrant program on consoles being invisible."
+  - rscadd: "Adds the bartending codex."
+  - rscadd: "Only the chef starts with the cooking codex and the bartender with the bartending codex now. They still can be downloaded by anyone, though."

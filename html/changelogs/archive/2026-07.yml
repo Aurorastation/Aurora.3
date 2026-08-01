@@ -392,3 +392,64 @@
       the engineering hallway.
   - qol: Added an recommended escape hatch location marker and sign to the bridge.
       The marked location leads into hydroponics, unrestricted access on exit added.
+2026-07-22:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Updates map_path var for mapping unit tests to be a list instead of
+      a var, allowing for opting-in of unit tests on by-map basis.
+  - code_imp: Updates fire alarm directionality map test for (almost) all directional
+      wall-mounted objects, with only sccv_horizon map currently opted-in.
+  - bugfix: Adds extra safety for GLOB.SortedAreas having entries removed but not
+      later re-generated.
+  - bugfix: Fixes all the incorrectly mapped areas on the Horizon exposed by newly-run
+      unit tests.
+  - imageadd: Adds currently unused map_helper sprites for airlocks- prep for future
+      work.
+  Fenodyree:
+  - bugfix: Fixes light rigs getting slowdown from having undeployed boots.
+  - bugfix: Fixes light rigs having no energy armour.
+  - bugfix: Fixes one more no chest deployment without boots check.
+  Wowzewow (Wezzy):
+  - rscadd: Shaves off some pixels from arm and leg guard sprites so they look better
+      when attached.
+  - bugfix: Attempts to fix the hivebot harddel.
+  - bugfix: Fixes warrant program on consoles being invisible.
+  - rscadd: Sabrage skill now uses the bartending skill component to determine success
+      chance.
+  - rscadd: A successful Sabrage also gives a minor morale boost.
+2026-07-24:
+  ChangeMe:
+  - rscadd: Added a new system in charge of dynamic footsteps.
+  - rscadd: Greimorians now have footstep sounds.
+  - rscadd: Armour vests and voidsuits now make sound when you walk around.
+  Fendoyree:
+  - bugfix: Fixes airbubble pressure setting. It's now high enough that you don't
+      die from using one.
+  - bugfix: Fixes airbubble blinding you forever when you get out of it.
+  - bugfix: Fixes airbubble sprite not updating when it is opened from inside.
+  Fenodyree:
+  - bugfix: Fixes flora rays dealing full toxin damage, despite not being combat modulators.
+      Also updates the message if they are powerful enough to deal damage.
+  - bugfix: Fixes flora rays not checking radiation armor, despite being radiation
+      beams.
+  - bugfix: Fixes Phoron bolts dealing the wrong damage and respecting the wrong armour
+      type. They now do toxin and check bio armor. They also irradiate more, as radiation
+      now goes up to 1000.
+  - rscadd: Adds a hardsuit module press to the machinist's office.
+  MattAtlas:
+  - rscadd: Natural darkvision has been added to Himeo.
+  - rscadd: Natural darkvision for humans has been nerfed quite a bit.
+  - bugfix: Fixes glasses overriding darkvision.
+  The_Ill_Fated, hazelmouse, Batrachophrenoboocosmomachia:
+  - imageadd: Adds flags and banners for a large number of Solarian and formerly Solarian
+      worlds, all now accessible in the loadout (with the exception of original Lycoris).
+      (The_Ill_Fated)
+  - imageadd: Adds flag and banner for the Ecclesiastical Authority of Axiom, both
+      now accessible in the loadout. (hazelmouse)
+  - code_imp: Rearrangement of icons/obj/structures/flags.dmi contents to sort flags
+      by nations, removes old Sol canton template, adds new Sol stripe template. (Batrachophrenoboocosmomachia)
+  diggiez:
+  - bugfix: Repairing an IPC's endoskeleton with nanopaste no longer says the datum
+      path
+  kermit:
+  - rscadd: Reduces the captain piloting skill requirement from Professional to Trained.
+  - rscadd: Reduces the skrell consular age requirement to 100.
