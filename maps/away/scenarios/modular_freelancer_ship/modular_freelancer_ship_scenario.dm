@@ -3,7 +3,7 @@
 	desc = "A freelancer ship drifting in space, with no apparent destination."
 	scenario_site_id = "modular_freelancer_ship"
 
-	possible_scenario_types = list(SCENARIO_TYPE_NONCANON, SCENARIO_TYPE_CANON)
+	possible_scenario_canonicity_types = list(/singleton/canonicity/odyssey, /singleton/canonicity/limited)
 
 	min_player_amount = 0
 	min_actor_amount = 0
