@@ -71,5 +71,5 @@
 	name = "Integrated Circuit Printer Upgrade Disk - Circuit Cloner"
 	desc = "An upgrade disk that allows the integrated circuit printer to duplicate assemblies."
 	req_tech = list(TECH_ENGINEERING = 5, TECH_DATA = 6)
-	materials = list(DEFAULT_WALL_MATERIAL = 3000)
+	materials = list(MATERIAL_STEEL = 3000)
 	build_path = /obj/item/disk/integrated_circuit/upgrade/clone
