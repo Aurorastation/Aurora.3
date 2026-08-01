@@ -12,10 +12,10 @@
 	spawn_cost = 1
 	spawn_weight = 0 // so it does not spawn as ordinary away site
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	// shuttles_to_initialise = list(
-	// 	/datum/shuttle/autodock/overmap/modular_freelancer_ship/fighter,
-	// 	/datum/shuttle/autodock/overmap/modular_freelancer_ship/ferry,
-	// )
+	shuttles_to_initialise = list(
+		/datum/shuttle/autodock/overmap/modular_freelancer_ship/fighter,
+		/datum/shuttle/autodock/overmap/modular_freelancer_ship/ferry,
+	)
 
 	unit_test_groups = list(1)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED

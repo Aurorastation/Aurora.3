@@ -883,6 +883,10 @@
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
 
+/datum/access/modular_freelancer_ship_access
+	id = 253
+	desc = "Freelancer Ship Access"
+
 #define ACCESS_HIMEO_PATROL_SHIP 253
 	id = ACCESS_HIMEO_PATROL_SHIP
 	desc = "Himean Military Patrol Vessel"
