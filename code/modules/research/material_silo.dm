@@ -2,7 +2,6 @@
 	name = "material silo"
 	desc = "A centralized material store used by linked research fabricators."
 	icon_state = "silo"
-	// atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	idle_power_usage = 30 WATTS
 
