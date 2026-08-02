@@ -257,6 +257,11 @@
 /mob/living/heavy_vehicle/return_air()
 	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc?.return_air()
 
+/mob/living/heavy_vehicle/proc/update_emp_protection()
+	RemoveElement(/datum/element/empprotection, EMP_PROTECT_ALL)
+	if(power == MECH_POWER_ON && body.mech_armor && body.mech_armor.emp_protection)
+		AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
+
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
 
@@ -280,6 +285,7 @@
 	else if(power == MECH_POWER_ON) //Turning it off is instant
 		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
 		power = MECH_POWER_OFF
+		update_emp_protection()
 	else if(get_cell(TRUE))
 		//Start power up sequence
 		power = MECH_POWER_TRANSITION
@@ -287,10 +293,13 @@
 		if(do_after(reciever, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
 			playsound(src, 'sound/mecha/nominal.ogg', 50, 0)
 			power = MECH_POWER_ON
+			update_emp_protection()
 		else
 			to_chat(reciever, SPAN_WARNING("You abort the powerup sequence."))
 			power = MECH_POWER_OFF
-		hud_power_control?.queue_icon_update()
+			update_emp_protection()
+		if(hud_power_control)
+			SSicon_update.add_to_queue(hud_power_control)
 	else
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 

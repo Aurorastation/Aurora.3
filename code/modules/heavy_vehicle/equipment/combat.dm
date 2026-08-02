@@ -380,7 +380,9 @@
 		return
 
 	var/actual_required_power = clamp(max_charge - charge, 0, charging_rate)
-	owner.use_cell_power(actual_required_power)
+	var/actual_power_used = owner.use_cell_power(actual_required_power)
+	if(actual_power_used > 0)
+		charge = clamp(charge + actual_power_used, 0, max_charge)
 
 /obj/item/mecha_equipment/shield/get_hardpoint_status_value()
 	return charge / max_charge
