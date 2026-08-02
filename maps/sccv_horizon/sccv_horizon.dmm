@@ -3075,10 +3075,7 @@
 	dir = 5
 	},
 /obj/structure/crate_shelf,
-/obj/structure/closet/crate/tool,
-/obj/item/reagent_containers/weldpack,
-/obj/item/portable_whiteboard,
-/obj/item/paint_sprayer,
+/obj/structure/closet/crate/tool/machinist,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/operations/machinist)
 "atp" = (
