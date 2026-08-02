@@ -55,15 +55,15 @@
 	player_traits = list(TRAIT_DEAFNESS_IMMUNITY)
 
 	/// Delay before the first wave gives the crew time to equip themselves.
-	var/grace_period = 10 SECONDS
+	var/grace_period = 5 MINUTES
 	/// The round ends through the ticker's normal completion path after this duration.
 	var/mode_duration = 30 MINUTES
 	var/round_end_time = INFINITY
 	var/round_end_requested = FALSE
 	/// Initial time between successful waves.
-	var/base_wave_delay = 3 MINUTES
+	var/base_wave_delay = 2 MINUTES
 	/// Lower bound reached as the mode escalates.
-	var/minimum_wave_delay = 75 SECONDS
+	var/minimum_wave_delay = 30 SECONDS
 	/// Retry delay when no hidden spawn turf is presently available.
 	var/failed_wave_retry_delay = 30 SECONDS
 	var/next_wave = INFINITY
