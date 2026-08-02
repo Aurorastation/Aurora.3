@@ -161,6 +161,7 @@ ADMIN_VERB_REGISTER(client_proc_togglebuildmodeself, /client/proc/togglebuildmod
 ADMIN_VERB_REGISTER(client_proc_toggledebuglogs, /client/proc/toggledebuglogs, R_ADMIN|R_DEBUG|R_MOD|R_DEV, ADMIN_VERB_VISIBLITY_FLAG_HIDEABLE, FALSE, FALSE)
 ADMIN_VERB_REGISTER(client_proc_toggledrones, /client/proc/toggledrones, R_ADMIN, ADMIN_VERB_VISIBLITY_FLAG_HIDEABLE, FALSE, FALSE)
 ADMIN_VERB_REGISTER(client_proc_toggleghostwriters, /client/proc/toggleghostwriters, R_ADMIN, ADMIN_VERB_VISIBLITY_FLAG_HIDEABLE, FALSE, FALSE)
+ADMIN_VERB_REGISTER(client_proc_togglenonhorizontempgraphics, /client/proc/toggle_nonhorizon_temperature_graphics, R_ADMIN, null, FALSE, FALSE)
 ADMIN_VERB_REGISTER(client_proc_toggleprayers, /client/proc/toggleprayers, R_ADMIN, null, FALSE, FALSE)
 ADMIN_VERB_REGISTER(client_proc_unban_panel, /client/proc/unban_panel, R_BAN, null, FALSE, FALSE)
 ADMIN_VERB_REGISTER(client_proc_view_chemical_reaction_logs, /client/proc/view_chemical_reaction_logs, R_ADMIN, ADMIN_VERB_VISIBLITY_FLAG_HIDEABLE, FALSE, FALSE)
