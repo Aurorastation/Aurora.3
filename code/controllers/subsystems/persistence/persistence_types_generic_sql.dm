@@ -135,3 +135,29 @@
 		result = list("id" = query.item[1], "content" = query.item[2])
 	qdel(query)
 	return result
+
+/**
+ * Returns all attributes from persistent generics for a specified type.
+ * RETURN:
+ * 	Distinct list of attributes or empty list.
+ */
+/datum/controller/subsystem/persistence/proc/genericDatabaseGetAllAttributes(type_id)
+	PRIVATE_PROC(TRUE)
+	if(!databaseCheckConnection("genericDatabaseGetAllAttributes"))
+		return
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT DISTINCT attribute FROM ss13_persistent_generics WHERE type = :type_id",
+		list("type_id" = type_id)
+	)
+	query.Execute()
+
+	if(!databaseCheckQueryResult(query, "genericDatabaseGetAllAttributes"))
+		qdel(query)
+		return null
+
+	var/result = list()
+	while(query.NextRow())
+		result += query.item[1]
+	qdel(query)
+	return result

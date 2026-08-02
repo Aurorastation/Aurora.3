@@ -41,10 +41,11 @@
  * PARAMS:
  * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type/generic and subtypes.
  *  attribute =		Custom attribute of the generic, can be null if the type definition doesn't require it. Defaults to null.
+ *  skip_caching =	If set to TRUE, database results won't be added to the generic cache. Defaults to FALSE.
  * RETURN:
  *	/persistent_generic or null if not available.
  */
-/datum/controller/subsystem/persistence/proc/genericLoad(var/singleton/persistent_type/generic/target_type, attribute = null)
+/datum/controller/subsystem/persistence/proc/genericLoad(var/singleton/persistent_type/generic/target_type, attribute = null, skip_caching = FALSE)
 	if(!target_type)
 		log_subsystem_persistence_warning("Attempted to load generic with null target type.")
 		return
@@ -68,5 +69,33 @@
 	new_generic.attribute = attribute
 	new_generic.content = json_decode(result["content"])
 	new_generic.expires_in_days = 0
-	generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
+	if(!skip_caching)
+		generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
 	return new_generic
+
+/**
+ * Retrieves all known attributes of a generic type.
+ * PARAMS:
+ * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type/generic and subtypes.
+ * RETURN:
+ *	Distinct list of attributes or empty list.
+ */
+/datum/controller/subsystem/persistence/proc/genericGetAllAttributesForType(var/singleton/persistent_type/generic/target_type)
+	if(!target_type)
+		log_subsystem_persistence_warning("Attempted to load all generic attributes with null target type.")
+		return list()
+
+	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
+	if(!type_instance)
+		log_subsystem_persistence_warning("Attempted to load all generic attributes of type [target_type], but no singleton instance was found.")
+		return list()
+
+	if(!type_instance.requires_attribute)
+		log_subsystem_persistence_warning("Attempted to load all generic attributes of type [target_type], but this type does not support attributes.")
+		return list()
+
+	var/list/attributes = genericDatabaseGetAllAttributes(type_instance.database_id)
+	if(!attributes)
+		return list()
+
+	return attributes
