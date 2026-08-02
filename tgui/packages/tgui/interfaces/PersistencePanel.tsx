@@ -41,10 +41,12 @@ type PersistenceRecordEntry = {
   value: string;
 };
 
-type PersistenceRecordAttributeGroup = {
+type PersistenceAttributeGroup<T> = {
   attribute: string | null;
-  records: PersistenceRecordEntry[];
+  records?: T[];
 };
+
+type PersistenceRecordAttributeGroup = PersistenceAttributeGroup<PersistenceRecordEntry>;
 
 type PersistenceRecordTypeGroup = {
   type: string;
@@ -67,21 +69,26 @@ type PersistenceGenericTypeGroup = {
   attributes: PersistenceGenericAttributeGroup[];
 };
 
-export const PersistencePanel = (props) => {
-  const { act, data } = useBackend<PersistencePanelData>();
-  const [tab, setTab] = useLocalState('tab', 'Subsystem');
-  const [objectsSearch, setObjectsSearch] = useLocalState('objectsSearch', '');
-  const [recordsSearch, setRecordsSearch] = useLocalState('recordsSearch', '');
-  const [genericsSearch, setGenericsSearch] = useLocalState('genericsSearch', '');
+const getObjectPosition = (object: PersistenceObject) => {
+  if (object.x === null || object.y === null || object.z === null) {
+    return 'Unknown';
+  }
 
-  const statusText = data.status_initialized ? 'Initialized' : 'Error';
-  const statusColor = data.status_initialized ? 'good' : 'bad';
-  const savingText = data.saving_active ? 'Active' : 'Disabled';
-  const savingColor = data.saving_active ? 'good' : 'bad';
-  const savingButtonText = data.saving_active ? 'Disable saving' : 'Re-enable saving';
-  const savingButtonColor = data.saving_active ? 'good' : 'bad';
+  return `${object.x}-${object.y}-${object.z}`;
+};
 
-  const objects = (Array.isArray(data.objects) ? data.objects : []).slice().sort((a, b) => {
+const getAttributeLabel = (attribute: string | null) => attribute || 'Unattributed';
+
+const formatTitleWithCount = (title: string, count: number) => {
+  if (!count) {
+    return title;
+  }
+
+  return `${title} (${count})`;
+};
+
+const sortObjects = (objects: PersistenceObject[]) =>
+  objects.slice().sort((a, b) => {
     const typeCompare = a.type.localeCompare(b.type);
     if (typeCompare !== 0) {
       return typeCompare;
@@ -89,130 +96,85 @@ export const PersistencePanel = (props) => {
     return a.name.localeCompare(b.name);
   });
 
-  const getPosition = (object: PersistenceObject) => {
-    if (object.x === null || object.y === null || object.z === null) {
-      return 'Unknown';
+const groupObjectsByType = (objects: PersistenceObject[]) =>
+  objects.reduce<Record<string, PersistenceObject[]>>((acc, object) => {
+    const currentGroup = acc[object.type] || [];
+    currentGroup.push(object);
+    acc[object.type] = currentGroup;
+    return acc;
+  }, {});
+
+const sortAttributeGroups = <T extends { attribute: string | null }>(
+  groups: T[],
+) =>
+  groups.slice().sort((a, b) => {
+    const attributeCompare = getAttributeLabel(a.attribute).localeCompare(
+      getAttributeLabel(b.attribute),
+    );
+    if (attributeCompare !== 0) {
+      return attributeCompare;
     }
+    return 0;
+  });
 
-    return `${object.x}-${object.y}-${object.z}`;
-  };
-
-  const formatTitleWithCount = (title: string, count: number) => {
-    if (!count) {
-      return title;
+const sortRecords = (records: PersistenceRecordEntry[]) =>
+  records.slice().sort((a, b) => {
+    const createdCompare = b.created_at.localeCompare(a.created_at);
+    if (createdCompare !== 0) {
+      return createdCompare;
     }
+    return a.game_id.localeCompare(b.game_id);
+  });
 
-    return `${title} (${count})`;
-  };
-
-  const groupedObjects = objects.reduce<Record<string, PersistenceObject[]>>(
-    (acc, object) => {
-      const current = acc[object.type] || [];
-      current.push(object);
-      acc[object.type] = current;
-      return acc;
-    },
-    {},
-  );
-
-  const orderedTypes = Object.keys(groupedObjects).sort((a, b) =>
-    a.localeCompare(b),
-  );
-
-  const normalizedObjectsSearch = objectsSearch.trim().toLowerCase();
+const filterObjectGroups = (
+  objects: PersistenceObject[],
+  searchValue: string,
+): Record<string, PersistenceObject[]> => {
+  const normalizedSearch = searchValue.trim().toLowerCase();
+  const groupedObjects = groupObjectsByType(sortObjects(objects));
   const filteredObjectGroups: Record<string, PersistenceObject[]> = {};
 
-  for (const type of orderedTypes) {
-    const currentGroup = groupedObjects[type] || [];
-    const matches: PersistenceObject[] = [];
-
-    for (const object of currentGroup) {
-      const position =
-        object.x === null || object.y === null || object.z === null
-          ? 'Unknown'
-          : `${object.x}-${object.y}-${object.z}`;
-
+  for (const type of Object.keys(groupedObjects).sort((a, b) => a.localeCompare(b))) {
+    const matches = groupedObjects[type].filter((object) => {
       const haystack = [
         object.name,
         object.type,
-        position,
+        getObjectPosition(object),
         object.created_at,
         object.expires_at,
       ]
         .join(' ')
         .toLowerCase();
 
-      if (!normalizedObjectsSearch || haystack.includes(normalizedObjectsSearch)) {
-        matches.push(object);
-      }
-    }
+      return !normalizedSearch || haystack.includes(normalizedSearch);
+    });
 
     if (matches.length > 0) {
       filteredObjectGroups[type] = matches;
     }
   }
 
-  const filteredObjectTypes = Object.keys(filteredObjectGroups).sort((a, b) =>
-    a.localeCompare(b),
-  );
+  return filteredObjectGroups;
+};
 
-  const recordGroups = (Array.isArray(data.records) ? data.records : [])
-    .slice()
-    .sort((a, b) => a.type.localeCompare(b.type))
-    .map((group) => ({
-      ...group,
-      attributes: (group.attributes || [])
-        .slice()
-        .sort((a, b) => {
-          const attributeCompare = (a.attribute || 'unattributed').localeCompare(
-            b.attribute || 'unattributed',
-          );
-          if (attributeCompare !== 0) {
-            return attributeCompare;
-          }
-          return 0;
-        }),
-    }));
-
-  const genericGroups = (Array.isArray(data.generics) ? data.generics : [])
-    .slice()
-    .sort((a, b) => a.type.localeCompare(b.type))
-    .map((group) => ({
-      ...group,
-      attributes: (group.attributes || [])
-        .slice()
-        .sort((a, b) => {
-          const attributeCompare = (a.attribute || 'unattributed').localeCompare(
-            b.attribute || 'unattributed',
-          );
-          if (attributeCompare !== 0) {
-            return attributeCompare;
-          }
-          return 0;
-        }),
-    }));
-
-  const normalizedRecordsSearch = recordsSearch.trim().toLowerCase();
+const filterRecordGroups = (
+  groups: PersistenceRecordTypeGroup[],
+  searchValue: string,
+): PersistenceRecordTypeGroup[] => {
+  const normalizedSearch = searchValue.trim().toLowerCase();
   const filteredRecordGroups: PersistenceRecordTypeGroup[] = [];
 
-  for (const group of recordGroups) {
+  for (const group of groups) {
     const filteredAttributes: PersistenceRecordAttributeGroup[] = [];
 
-    for (const attributeGroup of group.attributes) {
-      const matches = (attributeGroup.records || []).slice().sort((a, b) => {
-        const createdCompare = b.created_at.localeCompare(a.created_at);
-        if (createdCompare !== 0) {
-          return createdCompare;
-        }
-        return a.game_id.localeCompare(b.game_id);
-      });
-
-      const attributeSearch = !normalizedRecordsSearch
+    for (const attributeGroup of sortAttributeGroups(group.attributes || [])) {
+      const matches = sortRecords(attributeGroup.records || []);
+      const attributeSearch = !normalizedSearch
         ? matches
         : matches.filter((record) => {
             const haystack = [
               group.type,
-              attributeGroup.attribute || 'unattributed',
+              getAttributeLabel(attributeGroup.attribute),
               record.created_at,
               record.game_id,
               record.value,
@@ -220,7 +182,7 @@ export const PersistencePanel = (props) => {
               .join(' ')
               .toLowerCase();
 
-            return haystack.includes(normalizedRecordsSearch);
+            return haystack.includes(normalizedSearch);
           });
 
       if (attributeSearch.length > 0) {
@@ -242,10 +204,17 @@ export const PersistencePanel = (props) => {
     }
   }
 
-  const normalizedGenericsSearch = genericsSearch.trim().toLowerCase();
+  return filteredRecordGroups;
+};
+
+const filterGenericGroups = (
+  groups: PersistenceGenericTypeGroup[],
+  searchValue: string,
+): PersistenceGenericTypeGroup[] => {
+  const normalizedSearch = searchValue.trim().toLowerCase();
   const filteredGenericGroups: PersistenceGenericTypeGroup[] = [];
 
-  for (const group of genericGroups) {
+  for (const group of groups) {
     const attributeGroups = Array.isArray(group.attributes) ? group.attributes : [];
     const filteredAttributes: PersistenceGenericAttributeGroup[] = [];
 
@@ -254,13 +223,13 @@ export const PersistencePanel = (props) => {
         group.type,
         group.title,
         group.description || '',
-        attributeGroup.attribute || 'unattributed',
+        getAttributeLabel(attributeGroup.attribute),
         attributeGroup.json || '',
       ]
         .join(' ')
         .toLowerCase();
 
-      if (!normalizedGenericsSearch || haystack.includes(normalizedGenericsSearch)) {
+      if (!normalizedSearch || haystack.includes(normalizedSearch)) {
         filteredAttributes.push(attributeGroup);
       }
     }
@@ -269,8 +238,8 @@ export const PersistencePanel = (props) => {
       .join(' ')
       .toLowerCase();
     const shouldIncludeGroup =
-      !normalizedGenericsSearch ||
-      groupHaystack.includes(normalizedGenericsSearch) ||
+      !normalizedSearch ||
+      groupHaystack.includes(normalizedSearch) ||
       filteredAttributes.length > 0;
 
     if (shouldIncludeGroup) {
@@ -283,6 +252,48 @@ export const PersistencePanel = (props) => {
       });
     }
   }
+
+  return filteredGenericGroups;
+};
+
+export const PersistencePanel = (props) => {
+  const { act, data } = useBackend<PersistencePanelData>();
+  const [tab, setTab] = useLocalState('tab', 'Subsystem');
+  const [objectsSearch, setObjectsSearch] = useLocalState('objectsSearch', '');
+  const [recordsSearch, setRecordsSearch] = useLocalState('recordsSearch', '');
+  const [genericsSearch, setGenericsSearch] = useLocalState('genericsSearch', '');
+
+  const statusText = data.status_initialized ? 'Initialized' : 'Error';
+  const statusColor = data.status_initialized ? 'good' : 'bad';
+  const savingText = data.saving_active ? 'Active' : 'Disabled';
+  const savingColor = data.saving_active ? 'good' : 'bad';
+  const savingButtonText = data.saving_active ? 'Disable saving' : 'Re-enable saving';
+  const savingButtonColor = data.saving_active ? 'good' : 'bad';
+
+  const objects = sortObjects(Array.isArray(data.objects) ? data.objects : []);
+  const filteredObjectGroups = filterObjectGroups(objects, objectsSearch);
+  const filteredObjectTypes = Object.keys(filteredObjectGroups).sort((a, b) =>
+    a.localeCompare(b),
+  );
+
+  const recordGroups = (Array.isArray(data.records) ? data.records : [])
+    .slice()
+    .sort((a, b) => a.type.localeCompare(b.type))
+    .map((group) => ({
+      ...group,
+      attributes: sortAttributeGroups((group.attributes || []).slice()),
+    }));
+
+  const genericGroups = (Array.isArray(data.generics) ? data.generics : [])
+    .slice()
+    .sort((a, b) => a.type.localeCompare(b.type))
+    .map((group) => ({
+      ...group,
+      attributes: sortAttributeGroups((group.attributes || []).slice()),
+    }));
+
+  const filteredRecordGroups = filterRecordGroups(recordGroups, recordsSearch);
+  const filteredGenericGroups = filterGenericGroups(genericGroups, genericsSearch);
 
   return (
     <Window theme="admin" width={900} height={700}>
@@ -325,7 +336,7 @@ export const PersistencePanel = (props) => {
               <Button
                 content={savingButtonText}
                 color={savingButtonColor}
-                icon={data.saving_active ? 'toggle-on' : 'toggle-off'}
+                icon={data.saving_active ? 'toggle-off' : 'toggle-on'}
                 disabled={!data.is_admin}
                 onClick={() => act('toggle_saving')}
               />
@@ -389,7 +400,7 @@ export const PersistencePanel = (props) => {
                   {filteredObjectGroups[type].map((object) => (
                     <Table.Row key={object.ref} className="candystripe">
                       <Table.Cell>{object.name}</Table.Cell>
-                      <Table.Cell>{getPosition(object)}</Table.Cell>
+                      <Table.Cell>{getObjectPosition(object)}</Table.Cell>
                       <Table.Cell>{object.created_at || 'This round'}</Table.Cell>
                       <Table.Cell>{object.expires_at || 'To be determined'}</Table.Cell>
                       <Table.Cell>
@@ -456,7 +467,7 @@ export const PersistencePanel = (props) => {
                             <Table.Cell>Game ID</Table.Cell>
                             <Table.Cell>Value</Table.Cell>
                           </Table.Row>
-                          {attributeGroup.records.map((record, index) => (
+                          {(attributeGroup.records || []).map((record, index) => (
                             <Table.Row key={`${group.type}-${attributeGroup.attribute || 'unattributed'}-${record.created_at}-${record.game_id}-${index}`} className="candystripe">
                               <Table.Cell>{record.created_at}</Table.Cell>
                               <Table.Cell>{record.game_id}</Table.Cell>
@@ -474,7 +485,7 @@ export const PersistencePanel = (props) => {
                       <Table.Cell>Game ID</Table.Cell>
                       <Table.Cell>Value</Table.Cell>
                     </Table.Row>
-                    {group.attributes[0]?.records.map((record, index) => (
+                    {(group.attributes[0]?.records || []).map((record, index) => (
                       <Table.Row key={`${group.type}-${record.created_at}-${record.game_id}-${index}`} className="candystripe">
                         <Table.Cell>{record.created_at}</Table.Cell>
                         <Table.Cell>{record.game_id}</Table.Cell>
