@@ -611,7 +611,7 @@
 
 /datum/game_mode/mob_onslaught/declare_completion()
 	. = ..()
-	to_world(SPAN_NOTICE("The crew endured [wave_number] waves of the Mob Onslaught, defeating [mobs_defeated] of [total_spawned] spawned hostiles."))
+	command_announcement.Announce("Good shit! Here's some stats! You survived [wave_number] waves, defeating [mobs_defeated] of [total_spawned] hostiles. Well done gang, let's hit the bar!", "BS-LR Threat Detection - Intern Manned")
 
 /datum/game_mode/mob_onslaught/cleanup()
 	QDEL_LIST(spawn_protections)
