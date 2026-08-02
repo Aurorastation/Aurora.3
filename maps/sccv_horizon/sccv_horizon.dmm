@@ -15553,7 +15553,6 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/shuttle/north,
-/obj/structure/machinery/floodlight,
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/port_compartment)
 "bZX" = (
@@ -19271,7 +19270,6 @@
 /obj/item/stock_parts/micro_laser,
 /obj/item/stock_parts/micro_laser,
 /obj/item/stock_parts/micro_laser,
-/obj/item/stock_parts/scanning_module,
 /obj/item/stock_parts/scanning_module,
 /obj/item/stock_parts/scanning_module,
 /obj/item/stock_parts/console_screen,
@@ -24110,7 +24108,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/indra/mainchamber)
 "dfN" = (
-/obj/structure/machinery/floodlight,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/deployable_kit{
+	pixel_y = 12
+	},
+/obj/item/deployable_kit{
+	pixel_y = 6
+	},
+/obj/item/deployable_kit,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/starboard)
@@ -36947,16 +36954,6 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/horizon/hallway/primary/deck_2/central)
-"eMG" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
-	},
-/obj/structure/machinery/camera/network/research{
-	c_tag = "Research - Corridor Camera 4";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/rnd/hallway/secondary)
 "eMH" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
@@ -49341,6 +49338,9 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/machinery/camera/network/research{
+	c_tag = "Research - Corridor Camera 4"
+	},
 /turf/simulated/floor/grass/no_edge,
 /area/horizon/rnd/hallway/secondary)
 "guM" = (
@@ -58685,8 +58685,8 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/wing/starboard)
 "hDy" = (
@@ -62983,7 +62983,7 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	name = "Research Maintenance Conduit";
-	req_access = list(47);
+	req_access = list(7);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -68342,11 +68342,6 @@
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
-"iQj" = (
-/obj/structure/machinery/floodlight,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
-/area/horizon/hangar/auxiliary)
 "iQk" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -73338,10 +73333,10 @@
 /area/horizon/security/interrogation_2)
 "jxL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/random/maintenance_junk_or_loot,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/wing/starboard)
 "jxS" = (
@@ -94794,8 +94789,15 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "mjX" = (
-/obj/structure/machinery/alarm/west,
-/obj/structure/machinery/floodlight,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/deployable_kit{
+	pixel_y = 12
+	},
+/obj/item/deployable_kit{
+	pixel_y = 6
+	},
+/obj/item/deployable_kit,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/wing/starboard)
@@ -95462,7 +95464,7 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	name = "Research Maintenance Conduit";
-	req_access = list(47);
+	req_access = list(7);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
@@ -97430,6 +97432,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/turbine)
+"mDy" = (
+/turf/simulated/floor/tiled/dark,
+/area/horizon/maintenance/deck_1/wing/starboard)
 "mDz" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hangar/intrepid)
@@ -98673,11 +98678,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/checkpoint)
 "mKI" = (
-/obj/structure/machinery/floodlight,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/deployable_kit{
+	pixel_y = 12
+	},
+/obj/item/deployable_kit{
+	pixel_y = 6
+	},
+/obj/item/deployable_kit,
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/port_compartment)
 "mKO" = (
@@ -104193,8 +104205,14 @@
 /obj/structure/machinery/light/spot{
 	dir = 1
 	},
-/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack,
+/obj/item/deployable_kit{
+	pixel_y = 10
+	},
+/obj/item/deployable_kit{
+	pixel_y = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hangar/auxiliary)
 "nyt" = (
@@ -108622,6 +108640,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/structure/table/rack/folding_table,
+/obj/item/deployable_kit/surgery_table{
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
 "ocj" = (
@@ -111338,9 +111360,6 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/substation/engineering/lower)
 "otK" = (
@@ -133794,7 +133813,7 @@
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 1;
 	name = "Security Maintenance";
-	req_access = list(63)
+	req_access = list(1)
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -135181,10 +135200,6 @@
 "rxJ" = (
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
-"rxL" = (
-/obj/random/keg,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/maintenance/deck_1/wing/starboard)
 "rxO" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -138500,7 +138515,7 @@
 	dir = 1;
 	id_tag = "server_door_lock";
 	name = "Server Room";
-	req_access = list(47)
+	req_access = list(7)
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -141631,7 +141646,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/machinery/firealarm/north,
-/obj/structure/roller_rack/two,
+/obj/structure/roller_rack/three,
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
 "sms" = (
@@ -159132,8 +159147,14 @@
 /obj/structure/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Hangar 15"
 	},
-/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack,
+/obj/item/deployable_kit{
+	pixel_y = 10
+	},
+/obj/item/deployable_kit{
+	pixel_y = 4
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hangar/auxiliary)
 "uzw" = (
@@ -163127,6 +163148,15 @@
 "uZl" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/machinery/light,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/item/deployable_kit{
+	pixel_y = 12
+	},
+/obj/item/deployable_kit{
+	pixel_y = 6
+	},
+/obj/item/deployable_kit,
 /turf/simulated/floor/tiled,
 /area/horizon/maintenance/deck_2/research)
 "uZt" = (
@@ -166395,8 +166425,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "vyC" = (
-/obj/structure/machinery/floodlight,
-/obj/effect/floor_decal/industrial/outline/operations,
+/obj/random/keg,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/wing/starboard)
 "vyE" = (
@@ -187514,7 +187543,6 @@
 /obj/item/circuitboard/rtg,
 /obj/item/circuitboard/recharge_station,
 /obj/item/circuitboard/mech_recharger,
-/obj/item/circuitboard/optable,
 /obj/item/circuitboard/security/engineering,
 /obj/item/circuitboard/grill,
 /obj/structure/machinery/light/small{
@@ -211511,8 +211539,8 @@ uXq
 gTw
 qrM
 rHt
+mDy
 afe
-rxL
 wlr
 wlr
 sxT
@@ -215338,7 +215366,7 @@ lYY
 rBt
 bOZ
 tJJ
-dfN
+wYB
 iue
 tQU
 nkB
@@ -228230,7 +228258,7 @@ lrd
 aZr
 ktX
 uzu
-iQj
+pzf
 wpi
 nws
 fqO
@@ -228487,7 +228515,7 @@ mQp
 lje
 ktX
 nyr
-iQj
+pzf
 wpi
 nws
 fqO
@@ -295023,7 +295051,7 @@ uXi
 cwC
 gbF
 qcY
-eMG
+gbF
 gbF
 eRe
 twD
