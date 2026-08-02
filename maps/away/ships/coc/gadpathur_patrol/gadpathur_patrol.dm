@@ -126,7 +126,6 @@
 	base_area = /area/ship/gadpathur_patrol/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-	is_connected = TRUE
 
 /obj/effect/shuttle_landmark/gadpathur_shuttle/transit
 	name = "In transit"
