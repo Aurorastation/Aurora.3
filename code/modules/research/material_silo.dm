@@ -27,6 +27,17 @@
 	. += ..()
 	. += SPAN_NOTICE("\t- The shared storage capacity is <b>[max_material_storage / SHEET_MATERIAL_AMOUNT]</b> sheets.")
 
+/obj/structure/machinery/r_n_d/material_silo/Initialize(mapload, d, populate_components, is_internal)
+	. = ..()
+	update_icon()
+
+/obj/structure/machinery/r_n_d/material_silo/update_icon()
+	. = ..()
+	ClearOverlays()
+	if(!(stat & (NOPOWER | BROKEN)))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+
 /obj/structure/machinery/r_n_d/material_silo/proc/TotalMaterials()
 	SSmaterials.normalize_material_amounts(materials)
 	var/total = 0
