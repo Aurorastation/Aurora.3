@@ -7,7 +7,7 @@
 	worn_overlay = "bulb"
 	worn_overlay_color = LIGHT_COLOR_WHITE
 	w_class = WEIGHT_CLASS_SMALL
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_range = 2
 	action_button_name = "Toggle Marshalling Wands"
 

@@ -128,11 +128,11 @@
 
 	for(var/thing in RANGE_TURFS(scan_range, center))
 		var/turf/T = thing
-		if(!!T.is_plating())
+		if(T.underfloor_accessibility >= UNDERFLOOR_VISIBLE)
 			continue
 
 		for(var/obj/O in T.contents)
-			if(O.level != 1)
+			if(!HAS_TRAIT(O, TRAIT_T_RAY_VISIBLE))
 				continue
 			if(!O.invisibility)
 				continue //if it's already visible don't need an overlay for it

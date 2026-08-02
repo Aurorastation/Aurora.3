@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	ClearOverlays()
 	var/mutable_appearance/screen_overlay = overlay_image(icon, "req_comp-idle")
 	var/mutable_appearance/screen_hologram = overlay_image(icon, "req_comp-idle")
-	var/mutable_appearance/screen_emis = emissive_appearance(icon, "req_comp-idle")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "req_comp-idle", src)
 	screen_hologram.filters += filter(type="color", color=list(
 		0, 0, 0, 0,
 		0, 0, 0, 0,

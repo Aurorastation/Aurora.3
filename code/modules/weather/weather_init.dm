@@ -1,6 +1,7 @@
 INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
 /obj/abstract/weather_system/Initialize(var/ml, var/target_z, var/initial_weather)
-	SSweather.register_weather_system(src)
+	// Track our affected z-levels before registration; the holder moves to nullspace below.
+	affecting_zs = GetConnectedZlevels(target_z)
 
 	. = ..()
 
@@ -9,15 +10,15 @@ INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
 	// Bookkeeping/rightclick guards.
 	verbs.Cut()
 	forceMove(null)
-	lightning_overlay = new
-	vis_contents_additions = list(src, lightning_overlay)
+	RegisterSignal(SSmapping, COMSIG_PLANE_OFFSET_INCREASE, PROC_REF(on_plane_offset_increase))
+	ensure_vis_contents_for_offsets(0, SSmapping.max_plane_offset)
 
 	// Initialize our state machine.
 	weather_system = add_state_machine(src, /datum/state_machine/weather)
+	if(!weather_system)
+		return INITIALIZE_HINT_QDEL
 	weather_system.set_state(initial_weather || /singleton/state/weather/calm)
-
-	// Track our affected z-levels.
-	affecting_zs = GetConnectedZlevels(target_z)
+	SSweather.register_weather_system(src)
 
 	// If we're post-init, init immediately.
 	if(SSweather.initialized)

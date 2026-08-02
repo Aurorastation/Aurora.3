@@ -34,7 +34,7 @@
 
 /singleton/origin_item/origin/himeo/on_apply(mob/living/carbon/human/H)
 	. = ..()
-	H.default_lighting_alpha = LIGHTING_PLANE_ALPHA_VERY_VISIBLE
+	H.default_lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 	H.AddElement(/datum/element/light_sensitivity)
 
 /singleton/origin_item/origin/vysoka

@@ -259,11 +259,8 @@
 					if(istype(neighbor, /turf/space))
 						LAZYSET(space_turfs_to_update, neighbor, TRUE)
 
-		if(SSlighting.initialized) //don't generate lighting overlays before SSlighting in case these templates are loaded before
-			var/area/A = T.loc
-			if(A?.area_has_base_lighting)
-				continue
-			T.static_lighting_build_overlay()
+	if(SSlighting.initialized)
+		SSlighting.setup_static_lighting_if_needed(turfs)
 
 	// New z-level space initializes before its template is placed, so refresh each affected space turf once.
 	for(var/turf/space/space_turf as anything in space_turfs_to_update)

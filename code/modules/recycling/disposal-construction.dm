@@ -19,6 +19,12 @@
 	var/dpdir = 0	// directions as disposalpipe
 	var/base_state = "pipe-s"
 
+/obj/structure/disposalconstruct/Initialize()
+	. = ..()
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	RegisterSignal(src, COMSIG_UNDERTILE_UPDATED, PROC_REF(on_undertile_updated))
+	update_underfloor_from_turf()
+
 	// update iconstate and dpdir due to dir and type
 /obj/structure/disposalconstruct/proc/update()
 	var/flip = turn(dir, 180)
@@ -97,10 +103,8 @@
 		alpha = 255
 		//otherwise burying half-finished pipes under floors causes them to half-fade
 
-	// hide called by levelupdate if turf intact status changes
-	// change visibility status and force update of icon
-/obj/structure/disposalconstruct/hide(var/intact)
-	set_invisibility((intact && level==1) ? 101: 0)	// hide if floor is intact
+/obj/structure/disposalconstruct/proc/on_undertile_updated()
+	SIGNAL_HANDLER
 	update()
 
 
@@ -214,7 +218,7 @@
 			ispipe = 1
 
 	var/turf/T = src.loc
-	if(!T.is_plating())
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		to_chat(user, "You can only attach the [nicetype] if the floor plating is removed.")
 		return
 
@@ -229,6 +233,7 @@
 			else if(ptype != 15)
 				density = 1
 			to_chat(user, "You detach the [nicetype] from the underfloor.")
+			update_underfloor_from_turf()
 		else
 			if(ptype>=6 && ptype <= 8 || ptype == 15) // Disposal bin, outlet or small disposal bin
 				if(CP) // There's something there
@@ -255,6 +260,7 @@
 			else if(ptype != 15)
 				density = 1 // We don't want disposal bins or outlets to go density 0
 			to_chat(user, "You attach the [nicetype] to the underfloor.")
+			update_underfloor_from_turf()
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		update()
 
@@ -318,7 +324,7 @@
 			to_chat(user, "You need to attach it to the plating first!")
 			return
 
-/obj/structure/disposalconstruct/hides_under_flooring()
+/obj/structure/disposalconstruct/uses_undertile()
 	if(anchored)
 		return 1
 	else

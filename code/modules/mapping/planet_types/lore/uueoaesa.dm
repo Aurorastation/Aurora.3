@@ -11,7 +11,7 @@
 	generated_name = FALSE
 	charted = "Unathi core world. Charted 2403CE, Sol Alliance Department of Colonization"
 	geology = "Low mineral levels. No active geothermal signatures detected. "
-	ring_chance = 0
+
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
 
@@ -43,7 +43,7 @@
 	generated_name = FALSE
 	small_flora_types = list(/datum/seed/koisspore)
 	possible_themes = list(/datum/exoplanet_theme/barren/pid)
-	ring_chance = 0
+
 	ruin_planet_type = PLANET_LORE
 	planetary_area = /area/exoplanet/barren/pid
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/pid_crashed_shuttle, /datum/map_template/ruin/exoplanet/pid_kois_farm, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
@@ -94,7 +94,7 @@
 	charted = "Natural satellite of Moghes, Unathi homeworld. Charted 2403CE, Sol Alliance Department of Colonization"
 	geology = "Large mineral deposits. No sign of geothermal activity."
 	generated_name = FALSE
-	ring_chance = 0
+
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(2,2)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
@@ -128,7 +128,7 @@
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable. Heavy radioactive contamination detected in atmosphere."
 	surfacewater = "34% surface water. Weak tidal forces from natural satellite."
 	scanimage = "moghes.png"
-	ring_chance = 0
+
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/grass/moghes) //default to untouched lands in case pre_ruin_preparation fucks up
@@ -274,7 +274,7 @@
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/grass/ouerea)
 	features_budget = 6
-	ring_chance = 0
+
 	flora_diversity = 0
 	has_trees = FALSE
 	small_flora_types = list(/datum/seed/xuizi, /datum/seed/gukhe, /datum/seed/aghrassh)

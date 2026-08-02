@@ -78,7 +78,7 @@ pixel_x = 8;
 	ClearOverlays()
 	var/mutable_appearance/screen = overlay_image(icon, "bell-standby")
 	var/mutable_appearance/screen_hologram = overlay_image(icon, "bell-standby")
-	var/mutable_appearance/screen_emis = emissive_appearance(icon, "bell-standby")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "bell-standby", src)
 	screen_hologram.filters += filter(type="color", color=list(
 		0, 0, 0, 0,
 		0, 0, 0, 0,

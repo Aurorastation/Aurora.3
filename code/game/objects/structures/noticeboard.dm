@@ -1,7 +1,7 @@
 /obj/structure/noticeboard
 	name = "notice board"
 	desc = "A board for pinning probably not-so-important notices upon."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/message_board.dmi'
 	icon_state = "nboard0"
 	density = 0
 	anchored = 1
@@ -96,7 +96,7 @@
 /obj/structure/noticeboard/command
 	name = "command notice board"
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/message_board.dmi'
 	icon_state = "comboard0"
 	req_one_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
 	base_icon = "comboard"

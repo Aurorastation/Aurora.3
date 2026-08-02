@@ -1,4 +1,18 @@
+#define ADMIN_COLOUR_PRIORITY 1
+#define TEMPORARY_COLOUR_PRIORITY 2
+#define WASHABLE_COLOUR_PRIORITY 3
+#define FIXED_COLOUR_PRIORITY 4
+#define COLOUR_PRIORITY_AMOUNT 4
+
+#define ATOM_COLOR_TYPE_NORMAL "normal"
+#define ATOM_COLOR_TYPE_FILTER "filter"
+#define ATOM_COLOR_VALUE_INDEX 1
+#define ATOM_COLOR_TYPE_INDEX 2
+#define ATOM_PRIORITY_COLOR_FILTER "atom_priority_color"
+#define ATOM_PRIORITY_COLOR_FILTER_PRIORITY -1
+
 #define COLOR_BLACK            "#000000"
+#define COLOR_HALF_TRANSPARENT_BLACK "#0000007A"
 #define COLOR_NAVY_BLUE        "#000080"
 #define COLOR_GREEN            "#008000"
 #define COLOR_BRIGHT_GREEN     "#13cf13"
@@ -58,6 +72,7 @@
 #define COLOR_GRAY80           "#cccccc"
 #define COLOR_OFF_WHITE        "#eeeeee"
 #define COLOR_WHITE            "#ffffff"
+#define COLOR_STARLIGHT        "#8589fa"
 #define COLOR_GOLD             "#ffcc33"
 #define COLOR_CLOSET_GOLD      "#6d6133"
 #define COLOR_DARK_RED         "#9d2300"

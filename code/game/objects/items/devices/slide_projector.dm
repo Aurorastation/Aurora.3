@@ -164,7 +164,7 @@
 		return
 	ClearOverlays()
 	var/mutable_appearance/MA = new(I)
-	MA.plane = ABOVE_LIGHTING_PLANE
+	SET_PLANE_EXPLICIT(MA, ABOVE_LIGHTING_PLANE, src)
 	MA.appearance_flags = RESET_ALPHA
 	MA.alpha = 170
 	MA.pixel_x = 0

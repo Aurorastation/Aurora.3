@@ -45,7 +45,7 @@
 		bound_width = movable_source.bound_width
 
 	var/image/balloon_alert = image(loc = isturf(src) ? src : get_atom_on_turf(src), layer = ABOVE_HUMAN_LAYER)
-	balloon_alert.plane = BALLOON_CHAT_PLANE
+	SET_PLANE_EXPLICIT(balloon_alert, BALLOON_CHAT_PLANE, src)
 	balloon_alert.alpha = 0
 	balloon_alert.appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM
 	balloon_alert.maptext = MAPTEXT("<span style='text-align: center; -dm-text-outline: 1px #0005'>[text]</span>")
@@ -77,7 +77,12 @@
 		easing = CUBIC_EASING | EASE_IN,
 	)
 
+	LAZYADD(update_on_z, balloon_alert)
+	addtimer(CALLBACK(src, PROC_REF(forget_balloon_alert), balloon_alert), BALLOON_TEXT_TOTAL_LIFETIME(length_mult))
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), balloon_alert, viewer_client), BALLOON_TEXT_TOTAL_LIFETIME(length_mult))
+
+/atom/proc/forget_balloon_alert(image/balloon_alert)
+	LAZYREMOVE(update_on_z, balloon_alert)
 
 #undef BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MIN
 #undef BALLOON_TEXT_CHAR_LIFETIME_INCREASE_MULT

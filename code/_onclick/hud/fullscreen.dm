@@ -4,26 +4,31 @@
 /mob/proc/overlay_fullscreen(category, type, severity, animated = 0)
 	var/atom/movable/screen/fullscreen/screen = screens[category]
 
-	if(screen)
-		if(screen.type != type)
-			clear_fullscreen(category, FALSE)
-			screen = null
-		else if(!severity || severity == screen.severity)
-			return null
-
-	if(!screen)
-		screen = new type()
+	if(!screen || screen.type != type)
+		clear_fullscreen(category, FALSE)
+		screens[category] = screen = new type()
 		if(animated)
 			screen.alpha = 0
+	else if(!severity || severity == screen.severity)
+		if(client && screen.should_show_to(src))
+			screen.update_for_view(client.view)
+			client.screen |= screen
+		if(screen.needs_offsetting)
+			SET_PLANE_EXPLICIT(screen, PLANE_TO_TRUE(screen.plane), src)
+		return screen
 
 	screen.icon_state = "[initial(screen.icon_state)][severity]"
 	screen.severity = severity
 
-	screens[category] = screen
-	if(client && (stat != DEAD || screen.allstate))
+	if(client && screen.should_show_to(src))
+		screen.update_for_view(client.view)
 		client.screen += screen
 		if(animated)
 			animate(screen, alpha = initial(screen.alpha), time = animated)
+
+	if(screen.needs_offsetting)
+		SET_PLANE_EXPLICIT(screen, PLANE_TO_TRUE(screen.plane), src)
+
 	return screen
 
 /mob/proc/clear_fullscreen(category, animated = 10)
@@ -58,7 +63,25 @@
 /mob/proc/reload_fullscreen()
 	if(client)
 		for(var/category in screens)
-			client.screen |= screens[category]
+			var/atom/movable/screen/fullscreen/screen = screens[category]
+			if(screen.should_show_to(src))
+				screen.update_for_view(client.view)
+				client.screen |= screen
+			else
+				client.screen -= screen
+
+/mob/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	. = ..()
+	if(!same_z_layer)
+		relayer_fullscreens()
+
+/mob/proc/relayer_fullscreens()
+	var/turf/current_turf = get_turf(src)
+	var/offset = GET_TURF_PLANE_OFFSET(current_turf)
+	for(var/category in screens)
+		var/atom/movable/screen/fullscreen/screen = screens[category]
+		if(screen.needs_offsetting)
+			screen.plane = GET_NEW_PLANE(initial(screen.plane), offset)
 
 /atom/movable/screen/fullscreen
 	icon = 'icons/hud/mob/full.dmi'
@@ -67,8 +90,21 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = FULLSCREEN_PLANE
 	layer = FULLSCREEN_LAYER
+	var/view = 7
 	var/severity = 0
 	var/allstate = 0 //shows if it should show up for dead people too
+	var/needs_offsetting = TRUE
+
+/atom/movable/screen/fullscreen/proc/update_for_view(client_view)
+	if(screen_loc == "CENTER-7,CENTER-7" && view != client_view)
+		var/list/actualview = getviewsize(client_view)
+		view = client_view
+		transform = matrix(actualview[1]/FULLSCREEN_OVERLAY_RESOLUTION_X, 0, 0, 0, actualview[2]/FULLSCREEN_OVERLAY_RESOLUTION_Y, 0)
+
+/atom/movable/screen/fullscreen/proc/should_show_to(mob/mymob)
+	if(!allstate && mymob.stat == DEAD)
+		return FALSE
+	return TRUE
 
 /atom/movable/screen/fullscreen/Destroy()
 	severity = 0
@@ -166,26 +202,33 @@
 /atom/movable/screen/fullscreen/blueprints/less_alpha
 	alpha = 35
 
+/atom/movable/screen/fullscreen/cinematic_backdrop
+	icon = 'icons/hud/mob/white.dmi'
+	icon_state = "flash"
+	screen_loc = ui_entire_screen
+	plane = SPLASHSCREEN_PLANE
+	layer = CINEMATIC_LAYER
+	color = COLOR_BLACK
+	allstate = 1
+
 /atom/movable/screen/fullscreen/lighting_backdrop
 	icon = 'icons/hud/mob/white.dmi'
 	icon_state = "flash"
-	transform = matrix(200, 0, 0, 0, 200, 0)
+	screen_loc = ui_entire_screen
 	plane = LIGHTING_PLANE
+	layer = LIGHTING_ABOVE_ALL
 	blend_mode = BLEND_OVERLAY
+	allstate = 1
+	needs_offsetting = FALSE
 
 //Provides darkness to the back of the lighting plane
 /atom/movable/screen/fullscreen/lighting_backdrop/lit_secondary
 	invisibility = INVISIBILITY_LIGHTING
-	layer = BACKGROUND_LAYER + LIGHTING_PRIMARY_DIMMER_LAYER
+	layer = BACKGROUND_LAYER + LIGHTING_ABOVE_ALL + 1
 	color = "#000"
-	alpha = 60
 
 /atom/movable/screen/fullscreen/lighting_backdrop/backplane
-	invisibility = INVISIBILITY_LIGHTING
-	layer = LIGHTING_BACKPLANE_LAYER
-	color = "#000"
-	blend_mode = BLEND_ADD
-	//show_when_dead = TRUE
+	layer = BACKGROUND_LAYER + LIGHTING_ABOVE_ALL
 
 /atom/movable/screen/fullscreen/see_through_darkness
 	icon_state = "nightvision"

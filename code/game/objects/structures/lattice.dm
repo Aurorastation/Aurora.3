@@ -7,7 +7,8 @@
 	anchored = TRUE
 	opacity = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
-	layer = ABOVE_TILE_LAYER
+	plane = FLOOR_PLANE
+	layer = LATTICE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -104,6 +105,7 @@
 	desc = "A catwalk for easier EVA maneuvering."
 	icon = 'icons/obj/smooth/catwalk.dmi'
 	icon_state = "catwalk"
+	blocks_emissive = EMISSIVE_BLOCK_NONE
 	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/obj/structure/lattice/catwalk,
@@ -116,6 +118,16 @@
 	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
 	can_be_unanchored = TRUE
 	layer = CATWALK_LAYER
+
+/obj/structure/lattice/catwalk/indoor/Initialize()
+	. = ..()
+	var/turf/turf = get_turf(src)
+	turf?.levelupdate()
+
+/obj/structure/lattice/catwalk/indoor/Destroy()
+	var/turf/turf = get_turf(src)
+	. = ..()
+	turf?.levelupdate()
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)

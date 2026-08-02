@@ -53,7 +53,7 @@
 	screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
 	screen_overlay.appearance_flags = KEEP_APART
 	AddOverlays(screen_overlay)
-	emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+	emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]", src)
 	AddOverlays(emissive_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
@@ -67,7 +67,7 @@
 		screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
 		screen_overlay.appearance_flags = KEEP_APART
 		AddOverlays(screen_overlay)
-		emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+		emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]", src)
 		AddOverlays(emissive_overlay)
 
 /mob/living/simple_animal/hostile/ipc_zombie/death()

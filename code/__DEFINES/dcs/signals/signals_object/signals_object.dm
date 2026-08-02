@@ -2,6 +2,11 @@
 // When the signal is called: (signal arguments)
 // All signals send the source datum of the signal as the first argument
 
+/// From /turf/proc/levelupdate(): (underfloor_accessibility)
+#define COMSIG_OBJ_HIDE "obj_hide"
+
+/// From /datum/element/undertile/hide(): ()
+#define COMSIG_UNDERTILE_UPDATED "undertile_updated"
 
 // /obj/item signals
 

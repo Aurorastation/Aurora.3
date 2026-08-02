@@ -216,7 +216,7 @@
 	for(var/i = 1, i <= length(alerts), i++)
 		var/atom/movable/screen/alert/alert = alerts[alerts[i]]
 		if(alert.icon_state != "default" && alert.icon_state != "template")
-			var/mutable_appearance/alert_underlay = mutable_appearance(ui_style2icon(mymob.client.prefs.UI_style), "template", FLOAT_LAYER, FLOAT_PLANE, alpha = mymob.client.prefs.UI_style_alpha)
+			var/mutable_appearance/alert_underlay = mutable_appearance(ui_style2icon(mymob.client.prefs.UI_style), "template", FLOAT_LAYER, alpha = mymob.client.prefs.UI_style_alpha)
 			alert_underlay.color = mymob.client.prefs.UI_style_color
 			alert.underlays += alert_underlay
 			alert.alpha = mymob.client.prefs.UI_style_alpha

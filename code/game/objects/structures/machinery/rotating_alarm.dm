@@ -53,6 +53,7 @@
 	var/obj/spinning_light/spin_effect = null
 
 	var/alarm_light_color = COLOR_ORANGE
+	var/spin_effect_color = COLOR_ORANGE
 	/// This is an angle to rotate the colour of alarm and its light. Default is orange, so, a 45 degree angle clockwise will make it green
 	var/angle = 0
 
@@ -72,11 +73,15 @@
 	set_dir(dir) //Set dir again so offsets update correctly
 
 /obj/structure/machinery/rotating_alarm/Destroy()
-	QDEL_NULL(spin_effect)
-	QDEL_LIST_ASSOC_VAL(spinning_lights_cache)
-
+	if(on && spin_effect)
+		vis_contents -= spin_effect
+	spin_effect = null
 	. = ..()
 
+/obj/structure/machinery/rotating_alarm/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	. = ..()
+	if(!same_z_layer)
+		set_color(spin_effect_color)
 
 /obj/structure/machinery/rotating_alarm/set_dir(ndir) //Due to effect, offsets cannot be part of sprite, so need to set it for each dir
 	. = ..()
@@ -90,13 +95,22 @@
 		pixel_x = -20
 
 
+/obj/structure/machinery/rotating_alarm/proc/spinning_light_cache_key(color, plane_offset)
+	return "[color]-[plane_offset]"
+
 /obj/structure/machinery/rotating_alarm/proc/set_color(color)
-	if(on)
+	if(on && spin_effect)
 		vis_contents -= spin_effect
 
-	if(isnull(spinning_lights_cache["[color]"]))
-		spinning_lights_cache["[color]"] = new /obj/spinning_light()
-	spin_effect = spinning_lights_cache["[color]"]
+	spin_effect_color = color
+	var/plane_offset = GET_TURF_PLANE_OFFSET(src) || 0
+	var/cache_key = spinning_light_cache_key(color, plane_offset)
+	if(isnull(spinning_lights_cache[cache_key]))
+		var/obj/spinning_light/new_spin_effect = new /obj/spinning_light()
+		SET_PLANE_W_SCALAR(new_spin_effect, ABOVE_LIGHTING_PLANE, plane_offset)
+		spinning_lights_cache[cache_key] = new_spin_effect
+
+	spin_effect = spinning_lights_cache[cache_key]
 	spin_effect.set_color(color)
 
 	alarm_light_color = color
@@ -109,9 +123,11 @@
 
 /obj/structure/machinery/rotating_alarm/proc/toggle_state()
 	if(on)
-		vis_contents -= spin_effect
+		if(spin_effect)
+			vis_contents -= spin_effect
 		set_light(0)
 	else
-		vis_contents += spin_effect
+		if(spin_effect)
+			vis_contents += spin_effect
 		set_light(2, 1, alarm_light_color)
 	on = !on

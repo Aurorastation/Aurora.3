@@ -122,7 +122,7 @@
 	H.update_action_buttons()
 	H.client.init_verbs()
 
-	set_light(0.5, 0.1, 3, 2, l_color = "#880000")
+	set_light(0.5, 0.1, l_color = "#880000")
 
 /obj/item/psionic_jumpstarter
 	name = "psionic jumpstarter"

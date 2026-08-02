@@ -82,6 +82,7 @@
 	sector_hud_menu = 'icons/misc/hudmenu/lemurian_hud.dmi'
 	hivenet_echoes = FALSE
 	away_sites_enabled = FALSE
+	parallax_layering_enabled = FALSE
 	ccia_link = FALSE
 
 	lore_radio_stations = list(

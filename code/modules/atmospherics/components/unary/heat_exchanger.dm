@@ -67,7 +67,7 @@
 	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	var/turf/T = src.loc
-	if(level == 1 && isturf(T) && !T.is_plating())
+	if(uses_undertile() && isturf(T) && T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
 		to_chat(user, SPAN_WARNING("You must remove the plating first."))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()

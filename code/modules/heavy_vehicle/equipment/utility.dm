@@ -224,11 +224,12 @@
 	light_range = 8
 	light_color = LIGHT_COLOR_TUNGSTEN
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	light_on = FALSE
 	module_hints = list(
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
 	)
 
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
@@ -282,18 +283,97 @@
 	var/obj/effect/warp/small/warpeffect = null
 
 /obj/effect/ebeam/warp
-	plane = WARP_EFFECT_PLANE
+	plane = DISPLACEMENT_PLANE
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | NO_CLIENT_COLOR
-	z_flags = ZMM_IGNORE
+
+/obj/effect/ebeam/warp/Initialize(mapload)
+	. = ..()
+	update_displacement_source()
+
+/obj/effect/ebeam/warp/Destroy()
+	clear_displacement_source()
+	return ..()
+
+/obj/effect/ebeam/warp/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	update_displacement_source()
+
+/obj/effect/ebeam/warp/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	. = ..()
+	if(same_z_layer)
+		return
+	update_displacement_source()
 
 /obj/effect/warp/small
-	plane = WARP_EFFECT_PLANE
+	plane = DISPLACEMENT_PLANE
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "singularity_s3"
 	pixel_x = -32
 	pixel_y = -32
-	z_flags = ZMM_IGNORE
+
+// this is all so fucking clunky. i need a better way to do this. but for now it works.
+/obj/effect/warp/small/Initialize(mapload)
+	. = ..()
+	update_displacement_source()
+
+/obj/effect/warp/small/Destroy()
+	clear_displacement_source()
+	return ..()
+
+/obj/effect/warp/small/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	update_displacement_source()
+
+/obj/effect/warp/small/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
+	. = ..()
+	if(same_z_layer)
+		return
+	update_displacement_source()
+
+/datum/beam/catapult_lock
+	var/endpoint_signals_registered = FALSE
+
+/datum/beam/catapult_lock/Start()
+	register_endpoint_signals()
+	return ..()
+
+/datum/beam/catapult_lock/after_calculate()
+	return
+
+/datum/beam/catapult_lock/Destroy()
+	unregister_endpoint_signals()
+	return ..()
+
+/datum/beam/catapult_lock/proc/register_endpoint_signals()
+	if(endpoint_signals_registered)
+		return
+	if(origin)
+		RegisterSignal(origin, COMSIG_MOVABLE_MOVED, PROC_REF(endpoint_moved))
+		RegisterSignal(origin, COMSIG_QDELETING, PROC_REF(endpoint_deleted))
+	if(target && target != origin)
+		RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(endpoint_moved))
+		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(endpoint_deleted))
+	endpoint_signals_registered = TRUE
+
+/datum/beam/catapult_lock/proc/unregister_endpoint_signals()
+	if(!endpoint_signals_registered)
+		return
+	if(origin)
+		UnregisterSignal(origin, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
+	if(target && target != origin)
+		UnregisterSignal(target, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
+	endpoint_signals_registered = FALSE
+
+/datum/beam/catapult_lock/proc/endpoint_moved()
+	SIGNAL_HANDLER
+	if(recalculating)
+		return
+	recalculate_in(0)
+
+/datum/beam/catapult_lock/proc/endpoint_deleted()
+	SIGNAL_HANDLER
+	End()
 
 /obj/item/mecha_equipment/catapult/proc/beamdestroyed()
 	if(beam)
@@ -347,7 +427,8 @@
 						to_chat(user, SPAN_NOTICE("Unable to lock on [target]."))
 						return
 					locked = AM
-					beam = owner.Beam(BeamTarget = target, icon_state = "r_beam", maxdistance = max_dist, beam_type = /obj/effect/ebeam/warp)
+					// The catapult lock owns this beam's lifetime and only recalculates it when an endpoint moves.
+					beam = owner.Beam(BeamTarget = target, icon_state = "r_beam", time = -1, maxdistance = max_dist, beam_type = /obj/effect/ebeam/warp, beam_sleep_time = null, beam_datum_type = /datum/beam/catapult_lock)
 					RegisterSignal(beam, COMSIG_QDELETING, PROC_REF(beamdestroyed))
 
 					animate(target,pixel_y= initial(target.pixel_y) - 2,time=1 SECOND, easing = SINE_EASING, flags = ANIMATION_PARALLEL, loop = -1)
@@ -365,8 +446,9 @@
 						deactivate()
 						owner.use_cell_power(active_power_use * CELLRATE)
 					else
+						var/atom/movable/disengaged = locked
 						locked = null
-						to_chat(user, SPAN_NOTICE("Lock on \the [locked] disengaged."))
+						to_chat(user, SPAN_NOTICE("Lock on \the [disengaged] disengaged."))
 						deactivate()
 			if(CATAPULT_AREA)
 				if(!warpeffect)

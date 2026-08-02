@@ -6,7 +6,7 @@
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
 	icon_state = "pylonbase"
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_range = 5
 	light_color = "#3e0000"
 	maxhealth = 30

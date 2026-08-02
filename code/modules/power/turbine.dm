@@ -223,7 +223,7 @@
 	if(rpm_threshold != new_rpm_threshold)
 		rpm_threshold = new_rpm_threshold
 		AddOverlays(overlay_image(icon, "comp_o[rpm_threshold]", FLY_LAYER))
-		AddOverlays(emissive_appearance(icon, "comp_o[rpm_threshold]", FLY_LAYER))
+		AddOverlays(emissive_appearance(icon, "comp_o[rpm_threshold]", src, FLY_LAYER))
 		update_icon()
 
 // These are crucial to working of a turbine - the stats modify the power output.

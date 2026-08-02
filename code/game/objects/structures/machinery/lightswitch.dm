@@ -37,7 +37,7 @@
 	ClearOverlays()
 	if(!(stat & NOPOWER))
 		var/switch_overlay = image(icon, "light[on]-overlay")
-		emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
+		emissive_overlay = emissive_appearance(icon, "light[on]-overlay", src)
 		AddOverlays(switch_overlay)
 		AddOverlays(emissive_overlay)
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")
@@ -221,21 +221,24 @@
 
 // applies color and brightness modifications
 /obj/structure/machinery/light_switch/idris/proc/apply_light_modifications(obj/structure/machinery/light/light)
-	if(!light.brightness_range || !light.brightness_power)
+	var/base_range = initial(light.brightness_range)
+	var/base_power = initial(light.brightness_power)
+	if(!base_range || !base_power)
 		return
 
 	if(light.emergency_mode)
 		light.emergency_mode = FALSE
 	light.no_emergency = TRUE
 
-	light.brightness_color = current_light_color
-	light.default_color = current_light_color
+	var/effective_color = get_effective_light_color()
+	light.brightness_color = effective_color
+	light.default_color = effective_color
 
 	var/power_multiplier = current_brightness ** 2.2
 	var/range_multiplier = sqrt(current_brightness)
 
-	light.brightness_power = initial(light.brightness_power) * power_multiplier
-	light.brightness_range = initial(light.brightness_range) * range_multiplier
+	light.brightness_power = base_power * power_multiplier
+	light.brightness_range = base_range * range_multiplier
 
 	if(light.supports_nightmode && light.nightmode)
 		light.set_light(light.night_brightness_range, light.night_brightness_power, light.brightness_color)
@@ -244,10 +247,13 @@
 
 	light.update_icon()
 
-// converts internal brightness value (0.8-1.0) to display value (0-100)
-/obj/structure/machinery/light_switch/idris/proc/convert_brightness_to_display(brightness)
-	return ((brightness - 0.8) / 0.2) * 100
+/obj/structure/machinery/light_switch/idris/proc/get_effective_light_color()
+	return BlendRGB(LIGHT_COLOR_OFFWHITE, current_light_color, current_brightness)
 
-// converts display value (0-100) to internal brightness value (0.8-1.0)
+// converts internal brightness value (0.0-1.0) to display value (0-100)
+/obj/structure/machinery/light_switch/idris/proc/convert_brightness_to_display(brightness)
+	return round(clamp(brightness, 0, 1) * 100, 1)
+
+// converts display value (0-100) to internal brightness value (0.0-1.0)
 /obj/structure/machinery/light_switch/idris/proc/convert_display_to_brightness(display_value)
-	return 0.8 + (clamp(display_value, 0, 100) / 100) * 0.2
+	return clamp(display_value, 0, 100) / 100

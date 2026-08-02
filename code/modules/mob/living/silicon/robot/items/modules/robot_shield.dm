@@ -11,7 +11,7 @@
 
 /obj/item/borg/combat/shield/on_module_activate(mob/living/silicon/robot/R)
 	R.shield_overlay = image(R.icon, "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-shield")
-	R.shield_emissive = emissive_appearance(R.icon, "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-shield")
+	R.shield_emissive = emissive_appearance(R.icon, "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-shield", R)
 	R.AddOverlays(list(R.shield_overlay, R.shield_emissive))
 
 /obj/item/borg/combat/shield/on_module_deactivate(mob/living/silicon/robot/R)

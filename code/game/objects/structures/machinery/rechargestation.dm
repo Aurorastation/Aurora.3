@@ -236,24 +236,9 @@
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
 
-/obj/structure/machinery/recharge_station/proc/build_overlays()
-	ClearOverlays()
-	switch(round(chargepercentage()))
-		if(1 to 20)
-			AddOverlays("statn_c0")
-		if(21 to 40)
-			AddOverlays("statn_c20")
-		if(41 to 60)
-			AddOverlays("statn_c40")
-		if(61 to 80)
-			AddOverlays("statn_c60")
-		if(81 to 98)
-			AddOverlays("statn_c80")
-		if(99 to 110)
-			AddOverlays("statn_c100")
-
 /obj/structure/machinery/recharge_station/update_icon()
 	..()
+	ClearOverlays()
 	if(stat & BROKEN)
 		icon_state = "borgcharger0"
 		return
@@ -263,11 +248,24 @@
 			icon_state = "borgcharger2"
 		else
 			icon_state = "borgcharger1"
+			AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
+			switch(round(chargepercentage()))
+				if(1 to 20)
+					AddOverlays(emissive_appearance(icon, "statn_c0", src))
+				if(21 to 40)
+					AddOverlays(emissive_appearance(icon, "statn_c20", src))
+				if(41 to 60)
+					AddOverlays(emissive_appearance(icon, "statn_c40", src))
+				if(61 to 80)
+					AddOverlays(emissive_appearance(icon, "statn_c60", src))
+				if(81 to 98)
+					AddOverlays(emissive_appearance(icon, "statn_c80", src))
+				if(99 to 110)
+					AddOverlays(emissive_appearance(icon, "statn_c100", src))
 	else
 		icon_state = "borgcharger0"
-
-	if(icon_update_tick == 0)
-		build_overlays()
+		if(!(stat & NOPOWER) && !has_cell_power())
+			AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 /obj/structure/machinery/recharge_station/CollidedWith(atom/bumped_atom)
 	. = ..()

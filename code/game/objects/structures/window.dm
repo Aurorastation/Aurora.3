@@ -456,7 +456,16 @@
 	var/range = 16
 
 /obj/structure/machinery/button/switch/windowtint/update_icon()
-	icon_state = "light[active]"
+	ClearOverlays()
+	if(!(stat & NOPOWER))
+		var/switch_overlay = image(icon, "light[active]-overlay")
+		emissive_overlay = emissive_appearance(icon, "light[active]-overlay", src)
+		AddOverlays(switch_overlay)
+		AddOverlays(emissive_overlay)
+		if(!light_range || light_color != active ? "#82ff4c" : "#f86060")
+			set_light(2, 0.3, active ? "#82ff4c" : "#f86060")
+	else if(light_range)
+		set_light(FALSE)
 
 /obj/structure/machinery/button/switch/windowtint/attack_hand(mob/user as mob)
 	if(..())

@@ -17,7 +17,8 @@ Pipelines + Other Objects -> Pipe network
 	var/nodealert = 0
 	var/power_rating //the maximum amount of power the machine can use to do work, affects how powerful the machine is, in Watts
 
-	layer = EXPOSED_PIPE_LAYER
+	plane = FLOOR_PLANE
+	layer = ATMOS_PIPE_LAYER
 
 	var/connect_types = CONNECT_TYPE_REGULAR
 	var/icon_connect_type = "" //"-supply" or "-scrubbers"
@@ -32,6 +33,10 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/structure/machinery/atmospherics/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	RegisterSignal(src, COMSIG_UNDERTILE_UPDATED, PROC_REF(on_undertile_updated))
+	update_underfloor_from_turf()
+
 	if(!icon_manager)
 		icon_manager = new()
 
@@ -61,7 +66,7 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/structure/machinery/atmospherics/proc/add_underlay(var/turf/T, var/obj/structure/machinery/atmospherics/node, var/direction, var/icon_connect_type)
 	if(node)
-		if(!T.is_plating() && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && node.uses_undertile() && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			//underlays += icon_manager.get_atmos_icon("underlay_down", direction, color_cache_name(node))
 			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "down" + icon_connect_type)
 		else
@@ -76,6 +81,23 @@ Pipelines + Other Objects -> Pipe network
 		return 1
 	else
 		return 0
+
+/obj/structure/machinery/atmospherics/uses_undertile()
+	return FALSE
+
+/obj/structure/machinery/atmospherics/undertile_restored_plane()
+	return FLOOR_PLANE
+
+/obj/structure/machinery/atmospherics/undertile_restored_layer()
+	return density ? ABOVE_CATWALK_LAYER : HIGH_TURF_LAYER
+
+/obj/structure/machinery/atmospherics/undertile_layer()
+	return undertile_restored_layer()
+
+/obj/structure/machinery/atmospherics/proc/on_undertile_updated()
+	SIGNAL_HANDLER
+	update_underlays()
+	queue_icon_update()
 
 /obj/structure/machinery/atmospherics/proc/check_connect_types(obj/structure/machinery/atmospherics/atmos1, obj/structure/machinery/atmospherics/atmos2)
 	return (atmos1.connect_types & atmos2.connect_types)

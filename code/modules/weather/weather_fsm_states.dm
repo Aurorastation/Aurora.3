@@ -43,6 +43,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 		weather.color = "#a9c8e8"
 	else
 		weather.color = COLOR_WHITE
+	weather.sync_weather_visuals()
 
 /singleton/state/weather/proc/tick(var/obj/abstract/weather_system/weather)
 	return

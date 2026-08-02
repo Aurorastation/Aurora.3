@@ -12,7 +12,7 @@
 	anchored = TRUE
 	density = TRUE
 	opacity = FALSE
-	layer = ABOVE_TILE_LAYER
+	layer = ABOVE_NORMAL_TURF_LAYER
 	maxhealth = OBJECT_HEALTH_VERY_LOW
 	var/destroy_spawntype = /mob/living/carbon/alien/diona
 

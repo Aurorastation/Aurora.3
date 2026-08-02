@@ -6,6 +6,7 @@
 	density = TRUE
 	blocks_air = TRUE
 	pass_flags_self = PASSCLOSEDTURF
+	plane = WALL_PLANE
 
 /turf/unsimulated/wall/examine_descriptor(mob/user)
 	return "wall"

@@ -1,7 +1,8 @@
 /obj/effect/decal/plaster
 	icon = 'icons/turf/wood_wall_testing.dmi'
 	icon_state = "plaster_end"
-	layer = 2
+	plane = WALL_PLANE
+	layer = CLOSED_TURF_LAYER
 
 /obj/effect/decal/plaster/yellow
 	color = "#e6b927"

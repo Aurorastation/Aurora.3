@@ -159,6 +159,14 @@
 
 	. = ..()
 
+/obj/structure/closet/blocks_contained_overlay_light(atom/movable/contained_light_source)
+	return !opened
+
+/obj/structure/closet/proc/update_contained_overlay_lights()
+	for(var/atom/movable/contained as anything in contents)
+		var/datum/component/overlay_lighting/light_component = contained.GetComponent(/datum/component/overlay_lighting)
+		light_component?.check_holder()
+
 /obj/structure/closet/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	dump_contents()
 	. = ..()
@@ -203,7 +211,7 @@
 	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
-			M.client.eye = M.client.mob
+			M.client.set_eye(M.client.mob)
 			M.client.perspective = MOB_PERSPECTIVE
 			M.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 
@@ -243,6 +251,7 @@
 	if(store_structure)
 		stored_units += store_structure(stored_units)
 	opened = FALSE
+	update_contained_overlay_lights()
 	animate_door(TRUE)
 	if(double_doors)
 		animate_door_alt(TRUE)
@@ -292,7 +301,7 @@
 			break
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src)
 			M.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		M.forceMove(src)
 		added_units += M.mob_size
@@ -622,16 +631,16 @@
 	if(!opened)
 		layer = OBJ_LAYER
 		if(welded)
-			AddOverlays("[icon_door_overlay]welded")
+			AddOverlaysWithEmissiveBlocker("[icon_door_overlay]welded")
 		if(!is_animating_door)
 			if(icon_door)
-				AddOverlays("[icon_door]_door")
+				AddOverlaysWithEmissiveBlocker("[icon_door]_door")
 				if(double_doors)
-					AddOverlays("[icon_door]_door_alt")
+					AddOverlaysWithEmissiveBlocker("[icon_door]_door_alt")
 			if(!icon_door)
-				AddOverlays("[icon_state]_door")
+				AddOverlaysWithEmissiveBlocker("[icon_state]_door")
 				if(double_doors)
-					AddOverlays("[icon_state]_door_alt")
+					AddOverlaysWithEmissiveBlocker("[icon_state]_door_alt")
 			if(secure)
 				update_secure_overlays()
 		if(secure && secure_lights)
@@ -639,19 +648,20 @@
 	else if(opened)
 		layer = BELOW_OBJ_LAYER
 		if(!is_animating_door)
-			AddOverlays("[icon_door_override ? icon_door : icon_state]_open")
+			AddOverlaysWithEmissiveBlocker("[icon_door_override ? icon_door : icon_state]_open")
 		if(secure && secure_lights)
 			update_secure_overlays()
+	update_emissive_block()
 
 /obj/structure/closet/proc/update_secure_overlays()
-	AddOverlays("[icon_door_overlay]securitypanel")
+	AddOverlaysWithEmissiveBlocker("[icon_door_overlay]securitypanel")
 	if(broken)
-		AddOverlays("[icon_door_overlay]emag")
+		AddOverlaysWithEmissiveBlocker("[icon_door_overlay]emag")
 	else
 		if(locked)
-			AddOverlays("[icon_door_overlay]locked")
+			AddOverlaysWithEmissiveBlocker("[icon_door_overlay]locked")
 		else
-			AddOverlays("[icon_door_overlay]unlocked")
+			AddOverlaysWithEmissiveBlocker("[icon_door_overlay]unlocked")
 
 /obj/structure/closet/proc/animate_door(var/closing = FALSE)
 	if(!door_anim_time)

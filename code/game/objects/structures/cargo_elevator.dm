@@ -9,10 +9,11 @@
 	pixel_y = -352 // Ditto.
 	anchored = TRUE
 	density = FALSE
+	plane = FLOOR_PLANE
 
 /obj/structure/cargo_elevator_hatch/Initialize()
 	. = ..()
-	layer = DECAL_PLATING_LAYER // Set here, otherwise it isn't visible in the map editor.
+	layer = TURF_PLATING_DECAL_LAYER // Set here, otherwise it isn't visible in the map editor.
 
 /obj/structure/cargo_elevator_hatch/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You reach down and touch \the [src]. Nothing happens."))
@@ -38,7 +39,8 @@
 	icon = 'icons/effects/224x192.dmi'
 	icon_state = "elevator_shaft"
 	unacidable = TRUE
-	layer = TURF_DETAIL_LAYER
+	plane = FLOOR_PLANE
+	layer = MID_TURF_LAYER
 	appearance_flags = KEEP_TOGETHER
 
 /obj/effect/elevator/ex_act(severity)
@@ -46,7 +48,7 @@
 
 /obj/effect/elevator/animation_overlay
 	icon_state = null
-	layer = TURF_SHADOW_LAYER
+	layer = HIGH_TURF_LAYER
 	blend_mode = BLEND_INSET_OVERLAY
 	appearance_flags = KEEP_TOGETHER
 
@@ -59,4 +61,3 @@
 
 /obj/effect/elevator/animation_overlay/hatch/right
 	icon_state = "hatch_R"
-

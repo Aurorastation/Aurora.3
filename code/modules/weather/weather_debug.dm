@@ -55,13 +55,39 @@
 		return
 
 	var/obj/abstract/weather_system/weather = T.weather || SSweather.weather_by_z["[T.z]"]
-	if(!weather)
+	if(!weather?.weather_system)
 		to_chat(usr, SPAN_WARNING("This z-level has no weather. Use <b>Initialize Weather For Level</b> if you want to create it."))
 		return
 
 	var/use_state = input(usr, "Which state do you wish to use?", "Target State") as null|anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/state/weather)
-	if(!use_state || weather != (T.weather || SSweather.weather_by_z["[T.z]"]))
+	if(!use_state || weather != (T.weather || SSweather.weather_by_z["[T.z]"]) || !weather.weather_system)
 		return
 	weather.weather_system.set_state(use_state)
 	var/singleton/state/weather/weather_state = GET_SINGLETON(use_state)
 	to_chat(usr, SPAN_NOTICE("Set weather for z[T.z] to [weather_state.name]."))
+
+/datum/admins/proc/force_exoplanet_weather_state()
+	set name = "Force Exoplanet Weather State"
+	set desc = "Force the current exoplanet to use a given weather state."
+	set category = "Debug"
+
+	if(!check_rights(R_DEBUG))
+		return
+
+	var/turf/T = get_turf(usr)
+	if(!istype(T))
+		to_chat(usr, SPAN_WARNING("You need to have a turf to use this verb."))
+		return
+
+	var/obj/effect/overmap/visitable/sector/exoplanet/planet = GLOB.map_sectors["[T.z]"]
+	if(!istype(planet))
+		to_chat(usr, SPAN_WARNING("You need to be on an exoplanet to use this verb."))
+		return
+
+	var/use_state = input(usr, "Which state do you wish to use?", "Target State") as null|anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/state/weather)
+	if(!use_state || planet != GLOB.map_sectors["[T.z]"])
+		return
+
+	planet.set_weather(use_state)
+	var/singleton/state/weather/weather_state = GET_SINGLETON(use_state)
+	to_chat(usr, SPAN_NOTICE("Set weather for [planet.name] to [weather_state.name]."))

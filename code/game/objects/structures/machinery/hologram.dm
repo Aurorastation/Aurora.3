@@ -36,7 +36,8 @@ Possible to do for anyone motivated enough:
 	icon_state = "holopad0"
 	var/icon_state_suffix = ""
 
-	layer = ABOVE_TILE_LAYER
+	plane = FLOOR_PLANE
+	layer = ABOVE_CATWALK_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
@@ -44,6 +45,7 @@ Possible to do for anyone motivated enough:
 	var/holopad_id
 
 	var/list/active_holograms
+	var/list/active_holorays
 	var/last_request = 0 //to prevent request spam. ~Carn
 	var/holo_range = 7 // Change to change how far the AI can move away from the holopad before deactivating
 
@@ -87,20 +89,41 @@ Possible to do for anyone motivated enough:
 
 	GLOB.listening_objects += src
 
+	update_icon()
+
+/obj/structure/machinery/hologram/holopad/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	if(!loc || !LAZYLEN(active_holorays))
+		return
+	for(var/owner in active_holorays)
+		var/obj/effect/overlay/holoray/ray = active_holorays[owner]
+		if(QDELETED(ray))
+			continue
+		ray.forceMove(get_turf(src))
+		update_holoray(owner, get_turf(src))
+
 /obj/structure/machinery/hologram/holopad/proc/get_holopad_id()
 	var/area/A = get_area(src)
 	var/display_name = get_area_display_name(A)
 	holopad_id = "[display_name] ([src.x]-[src.y]-[src.z])"
 
-/obj/structure/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
+/obj/structure/machinery/hologram/holopad/update_icon()
+	ClearOverlays()
+
 	if(LAZYLEN(active_holograms) || has_established_connection())
 		icon_state = "holopad2[icon_state_suffix]"
-		set_light(2)
+		AddOverlays(emissive_appearance(icon, "[long_range ? "holopad2_lr-e" : "holopad2-e"]", src))
+		set_light(2, l_color = light_color)
 	else if(incoming_connection || connected_pad?.incoming_connection)
 		icon_state = "holopad1[icon_state_suffix]"
-		set_light(1)
-	else
+		AddOverlays(emissive_appearance(icon, "[long_range ? "holopad1_lr-e" : "holopad1-e"]", src))
+		set_light(1, l_color = light_color)
+	else if(powered())
 		icon_state = "holopad0[icon_state_suffix]"
+		AddOverlays(emissive_appearance(icon, "[long_range ? "holopad0_lr-e" : "holopad0-e"]", src))
+		set_light(0.5, l_color = light_color)
+	else
+		icon_state = "holopad[icon_state_suffix]-off"
 		set_light(0)
 
 /obj/structure/machinery/hologram/holopad/attack_hand(var/mob/user)
@@ -301,6 +324,12 @@ Possible to do for anyone motivated enough:
 		attack_hand(user)
 		return
 
+	var/obj/structure/machinery/hologram/holopad/old_holo = user.holo
+	if(old_holo && old_holo != src)
+		if(!QDELETED(old_holo))
+			old_holo.clear_holo(user)
+		user.holo = null
+
 	if(user.eyeobj.loc != src.loc)
 		user.eyeobj.setLoc(get_turf(src))
 
@@ -379,6 +408,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		return
 	H.assume_form(M, long_range)
 	LAZYSET(active_holograms, M, H)
+	create_holoray(M)
 
 	update_icon()
 
@@ -395,6 +425,52 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			clear_holo(M)
 			return
 		H.assume_form(M, long_range)
+		update_holoray(M, get_turf(H))
+
+/obj/structure/machinery/hologram/holopad/proc/create_holoray(var/holo_owner)
+	var/obj/effect/overlay/holoray/ray = LAZYACCESS(active_holorays, holo_owner)
+	if(QDELETED(ray))
+		LAZYREMOVE(active_holorays, holo_owner)
+		ray = null
+	if(!ray)
+		ray = new(get_turf(src))
+		LAZYSET(active_holorays, holo_owner, ray)
+	else if(ray.loc != get_turf(src))
+		ray.forceMove(get_turf(src))
+	update_holoray(holo_owner, get_turf(src))
+
+/obj/structure/machinery/hologram/holopad/proc/update_holoray(var/holo_owner, turf/new_turf)
+	var/obj/effect/overlay/hologram/holo = LAZYACCESS(active_holograms, holo_owner)
+	var/obj/effect/overlay/holoray/ray = LAZYACCESS(active_holorays, holo_owner)
+	if(QDELETED(holo) || QDELETED(ray))
+		return
+	if(!new_turf)
+		new_turf = get_turf(holo)
+
+	SET_PLANE_EXPLICIT(ray, ABOVE_GAME_PLANE, src)
+
+	var/disty = holo.y - ray.y
+	var/distx = holo.x - ray.x
+	var/newangle
+	if(!disty)
+		if(distx >= 0)
+			newangle = 90
+		else
+			newangle = 270
+	else
+		newangle = arctan(distx / disty)
+		if(disty < 0)
+			newangle += 180
+		else if(distx < 0)
+			newangle += 360
+
+	var/matrix/ray_transform = matrix()
+	ray_transform.Scale(1, sqrt(distx * distx + disty * disty))
+	ray_transform = turn(ray_transform, newangle)
+	if(get_dist(get_turf(holo), new_turf) <= 1)
+		animate(ray, transform = ray_transform, time = 1)
+	else
+		ray.transform = ray_transform
 
 /obj/structure/machinery/hologram/holopad/proc/clear_holos(var/clear_ai = TRUE)
 	for(var/M in active_holograms)
@@ -405,10 +481,22 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		clear_holo(M)
 
 /obj/structure/machinery/hologram/holopad/proc/clear_holo(var/mob/M)
-	if(!LAZYLEN(active_holograms))
-		return
-	qdel(active_holograms[M])
+	var/obj/effect/overlay/holoray/ray = LAZYACCESS(active_holorays, M)
+	if(ray)
+		qdel(ray)
+		LAZYREMOVE(active_holorays, M)
+
+	var/obj/effect/overlay/hologram/hologram = LAZYACCESS(active_holograms, M)
+	if(hologram)
+		qdel(hologram)
 	LAZYREMOVE(active_holograms, M)
+	if(isAI(M))
+		var/has_ai_holograms = FALSE
+		for(var/mob/living/silicon/ai/AI in active_holograms)
+			has_ai_holograms = TRUE
+			break
+		if(!has_ai_holograms)
+			set_can_hear_flags(CAN_HEAR_MASTERS, FALSE)
 	update_icon()
 
 /obj/structure/machinery/hologram/holopad/process()
@@ -454,7 +542,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(!user.facing_dir)
 			step_to(active_holograms[user], user.eyeobj) // So it turns.
 		var/obj/effect/overlay/H = active_holograms[user]
-		H.forceMove(get_turf(user.eyeobj))
+		var/turf/new_turf = get_turf(user.eyeobj)
+		H.forceMove(new_turf)
 		active_holograms[user] = H
 
 		if(!(H in view(src)))
@@ -464,6 +553,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		if(get_dist(user.eyeobj, src) > holo_range || !is_in_sight(H, src))
 			user.holo = null
 			clear_holo(user)
+			return TRUE
+		update_holoray(user, new_turf)
 	return TRUE
 
 /obj/structure/machinery/hologram/holopad/long_range
@@ -525,6 +616,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(connected_pad)
 		end_call()
 	clear_holos(TRUE)
+	QDEL_LIST_ASSOC_VAL(active_holorays)
 	SSmachinery.all_holopads -= src
 	linked_pdas.Cut()
 	GLOB.listening_objects -= src
@@ -535,18 +627,108 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	layer = FLY_LAYER
 	anchored = TRUE //So space wind cannot drag it.
 	no_clean = TRUE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT //So you can't click on it.
+	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE|KEEP_TOGETHER
+	var/list/hologram_source_overlays
+	var/mutable_appearance/hologram_glow
 
-/obj/effect/overlay/hologram/proc/assume_form(var/atom/A, var/long_range = FALSE)
+/obj/effect/overlay/hologram/Destroy()
+	clear_hologram_appearances()
+	if(hologram_glow)
+		CutOverlays(hologram_glow)
+		LAZYREMOVE(update_overlays_on_z, hologram_glow)
+		hologram_glow = null
+	return ..()
+
+/obj/effect/overlay/hologram/proc/get_hologram_source(atom/A)
 	if(isAI(A))
 		var/mob/living/silicon/ai/AI = A
-		appearance = AI.holo_icon.appearance
+		if(AI.holo_icon)
+			return AI.holo_icon
+	return A
+
+/obj/effect/overlay/hologram/proc/clear_hologram_appearances()
+	if(hologram_source_overlays)
+		CutOverlays(hologram_source_overlays)
+		hologram_source_overlays = null
+
+/obj/effect/overlay/hologram/proc/should_copy_source_base_icon(atom/original, atom/source)
+	return !!source?.icon
+
+/obj/effect/overlay/hologram/proc/copy_base_appearance(atom/source)
+	icon = source.icon
+	icon_state = source.icon_state
+	dir = source.dir
+	pixel_x = source.pixel_x
+	pixel_y = source.pixel_y
+	pixel_z = source.pixel_z
+
+/obj/effect/overlay/hologram/proc/clear_base_appearance()
+	icon = null
+	icon_state = ""
+	pixel_x = initial(pixel_x)
+	pixel_y = initial(pixel_y)
+	pixel_z = initial(pixel_z)
+
+/obj/effect/overlay/hologram/proc/copy_hologram_source_overlays(atom/source)
+	clear_hologram_appearances()
+
+	if(!source)
+		return
+
+	if(source.atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)
+		source.UpdateOverlays()
+
+	if(length(source.overlays))
+		hologram_source_overlays = source.overlays.Copy()
+		AddOverlays(hologram_source_overlays)
+
+/obj/effect/overlay/hologram/proc/assume_form(var/atom/A, var/long_range = FALSE)
+	var/atom/hologram_source = get_hologram_source(A)
+	if(should_copy_source_base_icon(A, hologram_source))
+		copy_base_appearance(hologram_source)
 	else
-		appearance = A.appearance
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT //So you can't click on it.
+		clear_base_appearance()
+	copy_hologram_source_overlays(hologram_source)
+
 	dir = A.dir
-	color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = FLY_LAYER
+	SET_PLANE_EXPLICIT(src, ABOVE_GAME_PLANE, src)
+
+	var/hologram_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
+	if(!hologram_glow)
+		hologram_glow = makeHologram(0.5, hologram_color)
+	set_light(2, 1, hologram_color)
+
+/obj/effect/overlay/holoray
+	name = "holoray"
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "holoray"
+	layer = FLY_LAYER
+	plane = ABOVE_GAME_PLANE
+	density = FALSE
+	anchored = TRUE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	pixel_x = -32
+	pixel_y = -32
 	alpha = 100
-	set_light(2, 1, long_range ? rgb(225, 173, 125) : rgb(125, 180, 225))
+	var/atom/movable/render_step/emissive/glow
+
+/obj/effect/overlay/holoray/Initialize(mapload)
+	. = ..()
+	SET_PLANE_EXPLICIT(src, initial(plane), src)
+	if(!render_target)
+		var/static/uid = 0
+		render_target = "holoray#[uid]"
+		uid++
+	glow = new(null, src)
+	AddOverlays(glow)
+	LAZYADD(update_overlays_on_z, glow)
+
+/obj/effect/overlay/holoray/Destroy()
+	QDEL_NULL(glow)
+	. = ..()
 
 #undef HOLOPAD_PASSIVE_POWER_USAGE
 #undef HOLOGRAM_POWER_USAGE

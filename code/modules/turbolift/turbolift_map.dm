@@ -206,9 +206,6 @@
 				light1.set_dir(SOUTH)
 				light2.set_dir(NORTH)
 
-			light1.z_flags = ZMM_IGNORE
-			light2.z_flags = ZMM_IGNORE
-
 		// Update area.
 		if(az > areas_to_use.len)
 			LOG_DEBUG("Insufficient defined areas in turbolift datum, aborting.")

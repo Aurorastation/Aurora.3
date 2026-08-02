@@ -65,6 +65,16 @@
 /atom/proc/additional_see_invisible()
 	return 0
 
+/// Optional tg-plane-cube hook for Aurora-only vision handlers.
+/// Return null to avoid altering the viewer's numeric lighting cutoff.
+/atom/proc/additional_lighting_cutoff()
+	return null
+
+/// Optional tg-plane-cube hook for Aurora-only vision handlers.
+/// Return a 3-length tg-style color cutoff list, or null to avoid altering color cutoffs.
+/atom/proc/additional_lighting_color_cutoffs()
+	return null
+
 /atom/proc/on_reagent_change()
 	return
 
@@ -590,7 +600,7 @@
 		if(ismob(AM))
 			var/mob/M = AM
 			if(M.client)
-				M.client.eye = M.client.mob
+				M.client.set_eye(M.client.mob)
 				M.client.perspective = MOB_PERSPECTIVE
 
 /atom/proc/check_add_to_late_firers()

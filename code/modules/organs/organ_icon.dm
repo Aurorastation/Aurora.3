@@ -104,7 +104,7 @@
 	..()
 
 	if(!H.mind)
-		return mob_overlays
+		return finalize_additional_images(H, mob_overlays)
 
 	var/list/bonus_overlays = list()
 
@@ -112,15 +112,21 @@
 	if(eyes && BP_IS_ROBOTIC(eyes))
 		var/datum/robolimb/robolimb_data = GLOB.all_robolimbs[eyes.model]
 		if(robolimb_data.emissive)
-			var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, H.species.eyes, MOB_EMISSIVE_LAYER)
+			var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, H.species.eyes, H, MOB_EMISSIVE_LAYER)
 			bonus_overlays += return_image
 
 	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
 	if(vampire && (vampire.status & VAMP_FRENZIED))
-		var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, "[H.species.eyes]_frenzy")
+		var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, "[H.species.eyes]_frenzy", H)
 		bonus_overlays += return_image
 
-	return mob_overlays + bonus_overlays
+	var/list/all_overlays = list()
+	if(LAZYLEN(mob_overlays))
+		all_overlays += mob_overlays
+	if(LAZYLEN(bonus_overlays))
+		all_overlays += bonus_overlays
+
+	return finalize_additional_images(H, all_overlays)
 
 /obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
 	if (!cached_markings)
@@ -162,7 +168,7 @@
 			mob_icon.Blend(organ_icon, ICON_OVERLAY)
 
 			if(O.blocks_emissive != EMISSIVE_BLOCK_NONE) {
-				var/mutable_appearance/organ_em_block = emissive_blocker(internal_organ_icon, O.item_state || O.icon_state, MOB_SHADOW_LAYER)
+				var/mutable_appearance/organ_em_block = emissive_blocker(internal_organ_icon, O.item_state || O.icon_state, owner || src, MOB_SHADOW_LAYER)
 				organ_em_block.dir = dir
 				mob_overlays += list(organ_em_block)
 			}
@@ -174,7 +180,7 @@
 			}
 
 			if(O.active_emissive && !O.is_broken()) {
-				var/mutable_appearance/organ_em = emissive_appearance(internal_organ_icon, "[O.item_state || O.icon_state]_e", MOB_EMISSIVE_LAYER)
+				var/mutable_appearance/organ_em = emissive_appearance(internal_organ_icon, "[O.item_state || O.icon_state]_e", owner || src, MOB_EMISSIVE_LAYER)
 				organ_em.dir = dir
 				mob_overlays += list(organ_em)
 			}
@@ -196,11 +202,11 @@
 		chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 		mob_icon = new /icon(force_icon, chosen_icon_state)
 		if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, owner || src, MOB_SHADOW_LAYER)
 			limb_em_block.dir = dir
 			mob_overlays += list(limb_em_block)
 		if(is_emissive && !is_broken())
-			var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", MOB_EMISSIVE_LAYER)
+			var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", owner || src, MOB_EMISSIVE_LAYER)
 			limb_em.dir = dir
 			mob_overlays += list(limb_em)
 		if(is_overlay && !is_broken())
@@ -222,12 +228,12 @@
 			chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 			mob_icon = new /icon(chosen_icon, chosen_icon_state)
 			if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-				var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+				var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, owner || src, MOB_SHADOW_LAYER)
 				limb_em_block.dir = dir
 				mob_overlays += list(limb_em_block)
 
 			if(is_emissive && !is_broken())
-				var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", MOB_EMISSIVE_LAYER)
+				var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", owner || src, MOB_EMISSIVE_LAYER)
 				limb_em.dir = dir
 				mob_overlays += list(limb_em)
 		else
@@ -276,12 +282,12 @@
 			get_internal_organs_overlay()
 
 			if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-				var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+				var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, owner || src, MOB_SHADOW_LAYER)
 				limb_em_block.dir = dir
 				mob_overlays += list(limb_em_block)
 
 			if(is_emissive && !is_broken())
-				var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", MOB_EMISSIVE_LAYER)
+				var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", owner || src, MOB_EMISSIVE_LAYER)
 				limb_em.dir = dir
 				mob_overlays += list(limb_em)
 
@@ -300,7 +306,32 @@
 	return mob_icon
 
 /obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/human/H)
-	return mob_overlays
+	return finalize_additional_images(H, mob_overlays)
+
+/obj/item/organ/external/proc/finalize_additional_images(var/mob/living/carbon/human/H, var/list/raw_overlays)
+	if(!H || !LAZYLEN(raw_overlays))
+		additional_images = null
+		return null
+
+	var/datum/mob_overlay_bundle/bundle = new
+	bundle.SetSource(src)
+
+	for(var/entry in raw_overlays)
+		if(!istype(entry, /mutable_appearance))
+			bundle.AddOverlay(entry)
+			continue
+
+		var/mutable_appearance/appearance = entry
+		if(PLANE_TO_TRUE(appearance.plane) == EMISSIVE_PLANE)
+			if(appearance.color == GLOB.em_block_color)
+				bundle.AddBlocker(appearance)
+			else
+				bundle.AddEmissive(appearance)
+		else
+			bundle.AddOverlay(appearance)
+
+	additional_images = finalize_mob_overlay_bundle(bundle, H)
+	return additional_images
 
 /obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
 	if(LAZYLEN(additional_images))

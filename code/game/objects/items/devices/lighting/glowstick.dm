@@ -2,7 +2,7 @@
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
 	w_class = WEIGHT_CLASS_SMALL
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	light_range = 1.2
 	flashlight_power = 2
 	light_color = "#49F37C"

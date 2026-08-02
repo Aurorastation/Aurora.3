@@ -262,7 +262,7 @@
 /obj/item/spaceflare/update_icon()
 	if (active)
 		icon_state = "[initial(icon_state)]_on"
-		set_light(0.3, 0.1, 6, 2, "85d1ff")
+		set_light(0.3, 0.1, l_color = "#85d1ff")
 	else
 		icon_state = initial(icon_state)
 		set_light(0)

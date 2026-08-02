@@ -113,7 +113,6 @@
 	features_budget = 1
 	surface_color = "#807f7f"
 	generated_name = FALSE
-	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(1, 1)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining, /datum/map_template/ruin/exoplanet/haneunim_crash)
@@ -135,7 +134,6 @@
 	place_near_main = null
 	generated_name = FALSE
 	features_budget = 1
-	ring_chance = 0
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_mining)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/haneunim/generate_ground_survey_result()
@@ -153,7 +151,6 @@
 	ruin_planet_type = PLANET_LORE
 	generated_name = FALSE
 	features_budget = 1
-	ring_chance = 0
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_mystery)
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/huozhu/generate_atmosphere()
@@ -177,7 +174,6 @@
 	surfacegravity = "0.18"
 	charted = "Charted 2305, Sol Alliance Department of Colonization."
 	features_budget = 1
-	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	rock_colors = list(COLOR_GRAY80)
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/haneunim_crash, /datum/map_template/ruin/exoplanet/haneunim_refugees, /datum/map_template/ruin/exoplanet/haneunim_mystery, /datum/map_template/ruin/exoplanet/haneunim_flag, /datum/map_template/ruin/exoplanet/haneunim_mining)

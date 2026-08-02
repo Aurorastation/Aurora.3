@@ -22,6 +22,8 @@ GLOBAL_LIST_EMPTY(map_templates)
 /turf/unsimulated/map
 	icon = 'icons/obj/overmap/overmap.dmi'
 	icon_state = "map"
+	plane = FLOOR_PLANE
+	layer = LOW_FLOOR_LAYER
 
 /turf/unsimulated/map/edge
 	opacity = 1

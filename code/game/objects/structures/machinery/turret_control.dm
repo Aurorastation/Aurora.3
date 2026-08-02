@@ -275,10 +275,12 @@
 
 /obj/structure/machinery/turretid/update_icon()
 	..()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		icon_state = "control_off"
 		set_light(0)
-	else if (enabled)
+		return
+	else if(enabled)
 		if (lethal)
 			icon_state = "control_kill"
 			set_light(1.5, 1,"#990000")
@@ -288,6 +290,7 @@
 	else
 		icon_state = "control_standby"
 		set_light(1.5, 1,"#003300")
+	AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 /obj/structure/machinery/turretid/emp_act(severity)
 	. = ..()

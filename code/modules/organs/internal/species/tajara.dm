@@ -12,6 +12,7 @@
 	var/allowed_model = PROSTHETIC_TESLA //what robotic model allows this eyes to use the night vision
 	var/cooldown = 30
 	zoom_out_message = "'s eyes widens as they stop focusing ahead."
+	color_cutoffs = null
 
 /obj/item/organ/internal/eyes/night/Destroy()
 	disable_night_vision()
@@ -118,8 +119,7 @@
 		owner.visible_message("[SPAN_BOLD("\The [owner]")][eye_emote]")
 
 	night_vision = TRUE
-	if(can_change_invisible())
-		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	color_cutoffs = list(10, 25, 10)
 	if(status & ORGAN_ROBOT)
 		if(vision_mechanical_color)
 			owner.add_client_color(vision_mechanical_color)
@@ -134,8 +134,7 @@
 	if(!night_vision)
 		return
 	night_vision = FALSE
-	if(can_change_invisible())
-		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+	color_cutoffs = null
 	if(status & ORGAN_ROBOT)
 		if(vision_mechanical_color)
 			owner.remove_client_color(vision_mechanical_color)

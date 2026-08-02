@@ -106,7 +106,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 		//Weather system, requires a z level
 		/obj/abstract/weather_system,
-		/atom/movable/lighting_mask, //leave it alone
+		/atom/movable/lighting_object, // Requires a turf argument and is owned by SSlighting.
 
 	)
 

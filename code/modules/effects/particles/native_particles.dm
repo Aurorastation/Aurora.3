@@ -96,9 +96,13 @@
 	mouse_opacity = 0
 	appearance_flags = PIXEL_SCALE
 	var/particle_type = null
+	var/render_offset = 0
 
-/obj/particle_emitter/Initialize(mapload, time, _color)
+/obj/particle_emitter/Initialize(mapload, time, _color, _render_offset = 0)
 	. = ..()
+	render_offset = _render_offset
+	if(initial(render_target))
+		render_target = OFFSET_RENDER_TARGET(initial(render_target), render_offset)
 	if (particle_type)
 		particles = GLOB.all_particles[particle_type]
 
@@ -113,7 +117,7 @@
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 
 
-/obj/particle_emitter/heat/Initialize()
+/obj/particle_emitter/heat/Initialize(mapload, time, _color, _render_offset = 0)
 	. = ..()
 	add_filter("heat_blur", 1, gauss_blur_filter(1))
 
@@ -135,16 +139,20 @@
 /obj/particle_emitter/mist/back/gas
 	render_target = COLD_EFFECT_BACK_PLATE_RENDER_TARGET
 
-/obj/particle_emitter/mist/back/gas/Initialize(mapload, time, _color)
+/obj/particle_emitter/mist/back/gas/Initialize(mapload, time, _color, _render_offset = 0)
 	. = ..()
-	add_filter("cold_alpha", 1, alpha_mask_filter(render_source = COLD_EFFECT_PLATE_RENDER_TARGET, flags = MASK_INVERSE))
+	add_filter("cold_alpha", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(COLD_EFFECT_PLATE_RENDER_TARGET, render_offset), flags = MASK_INVERSE))
 
 //for cold gas effect
 /obj/particle_emitter/mist/gas
 	render_target = COLD_EFFECT_PLATE_RENDER_TARGET
 	var/obj/particle_emitter/mist/back/b = /obj/particle_emitter/mist/back/gas
 
-/obj/particle_emitter/mist/gas/Initialize(mapload, time, _color)
+/obj/particle_emitter/mist/gas/Initialize(mapload, time, _color, _render_offset = 0)
 	. = ..()
-	b = new b(null)
+	b = new b(null, 0, null, render_offset)
 	add_vis_contents(b)
+
+/obj/particle_emitter/mist/gas/Destroy()
+	QDEL_NULL(b)
+	return ..()

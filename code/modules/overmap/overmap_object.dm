@@ -146,16 +146,16 @@
 
 	if(istype(arrived, /obj/effect/overmap/visitable))
 		for(var/obj/effect/overmap/visitable/O in loc)
-			SSskybox.rebuild_skyboxes(O.map_z)
+			SSparallax.rebuild_skybox_layers(O.map_z)
 
 /obj/effect/overmap/proc/on_exit(atom/movable/gone, direction)
 	SIGNAL_HANDLER
 
 	if(istype(gone, /obj/effect/overmap/visitable))
 		var/obj/effect/overmap/visitable/V = gone
-		SSskybox.rebuild_skyboxes(V.map_z)
+		SSparallax.rebuild_skybox_layers(V.map_z)
 		for(var/obj/effect/overmap/visitable/O in loc)
-			SSskybox.rebuild_skyboxes(O.map_z)
+			SSparallax.rebuild_skybox_layers(O.map_z)
 
 /obj/effect/overmap/proc/signal_hit(var/list/hit_data)
 	return

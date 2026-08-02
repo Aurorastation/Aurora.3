@@ -160,7 +160,7 @@
 	gender = PLURAL
 	power_use = 50000
 	vision_flags = SEE_MOBS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 
 /obj/item/mech_component/sensors/combatripley/prebuild()
 	..()

@@ -9,7 +9,8 @@
 	desc = "A radio beacon used for bot navigation."
 	// underfloor
 	level = 1
-	layer = ABOVE_WIRE_LAYER
+	plane = FLOOR_PLANE
+	layer = WIRE_TERMINAL_LAYER
 	anchored = 1
 
 	/// true if cover is open
@@ -33,17 +34,17 @@
 
 /obj/structure/machinery/navbeacon/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	RegisterSignal(src, COMSIG_UNDERTILE_UPDATED, PROC_REF(on_undertile_updated))
 
 	//If mapped, set the codes and hide it accordingly, otherwise, you're being built, so don't do that
 	//and unanchor yourself, as you'll be transported around, most likely
 	if(mapload)
 		set_codes()
-
-		var/turf/T = get_turf(src)
-		hide(!T.is_plating())
+		update_underfloor_from_turf()
 
 	else
-		hide(FALSE)
+		SEND_SIGNAL(src, COMSIG_OBJ_HIDE, UNDERFLOOR_INTERACTABLE)
 		anchored = FALSE
 
 	if(SSradio)
@@ -68,10 +69,11 @@
 			codes[e] = "1"
 
 
-	// called when turf state changes
-	// hide the object if turf is intact
-/obj/structure/machinery/navbeacon/hide(var/intact)
-	set_invisibility(intact ? 101 : 0)
+/obj/structure/machinery/navbeacon/uses_undertile()
+	return TRUE
+
+/obj/structure/machinery/navbeacon/proc/on_undertile_updated()
+	SIGNAL_HANDLER
 	update_icon()
 
 	// update the icon_state
@@ -131,8 +133,8 @@
 /obj/structure/machinery/navbeacon/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = get_turf(src)
 
-	if(!T.is_plating())
-		return		// prevent intraction when T-scanner revealed
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
+		return		// prevent interaction while underfloor cover is closed
 
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		open = !open
@@ -158,7 +160,7 @@
 				to_chat(user, SPAN_NOTICE("You screw the bolts, firmly securing \the [src] onto \the [get_turf(src)]."))
 				anchored = TRUE
 
-				hide(!T.is_plating())
+				update_underfloor_from_turf()
 
 /obj/structure/machinery/navbeacon/AltClick(mob/user)
 	if(Adjacent(user))
@@ -192,8 +194,8 @@
 
 /obj/structure/machinery/navbeacon/interact(var/mob/user, var/ai = 0)
 	var/turf/T = loc
-	if(!T.is_plating())
-		return		// prevent intraction when T-scanner revealed
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
+		return		// prevent interaction while underfloor cover is closed
 
 	if(!open && !ai)	// can't alter controls if not open, unless you're an AI
 		to_chat(user, "The beacon's control cover is closed.")

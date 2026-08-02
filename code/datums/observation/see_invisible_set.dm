@@ -23,3 +23,4 @@ GLOBAL_DATUM_INIT(see_invisible_set_event, /singleton/observ/see_invisible_set, 
 	if(old_see_invisible != new_see_invisible)
 		see_invisible = new_see_invisible
 		GLOB.see_invisible_set_event.raise_event(src, old_see_invisible, new_see_invisible)
+		SEND_SIGNAL(src, COMSIG_MOB_SEE_INVIS_CHANGE, new_see_invisible, old_see_invisible)

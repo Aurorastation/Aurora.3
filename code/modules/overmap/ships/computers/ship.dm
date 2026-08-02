@@ -206,7 +206,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(linked)
 		user.reset_view(linked)
 	if(user.client)
-		user.client.view = world.view + extra_view
+		user.client.change_view(world.view + extra_view)
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(unlook))
 	if(user.eyeobj)
 		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(unlook))
@@ -231,7 +231,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		c = E.owner.client
 
 	if(c)
-		c.view = world.view
+		c.change_view(world.view)
 		c.pixel_x = 0
 		c.pixel_y = 0
 

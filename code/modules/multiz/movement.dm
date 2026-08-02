@@ -801,7 +801,7 @@
 	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if(T && TURF_IS_MIMICING(T))
+		if(T && isopenturf(T))
 			return
 	owner.reset_view(null)
 	owner.z_eye = null

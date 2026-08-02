@@ -153,7 +153,7 @@
 /datum/event/proc/start()
 	SHOULD_CALL_PARENT(TRUE)
 	if(has_skybox_image)
-		SSskybox.rebuild_skyboxes(affecting_z)
+		SSparallax.rebuild_skybox_layers(affecting_z)
 	announce_start()
 
 ///Called when the tick is equal to the announceWhen variable.
@@ -236,7 +236,7 @@
 	endedAt = world.time
 
 	if(has_skybox_image)
-		SSskybox.rebuild_skyboxes(affecting_z)
+		SSparallax.rebuild_skybox_layers(affecting_z)
 
 	if(!dummy)
 		SSevents.active_events -= src

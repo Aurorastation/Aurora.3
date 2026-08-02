@@ -46,7 +46,7 @@
 	name = "corona"
 	invisibility = INVISIBILITY_ABSTRACT
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 
 /obj/effect/technomancer_corona/Initialize()
 	. = ..()

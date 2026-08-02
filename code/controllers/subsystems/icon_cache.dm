@@ -62,16 +62,11 @@ SUBSYSTEM_DEF(icon_cache)
 
 	var/list/rgb_blend_cache = list()	// not an icon per-se, but this proc could be expensive so we might as well cache it.
 
-	var/list/space_dust_cache = list()
-
-	var/list/space_cache = list()
 	var/list/crayon_cache = list()
 
 	var/list/istate_cache = list()
 
 /datum/controller/subsystem/icon_cache/Initialize()
-	build_dust_cache()
-	build_space_cache()
 	setup_collar_mappings()
 
 	return SS_INIT_SUCCESS
@@ -95,23 +90,6 @@ SUBSYSTEM_DEF(icon_cache)
 	var/image/I = new(icon, icon_state)
 	I.color = color
 	return I
-
-/datum/controller/subsystem/icon_cache/proc/build_dust_cache()
-	for (var/i in 0 to 25)
-		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
-		im.plane = DUST_PLANE
-		im.alpha = 80
-		im.blend_mode = BLEND_ADD
-		space_dust_cache["[i]"] = im
-
-/datum/controller/subsystem/icon_cache/proc/build_space_cache()
-	for (var/i in 0 to 25)
-		var/image/I = new()
-		I.appearance = /turf/space
-		var/istr = "[i]"
-		I.icon_state = istr
-		I.overlays += space_dust_cache[istr]
-		space_cache[istr] = I
 
 /datum/controller/subsystem/icon_cache/proc/get_state(icon/I, state)	// returns an APPEARANCE, not an image!
 	if (!isicon(I))

@@ -201,7 +201,7 @@
 	name = "\proper holospace"
 	icon_state = "void"
 	footstep_sound = null
-	plane = SPACE_PLANE
+	plane = PLANE_SPACE
 
 /turf/simulated/floor/holofloor/tirakqi_cosmocage/update_dirt()
 	return	// Space doesn't become dirty

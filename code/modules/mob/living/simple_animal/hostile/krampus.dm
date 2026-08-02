@@ -30,7 +30,7 @@
 	attacktext = "punishes"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_VERY_HIGH
 
 	minbodytemp = 0
 	maxbodytemp = 350

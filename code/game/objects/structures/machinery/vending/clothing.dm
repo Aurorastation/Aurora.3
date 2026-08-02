@@ -8,6 +8,7 @@
 	icon_state = "clothes"
 	icon_vend = "clothes-vend"
 	icon_deny = "clothes-deny"
+	light_mask = "clothes-lightmask"
 	product_ads = "Dress for success!;Prepare to look swagalicious!;Look at all this swag!;Why leave style up to fate? Use the ClothesMate!"
 	vend_reply = "Thank you for using ClothesMate!"
 	vend_id = "wardrobe"

@@ -110,7 +110,7 @@
 			return 0
 
 		A.eyeobj.setLoc(get_turf(C))
-		A.client.eye = A.eyeobj
+		A.client.set_eye(A.eyeobj)
 		return 1
 
 	if (user.stat || user.blinded || !operable())

@@ -15,7 +15,7 @@
 	if(anchored)
 		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.plane = ABOVE_LIGHTING_PLANE
+		SET_PLANE_EXPLICIT(lights_image, ABOVE_LIGHTING_PLANE, src)
 		AddOverlays(lights_image)
 
 /obj/structure/machinery/the_singularitygen/process()

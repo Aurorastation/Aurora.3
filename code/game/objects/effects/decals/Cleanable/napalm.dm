@@ -3,7 +3,7 @@
 	desc = "Some kind of sticky, flammable liquid."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "napalm"
-	layer = BLOOD_LAYER
+	layer = CLEANABLE_FLOOR_OBJECT_LAYER
 	anchored = 1
 	cleanable_by_basic_cleaners = FALSE
 	///How much power we want to use for each reagent amount

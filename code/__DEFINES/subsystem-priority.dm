@@ -8,7 +8,7 @@
 #define SS_INIT_PIPENET     12	// Initial pipenet build.
 #define SS_INIT_NIGHT       9	// Nightmode controller. Will trigger lighting updates.
 #define SS_INIT_AO          6	// Wall AO neighbour build.
-#define SS_INIT_SUNLIGHT    1	// Sunlight setup. Creates lots of lighting & SSzcopy updates.
+#define SS_INIT_SUNLIGHT    1	// Sunlight setup. Creates lots of lighting updates.
 #define SS_INIT_XENOARCH   -2   // Xenoarch is this far below because it can infinite loop if placed in SS_INIT_MISC as it was before, due to some subsystems spawning stuff there.
 #define SS_INIT_HOLOMAP    -4   // Minimap subsystem. Should be initialized after all maps, away sites, ships, planets, etc.
 
@@ -48,7 +48,6 @@
 #define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
 #define SS_PRIORITY_WEATHER     10  // Weather processing.
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
-#define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 #define SS_PRIORITY_ARRIVALS    10	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 
 

@@ -37,12 +37,6 @@
 	shadow.blend_mode = BLEND_MULTIPLY
 	skybox_image.overlays += shadow
 
-	var/image/rings = image('icons/skybox/planet_rings.dmi', "dense")
-	rings.color = COLOR_ASTEROID_ROCK
-	rings.pixel_x = -128
-	rings.pixel_y = -128
-	skybox_image.overlays += rings
-
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR

@@ -173,7 +173,7 @@
 	var/list/vision = get_accumulated_vision_handlers()
 	set_sight(sight | vision[1])
 	set_see_invisible(max(vision[2], see_invisible))
-	sync_lighting_plane_alpha()
+	sync_lighting_plane_cutoff()
 
 /mob/living/proc/update_living_sight()
 	var/set_sight_flags = is_ventcrawling ? (SEE_TURFS) : sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -217,7 +217,7 @@
 	// Handle physical effects of weather.
 	var/singleton/state/weather/weather_state
 	var/obj/abstract/weather_system/weather = get_affecting_weather()
-	if(weather_cooldown_time <= world.time && weather)
+	if(weather_cooldown_time <= world.time && weather?.weather_system)
 		weather_cooldown_time = world.time + WEATHER_COOLDOWN_TIME
 		weather_state = weather.weather_system.current_state
 		if(istype(weather_state))
@@ -246,4 +246,3 @@
 		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
 		if(send_sound)
 			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
-

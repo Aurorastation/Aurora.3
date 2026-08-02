@@ -56,23 +56,49 @@ var/global/datum/xgm_gas_data/gas_data
 	desc = "You shouldn't be clicking this."
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "generic"
+	plane = GAME_PLANE
 	layer = FIRE_LAYER
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	mouse_opacity = 0
 	var/gas_id
+	var/plane_offset = 0
+	var/list/offset_overlays
 
 /obj/gas_overlay/proc/update_alpha_animation(new_alpha)
+	apply_alpha_animation(new_alpha)
+	for(var/offset in offset_overlays)
+		var/obj/gas_overlay/overlay = offset_overlays[offset]
+		overlay.apply_alpha_animation(new_alpha)
+
+/obj/gas_overlay/proc/apply_alpha_animation(new_alpha)
 	animate(src, alpha = new_alpha)
 	alpha = new_alpha
 	animate(src, alpha = 0.8 * new_alpha, time = 10, easing = SINE_EASING | EASE_OUT, loop = -1)
 	animate(alpha = new_alpha, time = 10, easing = SINE_EASING | EASE_IN, loop = -1)
 
-/obj/gas_overlay/Initialize(mapload, gas)
+/obj/gas_overlay/Initialize(mapload, gas, offset = 0)
 	. = ..()
 	gas_id = gas
+	plane_offset = offset
 	if(gas_data.tile_overlay[gas_id])
 		icon_state = gas_data.tile_overlay[gas_id]
 		color = gas_data.tile_overlay_color[gas_id]
+	apply_offset_context()
+
+/obj/gas_overlay/proc/apply_offset_context()
+	SET_PLANE_W_SCALAR(src, initial(plane), plane_offset)
+
+/obj/gas_overlay/proc/get_offset_overlay(turf/source_turf)
+	var/source_offset = GET_TURF_PLANE_OFFSET(source_turf)
+	if(source_offset == plane_offset)
+		return src
+	LAZYINITLIST(offset_overlays)
+	var/offset_key = "[source_offset]"
+	if(!offset_overlays[offset_key])
+		var/obj/gas_overlay/offset_overlay = new src.type(null, gas_id, source_offset)
+		offset_overlay.alpha = alpha
+		offset_overlays[offset_key] = offset_overlay
+	return offset_overlays[offset_key]
 
 /obj/gas_overlay/heat
 	name = "gas"
@@ -81,15 +107,26 @@ var/global/datum/xgm_gas_data/gas_data
 	gas_id = GAS_HEAT
 	render_source = HEAT_EFFECT_PLATE_RENDER_TARGET
 
-/obj/gas_overlay/heat/Initialize(mapload, gas)
+/obj/gas_overlay/heat/Initialize(mapload, gas, offset = 0)
 	. = ..()
 	icon = null
 	icon_state = null
+
+/obj/gas_overlay/heat/apply_offset_context()
+	. = ..()
+	render_source = OFFSET_RENDER_TARGET(HEAT_EFFECT_PLATE_RENDER_TARGET, plane_offset)
 
 /obj/effect/gas_cold_back
 	plane = GAME_PLANE
 	layer = BELOW_OBJ_LAYER
 	render_source = COLD_EFFECT_BACK_PLATE_RENDER_TARGET
+	var/plane_offset = 0
+
+/obj/effect/gas_cold_back/Initialize(mapload, offset = 0)
+	. = ..()
+	plane_offset = offset
+	SET_PLANE_W_SCALAR(src, initial(plane), plane_offset)
+	render_source = OFFSET_RENDER_TARGET(COLD_EFFECT_BACK_PLATE_RENDER_TARGET, plane_offset)
 
 /obj/gas_overlay/cold
 	name = "gas"
@@ -98,9 +135,17 @@ var/global/datum/xgm_gas_data/gas_data
 	var/obj/effect/gas_cold_back/b = null
 	render_source = COLD_EFFECT_PLATE_RENDER_TARGET
 
-/obj/gas_overlay/cold/Initialize(mapload, gas)
+/obj/gas_overlay/cold/Initialize(mapload, gas, offset = 0)
 	. = ..()
 	icon = null
 	icon_state = null
-	b = new()
+	b = new(null, plane_offset)
 	add_vis_contents(b)
+
+/obj/gas_overlay/cold/Destroy()
+	QDEL_NULL(b)
+	return ..()
+
+/obj/gas_overlay/cold/apply_offset_context()
+	. = ..()
+	render_source = OFFSET_RENDER_TARGET(COLD_EFFECT_PLATE_RENDER_TARGET, plane_offset)

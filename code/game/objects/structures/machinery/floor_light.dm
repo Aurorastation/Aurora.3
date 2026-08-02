@@ -3,7 +3,8 @@
 	icon = 'icons/obj/machinery/floor_light.dmi'
 	icon_state = "base"
 	desc = "A backlit floor panel."
-	layer = EXPOSED_WIRE_LAYER
+	plane = FLOOR_PLANE
+	layer = HIGH_TURF_LAYER
 	anchored = 0
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
@@ -131,7 +132,7 @@
 				I.color = default_light_colour
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
-			var/mutable_appearance/I_emis = emissive_appearance(icon, "[on_state]")
+			var/mutable_appearance/I_emis = emissive_appearance(icon, "[on_state]", src)
 			AddOverlays(floor_light_cache[cache_key])
 			AddOverlays(I_emis)
 		else
@@ -144,7 +145,7 @@
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
 			AddOverlays(floor_light_cache[cache_key])
-			var/mutable_appearance/I_emis = emissive_appearance(icon, "flicker[damaged]")
+			var/mutable_appearance/I_emis = emissive_appearance(icon, "flicker[damaged]", src)
 			AddOverlays(I_emis)
 	if(stat & BROKEN)
 		icon_state = "broken"

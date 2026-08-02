@@ -10,7 +10,6 @@
 	features_budget = 1
 	surface_color = "#B1A69B"
 	generated_name = FALSE
-	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 
@@ -43,7 +42,6 @@
 	features_budget = 1
 	surface_color = "#4a3f41"
 	generated_name = FALSE
-	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
 
@@ -77,7 +75,6 @@
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/pra_exploration_drone)
-	ring_chance = 0
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
 	return
@@ -102,7 +99,6 @@
 	features_budget = 1
 	surface_color = "#373737"
 	generated_name = FALSE
-	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/raskara_ritual, /datum/map_template/ruin/exoplanet/raskara_okon, /datum/map_template/ruin/exoplanet/raskara_wreck, /datum/map_template/ruin/exoplanet/pra_exploration_drone)
 	place_near_main = list(3, 3)

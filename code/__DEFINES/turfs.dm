@@ -27,6 +27,13 @@
 #define ROOF_FORCE_SPAWN        1
 #define ROOF_CLEANUP            2
 
+/// Atoms (usually only atmos pipes/machinery, disposals, and wires) are hidden.
+#define UNDERFLOOR_HIDDEN 0
+/// Atoms (usually only atmos pipes/machinery, disposals, and wires) are visible but cannot be interacted with.
+#define UNDERFLOOR_VISIBLE 1
+/// Atoms (usually only atmos pipes/machinery, disposals, and wires) are visible and can be interacted with.
+#define UNDERFLOOR_INTERACTABLE 2
+
 // MultiZ faller control. (Bit flags.)
 // Default flag is needed for assoc lists to work.
 #define CLIMBER_DEFAULT 1
@@ -93,6 +100,16 @@
 #define TURF_PATHING_PASS_PROC 1
 /// Turf is never passable
 #define TURF_PATHING_PASS_NO 2
+
+/// Makes the set turf show z-level contents below it.
+#define ADD_TURF_TRANSPARENCY(modturf, source) \
+	if(!HAS_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT)) { modturf.AddElement(/datum/element/turf_z_transparency) }; \
+	ADD_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT, (source))
+
+/// Removes z-level transparency from the set turf when no transparency sources remain.
+#define REMOVE_TURF_TRANSPARENCY(modturf, source) \
+	REMOVE_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT, (source)); \
+	if(!HAS_TRAIT(modturf, TURF_Z_TRANSPARENT_TRAIT)) { modturf.RemoveElement(/datum/element/turf_z_transparency) }
 
 /*##############################
 			AURORA SHIT

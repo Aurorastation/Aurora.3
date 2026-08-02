@@ -6,9 +6,10 @@
 	icon_state = "flood00"
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
-	light_system = DIRECTIONAL_LIGHT
+	light_system = OVERLAY_LIGHT_DIRECTIONAL
 	light_range = 6
 	light_color = LIGHT_COLOR_TUNGSTEN
+	light_on = FALSE
 
 	var/on = FALSE
 	var/obj/item/cell/cell = null

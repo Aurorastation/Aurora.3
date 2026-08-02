@@ -46,7 +46,7 @@
 
 		add_underlay(T, node3, dir)
 
-/obj/structure/machinery/atmospherics/tvalve/hide(var/i)
+/obj/structure/machinery/atmospherics/tvalve/on_undertile_updated()
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/tvalve/Initialize()

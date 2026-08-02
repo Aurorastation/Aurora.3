@@ -5,7 +5,7 @@
 	layer = MOB_LAYER
 	light_range = 3
 	use_power = POWER_USE_OFF
-	light_system = MOVABLE_LIGHT
+	light_system = OVERLAY_LIGHT
 	var/obj/item/card/id/botcard			// the ID card that the bot "holds"
 	var/on = 1
 	var/fire_dam_coeff = 1.0

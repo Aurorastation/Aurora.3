@@ -46,13 +46,18 @@
 	if(!allowed(user) && (wires & 1))
 		to_chat(user, SPAN_WARNING("Access denied"))
 		flick("doorctrl-denied",src)
+		ClearOverlays()
+		AddOverlays(emissive_appearance(icon, "doorctrl-denied-e", src))
+		SSicon_update.add_to_queue(src)
 		return
 
 	use_power_oneoff(5)
 	icon_state = "doorctrl1"
+	ClearOverlays()
+	AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	desiredstate = !desiredstate
 	trigger(user)
-	update_icon()
+	SSicon_update.add_to_queue(src)
 
 /obj/structure/machinery/button/remote/proc/trigger()
 	return
@@ -62,10 +67,12 @@
 	update_icon()
 
 /obj/structure/machinery/button/remote/update_icon()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		icon_state = "doorctrl-p"
 	else
 		icon_state = "doorctrl0"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 /*
 	Airlock remote control

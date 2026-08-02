@@ -246,7 +246,7 @@
 			if(do_after(usr, 20))
 				if (GM.client)
 					GM.client.perspective = EYE_PERSPECTIVE
-					GM.client.eye = src
+					GM.client.set_eye(src)
 				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
 					C.show_message(SPAN_WARNING("[GM.name] has been placed in the [src] by [user]."), 3)
@@ -320,7 +320,7 @@
 		return
 	if (target.client)
 		target.client.perspective = EYE_PERSPECTIVE
-		target.client.eye = src
+		target.client.set_eye(src)
 
 	target.forceMove(src)
 
@@ -352,7 +352,7 @@
 /obj/structure/machinery/disposal/proc/go_out(mob/user)
 
 	if (user.client)
-		user.client.eye = user.client.mob
+		user.client.set_eye(user.client.mob)
 		user.client.perspective = MOB_PERSPECTIVE
 	user.forceMove(src.loc)
 	update()
@@ -470,14 +470,17 @@
 	// check for items in disposal - occupied light
 	if(has_contents)
 		AddOverlays("[icon_state]-full")
+		AddOverlays(emissive_appearance(icon, "[icon_state]-full", src))
 	showing_full = has_contents
 
 	// charging and ready light
 	if(mode == MODE_PRESSURIZING)
 		AddOverlays("[icon_state]-charge")
+		AddOverlays(emissive_appearance(icon, "[icon_state]-charge-e", src))
 		mode_icon = MODE_PRESSURIZING
 	else if(mode == MODE_READY)
 		AddOverlays("[icon_state]-ready")
+		AddOverlays(emissive_appearance(icon, "[icon_state]-ready", src))
 		mode_icon = MODE_READY
 
 /**
@@ -804,7 +807,7 @@
 			var/mob/M = AM
 			// if a client mob, update eye to follow this holder
 			if(M.client)
-				M.client.eye = src
+				M.client.set_eye(src)
 
 	qdel(other)
 
@@ -865,18 +868,22 @@
 
 	var/dpdir = 0		// bitmask of pipe directions
 	//dir = 0				// dir will contain dominant direction for junction pipes
-	layer = EXPOSED_DISPOSALS_PIPE_LAYER
+	plane = FLOOR_PLANE
+	layer = DISPOSAL_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
 
 /obj/structure/disposalpipe/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	update_underfloor_from_turf()
 
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.layer = ABOVE_TILE_LAYER
+		I.layer = DISPOSAL_PIPE_LAYER
+		SET_PLANE_EXPLICIT(I, FLOOR_PLANE, T)
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
 
@@ -935,19 +942,8 @@
 
 	return P
 
-/**
- * Update the icon_state to reflect hidden status
- */
 /obj/structure/disposalpipe/proc/update()
-	var/turf/T = src.loc
-	hide(!T.is_plating() && !istype(T,/turf/space))	// space never hides pipes
-
-/**
- * Hide called by levelupdate if turf intact status changes
- * Change visibility status and force update of icon
- */
-/obj/structure/disposalpipe/hide(var/intact)
-	set_invisibility(intact ? 101: 0)	// hide if floor is intact
+	update_underfloor_from_turf()
 
 /**
  * Expel the held objects into a turf
@@ -966,7 +962,7 @@
 		qdel(H)
 		return
 
-	if(!T.is_plating() && istype(T,/turf/simulated/floor)) //intact floor, pop the tile
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && istype(T,/turf/simulated/floor)) // covered floor, pop the tile
 		var/turf/simulated/floor/F = T
 		F.break_tile()
 		new /obj/item/stack/tile(H)	// add to holder so it will be thrown with other stuff
@@ -1060,8 +1056,8 @@
  */
 /obj/structure/disposalpipe/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = src.loc
-	if(!T.is_plating())
-		return		// prevent interaction with T-scanner revealed pipes
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
+		return		// prevent interaction while underfloor cover is closed
 	src.add_fingerprint(user)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
@@ -1121,8 +1117,14 @@
 
 	qdel(src)
 
-/obj/structure/disposalpipe/hides_under_flooring()
+/obj/structure/disposalpipe/uses_undertile()
 	return 1
+
+/obj/structure/disposalpipe/undertile_layer()
+	return DISPOSAL_PIPE_LAYER
+
+/obj/structure/disposalpipe/undertile_restored_layer()
+	return DISPOSAL_PIPE_LAYER
 
 // *** TEST verb
 //client/verb/dispstop()
@@ -1519,8 +1521,8 @@
 		return
 
 	var/turf/T = src.loc
-	if(!T.is_plating())
-		return		// prevent interaction with T-scanner revealed pipes
+	if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE)
+		return		// prevent interaction while underfloor cover is closed
 	src.add_fingerprint(user)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
@@ -1723,7 +1725,7 @@
 /mob/pipe_eject(var/direction)
 	if (src.client)
 		src.client.perspective = MOB_PERSPECTIVE
-		src.client.eye = src
+		src.client.set_eye(src)
 
 	return
 

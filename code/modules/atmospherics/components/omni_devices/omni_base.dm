@@ -7,7 +7,7 @@
 	icon_state = "base"
 	initialize_directions = 0
 	level = 1
-	layer = ABOVE_CATWALK_LAYER
+	layer = ATMOS_PIPE_LAYER
 
 	var/configuring = 0
 	//var/target_pressure = ONE_ATMOSPHERE	//a base type as abstract as this should NOT be making these kinds of assumptions
@@ -173,7 +173,7 @@
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && istype(P.node, /obj/structure/machinery/atmospherics/pipe) && P.node.level == 1 )
+		if(T.underfloor_accessibility < UNDERFLOOR_INTERACTABLE && istype(P.node, /obj/structure/machinery/atmospherics/pipe) && P.node.uses_undertile())
 			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "down")
 		else
 			. = icon_manager.get_atmos_icon("underlay", P.dir, color_cache_name(P.node), "intact")
@@ -183,7 +183,7 @@
 		P.update = 1
 	update_ports()
 
-/obj/structure/machinery/atmospherics/omni/hide(var/i)
+/obj/structure/machinery/atmospherics/omni/on_undertile_updated()
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/omni/proc/update_ports()

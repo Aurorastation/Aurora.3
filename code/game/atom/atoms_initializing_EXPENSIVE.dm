@@ -129,7 +129,7 @@
 			reagents.maximum_volume += max(LAZYACCESS(reagents_to_add, v) - REAGENTS_FREE_SPACE(reagents), 0)
 			reagents.add_reagent(v, LAZYACCESS(reagents_to_add, v), LAZYACCESS(reagent_data, v))
 
-	if(light_system != MOVABLE_LIGHT && light_system != DIRECTIONAL_LIGHT && light_power && light_range)
+	if(light_system == COMPLEX_LIGHT && light_power && light_range)
 		update_light()
 
 	if(loc)

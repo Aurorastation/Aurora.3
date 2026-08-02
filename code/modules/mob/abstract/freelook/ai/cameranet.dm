@@ -16,6 +16,29 @@
 	cameras.Cut()
 	return ..()
 
+/datum/visualnet/camera/proc/get_stack_key_z(z)
+	var/list/stack = SSmapping.get_connected_levels(z)
+	if(length(stack))
+		return stack[stack.len]
+	return z
+
+/datum/visualnet/camera/is_chunk_generated(x, y, z)
+	x &= ~0xf
+	y &= ~0xf
+	z = get_stack_key_z(z)
+	var/key = "[x],[y],[z]"
+	return !isnull(chunks[key])
+
+/datum/visualnet/camera/get_chunk(x, y, z)
+	x &= ~0xf
+	y &= ~0xf
+	z = get_stack_key_z(z)
+	var/key = "[x],[y],[z]"
+	if(!chunks[key])
+		chunks[key] = new chunk_type(src, x, y, z)
+
+	return chunks[key]
+
 /datum/visualnet/camera/add_source(obj/structure/machinery/camera/c)
 	if(istype(c))
 		if(c in cameras)

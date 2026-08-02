@@ -329,6 +329,19 @@
 	icon_state = "tile_darkmarble"
 	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
 
+/obj/item/stack/tile/glass
+	name = "glass floor tile"
+	singular_name = "glass floor tile"
+	desc = "A transparent floor tile."
+	icon_state = "tile_glass"
+	matter = list(MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
+
+/obj/item/stack/tile/glass/reinforced
+	name = "reinforced glass floor tile"
+	singular_name = "reinforced glass floor tile"
+	desc = "A transparent floor tile, with extra reinforcements."
+	icon_state = "tile_glassr"
+
 /*
  * Cyborg modules
  */

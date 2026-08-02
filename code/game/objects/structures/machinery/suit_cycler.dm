@@ -133,7 +133,7 @@
 		var/image/panel = image(icon, "panel", layer = ABOVE_HUMAN_LAYER)
 		AddOverlays(panel)
 
-	var/mutable_appearance/lights_emissive = emissive_appearance(icon, "light_radiation")
+	var/mutable_appearance/lights_emissive = emissive_appearance(icon, "light_radiation", src)
 	if(irradiating)
 		var/image/irradiating_lights = overlay_image(icon, "light_radiation")
 		AddOverlays(list(
@@ -183,7 +183,7 @@
 	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src)
 		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
 		M.forceMove(src)
 		occupant = M
@@ -232,7 +232,7 @@
 			var/mob/M = G.affecting
 			if(M.client)
 				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
+				M.client.set_eye(src)
 			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
 			M.forceMove(src)
 			occupant = M
@@ -541,7 +541,7 @@
 		return
 
 	if(occupant.client)
-		occupant.client.eye = occupant.client.mob
+		occupant.client.set_eye(occupant.client.mob)
 		occupant.client.perspective = MOB_PERSPECTIVE
 
 	occupant.forceMove(get_turf(src))

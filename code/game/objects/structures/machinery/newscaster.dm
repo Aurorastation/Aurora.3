@@ -144,7 +144,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
 			ClearOverlays()
 			var/mutable_appearance/cracked_overlay = overlay_image(icon, "crack3")
-			var/mutable_appearance/cracked_overlay_emis = emissive_appearance(icon, "crack3")
+			var/mutable_appearance/cracked_overlay_emis = emissive_appearance(icon, "crack3", src)
 			AddOverlays(list(cracked_overlay, cracked_overlay_emis))
 		return
 
@@ -152,7 +152,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 
 	var/mutable_appearance/screen = overlay_image(icon, "newscaster-screen")
 	var/mutable_appearance/screen_hologram = overlay_image(icon, "newscaster-screen")
-	var/mutable_appearance/screen_emis = emissive_appearance(icon, "newscaster-screen")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "newscaster-screen", src)
 	screen_hologram.filters += filter(type="color", color=list(
 		0, 0, 0, 0,
 		0, 0, 0, 0,
@@ -173,7 +173,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 	if(!alert || !SSnews.wanted_issue)
 		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-title")
 		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-title")
-		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-title")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-title", src)
 		screen_hologram_title.filters += filter(type="color", color=list(
 			0, 0, 0, 0,
 			0, 0, 0, 0,
@@ -195,7 +195,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
 		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-wanted")
 		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-wanted")
-		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-wanted")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-wanted", src)
 		screen_hologram_title.filters += filter(type="color", color=list(
 			0, 0, 0, 0,
 			0, 0, 0, 0,
@@ -218,7 +218,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 	if(alert) //new message alert overlay
 		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-alert")
 		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-alert")
-		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-alert")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-alert", src)
 		screen_hologram_title.filters += filter(type="color", color=list(
 			0, 0, 0, 0,
 			0, 0, 0, 0,

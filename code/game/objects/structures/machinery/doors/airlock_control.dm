@@ -146,11 +146,13 @@
 	var/previousPressure
 
 /obj/structure/machinery/airlock_sensor/update_icon()
+	ClearOverlays()
 	if(on)
 		if(alert)
 			icon_state = "airlock_sensor_alert"
 		else
 			icon_state = "airlock_sensor_standby"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "airlock_sensor_off"
 
@@ -173,7 +175,10 @@
 	signal.data["command"] = command
 
 	radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
+	ClearOverlays()
 	flick("airlock_sensor_cycle", src)
+	AddOverlays(emissive_appearance(icon, "airlock_sensor_cycle-e", src))
+	SSicon_update.add_to_queue(src)
 
 /obj/structure/machinery/airlock_sensor/process()
 	if(on)
@@ -223,7 +228,7 @@
 	icon_state = "access_button_standby"
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
-	anchored = 1
+	anchored = TRUE
 	power_channel = AREA_USAGE_ENVIRON
 
 	var/master_tag
@@ -236,14 +241,16 @@
 
 
 /obj/structure/machinery/access_button/update_icon()
+	ClearOverlays()
 	if(on)
 		icon_state = "access_button_standby"
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 	else
 		icon_state = "access_button_off"
 
 /obj/structure/machinery/access_button/attackby(obj/item/attacking_item, mob/user)
 	//Swiping ID on the access button
-	if (attacking_item.GetID())
+	if(attacking_item.GetID())
 		attack_hand(user)
 		return TRUE
 	return ..()
@@ -261,7 +268,8 @@
 
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 	flick("access_button_cycle", src)
-
+	AddOverlays(emissive_appearance(icon, "access_button_cycle-e", src))
+	SSicon_update.add_to_queue(src)
 
 /obj/structure/machinery/access_button/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -273,6 +281,8 @@
 
 	if(SSradio)
 		set_frequency(frequency)
+
+	update_icon()
 
 /obj/structure/machinery/access_button/Destroy()
 	if(SSradio)

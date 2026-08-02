@@ -24,7 +24,6 @@
 		/datum/unarmed_attack/bite/sharp
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
-	default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
 	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
 	slowdown = 0.5

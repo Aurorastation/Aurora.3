@@ -270,15 +270,11 @@ FLOOR SAFES
 
 /obj/structure/safe/floor/Initialize()
 	. = ..()
-	var/turf/T = loc
-	if(istype(T) && !T.is_plating())
-		hide(1)
+	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
+	update_underfloor_from_turf()
 	update_icon()
 
-/obj/structure/safe/floor/hide(var/intact)
-	set_invisibility(intact ? 101 : 0)
-
-/obj/structure/safe/floor/hides_under_flooring()
+/obj/structure/safe/floor/uses_undertile()
 	return 1
 
 //random station safe, may come with some different loot

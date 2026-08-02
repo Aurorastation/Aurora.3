@@ -161,7 +161,7 @@
 	broadcast_status_next_process = TRUE
 	update_icon()
 
-/obj/structure/machinery/atmospherics/unary/outlet_injector/hide(var/i)
+/obj/structure/machinery/atmospherics/unary/outlet_injector/on_undertile_updated()
 	update_underlays()
 
 // ---------- subtypes

@@ -148,7 +148,7 @@
 /obj/structure/machinery/telecomms/update_icon()
 	ClearOverlays()
 	if(operable() && use_power)
-		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights", src))
 		AddOverlays("[icon_state]_lights")
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
@@ -316,4 +316,3 @@
 	if (overmap_dist > overmap_range)
 		return -1
 	return overmap_dist
-

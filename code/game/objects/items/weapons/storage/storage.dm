@@ -107,6 +107,9 @@
 	QDEL_NULL(closer)
 	return ..()
 
+/obj/item/storage/blocks_contained_overlay_light(atom/movable/contained_light_source)
+	return TRUE
+
 /obj/item/storage/resolve_attackby(atom/A, mob/user, click_parameters)
 	. = ..()
 

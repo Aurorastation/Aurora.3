@@ -143,11 +143,11 @@
 	else
 		set_light(0)
 
-/mob/living/silicon/pai/set_light(l_range, l_power, l_color)
+/mob/living/silicon/pai/set_light(l_range, l_power, l_color = NONSENSICAL_VALUE, l_angle, l_dir, l_height, l_on)
 	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
-		P.set_light(l_range, l_power, l_color)
+		P.set_light(l_range, l_power, l_color, l_angle, l_dir, l_height, l_on)
 
 /mob/living/silicon/pai/post_scoop()
 	..()
@@ -342,7 +342,7 @@
 		holder.drop_from_inventory(card)
 
 	src.client.perspective = EYE_PERSPECTIVE
-	src.client.eye = src
+	src.client.set_eye(src)
 	src.forceMove(get_turf(card))
 
 	card.forceMove(src)
@@ -476,7 +476,7 @@
 	src.stop_pulling()
 	if (client)
 		client.perspective = EYE_PERSPECTIVE
-		client.eye = src
+		client.set_eye(src)
 //Changed the client eye to follow the mob itself instead of the card that contains it. This makes examining work, and the camera still follows wherever the card goes
 
 	//stop resting

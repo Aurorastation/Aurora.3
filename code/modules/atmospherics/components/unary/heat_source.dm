@@ -63,15 +63,16 @@
 
 
 /obj/structure/machinery/atmospherics/unary/heater/update_icon()
+	ClearOverlays()
 	if(node)
 		if(use_power && heating)
 			icon_state = "heater_1"
+			AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 		else
 			icon_state = "heater"
 	else
 		icon_state = "heater_0"
-	return
-
+		AddOverlays(emissive_appearance(icon, "[icon_state]-e", src))
 
 /obj/structure/machinery/atmospherics/unary/heater/process()
 	..()

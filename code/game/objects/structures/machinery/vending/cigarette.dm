@@ -14,6 +14,8 @@
 	vend_delay = 24
 	icon_state = "cigs"
 	icon_vend = "cigs-vend"
+	icon_deny = "cigs-deny"
+	light_mask = "cigs-lightmask"
 	vend_id = "smokes"
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes/rugged = 6,

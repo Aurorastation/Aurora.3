@@ -15,6 +15,7 @@ var/list/admin_datums = list()
 	var/admincaster_signature	//What you'll sign the newsfeeds as
 
 	var/list/watched_processes	// Processes marked to be shown in Status instead of just Processes.
+	var/datum/plane_master_debug/plane_debug
 
 /datum/admins/vv_edit_var(var_name, var_value)
 	if(var_name == NAMEOF(src, rights))
@@ -40,6 +41,11 @@ var/list/admin_datums = list()
 
 	if (rights & R_DEBUG)
 		world.SetConfig("APP/admin", ckey, "role=admin")
+		plane_debug = new(src)
+
+/datum/admins/Destroy()
+	QDEL_NULL(plane_debug)
+	return ..()
 
 /datum/admins/proc/associate(client/C)
 	if(istype(C))

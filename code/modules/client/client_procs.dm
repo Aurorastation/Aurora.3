@@ -515,6 +515,24 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	is_initialized = TRUE
 
+/client/proc/set_eye(atom/new_eye)
+	if(new_eye == eye)
+		return
+	var/atom/old_eye = eye
+	eye = new_eye
+	SEND_SIGNAL(src, COMSIG_CLIENT_SET_EYE, old_eye, new_eye)
+
+/client/proc/change_view(new_size)
+	if(isnull(new_size))
+		CRASH("change_view called without argument.")
+	if(view == new_size)
+		return
+	view = new_size
+	SEND_SIGNAL(src, COMSIG_VIEW_SET, new_size)
+
+/client/proc/set_view(new_view)
+	change_view(new_view)
+
 //////////////
 //DISCONNECT//
 //////////////
@@ -540,6 +558,11 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		mob.clear_important_client_contents()
 
 	SSping.currentrun -= src
+
+	clear_parallax_animate_timers()
+	QDEL_NULL(parallax_rock)
+	previous_turf = null
+	movingmob = null
 
 	QDEL_NULL(tooltips)
 

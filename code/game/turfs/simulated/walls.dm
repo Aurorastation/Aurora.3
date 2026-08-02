@@ -6,6 +6,7 @@
 	opacity = TRUE
 	density = TRUE
 	should_use_health = TRUE
+	plane = WALL_PLANE
 	blocks_air = TRUE
 	pass_flags_self = PASSCLOSEDTURF
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
@@ -92,8 +93,9 @@
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
 		return 		// Don't hide stuff during mapload.
+	underfloor_accessibility = UNDERFLOOR_HIDDEN
 	for(var/obj/O in src)
-		O.hide(1)
+		SEND_SIGNAL(O, COMSIG_OBJ_HIDE, underfloor_accessibility)
 
 /turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
 	. = ..()

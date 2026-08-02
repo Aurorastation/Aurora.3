@@ -199,10 +199,10 @@
 				var/istate = "[((x + y) ^ ~(x * y) + z) % 25]"
 				underlay_appearance.icon = 'icons/turf/space.dmi'
 				underlay_appearance.icon_state = istate
-				underlay_appearance.plane = SPACE_PLANE
+				underlay_appearance.plane = PLANE_SPACE
 
 				var/image/dust = image('icons/turf/space_parallax1.dmi', istate)
-				dust.plane = DUST_PLANE
+				dust.plane = PLANE_SPACE_PARALLAX
 				dust.alpha = 80
 				dust.blend_mode = BLEND_ADD
 				U += dust
