@@ -358,7 +358,20 @@
 		/obj/item/reagent_containers/food/snacks/seaweed = 4,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 3,
-		/obj/item/reagent_containers/food/snacks/sosjerky = 3
+		/obj/item/reagent_containers/food/snacks/sosjerky = 3,
+		// chocolate
+		/obj/item/reagent_containers/food/snacks/chocolate_bar = 3,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts = 2,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles = 2,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp = 2,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar = 2,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar = 5,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1,
+		/obj/item/storage/box/fancy/readies = 3
 	)
 
 /obj/item/storage/box/fancy/commissary_restock/food/xeno

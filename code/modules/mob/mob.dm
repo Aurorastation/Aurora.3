@@ -411,7 +411,19 @@
 			else
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
+	if(istype(src, /mob/living))
+		var/mob/living/living_mob = src
+		living_mob.update_camera_view_action()
 	return
+
+/mob/proc/is_viewing_camera()
+	return client && istype(client.eye, /obj/structure/machinery/camera)
+
+/mob/proc/is_viewing_overmap()
+	return client && istype(client.eye, /obj/effect/overmap)
+
+/mob/proc/is_viewing_remote_view()
+	return is_viewing_camera() || is_viewing_overmap()
 
 
 /mob/proc/show_inv(mob/user)
@@ -716,6 +728,9 @@
 	set name = "Cancel Camera View"
 	set category = "OOC"
 	unset_machine()
+	if(isliving(src))
+		var/mob/living/living_mob = src
+		living_mob.clear_z_eye()
 	reset_view(null)
 
 /mob/Topic(href, href_list)

@@ -408,6 +408,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 /mob/living/simple_animal/hostile/proc/OpenFire(atom/target, ignore_visibility = FALSE)
 	set waitfor = FALSE
 
+	if(!isturf(loc) || captured)
+		return
+
 	if(QDELETED(target))
 		LoseTarget()
 		return
@@ -454,6 +457,8 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	return target_hit
 
 /mob/living/simple_animal/hostile/proc/shoot_wrapper(atom/target, location, user)
+	if(!isturf(loc))
+		return
 	Shoot(target, location, user)
 	if(casingtype)
 		new casingtype(loc)

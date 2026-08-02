@@ -29,11 +29,12 @@
 	var/list/owned_capacitors = list()
 	/// If this shield generator supports multi-z.
 	var/multiz = TRUE
-	///How much the manipulator rating increases the maximum field strengthen rate. This increases how fast the shield can strengthen, allowing it to recover faster.
-	var/manipulator_bonus = 0.1 //Maximum recovery rate with base components is 0.5 renwicks per second, with maxed out manipulators it's 0.9 renwicks per second.
-	///How much the capacitor rating increases the field conversion rate. This increases the efficiency of converting power into shield strength, decreasing all shield power costs.
+	/// How much the manipulator rating increases the maximum field strengthen rate. This increases how fast the shield can strengthen, allowing it to recover faster.
+	/// Maximum recovery rate with base components is 0.5 renwicks per second, with maxed out manipulators it's 0.9 renwicks per second.
+	var/manipulator_bonus = 0.1
+	/// How much the capacitor rating increases the field conversion rate. This increases the efficiency of converting power into shield strength, decreasing all shield power costs.
 	var/capacitor_bonus = 0.000005
-	///How much the micro laser rating decreased the field dissipation rate. This reduces the amount of shield strength lost per tick, reducing the shield upkeep.
+	/// How much the micro laser rating decreased the field dissipation rate. This reduces the amount of shield strength lost per tick, reducing the shield upkeep.
 	var/micro_laser_bonus = 0.002
 
 	component_types = list(
@@ -258,11 +259,11 @@
 	if(active)
 		for(var/mob/M as anything in hearers(5,src))
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning start up."))
-			energy_field.set_shielded_turfs(get_shielded_turfs())
+		energy_field.set_shielded_turfs(get_shielded_turfs())
 	else
 		for(var/mob/M as anything in hearers(5,src))
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning fade out."))
-			energy_field.clear_field()
+		energy_field.clear_field()
 
 /obj/structure/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)

@@ -189,7 +189,7 @@
 		if(ID)
 			if(params["choice"] == "claim")
 				if(points >= 0)
-					ID.mining_points += points
+					ID.adjust_mining_points(points)
 					if(points != 0)
 						ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
 						var/character_id = astype(ID.mob_id.resolve(), /mob/living/carbon/human/)?.character_id
