@@ -84,13 +84,14 @@
 /datum/tgui_module/persistence_panel/proc/get_tracked_objects_data()
 	var/list/objects = list()
 	for(var/obj/track in SSpersistence.object_track_register)
+		var/turf/T = get_turf(track)
 		objects += list(list(
 			"ref" = REF(track), // Needed for VV action
 			"type" = "[track.type]",
 			"name" = track.name,
-			"x" = track.x,
-			"y" = track.y,
-			"z" = track.z,
+			"x" = T?.x || 0,
+			"y" = T?.y || 0,
+			"z" = T?.z || 0,
 			"created_at" = track.persistent_objects_created_at,
 			"expires_at" = track.persistent_objects_expires_at
 		))
