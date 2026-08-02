@@ -369,7 +369,6 @@ GLOBAL_VAR(bomb_set)
 	var/off_station = 0
 	// This should really not be necessary, but lets do it just to be safe.
 	if(!area_safety_check() && isinspace())
-		audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), "\The [src]'s deployment light blinks red once and disables.")
 		off_station = 1
 	else
 		off_station = 2
