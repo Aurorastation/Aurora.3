@@ -258,7 +258,10 @@
 	return
 
 /mob/proc/unset_machine()
+	var/was_viewing_machine_remote_view = is_viewing_camera() || is_viewing_overmap()
 	src.machine = null
+	if(was_viewing_machine_remote_view)
+		reset_view(null)
 
 /mob/proc/set_machine(var/obj/O)
 	if(src.machine)

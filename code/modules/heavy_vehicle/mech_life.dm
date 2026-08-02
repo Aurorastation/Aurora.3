@@ -15,10 +15,12 @@
 	for(var/thing in pilots)
 		var/mob/pilot = thing
 		if(pilot.loc != src) // Admin jump or teleport/grab.
+			remove_verb(pilot, /mob/proc/toggle_exosuit_camera)
+			remove_verb(pilot, /mob/proc/change_exosuit_camera_network)
 			if(pilot.client)
 				pilot.client.screen -= hud_elements
-				LAZYREMOVE(pilots, pilot)
-				UNSETEMPTY(pilots)
+			LAZYREMOVE(pilots, pilot)
+			UNSETEMPTY(pilots)
 
 	if(radio)
 		var/radio_check = head?.radio && head.radio.is_functional() && get_cell()
@@ -26,7 +28,9 @@
 			radio.set_on(radio_check)
 
 	if(camera)
-		camera.status = (head?.camera && head.camera.is_functional())
+		var/camera_status = camera_enabled && head?.camera && head.camera.is_functional()
+		if(camera.status != camera_status)
+			camera.set_status(camera_status)
 
 	if(body)
 		body.update_air(hatch_closed && use_air)
