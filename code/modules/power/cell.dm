@@ -201,7 +201,6 @@
 		severity *= R.cell_emp_mult
 
 	charge -= maxcharge / severity
-
 	if (charge < 0)
 		charge = 0
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
