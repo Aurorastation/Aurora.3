@@ -260,7 +260,8 @@
 /mob/living/heavy_vehicle/proc/update_emp_protection()
 	RemoveElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 	if(power == MECH_POWER_ON && body.mech_armor && body.mech_armor.emp_protection)
-		AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
+		if(get_cell().charge > 8000)
+			AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card

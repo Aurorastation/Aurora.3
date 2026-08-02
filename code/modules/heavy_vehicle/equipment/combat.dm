@@ -443,7 +443,10 @@
 	. = ..()
 
 	if(shields?.charge)
-		hitting_projectile.damage = shields.stop_damage(hitting_projectile.damage)
+		var/damage = hitting_projectile.get_structure_damage()
+		if(!damage)
+			damage = hitting_projectile.damage
+		hitting_projectile.damage = shields.stop_damage(damage)
 		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."))
 		flick("shield_impact", src)
 		playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)

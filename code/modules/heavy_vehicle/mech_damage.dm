@@ -6,7 +6,7 @@
 	if(!prob(body.pilot_coverage)) //If the cockpit doesn't cover the pilot completely, attacks have a chance to hit the pilot instead of the mech.
 		return TRUE
 
-	if(!src.hatch_closed) //If the hatch is open, attacks have a chance to hit the pilot instead of the mech.
+	if(!hatch_closed) //If the hatch is open, attacks have a chance to hit the pilot instead of the mech.
 		if(prob(80)) //80% chance to hit the pilot if the hatch is open. If this is 100% turrets will shoot mechs with open hatches forever.
 			return TRUE
 
@@ -107,7 +107,7 @@
 	if(target == body && body.damage_state == MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL) //If the cockpit is destroyed, subsequent damage is applied to the pilot, modified by the mech's armour.
 		if(body && LAZYLEN(pilots))
 			var/mob/living/pilot = pick(pilots)
-			visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of [src], striking the pilot inside!"))
+			visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
 			pilot.apply_damage(damage, damagetype, def_zone, used_weapon, damage_flags, armor_pen, silent = FALSE)
 
 	//Only 2 types of damage concern mechs and vehicles
@@ -139,21 +139,29 @@
 
 /mob/living/heavy_vehicle/emp_act(severity)
 	. = ..()
-
 	if(. & EMP_PROTECT_SELF)
-		var/power_used = use_cell_power(severity * 1000)
 		var/obj/item/cell/C = get_cell()
-		var/percent_power_used = 0
-		if(C && C.maxcharge)
-			percent_power_used = round((power_used / C.maxcharge) * 100)
-		visible_message(SPAN_NOTICE("\The [src]'s active EM defenses flash brightly, negating the EMP!"))
-		for(var/pilot in pilots)
-			if(ismob(pilot))
-				to_chat(pilot, SPAN_NOTICE("Your mech reports that negating the EMP cost [(percent_power_used)]% charge."))
+		if(C.charge > 8000) //Don't completely run a mech out of power this way.
+			var/power_used = use_cell_power(severity * 1000)
+			var/percent_power_used = 0
+			if(C && C.maxcharge)
+				percent_power_used = round((power_used / C.maxcharge) * 100)
+			visible_message(SPAN_NOTICE("\The [src]'s active EM defenses flash brightly, negating the EMP!"))
+			for(var/pilot in pilots)
+				if(ismob(pilot))
+					to_chat(pilot, SPAN_NOTICE("Your mech reports that negating the EMP cost [(percent_power_used)]% charge."))
+		else
+			for(var/pilot in pilots)
+				if(ismob(pilot))
+					to_chat(pilot, SPAN_NOTICE("Your mech's EMP countermeasures deactivate as power levels drop too low."))
+
 	else
-		emp_damage += severity
+		var/ratio = get_blocked_ratio(null, DAMAGE_BURN, null, (4-severity) * 20)
+		emp_damage += round((12 - (severity*3))*( 1 - ratio))
 		for(var/obj/item/thing in list(arms,legs,head,body))
 			thing.emp_act(severity)
+
+	update_emp_protection()
 
 /mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
