@@ -524,10 +524,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	 * precisely the same representation as the holder's key.
 	 */
 	for(var/stored_reagent_id in reagent_volumes)
-		if(
-			stored_reagent_id == reagent_id \
-			|| "[stored_reagent_id]" == "[reagent_id]"
-		)
+		if(stored_reagent_id == reagent_id || "[stored_reagent_id]" == "[reagent_id]")
 			return reagent_volumes[stored_reagent_id] || 0
 
 	return 0
