@@ -90,7 +90,73 @@
 	deployed = 1
 	originator.eating = 0
 
+/datum/ai_holder/simple_animal/hostile/greatworm
+	stand_ground = TRUE
+	wander = FALSE
+
+/datum/ai_holder/simple_animal/hostile/greatworm/handle_special_tactic()
+	var/mob/living/simple_animal/hostile/greatworm/worm = holder
+	if(worm.asleep || worm.eating)
+		if(target)
+			remove_target(FALSE)
+		set_stance(AI_STANCE_SPECIAL)
+
+/datum/ai_holder/simple_animal/hostile/greatworm/handle_special_strategical()
+	var/mob/living/simple_animal/hostile/greatworm/worm = holder
+	if(!worm.sarlacc)
+		var/obj/item/trap/sarlacc/new_trap = new(worm.loc)
+		new_trap.originator = worm
+		worm.sarlacc = new_trap
+	if(worm.sarlacc.loc != worm.loc)
+		worm.sarlacc.forceMove(worm.loc)
+	worm.sated = max(0, worm.sated)
+	if(worm.sated == 0 && worm.asleep)
+		worm.asleep = FALSE
+		worm.icon_state = "sarlacc"
+		worm.visible_message(SPAN_DANGER("\The [worm] awakens!"), SPAN_DANGER("You awaken! You're so HUNGRY!"), "<b>You hear a deep, rumbling roar in the earth!</b>")
+		worm.sarlacc.deployed = TRUE
+		hostile = TRUE
+		set_stance(AI_STANCE_IDLE)
+	if(worm.sated >= 200 && !worm.asleep)
+		worm.Sandman()
+	if(worm.asleep)
+		hostile = FALSE
+		if(worm.icon_state != "sarlacc_asleep")
+			worm.icon_state = "sarlacc_asleep"
+		if(prob(50))
+			worm.sated--
+		if(prob(5) && worm.tentacles < 6)
+			worm.tentacles++
+		if(worm.health < worm.maxhealth)
+			worm.health = min(worm.maxhealth, worm.health + 1)
+			worm.sated--
+		worm.sarlacc.deployed = FALSE
+		set_stance(AI_STANCE_SPECIAL)
+	else if(worm.eating)
+		hostile = FALSE
+		if(!worm.sarlacc.deployed && worm.sarlacc.captive)
+			worm.sarlacc.captive = null
+			worm.sarlacc.deployed = TRUE
+			worm.eating = FALSE
+		else if(prob(50))
+			var/mob/living/captive = worm.sarlacc.captive
+			if(captive)
+				captive.apply_damage(rand(3, 10), DAMAGE_BRUTE)
+				captive.visible_message(SPAN_DANGER("\The [worm] tears at [captive]'s flesh with its gruesome jaws."), SPAN_DANGER("You feel a searing pain as \the [worm] tears at your flesh!"), "<b>You hear a sick tear!</b>")
+		set_stance(AI_STANCE_SPECIAL)
+	else
+		hostile = TRUE
+
+/datum/ai_holder/simple_animal/hostile/greatworm/on_target_acquired(atom/new_target, atom/old_target)
+	var/mob/living/simple_animal/hostile/greatworm/worm = holder
+	if(ismob(new_target))
+		var/mob/living/living_target = new_target
+		if(living_target.faction != "syndicate")
+			worm.spawn_tentacle(living_target)
+	remove_target(FALSE)
+
 /mob/living/simple_animal/hostile/greatworm
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/greatworm
 	name = "great worm"
 	desc = "The gaping maw opens and closes eternally, insatiably... Rumours however tell that those who can sate it are rewarded."
 	icon = 'icons/mob/npc/cavern.dmi'
@@ -139,59 +205,6 @@
 	QDEL_LIST(active_tentacles)
 	return ..()
 
-/mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
-	..()
-	if(!sarlacc)
-		var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
-		L.originator = src
-		sarlacc = L
-	if(sarlacc && sarlacc.loc != src.loc) //if the sarlacc is not located on us, move it back onto us.
-		sarlacc.forceMove(src.loc)
-	if(sated < 0)
-		sated = 0
-	if(sated == 0 && asleep)
-		asleep = 0
-		icon_state = "sarlacc"
-		visible_message(
-			SPAN_DANGER("\The [src] awakens!"),
-			SPAN_DANGER("You awaken! You're so HUNGRY!"),
-			"<b>You hear a deep, rumbling roar in the earth!</b>"
-			)
-		sarlacc.deployed = 1
-	if(sated >= 200)
-		Sandman()
-	if(asleep)
-		if(icon_state != "sarlacc_asleep")
-			icon_state = "sarlacc_asleep"
-		if(prob(50))
-			sated -= 1
-		if(prob(5) && tentacles < 6)
-			tentacles += 1
-		if(health < maxhealth)
-			health += 1
-			sated -= 1
-			if(health >= maxhealth)
-				health = maxhealth
-		if(sarlacc && sarlacc.deployed)
-			sarlacc.deployed = 0
-	else
-		if(eating)
-			if(sarlacc && !sarlacc.deployed && sarlacc.captive) //if the sarlacc is not deployed but IS captivating, that means its captive escaped
-				sarlacc.captive = null
-				sarlacc.deployed = 1
-				eating = 0
-			else
-				if(prob(50))
-					var/mob/living/L = sarlacc.captive
-					if(L)
-						L.apply_damage(rand(3,10),DAMAGE_BRUTE)
-						L.visible_message(
-							SPAN_DANGER("\The [src] tears at [L]'s flesh with its gruesome jaws."),
-							SPAN_DANGER("You feel a searing pain as \the [src] tears at your flesh!"),
-							"<b>You hear a sick tear!</b>"
-							)
-
-
 /mob/living/simple_animal/hostile/greatworm/death()
 	..()
 	visible_message(SPAN_DANGER("With a frenzy of tooth and tendril, \the [src] slides deep into the earth, leaving a gaping hole in its place!"))
@@ -207,21 +220,6 @@
 	sarlacc.deployed = 0
 	visible_message(SPAN_DANGER("With a contented heave, \the [src] slides into the earth and begins regurgitating several treasures before shutting tight."))
 	new/obj/random/loot(get_turf(src))
-
-/mob/living/simple_animal/hostile/greatworm/FindTarget()
-	if(eating)
-		return
-	if(asleep)
-		return
-	. = ..()
-
-/mob/living/simple_animal/hostile/greatworm/FoundTarget()
-	if(ismob(last_found_target))
-		var/mob/mob_target = last_found_target
-		if(mob_target.faction != "syndicate")
-			spawn_tentacle(mob_target)
-
-	LoseTarget()
 
 /mob/living/simple_animal/hostile/greatworm/proc/spawn_tentacle(var/mob/living/target)
 	if(active_tentacles.len >= tentacles)
@@ -418,4 +416,3 @@
 /obj/structure/greatworm/Destroy()
 	SSmobs.greatasses -= src
 	return ..()
-

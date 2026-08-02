@@ -5,7 +5,15 @@
 #define WIDE_SCHLORRGO 4
 #define COLOSSAL_SCHLORRGO 5
 
+/datum/ai_holder/simple_animal/passive/schlorrgo
+
+/datum/ai_holder/simple_animal/passive/schlorrgo/handle_special_strategical()
+	var/mob/living/simple_animal/schlorrgo/schlorrgo = holder
+	if(schlorrgo.eggs_left > 0 && prob(3))
+		schlorrgo.lay_egg()
+
 /mob/living/simple_animal/schlorrgo
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/schlorrgo
 	name = "schlorrgo"
 	desc = "A fat creature native to the world of Hro'zamal."
 	icon = 'icons/mob/npc/schlorrgo.dmi'
@@ -65,13 +73,6 @@
 	. = ..()
 	nutrition = starting_nutrition
 	check_wideness_change()
-
-/mob/living/simple_animal/schlorrgo/Life(seconds_per_tick, times_fired)
-	. =..()
-	if(!.)
-		return
-	if(!stat && prob(3) && eggs_left > 0) // Only fat schlorrgos lay eggs
-		lay_egg()
 
 /mob/living/simple_animal/schlorrgo/proc/lay_egg()
 	if(!eggs_left)
