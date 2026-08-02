@@ -204,7 +204,7 @@
 /// Cheap decisions which need combat-speed processing.
 /datum/ai_holder/proc/handle_tactics()
 	handle_special_tactic()
-	if(stance in AI_STANCES_COMBAT && escape_confinement())
+	if((stance in AI_STANCES_COMBAT) && escape_confinement())
 		return
 	switch(stance)
 		if(AI_STANCE_ALERT)

@@ -61,7 +61,7 @@
 		return ..(nonhuman_targets, current_target, preferred_target)
 	if(length(human_targets) && prob(5))
 		return ..(human_targets, current_target, preferred_target)
-	return current_target in candidates ? current_target : null
+	return (current_target in candidates) ? current_target : null
 
 /mob/living/carbon/slime/AITargetChanged(atom/old_target, atom/new_target, notify = TRUE)
 	target = isliving(new_target) ? new_target : null
