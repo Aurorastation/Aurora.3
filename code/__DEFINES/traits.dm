@@ -138,6 +138,12 @@
 // every hearing sensitive atom has this trait
 #define TRAIT_HEARING_SENSITIVE "hearing_sensitive"
 
+/// Prevents temporary deafness and loud-noise ringing without preventing ear damage or stuns.
+#define TRAIT_DEAFNESS_IMMUNITY "deafness_immunity"
+
+/// Traits applied to players by the active game mode.
+#define TRAIT_SOURCE_GAME_MODE "game_mode"
+
 /// forces the mob to speak gibberish, like highly damaged borgs
 #define TRAIT_SPEAKING_GIBBERISH "speaking_gibberish"
 

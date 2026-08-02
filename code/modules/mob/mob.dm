@@ -572,7 +572,7 @@
 		return//This shouldnt happen
 
 	var/failure = null
-	if (!( GLOB.config.abandon_allowed ))
+	if(!GLOB.config.abandon_allowed && !SSticker.mode?.instant_respawn)
 		failure = "Respawn is disabled."
 	else if (stat != DEAD)
 		failure = "You must be dead to use this!"

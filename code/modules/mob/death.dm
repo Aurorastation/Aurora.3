@@ -95,6 +95,7 @@
 	update_icon()
 
 	if(SSticker.mode)
+		SSticker.mode.handle_mob_death(src)
 		SSticker.mode.check_win()
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_DEATH, src, gibbed)

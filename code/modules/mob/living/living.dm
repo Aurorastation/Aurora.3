@@ -839,6 +839,10 @@ default behaviour is:
 
 //damage/heal the mob ears and adjust the deaf amount
 /mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	if(HAS_TRAIT(src, TRAIT_DEAFNESS_IMMUNITY))
+		ear_deaf = 0
+		deaf = 0
+		ringing = FALSE
 	var/alreadydeaf = FALSE
 	if(ear_deaf)
 		alreadydeaf = TRUE
@@ -860,7 +864,7 @@ default behaviour is:
 	if(damage >= 0)
 		ear_damage = damage
 	if(deaf >= 0)
-		ear_deaf = deaf
+		ear_deaf = HAS_TRAIT(src, TRAIT_DEAFNESS_IMMUNITY) ? 0 : deaf
 
 /mob/proc/can_be_possessed_by(var/mob/abstract/ghost/observer/possessor)
 	return istype(possessor) && possessor.client

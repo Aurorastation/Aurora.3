@@ -86,6 +86,8 @@
 /datum/ghostspawner/proc/cant_see(mob/user) //If the user can see the spawner in the menu
 	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
 		return "Ghost roles are unavailable in this sector."
+	if(away_site && SSticker?.mode && !SSticker.mode.allow_away_sites)
+		return "Away-site roles are unavailable in this game mode."
 
 	if(req_perms) //Only those with the correct flags can see restricted roles
 		if(check_rights(req_perms, show_msg=FALSE, user=user))
@@ -249,6 +251,8 @@
 
 /datum/ghostspawner/proc/is_enabled()
 	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
+		return FALSE
+	if(away_site && SSticker?.mode && !SSticker.mode.allow_away_sites)
 		return FALSE
 
 	if(loc_type == GS_LOC_ATOM)

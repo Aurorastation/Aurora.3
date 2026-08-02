@@ -99,7 +99,7 @@
 	return 1	//No drifting in space for space carp!	//original comments do not steal
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
-	if(stance != HOSTILE_STANCE_ATTACKING || ON_ATTACK_COOLDOWN(src))
+	if(!(stance in list(HOSTILE_STANCE_ATTACK, HOSTILE_STANCE_ATTACKING)) || ON_ATTACK_COOLDOWN(src))
 		return FALSE
 
 	return ..()

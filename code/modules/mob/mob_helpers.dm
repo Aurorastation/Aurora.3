@@ -217,6 +217,8 @@
 /proc/isdeaf(A)
 	if(istype(A, /mob))
 		var/mob/M = A
+		if(HAS_TRAIT(M, TRAIT_DEAFNESS_IMMUNITY))
+			return FALSE
 		return M.ear_deaf
 	return 0
 
