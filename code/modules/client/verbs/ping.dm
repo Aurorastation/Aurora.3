@@ -36,6 +36,10 @@
 		to_chat(src, SPAN_WARNING("You can ping storytellers again in [DisplayTimeText(COOLDOWN_TIMELEFT(src, storyteller_ping_cooldown))]."))
 		return
 
+	var/confirm = tgui_alert(src, "Using the following input you can notify the story teller about something important or do simply request they presence. Please provide a meaningful message to give the story teller a better understanding of the situation.", "Ping Storyteller", list("Understood", "Cancel"))
+	if(confirm != "Understood")
+		return
+
 	var/message = sanitize(tgui_input_text(src, "Enter your message for the Storyteller.", "Ping Storyteller", max_length = 256))
 	if(!message)
 		to_chat(src, SPAN_WARNING("You must enter a message to ping a storyteller."))
