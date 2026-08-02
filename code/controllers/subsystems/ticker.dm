@@ -759,7 +759,9 @@ SUBSYSTEM_DEF(ticker)
 			else if(!player.mind.assigned_role)
 				continue
 			else
-				player.create_character()
+				var/mob/living/carbon/human/character = player.create_character()
+				var/datum/component/morale/morale = character.GetComponent(MORALE_COMPONENT)
+				morale?.load_moodlet(/datum/moodlet/roundstart_ready, 10)
 				qdel(player)
 		CHECK_TICK
 

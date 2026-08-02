@@ -5,14 +5,14 @@
 	icon_state = "watertank"
 	density = 1
 	anchored = 0
+	maxhealth = OBJECT_HEALTH_HIGH
 	var/accept_any_reagent = TRUE
-
 	var/amount_per_transfer_from_this = 10
 	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 	var/capacity = 1000
 	var/can_tamper = TRUE
 	var/is_leaking = FALSE
-	maxhealth = OBJECT_HEALTH_HIGH
+	var/is_persistent = FALSE
 
 /obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -32,6 +32,29 @@
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+	if(is_persistent)
+		SSpersistence.objectsRegisterTrack(src)
+
+/obj/structure/reagent_dispensers/persistent_objects_get_content()
+	var/list/content = ..()
+	content["remaining_volume"] = reagents ? reagents.total_volume : 0
+	return content
+
+/obj/structure/reagent_dispensers/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(!content["remaining_volume"] || content["remaining_volume"] <= 0)
+		qdel(src)
+
+	if(!LAZYLEN(reagents_to_add))
+		return
+
+	// This happens before Initialize, reagents are not generated yet, override to-be-added contents
+	// Keep ratios the same if multiple reagents are within reagents_to_add
+	var/scale = content["remaining_volume"] / capacity
+	for(var/reagent in reagents_to_add)
+		reagents_to_add[reagent] *= scale
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -56,6 +79,9 @@
 			return
 		if (usr.a_intent == I_HELP)
 			RG.standard_dispenser_refill(user,src)
+			if(!reagents || !reagents.total_volume)
+				SSpersistence.objectsDeregisterTrack(src)
+				return
 			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 		else
 			if(!accept_any_reagent)
@@ -113,8 +139,9 @@
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
-	amount_per_transfer_from_this = 30
+	amount_per_transfer_from_this = 150 // Same volume as extinguisher refillers, quality of life value
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
+	is_persistent = TRUE
 
 // Tanks
 /obj/structure/reagent_dispensers/watertank
@@ -123,6 +150,7 @@
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/water = 1000)
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
@@ -141,6 +169,7 @@
 	var/armed = 0
 	var/obj/item/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -159,6 +188,7 @@
 									SPAN_NOTICE("You detach [rig] from \the [src]"))
 
 			rig.forceMove(get_turf(user))
+			rig.detached()
 			rig = null
 			overlays = new/list()
 
@@ -176,12 +206,15 @@
 		if (rig)
 			to_chat(user, SPAN_WARNING("There is another device in the way."))
 			return ..()
+		var/obj/item/assembly_holder/H = attacking_item
+		if(!H.secured)
+			to_chat(user, SPAN_WARNING("The assembly must be secured with a screwdriver."))
+			return TRUE
 		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", "You begin rigging [attacking_item] to \the [src]")
 		if(do_after(user, 20))
 			user.visible_message(SPAN_NOTICE("[user] rigs [attacking_item] to \the [src]."),
 									SPAN_NOTICE("You rig [attacking_item] to \the [src]"))
 
-			var/obj/item/assembly_holder/H = attacking_item
 			if (istype(H.a_left,/obj/item/assembly/igniter) || istype(H.a_right,/obj/item/assembly/igniter))
 				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.")

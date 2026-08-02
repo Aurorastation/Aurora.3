@@ -411,6 +411,34 @@
 	name = "cookie wrapper"
 	icon_state = "foysnack_trash"
 
+/obj/item/trash/readies
+	name = "readies wrapper"
+	icon_state = "readies_trash"
+
+/obj/item/trash/getmore
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper"
+
+/obj/item/trash/getmore_nuts
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper2"
+
+/obj/item/trash/getmore_bubbles
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper3"
+
+/obj/item/trash/getmore_kelp
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper4"
+
+/obj/item/trash/cetibar
+	name = "tau ceti bar wrapper"
+	icon_state = "cetibar_wrapper"
+
+/obj/item/trash/idrisbar
+	name = "one hundred thousand bar wrapper"
+	icon_state = "idrisbar_wrapper"
+
 /obj/item/trash/papad
 	name = "empty papad box"
 	icon_state = "papad_trash"

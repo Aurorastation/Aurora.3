@@ -6,7 +6,7 @@
 
 ///A list of *types* that cleanbots will look for
 GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj/effect/decal/cleanable/blood, /obj/effect/decal/cleanable/vomit, /obj/effect/decal/cleanable/flour, \
-						/obj/effect/decal/cleanable/crayon, /obj/effect/decal/cleanable/liquid_fuel, /obj/effect/decal/cleanable/mucus, /obj/effect/decal/cleanable/dirt))
+						/obj/effect/decal/cleanable/crayon, /obj/effect/decal/cleanable/mucus, /obj/effect/decal/cleanable/dirt))
 
 /obj/effect/decal/cleanable
 	var/being_cleaned = FALSE
@@ -297,7 +297,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		D.being_cleaned = FALSE
 		cleaning_target = null
 
-		qdel(D)
+		D.clean_with_basic_cleaner()
 
 	cleaning = FALSE
 	update_icon()
