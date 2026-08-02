@@ -20,6 +20,7 @@ type PersistencePanelData = {
   generics_cached: number;
   objects: PersistenceObject[];
   records: PersistenceRecordTypeGroup[];
+  generics: PersistenceGenericTypeGroup[];
   is_admin: boolean;
 };
 
@@ -53,6 +54,19 @@ type PersistenceRecordTypeGroup = {
   attributes: PersistenceRecordAttributeGroup[];
 };
 
+type PersistenceGenericAttributeGroup = {
+  attribute: string | null;
+  json: string;
+};
+
+type PersistenceGenericTypeGroup = {
+  type: string;
+  title: string;
+  description?: string | null;
+  requires_attribute: boolean;
+  attributes: PersistenceGenericAttributeGroup[];
+};
+
 export const PersistencePanel = (props) => {
   const { act, data } = useBackend<PersistencePanelData>();
   const [tab, setTab] = useLocalState('tab', 'Subsystem');
@@ -81,6 +95,14 @@ export const PersistencePanel = (props) => {
     }
 
     return `${object.x}-${object.y}-${object.z}`;
+  };
+
+  const formatTitleWithCount = (title: string, count: number) => {
+    if (!count) {
+      return title;
+    }
+
+    return `${title} (${count})`;
   };
 
   const groupedObjects = objects.reduce<Record<string, PersistenceObject[]>>(
@@ -152,16 +174,23 @@ export const PersistencePanel = (props) => {
         }),
     }));
 
-  const dummyGenerics = [
-    {
-      persistent_type: 'horizon_overmap_position',
-      value: 'Dummy generic entry A',
-    },
-    {
-      persistent_type: 'persistence_test_generic',
-      value: 'Dummy generic entry B',
-    },
-  ].sort((a, b) => a.persistent_type.localeCompare(b.persistent_type));
+  const genericGroups = (Array.isArray(data.generics) ? data.generics : [])
+    .slice()
+    .sort((a, b) => a.type.localeCompare(b.type))
+    .map((group) => ({
+      ...group,
+      attributes: (group.attributes || [])
+        .slice()
+        .sort((a, b) => {
+          const attributeCompare = (a.attribute || 'unattributed').localeCompare(
+            b.attribute || 'unattributed',
+          );
+          if (attributeCompare !== 0) {
+            return attributeCompare;
+          }
+          return 0;
+        }),
+    }));
 
   const normalizedRecordsSearch = recordsSearch.trim().toLowerCase();
   const filteredRecordGroups: PersistenceRecordTypeGroup[] = [];
@@ -206,48 +235,54 @@ export const PersistencePanel = (props) => {
       filteredRecordGroups.push({
         type: group.type,
         title: group.title,
+        description: group.description,
         requires_attribute: group.requires_attribute,
         attributes: filteredAttributes,
       });
     }
   }
 
-  const groupedGenerics = dummyGenerics.reduce<Record<string, typeof dummyGenerics>>(
-    (acc, entry) => {
-      const current = acc[entry.persistent_type] || [];
-      current.push(entry);
-      acc[entry.persistent_type] = current;
-      return acc;
-    },
-    {},
-  );
-
-  const orderedGenericTypes = Object.keys(groupedGenerics).sort((a, b) =>
-    a.localeCompare(b),
-  );
-
   const normalizedGenericsSearch = genericsSearch.trim().toLowerCase();
-  const filteredGenericGroups: Record<string, typeof dummyGenerics> = {};
+  const filteredGenericGroups: PersistenceGenericTypeGroup[] = [];
 
-  for (const type of orderedGenericTypes) {
-    const currentGroup = groupedGenerics[type] || [];
-    const matches: typeof dummyGenerics = [];
+  for (const group of genericGroups) {
+    const attributeGroups = Array.isArray(group.attributes) ? group.attributes : [];
+    const filteredAttributes: PersistenceGenericAttributeGroup[] = [];
 
-    for (const entry of currentGroup) {
-      const haystack = [entry.persistent_type, entry.value].join(' ').toLowerCase();
+    for (const attributeGroup of attributeGroups) {
+      const haystack = [
+        group.type,
+        group.title,
+        group.description || '',
+        attributeGroup.attribute || 'unattributed',
+        attributeGroup.json || '',
+      ]
+        .join(' ')
+        .toLowerCase();
+
       if (!normalizedGenericsSearch || haystack.includes(normalizedGenericsSearch)) {
-        matches.push(entry);
+        filteredAttributes.push(attributeGroup);
       }
     }
 
-    if (matches.length > 0) {
-      filteredGenericGroups[type] = matches;
+    const groupHaystack = [group.type, group.title, group.description || '']
+      .join(' ')
+      .toLowerCase();
+    const shouldIncludeGroup =
+      !normalizedGenericsSearch ||
+      groupHaystack.includes(normalizedGenericsSearch) ||
+      filteredAttributes.length > 0;
+
+    if (shouldIncludeGroup) {
+      filteredGenericGroups.push({
+        type: group.type,
+        title: group.title,
+        description: group.description,
+        requires_attribute: group.requires_attribute,
+        attributes: filteredAttributes,
+      });
     }
   }
-
-  const filteredGenericTypes = Object.keys(filteredGenericGroups).sort((a, b) =>
-    a.localeCompare(b),
-  );
 
   return (
     <Window theme="admin" width={900} height={700}>
@@ -330,6 +365,9 @@ export const PersistencePanel = (props) => {
               />
             }
           >
+            <Box mb={1} italic color="label">
+              Only actively tracked objects are listed, not expired objects.
+            </Box>
             {data.objects.length === 0 && (
               <NoticeBox>Nothing to display.</NoticeBox>
             )}
@@ -379,6 +417,9 @@ export const PersistencePanel = (props) => {
               />
             }
           >
+            <Box mb={1} italic color="label">
+              This panel displays database content (up to 1000 rows) and requires a manual refresh.
+            </Box>
             {data.records.length === 0 && (
               <NoticeBox>Nothing to display.</NoticeBox>
             )}
@@ -388,14 +429,24 @@ export const PersistencePanel = (props) => {
             {filteredRecordGroups.map((group) => (
               <Collapsible
                 key={group.type}
-                title={`${group.type} (${group.attributes.reduce((count, attributeGroup) => count + attributeGroup.records.length, 0)})`}
+                title={formatTitleWithCount(
+                  group.title,
+                  group.requires_attribute ? group.attributes.length : group.attributes.reduce((count, attributeGroup) => count + (attributeGroup.records?.length || 0), 0),
+                )}
               >
-                {group.description && <Box mb={1}>{group.description}</Box>}
+                {group.description && (
+                  <Box mb={1} style={{ whiteSpace: 'pre-wrap' }}>
+                    {group.description}
+                  </Box>
+                )}
                 {group.requires_attribute ? (
                   group.attributes.map((attributeGroup) => (
                     <Box key={`${group.type}-${attributeGroup.attribute || 'unattributed'}`} ml={1}>
                       <Collapsible
-                        title={attributeGroup.attribute || 'Unattributed'}
+                        title={formatTitleWithCount(
+                          attributeGroup.attribute || 'Unattributed',
+                          attributeGroup.records?.length || 0,
+                        )}
                       >
                         <Table>
                           <Table.Row header className="candystripe">
@@ -447,23 +498,63 @@ export const PersistencePanel = (props) => {
               />
             }
           >
-            {filteredGenericTypes.length === 0 && (
+            <Box mb={1} italic color="label">
+              This panel displays database content and requires a manual refresh.
+            </Box>
+            {data.generics.length === 0 && (
+              <NoticeBox>Nothing to display.</NoticeBox>
+            )}
+            {data.generics.length > 0 && filteredGenericGroups.length === 0 && (
               <NoticeBox>No persistent generics match the current filter.</NoticeBox>
             )}
-            {filteredGenericTypes.map((type) => (
-              <Collapsible key={type} title={`${type} (${filteredGenericGroups[type].length})`}>
-                <Table>
-                  <Table.Row header className="candystripe">
-                    <Table.Cell>Persistent type</Table.Cell>
-                    <Table.Cell>Value</Table.Cell>
-                  </Table.Row>
-                  {filteredGenericGroups[type].map((entry, index) => (
-                    <Table.Row key={`${type}-${index}`} className="candystripe">
-                      <Table.Cell>{entry.persistent_type}</Table.Cell>
-                      <Table.Cell>{entry.value}</Table.Cell>
-                    </Table.Row>
-                  ))}
-                </Table>
+            {filteredGenericGroups.map((group) => (
+              <Collapsible
+                key={group.type}
+                title={formatTitleWithCount(
+                  group.title,
+                  group.requires_attribute ? group.attributes.length : 0,
+                )}
+              >
+                {group.description && (
+                  <Box mb={1} style={{ whiteSpace: 'pre-wrap' }}>
+                    {group.description}
+                  </Box>
+                )}
+                {group.requires_attribute ? (
+                  group.attributes.map((attributeGroup) => (
+                    <Box key={`${group.type}-${attributeGroup.attribute || 'unattributed'}`} ml={1} mb={1}>
+                      <Section fill fitted title={attributeGroup.attribute || 'Unattributed'}>
+                        <Box
+                          as="pre"
+                          m={0}
+                          pl={1}
+                          pt={1}
+                          style={{
+                            whiteSpace: 'pre-wrap',
+                            wordBreak: 'break-word',
+                          }}
+                        >
+                          {attributeGroup.json}
+                        </Box>
+                      </Section>
+                    </Box>
+                  ))
+                ) : (
+                  <Section fill fitted title="JSON payload">
+                    <Box
+                      as="pre"
+                      m={0}
+                      pl={1}
+                      pt={1}
+                      style={{
+                        whiteSpace: 'pre-wrap',
+                        wordBreak: 'break-word',
+                      }}
+                    >
+                      {group.attributes[0]?.json}
+                    </Box>
+                  </Section>
+                )}
               </Collapsible>
             ))}
           </Section>

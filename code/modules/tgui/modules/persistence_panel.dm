@@ -16,10 +16,15 @@
 	data["generics_cached"] = length(SSpersistence.generic_cache)
 	data["is_admin"] = check_rights(R_ADMIN, 0, user)
 
+	return data
+
+/datum/tgui_module/persistence_panel/ui_static_data(mob/user)
+	var/list/data = list()
+
 	var/list/objects = list()
 	for(var/obj/track in SSpersistence.object_track_register)
 		objects += list(list(
-			"ref" = REF(track),
+			"ref" = REF(track), // Needed for VV action
 			"type" = "[track.type]",
 			"name" = track.name,
 			"x" = track.x,
@@ -30,7 +35,6 @@
 		))
 	data["objects"] = objects
 
-	// THIS NEEDS TO BE MOVE AWAY FROM EVERY UI UPDATE
 	var/list/history_types = typesof(/singleton/persistent_type/history) - list(/singleton/persistent_type/history, /singleton/persistent_type/history/character)
 	var/list/records = list()
 	for(var/type_path in history_types)
@@ -42,7 +46,7 @@
 		if(!type_attribute_groups)
 			type_attribute_groups = list()
 
-		var/list/attribute_groups = list()
+		var/list/attribute_groups_history = list()
 		for(var/attribute_group in type_attribute_groups)
 			var/attribute = attribute_group["attribute"]
 			var/list/attribute_records = attribute_group["records"] || list()
@@ -60,7 +64,7 @@
 				// Character history is a special case, we want to show the character name instead of the ID
 				attribute_value = SSpersistence.historyGetCharnameByID(attribute)
 
-			attribute_groups += list(list(
+			attribute_groups_history += list(list(
 				"attribute" = attribute_value,
 				"records" = record_items
 			))
@@ -77,9 +81,52 @@
 			"title" = type_instance.title,
 			"description" = type_instance.description,
 			"requires_attribute" = type_instance.requires_attribute,
-			"attributes" = attribute_groups
+			"attributes" = attribute_groups_history
 		))
 	data["records"] = records
+
+	var/list/generics_by_type = list()
+
+	var/custom_types = typesof(/singleton/persistent_type/generic) - /singleton/persistent_type/generic
+	for(var/type_path in custom_types)
+		var/singleton/persistent_type/type_instance = GET_SINGLETON(type_path)
+		if(!type_instance)
+			continue
+
+		var/type_key = "[type_instance.type]"
+		if(!generics_by_type[type_key])
+			var/list/type_parts = return_typenames(type_instance.type)
+			generics_by_type[type_key] = list(
+				"type" = type_parts[length(type_parts)],
+				"title" = type_instance.title,
+				"description" = type_instance.description,
+				"requires_attribute" = type_instance.requires_attribute,
+				"attributes" = list()
+			)
+
+		var/list/attribute_groups_generic = generics_by_type[type_key]["attributes"]
+		if(type_instance.requires_attribute)
+			var/list/attributes = SSpersistence.genericGetAllAttributesForType(type_instance)
+			for(var/attribute in attributes)
+				var/datum/persistent_generic/generic_entry = SSpersistence.genericLoad(type_instance, attribute, TRUE)
+				if(!generic_entry)
+					continue
+				attribute_groups_generic += list(list(
+					"attribute" = attribute,
+					"json" = json_encode(generic_entry.content)
+				))
+		else
+			var/datum/persistent_generic/generic_entry = SSpersistence.genericLoad(type_instance, null, TRUE)
+			if(generic_entry)
+				attribute_groups_generic += list(list(
+					"attribute" = null,
+					"json" = json_encode(generic_entry.content)
+				))
+
+	var/list/generics = list()
+	for(var/type_key in generics_by_type)
+		generics += list(generics_by_type[type_key])
+	data["generics"] = generics
 
 	return data
 
@@ -87,6 +134,9 @@
 	. = ..()
 	if(.)
 		return
+
+	// Instead of return TRUE for a regular update, return FALSE and call ui.send_update() before.
+	// Returning TRUE will cause static_ui_data to be sent, which in this panel is costly.
 
 	if(!can_use_persistence_panel(ui.user))
 		return FALSE
@@ -113,10 +163,11 @@
 			SSpersistence.prevent_saving = FALSE
 			to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_GOOD("re-enabled"))] by an administrator.")))
 			log_and_message_admins("has toggled persistence saving at round end, it is now re-enabled", usr)
-		return TRUE
+
+		ui.send_update()
+		return FALSE
 
 	if(action == "refresh")
-		ui.send_full_update()
 		return TRUE
 
 	if(action == "edit")
