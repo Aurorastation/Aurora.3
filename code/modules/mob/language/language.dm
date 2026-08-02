@@ -24,7 +24,7 @@
 	var/list/exclaim_verb = list("exclaims")
 
 	/// Used when a sentence ends in !!
-	var/list/shout_verb = list("shouts", "yells", "screams")
+	var/list/shout_verb = list("shouts", "yells", "screams", "broadcasts")
 
 	/// Optional. When not specified speech_verb + quietly/softly is used instead.
 	var/list/whisper_verb = null
