@@ -578,7 +578,6 @@
 		/obj/random/tech_supply = 0.2,
 		/obj/structure/girder = 0.2,
 		/obj/random/canister/empty = 0.2,
-		/obj/structure/reagent_dispensers/fueltank = 0.1,
 		/obj/random/canister/filled/restricted = 0.1,
 		/obj/structure/closet/crate/loot = 0.05,
 		/obj/random/contraband = 0.2,

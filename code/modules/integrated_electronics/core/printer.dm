@@ -499,11 +499,14 @@
 
 		metal -= cost
 		phoron -= phoron_cost
-
+		var/new_build
 		if(is_printed_assembly_container)
-			new build_type(get_turf(loc), TRUE)
+			new_build = new build_type(get_turf(loc), TRUE)
 		else
-			new build_type(get_turf(loc))
+			new_build = new build_type(get_turf(loc))
+
+		if(Adjacent(usr, src))
+			usr.put_in_hands(new_build)
 
 		return TRUE
 
