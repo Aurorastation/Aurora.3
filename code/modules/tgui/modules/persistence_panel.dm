@@ -20,113 +20,9 @@
 
 /datum/tgui_module/persistence_panel/ui_static_data(mob/user)
 	var/list/data = list()
-
-	var/list/objects = list()
-	for(var/obj/track in SSpersistence.object_track_register)
-		objects += list(list(
-			"ref" = REF(track), // Needed for VV action
-			"type" = "[track.type]",
-			"name" = track.name,
-			"x" = track.x,
-			"y" = track.y,
-			"z" = track.z,
-			"created_at" = track.persistent_objects_created_at,
-			"expires_at" = track.persistent_objects_expires_at
-		))
-	data["objects"] = objects
-
-	var/list/history_types = typesof(/singleton/persistent_type/history) - list(/singleton/persistent_type/history, /singleton/persistent_type/history/character)
-	var/list/records = list()
-	for(var/type_path in history_types)
-		var/singleton/persistent_type/history/type_instance = GET_SINGLETON(type_path)
-		if(!type_instance)
-			continue
-
-		var/list/type_attribute_groups = SSpersistence.historyGetAllRecordsForAllAttributes(type_instance, TRUE)
-		if(!type_attribute_groups)
-			type_attribute_groups = list()
-
-		var/list/attribute_groups_history = list()
-		for(var/attribute_group in type_attribute_groups)
-			var/attribute = attribute_group["attribute"]
-			var/list/attribute_records = attribute_group["records"] || list()
-
-			var/list/record_items = list()
-			for(var/datum/persistent_record/record in attribute_records)
-				record_items += list(list(
-					"created_at" = record.created_at,
-					"game_id" = record.game_id,
-					"value" = "[record.value]"
-				))
-
-			var/attribute_value = attribute
-			if(istype(type_instance, /singleton/persistent_type/history/character))
-				// Character history is a special case, we want to show the character name instead of the ID
-				attribute_value = SSpersistence.historyGetCharnameByID(attribute)
-
-			attribute_groups_history += list(list(
-				"attribute" = attribute_value,
-				"records" = record_items
-			))
-
-		var/list/type_parts = return_typenames(type_instance.type)
-		var/type_value
-		if(istype(type_instance, /singleton/persistent_type/history/character))
-			type_value = "Character - [type_parts[length(type_parts)]]"
-		else
-			type_value = type_parts[length(type_parts)]
-
-		records += list(list(
-			"type" = type_value,
-			"title" = type_instance.title,
-			"description" = type_instance.description,
-			"requires_attribute" = type_instance.requires_attribute,
-			"attributes" = attribute_groups_history
-		))
-	data["records"] = records
-
-	var/list/generics_by_type = list()
-
-	var/custom_types = typesof(/singleton/persistent_type/generic) - /singleton/persistent_type/generic
-	for(var/type_path in custom_types)
-		var/singleton/persistent_type/type_instance = GET_SINGLETON(type_path)
-		if(!type_instance)
-			continue
-
-		var/type_key = "[type_instance.type]"
-		if(!generics_by_type[type_key])
-			var/list/type_parts = return_typenames(type_instance.type)
-			generics_by_type[type_key] = list(
-				"type" = type_parts[length(type_parts)],
-				"title" = type_instance.title,
-				"description" = type_instance.description,
-				"requires_attribute" = type_instance.requires_attribute,
-				"attributes" = list()
-			)
-
-		var/list/attribute_groups_generic = generics_by_type[type_key]["attributes"]
-		if(type_instance.requires_attribute)
-			var/list/attributes = SSpersistence.genericGetAllAttributesForType(type_instance)
-			for(var/attribute in attributes)
-				var/datum/persistent_generic/generic_entry = SSpersistence.genericLoad(type_instance, attribute, TRUE)
-				if(!generic_entry)
-					continue
-				attribute_groups_generic += list(list(
-					"attribute" = attribute,
-					"json" = json_encode(generic_entry.content)
-				))
-		else
-			var/datum/persistent_generic/generic_entry = SSpersistence.genericLoad(type_instance, null, TRUE)
-			if(generic_entry)
-				attribute_groups_generic += list(list(
-					"attribute" = null,
-					"json" = json_encode(generic_entry.content)
-				))
-
-	var/list/generics = list()
-	for(var/type_key in generics_by_type)
-		generics += list(generics_by_type[type_key])
-	data["generics"] = generics
+	data["objects"] = get_tracked_objects_data()
+	data["records"] = get_history_records_data()
+	data["generics"] = get_generic_records_data()
 
 	return data
 
@@ -184,6 +80,133 @@
 		return FALSE
 
 	return FALSE
+
+/datum/tgui_module/persistence_panel/proc/get_tracked_objects_data()
+	var/list/objects = list()
+	for(var/obj/track in SSpersistence.object_track_register)
+		objects += list(list(
+			"ref" = REF(track), // Needed for VV action
+			"type" = "[track.type]",
+			"name" = track.name,
+			"x" = track.x,
+			"y" = track.y,
+			"z" = track.z,
+			"created_at" = track.persistent_objects_created_at,
+			"expires_at" = track.persistent_objects_expires_at
+		))
+	return objects
+
+/datum/tgui_module/persistence_panel/proc/get_history_records_data()
+	var/list/history_types = typesof(/singleton/persistent_type/history) - list(/singleton/persistent_type/history, /singleton/persistent_type/history/character)
+	var/list/records = list()
+
+	for(var/type_path in history_types)
+		var/singleton/persistent_type/history/type_instance = GET_SINGLETON(type_path)
+		if(!type_instance)
+			continue
+
+		records += list(build_history_type_data(type_instance))
+
+	return records
+
+/datum/tgui_module/persistence_panel/proc/build_history_type_data(var/singleton/persistent_type/history/type_instance)
+	var/list/type_attribute_groups = SSpersistence.historyGetAllRecordsForAllAttributes(type_instance, TRUE)
+	if(!type_attribute_groups)
+		type_attribute_groups = list()
+
+	var/list/attribute_groups_history = list()
+	for(var/attribute_group in type_attribute_groups)
+		attribute_groups_history += list(build_history_attribute_group_data(type_instance, attribute_group))
+
+	return list(
+		"type" = get_persistent_type_display_name(type_instance),
+		"title" = type_instance.title,
+		"description" = type_instance.description,
+		"requires_attribute" = type_instance.requires_attribute,
+		"attributes" = attribute_groups_history
+	)
+
+/datum/tgui_module/persistence_panel/proc/build_history_attribute_group_data(var/singleton/persistent_type/history/type_instance, var/list/attribute_group)
+	var/attribute = attribute_group["attribute"]
+	var/list/attribute_records = attribute_group["records"] || list()
+	var/list/record_items = list()
+
+	for(var/datum/persistent_record/record in attribute_records)
+		record_items += list(list(
+			"created_at" = record.created_at,
+			"game_id" = record.game_id,
+			"value" = "[record.value]"
+		))
+
+	var/attribute_value = attribute
+	if(istype(type_instance, /singleton/persistent_type/history/character))
+		// Character history is a special case, we want to show the character name instead of the ID
+		attribute_value = SSpersistence.historyGetCharnameByID(attribute)
+
+	return list(
+		"attribute" = attribute_value,
+		"records" = record_items
+	)
+
+/datum/tgui_module/persistence_panel/proc/get_generic_records_data()
+	var/list/generics_by_type = list()
+	var/custom_types = typesof(/singleton/persistent_type/generic) - /singleton/persistent_type/generic
+
+	for(var/type_path in custom_types)
+		var/singleton/persistent_type/generic/type_instance = GET_SINGLETON(type_path)
+		if(!type_instance)
+			continue
+
+		var/type_key = "[type_instance.type]"
+		if(!generics_by_type[type_key])
+			generics_by_type[type_key] = build_generic_type_data(type_instance)
+
+		append_generic_attribute_data(type_instance, generics_by_type[type_key]["attributes"])
+
+	var/list/generics = list()
+	for(var/type_key in generics_by_type)
+		generics += list(generics_by_type[type_key])
+
+	return generics
+
+/datum/tgui_module/persistence_panel/proc/build_generic_type_data(var/singleton/persistent_type/generic/type_instance)
+	var/list/type_parts = return_typenames(type_instance.type)
+	return list(
+		"type" = type_parts[length(type_parts)],
+		"title" = type_instance.title,
+		"description" = type_instance.description,
+		"requires_attribute" = type_instance.requires_attribute,
+		"attributes" = list()
+	)
+
+/datum/tgui_module/persistence_panel/proc/append_generic_attribute_data(var/singleton/persistent_type/generic/type_instance, var/list/attribute_groups_generic)
+	if(type_instance.requires_attribute)
+		var/list/attributes = SSpersistence.genericGetAllAttributesForType(type_instance)
+		for(var/attribute in attributes)
+			var/datum/persistent_generic/generic_entry = SSpersistence.genericLoad(type_instance, attribute, TRUE)
+			if(!generic_entry)
+				continue
+
+			attribute_groups_generic += list(list(
+				"attribute" = attribute,
+				"json" = json_encode(generic_entry.content)
+			))
+		return
+
+	var/datum/persistent_generic/generic_entry = SSpersistence.genericLoad(type_instance, null, TRUE)
+	if(generic_entry)
+		attribute_groups_generic += list(list(
+			"attribute" = null,
+			"json" = json_encode(generic_entry.content)
+		))
+
+/datum/tgui_module/persistence_panel/proc/get_persistent_type_display_name(var/singleton/persistent_type/type_instance)
+	var/list/type_parts = return_typenames(type_instance.type)
+	var/type_name = type_parts[length(type_parts)]
+	if(istype(type_instance, /singleton/persistent_type/history/character))
+		return "Character - [type_name]"
+
+	return type_name
 
 /datum/tgui_module/persistence_panel/proc/can_use_persistence_panel(var/mob/user)
 	return check_rights(R_ADMIN|R_MOD|R_DEV, 0, user)
