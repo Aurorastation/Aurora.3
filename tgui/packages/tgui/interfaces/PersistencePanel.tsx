@@ -308,12 +308,14 @@ export const PersistencePanel = (props) => {
               Generics
             </Tabs.Tab>
           </Tabs>
-          <Button
-            content="Refresh"
-            color="blue"
-            icon="sync"
-            onClick={() => act('refresh')}
-          />
+          {tab !== 'Subsystem' && (
+            <Button
+              content="Refresh"
+              color="blue"
+              icon="sync"
+              onClick={() => act('refresh')}
+            />
+          )}
         </div>
 
         {tab === 'Subsystem' && (
