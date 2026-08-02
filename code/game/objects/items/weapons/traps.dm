@@ -524,6 +524,7 @@
 		unbuckle()
 		return
 
+	capturing_mob.captured = TRUE
 	captured = WEAKREF(capturing_mob)
 
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
@@ -674,10 +675,10 @@
 	if(captured_mob)
 		captured_mob.bullet_act(arglist(args))
 
-/obj/item/trap/animal/proc/release(var/mob/user, var/turf/target)
+/obj/item/trap/animal/proc/release(var/mob/user, var/turf/target, var/transferring = FALSE)
 	if(!target)
 		target = src.loc
-	if(user)
+	if(user && !transferring)
 		visible_message(SPAN_NOTICE("[user] opens \the [src]."))
 
 	var/mob/captured_mob = captured ? captured.resolve() : null
@@ -690,10 +691,12 @@
 		var/mob/living/living_mob = captured_mob
 		msg = SPAN_WARNING("[living_mob] runs out of \the [src].")
 
+	captured_mob.captured = FALSE
 	unbuckle()
 	captured = null
-	visible_message(msg)
-	shake_animation()
+	if(!transferring)
+		visible_message(msg)
+		shake_animation()
 	update_icon()
 	layer = initial(layer)
 
@@ -778,6 +781,17 @@
 	. = ..()
 	if(.)
 		sync_captured_mob()
+
+/obj/item/trap/animal/post_buckle(atom/movable/MA)
+	if(MA == buckled || !isliving(MA))
+		return
+
+	var/mob/living/released_mob = MA
+	released_mob.captured = FALSE
+	if(captured?.resolve() == released_mob)
+		captured = null
+	layer = initial(layer)
+	update_icon()
 
 /obj/item/trap/animal/attack_hand(mob/user)
 	if(user.loc == src || captured)

@@ -502,6 +502,8 @@
 		if(A.CheckRemoval(src))
 			A.Remove(src)
 
+	update_camera_view_action()
+
 	for(var/obj/item/I in src)
 		if(!I.action_button_name)
 			continue
@@ -548,6 +550,41 @@
 			item_action.Grant(src)
 
 	return
+
+/mob/living/proc/is_viewing_z_eye()
+	return client && z_eye && client.eye == z_eye
+
+/mob/living/is_viewing_remote_view()
+	return ..() || is_viewing_z_eye()
+
+/mob/living/proc/clear_z_eye()
+	if(!z_eye)
+		return FALSE
+	var/was_viewing_z_eye = is_viewing_z_eye()
+	if(was_viewing_z_eye)
+		reset_view(null)
+	QDEL_NULL(z_eye)
+	update_camera_view_action()
+	return was_viewing_z_eye
+
+/mob/living/proc/update_camera_view_action()
+	if(is_viewing_remote_view())
+		if(!camera_view_cancel_action)
+			camera_view_cancel_action = new
+		camera_view_cancel_action.Grant(src)
+	else if(camera_view_cancel_action?.owner)
+		camera_view_cancel_action.Remove(src)
+
+/mob/living/proc/cancel_remote_view()
+	if(istype(machine, /obj/structure/machinery/computer/ship))
+		var/obj/structure/machinery/computer/ship/ship_console = machine
+		if(ship_console.viewing_overmap(src))
+			ship_console.unlook(src)
+			update_camera_view_action()
+			return
+
+	cancel_camera()
+	update_camera_view_action()
 
 /mob/living/update_action_buttons()
 	if(!hud_used) return

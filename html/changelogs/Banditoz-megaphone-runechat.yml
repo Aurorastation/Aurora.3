@@ -1,0 +1,4 @@
+author: Banditoz
+delete-after: True
+changes:
+  - rscadd: "Megaphones now use your accent, language, and create floating text when used."

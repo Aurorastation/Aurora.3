@@ -57,6 +57,10 @@
 	. += "- Upgraded <b>manipulators</b> will improve material use efficiency."
 	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
+/obj/structure/machinery/mecha_part_fabricator/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag someone with long hair onto this machine to start feeding it their hair! This will hurt and piss them off!"
+
 /obj/structure/machinery/mecha_part_fabricator/Initialize()
 	. = ..()
 
@@ -64,6 +68,7 @@
 	fab_loop = new(src)
 	limb_manufacturer = GLOB.basic_robolimb.company
 	update_categories()
+	update_icon()
 
 /// Make sure the machine starts the round properly synced.
 /obj/structure/machinery/mecha_part_fabricator/LateInitialize()

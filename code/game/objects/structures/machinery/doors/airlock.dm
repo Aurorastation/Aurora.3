@@ -523,6 +523,12 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	destroy_hits = 30
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_MEDIUM
+	)
 	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5

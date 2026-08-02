@@ -430,6 +430,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/extinguishertank
+	category = "engineering"
+	name = "extinguisher tank"
+	supplier = "hephaestus"
+	description = "A tank filled with extinguisher fluid."
+	price = 10
+	items = list(
+		/obj/structure/reagent_dispensers/extinguisher
+	)
+	access = ACCESS_ENGINE
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/gasmask
 	category = "engineering"
 	name = "gas mask"
