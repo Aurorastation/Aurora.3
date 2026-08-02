@@ -84,7 +84,11 @@ export const AlertModal = (props) => {
         <Section fill>
           <Stack fill vertical>
             <Stack.Item grow m={1}>
-              <Box color="label" overflow="hidden">
+              <Box
+                className="AlertModal__FormattedMessage"
+                color="label"
+                overflow="hidden"
+              >
                 {message}
               </Box>
             </Stack.Item>

@@ -84,7 +84,7 @@
 	var/datum/species/S = GLOB.all_species[pref.species]
 	var/list/fields = list()
 	if(S.language)
-		fields += list(list("label" = "Native Language", "value" = S.language))
+		fields += list(list("label" = "Language", "value" = S.language))
 	if(S.default_language && S.default_language != S.language)
 		fields += list(list("label" = "Default Language", "value" = S.default_language))
 	if(S.num_alternate_languages)

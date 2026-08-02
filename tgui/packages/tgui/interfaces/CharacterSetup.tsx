@@ -88,6 +88,16 @@ type BodyMarking = {
   name: string;
 };
 
+type SpeciesOption = {
+  available: boolean;
+  current: boolean;
+  description: string;
+  language: string;
+  name: string;
+  selected: boolean;
+  traits: string[];
+};
+
 type BodyPreferenceItem = BasePreferenceItem & {
   kind: 'body';
   appearance: BodyAppearance[];
@@ -99,6 +109,11 @@ type BodyPreferenceItem = BasePreferenceItem & {
   markings: BodyMarking[];
   preview_actions: PreferenceAction[];
   prostheses: string[];
+  species_categories: {
+    name: string;
+    species: SpeciesOption[];
+  }[];
+  species_menu_open: boolean;
 };
 
 type BackgroundPreferenceItem = BasePreferenceItem & {
@@ -208,6 +223,16 @@ type CharacterSetupData = {
   faction_name: string;
   faction_suffix: string;
   sql_saves: boolean;
+  slot_dialog?: {
+    can_create: boolean;
+    limit: number;
+    slots: {
+      id: number;
+      name: string;
+      selected: boolean;
+    }[];
+    used: number;
+  };
   categories: Category[];
   items: PreferenceItem[];
 };
@@ -222,6 +247,9 @@ const categoryIcons: Record<string, string> = {
   Global: 'gear',
   Other: 'ellipsis',
 };
+
+const normalizedHeading = (heading: string) =>
+  heading.toLowerCase().replace(/s$/, '');
 
 const renderPencode = (text: string) => {
   type Frame = {
@@ -296,6 +324,10 @@ export const CharacterSetup = () => {
   const selectedCategory = data.categories.find(
     (category) => category.selected,
   );
+  const speciesDialogOpen = data.items.some(
+    (item) => item.kind === 'body' && item.species_menu_open,
+  );
+  const modalOpen = !!data.slot_dialog || speciesDialogOpen;
 
   const sendPreferenceTopic = (
     item: BasePreferenceItem,
@@ -307,6 +339,189 @@ export const CharacterSetup = () => {
     action: string,
     value: string | number = 1,
   ) => sendPreferenceTopic(item, { [action]: value });
+
+  const renderSlotDialog = () => {
+    const dialog = data.slot_dialog;
+    if (!dialog) {
+      return null;
+    }
+
+    return (
+      <Box className="CharacterSetup__slotOverlay">
+        <Section
+          className="CharacterSetup__slotDialog"
+          title="Character Slots"
+          buttons={
+            <Button
+              color="transparent"
+              icon="xmark"
+              onClick={() => act('close_slots')}
+            />
+          }
+        >
+          <Box color="label" mb={1}>
+            Select a character to load.
+          </Box>
+          <Stack vertical>
+            {dialog.slots.map((slot) => (
+              <Stack.Item key={slot.id}>
+                <Button
+                  fluid
+                  icon={slot.selected ? 'user-check' : 'user'}
+                  onClick={() => act('select_slot', { slot: slot.id })}
+                  selected={slot.selected}
+                >
+                  {slot.name}
+                </Button>
+              </Stack.Item>
+            ))}
+          </Stack>
+          <Stack align="center" mt={1}>
+            <Stack.Item grow>
+              <Box bold>
+                {dialog.used}/{dialog.limit} slots used
+              </Box>
+            </Stack.Item>
+            {!!data.sql_saves && (
+              <Stack.Item>
+                <Button
+                  disabled={!dialog.can_create}
+                  icon="plus"
+                  onClick={() => act('new_character')}
+                >
+                  New Character
+                </Button>
+              </Stack.Item>
+            )}
+          </Stack>
+        </Section>
+      </Box>
+    );
+  };
+
+  const renderSpeciesDialog = () => {
+    const bodyItem = data.items.find(
+      (item): item is BodyPreferenceItem => item.kind === 'body',
+    );
+    if (!bodyItem?.species_menu_open) {
+      return null;
+    }
+
+    const speciesOptions = bodyItem.species_categories.reduce<SpeciesOption[]>(
+      (options, category) => options.concat(category.species),
+      [],
+    );
+    const selectedSpecies = speciesOptions.find((species) => species.selected);
+
+    return (
+      <Box className="CharacterSetup__slotOverlay">
+        <Section
+          className="CharacterSetup__speciesDialog"
+          fill
+          title="Species Selection"
+          buttons={
+            <Button
+              color="transparent"
+              icon="xmark"
+              onClick={() =>
+                sendPreferenceAction(bodyItem, 'close_species')
+              }
+            />
+          }
+        >
+          <Box className="species-dialog__layout">
+            <Box className="species-dialog__list">
+              {bodyItem.species_categories.map((category) => (
+                <Box key={category.name} mb={1}>
+                  <Box className="species-dialog__category">
+                    {category.name}
+                  </Box>
+                  {category.species.map((species) => (
+                    <Button
+                      className="species-dialog__option"
+                      color={species.available ? undefined : 'transparent'}
+                      fluid
+                      icon={species.available ? 'dna' : 'lock'}
+                      key={species.name}
+                      onClick={() =>
+                        sendPreferenceAction(
+                          bodyItem,
+                          'preview_species',
+                          species.name,
+                        )
+                      }
+                      selected={species.selected}
+                    >
+                      {species.name}
+                      {species.current ? ' (Current)' : ''}
+                    </Button>
+                  ))}
+                </Box>
+              ))}
+            </Box>
+            <Box className="species-dialog__details">
+              {selectedSpecies ? (
+                <>
+                  <Box className="species-dialog__title">
+                    {selectedSpecies.name}
+                  </Box>
+                  <Box color="label" className="species-dialog__description">
+                    {selectedSpecies.description}
+                  </Box>
+                  <Box className="species-dialog__language">
+                    <b>Language:</b> {selectedSpecies.language}
+                  </Box>
+                  {!!selectedSpecies.traits.length && (
+                    <Box className="species-dialog__traits">
+                      <Box bold mb={0.5}>
+                        Traits
+                      </Box>
+                      {selectedSpecies.traits.map((trait) => (
+                        <Box key={trait}>
+                          <Icon name="check" mr={0.5} />
+                          {trait}
+                        </Box>
+                      ))}
+                    </Box>
+                  )}
+                  {!selectedSpecies.available && (
+                    <Box color="bad" mt={1}>
+                      This species is unavailable or requires a whitelist.
+                    </Box>
+                  )}
+                  <Stack justify="flex-end" mt={2}>
+                    <Stack.Item>
+                      <Button
+                        onClick={() =>
+                          sendPreferenceAction(bodyItem, 'close_species')
+                        }
+                      >
+                        Cancel
+                      </Button>
+                    </Stack.Item>
+                    <Stack.Item>
+                      <Button
+                        color="good"
+                        disabled={!selectedSpecies.available}
+                        icon="check"
+                        onClick={() =>
+                          sendPreferenceAction(bodyItem, 'confirm_species')
+                        }
+                      >
+                        Select Species
+                      </Button>
+                    </Stack.Item>
+                  </Stack>
+                </>
+              ) : (
+                <Box color="label">Select a species to see its details.</Box>
+              )}
+            </Box>
+          </Box>
+        </Section>
+      </Box>
+    );
+  };
 
   const renderOccupation = (item: OccupationPreferenceItem) => (
     <Box className="occupation-layout">
@@ -813,7 +1028,11 @@ export const CharacterSetup = () => {
     <Stack className="preference-form" vertical>
       {item.sections.map((section, sectionIndex) => (
         <Stack.Item key={section.title || sectionIndex}>
-          {section.title && (
+          {section.title &&
+            !(
+              sectionIndex === 0 &&
+              normalizedHeading(section.title) === normalizedHeading(item.name)
+            ) && (
             <Box className="preference-form__heading">{section.title}</Box>
           )}
           {section.description && (
@@ -829,7 +1048,15 @@ export const CharacterSetup = () => {
           <Box className="preference-form__fields">
             {section.fields.map((field, fieldIndex) => (
               <Box
-                className="preference-form__field"
+                className={`preference-form__field${
+                  section.fields.some(
+                    (sectionField) =>
+                      !!sectionField.actions?.length &&
+                      !sectionField.inline_actions,
+                  )
+                    ? ' preference-form__field--with-actions'
+                    : ''
+                }`}
                 key={`${field.label}-${fieldIndex}`}
               >
                 <Box className="preference-form__label">{field.label}</Box>
@@ -914,17 +1141,28 @@ export const CharacterSetup = () => {
               {subcategory.skills.map((skill) => (
                 <Box className="skill-row" key={skill.type}>
                   <Box className="skill-row__info">
-                    <Box bold>{skill.name}</Box>
-                    <Box color="label" fontSize={0.88}>
-                      {skill.description}
-                    </Box>
+                    <Stack align="center">
+                      <Stack.Item grow>
+                        <Box bold>{skill.name}</Box>
+                      </Stack.Item>
+                      <Stack.Item>
+                        <Button
+                          compact
+                          color="transparent"
+                          icon="circle-info"
+                          tooltip={[
+                            skill.description,
+                            skill.current_description,
+                          ]
+                            .filter(Boolean)
+                            .join('\n\n')}
+                        />
+                      </Stack.Item>
+                    </Stack>
                     {skill.uneducated_cap && (
                       <Box color="average" fontSize={0.85}>
                         Uneducated cap: {skill.uneducated_cap}
                       </Box>
-                    )}
-                    {skill.current_description && (
-                      <Box fontSize={0.85}>{skill.current_description}</Box>
                     )}
                   </Box>
                   <Box className="skill-row__levels">
@@ -1006,9 +1244,11 @@ export const CharacterSetup = () => {
       </Box>
       <Input
         fluid
+        onDragStart={(event) => event.stopPropagation()}
         onBlur={(value) =>
           sendPreferenceAction(item, 'search_input_refresh', value)
         }
+        onMouseDown={(event) => event.stopPropagation()}
         placeholder="Search this category"
         value={item.search}
       />
@@ -1231,6 +1471,7 @@ export const CharacterSetup = () => {
                   <CharacterPreview
                     id="character_setup_preview"
                     height="100%"
+                    hidden={modalOpen}
                     width="300px"
                   />
                 </Section>
@@ -1238,6 +1479,8 @@ export const CharacterSetup = () => {
             </Stack>
           </Stack.Item>
         </Stack>
+        {renderSlotDialog()}
+        {renderSpeciesDialog()}
       </Window.Content>
     </Window>
   );

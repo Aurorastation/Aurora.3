@@ -133,6 +133,8 @@
 	var/level_from_pref = pref.skills[skill.type]
 	var/current_level = level_from_pref ? level_from_pref : SKILL_LEVEL_UNFAMILIAR
 	var/maximum_skill_level = get_maximum_skill_level(skill, education)
+	var/current_description = replacetext(skill.skill_level_descriptions[current_level], "<br>", "\n")
+	current_description = html_decode(strip_html_properly(current_description))
 	var/list/levels = list()
 	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= skill.maximum_level, i++)
 		if(i <= 0)
@@ -142,7 +144,7 @@
 		"name" = skill.name,
 		"type" = "[skill.type]",
 		"description" = skill.description,
-		"current_description" = skill.skill_level_descriptions[current_level],
+		"current_description" = current_description,
 		"uneducated_cap" = skill.uneducated_skill_cap ? skill.skill_level_map[skill.uneducated_skill_cap] : null,
 		"levels" = levels
 	)

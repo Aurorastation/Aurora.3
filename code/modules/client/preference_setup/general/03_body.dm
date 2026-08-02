@@ -10,6 +10,7 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 /datum/category_item/player_setup_item/general/body
 	name = "Body"
 	sort_order = 3
+	var/species_menu_open = FALSE
 
 /datum/category_item/player_setup_item/general/body/load_character(var/savefile/S)
 	S["hair_red"]          >> pref.r_hair
@@ -305,6 +306,32 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			"has_preset" = length(mob_species.character_color_presets)
 		))
 
+	var/list/species_categories = list()
+	if(species_menu_open)
+		for(var/category_name in GLOB.playable_species)
+			var/list/species_options = list()
+			for(var/species_name in GLOB.playable_species[category_name])
+				var/datum/species/species_option = GLOB.all_species[species_name]
+				if(!species_option)
+					continue
+				var/description = replacetext(species_option.blurb, "<br>", "\n")
+				description = replacetext(description, "<br/>", "\n")
+				description = replacetext(description, "</p>", "\n\n")
+				description = html_decode(strip_html_properly(description))
+				species_options += list(list(
+					"name" = species_option.name,
+					"description" = description,
+					"language" = species_option.language || "None",
+					"traits" = get_species_traits(species_option),
+					"available" = species_is_available(species_option, user),
+					"current" = (species_option.name == pref.species),
+					"selected" = (species_option.name == pref.species_preview)
+				))
+			species_categories += list(list(
+				"name" = category_name,
+				"species" = species_options
+			))
+
 	return list(
 		"kind" = "body",
 		"name" = name,
@@ -317,11 +344,56 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		"preview_actions" = preview_actions,
 		"appearance" = appearance,
 		"has_skin_preset" = has_flag(mob_species, HAS_SKIN_PRESET),
-		"markings" = markings
+		"markings" = markings,
+		"species_menu_open" = species_menu_open,
+		"species_categories" = species_categories
 	)
 
 /datum/category_item/player_setup_item/general/body/proc/has_flag(var/datum/species/mob_species, var/flag)
 	return mob_species && (mob_species.appearance_flags & flag)
+
+/datum/category_item/player_setup_item/general/body/proc/get_species_traits(var/datum/species/selected_species)
+	var/list/species_traits = list()
+	if(selected_species.spawn_flags & CAN_JOIN)
+		species_traits += "Often present on human stations"
+	if(selected_species.spawn_flags & IS_WHITELISTED)
+		species_traits += "Whitelist restricted"
+	if(selected_species.flags & NO_BLOOD)
+		species_traits += "Does not have blood"
+	if(selected_species.flags & NO_BREATHE)
+		species_traits += "Does not breathe"
+	if(selected_species.flags & NO_SCAN)
+		species_traits += "Does not have DNA"
+	if(selected_species.flags & NO_PAIN)
+		species_traits += "Does not feel pain"
+	if(selected_species.flags & NO_SLIP)
+		species_traits += "Has excellent traction"
+	if(selected_species.flags & NO_POISON)
+		species_traits += "Immune to most poisons"
+	if(selected_species.appearance_flags & HAS_SKIN_TONE)
+		species_traits += "Has a variety of skin tones"
+	if(selected_species.appearance_flags & HAS_SKIN_COLOR)
+		species_traits += "Has a variety of skin colours"
+	if(selected_species.appearance_flags & HAS_EYE_COLOR)
+		species_traits += "Has a variety of eye colours"
+	if(selected_species.flags & IS_PLANT)
+		species_traits += "Has a plantlike physiology"
+	return species_traits
+
+/datum/category_item/player_setup_item/general/body/proc/species_is_playable(var/species_name)
+	for(var/category_name in GLOB.playable_species)
+		if(species_name in GLOB.playable_species[category_name])
+			return TRUE
+	return FALSE
+
+/datum/category_item/player_setup_item/general/body/proc/species_is_available(var/datum/species/selected_species, var/mob/user)
+	if(!GLOB.config.usealienwhitelist || check_rights(R_ADMIN, FALSE, user))
+		return TRUE
+	if(!(selected_species.spawn_flags & CAN_JOIN))
+		return FALSE
+	if((selected_species.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(preference_mob(), selected_species.name))
+		return FALSE
+	return TRUE
 
 /datum/category_item/player_setup_item/general/body/OnTopic(var/href,var/list/href_list, var/mob/user)
 	var/datum/species/mob_species = GLOB.all_species[pref.species]
@@ -337,69 +409,39 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			return TOPIC_REFRESH
 
 	else if(href_list["show_species"])
-		var/species_choice = tgui_input_list(usr, "Which species would you like to look at?", "Species Selection", GLOB.playable_species)
-		if(!species_choice)
+		species_menu_open = TRUE
+		pref.species_preview = pref.species
+		return TOPIC_REFRESH
+
+	else if(href_list["preview_species"])
+		var/choice = html_decode(href_list["preview_species"])
+		if(!species_menu_open || !species_is_playable(choice) || !(choice in GLOB.all_species))
 			return TOPIC_NOACTION
-		var/choice
-		if(length(GLOB.playable_species[species_choice]) == 1)
-			choice = GLOB.playable_species[species_choice][1]
-		else
-			choice = tgui_input_list(usr, "Which subspecies would you like to look at?", "Sub-species Selection", GLOB.playable_species[species_choice])
-			if(!choice)
-				return TOPIC_NOACTION
-		choice = html_decode(choice)
 		pref.species_preview = choice
+		return TOPIC_REFRESH
+
+	else if(href_list["close_species"])
+		species_menu_open = FALSE
+		pref.species_preview = null
+		return TOPIC_REFRESH
+
+	else if(href_list["confirm_species"])
+		var/choice = pref.species_preview
 		var/datum/species/selected_species = GLOB.all_species[choice]
-		if(!selected_species)
+		if(!species_menu_open || !selected_species || !species_is_playable(choice) || !species_is_available(selected_species, user))
 			return TOPIC_NOACTION
-		var/restricted = FALSE
-		if(GLOB.config.usealienwhitelist)
-			if(!(selected_species.spawn_flags & CAN_JOIN))
-				restricted = TRUE
-			else if((selected_species.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(preference_mob(), selected_species.name))
-				restricted = TRUE
-		if(restricted && !check_rights(R_ADMIN, 0))
-			tgui_alert(user, "You cannot play as [selected_species.name]. This species is unavailable or requires a whitelist.", "Species Unavailable", list("OK"))
-			return TOPIC_NOACTION
-		var/list/species_traits = list()
-		if(selected_species.spawn_flags & CAN_JOIN)
-			species_traits += "Often present on human stations"
-		if(selected_species.spawn_flags & IS_WHITELISTED)
-			species_traits += "Whitelist restricted"
-		if(selected_species.flags & NO_BLOOD)
-			species_traits += "Does not have blood"
-		if(selected_species.flags & NO_BREATHE)
-			species_traits += "Does not breathe"
-		if(selected_species.flags & NO_SCAN)
-			species_traits += "Does not have DNA"
-		if(selected_species.flags & NO_PAIN)
-			species_traits += "Does not feel pain"
-		if(selected_species.flags & NO_SLIP)
-			species_traits += "Has excellent traction"
-		if(selected_species.flags & NO_POISON)
-			species_traits += "Immune to most poisons"
-		if(selected_species.appearance_flags & HAS_SKIN_TONE)
-			species_traits += "Has a variety of skin tones"
-		if(selected_species.appearance_flags & HAS_SKIN_COLOR)
-			species_traits += "Has a variety of skin colours"
-		if(selected_species.appearance_flags & HAS_EYE_COLOR)
-			species_traits += "Has a variety of eye colours"
-		if(selected_species.flags & IS_PLANT)
-			species_traits += "Has a plantlike physiology"
-		var/species_summary = "[strip_html(selected_species.blurb)]\n\nLanguage: [selected_species.language]"
-		if(length(species_traits))
-			species_summary += "\n\n[english_list(species_traits)]"
-		if(tgui_alert(user, species_summary, selected_species.name, list("Select", "Cancel")) != "Select")
-			return TOPIC_NOACTION
+		species_menu_open = FALSE
 		pref.alternate_languages.Cut()
 		return OnTopic(null, list("set_species" = choice), user)
 
 	else if(href_list["set_species"])
-		if(!pref.species_preview || !(pref.species_preview in GLOB.all_species))
+		var/choice = html_decode(href_list["set_species"])
+		var/datum/species/selected_species = GLOB.all_species[choice]
+		if(!pref.species_preview || choice != pref.species_preview || !selected_species || !species_is_playable(choice) || !species_is_available(selected_species, user))
 			return TOPIC_NOACTION
 
 		var/prev_species = pref.species
-		pref.species = html_decode(href_list["set_species"])
+		pref.species = choice
 		if(prev_species != pref.species)
 			mob_species = GLOB.all_species[pref.species]
 

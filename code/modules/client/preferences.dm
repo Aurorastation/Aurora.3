@@ -121,6 +121,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/list/psionics = list()
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
+	/// Whether the native TGUI character-slot picker is open.
+	var/show_character_slots = FALSE
 	var/static/list/preview_screen_locs = list(
 		"1" = list(5, -8, 9, 0),
 		"2" = list(10, 8, 9, 0),
@@ -292,6 +294,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 /datum/preferences/ui_close(mob/user)
 	. = ..()
+	show_character_slots = FALSE
 	clear_character_previews()
 
 /datum/preferences/ui_data(mob/user)
@@ -302,6 +305,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/datum/faction/character_faction = SSjobs.name_factions[faction] || SSjobs.default_faction
 	data["faction_name"] = character_faction.name
 	data["faction_suffix"] = character_faction.title_suffix
+	data["slot_dialog"] = show_character_slots ? get_character_slot_data(user) : null
 
 	var/list/categories = list()
 	for(var/datum/category_group/player_setup_category/category in player_setup.categories)
@@ -350,11 +354,42 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		if("load")
 			if(IsGuestKey(user.key))
 				return FALSE
-			if(GLOB.config.sql_saves)
-				open_load_dialog_sql(user)
-			else
-				open_load_dialog_file(user)
-			return FALSE
+			show_character_slots = TRUE
+			return TRUE
+
+		if("close_slots")
+			show_character_slots = FALSE
+			return TRUE
+
+		if("select_slot")
+			var/slot = text2num(params["slot"])
+			if(!slot)
+				return FALSE
+			var/list/slot_data = get_character_slot_data(user)
+			var/valid_slot = FALSE
+			for(var/list/character_slot in slot_data["slots"])
+				if(character_slot["id"] == slot)
+					valid_slot = TRUE
+					break
+			if(!valid_slot || !load_character(slot))
+				return FALSE
+			show_character_slots = FALSE
+			update_preview_icon()
+			show_character_previews()
+			return TRUE
+
+		if("new_character")
+			if(!GLOB.config.sql_saves)
+				return FALSE
+			var/list/slot_data = get_character_slot_data(user)
+			if(!slot_data["can_create"])
+				return FALSE
+			new_setup(1)
+			to_chat(user, SPAN_NOTICE("Your setup has been refreshed."))
+			show_character_slots = FALSE
+			update_preview_icon()
+			show_character_previews()
+			return TRUE
 
 		if("delete")
 			if(!GLOB.config.sql_saves)
@@ -443,49 +478,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		else
 			to_chat(user, SPAN_DANGER("The forum URL is not set in the server configuration."))
 			return
-	return 1
-
-/datum/preferences/Topic(href, list/href_list)
-	if(..())
-		return 1
-
-	if(href_list["save"])
-		save_character()
-		save_preferences()
-	else if(href_list["reload"])
-		load_preferences()
-		load_character()
-	else if(href_list["load"])
-		if(!IsGuestKey(usr.key))
-			if (GLOB.config.sql_saves)
-				open_load_dialog_sql(usr)
-			else
-				open_load_dialog_file(usr)
-			return 1
-	else if(href_list["changeslot"])
-		load_character(text2num(href_list["changeslot"]))
-		close_load_dialog(usr)
-	else if(href_list["new_character_sql"])
-		new_setup(1)
-		to_chat(usr, SPAN_NOTICE("Your setup has been refreshed."))
-		usr.client.prefs.update_preview_icon()
-		close_load_dialog(usr)
-	else if(href_list["close_load_dialog"])
-		close_load_dialog(usr)
-	else if(href_list["delete"])
-		if (!GLOB.config.sql_saves)
-			return 0
-		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored.", "Permanently Delete Character", "No", "Yes") == "Yes")
-			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
-				delete_character_sql(usr.client)
-	else if(href_list["close"])
-		// User closed preferences window, cleanup anything we need to.
-		clear_character_previews()
-		return 1
-	else
-		return
-
-	ShowChoices(usr)
 	return 1
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1)
@@ -627,71 +619,51 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		character.update_underwear(0)
 		character.update_icon()
 
-/datum/preferences/proc/open_load_dialog_sql(mob/user)
-	var/dat = "<tt><center>"
+/datum/preferences/proc/get_character_slot_data(mob/user)
+	var/list/slots = list()
+	var/used_slots = 0
+	var/using_sql = GLOB.config.sql_saves
 
-	for(var/ckey in GLOB.preferences_datums)
-		var/datum/preferences/D = GLOB.preferences_datums[ckey]
-		if(D == src)
-			if(!establish_db_connection(GLOB.dbcon))
-				return open_load_dialog_file(user)
-
-			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
-			query.Execute(list("ckey" = user.client.ckey))
-
-			dat += "<b>Select a character slot to load</b><hr>"
-			var/name
-			var/id
-
-			while (query.NextRow())
-				id = text2num(query.item[1])
-				name = query.item[2]
-				if (id == current_character)
-					dat += "<b><a href='byond://?src=[REF(src)];changeslot=[id];'>[name]</a></b><br>"
-				else
-					dat += "<a href='byond://?src=[REF(src)];changeslot=[id];'>[name]</a><br>"
-
-			dat += "<hr>"
-			dat += "<b>[query.RowCount()]/[GLOB.config.character_slots] slots used</b><br>"
-			if (query.RowCount() < GLOB.config.character_slots)
-				dat += "<a href='byond://?src=[REF(src)];new_character_sql=1'>New Character</a>"
-			else
-				dat += "<strike>New Character</strike>"
-
-	dat += "<hr>"
-	dat += "<a href='byond://?src=[REF(src)];close_load_dialog=1'>Close</a><br>"
-	dat += "</center></tt>"
-
-	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
-	load_diag.width = 300
-	load_diag.height = 390
-	load_diag.set_content(dat)
-	load_diag.open()
-
-/datum/preferences/proc/open_load_dialog_file(mob/user)
-	var/dat = "<tt><center>"
+	if(using_sql && establish_db_connection(GLOB.dbcon))
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
+		if(query.Execute(list("ckey" = user.client.ckey)))
+			while(query.NextRow())
+				var/id = text2num(query.item[1])
+				slots += list(list(
+					"id" = id,
+					"name" = query.item[2],
+					"selected" = (id == current_character)
+				))
+			used_slots = query.RowCount()
+			return list(
+				"slots" = slots,
+				"used" = used_slots,
+				"limit" = GLOB.config.character_slots,
+				"can_create" = (used_slots < GLOB.config.character_slots)
+			)
 
 	var/savefile/S = new /savefile(path)
 	if(S)
-		dat += "<b>Select a character slot to load</b><hr>"
-		var/name
-		for(var/i=1, i<= GLOB.config.character_slots, i++)
+		for(var/i = 1, i <= GLOB.config.character_slots, i++)
 			S.cd = "/character[i]"
+			var/name
 			S["real_name"] >> name
-			if(!name)	name = "Character[i]"
-			if(i==default_slot)
-				name = "<b>[name]</b>"
-			dat += "<a href='byond://?src=[REF(src)];changeslot=[i]'>[name]</a><br>"
+			if(!name)
+				name = "Character[i]"
+			else
+				used_slots++
+			slots += list(list(
+				"id" = i,
+				"name" = name,
+				"selected" = (i == default_slot)
+			))
 
-	dat += "<hr>"
-	dat += "</center></tt>"
-
-	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
-	load_diag.set_content(dat)
-	load_diag.open()
-
-/datum/preferences/proc/close_load_dialog(mob/user)
-	user << browse(null, "window=load_diag")
+	return list(
+		"slots" = slots,
+		"used" = used_slots,
+		"limit" = GLOB.config.character_slots,
+		"can_create" = FALSE
+	)
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
