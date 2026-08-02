@@ -1,0 +1,10 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Doors and blast doors can be destroyed again with enough sustained damage."
+  - bugfix: "Fixes doors 'breaking' repeatedly, when hit at 0 health."
+  - bugfix: "Fixes doors taking damage twice when hit by projectiles. This also fixes projectiles ignoring a door's armour."
+  - balance: "Increased the armor values on blast doors and vault doors."
+  - rscadd: "Added a brief particle effect when a door is destroyed."
