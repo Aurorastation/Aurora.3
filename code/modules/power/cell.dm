@@ -200,7 +200,7 @@
 		var/mob/living/silicon/robot/R = loc
 		severity *= R.cell_emp_mult
 
-	charge -= maxcharge / severity
+	charge -= rand(200 / severity, maxcharge / severity)
 	if (charge < 0)
 		charge = 0
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)

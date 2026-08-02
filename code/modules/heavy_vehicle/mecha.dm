@@ -260,7 +260,7 @@
 /mob/living/heavy_vehicle/proc/update_emp_protection()
 	RemoveElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 	if(power == MECH_POWER_ON && body.mech_armor && body.mech_armor.emp_protection)
-		if(get_cell().charge > 8000)
+		if(get_cell().charge > 500)
 			AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 
 /mob/living/heavy_vehicle/GetIdCard()
@@ -287,7 +287,7 @@
 		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
 		power = MECH_POWER_OFF
 		update_emp_protection()
-	else if(get_cell(TRUE))
+	else if(get_cell(TRUE).check_charge(1000)) //Check if we have enough charge to power on
 		//Start power up sequence
 		power = MECH_POWER_TRANSITION
 		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
