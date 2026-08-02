@@ -1,7 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes bluespace inhibitors inconsistantly blocking teleports in a square, but finding the alternate desination in a circle. Its all square now."
-  - bugfix: "Fixes telescience portals not respecting bluespace inhibitors."

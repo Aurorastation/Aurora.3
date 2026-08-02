@@ -1,5 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - bugfix: "Guards emergency shield projectors' maintenance process() logic from inadvertently toggling projector on when anchored and inactive."
-  - bugfix: "Bubble shield projectors no longer register candidate turfs for every hearer in range. Once is enough."
