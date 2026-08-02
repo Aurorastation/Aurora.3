@@ -38,6 +38,15 @@
 	. += "- Upgraded <b>manipulators</b> will improve material use efficiency."
 	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag someone with long hair onto this machine to start feeding it their hair! This will hurt and piss them off!"
+
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/Initialize()
+	. = ..()
+
+	update_icon()
+
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/update_icon()
 	ClearOverlays()
 	if(panel_open)

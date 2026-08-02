@@ -54,7 +54,7 @@
 	description = "After observing your engineering staff, we think it's best if you send us a few of those fuel tanks so nobody hurts themselves."
 	reward_low = 250
 	reward_high = 350
-	required_count = 4
+	required_count = 1
 	random_count = 2
 	wanted_types = list(/obj/structure/reagent_dispensers/fueltank)
 

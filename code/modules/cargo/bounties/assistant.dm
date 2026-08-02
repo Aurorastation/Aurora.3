@@ -80,7 +80,7 @@
 	description = "Send us some water tanks that will be used for botany research, and definitely not for creating a slip 'n slide in %PERSONNAME's office."
 	reward_low = 115
 	reward_high = 135
-	required_count = 3
+	required_count = 1
 	random_count = 1
 	wanted_types = list(/obj/structure/reagent_dispensers/watertank)
 

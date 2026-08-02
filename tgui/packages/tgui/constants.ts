@@ -24,7 +24,9 @@ export const COLORS = {
   department: {
     captain: '#c06616',
     security: '#e74c3c',
-    medbay: '#3498db',
+    command: '#3498db',
+    commandsupport: '#fef400',
+    medbay: '#1ccaa7',
     science: '#9b59b6',
     engineering: '#f1c40f',
     cargo: '#f39c12',
