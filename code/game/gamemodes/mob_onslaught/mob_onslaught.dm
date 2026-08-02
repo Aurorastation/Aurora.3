@@ -180,7 +180,7 @@
 	log_and_message_admins("Mob Onslaught: spawned [spawned] hostile mobs for wave [wave_number]. [length(active_wave_mobs)] remain active.")
 
 /datum/game_mode/mob_onslaught/proc/announce_next_wave_radio()
-	GLOB.global_announcer.autosay(pick(get_next_wave_radio_lines()), "Intern", "Common")
+	GLOB.global_announcer.autosay(pick(get_next_wave_radio_lines()), "Intern", "Common", ACCENT_CETI)
 
 /datum/game_mode/mob_onslaught/proc/get_next_wave_radio_lines()
 	return list(

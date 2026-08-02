@@ -392,7 +392,7 @@ var/global/list/default_interrogation_channels = list(
 		return UI_CLOSE
 	return ..()
 
-/obj/item/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
+/obj/item/radio/proc/autosay(var/message, var/from, var/channel, var/accent) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
 		if(channel == "department")
@@ -414,7 +414,7 @@ var/global/list/default_interrogation_channels = list(
 	if(!istype(announcer))
 		announcer = new()
 
-	announcer.PrepareBroadcast(from)
+	announcer.PrepareBroadcast(from, null, null, accent)
 	var/datum/weakref/speaker_weakref = WEAKREF(announcer)
 	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, announcer.default_language, message, "states")
 	signal.send_to_receivers()
