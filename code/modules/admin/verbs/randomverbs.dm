@@ -1169,6 +1169,4 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/datum/tgui_module/persistence_panel/panel = new
 	panel.ui_interact(usr)
 
-	message_admins("[key_name_admin(usr)] used the Persistence Panel")
-	log_admin("[key_name(usr)] used the Persistence Panel")
 	feedback_add_details("admin_verb", "PERSIST")
