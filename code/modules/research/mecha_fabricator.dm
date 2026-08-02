@@ -16,7 +16,6 @@
 	build_type = MECHFAB
 	product_offset = TRUE
 
-	/// The looping sound for production.
 	fabrication_loop_type = /datum/looping_sound/synth_fab
 
 	/// Manufacturer used for the currently assigned prosthetic job.

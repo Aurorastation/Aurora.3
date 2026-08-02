@@ -60,6 +60,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	var/selected_mech_manufacturer
 
+	var/device_sync_range = 7
+
 	var/allow_analyzer = TRUE
 	var/allow_lathe = TRUE
 	var/allow_imprinter = TRUE
@@ -120,7 +122,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/structure/machinery/computer/rdconsole/proc/SyncRDevices()
 	linked_fabricators ||= list()
 
-	for(var/obj/structure/machinery/r_n_d/device in range(3, src))
+	for(var/obj/structure/machinery/r_n_d/device in range(device_sync_range, src))
 		if(device.panel_open)
 			continue
 

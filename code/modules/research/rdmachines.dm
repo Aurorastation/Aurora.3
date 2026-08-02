@@ -47,6 +47,9 @@
 	/// Active looping-sound controller for this machine.
 	var/datum/looping_sound/fabrication_loop
 
+	/// Whether this fabricator's construction loop is currently playing.
+	var/fabrication_audio_playing = FALSE
+
 /obj/structure/machinery/r_n_d/fabricator/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 
@@ -54,12 +57,18 @@
 		fabrication_loop = new fabrication_loop_type(src)
 
 /obj/structure/machinery/r_n_d/fabricator/proc/start_fabrication_audio()
-	if(fabrication_loop)
-		fabrication_loop.start()
+	if(!fabrication_loop || fabrication_audio_playing)
+		return
+
+	fabrication_loop.start()
+	fabrication_audio_playing = TRUE
 
 /obj/structure/machinery/r_n_d/fabricator/proc/stop_fabrication_audio()
-	if(fabrication_loop)
-		fabrication_loop.stop()
+	if(!fabrication_loop || !fabrication_audio_playing)
+		return
+
+	fabrication_loop.stop()
+	fabrication_audio_playing = FALSE
 
 /obj/structure/machinery/r_n_d/fabricator/power_change()
 	. = ..()
@@ -209,8 +218,21 @@
 
 	var/obj/structure/machinery/computer/rdconsole/console = linked_console
 	console?.finish_fabrication_job(job)
-	clear_console_job(FALSE)
+
+	/*
+	 * Keep construction audio running while the console attempts to assign
+	 * another job. This prevents the end and startup sounds from playing
+	 * between consecutive items.
+	 */
+	clear_console_job(FALSE, FALSE)
 	console?.dispatch_fabrication_jobs()
+
+	/*
+	 * If dispatch did not assign another job to this machine, construction
+	 * has actually ended and the loop can now stop.
+	 */
+	if(!assigned_job)
+		stop_fabrication_audio()
 
 /obj/structure/machinery/r_n_d/fabricator/proc/pause_console_job()
 	var/datum/research_fabrication_job/job = assigned_job
@@ -229,14 +251,17 @@
 		SStgui.update_uis(linked_console)
 		linked_console.dispatch_fabrication_jobs()
 
-/obj/structure/machinery/r_n_d/fabricator/proc/clear_console_job(clear_assignment = TRUE)
+/obj/structure/machinery/r_n_d/fabricator/proc/clear_console_job(clear_assignment = TRUE, stop_audio = TRUE)
 	if(clear_assignment && assigned_job)
 		assigned_job.assigned_machine = null
 
 	assigned_job = null
 	current_design = null
 	build_callback_timer = null
-	stop_fabrication_audio()
+
+	if(stop_audio)
+		stop_fabrication_audio()
+
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
 	on_job_cleared()
