@@ -1,0 +1,5 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - rscadd: "Mobs in animal traps can now be transfered to Stasis Cages by click-dragging rather than requiring them to be in a net."
+  - bugfix: "Mobs can no longer use their ranged attacks while contained inside objects (including animal traps)."

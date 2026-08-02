@@ -250,5 +250,9 @@
 	add_fingerprint(user)
 	if (do_after(user, 2 SECONDS, src))
 		if(target.buckled_to)
-			target.buckled_to.unbuckle()
+			if(istype(target.buckled_to, /obj/item/trap/animal))
+				var/obj/item/trap/animal/animal_trap = target.buckled_to
+				animal_trap.release(transferring = TRUE)
+			else
+				target.buckled_to.unbuckle()
 		contain(user, target)
