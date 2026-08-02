@@ -69,7 +69,10 @@
 	return ..()
 
 /obj/structure/machinery/stasis_cage/process(seconds_per_tick)
-	if (use_power || !cell || !cell.charge)
+	if (!use_power || !cell || !cell.charge)
+		if (isanimal(contained))
+			var/mob/living/simple_animal/SA = contained
+			SA.in_stasis = FALSE
 		return
 	cell.use(2 * seconds_per_tick)
 	if (contained)
@@ -100,7 +103,10 @@
 		release()
 
 /obj/structure/machinery/stasis_cage/proc/release()
-	if (contained)
+	if(contained)
+		if(isanimal(contained))
+			var/mob/living/simple_animal/SA = contained
+			SA.in_stasis = FALSE
 		contained.dropInto(src)
 		contained = null
 		playsound(get_turf(src), 'sound/machines/airlock.ogg', 40)
@@ -249,6 +255,12 @@
 	playsound(src, 'sound/machines/AirlockClose.ogg', 100)
 	add_fingerprint(user)
 	if (do_after(user, 2 SECONDS, src))
+		if(QDELETED(target) || contained || broken || !use_power)
+			return
 		if(target.buckled_to)
-			target.buckled_to.unbuckle()
+			if(istype(target.buckled_to, /obj/item/trap/animal))
+				var/obj/item/trap/animal/animal_trap = target.buckled_to
+				animal_trap.release(transferring = TRUE)
+			else
+				target.buckled_to.unbuckle()
 		contain(user, target)

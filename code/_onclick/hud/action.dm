@@ -323,6 +323,18 @@
 	var/obj/item/clothing/wrists/watch/target_clothing = target
 	target_clothing.checktime(usr)
 
+/datum/action/cancel_camera_view
+	name = "Cancel Camera View"
+	button_icon_state = "cancel"
+
+/datum/action/cancel_camera_view/Trigger()
+	if(!Checks())
+		return
+	owner.cancel_remote_view()
+
+/datum/action/cancel_camera_view/CheckRemoval(mob/living/user)
+	return !user || !user.is_viewing_remote_view()
+
 /datum/action/eye
 	action_type = AB_GENERIC
 	check_flags = AB_CHECK_LYING|AB_CHECK_STUNNED
