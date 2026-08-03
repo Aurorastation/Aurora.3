@@ -539,7 +539,7 @@
 			mind.signature = client.prefs.signature
 		if (client.prefs.signfont)
 			mind.signfont = client.prefs.signfont
-	time_joined = world.time
+	mind.time_joined = world.time
 	mind.current = src
 
 //HUMAN
