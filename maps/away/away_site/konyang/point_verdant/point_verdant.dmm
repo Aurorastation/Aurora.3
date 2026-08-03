@@ -1445,6 +1445,30 @@
 /obj/item/stack/material/plasteel/full{
 	pixel_x = 7
 	},
+/obj/item/stack/material/glass/full{
+	pixel_x = -7
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = -7
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = -7
+	},
+/obj/item/stack/material/glass/full{
+	pixel_x = -7
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 7
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 7
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 7
+	},
+/obj/item/stack/material/steel/full{
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "aQV" = (
@@ -24957,31 +24981,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/maint_janitorial)
 "olp" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/item/stack/material/steel/full{
-	pixel_x = 7
-	},
-/obj/item/stack/material/glass/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/glass/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/glass/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/glass/full{
-	pixel_x = -7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 7
-	},
-/obj/item/stack/material/steel/full{
-	pixel_x = 7
-	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "olq" = (
@@ -41912,6 +41912,9 @@
 "yhK" = (
 /obj/structure/machinery/light{
 	dir = 4
+	},
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)

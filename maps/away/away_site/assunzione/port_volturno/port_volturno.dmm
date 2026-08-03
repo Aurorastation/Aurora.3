@@ -7614,15 +7614,12 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "fjA" = (
-/obj/structure/table/steel,
-/obj/item/flashlight/headlights,
-/obj/item/cell/hyper{
-	pixel_x = -4;
-	pixel_y = -10
-	},
 /obj/item/stack/nanopaste{
 	pixel_x = 8;
 	pixel_y = -14
+	},
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
@@ -8700,6 +8697,9 @@
 	dir = 8
 	},
 /obj/item/storage/toolbox/mechanical,
+/obj/item/cell/hyper{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
 "fYD" = (
@@ -12462,6 +12462,7 @@
 	pixel_y = 8
 	},
 /obj/item/clothing/gloves/yellow,
+/obj/item/flashlight/headlights,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
 "iNR" = (
@@ -21610,6 +21611,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/minimart)
+"oWJ" = (
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/tiled,
+/area/port_volturno/interior/robotics)
 "oWV" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -138077,7 +138082,7 @@ rGy
 xWS
 agK
 dvD
-bhN
+oWJ
 bhN
 bhN
 bhN

@@ -1785,6 +1785,18 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/airless,
 /area/derelict)
+"DN" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/machinery/computer/rdconsole/core{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict)
+"JN" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict)
 
 (1,1,1) = {"
 fI
@@ -29878,7 +29890,7 @@ bU
 bU
 bU
 bH
-bU
+DN
 dO
 dO
 fk
@@ -30393,7 +30405,7 @@ bU
 bU
 bH
 bU
-bU
+JN
 dO
 fk
 dO

@@ -35,7 +35,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
-	manufacturer = "zenghu"
+	manufacturer = "nanotrasen"
 
 	circuit = /obj/item/circuitboard/rdconsole
 	//Stores all the collected research data.

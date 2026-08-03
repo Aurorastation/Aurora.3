@@ -7176,6 +7176,7 @@
 "qpf" = (
 /obj/structure/machinery/firealarm/west,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/machinist)
 "qsF" = (
@@ -7672,6 +7673,9 @@
 	pixel_x = 22;
 	pixel_y = 4
 	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
 /turf/simulated/floor/tiled,
 /area/ship/iac_rescue_ship/machinist)
 "rBa" = (
@@ -7767,9 +7771,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
 "rMI" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
@@ -7778,6 +7779,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
+	},
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/iac_rescue_ship/machinist)

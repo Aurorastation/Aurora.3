@@ -637,8 +637,6 @@
 /area/ship/kasf_corvette/starboardthrust)
 "dY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/mech_recharger,
-/obj/effect/decal/cleanable/blood/oil,
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	pixel_x = 24;
@@ -647,9 +645,8 @@
 	name = "Mechbay Garage Shutters";
 	req_one_access = list(218)
 	},
-/mob/living/heavy_vehicle/premade/light/recon{
-	desc = "A light and nimble recon exosuit bearing the colour scheme of the Konyang Armed Forces, evidently a hand-me-down from the Solarian Armed Forces.";
-	e_color = "#767e8c"
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
@@ -1096,6 +1093,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/mech_recharger,
 /obj/structure/machinery/light,
+/mob/living/heavy_vehicle/premade/light/recon{
+	desc = "A light and nimble recon exosuit bearing the colour scheme of the Konyang Armed Forces, evidently a hand-me-down from the Solarian Armed Forces.";
+	e_color = "#767e8c"
+	},
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "gu" = (
@@ -5411,7 +5413,6 @@
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/armory)
 "EY" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
@@ -5425,13 +5426,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/item/reagent_containers/weldpack{
-	pixel_y = 14;
-	pixel_x = 6
-	},
-/obj/item/storage/box/lights/mixed{
-	pixel_y = 12;
-	pixel_x = -6
+/obj/structure/machinery/vending/robotics{
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/engie)
@@ -6279,10 +6275,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kasf_shuttle)
 "Jn" = (
-/obj/structure/machinery/vending/robotics{
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "Jq" = (
@@ -8582,6 +8576,14 @@
 	icon_state = "0-2"
 	},
 /obj/item/blueprints,
+/obj/item/storage/box/lights/mixed{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/weldpack{
+	pixel_y = 14;
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/engie)
 "Xu" = (

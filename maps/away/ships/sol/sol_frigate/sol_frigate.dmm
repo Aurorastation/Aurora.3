@@ -1500,6 +1500,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/structure/machinery/computer/rdconsole/robotics,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "gD" = (
@@ -1651,6 +1652,9 @@
 	},
 /obj/structure/cable/blue{
 	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
@@ -6478,12 +6482,10 @@
 /area/ship/sol_frigate/sickbay)
 "Dn" = (
 /obj/structure/extinguisher_cabinet/east,
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "Dr" = (
@@ -11012,11 +11014,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/structure/cable/blue{
 	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)

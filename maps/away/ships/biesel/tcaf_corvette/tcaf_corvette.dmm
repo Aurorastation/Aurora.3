@@ -2463,9 +2463,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -2473,6 +2470,9 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/workshop)
@@ -4320,6 +4320,7 @@
 /obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/workshop)
 "pJ" = (
@@ -9973,12 +9974,11 @@
 /obj/structure/machinery/alarm/south{
 	req_one_access = list(111)
 	},
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/workshop)
 "MG" = (
@@ -12331,10 +12331,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/autocannon)
 "Wq" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tcaf_corvette/workshop)
 "Wt" = (
