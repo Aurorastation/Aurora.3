@@ -379,7 +379,7 @@ export const PersistencePanel = (props) => {
             }
           >
             <Box mb={1} italic color="label">
-              Only actively tracked objects are listed, not expired objects.
+              This panel displays database content and requires a manual refresh. Expired objects are excluded.
             </Box>
             {data.objects.length === 0 && (
               <NoticeBox>Nothing to display.</NoticeBox>
