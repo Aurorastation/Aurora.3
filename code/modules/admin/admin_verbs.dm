@@ -205,6 +205,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/cmd_admin_delete,
 	/client/proc/cmd_debug_del_all,
 	/client/proc/air_report,
+	/client/proc/toggle_nonhorizon_temperature_graphics,
 	/client/proc/reload_admins,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,

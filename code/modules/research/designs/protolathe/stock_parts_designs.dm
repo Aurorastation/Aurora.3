@@ -92,7 +92,7 @@
 /datum/design/item/stock_part/subspace_ansible
 	desc = "A component used in telecomms machinery construction."
 	req_tech = list(TECH_DATA = 3, TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	materials = list(MATERIAL_STEEL = 80, MATERIAL_SILVER = 20)
+	materials = list(MATERIAL_STEEL = 80, MATERIAL_SILVER = 50, MATERIAL_PHORON = 500)
 	build_path = /obj/item/stock_parts/subspace/ansible
 
 /datum/design/item/stock_part/hyperwave_filter
@@ -104,7 +104,7 @@
 /datum/design/item/stock_part/subspace_amplifier
 	desc = "A component used in telecomms machinery construction."
 	req_tech = list(TECH_DATA = 3, TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	materials = list(MATERIAL_STEEL = 10, MATERIAL_GOLD = 30, MATERIAL_URANIUM = 15)
+	materials = list(MATERIAL_STEEL = 10, MATERIAL_GOLD = 30, MATERIAL_URANIUM = 15, MATERIAL_PHORON = 100)
 	build_path = /obj/item/stock_parts/subspace/amplifier
 
 /datum/design/item/stock_part/subspace_treatment
@@ -122,7 +122,7 @@
 /datum/design/item/stock_part/subspace_crystal
 	desc = "A component used in telecomms machinery construction."
 	req_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	materials = list(MATERIAL_GLASS = 1000, MATERIAL_SILVER = 20, MATERIAL_GOLD = 20)
+	materials = list(MATERIAL_GLASS = 1000, MATERIAL_SILVER = 20, MATERIAL_GOLD = 20, MATERIAL_PHORON = 500)
 	build_path = /obj/item/stock_parts/subspace/crystal
 
 /datum/design/item/stock_part/subspace_transmitter

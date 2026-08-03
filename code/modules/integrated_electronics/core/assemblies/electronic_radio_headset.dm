@@ -70,13 +70,12 @@
 /obj/item/radio/headset/circuitry/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
 
-	if(distance <= 1 && !circuit_assembly?.opened)
-		return
-
 	var/obj/item/electronic_assembly/E = get_cloneable_assembly()
 	if(E)
-		for(var/obj/item/integrated_circuit/IC in E.contents)
-			. += SPAN_NOTICE("It contains \a [IC].")
+		for(var/obj/item/integrated_circuit/IC in contents)
+			IC.external_examine()
+			if(is_adjacent && circuit_assembly?.opened)
+				. += SPAN_NOTICE("It contains \a [IC].")
 
 /obj/item/radio/headset/circuitry/proc/clone_with_integrated_assembly(atom/location, obj/item/integrated_circuit_printer/printer, obj/item/electronic_assembly/source_assembly)
 	if(!location || !printer || !source_assembly)
