@@ -284,9 +284,11 @@
 	if(get_dist(on_wall, user) > 1)
 		return
 
-	var/ndir = get_dir(on_wall, user)
+	var/ndir = get_dir(user, on_wall)
 	if(!(ndir in GLOB.cardinals))
 		return
+
+	dir = ndir
 
 	var/turf/T = get_turf(user)
 	if(!istype(T, /turf/simulated/floor))

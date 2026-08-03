@@ -1,0 +1,39 @@
+2026-08-02:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Guards emergency shield projectors' maintenance process() logic from inadvertently
+      toggling projector on when anchored and inactive.
+  - bugfix: Bubble shield projectors no longer register candidate turfs for every
+      hearer in range. Once is enough.
+  ChangeMe:
+  - bugfix: Fixes some icon issues with the TCAF berets.
+  FabianK3:
+  - bugfix: Fixed ashtrays not refreshing their material from saved persistence.
+  Fenodyree:
+  - bugfix: Fixes bluespace inhibitors inconsistantly blocking teleports in a square,
+      but finding the alternate desination in a circle. Its all square now.
+  - bugfix: Fixes telescience portals not respecting bluespace inhibitors.
+  - bugfix: Doors and blast doors can be destroyed again with enough sustained damage.
+  - bugfix: Fixes doors 'breaking' repeatedly, when hit at 0 health.
+  - bugfix: Fixes doors taking damage twice when hit by projectiles. This also fixes
+      projectiles ignoring a door's armour.
+  - balance: Increased the armor values on blast doors and vault doors.
+  - rscadd: Added a brief particle effect when a door is destroyed.
+  SimpleMaroon:
+  - bugfix: Fixed some extraneous pixels on the colorable greatcoat south-facing mob
+      sprite when closed, causing the neck to be improperly blocked off.
+  TheGreyWikf:
+  - bugfix: Integrated circuits can now display screen text and other examine related
+      things.
+  - bugfix: Fixed the direction of the wall mounted integrated circuit when placed.
+  - bugfix: Fixed that the integrated circuit kit had the wrong tools.
+  - bugfix: Fixed that the integrated circuit printer put things on the turf instead
+      of in hand.
+  - bugfix: Fixed that removing integrated circuit components put them on the turf,
+      and that they were dropped if they did not fit inside the device.
+  - bugfix: Harvesting a plant multiple times by clicking it repeatedly before it
+      finishes is no longer possible.
+  - bugfix: The kitchen machinery can now be upgraded.
+  - bugfix: The farmbot requirement in bounties was reduced.
+  - bugfix: Fixes the inability to put custom pizzas in the pizza box.
+  diggiez:
+  - bugfix: Surplus Vaurca Drones from Cargo have their Hive names properly set.

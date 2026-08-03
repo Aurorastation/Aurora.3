@@ -45,7 +45,8 @@
 	src.y = y
 	src.z = z
 	if(!content["remaining_volume"] || content["remaining_volume"] <= 0)
-		qdel(src)
+		reagents_to_add = null
+		return
 
 	if(!LAZYLEN(reagents_to_add))
 		return
@@ -79,9 +80,6 @@
 			return
 		if (usr.a_intent == I_HELP)
 			RG.standard_dispenser_refill(user,src)
-			if(!reagents || !reagents.total_volume)
-				SSpersistence.objectsDeregisterTrack(src)
-				return
 			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 		else
 			if(!accept_any_reagent)
