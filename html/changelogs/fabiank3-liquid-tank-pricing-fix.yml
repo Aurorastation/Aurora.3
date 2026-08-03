@@ -1,8 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - balance: "Adjusted cargo import pricing for liquid tanks so fuel, extinguisher foam, and water tanks now cost more to import than they can be sold for, matching the existing export-value logic."
-  - bugfix: "Removed the duplicate miscellaneous water tank cargo definition."
-  - bugfix: "Stopped empty persistent reagent tanks from being deleted."
