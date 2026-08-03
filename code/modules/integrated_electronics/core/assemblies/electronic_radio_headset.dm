@@ -54,7 +54,6 @@
 
 	if(!circuit_radio_receiver)
 		circuit_radio_receiver = new(circuit_assembly)
-		circuit_radio_receiver.removable = FALSE
 		circuit_assembly.force_add_circuit(circuit_radio_receiver)
 
 	default_action_type = /datum/action/item_action/integrated_circuit
@@ -116,7 +115,6 @@
 
 	if(!new_headset.circuit_radio_receiver)
 		new_headset.circuit_radio_receiver = new(internal_assembly)
-		new_headset.circuit_radio_receiver.removable = FALSE
 		internal_assembly.force_add_circuit(new_headset.circuit_radio_receiver)
 
 	new_headset.default_action_type = /datum/action/item_action/integrated_circuit

@@ -1889,7 +1889,9 @@
 	desc = "Receives radio-style command text relayed through an inserted radio."
 	extended_desc = "This circuit receives relayed radio text and exposes the speaker, message, channel, command, arguments, and payload. If a radio reference is provided, only messages relayed from that radio will be accepted."
 	icon_state = "recorder"
-	complexity = 10
+	complexity = 0
+	size = -1
+	removable = FALSE
 	inputs = list(
 		"radio reference" = IC_PINTYPE_REF
 	)
