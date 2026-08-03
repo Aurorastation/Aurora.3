@@ -62,7 +62,7 @@
 							"/obj/item/stock_parts/micro_laser/high" = 2)
 
 /obj/item/circuitboard/ntnet_relay
-	name = T_BOARD("NTNet Quantum Relay")
+	name = T_BOARD("NTNet Bluespace Relay")
 	build_path = /obj/structure/machinery/ntnet_relay
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 4)
