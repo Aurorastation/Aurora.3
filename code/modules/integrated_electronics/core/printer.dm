@@ -737,9 +737,6 @@
 		circuit_map[source_circuit] = new_circuit
 
 	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
-		if(!source_circuit.removable)
-			continue
-
 		var/obj/item/integrated_circuit/new_circuit = circuit_map[source_circuit]
 		if(!new_circuit)
 			continue
@@ -750,9 +747,6 @@
 		source_circuit.copy_clone_state_to(new_circuit)
 
 	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
-		if(!source_circuit.removable)
-			continue
-
 		var/obj/item/integrated_circuit/new_circuit = circuit_map[source_circuit]
 		if(!new_circuit)
 			continue
@@ -806,6 +800,7 @@
 
 			if(linked_new_pin)
 				target_pin.linked |= linked_new_pin
+				linked_new_pin.linked |= target_pin
 
 
 /proc/ic_copy_clone_value(value)
@@ -1025,6 +1020,7 @@
 
 			if(linked_pin)
 				source_pin.linked |= linked_pin
+				linked_pin.linked |= source_pin
 
 
 /obj/item/integrated_circuit_printer/proc/find_matching_blueprint_builtin(obj/item/electronic_assembly/clone, circuit_path, list/used_builtins)
