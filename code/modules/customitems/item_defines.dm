@@ -1498,7 +1498,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/on_attached(obj/item/clothing/S, mob/user as mob)
 	..()
-		has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/on_removed(mob/user as mob)
 	if(has_suit)
