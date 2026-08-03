@@ -41,13 +41,13 @@ GLOBAL_VAR(last_transfer_vote)
 	else
 		return TRUE //We did it bro, we can vote the transfer now!
 
-// Crew transfer during red alert gives less voting power to lobby-sitters and observers.
 
+// Crew transfer during red alert gives less voting power to lobby-sitters and observers.
 /datum/vote/crewtransfer/get_voting_power(mob/voter)
 	var/vote_weight = ..()
 	if(vote_weight != 0 && GLOB.security_level == SEC_LEVEL_RED)
 		vote_weight = 0.5
-		if(!isobserver(voter) && !isnewplayer(voter) && !(world.time - voter.mind.time_joined) < 15 MINUTES)
+		if(!isobserver(voter) && !isnewplayer(voter) && !((world.time - voter.mind.time_joined) < GLOB.config.minimum_participation_time))
 			vote_weight = 1
 	return vote_weight
 
