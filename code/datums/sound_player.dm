@@ -280,11 +280,11 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	return A && PrivIsValidEnvironment(A.sound_environment) ? A.sound_environment : sound.environment
 
 /datum/sound_token/proc/PrivIsValidEnvironment(environment)
-	if(islist(environment) && length(environment) != 23)
-		return FALSE
-	if(!isnum(environment) || environment < 0 || environment > 25)
-		return FALSE
-	return TRUE
+	if(islist(environment))
+		return length(environment) == 23
+	if(isnum(environment))
+		return environment >= -1 && environment <= 25
+	return FALSE
 
 /datum/sound_token/static_environment/PrivGetEnvironment()
 	return sound.environment

@@ -23,13 +23,14 @@
 	fore_dir = WEST
 	vessel_size = SHIP_SIZE_SMALL
 
-/obj/machinery/computer/shuttle_control/explore/terminal/runtime
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/runtime
 	name = "whiletrue control console"
 	shuttle_tag = "WhileTrue"
 
 /area/shuttle/runtime
 	name = "While True"
 	base_turf = /turf/simulated/floor/shuttle/black
+	requires_power = TRUE
 
 /datum/shuttle/autodock/overmap/runtime
 	name = "WhileTrue"
@@ -47,7 +48,7 @@
 	name = "Runtime Dock"
 	landmark_tag = "nav_runtime_dock"
 	docking_controller = "nav_runtime_dock"
-	base_area = /area/exterior
+	base_area = /area/space
 	base_turf = /turf/simulated/floor/airless
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 

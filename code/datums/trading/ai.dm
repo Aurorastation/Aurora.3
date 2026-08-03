@@ -124,7 +124,7 @@
 		/obj/item/stack/material/mhydrogen = TRADER_THIS_TYPE,
 		/obj/item/stack/material/steel     = TRADER_THIS_TYPE,
 		/obj/item/stack/material/plasteel  = TRADER_THIS_TYPE,
-		/obj/machinery/mining              = TRADER_SUBTYPES_ONLY
+		/obj/structure/machinery/mining              = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/trading_beacon/manufacturing
@@ -136,11 +136,11 @@
 		/obj/structure/dispenser                        = TRADER_THIS_TYPE,
 		/obj/item/ladder_mobile                         = TRADER_THIS_TYPE,
 		/obj/item/inflatable_dispenser                  = TRADER_THIS_TYPE,
-		/obj/machinery/pipedispenser/orderable          = TRADER_THIS_TYPE,
-		/obj/machinery/pipedispenser/disposal/orderable = TRADER_THIS_TYPE,
+		/obj/structure/machinery/pipedispenser/orderable          = TRADER_THIS_TYPE,
+		/obj/structure/machinery/pipedispenser/disposal/orderable = TRADER_THIS_TYPE,
 		/obj/structure/reagent_dispensers/water_cooler  = TRADER_THIS_TYPE,
-		/obj/machinery/media/jukebox                    = TRADER_THIS_TYPE,
-		/obj/machinery/reagentgrinder                   = TRADER_THIS_TYPE,
+		/obj/structure/machinery/media/jukebox                    = TRADER_THIS_TYPE,
+		/obj/structure/machinery/reagentgrinder                   = TRADER_THIS_TYPE,
 		/obj/vehicle/bike                               = TRADER_THIS_TYPE
 	)
 

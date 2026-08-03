@@ -100,10 +100,6 @@ There are several things that need to be remembered:
 		ret.layer = layer
 	return ret
 
-/mob/living/carbon/human
-	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
-	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
-
 // Updates overlays from overlays_raw.
 /mob/living/carbon/human/update_icon()
 	if (QDELETED(src))
@@ -472,7 +468,7 @@ There are several things that need to be remembered:
 		if(update_icons)   update_icon()
 		return
 
-	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR)) && !(wear_suit && (wear_suit.flags_inv & BLOCKHEADHAIR))
+	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR)) && !(wear_suit && (wear_suit.flags_inv & BLOCKHEADHAIR)) && !isMonkey() && !isgolem()
 
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
 
@@ -910,6 +906,7 @@ There are several things that need to be remembered:
 		return
 
 	overlays_raw[HEAD_LAYER] = null
+	overlays_raw[HEAD_LAYER_ALT] = null
 	if(head)
 		var/mob_icon = INV_HEAD_DEF_ICON
 		var/mob_state = head.icon_state
@@ -933,7 +930,12 @@ There are several things that need to be remembered:
 		else
 			mob_icon = INV_HEAD_DEF_ICON
 
-		overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
+		var/overlay_layer = HEAD_LAYER
+		if (istype(head, /obj/item/clothing/head))
+			var/obj/item/clothing/head/clothing = head
+			if (clothing.use_alt_layer)
+				overlay_layer = HEAD_LAYER_ALT
+		overlays_raw[overlay_layer] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
 
 	if (recurse)
 		update_hair(FALSE)

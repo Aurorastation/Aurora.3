@@ -200,7 +200,3 @@
 	M.ghost_spawner = WEAKREF(src)
 
 	return M
-
-/// Used for cryo to free up a slot when a ghost cryos.
-/mob/living/carbon/human
-	var/datum/weakref/ghost_spawner

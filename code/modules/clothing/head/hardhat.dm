@@ -5,6 +5,7 @@
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	contained_sprite = TRUE
 	action_button_name = "Toggle Headlamp"
 	light_range = 4 //luminosity when on
@@ -23,6 +24,11 @@
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+
+/obj/item/clothing/head/hardhat/dropped(mob/user)
+	. = ..()
+	if(user?.dir)
+		set_dir(user.dir)
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat_orange"

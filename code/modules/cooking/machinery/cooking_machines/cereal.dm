@@ -1,4 +1,4 @@
-/obj/machinery/appliance/mixer/cereal
+/obj/structure/machinery/appliance/mixer/cereal
 	name = "cereal maker"
 	desc = "Now with Dann O's available!"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
@@ -19,11 +19,11 @@
 		)
 
 /*
-/obj/machinery/appliance/cereal/change_product_strings(var/obj/item/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
+/obj/structure/machinery/appliance/cereal/change_product_strings(var/obj/item/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	. = ..()
 	product.name = "box of [CI.object.name] cereal"
 
-/obj/machinery/appliance/cereal/change_product_appearance(var/obj/item/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
+/obj/structure/machinery/appliance/cereal/change_product_appearance(var/obj/item/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	product.icon = 'icons/obj/food.dmi'
 	product.icon_state = "cereal_box"
 	product.filling_color = CI.object.color
@@ -36,7 +36,7 @@
 	product.overlays += food_image
 */
 
-/obj/machinery/appliance/mixer/cereal/combination_cook(var/datum/cooking_item/CI)
+/obj/structure/machinery/appliance/mixer/cereal/combination_cook(var/datum/cooking_item/CI)
 
 	var/list/images = list()
 	var/num = 0

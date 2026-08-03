@@ -1,7 +1,7 @@
 /*
  * Library Scanner
  */
-/obj/machinery/libraryscanner
+/obj/structure/machinery/libraryscanner
 	name = "book scanner"
 	desc = "A machine that scans books for upload to the library database."
 	icon = 'icons/obj/library.dmi'
@@ -11,7 +11,7 @@
 	density = TRUE
 	var/obj/item/book/cache // Last scanned book
 
-/obj/machinery/libraryscanner/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/libraryscanner/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/book))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
@@ -31,19 +31,19 @@
 				SPAN_WARNING("You hear a ratcheting noise."))
 		anchored = !anchored
 
-/obj/machinery/libraryscanner/attack_hand(var/mob/user)
+/obj/structure/machinery/libraryscanner/attack_hand(var/mob/user)
 	. = ..()
 	if(.)
 		return TRUE
 	ui_interact(user)
 
-/obj/machinery/libraryscanner/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/libraryscanner/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "LibraryScanner", "Book Scanner", 400, 250)
 		ui.open()
 
-/obj/machinery/libraryscanner/ui_data(mob/user)
+/obj/structure/machinery/libraryscanner/ui_data(mob/user)
 	var/list/data = list()
 	data["has_book"] = !!cache
 	data["book_title"] = cache ? cache.name : null
@@ -51,7 +51,7 @@
 	data["is_anchored"] = anchored
 	return data
 
-/obj/machinery/libraryscanner/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/libraryscanner/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

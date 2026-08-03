@@ -1,6 +1,6 @@
+import { Button, NoticeBox, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Table, Button, NoticeBox } from '../components';
-import { BooleanLike } from '../../common/react';
 import { Window } from '../layouts';
 
 export type AreaAtmosScrubberData = {
@@ -15,25 +15,21 @@ type Scrubber = {
   flowrate: number;
 };
 
-export const AreaAtmos = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+export const AreaAtmos = (props) => {
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
-    <Window resizable width={500} height={300}>
+    <Window width={500} height={300}>
       <Window.Content scrollable>
         {' '}
-        {data.scrubbers && data.scrubbers.length ? (
-          <AreaScrubbers />
-        ) : (
-          <AreaScan />
-        )}
+        {data.scrubbers?.length ? <AreaScrubbers /> : <AreaScan />}
       </Window.Content>
     </Window>
   );
 };
 
-export const AreaScan = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+export const AreaScan = (props) => {
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
     <Section>
@@ -43,8 +39,8 @@ export const AreaScan = (props, context) => {
   );
 };
 
-export const AreaScrubbers = (props, context) => {
-  const { act, data } = useBackend<AreaAtmosScrubberData>(context);
+export const AreaScrubbers = (props) => {
+  const { act, data } = useBackend<AreaAtmosScrubberData>();
 
   return (
     <Section title="Area Air Control">

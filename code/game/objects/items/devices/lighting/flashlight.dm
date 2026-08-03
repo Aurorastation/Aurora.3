@@ -38,8 +38,6 @@
 	var/always_on = FALSE
 	/// How efficient the flashlight is at producing light compared to baseline
 	var/efficiency_modifier = 1.0
-	/// A way for mappers to force which way a flashlight faces upon spawning
-	var/spawn_dir
 
 /obj/item/flashlight/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -81,6 +79,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
+
+/obj/item/flashlight/dropped(mob/user)
+	. = ..()
+	if(user?.dir)
+		set_dir(user.dir)
 
 /obj/item/flashlight/get_cell()
 	return cell
@@ -186,7 +189,7 @@
 	set_light_on(on)
 	update_icon()
 
-/obj/item/flashlight/vendor_action(var/obj/machinery/vending/V)
+/obj/item/flashlight/vendor_action(var/obj/structure/machinery/vending/V)
 	toggle()
 
 /obj/item/flashlight/emp_act(severity)
@@ -208,7 +211,7 @@
 
 		var/mob/living/carbon/human/H = target_mob	//mob has protective eyewear
 		if(istype(H))
-			if(H.get_flash_protection())
+			if(H.get_flash_protection() > FLASH_PROTECTION_NONE)
 				to_chat(user, SPAN_WARNING("You're going to need to remove \the [H]'s eye protection first."))
 				return
 
@@ -247,7 +250,7 @@
 			return
 		if((H.mutations & XRAY))
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils give an eerie glow!"))
-		if(vision.damage)
+		if(vision.get_damage())
 			to_chat(user, SPAN_WARNING("There's visible damage to [H]'s [vision.name]!"))
 		else if(H.eye_blurry)
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils react slower than normally."))
@@ -383,4 +386,25 @@
 		item_state = "lantern"
 
 /obj/item/flashlight/lantern/on
+	on = TRUE
+
+/obj/item/flashlight/lantern/voidtamer
+	name = "voidic lantern"
+	desc = "A strange lantern mounted on a metallic stick, draped in carphide. When activated, it ignites a gaseous system resembling a nebula."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "voidtamer_lantern"
+	item_state = "voidtamer_lantern"
+	flashlight_power = 2 //strong enough to sustain a dionae
+	light_range = 5
+	light_color = LIGHT_COLOR_BLUE
+	efficiency_modifier = 1.5
+
+/obj/item/flashlight/lantern/voidtamer/update_icon()
+	..()
+	if(on)
+		item_state = "voidtamer_lantern-on"
+	else
+		item_state = "voidtamer_lantern"
+
+/obj/item/flashlight/lantern/voidtamer/on
 	on = TRUE

@@ -45,7 +45,7 @@
 	// and actually set them up
 	for(var/thing in loc)
 		// Check for an advanced controller to set up.
-		var/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/advanced_controller = thing
+		var/obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/advanced_controller = thing
 		if(istype(advanced_controller))
 			// common controller vars
 			found_controller = TRUE
@@ -64,7 +64,7 @@
 			continue
 
 		// If we didn't find an advanced controller, fall back to the basic kind
-		var/obj/machinery/embedded_controller/radio/airlock/airlock_controller/controller = thing
+		var/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/controller = thing
 		if(istype(controller) && !found_controller)
 			// common controller vars
 			found_controller = TRUE
@@ -83,7 +83,7 @@
 			continue
 
 		// Now all the other airlock components
-		var/obj/machinery/door/airlock/door = thing
+		var/obj/structure/machinery/door/airlock/door = thing
 		if(istype(door))
 			door.set_frequency(frequency)
 			door.req_access = req_access
@@ -95,7 +95,7 @@
 				door.id_tag = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
 			continue
 
-		var/obj/machinery/airlock_sensor/sensor = thing
+		var/obj/structure/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
 			sensor.req_access = req_access
 			sensor.req_one_access = req_one_access
@@ -109,7 +109,7 @@
 				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
 			continue
 
-		var/obj/machinery/atmospherics/unary/vent_pump/pump = thing
+		var/obj/structure/machinery/atmospherics/unary/vent_pump/pump = thing
 		if(istype(pump))
 			pump.frequency = frequency
 			unregister_radio(pump, frequency)
@@ -122,7 +122,7 @@
 				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
 			continue
 
-		var/obj/machinery/access_button/button = thing
+		var/obj/structure/machinery/access_button/button = thing
 		if(istype(button))
 			button.set_frequency(frequency)
 			button.master_tag = MARKER_AIRLOCK_TAG_MASTER

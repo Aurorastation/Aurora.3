@@ -44,7 +44,7 @@
 	if(should_have_organ(BP_BRAIN) && internal_organs_by_name)
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
-			sponge.damage = min(max(amount, 0),sponge.species.total_health)
+			sponge.set_damage(min(max(amount, 0),sponge.species.total_health))
 			updatehealth()
 
 /mob/living/carbon/human/getBrainLoss()
@@ -63,18 +63,19 @@
 			if(sponge.status & ORGAN_DEAD)
 				return sponge.species.total_health
 			else
-				return sponge.damage
+				return sponge.get_damage()
 		else
 			return species.total_health
 	return 0
 
+///This fetches the cumulative total pain from all organs.
 /mob/living/carbon/human/getHalLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
 		amount += E.get_pain()
 	return amount
 
-//These procs fetch a cumulative total damage from all organs
+///These procs fetch a cumulative total damage from all organs
 /mob/living/carbon/human/getBruteLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in organs)
@@ -222,6 +223,9 @@
 		if(kidneys)
 			pick_organs -= kidneys
 			pick_organs.Insert(1, kidneys)
+			if (!heal)
+				// Kindly inform the kidneys that there's going to be poison to remove. :)
+				START_PROCESSING(SSprocessing, kidneys)
 
 
 	var/obj/item/organ/internal/liver/liver = null
@@ -246,15 +250,16 @@
 			break
 		if(BP_IS_ROBOTIC(I))
 			continue //Chems won't help, you need surgery to fix robot organs
+		var/organ_damage = I.get_damage()
 		if(heal)
-			if(I.damage < amount)
-				amount -= I.damage
-				I.damage = 0
+			if(organ_damage < amount)
+				amount -= organ_damage
+				I.set_damage(0)
 			else
-				I.damage -= amount
+				I.add_damage(-amount)
 				amount = 0
 		else
-			var/cap_dam = I.max_damage - I.damage
+			var/cap_dam = I.max_damage - organ_damage
 			if(amount >= cap_dam)
 				I.take_internal_damage(cap_dam, silent=TRUE)
 				amount -= cap_dam
@@ -336,12 +341,12 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 //Damages ONE external organ, organ gets randomly selected from damagable ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags)
+/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags, var/used_weapon = null, var/silent)
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
 	if(!parts.len)
 		return
 	var/obj/item/organ/external/picked = pick(parts)
-	if(picked.take_damage(brute, burn, damage_flags))
+	if(picked.take_damage(brute, burn, damage_flags, used_weapon, silent))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
 	updatehealth()

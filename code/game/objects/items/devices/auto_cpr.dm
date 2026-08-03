@@ -163,7 +163,7 @@
 	if(panel_open)
 		AddOverlays("panel_open[battery ? "_battery" : ""]")
 
-/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
+/obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	. = ..()
 	if(slot == slot_wear_suit)
 		if(panel_open)
@@ -274,8 +274,8 @@
 		update_icon()
 		return
 	var/list/options = list(
-		"Toggle CPR" = image('icons/mob/screen/radial.dmi', "cpr_mode"),
-		"Toggle EPP" = image('icons/mob/screen/radial.dmi', "iv_epp"))
+		"Toggle CPR" = image('icons/hud/mob/radial.dmi', "cpr_mode"),
+		"Toggle EPP" = image('icons/hud/mob/radial.dmi', "iv_epp"))
 	var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
 	if(!chosen_action)
 		return
@@ -381,7 +381,7 @@
 
 	var/obj/item/organ/internal/lungs/lungs = H.internal_organs_by_name[BP_LUNGS]
 	var/safe_pressure_min = H.species.breath_pressure + 2
-	safe_pressure_min *= 1 + rand(1,4) * lungs.damage/lungs.max_damage
+	safe_pressure_min *= 1 + rand(1,4) * lungs.get_damage()/lungs.max_damage
 	if(!lungs)
 		epp_off()
 		return

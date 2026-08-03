@@ -49,7 +49,7 @@
 				AM.throw_at(sweeptarget, ((clamp((1 - (clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 	A.visible_message(SPAN_WARNING("[A] pounds [D] on the chest!"))
 	playsound(get_turf(A), "punch", 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
@@ -75,12 +75,16 @@
 	if(check_streak(A,D))
 		return 1
 	add_logs(A, D, "punched")
-	A.do_attack_animation(D)
+
 	var/picked_hit_type = pick("punched", "kicked")
+	var/attack_animation = ATTACK_EFFECT_PUNCH
+	if(picked_hit_type == "kicked")
+		attack_animation = ATTACK_EFFECT_KICK
+	A.do_attack_animation(D, attack_animation)
 	var/bonus_damage = 10
 	if(D.weakened || D.resting || D.lying)
 		bonus_damage += 5
-		picked_hit_type = "stomped on"
+		picked_hit_type = "stomped"
 	D.apply_damage(bonus_damage, DAMAGE_BRUTE)
 	if(picked_hit_type == "kicked" || picked_hit_type == "stomped")
 		playsound(get_turf(D), SFX_SWING_HIT, 50, 1, -1)
@@ -96,7 +100,7 @@
 
 /datum/martial_art/sol_combat/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("D",D)
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
 	if(check_streak(A,D))
 		return 1
 

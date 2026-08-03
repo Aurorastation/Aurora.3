@@ -4,8 +4,8 @@
  * @license MIT
  */
 
+import { Box, Button, ByondUi, Section } from 'tgui-core/components';
 import { useLocalState } from '../backend';
-import { Box, Button, ByondUi, Section } from '../components';
 import { logger } from '../logging';
 
 export const meta = {
@@ -13,7 +13,7 @@ export const meta = {
   render: () => <Story />,
 };
 
-const Story = (props, context) => {
+const Story = (props) => {
   const [code, setCode] = useLocalState(
     context,
     'byondUiEvalCode',

@@ -5,7 +5,7 @@
 	pixel_x = -12;
 	pixel_y = 18
 	},
-/obj/machinery/biogenerator/small/east{
+/obj/structure/machinery/biogenerator/small/east{
 	pixel_y = -4
 	},
 /turf/simulated/floor/wood,
@@ -24,7 +24,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "aS" = (
-/obj/machinery/door/urban/glass_sliding/double{
+/obj/structure/machinery/door/urban/glass_sliding/double{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -33,7 +33,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
 	},
-/obj/machinery/suit_cycler/mining/prepared,
+/obj/structure/machinery/suit_cycler/mining/prepared,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "bx" = (
@@ -47,7 +47,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
-/obj/machinery/suit_cycler/mining/prepared,
+/obj/structure/machinery/suit_cycler/mining/prepared,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "bS" = (
@@ -67,7 +67,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/steel,
@@ -76,7 +76,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "cv" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -89,7 +89,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -101,7 +101,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "cY" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -136,10 +136,10 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/steel,
@@ -148,14 +148,14 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 1
 	},
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "dQ" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -173,7 +173,7 @@
 	pixel_x = 12;
 	pixel_y = 18
 	},
-/obj/machinery/biogenerator/small/west{
+/obj/structure/machinery/biogenerator/small/west{
 	pixel_y = -4
 	},
 /turf/simulated/floor/wood,
@@ -192,11 +192,11 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "gh" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "gH" = (
-/obj/machinery/door/airlock/engineering,
+/obj/structure/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "hw" = (
@@ -207,14 +207,14 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "hV" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 8;
 	pixel_y = 16
 	},
 /turf/simulated/floor/wood,
 /area/space)
 "iS" = (
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /turf/simulated/floor/wood,
 /area/space)
 "iT" = (
@@ -244,7 +244,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -260,18 +260,18 @@
 /turf/simulated/floor/wood,
 /area/space)
 "lW" = (
-/obj/machinery/door/urban/glass_sliding/double,
+/obj/structure/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "mb" = (
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /turf/simulated/floor/wood,
 /area/space)
 "ml" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "mt" = (
@@ -282,7 +282,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -295,7 +295,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "mK" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -313,10 +313,10 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 6
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -346,7 +346,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "qn" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Macinist Workshop";
 	dir = 4
 	},
@@ -363,7 +363,7 @@
 	pixel_y = 26;
 	pixel_x = 9
 	},
-/obj/machinery/biogenerator/small/south{
+/obj/structure/machinery/biogenerator/small/south{
 	pixel_x = -4
 	},
 /turf/simulated/floor/wood,
@@ -378,13 +378,13 @@
 /turf/simulated/floor/concrete,
 /area/space)
 "qO" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "ra" = (
-/obj/machinery/door/airlock/mining,
+/obj/structure/machinery/door/airlock/mining,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "rY" = (
@@ -404,7 +404,7 @@
 /area/space)
 "sS" = (
 /obj/effect/floor_decal/spline/plain/yellow,
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "sU" = (
@@ -418,7 +418,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -433,7 +433,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -453,7 +453,7 @@
 /turf/simulated/floor/concrete,
 /area/space)
 "uG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/concrete,
@@ -486,7 +486,7 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
 	},
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "vh" = (
@@ -498,7 +498,7 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/steel,
@@ -507,7 +507,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
@@ -518,7 +518,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -534,7 +534,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -622,7 +622,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "zl" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/wood,
 /area/space)
 "zv" = (
@@ -636,13 +636,13 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Av" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "AZ" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 4;
 	pixel_x = -8
 	},
@@ -655,14 +655,14 @@
 /turf/simulated/floor/wood,
 /area/space)
 "BZ" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Macinist Workshop"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "Dj" = (
 /obj/effect/floor_decal/spline/plain/orange,
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Du" = (
@@ -673,7 +673,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
@@ -698,11 +698,11 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "DO" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -729,14 +729,14 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Fs" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/steel,
@@ -755,7 +755,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -771,7 +771,7 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 8
 	},
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Hp" = (
@@ -787,7 +787,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 4
 	},
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "IO" = (
@@ -815,7 +815,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -829,7 +829,7 @@
 /area/space)
 "Jr" = (
 /obj/structure/table/standard,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -839,21 +839,21 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/suit_cycler/mining/prepared,
+/obj/structure/machinery/suit_cycler/mining/prepared,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "LJ" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/suit_cycler/mining/prepared,
+/obj/structure/machinery/suit_cycler/mining/prepared,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Me" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -875,7 +875,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -894,7 +894,7 @@
 /turf/simulated/floor/concrete,
 /area/space)
 "OZ" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -903,10 +903,10 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 5
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -931,7 +931,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Qj" = (
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /turf/simulated/floor/wood,
 /area/space)
 "QP" = (
@@ -944,11 +944,11 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 1
 	},
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "RC" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 4;
 	pixel_y = 16
 	},
@@ -958,7 +958,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 5
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "RR" = (
@@ -969,7 +969,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "SP" = (
-/obj/machinery/biogenerator/small/south,
+/obj/structure/machinery/biogenerator/small/south,
 /turf/simulated/floor/wood,
 /area/space)
 "SY" = (
@@ -988,7 +988,7 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1035,7 +1035,7 @@
 /turf/simulated/floor/concrete,
 /area/space)
 "Vr" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	pixel_y = 8
 	},
 /turf/simulated/floor/wood,
@@ -1044,10 +1044,10 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 9
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1065,7 +1065,7 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1075,19 +1075,19 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Wj" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/concrete/gutter,
 /turf/simulated/floor/exoplanet/concrete,
 /area/space)
 "Xh" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /turf/simulated/floor/wood,
 /area/space)
 "XR" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "XY" = (
@@ -1099,7 +1099,7 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1109,7 +1109,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Yc" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;

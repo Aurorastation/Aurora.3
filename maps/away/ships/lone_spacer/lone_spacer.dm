@@ -10,6 +10,7 @@
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/lone_spacer)
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 
 	unit_test_groups = list(1)
 
@@ -45,7 +46,7 @@
 	..()
 
 // Shuttle control console
-/obj/machinery/computer/shuttle_control/explore/terminal/lone_spacer
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/lone_spacer
 	name = "shuttle control console"
 	shuttle_tag = "Independent Skiff"
 
@@ -74,7 +75,7 @@
 	base_turf = /turf/space
 
 // Custom stuff
-/obj/machinery/light/colored/decayed/lone_spacer_dimmed
+/obj/structure/machinery/light/colored/decayed/lone_spacer_dimmed
 	brightness_power = 0.3
 
 /obj/item/clothing/accessory/scarf/lone_spacer_green

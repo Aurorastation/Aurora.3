@@ -13,9 +13,7 @@
 	)
 	can_infect = TRUE
 	blood_level = 1
-
-	min_duration = 40
-	max_duration = 60
+	base_surgery_time = 6 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
@@ -64,9 +62,7 @@
 
 	can_infect = TRUE
 	blood_level = 1
-
-	min_duration = 80
-	max_duration = 130
+	base_surgery_time = 13 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_PROFESSIONAL)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
@@ -82,7 +78,7 @@
 			break
 	if(!organ)
 		return
-	if(organ.damage > organ.max_damage)
+	if(organ.get_damage() > organ.max_damage)
 		to_chat(user, SPAN_WARNING("\The [organ] is too damaged. Repair it first."))
 		return 0
 
@@ -128,12 +124,9 @@
 		/obj/item/reagent_containers/spray = 50,
 		/obj/item/reagent_containers/glass/bucket = 50
 	)
-
 	can_infect = FALSE
 	blood_level = 0
-
-	min_duration = 80
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_PROFESSIONAL)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
@@ -199,9 +192,7 @@
 	)
 	can_infect = TRUE
 	blood_level = 1
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
 
@@ -239,12 +230,9 @@
 		TOOL_SAW = 60,
 		/obj/item/gun/energy/plasmacutter = 100
 	)
-
 	can_infect = FALSE
 	blood_level = 0
-
-	min_duration = 100
-	max_duration = 160
+	base_surgery_time = 16 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	skill_diff_fail_modifier = SURGERY_DIFFICULTY_TRIVIAL
 
@@ -281,9 +269,7 @@
 	/obj/item/melee/chainsword = 100,
 	/obj/item/material/hatchet = 55
 	)
-
-	min_duration = 90
-	max_duration = 140
+	base_surgery_time = 14 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

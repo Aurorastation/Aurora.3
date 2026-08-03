@@ -1,7 +1,13 @@
-import { toFixed } from 'common/math';
-import { BooleanLike } from 'common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, LabeledList, Button, Box, NumberInput } from '../components';
 import { Window } from '../layouts';
 
 type Channel = {
@@ -35,8 +41,8 @@ type RadioData = {
   subspace?: BooleanLike;
 };
 
-export const Radio = (props, context) => {
-  const { act, data } = useBackend<RadioData>(context);
+export const Radio = (props) => {
+  const { act, data } = useBackend<RadioData>();
   const {
     mic_status,
     speaker,
@@ -78,7 +84,7 @@ export const Radio = (props, context) => {
                 maxValue={max_freq / 10}
                 value={freq / 10}
                 format={(value) => toFixed(value, 1)}
-                onChange={(_, value) =>
+                onChange={(value) =>
                   act('set_freq', {
                     freq: value * 10,
                   })
@@ -146,7 +152,7 @@ export const Radio = (props, context) => {
                 <LabeledList.Item
                   key={channel.chan}
                   label={
-                    <span class={channel.chan_span}>
+                    <span className={channel.chan_span}>
                       {channel.display_name}
                     </span>
                   }

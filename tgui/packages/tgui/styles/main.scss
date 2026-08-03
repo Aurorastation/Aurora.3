@@ -4,56 +4,61 @@
  */
 
 @use 'sass:meta';
-@use './base.scss';
+@use 'base';
+@use '~tgui-core/styles';
 
 // Core styles
 @include meta.load-css('./reset.scss');
+@include meta.load-css('./css-variables.scss');
 
-// Atomic classes
-@include meta.load-css('./atomic/candystripe.scss');
-@include meta.load-css('./atomic/centered-image.scss');
-@include meta.load-css('./atomic/color.scss');
-@include meta.load-css('./atomic/debug-layout.scss');
-@include meta.load-css('./atomic/fit-text.scss');
-@include meta.load-css('./atomic/links.scss');
-@include meta.load-css('./atomic/outline.scss');
-@include meta.load-css('./atomic/text.scss');
-
-// Components
-@include meta.load-css('./components/BlockQuote.scss');
-@include meta.load-css('./components/Button.scss');
-@include meta.load-css('./components/ColorBox.scss');
-@include meta.load-css('./components/Dialog.scss');
-@include meta.load-css('./components/Dimmer.scss');
-@include meta.load-css('./components/Divider.scss');
-@include meta.load-css('./components/Dropdown.scss');
-@include meta.load-css('./components/Flex.scss');
-@include meta.load-css('./components/Icon.scss');
-@include meta.load-css('./components/Input.scss');
-@include meta.load-css('./components/Knob.scss');
-@include meta.load-css('./components/LabeledList.scss');
-@include meta.load-css('./components/MenuBar.scss');
-@include meta.load-css('./components/Modal.scss');
-@include meta.load-css('./components/NoticeBox.scss');
-@include meta.load-css('./components/NumberInput.scss');
-@include meta.load-css('./components/ProgressBar.scss');
-@include meta.load-css('./components/RoundGauge.scss');
-@include meta.load-css('./components/Section.scss');
-@include meta.load-css('./components/Slider.scss');
-@include meta.load-css('./components/Stack.scss');
-@include meta.load-css('./components/Table.scss');
-@include meta.load-css('./components/Tabs.scss');
-@include meta.load-css('./components/TextArea.scss');
-@include meta.load-css('./components/Tooltip.scss');
+// Tgui core bulk imports
+@include meta.load-css('~tgui-core/styles/all-atomic.scss');
+@include meta.load-css('~tgui-core/styles/all-themes.scss');
 
 // Interfaces
+@include meta.load-css('./interfaces/Accounting.scss');
 @include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/Communicator.scss');
+@include meta.load-css('./interfaces/Changelog.scss');
 @include meta.load-css('./interfaces/CrewManifest.scss');
+@include meta.load-css('./interfaces/Emojipedia.scss');
+@include meta.load-css('./interfaces/ExperimentConfigure.scss');
+@include meta.load-css('./interfaces/Fabricator.scss');
+@include meta.load-css('./interfaces/HellishRunes.scss');
+@include meta.load-css('./interfaces/HivenetManifest.scss');
+@include meta.load-css('./interfaces/HotKeysHelp.scss');
+@include meta.load-css('./interfaces/Hypertorus.scss');
+@include meta.load-css('./interfaces/IntegratedCircuit.scss');
+@include meta.load-css('./interfaces/LibraryAdmin.scss');
+@include meta.load-css('./interfaces/LibraryComputer.scss');
+@include meta.load-css('./interfaces/ListInput.scss');
+@include meta.load-css('./interfaces/Mecha.scss');
+@include meta.load-css('./interfaces/NtosMessenger.scss');
+@include meta.load-css('./interfaces/NtosNanopaint.scss');
+@include meta.load-css('./interfaces/NtosNotepad.scss');
+@include meta.load-css('./interfaces/NuclearBomb.scss');
+@include meta.load-css('./interfaces/Orbit.scss');
+@include meta.load-css('./interfaces/Paper.scss');
+@include meta.load-css('./interfaces/PreferencesMenu.scss');
+@include meta.load-css('./interfaces/RequestManager.scss');
+@include meta.load-css('./interfaces/Roulette.scss');
+@include meta.load-css('./interfaces/Safe.scss');
+@include meta.load-css('./interfaces/SlotMachine.scss');
+@include meta.load-css('./interfaces/SpriteAuditor.scss');
+@include meta.load-css('./interfaces/Techweb.scss');
+@include meta.load-css('./interfaces/Trophycase.scss');
+@include meta.load-css('./interfaces/Uplink.scss');
+@include meta.load-css('./interfaces/DetectiveBoard.scss');
+@include meta.load-css('./interfaces/ColorPicker.scss');
+@include meta.load-css('./interfaces/AnomalyTower.scss');
+@include meta.load-css('./interfaces/CivCargoHoldTerminal.scss');
+@include meta.load-css('./interfaces/EventLogger.scss');
+@include meta.load-css('./interfaces/CaseDossier.scss');
+@include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/FactionSelect.scss');
+@include meta.load-css('./interfaces/HealthAnalyzer.scss');
 @include meta.load-css('./interfaces/ListInput.scss');
 @include meta.load-css('./interfaces/PersonalCrafting.scss');
-@include meta.load-css('./interfaces/RequestManager.scss');
 @include meta.load-css('./interfaces/Radio.scss');
 @include meta.load-css('./interfaces/LoreConsole.scss');
 
@@ -64,7 +69,7 @@
 @include meta.load-css('./layouts/TitleBar.scss');
 @include meta.load-css('./layouts/Window.scss');
 
-@include meta.load-css('highlight.js/scss/github-dark.scss');
+@include meta.load-css('~highlight.js/scss/a11y-dark.scss');
 
 // SCC Theme
 .Layout__content {
@@ -72,8 +77,58 @@
   background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
-}
 
+  .Table {
+    background-color: hsla(0, 0%, 3%, 0.45);
+    border: 1px solid hsla(0, 0%, 35%, 0.22);
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 50%, 0.06);
+
+    &__row {
+      background-color: hsla(0, 0%, 5%, 0.42);
+
+      &:nth-child(even):not(&--header) {
+        background-color: hsla(0, 0%, 15%, 0.34);
+      }
+
+      &:hover:not(&--header) {
+        background-color: hsla(0, 0%, 18%, 0.45);
+      }
+
+      &--header {
+        background-color: hsla(0, 0%, 14%, 0.65);
+        color: hsl(31, 0%, 72%);
+        text-transform: uppercase;
+        letter-spacing: 0.035em;
+        box-shadow: inset 0 -1px 0 hsla(0, 0%, 50%, 0.28);
+      }
+    }
+  }
+
+  .Tabs {
+    border-bottom: 1px solid hsl(0, 0%, 15%);
+    margin-bottom: 0.5rem;
+
+    &__tab {
+      background-color: hsla(0, 0%, 3%, 0.7);
+      border: 1px solid hsl(0, 0%, 14%);
+      color: hsl(0, 0%, 55%);
+
+      &:hover {
+        background-color: hsla(0, 0%, 28%, 0.18);
+        color: hsl(0, 0%, 72%);
+      }
+
+      &--selected {
+        background-color: hsl(0, 0%, 18%);
+        border-color: hsl(0, 0%, 42%);
+        color: hsl(30, 0%, 75%);
+        box-shadow: inset 0 -2px 0 hsl(30, 0%, 55%);
+      }
+    }
+  }
+}
 // A default, in case someone uses the vp() function outside of a <Window>
 :root {
   --scaling-amount: 1;

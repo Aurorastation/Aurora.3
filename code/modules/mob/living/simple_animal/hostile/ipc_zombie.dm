@@ -12,6 +12,7 @@
 	armor_penetration = 20
 	attack_sound = 'sound/weapons/smash.ogg'
 	attacktext = "smashes"
+	attack_vis_effect = ATTACK_EFFECT_SMASH
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0

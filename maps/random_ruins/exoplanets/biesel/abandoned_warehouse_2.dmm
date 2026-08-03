@@ -24,7 +24,7 @@
 /area/template_noop)
 "gK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
+/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "hG" = (
@@ -37,7 +37,7 @@
 /area/template_noop)
 "kQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/sulfur_dioxide,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "kY" = (
@@ -46,7 +46,7 @@
 /area/template_noop)
 "lq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "lt" = (
@@ -66,7 +66,7 @@
 "oU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
+/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "pq" = (
@@ -86,7 +86,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "rb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/exoplanet/concrete,
@@ -119,12 +119,12 @@
 "uZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "wp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "xP" = (
@@ -134,7 +134,7 @@
 "ya" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "zr" = (
@@ -149,16 +149,16 @@
 "BL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/helium,
+/obj/structure/machinery/portable_atmospherics/canister/helium,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Ci" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/template_noop)
 "DL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
+/obj/structure/machinery/portable_atmospherics/canister/empty/sleeping_agent,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Eu" = (
@@ -170,7 +170,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Ew" = (
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Fv" = (
@@ -188,12 +188,12 @@
 "GK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/empty/heliumfuel,
+/obj/structure/machinery/portable_atmospherics/canister/empty/heliumfuel,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "GS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Hj" = (
@@ -214,7 +214,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Mu" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -229,7 +229,7 @@
 "Sp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "Tl" = (
@@ -251,7 +251,7 @@
 "Vm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/empty/chlorine,
+/obj/structure/machinery/portable_atmospherics/canister/empty/chlorine,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "WQ" = (

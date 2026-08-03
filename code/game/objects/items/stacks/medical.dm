@@ -103,14 +103,12 @@ Contains:
 		return	//If it does not, do nothing
 	var/ratio = CEILING(clamp(amount / max_amount, 0, 1) * charge_sections, 1)
 	ClearOverlays()
-	var/iconState = "[icon_state]_charge"
+	var/overlay_icon_state = "[icon_state]_charge"
 	if(!amount)	//Checks if there are still charges left in the item
 		return //If it does not, do nothing, as the overlays have been cut before this already.
 	else
-		var/mutable_appearance/charge_overlay = mutable_appearance(icon, iconState)
 		for(var/i = ratio, i >= 1, i--)
-			charge_overlay.pixel_x = charge_x_offset * (i - 1)
-			AddOverlays(charge_overlay)
+			AddOverlays(image(icon, overlay_icon_state, pixel_x = charge_x_offset * (i - 1)))
 
 // Bruise Pack.
 /obj/item/stack/medical/bruise_pack
@@ -122,8 +120,8 @@ Contains:
 	heal_brute = 4
 	icon_has_variants = TRUE
 	apply_sounds = SFX_RIP
-	drop_sound = 'sound/items/drop/gloves.ogg'
-	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 
 /obj/item/stack/medical/bruise_pack/full/Initialize()
 	. = ..()

@@ -27,7 +27,7 @@ it's entirety. You can then take the disk to any R&D console and upload it's dat
 won't update every console in existence) but it's more of a hassle to do. Also, the disks can be stolen.
 */
 
-/obj/machinery/computer/rdconsole
+/obj/structure/machinery/computer/rdconsole
 	name = "R&D control console"
 
 	icon_screen = "rdcomp"
@@ -40,9 +40,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/obj/item/disk/tech_disk/t_disk = null	//Stores the technology disk.
 	var/obj/item/disk/design_disk/d_disk = null	//Stores the design disk.
 
-	var/obj/machinery/r_n_d/destructive_analyzer/linked_destroy = null	//Linked Destructive Analyzer
-	var/obj/machinery/r_n_d/protolathe/linked_lathe = null				//Linked Protolathe
-	var/obj/machinery/r_n_d/circuit_imprinter/linked_imprinter = null	//Linked Circuit Imprinter
+	var/obj/structure/machinery/r_n_d/destructive_analyzer/linked_destroy = null	//Linked Destructive Analyzer
+	var/obj/structure/machinery/r_n_d/protolathe/linked_lathe = null				//Linked Protolathe
+	var/obj/structure/machinery/r_n_d/circuit_imprinter/linked_imprinter = null	//Linked Circuit Imprinter
 
 	var/allow_analyzer = TRUE
 	var/allow_lathe = TRUE
@@ -59,92 +59,74 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	req_access = list(ACCESS_TOX)	//Data and setting manipulation requires scientist access.
 
-/obj/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
-	var/return_name = ID
-	switch(return_name)
-		if("metal")
-			return_name = "Metal"
-		if("glass")
-			return_name = "Glass"
-		if("gold")
-			return_name = "Gold"
-		if("silver")
-			return_name = "Silver"
-		if("phoron")
-			return_name = "Solid Phoron"
-		if("uranium")
-			return_name = "Uranium"
-		if("diamond")
-			return_name = "Diamond"
-		if("plasteel")
-			return_name = "Plasteel"
-	return return_name
+/obj/structure/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
+	return SSmaterials.material_display_name(ID)
 
-/obj/machinery/computer/rdconsole/proc/CallReagentName(ID)
+/obj/structure/machinery/computer/rdconsole/proc/CallReagentName(ID)
 	var/singleton/reagent/R = GET_SINGLETON(ID)
 	return R ? R.name : "(none)"
 
-/obj/machinery/computer/rdconsole/proc/SyncRDevices() //Makes sure it is properly sync'ed up with the devices attached to it (if any).
-	for(var/obj/machinery/r_n_d/D in range(3, src))
+/obj/structure/machinery/computer/rdconsole/proc/SyncRDevices() //Makes sure it is properly sync'ed up with the devices attached to it (if any).
+	for(var/obj/structure/machinery/r_n_d/D in range(3, src))
 		if(D.linked_console != null || D.panel_open)
 			continue
-		if(istype(D, /obj/machinery/r_n_d/destructive_analyzer) && allow_analyzer)
+		if(istype(D, /obj/structure/machinery/r_n_d/destructive_analyzer) && allow_analyzer)
 			if(linked_destroy == null)
 				linked_destroy = D
 				D.linked_console = src
-		else if(istype(D, /obj/machinery/r_n_d/protolathe) && allow_lathe)
+		else if(istype(D, /obj/structure/machinery/r_n_d/protolathe) && allow_lathe)
 			if(linked_lathe == null)
 				linked_lathe = D
 				D.linked_console = src
-		else if(istype(D, /obj/machinery/r_n_d/circuit_imprinter) && allow_imprinter)
+		else if(istype(D, /obj/structure/machinery/r_n_d/circuit_imprinter) && allow_imprinter)
 			if(linked_imprinter == null)
 				linked_imprinter = D
 				D.linked_console = src
 	return
 
-/obj/machinery/computer/rdconsole/proc/SyncTechs()
+/obj/structure/machinery/computer/rdconsole/proc/SyncTechs()
 	var/turf/turf = get_turf(src)
-	for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+	for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
 		var/turf/ST = get_turf(S)
 		if(ST && !AreConnectedZLevels(ST.z, turf.z))
 			continue
 		var/server_processed = 0
-		if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
+		if((id in S.id_with_upload) || istype(S, /obj/structure/machinery/r_n_d/server/centcom))
 			for(var/tech_id in files.known_tech)
 				var/datum/tech/T = files.known_tech[tech_id]
 				S.files.AddTech2Known(T)
 			S.files.RefreshResearch()
 			server_processed = 1
 		files.known_tech = S.files.known_tech.Copy()
-		if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
+		if(!istype(S, /obj/structure/machinery/r_n_d/server/centcom) && server_processed)
 			S.produce_heat()
 	screen = 1.6
 	updateUsrDialog()
 
-/obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
-	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.machinery)
+/obj/structure/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
+	for(var/obj/structure/machinery/r_n_d/server/centcom/C in SSmachinery.machinery)
 		for(var/tech_id in files.known_tech)
 			var/datum/tech/T = files.known_tech[tech_id]
 			C.files.AddTech2Known(files.known_tech[T])
 		C.files.RefreshResearch()
 
-/obj/machinery/computer/rdconsole/Initialize()
+/obj/structure/machinery/computer/rdconsole/Initialize()
 	..()
 	files = new /datum/research(src) //Setup the research data holder.
 	if(!id)
-		for(var/obj/machinery/r_n_d/server/centcom/S in SSmachinery.machinery)
+		for(var/obj/structure/machinery/r_n_d/server/centcom/S in SSmachinery.machinery)
 			S.setup()
 			break
 	SyncRDevices()
 	ref_for_ui = "[REF(src)]"
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/computer/rdconsole/LateInitialize()
+/obj/structure/machinery/computer/rdconsole/LateInitialize()
 	. = ..()
 	SyncTechs()
 	screen = 1.0
 
-/obj/machinery/computer/rdconsole/Destroy()
+/obj/structure/machinery/computer/rdconsole/Destroy()
 	if(linked_destroy != null)
 		linked_destroy.linked_console = null
 	if(linked_lathe != null)
@@ -153,7 +135,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_imprinter.linked_console = null
 	return ..()
 
-/obj/machinery/computer/rdconsole/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/computer/rdconsole/attackby(obj/item/attacking_item, mob/user)
 	//Loading a disk into it.
 	if(istype(attacking_item, /obj/item/disk))
 		if(t_disk || d_disk)
@@ -176,7 +158,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/computer/rdconsole/emag_act(remaining_charges, mob/user, emag_source)
+/obj/structure/machinery/computer/rdconsole/emag_act(remaining_charges, mob/user, emag_source)
 	. = ..()
 
 	if(!emagged)
@@ -185,7 +167,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		to_chat(usr, SPAN_NOTICE("You disable the security protocols."))
 		return 1
 
-/obj/machinery/computer/rdconsole/Topic(href, href_list)
+/obj/structure/machinery/computer/rdconsole/Topic(href, href_list)
 	if(..())
 		return 1
 
@@ -279,9 +261,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 						for(var/T in linked_destroy.loaded_item.origin_tech)
 							files.UpdateTech(T, linked_destroy.loaded_item.origin_tech[T])
 						if(linked_lathe && linked_destroy.loaded_item.matter) // Also sends salvaged materials to a linked protolathe, if any.
+							SSmaterials.normalize_material_amounts(linked_lathe.materials)
 							for(var/t in linked_destroy.loaded_item.matter)
-								if(t in linked_lathe.materials)
-									linked_lathe.materials[t] += min(linked_lathe.max_material_storage - linked_lathe.TotalMaterials(), linked_destroy.loaded_item.matter[t] * linked_destroy.decon_mod)
+								var/material = SSmaterials.material_to_path(t, FALSE)
+								if(material)
+									var/salvage_amount = min(linked_lathe.max_material_storage - linked_lathe.TotalMaterials(), linked_destroy.loaded_item.matter[t] * linked_destroy.decon_mod)
+									if(salvage_amount > 0)
+										SSmaterials.add_material_amount(linked_lathe.materials, material, salvage_amount)
 
 						linked_destroy.loaded_item = null
 						for(var/obj/I in linked_destroy.contents)
@@ -371,28 +357,42 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_lathe?.removeFromQueue(text2num(href_list["removeP"]))
 
 	else if(href_list["lathe_ejectsheet"] && linked_lathe) //Causes the protolathe to eject a sheet of material
-		var/num_sheets = min(text2num(href_list["amount"]), round(linked_lathe.materials[href_list["lathe_ejectsheet"]] / SHEET_MATERIAL_AMOUNT))
+		SSmaterials.normalize_material_amounts(linked_lathe.materials)
+		var/material = SSmaterials.material_to_path(href_list["lathe_ejectsheet"], FALSE)
+		if(!material)
+			return
+
+		var/num_sheets = min(text2num(href_list["amount"]), round((linked_lathe.materials[material] || 0) / SHEET_MATERIAL_AMOUNT))
 
 		if(num_sheets < 1)
 			return
 
-		var/mattype = linked_lathe.getMaterialType(href_list["lathe_ejectsheet"])
+		var/mattype = linked_lathe.getMaterialType(material)
+		if(!mattype)
+			return
 
 		var/obj/item/stack/material/M = new mattype(linked_lathe.loc)
 		M.amount = num_sheets
-		linked_lathe.materials[href_list["lathe_ejectsheet"]] -= num_sheets * SHEET_MATERIAL_AMOUNT
+		SSmaterials.remove_material_amount(linked_lathe.materials, material, num_sheets * SHEET_MATERIAL_AMOUNT)
 
 	else if(href_list["imprinter_ejectsheet"] && linked_imprinter) //Causes the protolathe to eject a sheet of material
-		var/num_sheets = min(text2num(href_list["amount"]), round(linked_imprinter.materials[href_list["imprinter_ejectsheet"]] / SHEET_MATERIAL_AMOUNT))
+		SSmaterials.normalize_material_amounts(linked_imprinter.materials)
+		var/material = SSmaterials.material_to_path(href_list["imprinter_ejectsheet"], FALSE)
+		if(!material)
+			return
+
+		var/num_sheets = min(text2num(href_list["amount"]), round((linked_imprinter.materials[material] || 0) / SHEET_MATERIAL_AMOUNT))
 
 		if(num_sheets < 1)
 			return
 
-		var/mattype = linked_imprinter.getMaterialType(href_list["imprinter_ejectsheet"])
+		var/mattype = linked_imprinter.getMaterialType(material)
+		if(!mattype)
+			return
 
 		var/obj/item/stack/material/M = new mattype(linked_imprinter.loc)
 		M.amount = num_sheets
-		linked_imprinter.materials[href_list["imprinter_ejectsheet"]] -= num_sheets * SHEET_MATERIAL_AMOUNT
+		SSmaterials.remove_material_amount(linked_imprinter.materials, material, num_sheets * SHEET_MATERIAL_AMOUNT)
 
 	else if(href_list["find_device"]) //The R&D console looks for devices nearby to link up with.
 		screen = 0.0
@@ -446,7 +446,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	updateUsrDialog()
 	return
 
-/obj/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()
+/obj/structure/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()
 	var/dat
 	dat += "<UL>"
 	for(var/tech_id in files.known_tech)
@@ -465,7 +465,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		dat += "</UL>"
 	return dat
 
-/obj/machinery/computer/rdconsole/proc/GetResearchListInfo()
+/obj/structure/machinery/computer/rdconsole/proc/GetResearchListInfo()
 	var/dat
 	dat += "<UL>"
 	for(var/path in files.known_designs)
@@ -475,7 +475,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	dat += "</UL>"
 	return dat
 
-/obj/machinery/computer/rdconsole/attack_hand(mob/user as mob)
+/obj/structure/machinery/computer/rdconsole/attack_hand(mob/user as mob)
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -595,8 +595,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					if(PROTOLATHE) dat += "Lathe Type: Proto-lathe<BR>"
 				dat += "Required Materials:<BR>"
 				for(var/M in d_disk.blueprint.materials)
-					if(copytext(M, 1, 2) == "$") dat += "* [copytext(M, 2)] x [d_disk.blueprint.materials[M]]<BR>"
-					else dat += "* [M] x [d_disk.blueprint.materials[M]]<BR>"
+					var/material_name = "[M]"
+					if(copytext(material_name, 1, 2) == "$")
+						material_name = copytext(material_name, 2)
+					else
+						material_name = CallMaterialName(M)
+					dat += "* [material_name] x [d_disk.blueprint.materials[M]]<BR>"
 				dat += "<HR>Operations: "
 				dat += "<A href='byond://?src=[ref_for_ui];updt_design=1'>Upload to Database</A> || "
 				dat += "<A href='byond://?src=[ref_for_ui];clear_design=1'>Clear Disk</A> || "
@@ -716,9 +720,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					dat += "<li><h3>[last_category]</h3>"
 				var/temp_dat
 				for(var/M in D.materials)
-					temp_dat += ", [D.materials[M]*linked_imprinter.mat_efficiency] [CallMaterialName(M)]"
+					temp_dat += ", [D.materials[M]*linked_lathe.mat_efficiency] [CallMaterialName(M)]"
 				for(var/T in D.chemicals)
-					temp_dat += ", [D.chemicals[T]*linked_imprinter.mat_efficiency] [CallReagentName(T)]"
+					temp_dat += ", [D.chemicals[T]*linked_lathe.mat_efficiency] [CallReagentName(T)]"
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat, 3)]\]"
 				if(linked_lathe.canBuild(D))
@@ -734,9 +738,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='byond://?src=[ref_for_ui];menu=3.1'>Protolathe Menu</A><HR>"
 			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
+			SSmaterials.normalize_material_amounts(linked_lathe.materials)
 			for(var/M in linked_lathe.materials)
 				var/amount = linked_lathe.materials[M]
-				dat += "<LI><B>[capitalize(M)]</B>: [amount] cm<sup>3</sup>"
+				dat += "<LI><B>[CallMaterialName(M)]</B>: [amount] cm<sup>3</sup>"
 				if(amount >= SHEET_MATERIAL_AMOUNT)
 					dat += " || Eject "
 					for (var/C in list(1, 3, 5, 10, 15, 20, 25, 30, 40))
@@ -832,9 +837,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='byond://?src=[ref_for_ui];menu=4.1'>Circuit Imprinter Menu</A><HR>"
 			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
+			SSmaterials.normalize_material_amounts(linked_imprinter.materials)
 			for(var/M in linked_imprinter.materials)
 				var/amount = linked_imprinter.materials[M]
-				dat += "<LI><B>[capitalize(M)]</B>: [amount] cm<sup>3</sup>"
+				dat += "<LI><B>[CallMaterialName(M)]</B>: [amount] cm<sup>3</sup>"
 				if(amount >= SHEET_MATERIAL_AMOUNT)
 					dat += " || Eject: "
 					for (var/C in list(1, 3, 5, 10, 15, 20, 25, 30, 40))
@@ -873,14 +879,25 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	rdconsole.set_content(dat)
 	rdconsole.open()
 
-/obj/machinery/computer/rdconsole/robotics
+/obj/structure/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"
 	id = 1
 	req_access = list(ACCESS_ROBOTICS)
 	allow_analyzer = FALSE
 	circuit = /obj/item/circuitboard/robotics_console
 
-/obj/machinery/computer/rdconsole/core
+/obj/structure/machinery/computer/rdconsole/robotics/terminal
+	name = "robotics R&D terminal"
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
+	icon_screen = "mecha"
+	icon_keyboard = "power_key"
+	icon_keyboard_emis = "power_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+/obj/structure/machinery/computer/rdconsole/core
 	name = "core R&D console"
 	desc = "A console which is used to operate various research devices. It is the backbone of any megacorporate research division."
 	id = 1

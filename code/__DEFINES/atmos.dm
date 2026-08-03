@@ -169,9 +169,6 @@ GLOBAL_LIST_INIT(pipe_colors, list(
 			else if(!(cmb & 2) && gas_data.flags[g] & XGM_GAS_FUEL && QUANTIZE(xgm.gas[g] * GLOB.vsc.fire_consuption_rate) >= 0.005) { \
 				cmb |= (1 << 1); \
 			} \
-			else if(cmb & 3) { \
-				break; \
-			} \
 		} \
 		if(cmb == 1) { \
 			cmb = 0; \

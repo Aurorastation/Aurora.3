@@ -1,6 +1,7 @@
 /// HOLODECK_AREAS
 /area/horizon/holodeck_control
 	name = "Holodeck Alpha"
+	icon_state = "holodeck_control"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3

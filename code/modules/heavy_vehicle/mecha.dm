@@ -20,7 +20,9 @@
 	var/offset_y = 0
 
 	var/obj/item/radio/exosuit/radio
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
+	/// Whether pilots want the external camera to broadcast while its hardware is functional
+	var/camera_enabled = TRUE
 
 	var/wreckage_path = /obj/structure/mech_wreckage
 
@@ -66,7 +68,7 @@
 	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
-	var/material/material
+	var/singleton/material/material
 
 	// Cockpit access vars.
 	var/hatch_closed = FALSE
@@ -95,6 +97,11 @@
 	//POWER
 	var/power = MECH_POWER_OFF
 
+	/// Sound effect used for mech ambience.
+	var/datum/looping_sound/mech_power/soundloop
+	/// Separate tracking of current sound looping so we aren't hammering the sound loop system on every tick.
+	var/sound_looping = FALSE
+
 /mob/living/heavy_vehicle/Destroy()
 	unassign_leader()
 	unassign_following()
@@ -113,7 +120,10 @@
 		if(pilot.client)
 			pilot.client.screen -= hud_elements
 			pilot.client.images -= hud_elements
-		pilot.forceMove(get_turf(src))
+		if (!QDELETED(pilot)) // Forcemove doesn't accept QDELETED inputs.
+			remove_verb(pilot, /mob/proc/toggle_exosuit_camera)
+			remove_verb(pilot, /mob/proc/change_exosuit_camera_network)
+			pilot.forceMove(get_turf(src))
 	pilots = null
 
 	QDEL_LIST(hud_elements)
@@ -136,7 +146,7 @@
 
 	QDEL_NULL(camera)
 	QDEL_NULL(radio)
-
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
@@ -233,7 +243,7 @@
 		radio = new(src)
 
 	if(!camera)
-		camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+		camera = new /obj/structure/machinery/camera(src, 0, TRUE, TRUE)
 		camera.c_tag = name
 		camera.replace_networks(list(NETWORK_MECHS))
 
@@ -245,11 +255,11 @@
 
 	add_language(LANGUAGE_TCB)
 	default_language = GLOB.all_languages[LANGUAGE_TCB]
-
+	soundloop = new(src)
 	. = INITIALIZE_HINT_LATELOAD
 
 /mob/living/heavy_vehicle/LateInitialize()
-	var/obj/machinery/mech_recharger/MR = locate() in get_turf(src)
+	var/obj/structure/machinery/mech_recharger/MR = locate() in get_turf(src)
 	if(MR)
 		MR.start_charging(src)
 
@@ -277,15 +287,15 @@
 	if(power == MECH_POWER_TRANSITION)
 		to_chat(reciever, SPAN_NOTICE("Power transition in progress. Please wait."))
 	else if(power == MECH_POWER_ON) //Turning it off is instant
-		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
 		power = MECH_POWER_OFF
 	else if(get_cell(TRUE))
 		//Start power up sequence
 		power = MECH_POWER_TRANSITION
 		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
 		if(do_after(reciever, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
-			playsound(src, 'sound/mecha/nominal.ogg', 50, 0)
 			power = MECH_POWER_ON
+			sound_looping = TRUE
+			soundloop.start()
 		else
 			to_chat(reciever, SPAN_WARNING("You abort the powerup sequence."))
 			power = MECH_POWER_OFF
@@ -325,15 +335,15 @@
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
-	. = ..()
-
 /mob/living/heavy_vehicle/proc/become_remote()
 	for(var/mob/user in pilots)
 		eject(user, FALSE)
 
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
+	if(camera)
+		camera.c_tag = name
+		invalidateCameraCache()
 	if(!remote_network)
 		remote_network = REMOTE_GENERIC_MECH
 	SSvirtualreality.add_mech(src, remote_network)

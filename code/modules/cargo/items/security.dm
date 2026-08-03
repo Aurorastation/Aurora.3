@@ -133,7 +133,7 @@
 	description = "A shield wall generator."
 	price = 550
 	items = list(
-		/obj/machinery/shieldwallgen
+		/obj/structure/machinery/shieldwallgen
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"
@@ -189,7 +189,7 @@
 	description = "A deployable barrier. Swipe your ID card to lock/unlock it."
 	price = 440
 	items = list(
-		/obj/machinery/deployable/barrier
+		/obj/structure/machinery/deployable/barrier
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"

@@ -4,7 +4,7 @@
 GLOBAL_LIST_EMPTY(radial_menus)
 
 /atom/movable/screen/radial
-	icon = 'icons/mob/screen/radial.dmi'
+	icon = 'icons/hud/mob/radial.dmi'
 	layer = RADIAL_BASE_LAYER
 	var/datum/radial_menu/parent
 

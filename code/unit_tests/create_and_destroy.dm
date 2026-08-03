@@ -39,13 +39,13 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 		/obj/item/reagent_crystal,
 
-		/obj/machinery/portable_atmospherics/hydroponics/soil/invisible,
+		/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible,
 
 		// Requires to pick an output at init
-		/obj/machinery/appliance/mixer/,
+		/obj/structure/machinery/appliance/mixer/,
 
 		// Requires an AI
-		/obj/machinery/ai_powersupply,
+		/obj/structure/machinery/ai_powersupply,
 
 		// Requires a player
 		/atom/movable/screen/new_player/selection/join_game,
@@ -113,7 +113,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	// Paths and all the subpaths excluded
 
 	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
-	ignore += typesof(/obj/machinery/computer/holodeck_control)
+	ignore += typesof(/obj/structure/machinery/computer/holodeck_control)
 
 	// Spells require an owner, which would not work here
 	ignore += typesof(/obj/item/spell)
@@ -130,13 +130,13 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/item/robot_module)
 
 	// Requires a shuttle
-	ignore += typesof(/obj/machinery/computer/shuttle_control)
+	ignore += typesof(/obj/structure/machinery/computer/shuttle_control)
 
 	// Requires a weapon attached
-	ignore += typesof(/obj/machinery/ammunition_loader)
+	ignore += typesof(/obj/structure/machinery/ammunition_loader)
 
 	// Requires others of its components at init
-	ignore += typesof(/obj/machinery/gravity_generator/main/station)
+	ignore += typesof(/obj/structure/machinery/gravity_generator/main/station)
 
 	// Requires an owner's client
 	ignore += typesof(/atom/movable/screen/psi)
@@ -204,6 +204,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		else
 			var/atom/creation = new type_path(spawn_at)
 			if(QDELETED(creation))
+				creation = null
 				continue
 			//Go all in
 			qdel(creation, force = TRUE)
@@ -214,8 +215,11 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		//There's a lot of stuff that either spawns stuff in on create, or removes stuff on destroy. Let's cut it all out so things are easier to deal with
 		var/list/to_del = spawn_at.contents - cached_contents
 		if(length(to_del))
-			for(var/atom/to_kill in to_del)
+			var/atom/to_kill
+			for(to_kill in to_del)
 				qdel(to_kill)
+			to_kill = null
+			to_del.Cut()
 
 	GLOB.running_create_and_destroy = FALSE
 

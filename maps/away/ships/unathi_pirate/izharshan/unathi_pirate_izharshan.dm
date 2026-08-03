@@ -46,7 +46,7 @@
 	/obj/item/spacecash/c20 = 1
 	)
 
-/obj/machinery/vending/boozeomat/unathi_pirate
+/obj/structure/machinery/vending/boozeomat/unathi_pirate
 	products = list(
 		/obj/item/reagent_containers/food/drinks/shaker = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 4,
@@ -94,7 +94,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
+/obj/structure/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
 	name = "shuttle control console"
 	shuttle_tag = "Izharshan Freighter"
 

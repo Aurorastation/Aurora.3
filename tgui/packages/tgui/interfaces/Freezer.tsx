@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { Box, Button, Knob, ProgressBar, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Button, Knob, Box, ProgressBar } from '../components';
 import { Window } from '../layouts';
 
 export type FreezerData = {
@@ -17,11 +17,11 @@ export type FreezerData = {
   gasTemperatureAvgBottom: number;
 };
 
-export const Freezer = (props, context) => {
-  const { act, data } = useBackend<FreezerData>(context);
+export const Freezer = (props) => {
+  const { act, data } = useBackend<FreezerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Power Level"
@@ -42,7 +42,7 @@ export const Freezer = (props, context) => {
             value={data.powerSetting}
             minValue={0}
             maxValue={100}
-            onDrag={(e, value) =>
+            onChange={(_, value) =>
               act('setPower', {
                 setPower: value,
               })
@@ -92,7 +92,7 @@ export const Freezer = (props, context) => {
             minValue={0}
             maxValue={1000}
             unit="K"
-            onDrag={(e, value) =>
+            onChange={(_, value) =>
               act('temp', {
                 temp: value,
               })

@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BELT
 	var/channel = "General News Feed"
-	var/obj/machinery/camera/network/news/camera
+	var/obj/structure/machinery/camera/network/news/camera
 	var/obj/item/radio/radio
 
 /obj/item/tvcamera/feedback_hints(mob/user, distance, is_adjacent)

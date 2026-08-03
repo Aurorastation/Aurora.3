@@ -6,7 +6,6 @@
 	S["UI_style"]				>> pref.UI_style
 	S["UI_style_color"]			>> pref.UI_style_color
 	S["UI_style_alpha"]			>> pref.UI_style_alpha
-	S["tgui_fancy"]				>> pref.tgui_fancy
 	S["tgui_lock"]				>> pref.tgui_lock
 	S["ooccolor"]				>> pref.ooccolor
 	S["clientfps"]				>> pref.clientfps
@@ -21,7 +20,6 @@
 	S["UI_style"]				<< pref.UI_style
 	S["UI_style_color"]			<< pref.UI_style_color
 	S["UI_style_alpha"]			<< pref.UI_style_alpha
-	S["tgui_fancy"]				<< pref.tgui_fancy
 	S["tgui_lock"]				<< pref.tgui_lock
 	S["ooccolor"]				<< pref.ooccolor
 	S["clientfps"]				<< pref.clientfps
@@ -39,7 +37,6 @@
 				"UI_style",
 				"UI_style_color",
 				"UI_style_alpha",
-				"tgui_fancy",
 				"tgui_lock",
 				"ooccolor",
 				"clientfps",
@@ -63,7 +60,6 @@
 			"UI_style",
 			"UI_style_color",
 			"UI_style_alpha",
-			"tgui_fancy",
 			"tgui_lock",
 			"ooccolor",
 			"clientfps",
@@ -83,7 +79,6 @@
 		"UI_style_alpha" = pref.UI_style_alpha,
 		"UI_style_color" = pref.UI_style_color,
 		"UI_style" = pref.UI_style,
-		"tgui_fancy" = pref.tgui_fancy,
 		"tgui_lock" = pref.tgui_lock,
 		"ooccolor" = pref.ooccolor,
 		"clientfps" = pref.clientfps,
@@ -100,7 +95,6 @@
 	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
 	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
 	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
-	pref.tgui_fancy = sanitize_bool(pref.tgui_fancy, TRUE)
 	pref.tgui_lock = sanitize_bool(pref.tgui_lock, FALSE)
 	pref.tgui_inputs = sanitize_bool(pref.tgui_inputs, TRUE)
 	pref.tgui_buttons_large = sanitize_bool(pref.tgui_buttons_large, FALSE)
@@ -116,7 +110,6 @@
 	dat += "-Color: <a href='byond://?src=[REF(src)];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='byond://?src=[REF(src)];reset=ui'>reset</a><br>"
 	dat += "-Alpha(transparency): <a href='byond://?src=[REF(src)];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='byond://?src=[REF(src)];reset=alpha'>reset</a><br>"
 	dat += "<b>Tooltip Style:</b> <a href='byond://?src=[REF(src)];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
-	dat += "<b>TGUI Fancy:</b> <a href='byond://?src=[REF(src)];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Lock:</b> <a href='byond://?src=[REF(src)];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Inputs:</b> <a href='byond://?src=[REF(src)];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Input Large Buttons:</b> <a href='byond://?src=[REF(src)];tgui_inputs_large=1'><b>[pref.tgui_buttons_large ? "ON" : "OFF"]</b></a><br>"
@@ -150,10 +143,6 @@
 		var/UI_style_alpha_new = input(user, "Select UI alpha (transparency) level, between 50 and 255.", "Global Preference", pref.UI_style_alpha) as num|null
 		if(isnull(UI_style_alpha_new) || (UI_style_alpha_new < 50 || UI_style_alpha_new > 255) || !CanUseTopic(user)) return TOPIC_NOACTION
 		pref.UI_style_alpha = UI_style_alpha_new
-		return TOPIC_REFRESH
-
-	else if(href_list["select_tguif"])
-		pref.tgui_fancy = !pref.tgui_fancy
 		return TOPIC_REFRESH
 
 	else if(href_list["select_tguil"])

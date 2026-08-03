@@ -121,7 +121,7 @@
 			play_elevator_animation(TRUE) // returning to CC, play the animation after elevator physically leaves
 
 		//wait ETA here.
-		arrive_time = world.time + SScargo.movetime
+		arrive_time = launch_estimate()
 		while (world.time <= arrive_time)
 			sleep(5)
 
@@ -154,10 +154,22 @@
 /datum/shuttle/autodock/ferry/supply/proc/idle()
 	return (moving_status == SHUTTLE_IDLE)
 
-//returns the ETA in seconds
+/// returns the ETA in seconds
 /datum/shuttle/autodock/ferry/supply/proc/eta_seconds()
 	var/ticksleft = arrive_time - world.time
-	return round(ticksleft/10,1)
+	if(ticksleft > 0)
+		return "[round(ticksleft/10,1)] seconds"
+	else
+		return "soon."
+
+/// Gets the cargo moving time
+/datum/shuttle/autodock/ferry/supply/proc/launch_estimate(var/in_seconds = FALSE)
+	var/time = world.time + SScargo.movetime
+	if(in_seconds)
+		time = time - world.time
+		return round(time/10,1)
+	else
+		return time
 
 /**************************
 	Elevator Animations
@@ -169,7 +181,7 @@
 	NE.forceMove(locate(target_dest_x + SHAFT_WIDTH, target_dest_y, target_dest_z))
 
 	for(var/area/A in shuttle_area) // we have to do this here or we turn the elevator into a white cube
-		for(var/obj/machinery/light/L in A) // we turn off lights to avoid having to fight the lighting plane
+		for(var/obj/structure/machinery/light/L in A) // we turn off lights to avoid having to fight the lighting plane
 			L.stat |= POWEROFF
 			L.update()
 
@@ -198,7 +210,7 @@
 			AM.blocks_emissive = initial(AM.blocks_emissive)
 			AM.update_emissive_blocker()
 			AM.update_light()
-		for(var/obj/machinery/light/L in T.contents)
+		for(var/obj/structure/machinery/light/L in T.contents)
 			L.stat &= ~POWEROFF
 			L.update()
 
@@ -261,7 +273,7 @@
 		sleep(1 SECOND)
 
 /datum/shuttle/autodock/ferry/supply/proc/flip_rotating_alarms()
-	for(var/obj/machinery/rotating_alarm/RA in horizon_elevator_area)
+	for(var/obj/structure/machinery/rotating_alarm/RA in horizon_elevator_area)
 		RA.toggle_state()
 
 /datum/shuttle/autodock/ferry/supply/proc/toggle_railings()

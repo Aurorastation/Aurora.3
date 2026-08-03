@@ -31,6 +31,7 @@
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangles"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE

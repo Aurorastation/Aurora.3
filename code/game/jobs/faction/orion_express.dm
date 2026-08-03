@@ -60,6 +60,20 @@
 		"Service Personnel" = /obj/outfit/job/bartender/orion
 	)
 
+/datum/faction/orion_express/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Identify and document Orion Express employees slowing or impeding company operations (IE. inadequate mining yields; slow order deliveries; slow service catering)")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Promote competitiveness and the setting personal of goals among Orion Express employees",
+						"Ensure all outbound Orion Express packages aboard the [station_name()] are delivered",
+						"Evaluate crew opinions on Quick-E-Burger catering aboard the [station_name()]")
+		else
+			return pick("Conduct a survey on Orion Express employee morale",
+						"Survey crew members on their typical package delivery times",
+						"Identify and resolve a complaint of an Orion Express employee")
+
+
 /obj/outfit/job/hangar_tech/orion
 	name = "Hangar Technician - Orion Express"
 

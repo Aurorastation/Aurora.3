@@ -152,6 +152,7 @@ emp_act
 	return null
 
 /mob/living/carbon/human/check_shields(damage, atom/damage_source, mob/attacker, def_zone, attack_text = "the attack")
+	var/result = BULLET_ACT_HIT
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
@@ -160,9 +161,10 @@ emp_act
 			if(!shield.can_shield_back())
 				continue
 			is_on_back = TRUE
-		return shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
-
-	return BULLET_ACT_HIT
+		result = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
+		if (result == BULLET_ACT_FORCE_PIERCE || result == BULLET_ACT_BLOCK) //Necessary to handle multiple shields.
+			return result
+	return result
 
 /mob/living/carbon/human/emp_act(severity)
 	/*
@@ -179,10 +181,6 @@ emp_act
 
 	if(emp_protect_ipc)
 		RemoveElement(/datum/element/empprotection, emp_protect_ipc)
-
-	if(!(.|emp_protect_ipc & EMP_PROTECT_CONTENTS))
-		for(var/obj/O in src)
-			O.emp_act(severity)
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)

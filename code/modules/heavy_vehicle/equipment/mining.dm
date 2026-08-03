@@ -6,8 +6,8 @@
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	w_class = WEIGHT_CLASS_HUGE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	var/obj/machinery/mining/drill/held_drill
-	var/list/obj/machinery/mining/brace/held_braces
+	var/obj/structure/machinery/mining/drill/held_drill
+	var/list/obj/structure/machinery/mining/brace/held_braces
 	var/charging = FALSE
 	module_hints = list(
 		"<b>Left Click (Target Mining Drill or Brace):</b> Load the target into the module's internal storage.",
@@ -19,9 +19,9 @@
 	. = ..()
 
 	if(.)
-		for(var/obj/machinery/M in range(1, target))
-			if(istype(M, /obj/machinery/mining/brace))
-				var/obj/machinery/mining/brace/B = M
+		for(var/obj/structure/machinery/M in range(1, target))
+			if(istype(M, /obj/structure/machinery/mining/brace))
+				var/obj/structure/machinery/mining/brace/B = M
 				B.anchored = FALSE
 				B.disconnect()
 				if(length(held_braces) < 2)
@@ -30,8 +30,8 @@
 						owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [B] into \the [src]."))
 						B.forceMove(src)
 						LAZYADD(held_braces, B)
-			if(!held_drill && istype(M, /obj/machinery/mining/drill))
-				var/obj/machinery/mining/drill/D = M
+			if(!held_drill && istype(M, /obj/structure/machinery/mining/drill))
+				var/obj/structure/machinery/mining/drill/D = M
 				owner.visible_message(SPAN_NOTICE("\The [owner] starts loading \the [D] into \the [src]."))
 				if(do_after(user, 5 SECONDS, owner, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), D, D.loc)))
 					owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [D] into \the [src]."))
@@ -58,7 +58,7 @@
 		held_drill.forceMove(deployment_turfs[1])
 		held_drill.anchored = TRUE
 		deployment_turfs -= deployment_turfs[1]
-	for(var/obj/machinery/mining/brace/B in held_braces)
+	for(var/obj/structure/machinery/mining/brace/B in held_braces)
 		B.forceMove(deployment_turfs[1])
 		B.anchored = TRUE
 		B.connect()
@@ -121,7 +121,7 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 	holding_type = /obj/item/gun/custom_ka/exosuit/heavy
 	module_hints = list(
 		"<b>Left Click:</b> Fire a kinetic blast in the target direction.",
-		"<b>WARNING: This weapon produces a mining blast eight tiles in radius.</b>",
+		"<b>WARNING: This weapon produces a mining blast six tiles in radius.</b>",
 		"A mech can only fire within a 90 degree arc in the direction it is currently facing.",
 		"This weapon passively regenerates its ammunition using the mech's power supply.",
 	)
@@ -162,23 +162,24 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 	/// How long the cooldown is before the ore can be pulsed again
 	var/cooldown_time = 5 SECONDS
 
-	/// How many chunks of ore can be moved at one time
-	var/static/ore_limit = 50
-
 	/// Radius of the summoner's pickup range.
 	var/pickup_range = 7
+
+	/// The maximum number of ores that can be picked up per pulse.
+	var/ore_limit = 150
 
 	/// The linked warp extraction ore box.
 	var/obj/structure/ore_box/linked_box
 
 	module_hints = list(
 		"<b>Left Click (Target Ore Box):</b> If the the target has a warp extraction beacon, link the summoner to it.",
-		"<b>Alt Click (Icon):</b> Teleport up to 50 ores within a radius of 7 tiles to the user.",
+		"<b>Alt Click (Icon):</b> Teleport up to 150 ores within a radius of 10 tiles to the user.",
 		"If a warp ore box has been linked, it will teleport ores there.",
 		"Otherwise if the mech is also equipped with a mounted clamp that contains an ore box, ores will be teleported to said box.",
+		"If linked to an ore box, walking over ores will also teleport them into the crate"
 	)
 
-/obj/item/mecha_equipment/ore_summoner/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+/obj/item/mecha_equipment/ore_summoner/afterattack(atom/target, mob/living/user, inrange, params)
 	if(istype(target, /obj/structure/ore_box))
 		var/obj/structure/ore_box/box = target
 		if (box.warp_core)
@@ -186,12 +187,12 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 			to_chat(user, SPAN_NOTICE("You link \the [src] to \the [target]"))
 	return FALSE
 
-/obj/item/mecha_equipment/ore_summoner/attack_self(var/mob/user)
+/obj/item/mecha_equipment/ore_summoner/attack_self(mob/user)
 	. = ..()
 	if(.)
 		summon_ore(user)
 
-/obj/item/mecha_equipment/ore_summoner/proc/summon_ore(var/mob/user)
+/obj/item/mecha_equipment/ore_summoner/proc/summon_ore(mob/user)
 	if(last_use + cooldown_time >= world.time)
 		to_chat(user, SPAN_WARNING("The ore summoner is recalibrating..."))
 		return
@@ -219,7 +220,7 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 			ore.forceMove(ore_box)
 		else
 			ore.forceMove(our_turf)
-		limit -= 1
+		limit--
 		CHECK_TICK
 
 	last_use = world.time
@@ -230,12 +231,13 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 /obj/item/mecha_equipment/ore_summoner/get_hardpoint_maptext()
 	return last_use + cooldown_time < world.time ? "Ready" : "Recharging"
 
-/obj/item/mecha_equipment/ore_summoner/proc/check_linked_box(var/mob/user)
+/obj/item/mecha_equipment/ore_summoner/proc/check_linked_box(mob/user)
 	if(!linked_box)
 		return FALSE
 
 	if(!linked_box.warp_core)
-		to_chat(user, SPAN_WARNING("\The [linked_box] lost its warp beacon!"))
+		if (user)
+			to_chat(user, SPAN_WARNING("\The [linked_box] lost its warp beacon!"))
 		linked_box = null
 		return FALSE
 
@@ -243,4 +245,45 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 
 /obj/item/mecha_equipment/ore_summoner/Destroy()
 	linked_box = null // Clear the reference to prevent hard deletes.
+	if (owner)
+		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	return ..()
+
+/obj/item/mecha_equipment/ore_summoner/installed()
+	. = ..()
+	if (!owner)
+		return
+
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(pickup_ores))
+
+/obj/item/mecha_equipment/ore_summoner/uninstalled()
+	if (owner)
+		UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	return ..()
+
+/obj/item/mecha_equipment/ore_summoner/proc/pickup_ores()
+	SIGNAL_HANDLER
+	if (!owner)
+		return
+
+	var/obj/structure/ore_box/ore_box
+	if(check_linked_box())
+		ore_box = linked_box
+	else
+		for(var/hardpoint in owner.hardpoints)
+			var/obj/item/mecha_equipment/clamp/clamp = owner.hardpoints[hardpoint]
+			if(!istype(clamp))
+				continue
+			var/obj/structure/ore_box/box = locate() in clamp
+			if(box)
+				ore_box = box
+				break
+	if (!ore_box)
+		return
+
+	var/turf/our_turf = get_turf(owner)
+	if (!our_turf)
+		return
+
+	for (var/obj/item/ore/ore in our_turf)
+		ore.forceMove(ore_box)

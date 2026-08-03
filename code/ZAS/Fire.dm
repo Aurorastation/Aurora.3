@@ -48,10 +48,12 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	CHECK_COMBUSTIBLE(is_cmb, air_contents)
 	if(liquid && is_cmb)
 		IgniteTurf(liquid.amount * 10)
+		igniting = TRUE
 		QDEL_NULL(liquid)
 
 	var/obj/effect/decal/cleanable/napalm/napalm = locate() in src
 	if(napalm)
+		igniting = TRUE
 		napalm.Ignite()
 
 	if(is_cmb)

@@ -7,6 +7,7 @@
 	flags_inv = 0
 	body_parts_covered = 0
 	contained_sprite = TRUE
+	use_alt_layer = TRUE
 
 /obj/item/clothing/head/bandana/colorable
 	icon_state = "bandana_colorable"

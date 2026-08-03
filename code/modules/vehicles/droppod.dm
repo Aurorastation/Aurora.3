@@ -231,7 +231,7 @@
 		var/obstacle_found = FALSE
 		if(!iswall(T))
 			for(var/obj/O in T)
-				if(istype(O, /obj/structure/grille) || istype(O, /obj/machinery/door/airlock/external) || istype(O, /obj/machinery/embedded_controller)) //This is to help prevent the pod from landing right on an exterior window or airlock.
+				if(istype(O, /obj/structure/grille) || istype(O, /obj/structure/machinery/door/airlock/external) || istype(O, /obj/structure/machinery/embedded_controller)) //This is to help prevent the pod from landing right on an exterior window or airlock.
 					obstacle_found = TRUE
 					break
 			if(!obstacle_found)

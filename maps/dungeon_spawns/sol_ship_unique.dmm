@@ -46,8 +46,8 @@
 	},
 /area/dungeon/crashed_ship)
 "dX" = (
-/obj/machinery/fabricator/autolathe,
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/fabricator/autolathe,
+/obj/structure/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue{
@@ -60,10 +60,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/dungeon/crashed_ship)
 "fT" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -203,7 +203,7 @@
 	},
 /area/dungeon/crashed_ship)
 "oz" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(150);
 	dir = 1
 	},
@@ -233,7 +233,7 @@
 	},
 /area/dungeon/crashed_ship)
 "qQ" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
@@ -244,7 +244,7 @@
 	},
 /area/dungeon/crashed_ship)
 "qV" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -302,7 +302,7 @@
 /area/dungeon/crashed_ship)
 "tC" = (
 /obj/structure/mech_wreckage,
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
@@ -349,7 +349,7 @@
 	},
 /area/dungeon/crashed_ship)
 "wb" = (
-/obj/machinery/light/colored/red{
+/obj/structure/machinery/light/colored/red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -472,7 +472,7 @@
 	},
 /area/dungeon/crashed_ship)
 "DB" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue{
@@ -482,7 +482,7 @@
 /area/dungeon/crashed_ship)
 "DN" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -517,7 +517,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(150)
 	},
@@ -689,7 +689,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(150)
 	},
@@ -712,7 +712,7 @@
 /turf/simulated/mineral/random/high_chance,
 /area/mine/unexplored)
 "VR" = (
-/obj/machinery/porta_turret/xray{
+/obj/structure/machinery/porta_turret/xray{
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -735,7 +735,7 @@
 /obj/structure/railing,
 /obj/structure/railing,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -748,7 +748,7 @@
 "Yu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/xray{
+/obj/structure/machinery/porta_turret/xray{
 	check_arrest = 0;
 	check_records = 0;
 	check_wildlife = 0
@@ -759,7 +759,7 @@
 	},
 /area/dungeon/crashed_ship)
 "Zd" = (
-/obj/machinery/light/colored/red,
+/obj/structure/machinery/light/colored/red,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0

@@ -49,8 +49,8 @@
  */
 #define COMSIG_GRAVITY_WEAKNESS_EVENT "gravity_weakness_event"
 
-/// Raised external organ (a limb) takes damage. Used for the synthetic endoskeleton at the moment. Must supply damage.
-#define COMSIG_EXTERNAL_ORGAN_DAMAGE "machine_internal_damage"
+/// This is raised when you want to send damage to the synthetic endoskeleton. Must supply a damage number.
+#define COMSIG_DAMAGE_TO_ENDOSKELETON "machine_internal_damage"
 
 /// Sent when the burst damage is cleared by the posibrain.
 #define COMSIG_SYNTH_EMP_DAMAGE_CLEARED "emp_damage_cleared"

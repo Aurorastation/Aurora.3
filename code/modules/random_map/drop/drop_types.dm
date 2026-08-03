@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT_TYPED(supply_drop, /datum/supply_drop_loot, null)
 	name = "Supermatter"
 /datum/supply_drop_loot/supermatter/New()
 	..()
-	contents = list(/obj/machinery/power/supermatter)
+	contents = list(/obj/structure/machinery/power/supermatter)
 
 /datum/supply_drop_loot/lasers
 	name = "Lasers"
@@ -167,6 +167,6 @@ GLOBAL_LIST_INIT_TYPED(supply_drop, /datum/supply_drop_loot, null)
 /datum/supply_drop_loot/hydroponics/New()
 	..()
 	contents = list(
-		/obj/machinery/portable_atmospherics/hydroponics,
-		/obj/machinery/portable_atmospherics/hydroponics,
-		/obj/machinery/portable_atmospherics/hydroponics)
+		/obj/structure/machinery/portable_atmospherics/hydroponics,
+		/obj/structure/machinery/portable_atmospherics/hydroponics,
+		/obj/structure/machinery/portable_atmospherics/hydroponics)

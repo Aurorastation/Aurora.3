@@ -12,7 +12,7 @@
 	can_hear_hivenet = FALSE //Unlike most silicons, this is a consumer product with minimal lawbinding, and isn't trusted with Hivenet logs
 
 	var/network = "SS13"
-	var/obj/machinery/camera/current = null
+	var/obj/structure/machinery/camera/current = null
 	var/ram = 100	// Used as currency to purchase different abilities
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
@@ -92,7 +92,7 @@
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
 
-	var/obj/machinery/door/airlock/hackdoor		// The airlock being hacked
+	var/obj/structure/machinery/door/airlock/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
 	var/hack_aborted = 0
 
@@ -202,7 +202,7 @@
 /mob/living/silicon/pai/LateLogin()
 	if(!greeted)
 		// Basic intro text.
-		to_chat(src, SPAN_DANGER("<font size=3>You are a Personal AI!</font>"))
+		to_chat(src, SPAN_DANGER("<font size=5>You are a Personal AI!</font>"))
 		to_chat(src, SPAN_NOTICE("You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world."))
 		playsound(usr, 'sound/effects/pai/pai_login.ogg', 75)
 		greeted = 1
@@ -265,12 +265,12 @@
 		if(3)
 			to_chat(src, "<font color=green>You feel an electric surge run through your circuitry and become acutely aware at how lucky you are that you can still feel at all.</font>")
 
-/mob/living/silicon/pai/proc/switchCamera(var/obj/machinery/camera/C)
+/mob/living/silicon/pai/proc/switchCamera(var/obj/structure/machinery/camera/C)
 	if (!C)
 		src.unset_machine()
 		src.reset_view(null)
 		return 0
-	if (stat == 2 || !C.status || !(src.network in C.network)) return 0
+	if (stat == 2 || !C.can_use() || !(src.network in C.network)) return 0
 
 	// ok, we're alive, camera is good and in our network...
 

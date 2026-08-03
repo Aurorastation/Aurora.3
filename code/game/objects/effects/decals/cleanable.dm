@@ -2,10 +2,11 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	var/list/random_icon_states
 	var/swept_away
+	var/cleanable_by_basic_cleaners = TRUE
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
 	if(!swept_away && layer == DECAL_LAYER) // have to check layer otherwise more vars need to be added to determine whether it CAN be sweeped
-		if((locate(/obj/machinery/atmospherics) in get_turf(src)) || (locate(/obj/machinery/hologram/holopad) in get_turf(src)))
+		if((locate(/obj/structure/machinery/atmospherics) in get_turf(src)) || (locate(/obj/structure/machinery/hologram/holopad) in get_turf(src)))
 			to_chat(user, SPAN_NOTICE("You brush \the [src] away with your hand."))
 			layer = TURF_DETAIL_LAYER
 			swept_away = TRUE
@@ -14,10 +15,15 @@
 /obj/effect/decal/cleanable/proc/post_sweep(var/mob/user)
 	return
 
+/obj/effect/decal/cleanable/proc/clean_with_basic_cleaner()
+	if(!cleanable_by_basic_cleaners)
+		return FALSE
+	qdel(src)
+	return TRUE
+
 /obj/effect/decal/cleanable/clean_blood(var/ignore = 0)
 	if(!ignore)
-		qdel(src)
-		return
+		return clean_with_basic_cleaner()
 	..()
 
 /obj/effect/decal/cleanable/Initialize(mapload)

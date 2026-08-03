@@ -144,11 +144,11 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "aA" = (
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/tiled,
 /area/dungeon/skrell_ship)
 "aB" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Bridge";
 	dir = 1
 	},
@@ -173,7 +173,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aF" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -199,7 +199,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "aJ" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
@@ -218,12 +218,12 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "aN" = (
-/obj/machinery/bioprinter,
+/obj/structure/machinery/bioprinter,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aO" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -270,11 +270,11 @@
 	basecolor = "#0081CD"
 	},
 /obj/item/reagent_containers/blood/empty,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "aY" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -296,13 +296,13 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bb" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bc" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Cryogenics";
 	dir = 4
 	},
@@ -320,13 +320,13 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bf" = (
-/obj/machinery/porta_turret/pulse,
+/obj/structure/machinery/porta_turret/pulse,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bg" = (
 /obj/structure/table/skrell,
 /obj/item/flashlight/heavy,
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "bh" = (
@@ -341,7 +341,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/skrell_ship)
 "bi" = (
-/obj/machinery/porta_turret_construct/dark,
+/obj/structure/machinery/porta_turret_construct/dark,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bj" = (
@@ -368,7 +368,7 @@
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "bo" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/structure/machinery/constructable_frame/machine_frame,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "bp" = (
@@ -376,7 +376,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bq" = (
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "br" = (
@@ -408,14 +408,14 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bw" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Medbay";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bx" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
 	dir = 4
@@ -429,7 +429,7 @@
 /area/dungeon/skrell_ship)
 "bz" = (
 /obj/structure/closet/skrell,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/item/clothing/ears/skrell/band/ebony,
 /obj/item/clothing/head/helmet/space/void/skrell/black,
 /obj/item/clothing/mask/breath/skrell,
@@ -442,11 +442,11 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bB" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bC" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Medbay";
 	dir = 4
 	},
@@ -461,7 +461,7 @@
 /area/dungeon/skrell_ship)
 "bE" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bF" = (
@@ -501,7 +501,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bK" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -522,14 +522,14 @@
 /obj/effect/decal/remains/human{
 	desc = "They look like skrell remains. They have a strange aura about them."
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/item/clothing/under/skrell/qeblak,
 /turf/simulated/floor/tiled,
 /area/dungeon/skrell_ship)
 "bN" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Cryogenics";
 	dir = 4
 	},
@@ -539,7 +539,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bO" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	dir = 1
 	},
 /obj/item/landmine/frag{
@@ -557,11 +557,11 @@
 /turf/simulated/floor/plating,
 /area/dungeon/skrell_ship)
 "bS" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bT" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -575,20 +575,20 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bV" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bW" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bX" = (
 /obj/structure/blocker/steel,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -596,7 +596,7 @@
 "bY" = (
 /obj/structure/table/skrell,
 /obj/item/healthanalyzer,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -604,13 +604,13 @@
 "bZ" = (
 /obj/structure/table/skrell,
 /obj/item/mass_spectrometer/adv,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "ca" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
@@ -622,7 +622,7 @@
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -632,7 +632,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/tiled,
 /area/dungeon/skrell_ship)
 "cd" = (
@@ -646,21 +646,21 @@
 "cf" = (
 /obj/structure/table/skrell,
 /obj/item/reagent_containers/food/snacks/skrellsnacks,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "cg" = (
-/obj/machinery/porta_turret/pulse,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/porta_turret/pulse,
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "ch" = (
-/obj/machinery/porta_turret/pulse,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/porta_turret/pulse,
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -679,7 +679,7 @@
 /obj/structure/cryofeed{
 	dir = 2
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/structure/sign/flag/nralakk{
@@ -689,7 +689,7 @@
 /area/dungeon/skrell_ship)
 "co" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/item/trash/semki,
@@ -751,7 +751,7 @@
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "cy" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Cryogenics";
 	dir = 1
 	},
@@ -793,8 +793,8 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "cJ" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /obj/item/plastique,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
@@ -811,7 +811,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cN" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	locked = 1;
 	dir = 1
 	},
@@ -834,7 +834,7 @@
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "fS" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "OB" = (

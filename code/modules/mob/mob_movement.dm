@@ -208,10 +208,10 @@
 				if(item.zoom)
 					item.zoom(mob)
 					break
-		if(istype(mob.machine,/obj/machinery/computer/security))
+		if(istype(mob.machine,/obj/structure/machinery/computer/security))
 			// Has to be here specfically to allow WASD/arrow movement of cameras while buckled.
 			// TODO: Remove when machinery/computer finally dies.
-			var/obj/machinery/computer/security/console = mob.machine
+			var/obj/structure/machinery/computer/security/console = mob.machine
 			if(console.current_camera)
 				var/turf/T = get_turf(console.current_camera)
 				for(var/i;i<10;i++)

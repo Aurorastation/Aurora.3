@@ -2,7 +2,8 @@
 
 /datum/wires/airlock
 	proper_name = "Airlock"
-	holder_type = /obj/machinery/door/airlock
+	holder_type = /obj/structure/machinery/door/airlock
+	associated_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
 
 /datum/wires/airlock/New(atom/holder)
 	wires = list(
@@ -31,13 +32,13 @@
 /datum/wires/airlock/interactable(mob/user)
 	if(!..())
 		return FALSE
-	var/obj/machinery/door/airlock/A = holder
+	var/obj/structure/machinery/door/airlock/A = holder
 	if(!A.p_open)
 		return FALSE
 	return TRUE
 
 /datum/wires/airlock/get_status()
-	var/obj/machinery/door/airlock/A = holder
+	var/obj/structure/machinery/door/airlock/A = holder
 	var/haspower = A.arePowerSystemsOn() //If there's no power, then no lights will be on.
 	. = ..()
 
@@ -68,7 +69,7 @@
 
 /datum/wires/airlock/on_cut(wire, mend, source)
 
-	var/obj/machinery/door/airlock/A = holder
+	var/obj/structure/machinery/door/airlock/A = holder
 	switch(wire)
 		if(WIRE_IDSCAN)
 			A.ai_disabled_id_scanner = !mend
@@ -135,7 +136,7 @@
 
 /datum/wires/airlock/on_pulse(wire, user)
 
-	var/obj/machinery/door/airlock/A = holder
+	var/obj/structure/machinery/door/airlock/A = holder
 	switch(wire)
 		if(WIRE_IDSCAN)
 			//Sending a pulse through flashes the red light on the door (if the door has power).
@@ -200,6 +201,6 @@
 			continue
 		dat += "<font color='[color]'>[capitalize(color)]</font>: [get_wire(color)]<br>"
 
-	var/datum/browser/wire_win = new(user, "airlockwires", "Airlock Wires", 450, 500)
+	var/datum/browser/wire_win = new(user, "airlockwires", "Airlock Wires", 450, 720)
 	wire_win.set_content(dat)
 	wire_win.open()

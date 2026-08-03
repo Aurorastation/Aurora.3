@@ -58,7 +58,7 @@
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "dj" = (
-/obj/machinery/door/urban/glass_sliding/double,
+/obj/structure/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "ek" = (
@@ -87,7 +87,7 @@
 /area/konyang/robotics_factory)
 "fi" = (
 /obj/effect/decal/remains/lizard,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -103,7 +103,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "gH" = (
-/obj/machinery/mech_recharger/automobile,
+/obj/structure/machinery/mech_recharger/automobile,
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "gZ" = (
@@ -146,11 +146,11 @@
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "iB" = (
-/obj/machinery/smartfridge,
+/obj/structure/machinery/smartfridge,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "jm" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 4;
 	pixel_x = 22;
 	pixel_y = 4
@@ -176,7 +176,7 @@
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "jZ" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "kf" = (
@@ -194,7 +194,7 @@
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "km" = (
-/obj/machinery/shield_capacitor,
+/obj/structure/machinery/shield_capacitor,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "kr" = (
@@ -223,7 +223,7 @@
 /area/konyang/robotics_factory)
 "lT" = (
 /obj/structure/table,
-/obj/machinery/microscope,
+/obj/structure/machinery/microscope,
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "lZ" = (
@@ -269,7 +269,7 @@
 /area/exoplanet/grass/konyang)
 "nL" = (
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -311,7 +311,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "qg" = (
-/obj/machinery/door/urban/glass_sliding/double{
+/obj/structure/machinery/door/urban/glass_sliding/double{
 	dir = 1
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -331,7 +331,7 @@
 /area/exoplanet/grass/konyang)
 "rh" = (
 /obj/random/dirt_75,
-/obj/machinery/reagentgrinder,
+/obj/structure/machinery/reagentgrinder,
 /obj/structure/table/glass,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
@@ -344,12 +344,12 @@
 "rq" = (
 /obj/random/dirt_75,
 /mob/living/simple_animal/thinbug,
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "rT" = (
 /obj/item/mecha_equipment/mounted_system/rfd,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -361,7 +361,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "sY" = (
@@ -384,7 +384,7 @@
 "uk" = (
 /obj/random/dirt_75,
 /obj/item/stack/rods,
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "um" = (
@@ -398,7 +398,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "uv" = (
@@ -423,7 +423,7 @@
 "vl" = (
 /obj/random/dirt_75,
 /obj/random/junk,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -452,7 +452,7 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang/robotics_factory)
 "wj" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "wF" = (
@@ -543,7 +543,7 @@
 "Ay" = (
 /obj/random/dirt_75,
 /obj/structure/table/glass,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "AB" = (
@@ -573,7 +573,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "DH" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26
 	},
@@ -632,7 +632,7 @@
 /area/exoplanet/grass/konyang)
 "HE" = (
 /obj/random/dirt_75,
-/obj/machinery/suit_storage_unit,
+/obj/structure/machinery/suit_storage_unit,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "HQ" = (
@@ -652,11 +652,11 @@
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "Im" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Iu" = (
-/obj/machinery/pipedispenser,
+/obj/structure/machinery/pipedispenser,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "Iv" = (
@@ -665,8 +665,8 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Ix" = (
-/obj/machinery/recharge_station,
-/obj/machinery/light/broken{
+/obj/structure/machinery/recharge_station,
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -719,11 +719,11 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Kk" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Ku" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/structure/machinery/mecha_part_fabricator,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "KC" = (
@@ -751,7 +751,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "MU" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/foundation,
@@ -781,7 +781,7 @@
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "Oy" = (
-/obj/machinery/suit_storage_unit,
+/obj/structure/machinery/suit_storage_unit,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "OT" = (
@@ -789,7 +789,7 @@
 /area/konyang/robotics_factory)
 "OY" = (
 /obj/structure/table/steel,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_y = 26
 	},
@@ -842,11 +842,11 @@
 /area/exoplanet/grass/konyang)
 "Sb" = (
 /obj/structure/flora/bush/konyang_reeds,
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "SC" = (
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "SD" = (
@@ -894,8 +894,8 @@
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "UL" = (
-/obj/machinery/papershredder,
-/obj/machinery/light/broken,
+/obj/structure/machinery/papershredder,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "Vd" = (
@@ -932,14 +932,14 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "Xo" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "XD" = (
 /obj/random/dirt_75,
-/obj/machinery/mecha_part_fabricator,
+/obj/structure/machinery/mecha_part_fabricator,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "XI" = (
@@ -952,7 +952,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang/robotics_factory)
 "Yc" = (
-/obj/machinery/light/broken,
+/obj/structure/machinery/light/broken,
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/konyang/robotics_factory)
 "Yd" = (

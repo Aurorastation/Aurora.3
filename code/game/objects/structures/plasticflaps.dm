@@ -23,7 +23,7 @@
 
 /obj/structure/plasticflaps/Initialize()
 	. = ..()
-	material = SSmaterials.get_material_by_name(MATERIAL_PLASTIC)
+	material = GET_SINGLETON(MATERIAL_PLASTIC)
 	update_icon()
 
 /obj/structure/plasticflaps/update_icon()

@@ -33,7 +33,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/kazhkz_crash
+/obj/structure/machinery/computer/shuttle_control/explore/kazhkz_crash
 	name = "shuttle control console"
 	shuttle_tag = "Crashed Kazhkz Shuttle"
 

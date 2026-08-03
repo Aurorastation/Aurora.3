@@ -80,8 +80,8 @@
 	var/othermsg
 	var/turf/targloc = get_turf(target)
 
-	if(istype(target, /obj/machinery/camera))
-		var/obj/machinery/camera/C = target
+	if(istype(target, /obj/structure/machinery/camera))
+		var/obj/structure/machinery/camera/C = target
 
 		if(prob(25))
 			C.emp_act(EMP_LIGHT)

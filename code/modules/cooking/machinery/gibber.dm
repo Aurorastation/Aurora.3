@@ -1,5 +1,5 @@
 
-/obj/machinery/gibber
+/obj/structure/machinery/gibber
 	name = "autobutcher"
 	desc = "Also known as the gibber, affectionately."
 	desc_extended = "WARNING: Insurance no longer covers entertaining intrusive thoughts. Keep your limbs to yourself."
@@ -24,21 +24,21 @@
 	active_power_usage = 500
 
 /// Auto-gibs anything that moves onto its input plate. This is a fun variant, someone map it in somewhere!
-/obj/machinery/gibber/autogibber
+/obj/structure/machinery/gibber/autogibber
 	var/turf/input_plate
 
-/obj/machinery/gibber/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/gibber/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"]."
 
-/obj/machinery/gibber/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/gibber/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This can be emagged to let you feed people into it; it also removes the ID access requirements."
 
-/obj/machinery/gibber/autogibber/Initialize()
+/obj/structure/machinery/gibber/autogibber/Initialize()
 	. = ..()
 	for(var/i in GLOB.cardinals)
-		var/obj/machinery/mineral/input/input_obj = locate( /obj/machinery/mineral/input, get_step(loc, i) )
+		var/obj/structure/machinery/mineral/input/input_obj = locate( /obj/structure/machinery/mineral/input, get_step(loc, i) )
 		if(input_obj)
 			if(isturf(input_obj.loc))
 				input_plate = input_obj.loc
@@ -50,7 +50,7 @@
 		log_misc("a [src] didn't find an input plate.")
 		return
 
-/obj/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
+/obj/structure/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
 	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return FALSE
@@ -91,11 +91,11 @@
 	startgibbing(victim_mob)
 	update_icon()
 
-/obj/machinery/gibber/Initialize()
+/obj/structure/machinery/gibber/Initialize()
 	. = ..()
 	AddOverlays("grjam")
 
-/obj/machinery/gibber/update_icon()
+/obj/structure/machinery/gibber/update_icon()
 	ClearOverlays()
 	if(dirty)
 		AddOverlays("grbloody")
@@ -108,13 +108,13 @@
 	else
 		AddOverlays("gridle")
 
-/obj/machinery/gibber/relaymove(mob/living/user, direction)
+/obj/structure/machinery/gibber/relaymove(mob/living/user, direction)
 	. = ..()
 
 	go_out()
 	return
 
-/obj/machinery/gibber/attack_hand(mob/user as mob)
+/obj/structure/machinery/gibber/attack_hand(mob/user as mob)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(operating)
@@ -122,12 +122,12 @@
 		return
 	startgibbing(user)
 
-/obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
 	to_chat(user, SPAN_DANGER("You [emagged ? "disable" : "enable"] [src]'s safety guard."))
 	return TRUE
 
-/obj/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/gibber/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 		if(G.state < GRAB_AGGRESSIVE)
@@ -144,7 +144,7 @@
 
 	do_hair_pull(user)
 
-/obj/machinery/gibber/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/machinery/gibber/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(user.stat || user.restrained())
 		return
 	move_into_gibber(user, dropped)
@@ -153,7 +153,7 @@
  * Moves the victim into the gibber. This can be triggered by a user trying to place the victim inside, or by
  * being sucked in via the input plate.
  */
-/obj/machinery/gibber/proc/move_into_gibber(var/mob/user, var/mob/victim, var/automatic = FALSE)
+/obj/structure/machinery/gibber/proc/move_into_gibber(var/mob/user, var/mob/victim, var/automatic = FALSE)
 	// All of these check for a user because if the machine is working autonomously, there's no one to send messages to in most cases we'd want to.
 	if(occupant)
 		to_chat(user, SPAN_DANGER("[src] is full, empty it first!"))
@@ -189,7 +189,7 @@
 	occupant = victim
 	update_icon()
 
-/obj/machinery/gibber/verb/eject()
+/obj/structure/machinery/gibber/verb/eject()
 	set category = "Object"
 	set name = "Empty Gibber"
 	set src in oview(1)
@@ -200,7 +200,7 @@
 	add_fingerprint(usr)
 	return
 
-/obj/machinery/gibber/proc/go_out()
+/obj/structure/machinery/gibber/proc/go_out()
 	if(operating || !occupant)
 		return
 	for(var/obj/O in src)
@@ -213,7 +213,7 @@
 	update_icon()
 	return
 
-/obj/machinery/gibber/proc/startgibbing(mob/user as mob)
+/obj/structure/machinery/gibber/proc/startgibbing(mob/user as mob)
 	if(operating)
 		return
 	if(!occupant)

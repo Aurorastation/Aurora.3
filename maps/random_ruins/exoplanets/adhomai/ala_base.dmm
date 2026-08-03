@@ -26,7 +26,7 @@
 /area/ala_base)
 "az" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window/brigdoor/northright{
+/obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 8;
 	req_access = list(214)
 	},
@@ -91,7 +91,7 @@
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "eh" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "ala_garage";
 	dir = 4
 	},
@@ -121,7 +121,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/obj/machinery/appliance/cooker/oven/adhomai,
+/obj/structure/machinery/appliance/cooker/oven/adhomai,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "fi" = (
@@ -132,7 +132,7 @@
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
 /turf/simulated/floor/exoplanet/tiled/dark,
@@ -141,7 +141,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "gU" = (
@@ -156,7 +156,7 @@
 /obj/item/clothing/under/tajaran/ala,
 /obj/item/clothing/head/beret/tajaran/dpra/alt,
 /obj/item/clothing/accessory/badge/dpra_passport,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -283,7 +283,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "pU" = (
@@ -328,29 +328,29 @@
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "ra" = (
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "rp" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "sD" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "th" = (
 /obj/structure/trash_pile,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "tO" = (
@@ -365,13 +365,13 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "tT" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "ala_garage";
 	name = "Garage Door";
 	req_access = list(214);
@@ -383,7 +383,7 @@
 /obj/vehicle/bike/snow{
 	dir = 4
 	},
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
@@ -392,7 +392,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "ut" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "uw" = (
@@ -404,11 +404,11 @@
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/silenced,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "uI" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/closet/cabinet,
@@ -429,17 +429,17 @@
 /area/ala_base)
 "uM" = (
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	anchored = 0;
 	department = "ALA Outpost";
 	pixel_y = 4;
 	req_one_access = null
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "uO" = (
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "vi" = (
@@ -491,13 +491,13 @@
 /turf/unsimulated/wall/steel,
 /area/ala_base)
 "vT" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "wf" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/sign/flag/dpra{
 	pixel_y = -33;
 	stand_icon = null
@@ -532,7 +532,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "xl" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -578,7 +578,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "yE" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "yO" = (
@@ -591,7 +591,7 @@
 /obj/item/storage/box/fancy/cigarettes/dpra,
 /obj/item/storage/box/fancy/cigarettes/dpra,
 /obj/item/flame/lighter/adhomai,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -657,7 +657,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Am" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -687,7 +687,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Bg" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/wood{
@@ -723,7 +723,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Cj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -743,7 +743,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "DG" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "DL" = (
@@ -756,13 +756,13 @@
 /area/ala_base)
 "DU" = (
 /obj/structure/bed/stool/padded/black,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "ala_camp_entry";
 	name = "Entry";
 	req_access = list(214);
 	pixel_y = 32
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -773,7 +773,7 @@
 /area/ala_base)
 "Ed" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/item/storage/box/fancy/tray/machinist{
@@ -784,8 +784,8 @@
 /area/ala_base)
 "Ex" = (
 /obj/structure/table/standard,
-/obj/machinery/cell_charger,
-/obj/machinery/light{
+/obj/structure/machinery/cell_charger,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
@@ -795,7 +795,7 @@
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -856,15 +856,15 @@
 /turf/unsimulated/wall/steel,
 /area/ala_base)
 "HA" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "In" = (
-/obj/machinery/door/airlock/glass_security{
+/obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
 	req_access = list(214);
 	dir = 1
@@ -917,7 +917,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Lg" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Armory";
 	req_access = list(214);
 	dir = 4
@@ -952,13 +952,13 @@
 /area/ala_base)
 "LW" = (
 /obj/structure/bed/stool/padded/black,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "ala_camp_entry";
 	name = "Entry";
 	req_access = list(214);
 	pixel_y = 32
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -990,14 +990,14 @@
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Oc" = (
 /obj/structure/railing/fence,
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Od" = (
@@ -1016,12 +1016,12 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "OG" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "OK" = (
 /obj/structure/table/steel,
-/obj/machinery/door/window/brigdoor/northright{
+/obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 4;
 	req_access = list(214)
 	},
@@ -1045,7 +1045,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "PC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/crate/bin,
@@ -1062,7 +1062,7 @@
 "Rg" = (
 /obj/structure/table/standard,
 /obj/item/flashlight/lamp,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -1106,7 +1106,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Ty" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -1118,7 +1118,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/ala_base)
 "Vc" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -1151,7 +1151,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "XT" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "ala_camp_entry"
 	},
 /turf/simulated/floor/exoplanet/barren{
@@ -1167,7 +1167,7 @@
 /area/ala_base)
 "YI" = (
 /obj/structure/table/standard,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},

@@ -4,21 +4,13 @@
 	voice_name = "unknown"
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
-
 	mob_size = 9 //Based on average weight of a human
-
-	var/pronouns = NEUTER
-
-	/// Used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
-	var/species_items_equipped
-
-	var/list/hud_list[11]
-	/// To check if we've need to roll for damage on movement while an item is imbedded in us.
-	var/embedded_flag
-	/// This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
-	var/obj/item/rig/wearing_rig
-	/// Pref holder for the speech bubble style.
-	var/speech_bubble_type
+	mob_bump_flag = HUMAN
+	mob_push_flags = ~HEAVY
+	mob_swap_flags = ~HEAVY
+	light_system = MOVABLE_LIGHT
+	blocks_emissive = EMISSIVE_BLOCK_NONE
+	footstep_component_type = /datum/component/mob_footsteps/human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -110,7 +102,6 @@
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null
 	srom_pulling = null
-	bg = null //Just to be sure.
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
@@ -118,9 +109,9 @@
 	// It's actually the set of all Limbs (left arm, head, leg leg, etc) we have. We Qdel and null the set of all limbs, which is unique to /human.
 	QDEL_LIST(organs)
 	// Then also null the associative list of those same limbs, which contains the same references.
-	organs_by_name = null
-	bad_internal_organs = null
-	bad_external_organs = null
+	QDEL_LIST_ASSOC_VAL(organs_by_name)
+	bad_internal_organs?.Cut()
+	bad_external_organs?.Cut()
 
 	QDEL_NULL(vessel)
 
@@ -150,13 +141,14 @@
 	//Yes this is shit, but since someone had the brillant mind to use images for this, we must suffer
 	if(length(hud_list))
 		for(var/image/hud_overlay/an_hud_overlay in hud_list)
-			if(an_hud_overlay.owner)
-				an_hud_overlay.owner.client?.images -= an_hud_overlay
+			if(length(an_hud_overlay.owner?.client?.images))
+				an_hud_overlay.owner.client.images -= an_hud_overlay
 			an_hud_overlay.owner = null
 			qdel(an_hud_overlay)
-		hud_list = null
+		hud_list.Cut()
 
-	. = ..()
+	wearing_rig = null
+	return ..()
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
@@ -279,6 +271,13 @@
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
+		if(mind.special_role) //we are an antag
+			. += "Current Antagonists:"
+			for(var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/validhunted = GLOB.all_antag_types[antag_type]
+				if(length(validhunted.current_antagonists))
+					. += "- [validhunted.role_text]: [length(validhunted.current_antagonists)]"
+
 	if(. && istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
 		if(R && !R.canremove && R.installed_modules.len)
@@ -379,7 +378,7 @@
 		suit = w_uniform
 
 	user.set_machine(src)
-	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
+	var/dat = "<B><HR><FONT size=5>[name]</FONT></B><BR><HR>"
 
 	if(internals)
 		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"
@@ -485,6 +484,9 @@
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
 		return get_id_name("Unknown")		//Likewise for hats
+	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent robes which obscures Hive affiliation
+		var/list/hiveless_name = splittext(real_name, " ") //then remove Hive surname, ignore ID for obvious reason.
+		return hiveless_name[1]
 	var/face_name = get_face_name()
 	var/id_name = get_id_name("")
 	if(id_name && (id_name != face_name))
@@ -825,7 +827,7 @@
 			var/static/list/tags = list()
 			if(!length(tags))
 				for(var/thing in list(TRIAGE_NONE, TRIAGE_GREEN, TRIAGE_YELLOW, TRIAGE_RED, TRIAGE_BLACK))
-					tags[thing] = image(icon = 'icons/mob/screen/triage_tag.dmi', icon_state = thing)
+					tags[thing] = image(icon = 'icons/hud/mob/triage_tag.dmi', icon_state = thing)
 			var/chosen_tag = show_radial_menu(usr, src, tags, radius = 42, tooltips = TRUE)
 			if(chosen_tag)
 				triage_tag = chosen_tag
@@ -890,8 +892,13 @@
 	return
 
 
-/// Returns a number between -1 to 2
+/**
+ * Returns a numerical value between -INFINITY and +INFINITY representing a user's flash protection value.
+ * As a friendly reminder, do not use the == operator on this proc, use >= or <= instead.
+ */
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+
+	// Handle all the exits first before we do the standard method.
 
 	//Ling
 	var/datum/changeling/changeling = changeling_power(0, 0, 0)
@@ -905,20 +912,24 @@
 	if (I && I.status & ORGAN_CUT_AWAY)
 		return FLASH_PROTECTION_MAJOR
 
-	if (!ignore_inherent && species.inherent_eye_protection)
-		. = max(species.inherent_eye_protection, flash_protection)
-	else
-		return flash_protection
+	// Standard method, sum of modifiers.
+	var/base_flash_protection = flash_protection
 
-	if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
-		return max(. - 1, FLASH_PROTECTION_REDUCED)
+	// Fetch flash protection modifiers via ECS methods.
+	// Anything in this proc that doesn't hook into this signal should eventually be replaced with signal registry methods for simplicity.
+	SEND_SIGNAL(src, COMSIG_GET_FLASH_PROTECTION_MODIFIERS, &base_flash_protection)
+
+	if (!ignore_inherent)
+		base_flash_protection += species.inherent_eye_protection
+
+	return base_flash_protection
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(..())
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
 			return E.flash_act(intensity, override_blindness_check, affect_silicon, ignore_inherent, type, length)
-	else if(intensity == get_flash_protection(ignore_inherent))
+	else if(intensity >= get_flash_protection(ignore_inherent))
 		if(prob(20))
 			to_chat(src, SPAN_NOTICE("Something bright flashes in the corner of your vision!"))
 
@@ -1028,7 +1039,7 @@
 		custom_emote(VISIBLE_MESSAGE,"dry heaves.")
 		return
 
-	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
+	var/list/vomitCandidate = typecacheof(/obj/structure/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
 	var/obj/vomitReceptacle
 	for(var/obj/vessel in view(1, src))
 		if(!is_type_in_typecache(vessel, vomitCandidate))
@@ -1118,7 +1129,7 @@
 	..()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
-		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.damage)))
+		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.get_damage())))
 			if(should_have_organ(BP_HEART))
 				vessel.trans_to_obj(vomit, 5)
 			else
@@ -1425,14 +1436,15 @@
 		blood_color = null
 		return 1
 
-/mob/living/carbon/human/get_visible_implants(var/class = 0)
+/mob/living/carbon/human/get_visible_implants(var/class = 0) //Default class 0, class 1 is tiny objects, so class 0 will show everything.
 
 	var/list/visible_implants = list()
 	for(var/obj/item/organ/external/organ in src.organs)
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/implant) && (O.w_class > class) && !istype(O,/obj/item/material/shard/shrapnel))
 				visible_implants += O
-
+			if(istype(O,/obj/item/material/shard/shrapnel) && (O.w_class > class + 2)) //If the shrapnel is larger than class 2 (small), it is visible.
+				visible_implants += O
 	return(visible_implants)
 
 /mob/living/carbon/human/embedded_needs_process()
@@ -1497,7 +1509,7 @@
 	else
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
+/mob/living/carbon/human/proc/set_species(new_species, default_colour, kpg = 0, change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
@@ -1624,6 +1636,7 @@
 		client.init_verbs()
 
 	update_emotes()
+	mass = initial(mass) * species.mass_modifier
 
 	if(species)
 		return TRUE
@@ -2312,9 +2325,7 @@
 
 /mob/living/proc/look_up_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
@@ -2335,9 +2346,7 @@
 
 /mob/living/proc/look_down_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(T, src, T)

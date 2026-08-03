@@ -5,7 +5,16 @@ SUBSYSTEM_DEF(skills)
 	/// This is essentially the list we use to read skills in the character setup.
 	var/list/skill_tree = list()
 
-	/// The set of all skills that are "forced" in order to guarantee necessary components are applied.
+	/**
+	 * The set of all known skill singletons.
+	 * These are always typed as /singleton/skill and as such are safe to for(var/singleton/skill/skill as anything in SSskills.all_skills)
+	 */
+	var/list/all_skills = list()
+
+	/**
+	 * The set of all skills that are "forced" in order to guarantee necessary components are applied.
+	 * These are always typed as /singleton/skill and as such are safe to for(var/singleton/skill/skill as anything in SSskills.required_skills)
+	 */
 	var/list/required_skills = list()
 
 /datum/controller/subsystem/skills/Initialize()
@@ -20,8 +29,9 @@ SUBSYSTEM_DEF(skills)
 	// Next, we add the empty subcategory lists if they're not present. At this point, the tree would look like "Combat" -> "Melee" -> empty list
 	// After that's done, if our skill is not present, add it to the empty list of the subcategory.
 	for(var/singleton/skill/skill as anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/skill))
-		if (skill.required)
-			required_skills += skill.type
+		all_skills += skill
+		if (skill.required && skill.component_type)
+			required_skills += skill
 		var/singleton/skill_category/skill_category = GET_SINGLETON(skill.category)
 		if(!(skill.subcategory in skill_tree[skill_category]))
 			skill_tree[skill_category] |= skill.subcategory
@@ -30,3 +40,8 @@ SUBSYSTEM_DEF(skills)
 		if(!(skill in skill_tree[skill_category][skill.subcategory]))
 			skill_tree[skill_category][skill.subcategory] |= skill
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/skills/Destroy()
+	all_skills.Cut()
+	required_skills.Cut()
+	return ..()

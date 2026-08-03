@@ -103,7 +103,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 /obj/item/clothing/accessory/armband/tauceti
 	name = "\improper Tau Ceti armband"
 	desc = "An armband tailored to look like the flag of the Republic of Biesel."
-	desc_extended = "While initially adopted during the early days of the TCFL to account for a sudden increase in volunteers and a lack of uniforms, during the height of the Republic of Biesel's conflicts with the Sol Alliance, it has been worn as a symbol of independence and patriotism."
+	desc_extended = "An old armband, often seen worn by volunteers of the deprecated Tau Ceti Foreign Legion."
 	icon_state = "armband_tau_ceti"
 	item_state = "armband_tau_ceti"
 

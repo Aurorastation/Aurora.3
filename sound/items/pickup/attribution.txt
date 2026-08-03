@@ -1,0 +1,12 @@
+{
+cloth1.ogg
+cloth2.ogg
+cloth3.ogg
+cloth4.ogg
+headset1.ogg
+headset2.ogg
+headset3.ogg
+} - made by sadboyssuss
+
+gas_analyzer handling sounds made by sadboysuss
+license: CC-BY-SA

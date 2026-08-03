@@ -1,4 +1,4 @@
-/obj/machinery/honey_extractor
+/obj/structure/machinery/honey_extractor
 	name = "honey extractor"
 	desc = "A machine used to turn honeycombs on the frame into honey and wax."
 	icon = 'icons/obj/hydroponics_machines.dmi'
@@ -8,18 +8,18 @@
 	var/obj/item/honey_frame/contained_frame
 	var/honey = 0
 
-/obj/machinery/honey_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/honey_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(contained_frame)
 		. += SPAN_NOTICE("It's holding \the <b>[contained_frame]</b>.")
 	. += SPAN_NOTICE("It contains <b>[honey]</b> units of honey for collection.")
 
-/obj/machinery/honey_extractor/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/honey_extractor/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Once filled honeycombs have been obtained, insert them into this device to process them into wax and honey. The honey can be retrieved from \
 	the extractor with any reagent container."
 
-/obj/machinery/honey_extractor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/honey_extractor/attackby(obj/item/attacking_item, mob/user)
 	if(contained_frame)
 		to_chat(user, SPAN_WARNING("\The [src] is currently spinning, wait until it's finished."))
 		return
@@ -46,7 +46,7 @@
 	else
 		..()
 
-/obj/machinery/honey_extractor/proc/do_process()
+/obj/structure/machinery/honey_extractor/proc/do_process()
 	honey += contained_frame.honey
 	contained_frame.honey = 0
 	contained_frame.forceMove(get_turf(src))

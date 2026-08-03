@@ -54,7 +54,7 @@
 		record.sex = I.sex
 		record.employer = I.employer_faction
 		var/datum/faction/id_faction = SSjobs.name_factions[I.employer_faction]
-		var/faction_abbreviation = id_faction.title_suffix
+		var/faction_abbreviation = id_faction?.title_suffix
 		var/assignment = "[I.assignment][ faction_abbreviation ? " ([faction_abbreviation])" : ""]"
 		record.rank = assignment
 		record.real_rank = assignment

@@ -195,7 +195,7 @@
 		return
 
 	src.visible_message(SPAN_WARNING("[src] lets loose a mighty roar!"))
-	for( var/obj/machinery/light/L in range( 3, src ))
+	for( var/obj/structure/machinery/light/L in range( 3, src ))
 		if( canRoarBreakLights() && prob(( rats.len/RAT_EMPEROR_LEVEL )*100 ))
 			L.broken()
 		else

@@ -358,7 +358,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "CO" = (
-/obj/machinery/appliance/cooker/grill,
+/obj/structure/machinery/appliance/cooker/grill,
 /obj/structure/beach_umbrella{
 	pixel_x = 9;
 	pixel_y = 22
@@ -404,7 +404,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
 "Gs" = (
-/obj/machinery/media/jukebox{
+/obj/structure/machinery/media/jukebox{
 	anchored = 1;
 	pixel_x = 20;
 	density = 0;

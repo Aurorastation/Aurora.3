@@ -84,7 +84,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	accuracy = 0
 	force = 15
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/projectile/beam/shotgun
 	max_shots = 28
@@ -98,6 +98,8 @@
 	can_turret = TRUE
 	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
+	drop_sound = 'sound/items/drop/shotgun.ogg'
+	pickup_sound = 'sound/items/pickup/shotgun.ogg'
 
 /obj/item/gun/energy/laser/shotgun/research
 	name = "\improper QB-2E laser shotgun"
@@ -114,7 +116,7 @@ ABSTRACT_TYPE(/obj/item/gun/energy/lasertag)
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	self_recharge = TRUE
 	recharge_time = 2
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	projectile_type = /obj/projectile/beam/laser_tag
 	pin = /obj/item/firing_pin/tag/red

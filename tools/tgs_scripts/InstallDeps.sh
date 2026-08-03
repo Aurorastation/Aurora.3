@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 #find out what we have (+e is important for this)
 set +e

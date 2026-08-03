@@ -201,6 +201,7 @@
 /area/horizon/repoffice
 	name = "Representative Office (PARENT AREA - DON'T USE)"
 	icon_state = "law"
+	area_lighting = LIGHT_HIGHSEC_COLORS
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
@@ -241,6 +242,13 @@
 	icon_state = "mechbay"
 	horizon_deck = 1
 	area_blurb = "A discrete compartment frequented by the ship's many synthetics and IPCs."
+
+// In case we make all the supply closets their own /areas in future.
+/area/horizon/crew/emergency_closet/deck_2/starboard
+	name = "Emergency Supply Closet"
+	icon_state = "maintenance"
+	horizon_deck = 2
+	area_blurb = "Contains emergency supplies, surprisingly enough."
 
 // Rad shielded because common afk area.
 /area/horizon/crew/washroom

@@ -12,7 +12,6 @@
 	network_destination = "station long-range communication array"
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "CommandCommunications"
-	ui_auto_update = FALSE
 	var/datum/comm_message_listener/message_core
 	var/intercept = FALSE
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
@@ -139,7 +138,7 @@
 					if(centcomm_message_cooldown)
 						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
 						return TRUE
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via bluespace.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return FALSE
 					Syndicate_announce(input, usr)
@@ -155,7 +154,7 @@
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
 						return
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via quantum entanglement.", "Emergency Message", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via bluespace.", "Emergency Message", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return
 					Centcomm_announce(input, usr)
@@ -272,7 +271,12 @@ GLOBAL_VAR_INIT(last_message_id, 0)
 /datum/comm_message_listener/proc/Add(var/list/message)
 	messages[++messages.len] = message
 
-/datum/comm_message_listener/proc/Remove(var/list/message)
+/datum/comm_message_listener/proc/Remove(var/message)
+	if(isnum(message))
+		for(var/list/stored_message in messages)
+			if(stored_message["id"] == message)
+				message = stored_message
+				break
 	messages -= list(message)
 /*
 Command action procs
@@ -321,7 +325,7 @@ Command action procs
 
 
 /proc/is_relay_online()
-	for(var/obj/machinery/bluespacerelay/M in SSmachinery.machinery)
+	for(var/obj/structure/machinery/bluespacerelay/M in SSmachinery.machinery)
 		if(M.stat == 0)
 			return TRUE
 	return FALSE

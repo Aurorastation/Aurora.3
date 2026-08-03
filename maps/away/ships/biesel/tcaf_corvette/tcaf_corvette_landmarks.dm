@@ -20,7 +20,7 @@
 	base_area = /area/tcaf_corvette/central_lift
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/tcaf
+/obj/structure/machinery/computer/shuttle_control/multi/lift/tcaf
 	shuttle_tag = "TCAF Lift"
 
 // Shuttle landmarks.

@@ -28,7 +28,7 @@
 	add_parts()
 	do_decals()
 	if(!material)
-		material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
+		material = GET_SINGLETON(MATERIAL_STEEL)
 	update_icon()
 	. = ..()
 	INVOKE_ASYNC(src, PROC_REF(spawn_mech_equipment))

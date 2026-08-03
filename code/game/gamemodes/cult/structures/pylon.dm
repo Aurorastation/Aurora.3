@@ -471,8 +471,7 @@
 		var/list/possibles = list('sound/hallucinations/far_noise.ogg',
 		'sound/hallucinations/growl3.ogg',
 		'sound/hallucinations/veryfar_noise.ogg',
-		'sound/hallucinations/wail.ogg',
-		'sound/voice/hiss5.ogg')
+		'sound/hallucinations/wail.ogg')
 		playsound(get_turf(src), pick(possibles), 50, 1)
 
 	pylonmode = PYLON_IDLE //A broken pylon loses its soul. Even if repaired it will need a new sacrifice to re-empower it

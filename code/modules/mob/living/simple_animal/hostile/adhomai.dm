@@ -21,6 +21,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	environment_smash = 1
@@ -57,6 +58,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attacktext = "bites"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	faction = "Adhomai"
@@ -177,4 +179,4 @@
 /obj/projectile/beam/tesla/plasmageist/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	if(isliving(target))
-		explosion(target, -1, 0, 2)
+		explosion(get_turf(target), -1, 0, 2)

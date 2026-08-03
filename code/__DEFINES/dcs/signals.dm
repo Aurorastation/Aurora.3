@@ -33,6 +33,8 @@
 #define COMSIG_MOB_ZONE_SEL_CHANGE "mob_zone_sel_change"
 ///from base of /mob/Login(): ()
 #define COMSIG_MOB_LOGIN "mob_login"
+/// Sent at the end of /mob/LateLogin() after the client is fully initialized.
+#define COMSIG_MOB_AFTER_LOGIN "mob_after_login"
 ///from base of /mob/Logout(): ()
 #define COMSIG_MOB_LOGOUT "mob_logout"
 /// from mob/get_status_tab_items(): (list/items)
@@ -42,7 +44,7 @@
 ///Mob is trying to open the wires of a target [/atom], from /datum/wires/interactable(): (atom/target)
 #define COMSIG_TRY_WIRES_INTERACT "try_wires_interact"
 	#define COMPONENT_CANT_INTERACT_WIRES (1<<0)
-
+#define COMSIG_GET_EFFECTIVE_MASS "get_effective_mass"
 
 /// Sent from /proc/do_after if someone starts a do_after action bar.
 #define COMSIG_DO_AFTER_BEGAN "mob_do_after_began"
@@ -122,3 +124,17 @@
 // Surgery Signals
 /// Signal raised against the surgeon attempting to perform a surgery to query their components for any rate mods.
 #define COMSIG_GET_SURGERY_SUCCESS_MODIFIERS "get_surgery_success_modifiers"
+
+/// Signal raised against a character attempting to give a ministry moodlet to someone.
+#define COMSIG_GET_MINISTRY_MODIFIERS "get_ministry_modifiers"
+/// Signal raised against the recipient of the Ministry skill action, allowing effects to interrupt the received moodlet.
+#define COMSIG_RECEIVE_MINISTRY_MODIFIERS "receive_ministry_modifiers"
+
+/// Signal raised against a character attempting to deliver a speech.
+#define COMSIG_GET_LEADERSHIP_MODIFIERS "get_leadership_modifiers"
+
+/// Signal raised against a character attempting to butcher a mob, to check for butchering bonuses from skills.
+#define COMSIG_GET_BUTCHERING_MODIFIERS "get_butchering_modifiers"
+
+// Crafting Signals
+#define COMSIG_GET_CRAFTING_MODIFIERS "get_crafting_modifiers"

@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ac" = (
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -44,18 +44,18 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "ao" = (
-/obj/machinery/light/floor,
+/obj/structure/machinery/light/floor,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "aD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "bm" = (
-/obj/machinery/vending/security,
+/obj/structure/machinery/vending/security,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
@@ -91,19 +91,19 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "bN" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 18
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 28
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 24;
 	pixel_y = 18
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 24;
 	pixel_y = 28
 	},
@@ -118,7 +118,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
 "ck" = (
-/obj/machinery/power/apc/hyper/north,
+/obj/structure/machinery/power/apc/hyper/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -189,7 +189,7 @@
 /obj/item/ammo_casing/peac,
 /obj/item/ammo_casing/peac/he,
 /obj/item/ammo_casing/peac/he,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -209,7 +209,7 @@
 /obj/item/megaphone/command,
 /obj/item/megaphone/command,
 /obj/item/megaphone/command,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/vending_refill/encryption,
@@ -220,7 +220,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "shuttle_bridge_blast_doors"
 	},
@@ -231,7 +231,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "eG" = (
-/obj/machinery/status_display/supply_display{
+/obj/structure/machinery/status_display/supply_display{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -241,7 +241,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "shuttle_blast_doors"
 	},
 /turf/simulated/floor,
@@ -321,7 +321,7 @@
 /obj/item/hand_labeler{
 	pixel_y = 14
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/item/storage/box/led_collars{
@@ -424,20 +424,20 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "iH" = (
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "iO" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 6;
 	pixel_y = 5;
 	pixel_x = 6;
 	name = "External Blast Doors";
 	id = "shuttle_blast_doors"
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 6;
 	pixel_y = 5;
 	pixel_x = -6;
@@ -447,7 +447,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
 "iX" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -499,7 +499,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "kL" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
@@ -536,14 +536,14 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 8;
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "lI" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 1;
 	name = "Power Maintanence";
 	req_access = list(103)
@@ -643,11 +643,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "oQ" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 12;
 	pixel_y = 18
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 12;
 	pixel_y = 28
 	},
@@ -656,7 +656,7 @@
 /area/scc_event_shuttle)
 "oX" = (
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/chem_master{
+/obj/structure/machinery/chem_master{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -676,10 +676,10 @@
 /area/scc_event_shuttle)
 "pn" = (
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/chem_master{
+/obj/structure/machinery/chem_master{
 	anchored = 0
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -723,7 +723,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "qs" = (
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "bridge_foyer";
 	name = "Bridge";
@@ -773,7 +773,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "rU" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Cryogenic Storage"
 	},
 /turf/simulated/floor,
@@ -850,7 +850,7 @@
 "su" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -895,21 +895,21 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "sO" = (
-/obj/machinery/suspension_gen{
+/obj/structure/machinery/suspension_gen{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "sW" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "sX" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	pixel_y = 6;
 	department = "SCCV Apollo"
 	},
@@ -919,7 +919,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
@@ -970,7 +970,7 @@
 	req_one_access = list(7,47)
 	},
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "uf" = (
@@ -1019,21 +1019,21 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "uI" = (
-/obj/machinery/suspension_gen{
+/obj/structure/machinery/suspension_gen{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "vc" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "shuttle_bridge_blast_doors"
 	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
-/obj/machinery/door/airlock/multi_tile{
+/obj/structure/machinery/door/airlock/multi_tile{
 	dir = 2;
 	name = "external airlock"
 	},
@@ -1069,13 +1069,13 @@
 /area/scc_event_shuttle)
 "wv" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/vending/hydroseeds{
+/obj/structure/machinery/vending/hydroseeds{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "wA" = (
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "shuttle_bridge_blast_doors"
 	},
 /obj/structure/plasticflaps/airtight{
@@ -1116,7 +1116,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "xH" = (
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	dir = 4;
 	id_tag = "";
 	name = "Bridge Officer Preparation";
@@ -1147,7 +1147,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "yr" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	pixel_x = 16
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1159,7 +1159,7 @@
 /area/scc_event_shuttle)
 "yR" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/vending/dinnerware/bar{
+/obj/structure/machinery/vending/dinnerware/bar{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1192,7 +1192,7 @@
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "yZ" = (
@@ -1200,7 +1200,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/vending/medical{
+/obj/structure/machinery/vending/medical{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1265,7 +1265,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "Bk" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	brightness_range = 5;
 	dir = 1;
 	name = "adjusted emergency light";
@@ -1274,7 +1274,7 @@
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "BO" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1314,7 +1314,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Co" = (
-/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/obj/structure/machinery/atmospherics/unary/engine/scc_shuttle,
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "Dk" = (
@@ -1390,19 +1390,19 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Eo" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Er" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "Et" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	anchored = 0
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -1410,7 +1410,7 @@
 /area/scc_event_shuttle)
 "Eu" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/vending/hydronutrients{
+/obj/structure/machinery/vending/hydronutrients{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1459,12 +1459,12 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Fg" = (
-/obj/machinery/fabricator/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Fh" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	dir = 1;
 	pixel_y = 28
 	},
@@ -1474,11 +1474,11 @@
 /turf/simulated/wall/shuttle/scc,
 /area/scc_event_shuttle)
 "Gi" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	anchored = 0
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1489,7 +1489,7 @@
 /area/scc_event_shuttle)
 "Hc" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1584,7 +1584,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "Iq" = (
-/obj/machinery/vending/encryption{
+/obj/structure/machinery/vending/encryption{
 	pixel_y = 29
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1616,7 +1616,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "IC" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
@@ -1630,7 +1630,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "IW" = (
-/obj/machinery/biogenerator{
+/obj/structure/machinery/biogenerator{
 	icon_state = "biogen-empty"
 	},
 /obj/effect/floor_decal/industrial/outline/service,
@@ -1671,7 +1671,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Ln" = (
@@ -1724,13 +1724,13 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "LD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "LE" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
@@ -1755,7 +1755,7 @@
 /area/scc_event_shuttle)
 "Ma" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/vending/robotics{
+/obj/structure/machinery/vending/robotics{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -1803,7 +1803,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Nu" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1856,7 +1856,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/landmark/force_spawnpoint,
@@ -1941,19 +1941,19 @@
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "PE" = (
-/obj/machinery/smartfridge/secure/medbay,
+/obj/structure/machinery/smartfridge/secure/medbay,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Qp" = (
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2000,7 +2000,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "RV" = (
-/obj/machinery/vending/tool{
+/obj/structure/machinery/vending/tool{
 	anchored = 0
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -2012,7 +2012,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "ST" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
@@ -2073,19 +2073,19 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "TL" = (
-/obj/machinery/door/airlock/glass_security,
+/obj/structure/machinery/door/airlock/glass_security,
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
 "TZ" = (
-/obj/machinery/door/airlock/glass_command{
+/obj/structure/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "";
 	name = "Bridge Officer Preparation";
@@ -2101,7 +2101,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/landmark/force_spawnpoint,
@@ -2145,7 +2145,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Vy" = (
-/obj/machinery/power/smes/magical,
+/obj/structure/machinery/power/smes/magical,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -2194,7 +2194,7 @@
 /area/scc_event_shuttle)
 "WN" = (
 /obj/effect/floor_decal/industrial/outline/medical,
-/obj/machinery/chemical_dispenser/full{
+/obj/structure/machinery/chemical_dispenser/full{
 	dir = 1;
 	anchored = 0
 	},
@@ -2215,20 +2215,20 @@
 /area/scc_event_shuttle)
 "Xq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = -32
 	},
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "Yd" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "shuttle_blast_doors"
 	},
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "Yg" = (
 /obj/effect/floor_decal/industrial/outline_straight/service,
-/obj/machinery/light/floor{
+/obj/structure/machinery/light/floor{
 	dir = 4;
 	pixel_y = 16
 	},
@@ -2236,7 +2236,7 @@
 /area/scc_event_shuttle)
 "Yl" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/vending/dinnerware{
+/obj/structure/machinery/vending/dinnerware{
 	anchored = 0
 	},
 /turf/simulated/floor/tiled,
@@ -2270,7 +2270,7 @@
 	pixel_x = 8
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,

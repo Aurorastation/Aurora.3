@@ -33,14 +33,15 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofukabob
 
-/singleton/recipe/hengsharolls
+/singleton/recipe/readerolls
 	fruit = list("cabbage" = 1, "corn" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/mashedpotato,
-		/obj/item/reagent_containers/food/snacks/tofu
+		/obj/item/reagent_containers/food/snacks/crabmeat
 		)
+	reagents = list(/singleton/reagent/drink/limejuice = 2)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/hengsharolls
+	result = /obj/item/reagent_containers/food/snacks/readerolls
 
 // Salads
 

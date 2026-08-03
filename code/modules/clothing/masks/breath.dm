@@ -43,3 +43,15 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_SKRELL)
 	adjustable = FALSE
+
+/obj/item/clothing/mask/breath/reade
+	name = "readic breath mask"
+	desc = "A personalised breath mask, with design features commonly seen from Reade. It is designed to be both practical and stylish."
+	icon = 'icons/obj/item/clothing/mask/breath/human/biesel/reade_breath_mask.dmi'
+	icon_state = "reademask"
+	item_state = "reademask"
+	worn_overlay = "airtube"
+	contained_sprite = TRUE
+	has_accents = TRUE
+	build_from_parts = TRUE
+

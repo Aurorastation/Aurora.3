@@ -14,7 +14,7 @@
 	color = LIGHT_COLOR_ORANGE
 	tgui_id = "PenalMechs"
 
-	var/obj/machinery/camera/current_camera
+	var/obj/structure/machinery/camera/current_camera
 
 /datum/computer_file/program/penal_mechs/ui_data(mob/user)
 	var/list/data = list()
@@ -40,7 +40,7 @@
 			var/turf/mech_turf = get_turf(M)
 			mechData["location"] = "[mech_turf.x], [mech_turf.y], [mech_turf.z]"
 
-			mechData["camera_status"] = M.camera.status
+			mechData["camera_status"] = M.camera.can_use()
 			mechData["lockdown"] = M.lockdown
 			mechs += list(mechData)
 
@@ -60,8 +60,8 @@
 
 			robots += list(robotData)
 
-	data["mechs"] = sortByKey(mechs, "pilot")
-	data["robots"] = sortByKey(robots, "pilot")
+	data["mechs"] = sortByKeyText(mechs, "pilot")
+	data["robots"] = sortByKeyText(robots, "pilot")
 
 	data["current_cam_loc"] = current_camera ? "[REF(current_camera.loc)]" : null
 
@@ -82,7 +82,7 @@
 				var/mob/living/heavy_vehicle/M = locate(params["track_mech"]) in GLOB.mob_list
 				if(!istype(M))
 					return FALSE
-				var/obj/machinery/camera/C = M.camera
+				var/obj/structure/machinery/camera/C = M.camera
 				if(C)
 					switch_to_camera(usr, C)
 			return TRUE
@@ -109,7 +109,7 @@
 				to_chat(M, SPAN_WARNING("Remote Penal Monitoring: [message]"))
 				return TRUE
 
-/datum/computer_file/program/penal_mechs/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/datum/computer_file/program/penal_mechs/proc/switch_to_camera(var/mob/user, var/obj/structure/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -121,17 +121,26 @@
 		A.client.eye = A.eyeobj
 		return TRUE
 
-	if(!is_contact_area(get_area(C)))
+	if(!can_reach_camera(C))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 
 	set_current(C)
 	user.machine = ui_host()
 	user.reset_view(current_camera)
-	check_eye(user)
 	return TRUE
 
-/datum/computer_file/program/penal_mechs/proc/set_current(var/obj/machinery/camera/C)
+/datum/computer_file/program/penal_mechs/proc/can_reach_camera(var/obj/structure/machinery/camera/C)
+	if(!C?.can_use())
+		return FALSE
+
+	var/turf/camera_turf = get_turf(C)
+	if(!camera_turf || !computer?.network_card || !GLOB.ntnet_global)
+		return FALSE
+
+	return (camera_turf.z in GLOB.ntnet_global.get_reachable_z_levels(computer.network_card, requires_ntnet_feature))
+
+/datum/computer_file/program/penal_mechs/proc/set_current(var/obj/structure/machinery/camera/C)
 	if(current_camera == C)
 		return
 
@@ -150,11 +159,3 @@
 		if(istype(L))
 			L.tracking_cancelled()
 	current_camera = null
-
-/datum/computer_file/program/penal_mechs/check_eye(var/mob/user)
-	if(!current_camera)
-		return FALSE
-	var/viewflag = current_camera.check_eye(user)
-	if(viewflag < 0) //camera doesn't work
-		reset_current()
-	return viewflag

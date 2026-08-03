@@ -11,7 +11,7 @@
 	Pry off the sheath with a crowbar to expose the girder."
 
 /turf/simulated/wall/r_wall/Initialize(mapload)
-	. = ..(mapload, "plasteel","plasteel") //3strong
+	. = ..(mapload, MATERIAL_PLASTEEL,MATERIAL_PLASTEEL) //3strong
 
 /turf/simulated/wall/cult
 	icon_state = "cult"

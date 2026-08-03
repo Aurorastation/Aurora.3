@@ -123,13 +123,13 @@
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "U" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/mech_wreckage/powerloader,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "V" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)

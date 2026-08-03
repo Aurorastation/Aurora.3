@@ -1,6 +1,6 @@
 /datum/wires/smartfridge
 	proper_name = "SmartFridge"
-	holder_type = /obj/machinery/smartfridge
+	holder_type = /obj/structure/machinery/smartfridge
 
 /datum/wires/smartfridge/New()
 	wires = list(
@@ -19,13 +19,13 @@
 /datum/wires/smartfridge/interactable(mob/user)
 	if(!..())
 		return FALSE
-	var/obj/machinery/smartfridge/S = holder
+	var/obj/structure/machinery/smartfridge/S = holder
 	if(S.panel_open)
 		return TRUE
 	return FALSE
 
 /datum/wires/smartfridge/get_status()
-	var/obj/machinery/smartfridge/S = holder
+	var/obj/structure/machinery/smartfridge/S = holder
 	. += ..()
 	. += "The orange light is [S.seconds_electrified ? "off" : "on"]."
 	. += "The red light is [S.shoot_inventory ? "off" : "blinking"]."
@@ -34,7 +34,7 @@
 	. += "The blue light is [S.heating ? "on" : "off"]."
 
 /datum/wires/smartfridge/on_pulse(wire, user)
-	var/obj/machinery/smartfridge/S = holder
+	var/obj/structure/machinery/smartfridge/S = holder
 	switch(wire)
 		if(WIRE_THROW)
 			S.shoot_inventory = !S.shoot_inventory
@@ -52,7 +52,7 @@
 			S.cooling = FALSE
 
 /datum/wires/smartfridge/on_cut(wire, mend, source)
-	var/obj/machinery/smartfridge/S = holder
+	var/obj/structure/machinery/smartfridge/S = holder
 	switch(wire)
 		if(WIRE_THROW)
 			S.shoot_inventory = !mend

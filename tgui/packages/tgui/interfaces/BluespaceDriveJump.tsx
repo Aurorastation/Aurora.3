@@ -1,14 +1,15 @@
-import { useBackend } from '../backend';
 import {
   Button,
+  Box,
   Knob,
   LabeledControls,
-  Section,
   LabeledList,
   NoticeBox,
-} from '../components';
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type BluespaceDriveJumpData = {
   charge: BooleanLike;
@@ -19,10 +20,10 @@ export type BluespaceDriveJumpData = {
   primed: BooleanLike;
 };
 
-export const BluespaceDriveJump = (props, context) => {
-  const { act, data } = useBackend<BluespaceDriveJumpData>(context);
+export const BluespaceDriveJump = (props) => {
+  const { act, data } = useBackend<BluespaceDriveJumpData>();
   return (
-    <Window width="382" height="277" theme="nanotrasen">
+    <Window width={382} height={277} theme="nanotrasen">
       <Window.Content>
         <Section title="Jump Computer">
           {!data.primed ? (
@@ -40,24 +41,22 @@ export const BluespaceDriveJump = (props, context) => {
             ''
           )}
           <LabeledControls>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="">
+              <Box>
+                Rotation: {data.rotation.toString() + '°'}
+              </Box>
               <Knob
-                name="Rotation"
-                animated
+                size={1.2}
                 value={data.rotation}
                 unit="°"
                 minValue={0}
                 maxValue={359}
-                disabled={!data.charge}
-                onChange={(e, value) =>
-                  act('set_rotation', { rotation: value })
-                }
+                onChange={(_, value) => act('set_rotation', { rotation: value })}
               />
             </LabeledControls.Item>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="">
               <Button
-                name="Jump"
-                content="Jump"
+                content="Engage Drive"
                 color="green"
                 disabled={!data.charge || data.jumping || !data.primed}
                 onClick={() => act('jump')}

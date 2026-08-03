@@ -53,9 +53,6 @@ default behaviour is:
 			return TRUE
 		return FALSE
 
-/mob/living
-	var/tmp/last_push_notif
-
 /mob/living/Collide(atom/movable/target_movable_atom)
 	if(now_pushing || !loc)
 		return
@@ -423,7 +420,7 @@ default behaviour is:
 	src.updatehealth()
 
 // damage ONE external organ, organ gets randomly selected from damaged ones.
-/mob/living/proc/take_organ_damage(var/brute, var/burn, var/emp=0)
+/mob/living/proc/take_organ_damage(var/brute, var/burn, var/emp=0, var/used_weapon = null, var/damage_flags, var/silent)
 	if(status_flags & GODMODE)	return 0	//godmode
 	adjustBruteLoss(brute)
 	adjustFireLoss(burn)
@@ -560,8 +557,8 @@ default behaviour is:
 	if(repair_brain && should_have_organ(BP_BRAIN))
 		repair_brain = FALSE
 		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
-		if(brain.damage > (brain.max_damage/2))
-			brain.damage = (brain.max_damage/2)
+		if(brain.get_damage() > (brain.max_damage/2))
+			brain.set_damage(brain.max_damage/2)
 		if(brain.status & ORGAN_DEAD)
 			brain.status &= ~ORGAN_DEAD
 			START_PROCESSING(SSprocessing, brain)
@@ -745,10 +742,6 @@ default behaviour is:
 		to_chat(src, SPAN_NOTICE("You can't move..."))
 		return
 	var/resisting = 0
-	for(var/obj/O in requests)
-		requests.Remove(O)
-		qdel(O)
-		resisting++
 	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
@@ -924,21 +917,25 @@ default behaviour is:
 	register_init_signals()
 
 	AddElement(/datum/element/connect_loc, loc_connections)
+	load_footstep_component()
+	if(footstep_sound)
+		SEND_SIGNAL(src, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, footstep_sound)
 
 /mob/living/Destroy()
+	cameraFollow = null
+	if(camera_view_cancel_action)
+		camera_view_cancel_action.Remove(src)
+		QDEL_NULL(camera_view_cancel_action)
+	if (length(actions))
+		for (var/datum/action/action in actions)
+			action.Remove(src)
+			actions -= action
 
-	//Aiming overlay
-	QDEL_NULL(aiming)
-	QDEL_LIST(aimed_at_by)
-
-	//Psi complexus
+	QDEL_NULL(stamina_bar)
+	QDEL_LIST(auras)
 	QDEL_NULL(psi)
-
-	if(vr_mob)
-		vr_mob = null
-	if(old_mob)
-		old_mob = null
-
+	QDEL_NULL(aiming)
+	aimed_at_by?.Cut()
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
@@ -947,12 +944,11 @@ default behaviour is:
 		for(var/mob/M in contents)
 			qdel(M)
 
-	QDEL_NULL(reagents)
-
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-
+	prepared_maneuver = null
+	available_maneuvers?.Cut()
+	default_language = null
+	QDEL_NULL(z_eye)
+	last_weather = null
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
@@ -1085,3 +1081,12 @@ default behaviour is:
 		set_density(FALSE)
 	else
 		set_density(TRUE)
+
+/**
+ * Used to override if a mob should have footsteps or not.
+ */
+/mob/living/proc/load_footstep_component()
+	if(anchored)
+		return
+
+	LoadComponent(footstep_component_type)

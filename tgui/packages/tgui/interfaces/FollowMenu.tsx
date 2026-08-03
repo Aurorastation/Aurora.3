@@ -1,7 +1,8 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Collapsible, Section, Stack } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Collapsible, Input, Section } from '../components';
 import { Window } from '../layouts';
+import { SearchBar } from './common/SearchBar';
 
 export type FollowData = {
   ghosts: Ghost[];
@@ -16,41 +17,38 @@ type Ghost = {
   special_character: number; // 0 (non-antag), 1 (special role) or 2 (antag)
 };
 
-export const FollowMenu = (props, context) => {
-  const { act, data } = useBackend<FollowData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const FollowMenu = (props) => {
+  const { act, data } = useBackend<FollowData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Follow Menu"
           buttons={
-            <>
-              <Input
-                autoFocus
-                autoSelect
-                placeholder="Search by name"
-                width="40vw"
-                maxLength={512}
-                onInput={(e, value) => {
-                  setSearchTerm(value);
-                }}
-                value={searchTerm}
-              />
-              <Button content="Refresh" onClick={() => act('refresh')} />
-            </>
+            <Stack align="center">
+              <Stack.Item>
+                <SearchBar
+                  autoFocus
+                  placeholder="Search by name"
+                  query={searchTerm}
+                  onSearch={(value) => {
+                    setSearchTerm(value);
+                  }}
+                  style={{ width: '18rem' }}
+                />
+              </Stack.Item>
+              <Stack.Item>
+                <Button content="Refresh" onClick={() => act('refresh')} />
+              </Stack.Item>
+            </Stack>
           }
         >
           {data.categories.sort().map((category) => (
             <Section title="" key={category}>
-              <Collapsible open={1} title={category}>
-                {data.ghosts &&
-                  data.ghosts.length &&
+              <Collapsible open={true} title={category}>
+                {data.ghosts?.length &&
                   data.ghosts
                     .filter(
                       (ghost) =>

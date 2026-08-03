@@ -97,8 +97,6 @@ GLOBAL_DATUM(debugobj, /datum/debug)
 
 GLOBAL_DATUM_INIT(mods, /datum/moduletypes, new())
 
-GLOBAL_VAR_INIT(gravity_is_on, 1)
-
 GLOBAL_LIST_EMPTY(awaydestinations) // Away missions. A list of landmarks that the warpgate can take you to.
 
 // For FTP requests. (i.e. downloading runtime logs.)
@@ -110,10 +108,6 @@ GLOBAL_VAR(custom_event_msg)
 // Ideally, the connection dies when the server restarts (After feedback logging.).
 GLOBAL_DATUM(dbcon, /DBConnection)
 GLOBAL_PROTECT(dbcon)
-
-// Persistence subsystem object track register - List of all persistent objects tracked by the subsystem.
-GLOBAL_LIST_EMPTY(persistence_object_track_register)
-GLOBAL_PROTECT(persistence_object_track_register)
 
 // Added for Xenoarchaeology, might be useful for other stuff.
 GLOBAL_LIST_INIT(alphabet_uppercase, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))
@@ -136,12 +130,6 @@ GLOBAL_LIST_INIT(scarySounds, list(
 	'sound/weapons/thudswoosh.ogg',
 	'sound/weapons/Taser.ogg',
 	'sound/weapons/armbomb.ogg',
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg',
-	'sound/voice/hiss5.ogg',
-	'sound/voice/hiss6.ogg',
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg',

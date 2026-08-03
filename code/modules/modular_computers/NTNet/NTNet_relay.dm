@@ -1,6 +1,5 @@
-// Relays don't handle any actual communication. Global NTNet datum does that, relays only tell the datum if it should or shouldn't work.
-/obj/machinery/ntnet_relay
-	name = "NTNet Quantum Relay"
+/obj/structure/machinery/ntnet_relay
+	name = "NTNet Bluespace Relay"
 	desc = "A very complex router and transmitter capable of connecting electronic devices together. Looks fragile."
 	use_power = POWER_USE_ACTIVE
 	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
@@ -9,23 +8,35 @@
 	icon = 'icons/obj/machinery/telecomms.dmi'
 	anchored = TRUE
 	density = TRUE
-	var/datum/ntnet/NTNet			// This is mostly for backwards reference and to allow varedit modifications from ingame.
-	var/enabled = TRUE				// Set to FALSE if the relay was turned off
-	var/dos_failure = FALSE			// Set to TRUE if the relay failed due to (D)DoS attack
-	var/list/dos_sources = list()	// Backwards reference for qdel() stuff
+	/// This is mostly for backwards reference and to allow varedit modifications from ingame.
+	var/datum/ntnet/NTNet
+	/// Set to FALSE if the relay was turned off
+	var/enabled = TRUE
+	/// Set to TRUE if the relay failed due to (D)DoS attack
+	var/dos_failure = FALSE
+	/// Backwards reference for qdel() stuff
+	var/list/dos_sources = list()
+	/// Core relays are the NTNet source of truth. Field relays only extend a live core.
+	var/core_service = TRUE
+	/// Overmap tile range from this relay's sector to an operable core.
+	var/backhaul_range = 0
 
 	// Denial of Service attack variables
-	var/dos_overload = 0		// Amount of DoS "packets" in this relay's buffer
-	var/dos_capacity = 500		// Amount of DoS "packets" in buffer required to crash the relay
-	var/dos_dissipate = 1		// Amount of DoS "packets" dissipated over time.
-
+	/// Amount of DoS "packets" in this relay's buffer
+	var/dos_overload = 0
+	/// Amount of DoS "packets" in buffer required to crash the relay
+	var/dos_capacity = 500
+	/// Amount of DoS "packets" dissipated over time.
+	var/dos_dissipate = 1
 	component_types = list(
-		/obj/item/stack/cable_coil{amount = 15},
-		/obj/item/circuitboard/ntnet_relay
+		/obj/item/circuitboard/ntnet_relay,
+		/obj/item/stack/cable_coil = 15,
+		/obj/item/stock_parts/micro_laser/high = 2,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/crystal
 	)
 
-// TODO: Implement more logic here. For now it's only a placeholder.
-/obj/machinery/ntnet_relay/operable()
+/obj/structure/machinery/ntnet_relay/operable()
 	if(!..(EMPED))
 		return FALSE
 	if(dos_failure)
@@ -34,7 +45,91 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/ntnet_relay/update_icon()
+/obj/structure/machinery/ntnet_relay/proc/provides_core_service()
+	return core_service && operable() && is_valid_core_location()
+
+/obj/structure/machinery/ntnet_relay/proc/ensure_linked()
+	if(!SSatlas.current_map.use_overmap)
+		return linked
+	if(istype(linked) && (z in linked.map_z))
+		return linked
+	linked = null
+	return sync_linked()
+
+/obj/structure/machinery/ntnet_relay/proc/is_valid_core_location()
+	if(!SSatlas.current_map.use_overmap)
+		return TRUE
+	var/obj/effect/overmap/visitable/sector = ensure_linked()
+	if(istype(sector))
+		return sector.base
+	var/obj/effect/overmap/visitable/known_sector = GLOB.map_sectors["[z]"]
+	if(istype(known_sector))
+		return FALSE
+	return is_station_level(z)
+
+/obj/structure/machinery/ntnet_relay/proc/can_route_to_core()
+	if(!operable())
+		return FALSE
+	if(core_service)
+		return provides_core_service()
+	if(!GLOB.ntnet_global)
+		return FALSE
+	return !!get_backhaul_core()
+
+/obj/structure/machinery/ntnet_relay/proc/get_backhaul_core()
+	if(!GLOB.ntnet_global)
+		return
+	ensure_linked()
+	for(var/obj/structure/machinery/ntnet_relay/R in GLOB.ntnet_global.relays)
+		if(R == src || !R.provides_core_service())
+			continue
+		if(can_backhaul_to(R))
+			return R
+
+/obj/structure/machinery/ntnet_relay/proc/can_backhaul_to(var/obj/structure/machinery/ntnet_relay/core)
+	if(!istype(core) || !core.provides_core_service())
+		return FALSE
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/source_sector = ensure_linked()
+		var/obj/effect/overmap/visitable/core_sector = core.ensure_linked()
+		if(!istype(source_sector) || !istype(core_sector))
+			return FALSE
+		return get_dist(source_sector, core_sector) <= backhaul_range
+	return AreConnectedZLevels(z, core.z)
+
+/obj/structure/machinery/ntnet_relay/proc/get_covered_z_levels()
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector = ensure_linked()
+		if(istype(sector))
+			return sector.map_z.Copy()
+		return list()
+	return GetConnectedZlevels(z)
+
+/obj/structure/machinery/ntnet_relay/proc/covers_z(var/z_level)
+	if(!z_level || !can_route_to_core())
+		return FALSE
+	return z_level in get_covered_z_levels()
+
+/// 'For endpoint' signifies that sometimes we will abstract a device as being a modular computer when really all we care about is whether it is networked.
+/// This will likely need to be simplified in future.
+/obj/structure/machinery/ntnet_relay/proc/get_signal_for_endpoint(var/atom/endpoint, var/ethernet = FALSE, var/long_range = FALSE)
+	if(!istype(endpoint))
+		return 0
+	var/turf/T = get_turf(endpoint)
+	if(!istype(T) || !covers_z(T.z))
+		return 0
+	if(ethernet)
+		return 3
+	if(long_range)
+		return 2
+	return 1
+
+/obj/structure/machinery/ntnet_relay/proc/get_signal(var/obj/item/computer_hardware/network_card/card)
+	if(!istype(card) || !card.parent_computer)
+		return 0
+	return get_signal_for_endpoint(card.parent_computer, card.ethernet, card.long_range)
+
+/obj/structure/machinery/ntnet_relay/update_icon()
 	ClearOverlays()
 	if(operable())
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
@@ -48,7 +143,7 @@
 	if(panel_open)
 		AddOverlays("[icon_state]_panel")
 
-/obj/machinery/ntnet_relay/process()
+/obj/structure/machinery/ntnet_relay/process()
 	if(operable())
 		update_use_power(POWER_USE_ACTIVE)
 	else
@@ -61,30 +156,37 @@
 	if((dos_overload > dos_capacity) && !dos_failure)
 		dos_failure = TRUE
 		update_icon()
-		GLOB.ntnet_global.add_log("Quantum relay switched from normal operation mode to overload recovery mode.")
+		GLOB.ntnet_global.add_log("Bluespace relay switched from normal operation mode to overload recovery mode.")
 	// If the DoS buffer reaches 0 again, restart.
 	if((dos_overload == 0) && dos_failure)
 		dos_failure = FALSE
 		update_icon()
-		GLOB.ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
+		GLOB.ntnet_global.add_log("Bluespace relay switched from overload recovery mode to normal operation mode.")
 	..()
 
-/obj/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "NTNetRelay")
 		ui.open()
 
-/obj/machinery/ntnet_relay/ui_data(mob/user)
+/obj/structure/machinery/ntnet_relay/ui_data(mob/user)
+	var/obj/structure/machinery/ntnet_relay/backhaul_core = core_service ? null : get_backhaul_core()
+	var/backhaul_online = core_service ? can_route_to_core() : !!backhaul_core
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
 	data["dos_overload"] = dos_overload
 	data["dos_crashed"] = dos_failure
+	data["relay_class"] = core_service ? "Core" : "Field"
+	data["linked_sector"] = linked ? linked.name : "Unlinked"
+	data["backhaul_range"] = backhaul_range
+	data["backhaul_online"] = backhaul_online
+	data["backhaul_core"] = core_service ? "Self" : (backhaul_core?.linked ? backhaul_core.linked.name : "None")
 
 	return data
 
-/obj/machinery/ntnet_relay/ui_act(action, params)
+/obj/structure/machinery/ntnet_relay/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -92,18 +194,18 @@
 		dos_overload = FALSE
 		dos_failure = FALSE
 		update_icon()
-		GLOB.ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
+		GLOB.ntnet_global.add_log("Bluespace relay manually restarted from overload recovery mode to normal operation mode.")
 		. = TRUE
 	if(action=="toggle")
 		enabled = !enabled
-		GLOB.ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
+		GLOB.ntnet_global.add_log("Bluespace relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
 		. = TRUE
 
-/obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
+/obj/structure/machinery/ntnet_relay/attack_hand(var/mob/living/user)
 	ui_interact(user)
 
-/obj/machinery/ntnet_relay/Initialize()
+/obj/structure/machinery/ntnet_relay/Initialize()
 	. = ..()
 	uid = gl_uid
 	gl_uid++
@@ -113,15 +215,20 @@
 	if(GLOB.ntnet_global)
 		GLOB.ntnet_global.relays.Add(src)
 		NTNet = GLOB.ntnet_global
-		GLOB.ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
+		sync_linked()
+		GLOB.ntnet_global.add_log("New bluespace relay activated. Current amount of linked relays: [NTNet.relays.len]")
 
-/obj/machinery/ntnet_relay/Destroy()
+/obj/structure/machinery/ntnet_relay/LateInitialize()
+	. = ..()
+	sync_linked()
+
+/obj/structure/machinery/ntnet_relay/Destroy()
 	if(GLOB.ntnet_global)
 		GLOB.ntnet_global.relays.Remove(src)
-		GLOB.ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
+		GLOB.ntnet_global.add_log("Bluespace relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		panel_open = !panel_open
@@ -136,7 +243,22 @@
 
 		for(var/atom/movable/A in component_parts)
 			A.forceMove(get_turf(src))
-		new /obj/machinery/constructable_frame/machine_frame(get_turf(src))
+		new /obj/structure/machinery/constructable_frame/machine_frame(get_turf(src))
 		qdel(src)
 		return
 	..()
+
+/obj/structure/machinery/ntnet_relay/field
+	name = "NTNet Field Relay"
+	desc = "A deployable NTNet relay that extends local network coverage while it has short-range backhaul to an operational core relay."
+	active_power_usage = 5000
+	enabled = FALSE
+	core_service = FALSE
+	backhaul_range = 1
+	component_types = list(
+		/obj/item/circuitboard/ntnet_relay/field,
+		/obj/item/stack/cable_coil = 15,
+		/obj/item/stock_parts/micro_laser/high = 2,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/crystal
+	)

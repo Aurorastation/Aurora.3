@@ -16,15 +16,15 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 
 	var/static/list/ignored_atoms = typecacheof(list(
 		/obj/effect,
-		/obj/machinery/computer,
-		/obj/machinery/hologram,
-		/obj/machinery/atmospherics/pipe/tank,
-		/obj/machinery/atmospherics/unary,
-		/obj/machinery/embedded_controller,
-		/obj/machinery/airlock_sensor,
-		/obj/machinery/access_button,
-		/obj/machinery/shipsensors,
-		/obj/machinery/iff_beacon,
+		/obj/structure/machinery/computer,
+		/obj/structure/machinery/hologram,
+		/obj/structure/machinery/atmospherics/pipe/tank,
+		/obj/structure/machinery/atmospherics/unary,
+		/obj/structure/machinery/embedded_controller,
+		/obj/structure/machinery/airlock_sensor,
+		/obj/structure/machinery/access_button,
+		/obj/structure/machinery/shipsensors,
+		/obj/structure/machinery/iff_beacon,
 		/obj/structure/fuel_port,
 
 	))

@@ -30,6 +30,7 @@
 
 /obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
+	desc_extended = null
 	self_recharge = TRUE
 	use_external_power = TRUE
 	can_turret = FALSE
@@ -37,6 +38,7 @@
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
+	desc_extended = null
 	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
 	item_state = "nucgun"
@@ -139,6 +141,9 @@
 	can_switch_modes = TRUE
 	turret_sprite_set = "carbine"
 	turret_is_lethal = FALSE
+	turret_is_lethal = 0
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -219,6 +224,8 @@
 
 	projectile_type = /obj/projectile/beam/pistol/scc
 	origin_tech = list(TECH_COMBAT = 5, TECH_MAGNET = 4)
+	drop_sound = 'sound/items/drop/smg.ogg'
+	pickup_sound = 'sound/items/pickup/smg.ogg'
 
 	firemodes = list(
 		list(mode_name="single", can_autofire = FALSE, burst = 1),
@@ -245,6 +252,8 @@
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	modifystate = "sccpistolstun"
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
@@ -252,6 +261,7 @@
 		)
 
 ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
+	desc_extended = null
 	self_recharge = TRUE
 	fire_sound = 'sound/weapons/Laser2.ogg'
 	modifystate = null
@@ -273,6 +283,8 @@ ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	force = 11
 	projectile_type = /obj/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
@@ -290,6 +302,8 @@ ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	force = 16
 	projectile_type = /obj/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
+	drop_sound = 'sound/items/drop/smg.ogg'
+	pickup_sound = 'sound/items/pickup/smg.ogg'
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
@@ -346,6 +360,8 @@ ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
 	can_switch_modes = TRUE
 	projectile_type = /obj/projectile/energy/disruptorskrell
 	modifystate = "psipistolstun"
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/projectile/energy/disruptorskrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),

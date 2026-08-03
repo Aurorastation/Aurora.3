@@ -12,6 +12,8 @@ SUBSYSTEM_DEF(plants)
 	var/list/seeds = list()
 	/// Gene obfuscation for delicious trial and error goodness.
 	var/list/gene_tag_masks = list()
+	/// Reverse lookup for gene_tag_masks, keyed by real gene tag.
+	var/list/gene_masks_by_tag = list()
 	/// Stores images of growth, fruits and seeds.
 	var/list/plant_icon_cache = list()
 	/// List of all harvested product sprites.
@@ -83,6 +85,7 @@ SUBSYSTEM_DEF(plants)
 		used_masks += gene_mask
 		plant_traits -= gene_tag
 		gene_tag_masks[gene_mask] = gene_tag
+		gene_masks_by_tag[gene_tag] = gene_mask
 		plant_gene_datums[gene_mask] = G
 		gene_masked_list += (list(list("tag" = gene_tag, "mask" = gene_mask)))
 
@@ -93,6 +96,7 @@ SUBSYSTEM_DEF(plants)
 		src.product_descs = SSplants.product_descs
 		src.seeds = SSplants.seeds
 		src.gene_tag_masks = SSplants.gene_tag_masks
+		src.gene_masks_by_tag = SSplants.gene_masks_by_tag
 		src.plant_icon_cache = SSplants.plant_icon_cache
 		src.plant_sprites = SSplants.plant_sprites
 		src.plant_product_sprites = SSplants.plant_product_sprites
@@ -145,6 +149,9 @@ SUBSYSTEM_DEF(plants)
 		SET_SEED_TRAIT(seed, TRAIT_LOWKPA_TOLERANCE, 25)
 		SET_SEED_TRAIT(seed, TRAIT_HIGHKPA_TOLERANCE, 200)
 	return seed
+
+/datum/controller/subsystem/plants/proc/get_gene_mask(var/gene_tag)
+	return gene_masks_by_tag[gene_tag] || gene_tag
 
 /// Debug for testing seed genes.
 /client/proc/show_plant_genes()

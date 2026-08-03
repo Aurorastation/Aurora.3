@@ -1,4 +1,4 @@
-GLOBAL_LIST_EMPTY_TYPED(allfaxes, /obj/machinery/photocopier/faxmachine)
+GLOBAL_LIST_EMPTY_TYPED(allfaxes, /obj/structure/machinery/photocopier/faxmachine)
 
 ///cache for faxes that have been sent to the admins
 GLOBAL_LIST_EMPTY_TYPED(arrived_faxes, /obj/item)
@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY_TYPED(sent_faxes, /obj/item)
 GLOBAL_LIST_EMPTY(alldepartments)
 GLOBAL_LIST_EMPTY(admin_departments)
 
-/obj/machinery/photocopier/faxmachine
+/obj/structure/machinery/photocopier/faxmachine
 	name = "fax machine"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
@@ -38,20 +38,20 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	/// A list of PDAs to alert upon arrival of the fax.
 	var/list/obj/item/modular_computer/alert_pdas = list()
 
-/obj/machinery/photocopier/faxmachine/Initialize()
+/obj/structure/machinery/photocopier/faxmachine/Initialize()
 	. = ..()
 	GLOB.allfaxes += src
 	if( !(("[department]" in GLOB.alldepartments) || ("[department]" in GLOB.admin_departments)) )
 		GLOB.alldepartments |= department
 	destination = SSatlas.current_map.boss_name
 
-/obj/machinery/photocopier/faxmachine/Destroy()
+/obj/structure/machinery/photocopier/faxmachine/Destroy()
 	GLOB.allfaxes -= src
 	QDEL_NULL(identification)
 
 	. = ..()
 
-/obj/machinery/photocopier/faxmachine/ui_data(mob/user)
+/obj/structure/machinery/photocopier/faxmachine/ui_data(mob/user)
 	var/list/data = list()
 	data["destination"] = destination
 	data["bossname"] = SSatlas.current_map.boss_name
@@ -75,17 +75,17 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 	return data
 
-/obj/machinery/photocopier/faxmachine/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/photocopier/faxmachine/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
 		ui = new(user, src, "Fax", "Fax Machine", 400, 500)
 		ui.open()
 
-/obj/machinery/photocopier/faxmachine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/photocopier/faxmachine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	SStgui.update_uis(src)
 
-/obj/machinery/photocopier/faxmachine/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/photocopier/faxmachine/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -165,7 +165,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 			destination = params["select_destination"]
 			return TRUE
 
-/obj/machinery/photocopier/faxmachine/process()
+/obj/structure/machinery/photocopier/faxmachine/process()
 	.=..()
 	var/static/ui_update_delay = 0
 
@@ -175,14 +175,14 @@ GLOBAL_LIST_EMPTY(admin_departments)
 /*
  * Check if current id in machine is autenthicated
  */
-/obj/machinery/photocopier/faxmachine/proc/is_authenticated()
+/obj/structure/machinery/photocopier/faxmachine/proc/is_authenticated()
 	return identification ? check_access(identification) : FALSE
 
 /*
  * Set the send cooldown
  * 		cooldown: duration in ~1/10s
  */
-/obj/machinery/photocopier/faxmachine/proc/set_cooldown(var/cooldown)
+/obj/structure/machinery/photocopier/faxmachine/proc/set_cooldown(var/cooldown)
 	// Reset send time
 	sendtime = world.time
 
@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 /*
  * Get remaining cooldown duration in ~1/10s
  */
-/obj/machinery/photocopier/faxmachine/proc/get_remaining_cooldown()
+/obj/structure/machinery/photocopier/faxmachine/proc/get_remaining_cooldown()
 	var/remaining_time = (sendtime + sendcooldown) - world.time
 	if ((remaining_time < 0) || (sendcooldown == 0))
 		// Time is up, but Process() hasn't caught up, yet
@@ -205,14 +205,14 @@ GLOBAL_LIST_EMPTY(admin_departments)
  * 		destination: 		(string) from /allfaxes
  * 		display_message: 	(bool) 1=display info text, 0="silent mode"
  */
-/obj/machinery/photocopier/faxmachine/proc/sendfax(var/destination, var/display_message = 1)
+/obj/structure/machinery/photocopier/faxmachine/proc/sendfax(var/destination, var/display_message = 1)
 	if(stat & (BROKEN|NOPOWER))
 		return 0
 
 	use_power_oneoff(200)
 
 	var/success = 0
-	for(var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
+	for(var/obj/structure/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if( F.department == destination )
 			success = F.receivefax(copy_item)
 
@@ -227,7 +227,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 			visible_message("[src] beeps, \"Error transmitting message.\"")
 	return success
 
-/obj/machinery/photocopier/faxmachine/proc/receivefax(var/obj/item/incoming)
+/obj/structure/machinery/photocopier/faxmachine/proc/receivefax(var/obj/item/incoming)
 	if(stat & (BROKEN|NOPOWER))
 		return 0
 
@@ -252,7 +252,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 	return 1
 
-/obj/machinery/photocopier/faxmachine/proc/send_broadcast_fax()
+/obj/structure/machinery/photocopier/faxmachine/proc/send_broadcast_fax()
 	var success = 1
 	for (var/dest in (GLOB.alldepartments - department))
 		// Send to everyone except this department
@@ -268,7 +268,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 		visible_message("[src] beeps, \"Error transmitting messages.\"")
 		set_cooldown(normalfax_cooldown)
 
-/obj/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)
+/obj/structure/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -304,7 +304,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 		visible_message("[src] beeps, \"Message transmitted successfully.\"")
 
 
-/obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
+/obj/structure/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
 	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A href='byond://?_src_=holder;adminplayeropts=[REF(sender)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(sender)]'>VV</A>) (<A href='byond://?_src_=holder;subtlemessage=[REF(sender)]'>SM</A>) (<A href='byond://?_src_=holder;adminplayerobservejump=[REF(sender)]'>JMP</A>) (<A href='byond://?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='byond://?_src_=holder;[reply_type]=[REF(src)];faxMachine=[REF(src)]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='byond://?_src_=holder;AdminFaxView=[REF(sent)]'>view message</a>")
 
 	var/cciaa_present = 0
@@ -332,7 +332,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 	SSdiscord.send_to_cciaa(discord_msg)
 
-/obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
+/obj/structure/machinery/photocopier/faxmachine/proc/do_pda_alerts()
 	for(var/obj/item/modular_computer/pda in alert_pdas)
 		var/message = "New message has arrived!"
 		pda.get_notification(message, 1, "[department] [name]")

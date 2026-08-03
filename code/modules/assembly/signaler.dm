@@ -6,7 +6,7 @@
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 200)
+	matter = list(MATERIAL_STEEL = 1000, MATERIAL_GLASS = 200)
 	wires = WIRE_RECEIVE_ASSEMBLY | WIRE_PULSE_ASSEMBLY | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
 
 	secured = TRUE
@@ -15,7 +15,7 @@
 	var/frequency = 1457
 	var/delay = 0
 	var/airlock_wire
-	var/obj/machinery/machine
+	var/obj/structure/machinery/machine
 	var/datum/wires/connected
 	var/datum/radio_frequency/radio_connection
 	var/deadman = FALSE
@@ -72,8 +72,9 @@
 	switch(action)
 		if("freq")
 			var/new_frequency = text2num(params["freq"]) * 10
-			if(new_frequency < RADIO_LOW_FREQ || new_frequency > RADIO_HIGH_FREQ)
-				new_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
+			new_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
+			if(new_frequency > RADIO_HIGH_FREQ)
+				new_frequency = RADIO_HIGH_FREQ - 1
 			set_frequency(new_frequency)
 
 		if("code")

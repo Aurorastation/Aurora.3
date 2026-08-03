@@ -8,9 +8,10 @@
 	center_of_mass = list("x" = 13,"y" = 10)
 	throw_speed = 2
 	throw_range = 8
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	use_sound = 'sound/items/storage/briefcase.ogg'
+	drop_sound = 'sound/items/drop/medkit.ogg'
+	pickup_sound = 'sound/items/pickup/medkit.ogg'
+	use_sound = 'sound/items/storage/medkit.ogg'
+	rustle_sound = 'sound/items/rustle/medkit.ogg'
 	max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/firstaid/empty

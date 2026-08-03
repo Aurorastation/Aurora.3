@@ -54,7 +54,7 @@
 				user.visible_message(SPAN_WARNING("[user] disintegrates \the [W]!"), SPAN_WARNING("You disintegrate \the [W]!"))
 				W.dismantle_wall(TRUE, FALSE, TRUE)
 		else if(isairlock(hit_atom))
-			var/obj/machinery/door/airlock/A = hit_atom
+			var/obj/structure/machinery/door/airlock/A = hit_atom
 			var/base_time = (round(A.maxhealth / 60)) SECONDS
 			user.visible_message(SPAN_WARNING("[user] lays [user.get_pronoun("his")] palms on \the [A] and begins discharging psionic energy on it..."),
 							SPAN_WARNING("You lay your palms on \the [A] and begin permeating psionic energy through its structure..."))

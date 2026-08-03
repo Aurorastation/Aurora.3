@@ -11,7 +11,7 @@
 /*
  * Library Computer
  */
-/obj/machinery/librarycomp
+/obj/structure/machinery/librarycomp
 	name = "library computer"
 	desc = "A computer."
 	icon = 'icons/obj/library.dmi'
@@ -42,24 +42,24 @@
 	var/archive_sort_field = "title"
 	var/archive_sort_dir = "asc"
 
-/obj/machinery/librarycomp/attack_hand(var/mob/user)
+/obj/structure/machinery/librarycomp/attack_hand(var/mob/user)
 	. = ..()
 	if(.)
 		return TRUE
 	ui_interact(user)
 
-/obj/machinery/librarycomp/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/librarycomp/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		var/title = is_public ? "[SSatlas.current_map.station_name] Library" : "[SSatlas.current_map.station_name] Library Management"
 		ui = new(user, src, "LibraryComputer", title, 750, 600)
 		ui.open()
 
-/obj/machinery/librarycomp/ui_data(mob/user)
-	var/obj/machinery/libraryscanner/scanner = scanner_ref?.resolve()
+/obj/structure/machinery/librarycomp/ui_data(mob/user)
+	var/obj/structure/machinery/libraryscanner/scanner = scanner_ref?.resolve()
 	if(!scanner)
 		scanner_ref = null
-		for(var/obj/machinery/libraryscanner/nearby_scanner in range(9))
+		for(var/obj/structure/machinery/libraryscanner/nearby_scanner in range(9))
 			if(nearby_scanner.anchored)
 				scanner_ref = WEAKREF(nearby_scanner)
 				scanner = nearby_scanner
@@ -124,12 +124,12 @@
 
 	return data
 
-/obj/machinery/librarycomp/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/librarycomp/emag_act(var/remaining_charges, var/mob/user)
 	if(src.density && !src.emagged)
 		src.emagged = TRUE
 		return 1
 
-/obj/machinery/librarycomp/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/librarycomp/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/barcodescanner))
 		var/obj/item/barcodescanner/barcode_scanner = attacking_item
 		barcode_scanner.computer_ref = REF(src)
@@ -139,7 +139,7 @@
 	else
 		..()
 
-/obj/machinery/librarycomp/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/librarycomp/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -199,19 +199,19 @@
 				upload_category = new_category
 			. = TRUE
 		if("set_upload_author")
-			var/obj/machinery/libraryscanner/sc = get_scanner()
+			var/obj/structure/machinery/libraryscanner/sc = get_scanner()
 			if(sc?.cache)
 				sc.cache.author = sanitize(params["value"])
 			. = TRUE
 		if("clear_scanner_cache")
-			var/obj/machinery/libraryscanner/sc = get_scanner()
+			var/obj/structure/machinery/libraryscanner/sc = get_scanner()
 			if(sc)
 				sc.cache = null
 				SStgui.update_uis(sc)
 				last_uploaded_title = null
 			. = TRUE
 		if("upload_book")
-			var/obj/machinery/libraryscanner/sc = get_scanner()
+			var/obj/structure/machinery/libraryscanner/sc = get_scanner()
 			if(!is_public && sc?.anchored && sc.cache)
 				if(sc.cache.unique)
 					to_chat(usr, SPAN_WARNING("This book has been rejected from the database."))
@@ -288,22 +288,22 @@
 			printout.name = "paper- 'Active Checkouts'"
 			. = TRUE
 
-/obj/machinery/librarycomp/proc/end_bible_cooldown()
+/obj/structure/machinery/librarycomp/proc/end_bible_cooldown()
 	bible_on_cooldown = FALSE
 	SStgui.update_uis(src)
 
-/obj/machinery/librarycomp/proc/get_scanner()
-	var/obj/machinery/libraryscanner/scanner = scanner_ref?.resolve()
+/obj/structure/machinery/librarycomp/proc/get_scanner()
+	var/obj/structure/machinery/libraryscanner/scanner = scanner_ref?.resolve()
 	if(!scanner)
 		scanner_ref = null
-		for(var/obj/machinery/libraryscanner/nearby_scanner in range(9))
+		for(var/obj/structure/machinery/libraryscanner/nearby_scanner in range(9))
 			if(nearby_scanner.anchored)
 				scanner_ref = WEAKREF(nearby_scanner)
 				return nearby_scanner
 		return null
 	return scanner
 
-/obj/machinery/librarycomp/proc/async_fetch_archive()
+/obj/structure/machinery/librarycomp/proc/async_fetch_archive()
 	archive_loading = TRUE
 	archive_error = FALSE
 	archive_total = 0
@@ -373,8 +373,8 @@
 	archive_loading = FALSE
 	SStgui.update_uis(src)
 
-/obj/machinery/librarycomp/proc/async_upload_book(mob/uploader)
-	var/obj/machinery/libraryscanner/scanner = get_scanner()
+/obj/structure/machinery/librarycomp/proc/async_upload_book(mob/uploader)
+	var/obj/structure/machinery/libraryscanner/scanner = get_scanner()
 	var/obj/item/book/book = scanner?.cache
 	if(!book)
 		return
@@ -398,7 +398,7 @@
 	last_uploaded_title = book.name
 	SStgui.update_uis(src)
 
-/obj/machinery/librarycomp/proc/async_order_book(var/book_id)
+/obj/structure/machinery/librarycomp/proc/async_order_book(var/book_id)
 	bible_on_cooldown = TRUE
 	addtimer(CALLBACK(src, PROC_REF(end_bible_cooldown)), 6 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 	SStgui.update_uis(src)
@@ -420,6 +420,6 @@
 	src.visible_message("\The [src]'s printer hums as it produces a book.")
 
 // Public Related Code
-/obj/machinery/librarycomp/public
+/obj/structure/machinery/librarycomp/public
 	name = "public library computer"
 	is_public = TRUE

@@ -77,7 +77,7 @@
 	designation = "[pick("Rock Breaker", "Mining Zhan", "Flying Pickaxe", "Asteroid's Worst Nightmare", "Twin Suns Drills", "Minharrzka's Blessing", "Driller", "Stardust", "Dhrarmela's Smelter")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/tajara_mining_jack
+/obj/structure/machinery/computer/shuttle_control/explore/tajara_mining_jack
 	name = "shuttle control console"
 	shuttle_tag = "Mining Jack"
 

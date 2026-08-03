@@ -71,6 +71,22 @@
 		"Service Personnel" = /obj/outfit/job/bartender/idris
 	)
 
+/datum/faction/idris_incorporated/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Recruit economically disadvantaged crew to inform on inter-megacorporate conflict aboard the [station_name()]",
+						"Identify crew members with severe financial difficulties and refer them to Idris Incorporated's financial aide services")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Renew an Idris Incorporated employee's Non-Disclosure Agreement concerning all internal Idris operations",
+						"Have an Idris Incorporated sign a contract extension in exchange for discounted Le Soleil Royal purchases",
+						"Ensure owned Idris Incorporated synthetics are maintaining brand standards")
+		else
+			return pick("Conduct a survey on Idris Incorporated employee morale",
+						"Evaluate the cost of Idris Incorporated operations aboard the [station_name()] against the completion of SCC and/or Idris agenda goals",
+						"Evaluate crew opinions on Le Soleil Royal products",
+						"Identify and resolve a complaint of an Idris Incorporated employee")
+
+
 /obj/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 

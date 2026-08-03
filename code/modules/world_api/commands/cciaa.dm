@@ -6,7 +6,7 @@
 /datum/topic_command/get_faxmachines/run_command(queryparams)
 	var/list/faxlocations = list()
 
-	for (var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
+	for (var/obj/structure/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		faxlocations.Add(F.department)
 
 	statuscode = 200
@@ -207,7 +207,7 @@
 	var/notifyresult = 1
 
 	//Send the fax
-	for (var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
+	for (var/obj/structure/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if (F.department in targetlist)
 			sendresult = send_fax(F, faxtitle, faxbody, senderkey, stamptext)
 			if (sendresult == 1)
@@ -235,7 +235,7 @@
 	data = responselist
 	return TRUE
 
-/datum/topic_command/send_fax/proc/send_fax(var/obj/machinery/photocopier/faxmachine/F, title, body, senderkey, stamptext)
+/datum/topic_command/send_fax/proc/send_fax(var/obj/structure/machinery/photocopier/faxmachine/F, title, body, senderkey, stamptext)
 	// Create the reply message
 	var/obj/item/paper/P = new /obj/item/paper( null ) //hopefully the null loc won't cause trouble for us
 	P.name = "[SSatlas.current_map.boss_name] - [title]"
@@ -252,7 +252,7 @@
 	if(stamptext)
 		P.stamps += "<HR><i>This paper has been stamped [stamptext].</i>"
 	else
-		P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
+		P.stamps += "<HR><i>This paper has been stamped by the Central Command Bluespace Relay.</i>"
 
 	if(F.receivefax(P))
 		log_and_message_admins("[senderkey] sent a fax message to the [F.department] fax machine via the api. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[F.x];Y=[F.y];Z=[F.z]'>JMP</a>)")

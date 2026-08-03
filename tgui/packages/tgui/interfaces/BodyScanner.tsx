@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -8,7 +6,9 @@ import {
   LabeledList,
   Section,
   Table,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type ScannerData = {
@@ -77,11 +77,11 @@ type InternalOrgan = {
   infection: string;
 };
 
-export const BodyScanner = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const BodyScanner = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
-    <Window resizable theme="zenghu">
+    <Window theme="zenghu">
       <Window.Content scrollable>
         {data.invalid ? <InvalidWindow /> : <ScannerWindow />}
       </Window.Content>
@@ -89,8 +89,8 @@ export const BodyScanner = (props, context) => {
   );
 };
 
-export const InvalidWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const InvalidWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -99,7 +99,7 @@ export const InvalidWindow = (props, context) => {
           <Section>
             <BlockQuote>
               {data.nocons
-                ? 'No scanner bed detected.'
+                ? 'No scanner bed detected. TEST EDIT'
                 : !data.occupied
                   ? 'No occupant detected.'
                   : data.ipc
@@ -115,8 +115,8 @@ export const InvalidWindow = (props, context) => {
   );
 };
 
-export const ScannerWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const ScannerWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Flex fontSize="1.2rem" wrap="wrap">
@@ -291,7 +291,7 @@ export const ScannerWindow = (props, context) => {
               </LabeledList.Item>
               <LabeledList.Item label="Est. Paralysis Level">
                 {data.paralysis
-                  ? Math.round(data.paralysis / 4) + ' Seconds Left'
+                  ? `${Math.round(data.paralysis / 4)} Seconds Left`
                   : 'None'}
               </LabeledList.Item>
             </LabeledList>
@@ -378,8 +378,8 @@ export const ScannerWindow = (props, context) => {
   );
 };
 
-export const OrganWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const OrganWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -409,8 +409,8 @@ export const OrganWindow = (props, context) => {
   );
 };
 
-export const ExternalOrganWindow = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const ExternalOrganWindow = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <Table>
@@ -448,8 +448,8 @@ export const ExternalOrganWindow = (props, context) => {
   );
 };
 
-export const MissingOrgans = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const MissingOrgans = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <BlockQuote>
@@ -461,8 +461,8 @@ export const MissingOrgans = (props, context) => {
   );
 };
 
-export const MissingLimbs = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
+export const MissingLimbs = (props) => {
+  const { act, data } = useBackend<ScannerData>();
 
   return (
     <BlockQuote>

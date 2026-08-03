@@ -91,17 +91,6 @@
 	path = /obj/structure/closet/crate/secure/gear_loadout/kosmostrelki/single
 	telecrystal_cost = 10
 
-/datum/uplink_item/item/gear_loadout/legion
-	name = "Tau Ceti Foreign Legion Assets (Group)"
-	desc = "A crate containing gear for a group. The hardsuits are usable by all species except vaurcan bulwarks and breeders."
-	path = /obj/structure/closet/crate/secure/gear_loadout/legion
-
-/datum/uplink_item/item/gear_loadout/legion_single
-	name = "Tau Ceti Foreign Legion Assets (Single)"
-	desc = "A crate containing gear for a single individual. The hardsuit is usable by all species except vaurcan bulwarks and breeders."
-	path = /obj/structure/closet/crate/secure/gear_loadout/legion/single
-	telecrystal_cost = 10
-
 /datum/uplink_item/item/gear_loadout/einstein
 	name = "Einstein Engines Assets (Group)"
 	desc = "A crate containing gear for a group. The voidsuits and hardsuit are only usable by humans."
@@ -246,4 +235,16 @@
 	name = "Outer Eyes (Single)"
 	desc = "A crate containing gear for a single individual. Humans only, for now."
 	path = /obj/structure/closet/crate/secure/gear_loadout/outereyes/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/zavodskoi
+	name = "Zavodskoi Assets (Group)"
+	desc = "A crate containing gear for a group. The hardsuit and voidsuits are only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/zavodskoi
+	telecrystal_cost = 35
+
+/datum/uplink_item/item/gear_loadout/zavodskoi_single
+	name = "Zavodskoi Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/zavodskoi/single
 	telecrystal_cost = 10

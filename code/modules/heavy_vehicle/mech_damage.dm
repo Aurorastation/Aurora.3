@@ -90,6 +90,9 @@
 			adjustFireLoss(damage, target)
 
 	if((damagetype == DAMAGE_BRUTE || damagetype == DAMAGE_BURN) && prob(25+(damage*2)))
+		if(prob(damage))
+			playsound(src, 'sound/mecha/internaldmgalarm.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
+			playsound(src, 'sound/mecha/critdestrnano.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 		spark(src, 3)
 	updatehealth()
 

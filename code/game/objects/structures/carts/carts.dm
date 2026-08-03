@@ -6,7 +6,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	density = TRUE
 	climbable = TRUE
 	build_amt = 15
-	material = DEFAULT_WALL_MATERIAL
+	material = MATERIAL_STEEL
 	slowdown = 0
 	atom_flags = CRITICAL_ATOM
 	var/movesound = 'sound/effects/roll.ogg'
@@ -78,12 +78,13 @@ ABSTRACT_TYPE(/obj/structure/cart)
 
 /obj/structure/cart/Move()
 	. = ..()
-	if(pulling && (get_dist(src, pulling) > 1))
-		pulling.pulledby = null
-		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
-		pulling = null
-	if(has_gravity())
-		playsound(src, movesound, 10, TRUE)
+	if(.)
+		if(pulling && (get_dist(src, pulling) > 1))
+			pulling.pulledby = null
+			to_chat(pulling, SPAN_WARNING("You lost your grip!"))
+			pulling = null
+		if(has_gravity())
+			playsound(src, movesound, 10, TRUE)
 
 /obj/structure/cart/CtrlClick(var/mob/user)
 	if(in_range(src, user))

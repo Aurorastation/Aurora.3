@@ -321,7 +321,7 @@
 
 	if(GET_SEED_TRAIT(seed, TRAIT_SPREAD) > 0)
 		to_chat(user, SPAN_NOTICE("You plant the [src.name]."))
-		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(user),src.seed)
+		new /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(user),src.seed)
 		qdel(src)
 		return
 

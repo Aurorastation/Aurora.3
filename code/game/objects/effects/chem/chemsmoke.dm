@@ -153,13 +153,11 @@
 		var/mobnames = ""
 		if (touched_mobs.len > 1)
 			mobnames += "Affected players: "
-			var/i = 1
-			do
+			var/num_players = length(touched_mobs)
+			for (var/i = 1, i <= num_players, i++)
 				mobnames += "<A href='byond://?_src_=holder;adminmoreinfo=[REF(touched_mobs[i])]'>?</a>"
-				if (touched_mobs[i+1])
+				if (i < num_players)
 					mobnames += ", "
-				i++
-			while (touched_mobs[i])
 			mobnames += "."
 		else mobnames += "Affected player: [touched_mobs[1]]."
 		var/containing = ""
@@ -237,13 +235,13 @@
 		for(var/turf/T in targetTurfs)
 			var/bad_turf = 0
 			for(var/obj/O in T)
-				if(O.density || istype(O, /obj/machinery/portable_atmospherics/hydroponics))
+				if(O.density || istype(O, /obj/structure/machinery/portable_atmospherics/hydroponics))
 					bad_turf = 1
 					break
 			if(bad_turf)
 				continue
 			if(prob(min(GET_SEED_TRAIT(seed, TRAIT_POTENCY), 50)))
-				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
+				new /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
 				sporecount++
 			if(sporecount < max(1, round(GET_SEED_TRAIT(seed, TRAIT_POTENCY) / 20), 1))
 				break

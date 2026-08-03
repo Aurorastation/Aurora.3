@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/autochisel,										10,					400),
 	new /datum/data/mining_equipment(/obj/item/tank/jetpack,									10,					400),
 	new /datum/data/mining_equipment(/obj/item/mine_bot_upgrade,							10,					400),
-	new /datum/data/mining_equipment(/obj/machinery/mining/brace,								-1,					500,	1),
+	new /datum/data/mining_equipment(/obj/structure/machinery/mining/brace,								-1,					500,	1),
 	new /datum/data/mining_equipment(/obj/item/card/mining_point_card,							-1,					500),
 	new /datum/data/mining_equipment(/obj/item/storage/belt/mining,								10,					500),
 	new /datum/data/mining_equipment(/obj/item/warp_core,										25,					500),
@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/spaceflare,								5,					800),
 	new /datum/data/mining_equipment(/obj/item/lazarus_injector,								25,					1000),
 	new /datum/data/mining_equipment(/obj/item/storage/backpack/cell,							5,					1000),
-	new /datum/data/mining_equipment(/obj/machinery/mining/drill,								-1,					1000,	1),
+	new /datum/data/mining_equipment(/obj/structure/machinery/mining/drill,								-1,					1000,	1),
 	new /datum/data/mining_equipment(/obj/item/resonator/upgraded,								10,					1250),
 	new /datum/data/mining_equipment(/obj/item/pickaxe/diamond,									10,					1500),
 	new /datum/data/mining_equipment(/obj/item/gun/energy/vaurca/thermaldrill,					5,					1750),
@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/orbital_dropper/mecha/miner,				2,					3500)
 	))
 
-/obj/machinery/mineral/equipment_vendor
+/obj/structure/machinery/mineral/equipment_vendor
 	name = "mining equipment vendor"
 	desc = "An equipment vendor for miners, points collected at an ore redemption machine can be spent here."
 	icon = 'icons/obj/machinery/mining_machines.dmi'
@@ -90,35 +90,35 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 
 /obj/item/circuitboard/machine/mining_equipment_vendor
 	name = T_BOARD("Mining Equipment Vendor")
-	build_path = /obj/machinery/mineral/equipment_vendor
+	build_path = /obj/structure/machinery/mineral/equipment_vendor
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(	/obj/item/stock_parts/console_screen = 1,
 							/obj/item/stock_parts/matter_bin = 3)
 
-/obj/machinery/mineral/equipment_vendor/power_change()
+/obj/structure/machinery/mineral/equipment_vendor/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/mineral/equipment_vendor/update_icon()
+/obj/structure/machinery/mineral/equipment_vendor/update_icon()
 	if(powered())
 		icon_state = initial(icon_state)
 	else
 		icon_state = "[initial(icon_state)]-off"
 	return
 
-/obj/machinery/mineral/equipment_vendor/attack_hand(mob/user)
+/obj/structure/machinery/mineral/equipment_vendor/attack_hand(mob/user)
 	if(..())
 		return
 	ui_interact(user)
 
-/obj/machinery/mineral/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/mineral/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MiningVendor", "Mining Equipment Vendor", ui_x=500, ui_y=500)
 		ui.autoupdate = FALSE
 		ui.open()
 
-/obj/machinery/mineral/equipment_vendor/ui_data(mob/user)
+/obj/structure/machinery/mineral/equipment_vendor/ui_data(mob/user)
 	var/list/data = list()
 	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	data["prizeList"] = prize_list
 	return data
 
-/obj/machinery/mineral/equipment_vendor/ui_act(action, params)
+/obj/structure/machinery/mineral/equipment_vendor/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -148,19 +148,19 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 			if(prize.cost <= ID.mining_points)
 				if(prize.shuttle)
 					if(SScargo.order_mining(prize.equipment_path))
-						ID.mining_points -= prize.cost
+						ID.adjust_mining_points(-prize.cost)
 						to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
 					else
 						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 				else
-					ID.mining_points -= prize.cost
+					ID.adjust_mining_points(-prize.cost)
 					if(prize.amount != -1)
 						prize.amount--
 					new prize.equipment_path(get_turf(src))
 					intent_message(MACHINE_SOUND)
 		return TRUE
 
-/obj/machinery/mineral/equipment_vendor/attackby(obj/item/attacking_item, mob/user, params)
+/obj/structure/machinery/mineral/equipment_vendor/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/coin/mining))
 		var/list/equipment_choices = list(
 			"Kinetic Accelerator Kit" = /obj/item/storage/toolbox/ka,
@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 				user.put_in_hands(dispensed_equipment)
 		return
 	if(default_deconstruction_screwdriver(user, "mining-open", "mining", attacking_item))
-		updateUsrDialog()
+		SStgui.update_uis(src)
 		return
 	if(default_deconstruction_crowbar(attacking_item))
 		return

@@ -81,7 +81,7 @@
 	fore_dir = SOUTH
 	use_mapped_z_levels = TRUE
 
-/obj/machinery/computer/shuttle_control/explore/einstein_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Shuttle"
 	req_access = list(ACCESS_EE_SPY_SHIP)

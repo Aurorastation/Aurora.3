@@ -1,4 +1,4 @@
-/obj/machinery/food_cart
+/obj/structure/machinery/food_cart
 	name = "food cart"
 	desc = "A compact unpackable mobile cooking stand. Wow! When unpacked, it reminds you of those greasy gamer setups some people on NTNet have."
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
@@ -10,9 +10,9 @@
 	req_access = list(ACCESS_GALLEY)
 	var/unpacked = FALSE
 	/// When it's anchored and has all it's things outside
-	var/obj/machinery/appliance/cooker/grill/stand/cart_griddle
+	var/obj/structure/machinery/appliance/cooker/grill/stand/cart_griddle
 	/// Griddle inside of the foodcart
-	var/obj/machinery/smartfridge/foodheater/stand/cart_smartfridge
+	var/obj/structure/machinery/smartfridge/foodheater/stand/cart_smartfridge
 	/// Smartfridge inside of foodcart
 	var/obj/structure/table/reinforced/wood/cart_table
 	/// Table inside of foodcart
@@ -21,7 +21,7 @@
 	var/list/packed_things
 	/// Contains cart_griddle, cart_smartfridge, cart_table, cart_cent
 
-/obj/machinery/food_cart/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/food_cart/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(stat & BROKEN)
 		return
@@ -32,7 +32,7 @@
 	. += SPAN_NOTICE("The stand's [SPAN_BOLD("fridge")] seems fine.") //weirdly enough, these fridges don't break
 	. += SPAN_NOTICE("The stand's [SPAN_BOLD("table")] seems fine.")
 
-/obj/machinery/food_cart/Initialize(mapload)
+/obj/structure/machinery/food_cart/Initialize(mapload)
 	. = ..()
 	cart_griddle = new(src)
 	cart_smartfridge = new(src)
@@ -44,7 +44,7 @@
 	RegisterSignal(cart_table, COMSIG_QDELETING, PROC_REF(lost_part))
 	RegisterSignal(cart_tent, COMSIG_QDELETING, PROC_REF(lost_part))
 
-/obj/machinery/food_cart/Destroy()
+/obj/structure/machinery/food_cart/Destroy()
 	QDEL_NULL(cart_griddle)
 	QDEL_NULL(cart_smartfridge)
 	QDEL_NULL(cart_table)
@@ -55,7 +55,7 @@
 /**
  * Retract the structures into the food cart
  */
-/obj/machinery/food_cart/proc/pack_up()
+/obj/structure/machinery/food_cart/proc/pack_up()
 	if(!unpacked)
 		return
 	visible_message(SPAN_NOTICE("[src] retracts all of it's unpacked components."))
@@ -74,7 +74,7 @@
 /**
  * Deploy the structures inside the food cart
  */
-/obj/machinery/food_cart/proc/unpack(mob/user)
+/obj/structure/machinery/food_cart/proc/unpack(mob/user)
 	if(unpacked)
 		return
 	if(!check_setup_place())
@@ -96,7 +96,7 @@
 		iteration++
 	unpacked = TRUE
 
-/obj/machinery/food_cart/attack_hand(mob/living/user, list/modifiers)
+/obj/structure/machinery/food_cart/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(stat & BROKEN)
 		to_chat(user, SPAN_WARNING("[src] is completely busted."))
@@ -122,7 +122,7 @@
  *
  * Returns a boolean
  */
-/obj/machinery/food_cart/proc/check_setup_place()
+/obj/structure/machinery/food_cart/proc/check_setup_place()
 	var/has_space = TRUE
 	var/turf/grabbed_turf = get_step(get_turf(src), EAST)
 	for(var/angle in list(0, -45, 45))
@@ -137,7 +137,7 @@
 /**
  * Some part of the food cart went missing
  */
-/obj/machinery/food_cart/proc/lost_part(atom/movable/source, force)
+/obj/structure/machinery/food_cart/proc/lost_part(atom/movable/source, force)
 	SIGNAL_HANDLER
 
 	//okay, so it's deleting the fridge or griddle which are more important. We're gonna break the machine then
@@ -147,7 +147,7 @@
 	UnregisterSignal(cart_tent, list(COMSIG_QDELETING, COMSIG_MOVABLE_MOVED))
 	atom_break()
 
-/obj/machinery/food_cart/atom_break()
+/obj/structure/machinery/food_cart/atom_break()
 	. = ..()
 	pack_up()
 	if(!QDELETED(cart_griddle))

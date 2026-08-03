@@ -26,11 +26,13 @@
 	sel_mode = 1
 
 	projectile_type = /obj/projectile/beam/stun
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
 	modifystate = "eriflestun"
 
 	is_wieldable = TRUE
+	drop_sound = 'sound/items/drop/rifle.ogg'
+	pickup_sound = 'sound/items/pickup/rifle.ogg'
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="eriflestun", fire_sound='sound/weapons/Taser.ogg'),
