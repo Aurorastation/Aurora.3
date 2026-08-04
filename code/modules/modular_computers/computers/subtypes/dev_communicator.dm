@@ -149,33 +149,82 @@
 	communicator_tier = COMMUNICATOR_TIER_HOLOGRAPHIC
 	color = "#ffe2a8"
 
-/// Wall-mounted, APC-powered department phone with video support.
-/obj/item/modular_computer/handheld/communicator/landline
-	name = "department landline"
-	desc = "A wall-mounted department communicator with voice, text, and video-call support."
-	icon = 'icons/obj/machinery/wall/terminals.dmi'
-	icon_state = "intercom"
-	icon_state_unpowered = "intercom"
+/// Fixed cradle for a department landline. The handpiece holds the actual computer.
+/obj/structure/communicator_landline
+	name = "department landline cradle"
+	desc = "A table-mounted cradle for a tethered department communicator handpiece."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "communicator_landline"
 	anchored = TRUE
 	layer = ABOVE_WINDOW_LAYER
 	appearance_flags = TILE_BOUND
-	slot_flags = 0
-	w_class = WEIGHT_CLASS_BULKY
+	var/directory_name
+	var/handpiece_type = /obj/item/modular_computer/handheld/communicator/landline
+	/// The real communicator, stored in this cradle while on the hook.
+	var/obj/item/modular_computer/handheld/communicator/landline/handpiece
+
+/obj/structure/communicator_landline/Initialize()
+	. = ..()
+	directory_name ||= "[get_area_display_name(get_area(src))] Landline"
+	handpiece = new handpiece_type(src)
+	handpiece.landline_cradle = src
+	directory_name = handpiece.directory_name
+	name = directory_name
+	update_icon()
+
+/obj/structure/communicator_landline/Destroy()
+	QDEL_NULL(handpiece)
+	return ..()
+
+/obj/structure/communicator_landline/update_icon()
+	icon_state = handpiece?.loc == src ? "communicator_landline" : "communicator_landline_raised"
+
+/obj/structure/communicator_landline/attack_hand(mob/user)
+	if(!user)
+		return FALSE
+	if(handpiece?.loc == src)
+		return take_handpiece(user)
+	to_chat(user, SPAN_NOTICE("The handpiece is already off the hook."))
+	return TRUE
+
+/obj/structure/communicator_landline/proc/take_handpiece(mob/user)
+	if(!handpiece || handpiece.loc != src)
+		return FALSE
+	user.put_in_hands(handpiece)
+	handpiece.connect_cord()
+	update_icon()
+	return TRUE
+
+/obj/structure/communicator_landline/proc/return_handpiece(obj/item/modular_computer/handheld/communicator/landline/returning_handpiece)
+	if(returning_handpiece != handpiece)
+		return FALSE
+	returning_handpiece.disconnect_cord()
+	returning_handpiece.forceMove(src)
+	update_icon()
+	return TRUE
+
+/// Gray tether line used by a raised landline handpiece.
+/datum/beam/communicator_cord/afterDraw()
+	for(var/obj/effect/ebeam/segment as anything in elements)
+		segment.color = COLOR_GRAY40
+		segment.blend_mode = BLEND_DEFAULT
+
+/// The movable receiver is the communicator itself; the cradle is only a holder and cable anchor.
+/obj/item/modular_computer/handheld/communicator/landline
+	name = "landline handpiece"
+	desc = "A tethered department communicator handpiece."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "communicator_handpiece"
+	icon_state_unpowered = "communicator_handpiece"
+	w_class = WEIGHT_CLASS_SMALL
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	communicator_tier = COMMUNICATOR_TIER_VIDEO
 	var/obj/item/card/id/landline_identity
+	var/obj/structure/communicator_landline/landline_cradle
+	var/datum/beam/communicator_cord/cord
 
 /obj/item/modular_computer/handheld/communicator/landline/Initialize()
 	. = ..()
-	switch(dir)
-		if(NORTH)
-			pixel_y = 20
-		if(SOUTH)
-			pixel_y = -2
-		if(WEST)
-			pixel_x = -8
-		if(EAST)
-			pixel_x = 8
-
 	directory_name ||= "[get_area_display_name(get_area(src))] Landline"
 	landline_identity = new(src)
 	landline_identity.registered_name = directory_name
@@ -183,9 +232,13 @@
 	name = directory_name
 
 /obj/item/modular_computer/handheld/communicator/landline/Destroy()
-	. = ..()
+	disconnect_cord()
+	if(landline_cradle?.handpiece == src)
+		landline_cradle.handpiece = null
+		landline_cradle.update_icon()
+	landline_cradle = null
 	QDEL_NULL(landline_identity)
-	return .
+	return ..()
 
 /obj/item/modular_computer/handheld/communicator/landline/register_account(datum/computer_file/program/program, obj/item/card/id/id, quiet)
 	if(id != landline_identity)
@@ -196,23 +249,47 @@
 	return FALSE
 
 /obj/item/modular_computer/handheld/communicator/landline/update_icon()
-	icon_state = "intercom"
-	ClearOverlays()
-	if(!enabled || !working)
-		set_light(0)
-		return
+	icon_state = "communicator_handpiece"
+	return ..()
 
-	var/image/screen = image(icon, "intercom_screen")
-	var/datum/computer_file/program/communicator/communicator_app = get_communicator_program()
-	if(communicator_app?.active_call)
-		screen.color = COLOR_GREEN
-	else if(unread_notification || length(communicator_app?.comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]))
-		screen.color = COLOR_RED
-	else
-		screen.color = COLOR_CYAN
-	AddOverlays(screen)
-	AddOverlays(emissive_appearance(icon, "intercom_screen"))
-	set_light(1, 0.5, screen.color)
+/obj/item/modular_computer/handheld/communicator/landline/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	connect_cord()
+
+/obj/item/modular_computer/handheld/communicator/landline/dropped(mob/user)
+	. = ..()
+	landline_cradle?.return_handpiece(src)
+
+/obj/item/modular_computer/handheld/communicator/landline/proc/connect_cord()
+	if(!landline_cradle || !ismob(loc))
+		return
+	QDEL_NULL(cord)
+	cord = landline_cradle.Beam(src, time = -1, maxdistance = 8, beam_sleep_time = 1, beam_datum_type = /datum/beam/communicator_cord)
+
+/obj/item/modular_computer/handheld/communicator/landline/proc/disconnect_cord()
+	QDEL_NULL(cord)
+
+
+/obj/structure/communicator_landline/command
+	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/command
+
+/obj/structure/communicator_landline/security
+	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/security
+
+/obj/structure/communicator_landline/engineering
+	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/engineering
+
+/obj/structure/communicator_landline/medical
+	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/medical
+
+/obj/structure/communicator_landline/science
+	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/science
+
+/obj/structure/communicator_landline/operations
+	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/operations
+
+/obj/structure/communicator_landline/service
+	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/service
 
 /obj/item/modular_computer/handheld/communicator/landline/command
 	directory_name = "Command Department Landline"
