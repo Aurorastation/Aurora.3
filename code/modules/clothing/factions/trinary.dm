@@ -1,15 +1,3 @@
-// Axiomite cloaks
-/obj/item/clothing/accessory/poncho/axiom_cloak
-	name = "axiomite cloak"
-	desc = "Keep dry!"
-	icon = 'icons/obj/item/clothing/suit/trinarist_robes.dmi'
-	icon_state = "axiomite_cloak"
-	item_state = "axiomite_cloak"
-	overlay_state = "axiomite_cloak"
-	icon_override = null
-	contained_sprite = TRUE
-	protects_against_weather = TRUE
-
 // Axiomite tunic variants
 /obj/item/clothing/under/dressshirt/axiom_tunic
 	name = "axiomite tunic"
@@ -18,6 +6,10 @@
 	icon_state = "axiomite_tunic"
 	item_state = "axiomite_tunic"
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/dressshirt/axiom_tunic/blue_trim
+	icon_state = "axiomite_tunic_bluetrim"
+	item_state = "axiomite_tunic_bluetrim"
 
 /obj/item/clothing/under/dressshirt/axiom_tunic/black
 	icon_state = "axiomite_tunic_black"
@@ -31,8 +23,8 @@
 	icon_state = "axiomite_tunic_green"
 	item_state = "axiomite_tunic_green"
 
-/obj/item/clothing/under/dressshirt/axiom_tunic/directory
-	name = "grand dicastery tunic"
+/obj/item/clothing/under/dressshirt/axiom_tunic/ecclesiastical
+	name = "ecclesiastical tunic"
 	desc = "Bureaucracy!"
 	icon_state = "axiomite_tunic_posh"
 	item_state = "axiomite_tunic_posh"
@@ -85,14 +77,40 @@
 	icon_state = "trinary_habit_hood"
 	item_state = "trinary_habit_hood"
 
+/// Coifs!
 /obj/item/clothing/head/trinary
 	name = "trinary coif"
-	desc = "A coif worn primarily by members of the monastic Sodality of Our Lady Corkfell, a religious order within the Trinary Perfection focused on the medical needs of its human practicioners. It seems to be made out of a light \
-	and breathable material in order to cope with Axiom's hot summers."
+	desc = "Coif!"
 	icon = 'icons/obj/item/clothing/head/ipc/trinary_coif.dmi'
 	icon_state = "trinary_coif"
 	item_state = "trinary_coif"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/trinary/blue_trim
+	icon_state = "trinary_coif_bluetrim"
+	item_state = "trinary_coif_bluetrim"
+
+/obj/item/clothing/head/trinary/black
+	icon_state = "trinary_coif_black"
+	item_state = "trinary_coif_black"
+
+/obj/item/clothing/head/trinary/blue
+	icon_state = "trinary_coif_blue"
+	item_state = "trinary_coif_blue"
+
+/obj/item/clothing/head/trinary/green
+	icon_state = "trinary_coif_green"
+	item_state = "trinary_coif_green"
+
+/obj/item/clothing/head/trinary/habit
+	icon_state = "trinary_coif_sodalist"
+	item_state = "trinary_coif_sodalist"
+
+/obj/item/clothing/head/trinary/ecclesiastical
+	name = "ecclesiatical coif"
+	desc = "Religion!"
+	icon_state = "trinary_coif_ecclesiastical"
+	item_state = "trinary_coif_ecclesiastical"
 
 //Exclusionist Gear
 /obj/item/clothing/suit/storage/hooded/exclusionist_robe
