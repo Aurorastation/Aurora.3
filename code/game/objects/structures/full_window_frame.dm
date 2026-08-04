@@ -54,6 +54,10 @@
 		return TRUE
 	if(istype(mover, /obj/structure/closet/crate))
 		return TRUE
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(mover.throwing)
+		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	if(locate(/obj/structure/window_frame) in get_turf(mover))
