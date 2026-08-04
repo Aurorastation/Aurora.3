@@ -29,6 +29,49 @@
 	icon_state = "axiomite_tunic_posh"
 	item_state = "axiomite_tunic_posh"
 
+// Capes!
+/obj/item/clothing/accessory/poncho/trinary
+	name = "trinary perfection cape"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
+	icon = 'icons/obj/item/clothing/accessory/poncho/trinarist_cape.dmi'
+	icon_state = "trinary_cape"
+	item_state = "trinary_cape"
+	overlay_state = "trinary_cape"
+	contained_sprite = TRUE
+	protects_against_weather = FALSE
+
+/obj/item/clothing/accessory/poncho/trinary/blue
+	desc = "Cape!"
+	icon_state = "trinary_cape_blue"
+	item_state = "trinary_cape_blue"
+	overlay_state = "trinary_cape_blue"
+
+/obj/item/clothing/accessory/poncho/trinary/pellegrina
+	name = "trinary perfection pellegrina"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
+	icon_state = "trinary_pellegrina"
+	item_state = "trinary_pellegrina"
+	overlay_state = "trinary_pellegrina"
+
+/obj/item/clothing/accessory/poncho/trinary/pellegrina/blue
+	desc = "Cape!"
+	icon_state = "trinary_pellegrina_blue"
+	item_state = "trinary_pellegrina_blue"
+	overlay_state = "trinary_pellegrina_blue"
+
+/obj/item/clothing/accessory/poncho/trinary/shouldercape
+	name = "trinary perfection shoulder cape"
+	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
+	icon_state = "trinary_shouldercape"
+	item_state = "trinary_shouldercape"
+	overlay_state = "trinary_shouldercape"
+
+/obj/item/clothing/accessory/poncho/trinary/shouldercape/blue
+	desc = "Cape!"
+	icon_state = "trinary_shouldercape_blue"
+	item_state = "trinary_shouldercape_blue"
+	overlay_state = "trinary_shouldercape_blue"
+
 // Orthodox Trinarist gear
 /obj/item/clothing/suit/storage/hooded/trinary_robes
 	name = "trinary perfection robe"
