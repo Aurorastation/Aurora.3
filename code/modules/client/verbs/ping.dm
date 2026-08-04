@@ -25,7 +25,7 @@
 	set name = "Ping storyteller"
 	set category = "OOC"
 
-	if(!mob || isnewplayer(mob))
+	if(!mob || isnewplayer(mob) || isghost(mob) || isobserver(mob) || isstoryteller(mob))
 		return
 
 	if(!istype(SSticker?.mode, /datum/game_mode/odyssey))
