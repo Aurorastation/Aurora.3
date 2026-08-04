@@ -25,6 +25,36 @@
 
 	module.holder.ui_interact(usr)
 
+/obj/item/ai_verbs/verb/toggle_hardsuit_camera()
+	set category = "Hardsuit"
+	set name = "Helmet Camera - Toggle On/Off"
+	set src in usr
+
+	var/obj/item/rig/rig = usr.get_rig()
+	if(!istype(rig) || !rig.is_integrated_rig_ai(usr))
+		to_chat(usr, SPAN_WARNING("You are not loaded into a hardsuit."))
+		return
+	if(!rig.helmet?.camera)
+		to_chat(usr, SPAN_WARNING("\The [rig] has no helmet camera."))
+		return
+
+	rig.helmet.toggle_camera_for(usr)
+
+/obj/item/ai_verbs/verb/toggle_hardsuit_expedition_camera_network()
+	set category = "Hardsuit"
+	set name = "Helmet Camera - Toggle Expedition Network"
+	set src in usr
+
+	var/obj/item/rig/rig = usr.get_rig()
+	if(!istype(rig) || !rig.is_integrated_rig_ai(usr))
+		to_chat(usr, SPAN_WARNING("You are not loaded into a hardsuit."))
+		return
+	if(!rig.helmet?.camera)
+		to_chat(usr, SPAN_WARNING("\The [rig] has no helmet camera."))
+		return
+
+	rig.helmet.toggle_expedition_camera_network_for(usr)
+
 /obj/item/rig_module/ai_container
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
@@ -59,10 +89,17 @@
 /obj/item/rig_module/ai_container/proc/update_verb_holder()
 	if(!verb_holder)
 		verb_holder = new(src)
+	var/mob/previous_user
+	if(ismob(verb_holder.loc))
+		previous_user = verb_holder.loc
 	if(integrated_ai)
 		verb_holder.forceMove(integrated_ai)
 	else
 		verb_holder.forceMove(src)
+	if(previous_user?.client)
+		previous_user.client.init_verbs()
+	if(integrated_ai?.client && integrated_ai != previous_user)
+		integrated_ai.client.init_verbs()
 
 /obj/item/rig_module/ai_container/accepts_item(var/obj/item/input_device, var/mob/living/user)
 	// Check if there's actually an AI to deal with.

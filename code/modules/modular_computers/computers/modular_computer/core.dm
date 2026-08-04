@@ -100,6 +100,8 @@
 /obj/item/modular_computer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 
+	reset_remote_viewers(TRUE)
+
 	SStgui.close_uis(src)
 	enabled = FALSE
 
@@ -289,6 +291,7 @@
 		active_program = null
 	else
 		return FALSE
+	reset_remote_viewers()
 	var/mob/user = usr
 	if(user && istype(user) && !forced && !QDELETED(src))
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum, ui_interact), user) // Re-open the UI on this computer. It should show the main screen now.
@@ -304,6 +307,14 @@
 		active_program = null
 	else
 		return FALSE
+	reset_remote_viewers()
+
+/obj/item/modular_computer/proc/reset_remote_viewers(var/unset_viewers_machine = FALSE)
+	for(var/mob/M in GLOB.player_list)
+		if(M.machine == src && M.is_viewing_remote_view())
+			if(unset_viewers_machine)
+				M.unset_machine()
+			M.reset_view(null)
 
 // Returns 0 for No Signal, 1 for Low Signal and 2 for Good Signal. 3 is for wired connection (always-on)
 /obj/item/modular_computer/proc/get_ntnet_status(var/specific_action = 0)

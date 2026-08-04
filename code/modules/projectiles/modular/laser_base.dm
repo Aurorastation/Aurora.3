@@ -382,8 +382,6 @@
 
 /obj/item/laser_assembly/examine_tags(mob/user)
 	. = ..()
-	if(stage == 1)
-		.["thick"] = "Stops or slows minor piercing effects, such as from injectors."
 
 /obj/item/laser_assembly/mechanics_hints(mob/user)
 	. = ..()
