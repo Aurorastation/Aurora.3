@@ -34,10 +34,10 @@
 	// Instead of return TRUE for a regular update, return FALSE and call ui.send_update() before.
 	// Returning TRUE will cause static_ui_data to be sent, which in this panel is costly.
 
-	if(!can_use_persistence_panel(ui.user))
+	if(!can_use_persistence_panel(ui.user)) // Code behind permissions check
 		return FALSE
 
-	if(action == "toggle_saving")
+	if(action == "toggle_saving") // Toggle persistence saving at round end
 		if(!check_rights(R_ADMIN))
 			return FALSE
 
@@ -63,17 +63,36 @@
 		ui.send_update()
 		return FALSE
 
-	if(action == "refresh")
+	if(action == "refresh") // Full data pull
 		return TRUE
 
-	if(action == "edit")
+	if (action == "jump") // Object jump
+		var/atom/target = locate(params["ref"])
+		if(!target || !istype(target))
+			to_chat(ui.user, SPAN_WARNING("Object can no longer be found."))
+			return FALSE
+
+		var/turf/T = get_turf(target)
+		if(!T)
+			to_chat(ui.user, SPAN_WARNING("Object can no longer be found."))
+			return FALSE
+
+		var/client/C = ui.user?.client
+		if(!C)
+			return FALSE
+		if(!isghost(usr))
+			C.admin_ghost()
+		C.jumptocoord(T.x, T.y, T.z)
+		return FALSE
+
+	if(action == "edit") // Object VV
 		var/client/C = ui.user?.client
 		if(!C)
 			return FALSE
 
 		var/atom/target = locate(params["ref"])
 		if(!target || !istype(target))
-			to_chat(ui.user, SPAN_WARNING("That object can no longer be found."))
+			to_chat(ui.user, SPAN_WARNING("object can no longer be found."))
 			return FALSE
 
 		C.debug_variables(target)

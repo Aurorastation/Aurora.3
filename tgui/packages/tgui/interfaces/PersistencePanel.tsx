@@ -393,6 +393,7 @@ export const PersistencePanel = (props) => {
                   <Table.Row header className="candystripe">
                     <Table.Cell>Name</Table.Cell>
                     <Table.Cell>Position</Table.Cell>
+                    <Table.Cell>Jump</Table.Cell>
                     <Table.Cell>Create date</Table.Cell>
                     <Table.Cell>Expire date</Table.Cell>
                     <Table.Cell>Edit</Table.Cell>
@@ -401,6 +402,13 @@ export const PersistencePanel = (props) => {
                     <Table.Row key={object.ref} className="candystripe">
                       <Table.Cell>{object.name}</Table.Cell>
                       <Table.Cell>{getObjectPosition(object)}</Table.Cell>
+                      <Table.Cell>
+                        <Button
+                          icon="location-arrow"
+                          tooltip="Jump to this object"
+                          onClick={() => act('jump', { ref: object.ref })}
+                        />
+                      </Table.Cell>
                       <Table.Cell>{object.created_at || 'This round'}</Table.Cell>
                       <Table.Cell>{object.expires_at || 'To be determined'}</Table.Cell>
                       <Table.Cell>
