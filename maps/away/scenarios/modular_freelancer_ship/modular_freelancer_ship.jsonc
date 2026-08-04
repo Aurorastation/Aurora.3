@@ -1,80 +1,80 @@
 [
-	// ------------------------------ main submaps
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 89,
-		"submap_size_y": 39,
-		"submap_size_z": 1,
-		"submaps_dmm": "modular_freelancer_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/fore",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/fore",
-		"submaps_can_repeat": false
-	},
-	// ---
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 69,
-		"submap_size_y": 47,
-		"submap_size_z": 1,
-		"submaps_dmm": "modular_freelancer_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/mid",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/mid",
-		"submaps_can_repeat": false
-	},
-	// ---
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 69,
-		"submap_size_y": 22,
-		"submap_size_z": 1,
-		"submaps_dmm": "modular_freelancer_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/shuttles",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/shuttles",
-		"submaps_can_repeat": false
-	},
-	// ---
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 69,
-		"submap_size_y": 30,
-		"submap_size_z": 1,
-		"submaps_dmm": "modular_freelancer_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/aux",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/aux",
-		"submaps_can_repeat": false
-	},
-	// ---
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 69,
-		"submap_size_y": 30,
-		"submap_size_z": 1,
-		"submaps_dmm": "modular_freelancer_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/aft",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/aft",
-		"submaps_can_repeat": false
-	},
-	// ------------------------------ misc submaps
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 14,
-		"submap_size_y": 8,
-		"submap_size_z": 1,
-		"submaps_dmm": "modular_freelancer_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/misc/container",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/misc/container",
-		"submaps_can_repeat": false
-	},
-	// ---
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 4,
-		"submap_size_y": 4,
-		"submap_size_z": 1,
-		"submaps_dmm": "modular_freelancer_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/misc/storage",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/misc/storage",
-		"submaps_can_repeat": false
-	}
-	// ------------------------------ fin
+    // ------------------------------ main submaps
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 89,
+        "submap_size_y": 39,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_freelancer_ship_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/fore",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/fore",
+        "submaps_can_repeat": false
+    },
+    // ---
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 69,
+        "submap_size_y": 47,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_freelancer_ship_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/mid",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/mid",
+        "submaps_can_repeat": false
+    },
+    // ---
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 69,
+        "submap_size_y": 22,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_freelancer_ship_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/shuttles",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/shuttles",
+        "submaps_can_repeat": false
+    },
+    // ---
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 69,
+        "submap_size_y": 19,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_freelancer_ship_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/aux",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/aux",
+        "submaps_can_repeat": false
+    },
+    // ---
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 69,
+        "submap_size_y": 30,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_freelancer_ship_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/main/aft",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/main/aft",
+        "submaps_can_repeat": false
+    },
+    // ------------------------------ misc submaps
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 14,
+        "submap_size_y": 8,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_freelancer_ship_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/misc/container",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/misc/container",
+        "submaps_can_repeat": false
+    },
+    // ---
+    {
+        "type": "SubmapExtractInsert",
+        "submap_size_x": 4,
+        "submap_size_y": 4,
+        "submap_size_z": 1,
+        "submaps_dmm": "modular_freelancer_ship_submaps.dmm",
+        "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/modular_freelancer_ship/misc/storage",
+        "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/misc/storage",
+        "submaps_can_repeat": false
+    }
+    // ------------------------------ fin
 ]
