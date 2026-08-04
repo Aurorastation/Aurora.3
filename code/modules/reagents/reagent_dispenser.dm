@@ -474,6 +474,7 @@
 	amount_per_transfer_from_this = 120
 	capacity = 1000
 	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 1000)
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
