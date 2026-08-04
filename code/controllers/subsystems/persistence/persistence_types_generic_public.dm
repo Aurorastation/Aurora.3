@@ -68,6 +68,8 @@
 	new_generic.type_define = target_type
 	new_generic.attribute = attribute
 	new_generic.content = json_decode(result["content"])
+	new_generic.created_at = result["created_at"]
+	new_generic.expires_at = result["expires_at"]
 	new_generic.expires_in_days = 0
 	if(!skip_caching)
 		generic_cache[typesGetCacheName(target_type, attribute)] = new_generic
