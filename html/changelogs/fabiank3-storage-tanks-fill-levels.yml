@@ -1,0 +1,7 @@
+author: FabianK3, Wowzewow
+
+delete-after: True
+
+changes:
+  - rscadd: "Added persistence for cooking oil tanks."
+  - rscadd: "Added fill level indicators to water, fuel, extinguisher, lube and cooking oil tanks."
