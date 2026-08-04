@@ -83,11 +83,11 @@
 			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire"))
 
 	..()
-
-/obj/structure/barricade/proc/handle_barrier_chance()
+///Rolls a chance based on the percentage of the barricade's health remaining. Returns TRUE if the chance succeeds, FALSE if it fails. The chance is divided by the optional chance_divisor parameter, which defaults to 1.
+/obj/structure/barricade/proc/handle_barrier_chance(chance_divisor = 1)
 	if(!anchored)
 		return FALSE
-	return prob(max(30,(100.0*health)/maxhealth))
+	return prob(max(30,(100.0*health)/maxhealth) / chance_divisor)
 
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -97,6 +97,16 @@
 	if(istype(mover, /obj/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
+		if(mover.throwing)
+			var/chance = (handle_barrier_chance(3))
+			if(chance)
+				visible_message(SPAN_WARNING("\The [mover] clips the top of \the [src] and bounces off!"))
+				if(barricade_hitsound)
+					playsound(src, barricade_hitsound, 20, 1)
+				return !density
+			else
+				visible_message(SPAN_WARNING("\The [mover] sails over \the [src]!"))
+				return TRUE
 		return !density
 	else
 		return TRUE
