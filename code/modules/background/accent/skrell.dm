@@ -51,7 +51,7 @@
 
 /datum/accent/skrell/ceti
 	name = ACCENT_SKRELLCETI
-	description = "While the Biesel accent is easy to pick up by most Tau Ceti Basic speakers, the Biesellite Skrell Standard accent is common in the more insular Skrell communities, \
+	description = "While the Biesel accent is easy to pick up by most Common speakers, the Biesellite Skrell Standard accent is common in the more insular Skrell communities, \
 	especially those who are strongly pro-Federation. Biesellite Skrell Standard has many holdovers from Nralakk accents while also having some of the more obvious \
 	characteristics of the Biesellite accent."
 	tag_icon = "skrell_biesel"

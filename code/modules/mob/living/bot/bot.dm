@@ -29,8 +29,8 @@
 /mob/living/bot/Initialize()
 	. = ..()
 	update_icon()
-	add_language(LANGUAGE_TCB)
-	default_language = GLOB.all_languages[LANGUAGE_TCB]
+	add_language(LANGUAGE_SOL_COMMON)
+	default_language = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()

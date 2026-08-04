@@ -49,7 +49,7 @@
 	var/holo_accent_tag = ACCENT_TTS
 
 	/// The language our hologram will speak. Tau Ceti by default. For the full list, see: '_DEFINES/species_languages.dm'
-	var/language = LANGUAGE_TCB
+	var/language = LANGUAGE_SOL_COMMON
 
 	/// How long should be the radius of step_triggers to place? 2 by default, so we get 5x5 area covered.
 	var/trigger_radius = 2

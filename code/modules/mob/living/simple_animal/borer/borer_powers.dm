@@ -498,7 +498,7 @@
 
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
 	host.psi = new(host)
-	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
+	host.add_language(LANGUAGE_SOL_COMMON) // if we don't have TCB, give them TCB | this allows monkey borers to RP
 	host.awaken_psi_basic("something in your head")
 	addtimer(CALLBACK(src, PROC_REF(set_starting_psi_points)), 4.7 SECONDS)
 

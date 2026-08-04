@@ -17,7 +17,7 @@
 	var/does_explosion = TRUE
 	var/emagged = FALSE // If emagged, things can be dropped in on station areas
 
-	var/drop_message_language = LANGUAGE_TCB
+	var/drop_message_language = LANGUAGE_SOL_COMMON
 	var/drop_message = "Orbital package inbound, clear the targetted area immediately!"
 	var/drop_message_emagged = "O*b$ital p&ck@ge in#)und, c-c-c-!"
 	var/announcer_name = "Operations Long Range Package Delivery System"

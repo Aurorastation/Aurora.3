@@ -501,9 +501,9 @@
 /obj/item/integrated_circuit/input/microphone
 	name = "microphone"
 	desc = "Detects nearby speech and outputs the speaker and message text."
-	extended_desc = "When triggered by speech it can hear, this circuit outputs the speaker and message text, translated to Tau Ceti Basic when possible.  \
+	extended_desc = "When triggered by speech it can hear, this circuit outputs the speaker and message text, translated to Solarian Common when possible.  \
 	The first activation pin is always pulsed when the circuit hears someone talk, while the second one \
-	is only triggered if it hears someone speaking a language other than Tau Ceti Basic."
+	is only triggered if it hears someone speaking a language other than Sol Common."
 	icon_state = "recorder"
 	complexity = 8
 	inputs = list()
@@ -568,7 +568,7 @@
 	push_data()
 	activate_pin(1)
 
-	if(language_name && language_name != "Tau Ceti Basic" && language_name != "Common")
+	if(language_name && language_name != LANGUAGE_SOL_COMMON && language_name != "Common") //what the fuck is common here?
 		activate_pin(2)
 
 /obj/item/integrated_circuit/input/sensor

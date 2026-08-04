@@ -1,6 +1,7 @@
 /datum/accent/ceti
 	name = ACCENT_CETI
-	description = "Often described as the \"true\" way of speaking Tau Ceti Basic, the Biesellite accent is easy to reproduce due to the phonetics of TCB."
+	description = "One of the most common offshoots of the \"Solarian\" accent due to Biesel's importance in the galactic stage. Every living being is likely to have heard the Biesellite accent \
+				at some point in their life, whether it be through the media, or through the many Biesellite immigrants and visitors to other systems."
 	tag_icon = "biesel"
 	text_tag = "BSL"
 
@@ -77,7 +78,7 @@
 
 /datum/accent/silversun_expatriate
 	name = ACCENT_SILVERSUN_EXPATRIATE
-	description = "The accent of Silversun's wealthy Idris Incorporated-aligned minority population is rooted in Tradeband dialects from Eridani and Luna rather than the Sol Common dialect of the Originals, making it audibly distinctive \
+	description = "The accent of Silversun's wealthy Idris Incorporated-aligned minority population is rooted in Nova Parla dialects from Eridani and Luna rather than the Sol Common dialect of the Originals, making it audibly distinctive \
 	compared to the 'native' accent of the planet. This accent is most commonly associated with Idris Incorporated employees from Silversun, which tend to be overwhelmingly from the Expatriate population. Many Idris Incorporated positronics \
 	are programmed with this accent, and it is often regarded as the unofficial accent of the megacorporation."
 	tag_icon = "silversun_expatriate"
@@ -126,7 +127,7 @@
 /datum/accent/himeo
 	name = ACCENT_HIMEO
 	description = "Himean Common is more guttural and harsh-sounding than the typical Sol Common accent, due to Himeo's position in the Coalition of Colonies. The Himean accent and its \
-	distinctive guttural method of speaking are easily distinguishable from other Sol Common speakers, even when speaking Tau Ceti Basic or Freespeak. Himean Common has the unusual \
+	distinctive guttural method of speaking are easily distinguishable from other Sol Common speakers, even when speaking Freespeak. Himean Common has the unusual \
 	reputation of making its speaker always sound angry, no matter the speaker's mood, due to its more guttural nature."
 	tag_icon = "himeo"
 	text_tag = "HIM"
@@ -159,7 +160,7 @@
 
 /datum/accent/dominia_high
 	name = ACCENT_DOMINIA_HIGH
-	description = "The less common Dominian accent is High Morozi, a variation of Tradeband found upon Moroz itself. While Vulgar Morozi is typically associated with the common citizenry of the Empire, \
+	description = "The less common Dominian accent is High Morozi, a variation of Nova Parla found upon Moroz itself. While Vulgar Morozi is typically associated with the common citizenry of the Empire, \
 	High Morozi is associated with the Imperial nobility. While most typically associated with nobles it is often taught to wealthy commoners in order to more easily brush shoulders with nobility. \
 	This accent is one of the most readily-recognised markers of Dominian nobility abroad."
 	tag_icon = "dominia_high"
@@ -167,8 +168,8 @@
 
 /datum/accent/dominia_vulgar
 	name = ACCENT_DOMINIA_VULGAR
-	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Though heavily influenced by Tradeband Vulgar Morozi is considered to be a \
-	dialect of Sol Common rather than a distinct Tradeband dialect. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in the rebellious Morozian region of Fisanduh. \
+	description = "The most common Dominian accent is Vulgar Morozi, a variation of Sol Common found upon Moroz itself. Though heavily influenced by Nova Parla Vulgar Morozi is considered to be a \
+	dialect of Sol Common rather than a distinct Nova Parla dialect. Vulgar Morozi has regional variations on the colonies of the Dominian Empire, and in the rebellious Morozian region of Fisanduh. \
 	The Fisanduhian accent is considered to be a distinctive higher-pitched variation of Vulgar Morozi that is often suppressed by insurgents to better blend in with the greater Imperial population."
 	tag_icon = "dominia_vulgar"
 	text_tag = "VMR"
@@ -212,7 +213,7 @@
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
 	description = "The Jovian accent is an odd mish-mash of accents from Jupiter's various moons, and has heavy variation on each of the moons. On Europa, the Jovian accent often takes on traces of \
-	Tradeband due to the amount of high-income tourism, while the Callistean Jovian accent is known for the rapid, breathless pace at which it is typically spoken. Ganymede is often seen as the standard \
+	Nova Parla due to the amount of high-income tourism, while the Callistean Jovian accent is known for the rapid, breathless pace at which it is typically spoken. Ganymede is often seen as the standard \
 	Jovian accent, though some on Castillo vehemently believe that the Callistean accent should be considered the standard."
 	tag_icon = "jupiter"
 	text_tag = "JUP"
@@ -319,7 +320,7 @@
 
 /datum/accent/visegrad
 	name = ACCENT_VISEGRAD
-	description = "The Visegradi accent is unique for that of a Solarian world, being a Tradeband accent with strong influences from the various languages of the Warsaw Pact on Earth. Decidedly harsh and characterized by unusual \
+	description = "The Visegradi accent is unique for that of a Solarian world, being a Nova Parla accent with strong influences from the various languages of the Warsaw Pact on Earth. Decidedly harsh and characterized by unusual \
 	and eclectic pronunciation, it can be fairly difficult to parse for those unfamiliar with it. This is only somewhat stymied by the fact that Visegradi people tend to speak very loudly, an adaptation necessitated by the need to \
 	make oneself heard during the planet's torrential downpours."
 	tag_icon = "visegrad"
@@ -327,7 +328,7 @@
 
 /datum/accent/sancolette
 	name = ACCENT_SANCOLETTE
-	description = "The Colettish dialect belongs to the larger linguistic family of Tradeband but unlike many of its counterparts, it is descended from Earth-based Tradeband dialects rather than Luna-based dialects. \
+	description = "The Colettish dialect belongs to the larger linguistic family of Nova Parla but unlike many of its counterparts, it is descended from Earth-based Nova Parla dialects rather than Luna-based dialects. \
 	It is easily distinguished from its Lunan contemporaries by its differences in pronunciation and tone, and still retains many of its linguistic roots from Earth."
 	tag_icon = "sancolette"
 	text_tag = "SAN"
@@ -335,21 +336,21 @@
 /datum/accent/valkyrie
 	name = ACCENT_VALKYRIE
 	description = "The Valkyrian accent is a difficult accent to replicate, mostly due to the cultural melting pot in which it exists. Influences from across the Orion Spur have impacted the development of the accent, with \
-	traces of Sol Common, Tau Ceti Basic, Elyran Common and even Vulgar Morozi."
+	traces of Sol Common, Elyran Common and even Vulgar Morozi."
 	tag_icon = "valkyrie"
 	text_tag = "VAL"
 
 /datum/accent/mictlan
 	name = ACCENT_MICTLAN
-	description = "The Mictlanian accent is a variation on Tradeband that is usually recognized as being folksy and warm. This welcoming, soft voice is one of the reasons the planet of Mictlan has seen a boom in tourism. While \
+	description = "The Mictlanian accent is a variation on Nova Parla that is usually recognized as being folksy and warm. This welcoming, soft voice is one of the reasons the planet of Mictlan has seen a boom in tourism. While \
 	some youth may try to sound rebellious and conceal the softness of their voice, this musicality is still prevalent and universally recognizable."
 	tag_icon = "mictlan"
 	text_tag = "MIC"
 
 /datum/accent/antillia
 	name = ACCENT_ANTILLIA
-	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband, and another more influenced by Solarian Common. It is relatively easy to identify the differences between \
-	the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
+	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Nova Parla, and another more influenced by Solarian Common. It is relatively easy to identify the differences between \
+	the two: Antilleans influenced by Nova Parla sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
 	tag_icon = "antillia"
 	text_tag = "PRT"
 
@@ -369,7 +370,7 @@
 
 /datum/accent/aemaq
 	name = ACCENT_AEMAQ
-	description = "Aemaqi Elyran is often described as a more considered and methodical variation on the standard dictionary dialect, and its speakers are frequently stereotyped as speaking slowly and languidly. Elements of Tradeband \
+	description = "Aemaqi Elyran is often described as a more considered and methodical variation on the standard dictionary dialect, and its speakers are frequently stereotyped as speaking slowly and languidly. Elements of Nova Parla \
 	from the planet's Dominian refugee population have helped to reinforce this effect, and the variation is rarely found in those born off Aemaq itself or its innumerable orbital stations."
 	tag_icon = "aemaq"
 	text_tag = "AEM"
@@ -459,6 +460,6 @@
 
 /datum/accent/caria
 	name = ACCENT_DOMINIA_CARIA
-	description = "Carian Standard is an unusual dialect from an atypical world. The only non-Morozi dialect of Tradeband found in the Empires borders, it is similar to High Morozi in its pronunciation and grammatical structures. Speakers of this dialect are viewed with suspicion in the Empire, believed to be sorcerers, witches, and often touched by some form of darkness — but they are equally called for their worlds association with augury and the divine, with Carian seers prized by many noble households in the Empire."
+	description = "Carian Standard is an unusual dialect from an atypical world. The only non-Morozi dialect of Nova Parla found in the Empires borders, it is similar to High Morozi in its pronunciation and grammatical structures. Speakers of this dialect are viewed with suspicion in the Empire, believed to be sorcerers, witches, and often touched by some form of darkness — but they are equally called for their worlds association with augury and the divine, with Carian seers prized by many noble households in the Empire."
 	tag_icon = "caria"
 	text_tag = "CAR"

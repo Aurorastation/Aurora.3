@@ -113,7 +113,7 @@ h1.alert, h2.alert		{color: #000000;}
 .skrell					{color: #00CED1;}
 .vaurca                 {color: #9e9e39;}
 .soghun					{color: #228B22;}
-.solcom					{color: #22228B;}
+.morozi					{color: #22228B;}
 .elyran					{color: #c79322;}
 .soghun_alt				{color: #024402;}
 .changeling				{color: #800080;}
@@ -123,7 +123,9 @@ h1.alert, h2.alert		{color: #000000;}
 .delvahhi				{color: #5E2612; font-weight: bold;}
 .siiktau				{color: #A52A2A;}
 .freespeak				{color: #FF4500; font-family: "Trebuchet MS", cursive, sans-serif;}
-.tradeband				{color: #5C16C6; font-family: Georgia, Verdana, sans-serif;}
+.novaparla				{color: #5C16C6; font-family: Georgia, Verdana, sans-serif;}
+.morozi					{color: #22228b; font-family: 'Lucida Bright', sans-serif;}
+.gavsa					{color: #6e7cff; font-family: 'Mongolian Baiti', sans-serif;}
 
 .interface				{color: #330033;}
 

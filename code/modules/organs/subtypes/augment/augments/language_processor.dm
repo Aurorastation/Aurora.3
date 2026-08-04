@@ -79,7 +79,7 @@
 /obj/item/organ/internal/augment/language/zino
 	name = "Zino language processor"
 	organ_tag = BP_AUG_LANGUAGE_ZINO
-	augment_languages = list(LANGUAGE_GUTTER)
+	augment_languages = list(LANGUAGE_FREESPEAK)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
 		SPECIES_VAURCA_BULWARK,
@@ -90,10 +90,10 @@
 	)
 
 
-/obj/item/organ/internal/augment/language/tradeband
-	name = "Tradeband language processor"
-	organ_tag = BP_AUG_LANGUAGE_TRADEBAND
-	augment_languages = list(LANGUAGE_TRADEBAND)
+/obj/item/organ/internal/augment/language/novaparla
+	name = "Nova Parla language processor"
+	organ_tag = BP_AUG_LANGUAGE_NOVA_PARLA
+	augment_languages = list(LANGUAGE_NOVA_PARLA)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
 		SPECIES_VAURCA_BULWARK,

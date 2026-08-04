@@ -19,8 +19,8 @@
 
 /mob/living/simple_animal/slime/Initialize()
 	. = ..()
-	add_language(LANGUAGE_TCB)
-	default_language = GLOB.all_languages[LANGUAGE_TCB]
+	add_language(LANGUAGE_SOL_COMMON)
+	default_language = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 
 /mob/living/simple_animal/slime/can_force_feed(var/feeder, var/food, var/feedback)
 	if(feedback)

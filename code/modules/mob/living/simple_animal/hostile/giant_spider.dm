@@ -164,7 +164,7 @@
 	get_light_and_color(parent)
 	add_language(LANGUAGE_GREIMORIAN)
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
-	remove_language(LANGUAGE_TCB)
+	remove_language(LANGUAGE_SOL_COMMON)
 	default_language = GLOB.all_languages[LANGUAGE_GREIMORIAN]
 	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 

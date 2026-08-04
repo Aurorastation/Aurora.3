@@ -19,7 +19,7 @@
 
 	total_health = 100 //skeletons are frail
 
-	default_language = LANGUAGE_TCB
+	default_language = LANGUAGE_SOL_COMMON
 	language = LANGUAGE_CULT
 	name_language = LANGUAGE_CULT
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
@@ -103,7 +103,7 @@
 	icobase = 'icons/mob/human_races/r_manifested.dmi'
 	deform = 'icons/mob/human_races/r_manifested.dmi'
 
-	default_language = LANGUAGE_TCB
+	default_language = LANGUAGE_SOL_COMMON
 	language = LANGUAGE_CULT
 	name_language = LANGUAGE_CULT
 	has_organ = list()

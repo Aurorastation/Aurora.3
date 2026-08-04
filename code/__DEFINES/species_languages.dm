@@ -39,10 +39,10 @@
 
 // Innate Languages
 #define LANGUAGE_NOISE "Noise" // Used for audible emotes.
-#define LANGUAGE_TCB "Ceti Basic"
 
 // Species Languages
 #define LANGUAGE_SOL_COMMON "Sol Common"
+#define LANGUAGE_GAVSA "Gavsa"
 #define LANGUAGE_ELYRAN_STANDARD "Elyran Standard"
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
@@ -52,8 +52,8 @@
 #define LANGUAGE_DELVAHII "Delvahhi"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
 #define LANGUAGE_ROOTSONG "Rootsong"
-#define LANGUAGE_TRADEBAND "Tradeband"
-#define LANGUAGE_GUTTER "Freespeak"
+#define LANGUAGE_NOVA_PARLA "Nova Parla"
+#define LANGUAGE_FREESPEAK "Freespeak"
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
 #define LANGUAGE_SIGN "Sign Language"

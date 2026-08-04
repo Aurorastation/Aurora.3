@@ -12,8 +12,8 @@
 
 /mob/living/carbon/brain/Initialize()
 	. = ..()
-	add_language(LANGUAGE_TCB)
-	default_language = GLOB.all_languages[LANGUAGE_TCB]
+	add_language(LANGUAGE_SOL_COMMON)
+	default_language = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 
 /mob/living/carbon/brain/Destroy()
 	if(key)				//If there is a mob connected to this thing. Have to check key twice to avoid false death reporting.

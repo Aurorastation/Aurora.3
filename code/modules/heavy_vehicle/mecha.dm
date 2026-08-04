@@ -244,8 +244,8 @@
 	// Build icon.
 	update_icon()
 
-	add_language(LANGUAGE_TCB)
-	default_language = GLOB.all_languages[LANGUAGE_TCB]
+	add_language(LANGUAGE_SOL_COMMON)
+	default_language = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 
 	. = INITIALIZE_HINT_LATELOAD
 

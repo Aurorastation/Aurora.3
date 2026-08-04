@@ -96,7 +96,7 @@
 
 			var/datum/language/L = GLOB.all_languages[S["language"]]
 			if(!L || !(L.flags & TCOMSSIM))
-				L = GLOB.all_languages[LANGUAGE_TCB]
+				L = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 
 			sig.frequency = S["freq"] || PUB_FREQ
 

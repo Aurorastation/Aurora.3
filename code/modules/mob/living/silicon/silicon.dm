@@ -63,7 +63,7 @@
 /mob/living/silicon/Initialize()
 	GLOB.silicon_mob_list |= src
 	. = ..()
-	add_language(LANGUAGE_TCB, can_speak_basic)
+	add_language(LANGUAGE_SOL_COMMON, can_speak_basic)
 	init_id()
 
 	var/datum/language/L = locate(/datum/language/common) in languages

@@ -91,10 +91,10 @@
 	//Add the rest of the languages
 	//Because universal speak doesn't work right.
 
-	bst.add_language(LANGUAGE_TCB)
-	bst.add_language(LANGUAGE_GUTTER)
+	bst.add_language(LANGUAGE_SOL_COMMON)
+	bst.add_language(LANGUAGE_FREESPEAK)
 	bst.add_language(LANGUAGE_SIGN)
-	bst.add_language(LANGUAGE_TRADEBAND)
+	bst.add_language(LANGUAGE_NOVA_PARLA)
 	// Unathi languages
 	bst.add_language(LANGUAGE_UNATHI)
 	bst.add_language(LANGUAGE_AZAZIBA)

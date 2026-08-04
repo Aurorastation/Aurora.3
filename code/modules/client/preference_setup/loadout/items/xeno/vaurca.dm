@@ -200,8 +200,8 @@
 	..()
 	var/list/auxiliary_processors = list()
 	auxiliary_processors["Mi'kuetz [LANGUAGE_AZAZIBA] language processor"] = /obj/item/organ/internal/augment/language/mikuetz
-	auxiliary_processors["Zino [LANGUAGE_GUTTER] language processor"] = /obj/item/organ/internal/augment/language/zino
-	auxiliary_processors["Eridani/Azquil [LANGUAGE_TRADEBAND] language processor"] = /obj/item/organ/internal/augment/language/tradeband
+	auxiliary_processors["Zino [LANGUAGE_FREESPEAK] language processor"] = /obj/item/organ/internal/augment/language/zino
+	auxiliary_processors["Eridani/Azquil [LANGUAGE_NOVA_PARLA] language processor"] = /obj/item/organ/internal/augment/language/novaparla
 	gear_tweaks += new /datum/gear_tweak/path(auxiliary_processors)
 
 /datum/gear/vaurca_lunchbox

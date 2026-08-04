@@ -54,8 +54,8 @@
 
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
-	add_language(LANGUAGE_TCB)
-	default_language = GLOB.all_languages[LANGUAGE_TCB]
+	add_language(LANGUAGE_SOL_COMMON)
+	default_language = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 	internal_id = new /obj/item/card/id(src)
 	add_verb(src, /mob/living/proc/ventcrawl)
 	add_verb(src, /mob/living/proc/hide)

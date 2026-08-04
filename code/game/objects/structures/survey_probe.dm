@@ -209,7 +209,7 @@
 
 /obj/structure/survey_probe/coc
 	desc_extra = "This probe was manufactured by Orion Express, but it is based on on older model designed by Hephaestus Industries. A small emblem on the side bears the flag of the Coalition of Colonies."
-	report_language = LANGUAGE_GUTTER
+	report_language = LANGUAGE_FREESPEAK
 
 /obj/structure/survey_probe/hegemony
 	desc_extra = "This probe is a newer model designed and manufactured by Hephaestus Industries. A small emblem on the side bears the flag of the Izweski Hegemony."
@@ -217,7 +217,7 @@
 
 /obj/structure/survey_probe/dominia
 	desc_extra = "This probe is a newer model designed and manufactured by the Imperial Engineering and Shipbuilding Conglomerate, in collaboration with Zavodskoi Interstellar. A small emblem on the side bears the flag of the Empire of Dominia."
-	report_language = LANGUAGE_TRADEBAND
+	report_language = LANGUAGE_NOVA_PARLA
 
 /obj/structure/survey_probe/skrell
 	desc_extra = "This probe is a newer model designed and manufactured by Tuz'qlip Researchers, in collaboration with Einstein Engines. A small emblem on the side bears the flag of the Nralakk Federation."

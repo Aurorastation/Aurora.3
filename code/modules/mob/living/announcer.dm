@@ -34,7 +34,7 @@
 
 	for(var/K in GLOB.all_languages)
 		add_language(K)
-	default_language = GLOB.all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -55,7 +55,7 @@
 
 /mob/living/announcer/proc/ResetAfterBroadcast()
 	src.name = initial(name)
-	src.default_language = GLOB.all_languages[LANGUAGE_TCB]
+	src.default_language = GLOB.all_languages[LANGUAGE_SOL_COMMON]
 	src.voice_name = initial(voice_name)
 	src.accent = initial(accent)
 

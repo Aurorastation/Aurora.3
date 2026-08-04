@@ -171,7 +171,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	/// Used to store `talk_to_prey()` cooldown.
 	var/last_time_spoken
 	/// Used in `talk_to_prey()`.
-	var/language = LANGUAGE_TCB
+	var/language = LANGUAGE_SOL_COMMON
 	/// Used for disabling some abilities for horde and a few other subtypes.
 	var/disguise_disabled = FALSE
 	/// If true, the mob will start with disguise.

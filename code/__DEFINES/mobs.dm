@@ -197,7 +197,7 @@
 #define BP_AUG_LANGUAGE_CTHUR     "cthur language processor"
 #define BP_AUG_LANGUAGE_KLAX      "klaxan language processor"
 #define BP_AUG_LANGUAGE_MIKUETZ   "mikuetz language processor"
-#define BP_AUG_LANGUAGE_TRADEBAND "tradeband language processor"
+#define BP_AUG_LANGUAGE_NOVA_PARLA "novaparla language processor"
 #define BP_AUG_LANGUAGE_VEKATAK   "vekatak language processor"
 #define BP_AUG_LANGUAGE_ZENG      "zeng language processor"
 #define BP_AUG_LANGUAGE_ZINO      "zino language processor"
