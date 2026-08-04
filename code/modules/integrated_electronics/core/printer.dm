@@ -618,6 +618,8 @@
 			to_chat(user, SPAN_WARNING("\The [src] fails to finish the cloned assembly."))
 		return
 
+	new_clone.matter = list(MATERIAL_STEEL = cost * 200, MATERIAL_PHORON = phoron_cost * 200) //Each sheet gives the circuit printer 10, each sheet is 2000 in the autolathe.
+
 	if(user)
 		to_chat(user, SPAN_NOTICE("\The [src] finishes printing \the [new_clone]."))
 

@@ -11,6 +11,8 @@
 	icon_state = "setup_small"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	light_system = MOVABLE_LIGHT
+	recyclable = TRUE
+	charge_failure_message = " is missing a powercell."
 
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
@@ -42,6 +44,8 @@
 		battery = new /obj/item/cell/device(src)
 	START_PROCESSING(SSelectronics, src)
 	access_card = new /obj/item/card/id(src)
+	if (!matter) //Matter amounts might be set during the cloning process.
+		matter =  list(MATERIAL_STEEL = (round((max_complexity + max_components) / 4)) * 200)
 
 /obj/item/electronic_assembly/Destroy()
 	QDEL_NULL(battery)
@@ -373,6 +377,11 @@
 
 	for(var/atom/movable/AM in contents)
 		AM.emp_act(severity)
+
+/obj/item/electronic_assembly/get_cell()
+	if(battery)
+		return battery
+	return DEVICE_NO_CELL
 
 // Returns true if power was successfully drawn.
 /obj/item/electronic_assembly/proc/draw_power(amount)
