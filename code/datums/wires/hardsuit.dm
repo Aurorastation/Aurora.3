@@ -5,7 +5,7 @@
  * Interface lock can be pulsed to toggle whether or not the interface can be accessed.
  */
 #define RIG_SECURITY "Security"
-#define RIG_AI_OVERRIDE "AI Oerride"
+#define RIG_AI_OVERRIDE "AI Override"
 #define RIG_SYSTEM_CONTROL "System Control"
 #define RIG_INTERFACE_LOCK "Inteface Lock"
 #define RIG_INTERFACE_SHOCK "High Voltage"
