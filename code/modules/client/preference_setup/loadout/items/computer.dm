@@ -102,27 +102,10 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 
 // Communicator NTNet address customisation
 /datum/gear_tweak/communicator_address/get_contents(metadata)
-	return "Custom Address: [metadata ? "{[metadata]}" : null]"
+	return "Address: [metadata ? "{[metadata]}" : "Not set"]"
 
 /datum/gear_tweak/communicator_address/get_metadata(user, metadata, title, gear_path)
-	var/attempts = 0 // Just to avoid the input breaking and it getting stuck in the infinite loop.
-	while(TRUE)
-		var/address = tgui_input_text(
-			user,
-			"Communicator numbers must be formatted as 'fc00:1a2b:call:home'. \
-			 That is, four groups of four letters or numbers separated by colons, beginning with 'fc00'.",
-			"Custom NTNet Address",
-			metadata || "fc00:",
-			MAX_NTNET_ADDRESS_LEN)
-
-		if(!address || ++attempts == 5)
-			// User cancelled, so break out of the loop
-			return
-		if(!validate_ntnet_address(address))
-			to_chat(user, SPAN_WARNING("Invalid address! Please try again."))
-			continue
-
-		return lowertext(address)
+	return tgui_input_communicator_address(user, "Communicator Number", metadata)
 
 /datum/gear_tweak/communicator_address/tweak_item(obj/item/modular_computer/handheld/communicator/comm, metadata, mob/living/carbon/human/H)
 	if(!metadata)
@@ -131,12 +114,24 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 	if(!validate_ntnet_address(metadata))
 		to_chat(H, SPAN_DANGER("Error applying custom communicator number: Invalid number."))
 		return
-	// Someone else is using the same custom address
+	// A saved address can collide with a communicator that joined the round
+	// before this loadout spawned. Keep the preference unchanged, but assign a
+	// fresh address to this device for the current round.
 	var/datum/computer_file/program/communicator/existing_app = GLOB.active_communicator_apps[metadata]
 	var/datum/computer_file/program/communicator/comm_app = comm.get_communicator_program()
 	if(existing_app && existing_app != comm_app)
-		to_chat(H, SPAN_DANGER("Error applying custom communicator number: Number is already in use!"))
-		return
+		var/original_address = metadata
+		var/randomized_address
+		for(var/attempt in 1 to 10)
+			var/candidate = generate_ntnet_address("round-communicator-[REF(comm)]-[world.time]-[attempt]-[rand(1, 1000000000)]")
+			if(!GLOB.active_communicator_apps[candidate])
+				randomized_address = candidate
+				break
+		if(!randomized_address)
+			to_chat(H, SPAN_DANGER("Could not assign a free communicator number for this round."))
+			return
+		metadata = randomized_address
+		to_chat(H, SPAN_WARNING("Your saved communicator number [original_address] was already taken. It has been randomized to [metadata] for this round only; your loadout preference was not changed."))
 
 	var/obj/item/computer_hardware/network_card/network_card = comm.network_card
 	if(!network_card)
