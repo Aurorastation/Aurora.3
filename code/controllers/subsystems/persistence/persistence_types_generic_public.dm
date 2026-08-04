@@ -94,8 +94,12 @@
 		log_subsystem_persistence_warning("Attempted to load all generic attributes of type [target_type], but this type does not support attributes.")
 		return list()
 
-	var/list/attributes = genericDatabaseGetAllAttributes(type_instance.database_id)
+	var/list/attributes = genericDatabaseGetAllAttributes(type_instance.database_id) // Retrieve all attributes in the database
+
+	for(var/datum/persistent_generic/cache_entry in generic_cache) // Get attributes that aren't in the database yet
+		if(cache_entry.type_define == target_type && cache_entry.attribute && !(cache_entry.attribute in attributes))
+			attributes += cache_entry.attribute
+
 	if(!attributes)
 		return list()
-
 	return attributes
