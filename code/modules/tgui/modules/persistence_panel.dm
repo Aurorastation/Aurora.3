@@ -209,6 +209,8 @@
 
 			attribute_groups_generic += list(list(
 				"attribute" = attribute,
+				"created_at" = generic_entry.created_at,
+				"expires_at" = generic_entry.expires_at,
 				"json" = json_encode(generic_entry.content)
 			))
 		return
@@ -217,6 +219,8 @@
 	if(generic_entry)
 		attribute_groups_generic += list(list(
 			"attribute" = null,
+			"created_at" = generic_entry.created_at,
+			"expires_at" = generic_entry.expires_at,
 			"json" = json_encode(generic_entry.content)
 		))
 
