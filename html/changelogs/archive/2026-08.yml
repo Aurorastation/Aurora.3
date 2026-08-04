@@ -151,3 +151,6 @@
   - rscadd: 'Retitles or adds various reporter/journalist (alt)titles. For megacorporate
       factions: Corporate Reporter, Corporate Journalist. For independents: Independent
       Reporter, Independent Journalist, Media Broadcaster.'
+2026-08-04:
+  FabianK3:
+  - bugfix: Fixed persistent overmap location of the Horizon.
