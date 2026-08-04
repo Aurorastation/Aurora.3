@@ -40,6 +40,8 @@
 	. = ..()
 	if (!printed)
 		battery = new /obj/item/cell/device(src)
+	else
+		battery = new /obj/item/cell/device/empty(src)
 	START_PROCESSING(SSelectronics, src)
 	access_card = new /obj/item/card/id(src)
 
