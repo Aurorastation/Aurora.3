@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Grenades can now be thrown over barricades from the defender's side. No more accidentally grenading your team because you were one tile from the sandbags."
