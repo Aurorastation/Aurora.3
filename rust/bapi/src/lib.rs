@@ -135,3 +135,55 @@ pub unsafe extern "C" fn all_mapmanip_configs_execute_ffi() {
         std::fs::write(dmm_out_path, dmm).unwrap();
     }
 }
+
+// Statically hold the model in memory so we only pay the loading cost once.
+static WORDFREQ_MODEL: std::sync::OnceLock<wordfreq::WordFreq> = std::sync::OnceLock::new();
+
+///
+#[no_mangle]
+pub unsafe extern "C" fn word_complexity_ffi(
+    argc: byondapi::sys::u4c,
+    argv: *mut byondapi::value::ByondValue,
+) -> byondapi::value::ByondValue {
+    setup_panic_handler();
+    let args = unsafe { ::byondapi::parse_args(argc, argv) };
+    match word_complexity(args.get(0).map(ByondValue::clone).unwrap_or_default()) {
+        Ok(val) => val,
+        Err(info) => {
+            crate::dm_call_stack_trace(format!("RUST BAPI ERROR read_dmm_file_ffi() \n {info:#?}"));
+            byondapi::value::ByondValue::null()
+        }
+    }
+}
+
+///
+fn word_complexity(word: byondapi::value::ByondValue) -> eyre::Result<byondapi::value::ByondValue> {
+    setup_panic_handler();
+
+    // 1. Extract the string word from the ByondValue
+    let word: String = word.try_into()?;
+
+    // 2. Get the model from memory, or initialize it if this is the first call
+    let model = WORDFREQ_MODEL.get_or_init(|| {
+        // LargeEn is the standard English dictionary. You can change this to SmallEn to save RAM.
+        wordfreq_model::load_wordfreq(wordfreq_model::ModelKind::LargeEn)
+            .expect("Failed to load wordfreq model")
+    });
+
+    // 3. Get the Zipf frequency score
+    // The Zipf scale generally runs from 0.0 (unknown/gibberish) to ~8.0 (words like "the", "it")
+    let zipf = model.zipf_frequency(&word);
+
+    // 4. Map the Zipf score to a 0.0 - 1.0 complexity scale.
+    // We want 1.0 to mean "highly complex/unknown" and 0.0 to mean "very simple".
+    let max_zipf = 8.0_f32;
+
+    // Normalize the zipf score to a 0.0 to 1.0 range
+    let normalized_zipf = (zipf / max_zipf).clamp(0.0, 1.0);
+
+    // Invert it so lower frequency = higher complexity
+    let complexity = 1.0 - normalized_zipf;
+
+    // 5. Return the complexity as a ByondValue number
+    Ok(ByondValue::new_num(complexity))
+}

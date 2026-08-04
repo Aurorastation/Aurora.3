@@ -133,7 +133,10 @@
 /datum/language/proc/process_word_prescramble(var/original_word, var/new_word, var/word_index, var/new_sentence, var/understand_chance, var/list/music_notes)
 	var/input_ending = copytext(original_word, length(original_word))
 	var/ends_sentence = findtext(".?!", input_ending)
-	if(!prob(understand_chance) && !(original_word in music_notes))
+
+	var/word_complexity = bapi_word_complexity(original_word) * 100
+
+	if((understand_chance <= word_complexity) && !(original_word in music_notes))
 		new_word = scramble_word(original_word)
 		if(new_sentence)
 			new_word = capitalize(new_word)
