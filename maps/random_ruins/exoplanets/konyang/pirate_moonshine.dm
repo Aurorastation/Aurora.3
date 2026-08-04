@@ -29,7 +29,6 @@
 	tags = list("External")
 	welcome_message = "You are a pirate, distilling liquor and cooking narcotics out in the jungles of Konyang. Remember, you are not an antagonist and should not act as such - if you're unsure if something you'd like to do is toeing the line, you should ahelp first."
 
-	extra_languages = list(LANGUAGE_SOL_COMMON)
 	spawnpoints = list("konyang_moonshine")
 	max_count = 2
 

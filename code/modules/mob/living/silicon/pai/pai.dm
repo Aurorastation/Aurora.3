@@ -179,6 +179,8 @@
 	add_language(LANGUAGE_ELYRAN_STANDARD, 1)
 	add_language(LANGUAGE_NOVA_PARLA, 1)
 	add_language(LANGUAGE_FREESPEAK, 1)
+	add_language(LANGUAGE_GAVSA, 1)
+	add_language(LANGUAGE_MOROZI, 1)
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_SIGN, 0)
 	set_custom_sprite()

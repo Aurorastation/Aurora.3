@@ -86,7 +86,7 @@
 /datum/language/morozi
 	name = LANGUAGE_MOROZI
 	short = "MOROZ"
-	desc = "The official language of the Empire of Dominia. Many language scholars have determined Morozi to be a distant cousin of Sol Common, having emerged during Dominia’s prolonged isolation from the rest of Human civilization. Rather than being a hybridization of English and Chinese, scholars have determined that Morozi began as a pidgin language used between speakers of Sol Common, old Earth German, and old earth Chinese."
+	desc = "The official language of the Empire of Dominia. Many language scholars have determined Morozi to be a distant cousin of Sol Common, having emerged during Dominia'’'s prolonged isolation from the rest of Human civilization. Rather than being a hybridization of English and Chinese, scholars have determined that Morozi began as a pidgin language used between speakers of Sol Common, old Earth German, and old earth Chinese."
 	speech_verb = list("proclaims")
 	sing_verb = list("chirps")
 	colour = "morozi"
@@ -95,6 +95,7 @@
 	flags = TCOMSSIM
 	allow_accents = TRUE
 	syllables = list("AOAOAOAO", "IM", "SO", "FUCKING", "POSH")
+	partial_understanding = list(LANGUAGE_SOL_COMMON = 85)
 
 // Sign language
 /datum/language/sign

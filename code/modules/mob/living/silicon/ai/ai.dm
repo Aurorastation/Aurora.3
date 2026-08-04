@@ -188,8 +188,9 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	//Languages
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_SOL_COMMON, TRUE)
-	add_language(LANGUAGE_SOL_COMMON, TRUE)
 	add_language(LANGUAGE_NOVA_PARLA, TRUE)
+	add_language(LANGUAGE_GAVSA, TRUE)
+	add_language(LANGUAGE_MOROZI, TRUE)
 	add_language(LANGUAGE_EAL, TRUE)
 	add_language(LANGUAGE_DRONE, TRUE)
 	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)

@@ -109,9 +109,9 @@
 
 	// Language/culture vars.
 	/// Default language is used when 'say' is used without modifiers.
-	var/default_language = "Ceti Basic"
+	var/default_language = LANGUAGE_SOL_COMMON
 	/// Default racial language, if any.
-	var/language = "Ceti Basic"
+	var/language = LANGUAGE_SOL_COMMON
 	/// The names of secondary languages that are available to this species.
 	var/list/secondary_langs = list()
 	/// A list of sounds to potentially play when speaking.
@@ -121,7 +121,7 @@
 	/// How many secondary languages are available to select at character creation
 	var/num_alternate_languages = 0
 	/// The language to use when determining names for this species, or null to use the first name/last name generator
-	var/name_language = "Ceti Basic"
+	var/name_language = LANGUAGE_SOL_COMMON
 
 	// Combat vars.
 	/// Point at which the mob will enter crit.

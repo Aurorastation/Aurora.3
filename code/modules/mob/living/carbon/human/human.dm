@@ -2207,7 +2207,7 @@
 	return ..(speaking, hearer, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_languages()
-	var/list/available_languages = species.secondary_langs.Copy() + LANGUAGE_SOL_COMMON
+	var/list/available_languages = species.secondary_langs.Copy()
 	for(var/L in GLOB.all_languages)
 		var/datum/language/lang = GLOB.all_languages[L]
 		if(!(lang.flags & RESTRICTED) && (!GLOB.config.usealienwhitelist || is_alien_whitelisted(src, L) || !(lang.flags & WHITELISTED)))

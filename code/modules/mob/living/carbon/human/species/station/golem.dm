@@ -30,7 +30,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 	bodytype = BODYTYPE_GOLEM
 	species_height = HEIGHT_CLASS_SHORT
 
-	language = "Ceti Basic"
+	language = LANGUAGE_SOL_COMMON
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
 	flags = NO_BREATHE | NO_PAIN | NO_BLOOD | NO_SCAN | NO_POISON | NO_EMBED | PHORON_IMMUNE
 	spawn_flags = IS_RESTRICTED

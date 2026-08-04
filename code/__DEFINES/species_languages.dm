@@ -44,6 +44,7 @@
 #define LANGUAGE_SOL_COMMON "Sol Common"
 #define LANGUAGE_GAVSA "Gavsa"
 #define LANGUAGE_ELYRAN_STANDARD "Elyran Standard"
+#define LANGUAGE_MOROZI "Morozi"
 #define LANGUAGE_UNATHI "Sinta'unathi"
 #define LANGUAGE_SIIK_MAAS "Siik'maas"
 #define LANGUAGE_SIIK_TAJR "Siik'tajr"

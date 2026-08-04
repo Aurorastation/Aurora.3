@@ -64,7 +64,7 @@
 	mob_bump_flag = SIMPLE_ANIMAL
 	holder_type = /obj/item/holder/drone
 
-	can_speak_basic = FALSE
+	can_speak_common = FALSE
 
 	// ID and Access
 	law_update = FALSE

@@ -58,12 +58,12 @@
 	// Misc
 	mob_thinks = FALSE
 
-	var/can_speak_basic = TRUE
+	var/can_speak_common = TRUE
 
 /mob/living/silicon/Initialize()
 	GLOB.silicon_mob_list |= src
 	. = ..()
-	add_language(LANGUAGE_SOL_COMMON, can_speak_basic)
+	add_language(LANGUAGE_SOL_COMMON, can_speak_common)
 	init_id()
 
 	var/datum/language/L = locate(/datum/language/common) in languages
