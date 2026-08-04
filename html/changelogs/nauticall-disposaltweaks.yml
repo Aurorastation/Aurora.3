@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "Painted the 'mainline' disposal pipes yellow for better distinction with mapping."
   - rscadd: "Adjusted some disposal piping to be tidier."
+  - bugfix: "Packages can now once again be mailed to the Machinist's Workshop."
