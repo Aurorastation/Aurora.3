@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Fixed window frames blocking thrown grenades and bullets."
+  - bugfix: "Fixed grenades launched instead of being thrown getting stuck on railings and tables."
