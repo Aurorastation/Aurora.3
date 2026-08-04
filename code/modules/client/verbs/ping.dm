@@ -22,7 +22,7 @@
 	winset(src, null, "command=.display_ping+[world.time+world.tick_lag*TICK_USAGE_REAL/100]")
 
 /client/verb/ping_storyteller()
-	set name = "Ping storyteller"
+	set name = "Ping Storyteller"
 	set category = "OOC"
 
 	if(!mob || isnewplayer(mob) || isghost(mob) || isobserver(mob) || isstoryteller(mob))
