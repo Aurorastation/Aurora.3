@@ -727,6 +727,11 @@
 /mob/verb/cancel_camera()
 	set name = "Cancel Camera View"
 	set category = "OOC"
+	if(istype(machine, /obj/item/modular_computer/handheld/communicator))
+		var/obj/item/modular_computer/handheld/communicator/communicator = machine
+		var/datum/computer_file/program/communicator/communicator_app = communicator.get_communicator_program()
+		if(communicator_app?.video_viewer == src)
+			communicator_app.stop_video_call()
 	unset_machine()
 	if(isliving(src))
 		var/mob/living/living_mob = src

@@ -1108,6 +1108,10 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	set desc = "Lets you zoom in."
 	set category = "OOC"
 
+	if(eye != mob)
+		to_chat(src, SPAN_WARNING("You cannot change view zoom while using a camera."))
+		return
+
 	var/list/zoom_options = list("Default" = 0, "Low" = 3, "Medium" = 6, "High" = 10, "Extreme" = 15)
 	var/selected_zoom = tgui_input_list(usr, "Please select a zoom level for your view.", "Set View Zoom", zoom_options, zoom_options[1])
 	winset(src, "mapwindow.map", "zoom=[zoom_options[selected_zoom]]")

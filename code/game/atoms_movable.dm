@@ -1141,6 +1141,8 @@
 	if(!direction)
 		direction = get_dir(src, newloc)
 
+	SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE_DIRECTION, newloc, direction, update_dir)
+
 	// TEMPORARY OFF because i remember this giving some issues on something i don't quite remember
 	if(set_dir_on_move && dir != direction && update_dir)
 		set_dir(direction)

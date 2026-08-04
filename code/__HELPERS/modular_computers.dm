@@ -27,8 +27,8 @@
 /**
  * Check if `address` is a valid NTNet address.
  *
- * An NTNet address consists of four colon-separated groups of four hexadecimal characters, beginning with the group '**fc00**'.
- * For example: '**fc00:1a2b:45cd:6e3d**'
+ * An NTNet address consists of four colon-separated groups of four alphanumeric characters, beginning with the group '**fc00**'.
+ * For example: '**fc00:1a2b:call:home**'
  *
  * Returns `TRUE` if `address` matches that criteria, else `FALSE`.
  *
@@ -42,7 +42,7 @@
 		fc00		 	String starts with "fc00"
 		(			 	Group start
 			:		 	One ':' character
-			[0-9a-f]{4}	...followed by exactly four hexadecimal characters (0 to 9 + a to f)
+			[0-9a-z]{4}	...followed by exactly four alphanumeric characters
 		)			 	Group end
 		{3}				Exactly three of the above groups
 		$				End of the string

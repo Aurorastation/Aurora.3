@@ -1,7 +1,5 @@
-import { classes } from 'common/react';
-import { InfernoKeyboardEvent } from 'inferno';
-import { KEY } from '../../../common/keys';
-import { useBackend, useLocalState } from '../../backend';
+import { KEY } from 'tgui-core/keys';
+import { classes } from 'tgui-core/react';
 import {
   Box,
   Button,
@@ -10,10 +8,12 @@ import {
   Input,
   Section,
   Stack,
-} from '../../components';
+} from 'tgui-core/components';
+import { useBackend, useLocalState } from '../../backend';
 import { FriendsList } from './CommunicatorContactTab';
-import { GetUserByAddress } from './helpers';
-import { CommunicatorData } from './types';
+import { FormatAddress, GetUserByAddress } from './helpers';
+import { CommunicatorTab } from './types';
+import type { CommunicatorData } from './types';
 
 const MAX_ADDR_DIGITS = 16; // Four groups of four characters
 const MAX_ADDR_COLONS = 3; // Three separators
@@ -37,33 +37,16 @@ const PHONE_KEYS = [
   'f',
 ] as const;
 
-function FormatAddress(newValue: string) {
-  // Remove any characters not in `PHONE_KEYS`. (Including any colons)
-  let formatted = newValue
-    .toLowerCase()
-    .replaceAll(RegExp(`[^${PHONE_KEYS.join('')}]`, 'g'), '');
-  // Shorten to `MAX_ADDR_DIGITS`.
-  formatted = formatted.slice(0, MAX_ADDR_DIGITS);
+export const CommunicatorPhoneTab = () => {
+  const { act, data } = useBackend<CommunicatorData>();
 
-  // Split the string into groups of 1 to 4 alphanumeric characters.
-  const groups = formatted.match(/\w{1,4}/g);
-  if (!groups) {
-    // This shouldn't happen, but if it does just return what we have so far.
-    return formatted;
-  }
-
-  // Join each group with a colon.
-  formatted = groups.join(':');
-  return formatted;
-}
-
-export const CommunicatorPhoneTab = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
-
-  const [targetAddress, setTargetAddress] = useLocalState(
-    context,
+  const [targetAddress, setTargetAddress] = useLocalState<string>(
     'targetAddress',
     '',
+  );
+  const [, setSelectedChatAddr] = useLocalState<string | null>(
+    'SelectedChatAddr',
+    null,
   );
 
   // Whether or not the `targetAddress` fully matches a user in `data.allUsers`.
@@ -101,7 +84,7 @@ export const CommunicatorPhoneTab = (props, context) => {
                 className="Button--wide"
                 icon="phone"
                 fluid
-                disabled={!targetAddress}
+                disabled={!targetAddress || data.observer}
                 color={targetAddrIsValid && 'green'}
                 onClick={() => {
                   act('call_request', {
@@ -119,8 +102,16 @@ export const CommunicatorPhoneTab = (props, context) => {
                 className="Button--wide"
                 icon="comment-alt"
                 fluid
-                disabled={!targetAddress}
+                disabled={!targetAddress || data.observer}
                 color={targetAddrIsValid && 'green'}
+                onClick={() => {
+                  act('start_chat', { target_address: targetAddress });
+                  setSelectedChatAddr(targetAddress);
+                  act('switch_tab', {
+                    new_tab: CommunicatorTab.Messaging,
+                  });
+                  setTargetAddress('');
+                }}
               >
                 Message
               </Button>
@@ -142,17 +133,15 @@ export const CommunicatorPhoneTab = (props, context) => {
   );
 };
 
-const AutocompleteInput = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const AutocompleteInput = () => {
+  const { data } = useBackend<CommunicatorData>();
 
-  const [targetAddress, setTargetAddress] = useLocalState(
-    context,
+  const [targetAddress, setTargetAddress] = useLocalState<string>(
     'targetAddress',
     '',
   );
 
-  const [suggestedTargetIdx, setSuggestedTargetIdx] = useLocalState(
-    context,
+  const [suggestedTargetIdx, setSuggestedTargetIdx] = useLocalState<number>(
     'suggestedTargetIdx',
     0,
   );
@@ -179,7 +168,7 @@ const AutocompleteInput = (props, context) => {
               .padStart(MAX_ADDRESS_LEN, ' ')}
           </Box>
           <Box
-            class={classes([
+            className={classes([
               'autocomplete',
               'name',
               targetAddress === suggestedTargetAddress && 'completed',
@@ -200,7 +189,7 @@ const AutocompleteInput = (props, context) => {
         monospace
         value={targetAddress}
         maxLength={MAX_ADDRESS_LEN}
-        onKeyDown={(event: InfernoKeyboardEvent<HTMLInputElement>) => {
+        onKeyDown={(event) => {
           if (!suggestedTargetAddress) return;
           switch (event.key) {
             case KEY.Tab:
@@ -233,13 +222,9 @@ const AutocompleteInput = (props, context) => {
         }}
         // Every time this input has its value changed, format everything to
         // make sure that it stays address-ey.
-        onInput={(
-          event: InfernoKeyboardEvent<HTMLInputElement>,
-          value: string,
-        ) => {
+        onChange={(value) => {
           const formattedValue = FormatAddress(value);
           setTargetAddress(formattedValue);
-          event.currentTarget.value = formattedValue;
 
           // If the new value has less than 2 possible matches,
           // reset `suggestedTargetIdx` to avoid it going "out of bounds".

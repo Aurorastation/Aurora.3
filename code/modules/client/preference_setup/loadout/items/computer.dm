@@ -78,6 +78,7 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 	display_name = "communicator"
 	path = /obj/item/modular_computer/handheld/communicator
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	cost = 2
 
 /datum/gear/computer/handheld/communicator/New()
 	. = ..()
@@ -87,6 +88,17 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 /datum/gear/computer/handheld/communicator/spawn_item(location, metadata, mob/living/carbon/human/H)
 	var/obj/item/modular_computer/handheld/communicator/comm = ..()
 	addtimer(CALLBACK(comm, TYPE_PROC_REF(/obj/item/modular_computer/handheld/communicator, register_to_mob), H), 3 SECONDS)
+	return comm
+
+/datum/gear/computer/handheld/communicator/video
+	display_name = "video communicator"
+	path = /obj/item/modular_computer/handheld/communicator/video
+	cost = 4
+
+/datum/gear/computer/handheld/communicator/holographic
+	display_name = "holographic communicator"
+	path = /obj/item/modular_computer/handheld/communicator/holographic
+	cost = 6
 
 // Communicator NTNet address customisation
 /datum/gear_tweak/communicator_address/get_contents(metadata)
@@ -97,8 +109,8 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 	while(TRUE)
 		var/address = tgui_input_text(
 			user,
-			"NTNet addresses must be formatted as 'fc00:1a2b:45cd:6e3d'. \
-			 That is, four groups of four hexadecimal characters separated by colons, and beginning with the group 'fc00'.",
+			"Communicator numbers must be formatted as 'fc00:1a2b:call:home'. \
+			 That is, four groups of four letters or numbers separated by colons, beginning with 'fc00'.",
 			"Custom NTNet Address",
 			metadata || "fc00:",
 			MAX_NTNET_ADDRESS_LEN)
@@ -110,22 +122,26 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 			to_chat(user, SPAN_WARNING("Invalid address! Please try again."))
 			continue
 
-		return address
+		return lowertext(address)
 
 /datum/gear_tweak/communicator_address/tweak_item(obj/item/modular_computer/handheld/communicator/comm, metadata, mob/living/carbon/human/H)
 	if(!metadata)
 		return
+	metadata = lowertext(metadata)
+	if(!validate_ntnet_address(metadata))
+		to_chat(H, SPAN_DANGER("Error applying custom communicator number: Invalid number."))
+		return
 	// Someone else is using the same custom address
-	if(GLOB.active_communicator_apps[metadata])
-		to_chat(H, SPAN_DANGER("Error applying custom communicator address: Address is already in use!"))
+	var/datum/computer_file/program/communicator/existing_app = GLOB.active_communicator_apps[metadata]
+	var/datum/computer_file/program/communicator/comm_app = comm.get_communicator_program()
+	if(existing_app && existing_app != comm_app)
+		to_chat(H, SPAN_DANGER("Error applying custom communicator number: Number is already in use!"))
 		return
 
 	var/obj/item/computer_hardware/network_card/network_card = comm.network_card
-	var/datum/computer_file/program/communicator/comm_app = GLOB.active_communicator_apps[network_card?.identification_addr]
-	if(!comm_app)
+	if(!network_card)
 		return
 
-	// slightly hacky manual reassignment
-	GLOB.active_communicator_apps -= network_card.identification_addr
+	comm_app?.remove_from_active(network_card.identification_addr)
 	network_card.identification_addr = metadata
-	GLOB.active_communicator_apps[metadata] = comm_app
+	comm_app?.add_to_active(metadata)

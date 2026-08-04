@@ -1,9 +1,9 @@
 import { useBackend } from '../../backend';
-import { Box, Button, Icon, Stack } from '../../components';
-import { Apps, CommunicatorData } from './types';
+import { Box, Button, Icon, Stack } from 'tgui-core/components';
+import { Apps, type CommunicatorData } from './types';
 
-export const CommunicatorHomeTab = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+export const CommunicatorHomeTab = () => {
+  const { act } = useBackend<CommunicatorData>();
 
   return (
     <Stack
@@ -31,7 +31,7 @@ export const CommunicatorHomeTab = (props, context) => {
               size={2.5}
               mx="auto"
               mb="4px"
-              style={{ 'vertical-align': 'middle' }}
+              style={{ verticalAlign: 'middle' }}
             />
           </Button>
           <Box>{app.name}</Box>

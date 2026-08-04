@@ -8,6 +8,8 @@
 	hardware_size = 1
 	/// Identification ID. Technically MAC address of this device. Can't be changed by user.
 	var/identification_id
+	/// Human-dialable alphanumeric NTNet address used by peer-to-peer services.
+	var/identification_addr
 	/// Identification string, technically nickname seen in the network. Can be set by user.
 	var/identification_string = ""
 	var/long_range = FALSE

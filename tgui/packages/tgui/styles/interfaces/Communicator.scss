@@ -1,6 +1,3 @@
-@use '../components/Section.scss';
-@use '../components/Input.scss';
-
 $phone-button-width: 90px;
 $phone-button-height: 45px;
 $phone-button-spacing: 0.5rem;
@@ -13,7 +10,7 @@ $phone-button-spacing: 0.5rem;
   }
 
   &:nth-child(odd):not(:only-child) {
-    background-color: lighten(Section.$background-color, 25%);
+    background-color: rgba(255, 255, 255, 0.04);
   }
 }
 
@@ -99,7 +96,7 @@ $phone-button-spacing: 0.5rem;
     position: relative;
     width: 443px;
     height: 24px;
-    background-color: Input.$background-color;
+    background-color: var(--input-background);
     margin-bottom: $phone-button-spacing;
 
     .Input {
@@ -112,7 +109,6 @@ $phone-button-spacing: 0.5rem;
     }
 
     .autocomplete {
-      @extend .Input__input;
       position: absolute;
       top: 2px;
       left: 1px;
@@ -121,6 +117,8 @@ $phone-button-spacing: 0.5rem;
       color: #777;
       font-family: 'Consolas', monospace;
       text-align: left;
+      box-sizing: border-box;
+      padding: var(--space-xxs) var(--space-sm);
 
       &.name {
         justify-self: flex-end;
@@ -136,7 +134,7 @@ $phone-button-spacing: 0.5rem;
 
         &:hover:not(.completed) {
           text-decoration: underline;
-          color: lighten(#777, 10%);
+          color: #919191;
         }
       }
     }

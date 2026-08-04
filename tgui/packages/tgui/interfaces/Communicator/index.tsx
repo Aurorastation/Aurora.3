@@ -1,16 +1,18 @@
 import { useBackend } from '../../backend';
-import { Box, Button, Flex, Icon, Section, Stack } from '../../components';
 import { NtosWindow } from '../../layouts';
+import { Box, Button, Flex, Icon, Section, Stack } from 'tgui-core/components';
 import { CommunicatorCallTab } from './CommunicatorCallTab';
 import { CommunicatorContactTab } from './CommunicatorContactTab';
 import { CommunicatorHomeTab } from './CommunicatorHomeTab';
 import { CommunicatorMessagesTab } from './CommunicatorMessagesTab';
 import { CommunicatorPhoneTab } from './CommunicatorPhoneTab';
 import { CommunicatorSettingsTab } from './CommunicatorSettingsTab';
-import { CommunicatorData, CommunicatorTab } from './types';
+import { CommunicatorTab } from './types';
+import type { ReactNode } from 'react';
+import type { CommunicatorData } from './types';
 
-export const Communicator = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+export const Communicator = () => {
+  const { data } = useBackend<CommunicatorData>();
 
   return (
     <NtosWindow width={475} height={700}>
@@ -21,10 +23,10 @@ export const Communicator = (props, context) => {
   );
 };
 
-const NormalScreen = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const NormalScreen = () => {
+  const { data } = useBackend<CommunicatorData>();
 
-  const tabs: { [tab in CommunicatorTab]: JSX.Element } = {
+  const tabs: { [tab in CommunicatorTab]: ReactNode } = {
     [CommunicatorTab.Home]: <CommunicatorHomeTab />,
     [CommunicatorTab.Phone]: <CommunicatorPhoneTab />,
     [CommunicatorTab.Contacts]: <CommunicatorContactTab />,
@@ -45,8 +47,8 @@ const NormalScreen = (props, context) => {
   );
 };
 
-const FooterButtons = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const FooterButtons = () => {
+  const { act, data } = useBackend<CommunicatorData>();
 
   const activeCall = !!data.activeCall;
   const incomingCall = !!data.callRequests.incoming.length;
@@ -91,7 +93,7 @@ const NoIDScreen = () => {
         <Icon name="face-smile" size={10} /* logo goes here */ />
       </Flex.Item>
       <Flex.Item textAlign="center" fontSize={1.5}>
-        <Box>Thank you for chosing the (corp name) Communicator®.</Box>
+        <Box>Thank you for choosing your Communicator.</Box>
         <Box>Please swipe your identification card to continue.</Box>
       </Flex.Item>
     </Flex>

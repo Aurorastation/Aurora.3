@@ -1,38 +1,26 @@
-// BIG TODO: Ensure that ALL new datums and items being deleted individually and while midway through an action (e.g. calling someone) gets handled properly.
-// todo: add logging for admins, ghosts, and `generate_network_log()`
-
-/// Associative list of NTNet addresses and their corresponding [/datum/computer_file/program/communicator].
-///
-/// Communicator apps will only be present in this list if their parent [/obj/item/modular_computer/handheld/communicator] has both a registered user,
-/// and a vaid NTNet address through its network card.
+/// Active, registered communicator applications, keyed by their public-facing NTNet number.
 GLOBAL_LIST_EMPTY(active_communicator_apps)
 
 /datum/computer_file/program/communicator
 	filename = "ntnet_comm"
 	filedesc = "Communicator"
 	program_icon_state = "comm"
-	extended_desc = "todo"
+	extended_desc = "A private NTNet client for direct calls, contacts, and text messages."
 	size = 16
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	available_on_ntnet = FALSE
-	network_destination = "todo"
+	usage_flags = PROGRAM_COMMUNICATOR
+	network_destination = "NTNet Communicator Service"
 	tgui_id = "Communicator"
 
-	/// The phone call datum that this communicator is connected to, along with any other communicators in the call.
+	/// The phone call this device is currently connected to.
 	var/datum/comm_call/active_call
-
-	// todo: make this an alist?? {other comm's address: chat datum}
+	/// Associative list of the other party's address to a shared text conversation.
 	var/alist/active_chats = alist()
-
-	/// Friend list! Associative list of each friend's NTNet address, and their last known username.
-	///
-	/// The username is stored so that in the event that their communicator goes offline, the friends list UI can still show a listing for them.
+	/// Local contact book: address to last-known display name.
 	var/alist/friends = alist()
-
-	/// Associative list of request "directions" (incoming, outgoing), each with their own alist of "categories", which hold regular lists of NTNet addresses.
-	///
-	/// Modifying/accessing the address lists is far less confusing than it looks. Just `comm_requests[*DIRECTION*_REQUESTS][*CATEGORY*_REQUESTS] ±= *address*`
+	/// Incoming and outgoing signaling requests.
 	var/alist/comm_requests = alist(
 		INCOMING_REQUESTS = alist(
 			CALL_REQUESTS = list(),
@@ -44,180 +32,388 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		)
 	)
 
-	/// Current TGUI screen. This is kept as a variable here so that it can be changed on the DM side, for example if the user joins a phone call.
 	var/current_tab = COMM_HOME_TAB
-	/// The NTNet address that this communicator is currently trying to "connect" to, after which it will join a [/datum/comm_call]. (`null` if it isn't connecting to anything)
-	var/connecting_to_address = null
-
-	/// A custom name set by the user in the settings page of the TGUI interface.
-	/// If `null`, the [/obj/item/card/id/var/registered_name] of the device's registered ID will be used instead.
-	var/custom_username = null
-	/// Is this device visible in the 'Public Devices' list of the UI?
-	/// Friends and users who know the device's NTNet address can still communicate with it even if this is set to `FALSE`.
+	var/connecting_to_address
+	var/custom_username
 	var/visible_on_network = TRUE
-	/// If someone else talks in a voice call, will this device broadcast the message over a wide area (`TRUE`), or only show it to the person holding the communicator (`FALSE`).
 	var/speakerphone_on = FALSE
-	/// Will speech near this communicator get picked up and transmitted through a voice call? (Mute button)
 	var/microphone_on = TRUE
+
+	/// Limited video feed state. Only one person can view from a device at once.
+	var/video_call_on = FALSE
+	var/mob/video_viewer
+	var/datum/computer_file/program/communicator/video_target
+	/// Map zoom in use before video temporarily applies the client's High zoom setting.
+	var/video_previous_zoom
+	/// Whether this caller is currently being projected by holographic peers.
+	var/hologram_on = FALSE
 
 /datum/computer_file/program/communicator/New(obj/item/modular_computer/comp)
 	. = ..()
 	if(!istype(comp))
 		return
-
 	RegisterSignal(computer, COMSIG_MOD_COMPUTER_HW_INSTALLED, PROC_REF(on_hw_installed))
 	RegisterSignal(computer, COMSIG_MOD_COMPUTER_HW_UNINSTALLED, PROC_REF(on_hw_uninstalled))
 
 /datum/computer_file/program/communicator/Destroy()
 	remove_from_active()
-	clean_variables()
+	clean_variables(clear_chats = TRUE)
 	return ..()
 
 /datum/computer_file/program/communicator/run_program(mob/user)
-	add_to_active()
+	. = ..()
+	if(!.)
+		return FALSE
 	if(!get_computer_address())
 		computer.output_error("ERROR: Unable to locate network card.")
-		return
-	return ..()
+		return FALSE
+	add_to_active()
+	refresh_icon_state()
+	return TRUE
 
 /datum/computer_file/program/communicator/kill_program(forced)
 	. = ..()
-	// Reset the UI back to its default state.
+	remove_from_active()
+	clean_variables()
 	current_tab = initial(current_tab)
+	refresh_icon_state()
+	return .
 
-// ID card registered on the parent `computer`.
+/datum/computer_file/program/communicator/process_tick()
+	if(video_call_on && (!video_viewer?.client || !active_call || !(video_target in active_call.connected_comms)))
+		stop_video_call()
+	else if(video_call_on)
+		if(video_viewer.machine != computer)
+			video_viewer.set_machine(computer)
+		if(!update_video_view())
+			stop_video_call()
+	return TRUE
+
+/// Keeps a live communicator feed from being cancelled by the mob vision subsystem.
+/datum/computer_file/program/communicator/check_eye(mob/user)
+	if(user != video_viewer || !video_call_on || user.stat || user.blinded)
+		return -1
+	var/atom/video_eye = get_video_eye_target()
+	if(!active_call || !(video_target in active_call.connected_comms) || !video_eye)
+		return -1
+	if(user.client && user.client.eye != video_eye)
+		user.reset_view(video_eye)
+	return 0
+
+/// Remote video should retain the viewer's normal corrective and equipment vision.
+/datum/computer_file/program/communicator/grants_equipment_vision(mob/user)
+	return check_eye(user) >= 0
+
 /datum/computer_file/program/communicator/event_registered()
+	. = ..()
 	add_to_active()
 	update_static_data_for_all_viewers()
 
-// ID card unregistered on the parent `computer`.
 /datum/computer_file/program/communicator/event_unregistered()
+	. = ..()
 	remove_from_active()
+	clean_variables()
 	update_static_data_for_all_viewers()
 
-// Can't connect to NTNet, so remove this comm from the global "active" list.
 /datum/computer_file/program/communicator/event_networkfailure(background)
 	. = ..()
 	remove_from_active()
+	clean_variables()
 
-// If there was previously no network card and one was just installed, add this comm back to the global list.
-/datum/computer_file/program/communicator/proc/on_hw_installed(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
+/datum/computer_file/program/communicator/proc/on_hw_installed(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/hardware)
 	SIGNAL_HANDLER
-	if(computer.registered_id && istype(H, /obj/item/computer_hardware/network_card))
-		add_to_active(computer.network_card.identification_addr)
+	if(computer.registered_id && istype(hardware, /obj/item/computer_hardware/network_card))
+		var/obj/item/computer_hardware/network_card/network_card = hardware
+		add_to_active(network_card.identification_addr)
 
-// If the network card was uninstalled, remove from the global list.
-/datum/computer_file/program/communicator/proc/on_hw_uninstalled(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/H)
+/datum/computer_file/program/communicator/proc/on_hw_uninstalled(obj/item/modular_computer/source, mob/living/user, obj/item/computer_hardware/hardware)
 	SIGNAL_HANDLER
-	if(istype(H, /obj/item/computer_hardware/network_card))
-		var/obj/item/computer_hardware/network_card/net_card = H
-		remove_from_active(net_card.identification_addr)
+	if(!istype(hardware, /obj/item/computer_hardware/network_card))
+		return
+	var/obj/item/computer_hardware/network_card/network_card = hardware
+	remove_from_active(network_card.identification_addr)
+	clean_variables()
 
-/**
- * Add this communicator to [GLOB.active_communicator_apps][/datum/controller/global_vars/var/active_communicator_apps].
- *
- * Arguments:
- * * address - **(Optional)** The address use as a key in `GLOB.active_communicator_apps`. If unset, the proc will use [/datum/computer_file/program/communicator/proc/get_computer_address].
- */
-/datum/computer_file/program/communicator/proc/add_to_active(address = null)
+/// Registers the application without ever replacing a device already using the same number.
+/datum/computer_file/program/communicator/proc/add_to_active(address)
 	address ||= get_computer_address()
-	if(address)
-		GLOB.active_communicator_apps[address] = src
+	if(!address || !computer?.registered_id || !validate_ntnet_address(address))
+		return FALSE
+	address = lowertext(address)
+	var/datum/computer_file/program/communicator/existing = GLOB.active_communicator_apps[address]
+	if(existing && existing != src)
+		computer.output_error("ERROR: Communicator number {[address]} is already in use.")
+		return FALSE
+	GLOB.active_communicator_apps[address] = src
+	return TRUE
 
-/**
- * Remove this communicator from [GLOB.active_communicator_apps][/datum/controller/global_vars/var/active_communicator_apps].
- *
- * Arguments:
- * * address - **(Optional)** The address to look for as a key in `GLOB.active_communicator_apps`. If unset, the proc will use [/datum/computer_file/program/communicator/proc/get_computer_address].
- */
-/datum/computer_file/program/communicator/proc/remove_from_active(address = null)
+/datum/computer_file/program/communicator/proc/remove_from_active(address)
 	address ||= get_computer_address()
-	if(address)
+	if(address && GLOB.active_communicator_apps[address] == src)
 		GLOB.active_communicator_apps -= address
 
-/// Clean up and reset some of the more complicated variables back to their initial state. In particular `active_call` and `comm_requests`.
-/datum/computer_file/program/communicator/proc/clean_variables()
+/// Ends transient communications. Contacts and message history survive normal power/network loss.
+/datum/computer_file/program/communicator/proc/clean_variables(clear_chats = FALSE)
+	stop_video_call()
+	hologram_on = FALSE
 	if(active_call)
 		active_call.remove_device(src)
-		// `active_call` gets set to null in `remove_device()`.
 
-	// Try to clean up any requests to and from this communicator.
 	var/our_address = get_computer_address()
 	for(var/category in comm_requests[INCOMING_REQUESTS])
-		for(var/address in comm_requests[INCOMING_REQUESTS][category])
-			var/datum/computer_file/program/communicator/comm = GLOB.active_communicator_apps[address]
-			if(our_address && comm)
-				comm.cancel_comm_request(our_address, category)
+		var/list/incoming_copy = comm_requests[INCOMING_REQUESTS][category].Copy()
+		for(var/address in incoming_copy)
+			var/datum/computer_file/program/communicator/other_comm = GLOB.active_communicator_apps[address]
+			if(our_address && other_comm)
+				other_comm.cancel_comm_request(our_address, category)
 			else
 				comm_requests[INCOMING_REQUESTS][category] -= address
 
 	for(var/category in comm_requests[OUTGOING_REQUESTS])
-		for(var/address in comm_requests[OUTGOING_REQUESTS][category])
+		var/list/outgoing_copy = comm_requests[OUTGOING_REQUESTS][category].Copy()
+		for(var/address in outgoing_copy)
 			cancel_comm_request(address, category)
 
-/// Returns the NTNet address of the parent `computer`'s network card.
+	connecting_to_address = null
+	if(current_tab == COMM_CALL_TAB)
+		current_tab = initial(current_tab)
+
+	if(clear_chats)
+		var/list/chats_to_detach = list()
+		for(var/address in active_chats)
+			chats_to_detach |= active_chats[address]
+		for(var/datum/comm_chat/chat as anything in chats_to_detach)
+			chat.remove_participant(src)
+		active_chats.Cut()
+	refresh_icon_state()
+
 /datum/computer_file/program/communicator/proc/get_computer_address()
-	return computer.network_card?.identification_addr
+	return lowertext(computer?.network_card?.identification_addr)
 
-/// Returns the username of the communicator's owner. Either `custom_username` if set, or the name on the parent `computer`'s `registered_id`.
 /datum/computer_file/program/communicator/proc/get_user_name()
-	return custom_username || computer.registered_id?.registered_name
+	var/obj/item/modular_computer/handheld/communicator/communicator = computer
+	return custom_username || communicator?.directory_name || computer?.registered_id?.registered_name
 
-/**
- * Send a comm request of type `category` to `target_address`, adding it to their `comm_requests[INCOMING_REQUESTS]` and our `comm_requests[OUTGOING_REQUESTS]`.
- *
- * If this communicator has no address, the target can't be found, or the target rejects the request, this will return `FALSE`.
- *
- * If the request was successfully sent and recieved, this will modify both sides' `comm_requests` and return `TRUE`
- *
- * Arguments:
- * * target_address - The NTNet address of the communicator being sent the request.
- * * category - The 'category' of the request to send. Must be one of [CALL_REQUESTS] or [FRIEND_REQUESTS].
- */
+/datum/computer_file/program/communicator/proc/get_device_tier()
+	var/obj/item/modular_computer/handheld/communicator/communicator = computer
+	return communicator?.communicator_tier || COMMUNICATOR_TIER_BASIC
+
+/datum/computer_file/program/communicator/proc/get_tier_name()
+	switch(get_device_tier())
+		if(COMMUNICATOR_TIER_HOLOGRAPHIC)
+			return "Holographic"
+		if(COMMUNICATOR_TIER_VIDEO)
+			return "Video"
+	return "Basic"
+
+/datum/computer_file/program/communicator/proc/is_valid_request_category(category)
+	return category == CALL_REQUESTS || category == FRIEND_REQUESTS
+
 /datum/computer_file/program/communicator/proc/send_comm_request(target_address, category)
+	target_address = lowertext(target_address)
 	var/source_address = get_computer_address()
 	var/datum/computer_file/program/communicator/target_comm = GLOB.active_communicator_apps[target_address]
-	if(!source_address || !target_comm)
+	if(!is_valid_request_category(category) || !source_address || !target_comm || target_comm == src || GLOB.active_communicator_apps[source_address] != src)
 		return FALSE
-
-	if(!target_comm.recieve_comm_request(source_address, category))
+	if(target_address in comm_requests[OUTGOING_REQUESTS][category])
+		return FALSE
+	if(category == CALL_REQUESTS && length(comm_requests[OUTGOING_REQUESTS][CALL_REQUESTS]))
+		return FALSE
+	if(!target_comm.receive_comm_request(source_address, category))
 		return FALSE
 	comm_requests[OUTGOING_REQUESTS][category] |= target_address
+	refresh_icon_state()
 	return TRUE
 
-/**
- * Cancel an existing comm request of type `category` to `target_address`, removing it from our `comm_requests[OUTGOING_REQUESTS]`,
- * and their `comm_requests[INCOMING_REQUESTS]` if `target_address` can be found.
- *
- * Arguments:
- * * target_address - The NTNet address of the communicator who was previously sent the request.
- * * category - The 'category' of the request to remove. Must be one of [CALL_REQUESTS] or [FRIEND_REQUESTS].
- */
 /datum/computer_file/program/communicator/proc/cancel_comm_request(target_address, category)
+	if(!is_valid_request_category(category))
+		return FALSE
+	target_address = lowertext(target_address)
 	comm_requests[OUTGOING_REQUESTS][category] -= target_address
-
 	var/source_address = get_computer_address()
 	var/datum/computer_file/program/communicator/target_comm = GLOB.active_communicator_apps[target_address]
 	if(source_address && target_comm)
 		target_comm.comm_requests[INCOMING_REQUESTS][category] -= source_address
+		target_comm.refresh_icon_state()
+	refresh_icon_state()
+	return TRUE
 
-/**
- * Called by `send_comm_request()` on the target communicator. Returns `TRUE` if the request was successfully recieved and added, otherwise `FALSE`.
- *
- * Arguments:
- * * source_address - The NTNet address of the communicator who sent the comm request.
- * * category - The category of the request being recieved.
- */
-/datum/computer_file/program/communicator/proc/recieve_comm_request(source_address, category)
+/datum/computer_file/program/communicator/proc/receive_comm_request(source_address, category)
 	PRIVATE_PROC(TRUE)
+	if(!is_valid_request_category(category) || !GLOB.active_communicator_apps[source_address])
+		return FALSE
 	if(source_address in comm_requests[INCOMING_REQUESTS][category])
 		return FALSE
-	if(category == CALL_REQUESTS && active_call)
-		return FALSE
+	if(category == CALL_REQUESTS)
+		if(active_call || length(comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]) || (source_address in comm_requests[OUTGOING_REQUESTS][CALL_REQUESTS]))
+			return FALSE
 
 	comm_requests[INCOMING_REQUESTS][category] |= source_address
-
 	var/datum/computer_file/program/communicator/caller_comm = GLOB.active_communicator_apps[source_address]
-	var/caller_name = caller_comm?.get_user_name() || "\[UNKNOWN\]"
-	computer.get_notification("New [category] request!", 1, caller_name)
+	var/obj/item/modular_computer/handheld/communicator/communicator_device = computer
+	var/had_unread_notification = communicator_device?.unread_notification
+	computer.get_notification("New [category] request!", 1, caller_comm?.get_user_name() || "\[UNKNOWN\]")
+	// A ringing call is represented by the pending request itself. It must not become a
+	// persistent unread alert after the caller cancels, while older text/contact alerts survive.
+	if(category == CALL_REQUESTS && communicator_device)
+		communicator_device.unread_notification = had_unread_notification
+	refresh_icon_state()
 	return TRUE
+
+/// Returns whether this device legitimately knows a hidden address and may receive it in UI data.
+/datum/computer_file/program/communicator/proc/knows_address(address)
+	if(address in friends || active_chats[address])
+		return TRUE
+	for(var/direction in comm_requests)
+		for(var/category in comm_requests[direction])
+			if(address in comm_requests[direction][category])
+				return TRUE
+	if(active_call)
+		for(var/datum/computer_file/program/communicator/other_comm as anything in active_call.connected_comms)
+			if(other_comm.get_computer_address() == address)
+				return TRUE
+	return FALSE
+
+/datum/computer_file/program/communicator/proc/get_or_create_chat(datum/computer_file/program/communicator/target_comm)
+	RETURN_TYPE(/datum/comm_chat)
+	if(!target_comm || target_comm == src)
+		return
+	var/target_address = target_comm.get_computer_address()
+	var/our_address = get_computer_address()
+	if(!target_address || !our_address)
+		return
+	var/datum/comm_chat/existing_chat = active_chats[target_address]
+	if(existing_chat)
+		return existing_chat
+	existing_chat = target_comm.active_chats[our_address]
+	if(existing_chat)
+		if(existing_chat.attach_participant(src))
+			return existing_chat
+	return new /datum/comm_chat(src, target_comm)
+
+/datum/computer_file/program/communicator/proc/send_text_message(target_address, message)
+	target_address = lowertext(target_address)
+	var/datum/computer_file/program/communicator/target_comm = GLOB.active_communicator_apps[target_address]
+	if(!target_comm || target_comm == src)
+		return FALSE
+	message = sanitize(message, COMMUNICATOR_MAX_TEXT_LENGTH)
+	if(!length(message))
+		return FALSE
+	var/datum/comm_chat/chat = get_or_create_chat(target_comm)
+	if(!chat || !chat.send_message(message, src))
+		return FALSE
+	target_comm.computer.get_notification("New text message!", 1, get_user_name())
+	target_comm.refresh_icon_state()
+	return TRUE
+
+/datum/computer_file/program/communicator/proc/get_video_targets()
+	var/list/video_targets = list()
+	if(!active_call || get_device_tier() < COMMUNICATOR_TIER_VIDEO)
+		return video_targets
+	for(var/datum/computer_file/program/communicator/other_comm as anything in active_call.connected_comms)
+		if(other_comm != src && other_comm.get_device_tier() >= COMMUNICATOR_TIER_VIDEO)
+			video_targets += other_comm
+	return video_targets
+
+/datum/computer_file/program/communicator/proc/get_video_target()
+	RETURN_TYPE(/datum/computer_file/program/communicator)
+	var/list/video_targets = get_video_targets()
+	return length(video_targets) ? video_targets[1] : null
+
+/datum/computer_file/program/communicator/proc/toggle_video_call(mob/user)
+	if(video_call_on)
+		stop_video_call()
+		return TRUE
+	if(isobserver(user) || !user?.client)
+		return FALSE
+	var/list/video_targets = get_video_targets()
+	if(!length(video_targets))
+		computer.output_error("No video-capable call participant is available.")
+		return FALSE
+	var/list/target_choices = list()
+	for(var/datum/computer_file/program/communicator/available_target as anything in video_targets)
+		var/target_label = "[available_target.get_user_name()] ([available_target.get_computer_address()])"
+		target_choices[target_label] = available_target
+	var/selected_label = tgui_input_list(user, "Select the participant's video camera to watch.", "Video Camera", target_choices)
+	var/datum/computer_file/program/communicator/target_comm = target_choices[selected_label]
+	// The call may have changed while the camera picker was open.
+	if(!target_comm || !(target_comm in get_video_targets()))
+		return FALSE
+
+	video_call_on = TRUE
+	video_viewer = user
+	video_target = target_comm
+	video_previous_zoom = winget(user.client, "mapwindow.map", "zoom")
+	if(!length(video_previous_zoom))
+		video_previous_zoom = "0"
+	winset(user.client, "mapwindow.map", "zoom=[COMMUNICATOR_VIDEO_ZOOM]")
+	if(user.machine != computer)
+		user.set_machine(computer)
+	if(!update_video_view())
+		stop_video_call()
+		return FALSE
+	refresh_icon_state()
+	return TRUE
+
+/datum/computer_file/program/communicator/proc/stop_video_call()
+	var/mob/old_viewer = video_viewer
+	if(old_viewer?.client)
+		if(!isnull(video_previous_zoom))
+			winset(old_viewer.client, "mapwindow.map", "zoom=[video_previous_zoom]")
+		if(is_video_camera_eye(old_viewer))
+			old_viewer.reset_view(null)
+	video_call_on = FALSE
+	video_viewer = null
+	video_target = null
+	video_previous_zoom = null
+	refresh_icon_state()
+/// Resolves the selected device's physical carrier, regardless of inventory nesting.
+/datum/computer_file/program/communicator/proc/get_video_camera_target()
+	RETURN_TYPE(/atom/movable)
+	var/atom/movable/subject = get_atom_on_turf(video_target?.computer)
+	return subject && isturf(subject.loc) ? subject : null
+
+/// Returns the top-level atom containing the selected communicator.
+/datum/computer_file/program/communicator/proc/get_video_eye_target()
+	RETURN_TYPE(/atom)
+	return get_video_camera_target()
+
+/// Whether this program currently owns the user's eye through its resolved camera target.
+/datum/computer_file/program/communicator/proc/is_video_camera_eye(mob/user)
+	return video_call_on && video_viewer == user && user?.client?.eye == get_video_eye_target()
+
+/datum/computer_file/program/communicator/proc/update_video_view()
+	var/atom/video_eye = get_video_eye_target()
+	if(!video_viewer?.client || video_viewer.stat || video_viewer.blinded || !video_eye)
+		return FALSE
+	if(video_viewer.client.eye != video_eye)
+		video_viewer.reset_view(video_eye)
+	return video_viewer.client.eye == video_eye
+
+/datum/computer_file/program/communicator/proc/toggle_hologram()
+	if(!active_call || get_device_tier() < COMMUNICATOR_TIER_HOLOGRAPHIC)
+		return FALSE
+	var/can_project = FALSE
+	for(var/datum/computer_file/program/communicator/other_comm as anything in active_call.connected_comms)
+		if(other_comm != src && other_comm.get_device_tier() >= COMMUNICATOR_TIER_HOLOGRAPHIC)
+			can_project = TRUE
+			break
+	if(!can_project)
+		computer.output_error("No holographic call participant is available.")
+		return FALSE
+	hologram_on = !hologram_on
+	active_call.refresh_holograms()
+	refresh_icon_state()
+	return TRUE
+
+/datum/computer_file/program/communicator/proc/refresh_icon_state(update_computer = TRUE)
+	if(active_call)
+		program_icon_state = video_call_on ? "video" : "active"
+	else if(length(comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]) || length(comm_requests[OUTGOING_REQUESTS][CALL_REQUESTS]))
+		program_icon_state = "called"
+	else
+		var/obj/item/modular_computer/handheld/communicator/communicator = computer
+		program_icon_state = communicator?.unread_notification ? "called" : "comm"
+	computer?.update_uis()
+	if(update_computer)
+		computer?.update_icon()

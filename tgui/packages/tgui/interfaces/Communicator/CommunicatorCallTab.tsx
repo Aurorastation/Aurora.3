@@ -1,11 +1,12 @@
-import { InfernoNode } from 'inferno';
+import type { ReactNode } from 'react';
+import { Box, Button, Flex, Icon, Stack } from 'tgui-core/components';
 import { useBackend } from '../../backend';
-import { Box, Button, Flex, Icon, Stack } from '../../components';
 import { GetUserByAddress } from './helpers';
-import { CommunicatorData, CommunicatorTab } from './types';
+import { CommunicatorTab } from './types';
+import type { CommunicatorData } from './types';
 
-export const CommunicatorCallTab = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+export const CommunicatorCallTab = () => {
+  const { act, data } = useBackend<CommunicatorData>();
   const { activeCall, callRequests, userComm } = data;
 
   const incomingCall = !!callRequests.incoming.length;
@@ -33,6 +34,7 @@ export const CommunicatorCallTab = (props, context) => {
             icon="phone-slash"
             color="red"
             fontSize={2.5}
+            disabled={data.observer}
             onClick={() => act('end_call')}
           >
             End Call
@@ -53,6 +55,7 @@ export const CommunicatorCallTab = (props, context) => {
             icon="phone-slash"
             color="red"
             fontSize={2.5}
+            disabled={data.observer}
             onClick={() =>
               act('call_request', {
                 action: 'cancel',
@@ -81,6 +84,7 @@ export const CommunicatorCallTab = (props, context) => {
                 icon="phone-volume"
                 color="green"
                 fontSize={2}
+                disabled={data.observer}
                 onClick={() =>
                   act('call_request', {
                     action: 'accept',
@@ -97,6 +101,7 @@ export const CommunicatorCallTab = (props, context) => {
                 icon="phone-slash"
                 color="red"
                 fontSize={2}
+                disabled={data.observer}
                 onClick={() =>
                   act('call_request', {
                     action: 'decline',
@@ -125,10 +130,9 @@ const CallScreen = (
   props: {
     name?: string;
     subtitle: string;
-    centerItem?: InfernoNode;
-    buttons: InfernoNode;
+    centerItem?: ReactNode;
+    buttons: ReactNode;
   },
-  context,
 ) => {
   const { name, subtitle, centerItem, buttons } = props;
 
@@ -149,15 +153,26 @@ const CallScreen = (
   );
 };
 
-const OptionButtons = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
-  const { speakerphoneOn, microphoneOn } = data.callSettings;
+const OptionButtons = () => {
+  const { act, data } = useBackend<CommunicatorData>();
+  const {
+    speakerphoneOn,
+    microphoneOn,
+    videoOn,
+    hologramOn,
+    canVideo,
+    canHologram,
+  } = data.callSettings;
 
   // TODO: Improve styling. These look pretty bad at the moment.
   return (
     <Flex className="option-buttons">
       <Flex.Item>
-        <Button onClick={() => act('toggle_mute')}>
+        <Button
+          disabled={data.observer}
+          selected={!microphoneOn}
+          onClick={() => act('toggle_mute')}
+        >
           <Icon
             name={microphoneOn ? 'microphone' : 'microphone-slash'}
             color={!microphoneOn && 'red'}
@@ -174,7 +189,11 @@ const OptionButtons = (props, context) => {
         <Box>Keypad</Box>
       </Flex.Item>
       <Flex.Item>
-        <Button onClick={() => act('toggle_speakerphone')}>
+        <Button
+          disabled={data.observer}
+          selected={speakerphoneOn}
+          onClick={() => act('toggle_speakerphone')}
+        >
           <Icon
             name={speakerphoneOn ? 'volume-high' : 'volume-xmark'}
             color={!speakerphoneOn && 'red'}
@@ -193,23 +212,31 @@ const OptionButtons = (props, context) => {
         <Box>Add To Call</Box>
       </Flex.Item>
       <Flex.Item>
-        <Button>
-          <Icon name="video" />
+        <Button
+          disabled={!canVideo || data.observer}
+          selected={videoOn}
+          onClick={() => act('toggle_video')}
+        >
+          <Icon name={videoOn ? 'video' : 'video-slash'} />
         </Button>
         <Box>Video</Box>
       </Flex.Item>
       <Flex.Item>
-        <Button>
-          <Icon name="address-book" />
+        <Button
+          disabled={!canHologram || data.observer}
+          selected={hologramOn}
+          onClick={() => act('toggle_hologram')}
+        >
+          <Icon name="person-rays" />
         </Button>
-        <Box>Placeholder</Box>
+        <Box>Hologram</Box>
       </Flex.Item>
     </Flex>
   );
 };
 
-const ConnectingSpinner = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const ConnectingSpinner = () => {
+  const { data } = useBackend<CommunicatorData>();
   const { callRequests, userComm } = data;
 
   const connectingAddress =

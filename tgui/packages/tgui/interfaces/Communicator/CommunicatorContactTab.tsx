@@ -1,5 +1,4 @@
-import { InfernoNode } from 'inferno';
-import { useBackend, useLocalState } from '../../backend';
+import type { ReactNode } from 'react';
 import {
   Box,
   Button,
@@ -8,12 +7,14 @@ import {
   LabeledList,
   Section,
   Tooltip,
-} from '../../components';
+} from 'tgui-core/components';
+import { useBackend, useLocalState } from '../../backend';
 import { SortUsersByName, UserIsActive } from './helpers';
-import { CommunicatorData, CommunicatorTab, UserDetails } from './types';
+import { CommunicatorTab } from './types';
+import type { CommunicatorData, UserDetails } from './types';
 
-export const CommunicatorContactTab = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+export const CommunicatorContactTab = () => {
+  const { data } = useBackend<CommunicatorData>();
   const { allUsers } = data;
 
   const publicUsers = SortUsersByName(allUsers.filter((user) => user.visible));
@@ -33,7 +34,7 @@ export const CommunicatorContactTab = (props, context) => {
                   key={user.address}
                   contact={user}
                   text={user.address}
-                  ExtraButton={FriendReqButton}
+                  ExtraButton={AddContactButton}
                 />
               ))}
             </LabeledList>
@@ -45,8 +46,8 @@ export const CommunicatorContactTab = (props, context) => {
 };
 
 // Exported separately for use in the phone tab.
-export const FriendsList = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+export const FriendsList = () => {
+  const { act, data } = useBackend<CommunicatorData>();
   const { friendsList } = data;
 
   const allFriends = SortUsersByName(
@@ -55,14 +56,15 @@ export const FriendsList = (props, context) => {
 
   return (
     <Section
-      title="Friends"
+      title="Contacts"
       fill
       buttons={
         <Button
           icon="address-card"
           iconPosition="right"
-          tooltip="Send a friend request manually to a known NTNet address"
-          onClick={() => act('friend_request_manual')}
+          tooltip="Add a known communicator number, including an offline one"
+          disabled={data.observer}
+          onClick={() => act('add_contact_manual')}
         >
           Add Address
         </Button>
@@ -86,7 +88,7 @@ export const FriendsList = (props, context) => {
                       <Box inline bold color="bad">
                         ERROR:&nbsp;
                       </Box>
-                      <Box inline style={{ 'text-decoration': 'line-through' }}>
+                      <Box inline style={{ textDecoration: 'line-through' }}>
                         {friend.address}
                       </Box>
                     </Box>
@@ -99,7 +101,7 @@ export const FriendsList = (props, context) => {
         </LabeledList>
       )) || (
         <Tooltip position="right" content=":(">
-          <Box inline>Your friends list is empty.</Box>
+          <Box inline>Your contact list is empty.</Box>
         </Tooltip>
       )}
     </Section>
@@ -108,23 +110,18 @@ export const FriendsList = (props, context) => {
 
 type ContactListingProps = {
   contact: UserDetails;
-  text: InfernoNode;
-  ExtraButton?: (props: { contact: UserDetails }, context) => JSX.Element;
+  text: ReactNode;
+  ExtraButton?: (props: { contact: UserDetails }) => ReactNode;
 };
 
-const ContactListing = (
-  { contact, text, ExtraButton }: ContactListingProps,
-  context,
-) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const ContactListing = ({ contact, text, ExtraButton }: ContactListingProps) => {
+  const { act, data } = useBackend<CommunicatorData>();
 
-  const [targetAddress, setTargetAddress] = useLocalState(
-    context,
+  const [, setTargetAddress] = useLocalState<string>(
     'targetAddress',
     '',
   );
   const [selectedChatAddr, setSelectedChatAddr] = useLocalState<string | null>(
-    context,
     'SelectedChatAddr',
     null,
   );
@@ -147,6 +144,7 @@ const ContactListing = (
             tooltipPosition="bottom"
             disabled={
               !UserIsActive(contact) ||
+              data.observer ||
               data.activeCall?.connectedComms.includes(contact.address)
             }
             onClick={() => {
@@ -160,7 +158,7 @@ const ContactListing = (
             icon="comment-alt"
             tooltip="Send instant message"
             tooltipPosition="bottom"
-            disabled={!UserIsActive(contact)}
+            disabled={!UserIsActive(contact) || data.observer}
             onClick={() => {
               act('start_chat', { target_address: contact.address });
               setSelectedChatAddr(contact.address);
@@ -175,50 +173,35 @@ const ContactListing = (
   );
 };
 
-const FriendReqButton = ({ contact }: { contact: UserDetails }, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const AddContactButton = ({ contact }: { contact: UserDetails }) => {
+  const { act, data } = useBackend<CommunicatorData>();
 
-  const alreadyFriends = data.friendsList.active.find(
-    (friend) => friend.username === contact.username,
-  );
-  const contactSentRequest = data.friendRequests.incoming.includes(
-    contact.address,
-  );
-  const requestSentToContact = data.friendRequests.outgoing.includes(
-    contact.address,
+  const alreadySaved = data.friendsList.active.find(
+    (savedContact) => savedContact.address === contact.address,
   );
 
   return (
     <Button
       icon="user-plus"
-      disabled={alreadyFriends || requestSentToContact}
-      tooltip={
-        alreadyFriends
-          ? 'Already friends!'
-          : contactSentRequest
-            ? 'Respond to friend request'
-            : 'Send friend request'
-      }
+      disabled={!!alreadySaved || data.observer}
+      tooltip={alreadySaved ? 'Already in contacts' : 'Add to contacts'}
       tooltipPosition="bottom"
-      color={contactSentRequest && 'average'}
       onClick={() => {
-        act('friend_request', {
-          action: contactSentRequest ? 'respond' : 'send',
-          target_address: contact.address,
-        });
+        act('add_contact', { target_address: contact.address });
       }}
     />
   );
 };
 
-const RemoveFriendButton = ({ contact }: { contact: UserDetails }, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const RemoveFriendButton = ({ contact }: { contact: UserDetails }) => {
+  const { act, data } = useBackend<CommunicatorData>();
 
   return (
     <Button.Confirm
       icon="user-minus"
       color="bad"
-      tooltip="Remove friend"
+      tooltip="Remove contact"
+      disabled={data.observer}
       onClick={() => {
         act('remove_friend', { friend_address: contact.address });
       }}

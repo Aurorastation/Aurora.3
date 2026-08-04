@@ -1,13 +1,13 @@
+import { Box, Button, Flex, Icon, Input, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../../backend';
-import { Box, Button, Flex, Icon, Section } from '../../components';
-import { CommunicatorData, CommunicatorTab, TextChat } from './types';
+import { CommunicatorTab } from './types';
+import type { CommunicatorData, TextChat } from './types';
 
-export const CommunicatorMessagesTab = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+export const CommunicatorMessagesTab = () => {
+  const { act, data } = useBackend<CommunicatorData>();
   const { activeChats } = data;
 
   const [selectedChatAddr, setSelectedChatAddr] = useLocalState<string | null>(
-    context,
     'SelectedChatAddr',
     null,
   );
@@ -50,16 +50,76 @@ export const CommunicatorMessagesTab = (props, context) => {
   );
 };
 
-const ChatView = ({ selectedChat }: { selectedChat: TextChat }, context) => {
-  return <Box>chat view placeholder</Box>;
+const ChatView = ({ selectedChat }: { selectedChat: TextChat }) => {
+  const { act, data } = useBackend<CommunicatorData>();
+  const targetOnline = data.allUsers.some(
+    (user) => user.address === selectedChat.chatTarget,
+  );
+
+  return (
+    <Flex direction="column" height="100%" justify="space-between">
+      <Flex.Item>
+        <Box bold fontSize={1.5} mb={1}>
+          {selectedChat.targetName || '[UNKNOWN]'}
+        </Box>
+        <Box color="label">{selectedChat.chatTarget}</Box>
+      </Flex.Item>
+      <Flex.Item grow my={1} overflowY="auto">
+        {selectedChat.messages.length ? (
+          selectedChat.messages.map((message, index) => {
+            const sentByUser = message.senderAddress === data.userComm.address;
+            return (
+              <Box
+                key={`${message.timeSent}-${index}`}
+                backgroundColor={sentByUser ? '#174c70' : '#303030'}
+                color="white"
+                p={1}
+                my={0.5}
+                ml={sentByUser ? 6 : 0}
+                mr={sentByUser ? 0 : 6}
+                style={{ borderRadius: '6px', wordBreak: 'break-word' }}
+              >
+                <Box>{message.content}</Box>
+                <Box color="label" textAlign="right" fontSize={0.9}>
+                  {message.timeSent}
+                </Box>
+              </Box>
+            );
+          })
+        ) : (
+          <Box color="label" textAlign="center" mt={4}>
+            No messages yet.
+          </Box>
+        )}
+      </Flex.Item>
+      <Flex.Item>
+        <Input
+          fluid
+          selfClear
+          maxLength={512}
+          disabled={!targetOnline || !!data.observer}
+          placeholder={
+            targetOnline ? 'Type a message and press Enter' : 'Contact is offline'
+          }
+          onEnter={(message) => {
+            if (message.trim().length) {
+              act('send_message', {
+                target_address: selectedChat.chatTarget,
+                message,
+              });
+            }
+          }}
+        />
+      </Flex.Item>
+    </Flex>
+  );
 };
 
-const AllChatList = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const AllChatList = () => {
+  const { data } = useBackend<CommunicatorData>();
   const { activeChats, allUsers } = data;
 
   const [selectedChatAddr, setSelectedChatAddr] = useLocalState<string | null>(
-    context,
     'SelectedChatAddr',
     null,
   );
@@ -69,6 +129,7 @@ const AllChatList = (props, context) => {
     const chatTargetUser = allUsers.find(
       (user) => user.address === chat.chatTarget,
     );
+    const targetName = chatTargetUser?.username || chat.targetName;
 
     const latestMessage =
       !!chat.messages.length && chat.messages[chat.messages.length - 1];
@@ -76,8 +137,7 @@ const AllChatList = (props, context) => {
     // The first character of the user's username if it's alphanumeric,
     // otherwise a question mark.
     const iconName =
-      (chatTargetUser?.username &&
-        /^\w/.exec(chatTargetUser.username)?.[0].toLowerCase()) ||
+      (targetName && /^\w/.exec(targetName)?.[0].toLowerCase()) ||
       'question';
 
     return (
@@ -101,7 +161,7 @@ const AllChatList = (props, context) => {
               >
                 <Flex.Item>
                   <Box inline bold color="white" fontSize={1.6}>
-                    {chatTargetUser?.username}
+                    {targetName || '[UNKNOWN]'}
                   </Box>
                   &nbsp;
                   <Box inline position="absolute" fontSize={1.15} mt="1px">

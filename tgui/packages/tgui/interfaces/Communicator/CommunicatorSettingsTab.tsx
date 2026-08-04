@@ -1,4 +1,3 @@
-import { useBackend, useLocalState } from '../../backend';
 import {
   Box,
   Button,
@@ -8,11 +7,12 @@ import {
   Section,
   Stack,
   Tabs,
-} from '../../components';
-import { CommunicatorData, RequestsList } from './types';
+} from 'tgui-core/components';
+import { useBackend, useLocalState } from '../../backend';
+import type { CommunicatorData, RequestsList } from './types';
 
-export const CommunicatorSettingsTab = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+export const CommunicatorSettingsTab = () => {
+  const { act, data } = useBackend<CommunicatorData>();
   const { userComm, silent, callRequests, friendRequests } = data;
 
   return (
@@ -21,20 +21,23 @@ export const CommunicatorSettingsTab = (props, context) => {
         <LabeledList.Item label="Display Name">
           <Button.Input
             fluid
-            content={userComm.username}
-            currentValue={userComm.username}
-            defaultValue="__reset" // this is weird but it works
-            onCommit={(_, value) => act('set_username', { new_name: value })}
+            value={userComm.username}
+            disabled={data.observer}
+            onCommit={(value) => act('set_username', { new_name: value })}
           />
         </LabeledList.Item>
         <LabeledList.Item label="NTNet Address">
           {userComm.address}
+        </LabeledList.Item>
+        <LabeledList.Item label="Device Tier">
+          {data.deviceTierName}
         </LabeledList.Item>
         <LabeledList.Item label="NTNet Visibility">
           <Button.Checkbox
             fluid
             checked={userComm.visible}
             selected={userComm.visible}
+            disabled={data.observer}
             onClick={() => act('toggle_visibility')}
           >
             {userComm.visible
@@ -48,6 +51,7 @@ export const CommunicatorSettingsTab = (props, context) => {
             fluid
             checked={!silent}
             selected={!silent}
+            disabled={data.observer}
             onClick={() => act('toggle_silent')}
           >
             {silent ? 'Notifications off' : 'Notifications on'}
@@ -57,37 +61,42 @@ export const CommunicatorSettingsTab = (props, context) => {
         <LabeledList.Item label="Requests">
           <RequestsTable />
         </LabeledList.Item>
-        <LabeledList.Divider />
-        <LabeledList.Item
-          label="Reset Device"
-          labelColor="bad"
-          verticalAlign="middle"
-        >
-          <Stack vertical>
-            <Stack.Item>
-              <Box color="label">
-                Unregister your ID and remove any communications history on this
-                device.
-              </Box>
-            </Stack.Item>
-            <Stack.Item>
-              <Button.Confirm
-                fluid
-                bold
-                content="Confirm"
-                confirmContent="Are you sure?"
-                onClick={() => act('reset_device')}
-              />
-            </Stack.Item>
-          </Stack>
-        </LabeledList.Item>
+        {!!data.canReset && (
+          <>
+            <LabeledList.Divider />
+            <LabeledList.Item
+              label="Reset Device"
+              labelColor="bad"
+              verticalAlign="middle"
+            >
+              <Stack vertical>
+                <Stack.Item>
+                  <Box color="label">
+                    Unregister your ID and remove contacts and communications
+                    history on this device.
+                  </Box>
+                </Stack.Item>
+                <Stack.Item>
+                  <Button.Confirm
+                    fluid
+                    bold
+                    disabled={data.observer}
+                    content="Confirm"
+                    confirmContent="Are you sure?"
+                    onClick={() => act('reset_device')}
+                  />
+                </Stack.Item>
+              </Stack>
+            </LabeledList.Item>
+          </>
+        )}
       </LabeledList>
     </Section>
   );
 };
 
-const RequestsTable = (props, context) => {
-  const { act, data } = useBackend<CommunicatorData>(context);
+const RequestsTable = () => {
+  const { data } = useBackend<CommunicatorData>();
   const { callRequests, friendRequests } = data;
 
   enum RequestsTab {
@@ -95,8 +104,7 @@ const RequestsTable = (props, context) => {
     Outgoing,
   }
 
-  const [requestsTab, setRequestsTab] = useLocalState(
-    context,
+  const [requestsTab, setRequestsTab] = useLocalState<RequestsTab>(
     'requestsTab',
     RequestsTab.Incoming,
   );

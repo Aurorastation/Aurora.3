@@ -1,4 +1,4 @@
-import { BooleanLike } from 'common/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 // #region Data types
 
@@ -6,8 +6,11 @@ type Address = string;
 
 export type CommunicatorData = {
   noID?: BooleanLike;
+  canReset: BooleanLike;
   currentTab: CommunicatorTab;
   silent: BooleanLike;
+  observer: BooleanLike;
+  deviceTierName: string;
 
   activeCall?: VoiceCall;
   activeChats: TextChat[];
@@ -24,6 +27,10 @@ export type CommunicatorData = {
 type CallSettings = {
   speakerphoneOn: BooleanLike;
   microphoneOn: BooleanLike;
+  videoOn: BooleanLike;
+  hologramOn: BooleanLike;
+  canVideo: BooleanLike;
+  canHologram: BooleanLike;
 };
 
 export type RequestsList = {
@@ -43,6 +50,7 @@ type VoiceCall = {
 
 export type TextChat = {
   chatTarget: Address;
+  targetName: string;
   messages: TextMessage[];
 };
 
@@ -59,7 +67,14 @@ export interface UserDetails {
 
 export interface ActiveUser extends UserDetails {
   visible: BooleanLike;
-  connectingToAddr: string;
+  connectingToAddr: string | null;
+  tier: CommunicatorTier;
+}
+
+export enum CommunicatorTier {
+  Basic = 1,
+  Video,
+  Holographic,
 }
 
 // #endregion
