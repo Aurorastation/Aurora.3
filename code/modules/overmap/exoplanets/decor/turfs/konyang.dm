@@ -59,7 +59,6 @@
 	icon_state = "dirt"
 	layer = 1.99 // to let the grass edges go over it, which otherwise doesnt happen due to positioning and byond layering
 	footstep_sound = SFX_FOOTSTEP_ASTEROID
-	//-------has_edge_icon = FALSE
 
 // same as above
 /turf/simulated/floor/exoplanet/dirt_konyang/sand
