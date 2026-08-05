@@ -4,7 +4,6 @@
 	icon_state = "syndicate"
 	item_state = "bl_suit"
 	worn_state = "syndicate"
-	has_sensor = SUIT_NO_SENSORS
 	armor = list(
 		MELEE = ARMOR_MELEE_MINOR
 		)
@@ -36,6 +35,7 @@
 	icon_state = "ninja"
 	item_state = "ninja"
 	worn_state = "ninja"
+	has_sensor = SUIT_NO_SENSORS
 
 /obj/item/clothing/under/syndicate/hammertail
 	name = "\improper crimson jumpsuit"
@@ -49,3 +49,4 @@
 	item_state = "hammertail"
 	worn_state = "hammertail"
 	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS

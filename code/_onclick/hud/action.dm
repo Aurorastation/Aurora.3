@@ -311,8 +311,11 @@
 	if(!Checks())
 		return
 	var/obj/item/clothing/target_clothing = target
+	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = target_clothing.get_action_circuit()
+	if(!istype(action_circuit))
+		return
 	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
-	target_clothing.action_circuit.activate_pin(1)
+	action_circuit.activate_pin(1)
 
 /datum/action/item_action/watch
 	check_flags = AB_CHECK_RESTRAINED|AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
@@ -322,6 +325,18 @@
 		return
 	var/obj/item/clothing/wrists/watch/target_clothing = target
 	target_clothing.checktime(usr)
+
+/datum/action/cancel_camera_view
+	name = "Cancel Camera View"
+	button_icon_state = "cancel"
+
+/datum/action/cancel_camera_view/Trigger()
+	if(!Checks())
+		return
+	owner.cancel_remote_view()
+
+/datum/action/cancel_camera_view/CheckRemoval(mob/living/user)
+	return !user || !user.is_viewing_remote_view()
 
 /datum/action/eye
 	action_type = AB_GENERIC

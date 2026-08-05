@@ -1,3 +1,8 @@
+/*
+ * subtypes/converters.dm
+ * Converter circuits that translate between numbers, strings, booleans, directions, colors, and other pin formats.
+ */
+
 //These circuits convert one variable to another.
 /obj/item/integrated_circuit/converter
 	complexity = 2
@@ -10,7 +15,7 @@
 /obj/item/integrated_circuit/converter/num2text
 	name = "number to string"
 	desc = "This circuit can convert a number variable into a string."
-	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	extended_desc = "Null or false-equivalent inputs output as the text value '0'."
 	complexity = 1
 	icon_state = "num-string"
 	inputs = list("input" = IC_PINTYPE_NUMBER)
@@ -33,7 +38,8 @@
 /obj/item/integrated_circuit/converter/num2text4
 	name = "4-way number to string"
 	desc = "This circuit can convert up to four number variables into strings."
-	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	extended_desc = "Null or false-equivalent inputs output as the text value '0'."
+	complexity = 2
 	icon_state = "num-string"
 	inputs = list(
 		"input 1" = IC_PINTYPE_NUMBER,
@@ -69,7 +75,7 @@
 /obj/item/integrated_circuit/converter/num2text8
 	name = "8-way number to string"
 	desc = "This circuit can convert up to eight number variables into strings."
-	extended_desc = "Because of game limitations null/false variables will output a '0' string."
+	extended_desc = "Null or false-equivalent inputs output as the text value '0'."
 	complexity = 4
 	icon_state = "num-string"
 	inputs = list(
@@ -116,7 +122,11 @@
 	desc = "This circuit can convert a string variable into a number."
 	icon_state = "string-num"
 	inputs = list("input" = IC_PINTYPE_STRING)
-	outputs = list("output" = IC_PINTYPE_NUMBER)
+	outputs = list(
+		"output" = IC_PINTYPE_NUMBER,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/converter/text2num/do_work()
@@ -126,7 +136,10 @@
 	if(!isnull(incoming))
 		result = text2num(incoming)
 
+	var/valid = isnum(result)
 	set_pin_data(IC_OUTPUT, 1, result)
+	set_pin_data(IC_OUTPUT, 2, valid)
+	set_pin_data(IC_OUTPUT, 3, valid ? "Number parsed." : "Input is not a number.")
 	push_data()
 	activate_pin(2)
 
@@ -149,9 +162,80 @@
 	push_data()
 	activate_pin(2)
 
+/obj/item/integrated_circuit/converter/ref_exists
+	name = "reference exists"
+	desc = "Checks whether a reference currently points to a valid atom."
+	icon_state = "ref-string"
+	inputs = list("input" = IC_PINTYPE_REF)
+	outputs = list(
+		"exists" = IC_PINTYPE_BOOLEAN,
+		"resolved ref" = IC_PINTYPE_REF
+	)
+	activators = list(
+		"convert" = IC_PINTYPE_PULSE_IN,
+		"on convert" = IC_PINTYPE_PULSE_OUT,
+		"on valid" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/ref_exists/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	var/valid = !!A
+
+	set_pin_data(IC_OUTPUT, 1, valid)
+	set_pin_data(IC_OUTPUT, 2, valid ? A : null)
+	push_data()
+	activate_pin(2)
+	activate_pin(valid ? 3 : 4)
+
+/obj/item/integrated_circuit/converter/ref_to_coords
+	name = "reference to coordinates"
+	desc = "Converts a reference into absolute X, Y, Z coordinates and its turf reference."
+	icon_state = "ref-string"
+	inputs = list("input" = IC_PINTYPE_REF)
+	outputs = list(
+		"X" = IC_PINTYPE_NUMBER,
+		"Y" = IC_PINTYPE_NUMBER,
+		"Z" = IC_PINTYPE_NUMBER,
+		"turf" = IC_PINTYPE_REF,
+		"valid" = IC_PINTYPE_BOOLEAN,
+		"status" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"convert" = IC_PINTYPE_PULSE_IN,
+		"on convert" = IC_PINTYPE_PULSE_OUT,
+		"on valid" = IC_PINTYPE_PULSE_OUT,
+		"on invalid" = IC_PINTYPE_PULSE_OUT
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/ref_to_coords/do_work()
+	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
+	var/turf/T = A ? get_turf(A) : null
+
+	set_pin_data(IC_OUTPUT, 1, null)
+	set_pin_data(IC_OUTPUT, 2, null)
+	set_pin_data(IC_OUTPUT, 3, null)
+	set_pin_data(IC_OUTPUT, 4, null)
+	set_pin_data(IC_OUTPUT, 5, FALSE)
+	set_pin_data(IC_OUTPUT, 6, "Invalid reference.")
+
+	if(T)
+		set_pin_data(IC_OUTPUT, 1, T.x)
+		set_pin_data(IC_OUTPUT, 2, T.y)
+		set_pin_data(IC_OUTPUT, 3, T.z)
+		set_pin_data(IC_OUTPUT, 4, T)
+		set_pin_data(IC_OUTPUT, 5, TRUE)
+		set_pin_data(IC_OUTPUT, 6, "Coordinates converted.")
+
+	push_data()
+	activate_pin(2)
+	activate_pin(T ? 3 : 4)
+
 /obj/item/integrated_circuit/converter/lowercase
 	name = "lowercase string converter"
-	desc = "this will cause a string to come out in all lowercase."
+	desc = "Converts text to lowercase."
 	icon_state = "lowercase"
 	inputs = list("input" = IC_PINTYPE_STRING)
 	outputs = list("output" = IC_PINTYPE_STRING)
@@ -170,7 +254,7 @@
 
 /obj/item/integrated_circuit/converter/uppercase
 	name = "uppercase string converter"
-	desc = "THIS WILL CAUSE A STRING TO COME OUT IN ALL UPPERCASE."
+	desc = "Converts text to uppercase."
 	icon_state = "uppercase"
 	inputs = list("input" = IC_PINTYPE_STRING)
 	outputs = list("output" = IC_PINTYPE_STRING)
@@ -189,7 +273,7 @@
 
 /obj/item/integrated_circuit/converter/concatenator
 	name = "concatenator"
-	desc = "This joins many strings together to get one big string."
+	desc = "Joins multiple text inputs into one text output."
 	complexity = 4
 	inputs = list(
 		"A" = IC_PINTYPE_STRING,
@@ -218,8 +302,8 @@
 
 /obj/item/integrated_circuit/converter/separator
 	name = "separator"
-	desc = "This splits as single string into two at the relative split point."
-	extended_desc = "This circuits splits a given string into two, based on the string, and the index value. \
+	desc = "Splits a text input into two outputs at the selected position."
+	extended_desc = "This circuit splits a given string into two, based on the string, and the index value. \
 	The index splits the string <b>after</b> the given index, including spaces. So 'a person' with an index of '3' \
 	will split into 'a p' and 'erson'."
 	complexity = 4
@@ -252,7 +336,7 @@
 
 /obj/item/integrated_circuit/converter/findstring
 	name = "find text"
-	desc = "This gives position of sample in the string. Or returns 0."
+	desc = "Outputs the position of a sample text within the input text, or 0 if it is not found."
 	extended_desc = "The first pin is the string to be examined. The second pin is the sample to be found. \
 	For example, 'eat this burger',' ' will give you position 4. This circuit isn't case sensitive."
 	complexity = 4
@@ -297,43 +381,6 @@
 
 	activate_pin(2)
 
-/obj/item/integrated_circuit/converter/radians2degrees
-	name = "radians to degrees converter"
-	desc = "Converts radians to degrees."
-	inputs = list("radian" = IC_PINTYPE_NUMBER)
-	outputs = list("degrees" = IC_PINTYPE_NUMBER)
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/integrated_circuit/converter/radians2degrees/do_work()
-	var/result = null
-	pull_data()
-	var/incoming = get_pin_data(IC_INPUT, 1)
-	if(!isnull(incoming))
-		result = TO_DEGREES(incoming)
-
-	set_pin_data(IC_OUTPUT, 1, result)
-	push_data()
-	activate_pin(2)
-
-/obj/item/integrated_circuit/converter/degrees2radians
-	name = "degrees to radians converter"
-	desc = "Converts degrees to radians."
-	inputs = list("degrees" = IC_PINTYPE_NUMBER)
-	outputs = list("radians" = IC_PINTYPE_NUMBER)
-	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-/obj/item/integrated_circuit/converter/degrees2radians/do_work()
-	var/result = null
-	pull_data()
-	var/incoming = get_pin_data(IC_INPUT, 1)
-	if(!isnull(incoming))
-		result = TO_RADIANS(incoming)
-
-	set_pin_data(IC_OUTPUT, 1, result)
-	push_data()
-	activate_pin(2)
-
-
 /obj/item/integrated_circuit/converter/abs_to_rel_coords
 	name = "abs to rel coordinate converter"
 	desc = "Easily convert absolute coordinates to relative coordinates with this."
@@ -362,6 +409,113 @@
 		set_pin_data(IC_OUTPUT, 1, x1 - x2)
 		set_pin_data(IC_OUTPUT, 2, y1 - y2)
 
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/converter/dir_to_vector
+	name = "direction to vector"
+	desc = "Converts a BYOND direction into a two-number X/Y movement vector."
+	icon_state = "num-string"
+	inputs = list("direction" = IC_PINTYPE_DIR)
+	outputs = list(
+		"X" = IC_PINTYPE_NUMBER,
+		"Y" = IC_PINTYPE_NUMBER,
+		"vector" = IC_PINTYPE_LIST,
+		"valid" = IC_PINTYPE_BOOLEAN
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/dir_to_vector/do_work()
+	var/direction = get_pin_data(IC_INPUT, 1)
+	var/x = 0
+	var/y = 0
+
+	if(isnum(direction))
+		if(direction & EAST)
+			x++
+		if(direction & WEST)
+			x--
+		if(direction & NORTH)
+			y++
+		if(direction & SOUTH)
+			y--
+
+	set_pin_data(IC_OUTPUT, 1, x)
+	set_pin_data(IC_OUTPUT, 2, y)
+	set_pin_data(IC_OUTPUT, 3, list(x, y))
+	set_pin_data(IC_OUTPUT, 4, isnum(direction) && (x || y))
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/converter/vector_to_dir
+	name = "vector to direction"
+	desc = "Converts X/Y vector components into a BYOND direction."
+	icon_state = "num-string"
+	inputs = list(
+		"X" = IC_PINTYPE_NUMBER,
+		"Y" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"direction" = IC_PINTYPE_DIR,
+		"direction text" = IC_PINTYPE_STRING,
+		"valid" = IC_PINTYPE_BOOLEAN
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/vector_to_dir/do_work()
+	var/x = get_pin_data(IC_INPUT, 1)
+	var/y = get_pin_data(IC_INPUT, 2)
+	var/direction = 0
+
+	if(isnum(x) && isnum(y))
+		if(x > 0)
+			direction |= EAST
+		else if(x < 0)
+			direction |= WEST
+		if(y > 0)
+			direction |= NORTH
+		else if(y < 0)
+			direction |= SOUTH
+
+	set_pin_data(IC_OUTPUT, 1, direction || null)
+	set_pin_data(IC_OUTPUT, 2, direction ? dir2text(direction) : null)
+	set_pin_data(IC_OUTPUT, 3, !!direction)
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/converter/delta_to_dir
+	name = "delta to direction"
+	desc = "Converts relative delta X/Y values into a BYOND direction."
+	icon_state = "num-string"
+	inputs = list(
+		"delta X" = IC_PINTYPE_NUMBER,
+		"delta Y" = IC_PINTYPE_NUMBER
+	)
+	outputs = list(
+		"direction" = IC_PINTYPE_DIR,
+		"direction text" = IC_PINTYPE_STRING,
+		"valid" = IC_PINTYPE_BOOLEAN
+	)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/converter/delta_to_dir/do_work()
+	var/x = get_pin_data(IC_INPUT, 1)
+	var/y = get_pin_data(IC_INPUT, 2)
+	var/direction = 0
+
+	if(isnum(x) && isnum(y))
+		if(x > 0)
+			direction |= EAST
+		else if(x < 0)
+			direction |= WEST
+		if(y > 0)
+			direction |= NORTH
+		else if(y < 0)
+			direction |= SOUTH
+
+	set_pin_data(IC_OUTPUT, 1, direction || null)
+	set_pin_data(IC_OUTPUT, 2, direction ? dir2text(direction) : null)
+	set_pin_data(IC_OUTPUT, 3, !!direction)
 	push_data()
 	activate_pin(2)
 

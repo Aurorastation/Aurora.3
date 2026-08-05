@@ -923,6 +923,9 @@ default behaviour is:
 
 /mob/living/Destroy()
 	cameraFollow = null
+	if(camera_view_cancel_action)
+		camera_view_cancel_action.Remove(src)
+		QDEL_NULL(camera_view_cancel_action)
 	if (length(actions))
 		for (var/datum/action/action in actions)
 			action.Remove(src)

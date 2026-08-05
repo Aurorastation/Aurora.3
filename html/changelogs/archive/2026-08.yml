@@ -1,0 +1,177 @@
+2026-08-02:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Guards emergency shield projectors' maintenance process() logic from inadvertently
+      toggling projector on when anchored and inactive.
+  - bugfix: Bubble shield projectors no longer register candidate turfs for every
+      hearer in range. Once is enough.
+  ChangeMe:
+  - bugfix: Fixes some icon issues with the TCAF berets.
+  FabianK3:
+  - bugfix: Fixed ashtrays not refreshing their material from saved persistence.
+  Fenodyree:
+  - bugfix: Fixes bluespace inhibitors inconsistantly blocking teleports in a square,
+      but finding the alternate desination in a circle. Its all square now.
+  - bugfix: Fixes telescience portals not respecting bluespace inhibitors.
+  - bugfix: Doors and blast doors can be destroyed again with enough sustained damage.
+  - bugfix: Fixes doors 'breaking' repeatedly, when hit at 0 health.
+  - bugfix: Fixes doors taking damage twice when hit by projectiles. This also fixes
+      projectiles ignoring a door's armour.
+  - balance: Increased the armor values on blast doors and vault doors.
+  - rscadd: Added a brief particle effect when a door is destroyed.
+  SimpleMaroon:
+  - bugfix: Fixed some extraneous pixels on the colorable greatcoat south-facing mob
+      sprite when closed, causing the neck to be improperly blocked off.
+  TheGreyWikf:
+  - bugfix: Integrated circuits can now display screen text and other examine related
+      things.
+  - bugfix: Fixed the direction of the wall mounted integrated circuit when placed.
+  - bugfix: Fixed that the integrated circuit kit had the wrong tools.
+  - bugfix: Fixed that the integrated circuit printer put things on the turf instead
+      of in hand.
+  - bugfix: Fixed that removing integrated circuit components put them on the turf,
+      and that they were dropped if they did not fit inside the device.
+  - bugfix: Harvesting a plant multiple times by clicking it repeatedly before it
+      finishes is no longer possible.
+  - bugfix: The kitchen machinery can now be upgraded.
+  - bugfix: The farmbot requirement in bounties was reduced.
+  - bugfix: Fixes the inability to put custom pizzas in the pizza box.
+  diggiez:
+  - bugfix: Surplus Vaurca Drones from Cargo have their Hive names properly set.
+2026-08-03:
+  Banditoz:
+  - rscadd: Megaphones now use your accent, language, and create floating text when
+      used.
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds NTNet extensibility, requires new machinery constructed on away-site
+      z-levels.
+  - rscadd: Breaks NTNet Relay machinery into Quantum Relay ('core' obj on Horizon)
+      and Field Relay (deployable off-site constructions).
+  - rscadd: Adds several public camera monitor consoles to the Horizon.
+  - rscadd: Adds some spare camera console boards to Horizon technical storage.
+  - rscadd: Adds camera toggle verb for hardsuits and exosuits.
+  - rscadd: Adds camera network configuration verb for helmet cams, hardsuits, and
+      exosuits.
+  - rscadd: Adds linked AI/VR handling for new camera toggle/configuration verbs.
+  - qol: Embedded cameras (basically every video camera EXCEPT those which are installed
+      on walls) can now be viewed from NTNet-connected z-level, not just connected
+      ones.
+  - qol: Adds action button for 'cancel-camera-view' verb while viewing cameras or
+      looking up/down z-level.
+  - qol: Antags get always-access to NTNet for crew manifest, apps, etc. while on
+      z-level 4.
+  - bugfix: Fixes Jockey comms (frequency was missing from ANTAG_FREQS).
+  - bugfix: Fixes look-up/look-down actions intermittently failing without first using
+      cancel-camera-view.
+  - bugfix: Fixes camera assembly upgrades not applying correctly and not providing
+      feedback text.
+  - qol: Mobs in animal traps can now be transferred directly to Stasis Cages by click-dragging
+      rather than requiring them to be in a net.
+  - bugfix: Mobs can no longer use their ranged attacks while contained inside objects
+      (including animal traps).
+  - bugfix: Stasis cages now apply stasis only while powered and correctly clear it
+      when releasing simplemobs.
+  - bugfix: Fixes stasis cage transfers race condition freeing trapped animals randomly.
+  - bugfix: Corrects stasis cage safety-wire status display.
+  - code_imp: Exoplanets now cache their main outdoor atmospheric region instead of
+      trying to search their entire map once per second.
+  - code_imp: Exoplanet atmospheric calculations now run only when necessary using
+      new update_revision counter.
+  - code_imp: Exoplanet atmospheres now wait until all random ruins have been placed
+      before trying to resolve the air everywhere.
+  - admin: Adds new admin debug verb, 'Toggle Non-Horizon Temperature Graphics', which
+      toggles all off-ship gas temp graphics to address lag in a pinch, if still necessary,
+      without removing actual environmental hazard.
+  - rscadd: Adds a Deployable Operating Table kit to the Intrepid medical compartment.
+  - rscdel: Removes the Operating Table Circuit Board and one scanning module from
+      the D1 Maints Workshop.
+  - qol: Replaces many pre-assembled Industrial Floodlight structures with Deployable
+      Floodlight Kit items so as to take up less space; adds a couple extra racks
+      with spares.
+  - bugfix: 'Fixes inconsistent janitorial door access (bypasses from #22620).'
+  - bugfix: Fixes floating Research hallway camera.
+  - code_imp: Miscellaneous dmdocs audit of ACCESS_* defines.
+  FabianK3:
+  - balance: Adjusted cargo import pricing for liquid tanks so fuel, extinguisher
+      foam, and water tanks now cost more to import than they can be sold for, matching
+      the existing export-value logic.
+  - bugfix: Removed the duplicate miscellaneous water tank cargo definition.
+  - bugfix: Stopped empty persistent reagent tanks from being deleted.
+  Fenodyree:
+  - balance: Buffs gattling laser modifier charge time from 3 to 2 seconds. It took
+      so long to charge multiple people thought it was bugged.
+  - balance: Tweaks material costs, replacing uranium with silver and gold. Uranium
+      was previously used everywhere.
+  - bugfix: Fixed a bug where energy guns would not properly handle reliability failures
+      when the gun was out of charge.
+  - bugfix: Fixed improvement potential calculations for ions and slimes. You no longer
+      gain improvement shooting monkeys with ions, or for shooting slimes with lasers.
+  - bugfix: Fixed a bug with bluespace capacitors teleporting items in teleport inhibitor
+      range. This was due to the EMP happening before the teleport and destroying
+      the inhibitor.
+  - bugfix: Fixed Ion modulators not correctly decreasing the number of shots.
+  Geeves:
+  - rscadd: Mining points now carry over between rounds for each character.
+  - balance: Mining point carryover is capped at 15,000 points.
+  - qol: Added the ability to duplicate a loadout into another loadout slot.
+  - rscadd: Readying up and successfully joining the round now gives you a morale
+      bonus that lasts for 30 minutes.
+  Hellfirejag:
+  - rscadd: Mech mounted ore summoners will now pick up ores that the mech walks over.
+  - balance: Mounted ore summoners can now pick up up to 150 ores when actively pulsed,
+      up from 50.
+  - balance: Reduced the explosion radius of the mech heavy kinetic accelerator by
+      2
+  - balance: Increased the range of the mech heavy kinetic accelerator by 1
+  - rscadd: Added more sound effects for mechs, including a looping reactor hum, and
+      warning sounds for critical damage.
+  MattAtlas:
+  - rscadd: Added an Extreme Canonicity for the TWILIGHT OF PEACE lore arc.
+  - rscadd: The journalist's microphone by default no longer allows everyone to speak
+      into it. Click someone with the microphone in hand to allow the microphone to
+      pick up their voice. You can alt-click the microphone to disable this functionality.
+      If you move more than 5 tiles away from the microphone, you will automatically
+      be de-registered from its allowed listeners. People screaming will bypass the
+      allowed listeners.
+  Mineymonkey:
+  - bugfix: Rapid part exchange devices can now upgrade stock parts in all compatible
+      machinery, including science telepads.
+  - qol: Alt-clicking an autolathe with a rapid part exchange device in your active
+      hand now recycles its compatible contents, leaving rejected items inside.
+  The_Ill_fated:
+  - rscadd: Adds Eris Flag and Banner to player loadout options.
+  - imageadd: New sprites for the Eris Flag and Banner.
+  kermit:
+  - rscadd: Represents phoron lore in SMES units via descs + purple accenting on SMES
+      sprites.
+  - rscadd: Adds a phoron-free, cryogenic SMES unit.
+  - rscadd: Represents phoron lore in telecomms component descriptions. Adds a phoron
+      manufacture cost to some of them.
+  - rscadd: The Quantum Relay has been renamed to Bluespace Relay, as Quantum FTL
+      Communications are not in lore.
+  - rscadd: 'Retitles or adds various reporter/journalist (alt)titles. For megacorporate
+      factions: Corporate Reporter, Corporate Journalist. For independents: Independent
+      Reporter, Independent Journalist, Media Broadcaster.'
+2026-08-04:
+  FabianK3:
+  - bugfix: Fixed persistent overmap location of the Horizon.
+2026-08-05:
+  Fenodyree:
+  - bugfix: Fixes the integrated circuit local locator failing if it was installed
+      in clothing.
+  - bugfix: Grenades can now be thrown over barricades from the defender's side. No
+      more accidentally grenading your team because you were one tile from the sandbags.
+  - bugfix: Fixed window frames blocking thrown grenades and bullets.
+  - bugfix: Fixed grenades launched instead of being thrown getting stuck on railings
+      and tables.
+  Noobetski:
+  - rscadd: Adds biesel citizenship to Traverse origin due to the recent refugee influx
+      from Traverse.
+  mineymonkey:
+  - bugfix: Added some safeties to prevent import loss due to server latency.
+  - bugfix: Fixed a bug where cloned built-in circuits were not being properly registered.
+  - balance: Reduced the maximum amount of metal and phoron that can be stored in
+      a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can
+      hit those numbers, so this is just a safety measure to prevent accidental loss
+      of materials.
+  - balance: Made the in-built radio command receiver cost no complexity to keep in-line
+      with other in-built components.

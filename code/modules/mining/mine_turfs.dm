@@ -17,7 +17,6 @@
 	name = "impassable substrate"
 	color = "#222222"
 
-/// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
 GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
@@ -395,6 +394,31 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		new /obj/structure/sculpting_block(src)
 		GetDrilled(1)
 
+/turf/simulated/mineral/proc/ic_precision_excavate(var/amount)
+	if(!finds?.len)
+		return "No xenoarch find in target rock."
+
+	var/datum/find/F = finds[1]
+	if(!F)
+		return "Invalid xenoarch find."
+
+	if(amount <= 0)
+		return "Invalid excavation amount."
+
+	if(excavation_level + amount > F.excavation_required)
+		return "Unsafe: excavation would strike past the find."
+
+	if(excavation_level + amount > F.excavation_required - F.clearance_range)
+		if(round(excavation_level + amount) == F.excavation_required)
+			excavation_level += amount
+			excavate_find(100, F)
+			return "Perfect extraction complete."
+
+		return "Unsafe: excavation would breach clearance zone."
+
+	excavation_level += amount
+	return "Excavation advanced."
+
 /turf/simulated/mineral/proc/get_geodata()
 	if(!geologic_data)
 		geologic_data = new /datum/geosample(src)
@@ -742,8 +766,6 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	roof_type = null
 	turf_flags = TURF_FLAG_BACKGROUND
 
-/// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
-/// Basalt is explicitly omitted so ash will spill onto basalt turfs.
 GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	/turf/simulated/floor/exoplanet/asteroid/ash,
 	/turf/simulated/mineral,

@@ -134,6 +134,11 @@
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
 
+/obj/item/reagent_containers/spray/cleaner/surgical
+	name = "surgical cleaner"
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back."
+	icon_state = "sterilespray"
+
 /obj/item/reagent_containers/spray/cleaner/drone
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
@@ -294,3 +299,14 @@
 		return
 
 	..()
+
+/obj/item/reagent_containers/spray/cleaner/glass_glue
+	name = "single-use glass adhesive spray"
+	desc = "A small spray tube of a Hephaestus Industries ultra-strong silicate epoxy adhesive. For window and glass repair. Single-use!"
+	volume = 20
+	icon_state = "deodorant"
+	item_state = "deodorant"
+	possible_transfer_amounts = null
+	spray_size = 1
+	spray_sizes = null
+	reagents_to_add = list(/singleton/reagent/silicate = 20)

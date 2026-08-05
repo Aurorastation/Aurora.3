@@ -5,6 +5,7 @@
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	maxhealth = OBJECT_HEALTH_LOW
+	pass_flags_self = LETPASSTHROW
 	/// The type of stack the barricade dropped when disassembled if any.
 	var/stack_type
 	/// The amount of stack dropped when disassembled at full health

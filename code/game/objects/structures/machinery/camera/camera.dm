@@ -381,13 +381,22 @@
 	alarm_on = 0
 	GLOB.camera_alarm.clearAlarm(loc, src)
 
-//if false, then the camera is listed as DEACTIVATED and cannot be used
+/// If FALSE, then the camera is listed as DEACTIVATED and cannot be used
 /obj/structure/machinery/camera/proc/can_use()
 	if(!status)
 		return 0
 	if(stat & (EMPED|BROKEN))
 		return 0
+	if(is_wireless_jammed())
+		return 0
 	return 1
+
+/// Only used below, but has separate proc for potential future use.
+/obj/structure/machinery/camera/proc/is_wireless_camera()
+	return !isturf(loc)
+
+/obj/structure/machinery/camera/proc/is_wireless_jammed()
+	return is_wireless_camera() && get_turf(src) && within_jamming_range(src)
 
 /obj/structure/machinery/camera/proc/can_see()
 	var/list/see = null
