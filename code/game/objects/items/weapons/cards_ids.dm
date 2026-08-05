@@ -244,18 +244,26 @@
 	id_card.citizenship			= SSrecords.get_citizenship_record_name(citizenship)
 	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
-	INVOKE_ASYNC(id_card, TYPE_PROC_REF(/obj/item/card/id, load_mining_points))
+	INVOKE_ASYNC(id_card, TYPE_PROC_REF(/obj/item/card/id, load_mining_points), character_id)
 
-/obj/item/card/id/proc/load_mining_points()
+/obj/item/card/id/proc/load_mining_points(character_id)
 	var/mob/living/carbon/human/card_owner = mob_id?.resolve()
-	if(!card_owner?.character_id)
+	if(!character_id || card_owner?.character_id != character_id)
 		return
+	var/previous_mining_points = mining_points
 
 	var/datum/persistent_record/saved_balance = SSpersistence.historyGetLastRecord(
 		/singleton/persistent_type/history/character/mining_point_balance,
-		card_owner.character_id
+		character_id,
+		TRUE
 	)
 	if(!saved_balance)
+		return
+
+	card_owner = mob_id?.resolve()
+	if(card_owner?.character_id != character_id)
+		return
+	if(mining_points != previous_mining_points)
 		return
 
 	mining_points = clamp(text2num(saved_balance.value), 0, MINING_POINTS_CARRYOVER_MAX)
@@ -272,7 +280,14 @@
 	)
 
 /obj/item/card/id/proc/adjust_mining_points(amount)
-	mining_points = max(0, mining_points + amount)
+	if(!amount)
+		return
+
+	var/adjusted_points = max(0, mining_points + amount)
+	if(adjusted_points == mining_points)
+		return
+
+	mining_points = adjusted_points
 	save_mining_points()
 
 /obj/item/card/id/proc/dat()
