@@ -149,21 +149,20 @@
 	communicator_tier = COMMUNICATOR_TIER_HOLOGRAPHIC
 	color = "#ffe2a8"
 
-/// Fixed cradle for a department landline. The handpiece holds the actual computer.
-/obj/structure/communicator_landline
+/// Portable cradle for a department landline. The handpiece holds the actual computer.
+/obj/item/communicator_landline
 	name = "department landline cradle"
-	desc = "A table-mounted cradle for a tethered department communicator handpiece."
+	desc = "A portable cradle for a tethered department communicator handpiece."
+	desc_mechanics = "Click on the cradle to pick up or put down the handpiece. Drag the cradle onto your character to pick it up."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "communicator_landline"
-	anchored = TRUE
-	layer = ABOVE_WINDOW_LAYER
-	appearance_flags = TILE_BOUND
+	w_class = WEIGHT_CLASS_BULKY
 	var/directory_name
 	var/handpiece_type = /obj/item/modular_computer/handheld/communicator/landline
 	/// The real communicator, stored in this cradle while on the hook.
 	var/obj/item/modular_computer/handheld/communicator/landline/handpiece
 
-/obj/structure/communicator_landline/Initialize()
+/obj/item/communicator_landline/Initialize()
 	. = ..()
 	directory_name ||= "[get_area_display_name(get_area(src))] Landline"
 	handpiece = new handpiece_type(src)
@@ -172,14 +171,20 @@
 	name = directory_name
 	update_icon()
 
-/obj/structure/communicator_landline/Destroy()
+/obj/item/communicator_landline/Destroy()
 	QDEL_NULL(handpiece)
 	return ..()
 
-/obj/structure/communicator_landline/update_icon()
+/obj/item/communicator_landline/update_icon()
 	icon_state = handpiece?.loc == src ? "communicator_landline" : "communicator_landline_raised"
 
-/obj/structure/communicator_landline/attack_hand(mob/user)
+/// The cradle is intentionally picked up by dragging it onto the user's character, not by a normal click.
+/obj/item/communicator_landline/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(over != user || !Adjacent(user) || user.incapacitated())
+		return ..()
+	user.put_in_hands(src)
+
+/obj/item/communicator_landline/attack_hand(mob/user)
 	if(!user)
 		return FALSE
 	if(handpiece?.loc == src)
@@ -187,7 +192,16 @@
 	to_chat(user, SPAN_NOTICE("The handpiece is already off the hook."))
 	return TRUE
 
-/obj/structure/communicator_landline/proc/take_handpiece(mob/user)
+/// Using the receiver on its cradle hangs it up, including when it is still held.
+/obj/item/communicator_landline/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item != handpiece)
+		return ..()
+	if(user && attacking_item.loc == user)
+		user.drop_from_inventory(attacking_item, src)
+	return_handpiece(handpiece)
+	return TRUE
+
+/obj/item/communicator_landline/proc/take_handpiece(mob/user)
 	if(!handpiece || handpiece.loc != src)
 		return FALSE
 	user.put_in_hands(handpiece)
@@ -195,10 +209,12 @@
 	update_icon()
 	return TRUE
 
-/obj/structure/communicator_landline/proc/return_handpiece(obj/item/modular_computer/handheld/communicator/landline/returning_handpiece)
+/obj/item/communicator_landline/proc/return_handpiece(obj/item/modular_computer/handheld/communicator/landline/returning_handpiece)
 	if(returning_handpiece != handpiece)
 		return FALSE
+	returning_handpiece.hang_up()
 	returning_handpiece.disconnect_cord()
+	returning_handpiece.stop_tracking_holder()
 	returning_handpiece.forceMove(src)
 	update_icon()
 	return TRUE
@@ -209,6 +225,13 @@
 		segment.color = COLOR_GRAY40
 		segment.blend_mode = BLEND_DEFAULT
 
+/// Held items have hand-placement pixel offsets; use turf centres so the cord ends at the holder's tile.
+/datum/beam/communicator_cord/get_x_translation_vector()
+	return (world.icon_size * target_oldloc.x) - (world.icon_size * origin_oldloc.x)
+
+/datum/beam/communicator_cord/get_y_translation_vector()
+	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
+
 /// The movable receiver is the communicator itself; the cradle is only a holder and cable anchor.
 /obj/item/modular_computer/handheld/communicator/landline
 	name = "landline handpiece"
@@ -218,10 +241,12 @@
 	icon_state_unpowered = "communicator_handpiece"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	communicator_tier = COMMUNICATOR_TIER_VIDEO
+	communicator_tier = COMMUNICATOR_TIER_BASIC
 	var/obj/item/card/id/landline_identity
-	var/obj/structure/communicator_landline/landline_cradle
+	var/obj/item/communicator_landline/landline_cradle
 	var/datum/beam/communicator_cord/cord
+	/// Mob currently carrying this receiver in either hand.
+	var/mob/handpiece_holder
 
 /obj/item/modular_computer/handheld/communicator/landline/Initialize()
 	. = ..()
@@ -233,6 +258,7 @@
 
 /obj/item/modular_computer/handheld/communicator/landline/Destroy()
 	disconnect_cord()
+	stop_tracking_holder()
 	if(landline_cradle?.handpiece == src)
 		landline_cradle.handpiece = null
 		landline_cradle.update_icon()
@@ -254,41 +280,100 @@
 
 /obj/item/modular_computer/handheld/communicator/landline/equipped(mob/user, slot, assisted_equip)
 	. = ..()
-	connect_cord()
+	if(slot == slot_l_hand || slot == slot_r_hand)
+		track_holder(user)
+	else
+		addtimer(CALLBACK(src, PROC_REF(return_to_cradle)), 0)
 
 /obj/item/modular_computer/handheld/communicator/landline/dropped(mob/user)
 	. = ..()
-	landline_cradle?.return_handpiece(src)
+	return_to_cradle()
+
+/obj/item/modular_computer/handheld/communicator/landline/on_slotmove(mob/living/user, slot)
+	. = ..()
+	if(slot && slot != slot_l_hand && slot != slot_r_hand)
+		addtimer(CALLBACK(src, PROC_REF(return_to_cradle)), 0)
+
+/obj/item/modular_computer/handheld/communicator/landline/on_enter_storage(obj/item/storage/storage)
+	. = ..()
+	return_to_cradle()
+
+/// Table placement and similar direct moves bypass dropped() and storage hooks.
+/obj/item/modular_computer/handheld/communicator/landline/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(check_tether_range)), 0)
+
+/obj/item/modular_computer/handheld/communicator/landline/proc/track_holder(mob/new_holder)
+	if(handpiece_holder == new_holder)
+		connect_cord()
+		return
+	stop_tracking_holder()
+	handpiece_holder = new_holder
+	RegisterSignal(handpiece_holder, COMSIG_MOVABLE_MOVED, PROC_REF(check_tether_range), TRUE)
+	connect_cord()
+	check_tether_range()
+
+/obj/item/modular_computer/handheld/communicator/landline/proc/stop_tracking_holder()
+	if(handpiece_holder)
+		UnregisterSignal(handpiece_holder, COMSIG_MOVABLE_MOVED)
+	handpiece_holder = null
+
+/obj/item/modular_computer/handheld/communicator/landline/proc/check_tether_range()
+	if(!landline_cradle || !handpiece_holder || loc != handpiece_holder || !(src == handpiece_holder.get_active_hand() || src == handpiece_holder.get_inactive_hand()))
+		return_to_cradle()
+		return
+	var/turf/cradle_turf = get_turf(landline_cradle)
+	var/turf/holder_turf = get_turf(handpiece_holder)
+	if(!cradle_turf || !holder_turf || cradle_turf.z != holder_turf.z || get_dist(cradle_turf, holder_turf) > 2)
+		// Explicitly clear the held-item slot before re-seating the receiver.
+		handpiece_holder.drop_from_inventory(src, landline_cradle)
+		return_to_cradle()
+
+/obj/item/modular_computer/handheld/communicator/landline/proc/return_to_cradle()
+	if(!landline_cradle)
+		return
+	if(loc == landline_cradle)
+		hang_up()
+		disconnect_cord()
+		stop_tracking_holder()
+		landline_cradle.update_icon()
+		return
+	landline_cradle.return_handpiece(src)
+
+/obj/item/modular_computer/handheld/communicator/landline/proc/hang_up()
+	var/datum/computer_file/program/communicator/communicator_app = get_communicator_program()
+	if(communicator_app?.active_call)
+		communicator_app.end_call("[directory_name] hung up.")
 
 /obj/item/modular_computer/handheld/communicator/landline/proc/connect_cord()
 	if(!landline_cradle || !ismob(loc))
 		return
 	QDEL_NULL(cord)
-	cord = landline_cradle.Beam(src, time = -1, maxdistance = 8, beam_sleep_time = 1, beam_datum_type = /datum/beam/communicator_cord)
+	cord = landline_cradle.Beam(src, icon_state = "explore_beam", time = -1, maxdistance = 3, beam_sleep_time = 1, beam_datum_type = /datum/beam/communicator_cord)
 
 /obj/item/modular_computer/handheld/communicator/landline/proc/disconnect_cord()
 	QDEL_NULL(cord)
 
 
-/obj/structure/communicator_landline/command
+/obj/item/communicator_landline/command
 	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/command
 
-/obj/structure/communicator_landline/security
+/obj/item/communicator_landline/security
 	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/security
 
-/obj/structure/communicator_landline/engineering
+/obj/item/communicator_landline/engineering
 	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/engineering
 
-/obj/structure/communicator_landline/medical
+/obj/item/communicator_landline/medical
 	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/medical
 
-/obj/structure/communicator_landline/science
+/obj/item/communicator_landline/science
 	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/science
 
-/obj/structure/communicator_landline/operations
+/obj/item/communicator_landline/operations
 	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/operations
 
-/obj/structure/communicator_landline/service
+/obj/item/communicator_landline/service
 	handpiece_type = /obj/item/modular_computer/handheld/communicator/landline/service
 
 /obj/item/modular_computer/handheld/communicator/landline/command

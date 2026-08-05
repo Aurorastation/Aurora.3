@@ -147,6 +147,8 @@
 	var/atom/movable/bound_caller
 	/// A movement direction for which the projection was repositioned before the caller turned.
 	var/prepared_move_direction
+	/// Blue directional cone that visually connects the caller to this projection.
+	var/obj/effect/overlay/hologram/communicator/cone/projection_cone
 
 /obj/effect/overlay/hologram/communicator/Initialize(mapload, datum/computer_file/program/communicator/source, datum/computer_file/program/communicator/target, datum/comm_call/call_datum, assigned_slot = 1, total_slots = 1)
 	. = ..()
@@ -159,10 +161,64 @@
 
 /obj/effect/overlay/hologram/communicator/Destroy()
 	bind_to_caller(null)
+	QDEL_NULL(projection_cone)
 	source_comm = null
 	target_comm = null
 	parent_call = null
 	return ..()
+
+/// Flatten a caller's visual layers before applying hologram effects. Applying alpha
+/// to an atom with separate clothing overlays leaves those overlays more opaque.
+/obj/effect/overlay/hologram/communicator/assume_form(atom/subject, long_range = FALSE, projection_direction)
+	if(!subject)
+		return
+	var/image/flattened_subject = image(subject)
+	flattened_subject.dir = projection_direction || subject.dir
+	icon = getFlatIcon(flattened_subject, no_anim = TRUE)
+	icon_state = null
+	overlays = null
+	underlays = null
+	pixel_x = subject.pixel_x
+	pixel_y = subject.pixel_y
+	dir = projection_direction || subject.dir
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	color = rgb(125, 180, 225)
+	alpha = 100
+	set_light(2, 1, rgb(125, 180, 225))
+
+/// A small, translucent directional-light cone used as a hologram projector beam.
+/obj/effect/overlay/hologram/communicator/cone
+	name = "hologram projection cone"
+	icon = 'icons/effects/light_overlays/light_cone_32.dmi'
+	icon_state = "light"
+	layer = FLY_LAYER - 0.01
+	alpha = 80
+	color = rgb(125, 180, 225)
+	blend_mode = BLEND_ADD
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/obj/effect/overlay/hologram/communicator/proc/update_projection_cone(turf/caller_turf, projection_direction, animate_movement)
+	if(!projection_cone)
+		projection_cone = new(caller_turf)
+	projection_cone.glide_size = animate_movement ? bound_caller?.glide_size : 0
+	projection_cone.pixel_x = 0
+	projection_cone.pixel_y = 0
+	// The projection is one tile in front of the caller; centre this 32px cone in that gap.
+	if(projection_direction & NORTH)
+		projection_cone.pixel_y = ICON_SIZE_Y / 2
+	else if(projection_direction & SOUTH)
+		projection_cone.pixel_y = -ICON_SIZE_Y / 2
+	if(projection_direction & EAST)
+		projection_cone.pixel_x = ICON_SIZE_X / 2
+	else if(projection_direction & WEST)
+		projection_cone.pixel_x = -ICON_SIZE_X / 2
+	if(slot_count > 1)
+		var/slot_spacing = min(COMMUNICATOR_HOLOGRAM_SLOT_SPACING, COMMUNICATOR_HOLOGRAM_MAX_SPREAD / (slot_count - 1))
+		projection_cone.pixel_x += round((slot_index - (slot_count + 1) / 2) * slot_spacing)
+	projection_cone.transform = null
+	projection_cone.set_dir(projection_direction)
+	if(projection_cone.loc != caller_turf)
+		projection_cone.forceMove(caller_turf)
 
 /obj/effect/overlay/hologram/communicator/proc/bind_to_caller(atom/movable/new_caller)
 	if(bound_caller == new_caller)
@@ -212,7 +268,7 @@
 	if(!caller_turf || !receiver_subject)
 		return FALSE
 	bind_to_caller(caller_subject)
-	assume_form(receiver_subject, TRUE)
+	assume_form(receiver_subject, TRUE, REVERSE_DIR(projection_direction))
 	// Anchor the projection to the caller's turf and draw it one tile forward.
 	// Because both atoms now traverse identical turfs, their glides cannot drift
 	// apart when Move() also changes the caller's direction.
@@ -230,6 +286,7 @@
 	glide_size = animate_movement ? caller_subject.glide_size : 0
 	if(loc != caller_turf)
 		forceMove(caller_turf)
+	update_projection_cone(caller_turf, projection_direction, animate_movement)
 	set_dir(REVERSE_DIR(projection_direction))
 	name = "hologram of [target_comm.get_user_name()]"
 	return TRUE
