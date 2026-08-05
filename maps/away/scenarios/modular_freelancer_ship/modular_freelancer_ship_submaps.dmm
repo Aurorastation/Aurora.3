@@ -9859,6 +9859,7 @@
 /obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/hallway)
 "cuW" = (
@@ -10736,6 +10737,14 @@
 "evG" = (
 /turf/simulated/wall,
 /area/modular_freelancer_ship/misc/maint/shuttles)
+"eyW" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/mid/lounge)
 "ezj" = (
 /obj/structure/machinery/door/blast/regular{
 	dir = 4;
@@ -13424,6 +13433,7 @@
 /area/modular_freelancer_ship/mid/lounge)
 "kni" = (
 /obj/random/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/hallway)
 "kob" = (
@@ -13876,6 +13886,7 @@
 /obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "lvp" = (
@@ -39227,7 +39238,7 @@ boI
 boI
 nyu
 myO
-wzc
+boI
 aYV
 rSO
 wzc
@@ -39387,8 +39398,8 @@ myO
 wzc
 aYV
 rSO
-wzc
-myO
+boI
+gSv
 jsl
 nQN
 jsl
@@ -39397,7 +39408,7 @@ jsl
 vcp
 slD
 fAb
-vhX
+eyW
 kzu
 kzu
 kzu
@@ -40445,8 +40456,8 @@ alU
 vhX
 vhX
 vhX
-vhX
-vhX
+kzu
+kzu
 tzB
 nvY
 kzu
@@ -60151,7 +60162,7 @@ xDf
 voJ
 voJ
 voJ
-voJ
+dMf
 nZg
 aOs
 aza
@@ -60175,8 +60186,8 @@ voJ
 kUv
 voJ
 lut
-voJ
-voJ
+dMf
+dMf
 nZg
 aOs
 aza
@@ -60308,7 +60319,7 @@ xDf
 voJ
 voJ
 voJ
-voJ
+dMf
 nZg
 aOs
 aza
@@ -60327,13 +60338,13 @@ kCf
 rcX
 iyP
 evG
-voJ
+dMf
 voJ
 kUv
 voJ
 voJ
 voJ
-voJ
+dMf
 nZg
 aOs
 aza
@@ -60484,7 +60495,7 @@ mqb
 rcX
 aAd
 evG
-voJ
+dMf
 voJ
 kUv
 voJ
