@@ -695,7 +695,6 @@
 	icon_state = "duffel-syndie"
 	item_state = "duffel-syndie"
 	worn_access = TRUE
-	equip_access = TRUE
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/duffel/cmo
