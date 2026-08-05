@@ -548,43 +548,49 @@ export const PersistencePanel = (props) => {
                 {group.requires_attribute ? (
                   group.attributes.map((attributeGroup) => (
                     <Box key={`${group.type}-${attributeGroup.attribute || 'unattributed'}`} ml={1} mb={1}>
-                      <Section fill fitted title={attributeGroup.attribute || 'Unattributed'}>
-                        <LabeledList>
-                          <LabeledList.Item label="Created at">
-                            {attributeGroup.created_at || 'This round'}
-                          </LabeledList.Item>
-                          <LabeledList.Item label="Expires at">
-                            {attributeGroup.expires_at || 'To be determined'}
-                          </LabeledList.Item>
-                        </LabeledList>
-                      </Section>
-                      <Section fill fitted title="JSON payload">
-                        <Box
-                          as="pre"
-                          m={0}
-                          pl={1}
-                          pt={1}
-                          style={{
-                            whiteSpace: 'pre-wrap',
-                            wordBreak: 'break-word',
-                          }}
-                        >
-                          {attributeGroup.json}
-                        </Box>
-                      </Section>
+                      <Collapsible title={attributeGroup.attribute || 'Unattributed'}>
+                        <Section fill fitted title="Metadata">
+                          <Box pl={1} pt={1}>
+                            <LabeledList>
+                              <LabeledList.Item label="Created at">
+                                {attributeGroup.created_at || 'This round'}
+                              </LabeledList.Item>
+                              <LabeledList.Item label="Expires at">
+                                {attributeGroup.expires_at || 'To be determined'}
+                              </LabeledList.Item>
+                            </LabeledList>
+                          </Box>
+                        </Section>
+                        <Section fill fitted title="JSON payload">
+                          <Box
+                            as="pre"
+                            m={0}
+                            pl={1}
+                            pt={1}
+                            style={{
+                              whiteSpace: 'pre-wrap',
+                              wordBreak: 'break-word',
+                            }}
+                          >
+                            {attributeGroup.json}
+                          </Box>
+                        </Section>
+                      </Collapsible>
                     </Box>
                   ))
                 ) : (
                   <Box>
                     <Section fill fitted title="Metadata">
-                      <LabeledList>
-                        <LabeledList.Item label="Created at">
-                          {group.attributes[0]?.created_at || 'This round'}
-                        </LabeledList.Item>
-                        <LabeledList.Item label="Expires at">
-                          {group.attributes[0]?.expires_at || 'To be determined'}
-                        </LabeledList.Item>
-                      </LabeledList>
+                      <Box pl={1} pt={1}>
+                        <LabeledList>
+                          <LabeledList.Item label="Created at">
+                            {group.attributes[0]?.created_at || 'This round'}
+                          </LabeledList.Item>
+                          <LabeledList.Item label="Expires at">
+                            {group.attributes[0]?.expires_at || 'To be determined'}
+                          </LabeledList.Item>
+                        </LabeledList>
+                      </Box>
                     </Section>
                     <Section fill fitted title="JSON payload">
                       <Box
