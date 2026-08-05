@@ -630,7 +630,6 @@
 	icon_state = "duffel"
 	item_state = "duffel"
 	worn_access = FALSE
-	equip_access = FALSE
 	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	straps = TRUE
 
