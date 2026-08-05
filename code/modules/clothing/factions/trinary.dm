@@ -1,7 +1,11 @@
 // Axiomite tunic variants
 /obj/item/clothing/under/dressshirt/axiom_tunic
 	name = "axiomite tunic"
-	desc = "Keep cool!"
+	desc = "This is a simple tunic formed of a thin, linen-like material flowing down \
+		to the knees. It's the latest fashion on Axiom, the home-planet of the church \
+		of the Trinary Perfection, a relgion which seeks to raise synthetics to a point \
+		of spiritual and temporal perfection. Thin, breathable, and not at all suited for \
+		very cold weather."
 	icon = 'icons/obj/item/clothing/under/synthetic/trinary_tunics.dmi'
 	icon_state = "axiomite_tunic"
 	item_state = "axiomite_tunic"
@@ -25,7 +29,9 @@
 
 /obj/item/clothing/under/dressshirt/axiom_tunic/ecclesiastical
 	name = "ecclesiastical tunic"
-	desc = "Bureaucracy!"
+	desc = "An Axiomite tunic cast in the colours of the Ecclesiastical Authority; the garb \
+		of a bureaucrat or government official belonging to the church of the Trinary Perfection, \
+		and appointed to responsibility in the planetary government of Axiom."
 	icon_state = "axiomite_tunic_posh"
 	item_state = "axiomite_tunic_posh"
 
@@ -40,7 +46,7 @@
 	icon_override = null
 
 /obj/item/clothing/accessory/poncho/trinary/blue
-	desc = "Cape!"
+	desc = "A brilliant blue and grey cape, commonly worn by those who serve the Trinary Perfection."
 	icon_state = "trinary_cape_blue"
 	item_state = "trinary_cape_blue"
 
@@ -51,7 +57,7 @@
 	item_state = "trinary_pellegrina"
 
 /obj/item/clothing/accessory/poncho/trinary/pellegrina/blue
-	desc = "Cape!"
+	desc = "A brilliant blue and grey cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
 	icon_state = "trinary_pellegrina_blue"
 	item_state = "trinary_pellegrina_blue"
 
@@ -62,7 +68,7 @@
 	item_state = "trinary_shouldercape"
 
 /obj/item/clothing/accessory/poncho/trinary/shouldercape/blue
-	desc = "Cape!"
+	desc = "A brilliant blue and grey cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
 	icon_state = "trinary_shouldercape_blue"
 	item_state = "trinary_shouldercape_blue"
 
@@ -117,7 +123,8 @@
 /// Coifs!
 /obj/item/clothing/head/trinary
 	name = "trinary coif"
-	desc = "Coif!"
+	desc = "This is a simple design of coif popular in Ecclesiastical Axiom, and among the \
+		innumerable monastic orders of the Trinary Perfection dotted throughout the Orion Spur."
 	icon = 'icons/obj/item/clothing/head/ipc/trinary_coif.dmi'
 	icon_state = "trinary_coif"
 	item_state = "trinary_coif"
@@ -145,7 +152,9 @@
 
 /obj/item/clothing/head/trinary/ecclesiastical
 	name = "ecclesiatical coif"
-	desc = "Religion!"
+	desc = "A coif cast in the colours of the Ecclesiastical Authority; the headwear \
+	of some bureaucrat or government official acting on behalf of the church of \
+	the Trinary Perfection and its temporal holdings on Axiom."
 	icon_state = "trinary_coif_ecclesiastical"
 	item_state = "trinary_coif_ecclesiastical"
 

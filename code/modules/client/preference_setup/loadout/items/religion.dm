@@ -7,11 +7,13 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 
 /datum/gear/religion/trinary/mask
 	display_name = "trinary perfection mask"
+	description = "A thin lace mask worn by Trinarist faithful while in sacred spaces."
 	path = /obj/item/clothing/mask/trinary_mask
 	slot = slot_wear_mask
 
 /datum/gear/religion/trinary/coif
 	display_name = "trinarist coif"
+	description = "Simple hair-covering headwear common among the faithful of Axiom, and its many monastic orders."
 	path = /obj/item/clothing/head/trinary
 	slot = slot_head
 
@@ -24,6 +26,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	trinarycoif["trinarist coif, black"] = /obj/item/clothing/head/trinary/black
 	trinarycoif["trinarist coif, green"] = /obj/item/clothing/head/trinary/green
 	trinarycoif["trinarist coif, habit"] = /obj/item/clothing/head/trinary/habit
+	gear_tweaks += new /datum/gear_tweak/path(trinarycoif)
 
 /datum/gear/religion/trinary/robe
 	display_name = "trinarist robes selection"
@@ -53,6 +56,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	axiomtunic["axiomite tunic, blue"] = /obj/item/clothing/under/dressshirt/axiom_tunic/blue
 	axiomtunic["axiomite tunic, black"] = /obj/item/clothing/under/dressshirt/axiom_tunic/black
 	axiomtunic["axiomite tunic, green"] = /obj/item/clothing/under/dressshirt/axiom_tunic/green
+	gear_tweaks += new /datum/gear_tweak/path(axiomtunic)
 
 /datum/gear/religion/trinary/cape
 	display_name = "trinarist cape selection"
@@ -73,6 +77,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 
 /datum/gear/religion/trinary/badge
 	display_name = "trinary perfection brooch"
+	description = "A declaration of one's commitment to the coming Ascension."
 	path = /obj/item/clothing/accessory/badge/trinary
 	slot = slot_tie
 
