@@ -154,3 +154,21 @@
 2026-08-04:
   FabianK3:
   - bugfix: Fixed persistent overmap location of the Horizon.
+2026-08-05:
+  Fenodyree:
+  - bugfix: Fixes the integrated circuit local locator failing if it was installed
+      in clothing.
+  - bugfix: Grenades can now be thrown over barricades from the defender's side. No
+      more accidentally grenading your team because you were one tile from the sandbags.
+  - bugfix: Fixed window frames blocking thrown grenades and bullets.
+  - bugfix: Fixed grenades launched instead of being thrown getting stuck on railings
+      and tables.
+  mineymonkey:
+  - bugfix: Added some safeties to prevent import loss due to server latency.
+  - bugfix: Fixed a bug where cloned built-in circuits were not being properly registered.
+  - balance: Reduced the maximum amount of metal and phoron that can be stored in
+      a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can
+      hit those numbers, so this is just a safety measure to prevent accidental loss
+      of materials.
+  - balance: Made the in-built radio command receiver cost no complexity to keep in-line
+      with other in-built components.
