@@ -15427,7 +15427,7 @@
 	pixel_y = 24;
 	density = 0
 	},
-/turf/simulated/floor/exoplanet/assunzione/no_edge,
+/turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "kQv" = (
 /obj/structure/stairs/west,
@@ -20786,7 +20786,7 @@
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/assunzione/no_edge,
+/turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "owW" = (
 /obj/structure/machinery/papershredder{
@@ -32557,7 +32557,7 @@
 /obj/structure/table/reinforced/wood{
 	pixel_y = 3
 	},
-/turf/simulated/floor/exoplanet/assunzione/no_edge,
+/turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "wKA" = (
 /obj/effect/decal/cleanable/dirt,
