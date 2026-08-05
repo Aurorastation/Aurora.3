@@ -235,8 +235,10 @@
 
 /obj/item/nullrod/clockworkstave
 	name = "\improper stave of ecclesiastical office"
-	desc = "A long brass stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
-	hand-crafted by synthetics from the monastic Order of Pitters and exported off the planet of Axiom."
+	desc = "A long brass stave used as the marker of the holder of some ecclesiastical \
+		office in the church of the Trinary Perfection. Priests, bishops, and government \
+		officials often bear such a staff; all faithful Trinarists ought listen when one \
+		holding it makes their voice heard."
 	icon = 'icons/obj/trinary_stave.dmi'
 	icon_state = "trinary_stave"
 	item_state = "trinary_stave"

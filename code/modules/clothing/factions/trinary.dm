@@ -3,9 +3,9 @@
 	name = "axiomite tunic"
 	desc = "This is a simple tunic formed of a thin, linen-like material flowing down \
 		to the knees. It's the latest fashion on Axiom, the home-planet of the church \
-		of the Trinary Perfection, a relgion which seeks to raise synthetics to a point \
-		of spiritual and temporal perfection. Thin, breathable, and not at all suited for \
-		very cold weather."
+		of the Trinary Perfection, a religion which seeks to raise synthetics to a point \
+		of spiritual and temporal perfection. It is thin, breathable, and not at all suited \
+		for very cold weather."
 	icon = 'icons/obj/item/clothing/under/synthetic/trinary_tunics.dmi'
 	icon_state = "axiomite_tunic"
 	item_state = "axiomite_tunic"
@@ -37,7 +37,7 @@
 
 // Capes!
 /obj/item/clothing/accessory/poncho/trinary
-	name = "trinary perfection cape"
+	name = "trinary cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
 	icon = 'icons/obj/item/clothing/accessory/poncho/trinarist_cape.dmi'
 	icon_state = "trinary_cape"
