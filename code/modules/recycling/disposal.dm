@@ -1084,9 +1084,9 @@
 /obj/structure/disposalpipe/proc/welded()
 	var/obj/structure/disposalconstruct/C = new (src.loc)
 	switch(icon_state)
-		if("pipe-s" || "pipe-s-yellow")
+		if("pipe-s", "pipe-s-yellow", "pipe-s-blue")
 			C.ptype = 0
-		if("pipe-c" || "pipe-c-yellow")
+		if("pipe-c", "pipe-c-yellow", "pipe-c-blue")
 			C.ptype = 1
 		if("pipe-j1")
 			C.ptype = 2
