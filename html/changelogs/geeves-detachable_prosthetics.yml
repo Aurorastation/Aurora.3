@@ -3,4 +3,7 @@ author: Geeves
 delete-after: True
 
 changes:
-  - rscadd: "Added detachable prosthetics. Use grab intent on your prosthetic to remove it, click on yourself with the missing limb targetted to replace it."
+  - rscadd: "Detachable prosthetics now use a multi-step removal procedure."
+  - rscadd: "The steps are multitool/screwdriver → multitool → screwdriver → wrench/crowbar → empty hand."
+  - rscadd: "Owners can remove their own prosthetics while standing without any skill requirement. Operating on another person requires Familiar Mechanical Engineering and a suitable surgery surface."
+  - qol: "Hold a detached prosthetic and use it on yourself with help intent to reattach it."

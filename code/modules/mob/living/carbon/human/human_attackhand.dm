@@ -97,6 +97,11 @@
 
 			return
 
+	var/obj/item/organ/external/selected_organ = get_organ(M.zone_sel.selecting)
+	if(selected_organ?.robotic && selected_organ.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_ANCHORS_RELEASED)
+		if(M == src || M.a_intent == I_HELP)
+			return manually_detach_prosthetic(selected_organ, user = M)
+
 	var/datum/martial_art/attacker_style = H.primary_martial_art
 
 	switch(M.a_intent)
@@ -114,7 +119,6 @@
 
 		if(I_GRAB)
 			if(M == src)
-				var/obj/item/organ/external/selected_organ = get_organ(M.zone_sel.selecting)
 				if(!selected_organ || !selected_organ.robotic)
 					return 0
 				return manually_detach_prosthetic(selected_organ)

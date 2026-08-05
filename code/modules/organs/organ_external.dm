@@ -105,6 +105,8 @@
 
 	/// Limb slots which have been fitted with a socket for manually attaching a prosthetic.
 	var/list/prosthetic_sockets = list()
+	/// How far this prosthetic has progressed through the manual detachment procedure.
+	var/prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SECURED
 
 	/// Boolean, if this organ supports childrens, which will be added in `children`
 	var/supports_children = TRUE

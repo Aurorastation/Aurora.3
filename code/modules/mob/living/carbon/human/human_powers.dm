@@ -1015,12 +1015,15 @@
 	if(manually_detach_prosthetic(E, FALSE))
 		last_special = world.time + 20
 
-/mob/living/carbon/human/proc/manually_detach_prosthetic(var/obj/item/organ/external/limb, var/detachment_delay = 2 SECONDS)
+/mob/living/carbon/human/proc/manually_detach_prosthetic(var/obj/item/organ/external/limb, var/detachment_delay = 2 SECONDS, var/mob/living/user = src)
 	if(!limb || limb.owner != src)
 		return FALSE
 
-	if(stat || paralysis || stunned || weakened || lying || restrained())
-		to_chat(src, SPAN_WARNING("You cannot detach a prosthetic in your current state!"))
+	if(!user || user.stat || user.paralysis || user.stunned || user.weakened || user.restrained())
+		to_chat(user ? user : src, SPAN_WARNING("You cannot detach a prosthetic in your current state!"))
+		return FALSE
+	if(user != src && GET_SKILL_LEVEL(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT) < SKILL_LEVEL_FAMILIAR)
+		to_chat(user, SPAN_WARNING("You need some mechanical engineering knowledge to remove another person's prosthetic."))
 		return FALSE
 
 	if(!limb.robotic)
@@ -1028,19 +1031,23 @@
 		return FALSE
 
 	if(limb.is_stump() || (limb.status & ORGAN_DESTROYED) || limb.is_broken())
-		to_chat(src, SPAN_WARNING("The limb is too damaged to be removed manually!"))
+		to_chat(user, SPAN_WARNING("The limb is too damaged to be removed manually!"))
 		return FALSE
 
 	if(limb.vital && !limb.sabotaged)
-		to_chat(src, SPAN_WARNING("Your safety system stops you from removing \the [limb]."))
+		to_chat(user, SPAN_WARNING("The safety system stops you from removing \the [limb]."))
+		return FALSE
+
+	if(detachment_delay && limb.prosthetic_detachment_stage != PROSTHETIC_DETACHMENT_ANCHORS_RELEASED)
+		to_chat(user, SPAN_WARNING("You must access and shut down the prosthetic's interface, disengage its safety locks, and release its retention anchors first."))
 		return FALSE
 
 	if(detachment_delay)
-		visible_message(
-			SPAN_NOTICE("\The [src] starts disconnecting [get_pronoun("his")] [limb]."),
-			SPAN_NOTICE("You start disconnecting your [limb].")
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts disconnecting [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]."),
+			SPAN_NOTICE("You start disconnecting [src == user ? "your" : "[src]'s"] [limb].")
 		)
-		if(!do_after(src, detachment_delay, src))
+		if(!do_after(user, detachment_delay, src))
 			return FALSE
 
 		if(limb.owner != src)
@@ -1054,11 +1061,14 @@
 			to_chat(src, SPAN_WARNING("Your safety system stops you from removing \the [limb]."))
 			return FALSE
 
+		if(limb.prosthetic_detachment_stage != PROSTHETIC_DETACHMENT_ANCHORS_RELEASED)
+			return FALSE
+
 	var/obj/item/organ/external/receiving_limb = limb.parent
 	if(receiving_limb)
 		receiving_limb.prosthetic_sockets |= limb.limb_name
 
-	var/use_inactive_hand = (hand && (limb.limb_name in list(BP_L_ARM, BP_L_HAND))) || (!hand && (limb.limb_name in list(BP_R_ARM, BP_R_HAND)))
+	var/use_inactive_hand = user == src && ((hand && (limb.limb_name in list(BP_L_ARM, BP_L_HAND))) || (!hand && (limb.limb_name in list(BP_R_ARM, BP_R_HAND))))
 
 	limb.removed(src)
 	limb.forceMove(get_turf(src))
@@ -1068,13 +1078,13 @@
 	UpdateDamageIcon()
 
 	if(use_inactive_hand)
-		put_in_inactive_hand(limb)
+		user.put_in_inactive_hand(limb)
 	else
-		put_in_active_hand(limb)
+		user.put_in_active_hand(limb)
 
-	visible_message(
-		SPAN_NOTICE("\The [src] detaches [get_pronoun("his")] [limb]!"),
-		SPAN_NOTICE("You detach your [limb]!")
+	user.visible_message(
+		SPAN_NOTICE("\The [user] detaches [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]!"),
+		SPAN_NOTICE("You detach [src == user ? "your" : "[src]'s"] [limb]!")
 	)
 	return TRUE
 
@@ -1124,6 +1134,7 @@
 			return FALSE
 
 	drop_from_inventory(limb)
+	limb.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SECURED
 	limb.replaced(src)
 
 	update_body()
