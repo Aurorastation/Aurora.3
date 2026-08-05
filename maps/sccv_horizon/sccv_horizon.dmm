@@ -50010,6 +50010,10 @@
 	req_access = null;
 	req_one_access = list(1)
 	},
+/obj/item/communicator_landline/security{
+	pixel_x = -7;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
 "gwU" = (
@@ -65627,6 +65631,7 @@
 /area/horizon/crew/fitness/changing)
 "ixx" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/communicator_landline/engineering,
 /turf/simulated/floor/tiled/full,
 /area/horizon/engineering/lobby)
 "ixy" = (
@@ -74912,8 +74917,12 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/item/flora/pottedplant_small,
+/obj/item/flora/pottedplant_small{
+	pixel_x = -8;
+	pixel_y = -1
+	},
 /obj/structure/machinery/alarm/west,
+/obj/item/communicator_landline/science,
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/lab)
 "jIz" = (
@@ -136234,9 +136243,14 @@
 "rEy" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/item/paper_bin{
+	pixel_x = 9
+	},
+/obj/item/pen{
+	pixel_x = 9
+	},
 /obj/structure/machinery/alarm/east,
+/obj/item/communicator_landline/medical,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "rEB" = (
@@ -145648,6 +145662,7 @@
 	pixel_y = 2;
 	pixel_x = 5
 	},
+/obj/item/communicator_landline/operations,
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
 "sMb" = (
@@ -149095,6 +149110,7 @@
 	pixel_y = 5
 	},
 /obj/structure/table/reinforced/steel,
+/obj/item/communicator_landline/command,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/controlroom)
 "tjY" = (
@@ -178156,6 +178172,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/item/communicator_landline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "wVV" = (
