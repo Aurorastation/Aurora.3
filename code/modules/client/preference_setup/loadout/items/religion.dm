@@ -11,13 +11,23 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	slot = slot_wear_mask
 
 /datum/gear/religion/trinary/coif
-	display_name = "trinary perfection coif"
+	display_name = "trinarist coif"
 	path = /obj/item/clothing/head/trinary
 	slot = slot_head
 
+/datum/gear/religion/trinary/coif/New()
+	..()
+	var/list/trinarycoif = list()
+	trinarycoif["trinarist coif, red trim"] = /obj/item/clothing/head/trinary
+	trinarycoif["trinarist coif, blue trim"] = /obj/item/clothing/head/trinary/blue_trim
+	trinarycoif["trinarist coif, blue"] = /obj/item/clothing/head/trinary/blue
+	trinarycoif["trinarist coif, black"] = /obj/item/clothing/head/trinary/black
+	trinarycoif["trinarist coif, green"] = /obj/item/clothing/head/trinary/green
+	trinarycoif["trinarist coif, habit"] = /obj/item/clothing/head/trinary/habit
+
 /datum/gear/religion/trinary/robe
-	display_name = "trinary perfection robes selection"
-	description = "A selection of robes worn by adherents of the Trinary Perfection."
+	display_name = "trinarist robes selection"
+	description = "A selection of robes worn by the clergy of the Trinary Perfection."
 	path = /obj/item/clothing/suit/storage/hooded/trinary_robes
 	slot = slot_wear_suit
 
@@ -29,18 +39,36 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	trinaryrobe["templeist robes"] = /obj/item/clothing/suit/storage/hooded/trinary_robes/templeist
 	gear_tweaks += new /datum/gear_tweak/path(trinaryrobe)
 
+/datum/gear/religion/trinary/tunic
+	display_name = "axiomite tunic selection"
+	description = "A selection of tunics worn by the people of Axiom, and their fellow interstellar Trinarists."
+	path = /obj/item/clothing/under/dressshirt/axiom_tunic
+	slot = slot_w_uniform
+
+/datum/gear/religion/trinary/tunic/New()
+	..()
+	var/list/axiomtunic = list()
+	axiomtunic["axiomite tunic, red trim"] = /obj/item/clothing/under/dressshirt/axiom_tunic
+	axiomtunic["axiomite tunic, blue trim"] = /obj/item/clothing/under/dressshirt/axiom_tunic/blue_trim
+	axiomtunic["axiomite tunic, blue"] = /obj/item/clothing/under/dressshirt/axiom_tunic/blue
+	axiomtunic["axiomite tunic, black"] = /obj/item/clothing/under/dressshirt/axiom_tunic/black
+	axiomtunic["axiomite tunic, green"] = /obj/item/clothing/under/dressshirt/axiom_tunic/green
+
 /datum/gear/religion/trinary/cape
-	display_name = "trinary perfection cape selection"
+	display_name = "trinarist cape selection"
 	description = "A selection of capes worn by adherents to the Trinary Perfection."
-	path = /obj/item/clothing/accessory/poncho/trinary
+	path = /obj/item/clothing/under/dressshirt/axiom_tunic
 	slot = slot_wear_suit
 
 /datum/gear/religion/trinary/cape/New()
 	..()
 	var/list/trinarycape = list()
 	trinarycape["trinary perfection cape"] = /obj/item/clothing/accessory/poncho/trinary
+	trinarycape["trinary perfection cape, blue"] = /obj/item/clothing/accessory/poncho/trinary/blue
 	trinarycape["trinary perfection shoulder cape"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape
+	trinarycape["trinary perfection shoulder cape, blue"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape/blue
 	trinarycape["trinary perfection pellegrina"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina
+	trinarycape["trinary perfection pellegrina, blue"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina/blue
 	gear_tweaks += new /datum/gear_tweak/path(trinarycape)
 
 /datum/gear/religion/trinary/badge

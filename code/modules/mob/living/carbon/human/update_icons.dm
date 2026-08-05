@@ -1100,16 +1100,9 @@ There are several things that need to be remembered:
 		if(!mob_state && back.item_state_slots && back.item_state_slots[slot_back_str])
 			mob_state = back.item_state_slots[slot_back_str]
 
-		var/overlay_layer = BACK_LAYER
-		if(istype(back, /obj/item/nullrod))
-			var/obj/item/nullrod/N = back
-			if(N.layer_over_hair_on_back)
-				overlay_layer = BACK_LAYER_OVER
-
-		overlays_raw[overlay_layer] = back.get_mob_overlay(src, mob_icon, mob_state, slot_back_str)
+		overlays_raw[BACK_LAYER] = back.get_mob_overlay(src, mob_icon, mob_state, slot_back_str)
 	else
 		overlays_raw[BACK_LAYER] = null
-		overlays_raw[BACK_LAYER_OVER] = null
 
 	if(update_icons)
 		update_icon()
