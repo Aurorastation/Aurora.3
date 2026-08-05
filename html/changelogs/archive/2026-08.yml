@@ -163,6 +163,9 @@
   - bugfix: Fixed window frames blocking thrown grenades and bullets.
   - bugfix: Fixed grenades launched instead of being thrown getting stuck on railings
       and tables.
+  Noobetski:
+  - rscadd: Adds biesel citizenship to Traverse origin due to the recent refugee influx
+      from Traverse.
   mineymonkey:
   - bugfix: Added some safeties to prevent import loss due to server latency.
   - bugfix: Fixed a bug where cloned built-in circuits were not being properly registered.
