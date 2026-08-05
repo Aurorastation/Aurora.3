@@ -308,7 +308,7 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 
 /// Returns whether this device legitimately knows a hidden address and may receive it in UI data.
 /datum/computer_file/program/communicator/proc/knows_address(address)
-	if(address in friends || active_chats[address])
+	if((address in friends) || active_chats[address])
 		return TRUE
 	for(var/direction in comm_requests)
 		for(var/category in comm_requests[direction])
