@@ -392,6 +392,9 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	if(isobserver(user) || !user?.client || !active_call || !(target_comm in active_call.connected_comms))
 		return FALSE
 	video_call_on = TRUE
+	if(isliving(user))
+		var/mob/living/living_user = user
+		living_user.set_fullscreen(FALSE, "communicator_video_transition", /atom/movable/screen/fullscreen/blackout)
 	video_viewer = user
 	video_target = target_comm
 	video_previous_zoom = winget(user.client, "mapwindow.map", "zoom")
@@ -409,15 +412,27 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 /datum/computer_file/program/communicator/proc/stop_video_call()
 	var/mob/old_viewer = video_viewer
 	if(old_viewer?.client)
-		if(!isnull(video_previous_zoom))
-			winset(old_viewer.client, "mapwindow.map", "zoom=[video_previous_zoom]")
+		if(isliving(old_viewer))
+			var/mob/living/living_viewer = old_viewer
+			living_viewer.set_fullscreen(TRUE, "communicator_video_transition", /atom/movable/screen/fullscreen/blackout)
 		if(is_video_camera_eye(old_viewer))
 			old_viewer.reset_view(null)
+		if(!isnull(video_previous_zoom))
+			addtimer(CALLBACK(src, PROC_REF(restore_video_zoom), old_viewer, old_viewer.client, video_previous_zoom), 1 SECOND)
 	video_call_on = FALSE
 	video_viewer = null
 	video_target = null
 	video_previous_zoom = null
 	refresh_icon_state()
+
+/// Client camera updates have no acknowledgement; keep the transition black until the remote view is certainly gone.
+/datum/computer_file/program/communicator/proc/restore_video_zoom(mob/viewer, client/viewer_client, previous_zoom)
+	if(video_call_on || !viewer_client)
+		return
+	winset(viewer_client, "mapwindow.map", "zoom=[previous_zoom]")
+	if(isliving(viewer))
+		var/mob/living/living_viewer = viewer
+		living_viewer.set_fullscreen(FALSE, "communicator_video_transition", /atom/movable/screen/fullscreen/blackout)
 /// Resolves the selected device's physical carrier, regardless of inventory nesting.
 /datum/computer_file/program/communicator/proc/get_video_camera_target()
 	RETURN_TYPE(/atom/movable)
