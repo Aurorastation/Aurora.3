@@ -161,6 +161,7 @@
 	var/handpiece_type = /obj/item/modular_computer/handheld/communicator/landline
 	/// The real communicator, stored in this cradle while on the hook.
 	var/obj/item/modular_computer/handheld/communicator/landline/handpiece
+	var/ringing = FALSE
 
 /obj/item/communicator_landline/Initialize()
 	. = ..()
@@ -205,9 +206,27 @@
 	if(!handpiece || handpiece.loc != src)
 		return FALSE
 	user.put_in_hands(handpiece)
+	stop_ringing()
 	handpiece.connect_cord()
 	update_icon()
 	return TRUE
+
+/obj/item/communicator_landline/proc/start_ringing()
+	if(ringing)
+		return
+	ringing = TRUE
+	ring()
+
+/obj/item/communicator_landline/proc/stop_ringing()
+	ringing = FALSE
+
+/obj/item/communicator_landline/proc/ring()
+	if(!ringing || handpiece?.loc != src)
+		stop_ringing()
+		return
+	playsound(src, 'sound/weapons/ring.ogg', 45, TRUE)
+	shake_animation(2)
+	addtimer(CALLBACK(src, PROC_REF(ring)), 2 SECONDS)
 
 /obj/item/communicator_landline/proc/return_handpiece(obj/item/modular_computer/handheld/communicator/landline/returning_handpiece)
 	if(returning_handpiece != handpiece)
@@ -276,7 +295,13 @@
 
 /obj/item/modular_computer/handheld/communicator/landline/update_icon()
 	icon_state = "communicator_handpiece"
-	return ..()
+	. = ..()
+	var/datum/computer_file/program/communicator/communicator_app = get_communicator_program()
+	if(landline_cradle && loc == landline_cradle && length(communicator_app?.comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]))
+		landline_cradle.start_ringing()
+	else
+		landline_cradle?.stop_ringing()
+	return .
 
 /obj/item/modular_computer/handheld/communicator/landline/equipped(mob/user, slot, assisted_equip)
 	. = ..()

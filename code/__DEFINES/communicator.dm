@@ -20,6 +20,8 @@
 
 #define CALL_REQUESTS "call"
 #define FRIEND_REQUESTS "friend"
+#define VIDEO_REQUESTS "video"
+#define HOLOGRAM_REQUESTS "hologram"
 
 // Mirror of the `CommunicatorTab` enum in '../Communicator/types.ts'.
 #define COMM_HOME_TAB 0

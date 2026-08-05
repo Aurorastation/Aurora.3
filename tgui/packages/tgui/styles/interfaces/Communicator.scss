@@ -75,12 +75,20 @@ $phone-button-spacing: 0.5rem;
 
     &--rounded {
       border-radius: 32px;
-      margin-bottom: $phone-button-spacing;
+      width: 100%;
+      margin: 0;
     }
 
     &--wide {
       width: calc(#{$phone-button-width} * 2);
     }
+  }
+
+  .comm-keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: $phone-button-spacing;
+    margin-bottom: $phone-button-spacing;
   }
 
   .action-buttons {

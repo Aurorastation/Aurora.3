@@ -82,10 +82,17 @@
 		"hologramOn" = hologram_on,
 		"canVideo" = !!get_video_target(),
 		"canHologram" = can_hologram,
+		"videoPending" = length(outgoing_feature_requests[VIDEO_REQUESTS]),
+		"hologramPending" = length(outgoing_feature_requests[HOLOGRAM_REQUESTS]),
 	)
 	data["friendsList"] = alist("active" = active_friends, "missing" = missing_friends)
 	data["callRequests"] = REQUESTS_DATA(comm_requests, CALL_REQUESTS)
 	data["friendRequests"] = REQUESTS_DATA(comm_requests, FRIEND_REQUESTS)
+	var/list/feature_requests = list()
+	for(var/feature in incoming_feature_requests)
+		for(var/address in incoming_feature_requests[feature])
+			feature_requests += list(alist("address" = address, "feature" = feature))
+	data["featureRequests"] = feature_requests
 	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
 	data["deviceTierName"] = get_tier_name()
 	data["allUsers"] = all_users
@@ -147,7 +154,7 @@
 			toggle_video_call(usr)
 
 		if("toggle_hologram")
-			toggle_hologram()
+			toggle_hologram(usr)
 
 		if("toggle_visibility")
 			visible_on_network = !visible_on_network
@@ -216,6 +223,10 @@
 					accept_call(target_comm)
 				if("decline")
 					target_comm.cancel_voice_call(src, get_computer_address(), "Your call to [get_user_name()] was declined.")
+
+		if("feature_request")
+			var/feature = params["feature"]
+			respond_feature_request(target_comm, feature, params["action"] == "accept")
 
 		if("start_chat")
 			get_or_create_chat(target_comm)

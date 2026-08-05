@@ -7,6 +7,7 @@ import { CommunicatorHomeTab } from './CommunicatorHomeTab';
 import { CommunicatorMessagesTab } from './CommunicatorMessagesTab';
 import { CommunicatorPhoneTab } from './CommunicatorPhoneTab';
 import { CommunicatorSettingsTab } from './CommunicatorSettingsTab';
+import { GetUserByAddress } from './helpers';
 import { CommunicatorTab } from './types';
 import type { ReactNode } from 'react';
 import type { CommunicatorData } from './types';
@@ -24,7 +25,7 @@ export const Communicator = () => {
 };
 
 const NormalScreen = () => {
-  const { data } = useBackend<CommunicatorData>();
+  const { act, data } = useBackend<CommunicatorData>();
 
   const tabs: { [tab in CommunicatorTab]: ReactNode } = {
     [CommunicatorTab.Home]: <CommunicatorHomeTab />,
@@ -37,6 +38,17 @@ const NormalScreen = () => {
 
   return (
     <Flex height="100%" mt={2} direction="column" justify="space-between">
+      {!!data.featureRequests.length && (
+        <Section title={`${data.featureRequests[0].feature === 'video' ? 'Video' : 'Hologram'} request`}>
+          <Stack align="center">
+            <Stack.Item grow>
+              {GetUserByAddress(data, data.featureRequests[0].address)?.username ?? '[UNKNOWN]'} wants to enable {data.featureRequests[0].feature}.
+            </Stack.Item>
+            <Stack.Item><Button color="green" icon="check" onClick={() => act('feature_request', { action: 'accept', target_address: data.featureRequests[0].address, feature: data.featureRequests[0].feature })}>Approve</Button></Stack.Item>
+            <Stack.Item><Button color="red" icon="xmark" onClick={() => act('feature_request', { action: 'decline', target_address: data.featureRequests[0].address, feature: data.featureRequests[0].feature })}>Deny</Button></Stack.Item>
+          </Stack>
+        </Section>
+      )}
       <Flex.Item grow>{tabs[data.currentTab]}</Flex.Item>
       <Flex.Item mb={2}>
         <Section>

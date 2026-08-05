@@ -47,6 +47,11 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	var/video_previous_zoom
 	/// Whether this caller is currently being projected by holographic peers.
 	var/hologram_on = FALSE
+	/// Receiver approvals pending for video/hologram features, keyed by feature then address.
+	var/alist/incoming_feature_requests = alist(VIDEO_REQUESTS = list(), HOLOGRAM_REQUESTS = list())
+	var/alist/outgoing_feature_requests = alist(VIDEO_REQUESTS = list(), HOLOGRAM_REQUESTS = list())
+	var/mob/pending_video_viewer
+	var/mob/pending_hologram_user
 
 /datum/computer_file/program/communicator/New(obj/item/modular_computer/comp)
 	. = ..()
@@ -69,6 +74,10 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		return FALSE
 	add_to_active()
 	refresh_icon_state()
+	incoming_feature_requests = alist(VIDEO_REQUESTS = list(), HOLOGRAM_REQUESTS = list())
+	outgoing_feature_requests = alist(VIDEO_REQUESTS = list(), HOLOGRAM_REQUESTS = list())
+	pending_video_viewer = null
+	pending_hologram_user = null
 	return TRUE
 
 /datum/computer_file/program/communicator/kill_program(forced)
@@ -209,6 +218,43 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 /datum/computer_file/program/communicator/proc/is_valid_request_category(category)
 	return category == CALL_REQUESTS || category == FRIEND_REQUESTS
 
+/datum/computer_file/program/communicator/proc/request_feature(datum/computer_file/program/communicator/target_comm, feature, mob/requester)
+	if(!active_call || !target_comm || !(target_comm in active_call.connected_comms) || !(feature in list(VIDEO_REQUESTS, HOLOGRAM_REQUESTS)) || length(outgoing_feature_requests[feature]))
+		return FALSE
+	var/source_address = get_computer_address()
+	if(!source_address || (source_address in target_comm.incoming_feature_requests[feature]))
+		return FALSE
+	outgoing_feature_requests[feature] |= target_comm.get_computer_address()
+	target_comm.incoming_feature_requests[feature] |= source_address
+	if(feature == VIDEO_REQUESTS)
+		pending_video_viewer = requester
+	else
+		pending_hologram_user = requester
+	target_comm.computer.get_notification("New [feature] request!", 1, get_user_name())
+	target_comm.refresh_icon_state()
+	refresh_icon_state()
+	return TRUE
+
+/datum/computer_file/program/communicator/proc/respond_feature_request(datum/computer_file/program/communicator/source_comm, feature, approved)
+	var/source_address = source_comm?.get_computer_address()
+	if(!source_address || !(source_address in incoming_feature_requests[feature]))
+		return FALSE
+	incoming_feature_requests[feature] -= source_address
+	source_comm.outgoing_feature_requests[feature] -= get_computer_address()
+	if(approved)
+		if(feature == VIDEO_REQUESTS)
+			source_comm.begin_video_call(source_comm.pending_video_viewer, src)
+		else if(feature == HOLOGRAM_REQUESTS)
+			source_comm.hologram_on = TRUE
+			source_comm.active_call?.refresh_holograms()
+	var/response_text = approved ? "approved" : "denied"
+	source_comm.computer.get_notification("Your [feature] request was [response_text] by [get_user_name()].", 1, get_user_name())
+	source_comm.pending_video_viewer = null
+	source_comm.pending_hologram_user = null
+	refresh_icon_state()
+	source_comm.refresh_icon_state()
+	return TRUE
+
 /datum/computer_file/program/communicator/proc/send_comm_request(target_address, category)
 	target_address = lowertext(target_address)
 	var/source_address = get_computer_address()
@@ -340,6 +386,11 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	if(!target_comm || !(target_comm in get_video_targets()))
 		return FALSE
 
+	return request_feature(target_comm, VIDEO_REQUESTS, user)
+
+/datum/computer_file/program/communicator/proc/begin_video_call(mob/user, datum/computer_file/program/communicator/target_comm)
+	if(isobserver(user) || !user?.client || !active_call || !(target_comm in active_call.connected_comms))
+		return FALSE
 	video_call_on = TRUE
 	video_viewer = user
 	video_target = target_comm
@@ -390,7 +441,7 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 		video_viewer.reset_view(video_eye)
 	return video_viewer.client.eye == video_eye
 
-/datum/computer_file/program/communicator/proc/toggle_hologram()
+/datum/computer_file/program/communicator/proc/toggle_hologram(mob/user)
 	if(!active_call || get_device_tier() < COMMUNICATOR_TIER_HOLOGRAPHIC)
 		return FALSE
 	var/can_project = FALSE
@@ -401,15 +452,22 @@ GLOBAL_LIST_EMPTY(active_communicator_apps)
 	if(!can_project)
 		computer.output_error("No holographic call participant is available.")
 		return FALSE
-	hologram_on = !hologram_on
-	active_call.refresh_holograms()
-	refresh_icon_state()
-	return TRUE
+	if(hologram_on)
+		hologram_on = FALSE
+		active_call.refresh_holograms()
+		refresh_icon_state()
+		return TRUE
+	var/datum/computer_file/program/communicator/target_comm = null
+	for(var/datum/computer_file/program/communicator/other_comm as anything in active_call.connected_comms)
+		if(other_comm != src && other_comm.get_device_tier() >= COMMUNICATOR_TIER_HOLOGRAPHIC)
+			target_comm = other_comm
+			break
+	return request_feature(target_comm, HOLOGRAM_REQUESTS, user)
 
 /datum/computer_file/program/communicator/proc/refresh_icon_state(update_computer = TRUE)
 	if(active_call)
 		program_icon_state = video_call_on ? "video" : "active"
-	else if(length(comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]) || length(comm_requests[OUTGOING_REQUESTS][CALL_REQUESTS]))
+	else if(length(comm_requests[INCOMING_REQUESTS][CALL_REQUESTS]) || length(comm_requests[OUTGOING_REQUESTS][CALL_REQUESTS]) || length(incoming_feature_requests[VIDEO_REQUESTS]) || length(incoming_feature_requests[HOLOGRAM_REQUESTS]) || length(outgoing_feature_requests[VIDEO_REQUESTS]) || length(outgoing_feature_requests[HOLOGRAM_REQUESTS]))
 		program_icon_state = "called"
 	else
 		var/obj/item/modular_computer/handheld/communicator/communicator = computer

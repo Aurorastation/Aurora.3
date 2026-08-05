@@ -64,20 +64,19 @@ export const CommunicatorPhoneTab = () => {
       <Flex.Item>
         <Section className="comm-address-input">
           <AutocompleteInput />
-          <Flex height="100%" justify="space-evenly" wrap="wrap">
+          <Box className="comm-keypad">
             {PHONE_KEYS.map((keyChar) => (
-              <Flex.Item key={keyChar}>
-                <Button
-                  className="Button--rounded"
-                  onClick={() => {
-                    setTargetAddress(FormatAddress(targetAddress + keyChar));
-                  }}
-                >
-                  {keyChar.toUpperCase()}
-                </Button>
-              </Flex.Item>
+              <Button
+                key={keyChar}
+                className="Button--rounded"
+                onClick={() => {
+                  setTargetAddress(FormatAddress(targetAddress + keyChar));
+                }}
+              >
+                {keyChar.toUpperCase()}
+              </Button>
             ))}
-          </Flex>
+          </Box>
           <Stack className="action-buttons">
             <Stack.Item>
               <Button

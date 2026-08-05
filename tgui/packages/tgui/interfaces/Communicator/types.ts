@@ -19,6 +19,7 @@ export type CommunicatorData = {
   friendsList: FriendsList;
   callRequests: RequestsList;
   friendRequests: RequestsList;
+  featureRequests: FeatureRequest[];
 
   userComm: ActiveUser;
   allUsers: ActiveUser[];
@@ -31,11 +32,18 @@ type CallSettings = {
   hologramOn: BooleanLike;
   canVideo: BooleanLike;
   canHologram: BooleanLike;
+  videoPending: BooleanLike;
+  hologramPending: BooleanLike;
 };
 
 export type RequestsList = {
   incoming: Address[];
   outgoing: Address[];
+};
+
+export type FeatureRequest = {
+  address: Address;
+  feature: 'video' | 'hologram';
 };
 
 type FriendsList = {

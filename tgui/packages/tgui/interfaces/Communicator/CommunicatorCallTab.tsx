@@ -162,6 +162,8 @@ const OptionButtons = () => {
     hologramOn,
     canVideo,
     canHologram,
+    videoPending,
+    hologramPending,
   } = data.callSettings;
 
   // TODO: Improve styling. These look pretty bad at the moment.
@@ -213,23 +215,23 @@ const OptionButtons = () => {
       </Flex.Item>
       <Flex.Item>
         <Button
-          disabled={!canVideo || data.observer}
-          selected={videoOn}
+          disabled={!canVideo || data.observer || videoPending}
+          selected={videoOn || videoPending}
           onClick={() => act('toggle_video')}
         >
-          <Icon name={videoOn ? 'video' : 'video-slash'} />
+          <Icon name={videoPending ? 'spinner' : videoOn ? 'video' : 'video-slash'} spin={videoPending} />
         </Button>
-        <Box>Video</Box>
+        <Box>{videoPending ? 'Video Pending' : 'Video'}</Box>
       </Flex.Item>
       <Flex.Item>
         <Button
-          disabled={!canHologram || data.observer}
-          selected={hologramOn}
+          disabled={!canHologram || data.observer || hologramPending}
+          selected={hologramOn || hologramPending}
           onClick={() => act('toggle_hologram')}
         >
-          <Icon name="person-rays" />
+          <Icon name={hologramPending ? 'spinner' : 'person-rays'} spin={hologramPending} />
         </Button>
-        <Box>Hologram</Box>
+        <Box>{hologramPending ? 'Hologram Pending' : 'Hologram'}</Box>
       </Flex.Item>
     </Flex>
   );
