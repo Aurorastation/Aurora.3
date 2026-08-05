@@ -47,4 +47,4 @@
 #define L_HAND_LAYER          	46
 #define R_HAND_LAYER          	47
 #define FIRE_LAYER_UPPER      	48
-#define TOTAL_LAYERS          	49
+#define TOTAL_LAYERS          	48

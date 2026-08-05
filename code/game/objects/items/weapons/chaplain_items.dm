@@ -27,9 +27,6 @@
 		"Null Orb" = /obj/item/nullrod/orb,
 		"Null Athame" = /obj/item/nullrod/athame,
 	)
-	/// Do we want this to layer over a character's hair when placed on their back?
-	/// Useful for more eccentric sprites.
-	var/layer_over_hair_on_back = FALSE
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -245,14 +242,6 @@
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
-	layer_over_hair_on_back = TRUE
-
-/obj/item/nullrod/clockworkstave/check_equipped(mob/user, slot, assisted_equip = FALSE)
-	. = ..()
-	if(slot == slot_back)
-		layer = ABOVE_HUMAN_LAYER
-	else
-		layer = OBJ_LAYER
 
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"

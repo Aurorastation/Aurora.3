@@ -6,13 +6,13 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	religion = RELIGION_TRINARY
 
 /datum/gear/religion/trinary/mask
-	display_name = "trinary perfection mask"
+	display_name = "trinary mask"
 	description = "A thin lace mask worn by Trinarist faithful while in sacred spaces."
 	path = /obj/item/clothing/mask/trinary_mask
 	slot = slot_wear_mask
 
 /datum/gear/religion/trinary/coif
-	display_name = "trinarist coif"
+	display_name = "trinary coif"
 	description = "Simple hair-covering headwear common among the faithful of Axiom, and its many monastic orders."
 	path = /obj/item/clothing/head/trinary
 	slot = slot_head
@@ -29,8 +29,8 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	gear_tweaks += new /datum/gear_tweak/path(trinarycoif)
 
 /datum/gear/religion/trinary/robe
-	display_name = "trinarist robes selection"
-	description = "A selection of robes worn by the clergy of the Trinary Perfection."
+	display_name = "trinary robes selection"
+	description = "A selection of robes worn by the clergy of the Trinary Perfection, running down to the feet."
 	path = /obj/item/clothing/suit/storage/hooded/trinary_robes
 	slot = slot_wear_suit
 
@@ -44,7 +44,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 
 /datum/gear/religion/trinary/tunic
 	display_name = "axiomite tunic selection"
-	description = "A selection of tunics worn by the people of Axiom, and their fellow interstellar Trinarists."
+	description = "A selection of tunics worn by the people of Axiom, and their fellow interstellar Trinarists. An emulation of a clerical style."
 	path = /obj/item/clothing/under/dressshirt/axiom_tunic
 	slot = slot_w_uniform
 
@@ -59,7 +59,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	gear_tweaks += new /datum/gear_tweak/path(axiomtunic)
 
 /datum/gear/religion/trinary/cape
-	display_name = "trinarist cape selection"
+	display_name = "trinary cape selection"
 	description = "A selection of capes worn by adherents to the Trinary Perfection."
 	path = /obj/item/clothing/under/dressshirt/axiom_tunic
 	slot = slot_wear_suit
