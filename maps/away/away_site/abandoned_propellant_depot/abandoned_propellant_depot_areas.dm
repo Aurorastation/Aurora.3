@@ -4,6 +4,10 @@
 /area/abandoned_propellant_depot
 	name = "Abandoned Propellant Depot (base/abstract)"
 
+/area/abandoned_propellant_depot/unpowered
+	name = "Unknown Location"
+	requires_power = FALSE
+
 // --- docks
 
 /area/abandoned_propellant_depot/docks_north_east
