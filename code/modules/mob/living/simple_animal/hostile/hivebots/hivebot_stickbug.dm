@@ -74,8 +74,8 @@
 	. = ..()
 	if(prob(5))
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
-			if(H.isSynthetic())
-				to_chat(H, SPAN_CULT(pick(messages)))
+			if(H.isSynthetic() && (AreConnectedZLevels(H.z, src.z)))
+				to_chat(H, SPAN_MACHINE_VISION(pick(messages)))
 
 /mob/living/simple_animal/hostile/hivebotboss/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
