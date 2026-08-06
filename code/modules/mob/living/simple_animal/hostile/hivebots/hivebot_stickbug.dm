@@ -78,6 +78,7 @@
 
 /mob/living/simple_animal/hostile/hivebotboss/Life()
 	. = ..()
+	adjustBruteLoss(-5)
 	// if(prob(5))
 	// 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 	// 		if(H.isSynthetic() && (AreConnectedZLevels(H.z, src.z)))
