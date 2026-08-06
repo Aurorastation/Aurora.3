@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a ping storyteller verb. People can now ping the storyteller to get their attention using the new verb in the OOC tab."
