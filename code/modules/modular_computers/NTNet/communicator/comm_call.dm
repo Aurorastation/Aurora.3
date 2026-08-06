@@ -167,17 +167,14 @@
 	parent_call = null
 	return ..()
 
-/// Flatten a caller's visual layers before applying hologram effects. Applying alpha
-/// to an atom with separate clothing overlays leaves those overlays more opaque.
+/// Copy the target appearance directly. The shared tail renderer supplies both
+/// ordered tail layers, so this remains correct when the hologram faces another direction.
 /obj/effect/overlay/hologram/communicator/assume_form(atom/subject, long_range = FALSE, projection_direction)
 	if(!subject)
 		return
-	var/image/flattened_subject = image(subject)
-	flattened_subject.dir = projection_direction || subject.dir
-	icon = getFlatIcon(flattened_subject, no_anim = TRUE)
-	icon_state = null
-	overlays = null
-	underlays = null
+	appearance = subject.appearance
+	appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
+	layer = initial(layer)
 	pixel_x = subject.pixel_x
 	pixel_y = subject.pixel_y
 	dir = projection_direction || subject.dir
