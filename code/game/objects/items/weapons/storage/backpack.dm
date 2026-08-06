@@ -39,6 +39,12 @@
 	 * If the object may be accessed while equipped anywhere on a character, including hands.
 	 */
 	var/equip_access = TRUE
+	/**
+	 * If the object should have a delay to open, for more cumbersome bags such as duffels.
+	 * If false, no delay is applied. Apply a value if a delay should be applied, and the
+	 * delay will be equal in seconds to the value of this variable.
+	 */
+	var/access_delay = 0 SECONDS
 
 /obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -144,6 +150,8 @@
 /obj/item/storage/backpack/open(mob/user)
 	if (!worn_check())
 		return
+	if(access_delay > 0 SECONDS)
+		do_after(user, access_delay)
 	..()
 
 /obj/item/storage/backpack/proc/worn_check(no_message = FALSE)
@@ -153,7 +161,7 @@
 			return TRUE //not equipped
 		if(!worn_access && (slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back) == src)
 			if(!no_message)
-				to_chat(M, SPAN_WARNING("Your arms are not long enough to open \the [src] while it is on your back!"))
+				to_chat(M, SPAN_WARNING("You cannot access the contents of \the [src] while it is on your back!"))
 				if(use_sound)
 					playsound(loc, use_sound, 50, 1, -5)
 				if(animated)
@@ -161,7 +169,7 @@
 			return FALSE
 		if(!equip_access && (ismob(loc)))
 			if(!no_message)
-				to_chat(M, SPAN_WARNING("\The [src] is too cumbersome to handle, you're going to have to set it down somewhere!"))
+				to_chat(M, SPAN_WARNING("\The [src] is too cumbersome to access in your hands, you're going to have to set it down somewhere!"))
 				if(use_sound)
 					playsound(loc, use_sound, 50, 1, -5)
 				if(animated)
@@ -630,8 +638,15 @@
 	icon_state = "duffel"
 	item_state = "duffel"
 	worn_access = FALSE
+	access_delay = 1 SECOND
 	max_storage_space = DEFAULT_DUFFELBAG_STORAGE
 	straps = TRUE
+
+/obj/item/storage/backpack/duffel/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Duffel bags store a greater capacity than any other kind of backpack or satchel."
+	. += "Duffel bags cannot be accessed while on a character's back, but can be accessed while in their hand or on the floor."
+	. += "Duffel bags are laborious to use! There is a short delay on accessing them in all contexts."
 
 /obj/item/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
