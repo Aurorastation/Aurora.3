@@ -11,7 +11,7 @@
 	icon_state = "setup_small"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	light_system = MOVABLE_LIGHT
-	recyclable = TRUE
+	recyclable = FALSE
 	charge_failure_message = " is missing a powercell."
 
 	var/max_components = IC_COMPONENTS_BASE
@@ -104,6 +104,10 @@
 	var/list/HTML = list()
 	var/effective_component_limit = get_effective_component_limit(total_complexity)
 	var/effective_complexity_limit = get_effective_complexity_limit(total_parts)
+	if (!total_parts && !total_complexity)
+		recyclable = TRUE
+	else
+		recyclable = FALSE
 
 	HTML += "<br><a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
 	HTML += "<a href='byond://?src=[REF(src)];rename=1'>Rename</a><br>"
@@ -260,7 +264,7 @@
 		return FALSE
 
 	IC.assembly = src
-
+	recyclable = FALSE
 	return TRUE
 
 // Non-interactive version of above that always succeeds, intended for build-in circuits that get added on assembly initialization.

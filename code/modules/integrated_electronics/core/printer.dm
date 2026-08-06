@@ -618,8 +618,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] fails to finish the cloned assembly."))
 		return
 
-	new_clone.matter = list(MATERIAL_STEEL = cost * 200, MATERIAL_PHORON = phoron_cost * 200) //Each sheet gives the circuit printer 10, each sheet is 2000 in the autolathe.
-
+	new_clone.recyclable = FALSE //A cloned circuit will have components in it.
 	if(user)
 		to_chat(user, SPAN_NOTICE("\The [src] finishes printing \the [new_clone]."))
 
@@ -630,7 +629,6 @@
 
 	var/obj/item/integrated_circuit/IC = circuit_type
 	return max(0, initial(IC.phoron_cost) * phoron_per_sheet)
-
 
 /obj/item/integrated_circuit_printer/proc/get_clone_metal_cost(obj/item/electronic_assembly/source)
 	if(!source)
