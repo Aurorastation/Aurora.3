@@ -76,12 +76,19 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 
 /datum/gear/computer/handheld/communicator
 	display_name = "communicator"
-	path = /obj/item/modular_computer/handheld/communicator
+	path = /obj/item/modular_computer/handheld/communicator/video
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	cost = 2
 
 /datum/gear/computer/handheld/communicator/New()
 	. = ..()
+	var/list/communicators = list()
+	// Keep the medium/video model first: path tweaks use their first option as
+	// the default for new and existing loadout selections.
+	communicators["video communicator"] = /obj/item/modular_computer/handheld/communicator/video
+	communicators["basic communicator"] = /obj/item/modular_computer/handheld/communicator
+	communicators["holographic communicator"] = /obj/item/modular_computer/handheld/communicator/holographic
+	gear_tweaks += new /datum/gear_tweak/path(communicators)
 	gear_tweaks += new /datum/gear_tweak/communicator_address
 
 // After spawning the communicator, register it to the player to avoid them needing to swipe their ID to activate it.
@@ -89,16 +96,6 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 	var/obj/item/modular_computer/handheld/communicator/comm = ..()
 	addtimer(CALLBACK(comm, TYPE_PROC_REF(/obj/item/modular_computer/handheld/communicator, register_to_mob), H), 3 SECONDS)
 	return comm
-
-/datum/gear/computer/handheld/communicator/video
-	display_name = "video communicator"
-	path = /obj/item/modular_computer/handheld/communicator/video
-	cost = 4
-
-/datum/gear/computer/handheld/communicator/holographic
-	display_name = "holographic communicator"
-	path = /obj/item/modular_computer/handheld/communicator/holographic
-	cost = 6
 
 // Communicator NTNet address customisation
 /datum/gear_tweak/communicator_address/get_contents(metadata)
