@@ -252,8 +252,8 @@
 			if(occupant.reagents)
 				occupant.reagents.trans_to_obj(new_meat, round(occupant.reagents.total_volume/slab_count,1))
 
-	occupant.attack_log += "\[[time_stamp()]\] Was gibbed by <b>[user]/[user.ckey]</b>" //One shall not simply gib a mob unnoticed!
-	user.attack_log += "\[[time_stamp()]\] Gibbed <b>[occupant]/[occupant.ckey]</b>"
+	occupant.log_message("Was gibbed by <b>[user]/[user.ckey]</b>", LOG_VICTIM, log_globally = FALSE) //One shall not simply gib a mob unnoticed!
+	user.log_message("Gibbed <b>[occupant]/[occupant.ckey]</b>", LOG_ATTACK, log_globally = FALSE)
 	msg_admin_attack("[key_name_admin(user)] gibbed [occupant] ([occupant.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(occupant))
 
 	occupant.ghostize()

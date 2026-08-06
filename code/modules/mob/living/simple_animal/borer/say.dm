@@ -37,6 +37,7 @@
 	to_chat(src, "<b>You drop words into [host]'s mind:</b> \"[text]\"")
 	to_chat(host, "<b>Your own thoughts speak:</b> \"[text]\"")
 	log_say("[key_name(src)] : (borer whisper -> [key_name(host)]) [text]")
+	log_directed_talk(src, host, text, LOG_SAY, "borer whisper")
 
 	for(var/mob/M in GLOB.mob_list)
 		if(M.client && M.stat == DEAD && !isnewplayer(M) && (M.client.prefs.toggles & CHAT_GHOSTEARS))

@@ -209,8 +209,8 @@
 
 	var/collision_damage = clamp((maxhealth/6), 5, 30)
 	if(M.m_intent == M_RUN)
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
+		H.log_message("Was rammed by [src]", LOG_VICTIM, log_globally = FALSE)
+		M.log_message("Rammed [H.name] ([H.ckey]) with the [src].", LOG_ATTACK, log_globally = FALSE)
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
 		H.apply_damage(collision_damage, DAMAGE_BRUTE)
@@ -323,8 +323,8 @@
 		if(isliving(AM))
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
-				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
+				H.log_message("Was rammed by [src]", LOG_VICTIM, log_globally = FALSE)
+				M.log_message("Rammed [H.name] ([H.ckey]) with the [src].", LOG_ATTACK, log_globally = FALSE)
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, SFX_SWING_HIT, 50, 1)

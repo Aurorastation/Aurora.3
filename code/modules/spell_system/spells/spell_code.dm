@@ -103,7 +103,7 @@ GLOBAL_LIST_INIT(spells, typesof(/spell))
 		take_charge(user, skipcharge)
 
 		before_cast(targets) //applies any overlays and effects
-		user.attack_log += "\[[time_stamp()]\] <span class='warning'>[user.real_name] ([user.ckey]) cast the spell [name].</span>"
+		user.log_message("[user.real_name] ([user.ckey]) cast the spell [name].", LOG_ATTACK, log_globally = FALSE)
 		if(prob(critfailchance))
 			critfail(targets, user)
 		else

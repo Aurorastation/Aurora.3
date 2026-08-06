@@ -175,6 +175,7 @@
 
 	if(trans)
 		message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
+		log_admin_circuit("[assembly] injected \the [L] with [trans]u of [contained].", list("assembly" = assembly, "circuit" = src, "target" = L, "reagents" = contained, "amount" = trans))
 		to_chat(L, SPAN_NOTICE("You feel a tiny prick!"))
 		visible_message(SPAN_WARNING("[assembly] injects [L]!"))
 		activate_pin(2)

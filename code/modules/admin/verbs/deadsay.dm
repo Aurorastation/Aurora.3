@@ -20,6 +20,7 @@
 	var/stafftype = uppertext(holder.rank)
 
 	msg = sanitize(msg)
+	var/raw_msg = msg
 	log_admin("DSAY: [key_name(src)] : [msg]")
 
 	msg = process_chat_markup(msg)
@@ -27,6 +28,11 @@
 	if (!msg)
 		return
 
+	log_dsay("[key_name(src)] : [raw_msg]", list(
+		"ckey" = ckey,
+		"key" = key,
+		"mob" = mob
+	))
 	say_dead_direct("<span class='name'>[stafftype]([src.holder.fakekey ? src.holder.fakekey : src.key])</span> says, <span class='message linkify'>\"[msg]\"</span>")
 
 	feedback_add_details("admin_verb","D") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

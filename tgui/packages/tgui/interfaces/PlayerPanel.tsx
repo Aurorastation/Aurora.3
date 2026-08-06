@@ -6,6 +6,7 @@ import { SearchBar } from './common/SearchBar';
 
 export type PanelData = {
   holder_ref: string;
+  is_admin: BooleanLike;
   is_mod: BooleanLike;
   players: Player[];
 };
@@ -15,6 +16,7 @@ type Player = {
   ref: string;
   name: string;
   real_name: string;
+  previous_names: string;
   assigment: string;
   key: string;
   ip: string;
@@ -62,6 +64,9 @@ export const PlayerPanel = (props) => {
                   player.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) >
                     -1 ||
                   player.real_name
+                    ?.toLowerCase()
+                    .indexOf(searchTerm.toLowerCase()) > -1 ||
+                  player.previous_names
                     ?.toLowerCase()
                     .indexOf(searchTerm.toLowerCase()) > -1 ||
                   player.assigment
@@ -131,6 +136,18 @@ export const PlayerPanel = (props) => {
                         content="N"
                         onClick={() => act('notes', { ckey: player.key })}
                       />
+                      {data.is_admin ? (
+                        <Button
+                          content="Logs"
+                          onClick={() =>
+                            act('individual_logs', {
+                              individual_logs: player.ref,
+                            })
+                          }
+                        />
+                      ) : (
+                        ''
+                      )}
                       <Button
                         content="TP"
                         onClick={() =>

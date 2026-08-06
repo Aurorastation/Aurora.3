@@ -5,3 +5,4 @@
 	if (GLOB.config?.logsettings["log_subsystems_cargo"])
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_cargo_log"], "SSCargo: [text]")
 #endif
+	logger?.Log(LOG_CATEGORY_SUBSYSTEM_CARGO, "SSCargo: [text]")

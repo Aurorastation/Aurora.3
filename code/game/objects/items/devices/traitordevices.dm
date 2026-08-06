@@ -36,7 +36,7 @@ effective or pretty fucking useless.
 		to_chat(user, SPAN_WARNING("The mind batterer has been burnt out!"))
 		return
 
-	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used [src] to knock down people in the area.</span>"
+	user.log_message("Used [src] to knock down people in the area.", LOG_ATTACK, log_globally = FALSE)
 
 	for(var/mob/living/carbon/human/M in orange(10, user))
 		if(prob(50))
@@ -85,4 +85,3 @@ effective or pretty fucking useless.
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("[target] is not a valid target!"))
-

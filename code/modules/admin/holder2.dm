@@ -45,13 +45,13 @@ var/list/admin_datums = list()
 	if(istype(C))
 		owner = C
 		owner.holder = src
-		owner.add_admin_verbs()	//TODO
+		SSadmin_verbs.assosciate_admin(owner)
 		GLOB.staff |= C
 
 /datum/admins/proc/disassociate()
 	if(owner)
 		GLOB.staff -= owner
-		owner.remove_admin_verbs()
+		SSadmin_verbs.deassosciate_admin(owner)
 		owner.deadmin_holder = owner.holder
 		owner.holder = null
 
@@ -60,7 +60,7 @@ var/list/admin_datums = list()
 		GLOB.staff += owner
 		owner.holder = src
 		owner.deadmin_holder = null
-		owner.add_admin_verbs()
+		SSadmin_verbs.assosciate_admin(owner)
 
 /datum/admins/proc/update_newscaster_sig()
 	if (!admincaster_signature)

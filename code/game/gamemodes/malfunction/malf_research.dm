@@ -64,7 +64,3 @@
 		if(focus.unlocked)
 			finish_research()
 
-
-
-
-

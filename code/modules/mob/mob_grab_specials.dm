@@ -113,8 +113,8 @@
 		attacker.visible_message(SPAN_DANGER("[attacker] [attacker.species.knockout_message]"))
 
 	playsound(attacker.loc, SFX_SWING_HIT, 25, 1, -1)
-	attacker.attack_log += "\[[time_stamp()]\] <span class='warning'>Headbutted [target.name] ([target.ckey])</span>"
-	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>"
+	attacker.log_message("Headbutted [target.name] ([target.ckey])", LOG_ATTACK, log_globally = FALSE)
+	target.log_message("Headbutted by [attacker.name] ([attacker.ckey])", LOG_VICTIM, log_globally = FALSE)
 	msg_admin_attack("[key_name(attacker)] has headbutted [key_name(target)]",ckey=key_name(attacker),ckey_target=key_name(target))
 
 	qdel(src)

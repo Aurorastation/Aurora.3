@@ -237,6 +237,7 @@
 
 	to_chat(M, msg)
 	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")
+	log_directed_talk(usr, M, msg, LOG_ADMIN, "direct narrate")
 	message_admins(SPAN_NOTICE(SPAN_BOLD("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")), 1)
 
 /mob/abstract/ghost/storyteller/verb/toggle_build_mode()

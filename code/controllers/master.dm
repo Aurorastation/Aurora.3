@@ -349,6 +349,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 
 	if(result != SS_INIT_NO_MESSAGE)
 		to_chat(world, chat_message)
+	log_subsystem_init(message)
 	log_world(message)
 
 /datum/controller/master/proc/SetRunLevel(new_runlevel)

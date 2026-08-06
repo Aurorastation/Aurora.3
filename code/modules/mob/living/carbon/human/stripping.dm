@@ -80,8 +80,8 @@
 
 			if(istype(A, /obj/item/clothing/accessory/badge) || istype(A, /obj/item/clothing/accessory/medal))
 				user.visible_message(SPAN_DANGER("\The [user] tears off \the [A] from [src]'s [suit.name]!"))
-			attack_log += "\[[time_stamp()]\] <font color='orange'>Has had \the [A] removed by [user.name] ([user.ckey])</font>"
-			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to remove [name]'s ([ckey]) [A.name]</span>"
+			log_message("Has had \the [A] removed by [user.name] ([user.ckey])", LOG_VICTIM, log_globally = FALSE)
+			user.log_message("Attempted to remove [name]'s ([ckey]) [A.name]", LOG_ATTACK, log_globally = FALSE)
 			suit.remove_accessory(src, A)
 			return 1
 
@@ -134,8 +134,8 @@
 	if (suit.has_sensor >= 2)
 		to_chat(user, SPAN_WARNING("\The [src]'s suit sensor controls are locked."))
 		return
-	attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their sensors toggled by [user.name] ([user.ckey])</font>"
-	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to toggle [name]'s ([ckey]) sensors</span>"
+	log_message("Has had their sensors toggled by [user.name] ([user.ckey])", LOG_VICTIM, log_globally = FALSE)
+	user.log_message("Attempted to toggle [name]'s ([ckey]) sensors", LOG_ATTACK, log_globally = FALSE)
 	suit.set_sensors(user)
 
 // Remove all splints.

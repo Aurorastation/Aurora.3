@@ -8,6 +8,7 @@
 
 */
 GLOBAL_DATUM_INIT(init, /datum/global_init, new)
+GLOBAL_REAL(config, /datum/configuration)
 GLOBAL_DATUM(config, /datum/configuration)
 GLOBAL_VAR(motd)
 GLOBAL_PROTECT(config)
@@ -33,6 +34,9 @@ GLOBAL_PROTECT(config)
 	// Init the debugger first so we can debug Master
 	init_debugger()
 
+	// Create the tg-style logger before the master controller.
+	logger = new
+
 	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
 	Master = new
 
@@ -41,6 +45,8 @@ GLOBAL_PROTECT(config)
 */
 /datum/global_init/New()
 	generate_gameid()
+
+	world._initialize_log_files("data/logs/config_error.[logging_session_token()].log")
 
 	load_configuration()
 
@@ -79,18 +85,19 @@ GLOBAL_PROTECT(config)
 	var/latest_changelog = file("html/changelogs/archive/" + time2text(world.timeofday, "YYYY-MM") + ".yml")
 	GLOB.changelog_hash = fexists(latest_changelog) ? md5(latest_changelog) : 0 //for telling if the changelog has changed recently
 
+	GLOB.config.post_load()
+
+	SetupLogs()
 	log_startup()
 	load_motd()
 
-	if(GLOB.config.logsettings["log_runtime"])
+	if(CONFIG_GET(flag/log_runtime))
 		GLOB.diary_runtime = file("data/logs/_runtime/[GLOB.diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
 		log_world("ERROR: Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
 
 	TgsNew(new /datum/tgs_event_handler/impl, TGS_SECURITY_TRUSTED)
-
-	GLOB.config.post_load()
 
 	if(GLOB.config && GLOB.config.server_name != null && GLOB.config.server_suffix && world.port > 0)
 		// dumb and hardcoded but I don't care~
@@ -153,6 +160,7 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 
 	if (tgs_topic_return)
 		log_debug("API - TGS3 Request.")
+		log_tgs("API - TGS3 Request.", SEVERITY_DEBUG)
 		return tgs_topic_return
 	else if (!queryparams.len)
 		log_debug("API - Bad Request - Invalid/no JSON data sent.")
@@ -257,11 +265,36 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 
 /proc/load_configuration()
 	GLOB.config = new()
+	config = GLOB.config
 	GLOB.config.load("config/config.txt")
 	GLOB.config.load("config/game_options.txt","game_options")
 
 	if (GLOB.config.age_restrictions_from_file)
 		GLOB.config.load("config/age_restrictions.txt", "age_restrictions")
+
+/world/proc/SetupLogs()
+	if(GLOB.log_directory)
+		CRASH("SetupLogs() called more than once!")
+
+	var/realtime = world.realtime
+	var/texttime = time2text(realtime, "YYYY/MM/DD")
+	GLOB.log_directory = "data/logs/[texttime]/round-"
+	GLOB.picture_logging_prefix = "L_[time2text(realtime, "YYYYMMDD")]_"
+	GLOB.picture_log_directory = "data/picture_logs/[texttime]/round-"
+
+	if(GLOB.round_id)
+		GLOB.log_directory += "[GLOB.round_id]"
+		GLOB.picture_logging_prefix += "R_[GLOB.round_id]_"
+		GLOB.picture_log_directory += "[GLOB.round_id]"
+	else
+		var/timestamp = time2text(realtime, "YYYY-MM-DD-hh.mm.ss")
+		GLOB.log_directory += "[timestamp]"
+		GLOB.picture_logging_prefix += "T_[timestamp]_"
+		GLOB.picture_log_directory += "[timestamp]"
+
+	if(!logger)
+		logger = new
+	logger.init_logging()
 
 /world/proc/update_status()
 	SHOULD_NOT_SLEEP(TRUE)

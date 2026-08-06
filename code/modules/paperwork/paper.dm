@@ -539,6 +539,7 @@
 		if(!t)
 			return
 
+		var/raw_text = t
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
 
 		if(!i && istype(loc, /obj/item/portable_typewriter))
@@ -602,6 +603,14 @@
 		else
 			info += t // Oh, he wants to edit to the end of the file, let him.
 			updateinfolinks()
+
+		var/log_target = id == "end" ? "the end" : "field [id]"
+		log_paper("[key_name(usr)] wrote to [log_target] of [src] [loc_name(src)]: \"[raw_text]\"", list(
+			"paper" = src,
+			"writer" = usr,
+			"tool" = i,
+			"field" = id
+		))
 
 		update_space(t)
 

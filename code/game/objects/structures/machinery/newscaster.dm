@@ -652,6 +652,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 			comment.message = com_msg
 			comment.posted = "[worldtime2text()]"
 			viewing_story.comments += comment
+			log_comment("[src.scanned_user] commented on [viewing_story.parent_channel?.channel_name]/[viewing_story.message_type]: [com_msg]", list("newscaster" = src, "story" = viewing_story, "comment" = comment))
 			to_chat(usr, "Comment successfully added!")
 			src.viewing_message = viewing_story
 			src.screen = 22

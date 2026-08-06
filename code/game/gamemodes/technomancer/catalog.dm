@@ -321,6 +321,7 @@ GLOBAL_LIST_INIT(all_technomancer_assistance, (typesof(/datum/technomancer/assis
 					if(!core.has_spell(new_spell))
 						budget -= new_spell.cost
 						to_chat(H, SPAN_NOTICE("You have just bought [new_spell.name]."))
+						log_spellbook("[key_name(H)] learned [new_spell.name] for [new_spell.cost] points", list("buyer" = H, "entry" = new_spell, "catalog" = src))
 						core.add_spell(new_spell.obj_path, new_spell.name, new_spell.ability_icon_state)
 					else //We already own it.
 						to_chat(H, SPAN_DANGER("You already have [new_spell.name]!"))
@@ -341,6 +342,7 @@ GLOBAL_LIST_INIT(all_technomancer_assistance, (typesof(/datum/technomancer/assis
 				if(desired_object.cost <= budget)
 					budget -= desired_object.cost
 					to_chat(H, SPAN_NOTICE("You have just bought \a [desired_object.name]."))
+					log_spellbook("[key_name(H)] bought [desired_object.name] for [desired_object.cost] points", list("buyer" = H, "entry" = desired_object, "catalog" = src))
 					var/obj/O = new desired_object.obj_path(get_turf(H))
 					GLOB.technomancer_belongings.Add(O) // Used for the Track spell.
 
@@ -360,6 +362,7 @@ GLOBAL_LIST_INIT(all_technomancer_assistance, (typesof(/datum/technomancer/assis
 					for(var/datum/technomancer/spell/spell_datum in spell_instances)
 						if(spell_datum.obj_path == spell.spellpath)
 							budget += spell_datum.cost
+							log_spellbook("[key_name(H)] refunded [spell_datum.name] for [spell_datum.cost] points", list("buyer" = H, "entry" = spell_datum, "catalog" = src))
 							core.remove_spell(spell)
 							break
 		attack_self(H)
@@ -391,4 +394,3 @@ GLOBAL_LIST_INIT(all_technomancer_assistance, (typesof(/datum/technomancer/assis
 				qdel(attacking_item)
 				return TRUE
 	to_chat(user, "<span class='warn'>\The [src] is unable to refund \the [attacking_item].</span>")
-

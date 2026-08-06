@@ -5,6 +5,10 @@
 
 	if (GLOB.config?.logsettings["log_subsystems"])
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_log"], "SUBSYSTEM: [msg]")
+	logger?.Log(LOG_CATEGORY_SUBSYSTEM, "SUBSYSTEM: [msg]", list(
+		"subsystem" = subsystem,
+		"severity" = severity,
+	))
 	// if (log_world)
 	// 	world.log <<  "SS[subsystem]: [text]"
 
@@ -15,8 +19,10 @@
 	if (GLOB.config?.logsettings["log_subsystems"])
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_log"], "SUBSYSTEM INIT: [text]")
 #endif
+	logger?.Log(LOG_CATEGORY_SUBSYSTEM, "SUBSYSTEM INIT: [text]")
 
 // Generally only used when something has gone very wrong.
 /proc/log_failsafe(text)
 	if (GLOB.config?.logsettings["log_subsystems"])
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_log"], "SUBSYSTEM FAILSAFE: [text]")
+	logger?.Log(LOG_CATEGORY_SUBSYSTEM, "SUBSYSTEM FAILSAFE: [text]")

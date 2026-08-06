@@ -26,3 +26,6 @@
 
 /// Takes a datum as input, returns its ref string
 #define text_ref(datum) ref(datum)
+
+/// Abstraction over using mob.client to just check if there's a connected player.
+#define HAS_CONNECTED_PLAYER(mob) (mob.client)

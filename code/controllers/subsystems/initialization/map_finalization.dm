@@ -11,5 +11,6 @@ SUBSYSTEM_DEF(finalize)
 
 	// This is dependant on markers.
 	populate_antag_spawns()
+	log_subsystem_mapfinalization("Initialized global uplink and populated antagonist spawns.")
 
 	return SS_INIT_SUCCESS

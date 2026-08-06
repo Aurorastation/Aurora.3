@@ -151,6 +151,7 @@ GLOBAL_DATUM(uplink, /datum/uplink)
 /datum/uplink_item/proc/purchase_log(obj/item/uplink/U)
 	feedback_add_details("traitor_uplink_items_bought", "[src]")
 	log_and_message_admins("used \the [U.loc] to buy \a [src]")
+	log_uplink("[key_name(U.uplink_owner)] used \the [U.loc] to buy \a [src]", list("uplink" = U, "buyer" = U.uplink_owner, "item" = src))
 	U.purchase_log[src] = U.purchase_log[src] + 1
 
 /********************************

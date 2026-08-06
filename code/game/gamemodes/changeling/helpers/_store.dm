@@ -581,6 +581,8 @@ var/list/datum/power/changeling/powerinstances = list()
 	geneticpoints -= power.genomecost
 
 	purchasedpowers += power
+	if(remake_verbs)
+		log_changeling_power("[key_name(M)] evolved [power.name] for [power.genomecost] genome", list("mind" = M, "power" = power, "genome_cost" = power.genomecost))
 
 	if(!power.isVerb && power.verbpath)
 		call(M.current, power.verbpath)()

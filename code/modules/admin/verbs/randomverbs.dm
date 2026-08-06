@@ -36,6 +36,7 @@
 				to_chat(M, "<b>You hear a voice in your head... <i>[msg]</i></b>")
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]")
+	log_directed_talk(mob, M, msg, LOG_ADMIN, "subtle message")
 	message_admins(SPAN_NOTICE("<b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [sanitize_tg(msg)]</b>"), 1)
 	feedback_add_details("admin_verb","SMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -199,6 +200,7 @@
 
 	to_chat(M, msg)
 	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")
+	log_directed_talk(mob, M, msg, LOG_ADMIN, "direct narrate")
 	message_admins(SPAN_NOTICE("\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [sanitize_tg(msg)]<BR>"), 1)
 	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -1026,9 +1028,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Special Verbs"
 	set name = "Attack Log"
 
-	to_chat(usr, SPAN_DANGER("Attack Log for [mob]"))
-	for(var/t in M.attack_log)
-		to_chat(usr, t)
+	show_individual_logging_panel(M, LOGSRC_MOB, INDIVIDUAL_ATTACK_LOG)
 	feedback_add_details("admin_verb","ATTL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 

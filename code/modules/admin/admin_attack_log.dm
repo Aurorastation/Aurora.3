@@ -20,10 +20,10 @@
 /proc/admin_attack_log(var/mob/attacker, var/mob/victim, var/attacker_message, var/victim_message, var/admin_message)
 	var/jmp_link = ""
 	if(victim)
-		victim.attack_log +="\[[time_stamp()]\] <font color='orange'>[key_name(attacker)] - [victim_message]</font>"
+		victim.log_message("[key_name(attacker)] - [victim_message]", LOG_VICTIM, log_globally = FALSE)
 		jmp_link = " (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[victim.x];Y=[victim.y];Z=[victim.z]'>JMP</a>)"
 	if(attacker)
-		attacker.attack_log += "\[[time_stamp()]\] <span class='warning'>[key_name(victim)] - [attacker_message]</span>"
+		attacker.log_message("[key_name(victim)] - [attacker_message]", LOG_ATTACK, log_globally = FALSE)
 		jmp_link = " (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[attacker.x];Y=[attacker.y];Z=[attacker.z]'>JMP</a>)"
 
 	msg_admin_attack("[attacker ? key_name_admin(attacker) : ""] [admin_message] [victim ? key_name_admin(victim) : ""] (INTENT: [attacker? uppertext(attacker.a_intent) : "N/A"])[jmp_link]",ckey=key_name(attacker),ckey_target=key_name(victim))

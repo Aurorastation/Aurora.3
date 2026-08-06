@@ -355,6 +355,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	if(!client.holder && !GLOB.config.antag_hud_allowed)
 		remove_verb(observer, /mob/abstract/ghost/observer/verb/toggle_antagHUD)
 	observer.ckey = ckey
+	observer.bind_persistent_client_by_ckey(ckey)
 	observer.initialise_postkey()
 	observer.client.init_verbs()
 	qdel(src)

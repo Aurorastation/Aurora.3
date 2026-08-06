@@ -157,7 +157,7 @@ SUBSYSTEM_DEF(auth)
 	admin_datums.Cut()
 	for(var/s in GLOB.staff)
 		var/client/C = s
-		C.remove_admin_verbs()
+		SSadmin_verbs.deassosciate_admin(C)
 		C.holder = null
 	GLOB.staff.Cut()
 

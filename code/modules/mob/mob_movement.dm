@@ -203,7 +203,7 @@
 			mob.recalculate_glide_size(old_move_delay, move_delay, direct)
 			Process_Incorpmove(direct, mob)
 			return
-		if(mob.client && ((mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0)))		// If mob moves while zoomed in with device, unzoom them.
+		if(HAS_CONNECTED_PLAYER(mob) && ((mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0)))		// If mob moves while zoomed in with device, unzoom them.
 			for(var/obj/item/item in mob)
 				if(item.zoom)
 					item.zoom(mob)

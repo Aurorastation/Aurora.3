@@ -4,6 +4,7 @@
 	LOG_GITHUB_NOTICE("Mapping: [text]")
 #else
 	WRITE_LOG(GLOB.config.logfiles["world_map_error_log"], "MAPPING: [text]")
+	logger?.Log(LOG_CATEGORY_DEBUG_MAPPING, "MAPPING: [text]", list("error" = FALSE))
 	if(skip_world_log)
 		return
 	SEND_TEXT(world.log, "MAPPING: [text]")
@@ -15,6 +16,7 @@
 	LOG_GITHUB_ERROR("Mapping: [text]")
 #else
 	WRITE_LOG(GLOB.config.logfiles["world_map_error_log"], "MAPPING: [text]")
+	logger?.Log(LOG_CATEGORY_DEBUG_MAPPING, "MAPPING: [text]", list("error" = TRUE))
 	if(skip_world_log)
 		return
 	SEND_TEXT(world.log, "MAPPING: [text]")

@@ -9,6 +9,9 @@
 	disconnect_time = world.realtime
 	log_access("Logout: [key_name(src)]")
 	SSstatistics.update_status()
+	if(persistent_client)
+		for(var/datum/callback/CB as anything in persistent_client.post_logout_callbacks)
+			CB.Invoke()
 	clear_important_client_contents()
 
 	my_client = null

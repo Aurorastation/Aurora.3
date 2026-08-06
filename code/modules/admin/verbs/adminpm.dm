@@ -151,6 +151,7 @@
 		sound_to(C, 'sound/effects/adminhelp.ogg')
 
 	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]")
+	log_admin_private("PM: [key_name(src)]->[key_name(C)]: [msg]", list("sender" = mob, "recipient" = C.mob, "ticket" = ticket))
 
 	ticket.append_message(src.ckey, C.ckey, msg)
 
@@ -182,6 +183,7 @@
 	to_chat(src, "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message linkify'>[msg]</span></span></span>")
 
 	log_admin("PM: [key_name(src)]->Discord-[sender]: [msg]")
+	log_admin_private("PM: [key_name(src)]->Discord-[sender]: [msg]", list("sender" = mob, "discord_recipient" = sender))
 	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(C == src)

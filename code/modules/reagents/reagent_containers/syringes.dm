@@ -332,8 +332,8 @@
 			user.remove_from_mob(src)
 			qdel(src)
 
-			user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with \the [src] (INTENT: HARM).</span>"
-			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: HARM).</font>"
+			user.log_message("Attacked [target.name] ([target.ckey]) with \the [src] (INTENT: HARM).", LOG_ATTACK, log_globally = FALSE)
+			target.log_message("Attacked by [user.name] ([user.ckey]) with [src.name] (INTENT: HARM).", LOG_VICTIM, log_globally = FALSE)
 			msg_admin_attack("[key_name_admin(user)] attacked [key_name_admin(target)] with [src.name] (INTENT: HARM) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
 
 			return

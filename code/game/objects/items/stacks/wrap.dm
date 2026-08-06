@@ -81,8 +81,8 @@
 
 			H.forceMove(present)
 
-			H.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been wrapped with [src.name]  by [user.name] ([user.ckey])</font>"
-			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [src.name] to wrap [H.name] ([H.ckey])</span>"
+			H.log_message("Has been wrapped with [src.name] by [user.name] ([user.ckey])", LOG_VICTIM, log_globally = FALSE)
+			user.log_message("Used the [src.name] to wrap [H.name] ([H.ckey])", LOG_ATTACK, log_globally = FALSE)
 			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 
 		else
@@ -121,7 +121,7 @@
 	if(user in target) //no wrapping closets that you are inside - it's not physically possible
 		return
 
-	user.attack_log += "\[[time_stamp()]\] <span class='notice'>Has used [src.name] on [REF(target)]</span>"
+	user.log_message("Has used [src.name] on [REF(target)]", LOG_ATTACK, log_globally = FALSE)
 
 	if(istype(target, /obj/item) && !(istype(target, /obj/item/storage) && !istype(target,/obj/item/storage/box)))
 		var/obj/item/O = target

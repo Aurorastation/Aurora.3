@@ -298,8 +298,8 @@
 		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
-		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"
-		assailant.attack_log += "\[[time_stamp()]\] <span class='warning'>Grabbed the neck of [affecting.name] ([affecting.ckey])</span>"
+		affecting.log_message("Has had their neck grabbed by [assailant.name] ([assailant.ckey])", LOG_VICTIM, log_globally = FALSE)
+		assailant.log_message("Grabbed the neck of [affecting.name] ([affecting.ckey])", LOG_ATTACK, log_globally = FALSE)
 		msg_admin_attack("[key_name_admin(assailant)] grabbed the neck of [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
 		hud.icon_state = "kill"
 		hud.name = "kill"
@@ -316,8 +316,8 @@
 		playsound(loc, SFX_GRAB, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
 
-		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
-		assailant.attack_log += "\[[time_stamp()]\] <span class='warning'>is strangling [affecting.name] ([affecting.ckey])</span>"
+		affecting.log_message("is being strangled by [assailant.name] ([assailant.ckey])", LOG_VICTIM, log_globally = FALSE)
+		assailant.log_message("is strangling [affecting.name] ([affecting.ckey])", LOG_ATTACK, log_globally = FALSE)
 		msg_admin_attack("[key_name_admin(assailant)] is strangling [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
 
 		affecting.setClickCooldown(10)

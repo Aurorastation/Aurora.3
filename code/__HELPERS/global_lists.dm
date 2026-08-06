@@ -5,6 +5,10 @@ GLOBAL_LIST_EMPTY(staff)
 GLOBAL_PROTECT(staff)
 /// List of all ckeys with associated client.
 GLOBAL_LIST_EMPTY(directory)
+/// Assoc list of ckey -> /datum/persistent_client for same-round client state.
+GLOBAL_LIST_EMPTY_TYPED(persistent_clients_by_ckey, /datum/persistent_client)
+/// A flat list of all persistent clients, for her looping pleasure.
+GLOBAL_LIST_EMPTY_TYPED(persistent_clients, /datum/persistent_client)
 
 /// List of all mobs **with clients attached**. Excludes /mob/abstract/new_player
 GLOBAL_LIST_EMPTY(player_list)
