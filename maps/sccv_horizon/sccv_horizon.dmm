@@ -34094,26 +34094,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/storage/eva)
 "ese" = (
-/obj/item/stack/cable_coil{
-	pixel_x = -6
-	},
-/obj/item/robotanalyzer{
-	pixel_y = 5;
-	pixel_x = 3
-	},
-/obj/structure/table/steel,
-/obj/effect/floor_decal/spline/plain/brown{
-	dir = 4
-	},
-/obj/structure/machinery/recharger{
-	pixel_x = -6;
-	pixel_y = 10
-	},
-/obj/structure/machinery/camera{
-	c_tag = "Operations - Machinist Workshop 3";
-	network = list("Operations");
-	dir = 4
-	},
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /obj/structure/machinery/camera{
 	c_tag = "Operations - Machinist Workshop 3";
 	network = list("Operations");
