@@ -498,7 +498,7 @@
 		else if(istype(attacking_item, /obj/item/smes_coil))
 			if (cur_coils < max_coils)
 
-				if(!(attacking_item in compatible_coils))
+				if(!(attacking_item.type in compatible_coils))
 					to_chat(usr, "This coil isn't compatible with this SMES unit.")
 					return
 
