@@ -362,7 +362,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	health -= hitting_projectile.get_structure_damage()
 	check_failure()
 	opacity = TRUE
 	addtimer(CALLBACK(src, PROC_REF(update_opacity), FALSE), 2 SECONDS)

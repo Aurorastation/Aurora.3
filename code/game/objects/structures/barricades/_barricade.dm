@@ -212,8 +212,6 @@
 		return .
 
 	bullet_ping(hitting_projectile)
-	var/damage_to_take = hitting_projectile.damage * hitting_projectile.anti_materiel_potential
-	add_damage(damage_to_take, hitting_projectile.damage_flags(), hitting_projectile.damtype, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/barricade/proc/barricade_deconstruct(deconstruct)
 	if(deconstruct && is_wired)
