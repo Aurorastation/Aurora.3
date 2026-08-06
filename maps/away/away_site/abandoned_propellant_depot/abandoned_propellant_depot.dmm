@@ -99,6 +99,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_propellant_depot/propellant_tanks)
+"aq" = (
+/obj/structure/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "ar" = (
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
@@ -587,10 +591,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/crew_quarters)
-"bM" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "bO" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
@@ -2954,10 +2954,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_south_east)
-"iT" = (
-/obj/item/clothing/accessory/poncho/goldendeep/desertadornment,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "iV" = (
 /obj/effect/shuttle_landmark/abandoned_propellant_depot/catwalk/south_1{
 	dir = 1
@@ -2989,12 +2985,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_propellant_depot/gym)
-"jc" = (
-/obj/structure/machinery/light/colored/dying{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "jd" = (
 /obj/structure/tank_wall{
 	density = 0;
@@ -3642,6 +3632,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air_aux_fill)
+"ld" = (
+/obj/structure/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "lh" = (
 /obj/structure/closet/crate/bin/filled,
 /obj/random/dirt_75,
@@ -3898,6 +3892,10 @@
 /obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/docks_south_west)
+"me" = (
+/obj/item/clothing/accessory/poncho/goldendeep/elegantcloak,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "mg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3969,6 +3967,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"mu" = (
+/obj/item/clothing/accessory/poncho/assunzione,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "mv" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -4194,10 +4196,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/abandoned_propellant_depot/chiefs_quarters)
-"np" = (
-/obj/item/clothing/head/goldendeep/cowl,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "nq" = (
 /obj/structure/machinery/atmospherics/valve{
 	dir = 4
@@ -4610,10 +4608,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/hallways_west)
-"oJ" = (
-/obj/item/clothing/accessory/poncho,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "oK" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -4650,8 +4644,8 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
-"oN" = (
-/obj/item/clothing/accessory/poncho/goldendeep/elegantcloak,
+"oO" = (
+/obj/item/clothing/head/goldendeep/cubehood,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/unpowered)
 "oP" = (
@@ -4832,14 +4826,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
-"pr" = (
-/obj/item/clothing/accessory/poncho/assunzione,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "ps" = (
 /obj/structure/machinery/light/colored/dying{
 	dir = 1
 	},
+/obj/structure/table/fancy,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/unpowered)
 "pt" = (
@@ -5173,10 +5164,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/crew_quarters)
-"qA" = (
-/obj/structure/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "qB" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
@@ -5515,7 +5502,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_propellant_depot/atmos_propellant)
 "rJ" = (
-/obj/item/clothing/under/rank/sol/ipc,
+/obj/item/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/unpowered)
 "rK" = (
@@ -5937,6 +5924,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint)
+"sZ" = (
+/obj/item/clothing/accessory/poncho/goldendeep/desertadornment,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "ta" = (
 /obj/structure/table/steel,
 /obj/random/hardhat{
@@ -6484,13 +6475,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/crew_quarters)
-"uQ" = (
-/obj/structure/machinery/light/colored/dying{
-	dir = 1
-	},
-/obj/structure/table/fancy,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "uR" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -6987,10 +6971,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint)
-"wn" = (
-/obj/item/radio/intercom/hailing/north,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "wp" = (
 /obj/item/ammo_casing/pistol/used{
 	pixel_x = -4;
@@ -7154,14 +7134,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/bridge)
-"wI" = (
-/obj/structure/table/fancy,
-/obj/item/flashlight/lantern{
-	pixel_x = 2;
-	pixel_y = 9
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "wJ" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -7831,10 +7803,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/docks_north_east)
-"zj" = (
-/obj/item/clothing/accessory/poncho/blue,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "zk" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -8272,6 +8240,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
+"At" = (
+/obj/item/clothing/accessory/poncho/blue,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Au" = (
 /obj/structure/weightlifter,
 /obj/random/dirt_75,
@@ -8538,6 +8510,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
+"Bj" = (
+/obj/structure/machinery/light/colored/dying{
+	dir = 4
+	},
+/obj/structure/machinery/acting/changer,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Bk" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8721,6 +8700,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/hallways_north)
+"BQ" = (
+/obj/item/clothing/accessory/poncho,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "BS" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -8887,6 +8870,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_propellant_depot/docks_south_east)
+"Cy" = (
+/obj/structure/statue{
+	name = "mysterious statue";
+	desc = "Look on my Works, ye Mighty, and despair!"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Cz" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
@@ -9191,10 +9181,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/maint_storage)
-"Dl" = (
-/obj/structure/undies_wardrobe,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "Dn" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -9443,10 +9429,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_south)
-"Eb" = (
-/obj/structure/machinery/vending/generic_clothing,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "Ee" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
@@ -9684,10 +9666,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_propellant_depot/docks_south_east)
-"EM" = (
-/obj/item/clothing/accessory/poncho/big,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "EN" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -10192,6 +10170,10 @@
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/hallways_east)
+"Gv" = (
+/obj/structure/machinery/vending/generic_clothing,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Gw" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -10280,6 +10262,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"GR" = (
+/obj/structure/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "GS" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -10336,13 +10324,6 @@
 /obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_propellant_depot/propellant_tanks)
-"GZ" = (
-/obj/structure/statue{
-	name = "mysterious statue";
-	desc = "Look on my Works, ye Mighty, and despair!"
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "Ha" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -11237,10 +11218,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_propellant_depot/gym)
-"JO" = (
-/obj/item/clothing/head/goldendeep/cubehood,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "JQ" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -11518,6 +11495,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_propellant)
+"KE" = (
+/obj/item/clothing/under/rank/sol/ipc,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "KF" = (
 /obj/random/dirt_75,
 /obj/item/stack/cable_coil/random{
@@ -11782,6 +11763,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint_storage)
+"Ll" = (
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Lm" = (
 /obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled/techfloor,
@@ -12093,6 +12078,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_north)
+"Mk" = (
+/obj/item/clothing/under/rank/sol,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Mm" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/structure/closet/crate/trashcart,
@@ -12181,10 +12170,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/visible/purple,
 /turf/simulated/floor/airless,
 /area/abandoned_propellant_depot/atmos_propellant)
-"Mz" = (
-/obj/structure/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "MA" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/multi_tile/brown{
@@ -13254,6 +13239,11 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/hallways_south)
+"PY" = (
+/obj/item/radio/intercom/north,
+/mob/living/simple_animal/hakhma,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "PZ" = (
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -13344,10 +13334,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/crew_quarters)
 "Qq" = (
-/obj/structure/machinery/light/colored/dying{
-	dir = 4
-	},
-/obj/structure/machinery/acting/changer,
+/obj/item/clothing/head/goldendeep/cowl,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/unpowered)
 "Qr" = (
@@ -13739,10 +13726,6 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint)
-"Rw" = (
-/obj/structure/table/fancy,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "Rx" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -13818,6 +13801,10 @@
 /obj/effect/decal/cleanable/fruit_smudge,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_propellant_depot/kitchen)
+"RF" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "RH" = (
 /obj/item/flashlight/flare{
 	pixel_x = 8
@@ -14113,6 +14100,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/crew_quarters)
+"SM" = (
+/obj/structure/machinery/light/colored/dying{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "SN" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/firedoor/noid{
@@ -14124,10 +14117,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_east)
-"SO" = (
-/obj/item/clothing/accessory/poncho/goldendeep/flowingcloak,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "SQ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -14170,6 +14159,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/maint)
+"SW" = (
+/obj/item/clothing/accessory/poncho/goldendeep/flowingcloak,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "SX" = (
 /obj/structure/table/steel,
 /obj/item/trash/coffee{
@@ -14530,10 +14523,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/atmos_air)
-"TW" = (
-/obj/item/clothing/under/rank/sol,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "TX" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -15838,6 +15827,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/atmos_air)
+"Ye" = (
+/obj/item/clothing/accessory/poncho/big,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Yf" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -15850,6 +15843,14 @@
 /obj/structure/machinery/power/apc/high/north,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/hallways_south)
+"Yg" = (
+/obj/structure/table/fancy,
+/obj/item/flashlight/lantern{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Yh" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -16025,10 +16026,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/abandoned_propellant_depot/atmos_propellant)
-"YN" = (
-/obj/item/radio/intercom/north,
-/turf/simulated/floor/tiled/techfloor,
-/area/abandoned_propellant_depot/unpowered)
 "YQ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/aux,
 /obj/structure/machinery/atmospherics/pipe/simple/visible/fuel,
@@ -16210,6 +16207,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/abandoned_propellant_depot/docks_north_west)
+"Zk" = (
+/obj/structure/table/fancy,
+/turf/simulated/floor/tiled/techfloor,
+/area/abandoned_propellant_depot/unpowered)
 "Zm" = (
 /obj/random/tech_supply{
 	pixel_x = 3;
@@ -16727,7 +16728,7 @@ Zi
 (2,1,1) = {"
 QY
 cQ
-jc
+GR
 cQ
 gi
 cQ
@@ -16983,10 +16984,10 @@ Zi
 "}
 (3,1,1) = {"
 QY
-YN
-qA
+PY
+aq
 cQ
-Rw
+Zk
 cQ
 QY
 qK
@@ -17240,10 +17241,10 @@ Zi
 "}
 (4,1,1) = {"
 QY
-wn
-Mz
+rJ
+ld
 cQ
-wI
+Yg
 cQ
 QY
 qK
@@ -17497,10 +17498,10 @@ Zi
 "}
 (5,1,1) = {"
 QY
-ps
+SM
 cQ
 cQ
-SO
+SW
 ni
 QY
 qK
@@ -17755,9 +17756,9 @@ Zi
 (6,1,1) = {"
 QY
 cQ
-zj
-EM
-oN
+At
+Ye
+me
 cQ
 QY
 qK
@@ -18011,10 +18012,10 @@ Zi
 "}
 (7,1,1) = {"
 QY
-GZ
+Cy
 cQ
-oJ
-iT
+BQ
+sZ
 cQ
 QY
 qK
@@ -18268,10 +18269,10 @@ Zi
 "}
 (8,1,1) = {"
 QY
-uQ
-rJ
-pr
-JO
+ps
+KE
+mu
+oO
 ni
 QY
 qK
@@ -18525,10 +18526,10 @@ Zi
 "}
 (9,1,1) = {"
 QY
-Rw
-TW
+Zk
+Mk
 lA
-np
+Qq
 cQ
 QY
 qK
@@ -19039,11 +19040,11 @@ Zi
 "}
 (11,1,1) = {"
 QY
-Eb
+Gv
 Yj
-bM
-Qq
-Dl
+RF
+Bj
+Ll
 QY
 qK
 Zi
