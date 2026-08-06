@@ -31,6 +31,11 @@
 	var/clone_blueprint_name = null
 	var/clone_blueprint_export = null
 	var/clone_blueprint_import_buffer = ""
+	var/clone_blueprint_import_id = null
+	var/clone_blueprint_import_expected_chunks = 0
+	var/clone_blueprint_import_received_chunks = 0
+	var/clone_blueprint_import_received_length = 0
+	var/list/clone_blueprint_import_chunks = null
 	var/clone_blueprint_export_visible = FALSE
 	var/clone_blueprint_metal_cost = 0
 	var/clone_blueprint_phoron_cost = 0
@@ -45,13 +50,14 @@
 /obj/item/integrated_circuit_printer/upgraded
 	upgraded = TRUE
 	can_clone = TRUE
-	max_metal = 500
-	max_phoron = 20
+	max_metal = 250
+	max_phoron = 10
 
 
 /obj/item/integrated_circuit_printer/Destroy()
 	assembly_to_clone = null
 	clone_item_to_clone = null
+	clone_blueprint_import_chunks = null
 
 	return ..()
 
@@ -206,8 +212,6 @@
 			to_chat(user, SPAN_WARNING("No cloning blueprint text was provided."))
 		return FALSE
 
-	import_text = html_decode(import_text)
-
 	if(length(import_text) > IC_BLUEPRINT_BUFFER_LIMIT)
 		to_chat(user, SPAN_WARNING("That cloning blueprint is [length(import_text)] characters, but the maximum import size is [IC_BLUEPRINT_BUFFER_LIMIT] characters."))
 		return FALSE
@@ -332,6 +336,60 @@
 
 	return TRUE
 
+
+/obj/item/integrated_circuit_printer/proc/receive_clone_blueprint_chunk(import_id, chunk_index, chunk_count, import_chunk, mob/user)
+	if(!istext(import_id) || !length(import_id) || !istext(import_chunk))
+		to_chat(user, SPAN_WARNING("Invalid cloning blueprint transfer data was received."))
+		return FALSE
+
+	chunk_index = text2num(chunk_index)
+	chunk_count = text2num(chunk_count)
+	if(!chunk_index || !chunk_count || chunk_index < 1 || chunk_index > chunk_count)
+		to_chat(user, SPAN_WARNING("Invalid cloning blueprint chunk numbering was received."))
+		return FALSE
+
+	if(length(import_chunk) > IC_BLUEPRINT_CHUNK_LIMIT)
+		to_chat(user, SPAN_WARNING("That blueprint chunk is [length(import_chunk)] characters, but chunks must be [IC_BLUEPRINT_CHUNK_LIMIT] characters or less."))
+		return FALSE
+
+	if(clone_blueprint_import_id != import_id)
+		clone_blueprint_import_id = import_id
+		clone_blueprint_import_expected_chunks = chunk_count
+		clone_blueprint_import_received_chunks = 0
+		clone_blueprint_import_received_length = 0
+		clone_blueprint_import_chunks = new/list(chunk_count)
+		clone_blueprint_import_buffer = ""
+	else if(clone_blueprint_import_expected_chunks != chunk_count)
+		to_chat(user, SPAN_WARNING("The cloning blueprint transfer changed its expected chunk count."))
+		return FALSE
+
+	if(isnull(clone_blueprint_import_chunks[chunk_index]))
+		if(clone_blueprint_import_received_length + length(import_chunk) > IC_BLUEPRINT_BUFFER_LIMIT)
+			to_chat(user, SPAN_WARNING("The cloning blueprint import buffer cannot exceed [IC_BLUEPRINT_BUFFER_LIMIT] characters."))
+			return FALSE
+		clone_blueprint_import_chunks[chunk_index] = import_chunk
+		clone_blueprint_import_received_chunks++
+		clone_blueprint_import_received_length += length(import_chunk)
+
+	if(clone_blueprint_import_received_chunks < clone_blueprint_import_expected_chunks)
+		return TRUE
+
+	for(var/i = 1 to clone_blueprint_import_expected_chunks)
+		if(isnull(clone_blueprint_import_chunks[i]))
+			return TRUE
+	clone_blueprint_import_buffer = clone_blueprint_import_chunks.Join()
+
+	clone_blueprint_import_id = null
+	clone_blueprint_import_expected_chunks = 0
+	clone_blueprint_import_received_chunks = 0
+	clone_blueprint_import_received_length = 0
+	clone_blueprint_import_chunks = null
+
+	var/import_success = import_clone_blueprint_text(clone_blueprint_import_buffer, user)
+	if(import_success)
+		clone_blueprint_import_buffer = ""
+	return import_success
+
 /obj/item/integrated_circuit_printer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
@@ -384,6 +442,13 @@
 
 		return append_clone_blueprint_chunk(import_chunk, usr)
 
+	if(action == "receive_import_chunk_tgui")
+		if(!can_clone)
+			to_chat(usr, SPAN_WARNING("\The [src] needs a circuit cloner upgrade for that."))
+			return FALSE
+
+		return receive_clone_blueprint_chunk(params["import_id"], params["index"], params["count"], params["chunk"], usr)
+
 	if(action == "reject_oversized_import_tgui")
 		var/blueprint_length = text2num(params["length"])
 		if(!blueprint_length)
@@ -412,6 +477,11 @@
 		clone_blueprint_name = null
 		clone_blueprint_export = null
 		clone_blueprint_import_buffer = ""
+		clone_blueprint_import_id = null
+		clone_blueprint_import_expected_chunks = 0
+		clone_blueprint_import_received_chunks = 0
+		clone_blueprint_import_received_length = 0
+		clone_blueprint_import_chunks = null
 		clone_blueprint_export_visible = FALSE
 		clone_blueprint_metal_cost = 0
 		clone_blueprint_phoron_cost = 0
@@ -670,9 +740,6 @@
 		circuit_map[source_circuit] = new_circuit
 
 	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
-		if(!source_circuit.removable)
-			continue
-
 		var/obj/item/integrated_circuit/new_circuit = circuit_map[source_circuit]
 		if(!new_circuit)
 			continue
@@ -683,9 +750,6 @@
 		source_circuit.copy_clone_state_to(new_circuit)
 
 	for(var/obj/item/integrated_circuit/source_circuit in source.contents)
-		if(!source_circuit.removable)
-			continue
-
 		var/obj/item/integrated_circuit/new_circuit = circuit_map[source_circuit]
 		if(!new_circuit)
 			continue
@@ -739,6 +803,7 @@
 
 			if(linked_new_pin)
 				target_pin.linked |= linked_new_pin
+				linked_new_pin.linked |= target_pin
 
 
 /proc/ic_copy_clone_value(value)
@@ -958,6 +1023,7 @@
 
 			if(linked_pin)
 				source_pin.linked |= linked_pin
+				linked_pin.linked |= source_pin
 
 
 /obj/item/integrated_circuit_printer/proc/find_matching_blueprint_builtin(obj/item/electronic_assembly/clone, circuit_path, list/used_builtins)

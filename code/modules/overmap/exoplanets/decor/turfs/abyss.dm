@@ -5,6 +5,7 @@
 	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	icon_state = "smooth"
+	has_resources = FALSE
 	var/static/list/forbidden_types = typecacheof(list(
 		/obj/singularity,
 		/obj/structure/lattice,
@@ -19,7 +20,6 @@
 		/obj/structure/sign,
 		/obj/structure/machinery/atmospherics/pipe
 		))
-	has_resources = FALSE
 
 /turf/simulated/floor/exoplanet/abyss/Initialize()
 	. = ..()

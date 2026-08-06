@@ -1,0 +1,10 @@
+author: Fenodyree
+delete-after: True
+changes:
+  - bugfix: "Fixes EMP armor for mechs."
+  - bugfix: "Fixes mech pilot's getting EMP'd twice for every EMP hitting the mech."
+  - bugfix: "Fixes shields for mechs."
+  - bugfix: "Fixes mechs being able to draw infinite power, as long as there was any power in their cell."
+  - bugfix: "Fixes cockpit coverage not letting the pilot be hit."
+  - bugfix: "Fixes legacy icon updates."
+  - rscadd: "Adds a chance for attacks to hit the mech's pilot after the cockpit has been destroyed. This still accounts for the mech's armor and shields."

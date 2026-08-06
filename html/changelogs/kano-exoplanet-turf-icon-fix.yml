@@ -1,0 +1,5 @@
+author: kano
+delete-after: True
+changes:
+  - bugfix: "Fixed an issue with exoplanet turf edge icons layering below the adjacent turfs."
+  - code_imp: "Exoplanet turfs no longer attempt to add edge icons by default."
