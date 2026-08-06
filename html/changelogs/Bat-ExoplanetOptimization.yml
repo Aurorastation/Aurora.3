@@ -1,0 +1,4 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - refactor: "Updates exoplanet air caching to be zone-based instead of turf-based."
