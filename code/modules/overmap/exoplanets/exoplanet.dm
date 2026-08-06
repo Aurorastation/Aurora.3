@@ -11,6 +11,8 @@
 	var/list/main_planetary_zones = list()
 	/// Last ZAS update revision processed per generated z-level.
 	var/list/main_planetary_zone_atmosphere_revisions = list()
+	/// Next time to retry resolving a z-level which currently has no qualifying surface zone.
+	var/list/main_planetary_zone_retry_times = list()
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
@@ -293,57 +295,60 @@
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
 			SSair.mark_zone_update(Z)
+			continue
 		main_planetary_zone_atmosphere_revisions[zlevel_key] = Z.update_revision
 
 /// Attempts to not only identify the largest air zone, but also cache it for subsequent ticks.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_main_planetary_zone(zlevel)
 	var/zlevel_key = "[zlevel]"
 	var/zone/cached_zone = main_planetary_zones[zlevel_key]
-	// ZAS may invalidate and rebuild zones after terrain changes. Keep the cached zone only while it is still valid!
+	// ZAS may invalidate and rebuild zones after terrain changes. Keep the cached zone only while it is still valid.
 	if(cached_zone && !cached_zone.invalid)
 		return cached_zone
 
 	main_planetary_zones -= zlevel_key
 	main_planetary_zone_atmosphere_revisions -= zlevel_key
+	if(main_planetary_zone_retry_times[zlevel_key] > world.time)
+		return null
+	main_planetary_zone_retry_times -= zlevel_key
 
-	// Exoplanet transition edges are unsimulated, so only scan the generated interior when resolving the main surface zone.
+	// Do not cache a zone while ZAS still has geometry to rebuild. Checking the queues is constant-time;
+	// scanning every surface turf's needs_air_update flag here was the source of the hot path.
+	if(length(SSair.tiles_to_update) || length(SSair.deferred))
+		main_planetary_zone_retry_times[zlevel_key] = world.time + 15 SECOND
+		return null
+
+	// Exoplanet transition edges are unsimulated, so only scan the generated interior for the minimum useful surface size.
 	var/min_x = TRANSITIONEDGE + 1
 	var/min_y = TRANSITIONEDGE + 1
 	var/max_x = maxx - (TRANSITIONEDGE + 1)
 	var/max_y = maxy - (TRANSITIONEDGE + 1)
-	var/turf/lower_left = locate(min_x, min_y, zlevel)
-	var/turf/upper_right = locate(max_x, max_y, zlevel)
-	if(!lower_left || !upper_right)
+	if(max_x < min_x || max_y < min_y)
 		return null
 
-	// If it's a zone quarter of zlevel, good enough odds it's planetary main one.
-	var/minimum_zone_size = maxx * maxy * 0.25
+	// If it's a quarter of the generated surface, good enough odds it's the main planetary zone.
+	var/minimum_zone_size = (max_x - min_x + 1) * (max_y - min_y + 1) * 0.25
 	var/zone/best_zone
 	var/best_zone_size = 0
-	var/list/checked_zones = list()
-	var/zas_pending = FALSE
-	for(var/turf/simulated/T in block(lower_left, upper_right))
-		// Dynamic turf generation queues ZAS updates... Do not cache a main zone while the surface may still be settling!
-		if(T.needs_air_update)
-			zas_pending = TRUE
+	// Zones already own their member turfs. Enumerating them avoids scanning every turf on the z-level.
+	for(var/zone/current_zone as anything in SSair.zones)
+		if(current_zone.invalid)
 			continue
-		if(!TURF_HAS_VALID_ZONE(T))
-			continue
-		var/zone/current_zone = T.zone
-		if(current_zone in checked_zones)
-			continue
-		checked_zones += current_zone
-		var/current_zone_size = current_zone.contents.len
+		var/current_zone_size = length(current_zone.contents)
 		if(current_zone_size <= best_zone_size || current_zone_size <= minimum_zone_size)
+			continue
+		var/turf/zone_turf = current_zone.contents[1]
+		if(!zone_turf || zone_turf.z != zlevel)
 			continue
 		best_zone = current_zone
 		best_zone_size = current_zone_size
 
-	// Try again on a later processing tick once ZAS has finished assigning/rebuilding the planet's surface zones
-	if(zas_pending)
-		return null
 	if(best_zone)
 		main_planetary_zones[zlevel_key] = best_zone
+	else
+		// ZAS may still be settling, or this terrain may never form one large surface zone.
+		// Retry slowly so either case cannot become a once-per-second hot path.
+		main_planetary_zone_retry_times[zlevel_key] = world.time + 15 SECONDS
 	return best_zone
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
