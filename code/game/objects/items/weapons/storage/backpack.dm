@@ -150,8 +150,8 @@
 /obj/item/storage/backpack/open(mob/user)
 	if (!worn_check())
 		return
-	if(access_delay > 0 SECONDS)
-		do_after(user, access_delay)
+	if(access_delay && !do_after(user, access_delay))
+		return
 	..()
 
 /obj/item/storage/backpack/proc/worn_check(no_message = FALSE)
