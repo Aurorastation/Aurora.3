@@ -114,7 +114,6 @@
 	return "[contains_vote_in_name ? "[capitalize(name)]" : "[capitalize(name)] vote"] started by [initiator || "Central Command"]."
 
 /// Handles voting power application for each voter. Used in situations where some players should have more say in a vote than others.
-
 /datum/vote/proc/get_voting_power(mob/voter)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!voter?.ckey)
