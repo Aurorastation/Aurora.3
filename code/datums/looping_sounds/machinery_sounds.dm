@@ -123,6 +123,21 @@
 	mid_length = 5 SECONDS
 	volume = 75
 
+/datum/looping_sound/construction
+	mid_sounds = list(
+		'sound/items/tools/hammer1.ogg' = 1,
+		'sound/items/tools/hammer2.ogg' = 1,
+		'sound/items/tools/hammer3.ogg' = 1,
+		'sound/items/tools/hammer4.ogg' = 1,
+		'sound/items/Ratchet.ogg' = 1,
+		'sound/items/Screwdriver.ogg' = 1
+	)
+	mid_length = 1.5 SECONDS
+	mid_length_vary = 0.5 SECONDS
+	volume = 45
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	ignore_walls = FALSE
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // FABRICATORS AND SUBTYPES
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
