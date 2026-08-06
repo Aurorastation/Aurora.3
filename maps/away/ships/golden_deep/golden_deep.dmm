@@ -119,7 +119,7 @@
 "aB" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
-/area/space)
+/area/golden_deep/starboard_dock)
 "aC" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#8c792e";
@@ -2885,7 +2885,7 @@
 "lY" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/space)
+/area/golden_deep/starboard_dock)
 "mg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -5733,7 +5733,7 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/airless,
-/area/space)
+/area/golden_deep/portmaints)
 "yh" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -5806,8 +5806,8 @@
 /area/golden_deep/eva)
 "yt" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/open/airless,
-/area/space)
+/turf/space/dynamic,
+/area/golden_deep/starboard_dock)
 "yz" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -9476,7 +9476,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/airless,
-/area/space)
+/area/golden_deep/portmaints)
 "Ns" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -11373,8 +11373,8 @@
 "UI" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/open/airless,
-/area/space)
+/turf/space/dynamic,
+/area/golden_deep/starboard_dock)
 "UM" = (
 /turf/simulated/wall/shuttle/dark/cardinal/closet_gold,
 /area/golden_deep/guest)
