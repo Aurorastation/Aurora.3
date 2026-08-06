@@ -3,6 +3,7 @@ author: Fenodyree
 delete-after: True
 
 changes:
+  - bugfix: "Fixes all rubber bullets dealing damage twice."
   - bugfix: "Fixes all attacks that dealt pain damage checking siemens coefficient. This makes everything but hardsuits and voidsuits stronger against rubber bullets. Insulated gloves are also no longer immune to rubber bullets."
   - bugfix: "Fixes pain failing to make your blurt out whatever you were typing. Now getting shot will cause you to say whatever was in the typing window when you were hit and close the window immediately, allowing you to move."
   - bugfix: "Fixes all attacks that had manually set armour checks, previously they ignored the armour they were meant to check and decided what armour affected them based only on their damage type."
