@@ -41,8 +41,8 @@
 	var/equip_access = TRUE
 	/**
 	 * If the object should have a delay to open, for more cumbersome bags such as duffels.
-	 * If set to zero, no delay is applied. Define a value in seconds if a delay should be
-	 * applied and the delay will be equal to the value of this variable.
+	 * If set to zero seconds, no delay is applied. Define a value in seconds if a delay
+	 * should be applied and the delay will be equal to the value of this variable.
 	 */
 	var/access_delay = 0 SECONDS
 
