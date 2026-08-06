@@ -1446,7 +1446,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape // Sophonia Cape - Dido Sophonia - Fyni
-	name = "Sophonisa Cape"
+	name = "sophonisa cape"
 	desc = " This shoulder cap is the dark navy blue of the ancient Carian patrician family, Sophonisa. Two thin flowing strands of fabric hang off the back, one in Carian purple, the other in white showing the golden handed icon of the Sophonisa. Around the neck and hood is a white furred band."
 	desc_extended = "The Sophonisa family, represented by a sinister golden hand set in a purple moon on a field of silver, is an ancient Carian patrician house which predates the Dominian viceroyalty of the planet and is known for a long line of bankers who credit accurate readings of the \
 	stars for their success. Even today, they hold a non-voting seat on the Adirim, where they support House Kaneko - and have long been rumoured to hold some discontent to House Caladius due to financial conflicts."
