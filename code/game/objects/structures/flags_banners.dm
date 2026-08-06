@@ -174,7 +174,7 @@
 		var/obj/structure/sign/flag/F = new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
 		F.name = src.name
 		F.desc = src.desc
-			if(F.linked_flag)
+		if(F.linked_flag)
 			F.linked_flag.name = src.name
 			F.linked_flag.desc = src.desc
 		qdel(src)
