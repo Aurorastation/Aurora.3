@@ -56,4 +56,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Added the hivebot boss from Silicon Nightmares to the codebase, tentatively only for admin use."
-  - rescadd: "Adds hivebot circuit floors."
+  - rscadd: "Adds hivebot circuit floors."
+  - qol: "Playable hivebots now spawn with the hivebot language by standard."
