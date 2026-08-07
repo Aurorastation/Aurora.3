@@ -145,7 +145,7 @@
 
 /datum/accent/darksong
 	name = ACCENT_DARKSONG
-	description = "Voidtamer accent, pending real desc"
+	description = "Notable for its deep bass-like tones and raspy character, Darksong originates from the Lemurian Celestial Creed of Explorers and originates from an entirely light-devoid extremely radioactive diet."
 	tag_icon = "dionae_darksong"
 	text_tag = "DSG"
 
