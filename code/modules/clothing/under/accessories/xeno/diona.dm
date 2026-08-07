@@ -61,3 +61,11 @@
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/voidtamer/war
+	name = "hide mantle"
+	desc = "A tanned hide of a space carp adorned with gold, made to be worn overtop armor, typically seen being worn by Dionae hailing from the Voidtamer Confluence while in combat."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "voidtamer_war_hide"
+	item_state = "voidtamer_war_hide"
+	icon_override = 'icons/obj/diona_items.dmi'
