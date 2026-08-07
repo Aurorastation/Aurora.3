@@ -17,8 +17,8 @@
 
 /obj/item/reagent_containers/weldpack/Initialize(mapload)
 	var/turf/T = get_turf(src)
-	if(!T || !is_station_level(T.z) || mapload)
-		// If the weldpack is spawned on a non-station level, don't give it any fuel.
+	if(mapload && T && is_station_level(T.z))
+		// If the weldpack is spawned on a station level during map load, don't give it any fuel.
 		// This is in support of persistent welding fuel tanks and only for the persistent levels.
 		reagents_to_add = null
 		create_reagents(volume) // Ensure reagents datum is created, even if empty
@@ -46,6 +46,7 @@
 		icon_state = "welderpack"
 		item_state = "welderpack"
 	update_icon()
+	update_worn_icon()
 
 /obj/item/reagent_containers/weldpack/on_reagent_change()
 	update_volume()
