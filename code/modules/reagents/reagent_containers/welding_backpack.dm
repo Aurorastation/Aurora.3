@@ -39,7 +39,7 @@
 
 /obj/item/reagent_containers/weldpack/proc/update_volume()
 	var/fill_level = reagents.total_volume / volume
-	if(fill_level < 0.1)
+	if(fill_level <= 0.1)
 		icon_state = "welderpack_low"
 		item_state = "welderpack_low"
 	else
