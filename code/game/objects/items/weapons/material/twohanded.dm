@@ -241,6 +241,13 @@
 /obj/item/material/twohanded/fireaxe/can_woodcut()
 	return TRUE
 
+/obj/item/material/twohanded/fireaxe/voidtamer_glaive
+	name = "glaive"
+	icon_state = "voidtamer_glaive0"
+	base_icon = "voidtamer_glaive"
+	desc = "A strange weapon that can best be described as a glaive, sometimes seen wielded by voidtamers"
+	icon = 'icons/obj/diona_items.dmi'
+
 //spears, bay edition
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
