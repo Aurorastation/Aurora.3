@@ -15,10 +15,10 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
-/obj/item/reagent_containers/weldpack/Initialize()
+/obj/item/reagent_containers/weldpack/Initialize(mapload)
 	. = ..()
 	var/turf/T = get_turf(src)
-	if(!T || !is_station_level(T.z))
+	if(!T || !is_station_level(T.z) || mapload)
 		// If the weldpack is spawned on a non-station level, don't give it any fuel.
 		// This is in support of persistent welding fuel tanks and only for the persistent levels.
 		reagents_to_add = null
