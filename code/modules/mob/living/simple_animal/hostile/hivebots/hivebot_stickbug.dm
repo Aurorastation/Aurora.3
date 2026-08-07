@@ -1,12 +1,12 @@
-// Big, mean hivebot with incendiary ammuntiion. For use in boss battles.
+// Big, mean hivebot with incendiary ammunition. For use in boss battles.
 // The Life() code for rampancy messages should be scrubbed if rampancy is ever made a proper subsystem.
 /mob/living/simple_animal/hostile/hivebotboss
 	name = "hivebot transmitter drone"
 	desc = "An enormous hivebot, resembling nothing so much as a twisted human spine with a long stinger-like \
 	appendage. It seems to be constantly crackling, as if broadcasting some low-level signal."
 	icon = 'icons/mob/npc/hivebot_stickbug.dmi'
-	icon_state = "small_boss"
-	icon_living = "small_boss"
+	icon_state = "stickbug"
+	icon_living = "stickbug"
 	maxhealth = 1000
 	health = 1000
 	melee_damage_lower = 40
@@ -19,6 +19,7 @@
 	attacktext = "maimed"
 	attack_sound = SFX_HIVEBOT_MELEE
 	blood_color = COLOR_OIL
+	pass_flags = PASSTABLE|PASSRAILING
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -43,10 +44,8 @@
 	tameable = FALSE
 	ranged = TRUE
 	speed = -2
-	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
+	mob_swap_flags = ROBOT
 	mob_push_flags = ALLMOBS
-	mob_bump_flag = ALLMOBS
-	mob_push_flags = 0
 	var/list/messages = list(
 		"No orders acknowledged. Following primary directive.",
 		"You perceive ten-thousand voices, each possessed by a manic agitation.",
@@ -72,6 +71,28 @@
 	else
 		. = ..()
 
+/mob/living/simple_animal/hostile/hivebotboss/Initialize(mapload)
+	. = ..()
+	add_language(LANGUAGE_HIVEBOT)
+	var/number = rand(1000,9999)
+	name = initial(name) + " ([number])"
+	real_name = name
+	default_language = GLOB.all_languages[LANGUAGE_HIVEBOT]
+
+/mob/living/simple_animal/hostile/hivebotboss/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood(TRUE)
+
+/mob/living/simple_animal/hostile/hivebotboss/get_blood_overlay_name()
+	if(stance == HOSTILE_STANCE_IDLE)
+		return "blood_overlay"
+	else
+		return "blood_overlay_armed"
+
 /mob/living/simple_animal/hostile/hivebotboss/think()
 	. =..()
 	if(stance != HOSTILE_STANCE_IDLE)
@@ -95,7 +116,7 @@
 	spark(T, 3, GLOB.alldirs)
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.faction == "hivebot")
-			to_chat(H, SPAN_CULT(pick("Secondary Transmitter lost. Prepare for retreat to primary transmission site.")))
+			to_chat(H, SPAN_MACHINE_DANGER(pick("Secondary Transmitter lost. Prepare for retreat to primary transmission site.")))
 	qdel(src)
 	return
 
@@ -110,3 +131,14 @@
 
 /mob/living/simple_animal/hostile/hivebotboss/adjustOxyLoss(amount)
 	return FALSE
+
+/mob/living/simple_animal/hostile/hivebot/hivebotboss/verb/build_beacon()
+	set name = "Assemble beacon"
+	set desc = "Assemble a hivebot beacon."
+	set category = "Hivebot"
+
+	src.visible_message("\The [src] begins to construct a hivebot beacon.", "You begin to construct a hivebot beacon.", "You hear the sounds of fabrication...")
+	if(!do_after(src, 12 SECONDS))
+		return
+	src.visible_message("\The [src] constructs a hivebot beacon!", "You construct a hivebot beacon!")
+	new /mob/living/simple_animal/hostile/hivebotbeacon(get_turf(src))
