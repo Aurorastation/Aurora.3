@@ -1,6 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed many instances where structures took double damage in error."

@@ -175,3 +175,52 @@
       of materials.
   - balance: Made the in-built radio command receiver cost no complexity to keep in-line
       with other in-built components.
+2026-08-07:
+  Batrachophrenoboocosmomachia:
+  - refactor: Updates exoplanet air caching to be zone-based instead of turf-based.
+  DreamySkrell:
+  - rscadd: Bapi mapmanip script - optional argument to specify a map directory to
+      run manipulations on.
+  FabianK3:
+  - rscadd: Added a ping storyteller verb. People can now ping the storyteller to
+      get their attention using the new verb in the OOC tab.
+  Fenodyree:
+  - bugfix: Fixed many instances where structures took double damage in error.
+  - bugfix: Fixes EMP armor for mechs.
+  - bugfix: Fixes mech pilot's getting EMP'd twice for every EMP hitting the mech.
+  - bugfix: Fixes shields for mechs.
+  - bugfix: Fixes mechs being able to draw infinite power, as long as there was any
+      power in their cell.
+  - bugfix: Fixes cockpit coverage not letting the pilot be hit.
+  - bugfix: Fixes legacy icon updates.
+  - rscadd: Adds a chance for attacks to hit the mech's pilot after the cockpit has
+      been destroyed. This still accounts for the mech's armor and shields.
+  - balance: Allows grenades to be thrown over barricades from the blocking side.
+      The chance to block a grenade is one third of the barricade's chance to block
+      a bullet.
+  Omicega:
+  - bugfix: Fixed the corporate reporter's camera's on-mob sprites not showing up
+      when worn.
+  - rscadd: Allows transfer votes during red alert, with support for weighting votes
+      by round participation.
+  TheGreyWolf:
+  - bugfix: The power draw on the bubble shield circuit now updates correctly again.
+  - rscadd: The nuke can no lonnger be deployed or detonate in rad shielded or non-Horizon
+      areas.
+  - rscadd: The nuke's minimum timer was raised to 10 min and the max timer to 15
+      min.
+  - rscadd: The nuke now announces its location when activated.
+  - bugfix: The wires in hardsuits are now named instead of being numbers.
+  - rscadd: Added a material silo and mech fabricators to the research console.
+  - rscadd: The research console now uses TGUI.
+  fyni:
+  - rscadd: Adds a custom item for Dido Sophonisa.
+  hazelmouse:
+  - bugfix: Interacting with an APC as an IPC on grab intent no longer opens the APC's
+      UI in addition to charging from it.
+  - bugfix: Should resolve some finicky lighting in the Sadar Unified Fleet and Golden
+      Deep ships.
+  kano:
+  - bugfix: Fixed an issue with exoplanet turf edge icons layering below the adjacent
+      turfs.
+  - code_imp: Exoplanet turfs no longer attempt to add edge icons by default.
