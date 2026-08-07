@@ -15,10 +15,10 @@
 
 	// Stored phoron amount available for printing.
 	var/phoron = 0
-	var/max_phoron = 20
+	var/max_phoron = 10
 	var/phoron_per_sheet = 10
 
-	var/clone_metal_storage_bonus = 400
+	var/clone_metal_storage_bonus = 150
 
 	var/upgraded = FALSE
 	var/can_clone = FALSE
