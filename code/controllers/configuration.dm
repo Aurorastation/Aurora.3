@@ -247,6 +247,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/allow_extra_antags = 0
 	var/guests_allowed = 1
 	var/debugparanoid = 0
+	var/minimum_participation_time = 15 //Minimum time, in minutes, that a player must be active in round to count as an active participant.
 
 	var/server
 	var/banappeals
@@ -531,6 +532,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 		if(type == "config")
 			switch (name)
+				if ("minimum_participation_time")
+					GLOB.config.minimum_participation_time = text2num(value) MINUTES
+
 				if ("auto_local_admin")
 					GLOB.config.auto_local_admin = TRUE
 

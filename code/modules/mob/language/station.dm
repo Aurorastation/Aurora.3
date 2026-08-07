@@ -259,12 +259,12 @@
 		personal_name += "[pick(name_sounds)]"
 	new_name += "[capitalize(personal_name)]"
 	switch(hive)
-		if("C'thur Hive")
-			new_name += "C'thur"
-		if("K'lax Hive")
-			new_name += "K'lax"
-		if("Zo'ra Hive")
-			new_name += "Zo'ra"
+		if("C'thur")
+			new_name += " C'thur"
+		if("K'lax")
+			new_name += " K'lax"
+		if("Zo'ra")
+			new_name += " Zo'ra"
 		else
 			var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
 			new_name += " [pickweight(hive_names)]"
@@ -274,8 +274,8 @@
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
 
-	if(is_lemurian_sea_sector())
-		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(speaker.z))
+		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing this far from relays!"))
 		return
 
 	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper helmet, which obscure Hive affiliation
@@ -348,7 +348,7 @@
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
 
 /datum/language/bug/check_special_condition(var/mob/other)
-	if(is_lemurian_sea_sector())
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(other.z))
 		return 0
 
 	if(istype(other, /mob/living/silicon))
@@ -387,8 +387,8 @@
 	return 0
 
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
-	if(is_lemurian_sea_sector())
-		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(speaker.z))
+		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing this far from relays!"))
 		return FALSE
 
 	var/mob/living/carbon/human/H = speaker

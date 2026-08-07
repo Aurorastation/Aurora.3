@@ -29,6 +29,12 @@
 		return INITIALIZE_HINT_QDEL
 	. = ..()
 
+/// Yes- they're computers. They're electronic. However, we don't want to disassemble a
+/// computer in a silicon's var/list/contents- let the silicon just be fucked up normally.
+/obj/item/modular_computer/silicon/emp_act(severity)
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
 /obj/item/modular_computer/silicon/Destroy()
 	computer_host = null
 	. = ..()

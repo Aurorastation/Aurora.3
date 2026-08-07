@@ -125,7 +125,12 @@
 
 /datum/modular_computer_app_presets/command/hop/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/records/security)
+	program_list += list(/datum/computer_file/program/civilian/cargocontrol,
+						/datum/computer_file/program/records/security,
+						/datum/computer_file/program/digitalwarrant,
+						/datum/computer_file/program/camera_monitor,
+						/datum/computer_file/program/alarm_monitor/all,
+						)
 
 
 /datum/modular_computer_app_presets/command/captain
@@ -289,7 +294,7 @@
 
 /datum/modular_computer_app_presets/supply/machinist/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/records/medical, /datum/computer_file/program/scanner/science, /datum/computer_file/program/robotics)
+	program_list += list(/datum/computer_file/program/records/medical, /datum/computer_file/program/scanner/science, /datum/computer_file/program/robotics, /datum/computer_file/program/signaler)
 	//Machinist is the bastard child of supply/operation, it doesn't have access to shit essentially
 	program_list -= list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/civilian/cargodelivery, /datum/computer_file/program/away_manifest)
 

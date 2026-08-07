@@ -306,6 +306,19 @@
 	greatcoat["greatcoat, brown"] = /obj/item/clothing/suit/storage/toggle/greatcoat/brown
 	gear_tweaks += new /datum/gear_tweak/path(greatcoat)
 
+/datum/gear/suit/greatcoat_recolors
+	display_name = "colorable greatcoats selection"
+	description = "A greatcoat capable of being recolored."
+	path = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/greatcoat_recolors/New()
+	..()
+	var/list/greatcoat = list()
+	greatcoat["greatcoat"] = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor
+	greatcoat["greatcoat, alt"] = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor/alt
+	gear_tweaks += new /datum/gear_tweak/path(greatcoat)
+
 /datum/gear/suit/ian
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
