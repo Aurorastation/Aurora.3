@@ -672,8 +672,8 @@
 /// Instead of caching user/target's loc, we cache the turfs (inventory/turf distinction).
 #define DO_MOVE_CHECKS_TURFS FLAG(9)
 #define DO_FAIL_FEEDBACK FLAG(10)
-/// Explictly places the progress bar on mob. Useful when a target needs to be provided (see target/mob unique act) but progress bar should appear on mob.
-#define DO_PLACE_PROGRESSBAR_ON_MOB FLAG(11)
+/// Explictly places the progress bar on the user. Useful when a target needs to be provided (see target/user unique act) but progress bar should appear on the user.
+#define DO_PLACE_PROGRESSBAR_ON_USER FLAG(11)
 
 // Preset macros
 /// Both user and target allowed to move.
@@ -698,7 +698,7 @@
 /// Flags for repair and construction steps.
 #define DO_REPAIR_CONSTRUCT (DO_DEFAULT | DO_TARGET_UNIQUE_ACT)
 /// Flags for held items that can be deployed.
-#define DO_DEPLOY (DO_DEFAULT | DO_TARGET_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_MOB)
+#define DO_DEPLOY (DO_DEFAULT | DO_TARGET_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_USER)
 /// Flags for equipping/unequipping mobs. Set to allow a mob to be targeted by multiple sources, but for a source to only be able to perform one action at a time.
 #define DO_EQUIP (DO_DEFAULT | DO_USER_UNIQUE_ACT)
 
