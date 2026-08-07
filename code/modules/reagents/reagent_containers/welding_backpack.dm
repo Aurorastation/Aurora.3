@@ -36,7 +36,7 @@
 	else
 		. += SPAN_WARNING("\The [src] is empty!")
 
-/obj/item/reagent_containers/weldpack/update_volume()
+/obj/item/reagent_containers/weldpack/proc/update_volume()
 	var/fill_level = reagents.total_volume / volume
 	if(fill_level < 0.20)
 		icon_state = "welderpack_low"
