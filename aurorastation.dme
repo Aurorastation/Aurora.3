@@ -3505,6 +3505,7 @@
 #include "code\modules\projectiles\guns\energy\crank.dm"
 #include "code\modules\projectiles\guns\energy\cult.dm"
 #include "code\modules\projectiles\guns\energy\freezeray.dm"
+#include "code\modules\projectiles\guns\energy\gauss.dm"
 #include "code\modules\projectiles\guns\energy\laser.dm"
 #include "code\modules\projectiles\guns\energy\lawgiver.dm"
 #include "code\modules\projectiles\guns\energy\magic.dm"
