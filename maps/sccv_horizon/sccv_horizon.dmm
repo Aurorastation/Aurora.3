@@ -2600,6 +2600,14 @@
 	pixel_x = 10;
 	pixel_y = -3
 	},
+/obj/item/clothing/glasses/safety/goggles/science{
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/glass/beaker/sulphuric{
+	pixel_y = 3
+	},
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/lab)
 "apc" = (
@@ -3063,28 +3071,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/service/library)
 "ato" = (
-/obj/item/stack/material/lead{
-	amount = 10
-	},
-/obj/item/reagent_containers/weldpack,
-/obj/item/portable_whiteboard,
-/obj/item/paint_sprayer,
-/obj/structure/closet/crate/tool,
-/obj/item/storage/bag/circuits/basic,
-/obj/item/integrated_electronics/wirer,
-/obj/item/integrated_electronics/debugger{
-	pixel_x = 2;
-	pixel_y = 7
-	},
-/obj/item/stack/material/phoron{
-	amount = 20
-	},
-/obj/item/stack/material/uranium{
-	amount = 10
-	},
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 5
 	},
+/obj/structure/crate_shelf,
+/obj/structure/closet/crate/tool/machinist,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/operations/machinist)
 "atp" = (
@@ -10460,7 +10451,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/rnd/lab)
 "bot" = (
@@ -21224,7 +21215,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -76550,7 +76541,7 @@
 	},
 /area/centcom/shared_dream)
 "jSK" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -96059,7 +96050,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/xenobiology)
 "mtu" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -103545,16 +103536,7 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/port/far)
 "ntL" = (
-/obj/structure/table/standard,
 /obj/item/firing_pin/test_range,
-/obj/item/clothing/glasses/safety/goggles/science{
-	pixel_y = 10
-	},
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/glass/full,
-/obj/item/reagent_containers/glass/beaker/sulphuric{
-	pixel_y = 3
-	},
 /obj/structure/platform{
 	dir = 1
 	},
@@ -103566,6 +103548,7 @@
 	pixel_x = 28;
 	pixel_y = -5
 	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/lab)
 "ntU" = (
@@ -106467,7 +106450,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "nMY" = (
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /obj/structure/machinery/camera{
 	c_tag = "Operations - Machinist Workshop 3";
 	network = list("Operations");
@@ -110171,10 +110154,10 @@
 	network = list("Operations");
 	dir = 1
 	},
-/obj/structure/crate_shelf,
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 1
 	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/operations/machinist)
 "omQ" = (
@@ -111490,9 +111473,19 @@
 	pixel_y = 4;
 	randpixel = 0
 	},
-/obj/structure/closet/crate/drop,
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 9
+	},
+/obj/item/stack/material/phoron{
+	amount = 20
+	},
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/obj/structure/closet/crate/drop,
+/obj/structure/crate_shelf,
+/obj/item/stack/material/lead{
+	amount = 10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/operations/machinist)
@@ -182570,7 +182563,7 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)

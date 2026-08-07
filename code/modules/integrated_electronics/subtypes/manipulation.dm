@@ -610,6 +610,7 @@
 	LAZYREMOVE(deployed_shields, shield)
 	qdel(shield)
 	set_pin_data(IC_OUTPUT, 1, LAZYLEN(deployed_shields))
+	update_power_draw()
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/do_work()
 	if(!assembly)
@@ -652,12 +653,16 @@
 		set_pin_data(IC_OUTPUT, 1, LAZYLEN(deployed_shields))
 		activate_pin(2)
 
+	update_power_draw()
+
+	..()
+
+/obj/item/integrated_circuit/manipulation/bubble_shield/proc/update_power_draw()
+	var/strength = between(10, get_pin_data(IC_INPUT, 3), 50)
 	if(deployed_shields)
 		power_draw_idle = power_draw_per_use * (strength / 10) * LAZYLEN(deployed_shields)
 	else
 		power_draw_idle = 0
-
-	..()
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/power_fail()
 	for(var/obj/structure/machinery/shield/shield in deployed_shields)

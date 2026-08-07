@@ -113,6 +113,9 @@ SUBSYSTEM_DEF(air)
 		zone.c_invalidate()
 
 	edges.Cut()
+	for(var/turf/pending_turf as anything in tiles_to_update)
+		if(pending_turf)
+			pending_turf.needs_air_update = FALSE
 	tiles_to_update.Cut()
 	zones_to_update.Cut()
 	active_fire_zones.Cut()

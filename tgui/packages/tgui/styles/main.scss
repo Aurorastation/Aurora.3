@@ -60,6 +60,7 @@
 @include meta.load-css('./interfaces/PersonalCrafting.scss');
 @include meta.load-css('./interfaces/Radio.scss');
 @include meta.load-css('./interfaces/LoreConsole.scss');
+@include meta.load-css('./interfaces/ResearchFabricator.scss');
 
 // Layouts
 @include meta.load-css('./layouts/Layout.scss');

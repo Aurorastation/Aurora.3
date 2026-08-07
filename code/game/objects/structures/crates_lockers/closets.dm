@@ -357,8 +357,6 @@
 		for(var/mob/living/L in contents)
 			hitting_projectile.Impact(L)
 
-	damage(proj_damage)
-
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/closet_teleporter))
 		if(linked_teleporter)

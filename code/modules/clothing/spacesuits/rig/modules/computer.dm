@@ -315,9 +315,9 @@
 		else if(istype(input_device,/obj/structure/machinery/r_n_d/server))
 			var/obj/structure/machinery/r_n_d/server/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/structure/machinery/mecha_part_fabricator))
-			var/obj/structure/machinery/mecha_part_fabricator/input_machine = input_device
-			incoming_files = input_machine.files
+		else if(istype(input_device, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+			var/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/input_mechfab = input_device
+			incoming_files = input_mechfab.linked_console?.files
 
 		if(!incoming_files || !incoming_files.known_tech || !incoming_files.known_tech.len)
 			to_chat(user, SPAN_WARNING("Memory failure. There is nothing accessible stored on this terminal."))
