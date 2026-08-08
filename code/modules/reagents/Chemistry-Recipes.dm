@@ -1510,8 +1510,7 @@
 /datum/chemical_reaction/slime/bloodlust/on_reaction(var/datum/reagents/holder)
 	..()
 	for(var/mob/living/carbon/slime/slime in viewers(get_turf(holder.my_atom), null))
-		slime.rabid = TRUE
-		slime.visible_message(SPAN_WARNING("[icon2html(slime, viewers(get_turf(slime)))] \The [slime] is driven into a frenzy!"))
+		slime.set_slime_rabid(TRUE)
 
 /datum/chemical_reaction/slime/nightshade
 	name = "Slime Nightshade"

@@ -1,8 +1,175 @@
 #define BEARMODE_INDOORS 1
 #define BEARMODE_SPACE 2
 
+/datum/ai_holder/simple_animal/bear
+	var/stance_step = 0
+	var/turns_since_hit = 0
+	var/health_last_check = 0
+	var/bearmode_ticks = 0
+	var/resting_from_chase = FALSE
+
+/datum/ai_holder/simple_animal/bear/attune_to_holder()
+	. = ..()
+	var/mob/living/simple_animal/hostile/bear/bear = holder
+	health_last_check = bear.health
+
+/datum/ai_holder/simple_animal/bear/should_threaten(atom/the_target = target)
+	var/mob/living/simple_animal/hostile/bear/bear = holder
+	return !bear.anger && ..()
+
+/datum/ai_holder/simple_animal/bear/give_target(atom/new_target, urgent = FALSE)
+	var/changed_target = target != new_target
+	. = ..()
+	if(. && changed_target)
+		turns_since_hit = 0
+		stance_step = 0
+		var/mob/living/simple_animal/hostile/bear/bear = holder
+		bear.custom_emote(VISIBLE_MESSAGE, "stares alertly at [new_target]")
+		bear.speak_audio()
+
+/datum/ai_holder/simple_animal/bear/handle_special_strategical()
+	var/mob/living/simple_animal/hostile/bear/bear = holder
+	bearmode_ticks++
+	if(bearmode_ticks % 5 == 0)
+		bear.update_bearmode()
+	if(bear.health < health_last_check && !resting_from_chase)
+		bear.anger++
+		enrage()
+	health_last_check = bear.health
+	if(bearmode_ticks % 30 == 0)
+		bear.anger = max(0, bear.anger - 1)
+
+/datum/ai_holder/simple_animal/bear/handle_special_tactic()
+	var/mob/living/simple_animal/hostile/bear/bear = holder
+	if(resting_from_chase)
+		stance_step++
+		if(stance_step >= 15)
+			resting_from_chase = FALSE
+			stance_step = 0
+			if(target && can_attack(target))
+				set_stance(within_range(target) ? AI_STANCE_FIGHT : AI_STANCE_APPROACH)
+			else
+				remove_target(FALSE)
+		return
+
+	if(stance == AI_STANCE_ALERT && target && can_attack(target))
+		stance_step++
+		bear.face_atom(target)
+		if(stance_step in list(1, 4, 7))
+			bear.custom_emote(VISIBLE_MESSAGE, pick("growls at [target]", "stares angrily at [target]", "prepares to attack [target]", "closely watches [target]"))
+			bear.speak_audio()
+		if(bear.anger)
+			enrage(target)
+		else if(stance_step >= 12)
+			bear.anger += 3
+			bear.growl_loud()
+			set_stance(within_range(target) ? AI_STANCE_FIGHT : AI_STANCE_APPROACH)
+		return
+
+	if(stance in AI_STANCES_COMBAT)
+		stance_step++
+		turns_since_hit++
+		if(stance_step >= (16 + (bear.anger * 2)) * max(bear.bearmode, 1))
+			tire_out()
+			return
+		if(target && !bear.Adjacent(target) && turns_since_hit > 3)
+			remove_target()
+
+/datum/ai_holder/simple_animal/bear/post_melee_attack(atom/the_target)
+	. = ..()
+	turns_since_hit = 0
+	var/mob/living/simple_animal/hostile/bear/bear = holder
+	bear.AIBearAttackEffect(the_target)
+
+/datum/ai_holder/simple_animal/bear/proc/enrage(atom/forced_target)
+	var/mob/living/simple_animal/hostile/bear/bear = holder
+	if(forced_target && can_attack(forced_target, FALSE))
+		give_target(forced_target, TRUE)
+	else if(!target)
+		find_target()
+	if(!target)
+		return
+	bear.growl_loud()
+	set_stance(within_range(target) ? AI_STANCE_FIGHT : AI_STANCE_APPROACH)
+	if(within_range(target))
+		engage_target()
+
+/datum/ai_holder/simple_animal/bear/proc/tire_out()
+	var/mob/living/simple_animal/hostile/bear/bear = holder
+	resting_from_chase = TRUE
+	stance_step = 0
+	forget_path()
+	set_stance(AI_STANCE_SPECIAL)
+	bear.AIBearTired()
+
+/datum/ai_holder/simple_animal/bear/spatial
+	var/idletime = 0
+	var/focus_time = 0
+
+/datum/ai_holder/simple_animal/bear/spatial/give_target(atom/new_target, urgent = FALSE)
+	. = ..()
+	if(.)
+		focus_time = 0
+
+/datum/ai_holder/simple_animal/bear/spatial/handle_special_tactic()
+	. = ..()
+	if(resting_from_chase)
+		return
+	var/mob/living/simple_animal/hostile/bear/spatial/bear = holder
+	if((stance in AI_STANCES_COMBAT) && target)
+		focus_time++
+		if(focus_time % bear.tactical_delay == 0)
+			tactical_teleport(target)
+
+/datum/ai_holder/simple_animal/bear/spatial/handle_special_strategical()
+	. = ..()
+	var/mob/living/simple_animal/hostile/bear/spatial/bear = holder
+	var/should_teleport = FALSE
+	if(stance == AI_STANCE_IDLE)
+		idletime++
+		if(idletime >= bear.teleport_delay)
+			should_teleport = TRUE
+	else
+		idletime = 0
+	for(var/mob/living/simple_animal/hostile/bear/other_bear in view(world.view, get_turf(bear)))
+		if(other_bear != bear && other_bear.stat != DEAD)
+			should_teleport = TRUE
+			break
+	if(should_teleport)
+		idletime = 0
+		remove_target(FALSE)
+		strategic_teleport()
+		bear.growl_soft()
+
+/datum/ai_holder/simple_animal/bear/spatial/tire_out()
+	. = ..()
+	strategic_teleport()
+
+/datum/ai_holder/simple_animal/bear/spatial/proc/strategic_teleport()
+	var/mob/living/simple_animal/hostile/bear/spatial/bear = holder
+	if(bear.stat != CONSCIOUS)
+		return FALSE
+	var/area/destination_area = random_station_area(TRUE)
+	var/turf/destination = destination_area?.random_space()
+	if(destination)
+		bear.teleport_to(destination)
+		return TRUE
+	return FALSE
+
+/datum/ai_holder/simple_animal/bear/spatial/proc/tactical_teleport(atom/the_target = target)
+	var/mob/living/simple_animal/hostile/bear/spatial/bear = holder
+	if(bear.stat != CONSCIOUS || !the_target)
+		return FALSE
+	var/area/destination_area = get_area(the_target)
+	var/turf/destination = destination_area?.random_space()
+	if(destination)
+		bear.teleport_to(destination)
+		return TRUE
+	return FALSE
+
 //Space bears!
 /mob/living/simple_animal/hostile/bear
+	ai_holder_type = /datum/ai_holder/simple_animal/bear
 	name = "space bear"
 	desc = "You should walk away, quickly!"
 	icon_state = "bear"
@@ -31,8 +198,6 @@
 	break_stuff_probability = 80
 	mob_size = 17
 	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
-	var/safety //used to prevent infinite loops
-	var/turns_since_hit = 0//If the bear chases someone too long without hitting them, it will try to change to another nearby target instead
 
 	attacktext = null//This allows custom attacking emotes
 	attack_vis_effect = ATTACK_EFFECT_CLAW
@@ -55,7 +220,6 @@
 	//Anger decreases at 1 point per minute
 	//Any amount of anger causes instant aggro, quantity of it is only a duration
 
-	var/health_last_tick = 0
 
 	//Space bears aren't affected by atmos.
 	min_oxy = 0
@@ -67,7 +231,6 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	var/stance_step = 0
 
 	faction = "russian"
 
@@ -88,190 +251,33 @@
 	update_bearmode()
 	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
-/mob/living/simple_animal/hostile/bear/proc/set_stance(var/input)
-	var/previous = stance
-	stance = input
-	if (stance != previous)
-		change_stance(stance)
-		stance_step = 0
 
-/mob/living/simple_animal/hostile/bear/think()
-	. =..()
-	safety = 0
-	if (stat != CONSCIOUS)
-		return
-
-	if (life_tick % 5 == 0)
-		update_bearmode()
-
-	//This covers cases where the bear is damaged by things it can't detect.
-	//Most notably, security bots, beepsky kept murdering them without resistance
-	if (health < health_last_tick && stance != HOSTILE_STANCE_TIRED)
-		anger++
-		instant_aggro()
-
-	if (life_tick % 30 == 0)//A point of anger wears off per minute
-		anger = max(0, anger-1)
-
-	switch(stance)
-		if(HOSTILE_STANCE_TIRED)
-			stop_automated_movement = 1
-			stance_step++
-			if(stance_step >= 15) //rests for 10 ticks
-				if(last_found_target && (last_found_target in get_targets(10)))
-					set_stance(HOSTILE_STANCE_ATTACK) //If the mob he was chasing is still nearby, resume the attack, otherwise go idle.
-				else
-					set_stance(HOSTILE_STANCE_IDLE)
-
-		if(HOSTILE_STANCE_ALERT)
-			stop_automated_movement = 1
-			var/found_mob = 0
-			if(last_found_target && (last_found_target in get_targets(10)) && !(SA_attackable(last_found_target)))
-				found_mob = 1
-			else
-				LoseTarget()
-
-			if(last_found_target)
-				found_mob = 1
-
-
-			if (found_mob)
-				stance_step = max(0, stance_step) //If we have not seen a mob in a while, the stance_step will be negative, we need to reset it to 0 as soon as we see a mob again.
-				stance_step++
-				set_dir(get_dir(src, last_found_target))	//Keep staring at the mob
-				if(stance_step in list(1,4,7)) //every 3 ticks
-					var/action = pick( list( "growls at [last_found_target]", "stares angrily at [last_found_target]", "prepares to attack [last_found_target]", "closely watches [last_found_target]" ) )
-					if(action)
-						custom_emote(VISIBLE_MESSAGE,action)
-						speak_audio()
-			else
-				stance_step--
-
-			if (anger && found_mob)
-				instant_aggro()//If we're angry and someone is nearby, skip waiting and charge them
-
-			if(stance_step <= -20*bearmode) //If we have not found a mob for 20-ish ticks, revert to idle mode
-				set_stance(HOSTILE_STANCE_IDLE)
-				stop_automated_movement = 0
-			if(stance_step >= 12)   //If this mob just refuses to get out of our territory, then we attack
-				anger += 3
-				set_stance(HOSTILE_STANCE_ATTACK)
-				growl_loud()
-
-		if(HOSTILE_STANCE_ATTACKING)
-			turns_since_hit++
-			stance_step++
-			if(stance_step >= (16+(anger*2))*bearmode)	//attacks a while, then it gets tired and needs to rest. An angry bear will chase longer
-				tire_out()
-				return
-
-			//If we're having no luck attacking our current target
-			if (last_found_target && !Adjacent(last_found_target) && turns_since_hit > 3)
-				LoseTarget()
-			else
-				set_dir(get_dir(src, last_found_target))
-
-	health_last_tick = health
 
 //Causes the bear to find and start attacking the nearest target.
 //This will overwrite any existing target if a different one is closer
 //If there are no other suitable targets, targeting will not be changed
-/mob/living/simple_animal/hostile/bear/FindTarget()
-
-	var/turf/here = get_turf(src)
-	var/mob/nearest_target = null
-	var/nearest_dist = 99999
-	var/mob/nearest_downed_target = null
-	var/nearest_downed_dist = 99999
-
-	for(var/atom/A in get_targets(10))
-
-		if(A == src || A == last_found_target)//We're only interested in alternatives to our current target
-			continue
 
 
-		var/dist = get_dist(here, get_turf(A)) < nearest_dist
-		if(isliving(A))
-			var/mob/living/L = A
-			if(L.faction == src.faction && !attack_same)
-				continue
-			else if(L in friends)
-				continue
-			else
 
-				if(!L.client)
-					continue
-
-				if(L.stat == CONSCIOUS)
-					if (dist < nearest_dist)
-						nearest_target = L
-						nearest_dist = dist
-
-				else if (L.stat != DEAD)//Unconscious people are lower priority, only targeted if nobody nearby is standing
-					if (dist < nearest_downed_dist)
-						nearest_downed_target = L
-						nearest_downed_dist = dist
-
-
-		if(istype(A, /obj/structure/machinery/bot))
-			var/obj/structure/machinery/bot/B = A
-			if (B.health > 0)
-				if (dist < nearest_dist)
-					nearest_target = B
-					nearest_dist = dist
-
-	if (nearest_target && safety < 2)
-		set_last_found_target(nearest_target)
-		FoundTarget()
-		return nearest_target
-	else if (nearest_downed_target && safety < 2)
-		set_last_found_target(nearest_downed_target)
-		FoundTarget()
-		return nearest_downed_target
-
-	return last_found_target
-	//If neither of the above is true, dont change the target
-
-/mob/living/simple_animal/hostile/bear/SA_attackable(target_mob)
-	if (isliving(target_mob))
-		var/mob/living/L = target_mob
-		if((L.stat != DEAD))
-			return (0)
-	if (istype(target_mob,/obj/structure/machinery/bot))
-		var/obj/structure/machinery/bot/B = target_mob
-		if(B.health > 0)
-			return (0)
-	return 1
-
-
-/mob/living/simple_animal/hostile/bear/proc/tire_out()
+/mob/living/simple_animal/hostile/bear/proc/AIBearTired()
 	custom_emote(VISIBLE_MESSAGE, "is worn out and needs to rest." )
-	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
-	stance_step = 0
 	GLOB.move_manager.stop_looping(src) //This stops the bear's walking
-
-/mob/living/simple_animal/hostile/bear/spatial/tire_out()
-	..()
-	teleport()//Bluespace bears teleport away to rest
 
 /mob/living/simple_animal/hostile/bear/attackby(obj/item/attacking_item, mob/user)
 	var/healthbefore = health
 	..()
 	if (health < healthbefore)//Hurting the bear makes it mad
-		if(user != last_found_target)
-			set_last_found_target(user)
 		anger++
-		instant_aggro(1)
+		instant_aggro(user)
 
 
 /mob/living/simple_animal/hostile/bear/attack_hand(mob/living/carbon/human/M as mob)
 	var/healthbefore = health
 	..()
 	if(health < healthbefore)//Hurting the bear makes it mad
-		set_last_found_target(M)
 		anger++
-		instant_aggro(1)
+		instant_aggro(M)
 
 //Teleport around when shot, so its harder to burst it down with a carbine
 /mob/living/simple_animal/hostile/bear/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
@@ -296,43 +302,14 @@
 	return 1	//No drifting in space for space bears!
 	//Fixed this, it wasnt working
 
-/mob/living/simple_animal/hostile/bear/FoundTarget()
-	if(last_found_target)
-		turns_since_hit = 0
-		custom_emote(VISIBLE_MESSAGE,"stares alertly at [last_found_target]")
-		speak_audio()
 
-		//If we're idle, move up to alert.
-		//But don't drop down to alert if we're already in combat
-		if (stance == HOSTILE_STANCE_IDLE)
-			set_stance(HOSTILE_STANCE_ALERT)
-		else if (stance == HOSTILE_STANCE_ATTACKING && !safety)
-			MoveToTarget()
 
-		safety++
-
-/mob/living/simple_animal/hostile/bear/LoseTarget()
-	. = ..()
-	//If we're still angry, try to find someone else to attack
-	if (anger)
-		FindTarget()
-
-	if (!anger || !last_found_target)
-		//If the anger has subsided, then give up the chase and let them go
-		//But we'll get mad again soon if they don't go.
-		if (stance > HOSTILE_STANCE_ALERT)//If we're currently above alert
-			set_stance(HOSTILE_STANCE_ALERT)//Drop to alert and cease attacking
-		unset_last_found_target()
-
-/mob/living/simple_animal/hostile/bear/AttackingTarget()
-	var/targetname = last_found_target.name
-	if(..())
-		turns_since_hit = 0
-		custom_emote(VISIBLE_MESSAGE, pick( list("crushes [targetname] in its arms","slashes at [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]") ) )
-		if (prob(15))
-			growl_loud()
-		else if (prob(10))
-			growl_soft()
+/mob/living/simple_animal/hostile/bear/proc/AIBearAttackEffect(atom/attack_target)
+	custom_emote(VISIBLE_MESSAGE, pick("crushes [attack_target] in its arms", "slashes at [attack_target]", "bites [attack_target]", "mauls [attack_target]", "tears into [attack_target]", "rends [attack_target]"))
+	if(prob(15))
+		growl_loud()
+	else if(prob(10))
+		growl_soft()
 
 
 /mob/living/simple_animal/hostile/bear/proc/update_bearmode()
@@ -408,14 +385,13 @@
 //It dislikes other bears and refuses to cooperate with them. If two of them see each other, one or both will teleport away
 //Therefore the crew never has to fight more than one at a time
 /mob/living/simple_animal/hostile/bear/spatial
+	ai_holder_type = /datum/ai_holder/simple_animal/bear/spatial
 	name = "bluespace bear"
 	desc = "*bzzt*..Rawr!!"
 	maxhealth = 130
 	turns_per_move = 7
 	break_stuff_probability = 100//Constantly smashing everything nearby
 	speak_chance = 15
-	var/idletime
-	var/focus_time //How long we've focused on this target
 	var/teleport_delay = 60
 	var/tactical_delay = 3//Procs between shortrange teleports
 	var/datum/effect_system/sparks/spark_system
@@ -431,77 +407,16 @@
 
 //Called when we want to bypass ticks and attack immediately. For example in response to being shot
 //This calls several procs and some duplicated code from the parent class to immediately put us in an assault state and lash out
-/mob/living/simple_animal/hostile/bear/proc/instant_aggro(var/forcechange = 0)//Set force to 1, if a specific target was designated just before calling this
-	if (stance < HOSTILE_STANCE_ATTACK)
-		growl_loud()
-		if(!last_found_target)
-			FindTarget()
+/mob/living/simple_animal/hostile/bear/proc/instant_aggro(atom/forced_target)
+	var/datum/ai_holder/simple_animal/bear/bear_ai = ai_holder
+	bear_ai?.enrage(forced_target)
 
-		if(last_found_target)
-			growl_loud()
-			if(destroy_surroundings)
-				DestroySurroundings()
-			MoveToTarget()
-			AttackTarget()//When first aggroed, this causes the bear to instantly lash out and counter any melee attacker nearby
-		else
-			set_stance(HOSTILE_STANCE_ALERT)
-	else if (forcechange)
-		MoveToTarget()
-
-/mob/living/simple_animal/hostile/bear/spatial/think()
-	..()
-	if (stat != CONSCIOUS)
-		return
-
-	var/time_to_go = 0
-
-	//If they've sat around too long without finding a mob to target, then they'll teleport elsewhere to seek prey
-	if (stance == HOSTILE_STANCE_IDLE)
-		idletime++
-		if (idletime >= teleport_delay)
-			time_to_go = 1
-	else
-		idletime = 0
-
-	//Randomly make shortrange teleports in the vicinity of the target
-	if ((stance == HOSTILE_STANCE_ATTACKING)&& last_found_target)
-		focus_time++
-		if (focus_time % tactical_delay == 0)
-			teleport_tactical(last_found_target)
-
-	//Teleport away from other bears
-	for (var/mob/living/simple_animal/hostile/bear/bear in view(world.view, get_turf(src)))
-		if (bear != src && bear.stat != DEAD)
-			time_to_go = 1
-
-	if (time_to_go)
-		idletime = 0
-		stance = HOSTILE_STANCE_IDLE
-		teleport()
-		growl_soft()
 
 //Used to move to a new part of the station when it sees another bear, or it hasnt found any prey
-/mob/living/simple_animal/hostile/bear/spatial/proc/teleport()
-	if (stat == CONSCIOUS)
-		var/area/A = random_station_area(TRUE) //Don't teleport to areas with players in them.
-		var/turf/target = A.random_space()
-
-		teleport_to(target)
-
 //Used, with some luck, to reposition near the target. Hiding behind glass is a bad idea
 //Picks a random tile in the target's area and teleports there. Might be closer, might be farther away
 //Who knows, it's unpredictable. But definitely dangerous.
 //This allows the target to escape as often as it allows the bear to attack
-/mob/living/simple_animal/hostile/bear/spatial/proc/teleport_tactical()
-	if (last_found_target && stat == CONSCIOUS)
-		var/area/A =  get_area(last_found_target)
-		if (A)
-			var/turf/target = A.random_space()
-			if (target)
-				teleport_to(target)
-				return 1
-	return 0
-
 /mob/living/simple_animal/hostile/bear/spatial/proc/teleport_to(var/turf/target)
 	if (stat != CONSCIOUS)
 		return
@@ -517,11 +432,9 @@
 		return .
 
 	if (prob(hitting_projectile.damage*1.5))//Bear has a good chance of teleporting when shot, making it harder to burst down
-		teleport_tactical()
+		var/datum/ai_holder/simple_animal/bear/spatial/bear_ai = ai_holder
+		bear_ai?.tactical_teleport()
 
-/mob/living/simple_animal/hostile/bear/spatial/FoundTarget()
-	..()
-	focus_time = 0
 
 #undef BEARMODE_INDOORS
 #undef BEARMODE_SPACE

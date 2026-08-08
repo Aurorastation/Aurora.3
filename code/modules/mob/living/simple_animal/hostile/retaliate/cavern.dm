@@ -76,7 +76,63 @@
 		var/shock_damage = rand(10,20)
 		M.electrocute_act(shock_damage)
 
+/datum/ai_holder/simple_animal/retaliate/minedrone
+	pointblank = TRUE
+	conserve_ammo = TRUE
+	var/obj/item/ore/target_ore
+	var/list/found_turfs = list()
+	var/scan_timer = 0
+
+/datum/ai_holder/simple_animal/retaliate/minedrone/handle_special_strategical()
+	var/mob/living/simple_animal/hostile/retaliate/minedrone/drone = holder
+	if(stance in AI_STANCES_COMBAT)
+		return
+	if(drone.ore_count >= 20)
+		if(!scan_timer)
+			drone.visible_message(SPAN_WARNING("\The [drone] pings, \"Mineral hopper full.\""))
+			playsound(drone.loc, 'sound/machines/ping.ogg', 50, FALSE)
+			scan_timer = rand(90, 150)
+		else
+			scan_timer--
+		return
+
+	if(target_ore && (QDELETED(target_ore) || get_dist(drone, target_ore) > 10))
+		target_ore = null
+	var/collected_ore = FALSE
+	for(var/obj/item/ore/ore in oview(1, drone))
+		ore.forceMove(drone)
+		drone.loot += ore
+		drone.ore_count++
+		collected_ore = TRUE
+		if(target_ore == ore)
+			target_ore = null
+	if(collected_ore)
+		drone.visible_message(SPAN_NOTICE("\The [drone] collects the ore into a metallic hopper."))
+	if(!target_ore)
+		target_ore = locate() in oview(7, drone)
+	if(target_ore)
+		drone.AIMove(get_step_towards(drone, target_ore))
+		return
+
+	for(var/turf/simulated/mineral/mineral_turf in found_turfs)
+		if(QDELETED(mineral_turf) || !mineral_turf.mineral)
+			found_turfs -= mineral_turf
+			continue
+		drone.rapid = TRUE
+		drone.OpenFire(mineral_turf)
+		drone.rapid = FALSE
+		return
+	if(!length(found_turfs) && !scan_timer)
+		for(var/turf/simulated/mineral/mineral_turf in oview(7, drone))
+			if(mineral_turf.mineral)
+				found_turfs |= mineral_turf
+		if(!length(found_turfs))
+			scan_timer = 30
+	else if(scan_timer)
+		scan_timer--
+
 /mob/living/simple_animal/hostile/retaliate/minedrone
+	ai_holder_type = /datum/ai_holder/simple_animal/retaliate/minedrone
 	name = "mining rover"
 	desc = "A dilapidated mining rover, with the faded colors of the Sol Alliance. It looks more than a little lost."
 	icon = 'icons/mob/npc/cavern.dmi'
@@ -116,11 +172,7 @@
 	faction = "sol"
 
 	var/list/loot = list()
-	var/ore_message = 0
-	var/target_ore
 	var/ore_count = 0
-	var/list/found_turfs = list()
-	var/scan_timer = 0
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/Initialize()
 	. = ..()
@@ -138,66 +190,6 @@
 		O.forceMove(src.loc)
 	qdel(src)
 
-/mob/living/simple_animal/hostile/retaliate/minedrone/Life(seconds_per_tick, times_fired)
-	..()
-	if(ore_count<20)
-		FindOre()
-	else if(!scan_timer)
-		// reusing vars is funny
-		visible_message(SPAN_WARNING("\The [src] pings, \"Mineral hopper full.\""))
-		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-		scan_timer = rand(90, 150) // Life() ticks, so 3-5 minutes
-	else
-		scan_timer--
-
-/mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
-	if(enemies?.len)
-		return
-
-	setClickCooldown(attack_delay)
-	if(target_ore && !(get_dist(src, target_ore) <= 10))
-		target_ore = null
-
-	for(var/obj/item/ore/O in oview(1, src))
-		O.forceMove(src)
-		loot += O
-		ore_count++
-		if(target_ore == O)
-			target_ore = null
-		if(!ore_message)
-			ore_message = TRUE
-
-	if(ore_message)
-		visible_message(SPAN_NOTICE("\The [src] collects the ore into a metallic hopper."))
-		ore_message = FALSE
-
-	if(!target_ore)
-		for(var/obj/item/ore/O in oview(7, src))
-			target_ore = O
-			break
-
-	if(target_ore)
-		GLOB.move_manager.move_to(src, target_ore, 1, speed)
-	else if(found_turfs.len)
-		for(var/turf/simulated/mineral/M in found_turfs)
-			if(!QDELETED(M) || !M.mineral)
-				found_turfs -= M
-			else
-				rapid = TRUE
-				OpenFire(M)
-				rapid = FALSE
-				break
-
-	if(!found_turfs.len && !scan_timer) // we do a little caching, it's called we do a little caching
-		for(var/turf/simulated/mineral/M in oview(7, src))
-			if(M.mineral)
-				found_turfs |= M
-
-		if(!found_turfs.len) // there's no ore left, let's not waste processing for a bit
-			scan_timer = 30 // Life() ticks
-
-	else if(scan_timer)
-		scan_timer--
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/adjustToxLoss(var/damage)
 	return
