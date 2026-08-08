@@ -450,7 +450,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	/// The amount of extra degrees of firing arc the gun will have from the effects of a signal raised on the user.
 	var/dispersion_increase = 0
-	SEND_SIGNAL(user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
+	SEND_SIGNAL(user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase, src)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -571,6 +571,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
+	SEND_SIGNAL(user, COMSIG_GUN_FIRED)
 	play_fire_sound()
 	if(!suppressed)
 		if(playemote)
@@ -794,6 +795,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 // Safety Procs
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_GUN_TOGGLE_SAFETY, src, &cancelled)
+	if(cancelled)
+		return
 	safety_state = !safety_state
 	update_icon()
 	if(user)

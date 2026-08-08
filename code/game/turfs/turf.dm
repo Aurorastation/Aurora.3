@@ -403,6 +403,7 @@
 	return TRUE
 
 /turf/Entered(atom/movable/arrived, atom/old_loc)
+	SEND_SIGNAL(arrived, COMSIG_TURF_ENTERED, src, old_loc)
 	if(movement_disabled)
 		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
