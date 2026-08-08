@@ -83,6 +83,15 @@
 	return
 
 /**
+ * Return the amount of blast power this atom absorbs.
+ *
+ * Direction is supplied so dense atoms can later implement directional armor
+ * without changing the cellular explosion machinery.
+ */
+/atom/proc/get_explosion_resistance(direction)
+	return max(0, explosion_resistance)
+
+/**
  * Respond to an emag being used on our atom. Generally gets overwritten.
  * This is a legacy proc, to be updated.
  */

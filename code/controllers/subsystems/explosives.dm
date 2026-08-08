@@ -45,11 +45,40 @@ SUBSYSTEM_DEF(explosives)
 		var/datum/explosiondata/data = A
 
 		if (data.spreading)
-			explosion_iter(data.epicenter, data.rec_pow, data.z_transfer)
+			start_cellular_explosion(data)
 		else
 			explosion(data)
 
 		work_queue -= data
+
+/datum/controller/subsystem/explosives/proc/start_cellular_explosion(datum/explosiondata/data)
+	var/turf/epicenter = get_turf(data.epicenter)
+	if(!epicenter || data.rec_pow <= 0)
+		return
+
+	if(data.rec_pow >= GLOB.config.iterative_explosives_z_threshold)
+		if((data.z_transfer & UP) && GET_TURF_ABOVE(epicenter))
+			var/datum/explosiondata/above = new
+			above.epicenter = GET_TURF_ABOVE(epicenter)
+			above.rec_pow = data.rec_pow * GLOB.config.iterative_explosives_z_multiplier - GLOB.config.iterative_explosives_z_subtraction
+			above.power_falloff = data.power_falloff
+			above.z_transfer = UP
+			above.spreading = TRUE
+			above.source_mob = data.source_mob
+			above.source_name = data.source_name
+			queue(above)
+		if((data.z_transfer & DOWN) && GET_TURF_BELOW(epicenter))
+			var/datum/explosiondata/below = new
+			below.epicenter = GET_TURF_BELOW(epicenter)
+			below.rec_pow = data.rec_pow * GLOB.config.iterative_explosives_z_multiplier - GLOB.config.iterative_explosives_z_subtraction
+			below.power_falloff = data.power_falloff
+			below.z_transfer = DOWN
+			below.spreading = TRUE
+			below.source_mob = data.source_mob
+			below.source_name = data.source_name
+			queue(below)
+
+	cell_explosion(epicenter, data.rec_pow, data.power_falloff || 1, source_mob = data.source_mob, source_name = data.source_name)
 
 // Handle a non-recusrive explosion.
 /datum/controller/subsystem/explosives/proc/explosion(var/datum/explosiondata/data)
@@ -184,8 +213,8 @@ SUBSYSTEM_DEF(explosives)
 		E.set_up(epicenter)
 		E.start()
 
-	if(power >= 9)
-		new /obj/effect/shockwave(epicenter, power / 2)
+	if(power >= 150)
+		new /obj/effect/shockwave(epicenter, power / 60)
 
 	var/x0 = epicenter.x
 	var/y0 = epicenter.y
@@ -325,7 +354,7 @@ SUBSYSTEM_DEF(explosives)
 
 	var/sound/explosion_sound = sound(SFX_EXPLOSION)
 
-	if(power >= 100)
+	if(power >= 150)
 		new /obj/effect/shockwave(epicenter, power / 60)
 
 	for (var/thing in GLOB.player_list)
@@ -434,6 +463,9 @@ SUBSYSTEM_DEF(explosives)
 	var/z_transfer
 	var/spreading
 	var/rec_pow
+	var/power_falloff
+	var/mob/source_mob
+	var/source_name = "an explosion"
 
 #undef EXPLFX_BOTH
 #undef EXPLFX_SOUND

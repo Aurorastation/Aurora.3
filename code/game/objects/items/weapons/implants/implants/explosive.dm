@@ -150,7 +150,7 @@
 				small_countdown()
 				return
 		if("Destroy Body")
-			explosion(get_turf(imp_in), -1, 0, 2, 6)
+			explosion(get_turf(imp_in), -1, 0, 2, 6, spreading = TRUE)
 			if(ismob(imp_in))
 				imp_in.gib()
 		if("Full Explosion")
@@ -176,7 +176,7 @@
 
 /obj/item/implant/explosive/proc/small_boom()
 	if(!imp_in)
-		explosion(get_turf(src), -1, 0, 2, 4)
+		explosion(get_turf(src), -1, 0, 2, 4, spreading = TRUE)
 	if(ishuman(imp_in) && part)
 		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
@@ -279,7 +279,7 @@
 
 /obj/item/implant/explosive/deadman/small_boom()
 	if(imp_in)
-		explosion(get_turf(src), -1, 0, 1, 6)
+		explosion(get_turf(src), -1, 0, 1, 6, spreading = TRUE)
 		imp_in.gib()
 		qdel(src)
 

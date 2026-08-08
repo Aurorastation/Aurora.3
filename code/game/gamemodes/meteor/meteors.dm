@@ -163,7 +163,7 @@
 
 /obj/effect/meteor/medium/meteor_effect()
 	..()
-	explosion(src.loc, 0, 1, 2, 3, 0)
+	explosion(src.loc, 0, 1, 2, 3, 0, spreading = TRUE)
 	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/big
@@ -175,7 +175,7 @@
 
 /obj/effect/meteor/big/meteor_effect()
 	..()
-	explosion(src.loc, 1, 2, 3, 4, 0)
+	explosion(src.loc, 1, 2, 3, 4, 0, spreading = TRUE)
 	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/dust
@@ -196,7 +196,7 @@
 
 /obj/effect/meteor/flaming/meteor_effect()
 	..()
-	explosion(src.loc, 1, 2, 3, 4, 0, 0, 5)
+	explosion(src.loc, 1, 2, 3, 4, 0, 0, spreading = TRUE)
 	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 
 /obj/effect/meteor/irradiated
@@ -205,7 +205,7 @@
 	meteordrop = list(/obj/item/ore/uranium)
 
 /obj/effect/meteor/irradiated/meteor_effect()
-	explosion(src.loc, 0, 0, 4, 3, 0)
+	explosion(src.loc, 0, 0, 4, 3, 0, spreading = TRUE)
 	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
 	SSradiation.radiate(src, 50)
 
@@ -250,7 +250,7 @@
 		dropamt = 1
 
 /obj/effect/meteor/supermatter/meteor_effect()
-	explosion(src.loc, 1, 2, 3, 4, 0)
+	explosion(src.loc, 1, 2, 3, 4, 0, spreading = TRUE)
 	for(var/obj/structure/machinery/power/apc/A in range(rand(12, 20), src))
 		A.energy_fail(round(10 * rand(8, 12)))
 	msg_admin_attack("Meteor exploded at coords (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")

@@ -79,7 +79,7 @@
 
 /obj/effect/meteor/comet_expulsion/meteor_effect()
 	. = ..()
-	explosion(get_turf(src), ROUND_UP(hitpwr), ROUND_UP(hitpwr*1.2), ROUND_UP(hitpwr*1.4))
+	explosion(get_turf(src), ROUND_UP(hitpwr), ROUND_UP(hitpwr * 1.2), ROUND_UP(hitpwr * 1.4), spreading = TRUE)
 
 
 /*#############################

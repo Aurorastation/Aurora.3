@@ -42,7 +42,8 @@
 
 /obj/item/grenade/dynamite/prime()
 	var/turf/O = get_turf(src)
-	explosion(O, -1, -1, 3, 4)
+	// Force the cellular path while its propagation is being tested.
+	explosion(O, -1, -1, 3, 4, spreading = TRUE, source_name = name)
 	qdel(src)
 	return
 
