@@ -49,12 +49,12 @@
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
 
-	stamina	=	130			 // Azaziba are ambush predators
+	stamina	=	120			 // Azaziba are ambush predators
 	stamina_recovery = 5
 
 	slowdown = 0.5 				// They are generally lethargic
-	sprint_cost_factor = 1.75		// Their high-speed low-duration sprint is very well known at this time and remains
-	sprint_speed_factor = 1.75
+	sprint_cost_factor = 1.5		// Their high-speed low-duration sprint is very well known at this time and remains
+	sprint_speed_factor = 2
 	exhaust_threshold = 65
 	bp_base_systolic = 80		// Default 120
 	bp_base_disatolic = 50		// Default 80
@@ -71,13 +71,17 @@
 	mob_weight = MOB_WEIGHT_HEAVY
 	climb_coeff = 1.35
 
-	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
-	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
-	suffered immense turmoil after the cultural and economic disruption following first contact with humanity.<br><br>\
-	With their homeworld of Moghes suffering catastrophic climate change from a nuclear war in the recent past, the \
-	Hegemony that rules the majority of the species struggles to find itself in a galaxy filled with dangers far \
-	greater than themselves. They mostly hold ideals of honesty, virtue, martial combat and spirituality above all \
-	else.They prefer warmer temperatures than most species."
+	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
+	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
+	and they have since become a major player in galactic politics. Often known for their martial prowess, \
+	they are a storied and proud species, with a history of honor, tradition and spirituality.<br><br>\
+	Azaziba sinta hail from the Thuykreshani continent of Moghes, and are a larger, more ofen crocodilian \
+	variant of sinta that are known for relying on brute strength and ambush tactics. \
+	Often mistakenly viewed by outsiders as the standard species of unathi, they are not the first species \
+	of unathi to be encountered. Being seen as a more aggressive species when compared to Urawani sinta, they are \
+	often viewed as wild, unpredictable and dangerous by humans. Azaziba simply view themselves as \
+	a more storied, traditional and culturally diverse variant of sinta, and are often more traditionalist \
+	than their cousins, whereas Urawani sinta simply view Azaziba as no more inherently dangerous than themselves."
 
 	cold_level_1 = 270 //Default 260 - Lower is better
 	cold_level_2 = 210 //Default 200

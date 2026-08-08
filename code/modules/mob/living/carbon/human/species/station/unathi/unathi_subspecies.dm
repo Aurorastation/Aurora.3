@@ -1,7 +1,16 @@
 /datum/species/unathi/unathi_urawani
 	name = SPECIES_UNATHI_URAWANI
 	name_plural = "Urawani Sinta"
-	blurb = "To do"
+	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
+	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
+	and they have since become a major player in galactic politics. Often known for their martial prowess, \
+	they are a storied and proud species, with a history of honor, tradition and spirituality.<br><br>\
+	Urawani sinta hail from the Szerakreshani continent of Moghes, and are a smaller, more agile variant \
+	of sinta and are known for relying on presistence hunting tactics as opposed to the ambush tactics of \
+	Azaziba sinta. Urawani sinta are the first species of unathi to make contact with humans, and are often \
+	viewed as the most level-headed and diplomatically minded of the unathi species. Urawani sinta view \
+	themselves as a progressive, culturally homogenous and technologically advanced variant of sinta, \
+	where Azaziba generally view Urawani as small, weak and unworthy of the role as spokespeople of unathi."
 	species_height = HEIGHT_CLASS_TALL
 	age_max = 95
 	height_min = 175 			// Shortest of all unathi races on average
@@ -33,7 +42,7 @@
 	grab_mod = 1				// Lithe and wily variants
 	resist_mod = 2 				// Physically the weakest sinta, but still big lizardmen
 	toxins_mod = 1.1			// They pump blood very quickly
-	bleed_mod = 1.1			// They pump blood very quickly
+	bleed_mod = 1.1				// They pump blood very quickly
 	metabolism_mod = 1.1		// They pump blood very quickly
 
 	climb_coeff = 0.8			// Acclimated to quick movement through trees
@@ -79,16 +88,27 @@
 /datum/species/unathi/unathi_Ziralixi
 	name = SPECIES_UNATHI_ZIRALIXI
 	name_plural = "Ziralixi Sinta"
-	blurb = "To Do"
+	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
+	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
+	and they have since become a major player in galactic politics. Often known for their martial prowess, \
+	they are a storied and proud species, with a history of honor, tradition and spirituality.<br><br>\
+	Ziralixi sinta hail from the Szerakreshani continent of Moghes similarly to Urawani sinta, and are somewhat \
+	of a middle ground between the two species. While it is commonly accepted that they are a literal mixture of \
+	the two species, they are not a hybrid species and are instead a distinct species of sinta that evolved \
+	independently. Ziralixi are persistence hunters, but due to the longer, flatter distances covering their \
+	subcontinent, they are often slower and more methodical than Urawani sinta. Ziralixi are often viewed as \
+	the most peaceful of the unathi species, with their culture being more focused on spirituality and growth- \
+	both spiritually and physically, with many of the grasslands of their subcontinent being used for farming, \
+	unlike the other species.
 	species_height = HEIGHT_CLASS_TALL
 	age_max = 95
 	height_min = 185 			// Bigger cousins of Urawani sinta
 	height_max = 225 			// Bigger cousins of Urawani sinta
 
-	stamina	=	120			// Urawani are persistence hunters
-	slowdown = 0.1 				// Urawani are more on-par with humans than any other variant
-	sprint_cost_factor = 0.8 		// They still cannot sprint as long as any other species
-	sprint_speed_factor = 0.9	// But they do maintain slightly slower-than-human speeds
+	stamina	=	120				// Ziralixi are persistence hunters
+	slowdown = 0.3 				// Ziralixi are slower, more methodical runners
+	sprint_cost_factor = 0.7
+	sprint_speed_factor = 0.7
 	exhaust_threshold = 50	 	// Brings them back to the standard exhaust threshold
 	bp_base_systolic = 90		// Default 120
 	bp_base_disatolic = 55		// Default 80
