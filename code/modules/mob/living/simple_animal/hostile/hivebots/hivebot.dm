@@ -234,6 +234,7 @@
 	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("hivebotdestroyer", src)
+	default_language = GLOB.all_languages[LANGUAGE_HIVEBOT]
 
 /mob/living/simple_animal/hostile/hivebot/playable/Destroy()
 	SSghostroles.remove_spawn_atom("hivebotdestroyer", src)
@@ -261,6 +262,7 @@
 	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("hivebotmarksman", src)
+	default_language = GLOB.all_languages[LANGUAGE_HIVEBOT]
 
 /mob/living/simple_animal/hostile/hivebot/playable/ranged/Destroy()
 	SSghostroles.remove_spawn_atom("hivebotmarksman", src)
@@ -287,6 +289,7 @@
 	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("hivebotoverseer", src)
+	default_language = GLOB.all_languages[LANGUAGE_HIVEBOT]
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/Destroy()
 	SSghostroles.remove_spawn_atom("hivebotoverseer", src)
