@@ -30,6 +30,22 @@
 	return TRUE
 
 /**
+ * As add_damage(), but bypasses armour completely.
+ * Use very carefully.
+ */
+/atom/proc/add_true_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(!damage || !maxhealth || (damage < 1) || !should_use_health)
+		return FALSE
+
+	health = max(health - damage, 0)
+	update_health()
+	if(!health)
+		if(destroy_sound)
+			playsound(src, destroy_sound, 75)
+		on_death()
+	return TRUE
+
+/**
  * For custom damage condition hints. Some structures may want different ones than the default, like the cult crystal.
  */
 /atom/proc/get_damage_condition_hints(mob/user, distance, is_adjacent)
