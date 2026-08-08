@@ -52,8 +52,8 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/unathi
-		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/unathi
+		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/unathi,
 		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/unathi
 	)
 	backpack_contents = list(
