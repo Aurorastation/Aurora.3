@@ -1,7 +1,7 @@
 // Big, mean hivebot with incendiary ammunition. For use in boss battles.
 // The Life() code for rampancy messages should be scrubbed if rampancy is ever made a proper subsystem.
 /mob/living/simple_animal/hostile/hivebotboss
-	name = "hivebot transmitter drone"
+	name = "\improper lesser transmitter drone"
 	desc = "An enormous hivebot, resembling nothing so much as a twisted human spine with a long stinger-like \
 	appendage. It seems to be constantly crackling, as if broadcasting some low-level signal."
 	icon = 'icons/mob/npc/hivebot_stickbug.dmi'
