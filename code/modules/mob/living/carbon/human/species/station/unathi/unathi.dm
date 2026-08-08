@@ -20,9 +20,9 @@
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/claws/strong,
+		/datum/unarmed_attack/claws/sharp,
 		/datum/unarmed_attack/palm/unathi,
-		/datum/unarmed_attack/bite/strong
+		/datum/unarmed_attack/bite/sharp
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
