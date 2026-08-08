@@ -93773,13 +93773,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_emptycourt)
-"meu" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/reagent_dispensers/cookingoil,
-/turf/simulated/floor/tiled/dark/full{
-	temperature = 278
-	},
-/area/horizon/service/kitchen/freezer)
 "meB" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/maintenance/deck_1/workshop)
@@ -173999,7 +173992,6 @@
 /area/horizon/service/hydroponics/garden)
 "wuD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/cookingoil,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -290002,7 +289994,7 @@ rSs
 giD
 eSD
 qSg
-meu
+sjt
 cHP
 uYQ
 eSV
