@@ -346,13 +346,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "dj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/machinery/floodlight{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/barricade/plasteel/wired,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
 /area/hegemony_waypoint/exterior)
 "dm" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -497,13 +493,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
-"fg" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/table/rack,
-/turf/simulated/floor/airless,
-/area/hegemony_waypoint/exterior)
 "fn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -604,11 +593,6 @@
 "gB" = (
 /turf/simulated/wall/shuttle/palepurple,
 /area/hegemony_waypoint/hallway)
-"gD" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/barricade/metal/wired,
-/turf/space/dynamic,
-/area/hegemony_waypoint/exterior)
 "gM" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/shuttle_landmark/hegemony_waypoint/west_docking{
@@ -641,6 +625,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"hl" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/sign/flag/outer_eyes{
+	pixel_x = -32
+	},
+/obj/structure/table/rack,
+/obj/item/wrench,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "hq" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -1575,6 +1568,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/shuttle)
+"rv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/machinery/floodlight{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/hegemony_waypoint/exterior)
 "rH" = (
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/random/dirt_75,
@@ -1674,6 +1676,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"ta" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/barricade/metal/wired,
+/turf/space/dynamic,
+/area/hegemony_waypoint/exterior)
 "tk" = (
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
 /obj/random/dirt_75,
@@ -1729,6 +1736,14 @@
 /obj/item/grenade/smokebomb,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/exterior/actor)
+"ua" = (
+/obj/effect/floor_decal/corner_wide/purple/diagonal,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/airless,
+/area/hegemony_waypoint/shuttle)
 "uc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/vending/generic_clothing,
@@ -2394,11 +2409,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/hegemony_waypoint/shrine)
-"zR" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/weapon/alt,
-/turf/simulated/floor/airless,
-/area/hegemony_waypoint/exterior)
 "zW" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -2502,11 +2512,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
-"Ay" = (
-/obj/structure/lattice,
-/obj/structure/barricade/plasteel/wired,
-/turf/space/dynamic,
-/area/hegemony_waypoint/exterior)
 "Az" = (
 /obj/structure/machinery/light/small/floor,
 /obj/effect/floor_decal/corner_wide/purple{
@@ -2592,14 +2597,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/engineering)
-"Bw" = (
-/obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/airless,
-/area/hegemony_waypoint/shuttle)
 "BE" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 9
@@ -2666,11 +2663,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/exterior/actor)
-"CT" = (
+"CL" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/flashlight/marshallingwand,
-/obj/structure/table/rack,
-/turf/simulated/floor/airless,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/space/dynamic,
 /area/hegemony_waypoint/exterior)
 "CU" = (
 /obj/effect/floor_decal/corner_wide/black{
@@ -3133,6 +3132,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
+"HN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/table/rack,
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
 "HS" = (
@@ -3742,6 +3748,11 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
+"Nw" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/weapon/alt,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "NF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3757,14 +3768,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/hegemony_waypoint/exterior)
-"Oc" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/space/dynamic,
 /area/hegemony_waypoint/exterior)
 "Od" = (
 /obj/structure/roller_rack/three{
@@ -4627,15 +4630,6 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hegemony_waypoint/shuttle)
-"WL" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/sign/flag/outer_eyes{
-	pixel_x = -32
-	},
-/obj/structure/table/rack,
-/obj/item/wrench,
-/turf/simulated/floor/airless,
-/area/hegemony_waypoint/exterior)
 "WM" = (
 /obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -4677,6 +4671,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"Xh" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/flashlight/marshallingwand,
+/obj/structure/table/rack,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "Xp" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -36699,7 +36699,7 @@ KV
 jq
 iu
 iu
-gD
+ta
 iu
 iu
 Ns
@@ -36712,7 +36712,7 @@ Le
 Mx
 Mx
 Mx
-zR
+Nw
 Ns
 OV
 OV
@@ -36956,7 +36956,7 @@ KV
 jq
 jq
 jq
-gD
+ta
 lq
 lq
 yV
@@ -37987,7 +37987,7 @@ yV
 iu
 iu
 iu
-Ay
+dj
 jq
 EL
 Di
@@ -38238,7 +38238,7 @@ lt
 cn
 jw
 gB
-CT
+Xh
 jq
 jq
 lq
@@ -38994,7 +38994,7 @@ xE
 xE
 DW
 DW
-fg
+HN
 oH
 yw
 Qr
@@ -39755,7 +39755,7 @@ OV
 OV
 OV
 mF
-WL
+hl
 Dj
 Tp
 zs
@@ -40567,9 +40567,9 @@ Ak
 Ak
 Pc
 vz
-Bw
+ua
 Wr
-Bw
+ua
 Lf
 tQ
 tQ
@@ -41083,8 +41083,8 @@ iB
 Jq
 Jq
 iB
-dj
-dj
+rv
+rv
 Jq
 Jq
 QB
@@ -42867,7 +42867,7 @@ gk
 gk
 gk
 gk
-Oc
+CL
 OV
 OV
 OV
