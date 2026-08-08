@@ -168141,6 +168141,8 @@
 	dir = 5
 	},
 /obj/item/radio/microphone,
+/obj/item/clothing/suit/armor/carrier/press,
+/obj/item/clothing/head/helmet/security/press,
 /turf/simulated/floor/wood,
 /area/horizon/crew/journalistoffice)
 "vKB" = (
