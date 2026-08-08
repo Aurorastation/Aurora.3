@@ -89,8 +89,8 @@
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu
-		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu
+		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
 		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu
 	)
 
