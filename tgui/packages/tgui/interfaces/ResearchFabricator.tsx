@@ -19,6 +19,7 @@ export type ResearchFabricatorData = {
   linked: BooleanLike;
   materials: ResearchMaterial[];
   reagents: ResearchReagent[];
+  reagent_stores: ResearchReagentStore[];
   recipes: ResearchRecipe[];
   categories: string[];
   queue: ResearchQueueItem[];
@@ -42,15 +43,18 @@ type ResearchMaterial = {
 
 type ResearchReagent = {
   id: string;
-  name: string;
+  name?: string;
   amount: number;
 };
 
+type ResearchReagentStore = {
+  reagents: ResearchReagent[];
+};
+
 type ResearchRequirement = {
+  id: string;
   name: string;
   required: number;
-  stored: number;
-  missing: BooleanLike;
   type: 'material' | 'reagent';
 };
 
@@ -61,7 +65,6 @@ type ResearchRecipe = {
   category: string;
   resources: string;
   requirements: ResearchRequirement[];
-  can_build: BooleanLike;
   build_time: number;
 };
 
@@ -205,6 +208,7 @@ export const ResearchFabricator = ({
                     return (
                       <Section key={entry} title={entry}>
                         <RecipeTable
+                          fabricator={fabricator}
                           recipes={categoryRecipes}
                           queueAmount={queueAmount}
                         />
@@ -212,7 +216,11 @@ export const ResearchFabricator = ({
                     );
                   })
               ) : (
-                <RecipeTable recipes={recipes} queueAmount={queueAmount} />
+                <RecipeTable
+                  fabricator={fabricator}
+                  recipes={recipes}
+                  queueAmount={queueAmount}
+                />
               )}
                 </Section>
               </Stack.Item>
@@ -229,10 +237,75 @@ export const ResearchFabricator = ({
 };
 
 
+const getMaterialAmount = (
+  fabricator: ResearchFabricatorData,
+  materialId: string,
+) => {
+  return (
+    fabricator.materials.find((material) => material.id === materialId)
+      ?.amount ?? 0
+  );
+};
+
+const getReagentAmount = (
+  store: ResearchReagentStore,
+  reagentId: string,
+) => {
+  return (
+    store.reagents.find((reagent) => reagent.id === reagentId)?.amount ?? 0
+  );
+};
+
+const getDisplayedReagentAmount = (
+  fabricator: ResearchFabricatorData,
+  reagentId: string,
+) => {
+  return Math.max(
+    0,
+    ...fabricator.reagent_stores.map((store) =>
+      getReagentAmount(store, reagentId),
+    ),
+  );
+};
+
+const canBuildRecipe = (
+  fabricator: ResearchFabricatorData,
+  recipe: ResearchRecipe,
+) => {
+  const materialRequirements = recipe.requirements.filter(
+    (requirement) => requirement.type === 'material',
+  );
+  const reagentRequirements = recipe.requirements.filter(
+    (requirement) => requirement.type === 'reagent',
+  );
+
+  const hasMaterials = materialRequirements.every(
+    (requirement) =>
+      getMaterialAmount(fabricator, requirement.id) >= requirement.required,
+  );
+
+  if (!hasMaterials) {
+    return false;
+  }
+
+  if (!reagentRequirements.length) {
+    return true;
+  }
+
+  return fabricator.reagent_stores.some((store) =>
+    reagentRequirements.every(
+      (requirement) =>
+        getReagentAmount(store, requirement.id) >= requirement.required,
+    ),
+  );
+};
+
 const RecipeTable = ({
+  fabricator,
   recipes,
   queueAmount,
 }: {
+  fabricator: ResearchFabricatorData;
   recipes: ResearchRecipe[];
   queueAmount: number;
 }) => {
@@ -245,41 +318,48 @@ const RecipeTable = ({
         <Table.Cell>Resources</Table.Cell>
         <Table.Cell collapsing>Time</Table.Cell>
       </Table.Row>
-      {recipes.map((recipe, index) => (
-        <Table.Row
-          key={recipe.design}
-          className={
-            index % 2
-              ? 'ResearchFabricator__recipeRow--odd'
-              : 'ResearchFabricator__recipeRow--even'
-          }
-        >
-          <Table.Cell>
-            <Button
-              fluid
-              icon={recipe.can_build ? 'hammer' : 'triangle-exclamation'}
-              disabled={!recipe.can_build}
-              content={recipe.name}
-              tooltip={
-                recipe.can_build
-                  ? `${recipe.description}\nQueues ${queueAmount} item${queueAmount === 1 ? '' : 's'}.`
-                  : `${recipe.description}\nMissing required materials.`
-              }
-              onClick={() =>
-                act('fabricator_build', {
-                  design: recipe.design,
-                })
-              }
-            />
-          </Table.Cell>
-          <Table.Cell>
-            <RecipeRequirements recipe={recipe} />
-          </Table.Cell>
-          <Table.Cell collapsing>
-            {formatDuration(recipe.build_time)}
-          </Table.Cell>
-        </Table.Row>
-      ))}
+      {recipes.map((recipe, index) => {
+        const canBuild = canBuildRecipe(fabricator, recipe);
+
+        return (
+          <Table.Row
+            key={recipe.design}
+            className={
+              index % 2
+                ? 'ResearchFabricator__recipeRow--odd'
+                : 'ResearchFabricator__recipeRow--even'
+            }
+          >
+            <Table.Cell>
+              <Button
+                fluid
+                icon={canBuild ? 'hammer' : 'triangle-exclamation'}
+                disabled={!canBuild}
+                content={recipe.name}
+                tooltip={
+                  canBuild
+                    ? `${recipe.description}\nQueues ${queueAmount} item${queueAmount === 1 ? '' : 's'}.`
+                    : `${recipe.description}\nMissing required materials or reagents.`
+                }
+                onClick={() =>
+                  act('fabricator_build', {
+                    design: recipe.design,
+                  })
+                }
+              />
+            </Table.Cell>
+            <Table.Cell>
+              <RecipeRequirements
+                fabricator={fabricator}
+                recipe={recipe}
+              />
+            </Table.Cell>
+            <Table.Cell collapsing>
+              {formatDuration(recipe.build_time)}
+            </Table.Cell>
+          </Table.Row>
+        );
+      })}
     </Table>
   );
 };
@@ -427,39 +507,53 @@ const Chemicals = ({ fabricator }: { fabricator: ResearchFabricatorData }) => {
   );
 };
 
-const RecipeRequirements = ({ recipe }: { recipe: ResearchRecipe }) => {
+const RecipeRequirements = ({
+  fabricator,
+  recipe,
+}: {
+  fabricator: ResearchFabricatorData;
+  recipe: ResearchRecipe;
+}) => {
   if (!recipe.requirements?.length) {
     return <Box>{recipe.resources}</Box>;
   }
 
   return (
     <Flex wrap>
-      {recipe.requirements.map((requirement) => (
-        <Flex.Item
-          key={`${requirement.type}-${requirement.name}`}
-          mr={0.5}
-          mb={0.25}
-        >
-          <Button
-            color="transparent"
-            tooltip={`Stored: ${requirement.stored}. Required: ${requirement.required}.`}
-            className={
-              requirement.missing
-                ? 'ResearchFabricator__requirement--missing'
-                : 'ResearchFabricator__requirement--available'
-            }
+      {recipe.requirements.map((requirement) => {
+        const stored =
+          requirement.type === 'material'
+            ? getMaterialAmount(fabricator, requirement.id)
+            : getDisplayedReagentAmount(fabricator, requirement.id);
+        const missing = stored < requirement.required;
+
+        return (
+          <Flex.Item
+            key={`${requirement.type}-${requirement.id}`}
+            mr={0.5}
+            mb={0.25}
           >
-            <Box
-              inline
-              px={0.5}
-              py={0.25}
-              color={requirement.missing ? 'bad' : 'good'}
+            <Button
+              color="transparent"
+              tooltip={`Stored: ${stored}. Required: ${requirement.required}.`}
+              className={
+                missing
+                  ? 'ResearchFabricator__requirement--missing'
+                  : 'ResearchFabricator__requirement--available'
+              }
             >
-              {requirement.name}: {requirement.required}
-            </Box>
-          </Button>
-        </Flex.Item>
-      ))}
+              <Box
+                inline
+                px={0.5}
+                py={0.25}
+                color={missing ? 'bad' : 'good'}
+              >
+                {requirement.name}: {requirement.required}
+              </Box>
+            </Button>
+          </Flex.Item>
+        );
+      })}
     </Flex>
   );
 };
