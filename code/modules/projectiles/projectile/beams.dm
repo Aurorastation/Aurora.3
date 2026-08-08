@@ -535,3 +535,30 @@
 
 /obj/projectile/beam/pulse/skrell
 	name = "particle lethal beam"
+
+//gauss weapons
+
+/obj/projectile/beam/gauss
+	name = "gauss beam"
+	icon_state = "xray"
+	damage = 50
+	armor_penetration = 20
+	color = COLOR_YELLOW
+	muzzle_type = /obj/effect/projectile/muzzle/xray
+	tracer_type = /obj/effect/projectile/tracer/xray
+	impact_type = /obj/effect/projectile/impact/xray
+
+/obj/projectile/beam/gauss/weak
+	damage = 30
+	armor_penetration = 10
+
+/obj/projectile/energy/blaster/gauss_projectile/
+	name = "gauss projectile beam"
+	icon_state = "bluelaser"
+	damage = 50
+	armor_penetration = 40
+	color = COLOR_YELLOW
+
+/obj/projectile/energy/blaster/gauss_projectile/weak
+	damage = 30
+	armor_penetration = 20

@@ -447,7 +447,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	path = /obj/item/clothing/suit/unathi/robe/kilt
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland, /singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
+	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland)
 
 /datum/gear/head/sinta_ronin/diona
 	display_name = "dionae straw hat"
@@ -468,7 +468,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	display_name = "dionae wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland, /singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
+	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland)
 	sort_category = "Xenowear - Diona"
 
 /datum/gear/uniform/diona/zozo

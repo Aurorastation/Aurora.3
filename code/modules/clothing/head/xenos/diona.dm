@@ -36,3 +36,18 @@
 	icon = 'icons/obj/diona_items.dmi'
 	icon_state = "narrows_hardhat"
 	item_state = "narrows_hardhat"
+
+/obj/item/clothing/head/helmet/voidtamer
+	name = "voidtamer helmet"
+	desc = "A hood-like helmet of hardened material, adorned with gold, typically worn by Dionae from the Voidtamer Confluence."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "void_helmet"
+	item_state = "void_helmet"
+	contained_sprite = TRUE
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_MELEE_MAJOR,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)
