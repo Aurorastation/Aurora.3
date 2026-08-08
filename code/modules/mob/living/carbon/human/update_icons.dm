@@ -483,7 +483,9 @@ There are several things that need to be remembered:
 			set_light(0)
 
 	var/hair_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT : HAIR_LAYER
-	overlays_raw[hair_layer] = hair_icon
+	var/image/hair_overlay = image(hair_icon)
+	hair_overlay.appearance_flags = PIXEL_SCALE
+	overlays_raw[hair_layer] = hair_overlay
 
 	if(has_visible_hair)
 		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
@@ -1354,7 +1356,9 @@ There are several things that need to be remembered:
 
 	if(species.tail && !(mutations & HUSK) && !(mutations & SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
+		var/image/tail_overlay = image(tail_s, icon_state = "[tail_style]_s")
+		tail_overlay.appearance_flags = PIXEL_SCALE
+		overlays_raw[tail_layer] = tail_overlay
 		animate_tail_reset(FALSE)
 		update_tail_accessory(FALSE)
 
