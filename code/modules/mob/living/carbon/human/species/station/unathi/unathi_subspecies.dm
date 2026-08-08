@@ -105,7 +105,7 @@
 	height_min = 185 			// Bigger cousins of Urawani sinta
 	height_max = 225 			// Bigger cousins of Urawani sinta
 
-	stamina	=	120				// Ziralixi are persistence hunters
+	stamina	=	100				// Ziralixi are persistence hunters
 	slowdown = 0.3 				// Ziralixi are slower, more methodical runners
 	sprint_cost_factor = 0.7
 	sprint_speed_factor = 0.7
@@ -113,10 +113,10 @@
 	bp_base_systolic = 90		// Default 120
 	bp_base_disatolic = 55		// Default 80
 	low_pulse = 25				// Default 40
-	norm_pulse = 45			// Default 60
+	norm_pulse = 45				// Default 60
 	fast_pulse = 70				// Default 90
 	v_fast_pulse = 90			// Default 120
-	max_pulse = 110			// Default 160
+	max_pulse = 110				// Default 160
 
 	stomach_capacity = 6
 	max_nutrition_factor = 1.3
