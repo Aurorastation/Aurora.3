@@ -85,3 +85,7 @@
 /area/hegemony_waypoint/exterior/actor
 	name = "Unknown"
 	requires_power = FALSE
+
+/area/hegemony_waypoint/shuttle
+	name = "Outer Eyes Shuttle"
+	requires_power = TRUE
