@@ -18,7 +18,7 @@
 	species_suit = list(
 		SPECIES_UNATHI = /obj/item/clothing/suit/space/void/lancer/unathi,
 		SPECIES_UNATHI_URAWANI = /obj/item/clothing/suit/space/void/lancer/unathi,
-		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/space/void/lancer/unathi
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/suit/space/void/lancer/unathi
 	)
 	suit_store = /obj/item/tank/oxygen
 
