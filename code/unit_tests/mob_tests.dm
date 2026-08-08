@@ -35,7 +35,7 @@
 
 
 /datum/unit_test/mob_hear/start_test()
-	var/mobloc = pick(GLOB.tdome1)
+	var/mobloc = length(GLOB.tdome1) ? pick(GLOB.tdome1) : locate(/turf/simulated/floor)
 	if(!mobloc)
 		TEST_FAIL("Unable to find a location to create test mob")
 		return 0
@@ -76,15 +76,43 @@
 	var/message = "Test, can you hear me?"
 	var/said = test_speaker_mob.say(message)
 
-	if(said && test_listener_mob.heard)
-		TEST_PASS("speech test complete, speaker said \"[message]\" and listener received it.")
-		return 1
-	else if(said)
-		TEST_FAIL("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
-		return 0
-	else
+	if(!said)
 		TEST_FAIL("speaker did not say the words \"[message]\"")
 		return 0
+	if(!test_listener_mob.heard)
+		TEST_FAIL("speaker said the words, but listener did not hear it. The message was \"[message]\", the difference were X: [test_listener_mob.loc.x - test_speaker_mob.loc.x], Y: [test_listener_mob.loc.y - test_speaker_mob.loc.y]")
+		return 0
+
+	var/turf/speaker_turf = get_turf(test_speaker_mob)
+	var/list/offscreen_speech_tests = list(
+		list("range" = world.view + 3, "message" = "Can you still hear me?"),
+		list("range" = world.view + 7, "message" = "Can you hear me now!"),
+		list("range" = world.view + 14, "message" = "Can you hear me all the way out here!!")
+	)
+	for(var/list/offscreen_test as anything in offscreen_speech_tests)
+		var/test_range = offscreen_test["range"]
+		var/turf/offscreen_turf
+		for(var/turf/candidate in range(test_range, speaker_turf))
+			if(candidate.z == speaker_turf.z && get_dist(candidate, speaker_turf) == test_range)
+				offscreen_turf = candidate
+				break
+		if(!offscreen_turf)
+			TEST_FAIL("Unable to find a turf [test_range] tiles from the speaker")
+			return 0
+
+		test_listener_mob.forceMove(offscreen_turf)
+		message = offscreen_test["message"]
+		var/datum/say_message/offscreen_message = test_speaker_mob.build_say_message(message, null)
+		offscreen_message.message_range = world.view
+		var/list/offscreen_listeners = test_speaker_mob.get_offscreen_speech_listeners(offscreen_message, list(test_speaker_mob))
+		var/listener_selected = (test_listener_mob in offscreen_listeners)
+		qdel(offscreen_message)
+		if(!listener_selected)
+			TEST_FAIL("listener was not selected for \"[message]\" at range [test_range]")
+			return 0
+
+	TEST_PASS("speech test complete, including normal, yelled, and shouted offscreen listener selection.")
+	return 1
 
 /datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
