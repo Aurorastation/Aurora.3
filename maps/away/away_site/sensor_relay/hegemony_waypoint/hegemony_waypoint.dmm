@@ -540,9 +540,6 @@
 "fL" = (
 /turf/simulated/floor/reinforced/airless,
 /area/hegemony_waypoint/exterior)
-"fN" = (
-/turf/simulated/wall/shuttle/palepurple,
-/area/hegemony_waypoint/shuttle)
 "fP" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
@@ -1289,11 +1286,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
-"nr" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/weapon/alt,
-/turf/simulated/floor/airless,
-/area/hegemony_waypoint/exterior)
 "nF" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -1659,6 +1651,11 @@
 "sB" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/overmap/visitable/ship/stationary/hegemony_waypoint,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
+"sF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/weapon/alt,
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
 "sJ" = (
@@ -4576,6 +4573,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/hegemony_waypoint/shrine)
+"Wl" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/hegemony_waypoint/shuttle)
 "Wr" = (
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/structure/bed/stool/chair/shuttle{
@@ -36660,7 +36660,7 @@ Le
 Mx
 Mx
 Mx
-nr
+sF
 Ns
 OV
 OV
@@ -37177,7 +37177,7 @@ yV
 iu
 iu
 iu
-iu
+yV
 Ns
 OV
 OV
@@ -39745,8 +39745,8 @@ au
 au
 PF
 MJ
-fN
-fN
+Wl
+Wl
 tQ
 tQ
 fL
@@ -39997,8 +39997,8 @@ OV
 OV
 ex
 xF
-fN
-fN
+Wl
+Wl
 rp
 zC
 XR
@@ -40254,7 +40254,7 @@ OV
 OV
 ex
 xF
-fN
+Wl
 rn
 KM
 TB
@@ -40511,8 +40511,8 @@ OV
 OV
 ex
 xF
-fN
-fN
+Wl
+Wl
 Pc
 vz
 Wr
@@ -40772,9 +40772,9 @@ kU
 au
 au
 aW
-fN
-fN
-fN
+Wl
+Wl
+Wl
 tQ
 tQ
 fL
