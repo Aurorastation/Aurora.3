@@ -210,6 +210,10 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 	holographic_peer_id.registered_name = "Holographic Peer Tester"
 	holographic_third_id.registered_name = "Holographic Third Tester"
 	video_device.register_account(null, video_id, TRUE)
+	TEST_ASSERT_EQUAL(video_device.name, initial(video_device.name), "Registering an ID card should not rename a communicator.")
+	video_device.unregister_account(TRUE)
+	TEST_ASSERT_EQUAL(video_device.name, initial(video_device.name), "Unregistering an ID card should not rename a communicator.")
+	video_device.register_account(null, video_id, TRUE)
 	holographic_device.register_account(null, holographic_id, TRUE)
 	holographic_peer.register_account(null, holographic_peer_id, TRUE)
 	holographic_third.register_account(null, holographic_third_id, TRUE)

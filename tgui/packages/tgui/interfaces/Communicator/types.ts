@@ -9,8 +9,9 @@ export type CommunicatorData = {
   canReset: BooleanLike;
   currentTab: CommunicatorTab;
   silent: BooleanLike;
-  observer: BooleanLike;
-  deviceTierName: string;
+	observer: BooleanLike;
+	deviceTierName: string;
+	registeredIdName: string | null;
 
   activeCall?: VoiceCall;
   activeChats: TextChat[];

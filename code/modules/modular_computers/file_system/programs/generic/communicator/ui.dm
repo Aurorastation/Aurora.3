@@ -94,6 +94,7 @@
 			feature_requests += list(alist("address" = address, "feature" = feature))
 	data["featureRequests"] = feature_requests
 	data["userComm"] = COMM_DATA(src, get_computer_address(), get_user_name())
+	data["registeredIdName"] = computer.registered_id ? computer.registered_id.registered_name : null
 	data["deviceTierName"] = get_tier_name()
 	data["allUsers"] = all_users
 	return data

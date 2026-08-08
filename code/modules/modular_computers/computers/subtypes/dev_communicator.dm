@@ -74,16 +74,6 @@
 		return FALSE
 	return ..()
 
-/obj/item/modular_computer/handheld/communicator/register_account(datum/computer_file/program/PRG, obj/item/card/id/id, quiet)
-	. = ..()
-	if(. && name == initial(name)) // Only rename if there isn't already a custom name set.
-		name = "[id.registered_name]'s [initial(name)]"
-
-/obj/item/modular_computer/handheld/communicator/unregister_account(quiet)
-	. = ..()
-	if(.)
-		name = initial(name)
-
 // Todo: add some way to reset/change registered ID card.
 /obj/item/modular_computer/handheld/communicator/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/card/id))

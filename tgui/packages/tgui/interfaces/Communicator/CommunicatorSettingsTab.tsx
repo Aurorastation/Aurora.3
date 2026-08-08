@@ -26,6 +26,9 @@ export const CommunicatorSettingsTab = () => {
             onCommit={(value) => act('set_username', { new_name: value })}
           />
         </LabeledList.Item>
+        <LabeledList.Item label="Registered ID">
+          {data.registeredIdName || 'No ID registered'}
+        </LabeledList.Item>
         <LabeledList.Item label="NTNet Address">
           {userComm.address}
         </LabeledList.Item>
