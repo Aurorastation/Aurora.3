@@ -142,7 +142,7 @@
  */
 /datum/controller/subsystem/persistence/proc/typesHistoryCacheSelectTopK(k, datum/persistent_record_container/container)
 	PRIVATE_PROC(TRUE)
-	if(length(container.records))
+	if(!length(container.records))
 		return list()
 
 	var/list/datum/persistent_record/top = list()

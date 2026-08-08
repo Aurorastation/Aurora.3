@@ -3975,6 +3975,7 @@
 #include "code\modules\tgui\modules\ipc_diagnostic.dm"
 #include "code\modules\tgui\modules\narrate_panel.dm"
 #include "code\modules\tgui\modules\neural_configuration.dm"
+#include "code\modules\tgui\modules\persistence_panel.dm"
 #include "code\modules\tgui\states\admin.dm"
 #include "code\modules\tgui\states\always.dm"
 #include "code\modules\tgui\states\conscious.dm"
