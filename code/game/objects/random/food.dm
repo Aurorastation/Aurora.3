@@ -273,3 +273,13 @@
 		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1,
 		/obj/item/storage/box/fancy/readies
 	)
+
+/obj/random/cookingoil
+	name = "random cooking oil"
+	desc = "Has a 50% chance of spawning a tank of cooking oil, otherwise nothing."
+	icon = 'icons/obj/reagent_dispensers.dmi'
+	icon_state = "oiltank"
+	spawn_nothing_percentage = 50
+	spawnlist = list(
+		/obj/structure/reagent_dispensers/cookingoil
+	)
