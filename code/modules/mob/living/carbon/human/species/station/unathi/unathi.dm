@@ -4,9 +4,10 @@
 	name_plural = "Unathi"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
-	species_height = HEIGHT_CLASS_TALL
-	height_min = 175
-	height_max = 215
+	species_height = HEIGHT_CLASS_HUGE
+	height_min = 200
+	height_max = 250
+	age_min = 16
 	selectable_pronouns = list(NEUTER, MALE, FEMALE, PLURAL)
 	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
@@ -27,12 +28,18 @@
 	default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
 	gluttonous = GLUT_MESSY|GLUT_ITEM_TINY
 	stomach_capacity = 7
-	slowdown = 0.5
-	brute_mod = 0.8
-	fall_mod = 1.2
-	radiation_mod = 0.9 // how else did they survive nuclear armageddon?
-	grab_mod = 1.25 // Huge, usually have horns
-	resist_mod = 2.5 // Arguably our strongest organic species
+	max_nutrition_factor = 1.4
+	max_hydration_factor = 1.4
+	nutrition_loss_factor = 0.7
+	hydration_loss_factor = 0.7
+
+	mob_strength = MOB_STRENGTH_STRONG
+	pain_mod = 0.8				// Crocodilian pain tolerance
+	brute_mod = 0.7 			// Crocodilian integumentary system
+	fall_mod = 1.7				// They are heavy and ungraceful. Extra high to counteract the brute mod
+	radiation_mod = 0.8			// Azaziba are the sinta that survived and adapted to irradiated zones
+	grab_mod = 1.5				// Huge, usually have horns
+	resist_mod = 3 				// Arguably our strongest organic species
 
 	ethanol_resistance = 0.8
 	taste_sensitivity = TASTE_SENSITIVE
@@ -42,24 +49,25 @@
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
 
-	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
+	stamina	=	130			 // Azaziba are ambush predators
 	stamina_recovery = 5
 
-	sprint_cost_factor = 1.75
-	sprint_speed_factor = 1.6
+	slowdown = 0.5 				// They are generally lethargic
+	sprint_cost_factor = 1.5		// Their high-speed low-duration sprint is very well known at this time and remains
+	sprint_speed_factor = 1.5
 	exhaust_threshold = 65
-	bp_base_systolic = 80 // Default 120
-	bp_base_disatolic = 50 // Default 80
-	low_pulse = 20 // Default 40
-	norm_pulse = 40 // Default 60
-	fast_pulse = 60 // Default 90
-	v_fast_pulse = 80// Default 120
-	max_pulse = 100// Default 160
+	bp_base_systolic = 80		// Default 120
+	bp_base_disatolic = 50		// Default 80
+	low_pulse = 20				// Default 40
+	norm_pulse = 40			// Default 60
+	fast_pulse = 60				// Default 90
+	v_fast_pulse = 80			// Default 120
+	max_pulse = 100			// Default 160
 	body_temperature = T0C + 24
 
 	rarity_value = 3
 	break_cuffs = TRUE
-	mob_size = 10
+	mob_size = 11
 	mob_weight = MOB_WEIGHT_HEAVY
 	climb_coeff = 1.35
 
@@ -71,13 +79,13 @@
 	greater than themselves. They mostly hold ideals of honesty, virtue, martial combat and spirituality above all \
 	else.They prefer warmer temperatures than most species."
 
-	cold_level_1 = 280 //Default 260 - Lower is better
-	cold_level_2 = 220 //Default 200
+	cold_level_1 = 270 //Default 260 - Lower is better
+	cold_level_2 = 210 //Default 200
 	cold_level_3 = 130 //Default 120
 
-	heat_level_1 = 420 //Default 360 - Higher is better
-	heat_level_2 = 480 //Default 400
-	heat_level_3 = 1100 //Default 1000
+	heat_level_1 = 400 //Default 360 - Higher is better
+	heat_level_2 = 440 //Default 400
+	heat_level_3 = 1040 //Default 1000
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tongue_flick
@@ -92,7 +100,7 @@
 	reagent_tag = IS_UNATHI
 	base_color = "#066000"
 
-	heat_discomfort_level = 304 // 30°C
+	heat_discomfort_level = 308 // 35°C
 	heat_discomfort_strings = list(
 		"You feel soothingly warm.",
 		"You feel the heat sink into your bones.",
@@ -138,6 +146,12 @@
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 	valid_prosthetics = list(PROSTHETIC_AUTAKH)
 	mass_modifier = REFERENCE_MASS_UNATHI / REFERENCE_MASS_HUMAN
+
+	character_color_presets = list(
+		"Szera: Skalamar Red" = "#A02C2C",
+
+		"Thuy: Janvir Black" = "#1C1C1C"
+	)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
