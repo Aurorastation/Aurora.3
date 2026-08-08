@@ -78,8 +78,8 @@
 
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi
-		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/nitrile/unathi
+		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/nitrile/unathi,
 		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/nitrile/unathi
 	)
 
