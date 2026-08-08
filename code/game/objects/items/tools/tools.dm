@@ -320,11 +320,34 @@
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
+	var/welding_blind = user.is_blind()
+	if(welding_blind)
+		delay *= 3
+
 	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
 	welding_sparks.plane = ABOVE_LIGHTING_PLANE
 	target.AddOverlays(welding_sparks)
 	. = ..()
 	target.CutOverlays(welding_sparks)
+
+	if(. && welding_blind && prob(80))
+		to_chat(user, SPAN_WARNING("Unable to see your work, you botch the weld!"))
+		if(prob(50))
+			var/burn_zone
+			if(ishuman(user))
+				switch(get_equip_slot())
+					if(slot_l_hand)
+						burn_zone = BP_L_HAND
+					if(slot_r_hand)
+						burn_zone = BP_R_HAND
+					else
+						burn_zone = pick(BP_L_HAND, BP_R_HAND)
+			user.apply_damage(rand(5, 10), DAMAGE_BURN, burn_zone, src)
+			user.visible_message(
+				SPAN_DANGER("[user] jerks back after burning themselves with \the [src]!"),
+				SPAN_DANGER("Your blind welding slips, burning your hand!")
+			)
+		return FALSE
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
@@ -439,7 +462,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 
-	if(do_mob(user, target, 30))
+	if(use_tool(target, user, 30, volume = 15))
 		if(use(0))
 			var/static/list/repair_messages = list(
 				"patches some dents",
@@ -951,4 +974,3 @@
 	var/mutable_appearance/handle = mutable_appearance('icons/obj/tools.dmi', "hammer_handle")
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 	AddOverlays(handle)
-
