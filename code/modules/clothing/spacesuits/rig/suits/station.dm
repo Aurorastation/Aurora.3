@@ -28,46 +28,6 @@
 	light_overlay = "helmet_light_dual"
 	camera = /obj/structure/machinery/camera/network/security
 
-/obj/item/rig/internalaffairs
-	name = "augmented tie"
-	suit_type = "augmented suit"
-	desc = "Prepare for paperwork."
-	icon = 'icons/obj/item/clothing/rig/tie.dmi'
-	icon_state = "internalaffairs_rig"
-	icon_supported_species_tags = null
-	armor = null
-	siemens_coefficient = 0.9
-	slowdown = 0
-	offline_slowdown = 0
-	offline_vision_restriction = TINT_HEAVY
-
-	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/storage/briefcase,/obj/item/storage/secure/briefcase)
-
-	req_access = list()
-	req_one_access = list()
-
-	helm_type = null
-	glove_type = null
-	boot_type = null
-
-	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
-
-/obj/item/rig/internalaffairs/equipped
-
-	req_access = list(ACCESS_LAWYER)
-
-	initial_modules = list(
-		/obj/item/rig_module/ai_container,
-		/obj/item/rig_module/device/flash,
-		/obj/item/rig_module/device/paperdispenser,
-		/obj/item/rig_module/device/pen,
-		/obj/item/rig_module/device/stamp
-		)
-
-	glove_type = null
-	helm_type = null
-	boot_type = null
-
 /obj/item/rig/industrial
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"

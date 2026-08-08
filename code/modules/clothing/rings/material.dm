@@ -1,7 +1,8 @@
 //Material Rings
 /obj/item/clothing/ring/material
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'icons/obj/item/clothing/gloves/rings.dmi'
 	icon_state = "material"
+	contained_sprite = TRUE
 
 /obj/item/clothing/ring/material/Initialize(var/mapload, var/new_material)
 	. = ..(mapload)

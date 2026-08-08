@@ -3,7 +3,7 @@
 /obj/item/clothing/head/helmet/space/deathsquad
 	name = "deathsquad helmet"
 	desc = "That's not red paint. That's real blood."
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	icon_state = "deathsquad"
 	item_state_slots = list(
 		slot_l_hand_str = "syndicate-helm-black-red",
@@ -28,7 +28,7 @@
 /obj/item/clothing/head/helmet/space/deathsquad/beret
 	name = "officer's beret"
 	desc = "An armored beret commonly used by special operations officers."
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret_sec"
 	item_state = "beret_sec"
 	contained_sprite = TRUE
@@ -44,7 +44,7 @@
 /obj/item/clothing/head/helmet/space/santahat
 	name = "Santa's hat"
 	desc = "Ho ho ho. Merrry X-mas!"
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	icon_state = "santahat"
 	item_state = "santahat"
 	flags_inv = BLOCKHAIR
@@ -54,7 +54,7 @@
 /obj/item/clothing/suit/space/santa
 	name = "Santa's suit"
 	desc = "Festive!"
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	icon_state = "santa"
 	item_state = "santa"
 	slowdown = 0
@@ -65,7 +65,7 @@
 /obj/item/clothing/head/helmet/space/pirate
 	name = "pirate hat"
 	desc = "Yarr."
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	icon_state = "pirate"
 	item_state = "pirate"
 	armor = list(
@@ -85,7 +85,7 @@
 /obj/item/clothing/suit/space/pirate
 	name = "pirate coat"
 	desc = "Yarr."
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	icon_state = "pirate"
 	item_state = "pirate"
 	w_class = WEIGHT_CLASS_NORMAL
