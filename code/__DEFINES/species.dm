@@ -3,6 +3,8 @@
 #define SPECIES_HUMAN_VATGROWN		"Vat-Grown Human"
 
 #define SPECIES_UNATHI				"Unathi"
+#define SPECIES_UNATHI_URAWANI		"Urawani Unathi"
+#define SPECIES_UNATHI_ZIRALIXI		"Ziralixi Unathi"
 
 #define SPECIES_DIONA				"Diona"
 #define SPECIES_DIONA_COEUS			"Coeus Diona"
