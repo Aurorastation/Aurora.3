@@ -53,8 +53,8 @@
 	stamina_recovery = 5
 
 	slowdown = 0.5 				// They are generally lethargic
-	sprint_cost_factor = 1.5		// Their high-speed low-duration sprint is very well known at this time and remains
-	sprint_speed_factor = 1.5
+	sprint_cost_factor = 1.75		// Their high-speed low-duration sprint is very well known at this time and remains
+	sprint_speed_factor = 1.75
 	exhaust_threshold = 65
 	bp_base_systolic = 80		// Default 120
 	bp_base_disatolic = 50		// Default 80
