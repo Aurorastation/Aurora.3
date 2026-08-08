@@ -882,6 +882,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
 				H.adjustFireLoss(10, 0)
+				return
 			if(infected)
 				for(var/obj/item/implant/mindshield/ipc/I in H)
 					if(I.implanted)
@@ -893,8 +894,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				to_chat(H, SPAN_DANGER("F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now."))
 				if(issilicon(hacker))
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transferred to [H]. They are now under your control until they are repaired."))
+				return
 			else if(cell && cell.charge > 0)
 				synthetic_siphon_power(H)
+				return
 			else
 				to_chat(user, SPAN_NOTICE("There is no charge to draw from that APC."))
 				return

@@ -37,3 +37,4 @@ regex = "1.10.5"
 # time
 chrono = "0.4.39"
 uuid = { version = "1.18.1", features = ["v4"] }
+libc = "0.2.189"

@@ -26,6 +26,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/cookingoil
+	category = "miscellaneous"
+	name = "cooking oil tank"
+	supplier = "orion"
+	description = "A tank filled with cooking oil."
+	price = 450
+	items = list(
+		/obj/structure/reagent_dispensers/cookingoil
+	)
+	access = 0
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/sculptingblock
 	category = "miscellaneous"
 	name = "sculpting block"

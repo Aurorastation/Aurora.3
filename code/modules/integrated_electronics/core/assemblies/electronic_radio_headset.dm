@@ -14,6 +14,8 @@
 	var/obj/item/electronic_assembly/clothing/small/circuit_assembly = null
 	// Built-in action circuit used to expose an activation button to the wearer/user.
 	var/obj/item/integrated_circuit/built_in/action_button/circuit_action = null
+	// Built-in receiver that exposes radio messages to the installed circuit network.
+	var/obj/item/integrated_circuit/input/radio_command_receiver/circuit_radio_receiver = null
 
 
 /obj/item/radio/headset/circuitry/Initialize(mapload, printed = FALSE)
@@ -26,8 +28,12 @@
 /obj/item/radio/headset/circuitry/Destroy()
 	QDEL_NULL(circuit_assembly)
 	circuit_action = null
+	circuit_radio_receiver = null
 	return ..()
 
+
+/obj/item/radio/headset/circuitry/proc/get_action_circuit()
+	return circuit_action
 
 /obj/item/radio/headset/circuitry/proc/setup_headset_integrated_circuit()
 	if(circuit_assembly)
@@ -39,16 +45,19 @@
 		circuit_assembly.clothing = src
 		circuit_assembly.name = name
 
-	QDEL_NULL(circuit_assembly.battery)
-
 	for(var/obj/item/integrated_circuit/C in circuit_assembly.contents)
 		C.assembly = circuit_assembly
 
 	circuit_action = locate(/obj/item/integrated_circuit/built_in/action_button) in circuit_assembly.contents
+	circuit_radio_receiver = locate(/obj/item/integrated_circuit/input/radio_command_receiver) in circuit_assembly.contents
 
 	if(!circuit_action)
 		circuit_action = new(circuit_assembly)
 		circuit_assembly.force_add_circuit(circuit_action)
+
+	if(!circuit_radio_receiver)
+		circuit_radio_receiver = new(circuit_assembly)
+		circuit_assembly.force_add_circuit(circuit_radio_receiver)
 
 	default_action_type = /datum/action/item_action/integrated_circuit
 	action_button_name = "Activate [capitalize_first_letters(name)]"
@@ -93,7 +102,6 @@
 	internal_assembly.name = source_assembly.name
 	internal_assembly.detail_color = source_assembly.detail_color
 	internal_assembly.opened = FALSE
-	internal_assembly.battery = null
 
 	for(var/obj/item/integrated_circuit/C in internal_assembly.contents)
 		C.assembly = internal_assembly
@@ -101,10 +109,15 @@
 	new_headset.name = source_assembly.name
 	new_headset.circuit_assembly = internal_assembly
 	new_headset.circuit_action = locate(/obj/item/integrated_circuit/built_in/action_button) in internal_assembly.contents
+	new_headset.circuit_radio_receiver = locate(/obj/item/integrated_circuit/input/radio_command_receiver) in internal_assembly.contents
 
 	if(!new_headset.circuit_action)
 		new_headset.circuit_action = new(internal_assembly)
 		internal_assembly.force_add_circuit(new_headset.circuit_action)
+
+	if(!new_headset.circuit_radio_receiver)
+		new_headset.circuit_radio_receiver = new(internal_assembly)
+		internal_assembly.force_add_circuit(new_headset.circuit_radio_receiver)
 
 	new_headset.default_action_type = /datum/action/item_action/integrated_circuit
 	new_headset.action_button_name = "Activate [capitalize_first_letters(new_headset.name)]"
@@ -258,3 +271,10 @@
 		return
 
 	to_chat(H, SPAN_NOTICE("\The [src] states, \"[message]\""))
+
+
+/obj/item/radio/headset/circuitry/proc/receive_circuit_radio_command(speaker_name, message, channel)
+	if(!circuit_radio_receiver || circuit_radio_receiver.assembly != circuit_assembly)
+		return
+
+	circuit_radio_receiver.receive_radio_command(speaker_name, message, channel, src)
