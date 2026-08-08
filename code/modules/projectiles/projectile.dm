@@ -403,7 +403,7 @@
 				if(ishuman(G.affecting))
 					var/mob/living/carbon/human/human_shield = G.affecting
 					var/obj/item/organ/external/organ = human_shield.get_organ(def_zone)
-					if(organ.burn_dam + organ.brute_dam > organ.max_damage) //If the hit zone is above the max damage threshold, the shot hits both.
+					if(LIMB_GET_BURN_DAMAGE(organ) + LIMB_GET_BRUTE_DAMAGE(organ) > organ.max_damage) //If the hit zone is above the max damage threshold, the shot hits both.
 						penetrating += 1
 						projectile_piercing = PASSMOB
 						pierce_chance = 100
