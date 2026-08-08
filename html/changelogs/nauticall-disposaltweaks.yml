@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: hazelmouse
+author: nauticall
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Interacting with an APC as an IPC on grab intent no longer opens the APC's UI in addition to charging from it."
+  - rscadd: "Painted the 'mainline' disposal pipes yellow for better distinction with mapping."
+  - rscadd: "Adjusted some disposal piping to be tidier."
+  - bugfix: "Packages can now once again be mailed to the Machinist's Workshop."

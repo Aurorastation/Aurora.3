@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a material silo and mech fabricators to the research console."
-  - rscadd: "The research console now uses TGUI."
