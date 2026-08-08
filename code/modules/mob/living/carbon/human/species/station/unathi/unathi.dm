@@ -20,7 +20,7 @@
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/claws/sharp,
+		/datum/unarmed_attack/claws/unathi,
 		/datum/unarmed_attack/palm/unathi,
 		/datum/unarmed_attack/bite/sharp
 	)
