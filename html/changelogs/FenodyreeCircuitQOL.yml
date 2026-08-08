@@ -1,0 +1,7 @@
+author: Fenodyree
+
+
+delete-after: True
+
+changes:
+  - qol: "Cloned circuit assemblies now spawn with uncharged batteries."
