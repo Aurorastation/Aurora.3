@@ -12,9 +12,9 @@ GLOBAL_DATUM_INIT(ntnet_global, /datum/ntnet, new)
 	var/list/available_software_presets = list()
 	var/list/available_news = list()
 	var/list/fileservers = list()
-	var/list/datum/ntnet_account/users = list()
-	/// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
-	/// High values make displaying logs much laggier.
+	var/list/datum/ntnet_user/chat_users = list()
+	// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
+	// High values make displaying logs much laggier.
 	var/setting_maxlogcount = 100
 
 	/// These only affect wireless. LAN (consoles) are unaffected since it would be possible to create scenario where someone turns off NTNet, and is unable to turn it back on since it refuses connections

@@ -2064,6 +2064,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
+/obj/item/communicator_landline/service,
 /turf/simulated/floor/tiled/white,
 /area/runtime/floor_one/main)
 "io" = (
@@ -5169,6 +5170,7 @@
 "Ag" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/steel,
+/obj/item/communicator_landline/operations,
 /turf/simulated/floor/tiled/full,
 /area/runtime/floor_one/warehouse)
 "Am" = (
@@ -8276,6 +8278,7 @@
 "Sn" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/reinforced/steel,
+/obj/item/communicator_landline/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_one/main)
 "Sr" = (

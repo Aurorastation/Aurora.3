@@ -54,7 +54,7 @@
 	. = ..()
 	deactivate_chat_client()
 
-/datum/computer_file/program/chat_client/run_program(var/mob/user)
+/datum/computer_file/program/chat_client/run_program(mob/user)
 	if(!istype(my_user))
 		if(istype(computer, /obj/item/modular_computer/silicon))
 			var/obj/item/modular_computer/silicon/SC = computer
@@ -184,8 +184,7 @@
 				data["channels"] += list(our_channel)
 
 		data["users"] = list()
-		for(var/u in GLOB.ntnet_global.chat_users)
-			var/datum/ntnet_user/ntnet_user = u
+		for(var/datum/ntnet_user/ntnet_user as anything in GLOB.ntnet_global.chat_users)
 			if(ntnet_user != my_user)
 				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
 	return data

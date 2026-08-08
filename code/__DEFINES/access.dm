@@ -14,6 +14,8 @@
 #define ACCESS_TYPE_SYNDICATE 4
 #define ACCESS_TYPE_ALL (ACCESS_TYPE_CENTCOM|ACCESS_TYPE_STATION|ACCESS_TYPE_SYNDICATE)
 
+#define ID_CARD_UNSET "\[UNSET\]"
+
 /datum/access
 	var/id = 0
 	var/desc = ""

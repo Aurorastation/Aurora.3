@@ -283,6 +283,7 @@
 	return level == 1
 
 /obj/proc/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
+	SEND_SIGNAL(src, COMSIG_OBJ_HEAR_TALK, M, text, verb, speaking)
 	if(talking_atom)
 		talking_atom.catchMessage(text, M)
 

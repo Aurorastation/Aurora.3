@@ -73,3 +73,67 @@ ABSTRACT_TYPE(/datum/gear/computer/handheld/wristbound)
 	display_name = "wristbound computer (Captain)"
 	path = /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/captain
 	allowed_roles = list("Captain")
+
+/datum/gear/computer/handheld/communicator
+	display_name = "communicator"
+	path = /obj/item/modular_computer/handheld/communicator/video
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	cost = 2
+
+/datum/gear/computer/handheld/communicator/New()
+	. = ..()
+	var/list/communicators = list()
+	// Keep the medium/video model first: path tweaks use their first option as
+	// the default for new and existing loadout selections.
+	communicators["video communicator"] = /obj/item/modular_computer/handheld/communicator/video
+	communicators["basic communicator"] = /obj/item/modular_computer/handheld/communicator
+	communicators["holographic communicator"] = /obj/item/modular_computer/handheld/communicator/holographic
+	gear_tweaks += new /datum/gear_tweak/path(communicators)
+	gear_tweaks += new /datum/gear_tweak/communicator_address
+
+// After spawning the communicator, register it to the player to avoid them needing to swipe their ID to activate it.
+/datum/gear/computer/handheld/communicator/spawn_item(location, metadata, mob/living/carbon/human/H)
+	var/obj/item/modular_computer/handheld/communicator/comm = ..()
+	addtimer(CALLBACK(comm, TYPE_PROC_REF(/obj/item/modular_computer/handheld/communicator, register_to_mob), H), 3 SECONDS)
+	return comm
+
+// Communicator NTNet address customisation
+/datum/gear_tweak/communicator_address/get_contents(metadata)
+	return "Address: [metadata ? "{[metadata]}" : "Not set"]"
+
+/datum/gear_tweak/communicator_address/get_metadata(user, metadata, title, gear_path)
+	return tgui_input_communicator_address(user, "Communicator Number", metadata)
+
+/datum/gear_tweak/communicator_address/tweak_item(obj/item/modular_computer/handheld/communicator/comm, metadata, mob/living/carbon/human/H)
+	if(!metadata)
+		return
+	metadata = lowertext(metadata)
+	if(!validate_ntnet_address(metadata))
+		to_chat(H, SPAN_DANGER("Error applying custom communicator number: Invalid number."))
+		return
+	// A saved address can collide with a communicator that joined the round
+	// before this loadout spawned. Keep the preference unchanged, but assign a
+	// fresh address to this device for the current round.
+	var/datum/computer_file/program/communicator/existing_app = GLOB.active_communicator_apps[metadata]
+	var/datum/computer_file/program/communicator/comm_app = comm.get_communicator_program()
+	if(existing_app && existing_app != comm_app)
+		var/original_address = metadata
+		var/randomized_address
+		for(var/attempt in 1 to 10)
+			var/candidate = generate_ntnet_address("round-communicator-[REF(comm)]-[world.time]-[attempt]-[rand(1, 1000000000)]")
+			if(!GLOB.active_communicator_apps[candidate])
+				randomized_address = candidate
+				break
+		if(!randomized_address)
+			to_chat(H, SPAN_DANGER("Could not assign a free communicator number for this round."))
+			return
+		metadata = randomized_address
+		to_chat(H, SPAN_WARNING("Your saved communicator number [original_address] was already taken. It has been randomized to [metadata] for this round only; your loadout preference was not changed."))
+
+	var/obj/item/computer_hardware/network_card/network_card = comm.network_card
+	if(!network_card)
+		return
+
+	comm_app?.remove_from_active(network_card.identification_addr)
+	network_card.identification_addr = metadata
+	comm_app?.add_to_active(metadata)

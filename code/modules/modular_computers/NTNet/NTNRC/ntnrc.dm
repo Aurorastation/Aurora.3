@@ -1,7 +1,6 @@
 /datum/ntnet
 	var/list/chat_channels = list()
 	var/list/chat_clients = list()
-	var/list/chat_users = list()
 
 /datum/ntnet/proc/begin_conversation(var/datum/computer_file/program/chat_client/Cl, var/title)
 	if(!istype(Cl) || !istype(Cl.my_user))

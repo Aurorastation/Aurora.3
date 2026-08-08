@@ -1,0 +1,5 @@
+author: "TheGreyWolf, SabreML, Geeves"
+delete-after: True
+changes:
+  - rscadd: "Added private modular communicators with address books, calling, messaging, and configurable addresses to the loadout."
+  - rscadd: "Added communicator tiers, including video calls, holographic calls, and department landlines with physical handsets and cradles."

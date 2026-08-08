@@ -48,7 +48,7 @@
 /datum/computer_file/program/proc/event_unregistered()
 	return
 
-// Called when an ID is unregistered from the device.
+// Called when an ID is registered to the device.
 /datum/computer_file/program/proc/event_registered()
 	return
 
