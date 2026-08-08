@@ -9,9 +9,9 @@
 
 	head = /obj/item/clothing/head/helmet/space/void/lancer
 	species_head = list(
-		SPECIES_UNATHI = /obj/item/clothing/head/helmet/space/void/lancer/unathi
+		SPECIES_UNATHI = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
 		SPECIES_UNATHI_URAWANI = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
-		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/head/helmet/space/void/lancer/unathi
 	)
 
 	suit = /obj/item/clothing/suit/space/void/lancer
