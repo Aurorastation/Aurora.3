@@ -115,7 +115,7 @@
 	corpsesuit = /obj/item/clothing/suit/space/void/unathi_pirate
 	corpsehelmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate
 	corpseid = FALSE
-	species = SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI
+	species = SPECIES_UNATHI
 
 /obj/effect/landmark/corpse/izharshan/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()
