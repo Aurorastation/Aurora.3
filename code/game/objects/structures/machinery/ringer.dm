@@ -14,6 +14,8 @@ pixel_x = -8;
 dir = EAST; \
 pixel_x = 8;
 
+GLOBAL_LIST_EMPTY_TYPED(all_ringers, /obj/structure/machinery/ringer)
+
 /obj/structure/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
@@ -52,6 +54,7 @@ pixel_x = 8;
 
 /obj/structure/machinery/ringer/Initialize(mapload)
 	. = ..()
+	GLOB.all_ringers += src
 	if(id)
 		ringers = new(id, src)
 
@@ -71,6 +74,7 @@ pixel_x = 8;
 	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/structure/machinery/ringer/Destroy()
+	GLOB.all_ringers -= src
 	QDEL_NULL(ringers)
 	return ..()
 
@@ -125,9 +129,7 @@ pixel_x = 8;
 			remove_pda(attacking_item)
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src]."))
-		rings_pdas += attacking_item
-		UnregisterSignal(attacking_item, COMSIG_QDELETING)
-		update_icon()
+		add_pda(attacking_item)
 		return TRUE
 	else
 		return ..()
@@ -174,6 +176,14 @@ pixel_x = 8;
 /obj/structure/machinery/ringer/proc/remove_pda(obj/item/modular_computer/P)
 	if (istype(P))
 		rings_pdas -= P
+		update_icon()
+
+/// Links a PDA if it is not already receiving this ringer's notifications.
+/obj/structure/machinery/ringer/proc/add_pda(obj/item/modular_computer/P)
+	if(!istype(P) || (P in rings_pdas))
+		return
+	rings_pdas += P
+	update_icon()
 
 /obj/structure/machinery/ringer_button
 	name = "ringer button"
