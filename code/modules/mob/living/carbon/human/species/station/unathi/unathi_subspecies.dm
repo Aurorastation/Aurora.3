@@ -16,14 +16,6 @@
 	height_min = 175 			// Shortest of all unathi races on average
 	height_max = 200 			// Shortest of all unathi races on average
 
-		unarmed_types = list(
-		/datum/unarmed_attack/stomp,
-		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/claws/unathi,
-		/datum/unarmed_attack/palm/unathi,
-		/datum/unarmed_attack/bite/sharp
-		)
-
 	stamina	=	120			// Urawani are persistence hunters
 	slowdown = 0.1 				// Urawani are more on-par with humans than any other variant
 	sprint_cost_factor = 0.8 		// They still cannot sprint as long as any other species
@@ -112,13 +104,7 @@
 	age_max = 95
 	height_min = 185 			// Bigger cousins of Urawani sinta
 	height_max = 225 			// Bigger cousins of Urawani sinta
-	unarmed_types = list(
-		/datum/unarmed_attack/stomp,
-		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/claws/unathi,
-		/datum/unarmed_attack/palm/unathi,
-		/datum/unarmed_attack/bite/sharp
-	)
+
 	stamina	=	100				// Ziralixi are persistence hunters
 	slowdown = 0.3 				// Ziralixi are slower, more methodical runners
 	sprint_cost_factor = 0.7
