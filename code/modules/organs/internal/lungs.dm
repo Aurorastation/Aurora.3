@@ -43,7 +43,7 @@
 	return round((oxygen_deprivation/species.total_health)*100)
 
 /obj/item/organ/internal/lungs/process()
-	..()
+	. = ..()
 
 	if(!owner || owner.stat == DEAD)
 		return
@@ -79,6 +79,12 @@
 				to_chat(owner, SPAN_WARNING("It feels hard to breathe, and something in your chest is whistling..."))
 				if (owner.losebreath < 2)
 					owner.losebreath = min(owner.losebreath + 1, 2)
+
+/// Brain, Heart, and Lungs should always process if they have a living owner.
+/obj/item/organ/internal/lungs/need_process(seconds_per_tick)
+	. = ..()
+	if(owner && owner.stat != DEAD || !(status & ORGAN_DEAD))
+		return TRUE
 
 /obj/item/organ/internal/lungs/proc/rupture()
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)

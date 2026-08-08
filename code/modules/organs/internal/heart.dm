@@ -118,8 +118,9 @@
 	var/blood_spray_distance = 2
 
 /obj/item/organ/internal/heart/process(seconds_per_tick)
+	. = ..()
 	if(!owner)
-		return ..()
+		return
 	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
 		seconds_per_tick /= owner.stasis_value
 	handle_pulse()
@@ -130,7 +131,12 @@
 			take_internal_damage(heart_fibrillation_damage * seconds_per_tick)
 		handle_heartbeat()
 	handle_blood()
-	..()
+
+/// Brain, Heart, and Lungs should always process if they have a living owner.
+/obj/item/organ/internal/heart/need_process(seconds_per_tick)
+	. = ..()
+	if(owner && owner.stat != DEAD || !(status & ORGAN_DEAD))
+		return TRUE
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
 	if(owner.stat == DEAD || (species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic. Or you're dead.

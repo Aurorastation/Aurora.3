@@ -13,6 +13,15 @@
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 
+/obj/item/organ/internal/eyes/replaced(mob/living/carbon/human/target)
+	// Apply our eye colour to the target.
+	if(istype(target) && eye_colour)
+		target.r_eyes = eye_colour[1]
+		target.g_eyes = eye_colour[2]
+		target.b_eyes = eye_colour[3]
+		target.update_eyes()
+	..()
+
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
 		return
@@ -72,14 +81,18 @@
 
 	return TRUE
 
-/obj/item/organ/internal/eyes/process() //Eye damage replaces the old eye_stat var.
-	..()
-	if(!owner)
+/obj/item/organ/internal/eyes/need_process(seconds_per_tick)
+	. = ..()
+	if (!owner || owner.stat == DEAD)
 		return
-	if(is_bruised())
-		owner.eye_blurry = 20
-	if(is_broken())
+
+	if (is_broken())
 		owner.eye_blind = 20
+		return TRUE
+
+	if (is_bruised())
+		owner.eye_blurry = 20
+		return TRUE
 
 /obj/item/organ/internal/eyes/do_surge_effects()
 	if(owner)

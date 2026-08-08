@@ -50,8 +50,12 @@
 		owner.vomit(deliberate = TRUE)
 		refresh_action_button()
 
-/obj/item/organ/internal/stomach/proc/can_eat_atom(var/atom/movable/food)
-	return !isnull(get_devour_time(food))
+/obj/item/organ/internal/stomach/proc/can_eat_atom(atom/movable/food)
+	if (!get_devour_time(food))
+		return FALSE
+
+	START_PROCESSING(SSprocessing, src)
+	return TRUE
 
 /obj/item/organ/internal/stomach/proc/is_full(var/atom/movable/food)
 	var/total = FLOOR(ingested.total_volume / 10, 1)
@@ -100,7 +104,7 @@
 		ingested.metabolize()
 
 /obj/item/organ/internal/stomach/process()
-	..()
+	. = ..()
 	if(!owner)
 		return
 
@@ -135,6 +139,14 @@
 		var/vomit_probability = (effective_volume / stomach_volume) ** 6
 		if(prob(vomit_probability))
 			owner.vomit()
+
+/obj/item/organ/internal/stomach/need_process(seconds_per_tick)
+	. = ..()
+	if (!owner || owner.stat == DEAD)
+		return
+
+	if (!is_usable() || length(contents) || should_process_alcohol && REAGENT_VOLUME(ingested, /singleton/reagent/alcohol))
+		return TRUE
 
 /obj/item/organ/internal/stomach/proc/digest_mob(mob/M)
 	if(!QDELETED(M))
