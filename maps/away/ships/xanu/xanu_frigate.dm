@@ -7,7 +7,8 @@
 	prefix = "ships/xanu/"
 	suffix = "xanu_frigate.dmm"
 
-	sectors = list(ALL_COALITION_SECTORS)
+	sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3, SECTOR_XANU = 3, SECTOR_BURZSIA = 0.5)
 	spawn_weight = 1
 	ship_cost = 1

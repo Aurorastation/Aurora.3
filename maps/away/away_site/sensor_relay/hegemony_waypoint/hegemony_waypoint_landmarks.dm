@@ -4,35 +4,35 @@
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/north_docking
-	name = "Hegemonic Waypoint Installation - North External Dock"
+	name = "Navigation Buoy Gamma - North External Dock"
 	landmark_tag = "hegemony_waypoint_dock_n"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/east_docking
-	name = "Hegemonic Waypoint Installation - East External Dock"
+	name = "Navigation Buoy Gamma - East External Dock"
 	landmark_tag = "hegemony_waypoint_dock_e"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/west_docking
-	name = "Hegemonic Waypoint Installation - West External Dock"
+	name = "Navigation Buoy Gamma - West External Dock"
 	landmark_tag = "hegemony_waypoint_dock_w"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/south_docking
-	name = "Hegemonic Waypoint Installation - South External Dock"
+	name = "Navigation Buoy Gamma - South External Dock"
 	landmark_tag = "hegemony_waypoint_dock_s"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/south
-	name = "Hegemonic Waypoint Installation - Space, South"
+	name = "Navigation Buoy Gamma - Space, South"
 	landmark_tag = "hegemony_waypoint_s_space"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/west
-	name = "Hegemonic Waypoint Installation - Space, West"
+	name = "Navigation Buoy Gamma - Space, West"
 	landmark_tag = "hegemony_waypoint_w_space"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/east
-	name = "Hegemonic Waypoint Installation - Space, East"
+	name = "Navigation Buoy Gamma - Space, East"
 	landmark_tag = "hegemony_waypoint_e_space"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/north
-	name = "Hegemonic Waypoint Installation - Space, North"
+	name = "Navigation Buoy Gamma - Space, North"
 	landmark_tag = "hegemony_waypoint_n_space"
 
 // Airlocks
