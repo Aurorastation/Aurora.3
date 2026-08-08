@@ -14,7 +14,15 @@
 	species_height = HEIGHT_CLASS_TALL
 	age_max = 95
 	height_min = 175 			// Shortest of all unathi races on average
-	height_max = 200 			// Shortest of all unathi races on average
+	height_max = 225 			// Shortest of all unathi races on average
+
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws/unathi,
+		/datum/unarmed_attack/palm/unathi,
+		/datum/unarmed_attack/bite/sharp
+	)
 
 	stamina	=	120			// Urawani are persistence hunters
 	slowdown = 0.1 				// Urawani are more on-par with humans than any other variant
@@ -46,7 +54,7 @@
 	metabolism_mod = 1.1		// They pump blood very quickly
 
 	climb_coeff = 0.8			// Acclimated to quick movement through trees
-	standing_jump_range = 2	// Acclimated to quick movement through trees
+	standing_jump_range = 3	// Acclimated to quick movement through trees
 	natural_climbing = TRUE	// Acclimated to quick movement through trees
 
 	cold_level_1 = 260 //Default 260 - Lower is better
@@ -103,7 +111,15 @@
 	species_height = HEIGHT_CLASS_TALL
 	age_max = 95
 	height_min = 185 			// Bigger cousins of Urawani sinta
-	height_max = 225 			// Bigger cousins of Urawani sinta
+	height_max = 235 			// Bigger cousins of Urawani sinta
+
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws/unathi,
+		/datum/unarmed_attack/palm/unathi,
+		/datum/unarmed_attack/bite/sharp
+	)
 
 	stamina	=	100				// Ziralixi are persistence hunters
 	slowdown = 0.3 				// Ziralixi are slower, more methodical runners
@@ -133,7 +149,7 @@
 	flash_mod = 1.2				// Parietal eye sensitivity
 
 	climb_coeff = 1.1			// Closer to Azaziba than Urawani here
-	standing_jump_range = 1	// More mobile than Azaziba, but not as much as Urawani
+	standing_jump_range = 2	// More mobile than Azaziba, but not as much as Urawani
 
 	cold_level_1 = 280 //Default 260 - Lower is better
 	cold_level_2 = 220 //Default 200

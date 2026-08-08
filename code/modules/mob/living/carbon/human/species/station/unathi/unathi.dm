@@ -20,9 +20,9 @@
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/claws/unathi,
+		/datum/unarmed_attack/claws/strong,
 		/datum/unarmed_attack/palm/unathi,
-		/datum/unarmed_attack/bite/sharp
+		/datum/unarmed_attack/bite/strong
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE
@@ -70,6 +70,7 @@
 	mob_size = 11
 	mob_weight = MOB_WEIGHT_HEAVY
 	climb_coeff = 1.35
+	standing_jump_range = 1
 
 	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
 	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
