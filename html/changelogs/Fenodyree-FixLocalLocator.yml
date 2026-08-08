@@ -1,5 +1,0 @@
-author: Fenodyree
-delete-after: True
-changes:
-  - bugfix: "Fixes the integrated circuit local locator failing if it was installed in clothing."
-

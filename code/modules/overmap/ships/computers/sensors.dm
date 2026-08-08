@@ -509,8 +509,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	take_damage(hitting_projectile.get_structure_damage())
-
 /obj/structure/machinery/shipsensors/proc/toggle()
 	if(use_power) // reset desired range when turning off
 		set_desired_range(1)
