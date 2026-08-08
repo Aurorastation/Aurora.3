@@ -1,0 +1,150 @@
+/datum/species/unathi/unathi_urawani
+	name = SPECIES_UNATHI_URAWANI
+	name_plural = "Urawani Sinta"
+	blurb = "To do"
+	species_height = HEIGHT_CLASS_TALL
+	age_max = 95
+	height_min = 175 			// Shortest of all unathi races on average
+	height_max = 200 			// Shortest of all unathi races on average
+
+	stamina	=	120			// Urawani are persistence hunters
+	slowdown = 0.1 				// Urawani are more on-par with humans than any other variant
+	sprint_cost_factor = 0.8 		// They still cannot sprint as long as any other species
+	sprint_speed_factor = 0.9	// But they do maintain slightly slower-than-human speeds
+	exhaust_threshold = 50	 	// Brings them back to the standard exhaust threshold
+	bp_base_systolic = 100		// Default 120
+	bp_base_disatolic = 60		// Default 80
+	low_pulse = 30				// Default 40
+	norm_pulse = 50			// Default 60
+	fast_pulse = 80				// Default 90
+	v_fast_pulse = 100			// Default 120
+	max_pulse = 120			// Default 160
+
+	stomach_capacity = 6
+	max_nutrition_factor = 1.2
+	max_hydration_factor = 1.2
+	nutrition_loss_factor = 1
+	hydration_loss_factor = 1
+
+	pain_mod = 1				// Standard pain
+	brute_mod = 0.9 			// Osteodermous integumentary system
+	fall_mod = 0.9				// Acclimated to quick movement through trees
+	radiation_mod = 0.9			// While adaptable, Urawani are not adjusted to radiation like Azaziba
+	grab_mod = 1				// Lithe and wily variants
+	resist_mod = 2 				// Physically the weakest sinta, but still big lizardmen
+	toxins_mod = 1.1			// They pump blood very quickly
+	bleed_mod = 1.1			// They pump blood very quickly
+	metabolism_mod = 1.1		// They pump blood very quickly
+
+	climb_coeff = 0.8			// Acclimated to quick movement through trees
+	standing_jump_range = 2	// Acclimated to quick movement through trees
+	natural_climbing = TRUE	// Acclimated to quick movement through trees
+
+	cold_level_1 = 260 //Default 260 - Lower is better
+	cold_level_2 = 200 //Default 200
+	cold_level_3 = 120 //Default 120
+
+	heat_level_1 = 420 //Default 360 - Higher is better
+	heat_level_2 = 460 //Default 400
+	heat_level_3 = 1060 //Default 1000
+
+	heat_discomfort_level = 311 // 37°C
+	heat_discomfort_strings = list(
+		"You feel soothingly warm.",
+		"You feel the heat sink into your bones.",
+		"You feel warm enough to take a nap."
+		)
+
+	cold_discomfort_level = 291  // 18°C
+	cold_discomfort_strings = list(
+		"You feel chilly.",
+		"You feel sluggish and cold.",
+		"Your scales bristle against the cold."
+		)
+
+	rarity_value = 3
+	break_cuffs = FALSE
+	mob_size = 9
+	mob_weight = MOB_WEIGHT_MEDIUM
+	mob_strength = MOB_STRENGTH_NORMAL
+
+	maneuvers = list(
+		/singleton/maneuver/leap
+	)
+
+	mass_modifier = REFERENCE_MASS_UNATHI_URAWANI / REFERENCE_MASS_HUMAN
+
+
+
+/datum/species/unathi/unathi_Ziralixi
+	name = SPECIES_UNATHI_ZIRALIXI
+	name_plural = "Ziralixi Sinta"
+	blurb = "To Do"
+	species_height = HEIGHT_CLASS_TALL
+	age_max = 95
+	height_min = 185 			// Bigger cousins of Urawani sinta
+	height_max = 225 			// Bigger cousins of Urawani sinta
+
+	stamina	=	120			// Urawani are persistence hunters
+	slowdown = 0.1 				// Urawani are more on-par with humans than any other variant
+	sprint_cost_factor = 0.8 		// They still cannot sprint as long as any other species
+	sprint_speed_factor = 0.9	// But they do maintain slightly slower-than-human speeds
+	exhaust_threshold = 50	 	// Brings them back to the standard exhaust threshold
+	bp_base_systolic = 90		// Default 120
+	bp_base_disatolic = 55		// Default 80
+	low_pulse = 25				// Default 40
+	norm_pulse = 45			// Default 60
+	fast_pulse = 70				// Default 90
+	v_fast_pulse = 90			// Default 120
+	max_pulse = 110			// Default 160
+
+	stomach_capacity = 6
+	max_nutrition_factor = 1.3
+	max_hydration_factor = 1.3
+	nutrition_loss_factor = 0.9
+	hydration_loss_factor = 0.9
+
+	pain_mod = 1				// Standard pain
+	brute_mod = 0.8 			// Tuberculate integumentary system plus subtympanic shield
+	fall_mod = 1.3				// Adjusts their fall mod to standard to accomodate their brute mod
+	radiation_mod = 0.9			// While adaptable, Ziralixi are not adjusted to radiation like Azaziba
+	grab_mod = 1.25			// Easier to grab than Urawani
+	resist_mod = 2.5			// Not as strong as Azaziba but still fairly buff
+	flash_mod = 1.2				// Parietal eye sensitivity
+
+	climb_coeff = 1.1			// Closer to Azaziba than Urawani here
+	standing_jump_range = 1	// More mobile than Azaziba, but not as much as Urawani
+
+	cold_level_1 = 280 //Default 260 - Lower is better
+	cold_level_2 = 220 //Default 200
+	cold_level_3 = 140 //Default 120
+
+	heat_level_1 = 460 //Default 360 - Higher is better
+	heat_level_2 = 500 //Default 400
+	heat_level_3 = 1100 //Default 1000
+
+	heat_discomfort_level = 316 // 43°C
+	heat_discomfort_strings = list(
+		"You feel soothingly warm.",
+		"You feel the heat sink into your bones.",
+		"You feel warm enough to take a nap."
+		)
+
+	cold_discomfort_level = 297  // 24°C
+	cold_discomfort_strings = list(
+		"You feel chilly.",
+		"You feel sluggish and cold.",
+		"Your scales bristle against the cold."
+		)
+
+	rarity_value = 3
+	break_cuffs = TRUE
+	mob_size = 10
+	mob_weight = MOB_WEIGHT_HEAVY
+	mob_strength = MOB_STRENGTH_NORMAL
+
+	maneuvers = list(
+		/singleton/maneuver/leap
+	)
+
+	mass_modifier = REFERENCE_MASS_UNATHI_URAWANI / REFERENCE_MASS_HUMAN

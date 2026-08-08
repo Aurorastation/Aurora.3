@@ -366,6 +366,12 @@
 /// Average mass of an Unathi (in Kg)
 #define REFERENCE_MASS_UNATHI 120
 
+/// Average mass of an Unathi (in Kg)
+#define REFERENCE_MASS_UNATHI_URAWANI 100
+
+/// Average mass of an Unathi (in Kg)
+#define REFERENCE_MASS_UNATHI_ZIRALIXI 110
+
 /// Average mass of an IPC (in Kg)
 #define REFERENCE_MASS_IPC 125
 
