@@ -99,7 +99,7 @@
 	subcontinent, they are often slower and more methodical than Urawani sinta. Ziralixi are often viewed as \
 	the most peaceful of the unathi species, with their culture being more focused on spirituality and growth- \
 	both spiritually and physically, with many of the grasslands of their subcontinent being used for farming, \
-	unlike the other species.
+	unlike the other species."
 	species_height = HEIGHT_CLASS_TALL
 	age_max = 95
 	height_min = 185 			// Bigger cousins of Urawani sinta
