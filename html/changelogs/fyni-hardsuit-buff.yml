@@ -1,0 +1,4 @@
+author: fyni
+delete-after: True
+changes:
+  - balance: "Triples the size of the starting cell in premade hardsuits."

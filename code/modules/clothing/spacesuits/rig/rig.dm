@@ -50,7 +50,7 @@
 	var/helm_type =  /obj/item/clothing/head/helmet/space/rig
 	var/boot_type =  /obj/item/clothing/shoes/magboots/rig
 	var/glove_type = /obj/item/clothing/gloves/rig
-	var/cell_type =  /obj/item/cell/high
+	var/cell_type =  /obj/item/cell/hyper
 	var/air_type =   /obj/item/tank/oxygen
 
 	//Component/device holders.
