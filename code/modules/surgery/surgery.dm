@@ -19,6 +19,8 @@
 	var/blood_level = 0
 
 	var/requires_surgery_compatibility = TRUE
+	/// Whether this step may be performed on oneself while standing and away from an operating surface.
+	var/standing_self_surgery = FALSE
 
 	/**
 	 * The associative list of skills and their paired requirement levels to be able to perform a given surgery.
@@ -27,6 +29,8 @@
 	 * Exceeding the skill requirement can also offset having lower success rates from things like tools.
 	 */
 	var/alist/skill_requirements
+	/// Whether failing to meet a skill requirement prevents this surgery instead of merely penalizing it.
+	var/hard_skill_requirements = FALSE
 
 	/// The bonus (or penalty) fail rate to a surgery per point of skill diff. As a percent chance.
 	var/skill_diff_fail_modifier = SURGERY_DIFFICULTY_EASY
@@ -40,6 +44,21 @@
 		if(istype(tool,T))
 			return allowed_tools[T]
 	return FALSE
+
+/singleton/surgery_step/proc/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
+	return skill_requirements
+
+/singleton/surgery_step/proc/has_required_skills(mob/living/user, mob/living/carbon/human/target)
+	if(!hard_skill_requirements)
+		return TRUE
+	for(var/skill_comp, required_level in get_skill_requirements(user, target))
+		var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
+		if(!isnull(skill_level) && skill_level < required_level)
+			return FALSE
+	return TRUE
+
+/singleton/surgery_step/proc/skill_requirement_failure(mob/living/user, mob/living/carbon/human/target)
+	to_chat(user, SPAN_WARNING("You lack the skills required to perform this procedure."))
 
 /// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
@@ -104,7 +123,7 @@
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 
-/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE)
+/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE, var/standing_self_surgery_only = FALSE)
 	// Check for the Hippocratic oath.
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
@@ -127,6 +146,8 @@
 	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/decl in all_surgeries)
 		var/singleton/surgery_step/S = all_surgeries[decl]
+		if(standing_self_surgery_only && !S.standing_self_surgery)
+			continue
 		if(S.tool_quality(tool) && S.can_use(user, M, zone, tool))
 			LAZYSET(possible_surgeries, S, TRUE)
 
@@ -140,10 +161,15 @@
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
+		if(standing_self_surgery_only)
+			return FALSE
 		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
 			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
 			return TRUE
 		return FALSE //Just do the normal use for the tool instead
+	else if(!S.has_required_skills(user, M))
+		S.skill_requirement_failure(user, M)
+		return TRUE
 
 	// Otherwise we can make a start on surgery!
 	else if(istype(M) && !QDELETED(M) && tool)
@@ -165,7 +191,7 @@
 			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
 
 			// Skill modifier checks
-			for (var/skill_comp, required_level in S.skill_requirements)
+			for (var/skill_comp, required_level in S.get_skill_requirements(user, M))
 				var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
 				// Null condition handles NPCs and Antags that won't have the skill setup.
 				if (!isnull(skill_level))

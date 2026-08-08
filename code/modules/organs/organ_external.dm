@@ -103,6 +103,11 @@
 	/// A `/list` of organs that have this organ as a parent
 	var/list/obj/item/organ/external/children
 
+	/// Limb slots which have been fitted with a socket for manually attaching a prosthetic.
+	var/list/prosthetic_sockets = list()
+	/// How far this prosthetic has progressed through the manual detachment procedure.
+	var/prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SECURED
+
 	/// Boolean, if this organ supports childrens, which will be added in `children`
 	var/supports_children = TRUE
 
@@ -418,6 +423,8 @@
 			if(!parent.children)
 				parent.children = list()
 			parent.children.Add(src)
+			if(robotic)
+				parent.prosthetic_sockets |= limb_name
 			//Remove all stump wounds since limb is not missing anymore
 			for(var/datum/wound/lost_limb/W in parent.wounds)
 				qdel(W)
