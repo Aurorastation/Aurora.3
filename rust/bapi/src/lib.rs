@@ -100,9 +100,37 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
 /// Not to be called from the game server, so bad error-handling is fine.
 /// This should run map manipulations on every `.dmm` map that has a `.jsonc` config file,
 /// and write it to a `.mapmanipout.dmm` file in the same location.
+/// Or, if provided, run manipulations on maps in a directory from the `path_raw` argument.
 #[no_mangle]
-pub unsafe extern "C" fn all_mapmanip_configs_execute_ffi() {
-    let mapmanip_configs = walkdir::WalkDir::new("../../maps")
+pub unsafe extern "system" fn all_mapmanip_configs_execute_ffi(
+    _hwnd: *mut libc::c_void,
+    _hinst: *mut libc::c_void,
+    lpsz_cmd_line: *const libc::c_char,
+    _n_cmd_show: i32,
+) {
+    let maps_path = if lpsz_cmd_line.is_null() {
+        // just do all maps
+        "../../maps".to_string()
+    } else {
+        // try to safely parse the argument
+        let c_str = unsafe { std::ffi::CStr::from_ptr(lpsz_cmd_line) };
+
+        match c_str.to_str() {
+            Ok(s) if !s.trim().is_empty() => {
+                let input_path = std::path::Path::new(s.trim());
+                if input_path.is_absolute() {
+                    input_path.to_string_lossy().into_owned()
+                } else {
+                    let mut resolved = std::path::PathBuf::from("../../");
+                    resolved.push(input_path);
+                    resolved.to_string_lossy().into_owned()
+                }
+            }
+            _ => "../../maps".to_string(),
+        }
+    };
+
+    let mapmanip_configs = walkdir::WalkDir::new(maps_path)
         .into_iter()
         .map(|d| d.unwrap().path().to_owned())
         .filter(|p| p.extension().is_some())
@@ -116,6 +144,10 @@ pub unsafe extern "C" fn all_mapmanip_configs_execute_ffi() {
             p.set_extension("dmm");
             p
         };
+
+        if !dmm_path.exists() {
+            continue;
+        }
 
         let path_dir: &std::path::Path = dmm_path.parent().unwrap();
 

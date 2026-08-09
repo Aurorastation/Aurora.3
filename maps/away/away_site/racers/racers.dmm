@@ -676,6 +676,10 @@
 /obj/structure/machinery/atm,
 /turf/simulated/wall/rusty,
 /area/racers)
+"cHq" = (
+/obj/structure/machinery/pipedispenser,
+/turf/simulated/floor/plating,
+/area/racers)
 "cJe" = (
 /obj/structure/reagent_dispensers/cookingoil,
 /turf/simulated/floor/tiled/freezer{
@@ -864,7 +868,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "dNX" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /obj/structure/machinery/light/small/red{
 	dir = 4
 	},
@@ -1369,13 +1373,7 @@
 /turf/template_noop,
 /area/space)
 "gyV" = (
-/obj/item/stack/material/steel{
-	amount = 50
-	},
-/obj/item/stack/material/plasteel{
-	amount = 10
-	},
-/obj/structure/table/rack,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/plating,
 /area/racers)
 "gAI" = (
@@ -1394,6 +1392,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
+/area/racers)
+"gOv" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/plasteel{
+	amount = 10
+	},
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/turf/simulated/floor/plating,
 /area/racers)
 "gPD" = (
 /obj/structure/largecrate/hoverpod,
@@ -2936,6 +2944,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/racers)
+"okb" = (
+/obj/structure/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/item/laser_pointer/red,
+/turf/simulated/floor/plating,
+/area/racers)
 "okF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/robot,
@@ -3049,8 +3064,9 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "oNS" = (
-/obj/structure/machinery/pipedispenser,
-/obj/item/laser_pointer/red,
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/racers)
 "oQI" = (
@@ -41187,7 +41203,7 @@ dGi
 owK
 wUg
 vhm
-iVB
+okb
 oNS
 qWG
 iVB
@@ -41955,7 +41971,7 @@ qiM
 xjB
 jzb
 xjB
-xjB
+gOv
 xjB
 xjB
 gyV
@@ -42216,7 +42232,7 @@ qVo
 jjB
 xjB
 dNX
-xjB
+cHq
 hRn
 xjB
 mDd
