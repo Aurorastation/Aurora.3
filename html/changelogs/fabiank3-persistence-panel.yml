@@ -1,8 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed quotation marks being added to persistent type defines in the database."
-  - rscadd: "Added a new TGUI panel for admins called persistence panel. Features subsystem status and detailed information on all persistent content."
-  - qol: "Removed the toggle persistence admin verb and moved it into the persistence panel."

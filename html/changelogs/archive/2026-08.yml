@@ -224,3 +224,27 @@
   - bugfix: Fixed an issue with exoplanet turf edge icons layering below the adjacent
       turfs.
   - code_imp: Exoplanet turfs no longer attempt to add edge icons by default.
+2026-08-09:
+  FabianK3:
+  - bugfix: Fixed quotation marks being added to persistent type defines in the database.
+  - rscadd: Added a new TGUI panel for admins called persistence panel. Features subsystem
+      status and detailed information on all persistent content.
+  - qol: Removed the toggle persistence admin verb and moved it into the persistence
+      panel.
+  FabianK3, Wowzewow:
+  - rscadd: Added persistence for cooking oil tanks.
+  - rscadd: Added fill level indicators to water, fuel, extinguisher, lube and cooking
+      oil tanks.
+  - rscadd: Added cooking oil tanks to cargo order manifest.
+  Fenodyree:
+  - qol: Causes the statpanel (Alt-click pickup menu) to immediately update when an
+      item is removed from a turf, instead of waiting for the next update tick.
+  - bugfix: Fixes many bugs related to being able to interact with items normally
+      inaccessable. Eg. Double loading bullets into a magazine.
+  The Stryker:
+  - rscadd: Adds a press vest and helmet to the journalist's office.
+  nauticall:
+  - rscadd: Painted the 'mainline' disposal pipes yellow for better distinction with
+      mapping.
+  - rscadd: Adjusted some disposal piping to be tidier.
+  - bugfix: Packages can now once again be mailed to the Machinist's Workshop.
