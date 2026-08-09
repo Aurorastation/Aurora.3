@@ -144,11 +144,13 @@
 	set desc = "Assemble a hivebot beacon."
 	set category = "Hivebot"
 
-	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot beacon.", \
-		"You begin to construct a hivebot beacon.", "You hear the sounds of fabrication..."))
+	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot beacon."),
+		SPAN_CULT("You begin to construct a hivebot beacon."),
+		SPAN_CULT("You hear the sounds of fabrication..."))
 	if(!do_after(src, 12 SECONDS))
 		return
-	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot beacon!", "You construct a hivebot beacon!"))
+	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot beacon!"),
+		SPAN_CULT("You construct a hivebot beacon!"))
 	new /mob/living/simple_animal/hostile/hivebotbeacon(get_turf(src))
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/verb/build_destroyer()
@@ -156,11 +158,13 @@
 	set desc = "Assemble a playable hivebot destroyer."
 	set category = "Hivebot"
 
-	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot destroyer.", \
-		"You begin to construct a hivebot destroyer.", "You hear the sounds of fabrication..."))
+	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot destroyer."),
+		SPAN_CULT("You begin to construct a hivebot destroyer."),
+		SPAN_CULT("You hear the sounds of fabrication..."))
 	if(!do_after(src, 12 SECONDS))
 		return
-	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot destroyer!", "You construct a hivebot destroyer!"))
+	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot destroyer!"),
+		SPAN_CULT("You construct a hivebot destroyer!"))
 	new /mob/living/simple_animal/hostile/hivebot/playable(get_turf(src))
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/verb/toggle_signal()
@@ -169,10 +173,12 @@
 	set category = "Hivebot"
 
 	if(!active_signal)
-		src.visible_message(SPAN_CULT("\The [src] begins to emit a low, humming sound...", \
-			"You begin to transmit an invasive signal, subverting nearby synthetics.", "You hear a low humming..."))
+		src.visible_message(SPAN_CULT("\The [src] begins to emit a low, humming sound..."),
+			SPAN_CULT("You begin to transmit an invasive signal, subverting nearby synthetics."),
+			SPAN_CULT("You hear a low humming..."))
 		active_signal = TRUE
 	else
-		src.visible_message(SPAN_CULT("\The [src] abruptly ceases to emit a low, humming sound...", \
-			"You cease transmitting the signal.", "A low humming noise abruptly cuts out!"))
+		src.visible_message(SPAN_CULT("\The [src] abruptly ceases to emit a low, humming sound..."),
+			SPAN_CULT("You cease transmitting the signal."),
+			SPAN_CULT("A low humming noise abruptly cuts out!"))
 		active_signal = FALSE
