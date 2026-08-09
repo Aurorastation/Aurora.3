@@ -19,6 +19,7 @@
 	attacktext = "maimed"
 	attack_sound = SFX_HIVEBOT_MELEE
 	blood_color = COLOR_OIL
+	blood_type = COLOR_OIL
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	pass_flags = PASSTABLE|PASSRAILING
 	min_oxy = 0

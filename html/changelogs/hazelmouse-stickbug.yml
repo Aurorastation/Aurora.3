@@ -59,3 +59,4 @@ changes:
   - rscadd: "Adds hivebot circuit floors."
   - qol: "Playable hivebots now spawn with the hivebot language as standard."
   - imageadd: "Added the sprites for the greater hivebot boss to the codebase, though it is currently unimplemented."
+  - qol: "Playable hivebots now make noises when they speak or emote."
