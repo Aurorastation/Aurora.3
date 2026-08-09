@@ -1,5 +1,6 @@
 // internal modules
 mod mapmanip;
+mod misc;
 
 use byondapi::prelude::*;
 use eyre::{Context, ContextCompat};
@@ -166,4 +167,17 @@ pub unsafe extern "system" fn all_mapmanip_configs_execute_ffi(
         };
         std::fs::write(dmm_out_path, dmm).unwrap();
     }
+}
+
+/// To be used by the `tools/bapi/autopipe.ps1` script.
+#[no_mangle]
+pub unsafe extern "system" fn autopipe_ffi(
+    _hwnd: *mut libc::c_void,
+    _hinst: *mut libc::c_void,
+    lpsz_cmd_line: *const libc::c_char,
+    _n_cmd_show: i32,
+) {
+    let c_str = unsafe { std::ffi::CStr::from_ptr(lpsz_cmd_line) };
+    let map_path = c_str.to_str().unwrap();
+    misc::autopipe::autopipe(map_path);
 }

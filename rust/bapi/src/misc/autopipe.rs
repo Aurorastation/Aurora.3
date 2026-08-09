@@ -5,9 +5,8 @@
 // use crate::dmmr::*;
 // use crate::*;
 use crate::mapmanip::core::*;
-use crate::mapmanip::*;
 
-use dmmtools::dmm::{Coord2, Coord3, Prefab};
+use dmmtools::dmm::{Coord3, Prefab};
 use dreammaker::constants::Constant;
 use itertools::Itertools;
 
@@ -67,13 +66,13 @@ pub fn autopipe(map_path: &str) {
                     // dbg!(row, col, z_level);
                     let atoms_n = umm
                         .grid
-                        .get(&Coord3::new(row, col - 1, z_level))
+                        .get(&Coord3::new(row, col + 1, z_level))
                         .unwrap()
                         .prefabs
                         .clone();
                     let atoms_s = umm
                         .grid
-                        .get(&Coord3::new(row, col + 1, z_level))
+                        .get(&Coord3::new(row, col - 1, z_level))
                         .unwrap()
                         .prefabs
                         .clone();
@@ -175,7 +174,6 @@ pub fn autopipe(map_path: &str) {
                     };
 
                     let prototypes = umm.grid.get_mut(&Coord3::new(row, col, z_level)).unwrap();
-                    let atoms = &mut prototypes.prefabs;
 
                     for atom in prototypes.prefabs.iter_mut() {
                         if atom.path == mani4w {
