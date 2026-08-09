@@ -3063,7 +3063,6 @@
 #include "code\modules\mob\living\simple_animal\hostile\hivebots\hivebot_beacon_projectiles.dm"
 #include "code\modules\mob\living\simple_animal\hostile\hivebots\hivebot_harvester.dm"
 #include "code\modules\mob\living\simple_animal\hostile\hivebots\hivebot_harvester_projectiles.dm"
-#include "code\modules\mob\living\simple_animal\hostile\hivebots\hivebot_major_transmitter.dm"
 #include "code\modules\mob\living\simple_animal\hostile\hivebots\hivebot_projectiles.dm"
 #include "code\modules\mob\living\simple_animal\hostile\hivebots\hivebot_stickbug.dm"
 #include "code\modules\mob\living\simple_animal\hostile\psirens\psiren.dm"

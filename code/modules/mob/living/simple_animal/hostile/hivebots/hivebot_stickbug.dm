@@ -19,6 +19,7 @@
 	attacktext = "maimed"
 	attack_sound = SFX_HIVEBOT_MELEE
 	blood_color = COLOR_OIL
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_hivebot.dmi'
 	pass_flags = PASSTABLE|PASSRAILING
 	min_oxy = 0
 	max_oxy = 0
@@ -111,7 +112,7 @@
 	if(prob(5) && active_signal)
 		for(var/mob/living/carbon/human/H in GLOB.player_list)
 			if(H.isSynthetic() && (AreConnectedZLevels(H.z, src.z)))
-				to_chat(H, SPAN_MACHINE_VISION(pick(messages)))
+				to_chat(H, SPAN_MACHINE_DANGER(pick(messages)))
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
