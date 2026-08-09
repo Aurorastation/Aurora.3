@@ -148,10 +148,10 @@
 /obj/item/reagent_containers/food/snacks/psiren_tentacle_meat/attackby(obj/item/attacking_item, mob/user)
 	if(has_edge(attacking_item)) //this checks if the item you click the meat with is a knife/has an edge
 		user.visible_message(SPAN_NOTICE("[user] slices [src]!"))
-		var/psiren_cutlet = new /obj/item/reagent_containers/food/snacks/psiren_cutlet(loc)
-			reagents.trans_to_obj(psiren_cutlet, reagents.total_volume / 2)
+		var/psiren_cutlet = new /obj/item/reagent_containers/food/snacks/raw_psiren_cutlet(loc)
+		reagents.trans_to_obj(psiren_cutlet, reagents.total_volume / 2)
 		var/psiren_leather = new /obj/item/reagent_containers/food/snacks/psiren_leather(loc)
-			reagents.trans_to_obj(psiren_leather, reagents.total_volume / 2)
+		reagents.trans_to_obj(psiren_leather, reagents.total_volume / 2)
 		qdel_self()
 
 /obj/item/reagent_containers/food/snacks/psiren_body_meat
@@ -159,7 +159,7 @@
 	desc = "A slab of amber-colored meat with a bit of blueish skin attached. The slightest motion makes it look like something is shifting inside."
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "psiren_body_meat"
-	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 4)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("fizzy chicken" = 5))
 	filling_color = "#f5c235"
 
@@ -167,13 +167,13 @@
 	if(has_edge(attacking_item)) //this checks if the item you click the meat with is a knife/has an edge
 		user.visible_message(SPAN_NOTICE("[user] slices [src]!"))
 		for(var/i = 1 to 3)
-			var/obj/item/reagent_containers/food/snacks/psiren_cutlet/psiren_cutlet = new (loc)
+			var/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet/psiren_cutlet = new (loc)
 			reagents.trans_to_obj(psiren_cutlet, reagents.total_volume / 4)
 		var/psiren_leather = new /obj/item/reagent_containers/food/snacks/psiren_leather(loc)
-			reagents.trans_to_obj(psiren_leather, reagents.total_volume / 4)
+		reagents.trans_to_obj(psiren_leather, reagents.total_volume / 4)
 		qdel_self()
 
-/obj/item/reagent_containers/food/snacks/psiren_cutlet
+/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet
 	name = "raw psiren cutlet"
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	desc = "Small slices of Psiren meat. Not so tough now, are you, squid?"

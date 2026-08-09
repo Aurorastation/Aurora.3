@@ -1126,6 +1126,7 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/choc_o_block = 1) //This is just here so it has something to default to. It can be anything.
 	can_hold = list(/obj/item/reagent_containers/food/snacks/choc_o_block)
 	make_exact_fit = TRUE
+	w_class = WEIGHT_CLASS_SMALL
 
 	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -1145,6 +1146,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "Why is it called 'Choc o' Block'? I mean, yeah, there's chocolate flavored coating, but this thing is still mostly vanilla."
 	icon_state = "chocoblock"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	item_state = "popsicle_brown"
+	contained_sprite = TRUE
 	filling_color = "#dbdbdb"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
@@ -1173,6 +1176,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A choco-vanilla cream filled popcicle, coated in real chocolate, and made of %100 real calories."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "burrly_duo"
+	item_state = "popsicle_brown"
+	contained_sprite = TRUE
 	filling_color = "#693d14"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
@@ -1201,6 +1206,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A popsicle with a brittle white chocolate coating and a vanilla-caramel cream filling. Luxurious!"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "burrly_white"
+	item_state = "popsicle_light"
+	contained_sprite = TRUE
 	filling_color = "#ffefce"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
@@ -1229,6 +1236,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "Oh... Wow... It, uh... looks just like them. Yup. Definitely not going to have any nightmares about this thing later."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "swimstars"
+	item_state = "popsicle_orange"
+	contained_sprite = TRUE
 	filling_color = "#fcb982"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/drink/ice = 2)
@@ -1257,6 +1266,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A cool, shapely block of sweet, strawberry-flavored ice cleverly imposed unto a stick for your convenience. Contains no actual strawberries. Does, for some reason, contain beets, though? Weird."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "idrice_red"
+	item_state = "popsicle_red"
+	contained_sprite = TRUE
 	filling_color = "#e00031"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/drink/ice = 3)
@@ -1285,6 +1296,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A cool, shapely block of sweet, lemon-flavored ice cleverly imposed unto a stick for your convenience. The ingredients list contains no lemons and reads like a cat at a chemistry lab walked around on a keyboard."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "idrice_yellow"
+	item_state = "popsicle_light"
+	contained_sprite = TRUE
 	filling_color = "#ffee00"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/drink/ice = 3)
@@ -1313,6 +1326,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A cool, shapely block of sweet, cola-flavored ice cleverly imposed unto a stick for your convenience. Some planets have Dr. Gibb flavor ones!"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "idrice_cola"
+	item_state = "popsicle_brown"
+	contained_sprite = TRUE
 	filling_color = "#3d2218"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/drink/ice = 3)
@@ -1341,6 +1356,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A brightly colored popsicle with bright, sunny colors and a light, creamy center."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "sunsicle"
+	item_state = "popsicle_orange"
+	contained_sprite = TRUE
 	filling_color = "#ff9100"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/drink/ice = 2)
@@ -1378,6 +1395,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A lovely ice cream cone containing vanilla ice cream and chocolate strips as well as chocolate flakes. A real treat!"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "torpedo"
+	item_state = "cone"
+	contained_sprite = TRUE
 	filling_color = "#ececec"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("vanilla ice cream" = 5, "chocolate" = 5, "waffle cone" = 5))
@@ -1395,6 +1414,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A lovely ice cream cone containing dyn ice cream and dark chocolate strips in a cocoa flavored waffle cone."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "torpedo_dyn"
+	item_state = "cone"
+	contained_sprite = TRUE
 	filling_color = "#ececec"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("mint ice cream" = 5, "dark chocolate" = 5, "waffle cone" = 5))
@@ -1411,10 +1432,23 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A fruity ice pop that looks alluring, refreshing, and for some reason, nothing like the famous ship it may or may not have been named after."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "odinpop"
+	item_state = "popsicle_red"
+	contained_sprite = TRUE
 	filling_color = "#ff970e"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/drink/ice = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("cherry flavoring" = 5, "pineapple flavoring" = 5, "lemon flavoring" = 5))
+
+/obj/item/reagent_containers/food/snacks/odin_pop/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_odin_pop = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_odin_pop)
+		if(0 to 70)
+			icon_state = "odinpop_bite"
+		if(71 to INFINITY)
+			icon_state = "odinpop"
 
 /obj/item/storage/box/fancy/popsicle/traitor_pop_packaged
 	name = "\improper traitor pop"
@@ -1424,10 +1458,12 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/traitor_pop)
 
 /obj/item/reagent_containers/food/snacks/traitor_pop
-	name = "\improper black cherry ice pop"
+	name = "black cherry ice pop"
 	desc = "A definitely normal, non-suspicious, black and red popsicle. It gives off 'it's not a phase, mom' vibes."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "traitor_pop"
+	item_state = "popsicle_red"
+	contained_sprite = TRUE
 	filling_color = "#b40000"
 	trash = /obj/item/trash/popsiclestick
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/capsaicin = 4, /singleton/reagent/drink/ice = 2)
@@ -1458,12 +1494,14 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	desc = "A lovely ice cream cone containing dirtberry ice cream and chocolate strips as well as chocolate flakes. Something about this combination of flavors just works extra-well, you know?"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "torpedo_gold"
+	item_state = "cone"
+	contained_sprite = TRUE
 	filling_color = "#7c5a2e"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("nougat ice cream" = 5, "chocolate" = 5, "waffle cone" = 5))
 
 /obj/item/storage/box/fancy/popsicle/chocolate_taco_packaged
-	name = "\improper chocolate taco"
+	name = "chocolate taco"
 	desc = "A delicious, crunchy ice cream dessert disguising itself as a taco to avoid being eaten by hungry sweets-seeking predators. It's either doing a very bad job of it, or a very good job of it, because you're pretty sure you haven't seen one of these in years and thought they all went extinct! The expiration date miraculously checks out, though!"
 	icon_state = "chocotaco_wrap"
 	icon_type = "taco"
@@ -1471,10 +1509,12 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/chocolate_taco)
 
 /obj/item/reagent_containers/food/snacks/chocolate_taco
-	name = "\improper chocolate ice cream taco"
+	name = "chocolate ice cream taco"
 	desc = "A delicious, crunchy taco made out of waffle cone, rich ice cream, chocolate, nuts, and caramel syrup."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "chocotaco"
+	item_state = "cone"
+	contained_sprite = TRUE
 	filling_color = "#d6b994"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/ice = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("caramel ice cream" = 5, "nutty chocolate" = 5, "crunchy waffle" = 5, "cultural appropriation" = 3))

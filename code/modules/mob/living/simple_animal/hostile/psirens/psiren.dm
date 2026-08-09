@@ -43,7 +43,7 @@
 	psi_pingable = TRUE
 	meat_amount = 4
 	meat_type = /obj/item/reagent_containers/food/snacks/psiren_body_meat
-	butchering_products = list(/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat = 1)
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat = 4)
 
 	attack_vis_effect = ATTACK_EFFECT_DISARM
 	smart_melee = TRUE
