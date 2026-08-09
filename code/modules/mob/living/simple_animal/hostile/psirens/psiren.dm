@@ -41,7 +41,7 @@
 	speak_chance = 5
 	attack_emote = "menaces"
 	psi_pingable = TRUE
-	meat_amount = 1
+	meat_amount = 2
 	meat_type = /obj/item/reagent_containers/food/snacks/psiren_body_meat
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat = 4)
 
