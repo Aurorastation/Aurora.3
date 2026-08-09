@@ -8,6 +8,11 @@ export type NTNetData = {
   dos_capacity: number;
   dos_overload: number;
   dos_crashed: BooleanLike;
+  relay_class: string;
+  linked_sector: string;
+  backhaul_range: number;
+  backhaul_online: BooleanLike;
+  backhaul_core: string;
 };
 
 export const NTNetRelay = (props) => {
@@ -42,6 +47,21 @@ export const NTNetRelay = (props) => {
         ) : (
           <Section title="NTNet Server Status">
             <LabeledList>
+              <LabeledList.Item label="Relay Class">
+                {data.relay_class}
+              </LabeledList.Item>
+              <LabeledList.Item label="Linked Sector">
+                {data.linked_sector}
+              </LabeledList.Item>
+              <LabeledList.Item label="Backhaul">
+                {data.backhaul_online ? 'Online' : 'Offline'}
+              </LabeledList.Item>
+              <LabeledList.Item label="Backhaul Core">
+                {data.backhaul_core}
+              </LabeledList.Item>
+              <LabeledList.Item label="Backhaul Range">
+                {data.backhaul_range}
+              </LabeledList.Item>
               <LabeledList.Item label="Network buffer status">
                 {data.dos_overload} / {data.dos_capacity} GQ
               </LabeledList.Item>
