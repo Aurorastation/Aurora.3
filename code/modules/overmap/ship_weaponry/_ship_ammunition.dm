@@ -22,7 +22,8 @@
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
 	var/obj/entry_point
-	var/obj/projectile/original_projectile
+	/// The exact physical projectile type to reconstruct when this ammunition leaves the overmap.
+	var/fired_projectile_type
 	var/heading = SOUTH
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/mob_carry_size = 12 //How large a mob has to be to carry the shell
@@ -61,7 +62,8 @@
 	origin = null
 	overmap_target = null
 	entry_point = null
-	original_projectile = null
+	// The typepath is runtime metadata for one fired round and must not outlive it.
+	fired_projectile_type = null
 	return ..()
 
 /obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
@@ -322,9 +324,11 @@
 				H.playsound_local(null, 'sound/effects/explosionfar.ogg', 25)
 				shake_camera(H, 2, 2)
 		..()
+	// Preserve only the concrete type needed at the destination. The ammunition
+	// has already moved into the overmap carrier, so this physical shell is spent.
+	ammo.fired_projectile_type = type
 	if(ammo.touch_map_edge(z))
-		ammo.original_projectile = src
-		forceMove(ammo)
+		qdel(src)
 
 /obj/projectile/ship_ammo/on_hit(atom/target, blocked, def_zone, var/is_landmark_hit = FALSE) //is_landmark_hit is TRUE when we hit a landmark on a visitable non-ship overmap object.
 	if(target && !hit_target)
