@@ -175,9 +175,7 @@ export const ResearchFabricator = ({
                           key={amount}
                           selected={queueAmount === amount}
                           content={amount}
-                          onClick={() =>
-                            act('set_queue_amount', { amount })
-                          }
+                          onClick={() => act('set_queue_amount', { amount })}
                         />
                       ))}
                       <Button
@@ -193,35 +191,35 @@ export const ResearchFabricator = ({
 
               <Stack.Item grow>
                 <Section fill scrollable title={category}>
-              {category === 'All' ? (
-                fabricator.categories
-                  .filter((entry) => entry !== 'All')
-                  .map((entry) => {
-                    const categoryRecipes = recipes.filter(
-                      (recipe) => recipe.category === entry,
-                    );
+                  {category === 'All' ? (
+                    fabricator.categories
+                      .filter((entry) => entry !== 'All')
+                      .map((entry) => {
+                        const categoryRecipes = recipes.filter(
+                          (recipe) => recipe.category === entry,
+                        );
 
-                    if (!categoryRecipes.length) {
-                      return null;
-                    }
+                        if (!categoryRecipes.length) {
+                          return null;
+                        }
 
-                    return (
-                      <Section key={entry} title={entry}>
-                        <RecipeTable
-                          fabricator={fabricator}
-                          recipes={categoryRecipes}
-                          queueAmount={queueAmount}
-                        />
-                      </Section>
-                    );
-                  })
-              ) : (
-                <RecipeTable
-                  fabricator={fabricator}
-                  recipes={recipes}
-                  queueAmount={queueAmount}
-                />
-              )}
+                        return (
+                          <Section key={entry} title={entry}>
+                            <RecipeTable
+                              fabricator={fabricator}
+                              recipes={categoryRecipes}
+                              queueAmount={queueAmount}
+                            />
+                          </Section>
+                        );
+                      })
+                  ) : (
+                    <RecipeTable
+                      fabricator={fabricator}
+                      recipes={recipes}
+                      queueAmount={queueAmount}
+                    />
+                  )}
                 </Section>
               </Stack.Item>
             </Stack>
@@ -236,7 +234,6 @@ export const ResearchFabricator = ({
   );
 };
 
-
 const getMaterialAmount = (
   fabricator: ResearchFabricatorData,
   materialId: string,
@@ -247,10 +244,7 @@ const getMaterialAmount = (
   );
 };
 
-const getReagentAmount = (
-  store: ResearchReagentStore,
-  reagentId: string,
-) => {
+const getReagentAmount = (store: ResearchReagentStore, reagentId: string) => {
   return (
     store.reagents.find((reagent) => reagent.id === reagentId)?.amount ?? 0
   );
@@ -349,10 +343,7 @@ const RecipeTable = ({
               />
             </Table.Cell>
             <Table.Cell>
-              <RecipeRequirements
-                fabricator={fabricator}
-                recipe={recipe}
-              />
+              <RecipeRequirements fabricator={fabricator} recipe={recipe} />
             </Table.Cell>
             <Table.Cell collapsing>
               {formatDuration(recipe.build_time)}
@@ -542,12 +533,7 @@ const RecipeRequirements = ({
                   : 'ResearchFabricator__requirement--available'
               }
             >
-              <Box
-                inline
-                px={0.5}
-                py={0.25}
-                color={missing ? 'bad' : 'good'}
-              >
+              <Box inline px={0.5} py={0.25} color={missing ? 'bad' : 'good'}>
                 {requirement.name}: {requirement.required}
               </Box>
             </Button>
