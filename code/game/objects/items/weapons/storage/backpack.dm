@@ -43,6 +43,7 @@
 	 * If the object should have a delay to open, for more cumbersome bags such as duffels.
 	 * If set to zero seconds, no delay is applied. Define a value in seconds if a delay
 	 * should be applied and the delay will be equal to the value of this variable.
+	 * Only applies while on a character mob, not while the bag is on the floor.
 	 */
 	var/access_delay = 0 SECONDS
 
@@ -150,7 +151,7 @@
 /obj/item/storage/backpack/open(mob/user)
 	if (!worn_check())
 		return
-	if(access_delay && !do_after(user, access_delay))
+	if(access_delay && !isturf(loc) && !do_after(user, access_delay))
 		return
 	..()
 
@@ -646,7 +647,7 @@
 	. += ..()
 	. += "Duffel bags store a greater capacity than any other kind of backpack or satchel."
 	. += "Duffel bags cannot be accessed while on a character's back, but can be accessed while in their hand or on the floor."
-	. += "Duffel bags are laborious to use! There is a short delay on accessing them in all contexts."
+	. += "Duffel bags are laborious to use! There is a short delay on accessing them while in your hands."
 
 /obj/item/storage/backpack/duffel/cap
 	name = "captain's duffel bag"
