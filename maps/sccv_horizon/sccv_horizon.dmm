@@ -23456,30 +23456,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/rnd/lab)
 "ddI" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/light/floor,
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
+/obj/structure/railing/mapped,
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
@@ -23489,11 +23469,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 10
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/structure/machinery/light/floor,
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "ddN" = (
@@ -43331,14 +43309,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/wing/starboard/far)
 "fIt" = (
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 10
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/disposalpipe/segment/mainline,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
@@ -44315,31 +44285,18 @@
 /turf/simulated/floor/plating,
 /area/shuttle/syndicate_elite)
 "fOS" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
 	},
 /obj/structure/disposalpipe/segment/mainline,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "fOU" = (
@@ -52801,25 +52758,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
@@ -52830,10 +52771,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 10
-	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "gTR" = (
@@ -53053,26 +52990,8 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/primary/deck_3/port)
 "gVt" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -53086,9 +53005,6 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 10
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
@@ -90135,27 +90051,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
 "lHK" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 5
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
@@ -110946,31 +110849,16 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
 "oso" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/disposalpipe/segment/mainline,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
@@ -118647,22 +118535,8 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
 "ptB" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "medicalisolation";
-	name = "Isolation Ward Shutters";
-	pixel_y = 30;
-	req_access = list(5)
-	},
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 1
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
@@ -118673,9 +118547,6 @@
 	name = "Isolation Ward Shutters";
 	pixel_y = 30;
 	req_access = list(5)
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
@@ -125923,41 +125794,21 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/storage/eva)
 "qqc" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 4
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
 	dir = 1
 	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
@@ -139773,33 +139624,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "sbL" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /obj/structure/disposalpipe/segment/mainline,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 6
-	},
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
@@ -154294,33 +154129,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "tVT" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "processing_airlock_control";
-	name = "Exterior access button";
-	pixel_x = 25;
-	pixel_y = 25;
-	req_access = list(5)
-	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 5
-	},
-/obj/effect/floor_decal/sign/w,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -163976,40 +163786,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/controlroom)
 "vgJ" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
+/obj/structure/railing/mapped,
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/railing/mapped,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "vgP" = (
@@ -164781,25 +164572,15 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/shuttle/intrepid/flight_deck)
 "vmZ" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment/mainline,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "vne" = (
@@ -169428,38 +169209,20 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "vTE" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+/obj/structure/railing/mapped,
+/obj/structure/disposalpipe/segment/mainline{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/disposalpipe/segment/mainline{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 10
-	},
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "vTL" = (
@@ -176257,44 +176020,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/custodial/disposals/deck_1)
 "wJN" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/seafoam,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/green,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "wJQ" = (
@@ -176712,27 +176454,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/xenoarch/atrium)
 "wMQ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 5
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
@@ -345753,7 +345482,7 @@ eai
 eai
 eai
 vRX
-gTP
+ddI
 dsa
 itH
 mco
