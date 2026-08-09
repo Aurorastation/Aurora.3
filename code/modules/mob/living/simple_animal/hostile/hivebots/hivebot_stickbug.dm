@@ -33,7 +33,7 @@
 	minbodytemp = 0
 	faction = "hivebot"
 	destroy_surroundings = 0
-	wander = 0
+	wander = FALSE
 	attack_emote = "focuses on"
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
@@ -103,15 +103,15 @@
 /mob/living/simple_animal/hostile/hivebot_stickbug/think()
 	. =..()
 	if(stance != HOSTILE_STANCE_IDLE)
-		wander = 1
+		wander = TRUE
 	else
-		wander = 0
+		wander = FALSE
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/Life()
 	. = ..()
 	adjustBruteLoss(-5)
 	if(prob(5) && active_signal)
-		for(var/mob/living/carbon/human/H in GLOB.player_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(H.isSynthetic() && (AreConnectedZLevels(H.z, src.z)))
 				to_chat(H, SPAN_MACHINE_DANGER(pick(messages)))
 
@@ -121,7 +121,7 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, GLOB.alldirs)
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
+	for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 		if(H.faction == "hivebot")
 			to_chat(H, SPAN_MACHINE_DANGER(pick("Secondary Transmitter lost. Reconvene and reinforce.")))
 	qdel(src)
@@ -144,11 +144,11 @@
 	set desc = "Assemble a hivebot beacon."
 	set category = "Hivebot"
 
-	src.visible_message("\The [src] begins to construct a hivebot beacon.", \
-		"You begin to construct a hivebot beacon.", "You hear the sounds of fabrication...")
+	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot beacon.", \
+		"You begin to construct a hivebot beacon.", "You hear the sounds of fabrication..."))
 	if(!do_after(src, 12 SECONDS))
 		return
-	src.visible_message("\The [src] constructs a hivebot beacon!", "You construct a hivebot beacon!")
+	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot beacon!", "You construct a hivebot beacon!"))
 	new /mob/living/simple_animal/hostile/hivebotbeacon(get_turf(src))
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/verb/build_destroyer()
@@ -156,11 +156,11 @@
 	set desc = "Assemble a playable hivebot destroyer."
 	set category = "Hivebot"
 
-	src.visible_message("\The [src] begins to construct a hivebot destroyer.", \
-		"You begin to construct a hivebot destroyer.", "You hear the sounds of fabrication...")
+	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot destroyer.", \
+		"You begin to construct a hivebot destroyer.", "You hear the sounds of fabrication..."))
 	if(!do_after(src, 12 SECONDS))
 		return
-	src.visible_message("\The [src] constructs a hivebot destroyer!", "You construct a hivebot destroyer!")
+	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot destroyer!", "You construct a hivebot destroyer!"))
 	new /mob/living/simple_animal/hostile/hivebot/playable(get_turf(src))
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/verb/toggle_signal()
@@ -169,10 +169,10 @@
 	set category = "Hivebot"
 
 	if(!active_signal)
-		src.visible_message("\The [src] begins to emit a low, humming sound...", \
-			"You begin to transmit an invasive signal, subverting nearby synthetics.", "You hear a low humming...")
+		src.visible_message(SPAN_CULT("\The [src] begins to emit a low, humming sound...", \
+			"You begin to transmit an invasive signal, subverting nearby synthetics.", "You hear a low humming..."))
 		active_signal = TRUE
 	else
-		src.visible_message("\The [src] abruptly ceases to emit a low, humming sound...", \
-			"You cease transmitting the signal.", "A low humming noise abruptly cuts out!")
+		src.visible_message(SPAN_CULT("\The [src] abruptly ceases to emit a low, humming sound...", \
+			"You cease transmitting the signal.", "A low humming noise abruptly cuts out!"))
 		active_signal = FALSE
