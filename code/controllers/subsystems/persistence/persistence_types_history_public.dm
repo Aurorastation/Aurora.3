@@ -105,7 +105,7 @@
  * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type and subtypes.
  *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
- *	skip_caching =	If set to TRUE, database results won't be added to the types cache. Defaults to FALSE.
+ *  skip_caching =	If set to TRUE, the results won't be added to the types cache, defaults to FALSE.
  * RETURN:
  * 	Single /persistent_record or null.
  */

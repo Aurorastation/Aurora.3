@@ -868,9 +868,9 @@
 	if(istype(attacking_item, /obj/item/card/id))
 		if(points)
 			var/obj/item/card/id/C = attacking_item
-			C.adjust_mining_points(points)
-			to_chat(user, SPAN_INFO("You transfer [points] points to \the [C]."))
-			points = 0
+			if(adjust_mining_point_balance(C, points))
+				to_chat(user, SPAN_INFO("You transfer [points] points to \the [C]."))
+				points = 0
 		else
 			to_chat(user, SPAN_INFO("There's no points left on \the [src]."))
 	..()
