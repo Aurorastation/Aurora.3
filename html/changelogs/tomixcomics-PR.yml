@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: ChangeMe
+author: tomixcomics
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -60,5 +60,6 @@ changes:
   - rscadd: "Added A new vending machine by the name of Idris Delights and the various delicious treats it dispenses."
   - rscadd: "Adds new type of trash - foil wrapper."
   - qol: "Changed Psiren rings to be Psiren meat to add more cooking variety."
+  - imageadd: "Updates the sprites for Psiren tentacles."
   - balance: "Made it so Psirens give out more meat and tentacles when butchered"
   - code_imp: "Tweaked foodcode slightly to prevent situations where reading a flavor that doesn't get listed properly crashes the game."
