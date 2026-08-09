@@ -120,8 +120,9 @@
 	if(target == body && body.damage_state == MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL) //If the cockpit is destroyed, subsequent damage is applied to the pilot, modified by the mech's armour.
 		if(body && LAZYLEN(pilots))
 			var/mob/living/pilot = pick(pilots)
-			visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
-			pilot.apply_damage(damage, damagetype, def_zone, used_weapon, damage_flags, armor_pen, silent = FALSE)
+			if(prob(80))
+				visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
+				pilot.apply_damage(damage / 2, damagetype, def_zone, used_weapon, damage_flags, armor_pen / 2, silent = FALSE)
 
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
