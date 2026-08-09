@@ -213,7 +213,7 @@
 
 /datum/design/circuit/machine/aicore
 	name = "AI Core"
-	desc = "Used in the construction of an: <b>AI core</b>, Secure housing for an AI, it provides power and protection to its inhabitant."
+	desc = "Used in the construction of an: AI core, Secure housing for an AI, it provides power and protection to its inhabitant."
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/circuitboard/aicore
 

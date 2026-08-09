@@ -500,8 +500,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	add_damage(damage)
-
 /obj/structure/machinery/porta_turret/emp_act(severity)
 	. = ..()
 

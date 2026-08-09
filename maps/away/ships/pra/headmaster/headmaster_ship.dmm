@@ -1557,6 +1557,31 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/hallway_lower)
+"eW" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/dirt_75,
+/obj/item/spaceflare{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/obj/item/spaceflare{
+	pixel_y = 1;
+	pixel_x = -5
+	},
+/obj/item/tank/hydrogen/shuttle{
+	pixel_x = 3;
+	pixel_y = 8
+	},
+/obj/item/tank/hydrogen/shuttle{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "eZ" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/reagent_containers/glass/bucket,
@@ -4984,6 +5009,14 @@
 	temperature = 278.15
 	},
 /area/headmaster_ship/cic)
+"sF" = (
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/random/dirt_75,
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/headmaster_ship/hangar)
 "sK" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -7632,25 +7665,10 @@
 	pixel_y = -32;
 	stand_icon = null
 	},
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/tank/hydrogen/shuttle{
-	pixel_x = -3;
-	pixel_y = 5
-	},
-/obj/item/tank/hydrogen/shuttle{
-	pixel_x = 3;
-	pixel_y = 8
-	},
-/obj/item/spaceflare{
-	pixel_y = 1;
-	pixel_x = -5
-	},
-/obj/item/spaceflare{
-	pixel_y = 3;
-	pixel_x = 6
-	},
 /obj/random/dirt_75,
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10341,7 +10359,7 @@
 	},
 /area/headmaster_ship/helm)
 "QS" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8;
 	req_access = list(209)
 	},
@@ -46485,7 +46503,7 @@ jG
 aT
 us
 nA
-My
+eW
 pf
 rm
 QL
@@ -46999,7 +47017,7 @@ aT
 aT
 BA
 kZ
-My
+sF
 pf
 nD
 QL

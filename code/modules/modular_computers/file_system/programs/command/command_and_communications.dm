@@ -138,7 +138,7 @@
 					if(centcomm_message_cooldown)
 						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
 						return TRUE
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via bluespace.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return FALSE
 					Syndicate_announce(input, usr)
@@ -154,7 +154,7 @@
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
 						return
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via quantum entanglement.", "Emergency Message", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via bluespace.", "Emergency Message", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return
 					Centcomm_announce(input, usr)

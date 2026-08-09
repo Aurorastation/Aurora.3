@@ -1444,3 +1444,63 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "zzzhao_painting"
 	sign_state = "zzzhao_painting"
 	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape // Sophonia Cape - Dido Sophonia - Fyni
+	name = "sophonisa cape"
+	desc = " This shoulder cap is the dark navy blue of the ancient Carian patrician family, Sophonisa. Two thin flowing strands of fabric hang off the back, one in Carian purple, the other in white showing the golden handed icon of the Sophonisa. Around the neck and hood is a white furred band."
+	desc_extended = "The Sophonisa family, represented by a sinister golden hand set in a purple moon on a field of silver, is an ancient Carian patrician house which predates the Dominian viceroyalty of the planet and is known for a long line of bankers who credit accurate readings of the \
+	stars for their success. Even today, they hold a non-voting seat on the Adirim, where they support House Kaneko - and have long been rumoured to hold some discontent to House Caladius due to financial conflicts."
+	icon = 'icons/obj/custom_items/dido_cape.dmi'
+	icon_override = 'icons/obj/custom_items/dido_cape.dmi'
+	icon_state = "sophonisa_cape"
+	item_state = "sophonisa_cape"
+
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/sophonisa_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/Initialize()
+	. = ..()
+	new hoodtype(src)
+
+/obj/item/clothing/head/winterhood/fluff/sophonisa_hood
+	name = "furred hood"
+	desc = "A furred hood attached to a cloak."
+	icon = 'icons/obj/custom_items/dido_cape.dmi'
+	icon_override = 'icons/obj/custom_items/dido_cape.dmi'
+	icon_state = "sophonisa_cape_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/update_icon(var/hooded = FALSE)
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/S = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
+	SEND_SIGNAL(S, COMSIG_ITEM_STATE_CHECK, args)
+	. = ..()
+	S.item_state = "[S.icon_state][hooded ? "_up" : ""]"
+	S.accessory_mob_overlay = null
+	SEND_SIGNAL(S, COMSIG_ITEM_ICON_UPDATE)
+	if(usr)
+		usr.update_inv_w_uniform()
+		usr.update_inv_wear_suit()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/S = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape)
+	if(!S)
+		return
+
+	SEND_SIGNAL(S, COMSIG_ITEM_UPDATE_STATE, S)
+	S.update_icon()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/on_attached(obj/item/clothing/S, mob/user as mob)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/on_removed(mob/user as mob)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood
+	..()

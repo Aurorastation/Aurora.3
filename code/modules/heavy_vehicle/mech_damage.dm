@@ -1,8 +1,35 @@
+///Returns TRUE if an incoming attack should target the pilot instead of the mech, FALSE otherwise.
+/mob/living/heavy_vehicle/proc/should_target_pilot(atom/attack_source = null)
+	if(!body || !LAZYLEN(pilots)) //If there is no pilot, or the mech somehow doesn't have a body don't try hit the pilot.
+		return FALSE
+
+	var/incoming_attack_direction = attack_source ? get_dir(src, attack_source) : null
+
+	if (istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield)) //If the mech has a shield.
+		var/obj/item/mecha_equipment/shield/shield = hardpoints[HARDPOINT_BACK]
+		if (shield.active && shield.aura && shield.aura.active) //If the shield is active.
+			if (incoming_attack_direction && (dir & incoming_attack_direction)) //If the attack comes from the front and the shield is active, the pilot is protected.
+				return FALSE
+
+	if(!prob(body.pilot_coverage)) //If the cockpit doesn't cover the pilot completely, attacks have a chance to hit the pilot instead of the mech.
+		return TRUE
+
+	if(!hatch_closed) //Open hatches only expose the pilot to attacks from the front and a little bit from the sides.
+		if(incoming_attack_direction)
+			if (dir & incoming_attack_direction)
+				if(prob(80)) //80% chance to hit the pilot from the front if the hatch is open. If this is 100% turrets will shoot mechs with open hatches forever.
+					return TRUE
+			if ((turn(dir, 90) & incoming_attack_direction) || (turn(dir, -90) & incoming_attack_direction))
+				if(prob(20)) //20% chance to hit the pilot from the sides if the hatch is open.
+					return TRUE
+
+	return FALSE
+
 /mob/living/heavy_vehicle/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
 	if(!effect || (blocked >= 100))
 		return 0
 
-	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
+	if(should_target_pilot())
 		if(effect > 0 && effecttype == DAMAGE_RADIATION)
 			var/mob/living/pilot = pick(pilots)
 			return pilot.apply_effect(effect, effecttype, blocked)
@@ -10,10 +37,17 @@
 		. = ..()
 
 /mob/living/heavy_vehicle/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
-	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
+	if(should_target_pilot(hitting_atom))
 		var/mob/living/pilot = pick(pilots)
 		return pilot.hitby(arglist(args))
 	. = ..()
+
+/mob/living/heavy_vehicle/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(should_target_pilot(hitting_projectile?.starting))
+		var/mob/living/pilot = pick(pilots)
+		if(pilot)
+			return pilot.bullet_act(hitting_projectile, def_zone, piercing_hit)
+	return ..()
 
 /mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)
 	. = ..()
@@ -82,6 +116,13 @@
 		return 0
 
 	var/target = zoneToComponent(def_zone)
+
+	if(target == body && body.damage_state == MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL) //If the cockpit is destroyed, subsequent damage is applied to the pilot, modified by the mech's armour.
+		if(body && LAZYLEN(pilots))
+			var/mob/living/pilot = pick(pilots)
+			visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
+			pilot.apply_damage(damage, damagetype, def_zone, used_weapon, damage_flags, armor_pen, silent = FALSE)
+
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
 		if(DAMAGE_BRUTE)
@@ -90,6 +131,9 @@
 			adjustFireLoss(damage, target)
 
 	if((damagetype == DAMAGE_BRUTE || damagetype == DAMAGE_BURN) && prob(25+(damage*2)))
+		if(prob(damage))
+			playsound(src, 'sound/mecha/internaldmgalarm.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
+			playsound(src, 'sound/mecha/critdestrnano.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 		spark(src, 3)
 	updatehealth()
 
@@ -111,25 +155,26 @@
 
 /mob/living/heavy_vehicle/emp_act(severity)
 	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		var/obj/item/cell/C = get_cell()
+		if(C.charge > 1000) //Don't completely run a mech out of power this way.
+			var/power_used = use_cell_power(1000 / severity)
+			var/percent_power_used = 0
+			if(C && C.maxcharge)
+				percent_power_used = round((power_used / C.maxcharge) * 100)
+			visible_message(SPAN_NOTICE("\The [src]'s active EM defenses flash brightly, negating the EMP!"))
+			for(var/pilot in pilots)
+				if(ismob(pilot))
+					to_chat(pilot, SPAN_NOTICE("Your mech reports that negating the EMP cost [(percent_power_used)]% charge."))
+		else
+			for(var/pilot in pilots)
+				if(ismob(pilot))
+					to_chat(pilot, SPAN_DANGER("Your mech's EMP countermeasures deactivate as power levels drop too low."))
+	else
+		var/ratio = get_blocked_ratio(null, DAMAGE_BURN, null, (4-severity) * 20)
+		emp_damage += round((12 - (severity*3))*( 1 - ratio))
 
-	var/ratio = get_blocked_ratio(null, DAMAGE_BURN, null, (4-severity) * 20)
-
-	if(ratio >= 0.5)
-		for(var/mob/living/m in pilots)
-			to_chat(m, SPAN_NOTICE("Your Faraday shielding absorbed the pulse!"))
-		return
-	else if(ratio > 0)
-		for(var/mob/living/m in pilots)
-			to_chat(m, SPAN_NOTICE("Your Faraday shielding mitigated the pulse!"))
-
-	emp_damage += round((12 - (severity*3))*( 1 - ratio))
-
-	for(var/obj/item/thing in list(arms,legs,head,body))
-		thing.emp_act(severity)
-	if(!hatch_closed || !prob(body.pilot_coverage))
-		for(var/thing in pilots)
-			var/mob/pilot = thing
-			pilot.emp_act(severity)
+	update_emp_protection()
 
 /mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!

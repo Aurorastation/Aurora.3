@@ -17,6 +17,12 @@
 	dir = 1
 	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
+	destroy_hits = 40
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE
+	)
 	pass_flags_self = PASSDOORS
 	rad_resistance_modifier = 6
 
@@ -255,6 +261,12 @@
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
 	closed_layer = CLOSED_DOOR_LAYER
+	destroy_hits = 20
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_MEDIUM
+	)
 
 /obj/structure/machinery/door/blast/shutters/open
 	icon_state = "shutter0"

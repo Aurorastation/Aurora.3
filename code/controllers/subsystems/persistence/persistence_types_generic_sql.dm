@@ -109,7 +109,7 @@
  * 	type_id =			Type of ID.
  *  attribute =			Custom attribute of the record, can be null.
  * RETURN:
- *  Associative list of keys "id", "content" (JSON).
+ *  Associative list of keys "id", "content" (JSON), "created_at", "expires_at".
  */
 /datum/controller/subsystem/persistence/proc/genericDatabaseLoad(type_id, attribute)
 	PRIVATE_PROC(TRUE)
@@ -117,7 +117,7 @@
 		return 0
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"SELECT id, content FROM ss13_persistent_generics \
+		"SELECT id, content, created_at, expires_at FROM ss13_persistent_generics \
 		WHERE type = :type_id AND attribute <=> :attribute",
 		list(
 			"type_id" = type_id,
@@ -132,6 +132,32 @@
 
 	var/result = null
 	while(query.NextRow())
-		result = list("id" = query.item[1], "content" = query.item[2])
+		result = list("id" = query.item[1], "content" = query.item[2], "created_at" = query.item[3], "expires_at" = query.item[4])
+	qdel(query)
+	return result
+
+/**
+ * Returns all attributes from persistent generics for a specified type.
+ * RETURN:
+ * 	Distinct list of attributes or empty list.
+ */
+/datum/controller/subsystem/persistence/proc/genericDatabaseGetAllAttributes(type_id)
+	PRIVATE_PROC(TRUE)
+	if(!databaseCheckConnection("genericDatabaseGetAllAttributes"))
+		return
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT DISTINCT attribute FROM ss13_persistent_generics WHERE type = :type_id",
+		list("type_id" = type_id)
+	)
+	query.Execute()
+
+	if(!databaseCheckQueryResult(query, "genericDatabaseGetAllAttributes"))
+		qdel(query)
+		return null
+
+	var/result = list()
+	while(query.NextRow())
+		result += query.item[1]
 	qdel(query)
 	return result
