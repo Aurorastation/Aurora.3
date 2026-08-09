@@ -50,6 +50,8 @@
 // Lightweight combat doubles: they exercise the overmap collision and payload
 // handoff without firing a real projectile across one of the live ship maps.
 /obj/effect/overmap/visitable/unit_test_combat_target/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	// Avoid registering this lightweight collision target as a real sector.
 	return INITIALIZE_HINT_NORMAL
 
 /obj/effect/overmap/visitable/unit_test_combat_target/check_ownership(obj/object)
@@ -64,6 +66,8 @@
 	var/obj/projectile/ship_ammo/reconstructed_projectile
 
 /obj/effect/overmap/projectile/unit_test_combat/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	// Avoid starting the production movement timer before the test configures the carrier.
 	return INITIALIZE_HINT_NORMAL
 
 /obj/effect/overmap/projectile/unit_test_combat/check_entry_visitable(obj/projectile/ship_ammo/widowmaker, turf/target_turf)
@@ -75,7 +79,7 @@
 	return TRUE
 
 /obj/effect/unit_test_ship_ammo_impact/Initialize()
-	return INITIALIZE_HINT_NORMAL
+	return ..()
 
 /datum/unit_test/overmap_projectile_entry_is_one_shot
 	name = "OVERMAP: Combat projectile entry is one-shot"
