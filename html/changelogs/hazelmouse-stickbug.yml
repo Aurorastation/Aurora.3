@@ -55,6 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added the hivebot boss from Silicon Nightmares to the codebase, tentatively only for admin use."
+  - rscadd: "Added the lesser hivebot boss from Silicon Nightmares to the codebase, tentatively only for admin use."
   - rscadd: "Adds hivebot circuit floors."
-  - qol: "Playable hivebots now spawn with the hivebot language by standard."
+  - qol: "Playable hivebots now spawn with the hivebot language as standard."
+  - imageadd: "Added the sprites for the greater hivebot boss to the codebase, though it is currently unimplemented."
