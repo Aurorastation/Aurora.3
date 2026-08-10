@@ -65,7 +65,6 @@ pub fn autopipe(map_path: &str) {
                 let col = col + 1;
 
                 for (pipe, mani3w, mani4w, other) in autopipe_config {
-                    // dbg!(row, col, z_level);
                     let atoms_n = umm
                         .grid
                         .get(&Coord3::new(row, col + 1, z_level))
