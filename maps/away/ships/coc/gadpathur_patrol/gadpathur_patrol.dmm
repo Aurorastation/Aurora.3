@@ -1348,6 +1348,12 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass/gadpathur,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/corridor/port)
+"kK" = (
+/obj/structure/table/reinforced/glass,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/item/portable_whiteboard,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/sit_room)
 "kP" = (
 /obj/structure/machinery/door/airlock/side{
 	dir = 4;
@@ -3249,9 +3255,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "zy" = (
-/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "co2_out"
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	id_tag = "co2_out";
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/gadpathur_patrol/fuel)
@@ -4968,7 +4974,6 @@
 	pixel_x = 32
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Mt" = (
@@ -5626,12 +5631,6 @@
 "Ry" = (
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/gadpathur_shuttle)
-"RA" = (
-/obj/structure/table/reinforced/glass,
-/obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/item/portable_whiteboard,
-/turf/simulated/floor/tiled/dark,
-/area/ship/gadpathur_patrol/sit_room)
 "RC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
@@ -38272,7 +38271,7 @@ lO
 SG
 om
 pP
-RA
+kK
 fl
 sF
 cS
