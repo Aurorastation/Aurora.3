@@ -39,3 +39,4 @@ chrono = "0.4.39"
 uuid = { version = "1.18.1", features = ["v4"] }
 wordfreq = "0.2.3"
 wordfreq-model = { version = "0.2.3", features = ["large-en"] }
+libc = "0.2.189"

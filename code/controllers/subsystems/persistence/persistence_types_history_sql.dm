@@ -230,6 +230,11 @@
 
 	var/records = list()
 	while(query.NextRow())
-		records += list(alist("id" = query.item[1], "created_at" = query.item[2], "value" = query.item[3]))
+		records += list(alist(
+			"id" = query.item[1],
+			"created_at" = query.item[2],
+			"value" = query.item[3],
+			"game_id" = query.item[4],
+		))
 	qdel(query)
 	return records

@@ -37,6 +37,21 @@
 			return
 		return create_mob(usr)
 
+	else if(href_list["storyteller_jump_to"])
+		if(usr != src)
+			return
+
+		var/mob/target = locate(href_list["storyteller_jump_to"])
+		if(!istype(target))
+			return
+
+		var/turf/target_turf = get_turf(target)
+		if(target_turf)
+			abstract_move(target_turf)
+		else
+			to_chat(src, SPAN_WARNING("That player is not currently on a valid turf."))
+		return
+
 	else if(href_list["object_list"])
 		if(!GLOB.config.allow_admin_spawning)
 			to_chat(usr, "Spawning of items is not allowed.")
