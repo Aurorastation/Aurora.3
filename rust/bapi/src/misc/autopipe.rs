@@ -1,9 +1,3 @@
-// #![allow(dead_code)]
-// #![allow(unused_variables)]
-// #![allow(illegal_floating_point_literal_pattern)]
-
-// use crate::dmmr::*;
-// use crate::*;
 use crate::mapmanip::core::*;
 
 use dmmtools::dmm::{Coord3, Prefab};
@@ -255,12 +249,6 @@ pub fn autopipe(map_path: &str) {
             }
         }
     }
-
-    // for x in umm.grid.iter_mut() {
-    //     while x.id.len() < 3 {
-    //         x.id = format!("a{}", x.id);
-    //     }
-    // }
 
     let umm = crate::mapmanip::core::to_dict_map(&umm).unwrap();
     let umm = crate::mapmanip::core::map_to_string(&umm).unwrap();
