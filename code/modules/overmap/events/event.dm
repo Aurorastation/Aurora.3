@@ -332,7 +332,7 @@
 	name = "psiren shoal"
 	events = list(/datum/event/wandering_psirens/overmap)
 	difficulty = EVENT_LEVEL_MODERATE
-	event_icon_states = list("carp")
+	event_icon_states = list("psiren")
 	movable_event_chance = 30
 	tooltip_text = "Xenofauna: usually hostile."
 
