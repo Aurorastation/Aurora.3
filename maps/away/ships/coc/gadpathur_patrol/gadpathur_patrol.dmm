@@ -237,6 +237,9 @@
 /obj/item/clothing/accessory/storage/bandolier{
 	pixel_x = -4
 	},
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
 "bT" = (
@@ -3246,9 +3249,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "zy" = (
-/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	id_tag = "co2_out";
-	dir = 4
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	id_tag = "co2_out"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/gadpathur_patrol/fuel)
@@ -4964,10 +4967,8 @@
 /obj/structure/sign/vacuum{
 	pixel_x = 32
 	},
-/obj/structure/machinery/atmospherics/binary/pump/fuel{
-	dir = 1;
-	name = "Fuel Tank to Thrusters"
-	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Mt" = (
@@ -5625,6 +5626,12 @@
 "Ry" = (
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/gadpathur_shuttle)
+"RA" = (
+/obj/structure/table/reinforced/glass,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/item/portable_whiteboard,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/sit_room)
 "RC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
@@ -38265,7 +38272,7 @@ lO
 SG
 om
 pP
-vW
+RA
 fl
 sF
 cS
