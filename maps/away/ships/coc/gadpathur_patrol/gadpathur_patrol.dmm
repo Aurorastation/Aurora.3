@@ -644,12 +644,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thrusters"
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/port)
 "fj" = (
 /obj/structure/ship_weapon_dummy,
@@ -1418,12 +1413,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thrusters"
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "le" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red,
@@ -3091,12 +3081,7 @@
 /area/ship/gadpathur_patrol/medbay)
 "xV" = (
 /obj/structure/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/port)
 "yb" = (
 /obj/structure/machinery/alarm/west{
@@ -3268,18 +3253,10 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/gadpathur_patrol/fuel)
 "zB" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "zD" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3383,12 +3360,7 @@
 /area/ship/gadpathur_patrol/officer_bath)
 "Aa" = (
 /obj/structure/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Ah" = (
 /obj/structure/viewport/zavod,
@@ -3523,18 +3495,10 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "Bd" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "Bm" = (
 /obj/structure/machinery/atmospherics/portables_connector/aux,
@@ -3705,18 +3669,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/officer)
 "Cl" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Cr" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -5143,16 +5099,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "NI" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "NO" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -5503,16 +5451,8 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/fuel)
 "Qp" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "Qu" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -6177,18 +6117,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "UW" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "Vf" = (
 /obj/structure/machinery/door/airlock/gadpathur/atmos,
