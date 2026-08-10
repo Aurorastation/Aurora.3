@@ -4055,14 +4055,10 @@
 /area/horizon/crew/lounge)
 "azs" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/effect/floor_decal/industrial/hatch_tiny/service,
-/obj/structure/machinery/atmospherics/binary/passive_gate/on/output{
-	name = "Distro to Trays";
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 1
 	},
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
 "azu" = (
@@ -13507,8 +13503,7 @@
 	icon_state = "pipe-c-yellow";
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "bKz" = (
 /obj/structure/machinery/computer/ship/navigation,
@@ -28714,11 +28709,9 @@
 	pixel_y = 3
 	},
 /obj/structure/machinery/door/firedoor,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "dIc" = (
@@ -33763,13 +33756,16 @@
 /turf/simulated/floor/plating,
 /area/horizon/stairwell/engineering/deck_1)
 "eqB" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	name = "Trays to Scrubbers";
+	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/service,
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
 "eqD" = (
@@ -76077,9 +76073,6 @@
 /turf/unsimulated/floor/monotile,
 /area/antag/mercenary)
 "jRk" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -76087,6 +76080,11 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 1
 	},
+/obj/structure/machinery/atmospherics/binary/passive_gate/on/output{
+	name = "Distro to Trays";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/service,
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
 "jRn" = (
@@ -86577,7 +86575,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
 "lhM" = (
@@ -124228,15 +124226,15 @@
 	name = "hydroponics ringer button";
 	pixel_x = -5
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/blast/shutters{
 	id = "hydroponics_desk";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -124846,11 +124844,8 @@
 /area/horizon/hallway/primary/deck_3/starboard/docks)
 "qgH" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/effect/floor_decal/industrial/hatch_tiny/service,
-/obj/structure/machinery/atmospherics/binary/pump/high_power{
-	dir = 8;
-	name = "Trays to Scrubbers";
-	target_pressure = 15000
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
@@ -151429,9 +151424,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
 "tyQ" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
 /obj/structure/machinery/door/window/westright{
 	name = "Hydroponics Desk";
 	req_access = list(35)
@@ -151454,6 +151446,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -158875,9 +158870,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
