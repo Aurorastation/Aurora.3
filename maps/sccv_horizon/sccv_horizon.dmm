@@ -124247,7 +124247,7 @@
 /obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
-/turf/simulated/wall,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "qdi" = (
 /obj/structure/cable{
@@ -151461,7 +151461,7 @@
 /obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
-/turf/simulated/wall,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "tyT" = (
 /obj/structure/machinery/light{
