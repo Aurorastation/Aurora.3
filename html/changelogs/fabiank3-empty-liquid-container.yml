@@ -1,9 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - balance: "Welding packs (on the Horizon) now start empty to support persistent welding fuel tanks."
-  - imageadd: "Added a sprite for empty welding packs."
-  - balance: "Reduced the 'optimal' oil amount in the deep fryers from 9000u to 100u. One cooking oil tank can now be used multiple times instead of needing 9 tanks to refill it."
-  - rscadd: "Added a wrench to the kitchen to allow better handling of cooking oil tanks."

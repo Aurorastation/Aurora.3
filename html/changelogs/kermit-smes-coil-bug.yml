@@ -1,6 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - bugfix: "fixes smes coils not being insertable into smes units (oops, my bad)"
