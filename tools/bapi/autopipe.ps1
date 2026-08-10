@@ -6,13 +6,19 @@ param (
 # if you want to run this script but it opens in notepad
 # you may want to right click it and "run with powershell"
 
+# relaunch in 32-bit powershell if currently running in 64-bit
+if ([Environment]::Is64BitProcess) {
+    $PowerShell32 = "$env:SystemRoot\SysWOW64\WindowsPowerShell\v1.0\powershell.exe"
+    & $PowerShell32 -ExecutionPolicy Bypass -File $MyInvocation.MyCommand.Path @PSBoundParameters @args
+    exit
+}
+
 # script explanation
 Write-Host "*****"
 Write-Host ""
 Write-Host "This script will run the 'autopipe' tool on the provided map,"
 Write-Host "and replace the map with the result."
 Write-Host "Make sure to commit before using this tool, so as to not lose any progress if it fails."
-Write-Host "This script will not show any error messages if it has failed."
 Write-Host "You have to provide a path to a specific map file as an argument."
 Write-Host ""
 Write-Host "Autopipe replaces manifold4w pipes with appropriate w3/straight/angled pipes."
@@ -37,18 +43,21 @@ if (Test-Path "./../../rust/bapi/target/i686-pc-windows-msvc/release/bapi.dll") 
 
 # run ffi function from bapi.dll
 Write-Host "Executing..."
-$HasPath = $PSBoundParameters.ContainsKey('Path') -or ($null -ne $Path)
-$BapiDllFunction = "autopipe_ffi"
 $BapiExecutionTime = Measure-Command {
-	# `rundll` runs a function from a dll
-	# the very sad limitation is that it does not give any output from that function
-    if ($HasPath) {
-        Write-Host "on path $Path..."
-        rundll32.exe "$BapiPath,$BapiDllFunction" $Path
-    } else {
-        Write-Host "on all maps..."
-        rundll32.exe "$BapiPath,$BapiDllFunction"
+    # load the dll into powershell natively
+    $Signature = @"
+    [DllImport("$BapiPath", CallingConvention = CallingConvention.StdCall)]
+    public static extern void autopipe_ffi(string path);
+"@
+    try {
+        Add-Type -MemberDefinition $Signature -Name "Bapi" -Namespace "RustTools" -ErrorAction Stop
+    } catch {
+        # already loaded in this PowerShell session, safely ignore
     }
+
+    # call the rust function natively
+    Write-Host "on path $Path..."
+    [RustTools.Bapi]::autopipe_ffi($Path)
 }
 
 # done

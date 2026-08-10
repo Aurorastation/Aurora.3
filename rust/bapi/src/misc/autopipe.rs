@@ -4,6 +4,14 @@ use dmmtools::dmm::{Coord3, Prefab};
 use dreammaker::constants::Constant;
 use itertools::Itertools;
 
+/// To be used by the `tools/bapi/autopipe.ps1` script.
+#[no_mangle]
+pub unsafe extern "system" fn autopipe_ffi(c_str: *const libc::c_char) {
+    let c_str = unsafe { std::ffi::CStr::from_ptr(c_str) };
+    let map_path = c_str.to_str().unwrap_or_default();
+    autopipe(map_path);
+}
+
 pub fn autopipe(map_path: &str) {
     let map_path: std::path::PathBuf = map_path.into();
     let mut umm = GridMap::from_file(&map_path).unwrap();
