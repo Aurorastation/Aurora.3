@@ -511,10 +511,6 @@
 /obj/random/contraband,
 /turf/template_noop,
 /area/template_noop)
-"lI" = (
-/obj/random/cookingoil,
-/turf/template_noop,
-/area/template_noop)
 "lJ" = (
 /obj/random/plushie,
 /obj/random/plushie,
@@ -3443,7 +3439,7 @@ sW
 Tf
 Gz
 Gz
-lI
+Gz
 xg
 Gz
 Gz

@@ -224,3 +224,51 @@
   - bugfix: Fixed an issue with exoplanet turf edge icons layering below the adjacent
       turfs.
   - code_imp: Exoplanet turfs no longer attempt to add edge icons by default.
+2026-08-09:
+  FabianK3:
+  - bugfix: Fixed quotation marks being added to persistent type defines in the database.
+  - rscadd: Added a new TGUI panel for admins called persistence panel. Features subsystem
+      status and detailed information on all persistent content.
+  - qol: Removed the toggle persistence admin verb and moved it into the persistence
+      panel.
+  FabianK3, Wowzewow:
+  - rscadd: Added persistence for cooking oil tanks.
+  - rscadd: Added fill level indicators to water, fuel, extinguisher, lube and cooking
+      oil tanks.
+  - rscadd: Added cooking oil tanks to cargo order manifest.
+  Fenodyree:
+  - qol: Causes the statpanel (Alt-click pickup menu) to immediately update when an
+      item is removed from a turf, instead of waiting for the next update tick.
+  - bugfix: Fixes many bugs related to being able to interact with items normally
+      inaccessable. Eg. Double loading bullets into a magazine.
+  The Stryker:
+  - rscadd: Adds a press vest and helmet to the journalist's office.
+  nauticall:
+  - rscadd: Painted the 'mainline' disposal pipes yellow for better distinction with
+      mapping.
+  - rscadd: Adjusted some disposal piping to be tidier.
+  - bugfix: Packages can now once again be mailed to the Machinist's Workshop.
+2026-08-10:
+  FabianK3:
+  - bugfix: Fixed the mineral asteroid position not being updated after the Horizon's
+      persistent position was applied.
+  - balance: Welding packs (on the Horizon) now start empty to support persistent
+      welding fuel tanks.
+  - imageadd: Added a sprite for empty welding packs.
+  - balance: Reduced the 'optimal' oil amount in the deep fryers from 9000u to 100u.
+      One cooking oil tank can now be used multiple times instead of needing 9 tanks
+      to refill it.
+  - rscadd: Added a wrench to the kitchen to allow better handling of cooking oil
+      tanks.
+  Omicega:
+  - qol: Flags and banners with custom names and descriptions now keep these custom
+      names and descriptions when deployed.
+  hazelmouse:
+  - rscadd: IPC P2P communications now sends messages of transmissions to the chatboxes
+      of both parties.
+  - rscadd: Added new Trinarist assets in the loadout; new tunics, cape variants,
+      coif variants, etc.
+  - imageadd: Implemented resprites for several Trinarist assets, including clerical
+      robes and the Trinarist stave.
+  kermit:
+  - bugfix: fixes smes coils not being insertable into smes units (oops, my bad)
