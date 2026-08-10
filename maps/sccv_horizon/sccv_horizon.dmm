@@ -13507,7 +13507,8 @@
 	icon_state = "pipe-c-yellow";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
 "bKz" = (
 /obj/structure/machinery/computer/ship/navigation,
@@ -29646,6 +29647,7 @@
 /area/horizon/security/investigators_office)
 "dOE" = (
 /obj/structure/machinery/honey_extractor,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "dOJ" = (
@@ -80788,10 +80790,9 @@
 	},
 /area/horizon/holodeck/source_beach)
 "kwk" = (
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/smartfridge/drying_rack,
 /obj/structure/machinery/firealarm/west,
-/obj/effect/floor_decal/industrial/hatch/service,
+/obj/effect/floor_decal/industrial/loading/service,
+/obj/effect/floor_decal/industrial/outline_straight/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "kwl" = (
@@ -86061,9 +86062,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "leb" = (
-/obj/structure/noticeboard{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 4
 	},
@@ -86074,6 +86072,7 @@
 /obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 4
 	},
+/obj/item/radio/intercom/north,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "lec" = (
@@ -97123,10 +97122,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/hologram/holopad,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
 "mCM" = (
@@ -104631,23 +104630,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_luceism)
-"nCf" = (
-/obj/structure/machinery/smartfridge/secure,
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/structure/machinery/door/window/westright{
-	name = "Hydroponics Desk";
-	req_access = list(35);
-	dir = 4
-	},
-/obj/structure/machinery/door/window{
-	name = "Kitchen";
-	req_one_access = list(28,67);
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/hydroponics)
 "nCg" = (
 /obj/structure/machinery/gravity_generator/main/station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -110018,6 +110000,20 @@
 	icon_state = "carpet"
 	},
 /area/centcom/specops)
+"olN" = (
+/obj/structure/machinery/door/window{
+	name = "Kitchen";
+	req_one_access = list(28,67)
+	},
+/obj/structure/machinery/smartfridge/secure,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/door/window/westright{
+	name = "Hydroponics Desk";
+	req_access = list(35);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "olX" = (
 /obj/structure/platform,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
@@ -110707,12 +110703,8 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "oqE" = (
-/obj/effect/floor_decal/industrial/loading/service{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/service{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "oqF" = (
@@ -135438,6 +135430,9 @@
 /area/horizon/medical/morgue)
 "ryT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/noticeboard{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "ryY" = (
@@ -152803,7 +152798,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/command/heads/rd)
 "tHb" = (
-/obj/item/radio/intercom/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/walllocker/medical/firstaid{
 	pixel_x = 32
@@ -166738,10 +166732,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
 "vAe" = (
@@ -187810,7 +187804,6 @@
 	sortType = "Hydroponics";
 	name = "Hydroponics"
 	},
-/obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "yix" = (
@@ -289204,7 +289197,7 @@ tev
 tev
 tev
 nBM
-nCf
+nBM
 nBM
 wxI
 leb
@@ -289463,7 +289456,7 @@ wvp
 dOE
 oqE
 kwk
-wxI
+olN
 tHb
 qAD
 bFW
