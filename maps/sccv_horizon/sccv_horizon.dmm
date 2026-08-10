@@ -78195,9 +78195,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "kff" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/service,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "kfi" = (
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -129525,6 +129528,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "qLw" = (
@@ -163059,7 +163063,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "uYd" = (
