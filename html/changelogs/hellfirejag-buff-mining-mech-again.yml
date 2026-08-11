@@ -1,8 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Mech mounted ore summoners will now pick up ores that the mech walks over."
-  - balance: "Mounted ore summoners can now pick up up to 150 ores when actively pulsed, up from 50."
-  - balance: "Reduced the explosion radius of the mech heavy kinetic accelerator by 2"
-  - balance: "Increased the range of the mech heavy kinetic accelerator by 1"
-  - rscadd: "Added more sound effects for mechs, including a looping reactor hum, and warning sounds for critical damage."

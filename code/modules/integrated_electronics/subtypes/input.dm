@@ -262,27 +262,27 @@
 
 /obj/item/integrated_circuit/input/local_locator
 	name = "local locator"
-	desc = "This is needed for certain devices that demand a reference for a target to act upon.  This type only locates something \
-	that is holding the machine containing it."
+	desc = "This is needed for certain devices that demand a reference for a target to act upon.  This type only locates a living \
+	thing that is holding the machine containing it."
 	inputs = list()
 	outputs = list(
 		"located ref" = IC_PINTYPE_REF
 	)
 	activators = list(
 		"locate" = IC_PINTYPE_PULSE_IN,
-		"on locate" = IC_PINTYPE_PULSE_OUT
+		"on locate" = IC_PINTYPE_PULSE_OUT,
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 200
 
 /obj/item/integrated_circuit/input/local_locator/do_work()
-	if(assembly && istype(assembly.loc, /mob/living))
-		set_pin_data(IC_OUTPUT, 1, assembly.loc)
-	else
-		set_pin_data(IC_OUTPUT, 1, null)
-
+	if(assembly)
+		var/mob/living/holder = get_highest_loc(assembly.loc, /mob/living)
+		if(holder)
+			set_pin_data(IC_OUTPUT, 1, holder)
+			activate_pin(2)
 	push_data()
-	activate_pin(2)
+
 
 /obj/item/integrated_circuit/input/adjacent_locator
 	name = "adjacent locator"
@@ -1889,7 +1889,9 @@
 	desc = "Receives radio-style command text relayed through an inserted radio."
 	extended_desc = "This circuit receives relayed radio text and exposes the speaker, message, channel, command, arguments, and payload. If a radio reference is provided, only messages relayed from that radio will be accepted."
 	icon_state = "recorder"
-	complexity = 10
+	complexity = 0
+	size = -1
+	removable = FALSE
 	inputs = list(
 		"radio reference" = IC_PINTYPE_REF
 	)

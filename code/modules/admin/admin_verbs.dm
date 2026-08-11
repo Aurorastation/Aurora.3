@@ -88,6 +88,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
+	/client/proc/persistence_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
 	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
@@ -149,8 +150,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey,
-	/datum/admins/proc/toggle_persistence
+	/datum/admins/proc/set_odyssey
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -456,6 +456,7 @@ GLOBAL_LIST_INIT(admin_verbs_mod, list(
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/print_logout_report,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
+	/client/proc/persistence_panel,
 	/client/proc/aooc,
 	/client/proc/toggle_aooc,
 	/client/proc/alooc,
@@ -491,6 +492,7 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
+	/client/proc/persistence_panel,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,

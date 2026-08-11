@@ -252,7 +252,7 @@
 	if(stamptext)
 		P.stamps += "<HR><i>This paper has been stamped [stamptext].</i>"
 	else
-		P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
+		P.stamps += "<HR><i>This paper has been stamped by the Central Command Bluespace Relay.</i>"
 
 	if(F.receivefax(P))
 		log_and_message_admins("[senderkey] sent a fax message to the [F.department] fax machine via the api. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[F.x];Y=[F.y];Z=[F.z]'>JMP</a>)")

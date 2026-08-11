@@ -1,7 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - code_imp: "Exoplanets now cache their main outdoor atmospheric region instead of trying to search their entire map once per second."
-  - code_imp: "Exoplanet atmospheric calculations now run only when necessary using new update_revision counter."
-  - code_imp: "Exoplanet atmospheres now wait until all random ruins have been placed before trying to resolve the air everywhere."
-  - admin: "Adds new admin debug verb, 'Toggle Non-Horizon Temperature Graphics', which toggles all off-ship gas temp graphics to address lag in a pinch, if still necessary, without removing actual environmental hazard."

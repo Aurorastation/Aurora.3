@@ -157,8 +157,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	add_damage(hitting_projectile.get_structure_damage(), hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
-
 /obj/structure/machinery/camera/ex_act(severity)
 	if(src.invuln)
 		return
