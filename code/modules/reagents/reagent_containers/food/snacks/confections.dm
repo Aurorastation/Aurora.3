@@ -266,7 +266,7 @@
 	desc = "A sweet and creamy dessert, easily divisable into lovely slices of Tiramisu to share with those around you... Unless..."
 	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "tiramisu_tray"
-	trash = /obj/item/trash/plate
+	trash = /obj/item/trash/snack_bowl
 	slice_path = /obj/item/reagent_containers/food/snacks/tiramisu_slice
 	slices_num = 4
 	filling_color = "#927155"

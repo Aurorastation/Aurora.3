@@ -564,3 +564,4 @@
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
 	result = /obj/item/reagent_containers/food/snacks/french_toast
+	reagent_mix = RECIPE_REAGENT_REPLACE
