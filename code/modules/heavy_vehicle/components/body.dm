@@ -35,7 +35,7 @@
 	///Multiplier for damage dealt to the pilot when hit by projectiles that penetrate the mech's cockpit.
 	var/cockpit_pilot_damage_multiplier = 0.5
 	///Multiplier for armour piercing value of a hit to the pilot when hit by projectiles that penetrate the mech's cockpit.
-	var/cockpit_pilot_armour_piercing = 0.5
+	var/cockpit_pilot_armour_piercing_multiplier = 0.5
 
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 

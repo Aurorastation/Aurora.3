@@ -122,7 +122,7 @@
 			var/mob/living/pilot = pick(pilots)
 			if(prob(body.cockpit_hatch_size))
 				visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
-				pilot.apply_damage(damage * body.cockpit_pilot_damage_multiplier, damagetype, def_zone, used_weapon, damage_flags, armor_pen * body.cockpit_pilot_damage_multiplier, silent = FALSE)
+				pilot.apply_damage(damage * body.cockpit_pilot_damage_multiplier, damagetype, def_zone, used_weapon, damage_flags, armor_pen * body.cockpit_pilot_armour_piercing_multiplier, silent = FALSE)
 
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
