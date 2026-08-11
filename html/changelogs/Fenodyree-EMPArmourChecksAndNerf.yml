@@ -1,0 +1,7 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - rscadd: "EMPs once again check energy armour. A heavy EMP can be downgraded to a light EMP, and a light EMP can be negated entirely or only affect the mob's contents. This chance is based on the average energy armour of the mob, weighted by limb size."
+  - balance: "The effect of an EMP on a power cell is now random. A light EMP can drain up to half the max charge, and a heavy EMP can drain up to the full max charge. Previously heavy would always drain the full max charge, and light would always drain half the max charge."

@@ -19,6 +19,7 @@
 		. = 1 - (1 - .) * (1 - armor_datum.get_blocked(damage_type, damage_flags, armor_pen, damage)) // multiply the amount we let through
 	. = min(1, .)
 
+///Returns a list of all armor components that apply to the given zone.
 /mob/living/proc/get_armors_by_zone(def_zone, damage_type, damage_flags)
 	. = list()
 	var/natural_armor = GetComponent(/datum/component/armor)
@@ -202,8 +203,33 @@
 /mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	return 0 //only carbon liveforms have this proc
 
+/**
+ * Called a living mob is hit with an EMP effect. Returns the blocked result.
+ * Energy armor can downgrade or negate the effects of an EMP, and is checked here.
+ * The chance to reduce the effect is based on the average energy armor of the mob.
+ * A heavy EMP can only be downgraded to a light EMP.
+ * A light EMP can either be negated entirely, or only affect the mob's contents.
+ * Each step down is another chance equal to the average energy armor.
+ */
 /mob/living/emp_act(severity)
 	. = ..()
+	var/total_energy_armor = 0
+	var/limb_size_weight = 0
+
+	for (var/def_zone in BP_ALL_LIMBS)
+		var/list/armors = get_armors_by_zone(def_zone, DAMAGE_BURN, null)
+		for(var/datum/component/armor/armor_datum in armors)
+			total_energy_armor += armor_datum.get_value(ENERGY) * GLOB.organ_rel_size[def_zone]
+		limb_size_weight += GLOB.organ_rel_size[def_zone]
+
+	var/average_energy_armor = total_energy_armor / limb_size_weight
+
+	if(severity == EMP_LIGHT && prob(average_energy_armor))
+		if(prob(average_energy_armor))
+			return EMP_PROTECT_ALL
+		return EMP_PROTECT_SELF
+	if(severity == EMP_HEAVY && prob(average_energy_armor))
+		severity = EMP_LIGHT
 
 	//If no protection of the contents, apply the EMP effect to the contents
 	if(!(. & EMP_PROTECT_CONTENTS))
