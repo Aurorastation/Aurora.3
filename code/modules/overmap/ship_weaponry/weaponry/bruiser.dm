@@ -29,6 +29,7 @@
 	burst = 11
 	cookoff_heavy = 0
 	overmap_icon_state = "cannon_salvo"
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser
 
 /obj/item/ship_ammunition/bruiser/get_speed()
 	return 35
@@ -119,10 +120,11 @@
 	damage = 150
 	armor_penetration = 75
 	penetrating = 0
+	explosion_strength = list(1, 3, 6)
 
 /obj/projectile/ship_ammo/bruiser/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	explosion(target, 1, 3, 6)
+	explosion(get_turf(target), explosion_strength[1], explosion_strength[2], explosion_strength[3])
 
 /obj/projectile/ship_ammo/bruiser/real/he
 	name = "178mm shell"
@@ -130,6 +132,7 @@
 	damage = 350
 	armor_penetration = 125
 	penetrating = 0
+	explosion_strength = list(3, 6, 8)
 
 /obj/projectile/ship_ammo/bruiser/real/ap
 	name = "178mm shell"
@@ -137,6 +140,7 @@
 	damage = 250
 	armor_penetration = 250
 	penetrating = 2
+	explosion_strength = list(0, 2, 4)
 
 /obj/projectile/ship_ammo/bruiser/real/canister
 	damage = 40
@@ -157,10 +161,11 @@
 
 /obj/projectile/ship_ammo/bruiser/real/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
+	var/turf/epicenter = get_turf(target)
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_HE)
-		explosion(target, 3, 6, 8)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
-		explosion(target, 0, 2, 4)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 
 /obj/projectile/ship_ammo/bruiser/real/beehive/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()

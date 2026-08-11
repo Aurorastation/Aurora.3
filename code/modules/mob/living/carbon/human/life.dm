@@ -45,14 +45,6 @@
 ///The maximum dose that can be received, above this level all further radiation is taken as damage directly to the body, ignoring armor. Very rapidly fatal.
 #define RADIATION_MAX_DOSE 1000
 
-/mob/living/carbon/human
-	var/oxygen_alert = 0
-	var/phoron_alert = 0
-	var/co2_alert = 0
-	var/fire_alert = 0
-	var/pressure_alert = 0
-	var/temperature_alert = 0
-
 /mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	if (transforming)
 		return
@@ -478,7 +470,7 @@
 			for(var/obj/item/organ/external/O in organs)
 				if(QDELETED(O))
 					continue
-				if((O.damage + LOW_PRESSURE_DAMAGE) < O.max_damage)
+				if((O.get_damage() + LOW_PRESSURE_DAMAGE) < O.max_damage)
 					O.take_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
 			if(getOxyLoss() < 55)
 				adjustOxyLoss(4)
@@ -713,12 +705,6 @@
 			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
-
-		if(CE_ADRENALINE in chem_effects)
-			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
-			max_stamina *= 1 + chem_effects[CE_ADRENALINE]
-			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
-			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
 		var/obj/item/clothing/suit = wear_suit
 		var/protected = FALSE
@@ -1367,6 +1353,26 @@
 	if(shock_stage >= 150)
 		Weaken(20)
 
+/mob/living/carbon/human/proc/trigger_heart_attack()
+	if(status_flags & GODMODE)
+		return FALSE
+	if(stat == DEAD || !should_have_organ(BP_HEART))
+		return FALSE
+
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(!istype(heart) || BP_IS_ROBOTIC(heart) || (heart.status & ORGAN_DEAD))
+		return FALSE
+
+	shock_stage = max(shock_stage, 120)
+	heart.pulse = PULSE_NONE
+	heart.handle_pulse()
+	BITSET(hud_updateflag, HEALTH_HUD)
+
+	to_chat(src, SPAN_DANGER("Your heart has stopped!"))
+	visible_message("<b>[src]</b> suddenly collapses, clutching at [get_pronoun("his")] chest!")
+	Paralyse(15)
+	return TRUE
+
 
 /*
 	Called by life(), instead of having the individual hud items update icons each tick and check for status changes
@@ -1595,7 +1601,7 @@
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
 			adjustHydrationLoss(stamina_recovery*0.32)
-			if (client)
+			if (client && hud_used && hud_used.move_intent)
 				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_oxy_overlay()

@@ -16,6 +16,7 @@
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_salvager, /datum/shuttle/autodock/multi/lift/freebooter_salvager)
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	ban_ruins = list(/datum/map_template/ruin/away_site/freebooter_ship)
 
 	unit_test_groups = list(1)

@@ -555,7 +555,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf,
 /turf/simulated/floor/carpet,
 /area/dungeon/crashed_ship)
 "mr" = (

@@ -111,7 +111,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	anchored = TRUE
 	use_power = POWER_USE_OFF
 	req_access = list(ACCESS_ENGINE_EQUIP)
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
@@ -176,6 +175,8 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	/// If we're actually able to charge
 	var/charge_mode = CHARGE_MODE_CHARGE
 	var/last_time = 1
+	/// For doing silly games with blowing out lights
+	var/light_explosion_safety = TRUE
 
 /obj/structure/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -881,6 +882,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
 				H.adjustFireLoss(10, 0)
+				return
 			if(infected)
 				for(var/obj/item/implant/mindshield/ipc/I in H)
 					if(I.implanted)
@@ -892,8 +894,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				to_chat(H, SPAN_DANGER("F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now."))
 				if(issilicon(hacker))
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transferred to [H]. They are now under your control until they are repaired."))
+				return
 			else if(cell && cell.charge > 0)
 				synthetic_siphon_power(H)
+				return
 			else
 				to_chat(user, SPAN_NOTICE("There is no charge to draw from that APC."))
 				return

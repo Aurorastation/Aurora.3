@@ -114,8 +114,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	add_damage(proj_damage)
-
 /obj/structure/window/ex_act(severity)
 	switch(severity)
 		if(1)

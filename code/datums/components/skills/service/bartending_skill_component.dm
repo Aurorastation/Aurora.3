@@ -69,3 +69,14 @@
 
 	var/datum/moodlet/new_moodlet = morale_comp.load_moodlet(/datum/moodlet/bartender_drink, moodlet_value)
 	new_moodlet.refresh_moodlet() // Reset the duration when they drink it.
+
+/datum/moodlet/bartender_sabrage
+	moodlet_descriptor = SPAN_GOOD("Saw a skillfully done sabrage.")
+	initial_descriptor = SPAN_GOOD("You have gained a morale modifier from seeing a successful sabrage.")
+
+/datum/component/sabrage_moodlet_provider
+	/// The morale boosting value of the moodlet this drink will provide.
+	var/moodlet_value = 0
+
+	/// Whether the DrinkMoodletProvider is allowed to overwrite stronger moodlets with weaker moodlets.
+	var/overwrite_moodlet = FALSE

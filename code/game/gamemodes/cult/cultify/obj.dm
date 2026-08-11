@@ -143,10 +143,10 @@
 	qdel(src)
 
 /obj/structure/table/cultify()
-	if(material == SSmaterials.get_material_by_name(MATERIAL_CULT) || reinforced == SSmaterials.get_material_by_name(MATERIAL_CULT))
+	if(material == GET_SINGLETON(MATERIAL_CULT) || reinforced == GET_SINGLETON(MATERIAL_CULT))
 		return
-	material = SSmaterials.get_material_by_name(MATERIAL_CULT)
-	reinforced = SSmaterials.get_material_by_name(MATERIAL_CULT)
+	material = GET_SINGLETON(MATERIAL_CULT)
+	reinforced = GET_SINGLETON(MATERIAL_CULT)
 	update_desc()
 	update_connections(1)
 	update_icon()

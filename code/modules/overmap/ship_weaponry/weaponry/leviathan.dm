@@ -128,6 +128,7 @@
 	caliber = SHIP_CALIBER_ZAT
 	impact_type = SHIP_AMMO_IMPACT_ZAT
 	overmap_icon_state = "heavy_pulse"
+	projectile_type_override = /obj/projectile/ship_ammo/leviathan
 
 /obj/item/ship_ammunition/leviathan/Initialize()
 	. = ..()
@@ -159,10 +160,10 @@
 			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"))
 			M.dust()
 			return
-		explosion(target, 6, 6, 6)
+		explosion(get_turf(target), 6, 6, 6)
 	else
 		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"))
-		explosion(target, 30, 30, 30)
+		explosion(get_turf(target), 30, 30, 30)
 
 /obj/structure/machinery/zat_lever
 	name = "activation lever"

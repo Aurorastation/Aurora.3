@@ -462,7 +462,7 @@
 			else
 				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", "You hear something crack.")
 		if(ORION_TRAIL_GAMEOVER)
-			to_chat(usr, SPAN_DANGER("<font size=3>You're never going to make it to Orion...</font>"))
+			to_chat(usr, SPAN_DANGER("<font size=4>You're never going to make it to Orion...</font>"))
 			var/mob/living/M = usr
 			M.visible_message("\The [M] starts rapidly deteriorating.")
 			show_browser(M, null, "window=arcade")

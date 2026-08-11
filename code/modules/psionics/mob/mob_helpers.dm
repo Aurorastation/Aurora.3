@@ -64,6 +64,9 @@
 /mob/living/has_zona_bovinae()
 	return TRUE
 
+/mob/living/silicon/has_zona_bovinae()
+	return FALSE
+
 /mob/living/carbon/has_zona_bovinae()
 	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		return FALSE

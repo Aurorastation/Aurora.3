@@ -912,3 +912,31 @@
 /proc/endswith(input_text, ending)
 	var/input_length = LAZYLEN(ending)
 	return !!findtext(input_text, ending, -input_length)
+
+///Returns a string based on the weight class define used as argument
+/proc/weight_class_to_text(w_class)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY)
+			. = "tiny"
+		if(WEIGHT_CLASS_SMALL)
+			. = "small"
+		if(WEIGHT_CLASS_NORMAL)
+			. = "normal-sized"
+		if(WEIGHT_CLASS_BULKY)
+			. = "bulky"
+		if(WEIGHT_CLASS_HUGE)
+			. = "huge"
+		if(WEIGHT_CLASS_GIGANTIC)
+			. = "gigantic"
+		else
+			. = ""
+
+/proc/weight_class_to_tooltip(w_class)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY to WEIGHT_CLASS_SMALL)
+			return "This item can fit into pockets, boxes and backpacks."
+		if(WEIGHT_CLASS_NORMAL)
+			return "This item can fit into backpacks."
+		if(WEIGHT_CLASS_BULKY to WEIGHT_CLASS_GIGANTIC)
+			return "This item is too large to fit into any standard storage."
+	return ""

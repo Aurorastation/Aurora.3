@@ -17,6 +17,12 @@
 	dir = 1
 	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
+	destroy_hits = 40
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_RIFLE
+	)
 	pass_flags_self = PASSDOORS
 	rad_resistance_modifier = 6
 
@@ -150,12 +156,14 @@
 
 		return TRUE
 
-	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "plasteel")
+	var/obj/item/stack/material/plasteel_stack = attacking_item
+	var/singleton/material/plasteel_material = plasteel_stack?.get_material()
+	if(istype(plasteel_stack) && plasteel_material?.type == MATERIAL_PLASTEEL)
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
 			to_chat(usr, SPAN_NOTICE("\The [src] is already fully repaired."))
 			return TRUE
-		var/obj/item/stack/P = attacking_item
+		var/obj/item/stack/P = plasteel_stack
 		if(P.amount < amt)
 			to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 			return TRUE
@@ -253,6 +261,12 @@
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
 	closed_layer = CLOSED_DOOR_LAYER
+	destroy_hits = 20
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_MEDIUM
+	)
 
 /obj/structure/machinery/door/blast/shutters/open
 	icon_state = "shutter0"

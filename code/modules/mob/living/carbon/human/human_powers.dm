@@ -541,7 +541,7 @@
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
 	sleep(20)
-	explosion(src, -1, 1, 5)
+	explosion(get_turf(src), -1, 1, 5)
 	src.gib()
 
 /mob/living/carbon/human/proc/hivenet()
@@ -1658,6 +1658,10 @@
 		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return
 
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_DANGER("You're too far from any Hivenet relay."))
+		return
+
 	if(!istype(S) && !istype(V))
 		to_chat(src, SPAN_WARNING("You do not have a functional connection to the Hivenet!"))
 		return
@@ -2050,6 +2054,9 @@
 	if(!istype(S))
 		to_chat(src, SPAN_WARNING("You require a functional neural socket to do this!"))
 		return FALSE
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_DANGER("You're too far from any Hivenet relay."))
+		return FALSE
 	if(S.last_action > world.time)
 		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet action!"))
 		return FALSE
@@ -2185,6 +2192,10 @@
 		to_chat(src, SPAN_WARNING("You are not connected to the Hivenet!"))
 		return
 
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing this far from relays!"))
+		return
+
 	if(within_jamming_range(src))
 		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
 		return
@@ -2203,6 +2214,10 @@
 	set name = "Hivenet Manifest"
 	set desc = "Get a list of all vaurca currently on the Hivenet."
 	set category = "Hivenet"
+
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_WARNING("You attempt to query the Hivenet, but find nothing this far from relays."))
+		return
 
 	var/list/all_vaurca = list()
 	for(var/mob/living/carbon/human/vaurca in GLOB.human_mob_list)

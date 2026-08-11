@@ -250,7 +250,7 @@
 			return
 		if((H.mutations & XRAY))
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils give an eerie glow!"))
-		if(vision.damage)
+		if(vision.get_damage())
 			to_chat(user, SPAN_WARNING("There's visible damage to [H]'s [vision.name]!"))
 		else if(H.eye_blurry)
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils react slower than normally."))
@@ -386,4 +386,25 @@
 		item_state = "lantern"
 
 /obj/item/flashlight/lantern/on
+	on = TRUE
+
+/obj/item/flashlight/lantern/voidtamer
+	name = "voidic lantern"
+	desc = "A strange lantern mounted on a metallic stick, draped in carphide. When activated, it ignites a gaseous system resembling a nebula."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "voidtamer_lantern"
+	item_state = "voidtamer_lantern"
+	flashlight_power = 2 //strong enough to sustain a dionae
+	light_range = 5
+	light_color = LIGHT_COLOR_BLUE
+	efficiency_modifier = 1.5
+
+/obj/item/flashlight/lantern/voidtamer/update_icon()
+	..()
+	if(on)
+		item_state = "voidtamer_lantern-on"
+	else
+		item_state = "voidtamer_lantern"
+
+/obj/item/flashlight/lantern/voidtamer/on
 	on = TRUE

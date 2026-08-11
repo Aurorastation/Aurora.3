@@ -32,6 +32,7 @@
 	. = ..()
 	if(camera)
 		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+		verbs += /obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network
 	if(has_storage)
 		hold = new /obj/item/storage/internal/helmet(src)
 		hold.storage_slots = slots
@@ -81,10 +82,13 @@
 	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
-	set name = "Toggle Helmet Camera"
+	set name = "Helmet Camera - Toggle On/Off"
 	set category = "Object.Equipped"
 	set src in usr
 
+	toggle_camera_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_camera_for(mob/user)
 	if(ispath(camera))
 		camera = new camera(src)
 		camera.set_status(0)
@@ -92,15 +96,42 @@
 	if(camera)
 		camera.set_status(!camera.status)
 		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
+			camera.c_tag = FindNameFromID(user)
+			to_chat(user, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
 		else
-			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
+			to_chat(user, SPAN_NOTICE("Camera deactivated."))
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network()
+	set name = "Helmet Camera - Toggle Expedition Network"
+	set category = "Object.Equipped"
+	set src in usr
+
+	toggle_expedition_camera_network_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network_for(mob/user)
+	if(ispath(camera))
+		camera = new camera(src)
+		camera.set_status(0)
+
+	if(!camera)
+		return
+
+	if(NETWORK_EXPEDITION in camera.network)
+		if(length(camera.network) == 1)
+			to_chat(user, SPAN_WARNING("This camera is already an expedition camera."))
+			return
+
+		camera.remove_network(NETWORK_EXPEDITION)
+		to_chat(user, SPAN_NOTICE("Camera disconnected from the expedition network."))
+		return
+
+	camera.add_network(NETWORK_EXPEDITION)
+	to_chat(user, SPAN_NOTICE("Camera connected to the expedition network."))
 
 /obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((distance <= 1) && camera)
-		. += FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>."))
+		. += FONT_SMALL(SPAN_NOTICE("To toggle or configure the helmet camera, right-click the helmet for options, or equip it and view your new Object verbs."))
 		. += "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active."
 
 /obj/item/clothing/head/helmet/hos
@@ -184,6 +215,19 @@
 		body_parts_covered = HEAD|FACE|EYES
 
 	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/riot/lancer
+	name = "ceres lance helmet"
+	desc = "A state-of-the-art combat helmet used by Ceres Lance. It is made with an additional layer of padding and ballstic visor designed to protect operatives attempting to physically restrain hostile IPCs, but has poor heat dissipation characteristics as a result."
+	icon_state = "helm_lance"
+	item_state = "helm_lance"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
@@ -482,5 +526,5 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
 	light_range = 6
-	camera = /obj/structure/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
 	on = 0

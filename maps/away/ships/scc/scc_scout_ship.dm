@@ -6,6 +6,7 @@
 	suffix = "scc_scout_ship.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "scc_scout_ship"

@@ -35,7 +35,11 @@ SUBSYSTEM_DEF(events)
 	initialized = TRUE
 
 	if(SSatlas.current_map.use_overmap)
-		overmap_event_handler.create_events(SSatlas.current_map.overmap_z, SSatlas.current_map.overmap_size, SSatlas.current_map.overmap_event_areas)
+		var/overmap_event_areas = SSatlas.current_map.overmap_event_areas
+		if(SSatlas.current_sector)
+			overmap_event_areas = round(overmap_event_areas * SSatlas.current_sector.overmap_hazards_multiplier)
+		LOG_DEBUG("<b>Creating [overmap_event_areas] events</b>")
+		overmap_event_handler.create_events(SSatlas.current_map.overmap_z, SSatlas.current_map.overmap_size, overmap_event_areas)
 
 	return SS_INIT_SUCCESS
 
@@ -106,7 +110,7 @@ SUBSYSTEM_DEF(events)
 	if(!report_at_round_end)
 		return
 
-	to_world("<br><br><br><font size=3><b>Random Events This Round:</b></font>")
+	to_world("<br><br><br><font size=4><b>Random Events This Round:</b></font>")
 	for(var/datum/event/E in active_events|finished_events)
 		var/datum/event_meta/EM = E.event_meta
 		if(EM.name == "Nothing")

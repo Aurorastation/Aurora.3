@@ -19,7 +19,6 @@
 	/// Lights are calculated via area so they don't need to be in the machine list.
 	power_channel = AREA_USAGE_LIGHT
 	always_area_sensitive = TRUE
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	/// Luminosity when on, also used in power calculation.
 	var/brightness_range = 7
@@ -117,6 +116,7 @@
 
 /obj/structure/machinery/light/Initialize(mapload)
 	. = ..()
+	LAZYADD(SSmachinery.all_lights, src)
 
 	if (!has_power())
 		stat |= NOPOWER
@@ -148,6 +148,7 @@
 	set_pixel_offsets()
 
 /obj/structure/machinery/light/Destroy()
+	LAZYREMOVE(SSmachinery.all_lights, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -239,7 +240,7 @@
 				message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
 				explode()
 
-		else if( prob( min(60, switchcount*switchcount*0.01) ) )
+		else if(prob(min(60,(switchcount**2) * 0.05))) // LEMURIAN SEA, REDUCE 0.05 -> 0.01 AFTER ARC
 			if(status == LIGHT_OK && trigger)
 				status = LIGHT_BURNED
 				stat |= BROKEN
@@ -566,8 +567,7 @@
 	else
 		return ..()
 
-// break the light and make sparks if was on
-
+/// Break the light and make sparks if was on
 /obj/structure/machinery/light/proc/broken(skip_sound_and_sparks = 0)
 	if(status == LIGHT_EMPTY)
 		return

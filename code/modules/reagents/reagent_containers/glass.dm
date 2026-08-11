@@ -318,7 +318,7 @@
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	center_of_mass = list("x" = 16,"y" = 8)
-	matter = list("wood" = 50)
+	matter = list(MATERIAL_WOOD = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood

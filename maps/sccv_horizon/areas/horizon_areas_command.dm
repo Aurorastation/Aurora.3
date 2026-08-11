@@ -27,8 +27,15 @@
 	area_blurb = "The most daunting office on the entire ship. Except for CCIA's. Theirs is still a little scarier."
 	horizon_deck = 3
 
-/area/horizon/command/heads/xo
+/area/horizon/command/heads/xo_office
 	name = "Executive Officer's Office"
+	icon_state = "head_quarters"
+	area_blurb = "No one really knows what goes on in here, but Ian usually seems pretty happy so it's got that going for it.."
+	horizon_deck = 3
+
+/area/horizon/command/heads/xo_desk
+	name = "Executive Officer's Desk"
+	icon_state = "head_quarters"
 	area_blurb = "No one really knows what goes on in here, but Ian usually seems pretty happy so it's got that going for it.."
 	horizon_deck = 3
 
@@ -136,7 +143,7 @@
 //Teleporter
 /area/horizon/command/teleporter
 	name = "Teleporter"
-	area_lighting = LIGHT_HIGHSEC_COLORS
+	area_lighting = LIGHT_CLINICAL_COLORS
 	icon_state = "teleporter"
 	horizon_deck = 1
 	area_blurb = "The air in here always feels charged with the subdued crackle of electricity, tasting faintly of ozone."

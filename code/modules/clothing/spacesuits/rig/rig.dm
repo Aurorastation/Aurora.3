@@ -100,6 +100,8 @@
 	var/malfunctioning = 0
 	var/malfunction_delay = 0
 	var/electrified = 0
+	/// Ensures that you can't queue up multiple piece toggle commands at once and bug anything out.
+	var/piece_being_deployed = FALSE
 
 	/// Rate at which the suit cell will passively use power when online.
 	var/cell_draw_rate = CHARGE_DRAIN_DEFAULT
@@ -153,8 +155,6 @@
 		locked = FALSE
 
 	spark_system = bind_spark(src, 5)
-
-	START_PROCESSING(SSmobs, src)
 
 	last_remote_message = world.time
 
@@ -222,18 +222,47 @@
 	piece.icon_supported_species_tags = icon_supported_species_tags
 
 /obj/item/rig/Destroy()
-	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
-		qdel(piece)
-	STOP_PROCESSING(SSmobs, src)
-	qdel(wires)
-	wires = null
-	qdel(spark_system)
-	spark_system = null
+	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(air_supply)
+	QDEL_NULL(boots)
+	QDEL_NULL(chest)
+	QDEL_NULL(helmet)
+	QDEL_NULL(gloves)
+	QDEL_NULL(cell)
+	selected_module = null
+	visor = null
+	speech = null
+	wearer?.wearing_rig = null
+	wearer = null
+	mob_icon = null
+	QDEL_LIST(installed_modules)
+	QDEL_NULL(wires)
+	QDEL_NULL(spark_system)
 	return ..()
 
 /obj/item/rig/proc/set_vision(var/active)
 	if(helmet)
 		helmet.tint = (active? vision_restriction : offline_vision_restriction)
+
+/**
+ * Updates the hardsuit's slowdown if it changes.
+ * This gives a heavy slowdown penalty if the suit is deployed but the boots are not.
+ * Otherwise, it is an easy exploit to make any hardsuit stealthy by wearing everything EXCEPT the boots.
+ * Now you can creep in your hardsuit, but you have to go slowly to do it.
+ */
+/obj/item/rig/proc/update_slowdown()
+	var/new_slowdown = initial(slowdown)
+
+	if(offline)
+		new_slowdown = offline_slowdown
+	else if(chest && wearer?.wear_suit == chest && (!boots || wearer.shoes != boots)) //If the chest is deployed, but the boots are not.
+		new_slowdown = offline_slowdown + 2 //The boots aren't taking the weight of the suit, so the wearer isn't benefiting from the hardsuit's powered servos.
+
+	if(slowdown != new_slowdown)
+		slowdown = new_slowdown
+		wearer?.update_equipment_speed_mods() //This should only proc if worn, but just in case we check.
+		if(slowdown == offline_slowdown + 2)
+			to_chat(wearer, SPAN_WARNING("Without the boots deployed, the hardsuit's servos aren't supporting the weight of the suit."))
 
 /obj/item/rig/proc/suit_is_deployed()
 	if(!istype(wearer) || src.loc != wearer || wearer.back != src)
@@ -428,7 +457,7 @@
 			piece.item_flags |= ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
-/obj/item/rig/process()
+/obj/item/rig/process(seconds_per_tick)
 	// If we've lost any parts, grab them back.
 	var/mob/living/M
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
@@ -441,7 +470,7 @@
 
 	var/previous_offline_status = offline
 	// Consume energy per tick while active. If you don't have a cell... Weird, but we'll deal with that shortly.
-	var/power_usage_this_tick = ((!offline && cell) ? cell_draw_rate : 0.0)
+	var/power_usage_this_tick = ((!offline && cell) ? (cell_draw_rate * seconds_per_tick) : 0.0)
 
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
@@ -466,9 +495,8 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			if(slowdown != initial(slowdown))
-				slowdown = initial(slowdown)
-				wearer?.update_equipment_speed_mods()
+
+	update_slowdown()
 
 	if(offline != previous_offline_status)
 		update_icon(TRUE)
@@ -476,10 +504,10 @@
 	set_vision(!offline)
 
 	if(cell && cell.charge > 0 && electrified > 0)
-		electrified--
+		electrified -= seconds_per_tick
 
 	if(crushing)
-		wearer.apply_damage(10) // Applies 10 brute damage to a random extremity each process
+		wearer.apply_damage(10 * seconds_per_tick) // Applies 10 brute damage per second to a random extremity
 		if(wearer.stat == DEAD)
 			crushing = FALSE
 			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
@@ -490,9 +518,7 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			if(slowdown != offline_slowdown)
-				slowdown = offline_slowdown
-				wearer?.update_equipment_speed_mods()
+			update_slowdown()
 		return
 
 	if(malfunction_delay > 0)
@@ -506,6 +532,9 @@
 
 	if(power_usage_this_tick)
 		cell.use(power_usage_this_tick)
+
+	if(!malfunctioning && !electrified && !open && offline && !wearer) //If nothing is wrong with it and it is not in use, it should stop processing.
+		return PROCESS_KILL
 
 /obj/item/rig/proc/check_power_cost(var/mob/living/user, var/cost, var/use_unconcious, var/obj/item/rig_module/mod, var/user_is_ai)
 
@@ -775,10 +804,12 @@
 							if(selected_module.suit_overlay_active)
 								selected_module.suit_overlay = selected_module.suit_overlay_active
 							sound_to(usr, module?.sound_activate)
+							balloon_alert_to_viewers("deploys \the [module.interface_name]", "deploys \the [module.interface_name]")
 						else
 							sound_to(usr, selected_module?.sound_deactivate)
 							selected_module.suit_overlay = null
 							selected_module = null
+							balloon_alert_to_viewers("retracts \the [module.interface_name]",  "retracts \the [module.interface_name]")
 						update_icon(TRUE)
 						playsound(src.loc, 'sound/items/rfd_dispense.ogg', 25, FALSE)
 					if("select_charge_type")
@@ -834,14 +865,20 @@
 			if(!do_after(M, seal_delay))
 				return FALSE
 
+		if(wearer && wearer != M)
+			unregister_wearer_signals(wearer)
+
 		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
+		register_wearer_signals(wearer)
 		update_icon(TRUE)
 		return TRUE
 	return TRUE
 
 /obj/item/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
+	if(piece_being_deployed)
+		return
 
 	if(!usr || sealing || !cell || !cell.charge)
 		return
@@ -877,21 +914,13 @@
 			use_obj = chest
 			check_slot = wearer.wear_suit
 
+	piece_being_deployed = TRUE
 	if(use_obj)
 		// Handle retracting the piece, if possible.
 		if(check_slot == use_obj && deploy_mode != ONLY_DEPLOY)
 			var/mob/living/carbon/human/holder
 			holder = use_obj.loc
 			if(istype(holder))
-				// Special code for boots. This is to prevent boots from being retracted while the chest piece is deployed.
-				// Otherwise, it is an easy exploit to make any hardsuit stealthy by wearing everything EXCEPT the boots.
-				var/obj/item/chest_slot = holder.wear_suit
-				var/obj/item/chest_obj = chest
-				if(use_obj == boots && chest_slot == chest_obj)
-					to_chat(wearer, SPAN_WARNING("The chest piece of the hardsuit must be retracted before you can retract your boots!"))
-					sound_to(wearer, 'sound/machines/terminal/terminal_error.ogg')
-					return
-
 				if(check_slot == use_obj)
 					to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
 					playsound(src, 'sound/machines/rig/rig_retract.ogg', 30, FALSE)
@@ -904,17 +933,16 @@
 		// Handle deploying the piece, if possible.
 		else if (deploy_mode != ONLY_RETRACT)
 			if(check_slot && check_slot == use_obj)
+				piece_being_deployed = FALSE
 				return TRUE
 			if(!do_after(wearer, 8))
 				if(wearer)
 					to_chat(wearer, SPAN_WARNING("You must remain still while the suit deploys its parts."))
+					piece_being_deployed = FALSE
 					return FALSE
-			// If we're deploying the chest, we also try to deploy boots. If we can't also deploy boots, the entire thing fails.
-			if(use_obj == chest)
-				if(!toggle_piece("boots", initiator, ONLY_DEPLOY))
-					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as the boots were unable to also deploy!"))
-					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
-					return FALSE
+			if(!wearer || wearer.back != src) ///Prevents an edge case where a suit with a storage module can be removed while deploying, causing a runtime.
+				piece_being_deployed = FALSE
+				return FALSE
 			use_obj.forceMove(wearer)
 			if(src.color)
 				use_obj.color = src.color
@@ -923,6 +951,7 @@
 				if(check_slot)
 					to_chat(initiator, SPAN_DANGER("You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way."))
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
+					piece_being_deployed = FALSE
 					return FALSE
 			else
 				to_chat(wearer, SPAN_NOTICE("Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly."))
@@ -932,11 +961,44 @@
 		helmet.update_light(wearer)
 
 	update_icon(TRUE)
+	update_slowdown()
 
+	piece_being_deployed = FALSE
 	return TRUE
 
 /obj/item/rig/proc/deploy(mob/M,var/sealed)
+	var/mob/living/carbon/human/H = M
 
+	if(!H || !istype(H)) return
+
+	if(H.back != src)
+		return
+
+	if(sealed)
+		if(H.head)
+			var/obj/item/garbage = H.head
+			H.head = null
+			qdel(garbage)
+
+		if(H.gloves)
+			var/obj/item/garbage = H.gloves
+			H.gloves = null
+			qdel(garbage)
+
+		if(H.shoes)
+			var/obj/item/garbage = H.shoes
+			H.shoes = null
+			qdel(garbage)
+
+		if(H.wear_suit)
+			var/obj/item/garbage = H.wear_suit
+			H.wear_suit = null
+			qdel(garbage)
+
+	for(var/piece in list("helmet","gauntlets","boots",BP_CHEST))
+		toggle_piece(piece, H, ONLY_DEPLOY)
+
+/obj/item/rig/proc/retract(mob/M,var/sealed)
 	var/mob/living/carbon/human/H = M
 
 	if(!H || !istype(H)) return
@@ -966,14 +1028,45 @@
 			qdel(garbage)
 
 	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
-		toggle_piece(piece, H, ONLY_DEPLOY)
+		toggle_piece(piece, H, ONLY_RETRACT)
 
 /obj/item/rig/proc/null_wearer(var/mob/user)
+	unregister_wearer_signals(wearer)
 	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
 	if(wearer)
 		wearer.wearing_rig = null
 		wearer = null
+
+/obj/item/rig/proc/register_wearer_signals(mob/living/carbon/human/new_wearer)
+	if(!new_wearer)
+		return
+
+	RegisterSignal(new_wearer, COMSIG_MOB_CLICKON, PROC_REF(handle_wearer_click))
+
+/obj/item/rig/proc/unregister_wearer_signals(mob/living/carbon/human/old_wearer)
+	if(!old_wearer)
+		return
+
+	UnregisterSignal(old_wearer, COMSIG_MOB_CLICKON)
+
+/obj/item/rig/proc/handle_wearer_click(mob/user, atom/target, modifiers)
+	SIGNAL_HANDLER
+	if(offline == 2)
+		return
+	if(LAZYACCESS(modifiers, SHIFT_CLICK))
+		return
+	if(LAZYACCESS(modifiers, ALT_CLICK))
+		return
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		return
+
+	if(user.in_throw_mode && (isturf(target) || isturf(target.loc)) && user.throw_item(target)) //Prevents throwing items while remaining cloaked.
+		attack_disrupt_check()
+
+	if(ismob(target)) //This doesn't prevent guns firing at turfs, that is handled in /obj/item/gun/proc/handle_post_fire
+		if(target != user)
+			attack_disrupt_check()
 
 /obj/item/rig/on_slotmove(var/mob/user)
 	..()
@@ -986,8 +1079,7 @@
 		SSstatpanels.set_action_tabs_RIG(user.client, user)
 
 	null_wearer(user)
-
-
+	STOP_PROCESSING(SSprocessing, src)
 //Todo
 /obj/item/rig/proc/malfunction()
 	return 0
@@ -1249,3 +1341,7 @@
 		air_supply.remove_air(air_supply.air_contents.total_moles)
 	else
 		air_supply = null
+
+/obj/item/rig/equipped()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)

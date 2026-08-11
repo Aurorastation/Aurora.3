@@ -11,7 +11,7 @@
 		MELEE = ARMOR_MELEE_MAJOR,
 		BULLET = ARMOR_BALLISTIC_SMALL,
 		LASER = ARMOR_LASER_RIFLE,
-		energy = ARMOR_MELEE_MINOR,
+		ENERGY = ARMOR_MELEE_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	emp_protection = 100
@@ -28,6 +28,16 @@
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
 	glove_type = /obj/item/clothing/gloves/rig/light
 
+/obj/item/rig/light/update_slowdown() //Light rigs do not suffer a penalty for undeployed boots
+	var/new_slowdown = initial(slowdown)
+
+	if(offline)
+		new_slowdown = offline_slowdown
+
+	if(slowdown != new_slowdown)
+		slowdown = new_slowdown
+		wearer?.update_equipment_speed_mods() //This should only proc if worn, but just in case we check.
+
 /obj/item/clothing/suit/space/rig/light
 	name = "suit"
 	breach_threshold = 18 //comparable to voidsuits
@@ -37,7 +47,7 @@
 
 /obj/item/clothing/shoes/magboots/rig/light
 	name = "shoes"
-	footstep_sound_override = null
+	movement_sounds = null
 
 /obj/item/clothing/head/helmet/space/rig/light
 	name = "hood"
@@ -223,7 +233,7 @@
 	boot_type = null
 
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/storage
 		)
@@ -278,7 +288,7 @@
 	)
 
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/chem_dispenser/combat
@@ -293,7 +303,7 @@
 
 /obj/item/rig/light/offworlder/frontier/equipped
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,
@@ -302,7 +312,7 @@
 		)
 /obj/item/rig/light/offworlder/frontier/ninja
 	initial_modules = list(
-		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/device/healthscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,

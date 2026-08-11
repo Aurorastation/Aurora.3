@@ -61,7 +61,6 @@
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
-	fingerprint_chance = 75
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
@@ -223,7 +222,7 @@
 	force = 11
 	punch_force = 5
 	clipped = 1
-	matter = list(DEFAULT_WALL_MATERIAL = 1000)
+	matter = list(MATERIAL_STEEL = 1000)
 
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = SFX_PICKUP_SWORD

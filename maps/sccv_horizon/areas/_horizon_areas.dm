@@ -22,7 +22,7 @@
 /// SCCV Horizon master areas
 /area/horizon
 	name = "Horizon (PARENT AREA - DON'T USE)"
-	icon_state = "unknown"
+	icon_state = "horizon"
 	station_area = TRUE
 	ambience = AMBIENCE_GENERIC
 	// Remember to set this for new areas!!
@@ -46,3 +46,8 @@
 	ambience = AMBIENCE_SPACE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	area_blurb = "The sheer scale of the SCCV Horizon is never more apparent when crawling across its hull like an ant."
+
+// Same as above, except shields will not wrap around it.
+// For bits of space or the outer hull that shouldn't be covered by shields.
+/area/horizon/exterior/no_shields
+	icon_state = "exterior_noshield"

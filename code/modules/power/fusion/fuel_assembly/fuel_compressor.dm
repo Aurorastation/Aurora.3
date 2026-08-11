@@ -41,14 +41,14 @@
 		return 1
 	else if(istype(thing, /obj/item/stack/material))
 		var/obj/item/stack/material/M = thing
-		var/material/mat = M.get_material()
+		var/singleton/material/mat = M.get_material()
 		if(!mat.is_fusion_fuel)
 			to_chat(user, SPAN_WARNING("It would be pointless to make a fuel rod out of [mat.use_name]."))
 			return
 		if(!M.use(5))
 			to_chat(user, SPAN_WARNING("You need at least five [mat.sheet_plural_name] to make a fuel rod."))
 			return
-		var/obj/item/fuel_assembly/F = new(get_turf(src), mat.name)
+		var/obj/item/fuel_assembly/F = new(get_turf(src), mat.type)
 		visible_message(SPAN_NOTICE("\The [src] compresses the [mat.use_name] into a new fuel assembly."))
 		user.put_in_hands(F)
 		return 1

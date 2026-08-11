@@ -10,6 +10,8 @@
 	an easy path to education. Zhan-Khazan are in a transformative state in modern Tajaran society, \
 	but still deal with the many barriers from centuries of the caste system."
 	species_height = HEIGHT_CLASS_TALL
+	height_min = 160 // taj default: 145
+	height_max = 195 // taj default: 180
 
 	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
 
@@ -17,7 +19,7 @@
 	sprint_speed_factor = 0.55
 	standing_jump_range = 2
 	stamina = 100 // As opposed to 90
-	brute_mod = 1.1 // Less Brute Damage
+	brute_mod = 1.05 // Less Brute Damage
 	ethanol_resistance = 1 // Default value
 	climb_coeff = 1.1
 
@@ -48,6 +50,8 @@
 		/singleton/origin_item/culture/offworld_tajara/zhan
 	)
 
+	mass_modifier = REFERENCE_MASS_TAJARA_ZHAN / REFERENCE_MASS_HUMAN
+
 /datum/species/tajaran/m_sai
 	name = SPECIES_TAJARA_MSAI
 	name_plural = "M'sai Tajara"
@@ -59,12 +63,14 @@
 	When these roles were shrunken down however, the M'sai commonly found themselves taking \
 	similar work to the Zhan-Khazan. As a result, the two races share much in common with their culture."
 	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 155 // taj default: 145
+	height_max = 175 // taj default: 180
 
 	slowdown = -0.6
 	sprint_speed_factor = 0.75
 	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
-	brute_mod = 1.3 // More Brute Damage
+	brute_mod = 1.15 // More Brute Damage
 	ethanol_resistance = 0.7 // Species Default 0.9
 
 	maneuvers = list(
@@ -95,6 +101,8 @@
 		/singleton/origin_item/culture/adhomian/msai,
 		/singleton/origin_item/culture/offworld_tajara/msai
 	)
+
+	mass_modifier = REFERENCE_MASS_TAJARA_MSAI / REFERENCE_MASS_HUMAN
 
 /datum/species/tajaran/tesla_body
 	name = SPECIES_TAJARA_TESLA_BODY
@@ -195,6 +203,7 @@
 	push_flags = (~HEAVY) ^ ROBOT
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any alternate limbs for Tesla suits
 	valid_prosthetics = null
+	mass_modifier = REFERENCE_MASS_TAJARA_TESLA / REFERENCE_MASS_HUMAN
 
 /datum/species/tajaran/tesla_body/New()
 	..()

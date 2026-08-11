@@ -14,9 +14,11 @@
 			. = TRUE
 			message = Gibberish(message, damaged - 10)
 
-/mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
-	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking, say_verb = TRUE)
+/mob/living/silicon/robot/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/text = msg.to_string()
+	var/message_mode = msg.message_mode
+	if(message_mode == "whisper" && !msg.whisper)
+		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 	if(message_mode)
 		if(!is_component_functioning("radio"))
@@ -24,37 +26,40 @@
 			return 0
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]")
-		return common_radio.talk_into(src, message, message_mode, verb, speaking)
+		log_say("[key_name(src)] : [text]")
+		return common_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
 
-/mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
-	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking, say_verb = TRUE)
+/mob/living/silicon/ai/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/text = msg.to_string()
+	var/message_mode = msg.message_mode
+	if(message_mode == "whisper" && !msg.whisper)
+		whisper(text, primary, say_verb = TRUE, msg = msg)
 		return TRUE
 	if(message_mode == "department")
-		log_say("[key_name(src)] : [message]")
-		return holopad_talk(message, verb, speaking)
+		return holopad_talk(msg)
 	else if(message_mode)
 		if(ai_radio.disabledAi || ai_restore_power_routine || stat)
 			to_chat(src, SPAN_DANGER("System Error - Transceiver Disabled."))
 			return FALSE
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]")
-		return ai_radio.talk_into(src, message, message_mode, verb, speaking)
+		log_say("[key_name(src)] : [text]")
+		return ai_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
-/mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
+/mob/living/silicon/pai/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
+	var/text = msg.to_string()
+	var/message_mode = msg.message_mode
 	if(message_mode)
-		if(message_mode == "whisper" && !whisper)
-			whisper(message, speaking, say_verb = TRUE)
+		if(message_mode == "whisper" && !msg.whisper)
+			whisper(text, primary, say_verb = TRUE, msg = msg)
 			return TRUE
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]")
-		return radio.talk_into(src, message, message_mode, verb, speaking)
+		log_say("[key_name(src)] : [text]")
+		return radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
 
 /mob/living/silicon/say_quote(var/text, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	if(singing)
@@ -93,19 +98,15 @@
 	return ..()
 
 //For holopads only. Usable by AI.
-/mob/living/silicon/ai/proc/holopad_talk(var/message, verb, datum/language/speaking)
-	log_say("[key_name(src)] : [message]")
-	message = trim(message)
-	if(!message)
+/mob/living/silicon/ai/proc/holopad_talk(datum/say_message/msg)
+	log_say("[key_name(src)] : [msg.raw_message]")
+	if(!length(msg.to_string()))
 		return
 
 	var/obj/structure/machinery/hologram/holopad/H = src.holo
 	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
-		// AI can hear their own message, this formats it for them.
-		if(speaking)
-			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [speaking.format_message(message, verb)]</span></i>")
-		else
-			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></i>")
+		// AI hears its own message. text_for keeps each language.
+		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.verb], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
 
 		//This is so pAI's and people inside lockers/boxes,etc can hear the AI Holopad, the alternative being recursion through contents.
 		//This is much faster.
@@ -129,13 +130,12 @@
 					hearturfs += get_turf(O)
 					listening_obj |= O
 
-
 			for(var/mob/M in GLOB.player_list)
 				if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
-					M.hear_say(message, verb, speaking, null, null, src)
+					M.hear_message(msg)
 					continue
 				if(M.loc && (get_turf(M) in hearturfs))
-					M.hear_say(message, verb, speaking, null, null, src)
+					M.hear_message(msg)
 	else
 		to_chat(src, SPAN_WARNING("No holopad connected."))
 		return FALSE

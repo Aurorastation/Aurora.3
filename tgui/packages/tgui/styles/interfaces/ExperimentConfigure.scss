@@ -1,0 +1,108 @@
+.ExperimentTechwebServer__Web,
+.ExperimentConfigure__ExperimentPanel {
+  background: var(--color-black);
+  border: var(--border-thickness-tiny) solid var(--color-primary);
+  margin: var(--space-s) 0;
+
+  &--selected {
+    border: var(--border-thickness-tiny) solid var(--button-background-selected);
+  }
+}
+
+.ExperimentTechwebServer__WebHeader {
+  background: var(--color-primary);
+  padding: var(--space-xs);
+}
+
+.ExperimentTechwebServer__WebName {
+  font-size: 18px;
+}
+
+.ExperimentTechwebServer__WebContent {
+  padding: var(--space-sm);
+}
+
+.ExperimentTechwebServer__WebContent > .LabeledList {
+  margin: var(--space-s) var(--space-s) var(--space-s) var(--space-xl);
+}
+
+.ExperimentConfigure__ExperimentName {
+  font-weight: bold;
+  border-radius: 0;
+}
+
+.ExperimentConfigure__ExperimentNameFakeButton {
+  background-color: var(--color-primary);
+  font-weight: bold;
+  border-radius: 0;
+  position: relative;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  white-space: nowrap;
+  line-height: var(--button-height);
+  padding: 0 var(--space-m);
+  margin-bottom: var(--space-xs);
+  border-radius: var(--button-border-radius);
+  outline: none;
+  &__content {
+    display: block;
+    align-self: stretch;
+  }
+}
+
+.ExperimentConfigure__ExperimentContent {
+  /* prettier-ignore */
+  padding: var(--space-s) calc(var(--space-xl) * 1.5) var(--space-s) var(--space-s);
+}
+
+.ExperimentStage__Indicator {
+  font-weight: bold;
+  text-align: center;
+}
+
+.ExperimentStage__StageContainer.complete .ExperimentStage__Description {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.ExperimentStage__StageContainer {
+  margin-bottom: var(--space-m);
+}
+
+.ExperimentStage__Table {
+  border-collapse: separate;
+  border-spacing: var(--space-s) var(--space-s);
+}
+
+.ExperimentConfigure__PerformExperiment {
+  text-align: center;
+  padding: var(--space-l) 0;
+}
+
+.ExperimentConfigure__ExperimentsContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ExperimentConfigure__ExperimentsContainer > :last-child {
+  flex: 1;
+}
+
+// Required for the time being otherwise we'll end up coloring the tooltip
+// by accident when we color the tag.
+.ExperimentConfigure__TagContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.ExperimentConfigure__PerformanceHint * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  color: var(--color-text-translucent);
+}

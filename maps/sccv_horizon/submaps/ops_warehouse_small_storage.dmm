@@ -198,10 +198,6 @@
 /obj/structure/closet/crate/tool,
 /turf/template_noop,
 /area/template_noop)
-"dY" = (
-/obj/structure/reagent_dispensers/extinguisher,
-/turf/template_noop,
-/area/template_noop)
 "eg" = (
 /obj/structure/machinery/portable_atmospherics/canister/chlorine,
 /turf/template_noop,
@@ -515,10 +511,6 @@
 /obj/random/contraband,
 /turf/template_noop,
 /area/template_noop)
-"lI" = (
-/obj/random/cookingoil,
-/turf/template_noop,
-/area/template_noop)
 "lJ" = (
 /obj/random/plushie,
 /obj/random/plushie,
@@ -681,10 +673,6 @@
 /obj/structure/machinery/vending/cigarette{
 	anchored = 0
 	},
-/turf/template_noop,
-/area/template_noop)
-"oz" = (
-/obj/structure/reagent_dispensers/fueltank,
 /turf/template_noop,
 /area/template_noop)
 "oD" = (
@@ -966,11 +954,6 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/template_noop,
 /area/template_noop)
-"vl" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/template_noop,
-/area/template_noop)
 "vm" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/table/rack/no_cargo,
@@ -1101,11 +1084,6 @@
 /obj/item/organ/internal/eyes/optical_sensor,
 /turf/template_noop,
 /area/template_noop)
-"xF" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/reagent_dispensers/extinguisher,
-/turf/template_noop,
-/area/template_noop)
 "xI" = (
 /obj/structure/closet/crate/autakh,
 /turf/template_noop,
@@ -1129,11 +1107,6 @@
 /obj/item/stack/tile/carpet/red,
 /turf/template_noop,
 /area/template_noop)
-"yo" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/template_noop,
-/area/template_noop)
 "yz" = (
 /obj/item/toy/figure/corgi,
 /turf/template_noop,
@@ -1153,11 +1126,6 @@
 /obj/item/circuitboard/destructive_analyzer,
 /obj/item/circuitboard/protolathe,
 /obj/item/circuitboard/rdconsole,
-/turf/template_noop,
-/area/template_noop)
-"zd" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/reagent_dispensers/watertank,
 /turf/template_noop,
 /area/template_noop)
 "zi" = (
@@ -1649,10 +1617,6 @@
 "NR" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/random/dirt_75,
-/turf/template_noop,
-/area/template_noop)
-"NU" = (
-/obj/structure/reagent_dispensers/watertank,
 /turf/template_noop,
 /area/template_noop)
 "Oc" = (
@@ -3475,13 +3439,13 @@ sW
 Tf
 Gz
 Gz
-lI
+Gz
 xg
 Gz
 Gz
 Gz
 sW
-dY
+Gz
 Gz
 Gz
 ZM
@@ -3492,7 +3456,7 @@ Gt
 Gt
 Gz
 Gz
-xF
+tG
 Gz
 Gz
 Gz
@@ -3577,7 +3541,7 @@ Sl
 Gz
 Gz
 Vh
-oz
+Gz
 nn
 sW
 iM
@@ -4009,9 +3973,9 @@ Gz
 sW
 vk
 sk
-oz
-yo
-vl
+Gz
+Rn
+tG
 Gz
 Gz
 Gz
@@ -4053,8 +4017,8 @@ Gz
 Gz
 Gz
 Gz
-yo
-oz
+Rn
+Gz
 Rn
 Rn
 uz
@@ -4063,7 +4027,7 @@ Gz
 Gz
 Gz
 AW
-NU
+Gz
 Gz
 Gz
 cm
@@ -4099,11 +4063,11 @@ Gz
 Gz
 Gz
 sW
-yo
+Rn
 Gz
 Rn
 Rn
-yo
+Rn
 nn
 Gz
 Gz
@@ -4292,7 +4256,7 @@ Gz
 Gz
 Gz
 sW
-NU
+Gz
 cU
 Gz
 WG
@@ -5423,8 +5387,8 @@ sW
 Vi
 Gz
 Gz
-NU
-zd
+Gz
+tG
 Gz
 Gz
 Gz
@@ -5470,7 +5434,7 @@ RB
 Gz
 Gz
 Gz
-NU
+Gz
 Gz
 Gz
 Gz
@@ -5516,7 +5480,7 @@ ip
 Gz
 Gz
 Gz
-NU
+Gz
 nn
 Gz
 Gz

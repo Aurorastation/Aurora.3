@@ -56,8 +56,7 @@
 	//Auras, essentially magic and encompassing around us, gets checked first
 	if(!src.aura_check(AURA_TYPE_BULLET, hitting_projectile, def_zone, piercing_hit))
 		blocked = 100
-		return BULLET_ACT_FORCE_PIERCE
-
+		return BULLET_ACT_BLOCK
 
 	//Shields, in front of us (hopefully), check the bullet before it reaches us
 	var/shield_check = check_shields(hitting_projectile.damage, hitting_projectile, hitting_projectile.firer, def_zone, "the [hitting_projectile.name]")
@@ -502,21 +501,89 @@
 		if(A.CheckRemoval(src))
 			A.Remove(src)
 
-	for(var/obj/item/I in src)
-		if(I.action_button_name)
+	update_camera_view_action()
 
-			//If the item_action object does not exist, try to create it
+	for(var/obj/item/I in src)
+		if(!I.action_button_name)
+			continue
+
+		var/list/action_names = islist(I.action_button_name) ? I.action_button_name : list(I.action_button_name)
+		var/list/action_types = islist(I.default_action_type) ? I.default_action_type : list(I.default_action_type)
+
+		if(action_names.len > 1)
+			if(!islist(I.action))
+				I.action = I.action ? list(I.action) : list()
+
+			var/list/actions_list = I.action
+
+			for(var/i in 1 to action_names.len)
+				var/action_name = action_names[i]
+				if(!action_name)
+					continue
+
+				var/datum/action/item_action = (i <= actions_list.len) ? actions_list[i] : null
+
+				if(!item_action)
+					var/action_type = action_types.len >= i ? action_types[i] : action_types[1]
+					if(!action_type)
+						continue
+
+					item_action = new action_type
+					actions_list.Add(item_action)
+
+				item_action.name = action_name
+				item_action.SetTarget(I)
+				item_action.Grant(src)
+
+		else
 			if(!I.action)
-				//Try to use the default action type, if there is none, skip this implant
-				if(I.default_action_type)
-					I.action = new I.default_action_type
+				var/action_type = action_types.len ? action_types[1] : null
+				if(action_type)
+					I.action = new action_type
 				else
 					continue
 
-			I.action.name = I.action_button_name
-			I.action.SetTarget(I)
-			I.action.Grant(src)
+			var/datum/action/item_action = I.action
+			item_action.name = action_names[1]
+			item_action.SetTarget(I)
+			item_action.Grant(src)
+
 	return
+
+/mob/living/proc/is_viewing_z_eye()
+	return client && z_eye && client.eye == z_eye
+
+/mob/living/is_viewing_remote_view()
+	return ..() || is_viewing_z_eye()
+
+/mob/living/proc/clear_z_eye()
+	if(!z_eye)
+		return FALSE
+	var/was_viewing_z_eye = is_viewing_z_eye()
+	if(was_viewing_z_eye)
+		reset_view(null)
+	QDEL_NULL(z_eye)
+	update_camera_view_action()
+	return was_viewing_z_eye
+
+/mob/living/proc/update_camera_view_action()
+	if(is_viewing_remote_view())
+		if(!camera_view_cancel_action)
+			camera_view_cancel_action = new
+		camera_view_cancel_action.Grant(src)
+	else if(camera_view_cancel_action?.owner)
+		camera_view_cancel_action.Remove(src)
+
+/mob/living/proc/cancel_remote_view()
+	if(istype(machine, /obj/structure/machinery/computer/ship))
+		var/obj/structure/machinery/computer/ship/ship_console = machine
+		if(ship_console.viewing_overmap(src))
+			ship_console.unlook(src)
+			update_camera_view_action()
+			return
+
+	cancel_camera()
+	update_camera_view_action()
 
 /mob/living/update_action_buttons()
 	if(!hud_used) return

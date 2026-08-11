@@ -18,9 +18,9 @@
 	var/destroyed = 0
 
 /obj/structure/grille/get_damage_condition_hints(mob/user, distance, is_adjacent)
-	if(health < initial(health))
+	if(health < maxhealth)
 		var/state
-		var/current_damage = health / initial(health)
+		var/current_damage = health / maxhealth
 		switch(current_damage)
 			if(0 to 0.3)
 				state = SPAN_DANGER("The grille is barely in one piece!")
@@ -159,6 +159,9 @@
 	var/damage = hitting_projectile.get_structure_damage()
 	var/passthrough = 0
 
+	if(piercing_hit)
+		return BULLET_ACT_FORCE_PIERCE //Shots that would have penetrated anyway don't get the damage reduction or chance to not penetrate.
+
 	if(!damage)
 		return BULLET_ACT_BLOCK
 
@@ -181,7 +184,7 @@
 				passthrough = 1
 
 	if(passthrough)
-		. = BULLET_ACT_HIT
+		. = BULLET_ACT_FORCE_PIERCE
 		damage = between(0, (damage - hitting_projectile.damage)*(hitting_projectile.damage_type == DAMAGE_BRUTE? 0.4 : 1), 10) //if the bullet passes through then the grille avoids most of the damage
 
 	add_damage(damage * 0.2)

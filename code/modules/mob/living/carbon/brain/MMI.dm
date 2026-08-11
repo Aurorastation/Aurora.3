@@ -87,7 +87,7 @@
 				if(!B.can_prepare)
 					to_chat(user, SPAN_WARNING("\The [B] is incompatible with [src]!"))
 					return
-				if(B.damage >= B.max_damage)
+				if(B.get_damage() >= B.max_damage)
 					to_chat(user, SPAN_WARNING("That brain is well and truly dead."))
 					return
 				else if(!B.brainmob)
@@ -144,6 +144,7 @@
 					new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 					set_cradle_state(STATE_EMPTY)
 					update_name()
+	return ..()
 
 /obj/item/mmi/attack_self(mob/user)
 	if(cradle_state == STATE_BRAIN)

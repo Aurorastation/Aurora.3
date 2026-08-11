@@ -5,6 +5,7 @@
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	contained_sprite = TRUE
 	action_button_name = "Toggle Headlamp"
 	light_range = 4 //luminosity when on

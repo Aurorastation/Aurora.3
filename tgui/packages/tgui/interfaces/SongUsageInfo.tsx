@@ -1,5 +1,5 @@
+import { LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 type SongUsageInfoData = {
@@ -9,8 +9,8 @@ type SongUsageInfoData = {
   max_events: number;
 };
 
-export const SongUsageInfo = (props, context) => {
-  const { data } = useBackend<SongUsageInfoData>(context);
+export const SongUsageInfo = (props) => {
+  const { data } = useBackend<SongUsageInfoData>();
 
   return (
     <Window title="Usage Info" width={400} height={160} theme="ntos">

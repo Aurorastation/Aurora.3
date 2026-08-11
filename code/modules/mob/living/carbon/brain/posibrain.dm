@@ -7,6 +7,10 @@
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
 	req_access = list(ACCESS_ROBOTICS)
 	can_be_ipc = TRUE
+
+	should_use_health = TRUE
+	maxhealth = OBJECT_HEALTH_MEDIUM
+
 	var/searching = FALSE
 
 /obj/item/mmi/digital/posibrain/Initialize()
@@ -15,6 +19,13 @@
 	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 
+/obj/item/mmi/digital/posibrain/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	playsound(src, SFX_BREAK_GLASS, 100, 1)
+	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"))
+	to_chat(brainmob, SPAN_DANGER("Your vision goes dark as your posibrain is destroyed, and your consciousness ceases to be."))
+	new /obj/effect/decal/cleanable/blood/gibs/robot(get_turf(src))
+	. = ..()
+
 /obj/item/mmi/digital/posibrain/update_icon()
 	if(brainmob.ckey)
 		icon_state = "[initial(icon_state)]-occupied"
@@ -22,9 +33,6 @@
 		icon_state = "[initial(icon_state)]-searching"
 	else
 		icon_state = initial(icon_state)
-
-/obj/item/mmi/digital/posibrain/attackby(obj/item/attacking_item, mob/user)
-	return
 
 /obj/item/mmi/digital/posibrain/attack_self(mob/user)
 	if(brainmob.ckey)

@@ -1,13 +1,13 @@
-import { useBackend } from '../backend';
 import {
   Button,
+  Collapsible,
+  Flex,
   LabeledList,
   NoticeBox,
   Section,
-  Flex,
   Table,
-  Collapsible,
-} from '../components';
+} from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type AwayShuttleData = {
@@ -25,8 +25,8 @@ type Shuttle = {
 type ShuttleCrew = {
   name: string;
   shuttle: string;
-  pilot: Boolean;
-  lead: Boolean;
+  pilot: boolean;
+  lead: boolean;
   id: number;
 };
 
@@ -39,7 +39,7 @@ type ShuttleAssignment = {
   return_time: string;
 };
 
-const num2bearing = function (num) {
+const num2bearing = (num) => {
   let bearing = '000';
   if (num < 10) bearing = '00' + num;
   else if (num < 100) bearing = '0' + num;
@@ -47,8 +47,8 @@ const num2bearing = function (num) {
   return bearing;
 };
 
-export const AwayShuttleManifest = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const AwayShuttleManifest = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
     <NtosWindow resizable width={900} height={600}>
@@ -60,8 +60,8 @@ export const AwayShuttleManifest = (props, context) => {
   );
 };
 
-export const ManifestEntryEdit = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const ManifestEntryEdit = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
     <Section
@@ -109,8 +109,8 @@ export const ManifestEntryEdit = (props, context) => {
   );
 };
 
-export const AllShuttles = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const AllShuttles = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
     <>
@@ -213,7 +213,7 @@ export const AllShuttles = (props, context) => {
                 />
               }
             >
-              {data.shuttle_manifest && data.shuttle_manifest.length ? (
+              {data.shuttle_manifest?.length ? (
                 <Flex>
                   <Table>
                     <Table.Row header>

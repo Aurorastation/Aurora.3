@@ -79,7 +79,7 @@
 	else
 		return 0
 
-/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE)
+/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	if(slot != slot_shoes)
 		return ..()
 

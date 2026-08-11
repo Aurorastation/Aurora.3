@@ -2,6 +2,7 @@
 
 /obj/item/laser_assembly/medium
 	name = "laser assembly (medium)"
+	desc = "A medium carbine-sized assembly."
 	base_icon_state = "medium"
 	w_class = WEIGHT_CLASS_SMALL
 	size = CHASSIS_MEDIUM
@@ -9,6 +10,7 @@
 
 /obj/item/laser_assembly/large
 	name = "laser assembly (large)"
+	desc = "A large rifle-sized assembly."
 	base_icon_state = "large"
 	w_class = WEIGHT_CLASS_NORMAL
 	size = CHASSIS_LARGE
@@ -16,6 +18,7 @@
 
 /obj/item/laser_assembly/admin
 	name = "laser assembly (obscene)"
+	desc = "An obscene laser assembly."
 	base_icon_state = "large"
 	w_class = WEIGHT_CLASS_BULKY
 	size = CHASSIS_LARGE
@@ -184,15 +187,15 @@
 	visible_message(SPAN_WARNING("\The [src] in \the [prototype] flickers then vanishes along with everything around it!"))
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(round(3*max(prototype.criticality, 1),1),T))
-		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*2,1))
-		do_teleport(M, get_turf(M), rand(2,6)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		do_teleport(M, get_turf(M), rand(2,4)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		empulse(T, 0, round(max(prototype.criticality, 1)*2,1))
 	..()
 /obj/item/laser_components/capacitor/bluespace/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	visible_message(SPAN_DANGER("\The [src] in \the [prototype] implodes in a catastrophic spatial anomaly, teleporting everything around it!"))
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(round(6*max(prototype.criticality, 1),1),T))
-		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*4,1))
-		do_teleport(M, get_turf(M), rand(4,12)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		do_teleport(M, get_turf(M), rand(3,6)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		empulse(T, 0, round(max(prototype.criticality, 1)*4,1))
 	..()
 
 //Lenses
@@ -299,11 +302,11 @@
 	burst = 10
 	damage = 2 //With the way armour works, splitting the damage across multiple shots actually reduces the overall damage, so we compensate by increasing it.
 	fire_delay = 10
-	chargetime = 3
+	chargetime = 2
 	accuracy = -1
 	icon_state = "rotating_lens"
 	increasable_stats = list()
-	decreaseable_stats = list("fire_delay", "chargetime")
+	decreaseable_stats = list("burst_delay", "chargetime")
 
 /obj/item/laser_components/modifier/scope
 	name = "telescopic sight"
@@ -316,18 +319,21 @@
 	name = "reinforced barrel"
 	desc = "Reinforcement along the barrel extends the longevity of the prototype."
 	reliability = 25
+	improvement_cap = 50
 	icon_state = "reinforced_barrel"
 
 /obj/item/laser_components/modifier/barrel/nano
 	name = "nano-reinforced barrel"
 	desc = "Reinforcement along the barrel extends the longevity of the prototype even more than predecessor barrel. Uses nano-technology to increase reinforcement while retaining same weight."
 	reliability = 35
+	improvement_cap = 50
 	icon_state = "nano_barrel"
 
 /obj/item/laser_components/modifier/vents
 	name = "exhaust venting"
 	desc = "More efficient exhaust venting reduces the impact of firing the prototype."
 	reliability = 0
+	improvement_cap = 50
 	base_malus = -0.5
 	malus = -0.5
 	malus_multiplier = 0.5
@@ -338,6 +344,7 @@
 /obj/item/laser_components/modifier/grip
 	name = "enhanced grip"
 	desc = "A modification that improves the fire delay of the prototype."
+	improvement_cap = 50
 	fire_delay = 0.8
 	gun_overlay = "grip"
 	icon_state = "grip"
@@ -347,6 +354,7 @@
 /obj/item/laser_components/modifier/grip/improved
 	name = "enhanced grip MK2"
 	desc = "A modification that improves the fire delay of the prototype. Slight improvement over a predecessor."
+	improvement_cap = 50
 	fire_delay = 0.7
 	gun_overlay = "grip"
 	icon_state = "enhanced_grip"
@@ -371,6 +379,7 @@
 /obj/item/laser_components/modifier/bayonet
 	name = "bayonet"
 	desc = "A modification that adds a big knife to your gun. Science."
+	improvement_cap = 50
 	gun_force = 10
 	gun_overlay = "bayonet"
 	icon_state = "bayonet_item"
@@ -380,6 +389,7 @@
 /obj/item/laser_components/modifier/ebayonet
 	name = "energy bayonet"
 	desc = "A modification that adds a hardlight knife to your gun. Science!"
+	improvement_cap = 50
 	gun_force = 25
 	gun_overlay = "ebayonet"
 	icon_state = "ebayonet_item"
@@ -421,6 +431,8 @@
 /obj/item/laser_components/modulator/ion
 	name = "ion cannon"
 	desc = "Modulates the prototype to fire disparate ion projectiles."
+	shots = 0.5 //Ions are very powerful and not affected by damage.
+	damage = 0
 	projectile = /obj/projectile/ion
 	icon_state = "ion"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 3)
@@ -431,6 +443,7 @@
 	projectile = /obj/projectile/energy/floramut
 	icon_state = "somatoray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
+	damage = 0.1 //This deals toxin damage. Very strong unless it has a big damage malus.
 
 /obj/item/laser_components/modulator/floramut2
 	name = "betaray modulator"
@@ -438,6 +451,7 @@
 	projectile = /obj/projectile/energy/florayield
 	icon_state = "betaray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
+	damage = 0.1 //This deals toxin damage. Very strong unless it has a big damage malus.
 
 /obj/item/laser_components/modulator/xenovermin
 	name = "xenovermin modulator"
@@ -492,6 +506,7 @@
 	name = "phoron bolt modulator"
 	desc = "Modulates the beam into firing toxic phoron bolts."
 	projectile = /obj/projectile/energy/phoron
+	damage = 0.5
 	icon_state = "tox"
 	firing_sound = 'sound/effects/stealthoff.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)

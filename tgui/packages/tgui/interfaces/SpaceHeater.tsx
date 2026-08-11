@@ -1,14 +1,14 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
   Flex,
-  LabeledList,
   Knob,
+  LabeledList,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type SpaceHeaterData = {
@@ -23,11 +23,11 @@ export type SpaceHeaterData = {
   set_temperature_min: number;
 };
 
-export const SpaceHeater = (props, context) => {
-  const { act, data } = useBackend<SpaceHeaterData>(context);
+export const SpaceHeater = (props) => {
+  const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
-    <Window width="415" height="280">
+    <Window width={415} height={280}>
       <Window.Content>
         <Section
           title="Device Configuration"
@@ -109,7 +109,7 @@ export const SpaceHeater = (props, context) => {
                     maxValue={data.set_temperature_max}
                     step={1}
                     stepPixelSize={2}
-                    onDrag={(e, value) =>
+                    onChange={(_, value) =>
                       act('tempSet', {
                         set_temperature: value,
                       })

@@ -53,77 +53,21 @@
 		if(once)
 			qdel(src)
 
-
-/* Tosses things in a certain direction */
-
-// /obj/effect/step_trigger/thrower
-// 	var/tiles = 3	// if 0: forever until atom hits a stopper
-// 	var/immobilize = 1 // if nonzero: prevents mobs from moving while they're being flung
-// 	var/speed = 1	// delay of movement
-// 	var/facedir = 0 // if 1: atom faces the direction of movement
-// 	var/nostop = 0 // if 1: will only be stopped by teleporters
-// 	var/list/affecting = list()
-
-// /obj/effect/step_trigger/thrower/Trigger(var/atom/A)
-// 	if(!A || !istype(A, /atom/movable))
-// 		return
-// 	var/atom/movable/AM = A
-// 	var/curtiles = 0
-// 	var/stopthrow = 0
-// 	for(var/obj/effect/step_trigger/thrower/T in orange(2, src))
-// 		if(AM in T.affecting)
-// 			return
-
-// 	if(ismob(AM))
-// 		var/mob/M = AM
-// 		if(immobilize)
-// 			M.canmove = 0
-
-// 	affecting.Add(AM)
-// 	while(AM && !stopthrow)
-// 		if(tiles)
-// 			if(curtiles >= tiles)
-// 				break
-// 		if(AM.z != src.z)
-// 			break
-
-// 		curtiles++
-
-// 		sleep(speed)
-
-// 		// Calculate if we should stop the process
-// 		if(!nostop)
-// 			for(var/obj/effect/step_trigger/T in get_step(AM, dir))
-// 				if(T.stopper && T != src)
-// 					stopthrow = 1
-// 		else
-// 			for(var/obj/effect/step_trigger/teleporter/T in get_step(AM, dir))
-// 				if(T.stopper)
-// 					stopthrow = 1
-
-// 		if(AM)
-// 			var/predir = AM.dir
-// 			step(AM, dir)
-// 			if(!facedir)
-// 				AM.set_dir(predir)
-
-// 	affecting.Remove(AM)
-// 	if(ismob(AM))
-// 		var/mob/M = AM
-// 		if(immobilize)
-// 			M.canmove = 1
-
 /* Tosses things in a certain direction */
 /obj/effect/step_trigger/thrower
 	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "dir_arrow"
-	var/direction = SOUTH // the direction of throw
-	var/tiles = 3 // if 0: forever until atom hits a stopper
-	var/immobilize = 1 // if nonzero: prevents mobs from moving while they're being flung
-	var/speed = 1 // delay of movement
-	var/facedir = 0 // if 1: atom faces the direction of movement
-	var/nostop = 0 // if 1: will only be stopped by teleporters
-	///List of moving atoms mapped to their inital direction
+	/// If 0: forever until atom hits a stopper.
+	var/tiles = 3
+	/// If nonzero: prevents mobs from moving while they're being flung.
+	var/immobilize = 1
+	/// Delay of movement
+	var/speed = 1
+	/// If 1: atom faces the direction of movement.
+	var/facedir = 0
+	/// If 1: will only be stopped by teleporters.
+	var/nostop = 0
+	/// List of moving atoms mapped to their inital direction.
 	var/list/affecting = list()
 
 /obj/effect/step_trigger/thrower/Trigger(atom/A)
@@ -135,13 +79,12 @@
 			return
 
 	if(immobilize)
-		// ADD_TRAIT(AM, TRAIT_IMMOBILIZED, REF(src))
 		if(ismob(AM))
 			var/mob/M = AM
 			M.canmove = FALSE
 
 	affecting[AM] = AM.dir
-	var/datum/move_loop/loop = GLOB.move_manager.move(AM, direction, speed, tiles ? tiles * speed : INFINITY)
+	var/datum/move_loop/loop = GLOB.move_manager.move(AM, src.dir, speed, tiles ? tiles * speed : INFINITY)
 	RegisterSignal(loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, PROC_REF(pre_move))
 	RegisterSignal(loop, COMSIG_MOVELOOP_POSTPROCESS, PROC_REF(post_move))
 	RegisterSignal(loop, COMSIG_QDELETING, PROC_REF(set_to_normal))

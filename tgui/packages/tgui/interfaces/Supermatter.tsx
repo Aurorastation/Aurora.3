@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, LabeledList, ProgressBar, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type SupermatterData = {
@@ -10,11 +10,11 @@ export type SupermatterData = {
   detonating: BooleanLike;
 };
 
-export const Supermatter = (props, context) => {
-  const { act, data } = useBackend<SupermatterData>(context);
+export const Supermatter = (props) => {
+  const { act, data } = useBackend<SupermatterData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.detonating ? <DetonateWindow /> : <SupermatterWindow />}
       </Window.Content>
@@ -22,8 +22,8 @@ export const Supermatter = (props, context) => {
   );
 };
 
-export const DetonateWindow = (props, context) => {
-  const { act, data } = useBackend<SupermatterData>(context);
+export const DetonateWindow = (props) => {
+  const { act, data } = useBackend<SupermatterData>();
 
   return (
     <Section title="CRYSTAL DELAMINATION IMMINENT">
@@ -32,8 +32,8 @@ export const DetonateWindow = (props, context) => {
   );
 };
 
-export const SupermatterWindow = (props, context) => {
-  const { act, data } = useBackend<SupermatterData>(context);
+export const SupermatterWindow = (props) => {
+  const { act, data } = useBackend<SupermatterData>();
 
   return (
     <Section>

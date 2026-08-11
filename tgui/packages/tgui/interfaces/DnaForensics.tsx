@@ -1,8 +1,14 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, ProgressBar, Section } from '../components';
-import { round } from 'common/math';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 type Data = {
   scan_progress: number;
@@ -12,8 +18,8 @@ type Data = {
   lid_closed: BooleanLike;
 };
 
-export const DnaForensics = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const DnaForensics = (props) => {
+  const { act, data } = useBackend<Data>();
   const hasItem = !!data.bloodsamp;
 
   return (

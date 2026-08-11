@@ -55,6 +55,14 @@ This calls [atom/proc/tool_act], among others.
 		return TRUE
 	return FALSE
 
+/**
+ * Handles HARM intent attackbys, handling click cooldown, attack anim, visible messaging, and any sounds.
+ *
+ * When executed without the HARM intent, it calls base_item_interaction(), which generally handles tool use.
+ *
+ * This proc will always return FALSE, letting us proceed to execute child attackby code, except in the case of
+ * an ITEM_INTERACT_SUCCESS result. That is to say, if we successfully used a tool, we don't do anything else.
+ */
 /atom/movable/attackby(obj/item/attacking_item, mob/user, params)
 	if(..())
 		return TRUE
@@ -77,6 +85,7 @@ This calls [atom/proc/tool_act], among others.
 	if(item_interact_result & ITEM_INTERACT_BLOCKING)
 		return FALSE
 
+/// Handles surgery behaviors.
 /mob/living/attackby(obj/item/attacking_item, mob/user, params)
 	if(..())
 		return TRUE
@@ -99,6 +108,7 @@ This calls [atom/proc/tool_act], among others.
 	else
 		return attacking_item.attack(src, user, selected_zone)
 
+/// Handles DEVOURING THINGS! Used when on Grab intent and targeting your own mouth!
 /mob/living/carbon/human/attackby(obj/item/attacking_item, mob/user, params)
 	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(attacking_item, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
@@ -109,8 +119,8 @@ This calls [atom/proc/tool_act], among others.
 			return TRUE
 	return ..()
 
-// Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
-// Click parameters is the params string from byond Click() code, see that documentation.
+/// Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
+/// Click parameters is the params string from byond Click() code, see that documentation.
 /obj/item/proc/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	return
 
@@ -150,7 +160,7 @@ This calls [atom/proc/tool_act], among others.
 		return 0
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(target_mob, src)
+	user.do_attack_animation(target_mob, used_item = src)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 

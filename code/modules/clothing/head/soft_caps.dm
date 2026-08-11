@@ -53,12 +53,6 @@
 	icon_state = "softcap_red"
 	item_state = "softcap_red"
 
-/obj/item/clothing/head/softcap/tcfl
-	name = "tcfl cap"
-	desc = "A rugged softcap in TCFL colours, go Biesel!"
-	icon_state = "tcfl"
-	item_state = "tcfl"
-
 // Departmental Softcaps (By Wowzewow (Wezzy))
 /obj/item/clothing/head/softcap/captain
 	name = "captain's softcap"

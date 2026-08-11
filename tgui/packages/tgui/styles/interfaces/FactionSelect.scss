@@ -1,4 +1,4 @@
-@use '../components/Divider.scss';
+@use 'tgui-core/styles/components/Divider.scss';
 
 // Colours based on the companies' 'Official Colours' sections on the wiki.
 $company-colors: (
@@ -15,7 +15,8 @@ $company-colors: (
 .theme-faction_select {
   .Divider {
     &--vertical--dashed {
-      border-left: Divider.$thickness dashed Divider.$color;
+      border-left: var(--divider-border);
+      border-left-style: dashed;
     }
   }
 

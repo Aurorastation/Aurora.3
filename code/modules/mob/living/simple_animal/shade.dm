@@ -195,20 +195,19 @@
 					to_chat(L, SPAN_NOTICE("[pick(nagging_doubts)]"))
 					possession_heard_message = 1
 
-/mob/living/simple_animal/shade/bluespace/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	..()
-	if(speaker && speaker != src && !possessive)
-		last_message_heard = message
+/mob/living/simple_animal/shade/bluespace/react_to_message(datum/say_message/msg)
+	if(msg.speaker && msg.speaker != src && !possessive)
+		last_message_heard = msg.to_string()
 		message_countdown = min(300, message_countdown + 35)
 		adjustCloneLoss(-2)
 		if(heard_dying_message)
 			heard_dying_message = 0
 			to_chat(src, SPAN_NOTICE("The soothing echoes of life reinvigorate you."))
 
-/mob/living/simple_animal/shade/bluespace/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/simple_animal/shade/bluespace/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(!possessive)
 		var/list/words_in_memory = dd_text2List(last_message_heard, " ")
-		var/list/words_in_message = dd_text2List(message, " ")
+		var/list/words_in_message = dd_text2List(text, " ")
 		for(var/word1 in words_in_message)
 			var/valid = 0
 			for(var/word2 in words_in_memory)
@@ -218,8 +217,8 @@
 					valid = 1
 					break
 			if(!valid)
-				message = replacetext(message, word1, pick(words_in_memory))
-		message = slur(message,15)
+				text = replacetext(text, word1, pick(words_in_memory))
+		text = slur(text,15)
 		..()
 	else
 		to_chat(src, SPAN_WARNING("You cannot muster a voice when possessing another!"))

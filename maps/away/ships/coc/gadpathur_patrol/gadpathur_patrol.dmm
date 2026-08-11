@@ -1866,6 +1866,12 @@
 "pg" = (
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/atmos)
+"ph" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/obj/item/lore_radio,
+/turf/simulated/floor/tiled,
+/area/ship/gadpathur_patrol/galley)
 "pi" = (
 /obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
@@ -2858,6 +2864,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/port)
+"wB" = (
+/obj/structure/table/reinforced/glass,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/item/portable_whiteboard,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/sit_room)
 "wD" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4572,6 +4584,11 @@
 "IU" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window/southright,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
 "IV" = (
@@ -38014,7 +38031,7 @@ lO
 hg
 om
 VX
-vW
+wB
 fl
 GK
 cS
@@ -41867,7 +41884,7 @@ uV
 qU
 IO
 rZ
-nW
+ph
 Pq
 KW
 xz
