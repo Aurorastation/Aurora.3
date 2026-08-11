@@ -882,7 +882,7 @@
 
 /obj/item/reagent_containers/food/snacks/breadbake_cheese
 	name = "cheese thamo"
-	desc = "An Adhomian pastry made of thick bread enveloping a filling of Adhomian cheese mixed with Messa's Tear. There have been many attempts across the spur to give Breadbakes a trendier name, but none of them really stuck."
+	desc = "An Adhomian pastry made of thick bread enveloping a filling of Adhomian cheese mixed with Messa's Tear. There have been many attempts across the spur to give Thamora a trendier name, but none of them really stuck."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "breadbake_cheese"
 	bitesize = 2
