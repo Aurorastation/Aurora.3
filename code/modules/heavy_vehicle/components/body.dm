@@ -77,6 +77,12 @@
 	QDEL_NULL(air_supply)
 	. = ..()
 
+/obj/item/mech_component/chassis/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += SPAN_NOTICE("This chasis covers <b>[pilot_coverage]%</b> of the pilot's body.")
+	. += SPAN_NOTICE("When open or destroyed the cockpit hatch will allow <b>[cockpit_hatch_size]%</b> of incoming attacks to hit the pilot.")
+	. += SPAN_NOTICE("When closed but destroyed the cockpit hatch will reduce damage to the pilot by <b>[round((1 - cockpit_pilot_damage_multiplier) * 100, 0.1)]%</b>.")
+
 /obj/item/mech_component/chassis/get_missing_parts_text()
 	. = ..()
 
