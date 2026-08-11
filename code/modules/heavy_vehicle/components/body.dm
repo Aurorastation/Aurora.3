@@ -29,7 +29,7 @@
 	var/list/pilot_positions
 	var/pilot_coverage = 100
 	var/transparent_cabin = FALSE
-	var/hide_pilot = TRUE#
+	var/hide_pilot = TRUE
 	///Percentage chance for a projectile to hit the pilot if the hatch is open or penetrated. 100% means the pilot will always be hit, 0% means the pilot will never be hit. Side hits divide this value by 4.
 	var/cockpit_hatch_size = 80
 	///Multiplier for damage dealt to the pilot when hit by projectiles that penetrate the mech's cockpit.
