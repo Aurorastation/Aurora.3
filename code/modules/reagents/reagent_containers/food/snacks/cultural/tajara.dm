@@ -882,7 +882,7 @@
 
 /obj/item/reagent_containers/food/snacks/breadbake_cheese
 	name = "cheese thamo"
-	desc = "An Adhomian pastry made of thick bread enveloping a filling of Adhomian cheese mixed with Messa's Tear. Originally named Tha'la Lekhshoma which roughly translates to breadbake in Common. However, this name has gradually been overtaken by the newer Siik name of Thoma."
+	desc = "An Adhomian pastry made of thick bread enveloping a filling of Adhomian cheese mixed with Messa's Tear. Originally named Tha'la Lekhshoma which roughly translates to breadbake in Common. However, this name has gradually been overtaken by the newer Siik name of Thamo."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "breadbake_cheese"
 	bitesize = 2
