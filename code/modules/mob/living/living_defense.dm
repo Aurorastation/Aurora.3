@@ -227,7 +227,7 @@
 	if(severity == EMP_LIGHT && prob(average_energy_armor))
 		if(prob(average_energy_armor))
 			return EMP_PROTECT_ALL
-		return EMP_PROTECT_SELF
+		return EMP_PROTECT_CONTENTS
 	if(severity == EMP_HEAVY && prob(average_energy_armor))
 		severity = EMP_LIGHT
 
