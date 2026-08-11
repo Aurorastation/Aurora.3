@@ -296,11 +296,12 @@
 	desc = "The Hephaestus Armature system is a well liked energy deflector system designed to stop any projectile before it has a chance to become a threat."
 	icon_state = "shield_droid"
 	var/obj/aura/mechshield/aura
-	var/max_charge = 150
-	var/charge = 150
+	var/max_charge = 100
+	var/charge = 100
 	var/last_recharge = 0
 	var/charging_rate = 7500 * CELLRATE
 	var/cooldown = 3.5 SECONDS // Time until we can recharge again after a blocked impact
+	var/efficiency = 0.1 // How much power is required to recharge 1 point of shield charge
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 	module_hints = list(
@@ -331,7 +332,7 @@
 
 	last_recharge = world.time
 
-	if(difference > 0)
+	if(difference >= 0)
 		for(var/mob/pilot in owner.pilots)
 			to_chat(pilot, FONT_LARGE(SPAN_WARNING("Warning: Deflector shield failure detected, shutting down.")))
 		toggle()
@@ -379,8 +380,10 @@
 	if((world.time - last_recharge) < cooldown)
 		return
 
-	var/actual_required_power = clamp(max_charge - charge, 0, charging_rate)
-	owner.use_cell_power(actual_required_power)
+	var/actual_required_power = clamp(max_charge * efficiency - charge * efficiency, 0, charging_rate)
+	var/actual_power_used = owner.use_cell_power(actual_required_power)
+	if(actual_power_used > 0)
+		charge = clamp(charge + actual_power_used, 0, max_charge)
 
 /obj/item/mecha_equipment/shield/get_hardpoint_status_value()
 	return charge / max_charge
@@ -434,24 +437,51 @@
 	else
 		icon_state = "shield_null"
 
+/obj/aura/mechshield/handle_bullet_act(datum/source, obj/projectile/projectile)
+	if(!active || !shields || !shields.charge)
+		return FALSE
+
+	var/incoming_attack_direction = projectile.starting ? get_dir(shields, projectile.starting) : null
+	if(!(dir & incoming_attack_direction))
+		return FALSE
+
+	var/damage = projectile.get_structure_damage()
+	if(!damage)
+		damage = projectile.damage
+
+	projectile.damage = shields.stop_damage(damage)
+	user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."))
+	flick("shield_impact", src)
+	playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
+	//light up the night.
+	new /obj/effect/smoke/illumination(get_turf(src), 5, 4, 1, "#ffffff")
+	spark(get_turf(src), 5, GLOB.alldirs)
+	playsound(get_turf(src), SFX_SPARKS, 25, TRUE)
+	return COMPONENT_BULLET_BLOCKED
+
 /obj/aura/mechshield/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-	if(!active)
-		return
+	SHOULD_CALL_PARENT(FALSE)
 
-	. = ..()
+	if(!active || !shields || !shields.charge)
+		return FALSE
 
-	if(shields?.charge)
-		hitting_projectile.damage = shields.stop_damage(hitting_projectile.damage)
-		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."))
-		flick("shield_impact", src)
-		playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
-		//light up the night.
-		new /obj/effect/smoke/illumination(get_turf(src), 5, 4, 1, "#ffffff")
-		if(hitting_projectile.damage <= 0)
-			return AURA_FALSE|AURA_CANCEL
+	var/incoming_attack_direction = hitting_projectile.starting ? get_dir(shields, hitting_projectile.starting) : null
+	if(!(dir & incoming_attack_direction))
+		return FALSE
 
-		spark(get_turf(src), 5, GLOB.alldirs)
-		playsound(get_turf(src), SFX_SPARKS, 25, TRUE)
+	var/damage = hitting_projectile.get_structure_damage()
+	if(!damage)
+		damage = hitting_projectile.damage
+
+	hitting_projectile.damage = shields.stop_damage(damage)
+	user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."))
+	flick("shield_impact", src)
+	playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
+	//light up the night.
+	new /obj/effect/smoke/illumination(get_turf(src), 5, 4, 1, "#ffffff")
+	spark(get_turf(src), 5, GLOB.alldirs)
+	playsound(get_turf(src), SFX_SPARKS, 25, TRUE)
+	return AURA_FALSE|AURA_CANCEL
 
 /obj/aura/mechshield/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()

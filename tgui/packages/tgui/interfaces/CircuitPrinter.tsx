@@ -11,6 +11,7 @@ import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 const BLUEPRINT_IMPORT_CHUNK_DELAY = 250;
+const BLUEPRINT_IMPORT_TRANSPORT_CHUNK_LIMIT = 256;
 
 const sleep = (duration: number) =>
   new Promise((resolve) => setTimeout(resolve, duration));
@@ -167,7 +168,10 @@ export const CircuitPrinter = (props) => {
     setIsImportingBlueprint(true);
 
     let offset = 0;
-    const chunkLimit = Math.max(1, data.blueprint_chunk_limit || 1000);
+    const chunkLimit = Math.min(
+      BLUEPRINT_IMPORT_TRANSPORT_CHUNK_LIMIT,
+      Math.max(1, data.blueprint_chunk_limit || 1000),
+    );
     const bufferLimit = data.blueprint_buffer_limit || 500000;
 
     if (importText.length > bufferLimit) {
@@ -179,20 +183,24 @@ export const CircuitPrinter = (props) => {
     }
 
     try {
-      await act('begin_import_buffer');
+      const importId = `${Date.now()}-${Math.random()}`;
+      const chunkCount = Math.ceil(importText.length / chunkLimit);
+      let chunkIndex = 1;
 
       while (offset < importText.length) {
         const chunk = importText.slice(offset, offset + chunkLimit);
 
-        await act('append_import_chunk_tgui', {
-          chunk: encodeURIComponent(chunk),
+        act('receive_import_chunk_tgui', {
+          import_id: importId,
+          index: chunkIndex,
+          count: chunkCount,
+          chunk,
         });
 
         offset += chunk.length;
+        chunkIndex++;
         await sleep(BLUEPRINT_IMPORT_CHUNK_DELAY);
       }
-
-      await act('finish_import_buffer_tgui');
     } finally {
       setIsImportingBlueprint(false);
     }

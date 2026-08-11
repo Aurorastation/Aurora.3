@@ -19,7 +19,7 @@
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/cell/mecha/cell
 	var/cell_type = /obj/item/cell/mecha
-	var/obj/item/robot_parts/robot_component/armor/mech_armor
+	var/obj/item/robot_parts/robot_component/armor/mech/mech_armor
 	var/obj/structure/machinery/portable_atmospherics/canister/air_supply
 	var/datum/gas_mixture/cockpit
 	var/pilot_offset_x = 0

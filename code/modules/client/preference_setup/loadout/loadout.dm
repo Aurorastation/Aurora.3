@@ -189,7 +189,10 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	. += "<table align = 'center' width = 100%>"
 	if (gear_reset)
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
-	. += "<tr><td colspan=3><center><a href='byond://?src=[REF(src)];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='byond://?src=[REF(src)];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[GLOB.config.loadout_cost]</font> loadout points spent.</b> \[<a href='byond://?src=[REF(src)];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
+	. += "<tr><td colspan=3><center><a href='byond://?src=[REF(src)];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='byond://?src=[REF(src)];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[GLOB.config.loadout_cost]</font> loadout points spent.</b> \[<a href='byond://?src=[REF(src)];clear_loadout=1'>Clear Loadout</a>\]"
+	if(GLOB.config.loadout_slots > 1)
+		. += " \[<a href='byond://?src=[REF(src)];duplicate_loadout=1'>Duplicate Loadout</a>\]"
+	. += "</center></td></tr>"
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
@@ -417,6 +420,36 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	else if(href_list["clear_loadout"])
 		pref.gear_modified = TRUE
 		pref.gear.Cut()
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["duplicate_loadout"])
+		if(pref.gear_modified)
+			tgui_alert(user, "Gear has been Modified - Save First or Reload", "Gear Modified", list("OK"))
+			return TOPIC_NOACTION
+
+		var/source_slot = pref.gear_slot
+		var/list/available_slots = list()
+		for(var/slot = 1 to GLOB.config.loadout_slots)
+			if(slot != source_slot)
+				available_slots += "Slot [slot]"
+
+		var/selected_slot = tgui_input_list(user, "Choose the loadout slot to replace with a copy of Slot [source_slot].", "Duplicate Loadout", available_slots)
+		if(!selected_slot || !CanUseTopic(user))
+			return TOPIC_NOACTION
+
+		var/target_slot = text2num(copytext(selected_slot, 6))
+		if(target_slot < 1 || target_slot > GLOB.config.loadout_slots || target_slot == source_slot)
+			return TOPIC_NOACTION
+
+		var/confirmation = tgui_alert(user, "Are you sure you want to replace everything in Slot [target_slot] with a copy of Slot [source_slot]?", "Duplicate Loadout", list("Yes", "No"))
+		if(confirmation != "Yes" || !CanUseTopic(user) || pref.gear_slot != source_slot || pref.gear_modified)
+			return TOPIC_NOACTION
+
+		var/list/duplicated_gear = deep_copy_list(pref.gear)
+		pref.gear_list["[target_slot]"] = duplicated_gear
+		pref.gear_slot = target_slot
+		pref.gear = duplicated_gear
+		pref.gear_modified = TRUE
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["search_input_refresh"] != null) // empty str is false
