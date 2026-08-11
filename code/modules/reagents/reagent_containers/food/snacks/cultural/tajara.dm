@@ -860,7 +860,7 @@
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/breadbake_meat
-	name = "meaty breadbake"
+	name = "meat thamo"
 	desc = "An Adhomian pastry made of thick bread enveloping a filling of ground meat mixed with Messa's Tear and rock salt. Traditionally eaten with utensils, unlike the similarly made Rikazus that were inspired from it. Other cultures sometimes mistake it for handheld food, often with messy results."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "breadbake_meat"
