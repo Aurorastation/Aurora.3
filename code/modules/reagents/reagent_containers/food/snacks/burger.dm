@@ -281,7 +281,7 @@
 
 /obj/item/reagent_containers/food/snacks/burger/psiren
 	name = "psiburger"
-	desc = "A yellowish psiren meat patty topped with crunchy psiren chips on an optional bed of sauerkraut. Delicious revenge served piping hot off the grill."
+	desc = "A yellowish Psiren meat patty topped with crunchy Psiren chips on an optional bed of sauerkraut. Delicious revenge served piping hot off the grill."
 	icon = 'icons/obj/item/reagent_containers/food/burger.dmi'
 	icon_state = "psiburger"
 	item_state = "burger" // Don't touch this unless you know what you're doing
