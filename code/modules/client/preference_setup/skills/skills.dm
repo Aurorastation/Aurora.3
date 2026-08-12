@@ -275,7 +275,7 @@
 			for(var/granted_skill in chosen_education.skills)
 				var/singleton/skill/granted_skill_data = GET_SINGLETON(granted_skill)
 				granted_skills += "[granted_skill_data.name] ([granted_skill_data.skill_level_map[chosen_education.skills[granted_skill_data.type]]])"
-			var/education_summary = strip_html(chosen_education.description)
+			var/education_summary = html_decode(strip_html(chosen_education.description))
 			if(length(granted_skills))
 				education_summary += "\n\nGranted skills: [english_list(granted_skills)]"
 			if(tgui_alert(user, education_summary, chosen_education.name, list("Select", "Cancel")) != "Select")

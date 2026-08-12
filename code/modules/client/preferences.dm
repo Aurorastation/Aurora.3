@@ -120,14 +120,17 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	/// The character's psionics. JSON.
 	var/list/psionics = list()
 
-	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
+	/// Direction-keyed live character preview screen objects and backgrounds.
+	var/list/char_render_holders
+	/// Species used to build the current preview screen objects.
+	var/character_preview_species
 	/// Whether the native TGUI character-slot picker is open.
 	var/show_character_slots = FALSE
-	var/static/list/preview_screen_locs = list(
-		"1" = list(5, -8, 9, 0),
-		"2" = list(10, 8, 9, 0),
-		"4" = list(5, -8, 1, 0),
-		"8" = list(10, 8, 1, 0)
+	var/static/list/preview_map_ids = list(
+		"1" = "character_setup_preview_north",
+		"2" = "character_setup_preview_south",
+		"4" = "character_setup_preview_east",
+		"8" = "character_setup_preview_west"
 	)
 
 		//Jobs, uses bitflags
@@ -238,7 +241,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 /datum/preferences/Destroy()
 	SStgui.close_uis(src)
-	QDEL_LIST(char_render_holders)
+	clear_character_previews()
 	return ..()
 
 /datum/preferences/proc/load_and_update_character(var/slot)
@@ -271,10 +274,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	if(!user || !user.client)
 		return
 
-	if(!char_render_holders)
-		update_preview_icon()
-	show_character_previews()
-
 	ui_interact(user)
 
 /datum/preferences/ui_state(mob/user)
@@ -291,6 +290,29 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		ui = new(user, src, "CharacterSetup", "Character Setup", 1280, 900)
 		ui.set_autoupdate(FALSE)
 		ui.open()
+	display_character_previews_when_ready(ui.window)
+
+/// Displays previews only after TGUI reports that its pooled window is visible.
+/datum/preferences/proc/display_character_previews_when_ready(datum/tgui_window/window)
+	if(!window)
+		return
+	if(!window.visible)
+		RegisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE, PROC_REF(display_character_previews_on_visible), override = TRUE)
+		return
+	if(!char_render_holders)
+		update_preview_icon()
+	else
+		show_character_previews()
+
+/datum/preferences/proc/display_character_previews_on_visible(datum/tgui_window/window, client/viewer)
+	SIGNAL_HANDLER
+	UnregisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE)
+	if(viewer != client)
+		return
+	if(!char_render_holders)
+		update_preview_icon()
+	else
+		show_character_previews()
 
 /datum/preferences/ui_close(mob/user)
 	. = ..()
@@ -406,7 +428,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	return FALSE
 
-/datum/preferences/proc/update_character_previews(list/directional_appearances, var/big_mob = FALSE)
+/datum/preferences/proc/update_character_previews(list/directional_appearances)
 	if(!client)
 		return
 
@@ -414,42 +436,44 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	if(istype(NP) && istype(NP.late_choices_ui)) // update character icon in late-choices UI
 		NP.late_choices_ui.update_character_icon()
 
-	var/atom/movable/screen/BG= LAZYACCESS(char_render_holders, "BG")
-	if(!BG)
-		BG = new
-		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
-		BG.layer = TURF_LAYER
-		BG.icon = 'icons/turf/flooring/character_preview.dmi'
-		LAZYSET(char_render_holders, "BG", BG)
-		client.screen |= BG
-	BG.icon_state = bgstate
-	BG.screen_loc = "character_setup_preview:2,1 to 13,12"
+	// KEEP_TOGETHER uses a cached composite surface. Recreate only the character
+	// objects when changing species, since their icon bounds can also change.
+	if(character_preview_species != species)
+		for(var/direction in GLOB.cardinals)
+			var/atom/movable/screen/old_character = LAZYACCESS(char_render_holders, "[direction]")
+			if(!old_character)
+				continue
+			client.screen -= old_character
+			qdel(old_character)
+			LAZYREMOVE(char_render_holders, "[direction]")
+		character_preview_species = species
 
-	var/index = 0
-	for(var/D in GLOB.cardinals)
-		var/mutable_appearance/MA = directional_appearances["[D]"]
-		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
-		if(!O)
-			O = new
-			LAZYSET(char_render_holders, "[D]", O)
-			client.screen |= O
-		O.appearance = MA
-		var/matrix/preview_transform = matrix(MA.transform)
-		preview_transform.Scale(8)
-		O.transform = preview_transform
-		O.dir = D
-		O.hud_layerise()
-		var/list/screen_locs = preview_screen_locs["[D]"]
-		var/screen_x = screen_locs[1]
-		var/screen_x_minor = screen_locs[2]
-		screen_x_minor -= MA.pixel_x
-		var/screen_y = screen_locs[3]
-		var/screen_y_minor = screen_locs[4]
-		if(big_mob)
-			screen_y_minor += round(30 - (index * 15))
-		screen_y_minor -= MA.pixel_y
-		O.screen_loc = "character_setup_preview:[screen_x]:[screen_x_minor],[screen_y]:[screen_y_minor]"
-		index++
+	var/datum/species/preview_species = GLOB.all_species[species]
+	var/preview_x_offset = preview_species?.icon_x_offset ? -4 : 0
+	for(var/direction in GLOB.cardinals)
+		var/map_id = preview_map_ids["[direction]"]
+		var/background_key = "background_[direction]"
+		var/atom/movable/screen/background = LAZYACCESS(char_render_holders, background_key)
+		if(!background)
+			background = new
+			background.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
+			background.icon = 'icons/turf/flooring/character_preview.dmi'
+			background.plane = GAME_PLANE
+			background.layer = TURF_LAYER
+			background.screen_loc = "[map_id]:1,1 to 5,5"
+			LAZYSET(char_render_holders, background_key, background)
+		background.icon_state = bgstate
+
+		var/atom/movable/screen/character = LAZYACCESS(char_render_holders, "[direction]")
+		if(!character)
+			character = new
+			LAZYSET(char_render_holders, "[direction]", character)
+		character.appearance = directional_appearances["[direction]"]
+		// Assigning appearance also copies screen_loc from the mannequin (null),
+		// so restore the named-map position after every appearance update.
+		character.screen_loc = "[map_id]:3:[preview_x_offset],3"
+
+	show_character_previews()
 
 /datum/preferences/proc/show_character_previews()
 	if(!client || !char_render_holders)
@@ -459,11 +483,12 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 /datum/preferences/proc/clear_character_previews()
 	for(var/index in char_render_holders)
-		var/atom/movable/screen/S = char_render_holders[index]
-		client?.screen -= S
-		qdel(S)
+		var/atom/movable/screen/screen_object = char_render_holders[index]
+		client?.screen -= screen_object
+		qdel(screen_object)
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	char_render_holders = null
+	character_preview_species = null
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)

@@ -286,7 +286,7 @@ GLOBAL_DATUM_INIT(gear_tweak_free_name, /datum/gear_tweak/custom_name, new())
 	if(valid_custom_names)
 		custom_name_input = tgui_input_list(user, "Choose an item name.", "Character Preference", valid_custom_names, metadata)
 	else
-		custom_name_input = strip_html(tgui_input_text(user, "Choose an item name.", "Character Preference", metadata, MAX_LNAME_LEN))
+		custom_name_input = strip_html(tgui_input_text(user, "Choose an item name.", "Character Preference", html_decode(metadata), MAX_LNAME_LEN, encode = FALSE))
 
 	return custom_name_input
 
@@ -325,7 +325,7 @@ GLOBAL_DATUM_INIT(gear_tweak_free_desc, /datum/gear_tweak/custom_desc, new())
 	if(valid_custom_desc)
 		input_description = tgui_input_list(user, "Choose an item description.", "Character Preference", valid_custom_desc, metadata)
 	else
-		input_description = html_encode(STRIP_HTML_FULL(tgui_input_text(user, "Choose an item description.", "Character Preference", metadata, encode = FALSE, multiline = TRUE), MAX_MESSAGE_LEN))
+		input_description = html_encode(STRIP_HTML_FULL(tgui_input_text(user, "Choose an item description.", "Character Preference", html_decode(metadata), encode = FALSE, multiline = TRUE), MAX_MESSAGE_LEN))
 
 	return input_description
 

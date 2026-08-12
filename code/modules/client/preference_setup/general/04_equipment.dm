@@ -152,8 +152,10 @@
 		var/datum/category_item/underwear/UWI = UWC.items_by_name[item_name]
 		if(UWI)
 			for(var/datum/gear_tweak/gt in UWI.tweaks)
+				var/tweak_metadata = get_metadata(UWC.name, gt)
 				tweak_actions += list(list(
-					"label" = strip_html(gt.get_contents(get_metadata(UWC.name, gt))) || "Customize",
+					"label" = html_decode(strip_html(html_decode(gt.get_contents(tweak_metadata)))) || "Customize",
+					"preview_color" = istype(gt, /datum/gear_tweak/color) ? tweak_metadata : null,
 					"topic" = list("underwear" = UWC.name, "tweak" = REF(gt))
 				))
 		fields += list(list("label" = UWC.name, "value" = item_name, "action" = "change_underwear", "action_value" = UWC.name, "actions" = tweak_actions, "inline_actions" = length(tweak_actions)))

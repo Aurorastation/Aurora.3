@@ -34,6 +34,7 @@ type PreferenceAction = {
   color?: string;
   icon?: string;
   label: string;
+  preview_color?: string;
   topic?: Record<string, string | number>;
   value?: string | number;
 };
@@ -49,15 +50,18 @@ type FormField = {
   label: string;
   note?: string;
   pencode?: boolean;
+  actions_below?: boolean;
   topic?: Record<string, string | number>;
   value?: string | number;
 };
 
 type FormSection = {
   description?: string;
+  description_html?: boolean;
   fields: FormField[];
   title?: string;
   warning?: string;
+  warning_html?: boolean;
 };
 
 type FormPreferenceItem = BasePreferenceItem & {
@@ -328,7 +332,6 @@ export const CharacterSetup = () => {
     (item) => item.kind === 'body' && item.species_menu_open,
   );
   const modalOpen = !!data.slot_dialog || speciesDialogOpen;
-
   const sendPreferenceTopic = (
     item: BasePreferenceItem,
     topic: Record<string, string | number>,
@@ -660,6 +663,16 @@ export const CharacterSetup = () => {
               >
                 {field.value}
               </a>
+              {field.label === 'Skin Tone' && item.has_skin_preset && (
+                <Button
+                  compact
+                  icon="palette"
+                  ml={1}
+                  onClick={() => sendPreferenceAction(item, 'skin_preset')}
+                >
+                  Body Preset
+                </Button>
+              )}
             </Box>
           ))}
           <Box>
@@ -845,17 +858,6 @@ export const CharacterSetup = () => {
           <Stack.Item grow>
             <Box bold>Body Markings</Box>
           </Stack.Item>
-          {!!item.has_skin_preset && (
-            <Stack.Item>
-              <Button
-                compact
-                icon="palette"
-                onClick={() => sendPreferenceAction(item, 'skin_preset')}
-              >
-                Body Preset
-              </Button>
-            </Stack.Item>
-          )}
           <Stack.Item>
             <Button
               compact
@@ -1018,6 +1020,12 @@ export const CharacterSetup = () => {
               : sendPreferenceAction(item, action.action!, action.value)
           }
         >
+          {action.preview_color && (
+            <Box
+              className="preference-action__color"
+              style={{ backgroundColor: action.preview_color }}
+            />
+          )}
           {action.label}
         </Button>
       ))}
@@ -1035,16 +1043,30 @@ export const CharacterSetup = () => {
             ) && (
             <Box className="preference-form__heading">{section.title}</Box>
           )}
-          {section.description && (
-            <Box color="label" mb={0.5}>
-              {section.description}
-            </Box>
-          )}
-          {section.warning && (
-            <Box color="bad" mb={0.5}>
-              {section.warning}
-            </Box>
-          )}
+          {section.description &&
+            (section.description_html ? (
+              <Box
+                color="label"
+                dangerouslySetInnerHTML={{ __html: section.description }}
+                mb={0.5}
+              />
+            ) : (
+              <Box color="label" mb={0.5}>
+                {section.description}
+              </Box>
+            ))}
+          {section.warning &&
+            (section.warning_html ? (
+              <Box
+                color="bad"
+                dangerouslySetInnerHTML={{ __html: section.warning }}
+                mb={0.5}
+              />
+            ) : (
+              <Box color="bad" mb={0.5}>
+                {section.warning}
+              </Box>
+            ))}
           <Box className="preference-form__fields">
             {section.fields.map((field, fieldIndex) => (
               <Box
@@ -1056,7 +1078,7 @@ export const CharacterSetup = () => {
                   )
                     ? ' preference-form__field--with-actions'
                     : ''
-                }`}
+                }${field.actions_below ? ' preference-form__field--actions-below' : ''}`}
                 key={`${field.label}-${fieldIndex}`}
               >
                 <Box className="preference-form__label">{field.label}</Box>
@@ -1220,6 +1242,14 @@ export const CharacterSetup = () => {
         </Stack.Item>
         <Stack.Item>
           <Button
+            icon="clone"
+            onClick={() => sendPreferenceAction(item, 'duplicate_loadout')}
+          >
+            Duplicate Loadout
+          </Button>
+        </Stack.Item>
+        <Stack.Item>
+          <Button
             color="bad"
             icon="trash"
             onClick={() => sendPreferenceAction(item, 'clear_loadout')}
@@ -1284,21 +1314,26 @@ export const CharacterSetup = () => {
               </Box>
             )}
             {!!gear.tweaks.length && (
-              <Stack mt={0.5} wrap>
+              <Box className="loadout-item__tweaks" mt={0.5}>
                 {gear.tweaks.map((tweak) => (
-                  <Stack.Item key={tweak.label}>
-                    <Button
-                      compact
-                      onClick={() =>
-                        tweak.topic &&
-                        sendPreferenceTopic(item, tweak.topic)
-                      }
-                    >
-                      {tweak.label}
-                    </Button>
-                  </Stack.Item>
+                  <Button
+                    compact
+                    fluid
+                    key={tweak.label}
+                    onClick={() =>
+                      tweak.topic && sendPreferenceTopic(item, tweak.topic)
+                    }
+                  >
+                    {tweak.preview_color && (
+                      <Box
+                        className="preference-action__color"
+                        style={{ backgroundColor: tweak.preview_color }}
+                      />
+                    )}
+                    {tweak.label}
+                  </Button>
                 ))}
-              </Stack>
+              </Box>
             )}
           </Box>
         ))}
@@ -1468,12 +1503,29 @@ export const CharacterSetup = () => {
                   fill
                   title="Character Preview"
                 >
-                  <CharacterPreview
-                    id="character_setup_preview"
-                    height="100%"
-                    hidden={modalOpen}
-                    width="300px"
-                  />
+                  <Box className="character-preview-grid">
+                    {[
+                      ['south', 'Front'],
+                      ['north', 'Back'],
+                      ['west', 'Left'],
+                      ['east', 'Right'],
+                    ].map(([direction, label]) => (
+                      <Box
+                        className="character-preview-grid__tile"
+                        key={direction}
+                      >
+                        <Box className="character-preview-grid__label">
+                          {label}
+                        </Box>
+                        <CharacterPreview
+                          id={`character_setup_preview_${direction}`}
+                          height="160px"
+                          hidden={modalOpen}
+                          width="160px"
+                        />
+                      </Box>
+                    ))}
+                  </Box>
                 </Section>
               </Stack.Item>
             </Stack>

@@ -23,6 +23,7 @@ export const CharacterPreview = (props: CharacterPreviewProps) => {
         id: props.id,
         'is-visible': !props.hidden,
         type: 'map',
+        zoom: 1,
       }}
     />
   );

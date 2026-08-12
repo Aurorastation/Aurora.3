@@ -179,6 +179,7 @@
 					"pencode" = TRUE,
 					"font" = pref.signfont ? pref.signfont : "Verdana",
 					"note" = pref.signfont ? pref.signfont : "Verdana",
+					"actions_below" = TRUE,
 					"actions" = list(
 						list("label" = "Edit Text", "action" = "edit_signature", "value" = "text"),
 						list("label" = "Font", "action" = "edit_signature", "value" = "font"),

@@ -118,13 +118,17 @@
 			list(
 				"title" = "Culture",
 				"description" = culture_description,
+				"description_html" = TRUE,
 				"warning" = CL.important_information,
+				"warning_html" = TRUE,
 				"fields" = list(list("label" = "Selected Culture", "value" = CL.name, "action" = "open_culture_menu"))
 			),
 			list(
 				"title" = "Origin",
 				"description" = origin_description,
+				"description_html" = TRUE,
 				"warning" = OR.important_information,
+				"warning_html" = TRUE,
 				"fields" = list(list("label" = "Selected Origin", "value" = OR.name, "action" = "open_origin_menu"))
 			),
 			list(
@@ -150,9 +154,9 @@
 		var/result = tgui_input_list(user, "Choose your character's culture.", "Culture", options)
 		var/singleton/origin_item/culture/chosen_culture = options[result]
 		if(chosen_culture)
-			var/culture_summary = strip_html(chosen_culture.desc)
+			var/culture_summary = html_decode(strip_html(chosen_culture.desc))
 			if(chosen_culture.important_information)
-				culture_summary += "\n\nImportant: [strip_html(chosen_culture.important_information)]"
+				culture_summary += "\n\nImportant: [html_decode(strip_html(chosen_culture.important_information))]"
 			if(tgui_alert(user, culture_summary, chosen_culture.name, list("Select", "Cancel")) != "Select")
 				return TOPIC_NOACTION
 			pref.culture = "[chosen_culture.type]"
@@ -170,9 +174,9 @@
 		var/result = tgui_input_list(user, "Choose your character's origin.", "Origins", options)
 		var/singleton/origin_item/origin/chosen_origin = options[result]
 		if(chosen_origin)
-			var/origin_summary = strip_html(chosen_origin.desc)
+			var/origin_summary = html_decode(strip_html(chosen_origin.desc))
 			if(chosen_origin.important_information)
-				origin_summary += "\n\nImportant: [strip_html(chosen_origin.important_information)]"
+				origin_summary += "\n\nImportant: [html_decode(strip_html(chosen_origin.important_information))]"
 			if(tgui_alert(user, origin_summary, chosen_origin.name, list("Select", "Cancel")) != "Select")
 				return TOPIC_NOACTION
 			pref.origin = "[chosen_origin.type]"
@@ -192,7 +196,7 @@
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		var/datum/citizenship/citizenship_data = SSrecords.citizenships[choice]
-		if(citizenship_data && tgui_alert(user, strip_html(citizenship_data.description), citizenship_data.name, list("Select", "Cancel")) != "Select")
+		if(citizenship_data && tgui_alert(user, html_decode(strip_html(citizenship_data.description)), citizenship_data.name, list("Select", "Cancel")) != "Select")
 			return TOPIC_NOACTION
 		pref.citizenship = choice
 		sanitize_character()
@@ -204,7 +208,7 @@
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		var/datum/religion/religion_data = SSrecords.religions[choice]
-		if(religion_data && tgui_alert(user, strip_html(religion_data.description), religion_data.name, list("Select", "Cancel")) != "Select")
+		if(religion_data && tgui_alert(user, html_decode(strip_html(religion_data.description)), religion_data.name, list("Select", "Cancel")) != "Select")
 			return TOPIC_NOACTION
 		pref.religion = choice
 		sanitize_character()
@@ -216,7 +220,7 @@
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		var/datum/accent/accent_data = SSrecords.accents[choice]
-		if(accent_data && tgui_alert(user, strip_html(accent_data.description), accent_data.name, list("Select", "Cancel")) != "Select")
+		if(accent_data && tgui_alert(user, html_decode(strip_html(accent_data.description)), accent_data.name, list("Select", "Cancel")) != "Select")
 			return TOPIC_NOACTION
 		pref.accent = choice
 		sanitize_character()

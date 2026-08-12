@@ -236,8 +236,10 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		var/list/tweaks = list()
 		if(ticked)
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+				var/tweak_metadata = get_tweak_metadata(G, tweak)
 				tweaks += list(list(
-					"label" = strip_html(tweak.get_contents(get_tweak_metadata(G, tweak))) || "Customize",
+					"label" = html_decode(strip_html(html_decode(tweak.get_contents(tweak_metadata)))) || "Customize",
+					"preview_color" = istype(tweak, /datum/gear_tweak/color) ? tweak_metadata : null,
 					"topic" = list("gear" = G.display_name, "tweak" = REF(tweak))
 				))
 		var/list/item_data = list(
