@@ -100,7 +100,7 @@
 		var/mob/living/simple_animal/hostile/carp/fish = carp_weakref.resolve()
 		if (fish && prob(50) && is_type_in_typecache(fish.loc, despawn_turfs))
 			spawned_carp -= carp_weakref
-			qdel(carp_weakref)
+			qdel(fish)
 	spawned_carp?.Cut()
 
 /datum/event/carp_migration/cozmo/start()
