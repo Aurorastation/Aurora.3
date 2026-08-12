@@ -274,9 +274,7 @@
 	pixel_x = 8;
 	pixel_y = 7
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/techfloor,
 /area/modular_freelancer_ship/aft/engineering)
 "abg" = (
@@ -424,9 +422,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
 "abG" = (
@@ -642,9 +638,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c02)
 "act" = (
@@ -746,9 +740,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "acI" = (
@@ -1572,9 +1564,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "afo" = (
@@ -1760,9 +1750,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/techmaint,
 /area/modular_freelancer_ship/aft/engineering)
 "afY" = (
@@ -2447,9 +2435,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
 "ajw" = (
@@ -2852,9 +2838,7 @@
 "amc" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "amd" = (
@@ -3331,9 +3315,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "aoM" = (
@@ -3881,9 +3863,7 @@
 /obj/item/tank/oxygen/yellow,
 /obj/item/suit_cooling_unit,
 /obj/random/voidsuit/freebooter,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -4158,9 +4138,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -4284,9 +4262,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c01)
 "atW" = (
@@ -4836,9 +4812,7 @@
 "axI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
-/obj/structure/machinery/alarm/south{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/south,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/lounge)
 "axJ" = (
@@ -4930,9 +4904,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "ayq" = (
@@ -5300,9 +5272,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/portantillia{
 	pixel_x = -6
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/slate,
 /area/modular_freelancer_ship/fore/hallway)
 "aAF" = (
@@ -6408,9 +6378,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -6531,9 +6499,7 @@
 /area/modular_freelancer_ship/shuttles/hallway)
 "aIc" = (
 /obj/structure/machinery/chemical_dispenser,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -6871,9 +6837,7 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/fore/port)
 "aJM" = (
@@ -7301,9 +7265,7 @@
 /obj/item/storage/firstaid/surgery{
 	pixel_y = 6
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/white,
 /area/modular_freelancer_ship/fore/port)
 "aMc" = (
@@ -7429,9 +7391,7 @@
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "aMY" = (
@@ -7495,9 +7455,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "aNq" = (
@@ -7644,9 +7602,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/techfloor,
 /area/modular_freelancer_ship/aft/engineering)
 "aOp" = (
@@ -7830,9 +7786,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/cic)
 "aPs" = (
@@ -7935,9 +7889,7 @@
 /obj/item/ship_ammunition/blaster,
 /obj/item/ship_ammunition/blaster,
 /obj/item/ship_ammunition/blaster,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/mid/lounge)
 "aQi" = (
@@ -7968,9 +7920,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/steel,
 /area/modular_freelancer_ship/mid/lounge)
 "aQJ" = (
@@ -8002,9 +7952,7 @@
 /area/modular_freelancer_ship/shuttles/hallway)
 "aQO" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/fore/hallway)
 "aQR" = (
@@ -8286,9 +8234,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/cic)
 "aSm" = (
@@ -8476,9 +8422,7 @@
 	id = "mod_free_ship_mining_proc_1";
 	dir = 8
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aSZ" = (
@@ -8644,9 +8588,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -8831,9 +8773,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/wood/ebony,
 /area/template_noop)
 "aUL" = (
@@ -9069,9 +9009,7 @@
 /obj/item/flashlight/maglight{
 	pixel_x = -1
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "aVW" = (
@@ -9111,9 +9049,7 @@
 	pixel_x = 2;
 	pixel_y = 7
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/engineering)
 "aWg" = (
@@ -9170,9 +9106,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
@@ -9366,9 +9300,7 @@
 /obj/item/ship_ammunition/autocannon/he,
 /obj/item/ship_ammunition/autocannon/he,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/starboard)
 "aXA" = (
@@ -9708,9 +9640,7 @@
 /obj/item/storage/box/tactical/stingers{
 	pixel_y = 7
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/techfloor,
 /area/template_noop)
 "aZq" = (
@@ -9752,9 +9682,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c0B)
 "aZD" = (
@@ -10317,9 +10245,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "cfJ" = (
-/obj/structure/machinery/alarm/south{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/south,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/lounge)
 "cgL" = (
@@ -10522,9 +10448,7 @@
 /area/modular_freelancer_ship/aft/atmos)
 "cuE" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/hallway)
@@ -10870,9 +10794,7 @@
 /area/modular_freelancer_ship/aft/atmos)
 "dbE" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/fore)
 "dcL" = (
@@ -11028,9 +10950,7 @@
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/fore/hallway)
 "dnK" = (
-/obj/structure/machinery/alarm/south{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/south,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/hallway)
 "dqh" = (
@@ -11275,9 +11195,7 @@
 /area/modular_freelancer_ship/fore/starboard)
 "dPN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/hallway)
 "dQl" = (
@@ -11452,9 +11370,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/lounge)
 "ehi" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
@@ -11709,9 +11625,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/structure/machinery/power/apc/east{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -11810,9 +11724,7 @@
 /area/modular_freelancer_ship/aux/hallway)
 "ePm" = (
 /obj/structure/table/rack,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "ePn" = (
@@ -11997,9 +11909,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
 "eZM" = (
@@ -12055,9 +11965,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aft)
 "fdS" = (
@@ -12213,9 +12121,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/atmos)
 "fok" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/lounge)
 "fpa" = (
@@ -12279,9 +12185,7 @@
 "fvf" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/misc/storage,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/cargo/brass,
 /area/modular_freelancer_ship/fore/hallway)
 "fxm" = (
@@ -12376,9 +12280,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/modular_freelancer_ship/aft/engineering)
 "fIB" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
 "fKf" = (
@@ -12477,9 +12379,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c05)
 "fSs" = (
@@ -13038,9 +12938,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
 "gPG" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/guns)
 "gPL" = (
@@ -13070,9 +12968,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/fore)
 "gQd" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/fore)
 "gQC" = (
@@ -13168,9 +13064,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "gWi" = (
@@ -13492,9 +13386,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -13509,9 +13401,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "hxw" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -13747,9 +13637,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
@@ -13872,9 +13760,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
 "iir" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "ijV" = (
@@ -13906,9 +13792,7 @@
 "inA" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/wood,
 /area/modular_freelancer_ship/fore/hallway)
 "iop" = (
@@ -14211,16 +14095,12 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/steel,
 /area/modular_freelancer_ship/mid/lounge)
 "iMS" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/aux/hallway)
 "iNg" = (
@@ -14404,9 +14284,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/modular_freelancer_ship/mid/hallway)
 "jaA" = (
-/obj/structure/machinery/power/apc/east{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -14638,9 +14516,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
 "jsK" = (
@@ -14703,18 +14579,14 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "jwp" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/ridged,
 /area/modular_freelancer_ship/mid/hallway)
 "jwI" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/structure/machinery/power/apc/east{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -14907,9 +14779,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
@@ -14945,9 +14815,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/starboard)
 "jNB" = (
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/hallway)
 "jNL" = (
@@ -15009,9 +14877,7 @@
 /area/modular_freelancer_ship/aft/hallway)
 "jSH" = (
 /obj/structure/bed/stool/chair,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/steel,
 /area/modular_freelancer_ship/fore/port)
 "jSZ" = (
@@ -15324,9 +15190,7 @@
 /area/modular_freelancer_ship/aft/engineering)
 "kme" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /obj/random/loot,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/fore/hallway)
@@ -15361,9 +15225,7 @@
 /area/modular_freelancer_ship/aux/hallway)
 "kqZ" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aft)
 "ksf" = (
@@ -15480,9 +15342,7 @@
 /area/modular_freelancer_ship/mid/lounge)
 "kzz" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "kzJ" = (
@@ -15977,9 +15837,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -16033,9 +15891,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "lut" = (
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
@@ -16178,9 +16034,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/starboard)
 "lGo" = (
@@ -16266,9 +16120,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/west{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/atmos)
 "lNd" = (
@@ -16360,9 +16212,7 @@
 "lYm" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/gunmetal,
 /area/template_noop)
 "mak" = (
@@ -16466,9 +16316,7 @@
 	dir = 9
 	},
 /obj/structure/cable,
-/obj/structure/machinery/power/apc/west{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "mkk" = (
@@ -16609,9 +16457,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/fore)
 "mtH" = (
@@ -16622,9 +16468,7 @@
 /area/modular_freelancer_ship/fore/hallway)
 "mtR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/fore/starboard)
 "mum" = (
@@ -16844,9 +16688,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/mid)
 "mJo" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "mKI" = (
@@ -16979,9 +16821,7 @@
 /area/modular_freelancer_ship/misc/maint/aft)
 "mRO" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/white,
 /area/modular_freelancer_ship/fore/hallway)
 "mSE" = (
@@ -17072,9 +16912,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
 "mYA" = (
@@ -17091,9 +16929,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/fore)
@@ -17175,9 +17011,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "ngE" = (
@@ -17222,9 +17056,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
 "nkU" = (
-/obj/structure/machinery/power/apc/west{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -17409,9 +17241,7 @@
 "nBN" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "nBV" = (
@@ -17476,9 +17306,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
 "nIT" = (
@@ -17541,9 +17369,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/atmos)
 "nLv" = (
@@ -17651,9 +17477,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
 "nUh" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -17682,16 +17506,12 @@
 /obj/structure/closet,
 /obj/outfit/admin/generic,
 /obj/outfit/admin/generic,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/slate,
 /area/modular_freelancer_ship/fore/crew)
 "nXi" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "nXT" = (
@@ -17733,9 +17553,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
@@ -17749,9 +17567,7 @@
 /area/modular_freelancer_ship/aux/hallway)
 "ocr" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
 "ocB" = (
@@ -17773,9 +17589,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
@@ -17928,9 +17742,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "oyo" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/structure/closet/crate/bin/filled,
 /obj/structure/machinery/light{
 	dir = 8
@@ -18130,9 +17942,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "oPh" = (
@@ -18238,9 +18048,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
 "pbL" = (
@@ -18301,9 +18109,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/lounge)
 "pmL" = (
@@ -18589,9 +18395,7 @@
 "pMw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -18631,9 +18435,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
 "pPA" = (
@@ -18844,9 +18646,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c03)
 "qhl" = (
@@ -18899,9 +18699,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "qmd" = (
@@ -18944,9 +18742,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -19032,9 +18828,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/fore/guns)
 "qAa" = (
@@ -19089,9 +18883,7 @@
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/lounge)
 "qFn" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
@@ -19256,9 +19048,7 @@
 "qRA" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
@@ -19519,9 +19309,7 @@
 /area/modular_freelancer_ship/mid/hallway)
 "rrb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/south{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/south,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/hallway)
 "rrl" = (
@@ -19610,9 +19398,7 @@
 /obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/cic)
 "ruC" = (
@@ -19653,9 +19439,7 @@
 /area/modular_freelancer_ship/fore/starboard)
 "rxo" = (
 /obj/random/keg,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/mid)
 "ryJ" = (
@@ -19715,9 +19499,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "rDl" = (
@@ -19727,9 +19509,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "rDI" = (
@@ -19801,9 +19581,7 @@
 /area/template_noop)
 "rJe" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/aux/hallway)
 "rJo" = (
@@ -19859,9 +19637,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "rOb" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/lounge)
 "rOp" = (
@@ -19894,9 +19670,7 @@
 	dir = 1
 	},
 /obj/random/pottedplant,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
 "rSm" = (
@@ -19963,9 +19737,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/aft/hallway)
 "rYg" = (
@@ -20070,18 +19842,14 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "siq" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/aft/hallway)
 "sjb" = (
 /obj/structure/machinery/suit_cycler/syndicate{
 	req_access = null
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -20366,9 +20134,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -20381,9 +20147,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
 "sNH" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/lounge)
 "sNP" = (
@@ -20525,9 +20289,7 @@
 /area/modular_freelancer_ship/container/c02)
 "sYj" = (
 /obj/structure/table/reinforced/steel,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/cic)
 "sZH" = (
@@ -20559,9 +20321,7 @@
 /area/modular_freelancer_ship/fore/guns)
 "tcC" = (
 /obj/effect/floor_decal/corner/grey,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
@@ -21038,9 +20798,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/guns)
 "tTe" = (
@@ -21104,9 +20862,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c06)
 "tXr" = (
@@ -21126,9 +20882,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c0A)
 "uaI" = (
@@ -21472,18 +21226,14 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c04)
 "uLg" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "uLL" = (
@@ -21522,9 +21272,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "uSe" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
 "uTc" = (
@@ -21533,9 +21281,7 @@
 /area/modular_freelancer_ship/fore/starboard)
 "uTQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/aft/hallway)
 "uUi" = (
@@ -21596,9 +21342,7 @@
 /area/modular_freelancer_ship/mid/hallway)
 "uXP" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "uXV" = (
@@ -21783,9 +21527,7 @@
 "vsC" = (
 /obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "vuE" = (
@@ -21950,9 +21692,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -21960,9 +21700,7 @@
 /area/modular_freelancer_ship/mid/lounge)
 "vKq" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/fore/hallway)
 "vLO" = (
@@ -22066,9 +21804,7 @@
 /area/modular_freelancer_ship/misc/maint/aft)
 "vRr" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -22142,9 +21878,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/west{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
 "wfO" = (
@@ -22187,9 +21921,7 @@
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/noid/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -22251,9 +21983,7 @@
 /area/modular_freelancer_ship/mid/hallway)
 "wlx" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
 "wmt" = (
@@ -22453,9 +22183,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/modular_freelancer_ship/aft/engineering)
 "wGb" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "wGv" = (
@@ -22466,9 +22194,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
 "wGP" = (
@@ -22594,18 +22320,14 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/fore/hallway)
 "wOu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /obj/structure/machinery/light{
 	dir = 8
 	},
@@ -22703,9 +22425,7 @@
 /area/modular_freelancer_ship/fore/starboard)
 "wVy" = (
 /obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "wVH" = (
@@ -22811,9 +22531,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
 "xfF" = (
@@ -22891,9 +22609,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
 "xnz" = (
@@ -22919,9 +22635,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "xoD" = (
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/west,
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
 	},
@@ -23023,9 +22737,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/steel,
 /area/modular_freelancer_ship/fore/starboard)
 "xvG" = (
@@ -23073,9 +22785,7 @@
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/aux/hallway)
 "xBx" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /obj/random/canister,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
@@ -23443,9 +23153,7 @@
 /area/modular_freelancer_ship/misc/maint/aft)
 "ykj" = (
 /obj/effect/floor_decal/corner/grey,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/noid/east,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
