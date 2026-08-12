@@ -803,6 +803,9 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 
 	return INITIALIZE_HINT_NORMAL
 
+/turf/simulated/floor/exoplanet/asteroid/is_plating()
+	return TRUE
+
 /turf/simulated/floor/exoplanet/asteroid/ex_act(severity)
 	switch(severity)
 		if(3.0)

@@ -124,6 +124,9 @@
 
 		AddOverlays(overlay_group)
 
+/turf/simulated/floor/exoplanet/is_plating()
+	return FALSE // none of this shit has an `initial_flooring` and i refuse to go over billions of types
+
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
 	desc = "Some water shallow enough to wade through."

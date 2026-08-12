@@ -25,6 +25,9 @@
 	. = ..()
 	icon_state = "Fill"
 
+/turf/simulated/floor/exoplanet/abyss/is_plating()
+	return TRUE
+
 /turf/simulated/floor/exoplanet/abyss/Entered(atom/movable/AM, atom/oldloc)
 	if(is_type_in_typecache(AM, forbidden_types))
 		return TRUE

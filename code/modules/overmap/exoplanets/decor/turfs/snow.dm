@@ -23,6 +23,9 @@
 	QUEUE_SMOOTH_NEIGHBORS(src)
 	QUEUE_SMOOTH(src)
 
+/turf/simulated/floor/exoplanet/snow/is_plating()
+	return TRUE
+
 /turf/simulated/floor/exoplanet/snow/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 	melt()
