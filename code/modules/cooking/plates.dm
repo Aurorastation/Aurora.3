@@ -342,12 +342,11 @@ Plates that can hold your cooking stuff
 		icon_state = "takeout_box"
 
 /obj/item/reagent_containers/bowl/takeout_box/proc/turn_into_trash()
-	var/atom/old_loc = loc
 	var/mob/holder
-	if(ismob(old_loc))
-		holder = old_loc
+	if(ismob(loc))
+		holder = loc
 
-	var/obj/item/trash/takeout_box/dirty_box = new(old_loc)
+	var/obj/item/trash/takeout_box/dirty_box = new(loc)
 	if(holder)
 		holder.drop_from_inventory(src)
 		holder.put_in_hands(dirty_box)
