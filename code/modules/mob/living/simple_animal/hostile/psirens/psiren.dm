@@ -41,9 +41,9 @@
 	speak_chance = 5
 	attack_emote = "menaces"
 	psi_pingable = TRUE
-	meat_amount = 1
-	meat_type = /obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
-	butchering_products = list(/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat = 1)
+	meat_amount = 2
+	meat_type = /obj/item/reagent_containers/food/snacks/psiren_tentacle_meat
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/psiren_body_meat = 1)
 
 	attack_vis_effect = ATTACK_EFFECT_DISARM
 	smart_ranged = FALSE
