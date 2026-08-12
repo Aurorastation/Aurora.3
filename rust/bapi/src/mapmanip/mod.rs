@@ -12,7 +12,7 @@ use eyre::eyre;
 use eyre::Context;
 use eyre::ContextCompat;
 use itertools::Itertools;
-use procgen::{MazegenHauberkSettings, mapmanip_mazegen_hauberk};
+use procgen::{mapmanip_mazegen_hauberk, MazegenHauberkSettings};
 use rand::prelude::IteratorRandom;
 use rand::seq::SliceRandom;
 use serde::{Deserialize, Serialize};
@@ -185,7 +185,7 @@ fn mapmanip_submap_extract_insert(
                 !singleton_tags
                     .contains(prefab.vars.get("singleton_id").unwrap_or(Constant::null()))
             })
-            .choose(&mut rand::thread_rng())
+            .choose_weighted(&mut rand::thread_rng())
             .wrap_err(format!(
                 "no extractions found for marker {marker_extract}, singletons={singleton_tags:?}"
             ))?;

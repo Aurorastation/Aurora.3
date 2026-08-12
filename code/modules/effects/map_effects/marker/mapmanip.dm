@@ -5,6 +5,12 @@
 	icon_state = "mapmanip_extract"
 	pixel_x = -32
 	pixel_y = -32
+	/// If set, it allows extract markers to have a shared name, even across submap operations,
+	/// eliminating submaps with the same name from the selection pool.
+	/// If null, ignored.
+	var/singleton_id = null
+	/// The higher the weight, the more likely the marker is to be selected.
+	var/weight = 1
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert
 	name = "mapmanip marker, insert submap"
