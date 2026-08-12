@@ -309,10 +309,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	UnregisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE)
 	if(viewer != client)
 		return
-	if(!char_render_holders)
-		update_preview_icon()
-	else
-		show_character_previews()
+	INVOKE_ASYNC(src, PROC_REF(display_character_previews_when_ready), window)
 
 /datum/preferences/ui_close(mob/user)
 	. = ..()
