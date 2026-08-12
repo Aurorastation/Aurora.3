@@ -1423,13 +1423,13 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "aeY" = (
-/obj/structure/table/wood/maple,
-/obj/item/flashlight/lamp/green{
-	pixel_y = 12;
-	pixel_x = -4
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+	dir = 1
+	},
+/obj/structure/table/wood/maple,
+/obj/random/pottedplant_small{
+	pixel_x = 5;
+	pixel_y = 4
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
@@ -2589,20 +2589,10 @@
 /turf/simulated/floor/wood/ebony,
 /area/template_noop)
 "akj" = (
-/obj/structure/table/rack/cafe_table,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
-	pixel_x = 3;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
-	pixel_x = 6;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha{
-	pixel_x = -7;
-	pixel_y = 8
-	},
 /obj/effect/floor_decal/spline/fancy/wood/cee,
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "ako" = (
@@ -2612,7 +2602,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "akp" = (
-/obj/structure/bed/stool/chair/office/dark,
+/obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "akq" = (
@@ -3938,11 +3928,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "asi" = (
-/obj/structure/table/standard,
 /obj/random/plushie{
 	pixel_x = -3;
 	pixel_y = 4
 	},
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/tiled/slate,
 /area/modular_freelancer_ship/fore/hallway)
 "ask" = (
@@ -4241,9 +4231,6 @@
 /turf/simulated/floor/tiled/ridged,
 /area/modular_freelancer_ship/mid/hallway)
 "atO" = (
-/obj/structure/bed/stool/chair/padded/brown{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -4252,6 +4239,19 @@
 	},
 /obj/structure/machinery/light{
 	dir = 8
+	},
+/obj/structure/table/rack/cafe_table,
+/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha{
+	pixel_x = -7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = 6;
+	pixel_y = 1
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
@@ -9802,9 +9802,6 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "bae" = (
@@ -10360,6 +10357,18 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/starboard)
+"ckf" = (
+/obj/structure/table/wood/maple,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/turf/simulated/floor/wood,
+/area/modular_freelancer_ship/fore/crew)
 "ckn" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10640,9 +10649,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/container/c01)
 "cIh" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 4
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -11031,6 +11037,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/structure/bed/stool/chair/padded/brown,
 /turf/simulated/floor/carpet/darkblue,
 /area/modular_freelancer_ship/fore/crew)
 "drA" = (
@@ -12101,7 +12108,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/darkblue,
 /area/modular_freelancer_ship/fore/hallway)
 "fgm" = (
 /obj/effect/floor_decal/industrial/outline/service,
@@ -14474,6 +14481,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nated{
+	pixel_x = -6;
+	pixel_y = 5
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/crew)
 "jgQ" = (
@@ -14582,6 +14593,13 @@
 /area/modular_freelancer_ship/mid/lounge)
 "jpA" = (
 /obj/structure/table/wood/maple,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
+	pixel_x = -4
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 9;
+	pixel_y = 6
+	},
 /turf/simulated/floor/wood,
 /area/modular_freelancer_ship/fore/crew)
 "jpC" = (
@@ -16330,6 +16348,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
+"lXN" = (
+/turf/simulated/wall/r_wall,
+/area/modular_freelancer_ship/aft/hallway)
 "lXY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -17146,13 +17167,18 @@
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/lounge)
 "ngq" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
+/obj/structure/table/wood/maple,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 12;
+	pixel_x = -4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
 	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "ngE" = (
 /obj/structure/machinery/vending/frontiervend/hacked{
@@ -18076,6 +18102,12 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
+"oNW" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/modular_freelancer_ship/fore/hallway)
 "oOg" = (
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -18619,6 +18651,12 @@
 "pPC" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/modular_freelancer_ship/container/c04)
+"pPF" = (
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/modular_freelancer_ship/fore/hallway)
 "pPS" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -19330,6 +19368,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
+"rhd" = (
+/obj/random/canister,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/misc/maint/fore)
 "rin" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19364,6 +19406,9 @@
 "rmr" = (
 /obj/structure/machinery/light{
 	dir = 1
+	},
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
@@ -21886,6 +21931,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
+	},
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "vIs" = (
@@ -30564,8 +30612,8 @@ cEw
 ocX
 kCH
 aeY
-acK
-qNu
+oNW
+hEk
 aYW
 kCH
 kCH
@@ -30721,10 +30769,10 @@ qHa
 ocX
 kCH
 ngq
-dcU
-dcU
-aiu
-ahg
+acK
+qNu
+aJo
+pPF
 kCH
 iVB
 mak
@@ -30871,17 +30919,17 @@ azg
 aza
 azg
 oIj
+ocX
 cEw
 cEw
-cEw
-cEw
-cEw
+mVP
+rhd
 kCH
 rmr
 dcU
 dcU
-dcU
-dcU
+aJo
+ahg
 kCH
 uzS
 iRE
@@ -31028,17 +31076,17 @@ azg
 aza
 azg
 oIj
+ocX
 cEw
-cEw
-cEw
-cEw
+thb
+mVP
 cEw
 kCH
-dcU
+jNL
 kKL
 dcU
 ffU
-dcU
+aiu
 kCH
 eKr
 jvu
@@ -31185,10 +31233,10 @@ azg
 aza
 azg
 oIj
+ocX
+ocX
 cEw
-cEw
-cEw
-cEw
+mVP
 cEw
 kCH
 kCH
@@ -32503,7 +32551,7 @@ hrR
 hrR
 cNr
 cNr
-iEc
+wGb
 nSj
 aZV
 kRl
@@ -33603,7 +33651,7 @@ azC
 gVl
 cNr
 aRN
-azC
+ckf
 aRN
 cNr
 aRN
@@ -86045,8 +86093,8 @@ sdj
 aqJ
 aqJ
 aqJ
-hbJ
-hbJ
+aqJ
+aqJ
 elV
 elV
 fSs
@@ -86203,7 +86251,7 @@ aqJ
 amx
 hUF
 avI
-hbJ
+aqJ
 ftL
 tmv
 fSs
@@ -86360,7 +86408,7 @@ aqJ
 mMF
 aLD
 aQd
-hbJ
+aqJ
 jPT
 oBJ
 nhq
@@ -86674,7 +86722,7 @@ aWb
 aLk
 jLl
 fKC
-hbJ
+aqJ
 jPT
 fHO
 yjY
@@ -86831,7 +86879,7 @@ rtY
 bWE
 aht
 fKC
-hbJ
+aqJ
 mFE
 sxm
 kNN
@@ -86988,7 +87036,7 @@ aqJ
 arZ
 akv
 aaw
-hbJ
+aqJ
 hqj
 izo
 yjY
@@ -87118,7 +87166,7 @@ xBL
 ksf
 siq
 mQE
-jZe
+lXN
 vdW
 kMW
 jSf
@@ -87141,11 +87189,11 @@ sZH
 fbx
 hbJ
 hbJ
-hbJ
-hbJ
-hbJ
-hbJ
-hbJ
+aqJ
+aqJ
+aqJ
+aqJ
+aqJ
 sgy
 dPh
 sVj
@@ -87273,9 +87321,9 @@ aqJ
 aqJ
 aqJ
 ahT
-hbJ
-hbJ
-hbJ
+aqJ
+aqJ
+aqJ
 elV
 sKt
 elV
@@ -88372,9 +88420,9 @@ aqJ
 arZ
 akv
 aaw
-hbJ
-hbJ
-hbJ
+aqJ
+aqJ
+aqJ
 jZe
 tkB
 jZe
@@ -88529,7 +88577,7 @@ aqJ
 aqJ
 aqJ
 aqJ
-hbJ
+aqJ
 oOI
 vmO
 cJs
