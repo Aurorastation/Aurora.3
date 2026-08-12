@@ -10222,18 +10222,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
-"bZr" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 4
-	},
-/obj/item/tank/oxygen/yellow,
-/obj/random/voidsuit/freebooter,
-/turf/simulated/floor/tiled,
-/area/modular_freelancer_ship/shuttles/hallway)
 "bZZ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/steel,
@@ -11146,6 +11134,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
+"dIs" = (
+/obj/random/canister,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/shuttles/hallway)
 "dIC" = (
 /obj/structure/table/wood,
 /obj/random/lavalamp{
@@ -11427,6 +11419,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/guns)
+"eiQ" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/orange{
+	dir = 8
+	},
+/obj/item/tank/oxygen,
+/obj/random/voidsuit/freebooter,
+/turf/simulated/floor/tiled,
+/area/modular_freelancer_ship/shuttles/hallway)
 "ejH" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -13692,16 +13694,6 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
-"hRU" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/corner/blue,
-/obj/effect/floor_decal/corner/orange{
-	dir = 8
-	},
-/obj/item/tank/oxygen,
-/obj/random/voidsuit/freebooter,
-/turf/simulated/floor/tiled,
-/area/modular_freelancer_ship/shuttles/hallway)
 "hUF" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 4
@@ -14467,6 +14459,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
+"jiH" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 4
+	},
+/obj/item/tank/oxygen/yellow,
+/obj/random/voidsuit/freebooter,
+/turf/simulated/floor/tiled,
+/area/modular_freelancer_ship/shuttles/hallway)
 "jjy" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -18257,10 +18261,6 @@
 /obj/structure/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
-"pyh" = (
-/obj/random/canister,
-/turf/simulated/floor/plating,
-/area/modular_freelancer_ship/shuttles/hallway)
 "pzI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/bin/filled,
@@ -63865,7 +63865,7 @@ tbJ
 fyw
 fyw
 dVr
-pyh
+dIs
 tbJ
 aOO
 mLt
@@ -64204,12 +64204,12 @@ vIC
 aea
 emg
 tbJ
-bZr
+jiH
 rcX
 jpC
 kCf
 rcX
-hRU
+eiQ
 evG
 dMf
 mjb
