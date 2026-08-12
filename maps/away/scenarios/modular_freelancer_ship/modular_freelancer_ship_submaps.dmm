@@ -2116,8 +2116,6 @@
 /area/template_noop)
 "ahB" = (
 /obj/structure/table/rack,
-/obj/item/tank/oxygen,
-/obj/random/voidsuit/freebooter,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -2127,6 +2125,15 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
+/obj/item/tank/oxygen{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/tank/oxygen{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
 "ahC" = (
@@ -4327,14 +4334,21 @@
 /area/modular_freelancer_ship/mid/hallway)
 "aud" = (
 /obj/structure/table/rack,
-/obj/item/tank/oxygen/brown,
-/obj/random/voidsuit/freebooter,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
+/obj/item/tank/oxygen/brown{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/obj/item/tank/oxygen/brown{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
 "auh" = (
@@ -6686,6 +6700,14 @@
 /area/modular_freelancer_ship/misc/maint/aux)
 "aIU" = (
 /obj/structure/table/rack,
+/obj/item/tank/oxygen/brown{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/tank/oxygen/red{
+	pixel_x = 7;
+	pixel_y = -2
+	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "aJa" = (
@@ -10200,6 +10222,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
+"bZr" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 4
+	},
+/obj/item/tank/oxygen/yellow,
+/obj/random/voidsuit/freebooter,
+/turf/simulated/floor/tiled,
+/area/modular_freelancer_ship/shuttles/hallway)
 "bZZ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/steel,
@@ -13658,6 +13692,16 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
+"hRU" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/orange{
+	dir = 8
+	},
+/obj/item/tank/oxygen,
+/obj/random/voidsuit/freebooter,
+/turf/simulated/floor/tiled,
+/area/modular_freelancer_ship/shuttles/hallway)
 "hUF" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 4
@@ -13925,6 +13969,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
 "izg" = (
@@ -14409,6 +14457,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
 	},
+/obj/item/tank/oxygen/brown,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
 "jiA" = (
@@ -18207,6 +18257,10 @@
 /obj/structure/machinery/door/airlock/command,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
+"pyh" = (
+/obj/random/canister,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/shuttles/hallway)
 "pzI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/bin/filled,
@@ -63811,7 +63865,7 @@ tbJ
 fyw
 fyw
 dVr
-ooc
+pyh
 tbJ
 aOO
 mLt
@@ -64150,12 +64204,12 @@ vIC
 aea
 emg
 tbJ
-jhW
+bZr
 rcX
 jpC
 kCf
 rcX
-iyP
+hRU
 evG
 dMf
 mjb
