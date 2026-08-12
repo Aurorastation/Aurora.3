@@ -10,6 +10,12 @@
 	/// If null, ignored.
 	var/singleton_id = null
 	/// The higher the weight, the more likely the marker is to be selected.
+	/// Default is 1 if unset.
+	/// Weight must be 0 or positive.
+	///
+	/// If specifically set to 0, the marker will never be selected,
+	/// unless, and only if, all the remaining markers have a weight of 0.
+	/// Or in other words, it'll be selected last.
 	var/weight = 1
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert

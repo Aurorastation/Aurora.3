@@ -176,25 +176,33 @@ fn mapmanip_submap_extract_insert(
 
     // do all the extracts-inserts
     for insert_coord in marker_insert_coords {
-        // pick a submap
-        let (&extract_coord, &extract_prefab) = marker_lookup
+        // collect candidate submaps
+        let candidates: Vec<(&Coord3, &Prefab)> = marker_lookup
             .iter()
             .filter(|(_, &prefab)| {
                 !singleton_tags
                     .contains(prefab.vars.get("singleton_id").unwrap_or(Constant::null()))
             })
-            .collect::<Vec<_>>()
-            .choose_weighted(&mut rand::thread_rng(), |(_, &prefab)| {
-                prefab
+            .map(|(&coord, &prefab)| (coord, prefab))
+            .collect();
+
+        // try weighted selection; fall back to uniform selection if all weights are 0
+        let (&extract_coord, &extract_prefab) = candidates
+            .choose_weighted(&mut rand::thread_rng(), |(_, prefab)| {
+                let weight = prefab
                     .vars
                     .get("weight")
                     .unwrap_or(&Constant::from(1))
                     .to_int()
-                    .unwrap_or(1)
+                    .unwrap_or(1);
+                weight.max(0)
             })
-            .wrap_err(format!(
-                "no extractions found for marker {marker_extract}, singletons={singleton_tags:?}"
-            ))?;
+            .ok()
+            .copied()
+            .or_else(|| candidates.choose(&mut rand::thread_rng()).copied())
+            .wrap_err_with(|| {
+                format!("no extractions found for marker {marker_extract}, singletons={singleton_tags:?}")
+            })?;
 
         // if submaps should not be repeating, remove this one
         if !submaps_can_repeat {
