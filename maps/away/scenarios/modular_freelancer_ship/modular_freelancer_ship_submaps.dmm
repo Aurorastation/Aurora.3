@@ -1423,6 +1423,7 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
+/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "aeZ" = (
@@ -2719,8 +2720,8 @@
 "alf" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker{
-	pixel_x = -5;
-	pixel_y = 7
+	pixel_x = -7;
+	pixel_y = 9
 	},
 /obj/item/material/ashtray/bronze{
 	pixel_x = 7;
@@ -3305,10 +3306,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/random/civgun,
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/item/storage/box/fancy/cigarettes/cigar,
+/obj/random/civgun,
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/crew)
 "aoK" = (
@@ -3622,6 +3624,15 @@
 "aqJ" = (
 /turf/simulated/wall/r_wall,
 /area/modular_freelancer_ship/aft/cic)
+"aqM" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/shuttles/hallway)
 "aqN" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -4090,6 +4101,7 @@
 /obj/random/suit,
 /obj/item/clothing/under/suit_jacket/really_black,
 /obj/outfit/admin/generic/business,
+/obj/item/storage/box/fancy/cigarettes/wulu,
 /obj/random/civgun,
 /turf/simulated/floor/carpet/darkblue,
 /area/modular_freelancer_ship/fore/hallway)
@@ -4299,6 +4311,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
+/obj/item/storage/box/unique/monkeycubes,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "auc" = (
@@ -8267,13 +8280,13 @@
 /area/template_noop)
 "aSs" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/fancy/cigarettes/cigar{
-	pixel_x = 3;
-	pixel_y = 17
-	},
 /obj/item/storage/box/fancy/matches{
-	pixel_x = -5;
+	pixel_x = -6;
 	pixel_y = 1
+	},
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = 7;
+	pixel_y = 11
 	},
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
@@ -8949,6 +8962,10 @@
 /obj/structure/machinery/reagentgrinder{
 	pixel_x = 3;
 	pixel_y = 16
+	},
+/obj/item/storage/box/unique/monkeycubes{
+	pixel_x = -5;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -17011,7 +17028,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "ngE" = (
@@ -18728,10 +18744,11 @@
 /obj/random/suit,
 /obj/item/clothing/under/suit_jacket/really_black,
 /obj/outfit/admin/generic/business,
-/obj/random/civgun,
 /obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/box/syndie_kit/cigarette,
+/obj/random/civgun,
 /turf/simulated/floor/carpet/darkblue,
 /area/modular_freelancer_ship/fore/hallway)
 "qno" = (
@@ -63328,9 +63345,9 @@ aHo
 aXY
 abO
 hOV
-lDs
+fUj
 bEz
-eSE
+aqM
 pFK
 ptn
 pFK
@@ -63485,9 +63502,9 @@ tbJ
 vpz
 adv
 aWj
-ceF
+wiP
 bEz
-ceF
+gaD
 mzB
 adw
 emg
@@ -63642,9 +63659,9 @@ tbJ
 atf
 giY
 lBa
-oUB
+wMx
 bEz
-lBa
+nUa
 fRN
 qOf
 fRN
