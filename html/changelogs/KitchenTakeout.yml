@@ -4,4 +4,3 @@ delete-after: True
 
 changes:
   - rscadd: "Takeout boxes now exist. They can be crafted from cardboard and found in the kitchen dinnerware vending machine."
-  - rscdel: "Killed innocent kittens."
