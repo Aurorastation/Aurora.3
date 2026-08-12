@@ -371,8 +371,8 @@ Plates that can hold your cooking stuff
 		to_chat(usr, SPAN_NOTICE("You fold \the [src] flat."))
 		playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
 		var/obj/item/foldable = new src.foldable()
-		qdel(src)
 		usr.put_in_hands(foldable)
+		qdel(src)
 
 /obj/item/trash/takeout_box
 	name = "dirty takeout box"
