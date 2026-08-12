@@ -11,6 +11,8 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return FALSE
 	if(affected.encased)
 		return affected && IS_ORGAN_FULLY_OPEN
 	if(BP_IS_ROBOTIC(affected))
