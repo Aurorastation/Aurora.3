@@ -12275,7 +12275,7 @@
 /obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/cargo,
+/turf/simulated/floor/tiled/cargo/brass,
 /area/modular_freelancer_ship/fore/hallway)
 "fxm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15111,6 +15111,12 @@
 /obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
+"kbL" = (
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/modular_freelancer_ship/fore/hallway)
 "kdg" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -16417,6 +16423,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
+"mjb" = (
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/misc/maint/shuttles)
 "mjl" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/greengrid,
@@ -16569,6 +16579,10 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
+"msF" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/cargo/brass/full,
 /area/modular_freelancer_ship/fore/hallway)
 "mtb" = (
 /obj/structure/cable{
@@ -17784,6 +17798,10 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/aft/hallway)
+"olv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/cargo/brass,
+/area/modular_freelancer_ship/fore/hallway)
 "olJ" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -17794,14 +17812,9 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/template_noop)
 "ooc" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/random/maintenance_junk_or_loot,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
-/area/modular_freelancer_ship/misc/maint/fore)
+/area/modular_freelancer_ship/shuttles/hallway)
 "opD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -19048,7 +19061,7 @@
 /area/modular_freelancer_ship/mid/hallway)
 "qFG" = (
 /obj/structure/machinery/light,
-/turf/simulated/floor/tiled/cargo,
+/turf/simulated/floor/tiled/cargo/brass,
 /area/modular_freelancer_ship/fore/hallway)
 "qGp" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -19806,6 +19819,13 @@
 	},
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/lounge)
+"rOp" = (
+/obj/effect/floor_decal/industrial/outline_corner/engineering{
+	dir = 1
+	},
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/aux/hallway)
 "rOv" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/random/maintenance_junk_or_loot,
@@ -20502,6 +20522,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
+"tcT" = (
+/turf/simulated/floor/tiled/cargo/brass/full,
+/area/modular_freelancer_ship/fore/hallway)
 "tfb" = (
 /turf/simulated/floor/exoplanet/grass/marsh,
 /area/template_noop)
@@ -20597,6 +20620,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
+"tmj" = (
+/turf/simulated/floor/tiled/cargo/brass,
+/area/modular_freelancer_ship/fore/hallway)
 "tmv" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -30264,7 +30290,7 @@ dbE
 aNb
 sxH
 aaj
-ooc
+sxH
 sxH
 sxH
 sge
@@ -30422,8 +30448,8 @@ pTf
 cEw
 olJ
 ocX
-oIj
-oIj
+ocX
+cEw
 oIj
 ocX
 ocX
@@ -30580,7 +30606,7 @@ cEw
 kCH
 kCH
 kCH
-bqD
+kCH
 kCH
 oIj
 oIj
@@ -30735,9 +30761,9 @@ sxH
 gPR
 ocX
 kCH
-eCk
-qvB
-eCk
+msF
+olv
+msF
 fvf
 kCH
 kme
@@ -30892,10 +30918,10 @@ cEw
 mVP
 cEw
 kCH
-qvB
-bHE
-ied
-eCk
+olv
+tcT
+tmj
+msF
 kCH
 xLU
 ied
@@ -31049,9 +31075,9 @@ cEw
 mVP
 cEw
 kCH
-cIL
-ied
-bHE
+kbL
+tmj
+tcT
 qFG
 kCH
 rFg
@@ -44661,9 +44687,9 @@ aza
 aza
 aza
 myO
-xSV
-xSV
-xSV
+vIs
+vIs
+vIs
 myO
 jPg
 dQl
@@ -44818,7 +44844,7 @@ aza
 aza
 aza
 myO
-xSV
+vIs
 xSV
 xSV
 myO
@@ -63695,7 +63721,7 @@ aza
 aza
 aza
 tbJ
-dVr
+fyw
 dVr
 dVr
 dVr
@@ -63852,10 +63878,10 @@ aza
 aza
 aza
 tbJ
+fyw
 dVr
-dVr
-dVr
-dVr
+ooc
+fyw
 tbJ
 atf
 giY
@@ -64009,10 +64035,10 @@ aza
 aza
 aza
 tbJ
+fyw
+fyw
 dVr
-dVr
-dVr
-dVr
+ooc
 tbJ
 aOO
 mLt
@@ -64180,7 +64206,7 @@ dMf
 dMf
 xDf
 voJ
-voJ
+mjb
 voJ
 dMf
 nZg
@@ -64189,8 +64215,8 @@ aza
 aOs
 tbJ
 fyw
-dVr
-dVr
+ooc
+ooc
 bAh
 qiD
 tbJ
@@ -64336,8 +64362,8 @@ evG
 dMf
 voJ
 xDf
-voJ
-voJ
+dMf
+dMf
 voJ
 dMf
 nZg
@@ -64359,7 +64385,7 @@ rcX
 iyP
 evG
 dMf
-voJ
+mjb
 kUv
 voJ
 voJ
@@ -64961,7 +64987,7 @@ jWn
 adR
 evG
 evG
-voJ
+mjb
 voJ
 dMf
 nns
@@ -76738,7 +76764,7 @@ aza
 aza
 aza
 eIu
-aLL
+rOp
 aXk
 aHx
 qIi
