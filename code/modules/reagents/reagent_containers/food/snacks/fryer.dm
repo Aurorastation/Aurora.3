@@ -226,6 +226,14 @@
 	trash = /obj/item/trash/bowl_small
 	vendingobject = /obj/item/reagent_containers/food/snacks/psiren_chip
 
+/obj/item/reagent_containers/food/snacks/psiren_chip
+	name = "psiren chip"
+	desc = "A crunchy square of deep fried Psiren skin. Crunches in your mouth, not in your hand."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "psiren_chip"
+	bitesize = 1
+	filling_color = "#1a778f"
+
 /obj/item/reagent_containers/food/snacks/donut
 	name = "donut"
 	desc = "Goes great with Robust Coffee."
