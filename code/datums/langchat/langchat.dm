@@ -154,10 +154,15 @@
 
 	if(length(text_to_display) > LANGCHAT_LONGEST_TEXT)
 		text_to_display = copytext_char(text_to_display, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."
-	if(styles.Find("emote"))
+	if("emote" in styles)
 		styles.Remove("emote")
 		use_mob_style = FALSE
 		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "emote")
+		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
+	if("radio" in styles)
+		styles.Remove("radio")
+		use_mob_style = FALSE
+		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "radio")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
 	return "<span class='center [styles.Join(" ")] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"

@@ -234,8 +234,9 @@
 		/obj/item/electronic_assembly,
 		/obj/item/integrated_electronics,
 		/obj/item/crowbar,
-		/obj/item/screwdriver,
-		/obj/item/multitool
+		/obj/item/integrated_electronics/wirer,
+		/obj/item/integrated_electronics/debugger,
+		/obj/item/integrated_electronics/detailer
 	)
 	make_exact_fit = TRUE
 
@@ -255,8 +256,9 @@
 	new /obj/item/electronic_assembly(src)
 	new /obj/item/assembly/electronic_assembly(src)
 	new /obj/item/assembly/electronic_assembly(src)
-	new /obj/item/multitool(src)
-	new /obj/item/screwdriver(src)
+	new /obj/item/integrated_electronics/wirer(src)
+	new /obj/item/integrated_electronics/debugger(src)
+	new /obj/item/integrated_electronics/detailer(src)
 	new /obj/item/crowbar(src)
 
 /obj/item/storage/bag/circuits/all/fill()
@@ -281,6 +283,7 @@
 	new /obj/item/electronic_assembly/drone(src)
 	new /obj/item/integrated_electronics/wirer(src)
 	new /obj/item/integrated_electronics/debugger(src)
+	new /obj/item/integrated_electronics/detailer(src)
 	new /obj/item/crowbar(src)
 
 /obj/item/storage/bag/circuits/mini

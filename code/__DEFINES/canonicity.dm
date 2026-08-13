@@ -9,6 +9,8 @@
 #define ANTAGONIST_ACTIONS_NOT_CANON	1
 /// Antagonist actions are canon during this round.
 #define ANTAGONIST_ACTIONS_CANON		2
+/// Be warned... It's gonna get hot! Hot as hell! Antagonists are going to play to kill you if they have to.
+#define ANTAGONIST_ACTIONS_EXTREME_CANON 3
 
 
 /// Character deaths are automatically not-canon. Usually the case in non-canon events.
@@ -17,6 +19,8 @@
 #define LIMITED_CHARACTER_DEATH			1
 /// If players are FORCED to keep character deaths canon. In this case, ALL CHARACTER DEATHS MUST GO THROUGH HEADMINS AND LOREMASTERS TO BE RETCONNED. THERE ARE NO EXCEPTIONS!
 #define FORCED_CHARACTER_DEATH			2
+/// Players are FORCED to keep character deaths canon, and NO retcons will be handed out barring extreme bug-caused cases.
+#define EXTREME_CHARACTER_DEATH			3
 
 /// Away sites are NOT canon in this round.
 #define AWAY_SITE_NOT_CANON				0

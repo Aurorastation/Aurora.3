@@ -202,7 +202,7 @@
 	name = "\improper TCAF foreign legions dress beret"
 	desc = "A bright blue, red-rimmed dress beret with a rubber insignia of a torch, surrounded by red stars. Worn by those of the Foreign Legions of one of the TCAF's service branches."
 	icon_state = "tcaf_fl_dress"
-	item_state = "tcfl_dress"
+	item_state = "tcaf_fl_dress"
 
 /obj/item/clothing/head/beret/tcaf/foreign_legion/field
 	name = "TCAF foreign legions field beret"

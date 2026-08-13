@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory
 	name = "tie"
 	desc = "A neosilk clip-on tie."
-	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "bluetie"
 	item_state = ""	//no inhands
 	overlay_state = null
@@ -331,10 +331,8 @@
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
-	icon = 'icons/obj/item/clothing/accessory/suspenders.dmi'
 	icon_state = "suspenders"
 	item_state = "suspenders"
-	contained_sprite = TRUE
 	gender = PLURAL
 	slot = ACCESSORY_SLOT_GENERIC
 
@@ -393,12 +391,10 @@
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
-	icon = 'icons/obj/item/clothing/accessory/chaps.dmi'
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
 	slot = ACCESSORY_SLOT_GENERIC
-	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -585,7 +581,8 @@
 /obj/item/clothing/accessory/poncho/roles/cloak
 	name = "quartermaster's cloak"
 	desc = "An elaborate brown and gold cloak."
-	icon = 'icons/obj/item/clothing/accessory/cloaks_capes.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
+	icon_override = 'icons/mob/ties.dmi'
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
 	contained_sprite = FALSE
@@ -685,8 +682,8 @@
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
 	desc_extended = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
-	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
-	icon_override = 'icons/obj/item/clothing/accessory/ties.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
+	icon_override = 'icons/mob/ties.dmi'
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = TRUE
@@ -744,10 +741,8 @@
 	desc = "A robe denoting the wearer as a member of the Weishii faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Weishii faith. \
 	It is given to followers after they have spent time on a Weishiin Sanctuary."
-	icon = 'icons/obj/item/clothing/accessory/weishii_robe.dmi'
 	icon_state = "weishii_robe"
 	item_state = "weishii_robe"
-	contained_sprite = TRUE
 	flippable = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
@@ -762,31 +757,6 @@
 	item_state = "ZH_cape"
 	flippable = FALSE
 	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/poncho/trinary
-	name = "trinary perfection cape"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
-	icon_override = 'icons/obj/item/clothing/accessory/ties.dmi'
-	icon_state = "trinary_cape"
-	item_state = "trinary_cape"
-	overlay_state = "trinary_cape"
-	contained_sprite = FALSE
-	protects_against_weather = FALSE
-
-/obj/item/clothing/accessory/poncho/trinary/pellegrina
-	name = "trinary perfection pellegrina"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
-	icon_state = "trinary_pellegrina"
-	item_state = "trinary_pellegrina"
-	overlay_state = "trinary_pellegrina"
-
-/obj/item/clothing/accessory/poncho/trinary/shouldercape
-	name = "trinary perfection shoulder cape"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
-	icon_state = "trinary_shouldercape"
-	item_state = "trinary_shouldercape"
-	overlay_state = "trinary_shouldercape"
 
 /obj/item/clothing/accessory/poncho/assunzione
 	name = "\improper Luceian cloak"
@@ -854,11 +824,9 @@
 /obj/item/clothing/accessory/tc_pin
 	name = "Tau Ceti pin"
 	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
-	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"
-	contained_sprite = TRUE
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
@@ -866,11 +834,9 @@
 /obj/item/clothing/accessory/sol_pin
 	name = "Sol Alliance pin"
 	desc = "A small pin of the Sol Alliance, shaped like a golden sun."
-	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "sol-pin"
 	item_state = "sol-pin"
 	overlay_state = "sol-pin"
-	contained_sprite = TRUE
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
@@ -967,9 +933,7 @@
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
-	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "namepintag"
-	contained_sprite = TRUE
 	overlay_state = null
 	badge_string = null
 	slot_flags = SLOT_TIE
@@ -978,17 +942,14 @@
 /obj/item/clothing/accessory/ribbon
 	name = "ribbon"
 	desc = "A small ribbon to commemorate or support a cause."
-	icon = 'icons/obj/item/clothing/accessory/ribbon.dmi'
 	icon_state = "ribbon"
 	item_state = "ribbon"
-	contained_sprite = TRUE
 	slot_flags = SLOT_TIE
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
-	icon = 'icons/obj/item/clothing/accessory/patches.dmi'
 	icon_state = "patch"
 	overlay_state = "patch"
 	flippable = 1
@@ -1030,30 +991,24 @@
 	name = "\improper KOG Motorheads shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's PRA division the Motorheads."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The PRA division, called the Motorheads, specializes in motorized warfare and quick response force operations."
-	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_pra"
 	overlay_state = "kog_tabs_pra"
-	contained_sprite = TRUE
 	flippable = 0
 
 /obj/item/clothing/accessory/sleevepatch/kog/ala
 	name = "\improper KOG Last Chancers shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's DPRA/ALA division the Last Chancers."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The ALA/DPRA division, known as the Last Chancers, focus on sabatoge and explosives. They have become infamous for nighttime infiltrations wherein their explosive expertise leads to devastating effects."
-	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_ala"
 	overlay_state = "kog_tabs_ala"
-	contained_sprite = TRUE
 	flippable = 0
 
 /obj/item/clothing/accessory/sleevepatch/kog/nka
 	name = "\improper KOG Starry Knights shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's NKA division the Starry Knights."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The NKA divison, called the Starry Knights, are the defensive experts of the KOG. Using datasets regarding various entities of the Spur, the Starry Knights are capable of preparing an adaptable and formidable defense."
-	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_nka"
 	overlay_state = "kog_tabs_nka"
-	contained_sprite = TRUE
 	flippable = 0
 
 /obj/item/clothing/accessory/kneepads
