@@ -19,7 +19,7 @@
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/cell/mecha/cell
 	var/cell_type = /obj/item/cell/mecha
-	var/obj/item/robot_parts/robot_component/armor/mech_armor
+	var/obj/item/robot_parts/robot_component/armor/mech/mech_armor
 	var/obj/structure/machinery/portable_atmospherics/canister/air_supply
 	var/datum/gas_mixture/cockpit
 	var/pilot_offset_x = 0
@@ -30,6 +30,13 @@
 	var/pilot_coverage = 100
 	var/transparent_cabin = FALSE
 	var/hide_pilot = TRUE
+	///Percentage chance for a projectile to hit the pilot if the hatch is open or penetrated. 100% means the pilot will always be hit, 0% means the pilot will never be hit. Side hits divide this value by 4.
+	var/cockpit_hatch_size = 80
+	///Multiplier for damage dealt to the pilot when hit by projectiles that penetrate the mech's cockpit.
+	var/cockpit_pilot_damage_multiplier = 0.5
+	///Multiplier for armour piercing value of a hit to the pilot when hit by projectiles that penetrate the mech's cockpit.
+	var/cockpit_pilot_armour_piercing_multiplier = 0.5
+
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 	/**
@@ -69,6 +76,12 @@
 	QDEL_NULL(mech_armor)
 	QDEL_NULL(air_supply)
 	. = ..()
+
+/obj/item/mech_component/chassis/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += SPAN_NOTICE("This chasis covers <b>[pilot_coverage]%</b> of the pilot's body.")
+	. += SPAN_NOTICE("When open or destroyed the cockpit hatch will allow <b>[cockpit_hatch_size]%</b> of incoming attacks to hit the pilot.")
+	. += SPAN_NOTICE("When closed but destroyed the cockpit hatch will reduce damage to the pilot by <b>[round((1 - cockpit_pilot_damage_multiplier) * 100, 0.1)]%</b>.")
 
 /obj/item/mech_component/chassis/get_missing_parts_text()
 	. = ..()

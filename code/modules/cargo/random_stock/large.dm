@@ -37,12 +37,6 @@ STOCK_ITEM_LARGE(bubbleshield, 0.5)
 			break
 	new /obj/structure/machinery/shield_capacitor(T)
 
-STOCK_ITEM_LARGE(watertank, 2)
-	new /obj/structure/reagent_dispensers/watertank(L)
-
-STOCK_ITEM_LARGE(fueltank, 2)
-	new /obj/structure/reagent_dispensers/fueltank(L)
-
 STOCK_ITEM_LARGE(lubetank, 2)
 	new /obj/structure/reagent_dispensers/lube(L)
 

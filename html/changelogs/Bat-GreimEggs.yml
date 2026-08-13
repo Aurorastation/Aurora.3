@@ -1,0 +1,8 @@
+author: Batrachophrenoboocosmomachia
+delete-after: True
+changes:
+  - balance: "Extends minimum time to organ rupture due to Greimorian egg implantation by 33%."
+  - balance: "Adds chest and groin organ choice in Greimorian egg implantation to reroll chance target, like head, to reduce effectively-end-your-round chance."
+  - balance: "Removes egg spread chance from Greimorian egg implantation stage 4."
+  - balance: "Minor other adjustments to Greimorian egg behavior (ensures increased duration does not increase final larva count, etc.)"
+  - balance: "Gives Greimorian Servant (playable worker) greater venom per bite than standard workers."

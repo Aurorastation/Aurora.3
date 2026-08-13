@@ -4,15 +4,15 @@
  * System control can be pulsed to toggle some malfunctions.
  * Interface lock can be pulsed to toggle whether or not the interface can be accessed.
  */
-#define RIG_SECURITY BITFLAG(1)
-#define RIG_AI_OVERRIDE BITFLAG(2)
-#define RIG_SYSTEM_CONTROL BITFLAG(3)
-#define RIG_INTERFACE_LOCK BITFLAG(4)
-#define RIG_INTERFACE_SHOCK BITFLAG(5)
+#define RIG_SECURITY "Security"
+#define RIG_AI_OVERRIDE "AI Override"
+#define RIG_SYSTEM_CONTROL "System Control"
+#define RIG_INTERFACE_LOCK "Inteface Lock"
+#define RIG_INTERFACE_SHOCK "High Voltage"
 
 /datum/wires/rig
-	random = 1
 	holder_type = /obj/item/rig
+	associated_skill = ROBOTICS_SKILL_COMPONENT
 
 /datum/wires/rig/New(atom/holder)
 	wires = list(

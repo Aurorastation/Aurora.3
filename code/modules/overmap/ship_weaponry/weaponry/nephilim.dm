@@ -34,6 +34,7 @@
 	caliber = SHIP_CALIBER_BLASTER
 	burst = 15
 	cookoff_heavy = 0
+	projectile_type_override = /obj/projectile/ship_ammo/nephilim/he
 
 /obj/item/ship_ammunition/nephilim/ap
 	name = "Blaster AP hydrogen cell"
@@ -42,6 +43,7 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_nephilim.dmi'
 	icon_state = "repeater_ap"
 	impact_type = SHIP_AMMO_IMPACT_AP
+	projectile_type_override = /obj/projectile/ship_ammo/nephilim/ap
 
 /obj/projectile/ship_ammo/nephilim
 	name = "hydrogen cell he"
@@ -58,6 +60,7 @@
 	damage = 20
 	armor_penetration = 100
 	penetrating = 4
+	explosion_strength = list(0, 0, 0)
 
 /obj/projectile/ship_ammo/nephilim/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()

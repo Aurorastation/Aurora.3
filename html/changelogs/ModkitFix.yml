@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the inability for the himean taj modkit to modify an assembled industrial rig."

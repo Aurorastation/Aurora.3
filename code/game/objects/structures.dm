@@ -122,10 +122,11 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	if(hitting_projectile.get_structure_damage() > 5)
+	var/structure_damage = hitting_projectile.get_structure_damage()
+	if(structure_damage > 5)
 		bullet_ping(hitting_projectile)
 
-	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
+	add_damage(structure_damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/proc/climb_on()
 

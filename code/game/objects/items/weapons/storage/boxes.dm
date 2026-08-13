@@ -1075,16 +1075,17 @@
 
 /obj/item/storage/box/large/candy/fill()
 	var/list/assorted_list = list(
-		/obj/item/reagent_containers/food/snacks/cb01 = 1,
-		/obj/item/reagent_containers/food/snacks/cb02 = 1,
-		/obj/item/reagent_containers/food/snacks/cb03 = 1,
-		/obj/item/reagent_containers/food/snacks/cb04 = 1,
-		/obj/item/reagent_containers/food/snacks/cb05 = 1,
-		/obj/item/reagent_containers/food/snacks/cb06 = 1,
-		/obj/item/reagent_containers/food/snacks/cb07 = 1,
-		/obj/item/reagent_containers/food/snacks/cb08 = 1,
-		/obj/item/reagent_containers/food/snacks/cb09 = 1,
-		/obj/item/reagent_containers/food/snacks/cb10 = 1
+		/obj/item/reagent_containers/food/snacks/chocolate_bar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1
 	)
 
 	for(var/i in 1 to 24)
@@ -1443,8 +1444,8 @@
 		/obj/item/flag/ouerea/l = 1,
 		/obj/item/flag/sol/old = rand(1,2),
 		/obj/item/flag/sol/old/l = 1,
-		/obj/item/flag/old_visegrad = rand(1,2),
-		/obj/item/flag/old_visegrad/l = 1,
+		/obj/item/flag/visegrad_old = rand(1,2),
+		/obj/item/flag/visegrad_old/l = 1,
 		/obj/item/flag/fisanduh = rand(1,2),
 		/obj/item/flag/fisanduh/l = 1,
 		/obj/item/flag/hiskyn = rand(1,2),

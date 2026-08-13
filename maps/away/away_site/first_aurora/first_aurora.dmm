@@ -3102,7 +3102,7 @@
 /turf/template_noop,
 /area/template_noop)
 "kJ" = (
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "kK" = (
@@ -3248,7 +3248,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "ll" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "lm" = (
@@ -7235,6 +7235,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
+"CV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
 "Da" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -7252,6 +7257,12 @@
 "FM" = (
 /turf/template_noop,
 /area/space)
+"Hn" = (
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict/hallway/southeast)
 "HF" = (
 /obj/structure/door_assembly,
 /turf/simulated/floor/tiled/white/airless,
@@ -50076,7 +50087,7 @@ BS
 BS
 kJ
 jd
-BS
+CV
 lX
 ik
 aa
@@ -51362,7 +51373,7 @@ kp
 ij
 ll
 Aa
-Aa
+Hn
 ik
 aa
 aa
