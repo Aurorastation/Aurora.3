@@ -98,6 +98,11 @@
 			visible_message(SPAN_WARNING("\The [src] shuts down."), SPAN_NOTICE("You hear a heavy droning fade out."))
 			shields_down()
 		check_delay = initial(check_delay)
+		return
+
+	if(!active)
+		check_delay = initial(check_delay)
+		return
 
 	if(malfunction)
 		if(deployed_shields.len && prob(5))
@@ -108,16 +113,17 @@
 
 	else
 		if(check_delay <= 0)
-			if(shields_up())
-				var/new_power_usage = 0
-				for(var/obj/structure/machinery/shield/shield_tile in deployed_shields)
-					new_power_usage += shield_tile.shield_sustain_power
+			create_shields()
 
-				if(new_power_usage != active_power_usage)
-					change_power_consumption(new_power_usage, POWER_USE_ACTIVE)
-					use_power_oneoff(0)
+			var/new_power_usage = 0
+			for(var/obj/structure/machinery/shield/shield_tile in deployed_shields)
+				new_power_usage += shield_tile.shield_sustain_power
 
-				check_delay = initial(check_delay)
+			if(new_power_usage != active_power_usage)
+				change_power_consumption(new_power_usage, POWER_USE_ACTIVE)
+				use_power_oneoff(0)
+
+			check_delay = initial(check_delay)
 		else
 			check_delay--
 
@@ -213,7 +219,7 @@
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			if (coil.use(1))
-				health = initial(health)
+				health = maxhealth
 				malfunction = FALSE
 				to_chat(user, SPAN_NOTICE("You repair the [src]!"))
 				update_icon()
@@ -290,23 +296,27 @@
 	check_failure()
 
 /obj/structure/machinery/shield/proc/check_failure()
-	var/health_percentage = (health / initial(health)) * 100
-	switch(health_percentage)
-		if(-INFINITY to 25)
-			if(alpha != 150)
-				animate(src, 1 SECOND, alpha = 150)
-		if(26 to 50)
-			if(alpha != 175)
-				animate(src, 1 SECOND, alpha = 175)
-		if(51 to 75)
-			if(alpha != 210)
-				animate(src, 1 SECOND, alpha = 210)
-		if(76 to 90)
-			if(alpha != 230)
-				animate(src, 1 SECOND, alpha = 230)
-		if(91 to INFINITY)
-			if(alpha != initial(alpha))
-				animate(src, 1 SECOND, alpha = initial(alpha))
+	var/maximum_health = initial(health)
+	if(!maximum_health)
+		maximum_health = maxhealth
+	if(maximum_health)
+		var/health_percentage = (health / maximum_health) * 100
+		switch(health_percentage)
+			if(-INFINITY to 25)
+				if(alpha != 150)
+					animate(src, 1 SECOND, alpha = 150)
+			if(26 to 50)
+				if(alpha != 175)
+					animate(src, 1 SECOND, alpha = 175)
+			if(51 to 75)
+				if(alpha != 210)
+					animate(src, 1 SECOND, alpha = 210)
+			if(76 to 90)
+				if(alpha != 230)
+					animate(src, 1 SECOND, alpha = 230)
+			if(91 to INFINITY)
+				if(alpha != initial(alpha))
+					animate(src, 1 SECOND, alpha = initial(alpha))
 	if(health <= 0)
 		visible_message(SPAN_NOTICE("\The [src] dissipates!"))
 		qdel(src)
@@ -352,7 +362,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	health -= hitting_projectile.get_structure_damage()
 	check_failure()
 	opacity = TRUE
 	addtimer(CALLBACK(src, PROC_REF(update_opacity), FALSE), 2 SECONDS)

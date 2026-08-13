@@ -16,7 +16,7 @@
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
+	matter = list(MATERIAL_STEEL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
 	dir = SOUTH
 
 	/// Half of the baseline chance that attempting to use these arms will create sparks. Actual chance is twice this since the motivator damage contributes to the ratio.
@@ -111,6 +111,9 @@
 	if(!damageable_components.len) return
 	var/obj/item/robot_parts/robot_component/RC = pick(damageable_components)
 	if(RC.take_damage(brute, burn))
+		playsound(src, 'sound/mecha/internaldmgalarm.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
+		playsound(src, 'sound/mecha/critdestr.ogg', 100, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
+		spark(src, 8)
 		qdel(RC)
 		update_components()
 

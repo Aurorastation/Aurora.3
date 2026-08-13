@@ -1,0 +1,7 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - qol: "Integrated circuit assemblies can now be recycled in autolathes. They can't be recycled in the printer, because clicking the printer with the circuit is required to scan it for cloning."
+  - qol: "Integrated circuits can now be charged in rechargers."

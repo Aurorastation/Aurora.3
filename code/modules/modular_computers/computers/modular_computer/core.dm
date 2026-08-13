@@ -3,7 +3,7 @@
 
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
-		return FALSE
+		return PROCESS_KILL // Unpowered computers don't need to process.
 
 	if(health <= broken_damage)
 		shutdown_computer()
@@ -85,7 +85,6 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
@@ -100,6 +99,8 @@
 
 /obj/item/modular_computer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+
+	reset_remote_viewers(TRUE)
 
 	SStgui.close_uis(src)
 	enabled = FALSE
@@ -290,6 +291,7 @@
 		active_program = null
 	else
 		return FALSE
+	reset_remote_viewers()
 	var/mob/user = usr
 	if(user && istype(user) && !forced && !QDELETED(src))
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum, ui_interact), user) // Re-open the UI on this computer. It should show the main screen now.
@@ -305,6 +307,14 @@
 		active_program = null
 	else
 		return FALSE
+	reset_remote_viewers()
+
+/obj/item/modular_computer/proc/reset_remote_viewers(var/unset_viewers_machine = FALSE)
+	for(var/mob/M in GLOB.player_list)
+		if(M.machine == src && M.is_viewing_remote_view())
+			if(unset_viewers_machine)
+				M.unset_machine()
+			M.reset_view(null)
 
 // Returns 0 for No Signal, 1 for Low Signal and 2 for Good Signal. 3 is for wired connection (always-on)
 /obj/item/modular_computer/proc/get_ntnet_status(var/specific_action = 0)
@@ -319,6 +329,7 @@
 	return GLOB.ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
+	STOP_PROCESSING(SSprocessing, src)
 	SStgui.close_uis(active_program)
 	kill_program_shutdown(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
@@ -340,6 +351,7 @@
 	update_icon()
 
 /obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
+	START_PROCESSING(SSprocessing, src)
 	enabled = TRUE
 	if(looping_sound)
 		soundloop.start(src)

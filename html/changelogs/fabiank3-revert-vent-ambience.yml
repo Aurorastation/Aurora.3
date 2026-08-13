@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed the ambience sounds from vents and scrubbers. The amount of sounds degrade performance. The sound files added with it are still available."

@@ -17,9 +17,18 @@
 	SSexplosives.queue(data)
 
 	//Machines which report explosions.
+	var/list/invalid_doppler_arrays
 	for(var/thing in GLOB.doppler_arrays)
+		if(!istype(thing, /obj/structure/machinery/doppler_array))
+			LAZYADD(invalid_doppler_arrays, thing)
+			continue
 		var/obj/structure/machinery/doppler_array/Array = thing
+		if(QDELETED(Array))
+			LAZYADD(invalid_doppler_arrays, thing)
+			continue
 		Array.sense_explosion(epicenter.x,epicenter.y,epicenter.z,devastation_range,heavy_impact_range,light_impact_range)
+	if(invalid_doppler_arrays)
+		GLOB.doppler_arrays -= invalid_doppler_arrays
 
 // == Recursive Explosions stuff ==
 

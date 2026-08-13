@@ -4,9 +4,9 @@
 
 //if the fabricator is a mech fab we need to construct the proper typepath for the manufacturer
 /datum/design/item/mechfab/prosthetic/Fabricate(var/newloc, var/fabricator)
-	if(istype(fabricator, /obj/structure/machinery/mecha_part_fabricator))
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
 		if(!use_direct_buildpath)
-			var/obj/structure/machinery/mecha_part_fabricator/mechfab = fabricator
+			var/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/mechfab = fabricator
 			for(var/model_path in subtypesof(build_path))
 				var/obj/item/organ/external/E = new model_path
 				if(E.robotize_type == mechfab.limb_manufacturer)
@@ -20,52 +20,52 @@
 	name = "Prosthetic Left Arm"
 	build_path = /obj/item/organ/external/arm/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
+	materials = list(MATERIAL_STEEL = 18000)
 
 /datum/design/item/mechfab/prosthetic/r_arm
 	name = "Prosthetic Right Arm"
 	build_path = /obj/item/organ/external/arm/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
+	materials = list(MATERIAL_STEEL = 18000)
 
 /datum/design/item/mechfab/prosthetic/l_leg
 	name = "Prosthetic Left Leg"
 	build_path = /obj/item/organ/external/leg/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	materials = list(MATERIAL_STEEL = 15000)
 
 /datum/design/item/mechfab/prosthetic/r_leg
 	name = "Prosthetic Right Leg"
 	build_path = /obj/item/organ/external/leg/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	materials = list(MATERIAL_STEEL = 15000)
 
 /datum/design/item/mechfab/prosthetic/l_hand
 	name = "Prosthetic Left Hand"
 	build_path = /obj/item/organ/external/hand/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/r_hand
 	name = "Prosthetic Right Hand"
 	build_path = /obj/item/organ/external/hand/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/l_foot
 	name = "Prosthetic Left Foot"
 	build_path = /obj/item/organ/external/foot/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/r_foot
 	name = "Prosthetic Right Foot"
 	build_path = /obj/item/organ/external/foot/right/ipc
 	time = 20 SECONDS
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(MATERIAL_STEEL = 8000)
 
 /datum/design/item/mechfab/prosthetic/groin_cap
 	name = "Prosthetic Groin Cap"
 	build_path = /obj/item/organ/external/groin/ipc/unbranded/cap
 	use_direct_buildpath = TRUE
-	materials = list(DEFAULT_WALL_MATERIAL = 25000)
+	materials = list(MATERIAL_STEEL = 25000)

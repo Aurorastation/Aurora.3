@@ -101,12 +101,16 @@
 
 /obj/effect/overmap/projectile/proc/prepare_for_entry()
 	moving = FALSE
-	entering = FALSE
+	// Entry is a one-shot ownership handoff; stale Move() callbacks must not repeat it.
+	entering = TRUE
 	walk(src, 0)
 
 ///Checks if we can hit the thing we just bumped into. If we can, do the initial setup for the projectile entering the submab and continue.
 /obj/effect/overmap/projectile/proc/check_entry()
 	. = FALSE
+	// A translated carrier can remain referenced until qdel completes.
+	if(entering)
+		return TRUE
 	if(!ammunition)
 		return
 	var/turf/T = get_turf(src)
@@ -116,12 +120,16 @@
 		if(istype(A, /obj/effect/overmap/visitable))
 			var/obj/effect/overmap/visitable/V = A
 			if((V.check_ownership(submap_target)) || (V == target)) //If the visitable is owned by the target landmark, or is the target itself, we can hit it.
+				if(!ammunition.fired_projectile_type)
+					// This carrier was not produced by a valid ship projectile transition.
+					qdel(src)
+					return TRUE
 				var/turf/target_turf = get_turf(submap_target)
-				var/obj/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+				var/obj/projectile/ship_ammo/widowmaker = new ammunition.fired_projectile_type
 				prepare_for_entry()
 				widowmaker.ammo = ammunition
-				qdel(ammunition.original_projectile) //No longer needed.
-				ammunition.original_projectile = widowmaker
+				// Transfer the payload before deleting the now-empty overmap carrier.
+				ammunition.forceMove(widowmaker)
 				widowmaker.primed = TRUE
 
 				if(istype(V, /obj/effect/overmap/visitable/sector/exoplanet) && (ammunition.overmap_behaviour & SHIP_AMMO_CAN_HIT_PLANETS))

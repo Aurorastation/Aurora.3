@@ -5,7 +5,7 @@
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 50)
+	matter = list(MATERIAL_STEEL = 500, MATERIAL_GLASS = 50)
 
 	wires = WIRE_PULSE_ASSEMBLY
 	secured = FALSE
@@ -20,6 +20,7 @@
 
 	timing = !timing
 	update_icon()
+	START_PROCESSING(SSprocessing, src)
 	return FALSE
 
 /obj/item/assembly/timer/toggle_secure()
@@ -33,6 +34,7 @@
 	return secured
 
 /obj/item/assembly/timer/proc/timer_end()
+	STOP_PROCESSING(SSprocessing, src)
 	if(!secured)
 		return FALSE
 	pulse(FALSE)
@@ -42,13 +44,15 @@
 	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 
 /obj/item/assembly/timer/process()
-	if(timing)
-		if(time > 0)
-			time--
-		if(time <= 0)
-			timing = FALSE
-			timer_end()
-			time = 10
+	if(!timing)
+		return PROCESS_KILL
+
+	if(time > 0)
+		time--
+	if(time <= 0)
+		timing = FALSE
+		timer_end()
+		time = 10
 
 /obj/item/assembly/timer/update_icon()
 	ClearOverlays()

@@ -223,20 +223,22 @@
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 
-		if(istype(attacking_item, /obj/item/stack/material) && (attacking_item.get_material_name() == "glass" || attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED))
-			var/obj/item/stack/material/S = attacking_item
-			if(S.use(2))
-				glass_type = attacking_item.type
-				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-				user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."))
-				if(tracker)
-					new /obj/structure/machinery/power/tracker(get_turf(src), src)
+		var/obj/item/stack/material/S = attacking_item
+		if(istype(S))
+			var/singleton/material/S_material = S.get_material()
+			if(S_material.type in list(MATERIAL_GLASS, MATERIAL_GLASS_REINFORCED))
+				if(S.use(2))
+					glass_type = attacking_item.type
+					playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+					user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."))
+					if(tracker)
+						new /obj/structure/machinery/power/tracker(get_turf(src), src)
+					else
+						new /obj/structure/machinery/power/solar(get_turf(src), src)
 				else
-					new /obj/structure/machinery/power/solar(get_turf(src), src)
-			else
-				to_chat(user, SPAN_WARNING("You need two sheets of glass to put them into a solar panel."))
-				return
-			return 1
+					to_chat(user, SPAN_WARNING("You need two sheets of glass to put them into a solar panel."))
+					return
+				return 1
 
 	if(!tracker)
 		if(istype(attacking_item, /obj/item/tracker_electronics))

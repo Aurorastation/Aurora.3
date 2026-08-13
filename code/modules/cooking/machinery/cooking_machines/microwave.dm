@@ -30,6 +30,12 @@
 	/// Multiplier for break chance
 	var/break_multiplier = 1.0
 
+	component_types = list(
+		/obj/item/circuitboard/microwave,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/matter_bin = 2)
+
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/microwave_plate
 	)
@@ -219,15 +225,15 @@
 	icon_state = initial(icon_state)
 	update_microwaving_audio()
 	if(operating)
-		var/image/mwclosed_on = image(icon, "mw_on")
-		if(!dirtiness)
-			mwclosed_on.plane = ABOVE_LIGHTING_PLANE
-		AddOverlays(mwclosed_on)
+		var/operating_overlay = image(icon, "mw_on")
+		var/emissive_overlay = emissive_appearance(icon, "mw_on")
+		AddOverlays(operating_overlay)
+		AddOverlays(emissive_overlay)
 	if(dirtiness)
-		if(broken)
-			AddOverlays(image(icon, "mwbloodyo"))
-		else
-			AddOverlays(image(icon, "mwbloody"))
+		var/bloody_overlay = image(icon, "[broken ? "mwbloodyo" : "mwbloody"]")
+		var/emissive_overlay = emissive_appearance(icon, "[broken ? "mwbloodyo" : "mwbloody"]")
+		AddOverlays(bloody_overlay)
+		AddOverlays(emissive_overlay)
 	if(broken)
 		icon_state = "mwb"
 

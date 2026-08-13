@@ -18,6 +18,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 //	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage */
 	/datum/admins/proc/show_game_mode,  /*Configuration window for the current game mode.*/
 	/datum/admins/proc/force_mode_latespawn, /*Force the mode to try a latespawn proc*/
+	/datum/admins/proc/force_round_canon_pregame,
 	/datum/admins/proc/force_antag_latespawn, /*Force a specific template to try a latespawn proc*/
 	/datum/admins/proc/toggleenter,		/*toggles whether people can join the current game*/
 	/datum/admins/proc/toggleguests,	/*toggles whether guests can join the current game*/
@@ -87,6 +88,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
+	/client/proc/persistence_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
 	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
@@ -148,9 +150,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey,
-	/datum/admins/proc/set_odyssey_canonicity,
-	/datum/admins/proc/toggle_persistence
+	/datum/admins/proc/set_odyssey
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -205,6 +205,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/cmd_admin_delete,
 	/client/proc/cmd_debug_del_all,
 	/client/proc/air_report,
+	/client/proc/toggle_nonhorizon_temperature_graphics,
 	/client/proc/reload_admins,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
@@ -332,6 +333,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/colorooc,
 	/client/proc/add_client_color,
 	/datum/admins/proc/force_mode_latespawn,
+	/datum/admins/proc/force_round_canon_pregame,
 	/datum/admins/proc/toggleenter,
 	/datum/admins/proc/toggleguests,
 	/datum/admins/proc/capture_map_part,
@@ -413,7 +415,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey,
-	/datum/admins/proc/set_odyssey_canonicity,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/toggledebuglogs,
@@ -455,6 +456,7 @@ GLOBAL_LIST_INIT(admin_verbs_mod, list(
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/print_logout_report,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
+	/client/proc/persistence_panel,
 	/client/proc/aooc,
 	/client/proc/toggle_aooc,
 	/client/proc/alooc,
@@ -490,6 +492,7 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
+	/client/proc/persistence_panel,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,

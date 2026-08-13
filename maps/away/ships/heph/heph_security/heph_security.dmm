@@ -234,6 +234,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/structure/whiteboard,
 /turf/simulated/floor/wood,
 /area/heph_security_ship/kitchen)
 "bC" = (
@@ -791,6 +792,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/item/lore_radio,
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/kitchen)
 "fo" = (
@@ -3646,6 +3648,11 @@
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/armory)
 "yF" = (
@@ -5824,6 +5831,10 @@
 	dir = 5
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/clothing/mask/smokable/cigarette/cigar,
+/obj/item/flame/lighter/zippo{
+	pixel_x = 10
+	},
 /turf/simulated/floor/carpet,
 /area/heph_security_ship/captain)
 "OO" = (
