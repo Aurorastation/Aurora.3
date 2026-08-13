@@ -134,20 +134,20 @@
 	for(var/region in flavor_labels)
 		character_fields += list(list(
 			"label" = flavor_labels[region],
-			"value" = TextPreview(pref.flavor_texts[region], 60),
+			"value" = html_decode(TextPreview(pref.flavor_texts[region], 60)),
 			"action" = "flavor_text",
 			"action_value" = region
 		))
 	var/list/robot_fields = list(list(
 		"label" = "Default",
-		"value" = TextPreview(pref.flavour_texts_robot["Default"], 60),
+		"value" = html_decode(TextPreview(pref.flavour_texts_robot["Default"], 60)),
 		"action" = "flavour_text_robot",
 		"action_value" = "Default"
 	))
 	for(var/module in GLOB.robot_module_types)
 		robot_fields += list(list(
 			"label" = module,
-			"value" = TextPreview(pref.flavour_texts_robot[module], 60),
+			"value" = html_decode(TextPreview(pref.flavour_texts_robot[module], 60)),
 			"action" = "flavour_text_robot",
 			"action_value" = module
 		))

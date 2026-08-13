@@ -60,9 +60,9 @@
 			"title" = "pAI",
 			"fields" = list(
 				list("label" = "Name", "value" = candidate.name ? candidate.name : "None Set", "action" = "option", "action_value" = "name"),
-				list("label" = "Description", "value" = candidate.description ? TextPreview(candidate.description, 40) : "None Set", "action" = "option", "action_value" = "desc"),
-				list("label" = "Role", "value" = candidate.role ? TextPreview(candidate.role, 40) : "None Set", "action" = "option", "action_value" = "role"),
-				list("label" = "OOC Comments", "value" = candidate.comments ? TextPreview(candidate.comments, 40) : "None Set", "action" = "option", "action_value" = "ooc")
+				list("label" = "Description", "value" = candidate.description ? html_decode(TextPreview(candidate.description, 40)) : "None Set", "action" = "option", "action_value" = "desc"),
+				list("label" = "Role", "value" = candidate.role ? html_decode(TextPreview(candidate.role, 40)) : "None Set", "action" = "option", "action_value" = "role"),
+				list("label" = "OOC Comments", "value" = candidate.comments ? html_decode(TextPreview(candidate.comments, 40)) : "None Set", "action" = "option", "action_value" = "ooc")
 			)
 		))
 	)

@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(uplink_locations, list("PDA", "Headset", "None"))
 	if(jobban_isbanned(user, "Records"))
 		fields += list(list("label" = "Exploitable Information", "value" = "Unavailable", "note" = "You are banned from using character records."))
 	else
-		fields += list(list("label" = "Exploitable Information", "value" = TextPreview(pref.exploit_record, 40), "action" = "exploitable_record"))
+		fields += list(list("label" = "Exploitable Information", "value" = html_decode(TextPreview(pref.exploit_record, 40)), "action" = "exploitable_record"))
 	return list(
 		"kind" = "form",
 		"name" = name,

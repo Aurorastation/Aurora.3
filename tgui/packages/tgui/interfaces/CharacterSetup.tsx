@@ -1172,12 +1172,16 @@ export const CharacterSetup = () => {
                           compact
                           color="transparent"
                           icon="circle-info"
-                          tooltip={[
-                            skill.description,
-                            skill.current_description,
-                          ]
-                            .filter(Boolean)
-                            .join('\n\n')}
+                          tooltip={
+                            <Box preserveWhitespace>
+                              {[
+                                skill.description,
+                                skill.current_description,
+                              ]
+                                .filter(Boolean)
+                                .join('\n\n')}
+                            </Box>
+                          }
                         />
                       </Stack.Item>
                     </Stack>

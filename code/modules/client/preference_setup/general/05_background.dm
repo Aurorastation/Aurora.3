@@ -52,9 +52,9 @@
 /datum/category_item/player_setup_item/general/background/ui_data(var/mob/user)
 	var/list/records = list()
 	if(!jobban_isbanned(user, "Records"))
-		records += list(list("name" = "Medical", "preview" = TextPreview(pref.med_record, 40), "edit_action" = "set_medical_records", "clear_value" = "medical"))
-		records += list(list("name" = "Employment", "preview" = TextPreview(pref.gen_record, 40), "edit_action" = "set_general_records", "clear_value" = "general"))
-		records += list(list("name" = "Security", "preview" = TextPreview(pref.sec_record, 40), "edit_action" = "set_security_records", "clear_value" = "security"))
+		records += list(list("name" = "Medical", "preview" = html_decode(TextPreview(pref.med_record, 40)), "edit_action" = "set_medical_records", "clear_value" = "medical"))
+		records += list(list("name" = "Employment", "preview" = html_decode(TextPreview(pref.gen_record, 40)), "edit_action" = "set_general_records", "clear_value" = "general"))
+		records += list(list("name" = "Security", "preview" = html_decode(TextPreview(pref.sec_record, 40)), "edit_action" = "set_security_records", "clear_value" = "security"))
 	return list(
 		"kind" = "background",
 		"name" = name,
