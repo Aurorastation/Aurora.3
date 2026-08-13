@@ -118,8 +118,6 @@
 	var/door_frame_color = COLOR_GRAY20
 	/// Color. The color of the stripe detail.
 	var/stripe_color = null
-	/// Color. The color of the symbol detail.
-	var/symbol_color = null
 	/// Color. The color of the window.
 	var/window_color = null
 	/// String (One of `MATERIAL_*`). The material used for the door's window if `glass` is set. Used to set `window_material` during init.
