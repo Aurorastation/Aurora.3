@@ -1454,6 +1454,7 @@
 	pixel_x = 28
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "afb" = (
@@ -1829,6 +1830,7 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "agi" = (
@@ -1975,6 +1977,13 @@
 /area/modular_freelancer_ship/aft/atmos)
 "agz" = (
 /obj/structure/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/structure/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "agH" = (
@@ -3423,6 +3432,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "apr" = (
@@ -6744,6 +6754,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "aJg" = (
@@ -9803,6 +9814,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "bbP" = (
@@ -9811,6 +9823,8 @@
 	pixel_x = 28
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "bdF" = (
@@ -9884,6 +9898,8 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "bkC" = (
@@ -9899,6 +9915,8 @@
 "bkY" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "blh" = (
@@ -9968,6 +9986,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "bsB" = (
@@ -9976,6 +9995,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "buF" = (
@@ -10129,6 +10149,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "bHE" = (
@@ -10271,6 +10292,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "cbT" = (
@@ -10320,6 +10342,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft_starboard,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "cfJ" = (
@@ -10433,6 +10456,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "cnX" = (
@@ -10789,6 +10813,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "cWI" = (
@@ -10858,6 +10883,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "cZY" = (
@@ -10962,6 +10988,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "dfj" = (
@@ -11001,6 +11028,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "dhh" = (
@@ -11068,6 +11096,8 @@
 /obj/structure/machinery/access_button{
 	pixel_x = -28
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "dsS" = (
@@ -11144,6 +11174,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "dEQ" = (
@@ -11297,6 +11328,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "dPN" = (
@@ -11344,6 +11376,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "dTS" = (
@@ -11363,6 +11396,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "dUZ" = (
@@ -11473,6 +11507,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "egk" = (
@@ -12038,6 +12073,8 @@
 	pixel_y = 28;
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "eZs" = (
@@ -12442,6 +12479,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "fKT" = (
@@ -12451,6 +12489,7 @@
 "fKU" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "fLG" = (
@@ -12779,6 +12818,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "gsj" = (
@@ -12901,6 +12941,8 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "gCg" = (
@@ -12988,6 +13030,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "gJx" = (
@@ -13270,6 +13313,8 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "gZA" = (
@@ -13430,6 +13475,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "hjV" = (
@@ -13503,6 +13549,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "hpR" = (
@@ -13668,6 +13715,7 @@
 	pixel_x = 20
 	},
 /obj/structure/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "hGk" = (
@@ -13719,6 +13767,8 @@
 	pixel_y = 28;
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "hJu" = (
@@ -14028,11 +14078,14 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "irw" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "isw" = (
@@ -14124,6 +14177,8 @@
 	pixel_y = 32
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "iAa" = (
@@ -14201,6 +14256,7 @@
 	pixel_x = -6
 	},
 /obj/structure/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "iFI" = (
@@ -14463,6 +14519,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "iZA" = (
@@ -14564,6 +14621,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "jhz" = (
@@ -14579,6 +14637,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "jhW" = (
@@ -14664,6 +14723,8 @@
 	pixel_y = 12;
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "jnc" = (
@@ -14844,6 +14905,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "jyJ" = (
@@ -14978,6 +15040,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "jJD" = (
@@ -15264,6 +15327,8 @@
 	pixel_y = 28;
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "keH" = (
@@ -15380,6 +15445,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "kkw" = (
@@ -15520,6 +15586,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "kwe" = (
@@ -15759,6 +15826,8 @@
 	pixel_y = 12;
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "kMW" = (
@@ -15845,6 +15914,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "kTy" = (
@@ -15988,6 +16058,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "lgY" = (
@@ -15998,6 +16069,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "lio" = (
@@ -16067,6 +16139,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "lop" = (
@@ -16188,6 +16261,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "lzO" = (
@@ -16449,6 +16523,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "lSK" = (
@@ -16550,6 +16625,8 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "miT" = (
@@ -16695,6 +16772,8 @@
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "mqb" = (
@@ -16877,6 +16956,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "mBa" = (
@@ -17047,6 +17127,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "mOu" = (
@@ -17111,6 +17192,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "mSE" = (
@@ -17128,6 +17210,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "mSR" = (
@@ -17141,6 +17224,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "mSY" = (
@@ -17159,6 +17243,8 @@
 	pixel_y = -24;
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "mVl" = (
@@ -17170,6 +17256,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "mVP" = (
@@ -17332,6 +17419,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "nhq" = (
@@ -17372,6 +17460,8 @@
 	pixel_y = 32
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "nns" = (
@@ -17491,6 +17581,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "nyu" = (
@@ -17654,6 +17745,8 @@
 /obj/structure/machinery/access_button{
 	pixel_x = -28
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "nKr" = (
@@ -17757,6 +17850,7 @@
 	pixel_y = -6
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "nSj" = (
@@ -17769,6 +17863,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "nTx" = (
@@ -18290,6 +18385,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "oSQ" = (
@@ -18626,6 +18722,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "pGW" = (
@@ -18695,6 +18792,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_starboard,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "pLY" = (
@@ -18737,6 +18835,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "pOJ" = (
@@ -18879,6 +18978,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "qbr" = (
@@ -18918,6 +19018,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "qdJ" = (
@@ -18941,6 +19042,8 @@
 	pixel_y = 32
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "qga" = (
@@ -19144,6 +19247,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "qvB" = (
@@ -19177,6 +19281,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "qCj" = (
@@ -19185,6 +19290,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "qDq" = (
@@ -19199,6 +19305,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "qDw" = (
@@ -19266,6 +19373,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_c,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "qKM" = (
@@ -19594,6 +19702,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "rnF" = (
@@ -19713,6 +19822,8 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "rsH" = (
@@ -19919,6 +20030,7 @@
 	pixel_x = -6
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "rIy" = (
@@ -20065,6 +20177,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "rVS" = (
@@ -20144,6 +20257,11 @@
 "scI" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/structure/machinery/access_button{
+	pixel_x = 28
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "sdj" = (
@@ -20296,6 +20414,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "sse" = (
@@ -20325,6 +20444,8 @@
 	pixel_y = 28;
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "svB" = (
@@ -20407,6 +20528,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "sEO" = (
@@ -20606,6 +20728,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_back,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "sUB" = (
@@ -20829,6 +20952,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "tre" = (
@@ -20895,6 +21019,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "tww" = (
@@ -21042,6 +21167,7 @@
 	pixel_y = 32
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "tJw" = (
@@ -21116,6 +21242,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "tQH" = (
@@ -21155,6 +21282,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "tSc" = (
@@ -21299,6 +21427,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "ubK" = (
@@ -21373,6 +21502,7 @@
 	pixel_y = -28;
 	dir = 8
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "uhb" = (
@@ -21572,6 +21702,7 @@
 	pixel_y = 28;
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "uEN" = (
@@ -21771,6 +21902,7 @@
 	},
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft_port,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "vcp" = (
@@ -22067,6 +22199,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "vHK" = (
@@ -22355,6 +22488,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "wjb" = (
@@ -22526,6 +22660,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "wBt" = (
@@ -22573,6 +22708,7 @@
 	pixel_x = 6
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "wDH" = (
@@ -22913,6 +23049,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "xdK" = (
@@ -23085,6 +23222,14 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
+"xqB" = (
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/fore/hallway)
 "xqI" = (
 /mob/living/heavy_vehicle/premade/firefighter,
 /turf/template_noop,
@@ -23169,6 +23314,7 @@
 	pixel_x = 20
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "xxb" = (
@@ -23352,6 +23498,7 @@
 "xLF" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "xLU" = (
@@ -23427,6 +23574,8 @@
 	pixel_y = 28;
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "xQX" = (
@@ -30600,7 +30749,7 @@ aKa
 eXP
 amg
 nUI
-mOm
+xqB
 rAR
 rAR
 rAR

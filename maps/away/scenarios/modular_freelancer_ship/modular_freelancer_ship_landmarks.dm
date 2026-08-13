@@ -6,7 +6,7 @@
 	base_turf = /turf/space
 	auto_register = TRUE
 
-// --------------------- shuttle a
+// --------------------- shuttle a dock landmarks and airlocks
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_a_dock
 	name				= "Shuttle Dock A"
@@ -27,7 +27,7 @@
 	base_turf = /turf/space/transit
 	auto_register = FALSE
 
-// --------------------- shuttle b
+// --------------------- shuttle b dock landmarks and airlocks
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_b_dock
 	name				= "Shuttle Dock B"
@@ -48,7 +48,7 @@
 	base_turf = /turf/space/transit
 	auto_register = FALSE
 
-// --------------------- docks, fore
+// --------------------- dock landmarks and airlocks, fore
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_a
 	name 				= "Dock, Fore, A"
@@ -127,7 +127,7 @@
 	landmark_tag 	= /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_back::landmark_tag
 	master_tag 		= /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_back::docking_controller
 
-// --------------------- docks, aft
+// --------------------- dock landmarks and airlocks, aft
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft
 	name 				= "Dock, Aft"
@@ -167,14 +167,14 @@
 	landmark_tag 	= /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft_starboard::landmark_tag
 	master_tag 		= /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft_starboard::docking_controller
 
-// --------------------- catwalk
+// --------------------- catwalk landmarks
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/aft
 	name = "Catwalk, Aft"
 	landmark_tag = "nav_modular_freelancer_ship_catwalk_aft"
 	dir = SOUTH
 
-// --------------------- space
+// --------------------- space landmarks
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/space/fore_starboard
 	name = "Space, Fore Starboard"
@@ -199,3 +199,31 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/space/starboard_far
 	name = "Space, Starboard, Far"
 	landmark_tag = "nav_modular_freelancer_ship_space_starboard_far"
+
+// --------------------- non-docking airlocks
+
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a
+	name = "Airlock, Fore, A"
+	master_tag = "airlock_modular_freelancer_ship_external_fore_a"
+
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_b
+	name = "Airlock, Fore, B"
+	master_tag = "airlock_modular_freelancer_ship_external_fore_b"
+
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_a
+	name = "Airlock, Mid, A"
+	master_tag = "airlock_modular_freelancer_ship_external_mid_a"
+
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_b
+	name = "Airlock, Mid, B"
+	master_tag = "airlock_modular_freelancer_ship_external_mid_b"
+
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a
+	name = "Airlock, Aux, A"
+	master_tag = "airlock_modular_freelancer_ship_external_aux_a"
+
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b
+	name = "Airlock, Aux, B"
+	master_tag = "airlock_modular_freelancer_ship_external_aux_b"
+
+// --------------------- fin
