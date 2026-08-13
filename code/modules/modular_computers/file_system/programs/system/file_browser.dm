@@ -102,6 +102,14 @@
 		data["file_name"] = "[file.filename]"
 		data["file_type"] = "[file.filetype]"
 		data["file_desc"] = "[file.filedesc]"
+		data["file_editable"] = istype(file, /datum/computer_file/data) && !istype(file, /datum/computer_file/data/paint_project)
+		if(istype(file, /datum/computer_file/image))
+			var/datum/computer_file/image/image_file = file
+			if(!image_file.stored_icon)
+				data["error"] = "I/O ERROR: Image data is corrupt."
+				return data
+			data["file_image"] = icon2base64(image_file.stored_icon)
+			return data
 		if(!istype(file))
 			if(!istype(script))
 				data["error"] = "I/O ERROR: Unable to open file."
@@ -259,16 +267,22 @@
 			if(!computer.nano_printer)
 				error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
 				return FALSE
-			var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
-			var/datum/computer_file/script/S = F
+			var/datum/computer_file/F = HDD.find_file_by_name(open_file)
 			if(!F)
 				return TRUE
-			if(istype(F))
-				if(!computer.nano_printer.print_text(F.stored_data, F.filename))
+			if(istype(F, /datum/computer_file/image))
+				var/datum/computer_file/image/image_file = F
+				if(!computer.nano_printer.print_image(image_file, usr))
+					error = "Hardware error: Printer was unable to print the image. It may be out of paper."
+					return FALSE
+			else if(istype(F, /datum/computer_file/data))
+				var/datum/computer_file/data/data_file = F
+				if(!computer.nano_printer.print_text(data_file.stored_data, data_file.filename))
 					error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 					return FALSE
-			else if(istype(S))
-				if(!computer.nano_printer.print_text(S.code, S.filename))
+			else if(istype(F, /datum/computer_file/script))
+				var/datum/computer_file/script/script_file = F
+				if(!computer.nano_printer.print_text(script_file.code, script_file.filename))
 					error = "Hardware error: Printer was unable to print the file. It may be out of paper."
 					return FALSE
 
