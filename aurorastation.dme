@@ -4226,6 +4226,7 @@
 #include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility_scenario.dm"
 #include "maps\away\scenarios\modular_freelancer_ship\modular_freelancer_ship_.dm"
 #include "maps\away\scenarios\modular_freelancer_ship\modular_freelancer_ship_areas.dm"
+#include "maps\away\scenarios\modular_freelancer_ship\modular_freelancer_ship_landmarks.dm"
 #include "maps\away\scenarios\modular_freelancer_ship\modular_freelancer_ship_markers.dm"
 #include "maps\away\scenarios\modular_freelancer_ship\modular_freelancer_ship_scenario.dm"
 #include "maps\away\scenarios\nuclear_silo\missile_silo.dm"
