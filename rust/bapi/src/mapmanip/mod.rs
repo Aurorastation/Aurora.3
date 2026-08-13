@@ -174,6 +174,10 @@ fn mapmanip_submap_extract_insert(
         }
     }
 
+    // shuffle the list
+    // avoids always giving a high weight submap to the first insert marker
+    marker_insert_coords.shuffle(&mut rand::thread_rng());
+
     // do all the extracts-inserts
     for insert_coord in marker_insert_coords {
         // collect candidate submaps
@@ -209,14 +213,7 @@ fn mapmanip_submap_extract_insert(
             marker_lookup.remove(&extract_coord);
         }
 
-        // extract that submap from the submap dmm
-        let extracted = extract_submap(&submaps_map, extract_coord, submap_size)
-            .wrap_err(format!("submap extraction failed; from {extract_coord}"))?;
-
-        // and insert the submap into the manipulated map
-        insert_submap(&extracted, insert_coord, map)
-            .wrap_err(format!("submap insertion failed; at {insert_coord}"))?;
-
+        // if singleton_id is present, add it to the list so it cannot be picked again
         let singleton_id = extract_prefab
             .vars
             .get("singleton_id")
@@ -224,6 +221,14 @@ fn mapmanip_submap_extract_insert(
         if !singleton_id.is_null() {
             singleton_tags.push(singleton_id.clone());
         }
+
+        // extract that submap from the submap dmm
+        let extracted = extract_submap(&submaps_map, extract_coord, submap_size)
+            .wrap_err(format!("submap extraction failed; from {extract_coord}"))?;
+
+        // and insert the submap into the manipulated map
+        insert_submap(&extracted, insert_coord, map)
+            .wrap_err(format!("submap insertion failed; at {insert_coord}"))?;
     }
 
     Ok(())
