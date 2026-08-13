@@ -16,16 +16,16 @@ if ([Environment]::Is64BitProcess) {
 # script explanation
 Write-Host "*****"
 Write-Host ""
-Write-Host "This script will run map manipulations on every `.dmm` map that has a `.jsonc` config file,"
-Write-Host "and write it to a `.mapmanipout.dmm` file in the same location."
-Write-Host "Make sure to not commit these files to the repo."
-Write-Host "You may have to launch the actual server to get stacktraces and the like."
-Write-Host "You may provide a path to a specific map directory as an argument."
+Write-Host "This script will run the 'autopipe' tool on the provided map,"
+Write-Host "and replace the map with the result."
+Write-Host "Make sure to commit before using this tool, so as to not lose any progress if it fails."
+Write-Host "You have to provide a path to a specific map file as an argument."
+Write-Host ""
+Write-Host "Autopipe replaces manifold4w pipes with appropriate w3/straight/angled pipes."
+Write-Host "Only works for supply, scrubber, aux, and fuel pipes."
 Write-Host ""
 Write-Host "Example usage:"
-Write-Host "./mapmanip.ps1"
-Write-Host "./mapmanip.ps1 -Path maps/away/ships/my_map_folder"
-Write-Host "./mapmanip.ps1 -Path D:/Git/Aurora.3/maps/away/ships/my_map_folder"
+Write-Host "./autopipe.ps1 -Path D:/Git/Aurora.3/maps/away/ships/my_map_folder/my_map_file.dmm"
 Write-Host ""
 Write-Host "*****"
 Write-Host ""
@@ -43,12 +43,11 @@ if (Test-Path "./../../rust/bapi/target/i686-pc-windows-msvc/release/bapi.dll") 
 
 # run ffi function from bapi.dll
 Write-Host "Executing..."
-$HasPath = $PSBoundParameters.ContainsKey('Path') -or ($null -ne $Path)
 $BapiExecutionTime = Measure-Command {
     # load the dll into powershell natively
     $Signature = @"
     [DllImport("$BapiPath", CallingConvention = CallingConvention.StdCall)]
-    public static extern void all_mapmanip_configs_execute_ffi(string path);
+    public static extern void autopipe_ffi(string path);
 "@
     try {
         Add-Type -MemberDefinition $Signature -Name "Bapi" -Namespace "RustTools" -ErrorAction Stop
@@ -58,7 +57,7 @@ $BapiExecutionTime = Measure-Command {
 
     # call the rust function natively
     Write-Host "on path $Path..."
-    [RustTools.Bapi]::all_mapmanip_configs_execute_ffi($Path)
+    [RustTools.Bapi]::autopipe_ffi($Path)
 }
 
 # done
