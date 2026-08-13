@@ -6,7 +6,7 @@
 	has_resources = FALSE
 
 /turf/simulated/floor/exoplanet/plating/is_plating()
-	return TRUE // none of this shit has an `initial_flooring` and i refuse to go over billions of types
+	return TRUE
 
 /turf/simulated/floor/exoplanet/plating/asteroid
 	icon_state = "asteroidplating"

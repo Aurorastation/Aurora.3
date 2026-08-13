@@ -14,9 +14,6 @@
 	. = ..()
 	update_icon()
 
-/turf/simulated/floor/exoplanet/barren/is_plating()
-	return TRUE
-
 /turf/simulated/floor/exoplanet/barren/cave
 	name = "dense ground"
 

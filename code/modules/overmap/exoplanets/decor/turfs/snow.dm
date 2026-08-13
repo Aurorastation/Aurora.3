@@ -11,7 +11,9 @@
 	canSmoothWith = list(
 		/turf/simulated/floor/exoplanet/snow,
 		/turf/simulated/wall,
-		/turf/unsimulated/wall
+		/turf/unsimulated/wall,
+		/turf/simulated/mineral,
+		/turf/unsimulated/mineral
 	) //Smooths with walls but not the inverse. This way to avoid layering over walls.
 
 /turf/simulated/floor/exoplanet/snow/Initialize()
@@ -22,9 +24,6 @@
 	icon_state = pick("snow[rand(1,2)]","snow0","snow0")
 	QUEUE_SMOOTH_NEIGHBORS(src)
 	QUEUE_SMOOTH(src)
-
-/turf/simulated/floor/exoplanet/snow/is_plating()
-	return TRUE
 
 /turf/simulated/floor/exoplanet/snow/fire_act(exposed_temperature, exposed_volume)
 	. = ..()

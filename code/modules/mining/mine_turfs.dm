@@ -768,8 +768,10 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	/turf/simulated/floor/exoplanet/asteroid/ash,
+	/turf/simulated/wall,
+	/turf/unsimulated/wall,
 	/turf/simulated/mineral,
-	/turf/simulated/wall
+	/turf/unsimulated/mineral
 ))
 
 // Copypaste parent for performance.
@@ -802,9 +804,6 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 		overlays += current_area.lighting_effect
 
 	return INITIALIZE_HINT_NORMAL
-
-/turf/simulated/floor/exoplanet/asteroid/is_plating()
-	return TRUE
 
 /turf/simulated/floor/exoplanet/asteroid/ex_act(severity)
 	switch(severity)
