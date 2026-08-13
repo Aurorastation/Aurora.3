@@ -259,9 +259,10 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least five segments of cable coil to complete this task."))
 			return
-	else if(istype(attacking_item,/obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_PLASTIC)
-		if(buildstate == 3)
-			var/obj/item/stack/material/P = attacking_item
+	else if(istype(attacking_item,/obj/item/stack/material))
+		var/obj/item/stack/material/P = attacking_item
+		var/singleton/material/P_material = P.get_material()
+		if(buildstate == 3 && P_material.type == MATERIAL_PLASTIC)
 			if(P.use(3))
 				to_chat(user, SPAN_NOTICE("You assemble and install heavy plastic limbs onto the crossbow."))
 				buildstate++
@@ -269,6 +270,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three plastic sheets to complete this task."))
 			return
+		return ..()
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(buildstate == 5)
 			to_chat(user, SPAN_NOTICE("You secure the crossbow's various parts."))

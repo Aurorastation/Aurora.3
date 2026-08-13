@@ -11,7 +11,6 @@
 	icon = 'icons/turf/flooring/ice_cavern.dmi'
 	icon_state = "icy_rock"
 	temperature = T0C - 5
-	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
 	. = ..()

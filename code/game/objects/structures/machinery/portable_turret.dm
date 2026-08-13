@@ -500,8 +500,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	add_damage(damage)
-
 /obj/structure/machinery/porta_turret/emp_act(severity)
 	. = ..()
 
@@ -899,8 +897,10 @@
 				return TRUE
 
 		if(1)
-			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
-				var/obj/item/stack/M = attacking_item
+			var/obj/item/stack/material/interior_metal_stack = attacking_item
+			var/singleton/material/interior_metal_material = interior_metal_stack?.get_material()
+			if(istype(interior_metal_stack) && interior_metal_material?.type == MATERIAL_STEEL)
+				var/obj/item/stack/M = interior_metal_stack
 				if(M.use(2))
 					to_chat(user, SPAN_NOTICE("You add some metal armor to the interior frame."))
 					build_step = 2
@@ -994,8 +994,10 @@
 			//attack_hand() removes the prox sensor
 
 		if(6)
-			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
-				var/obj/item/stack/M = attacking_item
+			var/obj/item/stack/material/exterior_metal_stack = attacking_item
+			var/singleton/material/exterior_metal_material = exterior_metal_stack?.get_material()
+			if(istype(exterior_metal_stack) && exterior_metal_material?.type == MATERIAL_STEEL)
+				var/obj/item/stack/M = exterior_metal_stack
 				if(M.use(2))
 					to_chat(user, SPAN_NOTICE("You add some metal armor to the exterior frame."))
 					ClearOverlays()

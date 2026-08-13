@@ -255,20 +255,24 @@
 	var/damage = hitting_projectile.get_structure_damage()
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
-	if (damage > 90)
-		destroy_hits -= (1 * hitting_projectile.anti_materiel_potential)
+	if (damage >= 30 && health <= 0) //Midlaser damage.
+		if (damage > 90)
+			destroy_hits -= max(1, (1 * hitting_projectile.anti_materiel_potential)) //Double dip for strong projectiles, like emitters or the PEAC.
+		destroy_hits -= max(1, (1 * hitting_projectile.anti_materiel_potential))
 		if (destroy_hits <= 0)
 			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
 			switch (hitting_projectile.damage_type)
 				if(DAMAGE_BRUTE)
-					new /obj/item/stack/material/steel(src.loc, 2)
-					new /obj/item/stack/rods(src.loc, 3)
+					for(var/i = 1 to 3)
+						if(prob(50))
+							new /obj/item/stack/material/steel(src.loc, 2)
+						else
+							new /obj/item/material/shard(src.loc, MATERIAL_STEEL)
 				if(DAMAGE_BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
+					new /obj/item/material/shard(src.loc, MATERIAL_STEEL)
+			new /obj/particle_emitter/door_destruction(loc, 2 SECONDS)
 			qdel(src)
-
-	if(damage)
-		add_damage(damage)
 
 /obj/structure/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
@@ -316,7 +320,7 @@
 
 	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		var/obj/item/stack/stack = usr.get_inactive_hand()
-		if(istype(stack) && stack.get_material_name() == get_material_name())
+		if(istype(stack) && stack.get_material() == get_material())
 			if(stat & BROKEN)
 				to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
 				return TRUE
@@ -419,6 +423,8 @@
 	update_icon()
 
 /obj/structure/machinery/door/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(stat & BROKEN)
+		return
 	set_broken()
 
 /obj/structure/machinery/door/proc/set_broken()

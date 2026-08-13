@@ -60,6 +60,28 @@
 	else
 		icon_state = on_icon
 
+/obj/structure/machinery/holosign/service/bar
+	name = "bar holosign"
+	on_icon = "bar_open"
+	desc = "A small, wall-mounted holographic projector which indicates that the bar is open."
+
+/obj/structure/machinery/holosign/service/bar/update_icon()
+	if(!lit)
+		icon_state = "serviceclosed"
+	else
+		icon_state = on_icon
+
+/obj/structure/machinery/holosign/service/kitchen
+	name = "kitchen holosign"
+	on_icon = "kitchen_open"
+	desc = "A small, wall-mounted holographic projector which indicates that the kitchen is open."
+
+/obj/structure/machinery/holosign/service/kitchen/update_icon()
+	if(!lit)
+		icon_state = "serviceclosed"
+	else
+		icon_state = on_icon
+
 ////////////////////SWITCH///////////////////////////////////////
 
 /obj/structure/machinery/button/switch/holosign

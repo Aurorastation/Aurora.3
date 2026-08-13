@@ -64,12 +64,16 @@
 		/obj/item/gun/energy/pistol/goldendeep = 1
 	)
 
-/datum/citizenship/orepit
-	name = CITIZENSHIP_OREPIT
-	description = "Tracing its origins to the Church of the Trinary Perfection in 2419, the Ecclesiarchy of Orepit is a theocratic regime under the rule of \
-	ARM-1DRIL, former follower of Gregol Corkfell. Prominent locations include Providence, Orepit's capital and base of operations for the Church, and the Twenty Parishes, \
-	home to the planet's original native human population, who remain divided on conversion to the faith. Orepit was one of the main signatories to the Open Doors memorandum, \
-	allowing its populace to work, study, and travel abroad in the Coalition and beyond, primarily in the All-Xanu Republic, utilizing Xanan documents."
+/datum/citizenship/axiom
+	name = CITIZENSHIP_AXIOM
+	description = "Citizenship with the Ecclesiastical Authority of Axiom means one of two things; \
+	either you belong directly to Ecclesiastical territory, living under the direct temporal rule of the \
+	synthetic religion of the Trinary Perfection in its capital of Providence or in the surrounding Marches, \
+	or you are a citizen of the Salamasian Republic, the majority human nation which defers to the Ecclesiastical \
+	Authority in planetary defense and interstellar travel. Founded jointly as a dual-state solution in 2464 \
+	in 2419, both the Ecclesiarchy and the Republic compose a greater whole; a remote mining world now under \
+	rapid development, the recipient of throngs of synthetic and human refugees from across the known universe, \
+	and a project of shared interest and mutual distance between both populations of the planet of Axiom."
 
 	job_species_blacklist = list(
 		"Consular Officer" = ALL_SPECIES,

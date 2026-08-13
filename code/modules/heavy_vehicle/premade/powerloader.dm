@@ -75,6 +75,8 @@
 	name = "open exosuit chassis"
 	hatch_descriptor = "roll cage"
 	pilot_coverage = 40
+	cockpit_hatch_size = 90
+	cockpit_pilot_damage_multiplier = 0.6 ///The hatch is thick, but the pilot coverage is poor.
 	exosuit_desc_string = "an industrial rollcage"
 	desc = "A Xion industrial brand roll cage. Technically OSHA compliant. Technically. This variant has an extra compartment for a copilot, but has no sealed atmosphere."
 	max_damage = 200
@@ -123,7 +125,7 @@
 
 /mob/living/heavy_vehicle/premade/firefighter/Initialize()
 	. = ..()
-	material = SSmaterials.get_material_by_name(MATERIAL_PLASTEEL)
+	material = GET_SINGLETON(MATERIAL_PLASTEEL)
 
 /obj/item/mech_component/sensors/firefighter/prebuild()
 	..()

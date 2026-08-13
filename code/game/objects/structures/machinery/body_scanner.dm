@@ -314,9 +314,9 @@
 	unlink_scanner()
 
 /obj/structure/machinery/body_scanconsole/proc/unlink_scanner()
-	connected = null
 	UnregisterSignal(connected, COMSIG_QDELETING)
 	update_icon()
+	connected = null
 
 /obj/structure/machinery/body_scanconsole/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
@@ -931,11 +931,7 @@
 
 /obj/structure/machinery/body_scanconsole/embedded/get_occupant()
 	if(monitor_console?.table)
-
-		if(istype(monitor_console.table.occupant, /datum/weakref))
-			return monitor_console.table.occupant.resolve()
-		else
-			return monitor_console.table.occupant
+		return monitor_console?.table?.get_valid_occupant()
 
 	return null
 

@@ -6,7 +6,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	density = TRUE
 	climbable = TRUE
 	build_amt = 15
-	material = DEFAULT_WALL_MATERIAL
+	material = MATERIAL_STEEL
 	slowdown = 0
 	atom_flags = CRITICAL_ATOM
 	var/movesound = 'sound/effects/roll.ogg'

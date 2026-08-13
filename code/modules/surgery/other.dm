@@ -78,7 +78,7 @@
 			break
 	if(!organ)
 		return
-	if(organ.damage > organ.max_damage)
+	if(organ.get_damage() > organ.max_damage)
 		to_chat(user, SPAN_WARNING("\The [organ] is too damaged. Repair it first."))
 		return 0
 

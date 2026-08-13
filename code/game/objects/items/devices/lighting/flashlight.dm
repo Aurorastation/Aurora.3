@@ -250,7 +250,7 @@
 			return
 		if((H.mutations & XRAY))
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils give an eerie glow!"))
-		if(vision.damage)
+		if(vision.get_damage())
 			to_chat(user, SPAN_WARNING("There's visible damage to [H]'s [vision.name]!"))
 		else if(H.eye_blurry)
 			to_chat(user, SPAN_NOTICE("\The [H]'s pupils react slower than normally."))

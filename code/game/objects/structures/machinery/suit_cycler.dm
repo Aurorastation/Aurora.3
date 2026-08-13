@@ -54,7 +54,7 @@
 	/// Will it change the suit name to "refitted [x]" on refit
 	var/rename_on_refit = TRUE
 	/// Departments that the cycler can paint suits to look like.
-	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
+	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "Operations")
 	/// Species that the suits can be configured to fit.
 	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 
@@ -285,7 +285,7 @@
 
 	//Clear the access reqs, disable the safeties, and open up all paintjobs.
 	to_chat(user, SPAN_WARNING("You run the sequencer across the interface, corrupting the operating protocols."))
-	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "^%###^%$", "Unchanged")
+	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "Operations", "^%###^%$", "Unchanged")
 	emagged = TRUE
 	safeties = FALSE
 	req_access = list()
@@ -619,6 +619,17 @@
 				suit.name = "atmospherics voidsuit"
 				suit.icon_state = "atmos"
 				suit.item_state = "atmos"
+		if("Operations")
+			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				helmet.name = "operations voidsuit helmet"
+				helmet.icon_state = "hangartech_helm"
+				helmet.item_state = "hangartech_helm"
+			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				suit.name = "operations voidsuit"
+				suit.icon_state = "hangartech"
+				suit.item_state = "hangartech"
 		if("Captain")
 			if(helmet)
 				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'

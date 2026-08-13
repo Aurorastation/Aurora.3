@@ -327,13 +327,88 @@
 /// Superheavy mobs. Gonna need a lot of help with those.
 #define MOB_WEIGHT_SUPERHEAVY 4
 
+/*
+		Mob Reference Masses
+								*/
+// Reference Masses of different Mobs. Unlike MOB_WEIGHT, these represent a physics-typed value, and thus can be used directly in Kinematic Equations.
+// Note: These values absolutely must be in Kilograms, I'm terribly sorry for any Americans reading this, but these get included in physics equations that require Kg inputs.
+
+// For any species with sexual dimorphism, the Reference Mass is 1/n * (sum of average mass of each sex).
+// To give an example, an average adult female human weighs 62kg, and 80kg for an average adult male human.
+// 62 + 80.7 = 142.7. Since there's two examples, 142.7 / 2 = 71.35, which to "fudge things a little" I round up to 72kg.
+// Hence humans being 72.0kg and not 62.0kg.
+
+// If you're making an alien with sexual dimorphism (or trimorphism, or polymorphism), the same pattern as humans can be followed.
+// Whereas for aliens without notable differences, you can just use a single average number.
+// It's perfectly reasonable to just give a rough guess, none of these numbers need to be perfectly exact or even clean, just in a general ballpark.
+
+/// Average mass of a human (in Kg)
+#define REFERENCE_MASS_HUMAN 72.0
+
+/// Average mass of an Offworlder (in Kg)
+#define REFERENCE_MASS_HUMAN_OFFWORLDER 62.0
+
+/// Average mass of an Interstellar Megacorporation CEO (in Kg)
+#define REFERENCE_MASS_CEO 76.4 // Megacorp lore requested this. :)
+
+/// Average mass of a Skrell (in Kg)
+#define REFERENCE_MASS_SKRELL 40.8
+
+/// Average mass of an Axiori Skrell (in Kg)
+#define REFERENCE_MASS_SKRELL_AXIORI 52.3
+
+/// Average mass of a Diona (in Kg)
+#define REFERENCE_MASS_DIONA 200
+
+/// Average mass of a Diona Coeus (in Kg)
+#define REFERENCE_MASS_DIONA_COEUS 100
+
+/// Average mass of an Unathi (in Kg)
+#define REFERENCE_MASS_UNATHI 120
+
+/// Average mass of an IPC (in Kg)
+#define REFERENCE_MASS_IPC 125
+
+/// Average mass of a Shell (in Kg)
+#define REFERENCE_MASS_IPC_SHELL 92.0
+
+/// Average mass of an Industrial IPC (in Kg)
+#define REFERENCE_MASS_IPC_INDUSTRIAL 200
+
+/// Average mass of a (Njarir or Hharar) Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA 80.0
+
+/// Average mass of a M'sai Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA_MSAI 85.2
+
+/// Average mass of a Zhan Tajara (in Kg)
+#define REFERENCE_MASS_TAJARA_ZHAN 92.9
+
+/// Average mass of a Tesla Rejuv Suit (in Kg)
+#define REFERENCE_MASS_TAJARA_TESLA 500
+
+/// Average mass of a Vaurca Worker (in Kg)
+#define REFERENCE_MASS_VAURCA_KA 85.0
+
+/// Average mass of a Vaurca Warrior (in Kg)
+#define REFERENCE_MASS_VAURCA_ZA 80.2
+
+/// Average mass of a Vaurca Breeder (in Kg)
+#define REFERENCE_MASS_VAURCA_TA 1000 // BEEG
+
+/// Average mass of a Vaurca Bulwark (in Kg)
+#define REFERENCE_MASS_VAURCA_RA 363
+
+/// Average mass of a Vaurca Warform (in Kg)
+#define REFERENCE_MASS_VAURCA_BA 800
+
 // Mob strength. This allows us to represent stronger mobs with a bit more granularity. Robots should be stronger than normal people. A bonus to the checks on lifting/throwing mobs, essentially.
 /// A normal mob, basically. Does not get us any buffs.
-#define MOB_STRENGTH_NORMAL 0
+#define MOB_STRENGTH_NORMAL 1.25
 /// A strong mob. Small bonus.
-#define MOB_STRENGTH_STRONG 1
+#define MOB_STRENGTH_STRONG 1.5
 /// A very strong mob. Big bonus.
-#define MOB_STRENGTH_VERY_STRONG 2
+#define MOB_STRENGTH_VERY_STRONG 2.0
 
 #define BASE_MAX_NUTRITION	600
 #define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
@@ -480,6 +555,7 @@
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 #define PROSTHETIC_VAURCA_WARRIOR "Vaurca Warrior Robotic Limb"
+#define PROSTHETIC_VAURCA_BULWARK "Vaurca Bulwark Robotic Limb"
 #define PROSTHETIC_UNBRANDED "Unbranded"
 #define PROSTHETIC_UNBRANDED_EMISSIVE "Unbranded Emissive"
 #define PROSTHETIC_HOPLAN "Hoplan Head"
@@ -582,27 +658,49 @@
 //used by /proc/do_after
 #define DO_USER_CAN_MOVE FLAG(0)
 #define DO_USER_CAN_TURN FLAG(1)
+/// Locks the user from making any new do_after calls anywhere (with this flag) while the do_after proc is still running.
 #define DO_USER_UNIQUE_ACT FLAG(2)
-#define DO_USER_SAME_HAND FLAG(3)
-#define DO_USER_SAME_ZONE FLAG(4)
-#define DO_TARGET_CAN_MOVE FLAG(5)
-#define DO_TARGET_CAN_TURN FLAG(6)
-#define DO_TARGET_UNIQUE_ACT FLAG(7)
+/// Locks the target for new do_after calls from any user while the proc is still running, prevents spam calls.
+#define DO_TARGET_UNIQUE_ACT FLAG(3)
+/// User cannot swap hands.
+#define DO_USER_SAME_HAND FLAG(4)
+/// User cannot target a different body part.
+#define DO_USER_SAME_ZONE FLAG(5)
+#define DO_TARGET_CAN_MOVE FLAG(6)
+#define DO_TARGET_CAN_TURN FLAG(7)
 #define DO_SHOW_PROGRESS FLAG(8)
+/// Instead of caching user/target's loc, we cache the turfs (inventory/turf distinction).
 #define DO_MOVE_CHECKS_TURFS FLAG(9)
 #define DO_FAIL_FEEDBACK FLAG(10)
+/// Explictly places the progress bar on the user. Useful when a target needs to be provided (see target/user unique act) but progress bar should appear on the user.
+#define DO_PLACE_PROGRESSBAR_ON_USER FLAG(11)
 
 // Preset macros
+/// Both user and target allowed to move.
 #define DO_BOTH_CAN_MOVE (DO_USER_CAN_MOVE | DO_TARGET_CAN_MOVE)
+/// Both user and target allowed to turn.
 #define DO_BOTH_CAN_TURN (DO_USER_CAN_TURN | DO_TARGET_CAN_TURN)
 #define DO_BOTH_UNIQUE_ACT (DO_USER_UNIQUE_ACT | DO_TARGET_UNIQUE_ACT)
+/**
+ * Includes:
+ * * Progress bar.
+ * * User cannot swap hands.
+ * * User and target can turn another direction.
+ * * Fail feedback message.
+ */
 #define DO_DEFAULT (DO_SHOW_PROGRESS | DO_USER_SAME_HAND | DO_BOTH_CAN_TURN | DO_FAIL_FEEDBACK)
 
 // Preset do_after flags
-#define DO_UNIQUE (DO_DEFAULT | DO_BOTH_UNIQUE_ACT) // Common flags for actions that should be unique
-#define DO_EXERCISE (DO_USER_UNIQUE_ACT | DO_USER_SAME_HAND) // Flags for exercises. Doesn't show progress, or give any failure feedback.
-#define DO_REPAIR_CONSTRUCT (DO_DEFAULT | DO_TARGET_UNIQUE_ACT) // Flags for repair and construction steps
-#define DO_EQUIP (DO_DEFAULT | DO_USER_UNIQUE_ACT) // Flags for equipping/unequipping mobs. Set to allow a mob to be targeted by multiple sources, but for a source to only be able to perform one action at a time.
+/// Common flags for actions that should be unique.
+#define DO_UNIQUE (DO_DEFAULT | DO_BOTH_UNIQUE_ACT)
+/// Flags for exercises. Doesn't show progress, or give any failure feedback.
+#define DO_EXERCISE (DO_USER_UNIQUE_ACT | DO_USER_SAME_HAND)
+/// Flags for repair and construction steps.
+#define DO_REPAIR_CONSTRUCT (DO_DEFAULT | DO_TARGET_UNIQUE_ACT)
+/// Flags for held items that can be deployed.
+#define DO_DEPLOY (DO_DEFAULT | DO_TARGET_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_USER)
+/// Flags for equipping/unequipping mobs. Set to allow a mob to be targeted by multiple sources, but for a source to only be able to perform one action at a time.
+#define DO_EQUIP (DO_DEFAULT | DO_USER_UNIQUE_ACT)
 
 // Extra errors
 #define DO_MISSING_USER (-1)

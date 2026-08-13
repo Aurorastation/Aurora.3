@@ -10,6 +10,7 @@
 	mob_swap_flags = ~HEAVY
 	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_NONE
+	footstep_component_type = /datum/component/mob_footsteps/human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -270,6 +271,13 @@
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
+		if(mind.special_role) //we are an antag
+			. += "Current Antagonists:"
+			for(var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/validhunted = GLOB.all_antag_types[antag_type]
+				if(length(validhunted.current_antagonists))
+					. += "- [validhunted.role_text]: [length(validhunted.current_antagonists)]"
+
 	if(. && istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
 		if(R && !R.canremove && R.installed_modules.len)
@@ -476,7 +484,7 @@
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
 		return get_id_name("Unknown")		//Likewise for hats
-	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent Shaper helmet which obscures Hive affiliation
+	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent robes which obscures Hive affiliation
 		var/list/hiveless_name = splittext(real_name, " ") //then remove Hive surname, ignore ID for obvious reason.
 		return hiveless_name[1]
 	var/face_name = get_face_name()
@@ -917,6 +925,9 @@
 	return base_flash_protection
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(eyes_are_closed())
+		return FALSE
+
 	if(..())
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
@@ -1121,7 +1132,7 @@
 	..()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
-		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.damage)))
+		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.get_damage())))
 			if(should_have_organ(BP_HEART))
 				vessel.trans_to_obj(vomit, 5)
 			else
@@ -1501,7 +1512,7 @@
 	else
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
+/mob/living/carbon/human/proc/set_species(new_species, default_colour, kpg = 0, change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
@@ -1628,6 +1639,7 @@
 		client.init_verbs()
 
 	update_emotes()
+	mass = initial(mass) * species.mass_modifier
 
 	if(species)
 		return TRUE
@@ -2316,9 +2328,7 @@
 
 /mob/living/proc/look_up_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
@@ -2339,9 +2349,7 @@
 
 /mob/living/proc/look_down_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(T, src, T)

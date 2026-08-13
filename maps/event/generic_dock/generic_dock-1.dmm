@@ -5345,10 +5345,7 @@
 /obj/structure/railing/mapped{
 	name = "adjusted railing"
 	},
-/obj/structure/table/glass{
-	name = "reinforced glass table";
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -5933,10 +5930,7 @@
 /obj/item/flame/lighter/zippo/gold{
 	pixel_y = 3
 	},
-/obj/structure/table/glass{
-	name = "reinforced glass table";
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -12814,10 +12808,7 @@
 /obj/item/material/ashtray/bronze{
 	pixel_y = -7
 	},
-/obj/structure/table/glass{
-	name = "reinforced glass table";
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},

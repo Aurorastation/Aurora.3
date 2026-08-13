@@ -797,3 +797,8 @@
 	new /obj/item/storage/box/unique/tea/messa(src)
 	new /obj/item/reagent_containers/toothpaste(src)
 	new /obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash(src)
+
+/obj/structure/closet/crate/tool/machinist/fill()
+	new /obj/item/reagent_containers/weldpack(src)
+	new /obj/item/portable_whiteboard(src)
+	new /obj/item/paint_sprayer(src)

@@ -17,13 +17,15 @@
 	var/flooring_override
 	var/initial_flooring
 	var/singleton/flooring/flooring
-	var/mineral = DEFAULT_WALL_MATERIAL
+	var/mineral = MATERIAL_STEEL
 
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
 	var/lava = 0
 
-	/// If the turf should generate details. Default: TRUE
+	/// Used for simple turf icon smoothing, which just adds edges to the turf if it's adjacent to a different type turf.
+	/// See `update_icon()` for the use case.
+	// ideally this shouldn't be true by default, not all turfs have edges
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/examine_descriptor(mob/user)

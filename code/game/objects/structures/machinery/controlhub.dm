@@ -251,9 +251,29 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 	icon_state = "holocontrol"
 	req_access = list(ACCESS_BAR)
 	controls = list(
-		"counter shutters" = list("type" = "blast_door", "id" = "bar_shutter"),
+		"counter shutters" = list("type" = "blast_door", "id" = "bar_counter_shutter"),
 		"holosign" = list("type" = "holosign", "id" = "bar"),
-		"maintenance shutters" = list("type" = "blast_door", "id" = "bar_maint"),
-		"safety shutters" = list("type" = "blast_door", "id" = "bar_viewing_shutters"),
-		"window tint" = list("type" = "windowtint", "id" = "bar_fore")
+		"dividing door" = list("type" = "blast_door", "id" = "service_divider_shutter"),
+		"safety shutters" = list("type" = "blast_door", "id" = "bar_window_shutter"),
+		"window tint" = list("type" = "windowtint", "id" = "bar_tint")
+	)
+
+/obj/structure/machinery/controlhub/xo_office/private
+	name = "executive officers office control hub"
+	icon_state = "holocontrol"
+	req_access = list(ACCESS_HOP)
+	controls = list(
+		"interior window tint" = list("type" = "windowtint", "id" = "xo_office_tint"),
+		"conference room window tint" = list("type" = "windowtint", "id" = "xo_conference_tint"),
+		"safety shutters" = list("type" = "blast_door", "id" = "xo_office_window_shutter"),
+	)
+
+/obj/structure/machinery/controlhub/xo_office/desk
+	name = "executive officers desk control hub"
+	icon_state = "holocontrol"
+	req_access = list(ACCESS_HOP)
+	controls = list(
+		"interior window tint" = list("type" = "windowtint", "id" = "xo_office_tint"),
+		"privacy window tint" = list("type" = "windowtint", "id" = "xo_privacy_tint"),
+		"privacy shutter" = list("type" = "blast_door", "id" = "xo_office_privacy_shutter"),
 	)
