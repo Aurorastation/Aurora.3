@@ -10,6 +10,7 @@ use dmmtools::dmm::Prefab;
 use dreammaker::constants::Constant;
 use eyre::eyre;
 use eyre::Context;
+use eyre::ContextCompat;
 use itertools::Itertools;
 use procgen::{mapmanip_mazegen_hauberk, MazegenHauberkSettings};
 use rand::seq::SliceRandom;
@@ -181,7 +182,7 @@ fn mapmanip_submap_extract_insert(
     // do all the extracts-inserts
     for insert_coord in marker_insert_coords {
         // collect candidate submaps
-        let candidates: Vec<(&Coord3, &Prefab)> = marker_lookup
+        let candidates: Vec<(Coord3, &Prefab)> = marker_lookup
             .iter()
             .filter(|(_, &prefab)| {
                 !singleton_tags
@@ -191,7 +192,7 @@ fn mapmanip_submap_extract_insert(
             .collect();
 
         // try weighted selection; fall back to uniform selection if all weights are 0
-        let (&extract_coord, &extract_prefab) = candidates
+        let (extract_coord, extract_prefab) = candidates
             .choose_weighted(&mut rand::thread_rng(), |(_, prefab)| {
                 let weight = prefab
                     .vars
