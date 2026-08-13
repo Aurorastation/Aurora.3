@@ -10768,6 +10768,7 @@
 	icon_state = "pipe-c-yellow";
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain/corner/grey,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "bqe" = (
@@ -38418,6 +38419,9 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "eWZ" = (
@@ -51940,8 +51944,8 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/aft)
 "gLe" = (
-/obj/structure/table/stone/marble,
 /obj/structure/machinery/firealarm/east,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "gLi" = (
@@ -65708,11 +65712,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/reactor/supermatter/mainchamber)
 "izh" = (
-/obj/structure/machinery/appliance/cooker/stove,
 /obj/structure/machinery/camera/network/service{
 	c_tag = "Service - Kitchen 3";
 	dir = 1
 	},
+/obj/structure/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "izj" = (
@@ -66795,6 +66799,9 @@
 /obj/effect/floor_decal/spline/plain/corner/green,
 /obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner/grey{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
@@ -68392,6 +68399,9 @@
 /obj/effect/floor_decal/spline/plain/green,
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Chef"
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
@@ -71402,6 +71412,26 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/horizon/engineering/bluespace_drive)
+"jlD" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/material/knife{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "jlG" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -74920,6 +74950,26 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood/maple,
 /area/horizon/holodeck/source_cafe)
+"jKf" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/material/knife{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "jKh" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 8
@@ -84479,24 +84529,17 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
 "kTO" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_y = 20;
-	pixel_x = -10
-	},
-/obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = 10;
-	pixel_y = 18
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_y = 16;
-	pixel_x = 4
-	},
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_y = 16;
-	pixel_x = -2
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 9;
+	pixel_y = 15
+	},
+/obj/item/storage/box/large/produce,
+/obj/structure/machinery/reagentgrinder{
+	pixel_x = -10;
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "kTR" = (
@@ -87313,8 +87356,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/weapons/grauwolf)
 "llX" = (
-/obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
+	dir = 4;
+	pixel_x = -8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "lme" = (
@@ -88326,6 +88373,9 @@
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
 	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/corner/grey{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
@@ -93999,6 +94049,14 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/reinforced/n20,
 /area/horizon/engineering/atmos/air)
+"mgz" = (
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8;
+	pixel_x = 8
+	},
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "mgC" = (
 /obj/structure/platform,
 /obj/structure/table/standard,
@@ -100887,10 +100945,10 @@
 /turf/simulated/floor/grass/no_edge,
 /area/horizon/service/cafeteria)
 "nca" = (
-/obj/structure/machinery/appliance/cooker/oven,
 /obj/structure/sign/poster/engineering/bay_52{
 	pixel_y = -32
 	},
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "ncb" = (
@@ -103213,26 +103271,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/main_compartment)
-"nsj" = (
-/obj/structure/table/stone/marble,
-/obj/item/material/knife{
-	pixel_x = 10;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/food/condiment/sugar{
-	pixel_y = 12;
-	pixel_x = -6
-	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/cooking_container/board/bowl{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "nsm" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
@@ -107268,6 +107306,26 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
+"nTB" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_y = 20;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_y = 16;
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_y = 16;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 10;
+	pixel_y = 18
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "nTE" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning,
@@ -108156,17 +108214,6 @@
 	},
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
-"oah" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/landmark/start{
-	name = "Chef"
-	},
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain/green,
-/turf/simulated/floor/tiled/white,
-/area/horizon/service/kitchen)
 "oat" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -109637,6 +109684,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/corner/grey{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
@@ -118676,9 +118726,6 @@
 /area/horizon/maintenance/deck_2/wing/starboard/auxatmos)
 "pqp" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/landmark/start{
-	name = "Chef"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
@@ -120001,21 +120048,14 @@
 /area/horizon/storage/secure/tech_vault)
 "pAj" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_y = 20;
-	pixel_x = -10
+/obj/item/storage/box/large/produce,
+/obj/structure/machinery/reagentgrinder{
+	pixel_x = -10;
+	pixel_y = 16
 	},
-/obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = 10;
-	pixel_y = 18
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_y = 16;
-	pixel_x = 4
-	},
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_y = 16;
-	pixel_x = -2
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 9;
+	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
@@ -129529,6 +129569,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/hologram/holopad,
+/obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "qLw" = (
@@ -131632,6 +131673,9 @@
 	dir = 8;
 	name = "sink";
 	pixel_x = 19
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
@@ -135432,6 +135476,9 @@
 /obj/structure/noticeboard{
 	pixel_y = 30
 	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "ryY" = (
@@ -136132,6 +136179,17 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/horizon/operations/warehouse)
+"rEl" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green,
+/obj/effect/landmark/start{
+	name = "Chef"
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/service/kitchen)
 "rEo" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/scc{
 	spawn_firedoor = 1;
@@ -142944,7 +143002,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/structure/machinery/vending/dinnerware,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "svw" = (
@@ -146844,6 +146902,9 @@
 	dir = 4;
 	name = "sink";
 	pixel_x = -19
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
@@ -163067,6 +163128,9 @@
 	dir = 1;
 	icon_state = "pipe-j2"
 	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "uYd" = (
@@ -163076,14 +163140,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
-"uYh" = (
-/obj/structure/table/stone/marble,
-/obj/structure/machinery/chemical_dispenser/bar_soft/full{
-	dir = 1;
-	pixel_y = 10
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "uYm" = (
 /obj/structure/machinery/button/mass_driver{
 	_wifi_id = "waste";
@@ -178170,7 +178226,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/repoffice/consular_one)
 "wVP" = (
-/obj/structure/machinery/appliance/cooker/fryer,
 /obj/structure/machinery/alarm/south,
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Dividing Door Control";
@@ -178181,6 +178236,10 @@
 	req_one_access = list(25,28)
 	},
 /obj/structure/machinery/alarm/south,
+/obj/structure/machinery/appliance/cooker/microwave{
+	pixel_y = 7
+	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "wVV" = (
@@ -181031,15 +181090,22 @@
 /area/horizon/maintenance/deck_1/medical/cryo)
 "xoA" = (
 /obj/structure/table/stone/marble,
-/obj/structure/machinery/reagentgrinder{
-	pixel_x = -10;
-	pixel_y = 16
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_y = 16;
+	pixel_x = -2
 	},
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = 9;
-	pixel_y = 15
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_y = 16;
+	pixel_x = 4
 	},
-/obj/item/storage/box/large/produce,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 10;
+	pixel_y = 18
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_y = 20;
+	pixel_x = -10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "xoC" = (
@@ -286370,8 +286436,8 @@ cTt
 hIZ
 sqN
 nVq
-bRD
-nsj
+jbY
+eYk
 kiZ
 wVP
 omW
@@ -286884,7 +286950,7 @@ vAb
 lYV
 sqN
 nbW
-uYh
+cfl
 xoA
 iRq
 nca
@@ -287142,9 +287208,9 @@ lYV
 edN
 pWx
 svs
-eYk
+jKf
 nrj
-kGW
+xTF
 omW
 dEu
 pDE
@@ -288169,10 +288235,10 @@ sot
 rYB
 dHZ
 wva
-jbY
-eYk
+bRD
+jlD
 orV
-kGW
+xTF
 gEs
 iIw
 fzo
@@ -288426,10 +288492,10 @@ sot
 rYB
 nIf
 cpi
-uYh
-xoA
-qPj
-xTF
+cfl
+nTB
+rEl
+anW
 wrR
 sdU
 hJS
@@ -288683,10 +288749,10 @@ sot
 rYB
 uky
 nbW
-cfl
+mgz
 pAj
-oah
-anW
+qPj
+uZw
 oxH
 sdU
 lCu
@@ -288941,9 +289007,9 @@ rYB
 nIf
 hHX
 gLe
-nsj
+eYk
 orV
-uZw
+kGW
 rDR
 jKO
 vwU
