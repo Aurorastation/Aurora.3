@@ -207,7 +207,9 @@
 /obj/item/clothing/accessory/storage/bayonet
 	name = "bayonet sheath"
 	desc = "A leather sheath designated to hold a bayonet."
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "holster_machete"
+	contained_sprite = TRUE
 	slots = 1
 
 /obj/item/clothing/accessory/storage/bayonet/Initialize()

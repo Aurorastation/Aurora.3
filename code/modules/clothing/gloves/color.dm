@@ -160,7 +160,9 @@
 /obj/item/clothing/gloves/evening
 	name = "evening gloves"
 	desc = "A pair of gloves that reach past the elbow."
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "evening_gloves"
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/evening/unathi
 	name = "evening gloves"
@@ -181,8 +183,10 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black_leather/colour
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "full_leather_colour"
 	item_state = "full_leather_colour"
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/black_leather/colour/unathi
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -191,8 +195,10 @@
 /obj/item/clothing/gloves/fingerless
 	name = "fingerless gloves"
 	desc = "A pair of gloves that don't actually cover the fingers."
+	icon = 'icons/obj/item/clothing/gloves/fingerless_gloves.dmi'
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
+	contained_sprite = TRUE
 	fingerprint_chance = 100
 	clipped = TRUE
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
