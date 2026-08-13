@@ -766,7 +766,9 @@
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "acN" = (
-/turf/space,
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/green,
+/turf/space/dynamic,
 /area/template_noop)
 "acO" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
@@ -8660,6 +8662,7 @@
 "aTW" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/template_noop)
 "aTY" = (
@@ -19586,6 +19589,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/starboard)
+"qZv" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/item/hullbeacon/green,
+/turf/space/dynamic,
+/area/template_noop)
 "rav" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -20905,6 +20914,11 @@
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
+"tkf" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/template_noop)
 "tkA" = (
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/mid)
@@ -27053,14 +27067,14 @@ aza
 aza
 aza
 aza
-aza
-aza
+acN
+amg
 eXP
 nZL
 xEy
 eXP
-aza
-aza
+amg
+acN
 aza
 aza
 aza
@@ -28217,7 +28231,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -28578,7 +28592,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 amg
 eXP
 xtu
@@ -28776,7 +28790,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 keH
@@ -29202,7 +29216,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -29470,7 +29484,7 @@ aza
 aza
 aLe
 amg
-amg
+acN
 amg
 amg
 amg
@@ -29530,7 +29544,7 @@ djC
 eXP
 eXP
 amg
-aTW
+qZv
 aza
 aza
 aza
@@ -29554,7 +29568,7 @@ azg
 aza
 aLe
 amg
-amg
+acN
 amg
 amg
 amg
@@ -30208,7 +30222,7 @@ kwe
 xhK
 aYG
 ezj
-aza
+amg
 aza
 aza
 aza
@@ -30272,7 +30286,7 @@ aWr
 feh
 nUI
 amg
-amg
+acN
 aza
 aza
 aza
@@ -30365,10 +30379,10 @@ lrI
 aUG
 aYG
 ezj
-aza
-aza
-aza
-aza
+amg
+amg
+amg
+acN
 aza
 aza
 aza
@@ -30480,8 +30494,8 @@ aza
 aza
 aza
 aza
-aza
-aza
+amg
+acN
 aza
 aza
 aza
@@ -30637,7 +30651,7 @@ aza
 aza
 aza
 aza
-aza
+amg
 aza
 aza
 aza
@@ -30905,7 +30919,7 @@ amg
 amg
 amg
 amg
-amg
+acN
 aza
 aza
 aza
@@ -31216,7 +31230,7 @@ aJo
 aJo
 qld
 amg
-amg
+acN
 aza
 aza
 aza
@@ -32001,7 +32015,7 @@ kFO
 aqs
 qld
 amg
-amg
+tkf
 aza
 aza
 aza
@@ -32318,7 +32332,7 @@ amg
 amg
 amg
 dZi
-amg
+tkf
 aza
 aza
 aza
@@ -32365,7 +32379,7 @@ pHm
 mvY
 rAR
 amg
-amg
+tkf
 aza
 aza
 aza
@@ -32409,7 +32423,7 @@ nUI
 nUI
 nUI
 amg
-amg
+tkf
 aza
 aza
 aza
@@ -32678,7 +32692,7 @@ amg
 amg
 amg
 amg
-amg
+tkf
 aza
 aza
 aza
@@ -32941,7 +32955,7 @@ aSz
 aif
 qld
 amg
-amg
+tkf
 aza
 aza
 aza
@@ -33709,7 +33723,7 @@ aza
 aza
 aLe
 amg
-amg
+tkf
 amg
 amg
 amg
@@ -33751,7 +33765,7 @@ azg
 aza
 aLe
 amg
-amg
+tkf
 amg
 amg
 amg
@@ -33793,7 +33807,7 @@ azg
 aza
 aLe
 amg
-amg
+tkf
 amg
 amg
 amg
@@ -34069,7 +34083,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -34340,7 +34354,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 nUI
 nUI
 nUI
@@ -34699,7 +34713,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 amg
 amg
 amg
@@ -34740,7 +34754,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -36474,14 +36488,14 @@ aza
 aza
 aza
 aza
-aza
-aza
+tkf
+amg
 mft
 lXM
 wmC
 mft
-aza
-aza
+amg
+tkf
 aza
 aza
 aza
