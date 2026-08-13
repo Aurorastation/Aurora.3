@@ -5586,6 +5586,10 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/template_noop)
+"aCt" = (
+/obj/random/canister,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/misc/maint/shuttles)
 "aCw" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning,
@@ -10581,6 +10585,10 @@
 /obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
+"cxB" = (
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/aft_starboard,
+/turf/template_noop,
+/area/template_noop)
 "cxE" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -11227,6 +11235,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
+"dHo" = (
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/aft_port,
+/turf/template_noop,
+/area/template_noop)
 "dIs" = (
 /obj/random/canister,
 /turf/simulated/floor/plating,
@@ -11898,6 +11910,14 @@
 "ePm" = (
 /obj/structure/table/rack,
 /obj/structure/machinery/alarm/noid/west,
+/obj/item/tank/oxygen/yellow{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/tank/oxygen{
+	pixel_x = 7;
+	pixel_y = -2
+	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "ePn" = (
@@ -12279,6 +12299,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/lounge)
+"fkX" = (
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/mid_starboard,
+/turf/template_noop,
+/area/template_noop)
 "flI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -13632,6 +13656,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
+"hyo" = (
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/mid_port,
+/turf/template_noop,
+/area/template_noop)
 "hyV" = (
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
@@ -13821,6 +13849,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
+"hNC" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/mid,
+/turf/space/dynamic,
+/area/template_noop)
 "hOw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -14641,15 +14674,13 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "jhW" = (
-/obj/structure/table/rack,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
 	},
-/obj/item/tank/oxygen/brown,
-/obj/random/voidsuit/freebooter,
+/obj/structure/machinery/suit_cycler/syndicate/prepared,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
 "jiA" = (
@@ -14987,6 +15018,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
+"jEc" = (
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/fore_starboard,
+/turf/template_noop,
+/area/template_noop)
 "jEv" = (
 /obj/random/pottedplant,
 /obj/structure/machinery/light{
@@ -17127,7 +17162,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_b,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "mOu" = (
@@ -18072,6 +18107,14 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/fore/hallway)
+"oqp" = (
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "orP" = (
@@ -21891,6 +21934,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
+"vbF" = (
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/fore_port,
+/turf/template_noop,
+/area/template_noop)
 "vbV" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -23222,14 +23269,6 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
-"xqB" = (
-/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/structure/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
-/turf/simulated/floor/plating,
-/area/modular_freelancer_ship/fore/hallway)
 "xqI" = (
 /mob/living/heavy_vehicle/premade/firefighter,
 /turf/template_noop,
@@ -24996,7 +25035,7 @@ aza
 aza
 aza
 aza
-aza
+jEc
 aza
 aza
 aza
@@ -25423,7 +25462,7 @@ aza
 aza
 aza
 aza
-aza
+jEc
 aza
 aza
 aza
@@ -26634,7 +26673,7 @@ aza
 aza
 aza
 aza
-aza
+jEc
 aza
 aza
 aza
@@ -30749,7 +30788,7 @@ aKa
 eXP
 amg
 nUI
-xqB
+mOm
 rAR
 rAR
 rAR
@@ -32476,7 +32515,7 @@ awX
 nUI
 aza
 nUI
-mOm
+oqp
 rAR
 rAR
 aYG
@@ -37470,7 +37509,7 @@ aza
 aza
 aza
 aza
-aza
+vbF
 aza
 aza
 aza
@@ -37669,7 +37708,7 @@ aza
 aza
 aza
 aza
-aza
+vbF
 aza
 aza
 aza
@@ -38340,7 +38379,7 @@ aza
 aza
 aza
 aza
-aza
+vbF
 aza
 aza
 aza
@@ -58871,7 +58910,7 @@ aza
 aXx
 aza
 aza
-aza
+fkX
 aza
 aza
 aza
@@ -59206,7 +59245,7 @@ aza
 aOs
 adx
 aza
-amg
+aza
 aza
 aza
 aza
@@ -59363,7 +59402,7 @@ aza
 aOs
 aUQ
 aza
-amg
+hNC
 aza
 aza
 aza
@@ -60596,7 +60635,7 @@ aza
 aza
 aza
 aza
-aza
+amg
 aza
 aza
 aza
@@ -60753,10 +60792,10 @@ aza
 aza
 aza
 aza
-aza
-aza
-aza
-aza
+amg
+amg
+amg
+amg
 aza
 aza
 aza
@@ -60910,7 +60949,7 @@ aza
 aza
 aza
 aza
-aza
+amg
 aza
 aza
 aza
@@ -61067,7 +61106,7 @@ aza
 aza
 aza
 aza
-aza
+amg
 aYx
 aYx
 aWe
@@ -64689,7 +64728,7 @@ eYk
 lND
 evG
 dMf
-voJ
+aCt
 xDf
 dMf
 dMf
@@ -67846,7 +67885,7 @@ amg
 aza
 aza
 aza
-amg
+aza
 aza
 aza
 aza
@@ -68313,7 +68352,7 @@ aOs
 aza
 aza
 aza
-amg
+aza
 aza
 aza
 aza
@@ -69860,7 +69899,7 @@ aza
 aza
 act
 aza
-amg
+hNC
 aza
 aza
 aza
@@ -69883,7 +69922,7 @@ aOs
 act
 aza
 aza
-aza
+hyo
 aza
 aza
 aza
@@ -82563,7 +82602,7 @@ aza
 aza
 aza
 aza
-aza
+cxB
 aza
 aza
 aza
@@ -82906,7 +82945,7 @@ aMv
 aza
 aza
 aza
-aza
+cxB
 aza
 aza
 aza
@@ -92609,7 +92648,7 @@ aza
 aza
 aza
 aza
-aza
+dHo
 aza
 aza
 aza
@@ -93110,7 +93149,7 @@ aza
 aMv
 aza
 aza
-aza
+dHo
 aza
 aza
 aza

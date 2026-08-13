@@ -174,6 +174,11 @@
 	landmark_tag = "nav_modular_freelancer_ship_catwalk_aft"
 	dir = SOUTH
 
+/obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/mid
+	name = "Catwalk, Mid"
+	landmark_tag = "nav_modular_freelancer_ship_catwalk_mid"
+	dir = SOUTH
+
 // --------------------- space landmarks
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/space/fore_starboard
@@ -192,13 +197,13 @@
 	name = "Space, Aft Port"
 	landmark_tag = "nav_modular_freelancer_ship_space_aft_port"
 
-/obj/effect/shuttle_landmark/modular_freelancer_ship/space/port_far
-	name = "Space, Port, Far"
-	landmark_tag = "nav_modular_freelancer_ship_space_port_far"
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/mid_port
+	name = "Space, Mid, Port"
+	landmark_tag = "nav_modular_freelancer_ship_space_mid_port"
 
-/obj/effect/shuttle_landmark/modular_freelancer_ship/space/starboard_far
-	name = "Space, Starboard, Far"
-	landmark_tag = "nav_modular_freelancer_ship_space_starboard_far"
+/obj/effect/shuttle_landmark/modular_freelancer_ship/space/mid_starboard
+	name = "Space, Mid, Starboard"
+	landmark_tag = "nav_modular_freelancer_ship_space_mid_starboard"
 
 // --------------------- non-docking airlocks
 
