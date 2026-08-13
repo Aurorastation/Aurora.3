@@ -1,0 +1,6 @@
+author: Mineymonkey
+
+delete-after: True
+
+changes:
+  - bugfix: "Removed the matter bin requirements for the circuit imprinter, prolathe, and mechfabricator research boards."
