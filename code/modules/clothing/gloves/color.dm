@@ -204,6 +204,7 @@
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/fingerless/colour
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "fingerlessgloves_colour"
 	item_state = "fingerlessgloves_colour"
 
@@ -214,8 +215,10 @@
 /obj/item/clothing/gloves/knitted
 	name = "knitted gloves"
 	desc = "A pair of cozy knitted gloves. They don't appear as restrictive as most other type of gloves"
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "full_leather_colour"
 	item_state = "full_leather_colour"
+	contained_sprite = TRUE
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 /obj/item/clothing/gloves/kala
