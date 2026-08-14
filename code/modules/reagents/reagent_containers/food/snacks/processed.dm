@@ -1201,7 +1201,7 @@ ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
 		expected_initial_reagent_volume += reagents_to_add[k]
 	var/percent_burrly_duo = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_burrly_duo)
-		if(0 to 95)
+		if(-INFINITY to 95)
 			icon_state = "burrly_duo_bite"
 		if(96 to INFINITY)
 			icon_state = "burrly_duo"
