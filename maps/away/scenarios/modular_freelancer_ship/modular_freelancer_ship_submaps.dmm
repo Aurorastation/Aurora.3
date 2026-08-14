@@ -755,6 +755,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/noid/north,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "acI" = (
@@ -7081,6 +7082,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/engineering)
 "aKB" = (
@@ -9811,6 +9813,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "aZK" = (
@@ -10827,6 +10830,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
+"cPJ" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/structure/machinery/airlock_sensor{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/structure/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/misc/maint/aux)
 "cPO" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -11707,6 +11726,13 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
+"epl" = (
+/obj/structure/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/misc/maint/aux)
 "epV" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -12760,10 +12786,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/engineering)
 "fYm" = (
-/obj/structure/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 26;
 	dir = 8
 	},
-/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "fYw" = (
@@ -12931,7 +12964,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "gsj" = (
@@ -13045,17 +13078,10 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "gBC" = (
-/obj/structure/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/structure/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = 26;
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "gCg" = (
@@ -15193,6 +15219,14 @@
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
+"jIA" = (
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/aux/hallway)
 "jJD" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -15988,8 +16022,8 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "kMW" = (
@@ -16789,19 +16823,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/modular_freelancer_ship/aft/hallway)
 "miq" = (
-/obj/structure/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/structure/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = -26;
-	dir = 8
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/modular_freelancer_ship/aux/hallway)
+/area/modular_freelancer_ship/misc/maint/aux)
 "miT" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -17311,10 +17335,18 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "mOZ" = (
-/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/random/maintenance_junk_or_loot,
+/obj/structure/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/structure/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
 /turf/simulated/floor/plating,
-/area/modular_freelancer_ship/aux/hallway)
+/area/modular_freelancer_ship/misc/maint/aux)
 "mPd" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -18399,6 +18431,11 @@
 /obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/lounge)
+"oEz" = (
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/aux/hallway)
 "oEH" = (
 /obj/structure/machinery/atmospherics/portables_connector/scrubber,
 /obj/structure/machinery/portable_atmospherics/canister/empty,
@@ -20918,6 +20955,20 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
+"sPr" = (
+/obj/structure/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/misc/maint/aux)
 "sPS" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/cable{
@@ -23650,7 +23701,7 @@
 	pixel_x = 20
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_a,
+/obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/aux_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "xxb" = (
@@ -75057,9 +75108,9 @@ hZx
 seH
 ijV
 eIu
-aza
-aza
-aza
+amg
+amg
+amg
 aUQ
 ajO
 aza
@@ -75214,7 +75265,7 @@ pYE
 ijV
 rpE
 ykO
-ykO
+mOZ
 ykO
 amg
 aBg
@@ -75371,7 +75422,7 @@ dXE
 tTY
 tTY
 tTY
-rmW
+cPJ
 ykO
 aza
 aUQ
@@ -75526,9 +75577,9 @@ cHC
 nFA
 vZC
 tTY
-rmW
-mfE
-rmW
+epl
+tTY
+sPr
 ykO
 aza
 aUQ
@@ -75685,7 +75736,7 @@ cGg
 tTY
 acG
 aZE
-woL
+miq
 ykO
 aza
 aUQ
@@ -76154,7 +76205,7 @@ ylZ
 rsH
 cGg
 tTY
-mfE
+woL
 ktF
 mfE
 mfE
@@ -78195,7 +78246,7 @@ aza
 meL
 qIi
 qIi
-qIi
+aMc
 meL
 amg
 aza
@@ -78350,9 +78401,9 @@ aza
 aza
 aza
 meL
+qIi
 epa
-mOZ
-epa
+fXu
 meL
 amg
 aza
@@ -78507,9 +78558,9 @@ aza
 aza
 aza
 eIu
-epa
+jTc
 fYm
-epa
+jTc
 eIu
 amg
 amg
@@ -78664,8 +78715,8 @@ amg
 amg
 eIu
 eIu
-miq
-jTc
+gBC
+oEz
 gBC
 eIu
 eIu
@@ -78822,7 +78873,7 @@ amg
 kMx
 gri
 xvG
-jTc
+jIA
 nSi
 spm
 nJP
