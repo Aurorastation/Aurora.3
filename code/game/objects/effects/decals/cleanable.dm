@@ -40,3 +40,8 @@
 		if(T.is_space() || T.is_open())
 			animate(src, alpha = 0, time = 5 SECONDS)
 			QDEL_IN(src, 5 SECONDS)
+
+/obj/effect/decal/cleanable/snow
+	name = "snow"
+	icon = 'icons/turf/overlays.dmi'
+	icon_state = "snowfloor_transparent"

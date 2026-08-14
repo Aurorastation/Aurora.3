@@ -8,6 +8,8 @@
 	. = ..()
 	icon_state = "asphalt[rand(0,3)]"
 
+// ---------- Sidewalk start
+
 /turf/simulated/floor/sidewalk
 	name = "weathered tiling"
 	desc = "Great for speeding on."
@@ -45,6 +47,23 @@
 
 /turf/simulated/floor/sidewalk/dark/grid
 	icon_state = "sidewalk_alt_grid"
+
+// ---- Colorable variant
+
+/turf/simulated/floor/sidewalk/colorable
+	name = "weathered tiling"
+	desc = "Great for speeding on."
+	icon = 'icons/turf/flooring/urban_turfs.dmi'
+	icon_state = "sidewalk-tile"
+
+/turf/simulated/floor/sidewalk/detail
+	icon_state = "sidewalk-tile-detail"
+
+/turf/simulated/floor/sidewalk/paved
+	name = "paved tiles"
+	icon_state = "brick-paver"
+
+// ---------- Sidewalk end
 
 /turf/simulated/floor/foundation
 	name = "foundation"
