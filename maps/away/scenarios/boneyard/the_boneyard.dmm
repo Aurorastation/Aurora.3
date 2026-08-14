@@ -386,10 +386,6 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
-"aX" = (
-/obj/structure/table/glass,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/boneyard/zone_three)
 "aY" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -470,6 +466,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
+"be" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/random/tool,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "bg" = (
 /obj/structure/whiteboard,
 /obj/structure/machinery/alarm/north{
@@ -524,6 +526,15 @@
 /obj/effect/floor_decal/spline/plain/corner/paleblue,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_two)
+"bp" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "bq" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -543,18 +554,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_one)
-"bs" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/folder/purple{
-	pixel_x = 12;
-	pixel_y = 3
-	},
-/obj/item/folder/yellow{
-	pixel_x = 8;
-	pixel_y = 3
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/boneyard/zone_three)
 "bt" = (
 /obj/structure/platform_stairs,
 /obj/structure/platform{
@@ -780,6 +779,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_one)
+"bU" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/table/glass,
+/obj/item/paper_bin{
+	pixel_y = 6;
+	pixel_x = -1
+	},
+/obj/item/pen/fountain{
+	pixel_y = 5;
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_two)
 "bW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -811,21 +826,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"bZ" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/spline/plain/purple{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/item/wrench{
-	pixel_x = 15
-	},
-/obj/item/powerdrill{
-	pixel_x = -13;
-	pixel_y = -2
-	},
-/turf/unsimulated/floor/plating,
-/area/boneyard/scientific_tram)
 "ca" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -851,14 +851,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_three)
 "ce" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/table/reinforced/steel,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "cf" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -880,6 +875,14 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/boneyard/zone_two)
+"cj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "cl" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -996,6 +999,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"cB" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "cC" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -1099,14 +1118,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
-"cP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/random/loot,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "cQ" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -1241,10 +1252,11 @@
 "dg" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 1
+	dir = 10
 	},
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 8
+/obj/structure/table/skrell,
+/obj/item/paper_scanner{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
@@ -1337,6 +1349,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_one)
+"ds" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "dt" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/black{
@@ -1452,6 +1468,14 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell,
 /area/boneyard/actor)
+"dJ" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/lore_radio{
+	pixel_x = 4;
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "dK" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -1584,6 +1608,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/leadership_tram)
+"ef" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/lunchbox/syndicate{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "eg" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -1638,15 +1670,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/barricade/metal/wired,
 /turf/simulated/floor/plating,
-/area/boneyard/zone_three)
-"en" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/table/skrell,
-/obj/item/paper/crumpled{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "eq" = (
 /obj/effect/decal/fake_object{
@@ -1717,6 +1740,12 @@
 /mob/living/simple_animal/hostile/psiren/omen,
 /turf/simulated/floor/plating,
 /area/boneyard/zone_two)
+"ey" = (
+/obj/random/dirt_75,
+/obj/structure/machinery/light/small/floor,
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/boneyard/zone_three)
 "ez" = (
 /mob/living/simple_animal/threshbeast{
 	dir = 4
@@ -1849,6 +1878,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/boneyard/zone_one)
+"eP" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/ears/skrell/cloth{
+	pixel_x = -11;
+	pixel_y = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "eQ" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -1897,16 +1934,6 @@
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
-"eZ" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 9
-	},
-/obj/structure/sign/flag/outer_eyes{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
@@ -1979,6 +2006,19 @@
 /obj/structure/bed/stool/chair/office/hover,
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
+"fn" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/skrell,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/pen/fountain/head{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "fo" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -2027,8 +2067,6 @@
 "fu" = (
 /obj/structure/table/rack,
 /obj/random/tool,
-/obj/random/smalltank,
-/obj/random/smalltank,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "fv" = (
@@ -2158,14 +2196,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
-"fK" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/structure/flora/pottedplant/subterranean,
-/turf/simulated/floor/shuttle/skrell,
-/area/boneyard/zone_three)
 "fL" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
@@ -2231,6 +2261,12 @@
 	id = "by_med"
 	},
 /turf/simulated/floor/tiled/white,
+/area/boneyard/zone_one)
+"fY" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/beerkeg,
+/turf/simulated/floor/plating,
 /area/boneyard/zone_one)
 "fZ" = (
 /obj/effect/floor_decal/corner/grey{
@@ -2380,6 +2416,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/boneyard/zone_three)
+"gp" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "gq" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -2390,9 +2433,8 @@
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
 "gr" = (
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 8
-	},
+/obj/structure/machinery/light/small/floor,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
 "gs" = (
@@ -2542,25 +2584,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_two)
-"gN" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/structure/sign/flag/outer_eyes{
-	pixel_y = 32
-	},
-/obj/structure/table/skrell,
-/obj/item/paper/crumpled{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/obj/item/paper/crumpled{
-	pixel_x = 5;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "gO" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/structure/machinery/smartfridge/secure/medbay{
@@ -2704,17 +2727,6 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"hi" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 9
-	},
-/obj/structure/table/skrell,
-/obj/structure/sign/flag/outer_eyes{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "hj" = (
 /obj/item/paper/crumpled{
 	pixel_x = 9;
@@ -2804,6 +2816,16 @@
 /obj/structure/flora/pottedplant/minitree,
 /turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_three)
+"hu" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/machinery/computer/guestpass{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "hv" = (
 /obj/structure/sign/floor_plaque,
 /turf/simulated/floor/lino/diamond,
@@ -2861,17 +2883,30 @@
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/boneyard/zone_one)
-"hC" = (
-/obj/structure/table/steel,
-/obj/item/pen/fountain{
-	pixel_x = -8
-	},
-/obj/item/pen/fountain/silver{
-	pixel_x = -3;
-	pixel_y = 6
+"hB" = (
+/obj/structure/table/wood,
+/obj/item/lore_radio{
+	pixel_x = 2;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_two)
+/area/boneyard/zone_three)
+"hC" = (
+/obj/structure/table/wood,
+/obj/item/folder/sec{
+	pixel_x = -1;
+	pixel_y = 11
+	},
+/obj/item/paper_bin{
+	pixel_y = -8;
+	pixel_x = 2
+	},
+/obj/item/pen{
+	pixel_x = 2;
+	pixel_y = -9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "hE" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 4
@@ -2884,6 +2919,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"hF" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/boneyard/zone_three)
 "hG" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/glass,
@@ -2992,13 +3033,12 @@
 /area/boneyard/zone_three)
 "hR" = (
 /obj/structure/table/steel,
-/obj/item/paper_scanner{
-	pixel_x = -5;
-	pixel_y = 5
+/obj/item/pen/fountain{
+	pixel_x = -8
 	},
-/obj/item/paper_bin{
-	pixel_x = 11;
-	pixel_y = 3
+/obj/item/pen/fountain/silver{
+	pixel_x = -3;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
@@ -3055,6 +3095,16 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
+"hZ" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/sign/flag/outer_eyes{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "ia" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3159,17 +3209,9 @@
 /area/boneyard/zone_one)
 "iq" = (
 /obj/structure/table/wood,
-/obj/item/folder/sec{
+/obj/item/paper_scanner{
 	pixel_x = -1;
-	pixel_y = 11
-	},
-/obj/item/paper_bin{
-	pixel_y = -8;
-	pixel_x = 2
-	},
-/obj/item/pen{
-	pixel_x = 2;
-	pixel_y = -9
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
@@ -3194,15 +3236,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/actor)
 "is" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/spline/plain/purple{
+	dir = 1
 	},
-/obj/structure/sign/flag/outer_eyes{
-	pixel_y = 32
+/obj/random/dirt_75,
+/obj/item/wrench{
+	pixel_x = 15
 	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
+/obj/item/powerdrill{
+	pixel_x = -13;
+	pixel_y = -2
+	},
+/turf/unsimulated/floor/plating,
+/area/boneyard/scientific_tram)
 "it" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -3260,14 +3307,10 @@
 /turf/unsimulated/floor/plating,
 /area/boneyard/scientific_tram)
 "iA" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
+/obj/structure/machinery/computer/ship/navigation/terminal{
+	dir = 4
 	},
-/obj/structure/machinery/computer/guestpass{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "iB" = (
 /obj/structure/machinery/door/firedoor/noid{
@@ -3724,12 +3767,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
 "jO" = (
-/obj/structure/table/wood,
-/obj/item/paper_scanner{
-	pixel_x = -1;
-	pixel_y = 6
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "jP" = (
 /obj/structure/machinery/light/small{
@@ -3769,11 +3814,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"jT" = (
-/obj/structure/machinery/light/small/floor,
-/obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/boneyard/zone_three)
 "jU" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -3997,14 +4037,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"kt" = (
-/obj/structure/table/wood,
-/obj/item/lore_radio{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "ku" = (
 /obj/structure/machinery/light/small,
 /obj/effect/floor_decal/industrial/warning{
@@ -4049,9 +4081,13 @@
 /area/boneyard/zone_one)
 "ky" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/paper_scanner{
-	pixel_x = 5;
-	pixel_y = -5
+/obj/item/clothing/accessory/holster/hip{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 6;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
@@ -4272,11 +4308,21 @@
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
 "lc" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/smalltank,
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_x = -2;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
+/area/boneyard/zone_one)
 "ld" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -4642,6 +4688,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
+"mb" = (
+/obj/structure/table/steel,
+/obj/item/paper_scanner{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/paper_bin{
+	pixel_x = 11;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_two)
 "mc" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/light,
@@ -4716,13 +4774,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_two)
-"mt" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "mu" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -4815,6 +4866,12 @@
 /obj/structure/machinery/stasis_cage,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
+"mG" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/boneyard/zone_three)
 "mH" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -5224,13 +5281,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/boneyard/zone_one)
-"nJ" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/beige{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/boneyard/zone_one)
 "nK" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
@@ -5322,8 +5372,7 @@
 "nT" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/table/rack,
-/obj/random/tool,
-/obj/random/tool,
+/obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "nU" = (
@@ -5775,6 +5824,14 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"pc" = (
+/obj/structure/table/glass,
+/obj/item/folder/red{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/boneyard/zone_three)
 "pd" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -5819,6 +5876,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/ramp,
+/area/boneyard/zone_three)
+"pn" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled{
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "pp" = (
 /obj/effect/floor_decal/corner/grey{
@@ -5904,12 +5972,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"pA" = (
-/obj/random/dirt_75,
-/obj/structure/machinery/light/small/floor,
-/obj/structure/flora/pottedplant/orchid,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/boneyard/zone_three)
 "pB" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning{
@@ -6087,6 +6149,12 @@
 	},
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
+"qd" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/smalltank,
+/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "qe" = (
 /obj/effect/floor_decal/corner/brown{
@@ -6304,13 +6372,18 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/boneyard/leadership_tram)
-"qF" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
+"qE" = (
+/obj/structure/table/glass,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
+"qF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "qG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -6323,16 +6396,24 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"qH" = (
-/obj/structure/machinery/light/small{
-	dir = 8
+"qJ" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
 	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/beige{
-	dir = 9
+/obj/structure/sign/flag/outer_eyes{
+	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/gridded,
-/area/boneyard/zone_one)
+/obj/item/paper/crumpled{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "qK" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -6354,6 +6435,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_one)
+"qN" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/random/dirt_75,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_two)
 "qO" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
@@ -6416,6 +6505,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
+"qW" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/flora/pottedplant/subterranean,
+/turf/simulated/floor/shuttle/skrell,
+/area/boneyard/zone_three)
 "qX" = (
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -6544,6 +6641,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"rp" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_scanner{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "rr" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/machinery/photocopier,
@@ -6667,6 +6772,17 @@
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
+"rJ" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/obj/structure/table/skrell,
+/obj/structure/sign/flag/outer_eyes{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "rK" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 10
@@ -6999,6 +7115,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/boneyard/zone_one)
+"sB" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -4;
+	pixel_y = 19
+	},
+/obj/item/paper_bin{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/item/pen{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "sC" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -7259,6 +7391,12 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/shuttle/skrell,
 /area/boneyard/zone_three)
+"tf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/beerkeg/rice,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_two)
 "tg" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -7445,6 +7583,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_two)
+"tG" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/boneyard/zone_one)
 "tH" = (
 /obj/random/dirt_75,
 /obj/structure/extinguisher_cabinet/north,
@@ -7644,6 +7789,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
+"ue" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/pottedplant_small{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/paper/crumpled{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "uf" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/boneyard/east,
@@ -7890,6 +8047,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
+"uS" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/folder/blue{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "uT" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 4
@@ -7922,6 +8087,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"uX" = (
+/obj/structure/machinery/alarm/north{
+	req_one_access = list(900)
+	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/smalltank,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "uY" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -7994,12 +8168,12 @@
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
 "vg" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = list(900)
-	},
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/smalltank,
+/obj/structure/machinery/alarm/north{
+	req_one_access = list(900)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "vh" = (
@@ -8139,20 +8313,10 @@
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_one)
 "vx" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/structure/table/skrell,
-/obj/item/paper/crumpled{
-	pixel_x = 4;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk{
-	pixel_x = -7;
-	pixel_y = 1
-	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/table/rack,
+/obj/random/tool,
+/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "vA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -8309,6 +8473,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_two)
+"vS" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled{
+	pixel_y = 14;
+	pixel_x = -7
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "vU" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -8396,14 +8574,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/boneyard/zone_one)
-"wh" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/reagent_dispensers/fertilizer,
-/turf/simulated/floor/plating,
 /area/boneyard/zone_one)
 "wi" = (
 /obj/effect/floor_decal/corner/beige{
@@ -8555,6 +8725,17 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"wE" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "wF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/structure/machinery/door/blast/regular/open{
@@ -8630,6 +8811,13 @@
 /obj/structure/machinery/chem_heater,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_two)
+"wP" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "wQ" = (
 /obj/effect/floor_decal/spline/plain/paleblue,
 /obj/effect/floor_decal/corner/beige{
@@ -8689,17 +8877,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/scientific_tram)
+"xa" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "xb" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
-"xd" = (
-/obj/structure/table/rack,
-/obj/random/tool,
-/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "xf" = (
 /obj/structure/machinery/light/small{
@@ -8716,10 +8909,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
-"xh" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/carpet/rubber,
-/area/boneyard/zone_three)
 "xi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -8781,16 +8970,6 @@
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
-"xr" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/table/skrell,
-/obj/item/paper/crumpled{
-	pixel_x = -4;
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "xt" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -8848,6 +9027,14 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
+"xB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/fertilizer,
+/turf/simulated/floor/plating,
+/area/boneyard/zone_one)
 "xC" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 4
@@ -8935,14 +9122,6 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/ridged,
-/area/boneyard/zone_one)
-"xM" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
 "xN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -9166,17 +9345,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
-"yq" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/structure/table/skrell,
-/obj/item/paper/crumpled{
-	pixel_x = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "yr" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -9364,6 +9532,9 @@
 	},
 /obj/item/skrell_projector{
 	pixel_x = -6
+	},
+/obj/structure/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
@@ -9663,18 +9834,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"zz" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/accessory/holster/hip{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 6;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "zB" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -9688,6 +9847,9 @@
 /obj/item/paper/crumpled{
 	pixel_x = -6;
 	pixel_y = 1
+	},
+/obj/structure/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
@@ -9816,13 +9978,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
-"zT" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/beige/full{
-	dir = 4
+"zR" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/folder/purple{
+	pixel_x = 12;
+	pixel_y = 3
 	},
-/turf/simulated/floor/tiled/gridded,
-/area/boneyard/zone_one)
+/obj/item/folder/yellow{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "zU" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/material/shard{
@@ -9854,6 +10021,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
+"zZ" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "Ab" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 4
@@ -9910,17 +10082,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/boneyard/zone_one)
-"Aj" = (
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/toolbox/emergency{
-	pixel_y = 4;
-	pixel_x = 2
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
 "Ak" = (
 /obj/effect/floor_decal/corner/brown{
@@ -9984,12 +10145,11 @@
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
 "Au" = (
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/corner/beige{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/boneyard/zone_one)
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/leadership_tram)
 "Av" = (
 /obj/structure/bed/chair,
 /obj/item/bedsheet/blue,
@@ -10500,12 +10660,13 @@
 /turf/simulated/floor/plating,
 /area/boneyard/zone_two)
 "BR" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
 /obj/structure/table/rack,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
+/obj/random/tool,
+/obj/random/tool,
 /turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_two)
+/area/boneyard/zone_one)
 "BS" = (
 /obj/effect/floor_decal/corner/beige/full,
 /obj/effect/floor_decal/spline/plain/paleblue,
@@ -10525,15 +10686,6 @@
 /obj/structure/barricade/plasteel/wired,
 /turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_one)
-"BU" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/smalltank,
-/obj/structure/machinery/alarm/north{
-	req_one_access = list(900)
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "BW" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -10732,14 +10884,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
-"Cv" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_scanner{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/boneyard/zone_three)
 "Cw" = (
 /obj/structure/bed/stool/chair/office/hover/command,
 /obj/structure/sign/flag/outer_eyes{
@@ -10938,12 +11082,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_one)
-"CX" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/structure/table/rack,
-/obj/random/tool,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "CY" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -11042,6 +11180,20 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
+"De" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/skrell,
+/obj/item/paper_bin{
+	pixel_x = 1;
+	pixel_y = 6
+	},
+/obj/item/pen/fountain/head{
+	pixel_x = -1;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "Df" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = list(900)
@@ -11133,13 +11285,10 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
 "Dt" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/toolbox/lunchbox/syndicate{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
+/obj/random/dirt_75,
+/obj/structure/flora/pottedplant/rosebush,
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "Du" = (
 /turf/simulated/floor/plating,
 /area/boneyard/leadership_tram)
@@ -11189,6 +11338,14 @@
 /obj/structure/largecrate/animal/psiren,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"DD" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_scanner{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "DE" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -11245,12 +11402,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/scientific_tram)
-"DJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/random/tool,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "DK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -11333,6 +11484,14 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/shuttle/skrell,
 /area/boneyard/actor)
+"DV" = (
+/obj/structure/table/wood,
+/obj/item/lore_radio{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/turf/simulated/floor/carpet/red,
+/area/boneyard/zone_three)
 "DW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/shark,
@@ -11554,12 +11713,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
-"Ey" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/leadership_tram)
 "Ez" = (
 /obj/effect/floor_decal/corner/beige/full,
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -12040,11 +12193,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"FI" = (
-/obj/random/dirt_75,
-/obj/structure/table/wood,
-/turf/simulated/floor/carpet/rubber,
-/area/boneyard/zone_three)
 "FK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/blast/regular{
@@ -12081,18 +12229,17 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/boneyard/zone_two)
-"FQ" = (
+"FP" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/clipboard{
-	pixel_x = 5;
-	pixel_y = 13
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = 1
 	},
-/obj/item/paper_scanner{
-	pixel_x = -3;
-	pixel_y = 3
+/obj/item/pen/fountain{
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
+/area/boneyard/zone_three)
 "FR" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -12100,13 +12247,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_two)
-"FS" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/beige{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/gridded,
-/area/boneyard/zone_one)
 "FT" = (
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
@@ -12150,20 +12290,6 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_two)
-"FZ" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/table/skrell,
-/obj/item/paper/crumpled{
-	pixel_y = 14;
-	pixel_x = -7
-	},
-/obj/item/paper/crumpled{
-	pixel_x = 4;
-	pixel_y = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "Ga" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 8
@@ -12360,13 +12486,6 @@
 	},
 /turf/simulated/abyss,
 /area/boneyard/zone_three)
-"GC" = (
-/obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "GD" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -12374,13 +12493,11 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/boneyard/zone_three)
 "GF" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/lore_radio{
-	pixel_x = 4;
-	pixel_y = 15
-	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
+/area/boneyard/zone_two)
 "GJ" = (
 /obj/structure/machinery/light/floor{
 	dir = 1
@@ -12536,8 +12653,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
 "Hd" = (
-/obj/structure/flora/pottedplant/orchid,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "He" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -12579,6 +12702,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/boneyard/scientific_tram)
+"Hk" = (
+/obj/structure/machinery/light/small/floor,
+/obj/item/paper/crumpled{
+	pixel_x = 2;
+	pixel_y = 19
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/boneyard/zone_three)
 "Hl" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -12618,12 +12749,6 @@
 /obj/effect/floor_decal/spline/plain/paleblue,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"Hq" = (
-/obj/structure/machinery/computer/ship/navigation/terminal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "Hr" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
@@ -12635,6 +12760,13 @@
 /obj/structure/barricade/metal/wired,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
+"Ht" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "Hu" = (
 /obj/structure/platform{
 	dir = 4
@@ -12645,20 +12777,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/boneyard/zone_two)
-"Hw" = (
-/obj/structure/bed/stool/chair/office/hover{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/boneyard/zone_three)
-"Hx" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/random/tool,
-/obj/random/tool,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "Hy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -12992,11 +13110,6 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
-"Iw" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/beige/full,
-/turf/simulated/floor/tiled/gridded,
-/area/boneyard/zone_one)
 "Ix" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -13190,18 +13303,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"Jc" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/pen{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "Jd" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -13346,14 +13447,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
-"Jv" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/folder/blue{
-	pixel_x = -8;
-	pixel_y = 5
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/boneyard/zone_three)
 "Jw" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -13393,24 +13486,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"JC" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
-	},
-/obj/structure/sign/flag/outer_eyes{
-	pixel_y = 32
-	},
-/obj/item/paper/crumpled{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/obj/item/paper/crumpled{
-	pixel_x = 8;
-	pixel_y = -8
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "JD" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
@@ -13663,16 +13738,6 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"Kj" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/table/skrell,
-/obj/item/paper/crumpled{
-	pixel_x = -9;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "Kk" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -13731,6 +13796,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_one)
+"Kv" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "Kw" = (
 /obj/structure/lattice,
 /obj/structure/machinery/stasis_cage,
@@ -13749,17 +13821,6 @@
 /obj/item/reagent_containers/hypospray/combat,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/actor)
-"Ky" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 10
-	},
-/obj/structure/table/skrell,
-/obj/item/paper_scanner{
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "Kz" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -13818,19 +13879,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_two)
-"KE" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/table/skrell,
-/obj/item/paper_bin{
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/pen/fountain/head{
-	pixel_x = 3;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "KF" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -14077,21 +14125,24 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"Lp" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/random/dirt_75,
-/obj/structure/reagent_dispensers/keg/beerkeg,
-/turf/simulated/floor/plating,
-/area/boneyard/zone_one)
 "Lq" = (
-/obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 8
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/sign/flag/outer_eyes{
+	pixel_y = 32
+	},
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled{
+	pixel_x = -4;
+	pixel_y = 6
 	},
 /obj/item/paper/crumpled{
-	pixel_x = 10;
-	pixel_y = -2
+	pixel_x = 5;
+	pixel_y = -3
 	},
-/turf/simulated/floor/shuttle/skrell/blue,
+/turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "Lr" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
@@ -14099,6 +14150,13 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
+"Lu" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/smalltank,
+/obj/random/smalltank,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "Lv" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/access_button{
@@ -14254,6 +14312,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/boneyard/zone_one)
+"LN" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clipboard{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/lore_radio{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "LO" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -14330,14 +14400,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
-"LY" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/bed/stool/chair/office/light{
-	pixel_x = 3;
-	pixel_y = -1
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "LZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -14581,6 +14643,11 @@
 /obj/structure/largecrate/animal/psiren,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"MI" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "MJ" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -14627,22 +14694,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
-"MR" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 6;
-	pixel_y = 12
-	},
-/obj/item/paper_bin{
-	pixel_x = -5;
-	pixel_y = 4
-	},
-/obj/item/pen{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "MS" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -14853,9 +14904,9 @@
 "Ny" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/keg/beerkeg/rice,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_two)
+/area/boneyard/zone_three)
 "Nz" = (
 /obj/effect/floor_decal/corner/beige/full,
 /obj/effect/floor_decal/spline/plain/paleblue{
@@ -14907,17 +14958,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/scientific_tram)
-"ND" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_y = 2;
-	pixel_x = 1
-	},
-/obj/item/pen/fountain{
-	pixel_y = 2
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "NE" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 6
@@ -15037,15 +15077,17 @@
 /turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_three)
 "NU" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 4
 	},
-/obj/structure/sign/flag/outer_eyes{
-	pixel_y = 32
+/obj/item/pen{
+	pixel_x = -3;
+	pixel_y = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "NV" = (
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 4
@@ -15150,6 +15192,14 @@
 /obj/random/smalltank,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
+"Oi" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/bed/stool/chair/office/light{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "Oj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -15199,6 +15249,16 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
+/area/boneyard/zone_one)
+"Oq" = (
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
 "Ot" = (
 /obj/effect/floor_decal/corner/grey{
@@ -15468,6 +15528,16 @@
 /obj/structure/machinery/vending/actor,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/actor)
+"Pi" = (
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 8
+	},
+/obj/item/paper/crumpled{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/boneyard/zone_three)
 "Pj" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -15715,19 +15785,17 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_two)
-"PR" = (
-/obj/structure/table/reinforced/steel,
-/obj/random/pottedplant_small{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "PS" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/ridged,
+/area/boneyard/zone_one)
+"PT" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
 "PU" = (
 /obj/effect/floor_decal/corner/beige{
@@ -16039,6 +16107,9 @@
 	pixel_x = 2;
 	pixel_y = -5
 	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "QD" = (
@@ -16115,11 +16186,24 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
-"QM" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+"QN" = (
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/beige{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/boneyard/zone_one)
+"QO" = (
+/obj/structure/table/glass,
+/obj/item/paper_bin{
+	pixel_x = 1;
+	pixel_y = -5
+	},
+/obj/item/pen/fountain{
+	pixel_x = 1;
+	pixel_y = -4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
 "QP" = (
 /obj/effect/floor_decal/corner/brown{
@@ -16214,6 +16298,11 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_two)
+"Re" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "Rf" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 4
@@ -16415,6 +16504,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"RA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_two)
 "RB" = (
 /obj/structure/sign/flag/outer_eyes{
 	pixel_y = -32
@@ -16489,6 +16586,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/leadership_tram)
+"RK" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "RL" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -16783,13 +16885,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_one)
-"St" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/corner/beige{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/boneyard/zone_one)
 "Su" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -16812,25 +16907,6 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell,
 /area/boneyard/actor)
-"Sy" = (
-/obj/structure/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/random/loot,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
-"Sz" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clothing/ears/skrell/cloth{
-	pixel_x = -11;
-	pixel_y = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/boneyard/zone_three)
 "SA" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -16844,30 +16920,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_two)
-"SB" = (
-/obj/structure/table/glass,
-/obj/item/folder/red{
-	pixel_x = -4;
-	pixel_y = 2
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/boneyard/zone_three)
-"SC" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = -4;
-	pixel_y = 19
-	},
-/obj/item/paper_bin{
-	pixel_x = 6;
-	pixel_y = 8
-	},
-/obj/item/pen{
-	pixel_x = 5;
-	pixel_y = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "SD" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -16996,6 +17048,16 @@
 	},
 /turf/simulated/floor/shuttle/skrell/ramp,
 /area/boneyard/zone_three)
+"SV" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/structure/sign/flag/outer_eyes{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "SW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -17111,14 +17173,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_two)
-"Tm" = (
-/obj/structure/machinery/light/small/floor,
-/obj/item/paper/crumpled{
-	pixel_x = 2;
-	pixel_y = 19
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/boneyard/zone_three)
 "Tn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible{
 	frame_color = "#BDB6AE"
@@ -17348,6 +17402,17 @@
 /obj/structure/barricade/metal/wired,
 /turf/simulated/floor/tiled/ridged,
 /area/boneyard/zone_one)
+"TU" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper/crumpled{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/structure/sign/flag/outer_eyes{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "TV" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -17374,22 +17439,6 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
-"TY" = (
-/obj/structure/table/wood,
-/obj/item/lore_radio{
-	pixel_x = -3;
-	pixel_y = 8
-	},
-/turf/simulated/floor/carpet/red,
-/area/boneyard/zone_three)
-"TZ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/random/dirt_75,
-/obj/random/junk,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_two)
 "Ua" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
@@ -17769,13 +17818,17 @@
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
 "UU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/random/dirt_75,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
+/obj/structure/table/reinforced/steel,
+/obj/item/clipboard{
+	pixel_x = 5;
+	pixel_y = 13
+	},
+/obj/item/paper_scanner{
+	pixel_x = -3;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_two)
+/area/boneyard/zone_one)
 "UV" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -17928,6 +17981,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_two)
+"Vt" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/boneyard/zone_one)
 "Vu" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/recharger{
@@ -18050,11 +18110,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/boneyard/zone_one)
-"VI" = (
-/obj/structure/table/reinforced/steel,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "VJ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/glass,
@@ -18174,22 +18229,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/boneyard/zone_two)
-"VY" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
+"VZ" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/folder/red{
+	pixel_x = 9;
+	pixel_y = 4
 	},
-/obj/structure/table/glass,
-/obj/item/paper_bin{
-	pixel_y = 6;
-	pixel_x = -1
-	},
-/obj/item/pen/fountain{
-	pixel_y = 5;
-	pixel_x = -2
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_two)
+/turf/simulated/floor/carpet/rubber,
+/area/boneyard/zone_three)
 "Wa" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -18266,6 +18313,9 @@
 /obj/item/folder/red{
 	pixel_x = 1
 	},
+/obj/structure/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
 "Wj" = (
@@ -18282,18 +18332,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
-/area/boneyard/zone_three)
-"Wm" = (
-/obj/structure/table/glass,
-/obj/item/paper_bin{
-	pixel_x = 1;
-	pixel_y = -5
-	},
-/obj/item/pen/fountain{
-	pixel_x = 1;
-	pixel_y = -4
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
 /area/boneyard/zone_three)
 "Wn" = (
 /obj/effect/floor_decal/corner/grey{
@@ -18315,6 +18353,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/scientific_tram)
+"Wq" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/beige/full,
+/turf/simulated/floor/tiled/gridded,
+/area/boneyard/zone_one)
 "Wr" = (
 /turf/simulated/wall/r_wall,
 /area/boneyard/exterior)
@@ -18350,11 +18393,6 @@
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/shuttle/skrell,
-/area/boneyard/zone_three)
-"Wv" = (
-/obj/structure/reagent_dispensers/water_cooler,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_three)
 "Wx" = (
 /obj/structure/machinery/light{
@@ -18405,11 +18443,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_one)
-"WE" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "WF" = (
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -18443,20 +18476,13 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"WJ" = (
+"WK" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
-"WL" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/folder/red{
-	pixel_x = 9;
-	pixel_y = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/boneyard/zone_three)
 "WM" = (
 /obj/effect/floor_decal/industrial/hatch_door/research,
 /obj/structure/machinery/door/firedoor/noid{
@@ -18638,20 +18664,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/boneyard/zone_two)
-"Xg" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/table/skrell,
-/obj/item/paper_bin{
-	pixel_x = 1;
-	pixel_y = 6
-	},
-/obj/item/pen/fountain/head{
-	pixel_x = -1;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/boneyard/zone_three)
 "Xh" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/spline/plain/purple{
@@ -18868,12 +18880,6 @@
 /obj/item/radio/intercom/expedition/hailing/north,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"XQ" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/structure/table/rack,
-/obj/random/tech_supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "XR" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/smoothtrack.dmi';
@@ -19105,11 +19111,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
-"Yw" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_three)
 "Yx" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -19157,6 +19158,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_two)
+"YE" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/boneyard/zone_one)
 "YF" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -19177,18 +19185,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/boneyard/zone_three)
-"YH" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/clipboard{
-	pixel_x = -7;
-	pixel_y = 3
-	},
-/obj/item/lore_radio{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/boneyard/zone_one)
 "YJ" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
@@ -19286,6 +19282,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/boneyard/zone_three)
+"YV" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/table/skrell,
+/obj/item/paper/crumpled{
+	pixel_x = -9;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "YW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -19369,6 +19375,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/boneyard/zone_one)
+"Zk" = (
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_three)
 "Zm" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -19430,6 +19440,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/leadership_tram)
+"Zx" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/obj/structure/sign/flag/outer_eyes{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/boneyard/zone_three)
 "Zy" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small{
@@ -19484,11 +19504,6 @@
 	},
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/boneyard/zone_three)
-"ZF" = (
-/obj/random/dirt_75,
-/obj/structure/flora/pottedplant/rosebush,
-/turf/simulated/floor/carpet/rubber,
 /area/boneyard/zone_three)
 "ZG" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -19546,6 +19561,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
+"ZO" = (
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark/full,
+/area/boneyard/zone_one)
 "ZP" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -19566,11 +19592,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/boneyard/zone_one)
-"ZT" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
+"ZS" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/gridded,
 /area/boneyard/zone_one)
 "ZU" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
@@ -22089,13 +22116,13 @@ UN
 UN
 Tn
 Tn
-Dt
+ef
 Fw
 Fk
 yk
 Fk
-Aj
-GF
+wE
+dJ
 Tn
 Tn
 UN
@@ -22352,8 +22379,8 @@ Cs
 ld
 ld
 SR
-zz
-SC
+ky
+sB
 Tn
 Tn
 UN
@@ -22601,8 +22628,8 @@ uQ
 vI
 UN
 Tn
-ky
-Jc
+rp
+NU
 Tu
 Qk
 ej
@@ -22611,7 +22638,7 @@ zy
 ii
 Ez
 oA
-FQ
+UU
 Tn
 UN
 vI
@@ -23380,9 +23407,9 @@ ro
 wW
 wJ
 So
-Hx
+BR
 dc
-MR
+lc
 oF
 UN
 vI
@@ -24150,9 +24177,9 @@ oF
 gk
 Lo
 In
-St
-St
-St
+Vt
+Vt
+Vt
 oU
 oF
 UN
@@ -24659,10 +24686,10 @@ UN
 oF
 Mn
 wB
-Au
-Au
-qH
-Iw
+ZS
+ZS
+Oq
+Wq
 oF
 FX
 LT
@@ -24671,7 +24698,7 @@ oF
 JP
 lb
 nj
-Hx
+BR
 wJ
 oF
 UN
@@ -24914,9 +24941,9 @@ uQ
 vI
 vI
 oF
-xM
+qF
 lA
-nJ
+QN
 Xz
 wJ
 ne
@@ -25174,9 +25201,9 @@ oF
 oF
 oF
 EP
-FS
-FS
-zT
+tG
+tG
+YE
 oF
 wX
 QV
@@ -25430,7 +25457,7 @@ NH
 Eo
 lR
 oF
-DJ
+be
 jR
 jj
 Mv
@@ -26929,7 +26956,7 @@ cS
 uj
 Wa
 qu
-TZ
+RA
 Xe
 yd
 yd
@@ -27424,7 +27451,7 @@ Xe
 CJ
 TD
 Xe
-Ny
+tf
 AH
 zN
 aJ
@@ -27681,7 +27708,7 @@ Xe
 BL
 ZC
 Xe
-WJ
+GF
 AH
 pp
 RI
@@ -27693,7 +27720,7 @@ wx
 wx
 zV
 sq
-BR
+WK
 Xe
 SH
 jd
@@ -29461,7 +29488,7 @@ uQ
 uQ
 uQ
 Xe
-UU
+qN
 Wa
 Bt
 lf
@@ -30089,7 +30116,7 @@ UN
 vI
 uQ
 oF
-cP
+cj
 QV
 xi
 oF
@@ -31034,7 +31061,7 @@ XV
 XV
 JG
 sq
-hR
+mb
 Xe
 Xe
 Xe
@@ -31291,7 +31318,7 @@ Lz
 Lz
 lq
 sq
-hC
+hR
 tU
 tU
 Xe
@@ -31522,7 +31549,7 @@ Vs
 xC
 Hg
 Xe
-VY
+bU
 oc
 OU
 Sl
@@ -31635,7 +31662,7 @@ QV
 zK
 lI
 oF
-mt
+wP
 QV
 gk
 oF
@@ -32406,8 +32433,8 @@ QV
 Js
 tg
 oF
-cP
-Sy
+cj
+ZO
 gk
 oF
 SN
@@ -32873,7 +32900,7 @@ oF
 oF
 st
 Ou
-YH
+LN
 uY
 oY
 RF
@@ -33179,7 +33206,7 @@ jV
 oF
 bh
 QV
-GC
+Ht
 oF
 Jn
 sQ
@@ -36764,7 +36791,7 @@ AG
 oF
 Az
 QV
-wh
+xB
 oF
 vI
 HU
@@ -37276,7 +37303,7 @@ WZ
 qS
 qS
 oF
-Lp
+fY
 JS
 Js
 Tn
@@ -38073,7 +38100,7 @@ IF
 sA
 ZH
 FH
-ZT
+PT
 Og
 oF
 uQ
@@ -41842,7 +41869,7 @@ uQ
 yd
 Ns
 yd
-bZ
+is
 Ae
 kJ
 Ae
@@ -42038,10 +42065,10 @@ uQ
 kM
 kM
 el
-Hq
-kt
+iA
+hB
+hC
 iq
-jO
 kM
 uQ
 uQ
@@ -42505,9 +42532,9 @@ bu
 bu
 sz
 sz
-BU
-lc
-lc
+vg
+qd
+qd
 sz
 aV
 aV
@@ -42555,7 +42582,7 @@ QX
 KN
 pC
 cx
-fK
+qW
 kM
 LH
 NR
@@ -42761,7 +42788,7 @@ bu
 bu
 bu
 sz
-eZ
+Zx
 KF
 Jw
 xV
@@ -42807,7 +42834,7 @@ uQ
 uQ
 uQ
 kM
-Hd
+Zk
 QX
 iV
 eM
@@ -43018,7 +43045,7 @@ bu
 bu
 bu
 sz
-ce
+jO
 YU
 mv
 Ti
@@ -43036,9 +43063,9 @@ dz
 mD
 eY
 lt
-xd
-xd
-Wv
+fu
+fu
+MI
 zO
 JO
 bQ
@@ -43275,9 +43302,9 @@ bu
 bu
 bu
 sz
-gN
-KE
-xr
+Lq
+fn
+Hd
 xV
 nz
 dv
@@ -43313,8 +43340,8 @@ uN
 bu
 sz
 Ti
-Hw
-Hw
+mG
+mG
 oP
 sz
 sz
@@ -43333,7 +43360,7 @@ Ia
 Ia
 kZ
 Py
-Yw
+zZ
 Ev
 gt
 vV
@@ -43532,8 +43559,8 @@ bu
 bu
 bu
 sz
-dg
-qF
+xa
+gp
 eY
 xV
 xV
@@ -43570,10 +43597,10 @@ uN
 uN
 sz
 NX
-Wm
-SB
+QO
+pc
 qK
-WL
+VZ
 sz
 uQ
 Ia
@@ -43789,7 +43816,7 @@ bu
 bu
 bu
 sz
-is
+SV
 GZ
 ny
 Ti
@@ -43827,14 +43854,14 @@ aV
 aV
 sz
 QZ
-gr
-gr
+hF
+hF
 qK
-Cv
+DD
 sz
 uQ
 Ia
-VI
+ce
 xS
 bj
 Ag
@@ -44087,11 +44114,11 @@ Ti
 xV
 xV
 CG
-Sz
+eP
 sz
 uQ
 Ia
-VI
+ce
 fm
 Bn
 rA
@@ -44620,10 +44647,10 @@ Ia
 kM
 kM
 jL
-CX
+vx
 ca
 kz
-nT
+Kv
 kM
 kM
 ic
@@ -44881,8 +44908,8 @@ dK
 Sj
 vZ
 Hf
-QM
-QM
+Ny
+Ny
 ic
 Md
 WT
@@ -45909,8 +45936,8 @@ gR
 aD
 rm
 Hf
-WE
-QM
+Re
+Ny
 ic
 Md
 WT
@@ -46162,10 +46189,10 @@ Ia
 kM
 kM
 vJ
-XQ
+nT
 Eb
 hs
-XQ
+nT
 kM
 kM
 ic
@@ -46657,7 +46684,7 @@ Ti
 xV
 zw
 xx
-xh
+ds
 sz
 uQ
 Ia
@@ -46684,7 +46711,7 @@ uQ
 uQ
 ic
 mQ
-Ey
+Au
 tk
 kY
 ic
@@ -46873,12 +46900,12 @@ bu
 bu
 bu
 kM
-hi
-vx
-Ky
+rJ
+cB
+dg
 Ti
 xV
-jT
+gr
 SI
 kM
 aV
@@ -46911,10 +46938,10 @@ aV
 aV
 sz
 QZ
-Hw
-Hw
+mG
+mG
 Ad
-bs
+zR
 sz
 uQ
 Ia
@@ -47130,9 +47157,9 @@ bu
 bu
 bu
 kM
-iA
+hu
 wz
-Xg
+De
 xV
 xV
 qK
@@ -47168,10 +47195,10 @@ uN
 uN
 sz
 NX
-aX
-aX
+qE
+qE
 qK
-Jv
+uS
 sz
 uQ
 Ia
@@ -47189,7 +47216,7 @@ Ia
 EC
 Zs
 Th
-TY
+DV
 sN
 Lb
 kM
@@ -47387,12 +47414,12 @@ bu
 bu
 bu
 kM
-NU
-LY
-Kj
+hZ
+Oi
+YV
 xV
 xV
-Lq
+Pi
 kM
 kM
 xn
@@ -47403,7 +47430,7 @@ TB
 zw
 OF
 Gr
-FZ
+vS
 lt
 dP
 gR
@@ -47425,8 +47452,8 @@ bu
 bu
 sz
 Ti
-gr
-gr
+hF
+hF
 ZE
 sz
 sz
@@ -47448,7 +47475,7 @@ Ad
 fp
 pl
 eR
-pA
+ey
 kM
 uQ
 uQ
@@ -47645,11 +47672,11 @@ bu
 bu
 kM
 xb
-en
+bp
 VF
 Ti
 xV
-Tm
+Hk
 kM
 aV
 aV
@@ -47658,16 +47685,16 @@ aV
 ra
 su
 zw
-yq
+pn
 Dw
 ML
 lt
-Wv
+MI
 li
-Yw
+zZ
 Oh
-fu
-Wv
+Lu
+MI
 lt
 lt
 bu
@@ -47697,8 +47724,8 @@ Zs
 xx
 gW
 kM
-FI
-FI
+RK
+RK
 TW
 zw
 fh
@@ -47901,7 +47928,7 @@ bu
 bu
 bu
 kM
-JC
+qJ
 GZ
 ny
 xV
@@ -48159,9 +48186,9 @@ bu
 bu
 kM
 kM
-vg
+uX
 rs
-lc
+qd
 kM
 aV
 aV
@@ -48211,7 +48238,7 @@ Zs
 Lb
 eC
 kM
-ZF
+Dt
 zp
 TW
 zw
@@ -48719,10 +48746,10 @@ uQ
 uQ
 kM
 kM
-LV
-PR
+TU
+ue
 el
-ND
+FP
 LV
 kM
 uQ
