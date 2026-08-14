@@ -570,7 +570,7 @@
 		expected_initial_reagent_volume += reagents_to_add[k]
 	var/percent_cornucopia = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_cornucopia)
-		if(0 to 50)
+		if(-INFINITY to 50)
 			icon_state = "cornucopia_half"
 		if(51 to INFINITY)
 			icon_state = "cornucopia"
