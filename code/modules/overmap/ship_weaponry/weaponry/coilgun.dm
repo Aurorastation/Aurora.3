@@ -20,6 +20,7 @@
 	caliber = SHIP_CALIBER_COILGUN
 	overmap_icon_state = "cannon"
 	impact_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
+	projectile_type_override = /obj/projectile/ship_ammo/coilgun
 
 /obj/projectile/ship_ammo/coilgun
 	name = "high-power tungsten rod"
