@@ -55,7 +55,6 @@
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
-							"/obj/item/stock_parts/matter_bin" = 2,
 							"/obj/item/stock_parts/manipulator" = 2,
 							"/obj/item/reagent_containers/glass/beaker" = 2)
 
@@ -66,7 +65,6 @@
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
-							"/obj/item/stock_parts/matter_bin" = 1,
 							"/obj/item/stock_parts/manipulator" = 1,
 							"/obj/item/reagent_containers/glass/beaker" = 2)
 
@@ -76,7 +74,6 @@
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	req_components = list(
-							"/obj/item/stock_parts/matter_bin" = 2,
 							"/obj/item/stock_parts/manipulator" = 1,
 							"/obj/item/stock_parts/micro_laser" = 1,
 							"/obj/item/stock_parts/console_screen" = 1)
