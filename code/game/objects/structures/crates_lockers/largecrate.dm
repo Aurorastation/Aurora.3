@@ -132,3 +132,13 @@
 	name = "carp crate"
 	held_type = /mob/living/simple_animal/carp/baby
 	desc = "A hefty wooden crate. This one has bright yellow and red markings on the sides warning of hazardous contents."
+
+/obj/structure/largecrate/animal/psiren
+	name = "psiren crate"
+	held_type = /mob/living/simple_animal/hostile/psiren
+	desc = "It has an evil aura."
+
+/obj/structure/largecrate/animal/psiren_omen
+	name = "psiren crate"
+	held_type = /mob/living/simple_animal/hostile/psiren/omen
+	desc = "This thing gives you headaches."
