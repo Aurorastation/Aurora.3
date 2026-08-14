@@ -29,6 +29,7 @@
 	burst = 11
 	cookoff_heavy = 0
 	overmap_icon_state = "cannon_salvo"
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser
 
 /obj/item/ship_ammunition/bruiser/get_speed()
 	return 35

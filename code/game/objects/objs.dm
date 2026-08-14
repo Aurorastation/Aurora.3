@@ -106,6 +106,10 @@
 	var/persistent_objects_author_ckey = null
 	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
 	var/persistent_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	// Database timestamp when the tracked object was created
+	var/persistent_objects_created_at = null
+	// Database timestamp when the tracked object will expire
+	var/persistent_objects_expires_at = null
 	/* END PERSISTENCE VARS */
 
 	/// for easy reference of talking atoms

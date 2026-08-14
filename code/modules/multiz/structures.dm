@@ -418,6 +418,8 @@
 /obj/structure/platform_stairs/full/south_north_cap/half
 	icon_state = "p_stair_sn_half_cap"
 
+// ---------- Platforms
+
 /obj/structure/platform
 	name = "platform"
 	desc = "An archaic method of preventing travel along the X and Y axes if you are on a lower point on the Z-axis."
@@ -507,16 +509,58 @@
 	icon_state = "ledge_dark"
 	color = COLOR_DARK_GUNMETAL
 
+/obj/structure/platform/rock
+	icon_state = "colorable_rock_platform"
+	color = COLOR_GRAY40
+
+// ---------- Non-colourable platforms
+
+/obj/structure/platform/metal
+	icon_state = "metal_platform"
+	color = null
+
+/obj/structure/platform/metal_alt
+	icon_state = "metal_platform_alt"
+	color = null
+
+/obj/structure/platform/engineer
+	icon_state = "engineer_platform"
+	color = null
+
+/obj/structure/platform/accented
+	icon_state = "accented_platform"
+	color = null
+
+/obj/structure/platform/column
+	icon_state = "column_platform"
+	color = null
+
+// ---------- Platform cutouts
+
 /obj/structure/platform/cutout
 	icon_state = "platform_cutout"
-	density = 0
+	density = FALSE
+
+/obj/structure/platform/cutout/CanPass()
+	return TRUE
 
 /obj/structure/platform/cutout/dark
 	icon_state = "platform_cutout_dark"
 	color = COLOR_DARK_GUNMETAL
 
-/obj/structure/platform/cutout/CanPass()
-	return TRUE
+/obj/structure/platform/cutout/metal
+	icon_state = "metal_platform_cutout"
+	color = null
+
+/obj/structure/platform/cutout/metal_alt
+	icon_state = "metal_platform_alt_cutout"
+	color = null
+
+/obj/structure/platform/cutout/column
+	icon_state = "column_platform_cutout"
+	color = null
+
+// ---------- Platform decos
 
 /// No special CanPass for this one.
 /obj/structure/platform_deco
@@ -545,3 +589,29 @@
 /obj/structure/platform_deco/ledge/dark
 	icon_state = "ledge_deco_dark"
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/platform_deco/rock
+	icon_state = "colorable_rock_platform_deco"
+	color = COLOR_GRAY40
+
+// ---------- Non-colourable platform decos
+
+/obj/structure/platform_deco/metal
+	icon_state = "metal_platform_deco"
+	color = null
+
+/obj/structure/platform_deco/metal_alt
+	icon_state = "metal_platform_alt_deco"
+	color = null
+
+/obj/structure/platform_deco/engineer
+	icon_state = "engineer_platform_deco"
+	color = null
+
+/obj/structure/platform_deco/accented
+	icon_state = "accented_platform_deco"
+	color = null
+
+/obj/structure/platform_deco/column
+	icon_state = "column_platform_deco"
+	color = null

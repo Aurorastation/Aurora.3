@@ -30,10 +30,11 @@
 		armor_flags = armor_type
 	if(hidden)
 		hidden = TRUE
-
-// Takes in incoming damage value
-// Applies state changes to self, holder, and whatever else caused by damage mitigation
-// Returns modified damage, a list to allow for flag modification or damage conversion, in the same format as the arguments.
+/**
+ * Takes in incoming damage value
+ * Applies state changes to self, holder, and whatever else caused by damage mitigation
+ * Returns modified damage, a list to allow for flag modification or damage conversion, in the same format as the arguments.
+ */
 /datum/component/armor/proc/apply_damage_modifications(damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE, check_armor)
 	if(armor_flags & ARMOR_TYPE_EXOSUIT)
 		if(prob(get_blocked(damage_type, damage_flags, armor_pen) * 100)) //extra removal of sharp and edge on account of us being big robots
@@ -66,7 +67,14 @@
 
 /datum/component/armor/proc/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
 
-// A simpler proc used as a helper for above but can also be used externally. Does not modify state.
+/**
+ * A simpler proc used as a helper for above but can also be used externally. Does not modify state.
+ * Returns a value between 0 and 1, representing the percentage of damage blocked by this armor component.
+ * armor_pen is subtracted from the armor value before calculating the percentage blocked.
+ * armor_range_mult is used to determine the range of damage that is mitigated by this armor
+ * under_armor_mult is used to determine how much damage is mitigated when the incoming damage is less than or equal to the armor value
+ * over_armor_mult is used to determine how much damage is mitigated when the incoming damage is greater than the armor value
+ */
 /datum/component/armor/proc/get_blocked(damage_type, damage_flags, armor_pen = 0, damage = 5, check_armor)
 	var/key = check_armor
 	if(!key)

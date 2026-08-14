@@ -68,36 +68,6 @@ SUBSYSTEM_DEF(persistence)
 		return FALSE
 	return TRUE
 
-/datum/admins/proc/toggle_persistence()
-	set name = "Toggle Persistence"
-	set category = "Special Verbs"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/message = ""
-	var/options = list()
-	if(SSpersistence.prevent_saving)
-		message = "The persistence subsystem will NOT save at the end of the round. Do you want to re-enable it?"
-		options = list("Re-enable saving", "Cancel")
-	else
-		message = "The persistence subsystem will save at the end of the round. Do you want to prevent this? This can be un-done before the round ends."
-		options = list("Prevent saving", "Cancel")
-
-	var/confirm = tgui_alert(usr, message, "Toggle Persistence Saving", options)
-	if(confirm == "Prevent saving")
-		SSpersistence.prevent_saving = TRUE
-		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_WARNING("disabled"))] by an administrator.")))
-		log_and_message_admins("has toggled persistence saving at round end, it is now disabled", usr)
-	else if (confirm == "Re-enable saving")
-		SSpersistence.prevent_saving = FALSE
-		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_GOOD("re-enabled"))] by an administrator.")))
-		log_and_message_admins("has toggled persistence saving at round end, it is now re-enabled", usr)
-	else
-		return
-
-	feedback_add_details("admin_verb","TPS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 /**
  * Initialization of the persistence subsystem.
  * Includes generic startup checks and init of the different persistent data types.

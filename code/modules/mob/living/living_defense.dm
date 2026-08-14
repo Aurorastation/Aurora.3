@@ -56,8 +56,7 @@
 	//Auras, essentially magic and encompassing around us, gets checked first
 	if(!src.aura_check(AURA_TYPE_BULLET, hitting_projectile, def_zone, piercing_hit))
 		blocked = 100
-		return BULLET_ACT_FORCE_PIERCE
-
+		return BULLET_ACT_BLOCK
 
 	//Shields, in front of us (hopefully), check the bullet before it reaches us
 	var/shield_check = check_shields(hitting_projectile.damage, hitting_projectile, hitting_projectile.firer, def_zone, "the [hitting_projectile.name]")

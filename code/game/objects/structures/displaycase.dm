@@ -40,10 +40,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	var/damage = hitting_projectile.damage
-	if(damage)
-		add_damage(damage)
-
 /obj/structure/displaycase/on_death()
 	if(!destroyed)
 		density = FALSE
