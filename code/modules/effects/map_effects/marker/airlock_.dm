@@ -134,8 +134,6 @@
 				button.command = "cycle_exterior"
 			continue
 
-// ------
-
 /// External airlock marker, for non-docking non-shuttle airlocks.
 /// Subtype intended for organisation.
 /obj/effect/map_effect/marker/airlock/external
