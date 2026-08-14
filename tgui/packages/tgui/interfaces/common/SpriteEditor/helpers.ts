@@ -71,6 +71,9 @@ export function useClickAndDragEventHandler<T>(
     window.removeEventListener('mousemove', moveHandler);
   };
   return (ev: MouseEvent) => {
+    // Canvas and color controls own their drag gestures. Do not let the
+    // mousedown bubble to Window.Content, where Alt-drag moves the whole UI.
+    ev.stopPropagation();
     onMouseDown?.(ev, ref);
     if (ev.defaultPrevented) return;
     ev.preventDefault();

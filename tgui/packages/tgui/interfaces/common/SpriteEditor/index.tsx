@@ -294,14 +294,18 @@ export namespace SpriteEditor {
     const [currentColor, setCurrentColor] = useAtom(currentColorAtom);
     const currentTool = useAtomValue(currentToolAtom);
     const selectedDir = useAtomValue(dirAtom);
-    const selectedLayer = useAtomValue(layerAtom);
+    const [selectedLayer, setSelectedLayer] = useAtom(layerAtom);
+    const safeSelectedLayer = Math.max(
+      0,
+      Math.min(selectedLayer, data.layers.length - 1),
+    );
     const [previewLayer, setPreviewLayer] = useAtom(previewLayerAtom);
     const [previewData, setPreviewData] = useAtom(previewDataAtom);
     const toolContext = {
       currentColor,
       setCurrentColor,
       selectedDir,
-      selectedLayer,
+      selectedLayer: safeSelectedLayer,
       setPreviewLayer,
       setPreviewData,
     };
@@ -311,6 +315,11 @@ export namespace SpriteEditor {
       }
     }, [disabled]);
     useEffect(() => {
+      if (selectedLayer !== safeSelectedLayer) {
+        setSelectedLayer(safeSelectedLayer);
+      }
+    }, [selectedLayer, safeSelectedLayer, setSelectedLayer]);
+    useEffect(() => {
       setPreviewLayer(undefined);
       setPreviewData(undefined);
     }, [JSON.stringify(data)]);
@@ -319,7 +328,7 @@ export namespace SpriteEditor {
         data={getFlattenedSpriteDir(
           data,
           selectedDir,
-          selectedLayer,
+          safeSelectedLayer,
           previewLayer,
           previewData,
         )}
