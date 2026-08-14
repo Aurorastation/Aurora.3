@@ -101,18 +101,18 @@
 	cycle_to_external_air = TRUE
 
 // Forward airlocks
-/obj/effect/map_effect/marker/airlock/orion_miner_port
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port
 	name = "Port Fore Airlock"
 	master_tag = "port_orion_miner"
 	cycle_to_external_air = TRUE
 
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard
 	name = "Starboard Fore Airlock"
 	master_tag = "stbd_orion_miner"
 	cycle_to_external_air = TRUE
 
 // Aft airlock
-/obj/effect/map_effect/marker/airlock/orion_miner_aft
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft
 	name = "Aft Airlock"
 	master_tag = "rear_orion_miner"
 	cycle_to_external_air = TRUE

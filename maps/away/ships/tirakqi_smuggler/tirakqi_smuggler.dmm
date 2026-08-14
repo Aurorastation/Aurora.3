@@ -553,7 +553,7 @@
 	dir = 8;
 	pixel_y = -10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_starboard";
 	name = "airlock_tirakqi_smuggler_aft_starboard"
 	},
@@ -921,7 +921,7 @@
 	dir = 1;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -2848,7 +2848,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},
@@ -3376,7 +3376,7 @@
 	pixel_y = 6;
 	pixel_x = -18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -4207,7 +4207,7 @@
 	pixel_y = 6;
 	pixel_x = 18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},
@@ -4441,7 +4441,7 @@
 	pixel_x = 26;
 	pixel_y = -2
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -4880,7 +4880,7 @@
 	dir = 4;
 	pixel_y = 11
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_port";
 	name = "airlock_tirakqi_smuggler_aft_port"
 	},
@@ -5678,7 +5678,7 @@
 	pixel_y = -6;
 	pixel_x = 18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_starboard";
 	name = "airlock_tirakqi_smuggler_aft_starboard"
 	},
@@ -5853,7 +5853,7 @@
 	dir = 8;
 	pixel_y = 10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_starboard";
 	name = "airlock_tirakqi_smuggler_aft_starboard"
 	},
@@ -6724,7 +6724,7 @@
 	pixel_y = -6;
 	pixel_x = -18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_port";
 	name = "airlock_tirakqi_smuggler_aft_port"
 	},
@@ -6988,7 +6988,7 @@
 	dir = 4;
 	pixel_y = -11
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_port";
 	name = "airlock_tirakqi_smuggler_aft_port"
 	},
@@ -7317,7 +7317,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -7630,7 +7630,7 @@
 	dir = 1;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},
@@ -7881,7 +7881,7 @@
 	pixel_x = -26;
 	pixel_y = -2
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},

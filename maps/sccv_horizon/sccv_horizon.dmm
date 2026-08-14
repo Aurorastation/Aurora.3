@@ -988,14 +988,14 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 23
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port";
 	req_one_access = null
@@ -1176,7 +1176,7 @@
 /obj/structure/bed/handrail{
 	pixel_y = 2
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_shuttle_quark_aux";
 	name = "airlock_shuttle_quark_aux";
 	req_one_access = list(65,47,74)
@@ -1517,7 +1517,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_shuttle_quark_aux";
 	name = "airlock_shuttle_quark_aux";
 	req_one_access = list(65,47,74)
@@ -1794,7 +1794,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -1928,7 +1928,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -3092,7 +3092,7 @@
 	pixel_x = 12;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
 	name = "airlock_horizon_deck_1_aft_propulsion_2"
@@ -3482,7 +3482,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_starboard";
 	name = "sccv_intrepid_starboard";
 	req_one_access = null
@@ -4037,7 +4037,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
 	name = "airlock_horizon_deck_2_aft_indra"
@@ -5685,7 +5685,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -10770,7 +10770,7 @@
 	dir = 4;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
 	name = "airlock_horizon_deck_1_aft_propulsion_2"
@@ -11042,7 +11042,7 @@
 /area/horizon/engineering/break_room)
 "bsu" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_bunker";
 	name = "airlock_horizon_bunker";
 	frequency = 1109;
@@ -12662,7 +12662,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -16033,7 +16033,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -17820,7 +17820,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -18287,7 +18287,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_starboard";
 	name = "sccv_intrepid_starboard";
 	req_one_access = null
@@ -19656,7 +19656,7 @@
 /area/shuttle/mercenary)
 "cBI" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1"
@@ -20853,7 +20853,7 @@
 	pixel_x = 28;
 	pixel_y = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
 	name = "airlock_horizon_deck_1_aft_propulsion_1"
@@ -23129,7 +23129,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -24651,7 +24651,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -25542,7 +25542,7 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port";
 	req_one_access = null
@@ -26734,7 +26734,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1"
@@ -29101,7 +29101,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 23
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_starboard";
 	name = "sccv_intrepid_starboard";
 	req_one_access = null
@@ -30482,7 +30482,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -32991,7 +32991,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
 	name = "airlock_horizon_deck_1_aft_propulsion_1"
@@ -33010,7 +33010,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_bunker";
 	name = "airlock_horizon_bunker";
 	frequency = 1109;
@@ -34905,7 +34905,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1";
 	frequency = 1001
@@ -36795,7 +36795,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -43840,7 +43840,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
 	name = "airlock_horizon_deck_1_aft_propulsion_2"
@@ -45886,7 +45886,7 @@
 	dir = 1;
 	pixel_y = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -49301,7 +49301,7 @@
 	pixel_x = -20;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_starboard_1";
 	name = "airlock_horizon_deck_1_starboard_1"
@@ -49670,7 +49670,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
 	name = "airlock_horizon_deck_3_fore_starboard_1"
@@ -58809,7 +58809,7 @@
 /area/horizon/maintenance/deck_1/medical/cryo)
 "hDG" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -59210,7 +59210,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -60446,7 +60446,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
 	name = "airlock_horizon_deck_1_aft_propulsion_1"
@@ -65600,7 +65600,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_bunker";
 	name = "airlock_horizon_bunker";
 	frequency = 1109;
@@ -67727,7 +67727,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1";
 	frequency = 1001
@@ -68064,7 +68064,7 @@
 /area/horizon/maintenance/deck_2/wing/starboard)
 "iPo" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -72806,7 +72806,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/reactor/supermatter/mainchamber)
 "juR" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
 	name = "airlock_horizon_deck_3_fore_starboard_1"
@@ -74924,7 +74924,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1"
@@ -76675,7 +76675,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_shuttle_quark_aux";
 	name = "airlock_shuttle_quark_aux";
 	req_one_access = list(65,47,74)
@@ -83881,7 +83881,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
 	name = "airlock_horizon_deck_3_fore_starboard_1"
@@ -84887,7 +84887,7 @@
 "kWg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -85124,7 +85124,7 @@
 /area/horizon/operations/warehouse)
 "kXP" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_starboard_1";
 	name = "airlock_horizon_deck_1_starboard_1"
@@ -86051,7 +86051,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -91359,7 +91359,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -96046,7 +96046,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_starboard_1";
 	name = "airlock_horizon_deck_1_starboard_1"
@@ -98183,7 +98183,7 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port";
 	req_one_access = null
@@ -98360,7 +98360,7 @@
 /area/horizon/rnd/test_range)
 "mKh" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -99959,7 +99959,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -101810,7 +101810,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_bunker";
 	name = "airlock_horizon_bunker";
 	frequency = 1109;
@@ -102488,7 +102488,7 @@
 	pixel_x = -12;
 	pixel_y = -28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_2";
 	name = "airlock_horizon_deck_1_aft_propulsion_2"
@@ -103278,7 +103278,7 @@
 /area/horizon/holodeck/source_biesel)
 "ntb" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -106244,7 +106244,7 @@
 	dir = 4;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
 	name = "airlock_horizon_deck_1_aft_propulsion_1"
@@ -107771,7 +107771,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/mining)
 "nXR" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -109122,7 +109122,7 @@
 	pixel_x = -12;
 	pixel_y = -28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -111726,7 +111726,7 @@
 /area/horizon/maintenance/substation/wing_port)
 "oxQ" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -115675,7 +115675,7 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_starboard";
 	name = "sccv_intrepid_starboard";
 	req_one_access = null
@@ -119242,7 +119242,7 @@
 /area/horizon/hangar/control)
 "pvV" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -119986,7 +119986,7 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -120312,7 +120312,7 @@
 	pixel_x = 20;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -120418,7 +120418,7 @@
 /area/horizon/rnd/telesci)
 "pCL" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -123586,7 +123586,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = -28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -124332,7 +124332,7 @@
 	pixel_x = 28;
 	pixel_y = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -125324,7 +125324,7 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_propulsion_1";
 	name = "airlock_horizon_deck_1_aft_propulsion_1"
@@ -129476,7 +129476,7 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1"
@@ -129705,7 +129705,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -132167,7 +132167,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port"
 	},
@@ -132175,7 +132175,7 @@
 	pixel_y = -24;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port";
 	req_one_access = null
@@ -133674,7 +133674,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -135283,7 +135283,7 @@
 	pixel_y = -24;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_starboard";
 	name = "sccv_intrepid_starboard";
 	req_one_access = null
@@ -137170,7 +137170,7 @@
 	pixel_x = -20;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -138577,7 +138577,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port";
 	req_one_access = null
@@ -140998,7 +140998,7 @@
 	dir = 4;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1";
 	frequency = 1001
@@ -143163,7 +143163,7 @@
 	dir = 4;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -144228,7 +144228,7 @@
 /area/horizon/maintenance/deck_2/wing/starboard)
 "sDk" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
 	name = "airlock_horizon_deck_3_fore_starboard_1"
@@ -147282,7 +147282,7 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_horizon_deck_2_port_1";
 	name = "airlock_horizon_deck_2_port_1"
@@ -148242,7 +148242,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_port";
 	name = "sccv_intrepid_port";
 	req_one_access = null
@@ -149578,7 +149578,7 @@
 	frequency = 1380;
 	id_tag = "centcom_shuttle_dock_pump"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_horizon_bunker";
 	name = "airlock_horizon_bunker";
 	frequency = 1109;
@@ -149685,7 +149685,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
 	name = "airlock_horizon_deck_3_fore_starboard_1"
@@ -152733,7 +152733,7 @@
 	pixel_x = 6;
 	pixel_y = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
 	name = "airlock_horizon_deck_2_aft_indra"
@@ -153380,7 +153380,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -153409,7 +153409,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2003;
 	master_tag = "airlock_horizon_deck_2_aft_indra";
 	name = "airlock_horizon_deck_2_aft_indra"
@@ -160294,7 +160294,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -161117,7 +161117,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/flight_deck)
 "uMa" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1002;
 	master_tag = "airlock_horizon_deck_3_fore_starboard_1";
 	name = "airlock_horizon_deck_3_fore_starboard_1"
@@ -163876,7 +163876,7 @@
 	pixel_x = 20;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2005;
 	master_tag = "airlock_horizon_deck_2_aft_sm";
 	name = "airlock_horizon_deck_2_aft_sm"
@@ -164079,7 +164079,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_horizon_deck_3_aft_1";
 	name = "airlock_horizon_deck_3_aft_1"
@@ -168545,7 +168545,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_starboard_1";
 	name = "airlock_horizon_deck_1_starboard_1"
@@ -170246,7 +170246,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/operations/loading)
 "vYs" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -170345,7 +170345,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -174670,7 +174670,7 @@
 	pixel_x = 28;
 	pixel_y = 32
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -176082,7 +176082,7 @@
 	dir = 4;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "airlock_horizon_deck_1_fore_1";
 	name = "airlock_horizon_deck_1_fore_1"
@@ -178300,7 +178300,7 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sccv_intrepid_starboard";
 	name = "sccv_intrepid_starboard";
 	req_one_access = null
@@ -180858,7 +180858,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2001;
 	master_tag = "airlock_horizon_deck_2_starboard_aft";
 	name = "airlock_horizon_deck_2_starboard_aft"
@@ -182342,7 +182342,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_starboard_1";
 	name = "airlock_horizon_deck_1_starboard_1"
@@ -184286,7 +184286,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_horizon_deck_1_aft_port_1";
 	name = "airlock_horizon_deck_1_aft_port_1"
@@ -185221,7 +185221,7 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_shuttle_quark_aux";
 	name = "airlock_shuttle_quark_aux";
 	req_one_access = list(65,47,74)
