@@ -444,6 +444,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	// Initialize tgui panel
 	tgui_panel.initialize()
 	tgui_say.initialize()
+	initialize_escape_menu()
 
 	// Initialize stat panel
 	stat_panel.initialize(
@@ -528,6 +529,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	return ..()
 
 /client/Destroy(force)
+	QDEL_NULL(escape_menu)
 	GLOB.ticket_panels -= src
 	GLOB.staff -= src
 	GLOB.directory -= ckey
