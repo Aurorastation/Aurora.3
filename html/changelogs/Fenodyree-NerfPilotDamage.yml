@@ -1,7 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - balance: "Reduces the damage and armour penetration of shots hitting the mech pilot after going through the hatch. The amount depends on the mech's cockpit design. Values range between 30% and 80% of the original damage and armour penetration."
-

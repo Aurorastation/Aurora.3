@@ -1,4 +1,0 @@
-author: kano
-delete-after: True
-changes:
-  - qol: "Deployable kits now show the progress bar on the mob."
