@@ -515,7 +515,7 @@
 		expected_initial_reagent_volume += reagents_to_add[k]
 	var/percent_psitenders = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_psitenders)
-		if(0 to 40)
+		if(-INFINITY to 40)
 			icon_state = "psitenders_half"
 		if(41 to INFINITY)
 			icon_state = "psitenders"
