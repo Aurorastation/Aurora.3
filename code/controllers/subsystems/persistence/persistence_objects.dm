@@ -30,6 +30,8 @@
 		// the object to continue with init logic after the subsystem is done in LateInitialize.
 		var/obj/instance = new typepath()
 		instance.persistent_objects_track_id = data["id"]
+		instance.persistent_objects_created_at = data["created_at"]
+		instance.persistent_objects_expires_at = data["expires_at"]
 		objectsApplyTrackContent(instance, data["content"], data["x"], data["y"], data["z"])
 		objectsRegisterTrack(instance, data["author_ckey"])
 

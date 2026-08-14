@@ -19,6 +19,7 @@
 	caliber = SHIP_CALIBER_200MM
 	overmap_icon_state = "cannon"
 	impact_type = SHIP_AMMO_IMPACT_HE
+	projectile_type_override = /obj/projectile/ship_ammo/lammergeier
 
 /obj/projectile/ship_ammo/lammergeier
 	name = "typhoon shell"

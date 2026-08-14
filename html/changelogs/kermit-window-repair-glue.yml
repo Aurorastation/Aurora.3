@@ -1,7 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a glass repair adhesive to EngiVends for repairing window cracks without having to completely decon/recon a window."
- 

@@ -7,7 +7,8 @@
 				"/obj/item/material/ashtray",
 				"/obj/structure/reagent_dispensers/extinguisher",
 				"/obj/structure/reagent_dispensers/watertank",
-				"/obj/structure/reagent_dispensers/fueltank"
+				"/obj/structure/reagent_dispensers/fueltank",
+				"/obj/structure/reagent_dispensers/cookingoil"
 			]
 		}
 	]
