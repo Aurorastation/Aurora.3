@@ -768,8 +768,10 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	/turf/simulated/floor/exoplanet/asteroid/ash,
+	/turf/simulated/wall,
+	/turf/unsimulated/wall,
 	/turf/simulated/mineral,
-	/turf/simulated/wall
+	/turf/unsimulated/mineral
 ))
 
 // Copypaste parent for performance.

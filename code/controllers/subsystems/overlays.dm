@@ -120,16 +120,16 @@ SUBSYSTEM_DEF(overlays)
 				overlay_appearance = image.appearance
 
 		// If the caller is a turf, we put the overlay's layer slightly above it.
-		// So this way overlays extending over to neighbouring turfs don't appear under them depending on parse-order.
-		// This is a particular issue with icon smoothed turfs.
+		// So this way overlays extending over to neighbouring turfs don't appear under them depending on load order.
 		// We only apply this if source hasn't explictly provided a layer (think the FLOAT_LAYER as a default layer for overlays).
 		// For more info see overlays doc. in byond ref.
-		if (isturf(subject))
+		var/turf/T = subject
+		if(istype(T))
 			var/mutable_appearance/turf_overlay = new()
 			turf_overlay.appearance = overlay_appearance
 			if(turf_overlay.layer == FLOAT_LAYER)
-				turf_overlay.layer = TURF_DETAIL_LAYER
-				overlay_appearance = turf_overlay
+				turf_overlay.layer = T.is_plating() ? ABOVE_PLATING_LAYER : TURF_DETAIL_LAYER
+				overlay_appearance = turf_overlay.appearance
 
 		result += overlay_appearance
 	return result
