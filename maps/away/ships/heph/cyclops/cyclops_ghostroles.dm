@@ -57,7 +57,7 @@
 			tag.modify_tag_data()
 
 /obj/outfit/admin/cyclops_crew/get_id_access()
-	return list(ACCESS_HEPHAESTUS,ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/hephaestus::id,/datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/cyclops_crew/security
 	short_name = "cyclops_security"

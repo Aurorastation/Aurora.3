@@ -33,9 +33,9 @@
 	var/obj/item/card/id/held_card = get_held_card()
 	if (!held_card)
 		return 0
-	if(ACCESS_CENT_CCIA in held_card.access)
+	if(/datum/access/cent_ccia::id in held_card.access)
 		return 2
-	else if((ACCESS_HOP in held_card.access) || (ACCESS_CAPTAIN in held_card.access))
+	else if((/datum/access/hop::id in held_card.access) || (/datum/access/captain::id in held_card.access))
 		return 1
 
 /datum/computer_file/program/account_db/proc/create_transation(target, reason, amount)

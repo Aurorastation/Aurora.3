@@ -149,7 +149,7 @@
 	)
 
 /obj/outfit/admin/tret_industrial/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
+	return list(/datum/access/external_airlocks::id, /datum/access/hephaestus::id)
 
 /obj/outfit/admin/tret_industrial/vaurca/bulwark
 	name = "Tret Industrial Bulwark"

@@ -34,7 +34,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/hailstorm_crew/get_id_access()
-	return list(ACCESS_DPRA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/dpra::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/hailstorm_crew/captain
 	short_name = "hailstorm_captain"

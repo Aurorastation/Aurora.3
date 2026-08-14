@@ -3,36 +3,36 @@
 /obj/structure/machinery/door/airlock/himeo_patrol
 	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_HIMEO_NAVY
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 
 /obj/structure/machinery/door/airlock/glass/himeo_patrol
 	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_HIMEO_NAVY
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 
 /obj/structure/machinery/door/airlock/highsecurity/himeo_patrol
 	door_frame_color = COLOR_RAIDER
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 
 /obj/structure/machinery/door/airlock/external/himeo_patrol
 	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_DARK_RED
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 
 /obj/structure/machinery/door/airlock/hatch/himeo_patrol
 	door_frame_color = COLOR_RAIDER
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 
 /obj/structure/machinery/door/airlock/multi_tile/glass/himeo_patrol
 	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_RAIDER
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 	name = "Glass Airlock"
 
 /obj/structure/machinery/door/airlock/multi_tile/flipped/glass/himeo_patrol
 	door_frame_color = COLOR_RAIDER
 	door_color = COLOR_RAIDER
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 	name = "Glass Airlock"
 
 // Engineering

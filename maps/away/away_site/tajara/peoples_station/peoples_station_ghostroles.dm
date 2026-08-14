@@ -37,7 +37,7 @@
 	l_hand = /obj/item/martial_manual/tajara
 
 /obj/outfit/admin/peoples_station_crew/get_id_access()
-	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/pra::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/peoples_station_crew/captain
 	short_name = "peoples_station_captain"

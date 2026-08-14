@@ -7,7 +7,7 @@
 	icon_state = "grinder"
 	density = TRUE
 	anchored = TRUE
-	req_access = list(ACCESS_GALLEY,ACCESS_MORGUE)
+	req_access = list(/datum/access/galley::id,/datum/access/morgue::id)
 
 	/// Is it on?
 	var/operating = FALSE

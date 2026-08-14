@@ -202,8 +202,8 @@
 
 /obj/outfit/admin/scc_scout_ship_crew/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
-		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
+		/datum/access/external_airlocks::id, /datum/access/maint_tunnels::id,
+		/datum/access/security::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/research::id, /datum/access/cargo::id,
 	)
 
 /obj/outfit/admin/scc_scout_ship_crew/captain
@@ -224,9 +224,9 @@
 
 /obj/outfit/admin/scc_scout_ship_crew/captain/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
-		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
-		ACCESS_HEADS, ACCESS_CAPTAIN,
+		/datum/access/external_airlocks::id, /datum/access/maint_tunnels::id,
+		/datum/access/security::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/research::id, /datum/access/cargo::id,
+		/datum/access/heads::id, /datum/access/captain::id,
 	)
 
 /obj/outfit/admin/scc_scout_ship_crew/orion

@@ -9,7 +9,7 @@
 	items = list(
 		/obj/item/melee/baton
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -23,7 +23,7 @@
 	items = list(
 		/obj/item/flash
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -51,7 +51,7 @@
 	items = list(
 		/obj/item/implanter/ipc_tag
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -65,7 +65,7 @@
 	items = list(
 		/obj/item/storage/box/tactical/trackimp
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -79,7 +79,7 @@
 	items = list(
 		/obj/item/flashlight/maglight
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -93,7 +93,7 @@
 	items = list(
 		/obj/item/magnetic_lock/security
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -107,7 +107,7 @@
 	items = list(
 		/obj/item/storage/box/handcuffs
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -121,7 +121,7 @@
 	items = list(
 		/obj/item/storage/box/zipties
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -135,7 +135,7 @@
 	items = list(
 		/obj/structure/machinery/shieldwallgen
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -149,7 +149,7 @@
 	items = list(
 		/obj/item/storage/box/tactical/teargas
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -163,7 +163,7 @@
 	items = list(
 		/obj/item/storage/box/tactical/flashbangs
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -177,7 +177,7 @@
 	items = list(
 		/obj/item/storage/box/tactical/emps
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -191,7 +191,7 @@
 	items = list(
 		/obj/structure/machinery/deployable/barrier
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -207,7 +207,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/vest
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -221,7 +221,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -235,7 +235,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/officer
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -249,7 +249,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/ablative
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -263,7 +263,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ablative
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -277,7 +277,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/ballistic
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -291,7 +291,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/ballistic
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -305,7 +305,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/riot
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -319,7 +319,7 @@
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/riot
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -333,7 +333,7 @@
 	items = list(
 		/obj/item/shield/riot
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -347,7 +347,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/security
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -361,7 +361,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/security
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -375,7 +375,7 @@
 	items = list(
 		/obj/item/clothing/glasses/sunglasses/sechud/tactical
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -388,7 +388,7 @@
 	items = list(
 		/obj/item/clothing/gloves/black
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -402,7 +402,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/bandolier
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -416,7 +416,7 @@
 	items = list(
 		/obj/item/storage/belt/security/tactical
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -430,7 +430,7 @@
 	items = list(
 		/obj/item/clothing/under/tactical
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -444,7 +444,7 @@
 	items = list(
 		/obj/item/clothing/shoes/jackboots
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -458,7 +458,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/bayonet
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -472,7 +472,7 @@
 	items = list(
 		/obj/item/firing_pin
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -486,7 +486,7 @@
 	items = list(
 		/obj/item/ammo_display
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -502,7 +502,7 @@
 	items = list(
 		/obj/item/storage/briefcase/crimekit
 	)
-	access = ACCESS_FORENSICS_LOCKERS
+	access = /datum/access/forensics_lockers::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -516,7 +516,7 @@
 	items = list(
 		/obj/item/reagent_containers/spray/luminol
 	)
-	access = ACCESS_FORENSICS_LOCKERS
+	access = /datum/access/forensics_lockers::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -530,7 +530,7 @@
 	items = list(
 		/obj/item/storage/box/slides
 	)
-	access = ACCESS_FORENSICS_LOCKERS
+	access = /datum/access/forensics_lockers::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -544,7 +544,7 @@
 	items = list(
 		/obj/item/forensics/sample_kit
 	)
-	access = ACCESS_FORENSICS_LOCKERS
+	access = /datum/access/forensics_lockers::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -558,7 +558,7 @@
 	items = list(
 		/obj/item/forensics/sample_kit/powder
 	)
-	access = ACCESS_FORENSICS_LOCKERS
+	access = /datum/access/forensics_lockers::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -572,7 +572,7 @@
 	items = list(
 		/obj/item/storage/box/swabs
 	)
-	access = ACCESS_FORENSICS_LOCKERS
+	access = /datum/access/forensics_lockers::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -586,7 +586,7 @@
 	items = list(
 		/obj/item/autopsy_scanner
 	)
-	access = ACCESS_FORENSICS_LOCKERS
+	access = /datum/access/forensics_lockers::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

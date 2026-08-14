@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/captains
 	name = "captain's locker"
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains/fill()
@@ -30,7 +30,7 @@
 
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/captains2/fill()
@@ -50,7 +50,7 @@
 
 /obj/structure/closet/secure_closet/xo
 	name = "executive officer's locker"
-	req_access = list(ACCESS_HOP)
+	req_access = list(/datum/access/hop::id)
 	icon_state = "sec"
 	icon_door = "hop"
 
@@ -85,7 +85,7 @@
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
-	req_access = list(ACCESS_HOS)
+	req_access = list(/datum/access/hos::id)
 	icon_state = "hos"
 
 /obj/structure/closet/secure_closet/hos/fill()
@@ -134,7 +134,7 @@
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
-	req_access = list(ACCESS_HOS)
+	req_access = list(/datum/access/hos::id)
 	icon_state = "hos"
 
 /obj/structure/closet/secure_closet/hos2/fill()
@@ -159,7 +159,7 @@
 
 /obj/structure/closet/secure_closet/warden
 	name = "warden's locker"
-	req_access = list(ACCESS_ARMORY)
+	req_access = list(/datum/access/armory::id)
 	icon_state = "warden"
 
 /obj/structure/closet/secure_closet/warden/fill()
@@ -206,7 +206,7 @@
 
 /obj/structure/closet/secure_closet/security_cadet
 	name = "security cadet's locker"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	icon_state = "sec"
 	icon_door = "seccadet"
 
@@ -235,7 +235,7 @@
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
-	req_access = list(ACCESS_BRIG)
+	req_access = list(/datum/access/holding::id)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/security/fill()
@@ -278,7 +278,7 @@
 
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"
-	req_access = list(ACCESS_FORENSICS_LOCKERS)
+	req_access = list(/datum/access/forensics_lockers::id)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/investigator/fill()
@@ -310,7 +310,7 @@
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 
 /obj/structure/closet/secure_closet/injection/fill()
 	new /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral(src)
@@ -320,7 +320,7 @@
 // These are special snowflakes that need to be in a global list.
 /obj/structure/closet/secure_closet/brig
 	name = "brig locker"
-	req_access = list(ACCESS_BRIG)
+	req_access = list(/datum/access/holding::id)
 	anchored = TRUE
 	canbemoved = TRUE
 	var/id = null
@@ -339,7 +339,7 @@
 
 /obj/structure/closet/secure_closet/courtroom
 	name = "courtroom locker"
-	req_access = list(ACCESS_LAWYER)
+	req_access = list(/datum/access/lawyer::id)
 
 /obj/structure/closet/secure_closet/courtroom/fill()
 	..()
@@ -356,7 +356,7 @@
 
 /obj/structure/closet/secure_closet/bridge_crew
 	name = "bridge crew's locker"
-	req_access = list(ACCESS_BRIDGE_CREW)
+	req_access = list(/datum/access/bridge_crew::id)
 	icon_state = "sec"
 	icon_door = "hop"
 
@@ -378,11 +378,11 @@
 	name = "evidence storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_one_access = list(ACCESS_BRIG, ACCESS_ARMORY, ACCESS_FORENSICS_LOCKERS)
+	req_one_access = list(/datum/access/holding::id, /datum/access/armory::id, /datum/access/forensics_lockers::id)
 
 // Contraband Storage Locker
 /obj/structure/closet/secure_closet/contraband
 	name = "contraband weapons and ammunition storage locker"
 	anchored = TRUE
 	canbemoved = TRUE
-	req_access = list(ACCESS_ARMORY)
+	req_access = list(/datum/access/armory::id)

@@ -39,7 +39,7 @@
 	var/target_borgs = FALSE
 	/// Silicons cannot use this
 	var/ailock = 0
-	req_access = list(ACCESS_AI_UPLOAD)
+	req_access = list(/datum/access/ai_upload::id)
 
 /obj/structure/machinery/turretid/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

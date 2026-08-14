@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_one_access = list(ACCESS_SECURITY, ACCESS_PORTOFCALL_POLICE) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
+	req_one_access = list(/datum/access/security::id, /datum/access/portofcall_police::id) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
 	icon_base = "police"
 
 /obj/item/taperoll/medical
@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/medical
 	name = "medical tape"
 	desc = "A length of medical tape. Better not cross it."
-	req_one_access = list(ACCESS_MEDICAL_EQUIP)
+	req_one_access = list(/datum/access/medical_equip::id)
 	icon_base = "medical"
 
 /obj/item/taperoll/science
@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/science
 	name = "science tape"
 	desc = "A length of science tape. Better not cross it."
-	req_one_access = list(ACCESS_RESEARCH)
+	req_one_access = list(/datum/access/research::id)
 	icon_base = "science"
 
 /obj/item/taperoll/engineering
@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	req_one_access = list(ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
+	req_one_access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	icon_base = "engineering"
 	var/shield_marker = FALSE
 
@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/custodial
 	name = "custodial holographic tape"
 	desc = "A length of custodial tape. Better not cross it."
-	req_one_access = list(ACCESS_JANITOR)
+	req_one_access = list(/datum/access/janitor::id)
 	icon_base = "custodial"
 
 /obj/item/taperoll/attack_self(mob/user as mob)

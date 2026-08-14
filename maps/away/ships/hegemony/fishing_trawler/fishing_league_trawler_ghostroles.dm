@@ -61,7 +61,7 @@
 		H.wear_suit.color = pick("#4f3911", "#292826")
 
 /obj/outfit/admin/fishing_trawler_crewman/get_id_access()
-	return list(ACCESS_FISHING_LEAGUE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/unathi_trawler_access::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/fishing_trawler_crewman/captain
 	name = "Fishing Trawler Captain"

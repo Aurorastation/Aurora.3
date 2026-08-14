@@ -128,7 +128,7 @@ Deployable Kits
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
-	req_access = list(ACCESS_SECURITY)//I'm changing this until these are properly tested./N
+	req_access = list(/datum/access/security::id)//I'm changing this until these are properly tested./N
 
 /obj/structure/machinery/deployable/barrier
 	name = "deployable barrier"
@@ -139,7 +139,7 @@ Deployable Kits
 	icon_state = "barrier"
 	maxhealth = OBJECT_HEALTH_LOW
 	var/locked = 0.0
-//	req_access = list(ACCESS_MAINT_TUNNELS)
+//	req_access = list(/datum/access/maint_tunnels::id)
 
 /obj/structure/machinery/deployable/barrier/New()
 	..()
@@ -169,13 +169,13 @@ Deployable Kits
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth
 			src.emagged = 0
-			src.req_access = list(ACCESS_SECURITY)
+			src.req_access = list(/datum/access/security::id)
 			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
-			src.req_access = list(ACCESS_SECURITY)
+			src.req_access = list(/datum/access/security::id)
 			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		return
@@ -254,7 +254,7 @@ Deployable Kits
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
-	req_one_access = list(ACCESS_TCAF)
+	req_one_access = list(/datum/access/tcaf::id)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"

@@ -56,7 +56,7 @@
 			tag.modify_tag_data()
 
 /obj/outfit/admin/heph_security/get_id_access()
-	return list(ACCESS_HEPHAESTUS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/hephaestus::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/heph_security/captain
 	name = "Hephaestus Asset Protection Squad Leader"

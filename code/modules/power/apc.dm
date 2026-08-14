@@ -110,7 +110,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
@@ -1548,7 +1548,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 /obj/structure/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP,ACCESS_RESEARCH,ACCESS_XENOBIOLOGY)
+	req_one_access = list(/datum/access/engine_equip::id,/datum/access/research::id,/datum/access/xenobiology::id)
 
 /obj/structure/machinery/power/apc/isolation/north
 	dir = NORTH
@@ -1568,7 +1568,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 /obj/structure/machinery/power/apc/vault
 	cell_type = /obj/item/cell
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 
 /obj/structure/machinery/power/apc/vault/north
 	dir = NORTH
@@ -1612,13 +1612,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	var/area = get_area(src)
 
 	if(istype(area, /area/horizon/shuttle/intrepid))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/intrepid::id)
 	if(istype(area, /area/horizon/shuttle/quark))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/quark::id)
 	if(istype(area, /area/horizon/shuttle/mining))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/spark::id)
 	if(istype(area, /area/horizon/shuttle/canary))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/canary::id)
 
 // Construction site APC, starts turned off
 /obj/structure/machinery/power/apc/high/inactive

@@ -3,7 +3,7 @@
 	name = "custodial closet"
 	desc = "It's a storage unit for a custodian's clothes and gear."
 	icon_state = "custodial"
-	req_access = list(ACCESS_JANITOR)
+	req_access = list(/datum/access/janitor::id)
 
 /obj/structure/closet/secure_closet/custodial/fill()
 	new /obj/item/radio/headset/headset_service(src)
@@ -58,7 +58,7 @@
 /obj/structure/closet/secure_closet/journalist
 	name = "journalist's closet"
 	desc = "It's a storage unit for a journalist's gear."
-	req_access = list(ACCESS_JOURNALIST)
+	req_access = list(/datum/access/journalist::id)
 
 /obj/structure/closet/secure_closet/journalist/fill()
 	new /obj/item/storage/photo_album(src)

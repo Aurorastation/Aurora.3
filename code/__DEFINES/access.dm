@@ -31,477 +31,403 @@
 /*****************
 * Station access *
 *****************/
-#define ACCESS_SECURITY 1
 /datum/access/security
-	id = ACCESS_SECURITY
+	id = 1
 	desc = "Security Equipment"
 	region = ACCESS_REGION_SECURITY
 
 /// Brig timers and permabrig
-#define ACCESS_BRIG 2
 /datum/access/holding
-	id = ACCESS_BRIG
+	id = 2
 	desc = "Holding Cells"
 	region = ACCESS_REGION_SECURITY
 
-#define ACCESS_ARMORY 3
 /datum/access/armory
-	id = ACCESS_ARMORY
+	id = 3
 	desc = "Armory"
 	region = ACCESS_REGION_SECURITY
 
-#define ACCESS_FORENSICS_LOCKERS 4
 /datum/access/forensics_lockers
-	id = ACCESS_FORENSICS_LOCKERS
+	id = 4
 	desc = "Forensics"
 	region = ACCESS_REGION_SECURITY
 
-#define ACCESS_MEDICAL 5
 /datum/access/medical
-	id = ACCESS_MEDICAL
+	id = 5
 	desc = "Medical"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_MORGUE 6
 /datum/access/morgue
-	id = ACCESS_MORGUE
+	id = 6
 	desc = "Morgue"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_TOX 7
 /datum/access/tox
-	id = ACCESS_TOX
+	id = 7
 	desc = "R&D Lab"
 	region = ACCESS_REGION_RESEARCH
 
 /// Used only for science lockers/science gun cabinets
-#define ACCESS_TOX_STORAGE 8
 /datum/access/tox_storage
-	id = ACCESS_TOX_STORAGE
+	id = 8
 	desc = "Toxins Lab"
 	region = ACCESS_REGION_RESEARCH
 
 /// NOT CURRENT USED ANYWHERE
-#define ACCESS_GENETICS 9
 /datum/access/genetics
-	id = ACCESS_GENETICS
+	id = 9
 	desc = "Genetics Lab"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_ENGINE 10
 /datum/access/engine
-	id = ACCESS_ENGINE
+	id = 10
 	desc = "Engineering"
 	region = ACCESS_REGION_ENGINEERING
 
-#define ACCESS_ENGINE_EQUIP 11
 /datum/access/engine_equip
-	id = ACCESS_ENGINE_EQUIP
+	id = 11
 	desc = "Engine Room"
 	region = ACCESS_REGION_ENGINEERING
 
-#define ACCESS_MAINT_TUNNELS 12
 /datum/access/maint_tunnels
-	id = ACCESS_MAINT_TUNNELS
+	id = 12
 	desc = "Maintenance"
 	region = ACCESS_REGION_ENGINEERING
 
-#define ACCESS_EXTERNAL_AIRLOCKS 13
 /datum/access/external_airlocks
-	id = ACCESS_EXTERNAL_AIRLOCKS
+	id = 13
 	desc = "External Airlocks"
 	region = ACCESS_REGION_ENGINEERING
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_EMERGENCY_STORAGE 14
 /datum/access/emergency_storage
-	id = ACCESS_EMERGENCY_STORAGE
+	id = 14
 	desc = "Emergency Storage"
 	region = ACCESS_REGION_ENGINEERING
 
 /// Used only in '/datum/computer_file/program/card_mod'
-#define ACCESS_CHANGE_IDS 15
 /datum/access/change_ids
-	id = ACCESS_CHANGE_IDS
+	id = 15
 	desc = "ID Computer"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_AI_UPLOAD 16
 /datum/access/ai_upload
-	id = ACCESS_AI_UPLOAD
+	id = 16
 	desc = "AI Upload"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_TELEPORTER 17
 /datum/access/teleporter
-	id = ACCESS_TELEPORTER
+	id = 17
 	desc = "Teleporter"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_EVA 18
 /datum/access/eva
-	id = ACCESS_EVA
+	id = 18
 	desc = "EVA"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_HEADS 19
 /datum/access/heads
-	id = ACCESS_HEADS
+	id = 19
 	desc = "Bridge"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_CAPTAIN 20
 /datum/access/captain
-	id = ACCESS_CAPTAIN
+	id = 20
 	desc = "Captain"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_ALL_PERSONAL_LOCKERS 21
 /datum/access/all_personal_lockers
-	id = ACCESS_ALL_PERSONAL_LOCKERS
+	id = 21
 	desc = "Personal Lockers"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_CHAPEL_OFFICE 22
 /datum/access/chapel_office
-	id = ACCESS_CHAPEL_OFFICE
+	id = 22
 	desc = "Chapel Office"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_TECH_STORAGE 23
 /datum/access/tech_storage
-	id = ACCESS_TECH_STORAGE
+	id = 23
 	desc = "Technical Storage"
 	region = ACCESS_REGION_ENGINEERING
 
-#define ACCESS_ATMOSPHERICS 24
 /datum/access/atmospherics
-	id = ACCESS_ATMOSPHERICS
+	id = 24
 	desc = "Atmospherics"
 	region = ACCESS_REGION_ENGINEERING
 
-#define ACCESS_BAR 25
 /datum/access/bar
-	id = ACCESS_BAR
+	id = 25
 	desc = "Bar"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_JANITOR 26
 /datum/access/janitor
-	id = ACCESS_JANITOR
+	id = 26
 	desc = "Custodial Closet"
 	region = ACCESS_REGION_GENERAL
 
 /// Only used for morgue crematorium switch, and the only one that exists has its access vars nulled anyway.
-#define ACCESS_CREMATORIUM 27
 /datum/access/crematorium
-	id = ACCESS_CREMATORIUM
+	id = 27
 	desc = "Crematorium"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_GALLEY 28
 /datum/access/galley
-	id = ACCESS_GALLEY
+	id = 28
 	desc = "Galley"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_ROBOTICS 29
 /datum/access/robotics
-	id = ACCESS_ROBOTICS
+	id = 29
 	desc = "Robotics"
 	region = ACCESS_REGION_RESEARCH
 
-#define ACCESS_RD 30
 /datum/access/rd
-	id = ACCESS_RD
+	id = 30
 	desc = "Research Director"
 	region = ACCESS_REGION_RESEARCH
 
-#define ACCESS_CARGO 31
 /datum/access/cargo
-	id = ACCESS_CARGO
+	id = 31
 	desc = "Cargo Bay"
 	region = ACCESS_REGION_SUPPLY
 
 /// Used only for locked welding lockers and engineering suit cyclers, weirdly.
-#define ACCESS_CONSTRUCTION 32
 /datum/access/construction
-	id = ACCESS_CONSTRUCTION
+	id = 32
 	desc = "Construction Areas"
 	region = ACCESS_REGION_ENGINEERING
 
-#define ACCESS_PHARMACY 33
 /datum/access/pharmacy
-	id = ACCESS_PHARMACY
+	id = 33
 	desc = "Pharmacy Lab"
 	region = ACCESS_REGION_MEDBAY
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_CARGO_BOT 34
 /datum/access/cargo_bot
-	id = ACCESS_CARGO_BOT
+	id = 34
 	desc = "Cargo Bot Delivery"
 	region = ACCESS_REGION_SUPPLY
 
-#define ACCESS_HYDROPONICS 35
 /datum/access/hydroponics
-	id = ACCESS_HYDROPONICS
+	id = 35
 	desc = "Hydroponics"
 	region = ACCESS_REGION_GENERAL
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_MANUFACTURING 36
 /datum/access/manufacturing
-	id = ACCESS_MANUFACTURING
+	id = 36
 	desc = "Manufacturing"
 	access_type = ACCESS_TYPE_NONE
 
-#define ACCESS_LIBRARY 37
 /datum/access/library
-	id = ACCESS_LIBRARY
+	id = 37
 	desc = "Library"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_LAWYER 38
 /datum/access/lawyer
-	id = ACCESS_LAWYER
+	id = 38
 	desc = "Representative"
 	region = ACCESS_TYPE_CENTCOM
 
 /// Used only for '/obj/item/storage/lockbox/vials' and a smartfridge variant no longer mapped anywhere.
-#define ACCESS_VIROLOGY 39
 /datum/access/virology
-	id = ACCESS_VIROLOGY
+	id = 39
 	desc = "Virology"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_CMO 40
 /datum/access/cmo
-	id = ACCESS_CMO
+	id = 40
 	desc = "Chief Medical Officer"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_QM 41
 /datum/access/qm
-	id = ACCESS_QM
+	id = 41
 	desc = "Operations Manager"
 	region = ACCESS_REGION_SUPPLY
 
-#define ACCESS_NETWORK 42
 /datum/access/network
-	id = ACCESS_NETWORK
+	id = 42
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_LEVIATHAN 43
 /datum/access/leviathan
-	id = ACCESS_LEVIATHAN
+	id = 43
 	desc = "Leviathan"
 	region = ACCESS_REGION_COMMAND
 
 // free_access_id = 44
 
-#define ACCESS_SURGERY 45
 /datum/access/surgery
-	id = ACCESS_SURGERY
+	id = 45
 	desc = "Surgery"
 	region = ACCESS_REGION_MEDBAY
 
 // free_access_id = 46
 
-#define ACCESS_RESEARCH 47
 /datum/access/research
-	id = ACCESS_RESEARCH
+	id = 47
 	desc = "Science"
 	region = ACCESS_REGION_RESEARCH
 
-#define ACCESS_MINING 48
 /datum/access/mining
-	id = ACCESS_MINING
+	id = 48
 	desc = "Mining"
 	region = ACCESS_REGION_SUPPLY
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_MINING_OFFICE 49
 /datum/access/mining_office
-	id = ACCESS_MINING_OFFICE
+	id = 49
 	desc = "Mining Office"
 	access_type = ACCESS_TYPE_NONE
 
 /// Only used as a weird standin for Operations in camera network access.
-#define ACCESS_MAILSORTING 50
 /datum/access/mailsorting
-	id = ACCESS_MAILSORTING
+	id = 50
 	desc = "Cargo Office"
 	region = ACCESS_REGION_SUPPLY
 
 // free_access_id = 51
 
-#define ACCESS_XENOBOTANY 52
 /datum/access/xenobotany
-	id = ACCESS_XENOBOTANY
+	id = 52
 	desc = "Xenobotany"
 	region = ACCESS_REGION_RESEARCH
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_HEADS_VAULT 53
 /datum/access/heads_vault
-	id = ACCESS_HEADS_VAULT
+	id = 53
 	desc = "Main Vault"
 	region = ACCESS_REGION_COMMAND
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_MINING_STATION 54
 /datum/access/mining_station
-	id = ACCESS_MINING_STATION
+	id = 54
 	desc = "Mining EVA"
 	region = ACCESS_REGION_SUPPLY
 
-#define ACCESS_XENOBIOLOGY 55
 /datum/access/xenobiology
-	id = ACCESS_XENOBIOLOGY
+	id = 55
 	desc = "Xenobiology Lab"
 	region = ACCESS_REGION_RESEARCH
 
-#define ACCESS_CE 56
 /datum/access/ce
-	id = ACCESS_CE
+	id = 56
 	desc = "Chief Engineer"
 	region = ACCESS_REGION_ENGINEERING
 
-#define ACCESS_HOP 57
 /datum/access/hop
-	id = ACCESS_HOP
+	id = 57
 	desc = "Executive Officer"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_HOS 58
 /datum/access/hos
-	id = ACCESS_HOS
+	id = 58
 	desc = "Head of Security"
 	region = ACCESS_REGION_SECURITY
 
 /// Requests console announcements
-#define ACCESS_RC_ANNOUNCE 59
 /datum/access/RC_announce
-	id = ACCESS_RC_ANNOUNCE
+	id = 59
 	desc = "RC Announcements"
 	region = ACCESS_REGION_COMMAND
 
 /// Used for events which require at least two people to confirm them
-#define ACCESS_KEYCARD_AUTH 60
 /datum/access/keycard_auth
-	id = ACCESS_KEYCARD_AUTH
+	id = 60
 	desc = "Keycode Auth. Device"
 	region = ACCESS_REGION_COMMAND
 
 /// Has access to the interior Telecomms compartment
-#define ACCESS_TCOMSAT 61
 /datum/access/tcomsat
-	id = ACCESS_TCOMSAT
+	id = 61
 	desc = "Telecommunications"
 	region = ACCESS_REGION_COMMAND
 
 /// NOT CURRENTLY USED ANYWHERE
-#define ACCESS_GATEWAY 62
 /datum/access/gateway
-	id = ACCESS_GATEWAY
+	id = 62
 	desc = "Gateway"
 	region = ACCESS_REGION_COMMAND
 
 /// Security front doors
-#define ACCESS_SEC_DOORS 63
 /datum/access/sec_doors
-	id = ACCESS_SEC_DOORS
+	id = 63
 	desc = "Security"
 	region = ACCESS_REGION_SECURITY
 
 /// Psychiatrist's office
-#define ACCESS_PSYCHIATRIST 64
 /datum/access/psychiatrist
-	id = ACCESS_PSYCHIATRIST
+	id = 64
 	desc = "Psychiatrist's Office"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_XENOARCH 65
 /datum/access/xenoarch
-	id = ACCESS_XENOARCH
+	id = 65
 	desc = "Xenoarchaeology"
 	region = ACCESS_REGION_RESEARCH
 
-#define ACCESS_MEDICAL_EQUIP 66
 /datum/access/medical_equip
-	id = ACCESS_MEDICAL_EQUIP
+	id = 66
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_PARAMEDIC 67
 /datum/access/paramedic
-	id = ACCESS_PARAMEDIC
+	id = 67
 	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
 
 // free_access_id = 68
 
 /// Used by firing pins.
-#define ACCESS_WEAPONS 69
 /datum/access/weapons
-	id = ACCESS_WEAPONS
+	id = 69
 	desc = "Weaponry Permission"
 	region = ACCESS_REGION_SECURITY
 
 /// Journalist's office access
-#define ACCESS_JOURNALIST 70
 /datum/access/journalist
-	id = ACCESS_JOURNALIST
+	id = 70
 	desc = "Journalist Office"
 	region = ACCESS_REGION_GENERAL
 
 /// Allows some unique interactions with devices
-#define ACCESS_IT 71
 /datum/access/tech_support
-	id = ACCESS_IT
+	id = 71
 	desc = "Tech Support"
 
-#define ACCESS_CONSULAR 72
 /datum/access/consular
-	id = ACCESS_CONSULAR
+	id = 72
 	desc = "Consular"
 
-#define ACCESS_INTREPID 73
 /datum/access/intrepid
-	id = ACCESS_INTREPID
+	id = 73
 	desc = "Intrepid Shuttle"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_BRIDGE_CREW 74
 /datum/access/bridge_crew
-	id = ACCESS_BRIDGE_CREW
+	id = 74
 	desc = "Bridge Crew"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_SHIP_WEAPONS 75
 /datum/access/ship_weapons
-	id = ACCESS_SHIP_WEAPONS
+	id = 75
 	desc = "Ship Weapons"
 	region = ACCESS_REGION_SUPPLY
 
-#define ACCESS_SPARK 76
 /datum/access/spark
-	id = ACCESS_SPARK
+	id = 76
 	desc = "Spark Shuttle"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_QUARK 77
 /datum/access/quark
-	id = ACCESS_QUARK
+	id = 77
 	desc = "Quark Shuttle"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_CANARY 78
 /datum/access/canary
-	id = ACCESS_CANARY
+	id = 78
 	desc = "Canary Shuttle"
 	region = ACCESS_REGION_COMMAND
 
@@ -509,79 +435,68 @@
 * Central Command *
 ******************/
 //General facilities. - Everyone on central has that --> Use this for doors that every central role should have access to, but not the aurora people
-#define ACCESS_CENT_GENERAL 101
 /datum/access/cent_general
-	id = ACCESS_CENT_GENERAL
+	id = 101
 	desc = "Code Grey"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Thunderdome.
-#define ACCESS_CENT_THUNDER 102
 /datum/access/cent_thunder
-	id = ACCESS_CENT_THUNDER
+	id = 102
 	desc = "Code Yellow"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Centcom Security - This access is used by the ERT / Odin Security and CCIA
-// Separation between Odin Sec/CCIA and ERT is achieved via the ERT Commander Access (ACCESS_CENT_CREED)
-#define ACCESS_CENT_SPECOPS 103
+// Separation between Odin Sec/CCIA and ERT is achieved via the ERT Commander Access (/datum/access/cent_creed::id)
 /datum/access/cent_specops
-	id = ACCESS_CENT_SPECOPS
+	id = 103
 	desc = "Code Black"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Medical/Research - Thats the access for the medical section. Used for the odin doctors/chemists
-#define ACCESS_CENT_MEDICAL 104
 /datum/access/cent_medical
-	id = ACCESS_CENT_MEDICAL
+	id = 104
 	desc = "Code White"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Living quarters, the access used by the odin bartenders/chefs
-#define ACCESS_CENT_LIVING 105
 /datum/access/cent_living
-	id = ACCESS_CENT_LIVING
+	id = 105
 	desc = "Code Green"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //Generic storage areas, used for the Maint Tunnels on Centcom
-#define ACCESS_CENT_STORAGE 106
 /datum/access/cent_storage
-	id = ACCESS_CENT_STORAGE
+	id = 106
 	desc = "Code Orange"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //107 is unused
 
 //Creed's office. - ERT/TCFL Commander
-#define ACCESS_CENT_CREED 108
 /datum/access/cent_creed
-	id = ACCESS_CENT_CREED
+	id = 108
 	desc = "Code Silver"
 	access_type = ACCESS_TYPE_CENTCOM
 
 //CCIA Access on Centcom
-#define ACCESS_CENT_CCIA 109
 /datum/access/cent_ccia
-	id = ACCESS_CENT_CCIA
+	id = 109
 	desc = "Code Gold"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_MERCHANT 110//merchant access
 /datum/access/merchant
-	id = ACCESS_MERCHANT
+	id = 110//merchant
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_TCAF 111//tau ceti armed forces access
 /datum/access/tcaf
-	id = ACCESS_TCAF
+	id = 111//tau
 	desc = "Tau Ceti Armed Forces Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_DISTRESS 112
 /datum/access/distress
-	id = ACCESS_DISTRESS
+	id = 112
 	desc = "General ERT Base Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
@@ -589,303 +504,249 @@
 /****************************
 * Kataphract Chapter Access *
 ****************************/
-#define ACCESS_KATAPHRACT 113
 /datum/access/kataphract
-	id = ACCESS_KATAPHRACT
+	id = 113
 	desc = "Kataphract Chapter Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_KATAPHRACT_KNIGHT 114
 /datum/access/kataphract/knight
-	id = ACCESS_KATAPHRACT_KNIGHT
+	id = 114
 	desc = "Kataphract Knight Access"
 
 /***************
 * Antag access *
 ***************/
-#define ACCESS_SYNDICATE 150//General Syndicate Access
 /datum/access/syndicate
-	id = ACCESS_SYNDICATE
+	id = 150//General
 	access_type = ACCESS_TYPE_SYNDICATE
 
-#define ACCESS_SYNDICATE_LEADER 151 //Syndie Commander Access
 /datum/access/syndicate_leader
-	id = ACCESS_SYNDICATE_LEADER
+	id = 151
 	access_type = ACCESS_TYPE_SYNDICATE
 
 /*******
 * Misc *
 *******/
-#define ACCESS_EQUIPMENT 199
 /datum/access/equipment
-	id = ACCESS_EQUIPMENT
+	id = 199
 	desc = "Equipment"
 	access_type = ACCESS_TYPE_NONE
 
-#define ACCESS_CRATE_CASH 200
 /datum/access/crate_cash
-	id = ACCESS_CRATE_CASH
+	id = 200
 	access_type = ACCESS_TYPE_NONE
 
-#define ACCESS_ORION_EXPRESS_SHIP 201
 /datum/access/exress_ship
-	id = ACCESS_ORION_EXPRESS_SHIP
+	id = 201
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GENERIC_AWAY_SITE 202
 /datum/access/generic_away_site
-	id = ACCESS_GENERIC_AWAY_SITE
+	id = 202
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_NONE -1
 /datum/access/none
-	id = ACCESS_NONE
+	id = -1
 	access_type = ACCESS_TYPE_NONE
 
-#define ACCESS_SOL_SHIPS 203
 /datum/access/sol_ships
-	id = ACCESS_SOL_SHIPS
+	id = 203
 	access_type = ACCESS_TYPE_CENTCOM
 
 /// 204 is vacant
 
-#define ACCESS_EE_SPY_SHIP 205
 /datum/access/ee_spy_ship
-	id = ACCESS_EE_SPY_SHIP
+	id = 205
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_CIVILIAN_STATION 206
 /datum/access/civilian_station
-	id = ACCESS_CIVILIAN_STATION
+	id = 206
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP 207
 /datum/access/elyran_naval_infantry_ship
-	id = ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP
+	id = 207
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_SKRELL 208
 /datum/access/skrell
-	id = ACCESS_SKRELL
+	id = 208
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_PRA 209
 /datum/access/pra
-	id = ACCESS_PRA
+	id = 209
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_UNATHI_PIRATE 210
 /datum/access/unathi_pirate
-	id = ACCESS_UNATHI_PIRATE
+	id = 210
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_IAC_RESCUE_SHIP 211
 /datum/access/iac_rescue_shit
-	id = ACCESS_IAC_RESCUE_SHIP
+	id = 211
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP 212
 /datum/access/imperial_fleet_voidsman_ship
-	id = ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP
+	id = 212
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_NKA 213
 /datum/access/nka
-	id = ACCESS_NKA
+	id = 213
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_DPRA 214
 /datum/access/dpra
-	id = ACCESS_DPRA
+	id = 214
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_MERCHANTS_GUILD 215
 /datum/access/merchants_guild
-	id = ACCESS_MERCHANTS_GUILD
+	id = 215
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_HEPHAESTUS 216
 /datum/access/hephaestus
-	id = ACCESS_HEPHAESTUS
+	id = 216
 	access_type = ACCESS_TYPE_CENTCOM
 
 // For the Golden Deep ghostrole. This is the access for the merchant and guards, but not for the owned synthetics.
-#define ACCESS_GOLDEN_DEEP 217
 /datum/access/golden_deep
-	id = ACCESS_GOLDEN_DEEP
+	id = 217
 	access_type = ACCESS_TYPE_CENTCOM
 	desc = "Golden Deep"
 
-#define ACCESS_PORTOFCALL_POLICE 218
 /datum/access/portofcall_police
-	id = ACCESS_PORTOFCALL_POLICE
+	id = 218
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_PORTOFCALL_VENDORS 219
 /datum/access/portofcall_vendors
-	id = ACCESS_PORTOFCALL_VENDORS
+	id = 219
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_IDRIS 220
 /datum/access/idris
-	id = ACCESS_IDRIS
+	id = 220
 	desc = "Idris Ship Crew Member"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_COALITION 221
 /datum/access/coalition
-	id = ACCESS_COALITION
+	id = 221
 	desc = "Coalition of Colonies"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_COALITION_NAVY 222
 /datum/access/coalition_navy
-	id = ACCESS_COALITION_NAVY
+	id = 222
 	desc = "Coalition Navy"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GADPATHUR_NAVY 223
 /datum/access/gadpathur_navy
-	id = ACCESS_GADPATHUR_NAVY
+	id = 223
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GADPATHUR_NAVY_OFFICER 224
 /datum/access/gadpathur_navy_officer
-	id = ACCESS_GADPATHUR_NAVY_OFFICER
+	id = 224
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_PORTOFCALL_CORPORATE 225
 /datum/access/portofcall_corporate
-	id = ACCESS_PORTOFCALL_CORPORATE
+	id = 225
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_HOUSE_VOLVALAAD_SHIP 226
 /datum/access/house_volvalaad_ship
-	id = ACCESS_HOUSE_VOLVALAAD_SHIP
+	id = 226
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_OZEUOI 227
 /datum/access/moghes_wasteland_ozeuoi
-	id = ACCESS_OZEUOI
+	id = 227
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_AUTAKH 228
 /datum/access/autakh
-	id = ACCESS_AUTAKH
+	id = 228
 	access_type = ACCESS_TYPE_CENTCOM
 
 // For the Golden Deep ghostrole. This is for the owned synthetics, so they lack some of the access their superiors enjoy.
-#define ACCESS_GOLDEN_DEEP_OWNED 229
 /datum/access/golden_deep_owned
-	id = ACCESS_GOLDEN_DEEP_OWNED
+	id = 229
 	access_type = ACCESS_TYPE_CENTCOM
 	desc = "Golden Deep, Limited Access"
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
-#define ACCESS_GUEST_ROOMS 230 //use with req_one_access
 /datum/access/guest_rooms
-	id = ACCESS_GUEST_ROOMS
+	id = 230
 	desc = "Guest Rooms - All"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_1 231
 /datum/access/guest_room_1
-	id = ACCESS_GUEST_ROOM_1
+	id = 231
 	desc = "Guest Room 1"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_2 232
 /datum/access/guest_room_2
-	id = ACCESS_GUEST_ROOM_2
+	id = 232
 	desc = "Guest Room 2"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_3 233
 /datum/access/guest_room_3
-	id = ACCESS_GUEST_ROOM_3
+	id = 233
 	desc = "Guest Room 3"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_4 234
 /datum/access/guest_room_4
-	id = ACCESS_GUEST_ROOM_4
+	id = 234
 	desc = "Guest Room 4"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_5 235
 /datum/access/guest_room_5
-	id = ACCESS_GUEST_ROOM_5
+	id = 235
 	desc = "Guest Room 5"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_6 236
 /datum/access/guest_room_6
-	id = ACCESS_GUEST_ROOM_6
+	id = 236
 	desc = "Guest Room 6"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_7 237
 /datum/access/guest_room_7
-	id = ACCESS_GUEST_ROOM_7
+	id = 237
 	desc = "Guest Room 7"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_8 238
 /datum/access/guest_room_8
-	id = ACCESS_GUEST_ROOM_8
+	id = 238
 	desc = "Guest Room 8"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_9 239
 /datum/access/guest_room_9
-	id = ACCESS_GUEST_ROOM_9
+	id = 239
 	desc = "Guest Room 9"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_GUEST_ROOM_10 240
 /datum/access/guest_room_10
-	id = ACCESS_GUEST_ROOM_10
+	id = 240
 	desc = "Guest Room 10"
 
-#define ACCESS_FISHING_LEAGUE 241
 /datum/access/unathi_trawler_access
-	id = ACCESS_FISHING_LEAGUE
+	id = 241
 	desc = "General Fishing Trawler Access"
 
-#define ACCESS_TRAMP_FREIGHTER 242
 /datum/access/tramp_freighter_access
-	id = ACCESS_TRAMP_FREIGHTER
+	id = 242
 	desc = "Independent Freighter Access"
 
-#define ACCESS_LONE_SPACER 243
 /datum/access/lone_spacer_access
-	id = ACCESS_LONE_SPACER
+	id = 243
 	desc = "Independent Skiff Access"
 
-#define ACCESS_CRYO_OUTPOST 244
 /datum/access/cryo_outpost_access
-	id = ACCESS_CRYO_OUTPOST
+	id = 244
 	desc = "Outpost #187-D Access"
 
-#define ACCESS_RUINED_PROPELLANT_DEPOT 245
 /datum/access/ruined_propellant_depot_access
-	id = ACCESS_RUINED_PROPELLANT_DEPOT
+	id = 245
 	desc = "Propellant Depot AG5 Access"
 
-#define ACCESS_SPLF 246
 /datum/access/splf_access
-	id = ACCESS_SPLF
+	id = 246
 	desc = "SPLF Access"
 
-#define ACCESS_NUCLEAR_MISSILE_SILO 247
 /datum/access/nuclear_missile_silo_access
-	id = ACCESS_NUCLEAR_MISSILE_SILO
+	id = 247
 	desc = "Nuclear Missile Silo Access"
 
-#define ACCESS_NUCLEAR_MISSILE_SILO_HIGH 248
 /datum/access/nuclear_missile_silo_access_high
-	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
+	id = 248
 	desc = "Nuclear Missile Silo Access High Security"
 
 /datum/access/enviro_testing_facility_access_control
@@ -904,26 +765,21 @@
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
 
-#define ACCESS_HIMEO_PATROL_SHIP 253
-	id = ACCESS_HIMEO_PATROL_SHIP
+	id = 253
 	desc = "Himean Military Patrol Vessel"
 
-#define ACCESS_QUARANTINED_OUTPOST_ENGINEER 254
 /datum/access/quarantined_outpost_engineer
-	id = ACCESS_QUARANTINED_OUTPOST_ENGINEER
+	id = 254
 	desc = "Outpost Nemora, Engineering Clearance"
 
-#define ACCESS_DECREPIT_SHIPYARD_STAFF 255
 /datum/access/decrepit_shipyard_staff
-	id = ACCESS_DECREPIT_SHIPYARD_STAFF
+	id = 255
 	desc = "Decrepit Shipyard, Staff Access"
 
-#define ACCESS_VOIDTAMER_SHIP 256
 /datum/access/voidtamer_ship
-	id = ACCESS_VOIDTAMER_SHIP
+	id = 256
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_ABANDONED_CASINO_STAFF 257
 /datum/access/abandoned_casino
-	id = ACCESS_ABANDONED_CASINO_STAFF
+	id = 257
 

@@ -55,7 +55,7 @@
 			tag.modify_tag_data(TRUE) //Shady pirates might well have untagged IPCs aboard
 
 /obj/outfit/admin/freebooter_crew/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/freebooter_crew/captain
 	short_name = "freebooter_crew_captain"
@@ -85,4 +85,4 @@
 
 /obj/item/card/id/freebooter_crew_ship
 	name = "independent ship id"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/external_airlocks::id)

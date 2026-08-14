@@ -67,7 +67,7 @@
 	)
 
 /obj/outfit/admin/tajaran_smuggler/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/external_airlocks::id)
 
 
 /datum/ghostspawner/human/tajaran_smuggler/captain

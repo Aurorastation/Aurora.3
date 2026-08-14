@@ -1,7 +1,7 @@
 /obj/structure/machinery/suit_cycler/engineering
 	name = "engineering suit cycler"
 	model_text = "Engineering"
-	req_access = list(ACCESS_CONSTRUCTION)
+	req_access = list(/datum/access/construction::id)
 	departments = list("Engineering", "Atmos")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
@@ -18,7 +18,7 @@
 /obj/structure/machinery/suit_cycler/mining
 	name = "mining suit cycler"
 	model_text = "Mining"
-	req_access = list(ACCESS_MINING)
+	req_access = list(/datum/access/mining::id)
 	departments = list("Mining")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
@@ -31,7 +31,7 @@
 /obj/structure/machinery/suit_cycler/security
 	name = "security suit cycler"
 	model_text = "Security"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	departments = list("Security")
 
 /obj/structure/machinery/suit_cycler/security/prepared
@@ -43,7 +43,7 @@
 /obj/structure/machinery/suit_cycler/medical
 	name = "medical suit cycler"
 	model_text = "Medical"
-	req_access = list(ACCESS_MEDICAL)
+	req_access = list(/datum/access/medical::id)
 	departments = list("Medical")
 
 /obj/structure/machinery/suit_cycler/medical/prepared
@@ -55,7 +55,7 @@
 /obj/structure/machinery/suit_cycler/syndicate
 	name = "non-standard suit cycler"
 	model_text = "Nonstandard"
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 	departments = list("Mercenary", "Unchanged") //So the merc suit cycler can refit relevant suits
 	can_repair = TRUE
 
@@ -76,7 +76,7 @@
 /obj/structure/machinery/suit_cycler/hos
 	name = "head of security suit cycler"
 	model_text = "head of Security"
-	req_access = list(ACCESS_HOS)
+	req_access = list(/datum/access/hos::id)
 	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -90,7 +90,7 @@
 /obj/structure/machinery/suit_cycler/captain
 	name = "captain suit cycler"
 	model_text = "Captain"
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 	departments = list("Captain")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -104,7 +104,7 @@
 /obj/structure/machinery/suit_cycler/science
 	name = "research suit cycler"
 	model_text = "Research"
-	req_access = list(ACCESS_RESEARCH)
+	req_access = list(/datum/access/research::id)
 	departments = list("Research")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -118,7 +118,7 @@
 /obj/structure/machinery/suit_cycler/operations
 	name = "operations suit cycler"
 	model_text = "Operations"
-	req_access = list(ACCESS_CARGO)
+	req_access = list(/datum/access/cargo::id)
 	departments = list("Operations")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -132,7 +132,7 @@
 /obj/structure/machinery/suit_cycler/freelancer
 	name = "freelancers suit cycler"
 	model_text = "Freelancers"
-	req_access = list(ACCESS_DISTRESS)
+	req_access = list(/datum/access/distress::id)
 	departments = list("Freelancers")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
@@ -156,14 +156,14 @@
 
 /obj/structure/machinery/suit_cycler/offship/biesel
 	model_text = "Zavodskoi Interstellar"
-	req_access = list(ACCESS_TCAF)
+	req_access = list(/datum/access/tcaf::id)
 	departments = list("Tau Ceti Armed Forces")
 	suit = /obj/item/clothing/suit/space/void/tcaf
 	helmet = /obj/item/clothing/head/helmet/space/void/tcaf
 
 /obj/structure/machinery/suit_cycler/offship/coc
 	model_text = "Coalition"
-	req_access = list(ACCESS_COALITION)
+	req_access = list(/datum/access/coalition::id)
 	departments = list("Vulture")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 	suit = /obj/item/clothing/suit/space/void/coalition
@@ -171,7 +171,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/gadpathur
 	model_text = "Gadpathurian Navy"
-	req_access = list(ACCESS_GADPATHUR_NAVY)
+	req_access = list(/datum/access/gadpathur_navy::id)
 	departments = list("Gadpathur")
 	species = list(BODYTYPE_HUMAN)
 	suit = /obj/item/clothing/suit/space/void/coalition/gadpathur
@@ -180,7 +180,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/dominia
 	model_text = "Zhurong Imperial Shipyards"
-	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 	departments = list("Dominia")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/dominia
@@ -193,7 +193,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/dpra
 	model_text = "People's Volunteer Spacer Militia"
-	req_access = list(ACCESS_DPRA)
+	req_access = list(/datum/access/dpra::id)
 	departments = list("DPRA")
 	species = list(BODYTYPE_TAJARA)
 	suit = /obj/item/clothing/suit/space/void/dpra
@@ -201,7 +201,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/elyra
 	model_text = "Elyran Naval Infantry"
-	req_access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	departments = list("Elyra")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	suit = /obj/item/clothing/suit/space/void/valkyrie
@@ -209,7 +209,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/hegemony
 	model_text = "Izweski Navy"
-	req_access = list(ACCESS_KATAPHRACT)
+	req_access = list(/datum/access/kataphract::id)
 	departments = list("Izweski Hegemony")
 	species = list(BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/hegemony
@@ -225,13 +225,13 @@
 	helmet = /obj/item/clothing/head/helmet/space/void/hegemony/priest
 
 /obj/structure/machinery/suit_cycler/offship/hegemony/captain
-	req_access = list(ACCESS_KATAPHRACT_KNIGHT)
+	req_access = list(/datum/access/kataphract/knight::id)
 	suit = /obj/item/clothing/suit/space/void/hegemony/captain
 	helmet = /obj/item/clothing/head/helmet/space/void/hegemony/captain
 
 /obj/structure/machinery/suit_cycler/offship/hephaestus
 	model_text = "Hephaestus Industries"
-	req_access = list(ACCESS_HEPHAESTUS)
+	req_access = list(/datum/access/hephaestus::id)
 	departments = list("Hephaestus")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/hephaestus
@@ -239,7 +239,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/kataphract
 	model_text = "Kataphract Guild"
-	req_access = list(ACCESS_KATAPHRACT)
+	req_access = list(/datum/access/kataphract::id)
 	departments = list("Kataphract")
 	species = list(BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/kataphract
@@ -247,18 +247,18 @@
 	boots = /obj/item/clothing/shoes/magboots/hegemony
 
 /obj/structure/machinery/suit_cycler/offship/kataphract/specialist
-	req_access = list(ACCESS_KATAPHRACT_KNIGHT)
+	req_access = list(/datum/access/kataphract/knight::id)
 	suit = /obj/item/clothing/suit/space/void/kataphract/spec
 	helmet = /obj/item/clothing/head/helmet/space/void/kataphract/spec
 
 /obj/structure/machinery/suit_cycler/offship/kataphract/lead
-	req_access = list(ACCESS_KATAPHRACT_KNIGHT)
+	req_access = list(/datum/access/kataphract/knight::id)
 	suit = /obj/item/clothing/suit/space/void/kataphract/lead
 	helmet = /obj/item/clothing/head/helmet/space/void/kataphract/lead
 
 /obj/structure/machinery/suit_cycler/offship/konyang
 	model_text = "Konyang Aerospace Force"
-	req_access = list(ACCESS_PORTOFCALL_POLICE)
+	req_access = list(/datum/access/portofcall_police::id)
 	departments = list("Konyang")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	suit = /obj/item/clothing/suit/space/void/sol/konyang
@@ -266,7 +266,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/nka
 	model_text = "Her Majesty's Mercantile Flotilla"
-	req_access = list(ACCESS_NKA)
+	req_access = list(/datum/access/nka::id)
 	departments = list("NKA")
 	species = list(BODYTYPE_TAJARA)
 	suit = /obj/item/clothing/suit/space/void/nka
@@ -274,7 +274,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/pra
 	model_text = "People's Republic of Adhomai"
-	req_access = list(ACCESS_PRA)
+	req_access = list(/datum/access/pra::id)
 	departments = list("PRA")
 	species = list(BODYTYPE_TAJARA)
 	suit = /obj/item/clothing/suit/space/void/pra
@@ -282,7 +282,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/sol
 	model_text = "Sol Alliance"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 	departments = list("Sol")
 	species = list(BODYTYPE_HUMAN)
 	suit = /obj/item/clothing/suit/space/void/sol
@@ -302,13 +302,13 @@
 	helmet = /obj/item/clothing/head/helmet/space/void/sol/ssmd
 
 /obj/structure/machinery/suit_cycler/offship/sol/splf
-	req_access = list(ACCESS_SPLF)
+	req_access = list(/datum/access/splf_access::id)
 	suit = /obj/item/clothing/suit/space/void/sol/splf
 	helmet = /obj/item/clothing/head/helmet/space/void/sol/splf
 
 /obj/structure/machinery/suit_cycler/offship/xanu
 	model_text = "All-Xanu Spacefleet"
-	req_access = list(ACCESS_COALITION_NAVY)
+	req_access = list(/datum/access/coalition_navy::id)
 	departments = list("Xanu")
 	species = list(BODYTYPE_HUMAN)
 	suit = /obj/item/clothing/suit/space/void/coalition/xanu
@@ -316,7 +316,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/skrell
 	model_text = "Qerr'Zolvq Industries"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 	departments = list("Nralakk")
 	species = list(BODYTYPE_SKRELL)
 	mask = /obj/item/clothing/mask/breath/skrell
@@ -348,7 +348,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/tarwa
 	model_text = "Tarwa Conglomerate"
-	req_access = list(ACCESS_UNATHI_PIRATE)
+	req_access = list(/datum/access/unathi_pirate::id)
 	departments = list("Tarwa Conglomerate")
 	species = list(BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
@@ -361,7 +361,7 @@
 // For owned Golden Deep synthetics, Thesians, and other non-combatants.
 /obj/structure/machinery/suit_cycler/offship/golden_deep
 	model_text = "Golden Deep"
-	req_one_access = list(ACCESS_GOLDEN_DEEP_OWNED, ACCESS_GOLDEN_DEEP)
+	req_one_access = list(/datum/access/golden_deep_owned::id, /datum/access/golden_deep::id)
 	departments = list("Golden Deep")
 	species = list(BODYTYPE_IPC)
 	suit = /obj/item/clothing/suit/space/void/golden_deep/menial
@@ -370,20 +370,20 @@
 // For the Hoplan, armed guards of the ships of the Golden Deep.
 /obj/structure/machinery/suit_cycler/offship/golden_deep/hoplan
 	model_text = "Golden Deep Hoplan"
-	req_access = list(ACCESS_GOLDEN_DEEP)
+	req_access = list(/datum/access/golden_deep::id)
 	suit = /obj/item/clothing/suit/space/void/golden_deep/hoplan
 	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan
 
 // For merchants of the Golden Deep. Only they're rich enough, duh.
 /obj/structure/machinery/suit_cycler/offship/golden_deep/merchant
 	model_text = "Golden Deep Merchant"
-	req_access = list(ACCESS_GOLDEN_DEEP)
+	req_access = list(/datum/access/golden_deep::id)
 	suit = /obj/item/clothing/suit/space/void/golden_deep
 	helmet = /obj/item/clothing/head/helmet/space/void/golden_deep
 
 /obj/structure/machinery/suit_cycler/offship/hiskyn
 	model_text = "Hiskyn's Revanchists"
-	req_access = list(ACCESS_UNATHI_PIRATE)
+	req_access = list(/datum/access/unathi_pirate::id)
 	departments = list("Hiskyn's Revanchists")
 	species = list(BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn
@@ -396,7 +396,7 @@
 // For the Himean Military vessel.
 /obj/structure/machinery/suit_cycler/offship/coalition/himeo
 	model_text = "Himean Buzzard"
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 	departments = list("Himean Military")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA)
 	suit = /obj/item/clothing/suit/space/void/coalition/himeo
@@ -404,7 +404,7 @@
 
 /obj/structure/machinery/suit_cycler/offship/coalition/himeo/engineer
 	model_text = "Type-78 Fish Fur"
-	req_access = list(ACCESS_HIMEO_PATROL_SHIP)
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
 	departments = list("Himean Military")
 	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA)
 	suit = /obj/item/clothing/suit/space/void/engineering/himeo

@@ -18,10 +18,10 @@
 	)
 
 	job_access = list(
-		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TOX_STORAGE,
-		ACCESS_TELEPORTER, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_RESEARCH,
-		ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_GATEWAY,
-		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY
+		/datum/access/rd::id, /datum/access/heads::id, /datum/access/tox::id, /datum/access/genetics::id, /datum/access/morgue::id, /datum/access/eva::id, /datum/access/external_airlocks::id, /datum/access/tox_storage::id,
+		/datum/access/teleporter::id, /datum/access/sec_doors::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/ship_weapons::id, /datum/access/construction::id, /datum/access/mining::id, /datum/access/mailsorting::id, /datum/access/research::id,
+		/datum/access/xenobiology::id, /datum/access/xenobotany::id, /datum/access/ai_upload::id, /datum/access/tech_storage::id, /datum/access/RC_announce::id, /datum/access/keycard_auth::id, /datum/access/tcomsat::id, /datum/access/gateway::id,
+		/datum/access/xenoarch::id, /datum/access/network::id, /datum/access/maint_tunnels::id, /datum/access/tech_support::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id
 	)
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/rd
@@ -75,7 +75,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	job_access = list(/datum/access/tox::id, /datum/access/tox_storage::id, /datum/access/research::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist
@@ -129,7 +129,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	job_access = list(/datum/access/research::id, /datum/access/xenoarch::id, /datum/access/tox::id, /datum/access/tox_storage::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist/xenoarchaeologist
@@ -181,7 +181,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_TOX, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_TOX_STORAGE, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	job_access = list(/datum/access/tox::id, /datum/access/research::id, /datum/access/xenobiology::id, /datum/access/tox_storage::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
 
 	minimal_player_age = 14
 
@@ -218,7 +218,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	job_access = list(/datum/access/tox::id, /datum/access/tox_storage::id, /datum/access/research::id, /datum/access/xenobotany::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
 
 	minimal_player_age = 14
 
@@ -250,7 +250,7 @@
 	supervisors = "the Research Director"
 	selection_color = "#a44799"
 
-	job_access = list(ACCESS_RESEARCH, ACCESS_TOX)
+	job_access = list(/datum/access/research::id, /datum/access/tox::id)
 	outfit = /obj/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 

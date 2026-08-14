@@ -52,8 +52,8 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /obj/outfit/admin/survivor/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/external_airlocks::id)
 
 /obj/item/card/id/freighter_crew_ship
 	name = "freight ship id"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/external_airlocks::id)
