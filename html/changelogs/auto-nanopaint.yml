@@ -1,6 +1,0 @@
-author: Y0SH1M4S73R
-delete-after: true
-changes:
-  - rscadd: "Adds NanoPaint, a downloadable modular-computer app for creating layered pixel art and saving it as editable NPNT projects or PNG images."
-  - rscadd: "PNG files can be viewed in File Manager and printed as photographs using a modular computer's nano-printer."
-  - rscadd: "Adds a camera app to modular PDAs. With the app open, use the PDA on a visible target to capture a photo and save it as a NanoPaint-compatible PNG."
