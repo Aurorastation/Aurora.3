@@ -4208,6 +4208,8 @@
 #include "maps\away\away_site\zavod_shuttle_destroyed\zavod_shuttle_destroyed.dm"
 #include "maps\away\scenarios\boneyard\the_boneyard.dm"
 #include "maps\away\scenarios\boneyard\the_boneyard_areas.dm"
+#include "maps\away\scenarios\boneyard\the_boneyard_landmarks.dm"
+#include "maps\away\scenarios\boneyard\the_boneyard_scenario.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_areas.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_landmarks.dm"

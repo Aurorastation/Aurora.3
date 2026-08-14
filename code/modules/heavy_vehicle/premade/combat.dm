@@ -114,3 +114,10 @@
 	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/gauss
 	h_back = /obj/item/mecha_equipment/quick_enter
 	h_head = /obj/item/mecha_equipment/light
+
+/mob/living/heavy_vehicle/premade/combat/coalition/outer_eyes
+	name = "\improper Outer Eyes Vigilance-C combat exosuit"
+	desc = "A modified Vigilance-C combat exosuit, traditionally licensed for use by the All-Xanu Armed Forces."
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/smg
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
+	e_color = COLOR_PURPLE
