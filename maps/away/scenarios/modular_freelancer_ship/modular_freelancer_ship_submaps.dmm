@@ -166,8 +166,7 @@
 /area/template_noop)
 "aaG" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(204)
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
@@ -229,13 +228,20 @@
 /obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"aaZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "aba" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/machinery/shipsensors/strong{
-	pixel_y = 6
-	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "abb" = (
@@ -485,10 +491,18 @@
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "abW" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
 	},
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "acc" = (
 /obj/random/pottedplant,
@@ -1076,10 +1090,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "adE" = (
-/obj/structure/machinery/computer/ship/engines/terminal{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "adF" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -1587,6 +1599,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "afq" = (
@@ -1766,6 +1779,9 @@
 "aga" = (
 /obj/structure/machinery/power/terminal{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -2330,15 +2346,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/machinery/iff_beacon/name_change{
-	pixel_y = 6
-	},
+/obj/item/hullbeacon/green,
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "aiK" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(204)
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -2777,8 +2790,7 @@
 /area/template_noop)
 "alo" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(204)
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -3687,6 +3699,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "aqV" = (
@@ -6222,6 +6235,9 @@
 /obj/structure/machinery/power/terminal{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aGg" = (
@@ -6408,6 +6424,7 @@
 /area/template_noop)
 "aHe" = (
 /obj/structure/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/pink,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aHg" = (
@@ -7198,6 +7215,9 @@
 /obj/structure/machinery/power/terminal{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aLh" = (
@@ -7504,10 +7524,17 @@
 /turf/template_noop,
 /area/template_noop)
 "aNk" = (
-/obj/structure/machinery/power/terminal{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline/medical/dark_green,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aNl" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -7712,6 +7739,9 @@
 "aOD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/machinery/iff_beacon/name_change{
+	pixel_y = 6
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
@@ -7969,9 +7999,20 @@
 /area/template_noop)
 "aQz" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"aQB" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
 /area/template_noop)
 "aQF" = (
 /obj/effect/floor_decal/corner/grey{
@@ -9650,6 +9691,9 @@
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aYO" = (
@@ -10102,6 +10146,12 @@
 "bAA" = (
 /mob/living/heavy_vehicle/premade/combat,
 /turf/template_noop,
+/area/template_noop)
+"bAF" = (
+/obj/structure/cable/pink{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "bEf" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -10581,6 +10631,15 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
+"cwB" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/storage/box/gloves{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "cxa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -10620,6 +10679,12 @@
 	},
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/lounge)
+"cCg" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "cCE" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -11056,6 +11121,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
+"dhm" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "diD" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -11394,6 +11465,15 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
+"dTc" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "dTS" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/structure/machinery/light{
@@ -11846,6 +11926,12 @@
 "eJg" = (
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
+"eJq" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "eJR" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -13590,6 +13676,15 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
+"hrk" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "hrR" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -13717,6 +13812,13 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
+"hCV" = (
+/obj/structure/cable/pink{
+	icon_state = "0-2"
+	},
+/obj/structure/machinery/power/apc/noid/east,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "hDa" = (
 /obj/effect/floor_decal/industrial/outline_corner/engineering{
 	dir = 1
@@ -13855,6 +13957,7 @@
 "hNC" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/mid,
+/obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/template_noop)
 "hOw" = (
@@ -14140,6 +14243,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
+"isN" = (
+/obj/structure/cable/pink,
+/obj/structure/machinery/power/apc/noid/west,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "isY" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14686,6 +14794,10 @@
 /obj/structure/machinery/suit_cycler/syndicate/prepared,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
+"jif" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/cargo,
+/area/template_noop)
 "jiA" = (
 /obj/effect/landmark/minimap_poi{
 	name = "Aux, Propellant Tanks"
@@ -15123,6 +15235,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
+"jMu" = (
+/obj/structure/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "jNv" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -15369,6 +15487,12 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
+"kdU" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "keH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
@@ -15905,6 +16029,13 @@
 /obj/structure/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/misc/maint/aft)
+"kOn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "kOG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16356,6 +16487,10 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
+"lCU" = (
+/obj/structure/machinery/computer/ship/engines/terminal,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "lDe" = (
 /obj/structure/flora/bush/jungle/random,
 /obj/structure/machinery/light{
@@ -17274,6 +17409,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/starboard)
+"mTq" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/aft,
+/obj/item/hullbeacon/red,
+/turf/space/dynamic,
+/area/template_noop)
 "mTz" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/access_button{
@@ -18575,6 +18716,10 @@
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/aft/hallway)
+"pmV" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "pnb" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -18703,6 +18848,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/lounge)
+"pCG" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/mid,
+/obj/item/hullbeacon/green,
+/turf/space/dynamic,
+/area/template_noop)
 "pDI" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -19274,6 +19425,13 @@
 /obj/random/tool,
 /turf/simulated/floor/carpet/rubber,
 /area/modular_freelancer_ship/fore/guns)
+"qtu" = (
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/pink{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "qtX" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -19304,6 +19462,13 @@
 /obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/techmaint,
 /area/modular_freelancer_ship/aft/engineering)
+"qzu" = (
+/obj/structure/cable/pink{
+	icon_state = "0-2"
+	},
+/obj/structure/machinery/power/apc/noid/north,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "qzY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -19551,6 +19716,12 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/guns)
+"qRJ" = (
+/obj/structure/machinery/computer/ship/navigation/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "qRN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -19699,6 +19870,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
+"rlH" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "rmg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -19949,6 +20126,12 @@
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
+"rwM" = (
+/obj/structure/cable/pink{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "rwU" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -20193,6 +20376,17 @@
 /obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
+"rRw" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/roller{
+	pixel_y = 3
+	},
+/obj/item/roller{
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "rSm" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -20214,6 +20408,7 @@
 "rUz" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/aft,
+/obj/item/hullbeacon/green,
 /turf/space/dynamic,
 /area/template_noop)
 "rUS" = (
@@ -20500,6 +20695,10 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
+"stL" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/cargo/full,
+/area/template_noop)
 "svB" = (
 /obj/random/keg,
 /obj/structure/machinery/light,
@@ -20565,6 +20764,13 @@
 /obj/random/lavalamp,
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/fore/hallway)
+"sCO" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "sEo" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/industrial/outline_door/red,
@@ -21035,6 +21241,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/starboard)
+"tsU" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "ttH" = (
 /obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -21447,6 +21657,12 @@
 /obj/structure/machinery/power/apc/noid/north,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/container/c0A)
+"tYe" = (
+/obj/structure/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "uaI" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -21790,6 +22006,15 @@
 "uHU" = (
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/aft/hallway)
+"uIg" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "uIm" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -22232,6 +22457,12 @@
 /obj/effect/floor_decal/corner/grey/full,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
+"vCI" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vDL" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -22366,6 +22597,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
+"vPF" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "vPM" = (
 /turf/simulated/wall/r_wall,
 /area/modular_freelancer_ship/fore/guns)
@@ -22469,6 +22706,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
+"wdD" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "weA" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -22685,6 +22928,20 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/modular_freelancer_ship/mid/lounge)
+"wxX" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/green,
+/turf/simulated/floor/airless,
+/area/template_noop)
 "wyo" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -22970,10 +23227,36 @@
 "wQN" = (
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/guns)
+"wQP" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "wQR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/mid/lounge)
+"wQW" = (
+/obj/structure/cable/pink{
+	icon_state = "0-8"
+	},
+/obj/structure/machinery/power/apc/noid/east,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"wRt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/item/hullbeacon/green,
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "wRX" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -40530,11 +40813,11 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -40632,7 +40915,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -41107,7 +41390,7 @@ kBG
 kBG
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -41521,12 +41804,12 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -42248,7 +42531,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 wWR
@@ -42270,7 +42553,7 @@ lOY
 lDW
 aza
 aza
-amg
+acN
 aza
 aUQ
 apt
@@ -42557,7 +42840,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -47426,7 +47709,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 amg
@@ -47743,7 +48026,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 pPC
@@ -47765,7 +48048,7 @@ bGL
 sXg
 aza
 aza
-amg
+tkf
 aza
 aUQ
 apt
@@ -48586,12 +48869,12 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -48800,7 +49083,7 @@ ryW
 ryW
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -49267,7 +49550,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -49479,11 +49762,11 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -59259,7 +59542,7 @@ aza
 aOs
 adx
 aza
-aza
+pCG
 aza
 aza
 aza
@@ -59416,7 +59699,7 @@ aza
 aOs
 aUQ
 aza
-hNC
+amg
 aza
 aza
 aza
@@ -60806,7 +61089,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 amg
 amg
 amg
@@ -60829,7 +61112,7 @@ aza
 aOs
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -61148,13 +61431,13 @@ aza
 aza
 aza
 aza
-aza
+wRt
 amF
-afx
+qzu
 aHe
 amF
-aza
-aza
+aic
+aiJ
 aza
 aza
 aza
@@ -61282,10 +61565,10 @@ aiL
 aYx
 afx
 afx
-afx
-afx
+rwM
+aHe
 aYx
-aZr
+aNk
 aYx
 aWe
 aYx
@@ -61434,17 +61717,17 @@ aza
 aza
 aza
 amg
-amg
+acN
 aYx
 aYx
+lCU
 afx
-afx
-afx
-afx
+bAF
+aga
 aYx
 aUb
-aUb
-aZr
+tYe
+rRw
 aYx
 aYx
 aWe
@@ -61465,14 +61748,14 @@ afx
 afx
 afx
 afx
-afx
+aBj
 amF
 amY
 aVB
 aVB
-aZr
-aUb
-aUb
+adE
+aNk
+rRw
 amF
 amF
 aza
@@ -61593,17 +61876,17 @@ aza
 aza
 amg
 aYx
-aHe
-aNk
 afx
 afx
 afx
+wQW
+aBj
 aYx
 aUb
 aUb
 aZr
 aWe
-amY
+qRJ
 amY
 aYx
 aYx
@@ -61616,21 +61899,21 @@ aza
 aza
 amg
 aza
+aYr
 amF
-amF
+lCU
 afx
 afx
-afx
-afx
-afx
+kdU
+eJq
 amF
 aSh
 aRv
 aRv
-aUb
-aUb
-aUb
-aZr
+adE
+adE
+adE
+cwB
 amF
 aza
 aUQ
@@ -61760,9 +62043,9 @@ aSh
 aRv
 aVB
 aWe
-aRv
-acU
-aaG
+abz
+tsU
+aMl
 aWe
 aWe
 aUQ
@@ -61773,7 +62056,7 @@ aza
 aza
 amg
 aza
-aza
+amF
 amF
 amF
 amF
@@ -61911,16 +62194,16 @@ aUC
 ajg
 aUC
 aYx
+hrk
+aVB
 aRv
 aRv
-aSh
-aRv
-aRv
+pmV
 aDh
-aRv
-aMl
-aMl
-aoM
+dhm
+azf
+azf
+jMu
 aWe
 aUQ
 aOs
@@ -61931,19 +62214,19 @@ aza
 amg
 aza
 aza
-amF
+azs
 ajg
 aUC
 ajg
-aRv
+hrk
 aRv
 amF
 aSh
 aRv
 aRv
 azs
-aRv
-aRv
+amY
+qRJ
 azs
 aza
 aza
@@ -62066,17 +62349,17 @@ amg
 aWe
 ajg
 aex
-aSF
+stL
 asf
-aRv
+dTc
 aRv
 aRv
 aRv
 aRv
 aWe
 aRv
-atk
 aMl
+abg
 aWe
 aWe
 aUQ
@@ -62087,23 +62370,23 @@ aza
 aza
 amg
 aza
-aza
-azs
+amF
+amF
 aUC
 aSF
 aex
-aRv
-aRv
+aEF
+pmV
 asf
+dhm
 aRv
-aRv
-aRv
+pmV
 aDh
-aRv
-aRv
+dhm
+abz
 azs
 azs
-amg
+acN
 aUQ
 aOs
 aza
@@ -62223,16 +62506,16 @@ amg
 aYx
 aUC
 aSF
-aex
+jif
 asf
-aEF
-aRv
+wQP
+vPF
 abz
 abz
 abz
 aWe
 amY
-aRv
+abz
 aYx
 aYx
 aza
@@ -62244,21 +62527,21 @@ aza
 aza
 amg
 aza
-amF
+aiL
 amF
 ajg
 aex
 aSF
-aEF
-aRv
+uIg
+sCO
 asf
-aRv
+dhm
 aRv
 aRv
 azs
-aMl
-aMl
-aoM
+wdD
+azf
+jMu
 azs
 amg
 aUQ
@@ -62376,7 +62659,7 @@ aza
 aza
 act
 amg
-amg
+acN
 aYx
 aYx
 aex
@@ -62392,28 +62675,28 @@ aYx
 aWe
 aYx
 amg
-amg
+acN
 aBg
 arU
 aza
 ann
 amg
 amg
-amg
+acN
 amg
 aYr
 amF
 aUC
 ajg
-aUC
-aEF
-aRv
+amF
+akU
+aHd
 amF
 abz
 abz
 abz
 azs
-atk
+aMl
 abg
 azs
 azs
@@ -62563,8 +62846,8 @@ amF
 amF
 amF
 amF
-akU
-aHd
+aBj
+afx
 amF
 amF
 azs
@@ -62701,7 +62984,7 @@ aHd
 aYx
 aYx
 aOD
-abW
+aba
 aza
 aza
 aza
@@ -62718,13 +63001,13 @@ amg
 aza
 aza
 aza
-aza
+kOn
 amF
 aBj
 afx
 amF
-aza
-aza
+aOD
+aba
 aza
 amg
 aza
@@ -63198,7 +63481,7 @@ tEr
 amg
 amg
 amg
-amg
+acN
 amg
 amg
 amg
@@ -65861,7 +66144,7 @@ tEr
 tEr
 amg
 amg
-amg
+tkf
 amg
 amg
 amg
@@ -66157,7 +66440,7 @@ aza
 amg
 aza
 aza
-amg
+tkf
 aza
 aza
 amg
@@ -66341,7 +66624,7 @@ aMs
 aMs
 aza
 aza
-amg
+tkf
 aza
 aUQ
 aOs
@@ -66491,8 +66774,8 @@ aMs
 aMs
 aMs
 aMs
-aHe
-afx
+qtu
+isN
 aRv
 aRv
 aMs
@@ -66616,14 +66899,14 @@ aza
 act
 amg
 amg
-amg
+tkf
 aza
 amF
 amF
 amF
-aEF
-aRv
-afx
+aaZ
+rlH
+atH
 aPJ
 aRv
 amF
@@ -66631,7 +66914,7 @@ amF
 amF
 amF
 aza
-amg
+tkf
 aBg
 arU
 aza
@@ -66778,12 +67061,12 @@ aza
 aiL
 amF
 afx
-aRv
+aEF
 aRv
 aVB
 aVB
 aRv
-aRv
+amY
 aRv
 azs
 axF
@@ -66934,8 +67217,8 @@ amg
 aza
 aob
 amF
-afx
-aRv
+lCU
+aEF
 aRv
 aRv
 aRv
@@ -67092,10 +67375,10 @@ aza
 aYr
 amF
 afx
-afx
-afx
-afx
-afx
+cCg
+aSb
+aSb
+vCI
 aRv
 aSh
 aZh
@@ -67253,7 +67536,7 @@ afx
 afx
 afx
 aLf
-aVB
+aRv
 aRv
 alo
 amF
@@ -67401,16 +67684,16 @@ aza
 aza
 aza
 amg
-amg
+tkf
 amg
 amg
 asV
 azs
 afx
 afx
-afx
+hCV
 aHe
-adE
+abz
 abz
 abz
 amY
@@ -67742,7 +68025,7 @@ amg
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -68209,7 +68492,7 @@ aOs
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -68657,7 +68940,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -71361,7 +71644,7 @@ aza
 aza
 aza
 axH
-aoq
+wxX
 aFc
 aza
 aza
@@ -73070,7 +73353,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aUQ
 ajO
@@ -73088,7 +73371,7 @@ aza
 aza
 aza
 axH
-aoq
+wxX
 aFc
 aza
 aza
@@ -73221,7 +73504,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -73559,7 +73842,7 @@ aza
 aza
 aza
 axH
-aoq
+wxX
 aFc
 aza
 aza
@@ -73984,10 +74267,10 @@ aza
 aza
 aza
 aza
+acN
 aza
 aza
-aza
-aza
+acN
 aza
 aza
 aza
@@ -74139,7 +74422,7 @@ aza
 aza
 act
 amg
-amg
+acN
 amg
 eIu
 meL
@@ -74147,7 +74430,7 @@ meL
 eIu
 amg
 amg
-amg
+acN
 amg
 aBg
 alC
@@ -74183,7 +74466,7 @@ aza
 aza
 act
 amg
-amg
+acN
 amg
 amg
 amg
@@ -74191,7 +74474,7 @@ aUo
 amg
 amg
 amg
-amg
+acN
 amg
 aBg
 alC
@@ -78422,7 +78705,7 @@ aza
 aza
 act
 amg
-amg
+tkf
 amg
 amg
 amg
@@ -78430,7 +78713,7 @@ aUo
 amg
 amg
 amg
-amg
+tkf
 amg
 aBg
 alC
@@ -78849,6 +79132,7 @@ aza
 aza
 aza
 aza
+tkf
 amg
 amg
 amg
@@ -78856,8 +79140,7 @@ amg
 amg
 amg
 amg
-amg
-amg
+tkf
 aza
 aUQ
 ajO
@@ -79054,7 +79337,7 @@ aza
 aza
 aza
 afj
-aaz
+abW
 aku
 aza
 aza
@@ -79167,7 +79450,7 @@ aza
 aza
 aza
 amg
-amg
+tkf
 amg
 aza
 aza
@@ -79350,7 +79633,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aUQ
 ajO
@@ -79501,7 +79784,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -79525,7 +79808,7 @@ aza
 aza
 aza
 afj
-aaz
+abW
 aku
 aza
 aza
@@ -81252,7 +81535,7 @@ aza
 aza
 aza
 afj
-aaz
+abW
 aku
 aza
 aza
@@ -85011,7 +85294,7 @@ aMZ
 aza
 aza
 aMZ
-amg
+acN
 aza
 aMZ
 fSs
@@ -85337,7 +85620,7 @@ aza
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aUQ
@@ -85805,7 +86088,7 @@ vyW
 xrj
 fZa
 amg
-amg
+acN
 amg
 amg
 amg
@@ -85934,7 +86217,7 @@ xGr
 hjV
 xWs
 xWs
-amg
+acN
 aBg
 aIr
 aza
@@ -86256,7 +86539,7 @@ aMv
 aza
 aza
 aza
-amg
+acN
 aza
 aza
 aza
@@ -86393,7 +86676,7 @@ aza
 aza
 aza
 aza
-aza
+acN
 amg
 aza
 aza
@@ -87022,7 +87305,7 @@ aza
 aza
 aza
 aWJ
-amg
+acN
 fSs
 aZD
 aGu
@@ -87669,8 +87952,8 @@ aMv
 aza
 aza
 aza
-aza
-aza
+acN
+amg
 bfZ
 lJv
 qNb
@@ -88454,7 +88737,7 @@ aMv
 aza
 aza
 aza
-aza
+tkf
 bfZ
 iMr
 qmd
@@ -89220,7 +89503,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 fSs
 fSs
 jZe
@@ -89685,9 +89968,9 @@ aza
 aza
 aza
 aza
-rUz
+mTq
 amg
-amg
+tkf
 amg
 amg
 amg
@@ -89867,7 +90150,7 @@ aMv
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aza
@@ -90173,7 +90456,7 @@ wga
 bzT
 bfZ
 bfZ
-amg
+tkf
 aBg
 aIr
 aza
@@ -90343,7 +90626,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 amg
 amg
 amg
@@ -90358,7 +90641,7 @@ kyb
 kFX
 fZa
 amg
-amg
+tkf
 amg
 amg
 amg
@@ -90832,7 +91115,7 @@ aza
 aza
 aza
 aza
-amg
+tkf
 aza
 aza
 aUQ
@@ -91133,14 +91416,14 @@ aza
 aMZ
 aza
 aza
-dZi
+aQB
 fSs
 vbV
 dgR
 fSs
 aMZ
 aza
-amg
+tkf
 aMZ
 aza
 aza
