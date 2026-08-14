@@ -2338,6 +2338,7 @@
 #include "code\modules\effects\map_effects\marker\_marker.dm"
 #include "code\modules\effects\map_effects\marker\airlock_.dm"
 #include "code\modules\effects\map_effects\marker\airlock_docking.dm"
+#include "code\modules\effects\map_effects\marker\airlock_external.dm"
 #include "code\modules\effects\map_effects\marker\airlock_helper.dm"
 #include "code\modules\effects\map_effects\marker\airlock_shuttle.dm"
 #include "code\modules\effects\map_effects\marker\door_paint.dm"
