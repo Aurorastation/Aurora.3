@@ -46,6 +46,10 @@
 /singleton/surgery_step/proc/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
 	return skill_requirements
 
+/// Returns the time required to perform this step after step-specific user and target modifiers.
+/singleton/surgery_step/proc/get_surgery_time(mob/living/user, mob/living/carbon/human/target)
+	return base_surgery_time
+
 /// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
 	if(!ishuman(target))
@@ -163,7 +167,7 @@
 			S.begin_step(user, M, zone, tool)
 
 			// Get the base surgery time before modifiers.
-			var/duration = S.base_surgery_time
+			var/duration = S.get_surgery_time(user, M)
 
 			// Get the base surgery success rate based on tools.
 			// This should eventually be reworked to use ToolQualityComponents when we add that.

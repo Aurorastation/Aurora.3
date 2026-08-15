@@ -31,6 +31,7 @@
 	standing_self_surgery = TRUE
 	requires_surgery_compatibility = FALSE
 	skill_requirements = null
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
 
 /singleton/surgery_step/robotics/prosthetic_detachment/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -45,6 +46,14 @@
 	if(user == target)
 		return null
 	return alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
+
+/singleton/surgery_step/robotics/prosthetic_detachment/get_surgery_time(mob/living/user, mob/living/carbon/human/target)
+	if(user == target)
+		return base_surgery_time
+	var/robotics_skill = GET_SKILL_LEVEL(user, ROBOTICS_SKILL_COMPONENT)
+	if(!isnull(robotics_skill) && robotics_skill < SKILL_LEVEL_FAMILIAR)
+		return base_surgery_time * 2
+	return base_surgery_time
 
 /singleton/surgery_step/robotics/prosthetic_detachment/proc/target_possessive(mob/living/user, mob/living/carbon/human/target, second_person = FALSE)
 	if(user == target)

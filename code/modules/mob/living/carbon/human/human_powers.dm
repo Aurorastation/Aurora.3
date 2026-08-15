@@ -1022,10 +1022,6 @@
 	if(!user || user.incapacitated())
 		to_chat(user ? user : src, SPAN_WARNING("You cannot detach a prosthetic in your current state!"))
 		return FALSE
-	if(user != src && GET_SKILL_LEVEL(user, ROBOTICS_SKILL_COMPONENT) < SKILL_LEVEL_FAMILIAR)
-		to_chat(user, SPAN_WARNING("You need some robotics knowledge to remove another person's prosthetic."))
-		return FALSE
-
 	if(!limb.robotic)
 		to_chat(src, SPAN_WARNING("You can only detach robotic limbs."))
 		return FALSE
