@@ -59,7 +59,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/simple_mob_ai/start_test()
-	var/turf/hostile_turf = locate(71, 155, 1)
+	var/turf/hostile_turf = locate(2, 2, 1)
 	var/turf/target_turf = get_step(hostile_turf, NORTH)
 	if(!hostile_turf || !target_turf)
 		return TEST_FAIL("Could not locate adjacent turfs for the AI integration test.")
@@ -116,7 +116,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/simple_mob_ai_tactics/start_test()
-	var/turf/hostile_turf = locate(71, 155, 1)
+	var/turf/hostile_turf = locate(2, 2, 1)
 	var/turf/target_turf = get_step(hostile_turf, NORTH)
 	if(!hostile_turf || !target_turf)
 		return TEST_FAIL("Could not locate adjacent turfs for the AI tactics test.")
@@ -164,7 +164,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/simple_mob_ai_cooperation/start_test()
-	var/turf/caller_turf = locate(71, 155, 1)
+	var/turf/caller_turf = locate(2, 2, 1)
 	var/turf/helper_turf = get_step(caller_turf, EAST)
 	var/turf/target_turf = get_step(caller_turf, NORTH)
 	if(!caller_turf || !helper_turf || !target_turf)
@@ -191,7 +191,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/simple_mob_ai_callbacks/start_test()
-	var/turf/hostile_turf = locate(71, 155, 1)
+	var/turf/hostile_turf = locate(2, 2, 1)
 	var/turf/target_turf = get_step(hostile_turf, NORTH)
 	if(!hostile_turf || !target_turf)
 		return TEST_FAIL("Could not locate adjacent turfs for the AI callback test.")
@@ -224,7 +224,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/simple_mob_ai_profiles/start_test()
-	var/turf/spawn_turf = locate(71, 155, 1)
+	var/turf/spawn_turf = locate(2, 2, 1)
 	if(!spawn_turf)
 		return TEST_FAIL("Could not locate a turf for the AI profile test.")
 
@@ -269,7 +269,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/simple_mob_ai_special_profiles/start_test()
-	var/turf/spawn_turf = locate(71, 155, 1)
+	var/turf/spawn_turf = locate(2, 2, 1)
 	if(!spawn_turf)
 		return TEST_FAIL("Could not locate a turf for the special AI profile coverage test.")
 
@@ -306,7 +306,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/simple_mob_ai_specialized_hostility/start_test()
-	var/turf/hostile_turf = locate(71, 155, 1)
+	var/turf/hostile_turf = locate(2, 2, 1)
 	var/turf/target_turf = get_step(hostile_turf, NORTH)
 	if(!hostile_turf || !target_turf)
 		return TEST_FAIL("Could not locate adjacent turfs for the specialized hostility test.")
@@ -346,10 +346,12 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/mob_onslaught/start_test()
-	var/turf/spawn_turf = locate(71, 155, 1)
+	var/turf/spawn_turf = locate(10, 10, 1)
 	var/turf/target_turf = get_step(spawn_turf, NORTH)
 	if(!spawn_turf || !target_turf)
 		return TEST_FAIL("Could not locate adjacent turfs for the Mob Onslaught test.")
+	for(var/turf/test_turf in RANGE_TURFS(5, target_turf))
+		test_turf.ChangeTurf(/turf/simulated/floor)
 
 	var/datum/game_mode/mob_onslaught/mode = new
 	if(mode.mode_duration != 30 MINUTES)
@@ -519,20 +521,34 @@
 		return TEST_FAIL("An uncapped ship infestation mob received wave targeting or Central Ring convergence orders.")
 	qdel(ambient_mob)
 	mode.uncapped_ship_mobs -= ambient_mob
+	var/list/ambush_turfs = RANGE_TURFS(5, target_turf)
+	var/area/original_ambush_area = get_area(target_turf)
+	var/area/horizon/ambush_area = new
+	for(var/turf/ambush_turf as anything in ambush_turfs)
+		ambush_turf.change_area(original_ambush_area, ambush_area)
 	var/ambush_spawned = mode.spawn_player_ambushes(list(target_mob), list(/mob/living/simple_animal/hostile/scarybat), 2)
 	if(ambush_spawned != 2 || length(mode.uncapped_ship_mobs) != 2)
+		for(var/turf/ambush_turf as anything in ambush_turfs)
+			ambush_turf.change_area(ambush_area, original_ambush_area)
+		qdel(ambush_area)
 		qdel(spawned_mob)
 		qdel(target_mob)
 		qdel(mode)
 		return TEST_FAIL("A player outside the Central Ring did not receive one uncapped ambush mob per wave number.")
 	for(var/mob/living/simple_animal/hostile/ambush_mob as anything in mode.uncapped_ship_mobs)
 		if(ambush_mob.ai_holder?.target != target_mob || (ambush_mob in mode.active_wave_mobs))
+			for(var/turf/ambush_turf as anything in ambush_turfs)
+				ambush_turf.change_area(ambush_area, original_ambush_area)
+			qdel(ambush_area)
 			qdel(spawned_mob)
 			qdel(target_mob)
 			qdel(mode)
 			return TEST_FAIL("A player ambush mob counted toward the wave cap or lacked its assigned player target.")
 		qdel(ambush_mob)
 	mode.uncapped_ship_mobs.Cut()
+	for(var/turf/ambush_turf as anything in ambush_turfs)
+		ambush_turf.change_area(ambush_area, original_ambush_area)
+	qdel(ambush_area)
 	var/area/original_target_area = get_area(target_turf)
 	var/area/horizon/hallway/primary/deck_1/central/safe_area = new
 	target_turf.change_area(original_target_area, safe_area)
@@ -626,7 +642,7 @@
 	groups = list("generic", "simple mob ai")
 
 /datum/unit_test/xenobio_slime_ai/start_test()
-	var/turf/slime_turf = locate(71, 155, 1)
+	var/turf/slime_turf = locate(2, 2, 1)
 	var/turf/target_turf = get_step(slime_turf, NORTH)
 	if(!slime_turf || !target_turf)
 		return TEST_FAIL("Could not locate adjacent turfs for the xenobiology slime AI test.")

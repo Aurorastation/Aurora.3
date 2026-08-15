@@ -409,7 +409,7 @@
 /datum/game_mode/mob_onslaught/proc/get_desired_wave_size(player_count, wave_index)
 	if(player_count <= 0 || wave_index <= 0)
 		return 0
-	return max(1, n_ceil(player_count * (wave_growth_base ** (wave_index - 1))))
+	return max(1, ceil(player_count * (wave_growth_base ** (wave_index - 1))))
 
 /datum/game_mode/mob_onslaught/proc/get_active_mob_cap(player_count)
 	return max(0, player_count * mob_cap_per_player)
