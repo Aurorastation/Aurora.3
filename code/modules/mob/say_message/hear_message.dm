@@ -91,26 +91,26 @@
 
 	switch(horizontal_direction)
 		if(NORTH)
-			. = " ⇑"
+			. = " ↑"
 		if(SOUTH)
-			. = " ⇓"
+			. = " ↓"
 		if(EAST)
-			. = " ⇒"
+			. = " →"
 		if(WEST)
-			. = " ⇐"
+			. = " ←"
 		if(NORTHWEST)
-			. = " ⇖"
+			. = " ↖"
 		if(NORTHEAST)
-			. = " ⇗"
+			. = " ↗"
 		if(SOUTHWEST)
-			. = " ⇙"
+			. = " ↙"
 		if(SOUTHEAST)
-			. = " ⇘"
+			. = " ↘"
 
 	if(speaker_turf.z > listener_turf.z)
-		. += " ⇈"
+		. += " ↑"
 	else if(speaker_turf.z < listener_turf.z)
-		. += " ⇊"
+		. += " ↓"
 
 /// Wraps a say envelope around the message body.
 /mob/proc/format_envelope_spoken(datum/say_message/msg, clarity = CLARITY_CLEAR, muffled = FALSE)

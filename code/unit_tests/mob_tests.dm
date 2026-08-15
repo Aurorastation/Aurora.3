@@ -85,9 +85,9 @@
 
 	var/turf/speaker_turf = get_turf(test_speaker_mob)
 	var/list/offscreen_speech_tests = list(
-		list("range" = world.view + 3, "message" = "Can you still hear me?"),
-		list("range" = world.view + 7, "message" = "Can you hear me now!"),
-		list("range" = world.view + 14, "message" = "Can you hear me all the way out here!!")
+		list("range" = world.view + 1, "message" = "Can you still hear me?", "expected" = FALSE),
+		list("range" = world.view + 7, "message" = "Can you hear me now!", "expected" = TRUE),
+		list("range" = world.view + 14, "message" = "Can you hear me all the way out here!!", "expected" = TRUE)
 	)
 	for(var/list/offscreen_test as anything in offscreen_speech_tests)
 		var/test_range = offscreen_test["range"]
@@ -106,12 +106,13 @@
 		offscreen_message.message_range = world.view
 		var/list/offscreen_listeners = test_speaker_mob.get_offscreen_speech_listeners(offscreen_message, list(test_speaker_mob))
 		var/listener_selected = (test_listener_mob in offscreen_listeners)
+		var/expected_listener_selected = offscreen_test["expected"]
 		qdel(offscreen_message)
-		if(!listener_selected)
-			TEST_FAIL("listener was not selected for \"[message]\" at range [test_range]")
+		if(listener_selected != expected_listener_selected)
+			TEST_FAIL("listener selection for \"[message]\" at range [test_range] was [listener_selected], expected [expected_listener_selected]")
 			return 0
 
-	TEST_PASS("speech test complete, including normal, yelled, and shouted offscreen listener selection.")
+	TEST_PASS("speech test complete; ordinary speech stayed onscreen while yells and shouts reached their offscreen ranges.")
 	return 1
 
 /datum/unit_test/human_breath

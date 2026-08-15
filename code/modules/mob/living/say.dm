@@ -232,16 +232,14 @@ var/list/channel_to_radio_key = new
 	var/is_yelling = ending == "!"
 	var/is_shouting = is_yelling && pre_ending == "!"
 
-	// Extend full-range speech beyond the edge of the standard view. Do not
-	// widen speech whose range was reduced by environmental conditions.
+	// Only yells and shouts extend beyond the standard view. Do not widen
+	// speech whose range was reduced by environmental conditions.
 	var/offscreen_message_range = msg.message_range
 	if(msg.message_range >= world.view)
 		if(is_shouting)
 			offscreen_message_range = world.view + 14
 		else if(is_yelling)
 			offscreen_message_range = world.view + 7
-		else
-			offscreen_message_range = world.view + 3
 
 	var/turf/speaker_ceiling = GET_TURF_ABOVE(speaker_turf)
 	var/speaker_has_ceiling = !speaker_ceiling || !istransparentturf(speaker_ceiling)
@@ -252,9 +250,15 @@ var/list/channel_to_radio_key = new
 			continue
 
 		if(listener_turf.z == speaker_turf.z)
-			if(get_dist(listener_turf, speaker_turf) <= offscreen_message_range)
+			if(is_yelling && get_dist(listener_turf, speaker_turf) <= offscreen_message_range)
 				. |= player
 			continue
+
+		// Ghosts using nearby-only hearing should not receive map-wide speech
+		// through the connected Z stack.
+		if(isghost(player) && !(player.client?.prefs.toggles & CHAT_GHOSTEARS))
+			if(abs(listener_turf.z - speaker_turf.z) > 1 || max(abs(listener_turf.x - speaker_turf.x), abs(listener_turf.y - speaker_turf.y)) > offscreen_message_range)
+				continue
 
 		if(!AreConnectedZLevels(speaker_turf.z, listener_turf.z))
 			continue
