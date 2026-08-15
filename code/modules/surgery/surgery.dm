@@ -29,8 +29,6 @@
 	 * Exceeding the skill requirement can also offset having lower success rates from things like tools.
 	 */
 	var/alist/skill_requirements
-	/// Whether failing to meet a skill requirement prevents this surgery instead of merely penalizing it.
-	var/hard_skill_requirements = FALSE
 
 	/// The bonus (or penalty) fail rate to a surgery per point of skill diff. As a percent chance.
 	var/skill_diff_fail_modifier = SURGERY_DIFFICULTY_EASY
@@ -47,18 +45,6 @@
 
 /singleton/surgery_step/proc/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
 	return skill_requirements
-
-/singleton/surgery_step/proc/has_required_skills(mob/living/user, mob/living/carbon/human/target)
-	if(!hard_skill_requirements)
-		return TRUE
-	for(var/skill_comp, required_level in get_skill_requirements(user, target))
-		var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
-		if(!isnull(skill_level) && skill_level < required_level)
-			return FALSE
-	return TRUE
-
-/singleton/surgery_step/proc/skill_requirement_failure(mob/living/user, mob/living/carbon/human/target)
-	to_chat(user, SPAN_WARNING("You lack the skills required to perform this procedure."))
 
 /// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
@@ -167,12 +153,8 @@
 			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
 			return TRUE
 		return FALSE //Just do the normal use for the tool instead
-	else if(!S.has_required_skills(user, M))
-		S.skill_requirement_failure(user, M)
-		return TRUE
-
 	// Otherwise we can make a start on surgery!
-	else if(istype(M) && !QDELETED(M) && tool)
+	if(istype(M) && !QDELETED(M) && tool)
 		// Double-check this in case it changed between initial check and now.
 		if(zone in M.op_stage.in_progress)
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))

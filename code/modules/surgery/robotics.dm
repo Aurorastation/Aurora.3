@@ -31,7 +31,6 @@
 	standing_self_surgery = TRUE
 	requires_surgery_compatibility = FALSE
 	skill_requirements = null
-	hard_skill_requirements = TRUE
 
 /singleton/surgery_step/robotics/prosthetic_detachment/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -45,10 +44,7 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
 	if(user == target)
 		return null
-	return alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
-
-/singleton/surgery_step/robotics/prosthetic_detachment/skill_requirement_failure(mob/living/user, mob/living/carbon/human/target)
-	to_chat(user, SPAN_WARNING("You need some mechanical engineering knowledge to remove another person's prosthetic."))
+	return alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/proc/target_possessive(mob/living/user, mob/living/carbon/human/target, second_person = FALSE)
 	if(user == target)
