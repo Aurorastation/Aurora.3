@@ -12,6 +12,14 @@
 	icon_state = "mapmanip_insert"
 	pixel_x = -32
 	pixel_y = -32
+	/// Direction of submap insertion.
+	/// Default is NORTHEAST, meaning the marker is the bottom-left corner,
+	/// and the submap is inserted to the north-east starting from the marker.
+	/// Directions such as NORTH means the marker is bottom-center,
+	/// and the submap is inserted to the north starting from the marker.
+	///
+	/// Must be set in map (if anything other than NORTHEAST), as mapmanip does not read code.
+	dir = NORTHEAST
 
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge
 	name = "mapmanip helper marker, edge of submap"
