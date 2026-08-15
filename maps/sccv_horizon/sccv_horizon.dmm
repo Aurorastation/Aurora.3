@@ -59350,6 +59350,7 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
+/obj/item/wrench,
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278
 	},

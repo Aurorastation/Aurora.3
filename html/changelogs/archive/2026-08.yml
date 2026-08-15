@@ -248,3 +248,93 @@
       mapping.
   - rscadd: Adjusted some disposal piping to be tidier.
   - bugfix: Packages can now once again be mailed to the Machinist's Workshop.
+2026-08-10:
+  FabianK3:
+  - bugfix: Fixed the mineral asteroid position not being updated after the Horizon's
+      persistent position was applied.
+  - balance: Welding packs (on the Horizon) now start empty to support persistent
+      welding fuel tanks.
+  - imageadd: Added a sprite for empty welding packs.
+  - balance: Reduced the 'optimal' oil amount in the deep fryers from 9000u to 100u.
+      One cooking oil tank can now be used multiple times instead of needing 9 tanks
+      to refill it.
+  - rscadd: Added a wrench to the kitchen to allow better handling of cooking oil
+      tanks.
+  Omicega:
+  - qol: Flags and banners with custom names and descriptions now keep these custom
+      names and descriptions when deployed.
+  hazelmouse:
+  - rscadd: IPC P2P communications now sends messages of transmissions to the chatboxes
+      of both parties.
+  - rscadd: Added new Trinarist assets in the loadout; new tunics, cape variants,
+      coif variants, etc.
+  - imageadd: Implemented resprites for several Trinarist assets, including clerical
+      robes and the Trinarist stave.
+  kermit:
+  - bugfix: fixes smes coils not being insertable into smes units (oops, my bad)
+2026-08-11:
+  Geeves:
+  - bugfix: Fixed ship munitions occasionally failing to enter their overmap target
+      when their original physical projectile no longer existed.
+  - bugfix: Fixed several ship munitions reconstructing as the wrong projectile after
+      overmap travel, ensuring explosive rounds correctly detonate on impact.
+2026-08-14:
+  Batrachophrenoboocosmomachia:
+  - balance: Extends minimum time to organ rupture due to Greimorian egg implantation
+      by 33%.
+  - balance: Adds chest and groin organ choice in Greimorian egg implantation to reroll
+      chance target, like head, to reduce effectively-end-your-round chance.
+  - balance: Removes egg spread chance from Greimorian egg implantation stage 4.
+  - balance: Minor other adjustments to Greimorian egg behavior (ensures increased
+      duration does not increase final larva count, etc.)
+  - balance: Gives Greimorian Servant (playable worker) greater venom per bite than
+      standard workers.
+  DreamySkrell:
+  - rscadd: Bapi autopipe script.
+  - rscadd: Overmap sector list `initial_generic_waypoints` is now optional.
+  - refactor: Small refactor of landmarks and docking markers on the SCC Scout Ship.
+  - rscadd: Door paint markers.
+  FabianK3:
+  - rscdel: Removed the ambience sounds from vents and scrubbers. The amount of sounds
+      degrade performance. The sound files added with it are still available.
+  Fenodyree:
+  - qol: Integrated circuit assemblies can now be recycled in autolathes. They can't
+      be recycled in the printer, because clicking the printer with the circuit is
+      required to scan it for cloning.
+  - qol: Integrated circuits can now be charged in rechargers.
+  - balance: Reduces the damage and armour penetration of shots hitting the mech pilot
+      after going through the hatch. The amount depends on the mech's cockpit design.
+      Values range between 30% and 80% of the original damage and armour penetration.
+  Geeves:
+  - rscadd: You can now close your eyes. This blinds you, but gives you protection
+      against flash effects.
+  - balance: Welding while blind takes three times as long and has an 80% chance to
+      fail, with a risk of burning yourself.
+  Mineymonkey:
+  - bugfix: Removed the matter bin requirements for the circuit imprinter, prolathe,
+      and mechfabricator research boards.
+  TheGreyWolf:
+  - rscdel: The golden slime core can no longer spawn psiren omens, beckoners or the
+      psiren matriarch.
+  - rscdel: Technomancers can no longer summon the psiren omens or beckoners. Other
+      psirens were untouched.
+  - bugfix: Fixed the inability for the himean taj modkit to modify an assembled industrial
+      rig.
+  Tomixcomics:
+  - rscadd: Adds two new adhomian cuisine dishes - the Meat Thamo and the Cheese Thamo.
+  hazelmouse:
+  - rscadd: Added the lesser hivebot boss from Silicon Nightmares to the codebase,
+      tentatively only for admin use.
+  - rscadd: Adds hivebot circuit floors.
+  - qol: Playable hivebots now spawn with the hivebot language as standard.
+  - imageadd: Added the sprites for the greater hivebot boss to the codebase, though
+      it is currently unimplemented.
+  - qol: Playable hivebots now make noises when they speak or emote.
+  - rscadd: Duffel bags can now be accessed while in your hand.
+  - rscadd: Introduced a one second delay to opening duffel bags.
+  - balance: Downgraded the standard power cell in an IPC, bringing their total capacity
+      down by 50% and closer to their values prior to a recent refactor. Recharge
+      stations also made more efficient.
+  kano:
+  - qol: Deployable kits now show the progress bar on the mob.
+  - rscadd: Ported various platform sprites from CM.
