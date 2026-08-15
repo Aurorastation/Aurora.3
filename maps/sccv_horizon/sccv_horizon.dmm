@@ -144105,7 +144105,8 @@
 /obj/structure/machinery/light_switch/idris{
 	dir = 1;
 	pixel_y = 27;
-	pixel_x = -6
+	pixel_x = -6;
+	current_light_color = "#B43CB8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew/stargazing_lounge)
