@@ -19,7 +19,7 @@
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
 
 	///Multiplier applied to all operations of giving power to cells, represents entropy, efficiency increases with upgrades
-	var/charging_efficiency = 1.3
+	var/charging_efficiency = 2
 
 	///Watts, Power rating drawn from internal cell to recharge occupant's cell 60 kW unupgraded
 	var/charging_power
@@ -229,7 +229,7 @@
 			man_rating += P.rating
 	cell = locate(/obj/item/cell) in component_parts
 
-	charging_efficiency = 1.3 + 0.030 * cap_rating
+	charging_efficiency = 2 + 0.030 * cap_rating
 	charging_power = 30000 + 12000 * cap_rating
 	restore_power_active = 10000 + 10000 * cap_rating
 	restore_power_passive = 5000 + 1000 * cap_rating

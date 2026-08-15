@@ -266,6 +266,12 @@
 /mob/living/heavy_vehicle/return_air()
 	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc?.return_air()
 
+/mob/living/heavy_vehicle/proc/update_emp_protection()
+	RemoveElement(/datum/element/empprotection, EMP_PROTECT_ALL)
+	if(power == MECH_POWER_ON && body.mech_armor && body.mech_armor.emp_protection)
+		if(get_cell().charge > 500)
+			AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
+
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
 
@@ -288,18 +294,22 @@
 		to_chat(reciever, SPAN_NOTICE("Power transition in progress. Please wait."))
 	else if(power == MECH_POWER_ON) //Turning it off is instant
 		power = MECH_POWER_OFF
-	else if(get_cell(TRUE))
+		update_emp_protection()
+	else if(get_cell(TRUE).check_charge(1000)) //Check if we have enough charge to power on
 		//Start power up sequence
 		power = MECH_POWER_TRANSITION
 		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
 		if(do_after(reciever, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
 			power = MECH_POWER_ON
+			update_emp_protection()
 			sound_looping = TRUE
 			soundloop.start()
 		else
 			to_chat(reciever, SPAN_WARNING("You abort the powerup sequence."))
 			power = MECH_POWER_OFF
-		hud_power_control?.queue_icon_update()
+			update_emp_protection()
+		if(hud_power_control)
+			SSicon_update.add_to_queue(hud_power_control)
 	else
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 

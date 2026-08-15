@@ -495,5 +495,45 @@
 
 	return test_status
 
+/datum/unit_test/map_test/research_fabricator_connections
+	name = "MAP: Research fabricator connections"
+
+/datum/unit_test/map_test/research_fabricator_connections/start_test()
+	var/fabricator_count = 0
+	var/console_count = 0
+	var/fabricators_without_console = 0
+	var/consoles_without_silo = 0
+	var/test_status = UNIT_TEST_PASSED
+
+	for(var/obj/structure/machinery/r_n_d/fabricator/fabricator in world)
+		fabricator_count++
+
+		var/obj/structure/machinery/computer/rdconsole/nearby_console = locate() in range(7, fabricator)
+		if(nearby_console)
+			continue
+
+		fabricators_without_console++
+		TEST_FAIL("[fabricator.name] at ([fabricator.x], [fabricator.y], [fabricator.z]) in [get_area(fabricator)] has no research console within 7 turfs.")
+
+	for(var/obj/structure/machinery/computer/rdconsole/console in world)
+		if(QDELETED(console) || !is_station_level(console.z))
+			continue
+
+		console_count++
+
+		var/obj/structure/machinery/r_n_d/material_silo/nearby_silo = locate() in range(7, console)
+		if(nearby_silo)
+			continue
+
+		consoles_without_silo++
+		TEST_FAIL("[console.name] at ([console.x], [console.y], [console.z]) in [get_area(console)] has no material silo within 7 turfs.")
+
+	if(fabricators_without_console || consoles_without_silo)
+		test_status = TEST_FAIL("\[[fabricators_without_console] / [fabricator_count]\] research fabricators lacked a nearby research console. \[[consoles_without_silo] / [console_count]\] research consoles lacked a nearby material silo.")
+	else
+		TEST_PASS("All [fabricator_count] research fabricators had a nearby research console, and all [console_count] research consoles had a nearby material silo.")
+
+	return test_status
+
 #undef SUCCESS
 #undef FAILURE

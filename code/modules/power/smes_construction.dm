@@ -182,7 +182,7 @@
 		return .
 
 	visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
-	health_check(hitting_projectile.damage)
+	health_check()
 
 /obj/structure/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
 	health -= health_reduction
@@ -498,7 +498,7 @@
 		else if(istype(attacking_item, /obj/item/smes_coil))
 			if (cur_coils < max_coils)
 
-				if(!(attacking_item in compatible_coils))
+				if(!(attacking_item.type in compatible_coils)) // hi
 					to_chat(usr, "This coil isn't compatible with this SMES unit.")
 					return
 
