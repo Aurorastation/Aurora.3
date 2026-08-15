@@ -1271,7 +1271,10 @@
 		/mob/living/simple_animal/hostile/mimic,
 		/mob/living/simple_animal/hostile/cavern_geist,
 		/mob/living/simple_animal/hostile/cavern_geist/augmented,
-		/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone
+		/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone,
+		/mob/living/simple_animal/hostile/psiren/omen,
+		/mob/living/simple_animal/hostile/psiren/omen/beckoner,
+		/mob/living/simple_animal/hostile/psiren/matriarch
 	)
 
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs

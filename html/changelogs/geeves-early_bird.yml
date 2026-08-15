@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Readying up and successfully joining the round now gives you a morale bonus that lasts for 30 minutes."

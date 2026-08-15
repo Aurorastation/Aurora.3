@@ -1,6 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - rscadd: "Retitles or adds various reporter/journalist (alt)titles. For megacorporate factions: Corporate Reporter, Corporate Journalist. For independents: Independent Reporter, Independent Journalist, Media Broadcaster."

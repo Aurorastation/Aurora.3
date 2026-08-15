@@ -1,9 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - rscadd: "Adds a Deployable Operating Table kit to the Intrepid medical compartment."
-  - rscdel: "Removes the Operating Table Circuit Board and one scanning module from the D1 Maints Workshop."
-  - qol: "Replaces many pre-assembled Industrial Floodlight structures with Deployable Floodlight Kit items so as to take up less space; adds a couple extra racks with spares."
-  - bugfix: "Fixes inconsistent janitorial door access (bypasses from #22620)."
-  - bugfix: "Fixes floating Research hallway camera."
-  - code_imp: "Miscellaneous dmdocs audit of ACCESS_* defines."

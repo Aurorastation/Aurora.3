@@ -51,32 +51,29 @@
 
 /obj/item/circuitboard/protolathe
 	name = T_BOARD("protolathe")
-	build_path = /obj/structure/machinery/r_n_d/protolathe
+	build_path = /obj/structure/machinery/r_n_d/fabricator/protolathe
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
-							"/obj/item/stock_parts/matter_bin" = 2,
 							"/obj/item/stock_parts/manipulator" = 2,
 							"/obj/item/reagent_containers/glass/beaker" = 2)
 
 
 /obj/item/circuitboard/circuit_imprinter
 	name = T_BOARD("circuit imprinter")
-	build_path = /obj/structure/machinery/r_n_d/circuit_imprinter
+	build_path = /obj/structure/machinery/r_n_d/fabricator/circuit_imprinter
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 	req_components = list(
-							"/obj/item/stock_parts/matter_bin" = 1,
 							"/obj/item/stock_parts/manipulator" = 1,
 							"/obj/item/reagent_containers/glass/beaker" = 2)
 
 /obj/item/circuitboard/mechfab
 	name = T_BOARD("mechatronic fabricator")
-	build_path = /obj/structure/machinery/mecha_part_fabricator
+	build_path = /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	req_components = list(
-							"/obj/item/stock_parts/matter_bin" = 2,
 							"/obj/item/stock_parts/manipulator" = 1,
 							"/obj/item/stock_parts/micro_laser" = 1,
 							"/obj/item/stock_parts/console_screen" = 1)

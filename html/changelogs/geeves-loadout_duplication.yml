@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - qol: "Added the ability to duplicate a loadout into another loadout slot."

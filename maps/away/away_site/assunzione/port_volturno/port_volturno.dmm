@@ -7614,15 +7614,12 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "fjA" = (
-/obj/structure/table/steel,
-/obj/item/flashlight/headlights,
-/obj/item/cell/hyper{
-	pixel_x = -4;
-	pixel_y = -10
-	},
 /obj/item/stack/nanopaste{
 	pixel_x = 8;
 	pixel_y = -14
+	},
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
@@ -8700,6 +8697,9 @@
 	dir = 8
 	},
 /obj/item/storage/toolbox/mechanical,
+/obj/item/cell/hyper{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
 "fYD" = (
@@ -12462,6 +12462,7 @@
 	pixel_y = 8
 	},
 /obj/item/clothing/gloves/yellow,
+/obj/item/flashlight/headlights,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
 "iNR" = (
@@ -15427,7 +15428,7 @@
 	pixel_y = 24;
 	density = 0
 	},
-/turf/simulated/floor/exoplanet/assunzione/no_edge,
+/turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "kQv" = (
 /obj/structure/stairs/west,
@@ -19093,7 +19094,7 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/chapel)
 "ntu" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = list(219)
 	},
 /obj/structure/machinery/light{
@@ -20786,7 +20787,7 @@
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/assunzione/no_edge,
+/turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "owW" = (
 /obj/structure/machinery/papershredder{
@@ -21610,6 +21611,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/minimart)
+"oWJ" = (
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/tiled,
+/area/port_volturno/interior/robotics)
 "oWV" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
@@ -32557,7 +32562,7 @@
 /obj/structure/table/reinforced/wood{
 	pixel_y = 3
 	},
-/turf/simulated/floor/exoplanet/assunzione/no_edge,
+/turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/witch_hand/bar)
 "wKA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -33804,7 +33809,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/port_volturno/interior/stafylia)
 "xLh" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = list(219)
 	},
 /obj/random/dirt_75,
@@ -138077,7 +138082,7 @@ rGy
 xWS
 agK
 dvD
-bhN
+oWJ
 bhN
 bhN
 bhN

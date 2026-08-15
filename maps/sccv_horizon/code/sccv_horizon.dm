@@ -169,7 +169,7 @@
 	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/ship/sccv_horizon/ship = locate(/obj/effect/overmap/visitable/ship/sccv_horizon) in GLOB.map_overmap
 		if(ship)
-			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_overmap_position, list("x" = ship.x, "y" = ship.y), 1)
+			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_overmap_position, list("x" = ship.x, "y" = ship.y))
 
 /datum/map/sccv_horizon/post_gamemode_setup()
 	// ##### Set persistent Horizon position on the overmap
@@ -178,12 +178,45 @@
 		var/area/overmap/map = GLOB.map_overmap
 		// Set Horizon location
 		var/obj/effect/overmap/visitable/ship/sccv_horizon/ship = locate(/obj/effect/overmap/visitable/ship/sccv_horizon) in map
-		ship.x = horizon_location_generic.content["x"]
-		ship.y = horizon_location_generic.content["y"]
-		// Make safe space for the Horizon
-		for(var/obj/effect/overmap/hazard in map)
-			if(hazard.x == ship.x && hazard.y == ship.y && istype(hazard, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
-				qdel(hazard)
+		if(ship)
+			ship.x = horizon_location_generic.content["x"]
+			ship.y = horizon_location_generic.content["y"]
+
+			// Make safe space for the Horizon
+			for(var/obj/effect/overmap/hazard in map)
+				if(hazard.x == ship.x && hazard.y == ship.y && istype(hazard, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
+					qdel(hazard)
+
+			// Move mineral asteroid to a nearby location
+			var/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/mining_asteroid = locate(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid) in map
+			if(mining_asteroid)
+				for(var/dir in shuffle(GLOB.cardinals))
+					var/candidate_x = ship.x
+					var/candidate_y = ship.y
+					if(dir & NORTH)
+						candidate_y += 1
+					if(dir & SOUTH)
+						candidate_y -= 1
+					if(dir & EAST)
+						candidate_x += 1
+					if(dir & WEST)
+						candidate_x -= 1
+
+					if(candidate_x < 0 || candidate_y < 0 || candidate_x > overmap_size || candidate_y > overmap_size)
+						continue // Location out of bounds
+
+					for(var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet in map)
+						if(exoplanet.x == candidate_x && exoplanet.y == candidate_y)
+							continue // Location occupied
+
+					mining_asteroid.x = candidate_x
+					mining_asteroid.y = candidate_y
+					break
+
+				// Make safe space for the asteroid
+				for(var/obj/effect/overmap/hazard in map)
+					if(hazard.x == mining_asteroid.x && hazard.y == mining_asteroid.y && istype(hazard, /obj/effect/overmap/event/)) // Ions, dust, carps, meteors, etc.
+						qdel(hazard)
 
 	// ##### Send different faxes after slight delay
 	var/faxes_send_delay = rand(60 SECONDS , 180 SECONDS)

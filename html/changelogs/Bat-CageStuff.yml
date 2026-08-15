@@ -1,8 +1,0 @@
-author: Batrachophrenoboocosmomachia
-delete-after: True
-changes:
-  - qol: "Mobs in animal traps can now be transferred directly to Stasis Cages by click-dragging rather than requiring them to be in a net."
-  - bugfix: "Mobs can no longer use their ranged attacks while contained inside objects (including animal traps)."
-  - bugfix: "Stasis cages now apply stasis only while powered and correctly clear it when releasing simplemobs."
-  - bugfix: "Fixes stasis cage transfers race condition freeing trapped animals randomly."
-  - bugfix: "Corrects stasis cage safety-wire status display."

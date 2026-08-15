@@ -50,8 +50,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with ex
 #define CREATE_PERSISTENT_TYPE_GENERIC(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE) \
 	/singleton/persistent_type/generic/##TYPE_NAME \
 	{ \
-		title = #TITLE; \
-		description = #DESCRIPTION; \
+		title = TITLE; \
+		description = DESCRIPTION; \
 		requires_attribute = ##REQUIRES_ATTRIBUTE; \
 	}
 
@@ -60,8 +60,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with ex
 #define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/##TYPE_NAME \
 	{ \
-		title = #TITLE; \
-		description = #DESCRIPTION; \
+		title = TITLE; \
+		description = DESCRIPTION; \
 		requires_attribute = ##REQUIRES_ATTRIBUTE; \
 		expiration_rule = ##EXPIRATION_RULE; \
 	}
@@ -71,8 +71,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with ex
 #define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/character/##TYPE_NAME \
 	{ \
-		title = #TITLE; \
-		description = #DESCRIPTION; \
+		title = TITLE; \
+		description = DESCRIPTION; \
 		requires_attribute = TRUE; \
 		expiration_rule = ##EXPIRATION_RULE; \
 	}
