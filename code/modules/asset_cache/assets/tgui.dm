@@ -23,11 +23,11 @@
 
 /datum/asset/simple/namespaced/escape_menu_sounds
 	assets = list(
-		"esc_open.ogg" = file("sound/misc/escape_menu/esc_open.ogg"),
-		"esc_middle.ogg" = file("sound/misc/escape_menu/esc_middle.ogg"),
-		"esc_close.ogg" = file("sound/misc/escape_menu/esc_close.ogg"),
-		"menu_click.ogg" = file("sound/effects/menu_click.ogg"),
-		"menu_click_heavy.ogg" = file("sound/effects/menu_click_heavy.ogg"),
+		"esc_open.ogg" = 'sound/misc/escape_menu/esc_open.ogg',
+		"esc_middle.ogg" = 'sound/misc/escape_menu/esc_middle.ogg',
+		"esc_close.ogg" = 'sound/misc/escape_menu/esc_close.ogg',
+		"menu_click.ogg" = 'sound/effects/menu_click.ogg',
+		"menu_click_heavy.ogg" = 'sound/effects/menu_click_heavy.ogg',
 	)
 
 /datum/asset/spritesheet/escape_menu_icons
