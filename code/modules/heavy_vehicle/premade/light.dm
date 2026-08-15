@@ -53,6 +53,8 @@
 /obj/item/mech_component/chassis/light
 	name = "light exosuit chassis"
 	pilot_coverage = 100
+	cockpit_hatch_size = 50
+	cockpit_pilot_damage_multiplier = 0.8
 	transparent_cabin = TRUE
 	hatch_descriptor = "canopy"
 	exosuit_desc_string = "an open and light chassis"

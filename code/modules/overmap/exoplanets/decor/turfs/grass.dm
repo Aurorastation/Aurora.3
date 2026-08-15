@@ -6,6 +6,7 @@
 	icon_state = "greygrass"
 	color = "#799c4b"
 	footstep_sound = SFX_FOOTSTEP_GRASS
+	has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
@@ -36,7 +37,7 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass_stalk"
 	color = null
-	has_edge_icon = null
+	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/grass/marsh
 	name = "marshy ground"
@@ -44,7 +45,7 @@
 	icon = 'icons/turf/fungal_marsh.dmi'
 	icon_state = "marsh"
 	color = null
-	has_edge_icon = null
+	has_edge_icon = FALSE
 	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/exoplanet/grass/marsh/Initialize()

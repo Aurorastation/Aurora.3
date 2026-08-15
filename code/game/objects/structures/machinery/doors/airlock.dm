@@ -118,8 +118,6 @@
 	var/door_frame_color = COLOR_GRAY20
 	/// Color. The color of the stripe detail.
 	var/stripe_color = null
-	/// Color. The color of the symbol detail.
-	var/symbol_color = null
 	/// Color. The color of the window.
 	var/window_color = null
 	/// String (One of `MATERIAL_*`). The material used for the door's window if `glass` is set. Used to set `window_material` during init.
@@ -563,6 +561,12 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	destroy_hits = 30
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_MEDIUM
+	)
 	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5

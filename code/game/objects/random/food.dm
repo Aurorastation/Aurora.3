@@ -36,22 +36,23 @@
 	icon_state = "mre_desert"
 	spawnlist = list(
 		/obj/item/reagent_containers/food/snacks/candy,
-		/obj/item/reagent_containers/food/snacks/cb01,
-		/obj/item/reagent_containers/food/snacks/cb02,
-		/obj/item/reagent_containers/food/snacks/cb03,
-		/obj/item/reagent_containers/food/snacks/cb04,
-		/obj/item/reagent_containers/food/snacks/cb05,
-		/obj/item/reagent_containers/food/snacks/cb06,
-		/obj/item/reagent_containers/food/snacks/cb07,
-		/obj/item/reagent_containers/food/snacks/cb08,
-		/obj/item/reagent_containers/food/snacks/cb09,
-		/obj/item/reagent_containers/food/snacks/cb10,
 		/obj/item/reagent_containers/food/snacks/proteinbar,
 		/obj/item/reagent_containers/food/snacks/donut/normal,
 		/obj/item/reagent_containers/food/snacks/donut/cherryjelly,
 		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/cookie,
 		/obj/item/reagent_containers/food/snacks/poppypretzel,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1,
 		/obj/item/storage/box/fancy/gum
 	)
 
@@ -60,17 +61,6 @@
 	desc = "This is a random vegan dessert for MREs."
 	spawnlist = list(
 		/obj/item/reagent_containers/food/snacks/candy,
-		/obj/item/reagent_containers/food/snacks/cb01,
-		/obj/item/reagent_containers/food/snacks/cb02,
-		/obj/item/reagent_containers/food/snacks/cb03,
-		/obj/item/reagent_containers/food/snacks/cb04,
-		/obj/item/reagent_containers/food/snacks/cb05,
-		/obj/item/reagent_containers/food/snacks/cb06,
-		/obj/item/reagent_containers/food/snacks/cb07,
-		/obj/item/reagent_containers/food/snacks/cb08,
-		/obj/item/reagent_containers/food/snacks/cb09,
-		/obj/item/reagent_containers/food/snacks/cb10,
-		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/donut/cherryjelly,
 		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
 	)
@@ -265,16 +255,31 @@
 		/obj/item/pizzabox/pepperoni,
 	)
 
-//Sometimes the chef will have spare oil in storage.
-//Sometimes they wont, and will need to order it from cargo
-//Variety is the spice of life!
+/obj/random/chocolate
+	name = "random chocolate"
+	desc = "This is a random chocolate."
+	icon_state = "mre_desert"
+	spawnlist = list(
+		/obj/item/reagent_containers/food/snacks/chocolate_bar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1,
+		/obj/item/storage/box/fancy/readies
+	)
+
 /obj/random/cookingoil
 	name = "random cooking oil"
 	desc = "Has a 50% chance of spawning a tank of cooking oil, otherwise nothing."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "oiltank"
 	spawn_nothing_percentage = 50
-
 	spawnlist = list(
 		/obj/structure/reagent_dispensers/cookingoil
 	)

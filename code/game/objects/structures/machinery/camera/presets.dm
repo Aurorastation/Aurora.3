@@ -80,6 +80,9 @@ GLOBAL_LIST_INIT(engineering_networks, list(
 /obj/structure/machinery/camera/network/news
 	network = list(NETWORK_NEWS)
 
+/obj/structure/machinery/camera/network/expedition
+	network = list(NETWORK_EXPEDITION)
+
 // EMP
 
 /obj/structure/machinery/camera/emp_proof/Initialize()
