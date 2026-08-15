@@ -35,6 +35,7 @@
 	var/mob/living/current
 	var/mob/living/original	//This is being used now, don't remove it
 	var/active = 0
+	var/time_joined
 
 	var/mob/living/admin_mob_placeholder = null
 
@@ -538,6 +539,7 @@
 			mind.signature = client.prefs.signature
 		if (client.prefs.signfont)
 			mind.signfont = client.prefs.signfont
+	mind.time_joined = world.time
 	mind.current = src
 
 //HUMAN

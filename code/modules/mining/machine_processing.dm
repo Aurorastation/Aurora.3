@@ -189,9 +189,12 @@
 		if(ID)
 			if(params["choice"] == "claim")
 				if(points >= 0)
-					ID.mining_points += points
+					ID.adjust_mining_points(points)
 					if(points != 0)
 						ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
+						var/character_id = astype(ID.mob_id.resolve(), /mob/living/carbon/human/)?.character_id
+						if(character_id)
+							SSpersistence.historyAddCharacterRecord(/singleton/persistent_type/history/character/mining_points, character_id, points)
 					points = 0
 				else
 					ping("<b>\The [src]</b> pings, \"Transaction failed due to a negative point value. No transaction can be done until this value has returned to a positive one.\"")

@@ -38,7 +38,7 @@
 
 /obj/structure/girder/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if (health < initial(health))
+	if (health < maxhealth)
 		. += "It could be repaired with a few choice <b>welds</b>."
 
 	if (anchored)
@@ -73,7 +73,7 @@
 /obj/structure/girder/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	//Girders only provide partial cover. There's a chance that the projectiles will just pass through. (unless you are trying to shoot the girder)
 	if(hitting_projectile.original != src && !prob(cover))
-		return BULLET_ACT_HIT //pass through
+		return BULLET_ACT_FORCE_PIERCE //pass through
 
 	var/damage = hitting_projectile.get_structure_damage()
 	if(!damage)
@@ -232,7 +232,7 @@
 		to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 		return 0
 
-	var/singleton/material/material = GET_SINGLETON(mat_stack.default_type)
+	var/singleton/material/material = mat_stack.get_material()
 	if(!istype(material))
 		return 0
 
@@ -282,7 +282,7 @@
 		to_chat(user, SPAN_NOTICE("There isn't enough material here to reinforce the girder."))
 		return 0
 
-	var/singleton/material/material = GET_SINGLETON(mat_stack.default_type)
+	var/singleton/material/material = mat_stack.get_material()
 	if(!istype(material) || material.integrity < 50)
 		to_chat(user, "You cannot reinforce \the [src] with that; it is too soft.")
 		return 0

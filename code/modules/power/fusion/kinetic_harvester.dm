@@ -14,7 +14,15 @@
 	var/obj/structure/machinery/power/fusion_core/harvest_from
 
 /obj/structure/machinery/kinetic_harvester/Initialize()
-	can_harvest = list("gold","silver","lead","platinum","uranium","osmium","borosilicate glass")
+	can_harvest = list(
+		MATERIAL_GOLD = TRUE,
+		MATERIAL_SILVER = TRUE,
+		MATERIAL_LEAD = TRUE,
+		MATERIAL_PLATINUM = TRUE,
+		MATERIAL_URANIUM = TRUE,
+		MATERIAL_OSMIUM = TRUE,
+		MATERIAL_GLASS_PHORON = TRUE
+	)
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	find_core()
 	queue_icon_update()
@@ -47,6 +55,40 @@
 			harvest_from = fusion_cores[1]
 	return harvest_from
 
+/obj/structure/machinery/kinetic_harvester/proc/get_harvest_material(var/mat)
+	return SSmaterials.get_material_by_id(mat, FALSE)
+
+/obj/structure/machinery/kinetic_harvester/proc/get_harvest_material_path(var/mat)
+	return SSmaterials.material_to_path(mat, FALSE)
+
+/obj/structure/machinery/kinetic_harvester/proc/normalize_harvest_storage()
+	SSmaterials.normalize_material_amounts(stored)
+
+	var/list/normalized_harvesting = list()
+	for(var/mat in harvesting)
+		var/material_path = get_harvest_material_path(mat)
+		if(material_path && can_harvest[material_path])
+			normalized_harvesting[material_path] = TRUE
+	harvesting = normalized_harvesting
+
+/obj/structure/machinery/kinetic_harvester/proc/sync_harvestable_reactants()
+	normalize_harvest_storage()
+	if(!harvest_from || !harvest_from.owned_field)
+		return
+
+	for(var/reactant in harvest_from.owned_field.reactants)
+		var/material_path = get_harvest_material_path(reactant)
+		if(material_path && can_harvest[material_path] && isnull(stored[material_path]))
+			stored[material_path] = 0
+
+/obj/structure/machinery/kinetic_harvester/proc/get_reactant_key(var/material_path)
+	if(!harvest_from || !harvest_from.owned_field || !material_path)
+		return
+
+	for(var/reactant in harvest_from.owned_field.reactants)
+		if(get_harvest_material_path(reactant) == material_path)
+			return reactant
+
 /obj/structure/machinery/kinetic_harvester/ui_interact(mob/user, datum/tgui/ui)
 
 	if(!harvest_from && !find_core())
@@ -63,16 +105,17 @@
 	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/plant = fusion.get_local_network()
 	var/list/data = list()
+	sync_harvestable_reactants()
 
 	data["manufacturer"] = manufacturer
 	data["id"] = plant ? plant.id_tag : null
 	data["status"] = (use_power >= POWER_USE_ACTIVE)
 	data["materials"] = list()
 	for(var/mat in stored)
-		var/singleton/material/material = GET_SINGLETON(mat)
+		var/singleton/material/material = get_harvest_material(mat)
 		if(material)
 			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 2), 1)
-			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
+			data["materials"] += list(list("id" = "[material.type]", "material" = SSmaterials.material_display_name(mat), "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
 	return data
 
 /obj/structure/machinery/kinetic_harvester/process()
@@ -81,17 +124,20 @@
 
 	if(use_power >= POWER_USE_ACTIVE)
 		if(harvest_from && harvest_from.owned_field)
+			sync_harvestable_reactants()
 			for(var/mat in harvest_from.owned_field.reactants)
-				if((mat in can_harvest) && !stored[mat])
-					stored[mat] = 0
+				var/material_path = get_harvest_material_path(mat)
+				if(material_path && can_harvest[material_path] && isnull(stored[material_path]))
+					stored[material_path] = 0
 			for(var/mat in harvesting)
-				if(mat in can_harvest)
-					if(mat in harvest_from.owned_field.reactants)
-						var/harvest = min(harvest_from.owned_field.reactants[mat], rand(100,200))
+				if(can_harvest[mat])
+					var/reactant = get_reactant_key(mat)
+					if(!isnull(reactant))
+						var/harvest = min(harvest_from.owned_field.reactants[reactant], rand(100,200))
 						// Leave a few counts of the reactant to avoid deactivating harvest mode
-						harvest_from.owned_field.reactants[mat] -= (harvest - rand(0,5))
-						if(harvest_from.owned_field.reactants[mat] <= 0)
-							harvest_from.owned_field.reactants -= mat
+						harvest_from.owned_field.reactants[reactant] -= (harvest - rand(0,5))
+						if(harvest_from.owned_field.reactants[reactant] <= 0)
+							harvest_from.owned_field.reactants -= reactant
 						stored[mat] += harvest
 		else
 			harvesting.Cut()
@@ -110,11 +156,14 @@
 		return
 	switch(action)
 		if("remove_mat")
-			var/mat = params["remove_mat"]
-			var/singleton/material/material = GET_SINGLETON(mat)
+			var/mat = get_harvest_material_path(params["remove_mat"])
+			if(!mat || !can_harvest[mat])
+				return
+			var/singleton/material/material = get_harvest_material(mat)
 			if(material)
 				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
-				var/sheets = min(FLOOR(stored[mat]/sheet_cost, 1), 50)
+				var/stored_amount = stored[mat] || 0
+				var/sheets = min(FLOOR(stored_amount/sheet_cost, 1), 50)
 				if(sheets > 0)
 					var/obj/item/stack/material/M = new material.stack_type(get_turf(src), sheets)
 					M.update_icon()
@@ -125,11 +174,15 @@
 
 		if("toggle_power")
 			use_power = (use_power >= POWER_USE_ACTIVE ? POWER_USE_IDLE : POWER_USE_ACTIVE)
+			if(use_power >= POWER_USE_ACTIVE)
+				sync_harvestable_reactants()
 			queue_icon_update()
 			return TRUE
 
 		if("toggle_harvest")
-			var/mat = params["toggle_harvest"]
+			var/mat = get_harvest_material_path(params["toggle_harvest"])
+			if(!mat || !can_harvest[mat])
+				return
 			if(harvesting[mat])
 				harvesting -= mat
 			else

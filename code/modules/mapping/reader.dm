@@ -6,9 +6,29 @@
 GLOBAL_VAR_INIT(use_preloader, FALSE)
 GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 
+/datum/grid_set
+	var/xcrd
+	var/ycrd
+	var/zcrd
+	var/gridLines
+
+/datum/parsed_map
+	var/original_path
+	/// The length of a key in this file. This is promised by the standard to be static.
+	var/key_len = 0
+	/// The length of a line in this file. Not promised by dmm but standard dmm uses it, so we can trust it.
+	var/line_len = 0
+	var/list/grid_models = list()
+	var/list/gridSets = list()
+	/// Unoffset bounds. Null on parse failure.
+	var/list/parsed_bounds
+	/// Offset bounds. Same as parsed_bounds until load().
+	var/list/bounds
+
 /datum/map_load_metadata
 	var/bounds
 	var/list/atoms_to_initialise
+	var/datum/parsed_map/parsed_map
 
 /dmm_suite
 		// /"([a-zA-Z]+)" = \(((?:.|\n)*?)\)\n(?!\t)|\((\d+),(\d+),(\d+)\) = \{"([a-zA-Z\n]*)"\}/g
@@ -57,8 +77,11 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, lower_crop_x, upper_crop_x, lower_crop_y, upper_crop_y)
 	Master.StopLoadingMap()
 
-/dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY)
+/dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, cache_metadata = FALSE)
 	var/tfile = dmm_file//the map file we're creating
+	var/datum/parsed_map/parsed_map
+	if(cache_metadata)
+		parsed_map = new
 
 	/*#### WARNING AURORA SNOWFLAKE SECTION ####*/
 
@@ -66,6 +89,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		// name/path of dmm file, new var so as to not rename the `tfile` var
 		// to maybe maintain compatibility with other codebases
 		var/tfilepath = "[tfile]"
+		if(parsed_map)
+			parsed_map.original_path = tfilepath
 		tfile = null
 		// use bapi to read, parse, process, mapmanip etc
 		// this will "crash"/stacktrace on fail
@@ -91,6 +116,9 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/list/grid_models = list()
 	var/key_len = 0
+	var/line_len = 0
+	if(parsed_map)
+		parsed_map.grid_models = grid_models
 
 	var/stored_index = 1
 
@@ -114,7 +142,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 					key_len = length(key)
 				else
 					CRASH("Inconsistent key length in DMM")
-			if(!measureOnly)
+			if(!measureOnly || cache_metadata)
 				grid_models[key] = regexOutput[2]
 
 		// (1,1,1) = {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
@@ -123,15 +151,24 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 				CRASH("Coords before model definition in DMM")
 
 			var/curr_x = text2num(regexOutput[3])
+			var/curr_y = text2num(regexOutput[4])
+			var/curr_z = text2num(regexOutput[5])
 
 			if(curr_x < x_lower || curr_x > x_upper)
 				continue
 
+			var/datum/grid_set/gridSet
+			if(parsed_map)
+				gridSet = new
+				gridSet.xcrd = curr_x
+				gridSet.ycrd = curr_y
+				gridSet.zcrd = curr_z
+
 			var/xcrdStart = curr_x + x_offset - 1
 			//position of the currently processed square
 			var/xcrd
-			var/ycrd = text2num(regexOutput[4]) + y_offset - 1
-			var/zcrd = text2num(regexOutput[5]) + z_offset - 1
+			var/ycrd = curr_y + y_offset - 1
+			var/zcrd = curr_z + z_offset - 1
 
 			var/zexpansion = zcrd > world.maxz
 			if(zexpansion && !measureOnly) // don't actually expand the world if we're only measuring bounds
@@ -149,6 +186,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			bounds[MAP_MAXZ] = max(bounds[MAP_MAXZ], zcrd)
 
 			var/list/gridLines = splittext(regexOutput[6], "\n")
+			if(parsed_map)
+				gridSet.gridLines = gridLines
 
 			var/leadingBlanks = 0
 			while(leadingBlanks < length(gridLines) && gridLines[++leadingBlanks] == "")
@@ -161,8 +200,13 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			if(gridLines[length(gridLines)] == "")
 				gridLines.Cut(length(gridLines)) // Remove only one blank line at the end.
 
+			if(parsed_map)
+				parsed_map.gridSets += gridSet
+
 			bounds[MAP_MINY] = min(bounds[MAP_MINY], clamp(ycrd, y_lower, y_upper))
 			ycrd += length(gridLines) - 1 // Start at the top and work down
+			if(parsed_map)
+				gridSet.ycrd += length(gridLines) - 1
 
 			if(!cropMap && ycrd > world.maxy)
 				if(!measureOnly)
@@ -171,6 +215,9 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], clamp(ycrd, y_lower, y_upper))
 			else
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], clamp(min(ycrd, world.maxy), y_lower, y_upper))
+
+			if(!line_len && length(gridLines))
+				line_len = length(gridLines[1])
 
 			var/maxx = xcrdStart
 			if(measureOnly)
@@ -236,6 +283,13 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		var/datum/map_load_metadata/M = new
 		M.bounds = bounds
 		M.atoms_to_initialise = atoms_to_initialise
+		if(parsed_map)
+			parsed_map.key_len = key_len
+			parsed_map.line_len = line_len
+			parsed_map.grid_models = grid_models.Copy()
+			parsed_map.parsed_bounds = bounds.Copy()
+			parsed_map.bounds = bounds.Copy()
+			M.parsed_map = parsed_map
 		return M
 
 /**

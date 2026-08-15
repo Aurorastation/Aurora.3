@@ -187,15 +187,15 @@
 	visible_message(SPAN_WARNING("\The [src] in \the [prototype] flickers then vanishes along with everything around it!"))
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(round(3*max(prototype.criticality, 1),1),T))
-		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*2,1))
-		do_teleport(M, get_turf(M), rand(2,6)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		do_teleport(M, get_turf(M), rand(2,4)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		empulse(T, 0, round(max(prototype.criticality, 1)*2,1))
 	..()
 /obj/item/laser_components/capacitor/bluespace/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	visible_message(SPAN_DANGER("\The [src] in \the [prototype] implodes in a catastrophic spatial anomaly, teleporting everything around it!"))
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(round(6*max(prototype.criticality, 1),1),T))
-		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*4,1))
-		do_teleport(M, get_turf(M), rand(4,12)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		do_teleport(M, get_turf(M), rand(3,6)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		empulse(T, 0, round(max(prototype.criticality, 1)*4,1))
 	..()
 
 //Lenses
@@ -302,7 +302,7 @@
 	burst = 10
 	damage = 2 //With the way armour works, splitting the damage across multiple shots actually reduces the overall damage, so we compensate by increasing it.
 	fire_delay = 10
-	chargetime = 3
+	chargetime = 2
 	accuracy = -1
 	icon_state = "rotating_lens"
 	increasable_stats = list()
@@ -443,6 +443,7 @@
 	projectile = /obj/projectile/energy/floramut
 	icon_state = "somatoray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
+	damage = 0.1 //This deals toxin damage. Very strong unless it has a big damage malus.
 
 /obj/item/laser_components/modulator/floramut2
 	name = "betaray modulator"
@@ -450,6 +451,7 @@
 	projectile = /obj/projectile/energy/florayield
 	icon_state = "betaray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
+	damage = 0.1 //This deals toxin damage. Very strong unless it has a big damage malus.
 
 /obj/item/laser_components/modulator/xenovermin
 	name = "xenovermin modulator"
@@ -504,6 +506,7 @@
 	name = "phoron bolt modulator"
 	desc = "Modulates the beam into firing toxic phoron bolts."
 	projectile = /obj/projectile/energy/phoron
+	damage = 0.5
 	icon_state = "tox"
 	firing_sound = 'sound/effects/stealthoff.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)

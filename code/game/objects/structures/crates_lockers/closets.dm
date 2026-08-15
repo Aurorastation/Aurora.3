@@ -357,8 +357,6 @@
 		for(var/mob/living/L in contents)
 			hitting_projectile.Impact(L)
 
-	damage(proj_damage)
-
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/closet_teleporter))
 		if(linked_teleporter)
@@ -880,7 +878,7 @@
 	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "crate_scanner"
 	item_state = "crate_scanner"
-	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
+	matter = list(MATERIAL_STEEL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT

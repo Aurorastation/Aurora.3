@@ -194,7 +194,7 @@
 /obj/item/material/stool/New(var/newloc, var/new_material, var/new_padding_material, var/new_painted_colour)
 	..(newloc, new_material)	// new_material handled in material_weapons.dm
 	if(new_padding_material)
-		padding_material = GET_SINGLETON(new_padding_material)
+		padding_material = SSmaterials.get_material_by_id(new_padding_material)
 	if(new_painted_colour)
 		painted_colour = new_painted_colour
 	update_icon()

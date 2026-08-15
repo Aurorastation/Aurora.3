@@ -34,7 +34,7 @@
 	..()
 	if(!newmaterial)
 		newmaterial = MATERIAL_STEEL
-	material = GET_SINGLETON(newmaterial)
+	material = SSmaterials.get_material_by_id(newmaterial)
 	if(!material)
 		qdel(src)
 		return
@@ -202,7 +202,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	health -= hitting_projectile.damage
 	bullet_ping(hitting_projectile)
 	CheckHealth()
 

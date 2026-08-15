@@ -101,9 +101,9 @@
 		icon_state = "blank"
 	if(!materialtype)
 		materialtype = MATERIAL_STEEL
-	material = GET_SINGLETON(materialtype)
+	material = SSmaterials.get_material_by_id(materialtype)
 	if(!isnull(rmaterialtype))
-		reinf_material = GET_SINGLETON(rmaterialtype)
+		reinf_material = SSmaterials.get_material_by_id(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
 	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0), TRUE)

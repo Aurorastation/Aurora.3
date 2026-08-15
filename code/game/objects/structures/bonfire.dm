@@ -359,7 +359,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	fuel = 0	//don't start with fuel
 	if(!material_name)
 		material_name = MATERIAL_MARBLE
-	material = GET_SINGLETON(material_name)
+	material = SSmaterials.get_material_by_id(material_name)
 	if(!material)
 		qdel(src)
 		return

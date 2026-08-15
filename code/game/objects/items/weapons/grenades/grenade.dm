@@ -12,6 +12,7 @@
 	throw_speed = 4
 	throw_range = 20
 	obj_flags = OBJ_FLAG_CONDUCTABLE
+	pass_flags_self = PASSTABLE | PASSRAILING
 	slot_flags = SLOT_BELT
 	contained_sprite = 1
 	var/active = 0

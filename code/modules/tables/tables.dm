@@ -133,9 +133,9 @@
 
 /obj/structure/table/Initialize()
 	if(table_mat)
-		material = GET_SINGLETON(table_mat)
+		material = SSmaterials.get_material_by_id(table_mat)
 	if(table_reinf)
-		reinforced = GET_SINGLETON(table_reinf)
+		reinforced = SSmaterials.get_material_by_id(table_reinf)
 		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 	. = ..()

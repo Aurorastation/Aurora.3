@@ -23,7 +23,7 @@
 	var/obj/item/grenade/chambered
 	var/list/grenades = new/list()
 	var/max_grenades = 5 //holds this + one in the chamber
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 
 
 /obj/item/gun/launcher/grenade/feedback_hints(mob/user, distance, is_adjacent)

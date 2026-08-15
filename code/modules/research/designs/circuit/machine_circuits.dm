@@ -81,6 +81,11 @@
 	req_tech = list(TECH_DATA = 2, TECH_POWER = 3, TECH_ENGINEERING = 1)
 	build_path = /obj/item/circuitboard/recharger/wallcharger
 
+/datum/design/circuit/machine/recharger/cell_charger
+	name = "Cell Charger"
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 1)
+	build_path = /obj/item/circuitboard/cell_charger
+
 /datum/design/circuit/machine/holopadboard
 	name = "Holopad"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
@@ -208,7 +213,7 @@
 
 /datum/design/circuit/machine/aicore
 	name = "AI Core"
-	desc = "Used in the construction of an: <b>AI core</b>, Secure housing for an AI, it provides power and protection to its inhabitant."
+	desc = "Used in the construction of an: AI core, Secure housing for an AI, it provides power and protection to its inhabitant."
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/circuitboard/aicore
 

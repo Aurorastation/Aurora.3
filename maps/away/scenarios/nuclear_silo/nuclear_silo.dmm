@@ -64,6 +64,7 @@
 /area/nuclear_silo/outside/cave/bunker)
 "ai" = (
 /obj/random/dirt_75,
+/obj/structure/heavy_vehicle_frame,
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "aj" = (
@@ -7357,6 +7358,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "qs" = (
@@ -12427,7 +12429,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/nuclear_silo/outside/buildings/town)
 "Bu" = (
-/obj/structure/heavy_vehicle_frame,
+/obj/structure/machinery/computer/rdconsole/robotics,
 /turf/simulated/floor/carpet/rubber,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "Bv" = (
@@ -18489,7 +18491,7 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "Pb" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/east/robotics_bay)
 "Pc" = (

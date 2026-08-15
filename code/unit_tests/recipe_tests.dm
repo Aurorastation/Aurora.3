@@ -14,14 +14,18 @@
 		if(ispath(D.build_path, /obj/item))
 			var/obj/item/I = D.Fabricate()
 			if(I.matter && D.materials && I.recyclable) // non-recyclable items can't be exploited
-				for(var/mat in I.matter)
+				var/list/product_matter = I.matter.Copy()
+				var/list/design_materials = D.materials.Copy()
+				SSmaterials.normalize_material_amounts(product_matter)
+				SSmaterials.normalize_material_amounts(design_materials)
+				for(var/mat in product_matter)
 					tested_count++
-					if(mat in D.materials)
-						if(I.matter[mat] > D.materials[mat])
-							TEST_FAIL("Design '[D.name]' costs less material '[mat]' ([D.materials[mat]]) than the product is worth ([I.matter[mat]]).")
+					if(mat in design_materials)
+						if(product_matter[mat] > design_materials[mat])
+							TEST_FAIL("Design '[D.name]' costs less material '[SSmaterials.material_display_name(mat)]' ([design_materials[mat]]) than the product is worth ([product_matter[mat]]).")
 							error_count++
 					else
-						TEST_FAIL("Design '[D.name]' does not require material '[mat]' even though the product is worth [I.matter[mat]].")
+						TEST_FAIL("Design '[D.name]' does not require material '[SSmaterials.material_display_name(mat)]' even though the product is worth [product_matter[mat]].")
 						error_count++
 			qdel(I)
 		qdel(D)
@@ -45,6 +49,7 @@
 	for(var/singleton/material/D in materials)
 		var/list/datum/stack_recipe_list/recipe_lists = D.get_recipes()
 		var/list/temp_matter = D.get_matter()
+		SSmaterials.normalize_material_amounts(temp_matter)
 		for(var/datum/stack_recipe_list/L in recipe_lists)
 			for(var/datum/stack_recipe/R in L.recipes)
 				if(!ispath(R.result_type, /obj/item))
@@ -52,15 +57,17 @@
 				var/obj/item/I = R.Produce()
 				if(I.matter && I.recyclable) // non-recyclable items can't be exploited
 					tested_count++
-					for(var/mat in I.matter)
+					var/list/product_matter = I.matter.Copy()
+					SSmaterials.normalize_material_amounts(product_matter)
+					for(var/mat in product_matter)
 						if(mat in temp_matter)
-							var/item_matter_value = I.matter[mat] * R.res_amount
+							var/item_matter_value = product_matter[mat] * R.res_amount
 							var/consumed_matter_value = temp_matter[mat] * R.req_amount
 							if(item_matter_value > consumed_matter_value)
-								TEST_FAIL("Recipe '[R.title]' on material '[D.name]' consumes less material '[mat]' ([R.req_amount] × [temp_matter[mat]] = [consumed_matter_value]) than the product is worth ([R.res_amount] × [I.matter[mat]] = [item_matter_value]).")
+								TEST_FAIL("Recipe '[R.title]' on material '[D.name]' consumes less material '[SSmaterials.material_display_name(mat)]' ([R.req_amount] × [temp_matter[mat]] = [consumed_matter_value]) than the product is worth ([R.res_amount] × [product_matter[mat]] = [item_matter_value]).")
 								error_count++
 						else
-							TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
+							TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[SSmaterials.material_display_name(mat)]', but that material is not required by the recipe.")
 				qdel(I)
 
 	if(error_count)

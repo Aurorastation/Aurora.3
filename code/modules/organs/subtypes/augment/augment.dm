@@ -35,6 +35,9 @@
 	/// If true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
 	var/supports_limb = FALSE
 
+/obj/item/organ/internal/augment/process_initialize()
+	return
+
 /obj/item/organ/internal/augment/Initialize()
 	if(robotic == ROBOTIC_MECHANICAL)
 		robotize()

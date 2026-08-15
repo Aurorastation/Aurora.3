@@ -1,6 +1,0 @@
-author: kermit
-
-delete-after: True
-
-changes:
-  - bugfix: "Removes duplicate leather jacket loadout selection from Reade racing jacket loadout selection."
