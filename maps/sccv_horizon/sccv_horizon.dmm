@@ -29,6 +29,9 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/machinery/atm{
+	pixel_y = -8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/lobby)
 "aax" = (
@@ -185,6 +188,12 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"abp" = (
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "abs" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor,
@@ -902,13 +911,8 @@
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "aeP" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/machinery/alarm/south,
-/obj/random/maintenance_junk_or_loot,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/crew/stargazing_lounge)
 "aeQ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2426,13 +2430,21 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "anY" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/obj/random/maintenance_junk_or_loot,
-/obj/random/contraband,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "aoe" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/acting/changer,
@@ -12344,14 +12356,15 @@
 /turf/unsimulated/floor/wood,
 /area/centcom/evac)
 "bBK" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/grille,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/door/blast/shutters/open{
+	name = "Window Shutter";
+	id = "stargazing_lounge_window_shutter"
 	},
-/obj/structure/machinery/atm{
-	pixel_y = -8
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/operations/lobby)
+/turf/simulated/floor/plating,
+/area/horizon/crew/stargazing_lounge)
 "bBN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -14383,6 +14396,24 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/tcommsat/entrance)
+"bQZ" = (
+/obj/structure/platform/ledge/dark,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/curtain/open/bar{
+	color = "#8a7387"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/service,
+/obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "bRc" = (
 /obj/structure/table/wood,
 /obj/structure/machinery/recharger{
@@ -16498,15 +16529,13 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/horizon/operations/ship_supply_warehouse)
 "cgr" = (
-/obj/structure/machinery/vending/assist,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
-	},
+/obj/effect/floor_decal/corner/dark_green/full,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light{
 	dir = 8;
 	pixel_x = -5
 	},
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "cgu" = (
@@ -20002,6 +20031,9 @@
 	dir = 5
 	},
 /obj/structure/machinery/firealarm/north,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "cDW" = (
@@ -22309,11 +22341,6 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/rnd/conference)
-"cUb" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/snack/horizon,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/operations/lobby)
 "cUd" = (
 /obj/structure/machinery/door/window/westright{
 	name = "Firing Range Access"
@@ -23689,16 +23716,16 @@
 /turf/simulated/floor/plating,
 /area/horizon/crew/lounge)
 "ddr" = (
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/structure/machinery/door/firedoor{
-	dir = 4
+/obj/structure/table/skrell,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
 	},
-/obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(12,26,29,31,48,67);
-	dir = 4
+/obj/item/skrell_projector,
+/obj/structure/machinery/power/outlet{
+	pixel_y = 17
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/storage/primary)
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "ddB" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -27832,6 +27859,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/atmos/turbine)
+"dCo" = (
+/obj/structure/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/bed/stool/hover{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "dCp" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -29405,6 +29442,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/upperdeck)
+"dNo" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "dNr" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/extinguisher_cabinet/north,
@@ -31547,6 +31596,21 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/indra/mainchamber)
+"ebJ" = (
+/obj/structure/table/skrell,
+/obj/item/skrell_projector{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/structure/machinery/power/outlet{
+	pixel_y = 3;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "ebL" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
@@ -33926,15 +33990,11 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
 "erq" = (
-/obj/structure/foamedmetal,
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-2"
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
+	id = "stargazing_lounge_pool_tint"
 	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, commissary"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "ert" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -34796,8 +34856,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -36599,11 +36659,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/buffet)
 "eIX" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-1"
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
-/turf/simulated/wall,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "eIY" = (
 /obj/structure/machinery/atmospherics/valve{
 	dir = 4;
@@ -37002,16 +37062,6 @@
 	},
 /turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
-"eMA" = (
-/obj/structure/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Tool storage";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/storage/primary)
 "eMB" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -40130,6 +40180,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
+"fiB" = (
+/turf/simulated/wall,
+/area/horizon/crew/stargazing_lounge)
 "fiK" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -42641,10 +42694,80 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/medical/cryo)
 "fAi" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/coffee,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/operations/lobby)
+/obj/structure/closet/cabinet{
+	name = "shared wardrobe";
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/effect/floor_decal/industrial/outline_corner/service,
+/obj/effect/floor_decal/industrial/outline_segment/service{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/service{
+	dir = 5
+	},
+/obj/item/clothing/under/skrell/wetsuit{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit/swimsuit{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit/swimsuit{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit/swimsuit{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit/swimsuit/alt{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit/swimsuit/alt{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/skrell/wetsuit/swimsuit/alt{
+	color = "#8a7387";
+	accent_color = "#8a7387"
+	},
+/obj/item/clothing/under/pj/blue,
+/obj/item/clothing/under/pj/blue,
+/obj/item/clothing/under/pj/blue,
+/obj/item/clothing/pants/shorts/athletic/scc,
+/obj/item/clothing/pants/shorts/athletic/scc,
+/obj/item/clothing/pants/shorts/athletic/scc,
+/obj/item/clothing/glasses/sunglasses/blindfold/scc_sleepmask,
+/obj/item/clothing/glasses/sunglasses/blindfold/scc_sleepmask,
+/obj/item/clothing/glasses/sunglasses/blindfold/scc_sleepmask,
+/obj/item/clothing/shoes/slippers/scc_slippers,
+/obj/item/clothing/shoes/slippers/scc_slippers,
+/obj/item/clothing/shoes/slippers/scc_slippers,
+/obj/item/clothing/mask/skrell{
+	color = "#8a7387"
+	},
+/obj/item/clothing/mask/skrell{
+	color = "#8a7387"
+	},
+/obj/item/clothing/mask/skrell{
+	color = "#8a7387"
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "fAo" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "12,0"
@@ -43165,12 +43288,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/horizon/maintenance/deck_2/wing/port/nacelle)
-"fEu" = (
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/storage/primary)
 "fEv" = (
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
@@ -44083,6 +44200,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/ai/chamber)
+"fKL" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/machinery/vending/coffee,
+/turf/simulated/floor/tiled,
+/area/horizon/operations/lobby)
 "fKS" = (
 /obj/structure/heavy_vehicle_frame,
 /obj/structure/machinery/mech_recharger,
@@ -45967,10 +46091,18 @@
 /turf/simulated/wall,
 /area/horizon/medical/surgery)
 "fXl" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/item/radio/intercom/west,
+/obj/structure/bed/stool/chair/office/hover/command{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/operations/lobby)
+/area/horizon/crew/stargazing_lounge)
 "fXo" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
@@ -46899,6 +47031,13 @@
 	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_moghes)
+"gds" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/machinery/vending/snack/horizon,
+/turf/simulated/floor/tiled,
+/area/horizon/operations/lobby)
 "gdv" = (
 /turf/simulated/open,
 /area/horizon/engineering/storage_hard/upper)
@@ -53322,10 +53461,14 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/wing/starboard/far)
 "gUV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/canister/restricted,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/machinery/controlhub/stargazing_lounge{
+	pixel_y = 20
+	},
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/horizon/crew/stargazing_lounge)
 "gUX" = (
 /obj/structure/machinery/recharger/wallcharger{
 	pixel_x = -1;
@@ -53890,6 +54033,41 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew/washroom/deck_2)
+"gYi" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/closet/walllocker{
+	pixel_x = -32;
+	name = "towel locker"
+	},
+/obj/item/towel{
+	color = "#8a7387"
+	},
+/obj/item/towel{
+	color = "#8a7387"
+	},
+/obj/item/towel{
+	color = "#8a7387"
+	},
+/obj/item/towel{
+	color = "#8a7387"
+	},
+/obj/item/towel{
+	color = "#8a7387"
+	},
+/obj/item/towel{
+	color = "#8a7387"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "gYk" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -70503,19 +70681,37 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "jfF" = (
-/obj/structure/foamedmetal,
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-1"
+/obj/structure/closet/secure_closet/personal/cabinet{
+	pixel_x = -1;
+	pixel_y = 2
 	},
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
-"jfM" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/effect/floor_decal/industrial/outline_corner/service{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/service,
+/obj/effect/floor_decal/industrial/outline_segment/service{
 	dir = 9
+	},
+/obj/structure/machinery/light/small/floor,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
+"jfM" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
+"jfQ" = (
+/obj/structure/table/skrell,
+/obj/item/flora/pottedplant_small/mysterious{
+	pixel_y = 7;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "jfT" = (
 /obj/structure/punching_bag,
 /turf/simulated/floor/holofloor/tiled,
@@ -71031,6 +71227,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
+"jjt" = (
+/obj/structure/closet/secure_closet/personal/cabinet{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/effect/floor_decal/industrial/outline_corner/service{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/service{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/service{
+	dir = 6
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "jjv" = (
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,73);
@@ -72664,8 +72879,10 @@
 /obj/effect/landmark/start{
 	name = "Assistant"
 	},
-/obj/structure/bed/stool/chair/office/dark,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -76042,6 +76259,25 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/starboard)
+"jQB" = (
+/obj/structure/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/structure/machinery/door/airlock/glass{
+	name = "Stargazing Lounge"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/structure/curtain/open/bar{
+	color = "#8a7387"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "jQD" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -78104,6 +78340,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard/far)
+"kee" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, stargazing lounge"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/crew/stargazing_lounge)
 "kek" = (
 /obj/structure/machinery/door/airlock/centcom{
 	dir = 1;
@@ -80836,9 +81078,11 @@
 /obj/item/hand_labeler,
 /obj/random/tool,
 /obj/random/tool,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
+/obj/structure/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Tool storage";
+	dir = 1
 	},
+/obj/effect/floor_decal/corner/dark_green/full,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "kwg" = (
@@ -81049,16 +81293,20 @@
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
 "kxm" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 1
 	},
-/obj/structure/machinery/light/small{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/random/maintenance_junk_or_loot,
-/obj/random/contraband,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "kxt" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
@@ -84765,10 +85013,10 @@
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/operations/lobby)
 "kVr" = (
@@ -85303,6 +85551,7 @@
 	pixel_x = 10;
 	pixel_y = -3
 	},
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "kYP" = (
@@ -88374,6 +88623,15 @@
 	icon_state = "fix2"
 	},
 /area/horizon/shuttle/mining)
+"lsW" = (
+/obj/structure/machinery/computer/ship/navigation/terminal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/firealarm/west,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "lsX" = (
 /turf/simulated/wall,
 /area/horizon/maintenance/deck_1/teleporter)
@@ -89256,10 +89514,26 @@
 /turf/simulated/floor/tiled/slate/full,
 /area/horizon/operations/warehouse)
 "lzB" = (
-/obj/effect/floor_decal/corner/dark_green/full,
-/obj/structure/machinery/alarm/south,
-/turf/simulated/floor/tiled,
-/area/horizon/storage/primary)
+/obj/effect/floor_decal/industrial/outline_corner/service{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/service{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/service{
+	dir = 10
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 4
+	},
+/obj/structure/machinery/light/small/floor,
+/obj/structure/machinery/alarm/east,
+/obj/structure/undies_wardrobe{
+	pixel_y = 3;
+	pixel_x = -1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "lzC" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -95707,6 +95981,12 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
+"mrJ" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "mrL" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/secure_closet/refrigerator/station/alt,
@@ -96122,6 +96402,20 @@
 "muE" = (
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
+"muI" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "muK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light{
@@ -96698,8 +96992,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/operations/machinist)
 "myV" = (
-/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
@@ -97216,12 +97513,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/operations/lobby)
@@ -105816,6 +106113,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
+"nJT" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "nJU" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -107195,6 +107502,16 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
+"nTB" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "nTE" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning,
@@ -107916,11 +108233,22 @@
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/mining)
 "nYS" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-2"
+/obj/structure/machinery/door/firedoor{
+	dir = 4
 	},
-/turf/simulated/wall,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/effect/floor_decal/industrial/hatch_door/service,
+/obj/structure/curtain/open/bar{
+	color = "#8a7387"
+	},
+/obj/structure/platform/ledge/dark,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "nYW" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -110084,12 +110412,6 @@
 	density = 1
 	},
 /area/antag/ninja)
-"onE" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-2"
-	},
-/turf/simulated/wall,
-/area/horizon/security/checkpoint2)
 "onG" = (
 /obj/structure/machinery/camera/network/reactor{
 	c_tag = "Engineering - Supermatter Reactor 1";
@@ -111268,6 +111590,17 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/central)
+"ouE" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/grille,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/machinery/door/blast/shutters/open{
+	name = "Window Shutter";
+	id = "stargazing_lounge_window_shutter";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/horizon/crew/stargazing_lounge)
 "ouG" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,4"
@@ -112619,11 +112952,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/service/hydroponics)
 "oEb" = (
-/obj/structure/machinery/lapvend,
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/vending/assist,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "oEg" = (
@@ -114488,17 +114821,16 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/air)
 "oPK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/machinery/light/small{
+/obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/obj/random/maintenance_junk_or_loot,
-/obj/structure/machinery/power/apc/west,
-/obj/structure/cable/green,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/flora/pottedplant/unusual,
+/obj/structure/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "oPN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -117677,6 +118009,17 @@
 "pjB" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/service/kitchen)
+"pjE" = (
+/obj/item/radio/intercom/east,
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 4
+	},
+/obj/structure/bed/aqua,
+/obj/structure/platform_deco/ledge/dark{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/horizon/crew/stargazing_lounge)
 "pjI" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
@@ -125265,6 +125608,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/test_range)
+"qkv" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "qkI" = (
 /obj/structure/machinery/atmospherics/omni/filter{
 	name = "hydrogen filter";
@@ -128555,6 +128904,15 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/engineering/storage/lower)
+"qGs" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "qGt" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -128733,6 +129091,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/main_compartment)
+"qHw" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/obj/structure/table/skrell,
+/obj/item/skrell_projector{
+	pixel_x = 5
+	},
+/obj/structure/machinery/power/outlet{
+	pixel_y = 11;
+	pixel_x = -10
+	},
+/obj/structure/machinery/firealarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "qHy" = (
 /obj/structure/flora/stump{
 	pixel_x = 15;
@@ -131263,12 +131636,19 @@
 /turf/unsimulated/floor/rubber_carpet,
 /area/antag/jockey)
 "qXw" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
+/obj/structure/platform/ledge/dark{
+	dir = 4
 	},
-/obj/random/maintenance_junk_or_loot,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/curtain/open/bar{
+	color = "#8a7387"
+	},
+/turf/simulated/floor/shuttle/skrell/ramp{
+	dir = 1
+	},
+/area/horizon/crew/stargazing_lounge)
 "qXx" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -132367,9 +132747,23 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/indra/mainchamber)
 "reJ" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/platform_deco/ledge/dark{
+	dir = 1
+	},
+/obj/structure/platform_deco/ledge/dark,
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner/black,
+/obj/effect/floor_decal/industrial/outline_door/blue,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/horizon/crew/stargazing_lounge)
 "rfa" = (
 /obj/structure/table/standard,
 /obj/structure/machinery/light{
@@ -136618,6 +137012,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/wing/starboard)
+"rHv" = (
+/obj/structure/bed/stool/chair/office/hover{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/item/radio/intercom/east,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "rHz" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -138536,13 +138943,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/wing/port/nacelle)
 "rTt" = (
-/obj/structure/machinery/vending/tool,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
+/obj/structure/bed/stool/hover,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/horizon/storage/primary)
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 1
+	},
+/obj/item/radio/intercom/west,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "rTw" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -140658,7 +141069,9 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
@@ -142451,13 +142864,26 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard/far)
 "ssa" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/platform_deco/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
 	dir = 4
 	},
-/obj/structure/trash_pile,
-/obj/structure/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/blue{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "ssd" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -143668,12 +144094,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hangar/control)
 "szJ" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/structure/table/skrell,
+/obj/structure/platform/ledge/dark{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/item/toy/plushie/axic{
+	pixel_y = 6;
+	pixel_x = -1
+	},
+/obj/structure/machinery/light_switch/idris{
+	dir = 1;
+	pixel_y = 27;
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "szN" = (
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,73);
@@ -147918,13 +148353,14 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/main/starboard)
 "tdl" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/light/small{
-	dir = 1
+/obj/effect/floor_decal/spline/plain/full{
+	color = "#b6efe1"
 	},
-/obj/structure/machinery/alarm/north,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/bed/stool/chair/office/hover/command{
+	dir = 4
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/horizon/crew/stargazing_lounge)
 "tdm" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
@@ -149396,12 +149832,15 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/chemistry)
 "tmR" = (
-/obj/structure/foamedmetal,
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-2"
+/obj/structure/bed/stool/chair/office/hover,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
 	},
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "tmS" = (
 /obj/structure/disposalpipe/junction{
 	icon_state = "pipe-j2"
@@ -150413,6 +150852,17 @@
 "tss" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/maintenance/deck_1/operations/starboard/far)
+"tst" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/office/hover/command,
+/obj/structure/machinery/alarm/east,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "tsA" = (
 /obj/structure/machinery/sleeper{
 	dir = 4
@@ -157212,11 +157662,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/auxatmos)
 "uns" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-1"
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/turf/simulated/wall,
-/area/horizon/operations/lobby)
+/obj/structure/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Stargazing Lounge, Port";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "unt" = (
 /obj/effect/step_trigger/thrower/shuttle/southwest,
 /turf/space/transit/east,
@@ -158541,6 +158995,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
+"uvU" = (
+/obj/structure/platform/ledge/dark,
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "uvV" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -160732,6 +161199,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/operations/lobby)
+"uJm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/horizon/exterior)
 "uJn" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -162244,6 +162718,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/starboard)
+"uTQ" = (
+/obj/structure/table/skrell,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/item/deck/tarot/nralakk{
+	pixel_y = 4
+	},
+/obj/item/deck/tarot/nonnralakk,
+/obj/item/flora/pottedplant_small/crystal{
+	pixel_y = 17;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "uTR" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -162748,9 +163237,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/starboard/docks)
 "uXc" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/machinery/firealarm/east,
+/obj/structure/bed/stool/hover,
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "uXe" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/scc{
 	spawn_firedoor = 1;
@@ -169138,6 +169631,20 @@
 /obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/wood,
 /area/horizon/service/library)
+"vSw" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/structure/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Stargazing Lounge, Starboard";
+	dir = 4
+	},
+/obj/structure/machinery/controlhub/stargazing_lounge{
+	pixel_x = -31;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "vSE" = (
 /obj/structure/table/standard,
 /obj/structure/machinery/chemical_dispenser/bar_soft/full{
@@ -169992,6 +170499,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/xenobiology/foyer)
+"vWW" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "stargazing_lounge_dividing_tint"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "vXb" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -170699,10 +171212,9 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "wbP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/space_heater,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/structure/machinery/light/small/floor,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew/stargazing_lounge)
 "wbT" = (
 /obj/structure/machinery/computer/aiupload{
 	dir = 1
@@ -171416,10 +171928,22 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "wfz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/maintenance_junk_or_loot,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/effect/floor_decal/spline/plain{
+	color = "#b6efe1";
+	dir = 8
+	},
+/obj/structure/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Stargazing Lounge, Aft";
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/office/hover/command{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/full{
+	color = "#b6efe1"
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/horizon/crew/stargazing_lounge)
 "wfA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light{
@@ -171863,8 +172387,18 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/elevator)
 "wiG" = (
-/turf/simulated/wall,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 1
+	},
+/obj/structure/platform/ledge/dark,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "wiQ" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -173820,14 +174354,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion/starboard)
 "wur" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -174336,6 +174877,18 @@
 "wxI" = (
 /turf/simulated/wall,
 /area/horizon/service/kitchen)
+"wxP" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/horizon/operations/lobby)
 "wxV" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 9
@@ -176091,14 +176644,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/hangar/starboard)
 "wKo" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
+/obj/structure/platform_deco/ledge/dark{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/horizon/operations/lobby)
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "wKq" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "1,12"
@@ -176843,15 +177402,11 @@
 	},
 /area/shuttle/transport1)
 "wOV" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
+	id = "stargazing_lounge_pool_tint"
 	},
-/obj/structure/closet/crate,
-/obj/random/contraband,
-/obj/random/loot,
-/obj/random/contraband,
-/turf/simulated/floor/plating,
-/area/horizon/maintenance/deck_2/cargo_compartment)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/crew/stargazing_lounge)
 "wPd" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -180289,6 +180844,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/cafeteria)
+"xkr" = (
+/obj/structure/bed/aqua,
+/obj/structure/platform_deco/ledge/dark,
+/obj/effect/floor_decal/spline/plain/cee/black{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/horizon/crew/stargazing_lounge)
 "xks" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -182582,20 +183145,6 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
-"xyU" = (
-/obj/structure/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch_door/yellow{
-	dir = 8
-	},
-/obj/effect/map_effect/door_helper/unres,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(12,26,29,31,48,67)
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/maintenance/deck_2/cargo_compartment)
 "xyY" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -183036,6 +183585,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
+"xBF" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/horizon/crew/stargazing_lounge)
 "xBM" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -187077,10 +187641,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
 "yex" = (
-/obj/structure/shuttle_part/scc_space_ship{
-	icon_state = "d2-2"
-	},
-/turf/simulated/wall,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/operations/lobby)
 "yey" = (
 /obj/structure/tank_wall/hydrogen{
@@ -272903,8 +273464,8 @@ tku
 ybO
 fYG
 ngp
-uns
-fZx
+yex
+uYQ
 eSV
 eSV
 eSV
@@ -273158,14 +273719,14 @@ nGY
 nGY
 euG
 lDz
-mSR
-fAi
+fKL
+ngp
 yex
-luc
-eSV
-eSV
-eSV
-eSV
+tGt
+dbd
+dbd
+dbd
+uJm
 eSV
 eSV
 eSV
@@ -273415,17 +273976,17 @@ tAH
 nGY
 uwC
 lDz
-mSR
-fXl
-wiG
-jfF
-fZx
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+gds
+fiB
+aeP
+ouE
+ouE
+ouE
+aeP
+tGt
+dbd
+dbd
+uJm
 eSV
 eSV
 eSV
@@ -273673,16 +274234,16 @@ vCq
 bDD
 mQn
 mSR
-cUb
-wiG
+fiB
+lsW
 tmR
-luc
-eSV
-eSV
-eSV
-eSV
-eSV
-eSV
+ebJ
+nJT
+aeP
+ouE
+ouE
+bBK
+uYQ
 eSV
 eSV
 eSV
@@ -273929,17 +274490,17 @@ nCz
 nGY
 cHA
 gxN
+cRy
+fiB
+dCo
+mrJ
+wbP
+qkv
+vSw
+dNo
+nTB
 bBK
-wiG
-wiG
-wiG
-eIX
-fZx
-eSV
-eSV
-eSV
-eSV
-eSV
+uYQ
 eSV
 eSV
 eSV
@@ -274186,17 +274747,17 @@ nGY
 nGY
 jjU
 wur
-cRy
-wiG
+wxP
+jQB
 kxm
 anY
-nYS
-luc
-eSV
-eSV
-eSV
-eSV
-eSV
+muI
+xBF
+wbP
+jfQ
+ddr
+bBK
+uYQ
 eSV
 eSV
 eSV
@@ -274443,17 +275004,17 @@ kwH
 dhN
 aZV
 exo
-wKo
-xyU
+mSR
+fiB
 szJ
-szJ
+uTQ
 oPK
-eIX
-fZx
-eSV
-eSV
-eSV
-eSV
+wKo
+abp
+qGs
+rHv
+bBK
+uYQ
 eSV
 eSV
 eSV
@@ -274701,16 +275262,16 @@ dhN
 irz
 mDA
 gWN
-wiG
-wbP
-reJ
-aeP
+fiB
+wOV
+wOV
+fiB
 nYS
-luc
-eSV
-eSV
-eSV
-eSV
+vWW
+vWW
+fiB
+kee
+pam
 eSV
 eSV
 eSV
@@ -274958,16 +275519,16 @@ dhN
 aJm
 gjS
 aJm
-wiG
+fiB
 tdl
-reJ
-wOV
-wiG
+xkr
+erq
+uvU
 eIX
-fZx
-eSV
-eSV
-eSV
+wbP
+fXl
+bBK
+uYQ
 eSV
 eSV
 eSV
@@ -275215,16 +275776,16 @@ gal
 fUl
 ciL
 iBa
-wiG
+fiB
 gUV
 reJ
 qXw
 ssa
-nYS
-luc
-eSV
-eSV
-eSV
+uns
+tst
+qHw
+bBK
+uYQ
 eSV
 eSV
 eSV
@@ -275472,16 +276033,16 @@ xbu
 mxg
 kVp
 dCx
-wiG
+fiB
 wfz
-reJ
-reJ
-reJ
-wiG
-jfF
-fZx
-eSV
-eSV
+pjE
+fiB
+bQZ
+fiB
+fiB
+fiB
+aeP
+uYQ
 eSV
 eSV
 eSV
@@ -275729,16 +276290,16 @@ gal
 fUl
 jHY
 gyp
-dEI
-dEI
-dEI
-dEI
-ddr
-dEI
-erq
-luc
-eSV
-eSV
+fiB
+fiB
+fiB
+fiB
+wiG
+gYi
+rTt
+jjt
+aeP
+uYQ
 eSV
 eSV
 eSV
@@ -275989,13 +276550,13 @@ aaw
 dEI
 oEb
 cgr
-rTt
+fiB
 lzB
-dEI
+fAi
 uXc
 jfF
-fZx
-eSV
+aeP
+uYQ
 eSV
 eSV
 eSV
@@ -276246,13 +276807,13 @@ kpS
 dEI
 cDT
 myV
-fEu
-eMA
-xJO
-xJO
-onE
-luc
-eSV
+fiB
+fiB
+fiB
+fiB
+fiB
+aeP
+pam
 eSV
 eSV
 eSV
@@ -338955,9 +339516,9 @@ vfC
 vfC
 vfC
 hbQ
+icV
+icV
 sLF
-eSV
-eSV
 eSV
 eSV
 eSV
@@ -339212,12 +339773,12 @@ vfC
 vfC
 vfC
 vfC
-aGc
-eSV
-eSV
-eSV
-eSV
-eSV
+vfC
+vfC
+hbQ
+icV
+icV
+sLF
 eSV
 eSV
 eSV
@@ -339469,12 +340030,12 @@ vfC
 lTN
 vfC
 vfC
-hbQ
-sLF
-eSV
-eSV
-eSV
-eSV
+vfC
+vfC
+vfC
+vfC
+vfC
+aGc
 eSV
 eSV
 eSV
@@ -339727,11 +340288,11 @@ hig
 vfC
 vfC
 vfC
+vfC
+vfC
+vfC
+vfC
 aGc
-eSV
-eSV
-eSV
-eSV
 eSV
 eSV
 eSV
@@ -339984,11 +340545,11 @@ kfy
 vfC
 vfC
 vfC
-hbQ
-sLF
-eSV
-eSV
-eSV
+vfC
+vfC
+vfC
+vfC
+aGc
 eSV
 eSV
 eSV
@@ -340242,10 +340803,10 @@ vfC
 vfC
 vfC
 vfC
+vfC
+vfC
+vfC
 aGc
-eSV
-eSV
-eSV
 eSV
 eSV
 eSV
@@ -340499,10 +341060,10 @@ vfC
 vfC
 vfC
 vfC
-hbQ
-sLF
-eSV
-eSV
+vfC
+vfC
+vfC
+aGc
 eSV
 eSV
 eSV
@@ -340757,9 +341318,9 @@ vfC
 vfC
 vfC
 vfC
+vfC
+vfC
 aGc
-eSV
-eSV
 eSV
 eSV
 eSV
@@ -341014,9 +341575,9 @@ vfC
 vfC
 vfC
 vfC
-hbQ
-sLF
-eSV
+vfC
+vfC
+aGc
 eSV
 eSV
 eSV
@@ -341272,8 +341833,8 @@ vfC
 vfC
 vfC
 vfC
+vfC
 aGc
-eSV
 eSV
 eSV
 eSV
@@ -341529,8 +342090,8 @@ vfC
 vfC
 vfC
 vfC
-hbQ
-sLF
+vfC
+aGc
 eSV
 eSV
 eSV

@@ -258,6 +258,15 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 		"window tint" = list("type" = "windowtint", "id" = "bar_tint")
 	)
 
+/obj/structure/machinery/controlhub/stargazing_lounge
+	name = "stargazing lounge hub"
+	icon_state = "holocontrol"
+	controls = list(
+		"safety shutters" = list("type" = "blast_door", "id" = "stargazing_lounge_window_shutter"),
+		"diving window tint" = list("type" = "windowtint", "id" = "stargazing_lounge_dividing_tint"),
+		"pool window tint" = list("type" = "windowtint", "id" = "stargazing_lounge_pool_tint")
+	)
+
 /obj/structure/machinery/controlhub/xo_office/private
 	name = "executive officers office control hub"
 	icon_state = "holocontrol"

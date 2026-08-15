@@ -275,3 +275,12 @@
 	no_light_control = 0
 	horizon_deck = 3
 	lightswitch = FALSE
+
+/area/horizon/crew/stargazing_lounge
+	name = "Stargazing Lounge"
+	icon_state = "lounge"
+	horizon_deck = 2
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+	lightswitch = FALSE
+	location_ew = LOC_STARBOARD
