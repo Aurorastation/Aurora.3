@@ -41,8 +41,6 @@
 	var/enrolled = DEVICE_UNSET
 	/// Used for specifying the software preset of the console
 	var/_app_preset_type
-	/// Department whose request consoles and ringer terminals this device connects to when issued to crew.
-	var/notification_department
 	/// Last time sound was played
 	var/ambience_last_played_time
 	/// Toggles whether pAI can interact with the modular computer while installed in it

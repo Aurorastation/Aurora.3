@@ -256,6 +256,7 @@
 	name = "Consular Officer"
 	fax_department = "Consular's Office"
 	jobtype = /datum/job/consular
+	notification_ringer_types = list(/obj/structure/machinery/ringer/west/consular_a, /obj/structure/machinery/ringer/east/consular_b)
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	head = null
@@ -359,6 +360,7 @@
 /obj/outfit/job/diplomatic_aide
 	name = "Diplomatic Aide"
 	jobtype = /datum/job/diplomatic_aide
+	notification_ringer_types = list(/obj/structure/machinery/ringer/west/consular_a, /obj/structure/machinery/ringer/east/consular_b)
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
@@ -405,6 +407,7 @@
 /obj/outfit/job/diplomatic_bodyguard
 	name = "Diplomatic Bodyguard"
 	jobtype = /datum/job/diplomatic_bodyguard
+	notification_ringer_types = list(/obj/structure/machinery/ringer/west/consular_a, /obj/structure/machinery/ringer/east/consular_b)
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer

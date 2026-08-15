@@ -39941,12 +39941,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/structure/machinery/ringer/east{
-	department = "Cargo";
-	id = "cargo_ringer";
-	pixel_y = 17;
-	req_access = list(31)
-	},
+/obj/structure/machinery/ringer/east/operations_office,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/status_display/supply_display{
 	pixel_y = 32
@@ -49891,15 +49886,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/machinery/ringer/north{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10;
-	department = "Security";
-	id = "security_ringer";
-	req_access = null;
-	req_one_access = list(1)
-	},
+/obj/structure/machinery/ringer/east/security_lobby,
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
 "gwU" = (
@@ -57657,13 +57644,7 @@
 /turf/simulated/floor,
 /area/horizon/command/bridge/upperdeck)
 "hvy" = (
-/obj/structure/machinery/ringer/west{
-	department = "Custodial";
-	id = "ringers_custodial";
-	name = "\improper Custodial Ringer Terminal";
-	pixel_y = 5;
-	req_access = list(26)
-	},
+/obj/structure/machinery/ringer/west/custodial,
 /obj/structure/coatrack{
 	pixel_x = -9
 	},
@@ -65121,13 +65102,7 @@
 	pixel_y = 8
 	},
 /obj/item/hand_labeler,
-/obj/structure/machinery/ringer/west{
-	department = "Auxiliary Custodial";
-	id = "ringers_custodialaux";
-	name = "\improper Auxiliary Custodial Ringer Terminal";
-	pixel_y = 5;
-	req_access = list(26)
-	},
+/obj/structure/machinery/ringer/west/custodial_auxiliary,
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
@@ -65660,15 +65635,7 @@
 	pixel_y = 4;
 	req_one_access = list(38,19,72)
 	},
-/obj/structure/machinery/ringer/north{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10;
-	department = "Consular B";
-	id = "consular_b_ringer";
-	req_access = null;
-	req_one_access = list(72)
-	},
+/obj/structure/machinery/ringer/east/consular_b,
 /obj/item/paper/stickynotes/pad/random{
 	pixel_x = -10;
 	pixel_y = -3
@@ -75076,11 +75043,7 @@
 /obj/item/hand_labeler,
 /obj/item/stack/wrapping_paper,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/machinery/ringer/north{
-	department = "Medbay";
-	id = "medbay_ringer";
-	req_access = list(5)
-	},
+/obj/structure/machinery/ringer/north/medical,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -75368,11 +75331,7 @@
 	c_tag = "Security - Morgue";
 	dir = 4
 	},
-/obj/structure/machinery/ringer/south{
-	department = "Security";
-	id = "investigation_ringer";
-	req_access = list(1)
-	},
+/obj/structure/machinery/ringer/south/investigations,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/evidence_storage)
 "jMX" = (
@@ -85336,12 +85295,7 @@
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/toolbox/mechanical,
-/obj/structure/machinery/ringer/south{
-	department = "Custodial";
-	id = "ringers_custodial";
-	name = "\improper Custodial Ringer Terminal";
-	req_access = list(26)
-	},
+/obj/structure/machinery/ringer/south/custodial,
 /obj/effect/floor_decal/corner/purple/full,
 /obj/item/stack/packageWrap,
 /obj/item/destTagger,
@@ -89531,11 +89485,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/machinery/ringer/west{
-	id = "investigation_ringer";
-	department = "Security";
-	req_access = list(1)
-	},
+/obj/structure/machinery/ringer/west/investigations,
 /obj/structure/engineer_maintenance/electric,
 /obj/structure/engineer_maintenance/pipe{
 	dir = 8
@@ -94636,15 +94586,7 @@
 	pixel_y = 4;
 	req_one_access = list(38,19,72)
 	},
-/obj/structure/machinery/ringer/north{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = -10;
-	department = "Consular A";
-	id = "consular_a_ringer";
-	req_access = null;
-	req_one_access = list(72)
-	},
+/obj/structure/machinery/ringer/west/consular_a,
 /obj/item/paper/stickynotes/pad/random{
 	pixel_x = -10;
 	pixel_y = -3
@@ -99184,11 +99126,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
-/obj/structure/machinery/ringer/south{
-	department = "Security";
-	id = "investigation_ringer";
-	req_access = list(1)
-	},
+/obj/structure/machinery/ringer/south/investigations,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "mQb" = (
@@ -107970,13 +107908,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/structure/machinery/ringer/north{
-	department = "Engineering";
-	id = "engie_ringer";
-	pixel_y = 30;
-	req_access = null;
-	req_one_access = list(11,24)
-	},
+/obj/structure/machinery/ringer/north/engineering,
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/lobby)
@@ -108946,11 +108878,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/structure/machinery/ringer/east{
-	department = "Hydroponics";
-	id = "ringer_hydroponics";
-	req_access = list(35)
-	},
+/obj/structure/machinery/ringer/east/hydroponics,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
@@ -112606,13 +112534,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/machinery/ringer/west{
-	pixel_y = -31;
-	department = "Hydroponics";
-	id = "ringer_hydroponics";
-	req_access = list(35);
-	pixel_x = -10
-	},
+/obj/structure/machinery/ringer/west/hydroponics,
 /obj/effect/landmark/start{
 	name = "Gardener"
 	},
@@ -122648,11 +122570,7 @@
 /area/horizon/crew/fitness/changing)
 "pRU" = (
 /obj/structure/machinery/light,
-/obj/structure/machinery/ringer/south{
-	department = "Pharmacy Frontdesk";
-	id = "pharmacy_ringer";
-	req_access = list(33)
-	},
+/obj/structure/machinery/ringer/south/pharmacy,
 /obj/structure/machinery/camera/network/medbay{
 	c_tag = "Medical - Chemistry Lab Alpha";
 	dir = 1
@@ -126581,11 +126499,7 @@
 	pixel_y = 19;
 	pixel_x = 20
 	},
-/obj/structure/machinery/ringer/east{
-	id = "workshop_ringer";
-	req_access = list(29);
-	department = "Operations"
-	},
+/obj/structure/machinery/ringer/east/machinist,
 /turf/simulated/floor/tiled/full,
 /area/horizon/operations/machinist)
 "qsG" = (
@@ -171883,11 +171797,7 @@
 	pixel_x = -8;
 	pixel_y = 1
 	},
-/obj/structure/machinery/ringer/east{
-	id = "investigation_ringer";
-	department = "Security";
-	req_access = list(1)
-	},
+/obj/structure/machinery/ringer/east/investigations,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
 "wiS" = (

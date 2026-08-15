@@ -401,7 +401,9 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 					to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 					alert_pdas[ref] = pda.name
 				else
-					add_alert_pda(pda)
+					ref = WEAKREF(pda)
+					alert_pdas += ref
+					alert_pdas[ref] = pda.name
 					to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
 			return TRUE
 
@@ -487,7 +489,9 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 			to_chat(user, SPAN_NOTICE("You unlink [alert_pdas[ref]] from \the [src]. It will no longer be notified of new requests."))
 			alert_pdas -= ref
 		else
-			add_alert_pda(pda)
+			ref = WEAKREF(pda)
+			alert_pdas += ref
+			alert_pdas[ref] = pda.name
 			to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
 		return TRUE
 	if(istype(attacking_item, /obj/item/card/id))
@@ -600,14 +604,6 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	for(var/datum/weakref/ref in alert_pdas)
 		if(ref.resolve() == pda)
 			return ref
-
-/// Links a PDA if it is not already receiving this console's notifications.
-/obj/structure/machinery/requests_console/proc/add_alert_pda(obj/item/modular_computer/pda)
-	if(!istype(pda) || find_pda_ref(pda))
-		return
-	var/datum/weakref/ref = WEAKREF(pda)
-	alert_pdas += ref
-	alert_pdas[ref] = pda.name
 
 #undef PRESET_NORTH
 #undef PRESET_SOUTH

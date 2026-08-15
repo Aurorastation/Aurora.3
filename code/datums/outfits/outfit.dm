@@ -82,6 +82,8 @@
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	var/tablet = /obj/item/modular_computer/handheld/preset/civilian
 	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
+	/// Ringer types that an issued PDA should receive alerts from.
+	var/list/notification_ringer_types
 
 	var/allow_headset_choice = FALSE
 	var/headset = /obj/item/radio/headset
@@ -667,7 +669,7 @@
 	if(!P.card_slot)
 		return
 	P.card_slot.insert_id(I)
-	P.connect_departmental_notifications()
+	P.connect_departmental_ringers(notification_ringer_types)
 	if(P.card_slot.stored_card && !P.hidden)
 		P.set_autorun("ntnrc_client")
 		P.enable_computer(null, TRUE) // passing null because we don't want the UI to open

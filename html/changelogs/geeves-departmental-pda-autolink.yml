@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - qol: "Departmental PDAs now automatically connect to the request consoles and ringer terminals in their department."
+  - qol: "Issued PDAs now automatically connect to the ringer terminals relevant to their owner's job."
