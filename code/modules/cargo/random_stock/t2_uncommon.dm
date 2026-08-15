@@ -331,15 +331,6 @@ STOCK_ITEM_UNCOMMON(bang, 0.5)
 	var/obj/item/gun/bang/B = pick(subtypesof(/obj/item/gun/bang))
 	new B(L)
 
-STOCK_ITEM_UNCOMMON(cookingoil, 1)
-	var/turf/T = get_turf(L)
-	if(!turf_clear(T))
-		for(var/turf/U in range(T,1))
-			if(turf_clear(U))
-				T = U
-				break
-	new /obj/structure/reagent_dispensers/cookingoil(T)
-
 STOCK_ITEM_UNCOMMON(coin, 1.3)
 	new /obj/random/coin(L)
 	if(prob(20))

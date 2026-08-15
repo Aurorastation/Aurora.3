@@ -178,6 +178,11 @@
 
 	var/list/receive = get_hearers_in_radio_ranges(radios)
 
+	// Electronic radio headsets expose received traffic to their built-in
+	// command receiver independently of whether a mob can hear the message.
+	for(var/obj/item/radio/headset/circuitry/circuit_headset in radios)
+		circuit_headset.receive_circuit_radio_command(data["name"], message, get_frequency_name(frequency))
+
 	// Cut out admins which have radio chatter disabled
 	for (var/mob/R in receive)
 		if(R.client && R.client.holder && !(R.client.prefs.toggles & CHAT_RADIO))

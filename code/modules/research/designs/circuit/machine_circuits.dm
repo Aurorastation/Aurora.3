@@ -14,17 +14,17 @@
 		build_type &= ~MECHFAB
 
 /datum/design/circuit/machine/GetFabricationName(var/fabricator)
-	if(istype(fabricator, /obj/structure/machinery/mecha_part_fabricator))
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
 		return "[name] flatpak"
 	return ..()
 
 /datum/design/circuit/machine/GetFabricationDesc(var/fabricator)
-	if(istype(fabricator, /obj/structure/machinery/mecha_part_fabricator))
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
 		return "A deployable flatpak containing everything needed to set up \a [lowertext(name)]."
 	return ..()
 
 /datum/design/circuit/machine/GetFabricationMaterials(var/fabricator)
-	if(!istype(fabricator, /obj/structure/machinery/mecha_part_fabricator))
+	if(!istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
 		return ..()
 	if(flatpak_materials)
 		return flatpak_materials
@@ -58,7 +58,7 @@
 	return flatpak_materials
 
 /datum/design/circuit/machine/Fabricate(var/newloc, var/fabricator)
-	if(istype(fabricator, /obj/structure/machinery/mecha_part_fabricator))
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
 		return new /obj/item/flatpak(newloc, build_path, GetFabricationMaterials(fabricator))
 	return ..()
 
@@ -274,7 +274,7 @@
 
 /datum/design/circuit/machine/aicore
 	name = "AI Core"
-	desc = "Used in the construction of an: <b>AI core</b>, Secure housing for an AI, it provides power and protection to its inhabitant."
+	desc = "Used in the construction of an: AI core, Secure housing for an AI, it provides power and protection to its inhabitant."
 	req_tech = list(TECH_DATA = 4, TECH_BIO = 3)
 	build_path = /obj/item/circuitboard/aicore
 

@@ -157,6 +157,11 @@
 
 	movement_sounds = SFX_HEAVY_ARMOUR_FOOTSTEPS
 
+/obj/item/clothing/suit/armor/carrier/press
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/press
+	)
+
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."

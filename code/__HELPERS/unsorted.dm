@@ -687,7 +687,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	var/datum/progressbar/progbar
 	if ((do_flags & DO_SHOW_PROGRESS) && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
-		progbar = new(user, delay, target || user)
+		var/progbar_pos = (do_flags & DO_PLACE_PROGRESSBAR_ON_USER) ? user : (target || user)
+		progbar = new(user, delay, progbar_pos)
 
 	var/datum/looping_sound/action_sound
 	if(ispath(looping_sound_type, /datum/looping_sound))

@@ -171,7 +171,12 @@
 	if(isfloor(user.loc))
 		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
 		user.drop_from_inventory(src)
-		new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
+		var/obj/structure/sign/flag/F = new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
+		F.name = src.name
+		F.desc = src.desc
+		if(F.linked_flag)
+			F.linked_flag.name = src.name
+			F.linked_flag.desc = src.desc
 		qdel(src)
 
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent)
@@ -192,7 +197,12 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
-	new flag_structure(user.loc, placement_dir, deploy = TRUE, item_flag_path = flag_path)
+	var/obj/structure/sign/flag/F = new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
+	F.name = src.name
+	F.desc = src.desc
+	if(F.linked_flag)
+		F.linked_flag.name = src.name
+		F.linked_flag.desc = src.desc
 	qdel(src)
 
 
@@ -222,6 +232,8 @@
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src] and folds it back up."), SPAN_NOTICE("You unfasten \the [src] and fold it back up."))
 		var/obj/item/flag/F = new flag_item(get_turf(user))
+		F.name = src.name
+		F.desc = src.desc
 		user.put_in_hands(F)
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] unfastens the tattered remnants of \the [src]."), SPAN_NOTICE("You unfasten the tattered remains of \the [src]."))
@@ -3717,6 +3729,58 @@
 	. = ..(mapload, EAST)
 
 /obj/structure/sign/flag/venus/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Eris
+/obj/item/flag/eris
+	name = "\improper Erisian Banner"
+	desc = "The banner of the Sovereign Solarian Union of Eris and Dysnomia, a pair of distant dwarf worlds in the Sol System, dominated by the dual influence of the system’s largest communications array and the Solarian Navy."
+	desc_extended = "The banner of Eris and Dysnomia features a bicolor of white and purple, separated by a gold stripe, with a golden ring and diamond at its center. Four purple stars are arranged along the top, while four white stars line the bottom.<br> \
+	The white field evokes the planetoid’s isolation beyond the Kuiper Belt, while the purple pays tribute to the Solarian Navy and its significant influence on Erisian history. The gold stripe represents the vital flow of interstellar communication that passes through Eris. At the center, the golden emblem symbolizes the unity of Eris and Dysnomia: the circle for Eris, the diamond for Dysnomia, and the surrounding ring for their shared infrastructure and mutual dependence.<br> \
+	The eight stars represent the primary habitats across the Union, four in purple for those on Eris and Dysnomia themselves, and four in white for the orbital habitats positioned among their Lagrange points."
+	flag_path = "eris"
+	flag_structure = /obj/structure/sign/flag/eris
+
+/obj/structure/sign/flag/eris
+	name = "\improper Erisian Banner"
+	desc = "The banner of the Sovereign Solarian Union of Eris and Dysnomia, a pair of distant dwarf worlds in the Sol System, dominated by the dual influence of the system’s largest communications array and the Solarian Navy."
+	desc_extended = "The banner of Eris and Dysnomia features a bicolor of white and purple, separated by a gold stripe, with a golden ring and diamond at its center. Four purple stars are arranged along the top, while four white stars line the bottom.<br> \
+	The white field evokes the planetoid’s isolation beyond the Kuiper Belt, while the purple pays tribute to the Solarian Navy and its significant influence on Erisian history. The gold stripe represents the vital flow of interstellar communication that passes through Eris. At the center, the golden emblem symbolizes the unity of Eris and Dysnomia: the circle for Eris, the diamond for Dysnomia, and the surrounding ring for their shared infrastructure and mutual dependence.<br> \
+	The eight stars represent the primary habitats across the Union, four in purple for those on Eris and Dysnomia themselves, and four in white for the orbital habitats positioned among their Lagrange points."
+	flag_path = "eris"
+	icon_state = "eris"
+	flag_item = /obj/item/flag/eris
+
+/obj/item/flag/eris/l
+	name = "\improper Erisian Flag"
+	desc = "The flag of the Sovereign Solarian Union of Eris and Dysnomia, a pair of distant dwarf worlds in the Sol System, dominated by the dual influence of the system’s largest communications array and the Solarian Navy."
+	desc_extended = "The flag of Eris and Dysnomia features a bicolor of white and purple, separated by a gold stripe, with a golden ring and diamond at its center. Four purple stars are arranged along the top, while four white stars line the bottom.<br> \
+	The white field evokes the planetoid’s isolation beyond the Kuiper Belt, while the purple pays tribute to the Solarian Navy and its significant influence on Erisian history. The gold stripe represents the vital flow of interstellar communication that passes through Eris. At the center, the golden emblem symbolizes the unity of Eris and Dysnomia: the circle for Eris, the diamond for Dysnomia, and the surrounding ring for their shared infrastructure and mutual dependence.<br> \
+	The eight stars represent the primary habitats across the Union, four in purple for those on Eris and Dysnomia themselves, and four in white for the orbital habitats positioned among their Lagrange points."
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/eris/large
+
+/obj/structure/sign/flag/eris/large
+	name = "\improper Erisian Flag"
+	desc = "The flag of the Sovereign Solarian Union of Eris and Dysnomia, a pair of distant dwarf worlds in the Sol System, dominated by the dual influence of the system’s largest communications array and the Solarian Navy."
+	desc_extended = "The flag of Eris and Dysnomia features a bicolor of white and purple, separated by a gold stripe, with a golden ring and diamond at its center. Four purple stars are arranged along the top, while four white stars line the bottom.<br> \
+	The white field evokes the planetoid’s isolation beyond the Kuiper Belt, while the purple pays tribute to the Solarian Navy and its significant influence on Erisian history. The gold stripe represents the vital flow of interstellar communication that passes through Eris. At the center, the golden emblem symbolizes the unity of Eris and Dysnomia: the circle for Eris, the diamond for Dysnomia, and the surrounding ring for their shared infrastructure and mutual dependence.<br> \
+	The eight stars represent the primary habitats across the Union, four in purple for those on Eris and Dysnomia themselves, and four in white for the orbital habitats positioned among their Lagrange points."
+	icon_state = "eris_l"
+	flag_path = "eris"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/eris/l
+
+/obj/structure/sign/flag/eris/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/eris/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/eris/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/eris/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 //Hiskyn

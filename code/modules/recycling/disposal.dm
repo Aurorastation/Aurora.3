@@ -1084,9 +1084,9 @@
 /obj/structure/disposalpipe/proc/welded()
 	var/obj/structure/disposalconstruct/C = new (src.loc)
 	switch(icon_state)
-		if("pipe-s")
+		if("pipe-s", "pipe-s-yellow", "pipe-s-blue")
 			C.ptype = 0
-		if("pipe-c")
+		if("pipe-c", "pipe-c-yellow", "pipe-c-blue")
 			C.ptype = 1
 		if("pipe-j1")
 			C.ptype = 2
@@ -1135,12 +1135,22 @@
 
 /obj/structure/disposalpipe/segment/Initialize()
 	. = ..()
-	if(icon_state == "pipe-s")
+	if(icon_state == "pipe-s" || icon_state == "pipe-s-yellow" || icon_state == "pipe-s-blue")
 		dpdir = dir | turn(dir, 180)
 	else
 		dpdir = dir | turn(dir, -90)
 
 	update()
+
+/obj/structure/disposalpipe/segment/mainline
+	name = "mainline disposal pipe"
+	desc = "A disposal pipe indicated by a yellow stripe to be part of the main trunk loop."
+	icon_state = "pipe-s-yellow"
+
+/obj/structure/disposalpipe/segment/blue
+	name = "disposal pipe"
+	desc = "A disposal pipe marked by a blue stripe."
+	icon_state = "pipe-s-blue"
 
 /// Z-Level stuff
 /obj/structure/disposalpipe/up

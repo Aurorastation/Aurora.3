@@ -21,7 +21,7 @@
 
 /obj/item/clothing/accessory/badge/press
 	name = "corporate press pass"
-	desc = "A corporate reporter's pass, emblazoned with the SCC logo."
+	desc = "A corporate reporter's pass, emblazoned with a company logo."
 	icon_state = "pressbadge"
 	item_state = "pbadge"
 	overlay_state = "pbadge"
@@ -33,9 +33,9 @@
 
 /obj/item/clothing/accessory/badge/press/independent
 	name = "press pass"
-	desc = "A freelance journalist's pass."
+	desc = "An independent reporter's pass."
 	icon_state = "pressbadge-i"
-	badge_string = "Freelance Journalist"
+	badge_string = "Independent Reporter"
 
 /obj/item/clothing/accessory/badge/press/plastic
 	name = "plastic press pass"

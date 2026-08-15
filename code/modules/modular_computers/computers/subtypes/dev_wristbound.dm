@@ -18,6 +18,12 @@
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state
 
+/obj/item/modular_computer/handheld/wristbound/update_icon()
+	. = ..()
+	if(!enabled)
+		AddOverlays("off")
+		return
+
 /obj/item/modular_computer/handheld/wristbound/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

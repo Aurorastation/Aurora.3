@@ -211,3 +211,16 @@
 	mid_length = 3 SECONDS
 	volume = 75 // This sounds is rather quiet and needs a higher volume then anticipated for a background noise
 	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/mech_power
+	start_sound = 'sound/mecha/nominal.ogg'
+	start_length = 0.5 SECONDS
+	start_volume = 100
+	mid_sounds = list('sound/mecha/mechambience.ogg' = 1)
+	mid_length = 5 SECONDS
+	falloff_exponent = SOUND_FALLOFF_EXPONENT + 4 // Makes the reactor hum loud inside the cockpit, and quiet outside it.
+	end_sound = 'sound/mecha/mech-shutdown.ogg'
+	end_volume = 100
+	volume = 50
