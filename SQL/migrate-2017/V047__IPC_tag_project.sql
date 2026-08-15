@@ -1,7 +1,7 @@
 --
 -- Reworks how IPC tags work in PR #6973.
 -- This drops the old ss13_ipc_tracking table in favour of ss13_characters_ipc_tags with new fresh information.
---
+-- 
 
 DROP TABLE `ss13_ipc_tracking`;
 
