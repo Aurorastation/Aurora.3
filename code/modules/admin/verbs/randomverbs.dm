@@ -1170,3 +1170,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	panel.ui_interact(usr)
 
 	feedback_add_details("admin_verb", "PERSIST")
+
+/client/proc/arc_management_panel()
+	set category = "Admin"
+	set name = "Arc Management"
+	set desc = "Manage upcoming event arcs and decisions"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/datum/tgui_module/arc_management_panel/panel = new
+	panel.ui_interact(usr)
+
+	feedback_add_details("admin_verb", "ARCMGMT")
