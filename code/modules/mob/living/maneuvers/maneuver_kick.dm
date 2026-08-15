@@ -59,5 +59,5 @@
 			SPAN_WARNING("\The [user] kicks \the [movable_target], sending it flying!"),
 			SPAN_WARNING("You kick \the [movable_target], sending it flying!")
 		)
-		movable_target.throw_at(get_edge_target_turf(user, get_dir(user, movable_target)), kick_distance, 1, user)
+		movable_target.throw_at(get_edge_target_turf(user, get_dir(user, movable_target)), kick_distance, 1, user, FALSE)
 	user.post_maneuver()
