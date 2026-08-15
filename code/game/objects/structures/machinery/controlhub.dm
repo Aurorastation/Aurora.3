@@ -259,7 +259,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 	)
 
 /obj/structure/machinery/controlhub/stargazing_lounge
-	name = "stargazing lounge hub"
+	name = "stargazing lounge control hub"
 	icon_state = "holocontrol"
 	controls = list(
 		"safety shutters" = list("type" = "blast_door", "id" = "stargazing_lounge_window_shutter"),
