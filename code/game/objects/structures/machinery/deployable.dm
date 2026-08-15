@@ -285,7 +285,15 @@ Deployable Kits
 	var/circuit_type
 	var/machine_type
 	var/deploying = FALSE
+	/// Base time required to deploy the flatpak at the required skill level.
+	var/deployment_time = 15 SECONDS
+	/// Additional deployment time per skill level below the requirement, or reduction per level above it.
+	var/deployment_time_per_skill_level = 5 SECONDS
 	var/deployment_looping_sound = /datum/looping_sound/construction
+	/// Skill component used to adjust deployment time. Null skill components bypass the adjustment.
+	var/required_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
+	/// Skill level that deploys the flatpak in the base deployment time.
+	var/required_level = SKILL_LEVEL_TRAINED
 
 /obj/item/flatpak/Initialize(mapload, new_circuit_type, list/material_cost)
 	. = ..()
@@ -305,14 +313,10 @@ Deployable Kits
 /obj/item/flatpak/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use \the [src] on an adjacent, unobstructed floor to deploy its machine."
-	. += "Deploying a flatpak requires trained mechanical engineering skill."
+	. += "Relevant technical skill affects how quickly the flatpak can be deployed."
 
 /obj/item/flatpak/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(deploying || !proximity_flag || use_check(user) || !isturf(target))
-		return
-	var/mechanical_engineering_skill = GET_SKILL_LEVEL(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT)
-	if(isnull(mechanical_engineering_skill) || mechanical_engineering_skill < SKILL_LEVEL_TRAINED)
-		to_chat(user, SPAN_WARNING("You lack the mechanical engineering training required to deploy \the [src]."))
 		return
 	var/turf/deployment_turf = target
 	if(!isfloor(deployment_turf))
@@ -325,12 +329,19 @@ Deployable Kits
 		to_chat(user, SPAN_WARNING("\The [src] has no valid machine data."))
 		return
 
+	var/deployment_duration = deployment_time
+	var/skill_level = required_skill ? GET_SKILL_LEVEL(user, required_skill) : null
+	if(!isnull(skill_level))
+		deployment_duration = max(0, deployment_duration + ((required_level - skill_level) * deployment_time_per_skill_level))
+
 	deploying = TRUE
 	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE("You begin setting up \the [src]."))
-	if(!do_after(user, 15 SECONDS, user, DO_DEFAULT | DO_USER_UNIQUE_ACT, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
+	if(!do_after(user, deployment_duration, user, DO_DEFAULT | DO_USER_UNIQUE_ACT, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
 		deploying = FALSE
 		return
 	deploying = FALSE
+	if(!user || QDELETED(user))
+		return
 	if(!user.Adjacent(deployment_turf) || !isfloor(deployment_turf) || !turf_clear(deployment_turf))
 		to_chat(user, SPAN_WARNING("There is no longer enough room to deploy \the [src] there."))
 		return
