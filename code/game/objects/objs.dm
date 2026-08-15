@@ -106,6 +106,10 @@
 	var/persistent_objects_author_ckey = null
 	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
 	var/persistent_objects_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	// Database timestamp when the tracked object was created
+	var/persistent_objects_created_at = null
+	// Database timestamp when the tracked object will expire
+	var/persistent_objects_expires_at = null
 	/* END PERSISTENCE VARS */
 
 	/// for easy reference of talking atoms
@@ -258,7 +262,10 @@
 	return
 
 /mob/proc/unset_machine()
+	var/was_viewing_machine_remote_view = is_viewing_camera() || is_viewing_overmap()
 	src.machine = null
+	if(was_viewing_machine_remote_view)
+		reset_view(null)
 
 /mob/proc/set_machine(var/obj/O)
 	if(src.machine)

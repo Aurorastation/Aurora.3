@@ -1054,28 +1054,31 @@
 
 		victim.add_chemical_effect(CE_PULSE, -2)
 		var/dose = victim.chem_doses[type]
-		if(dose > 2)
+		if(dose > 2) // at least 1 bite
 			if(ishuman(victim) && (dose == metabolism * 2 || prob(3)))
 				victim.emote("yawn")
-		if(dose > 20)
+		if(dose > 10) // at least 3 bites
 			victim.eye_blurry = max(victim.eye_blurry, 10)
-		if(dose > 40)
+		if(dose > 18) // at least 5 bites
 			victim.Weaken(1)
 			victim.drowsiness = max(victim.drowsiness, 20)
 
 		if(victim.chem_effects[CE_ANTIPARASITE])
 			return
 
-		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER] && prob(20))
-			var/obj/item/organ/external/affected = pick(victim.organs)
-			if(BP_IS_ROBOTIC(affected))
-				return
-			// Give the victim an extra chance to NOT get an eggsac in their head; reroll. Ditto mechanical limbs.
-			if(affected == BP_HEAD)
-				affected = pick(victim.organs)
-			var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
-			infest.parent_organ = affected.limb_name
-			infest.replaced(victim, affected)
+		if(dose > 10) // at least 3 bites
+			if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER] && prob(20))
+				var/obj/item/organ/external/affected = pick(victim.organs)
+				if(BP_IS_ROBOTIC(affected))
+					return
+				// Give the victim an extra chance to NOT get an eggsac somewhere that will insta-kill them; reroll. Ditto mechanical limbs.
+				if(affected == BP_HEAD || affected == BP_CHEST || affected == BP_GROIN)
+					affected = pick(victim.organs)
+				var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
+				infest.parent_organ = affected.limb_name
+				infest.replaced(victim, affected)
+
+				victim.chem_doses[type] = dose / 2
 
 /singleton/reagent/toxin/malignant_tumour_cells
 	name = "Malignant Tumour Cells"

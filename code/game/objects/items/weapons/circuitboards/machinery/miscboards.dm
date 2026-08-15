@@ -143,8 +143,20 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
 	board_type = BOARD_MACHINE
 	req_components = list(
-			"/obj/item/stock_parts/capacitor" = 2,
+			"/obj/item/stock_parts/capacitor" = 3,
 			"/obj/item/stock_parts/micro_laser" = 1,
+			"/obj/item/stack/cable_coil" = 5
+	)
+
+/obj/item/circuitboard/microwave
+	name = T_BOARD("microwave")
+	desc = "The circuitboard for a microwave."
+	build_path = /obj/structure/machinery/appliance/cooker/microwave
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
+	board_type = BOARD_MACHINE
+	req_components = list(
+			"/obj/item/stock_parts/capacitor" = 3,
+			"/obj/item/stock_parts/scanning_module" = 1,
 			"/obj/item/stack/cable_coil" = 5
 	)
 
