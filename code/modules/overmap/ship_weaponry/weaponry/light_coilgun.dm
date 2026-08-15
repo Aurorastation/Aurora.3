@@ -21,6 +21,7 @@
 	caliber = SHIP_CALIBER_COILGUN
 	overmap_icon_state = "light_pulse"
 	impact_type = SHIP_AMMO_IMPACT_AP
+	projectile_type_override = /obj/projectile/ship_ammo/coilgun/light
 
 /obj/projectile/ship_ammo/coilgun/light
 	name = "low-power tungsten rod"

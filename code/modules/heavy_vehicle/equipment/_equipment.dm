@@ -77,11 +77,13 @@
 	return
 
 /obj/item/mecha_equipment/proc/installed(var/mob/living/heavy_vehicle/_owner)
+	SHOULD_CALL_PARENT(TRUE)
 	owner = _owner
 	//generally attached. Nothing should be able to grab it
 	canremove = FALSE
 
 /obj/item/mecha_equipment/proc/uninstalled()
+	SHOULD_CALL_PARENT(TRUE)
 	if(active)
 		deactivate()
 	owner = null
@@ -89,7 +91,7 @@
 
 /obj/item/mecha_equipment/Destroy()
 	owner = null
-	. = ..()
+	return ..()
 
 /obj/item/mecha_equipment/mob_can_unequip(mob/M, slot, disable_warning)
 	. = ..()

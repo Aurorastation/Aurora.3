@@ -209,6 +209,10 @@
 	if(wrists && !skipwrists)
 		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wrists)]'>\a [wrists]</a> [wrists.get_wrist_examine_text(src)].\n"
 
+	//closed eyes
+	if(!skipeyes && eyes_are_closed())
+		msg += "[get_pronoun("His")] eyes are closed.\n"
+
 	//Jitters
 	if(is_jittery)
 		if(jitteriness >= 300)
