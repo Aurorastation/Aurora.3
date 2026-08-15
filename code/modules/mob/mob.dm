@@ -1125,7 +1125,7 @@
 /mob/proc/embedded_needs_process()
 	return (embedded.len > 0)
 
-/mob/proc/remove_implant(obj/item/implant, surgical_removal = FALSE)
+/mob/proc/remove_implant(obj/item/implant, surgical_removal = FALSE, obj/item/organ/external/affected)
 	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)
 	for(var/obj/item/O in pinned)
@@ -1134,7 +1134,8 @@
 		if(!length(pinned))
 			anchored = 0
 	implant.dropInto(loc)
-	implant.add_blood(src)
+	if(!affected || !BP_IS_ROBOTIC(affected))
+		implant.add_blood(src)
 	implant.update_icon()
 	if(istype(implant,/obj/item/implant))
 		var/obj/item/implant/imp = implant
@@ -1157,7 +1158,7 @@
 			apply_damage((implant.w_class * 7), DAMAGE_BRUTE, affected)
 			if(!BP_IS_ROBOTIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
 				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
-	. = ..()
+	. = ..(implant, surgical_removal, affected)
 
 /mob/proc/yank_out_object()
 	set category = "Object"
