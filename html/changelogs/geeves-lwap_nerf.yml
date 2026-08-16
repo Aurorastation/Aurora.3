@@ -1,0 +1,4 @@
+author: Geeves
+delete-after: True
+changes:
+  - balance: "The LWAP sniper rifle no longer stuns the target when hitting them."
