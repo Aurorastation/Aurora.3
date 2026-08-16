@@ -34,12 +34,17 @@
 	hydration_loss_factor = 0.7
 
 	mob_strength = MOB_STRENGTH_STRONG
-	pain_mod = 0.8				// Crocodilian pain tolerance
-	brute_mod = 0.7 			// Crocodilian integumentary system
-	fall_mod = 1.7				// They are heavy and ungraceful. Extra high to counteract the brute mod
+	pain_mod = 0.9				// Crocodilian pain tolerance
+	fall_mod = 1.2				// They are heavy and ungraceful.
 	radiation_mod = 0.8			// Azaziba are the sinta that survived and adapted to irradiated zones
 	grab_mod = 1.5				// Huge, usually have horns
-	resist_mod = 3 				// Arguably our strongest organic species
+	resist_mod = 2.5 			// Arguably our strongest organic species
+
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_PISTOL,
+		melee = ARMOR_MELEE_KEVLAR,
+		rad =  ARMOR_RAD_SMALL
+	)							// Crocodilian integumentary system
 
 	ethanol_resistance = 0.8
 	taste_sensitivity = TASTE_SENSITIVE

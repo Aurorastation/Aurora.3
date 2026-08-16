@@ -44,14 +44,20 @@
 	hydration_loss_factor = 1
 
 	pain_mod = 1				// Standard pain
-	brute_mod = 0.9 			// Osteodermous integumentary system
 	fall_mod = 0.9				// Acclimated to quick movement through trees
 	radiation_mod = 0.9			// While adaptable, Urawani are not adjusted to radiation like Azaziba
 	grab_mod = 1				// Lithe and wily variants
-	resist_mod = 2 				// Physically the weakest sinta, but still big lizardmen
+	resist_mod = 1.5 			// Physically the weakest sinta, but still big lizardmen
 	toxins_mod = 1.1			// They pump blood very quickly
 	bleed_mod = 1.1				// They pump blood very quickly
 	metabolism_mod = 1.1		// They pump blood very quickly
+
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_MINOR,
+		melee = ARMOR_MELEE_KNIVES,
+		laser = ARMOR_LASER_MINOR,
+		rad =  ARMOR_RAD_MINOR
+	)							// Osteodermous integumentary system
 
 	climb_coeff = 0.8			// Acclimated to quick movement through trees
 	standing_jump_range = 3	// Acclimated to quick movement through trees
@@ -141,12 +147,17 @@
 	hydration_loss_factor = 0.9
 
 	pain_mod = 1				// Standard pain
-	brute_mod = 0.8 			// Tuberculate integumentary system plus subtympanic shield
-	fall_mod = 1.3				// Adjusts their fall mod to standard to accomodate their brute mod
 	radiation_mod = 0.9			// While adaptable, Ziralixi are not adjusted to radiation like Azaziba
-	grab_mod = 1.25			// Easier to grab than Urawani
-	resist_mod = 2.5			// Not as strong as Azaziba but still fairly buff
-	flash_mod = 1.2				// Parietal eye sensitivity
+	grab_mod = 1.25				// Easier to grab than Urawani
+	resist_mod = 2				// Not as strong as Azaziba but still fairly buff
+	flash_mod = 1.1				// Parietal eye sensitivity
+
+	natural_armor = list(
+		ballistic = ARMOR_BALLISTIC_SMALL,
+		melee = ARMOR_MELEE_MEDIUM,
+		rad =  ARMOR_RAD_MINOR,
+		bio = ARMOR_BIO_MINOR
+	)							// Tuberculate integumentary system plus subtympanic shield
 
 	climb_coeff = 1.1			// Closer to Azaziba than Urawani here
 	standing_jump_range = 2	// More mobile than Azaziba, but not as much as Urawani
@@ -183,4 +194,4 @@
 		/singleton/maneuver/leap
 	)
 
-	mass_modifier = REFERENCE_MASS_UNATHI_URAWANI / REFERENCE_MASS_HUMAN
+	mass_modifier = REFERENCE_MASS_UNATHI_ZIRALIXI / REFERENCE_MASS_HUMAN
