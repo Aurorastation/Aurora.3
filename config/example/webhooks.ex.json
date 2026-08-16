@@ -1,0 +1,11 @@
+// Example configuration (Also make sure to get rid of all commentss)
+// Look at /code/__defines/webhook.dm for avavible tags
+/*
+[
+    {
+        "url": "https://example.com/webhookendpoint",
+        "tags": ["roundstart", "roundend", "cciaa_emergincy", "alert_noadmins", "g_admin", "g_admin_a", "g_apms", "g_apms_a"],
+        "mention": "@here" //Optional mention property
+    }
+]
+*/

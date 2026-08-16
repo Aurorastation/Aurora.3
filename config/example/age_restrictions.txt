@@ -1,0 +1,79 @@
+#Try to keep up to date.
+#Replace all spaces in the job titles with underscores, otherwise the config will not load properly
+
+#These are all the titles (var/title) of the different job datums
+#Station jobs
+#Command
+Captain 0
+Head_of_Personnel 0
+Head_of_Security 0
+Chief_Engineer 0
+Research_Director 0
+Chief_Medical_Officer 0
+
+#Engineering
+Station_Engineer 0
+Atmospheric_Technician 0
+Engineering_Apprentice 0
+
+#Medical
+Medical_Doctor 0
+Psychiatrist 0
+Chemist 0
+Emergency_Medical_Tech 0
+Nursing_Intern 0
+
+#Science
+Scientist 0
+Geneticist 0
+Roboticist 0
+Xenobiologist 0
+Lab_Assistant 0
+
+#Security
+Warden 0
+Detective 0
+Forensic_Technician 0
+Security_Officer 0
+Security_Cadet 0
+
+#Civilian
+Bartender 0
+Botanist 0
+Chef 0
+Janitor 0
+Librarian 0
+Quartermaster 0
+Cargo_Technician 0
+Shaft_Miner 0
+Lawyer 0
+Chaplain 0
+Assistant 0
+
+#Synth
+AI 0
+Cyborg 0
+pAI_candidate 0
+positronic_brain 0
+
+#Misc
+Dionaea 0
+
+#This is fetched from the unique bantypes list.
+#One entry can effect multiple antag roles!
+#Antags
+traitor 0
+Borer 0
+Xenomorph 0
+Syndicate 0
+actor 0
+Emergency_Response_Team 0
+operative 0
+ninja 0
+raider 0
+wizard 0
+changeling 0
+cultist 0
+loyalist 0
+revolutionary 0
+vampires 0
