@@ -102,6 +102,12 @@
 	path = 	/obj/item/storage/wallet/lanyard
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/utility/press_lanyard
+	display_name = "press lanyard"
+	path = /obj/item/storage/wallet/lanyard/press
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Corporate Reporter")
+
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
 	path = /obj/item/taperecorder
