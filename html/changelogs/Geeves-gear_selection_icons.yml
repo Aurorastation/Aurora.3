@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - qol: "Gear loadout item variant selections now display item icons in a searchable list."
