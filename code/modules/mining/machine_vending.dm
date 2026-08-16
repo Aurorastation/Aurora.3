@@ -149,12 +149,12 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 			if(prize.cost <= ID.mining_points)
 				if(prize.shuttle)
 					if(SScargo.order_mining(prize.equipment_path))
-						if(adjust_mining_point_balance(ID, -prize.cost, FALSE))
+						if(adjust_mining_point_balance(ID, -prize.cost))
 							to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
 					else
 						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 				else
-					if(adjust_mining_point_balance(ID, -prize.cost, FALSE))
+					if(adjust_mining_point_balance(ID, -prize.cost))
 						if(prize.amount != -1)
 							prize.amount--
 						new prize.equipment_path(get_turf(src))

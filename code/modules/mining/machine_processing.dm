@@ -4,25 +4,20 @@
 #define SMELTER_MODE_COMPRESSING BITFLAG(2)
 #define SMELTER_MODE_SMELTING BITFLAG(3)
 
-/proc/load_mining_point_balance(obj/item/card/id/ID)
+/obj/structure/machinery/mineral/proc/load_mining_point_balance(obj/item/card/id/ID)
 	var/mob/living/carbon/human/card_owner = ID?.mob_id?.resolve()
 	if(!card_owner?.character_id)
 		return FALSE
-	var/character_id = card_owner.character_id
 
 	var/datum/persistent_record/saved_balance = SSpersistence.historyGetLastRecord(
 		/singleton/persistent_type/history/character/mining_point_balance,
-		character_id
+		card_owner.character_id
 	)
-	card_owner = ID?.mob_id?.resolve()
-	if(card_owner?.character_id != character_id)
-		return FALSE
-
-	ID.mining_points = saved_balance ? clamp(text2num(saved_balance.value), 0, MINING_POINTS_CARRYOVER_MAX) : 0
+	ID.mining_points = saved_balance ? text2num(saved_balance.value) : 0
 	return TRUE
 
-/proc/adjust_mining_point_balance(obj/item/card/id/ID, amount, load_balance = TRUE)
-	if(!amount || (load_balance && !load_mining_point_balance(ID)))
+/obj/structure/machinery/mineral/proc/adjust_mining_point_balance(obj/item/card/id/ID, amount)
+	if(!amount || !load_mining_point_balance(ID))
 		return FALSE
 
 	var/adjusted_points = max(0, ID.mining_points + amount)
