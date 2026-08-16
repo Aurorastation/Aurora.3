@@ -1,0 +1,7 @@
+{
+    "templates_folder": "maps/templates/",
+    "templates_list":
+    [
+        "*.dmm"
+    ]
+}
