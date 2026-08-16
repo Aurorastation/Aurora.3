@@ -1,5 +1,3 @@
-GLOBAL_VAR_INIT(ntnet_card_uid, 1)
-
 /obj/item/computer_hardware/network_card
 	name = "basic NTNet network card"
 	desc = "A basic network card for usage with standard NTNet frequencies."
@@ -10,6 +8,8 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	hardware_size = 1
 	/// Identification ID. Technically MAC address of this device. Can't be changed by user.
 	var/identification_id
+	/// Human-dialable alphanumeric NTNet address used by peer-to-peer services.
+	var/identification_addr
 	/// Identification string, technically nickname seen in the network. Can be set by user.
 	var/identification_string = ""
 	var/long_range = FALSE
@@ -23,9 +23,13 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 	var/obj/item/integrated_signaler/signal/transmit_sradio = FALSE
 	malfunction_probability = 1
 
+/obj/item/computer_hardware/network_card/Initialize()
+	. = ..()
+	identification_addr = generate_ntnet_address(REF(src))
+
 /obj/item/computer_hardware/network_card/diagnostics(mob/user)
 	..()
-	to_chat(user, SPAN_NOTICE("NIX Unique ID: [identification_id]"))
+	to_chat(user, SPAN_NOTICE("NIX Unique Address: {[identification_addr]}"))
 	to_chat(user, SPAN_NOTICE("NIX User Tag: [identification_string]"))
 	to_chat(user, SPAN_NOTICE("Supported protocols:"))
 	to_chat(user, SPAN_NOTICE("511.m SFS (Subspace) - Standard Frequency Spread"))
@@ -35,11 +39,6 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 		to_chat(user, SPAN_NOTICE("511.n HB (Subspace) - High Bandwidth / Long Range"))
 	if(ethernet)
 		to_chat(user, SPAN_NOTICE("OpenEth (Physical Connection) - Physical Network Connection Port"))
-
-/obj/item/computer_hardware/network_card/Initialize()
-	. = ..()
-	identification_id = GLOB.ntnet_card_uid
-	GLOB.ntnet_card_uid++
 
 /obj/item/computer_hardware/network_card/signaler
 	name = "NTNet signaler network card"
@@ -118,7 +117,7 @@ GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 
 /// Returns a string identifier of this network card
 /obj/item/computer_hardware/network_card/proc/get_network_tag()
-	return "[identification_string] (NID [identification_id])"
+	return "[identification_string] (NID {[identification_addr]})"
 
 /// 0 - No signal, 1 - Low signal, 2 - High signal. 3 - Wired Connection
 /obj/item/computer_hardware/network_card/proc/get_signal(var/specific_action = 0)

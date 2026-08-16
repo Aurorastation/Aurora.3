@@ -1,0 +1,150 @@
+$phone-button-width: 90px;
+$phone-button-height: 45px;
+$phone-button-spacing: 0.5rem;
+
+.comm-contact {
+  height: 3.8rem;
+
+  .LabeledList__cell:first-child {
+    word-break: break-all;
+  }
+
+  &:nth-child(odd):not(:only-child) {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.comm-footer-buttons {
+  text-align: center;
+
+  .Button {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+
+    .Icon {
+      font-size: 200%;
+      margin: auto;
+      vertical-align: middle;
+    }
+  }
+}
+
+.comm-call-screen {
+  text-align: center;
+  padding: 3em 2em;
+
+  .caller-name {
+    font-size: 2.5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    text-overflow: clip;
+    // todo: Train screen style scrolling ("ticker" apparently)
+  }
+
+  .option-buttons {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .Button {
+      width: 6.5rem;
+      height: 6.5rem;
+      line-height: 6.5rem;
+      border-radius: 50%;
+      margin: 1.5rem 1.5rem 0.5rem;
+
+      .Icon {
+        font-size: 3rem;
+        margin: auto;
+        margin-bottom: 4px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.comm-address-input {
+  padding: 0 0.6rem;
+  text-align: center;
+
+  .Button {
+    width: $phone-button-width;
+    height: $phone-button-height;
+    line-height: $phone-button-height;
+    font-size: 3rem;
+    font-family: 'Trebuchet MS';
+
+    &--rounded {
+      border-radius: 32px;
+      width: 100%;
+      margin: 0;
+    }
+
+    &--wide {
+      width: calc(#{$phone-button-width} * 2);
+    }
+  }
+
+  .comm-keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: $phone-button-spacing;
+    margin-bottom: $phone-button-spacing;
+  }
+
+  .action-buttons {
+    justify-content: space-evenly;
+
+    .Button {
+      font-size: 2.5rem;
+    }
+  }
+
+  .input-box {
+    justify-self: center;
+    position: relative;
+    width: 443px;
+    height: 24px;
+    background-color: var(--input-background);
+    margin-bottom: $phone-button-spacing;
+
+    .Input {
+      position: absolute;
+      left: 0;
+      right: 0;
+      background-color: transparent;
+      font-size: 110%;
+      margin: auto;
+    }
+
+    .autocomplete {
+      position: absolute;
+      top: 2px;
+      left: 1px;
+      font-size: 110%;
+      font-style: italic;
+      color: #777;
+      font-family: 'Consolas', monospace;
+      text-align: left;
+      box-sizing: border-box;
+      padding: var(--space-xxs) var(--space-sm);
+
+      &.name {
+        justify-self: flex-end;
+        text-align: right;
+        padding: 0;
+        right: 33px;
+        width: fit-content;
+        max-width: 25ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        z-index: 80;
+
+        &:hover:not(.completed) {
+          text-decoration: underline;
+          color: #919191;
+        }
+      }
+    }
+  }
+}

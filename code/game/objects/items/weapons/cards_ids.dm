@@ -116,8 +116,6 @@
 
 	return 1
 
-#define ID_CARD_UNSET "\[UNSET\]"
-
 /obj/item/card/id
 	name = "identification card"
 	desc = "A card used to identify people and determine access."
@@ -830,5 +828,3 @@
 		if(ID)
 			pilot_access |= ID.GetAccess()
 	return pilot_access
-
-#undef ID_CARD_UNSET

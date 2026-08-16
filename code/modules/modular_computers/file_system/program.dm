@@ -46,7 +46,7 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	var/requires_ntnet = FALSE
 
 	/// Optional, if above is set to TRUE checks for specific function of NTNet (currently NTNET_SOFTWAREDOWNLOAD, NTNET_PEERTOPEER, NTNET_SYSTEMCONTROL and NTNET_COMMUNICATION)
-	var/requires_ntnet_feature = FALSE
+	var/requires_ntnet_feature = NONE
 
 	/// NTNet status, updated every tick by computer running this program. Don't use this for checks if NTNet works, computers do that. Use this for calculations, etc.
 	var/ntnet_status = TRUE

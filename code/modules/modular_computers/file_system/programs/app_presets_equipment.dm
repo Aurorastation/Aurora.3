@@ -82,3 +82,13 @@
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN
 	program_list += /datum/computer_file/program/civilian/cargodelivery
+
+/datum/modular_computer_app_presets/communicator
+	name = "communicator"
+	display_name = "Communicator"
+	description = "Contains the Communicator App."
+	available = FALSE
+
+/datum/modular_computer_app_presets/communicator/New()
+	. = ..()
+	program_list += /datum/computer_file/program/communicator

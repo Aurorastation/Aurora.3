@@ -74,3 +74,7 @@
 
 /// From code\modules\shieldgen\energy_field.dm, the energy field datum uses this to tell shields when to turn dense or not
 #define COMSIG_SHIELDS_UPDATE_STRENGTH_STATUS "update_strength_status"
+
+// (this should be moved to /atom/movable, pending a saycode rework)
+/// From the base of /obj/proc/hear_talk(): (mob/M, text, verb, datum/language/speaking)
+#define COMSIG_OBJ_HEAR_TALK "obj_hear_talk"

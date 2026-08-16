@@ -116,7 +116,7 @@
 			if(order_details["needs_payment"])
 				var/transaction_amount = order_details["price_customer"]
 				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]"
-				var/transaction_terminal = "Modular Computer #[computer.network_card.identification_id]"
+				var/transaction_terminal = "Modular Computer {[computer.network_card.identification_addr]}"
 
 				if(using_id)
 					var/status
