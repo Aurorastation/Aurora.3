@@ -10228,14 +10228,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard/near)
-"bnr" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/firecloset,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/primary/deck_3/port)
 "bnv" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -18447,6 +18439,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/quark/cargo_hold)
+"cua" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/machinery/light,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/primary/deck_3/port)
 "cug" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -128435,13 +128434,6 @@
 /obj/effect/floor_decal/industrial/hatch_door/engineering,
 /turf/simulated/floor/tiled/full,
 /area/horizon/engineering/hallway/fore)
-"qEY" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/obj/structure/machinery/light,
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/primary/deck_3/port)
 "qFa" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -130226,6 +130218,14 @@
 	},
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
+"qPv" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/primary/deck_3/port)
 "qPz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -359644,7 +359644,7 @@ oRv
 xMK
 mrr
 iIh
-qEY
+cua
 aCj
 rOC
 rOC
@@ -360156,7 +360156,7 @@ hBZ
 pmK
 pmK
 jgd
-bnr
+qPv
 bPI
 yer
 qUJ

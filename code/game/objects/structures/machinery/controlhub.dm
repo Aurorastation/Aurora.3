@@ -264,7 +264,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 	req_access = list(ACCESS_JOURNALIST)
 	controls = list(
 		"door control" = list("type" = "airlock", "id" = "media_office_door", "functions" = 1),
-		"door bolts" = list("type" = "airlock", "id" = "media_office_door", "functions" = 4)
+		"door bolts" = list("type" = "airlock", "id" = "media_office_door", "functions" = 4),
 		"window shutters" = list("type" = "blast_door", "id" = "media_office_window_shutter"),
 		"office window tint" = list("type" = "windowtint", "id" = "media_office_public_tint"),
 		"dividing window tint" = list("type" = "windowtint", "id" = "media_office_private_tint")
