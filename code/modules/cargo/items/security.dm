@@ -28,6 +28,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/pepperspray
+	category = "security"
+	name = "pepper spray"
+	supplier = "nanotrasen"
+	description = "A compact pepper spray canister used to blind and incapacitate a target."
+	price = 80
+	items = list(
+		/obj/item/reagent_containers/spray/pepper
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/uvlight
 	category = "security"
 	name = "UV light"
@@ -168,6 +182,34 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/stingergrenades_box
+	category = "security"
+	name = "box of stinger grenades"
+	supplier = "zavodskoi"
+	description = "A box containing 7 antipersonnel stinger grenades. WARNING: These devices can cause serious injury. Use with caution."
+	price = 550
+	items = list(
+		/obj/item/storage/box/tactical/stingers
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/smokegrenades_box
+	category = "security"
+	name = "box of smoke grenades"
+	supplier = "zavodskoi"
+	description = "A box containing 7 smoke grenades, used to provide cover, confusion, and distraction."
+	price = 350
+	items = list(
+		/obj/item/storage/box/tactical/smokebombs
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/empgrenades_box
 	category = "security"
 	name = "box of EMP grenades"
@@ -178,6 +220,20 @@
 		/obj/item/storage/box/tactical/emps
 	)
 	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/fraggrenades_box
+	category = "security"
+	name = "box of frag grenades"
+	supplier = "zavodskoi"
+	description = "A box containing 5 military grade fragmentation grenades. WARNING: Live explosives. Misuse may result in serious injury or death."
+	price = 1500
+	items = list(
+		/obj/item/storage/box/tactical/frags
+	)
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -473,6 +529,20 @@
 		/obj/item/firing_pin
 	)
 	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/firingpinextractor
+	category = "security"
+	name = "firing pin extractor"
+	supplier = "nanotrasen"
+	description = "A device capable of safely removing an installed firing pin from a firearm."
+	price = 500
+	items = list(
+		/obj/item/pin_extractor
+	)
+	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

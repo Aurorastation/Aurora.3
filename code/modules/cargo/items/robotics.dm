@@ -180,3 +180,31 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/robotanalyzer
+	category = "robotics"
+	name = "cyborg analyzer"
+	supplier = "hephaestus"
+	description = "A handheld scanner used to diagnose damage to cyborgs and prosthetic limbs."
+	price = 150
+	items = list(
+		/obj/item/robotanalyzer
+	)
+	access = ACCESS_ROBOTICS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/aicard
+	category = "robotics"
+	name = "intelliCard"
+	supplier = "hephaestus"
+	description = "A portable storage device used to safely transport an artificial intelligence."
+	price = 1000
+	items = list(
+		/obj/item/aicard
+	)
+	access = ACCESS_ROBOTICS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
