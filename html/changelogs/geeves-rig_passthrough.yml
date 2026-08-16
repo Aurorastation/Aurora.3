@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - qol: "Clicking a hardsuit with an item now attempts to place it into the suit's mounted storage, unless the item is used to interact with the hardsuit or one of its modules."

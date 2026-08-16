@@ -208,7 +208,14 @@
 	for(var/obj/item/rig_module/module in installed_modules)
 		if(module.accepts_item(attacking_item, user)) //Item is handled in this proc
 			return
-	..()
+
+	// If the item was not used by the hardsuit or one of its modules, pass the
+	// interaction through to the mounted storage.
+	var/obj/item/rig_module/storage/storage = locate() in installed_modules
+	if(storage)
+		return storage.pockets.attackby(attacking_item, user)
+
+	return ..()
 
 
 /obj/item/rig/attack_hand(var/mob/user)
