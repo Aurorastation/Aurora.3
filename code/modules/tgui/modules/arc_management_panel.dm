@@ -4,7 +4,6 @@
 	var/const/MAX_ARC_DESCRIPTION_LENGTH = 512
 	var/const/MAX_ARC_DECISION_LENGTH = 128
 	var/const/MAX_ARC_RESULT_LENGTH = 512
-	var/const/MAX_ARC_GAME_ID_LENGTH = 30
 
 /datum/tgui_module/arc_management_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!check_rights(R_ADMIN, TRUE, user))
@@ -65,42 +64,21 @@
 			if(!SSdbcore.Connect())
 				to_chat(ui.user, SPAN_WARNING("Database connection unavailable."))
 				return FALSE
+			var/confirm = tgui_alert(ui.user, "This arc will start immediately and cannot be changed after it is created.", "Confirm Arc Creation", list("Confirm", "Cancel"))
+			if(confirm != "Confirm")
+				return FALSE
 			var/datum/db_query/insert_query = SSdbcore.NewQuery(
-				"INSERT INTO ss13_arcs (name, description, started_at, finished_at) VALUES (:name, :description, NOW(), NULL)",
-				list("name" = name, "description" = description)
+				"INSERT INTO ss13_arcs (name, description, started_at, finished_at, ckey) VALUES (:name, :description, NOW(), NULL, :ckey)",
+				list("name" = name, "description" = description, "ckey" = ui.user?.ckey || "MISSING")
 			)
 			insert_query.Execute()
 			qdel(insert_query)
+			log_admin("[key_name(ui.user)] created arc '[name]' ([description])")
 			var/datum/db_query/select_query = SSdbcore.NewQuery("SELECT id FROM ss13_arcs WHERE name = :name AND description = :description ORDER BY id DESC LIMIT 1", list("name" = name, "description" = description))
 			select_query.Execute()
 			if(select_query.NextRow())
 				selected_arc_id = text2num(select_query.item[1])
 			qdel(select_query)
-			return TRUE
-
-		if("update_arc")
-			var/arc_id = text2num(params["arc_id"])
-			var/name = trim(sanitizeSafe(params["name"]))
-			var/description = trim(sanitizeSafe(params["description"]))
-			if(!arc_id || !length(name) || !length(description))
-				to_chat(ui.user, SPAN_WARNING("Invalid arc data."))
-				return FALSE
-			if(length(name) > MAX_ARC_NAME_LENGTH)
-				to_chat(ui.user, SPAN_WARNING("Arc name cannot exceed [MAX_ARC_NAME_LENGTH] characters."))
-				return FALSE
-			if(length(description) > MAX_ARC_DESCRIPTION_LENGTH)
-				to_chat(ui.user, SPAN_WARNING("Arc description cannot exceed [MAX_ARC_DESCRIPTION_LENGTH] characters."))
-				return FALSE
-			if(!SSdbcore.Connect())
-				to_chat(ui.user, SPAN_WARNING("Database connection unavailable."))
-				return FALSE
-			var/datum/db_query/update_query = SSdbcore.NewQuery(
-				"UPDATE ss13_arcs SET name = :name, description = :description WHERE id = :id",
-				list("name" = name, "description" = description, "id" = arc_id)
-			)
-			update_query.Execute()
-			qdel(update_query)
-			selected_arc_id = arc_id
 			return TRUE
 
 		if("start_arc")
@@ -155,20 +133,22 @@
 			if(!SSdbcore.Connect())
 				to_chat(ui.user, SPAN_WARNING("Database connection unavailable."))
 				return FALSE
-			var/game_id = GLOB.round_id ? text2ascii(GLOB.round_id) : "N/A"
-			if(length(game_id) > MAX_ARC_GAME_ID_LENGTH)
-				game_id = copytext(game_id, 1, MAX_ARC_GAME_ID_LENGTH + 1)
+			var/confirm = tgui_alert(ui.user, "This arc decision cannot be edited after it is created.", "Confirm Arc Decision", list("Confirm", "Cancel"))
+			if(confirm != "Confirm")
+				return FALSE
 			var/datum/db_query/insert_query = SSdbcore.NewQuery(
-				"INSERT INTO ss13_arc_decisions (arc_id, decision, result, created_at, game_id) VALUES (:arc_id, :decision, :result, NOW(), :game_id)",
+				"INSERT INTO ss13_arc_decisions (arc_id, decision, result, created_at, game_id, ckey) VALUES (:arc_id, :decision, :result, NOW(), :game_id, :ckey)",
 				list(
 					"arc_id" = arc_id,
 					"decision" = decision,
 					"result" = result,
-					"game_id" = game_id
+					"game_id" = GLOB.round_id,
+					"ckey" = ui.user?.ckey || "MISSING"
 				)
 			)
 			insert_query.Execute()
 			qdel(insert_query)
+			log_admin("[key_name(ui.user)] added arc decision '[decision]' to arc #[arc_id] with result: [result]")
 			selected_arc_id = arc_id
 			return TRUE
 

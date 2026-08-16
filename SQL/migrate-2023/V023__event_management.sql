@@ -5,7 +5,8 @@ CREATE TABLE `ss13_arcs` (
     `name` VARCHAR(64) NOT NULL UNIQUE,
     `description` VARCHAR(512) NOT NULL,
     `started_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `finished_at` DATETIME NULL
+    `finished_at` DATETIME NULL,
+    `ckey` VARCHAR(32) NOT NULL
 );
 
 CREATE TABLE `ss13_arc_decisions` (
@@ -15,5 +16,6 @@ CREATE TABLE `ss13_arc_decisions` (
     `result` VARCHAR(512) NOT NULL,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `game_id` VARCHAR(30) NOT NULL,
+    `ckey` VARCHAR(32) NOT NULL,
     CONSTRAINT `fk_arc_decisions_arcs` FOREIGN KEY (`arc_id`) REFERENCES `ss13_arcs` (`id`)
 );

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -72,24 +71,16 @@ export const ArcManagement = (props) => {
   const arcDescriptionTooLong = arcDescription.length > MAX_ARC_DESCRIPTION_LENGTH;
   const decisionTextTooLong = decisionText.length > MAX_ARC_DECISION_LENGTH;
   const decisionResultTooLong = decisionResult.length > MAX_ARC_RESULT_LENGTH;
-  const currentArc =
-    arcs.find((arc) => arc.id === (selectedArcId ?? data.selected_arc_id)) ||
-    arcs[0] ||
+  const selectedArc =
+    arcs.find((arc) => arc.id === (selectedArcId ?? data.selected_arc_id))?.id ??
     null;
-
-  const selectedArc = currentArc?.id ?? null;
-
-  useEffect(() => {
-    setArcName(currentArc?.name || '');
-    setArcDescription(currentArc?.description || '');
-  }, [currentArc?.id]);
 
   const applySelection = (arcId: number | null) => {
     setSelectedArcId(arcId);
     act('select_arc', { arc_id: arcId });
   };
 
-  const saveArc = (isNew: boolean) => {
+  const createArc = () => {
     const name = arcName.trim();
     const description = arcDescription.trim();
     if (!name || !description) {
@@ -102,22 +93,9 @@ export const ArcManagement = (props) => {
       return;
     }
 
-    if (isNew) {
-      act('add_arc', { name, description });
-      setArcName('');
-      setArcDescription('');
-      return;
-    }
-
-    if (!selectedArc) {
-      return;
-    }
-
-    act('update_arc', {
-      arc_id: selectedArc,
-      name,
-      description,
-    });
+    act('add_arc', { name, description });
+    setArcName('');
+    setArcDescription('');
   };
 
   const addDecision = () => {
@@ -174,12 +152,12 @@ export const ArcManagement = (props) => {
             </>
           }>
             <Box color="label">
-              Use this panel to create, update, and track upcoming arcs and their decisions.
+              Use this panel to create and track upcoming arcs and their decisions.
             </Box>
           </Section>
 
           {showAddArc && (
-            <Section title={selectedArc ? 'Edit Arc' : 'Add Arc'}>
+            <Section title="Add Arc">
               <Stack vertical>
                 {addDisabled && (
                   <NoticeBox>
@@ -196,7 +174,7 @@ export const ArcManagement = (props) => {
                   value={arcName}
                   placeholder="Arc name"
                   onChange={(value) => setArcName(value)}
-                  disabled={addDisabled && !selectedArc}
+                  disabled={addDisabled}
                   maxLength={MAX_ARC_NAME_LENGTH}
                 />
                 <TextArea
@@ -205,21 +183,21 @@ export const ArcManagement = (props) => {
                   placeholder="Arc description"
                   onChange={(value) => setArcDescription(value)}
                   height="6rem"
-                  disabled={addDisabled && !selectedArc}
+                  disabled={addDisabled}
                   maxLength={MAX_ARC_DESCRIPTION_LENGTH}
                 />
                 <Box>
                   <Button
-                    content={selectedArc ? 'Save Changes' : 'Create Arc'}
+                    content="Create Arc"
                     color="good"
                     disabled={
-                      (addDisabled && !selectedArc) ||
+                      addDisabled ||
                       !arcName.trim() ||
                       !arcDescription.trim() ||
                       arcNameTooLong ||
                       arcDescriptionTooLong
                     }
-                    onClick={() => saveArc(!selectedArc)}
+                    onClick={createArc}
                   />
                 </Box>
               </Stack>
