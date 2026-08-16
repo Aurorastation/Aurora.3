@@ -5,7 +5,7 @@
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
-		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless
 	)
 	back = /obj/item/storage/backpack/satchel/heph
 	suit = /obj/item/clothing/suit/space/void/hephaestus
