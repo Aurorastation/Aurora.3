@@ -22,7 +22,7 @@
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws/strongunathi,
 		/datum/unarmed_attack/palm/unathi,
-		/datum/unarmed_attack/bite/strong
+		/datum/unarmed_attack/bite/strongunathi
 	)
 	primitive_form = SPECIES_MONKEY_UNATHI
 	default_lighting_alpha = LIGHTING_PLANE_ALPHA_ALMOST_VISIBLE

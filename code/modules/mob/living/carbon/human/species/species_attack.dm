@@ -92,6 +92,11 @@
 	shredding = TRUE
 	attack_name = "strong bite"
 
+/datum/unarmed_attack/bite/strongunathi
+	attack_verb = list("mauled")
+	damage = 10
+	attack_name = "strong bite"
+
 /datum/unarmed_attack/slime_glomp
 	attack_verb = list("glomped")
 	attack_noun = list("body")
