@@ -1491,12 +1491,10 @@
 /turf/simulated/floor/marble,
 /area/template_noop)
 "afe" = (
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/modular_freelancer_ship/aft/hallway)
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
+/obj/effect/map_effect/marker/button_control/window_tint,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/fore/hallway)
 "aff" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4176,20 +4174,12 @@
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/fore/starboard)
 "asV" = (
-/obj/effect/map_effect/marker/button_control/window_tint,
-/obj/structure/machinery/button/switch/windowtint{
-	dir = 1;
-	pixel_x = 29;
-	pixel_y = 28
+/obj/structure/machinery/atmospherics/portables_connector/aux{
+	dir = 1
 	},
-/obj/structure/machinery/button/remote/airlock{
-	dir = 1;
-	pixel_x = 38;
-	pixel_y = 29
-	},
-/obj/effect/map_effect/marker/button_control/airlock/bolts,
-/turf/simulated/floor/carpet/darkblue,
-/area/modular_freelancer_ship/fore/crew)
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/misc/maint/aux)
 "asY" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
@@ -9373,14 +9363,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aXj" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/light/floor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
-/area/modular_freelancer_ship/fore/hallway)
+/area/modular_freelancer_ship/misc/maint/aux)
 "aXk" = (
 /obj/effect/floor_decal/industrial/outline_corner/engineering,
 /obj/random/canister/filled,
@@ -10127,6 +10123,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "bzT" = (
@@ -10370,6 +10367,15 @@
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
+/area/modular_freelancer_ship/fore/hallway)
+"cbr" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light/floor,
+/turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "cbT" = (
 /obj/effect/floor_decal/corner/grey/full{
@@ -15645,10 +15651,12 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/lounge)
 "kjB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
-/obj/effect/map_effect/marker/button_control/window_tint,
-/turf/simulated/floor/plating,
-/area/modular_freelancer_ship/fore/hallway)
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/aft/hallway)
 "kjJ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15895,8 +15903,13 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "kBg" = (
-/obj/structure/machinery/atmospherics/portables_connector/aux,
-/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "kBG" = (
@@ -18202,6 +18215,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "nZL" = (
@@ -19618,6 +19632,21 @@
 "qDK" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/modular_freelancer_ship/container/c0B)
+"qEb" = (
+/obj/effect/map_effect/marker/button_control/window_tint,
+/obj/structure/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_x = 29;
+	pixel_y = 28
+	},
+/obj/structure/machinery/button/remote/airlock{
+	dir = 1;
+	pixel_x = 38;
+	pixel_y = 29
+	},
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
+/turf/simulated/floor/carpet/darkblue,
+/area/modular_freelancer_ship/fore/crew)
 "qEG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light/small{
@@ -31297,7 +31326,7 @@ nUI
 eKr
 qRg
 uFb
-kjB
+afe
 jNL
 qlz
 vHK
@@ -31611,7 +31640,7 @@ bqD
 eKr
 qRg
 uFb
-kjB
+afe
 akp
 aeD
 hEk
@@ -31768,7 +31797,7 @@ kTj
 eKr
 qRg
 uFb
-kjB
+afe
 dcU
 gjY
 asE
@@ -31962,9 +31991,9 @@ cEw
 mVP
 cEw
 kCH
-kjB
+afe
 wIM
-kjB
+afe
 kCH
 kCH
 kCH
@@ -32955,7 +32984,7 @@ lFh
 uZk
 jAC
 eTe
-aXj
+cbr
 eCN
 mrs
 vnY
@@ -33117,7 +33146,7 @@ mtH
 kxE
 vnY
 pYk
-asV
+qEb
 fai
 aJA
 jgz
@@ -75829,7 +75858,7 @@ aza
 aza
 aza
 ykO
-kBg
+mfE
 egk
 mfE
 tTY
@@ -75988,12 +76017,12 @@ ykO
 ykO
 rmW
 nZo
-aVG
-azB
+kBg
+aXj
 bzQ
-mfE
-mfE
-rmW
+miq
+miq
+asV
 ykO
 ucs
 ajO
@@ -87603,7 +87632,7 @@ bWE
 aht
 fKC
 aqJ
-afe
+kjB
 sxm
 kNN
 arI
