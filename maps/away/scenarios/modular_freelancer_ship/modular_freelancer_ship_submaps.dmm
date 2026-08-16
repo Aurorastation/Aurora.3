@@ -3428,10 +3428,7 @@
 /area/template_noop)
 "apl" = (
 /obj/structure/machinery/computer/general_air_control/large_tank_control/terminal,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "apn" = (
@@ -3805,10 +3802,7 @@
 /obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_big_tanks";
-	name = "mod_free_ship_co2_big_tanks"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/misc/maint/aux)
 "arC" = (
@@ -3828,10 +3822,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_big_tanks";
-	name = "mod_free_ship_co2_big_tanks"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/misc/maint/aux)
 "arI" = (
@@ -4335,10 +4326,7 @@
 /area/modular_freelancer_ship/aux/hallway)
 "atY" = (
 /obj/structure/machinery/air_sensor,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_big_tanks";
-	name = "mod_free_ship_co2_big_tanks"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/misc/maint/aux)
 "aub" = (
@@ -8346,10 +8334,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/cic)
 "aSm" = (
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_big_tanks";
-	name = "mod_free_ship_co2_big_tanks"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 4
 	},
@@ -9847,6 +9832,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
+/obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "bae" = (
@@ -10915,6 +10901,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "cXz" = (
@@ -11682,10 +11671,7 @@
 /area/modular_freelancer_ship/mid/hallway)
 "ekU" = (
 /obj/structure/machinery/computer/general_air_control/large_tank_control/terminal,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/atmos)
 "elV" = (
@@ -12047,6 +12033,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/structure/machinery/power/apc/noid/west,
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "eQh" = (
@@ -12531,10 +12519,7 @@
 "fAW" = (
 /obj/structure/window/borosilicate/reinforced,
 /obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/aft/atmos)
 "fBq" = (
@@ -14498,10 +14483,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "iMr" = (
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/aft/atmos)
 "iMM" = (
@@ -15621,6 +15603,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/lounge)
+"kjB" = (
+/obj/structure/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_x = -1;
+	pixel_y = 29
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/crew)
 "kjJ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16853,8 +16843,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/structure/cable,
-/obj/structure/machinery/power/apc/noid/north,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "mkk" = (
@@ -18615,10 +18606,7 @@
 "oSQ" = (
 /obj/structure/window/borosilicate/reinforced,
 /obj/structure/machinery/air_sensor,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/aft/atmos)
 "oTe" = (
@@ -19371,10 +19359,7 @@
 "qmd" = (
 /obj/structure/window/borosilicate/reinforced,
 /obj/structure/machinery/atmospherics/unary/outlet_injector,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/aft/atmos)
 "qmQ" = (
@@ -22352,6 +22337,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/lounge)
+"vnY" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
+/obj/effect/map_effect/marker/button_control/window_tint,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/fore/crew)
 "voJ" = (
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
@@ -22961,10 +22951,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "wwL" = (
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
@@ -23985,10 +23972,7 @@
 /obj/structure/machinery/air_sensor{
 	pixel_x = 16
 	},
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "mod_free_ship_co2_thruster_tank";
-	name = "mod_free_ship_co2_thruster_tank"
-	},
+/obj/effect/map_effect/marker/large_tank,
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
@@ -32589,13 +32573,13 @@ kCH
 eKr
 qRg
 mrs
-kCH
-kCH
-kCH
-kCH
-kCH
-kCH
-nUI
+cNr
+cNr
+cNr
+cNr
+cNr
+cNr
+kfv
 mBa
 mBa
 nUI
@@ -32746,7 +32730,7 @@ sse
 lFh
 qRg
 mrs
-kCH
+cNr
 aVe
 aQe
 gIj
@@ -32903,7 +32887,7 @@ eTe
 eTe
 eCN
 pPS
-kCH
+cNr
 dqh
 caA
 flI
@@ -33060,7 +33044,7 @@ bkW
 mtH
 mtH
 kxE
-kCH
+vnY
 pYk
 caA
 fai
@@ -33219,7 +33203,7 @@ hrR
 hrR
 cNr
 cNr
-wGb
+kjB
 nSj
 aZV
 kRl
@@ -33376,7 +33360,7 @@ ngE
 aWg
 kRl
 cNr
-cNr
+vnY
 ouV
 cNr
 cNr
