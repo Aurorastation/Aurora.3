@@ -1,6 +1,8 @@
 
 ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control)
 
+ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control/airlock)
+
 // ----------------------------
 
 /obj/effect/map_effect/marker/button_control/window_tint
@@ -89,9 +91,73 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/button_control)
 		if(istype(button))
 			button.id = master_tag
 			continue
-		var/obj/structure/machinery/door/blast/regular/shutter = thing
-		if(istype(shutter))
-			shutter.id = master_tag
+		var/obj/structure/machinery/door/blast/regular/blast = thing
+		if(istype(blast))
+			blast.id = master_tag
+			continue
+
+// ----------------------------
+
+/obj/effect/map_effect/marker/button_control/airlock/open
+	name = "airlock open button control marker"
+	desc = "See comments/documentation in code."
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "marker_button_control_airlock_open"
+
+	/// If null, it will set the tag based on area.
+	var/master_tag = null
+
+/obj/effect/map_effect/marker/button_control/airlock/open/Initialize(mapload, ...)
+	..()
+	if(!master_tag)
+		master_tag = "airlock open control marker with area tag: [get_area(src)]"
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/map_effect/marker/button_control/airlock/open/LateInitialize()
+	if(!master_tag)
+		return
+
+	for(var/thing in loc)
+		var/obj/structure/machinery/button/remote/airlock/button = thing
+		if(istype(button))
+			button.id = master_tag
+			button.specialfunctions = AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_OPEN
+			continue
+		var/obj/structure/machinery/door/airlock/airlock = thing
+		if(istype(airlock))
+			airlock.id_tag = master_tag
+			continue
+
+// ----------------------------
+
+/obj/effect/map_effect/marker/button_control/airlock/bolts
+	name = "airlock bolts button control marker"
+	desc = "See comments/documentation in code."
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "marker_button_control_airlock_bolts"
+
+	/// If null, it will set the tag based on area.
+	var/master_tag = null
+
+/obj/effect/map_effect/marker/button_control/airlock/bolts/Initialize(mapload, ...)
+	..()
+	if(!master_tag)
+		master_tag = "airlock bolts control marker with area tag: [get_area(src)]"
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/map_effect/marker/button_control/airlock/bolts/LateInitialize()
+	if(!master_tag)
+		return
+
+	for(var/thing in loc)
+		var/obj/structure/machinery/button/remote/airlock/button = thing
+		if(istype(button))
+			button.id = master_tag
+			button.specialfunctions = AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_BOLTS
+			continue
+		var/obj/structure/machinery/door/airlock/airlock = thing
+		if(istype(airlock))
+			airlock.id_tag = master_tag
 			continue
 
 // ----------------------------
