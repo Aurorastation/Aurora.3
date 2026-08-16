@@ -1,6 +1,0 @@
-author: Geeves
-delete-after: True
-
-changes:
-  - bugfix: "Fixed ship munitions occasionally failing to enter their overmap target when their original physical projectile no longer existed."
-  - bugfix: "Fixed several ship munitions reconstructing as the wrong projectile after overmap travel, ensuring explosive rounds correctly detonate on impact."

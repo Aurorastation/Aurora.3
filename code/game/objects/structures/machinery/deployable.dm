@@ -271,7 +271,7 @@ Deployable Kits
 
 /obj/item/deployable_kit/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
-	if(do_after(user, assembly_time, src, DO_REPAIR_CONSTRUCT))
+	if(do_after(user, assembly_time, src, DO_DEPLOY))
 		assemble_kit(user)
 		qdel(src)
 

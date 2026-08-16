@@ -6,16 +6,13 @@
 
 /obj/structure/machinery/fabricator/autolathe/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	. += "Alt-click with a rapid part exchange device in your active hand to recycle its compatible contents."
+	. += "Alt-click with a rapid part exchange device or open circuit assembly in your active hand to recycle its compatible contents."
 
 /obj/structure/machinery/fabricator/autolathe/AltClick(mob/user)
 	. = ..()
 	if(use_check_and_message(user))
 		return
 
-	var/obj/item/storage/part_replacer/R = user.get_active_hand()
-	if(!istype(R))
-		return
 
 	if(fab_status_flags & FAB_BUSY)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of the previous operation."))
@@ -25,7 +22,18 @@
 		to_chat(user, SPAN_WARNING("\The [src] cannot accept materials in its current state."))
 		return
 
-	recycle_rped_contents(R, user)
+	var/obj/item/electronic_assembly/recyclable_container = user.get_active_hand()
+	if(istype(recyclable_container, /obj/item/electronic_assembly))
+		var/obj/item/electronic_assembly/recyclable_circuit_assembly = recyclable_container
+		if(recyclable_circuit_assembly.opened)
+			recycle_item_contents(recyclable_container, user)
+			return
+		else
+			to_chat(user, SPAN_WARNING("\The [recyclable_circuit_assembly] must be open before it's contents can be recycled."))
+
+	if(istype(recyclable_container, /obj/item/storage/part_replacer))
+		recycle_item_contents(recyclable_container, user)
+		return
 
 /obj/structure/machinery/fabricator/autolathe/mounted
 	name = "\improper mounted autolathe"

@@ -57,6 +57,8 @@
 	name = "sealed exosuit chassis"
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
+	cockpit_hatch_size = 60
+	cockpit_pilot_damage_multiplier = 0.4
 	exosuit_desc_string = "an armored chassis"
 	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "combat_body"

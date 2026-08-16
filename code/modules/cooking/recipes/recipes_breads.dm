@@ -555,3 +555,13 @@
 	/obj/item/reagent_containers/food/snacks/schnitzel
 	)
 	result = /obj/item/reagent_containers/food/snacks/pita/schnitzel
+
+/singleton/recipe/frenchtoast
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/honey = 5, /singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/protein/egg = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/french_toast
+	reagent_mix = RECIPE_REAGENT_REPLACE

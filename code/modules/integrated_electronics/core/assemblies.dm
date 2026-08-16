@@ -11,6 +11,8 @@
 	icon_state = "setup_small"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	light_system = MOVABLE_LIGHT
+	recyclable = FALSE
+	charge_failure_message = " is missing a powercell."
 
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
@@ -40,8 +42,12 @@
 	. = ..()
 	if (!printed)
 		battery = new /obj/item/cell/device(src)
+	else
+		battery = new /obj/item/cell/device/empty(src)
 	START_PROCESSING(SSelectronics, src)
 	access_card = new /obj/item/card/id(src)
+	if (!matter) //Matter amounts might be set during the cloning process.
+		matter =  list(MATERIAL_STEEL = (round((max_complexity + max_components) / 4)) * 200)
 
 /obj/item/electronic_assembly/Destroy()
 	QDEL_NULL(battery)
@@ -100,6 +106,10 @@
 	var/list/HTML = list()
 	var/effective_component_limit = get_effective_component_limit(total_complexity)
 	var/effective_complexity_limit = get_effective_complexity_limit(total_parts)
+	if (!total_parts && !total_complexity)
+		recyclable = TRUE
+	else
+		recyclable = FALSE
 
 	HTML += "<br><a href='byond://?src=[REF(src)]'>Refresh</a>  |  "
 	HTML += "<a href='byond://?src=[REF(src)];rename=1'>Rename</a><br>"
@@ -256,7 +266,7 @@
 		return FALSE
 
 	IC.assembly = src
-
+	recyclable = FALSE
 	return TRUE
 
 // Non-interactive version of above that always succeeds, intended for build-in circuits that get added on assembly initialization.
@@ -373,6 +383,11 @@
 
 	for(var/atom/movable/AM in contents)
 		AM.emp_act(severity)
+
+/obj/item/electronic_assembly/get_cell()
+	if(battery)
+		return battery
+	return DEVICE_NO_CELL
 
 // Returns true if power was successfully drawn.
 /obj/item/electronic_assembly/proc/draw_power(amount)
