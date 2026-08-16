@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Progress bars now use smooth, colour-changing fills and support visual themes."
