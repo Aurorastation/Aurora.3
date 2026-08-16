@@ -217,6 +217,19 @@
 		var/mob/M = target
 		M.confused += 8
 
+/obj/projectile/beam/stun
+	name = "stun beam"
+	icon_state = "stun"
+	damage = 1
+	sharp = FALSE
+	eyeblur = 1
+	agony = 45
+	damage_type = DAMAGE_BURN
+
+	muzzle_type = /obj/effect/projectile/muzzle/stun
+	tracer_type = /obj/effect/projectile/tracer/stun
+	impact_type = /obj/effect/projectile/impact/stun
+
 /obj/projectile/beam/disorient
 	name = "disorienting pulse"
 	icon_state = "stun"
