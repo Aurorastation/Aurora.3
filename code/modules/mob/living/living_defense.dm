@@ -1,5 +1,5 @@
-/mob/living/proc/modify_damage_by_armor(def_zone, damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE)
-	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/modify_damage_by_armor(def_zone, damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE, check_armor)
+	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = args.Copy(2)
 	for(var/armor in armors)
 		var/datum/component/armor/armor_datum = armor
@@ -8,18 +8,18 @@
 /mob/living/check_projectile_armor(def_zone, obj/projectile/impacting_projectile, is_silent)
 	if(impacting_projectile.damage > 0) // Run the block computation if we did damage or if we only use armor for effects (nodamage)
 		//Since we get a ratio from this and we need a percentage, we multiply by 100 to get the percentage
-		return (get_blocked_ratio(def_zone, impacting_projectile.damage_type, impacting_projectile.damage_flags(), impacting_projectile.armor_penetration, impacting_projectile.damage) * 100)
+		return (get_blocked_ratio(def_zone, impacting_projectile.damage_type, impacting_projectile.damage_flags(), impacting_projectile.armor_penetration, impacting_projectile.damage, impacting_projectile.check_armor) * 100)
 	return 0
 
-/mob/living/proc/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
-	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage, check_armor)
+	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = 0
 	for(var/armor in armors)
 		var/datum/component/armor/armor_datum = armor
-		. = 1 - (1 - .) * (1 - armor_datum.get_blocked(damage_type, damage_flags, armor_pen, damage)) // multiply the amount we let through
+		. = 1 - (1 - .) * (1 - armor_datum.get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)) // multiply the amount we let through
 	. = min(1, .)
 
-/mob/living/proc/get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = list()
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
@@ -185,7 +185,7 @@
 	return BULLET_IMPACT_MEAT
 
 //Handles the effects of "stun" weapons
-/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
+/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/damage_type, var/def_zone, var/used_weapon, var/damage_flags, var/check_armor)
 	flash_pain(stun_amount)
 
 	if(stun_amount)
