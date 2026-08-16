@@ -1,0 +1,4 @@
+author: Geeves
+delete-after: True
+changes:
+  - rscadd: "Ejected bullet casings now bounce and spin with simulated physics, while drifting naturally in zero gravity."
