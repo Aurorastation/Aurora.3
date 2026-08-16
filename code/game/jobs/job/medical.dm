@@ -32,6 +32,7 @@
 /obj/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
+	notification_ringer_types = list(/obj/structure/machinery/ringer/north/medical)
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
@@ -110,6 +111,7 @@
 	name = "Physician"
 	base_name = "Physician"
 	jobtype = /datum/job/doctor
+	notification_ringer_types = list(/obj/structure/machinery/ringer/north/medical)
 
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
@@ -173,6 +175,7 @@
 /obj/outfit/job/pharmacist
 	name = "Pharmacist"
 	jobtype = /datum/job/pharmacist
+	notification_ringer_types = list(/obj/structure/machinery/ringer/south/pharmacy)
 
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
@@ -364,6 +367,7 @@
 /obj/outfit/job/intern_med
 	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
+	notification_ringer_types = list(/obj/structure/machinery/ringer/north/medical)
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
@@ -388,6 +392,7 @@
 
 /obj/outfit/job/intern_med/medtech
 	name = "Paramedic Trainee"
+	notification_ringer_types = null
 
 	head = /obj/item/clothing/head/softcap/nt
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -403,6 +408,7 @@
 
 /obj/outfit/job/intern_med/pharmacist
 	name = "Pharmacy Intern"
+	notification_ringer_types = list(/obj/structure/machinery/ringer/south/pharmacy)
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
@@ -422,6 +428,7 @@
 
 /obj/outfit/job/intern_med/psychiatrist
 	name = "Resident Psychiatrist"
+	notification_ringer_types = null
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
