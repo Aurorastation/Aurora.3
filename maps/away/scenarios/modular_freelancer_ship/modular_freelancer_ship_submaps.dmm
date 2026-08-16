@@ -4038,6 +4038,18 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/structure/machinery/button/switch/windowtint{
+	dir = 4;
+	pixel_x = 23;
+	pixel_y = 13
+	},
+/obj/structure/machinery/button/remote/airlock{
+	dir = 4;
+	pixel_x = 23;
+	pixel_y = 4
+	},
+/obj/effect/map_effect/marker/button_control/window_tint,
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "asG" = (
@@ -11172,9 +11184,6 @@
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/hallway)
 "dqh" = (
-/obj/structure/machinery/light{
-	dir = 1
-	},
 /obj/structure/bed/stool/chair/padded/brown,
 /turf/simulated/floor/carpet/darkblue,
 /area/modular_freelancer_ship/fore/crew)
@@ -15365,6 +15374,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/lounge)
+"jUx" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor,
+/obj/effect/map_effect/marker/button_control/window_tint,
+/turf/simulated/floor/plating,
+/area/modular_freelancer_ship/fore/hallway)
 "jWf" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -15604,12 +15618,19 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/lounge)
 "kjB" = (
+/obj/effect/map_effect/marker/button_control/window_tint,
 /obj/structure/machinery/button/switch/windowtint{
 	dir = 1;
-	pixel_x = -1;
+	pixel_x = 29;
+	pixel_y = 28
+	},
+/obj/structure/machinery/button/remote/airlock{
+	dir = 1;
+	pixel_x = 38;
 	pixel_y = 29
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
+/turf/simulated/floor/carpet/darkblue,
 /area/modular_freelancer_ship/fore/crew)
 "kjJ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -17588,12 +17609,24 @@
 "ngq" = (
 /obj/structure/table/wood/maple,
 /obj/item/flashlight/lamp/green{
-	pixel_y = 12;
-	pixel_x = -4
+	pixel_y = 7;
+	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/structure/machinery/button/switch/windowtint{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 28
+	},
+/obj/structure/machinery/button/remote/airlock{
+	dir = 1;
+	pixel_x = 2;
+	pixel_y = 29
+	},
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
+/obj/effect/map_effect/marker/button_control/window_tint,
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "ngE" = (
@@ -18336,6 +18369,7 @@
 /obj/structure/machinery/door/airlock/command{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "owu" = (
@@ -18816,6 +18850,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/command,
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "pzI" = (
@@ -22733,6 +22768,15 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
+"wag" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/light/floor,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "wcy" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -23160,6 +23204,7 @@
 /obj/structure/machinery/door/airlock/command{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "wJV" = (
@@ -23326,6 +23371,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
+"wSZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "wTa" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -31226,7 +31286,7 @@ nUI
 eKr
 qRg
 uFb
-kCH
+jUx
 jNL
 qlz
 vHK
@@ -31540,7 +31600,7 @@ bqD
 eKr
 qRg
 uFb
-kCH
+jUx
 akp
 aeD
 hEk
@@ -31697,7 +31757,7 @@ kTj
 eKr
 qRg
 uFb
-kCH
+jUx
 dcU
 gjY
 asE
@@ -31891,9 +31951,9 @@ cEw
 mVP
 cEw
 kCH
-kCH
+jUx
 wIM
-kCH
+jUx
 kCH
 kCH
 kCH
@@ -32413,7 +32473,7 @@ dmX
 xaz
 dmX
 kCH
-pnb
+eKr
 qRg
 bkW
 rAt
@@ -32637,7 +32697,7 @@ nUI
 nUI
 nUI
 eKr
-qRg
+wSZ
 mrs
 uQj
 kCH
@@ -32728,9 +32788,9 @@ vSa
 sse
 sse
 lFh
-qRg
+gUO
 mrs
-cNr
+vnY
 aVe
 aQe
 gIj
@@ -32884,10 +32944,10 @@ lFh
 uZk
 jAC
 eTe
-eTe
+wag
 eCN
-pPS
-cNr
+mrs
+vnY
 dqh
 caA
 flI
@@ -33046,7 +33106,7 @@ mtH
 kxE
 vnY
 pYk
-caA
+kjB
 fai
 aJA
 jgz
@@ -33203,7 +33263,7 @@ hrR
 hrR
 cNr
 cNr
-kjB
+iEc
 nSj
 aZV
 kRl
