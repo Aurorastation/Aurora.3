@@ -89989,9 +89989,8 @@
 	dir = 1;
 	name = "Media Office";
 	req_access = list(70);
-	id = "media_office_door"
+	id_tag = "media_office_door"
 	},
-/obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/media_office)
 "lDp" = (
@@ -91708,7 +91707,7 @@
 "lNN" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/modular_computer/laptop/preset{
+/obj/item/modular_computer/laptop/preset/loadout{
 	pixel_y = 9
 	},
 /turf/simulated/floor/wood,
