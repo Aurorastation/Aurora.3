@@ -331,8 +331,10 @@
 	var/mob/living/living_target = target
 
 	living_target.apply_effects(0, weaken, paralyze, 0, stutter, eyeblur, drowsy, 0, incinerate, blocked)
-	living_target.stun_effect_act(stun, agony, def_zone, src, damage_flags)
-	living_target.apply_damage(irradiate, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED) //radiation protection is handled separately from other armor types.
+	if(stun || agony)
+		living_target.stun_effect_act(stun, agony, DAMAGE_PAIN, def_zone, src, damage_flags, check_armor)
+	if(irradiate)
+		living_target.apply_damage(irradiate, DAMAGE_RADIATION, def_zone, check_armor = check_armor) //radiation protection is handled separately from other armor types.
 
 	if(!do_not_log)
 		log_combat(firer, living_target, "shot", src)
