@@ -1,0 +1,4 @@
+author: fyni
+delete-after: True
+changes:
+  - rscadd: "Updates the earth accent tag. The old tag did not fit the accent tag format."
