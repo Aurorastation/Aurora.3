@@ -26,6 +26,8 @@
 
 	//add the new taste data
 	var/list/data = ..()
+	if(!data)
+		data = list()
 	for(var/taste in newdata)
 		if(taste in data)
 			data[taste] += newdata[taste]
