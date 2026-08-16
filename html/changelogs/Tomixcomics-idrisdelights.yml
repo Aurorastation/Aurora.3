@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Fenodyree
+author: Tomixcomics
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Causes the statpanel (Alt-click pickup menu) to immediately update when an item is removed from a turf, instead of waiting for the next update tick."
-  - bugfix: "Fixes many bugs related to being able to interact with items normally inaccessable. Eg. Double loading bullets into a magazine."
+  - rscadd: "Added the 'Idris Delights' vending machine and the various treats it sells."
+  - rscadd: "Added two new types of trash to go along with the new treats."
+  - rscadd: "Added several new food dishes including Takoyaki, French toast, Lava cakes and Tiramisu."

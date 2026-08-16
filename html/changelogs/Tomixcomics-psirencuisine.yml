@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: The Stryker
+author: Tomixcomics
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds a press vest and helmet to the journalist's office."
+  - rscadd: "Added a multitude of Psiren meat based dishes."
+  - qol: "Added line of code to keep the game from crashing when flavors don't get listed properly in the code."
+  - qol: "Adjusted Citrus Delight dish so that it doesn't take forever to finish"

@@ -185,16 +185,16 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 /obj/effect/overmap/visitable/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	landmark.sector_set(src, shuttle_name)
 	if(shuttle_name)
-		LAZYADD(restricted_waypoints[shuttle_name], landmark)
+		LAZYDISTINCTADD(restricted_waypoints[shuttle_name], landmark)
 	else
-		generic_waypoints += landmark
+		LAZYDISTINCTADD(generic_waypoints, landmark)
 
 /obj/effect/overmap/visitable/proc/remove_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	if(shuttle_name)
 		var/list/shuttles = restricted_waypoints[shuttle_name]
 		LAZYREMOVE(shuttles, landmark)
 	else
-		generic_waypoints -= landmark
+		LAZYREMOVE(generic_waypoints, landmark)
 
 /obj/effect/overmap/visitable/proc/get_waypoints(var/shuttle_name)
 	. = list()
