@@ -7,7 +7,7 @@
 	species_height = HEIGHT_CLASS_HUGE
 	height_min = 200
 	height_max = 250
-	age_min = 16
+	age_min = 18
 	selectable_pronouns = list(NEUTER, MALE, FEMALE, PLURAL)
 	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
@@ -20,7 +20,7 @@
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/claws/strong,
+		/datum/unarmed_attack/claws/strongunathi,
 		/datum/unarmed_attack/palm/unathi,
 		/datum/unarmed_attack/bite/strong
 	)
