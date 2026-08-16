@@ -231,17 +231,19 @@ export const ArcManagement = (props) => {
             {arcs.length > 0 && (
               <Table>
                 <Table.Row header>
-                  <Table.Cell>Arc</Table.Cell>
-                  <Table.Cell>Status</Table.Cell>
-                  <Table.Cell>Start date</Table.Cell>
-                  <Table.Cell>Finish date</Table.Cell>
-                  <Table.Cell>Actions</Table.Cell>
+                  <Table.Cell width="20%">Arc</Table.Cell>
+                  <Table.Cell width="30%">Description</Table.Cell>
+                  <Table.Cell width="15%">Status</Table.Cell>
+                  <Table.Cell width="15%">Start date</Table.Cell>
+                  <Table.Cell width="15%">Finish date</Table.Cell>
+                  <Table.Cell width="5%">Actions</Table.Cell>
                 </Table.Row>
                 {arcs.map((arc) => {
                   const isActive = activeArcId === arc.id;
                   return (
                     <Table.Row key={arc.id}>
                       <Table.Cell>{arc.name}</Table.Cell>
+                      <Table.Cell>{arc.description}</Table.Cell>
                       <Table.Cell>
                         {isActive ? 'Active' : arc.finished_at ? 'Finished' : 'Planned'}
                       </Table.Cell>
