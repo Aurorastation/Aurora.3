@@ -1,39 +1,41 @@
 /singleton/origin_item/culture/diona_voidtamer
-	name = "Voidtamers"
-	desc = "Far from being a unified entity, the term “Void Tamers” refers to a series of commonly dionae-centric groups and clusters known for the taming, raising, and eventual selling of products related to space fauna, commonly space carp, gnats, and bloaters. These groups are largely independent of one another, operating in generally separate regions of space, although some overlap and trade has been known to occur amongst groups."
-	possible_origins = list(
-		/singleton/origin_item/origin/emporium,
-		/singleton/origin_item/origin/comets,
-		/singleton/origin_item/origin/rokz,
-		/singleton/origin_item/origin/serz
-	)
+    name = "Voidtamers"
+    desc = "Far from being a unified entity, the term “Void Tamers” refers to a series of dionae-centric clusters known for the taming, raising, and eventual selling of products related to space fauna, commonly space carp, gnats, and bloaters. These groups are largely independent of one another, operating in generally separate regions of space, although they are known to be adherent to a larger structure mostly unknown to humans and other species."
+    possible_origins = list(
+        /singleton/origin_item/origin/explorer,
+        /singleton/origin_item/origin/reclaimer,
+        /singleton/origin_item/origin/harvester,
+        /singleton/origin_item/origin/primal
+    )
 
-/singleton/origin_item/origin/emporium
-	name = "Emporium Voidtamer"
-	desc = "The largest of the Voidtamers, The Emporium is a highly mobile cluster known for selling living space fauna in exchange for credits and blood throughout Biesel and CoC space, however, more recently have begun to venture into the CRZ looking for customers. "
-	important_information = "Dionae from this cluster tend to come in every form and mind type, although primarily will still be cyclops forms. Dionae from voidtamer groups tend to be highly knowledgeable on spacefauna-related subjects due to their previous work."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_CRIMSONSONG, ACCENT_IRONSONG)
-	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
+/singleton/origin_item/origin/explorer
+    name = "Celestial Creed of The Explorers"
+    desc = "The Cluster known for it's esoteric ways, the Celestial Creed of The Explorers or Lemurian Voidtamers are based in the Lemurian sea, where they survive in the treacherous and dark as self-taught xenobiologists, anomalists, and hunters, using immense levels of radiation to survive in the void."
+    important_information = "Dionae from this cluster tend to come in every form and shape, but all share the disgust of light, and a reverence of Black-holes."
+    possible_accents = list(ACCENT_DARKSONG)
+    possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+    possible_religions = list(RELIGION_ETERNAL)
 
-/singleton/origin_item/origin/comets
-	name = "Comets Voidtamer"
-	desc = "The Comets of Commerce are a smaller-to-medium sized Voidtamer cluster known for primarily trading with the Scarabs and other space-based groups operating within the Coalition of Colonies."
-	important_information = "Dionae from this cluster tend to have more egalitarian mind types, preferring to have decisions be made amongst the entire gestalt over a sole leader. Dionae from voidtamer groups tend to be highly knowledgeable on spacefauna-related subjects due to their previous work."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_CRIMSONSONG, ACCENT_IRONSONG)
-	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)
+/singleton/origin_item/origin/reclaimer
+    name = "Starbound Congregation of the Reclaimers"
+    desc = "Centered in the Weeping stars and sometimes called Weeping Voidtamers, the Reclaimers are archeologists and rebuilders of dead pasts, salvaging the relics of the interstellar war and other wrecks they come across, using their innate abilities to revive old and invent new technologies with biomass."
+    important_information = "Dionae from this"
+    possible_accents = list(ACCENT_VOIDSONG, ACCENT_IRONSONG)
+    possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+    possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_IRON)
 
-/singleton/origin_item/origin/rokz
-	name = "Rokz Voidtamer"
-	desc = "One of two competing voidtamer clans found operating near Moghes. Due to their history interacting Unathi, both clans tend to be fairly influenced by Unathi culture and religion, although do still a distinct identity from one another."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_CRIMSONSONG, ACCENT_SANDSONG, ACCENT_WASTESONG)
-	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER)
+/singleton/origin_item/origin/harvester
+    name = "Umbral Choir of the Harvesters"
+    desc = "Known as the Umbral Choir of the Harvesters, or the Arusha Voidtamers, the Umbral Choir is a cluster centered into one"
+    important_information = "Dionae from this cluster are "
+    possible_accents = list(ACCENT_DARKSONG)
+    possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+    possible_religions = list(RELIGION_ETERNAL_ICHOR)
 
-/singleton/origin_item/origin/serz
-	name = "Serz Voidtamer"
-	desc = "One of two competing voidtamer clans found operating near Moghes. Due to their history interacting Unathi, both clans tend to be fairly influenced by Unathi culture and religion, although do still a distinct identity from one another."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_CRIMSONSONG, ACCENT_SANDSONG, ACCENT_WASTESONG)
-	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER)
+/singleton/origin_item/origin/primal
+    name = "Primal Echoes of The Void Before Time"
+    desc = "Nomadic and found everywhere, the Voidic Primals are well-honed surivalists and hunter-gatherers that often take on a aiding position to other clusters, cooperating and providing their expertise and martial prowess in turn for what they cannot source themselves with their cultural abstainance from most technology. "
+    important_information = "Dionae from this cluster can be from anywhere in the voidtamers, but they all share a cultural disposition against using technology when possible and are seperate from other clusters in their culture."
+    possible_accents = list(ACCENT_DARKSONG, ACCENT_VOIDSONG, ACCENT_CRIMSONSONG)
+    possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+    possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR)

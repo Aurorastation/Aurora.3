@@ -142,3 +142,10 @@
 	description = "A dialect of Consortium Standard which is characterised by it's slight higher pitch than ordinary Rootsong, though one which lacks the unique tonality of other accents heard on Hieroaetheria. Compared to Consortium Standard, the Hope's Tendrils dialect is noticably more euphoric with a sing-songy pacing and sustained notes."
 	tag_icon = "dionae_hopetendrils"
 	text_tag = "HPE"
+
+/datum/accent/darksong
+	name = ACCENT_DARKSONG
+	description = "Notable for its deep bass-like tones and raspy character, Darksong originates from the Lemurian Celestial Creed of Explorers and originates from an entirely light-devoid extremely radioactive diet."
+	tag_icon = "dionae_darksong"
+	text_tag = "DSG"
+

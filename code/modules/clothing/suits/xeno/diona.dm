@@ -48,3 +48,18 @@
 	desc = "A blue set of clothing mimicking a jacket, adorned with feathers along the jacket's collar, sleeves, and chest."
 	icon_state = "ekanejacket"
 	item_state = "ekanejacket"
+
+/obj/item/clothing/suit/armor/voidtamer
+	name = "voidtamer armor"
+	desc = "Armor made up of a hardened material with a gold finish and draped with the hide of a space carp, mostly worn by Dionae hailing from the Voidtamer Confluence."
+	icon = 'icons/obj/diona_items.dmi'
+	icon_state = "voidtamer_war"
+	item_state = "voidtamer_war"
+	contained_sprite = TRUE
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_MELEE_MAJOR,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)

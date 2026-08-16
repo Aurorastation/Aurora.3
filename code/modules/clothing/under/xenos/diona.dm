@@ -24,3 +24,9 @@
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	has_accents = TRUE
+
+/obj/item/clothing/under/diona/voidtamer
+	name = "hide tunic"
+	desc = "A tunic largely made of carp hide, with some gold adornments, typically worn by Dionae from the Voidtamer Confluence."
+	icon_state = "voidtamer_tunic"
+	item_state = "voidtamer_tunic"
