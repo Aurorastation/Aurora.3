@@ -453,7 +453,7 @@ This function restores all organs.
 	if(zone_to_get in organs_by_name)
 		return organs_by_name[zone_to_get]
 
-/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE, check_armor)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, SPAN_DANGER("You are now visible."))
@@ -492,12 +492,13 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
-		if(!stat && damagetype == DAMAGE_PAIN)
-			if((damage > 25) || (damage > 50))
-				force_say()
-				if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
-					emote("scream")
 		return ..()
+
+	if(!stat && damagetype == DAMAGE_PAIN)
+		if((damage > 25))
+			force_say()
+		if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
+			emote("scream")
 
 	if(!organ)
 		return FALSE
