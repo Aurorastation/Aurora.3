@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Head Admin/Dev",
+        "auths": [
+            "R_ALL"
+        ]
+    },
+    {
+        "name": "Primary Administrator",
+        "auths": [
+            "R_BUILDMODE", "R_ADMIN", "R_BAN", "R_FUN", "R_STEALTH", "R_SERVER",
+            "R_VAREDIT", "R_SOUND", "R_SPAWN", "R_PERMISSIONS",
+            "R_MODERATOR", "R_DEVELOPER", "R_CCIAA", "R_DEBUG"
+        ]
+    },
+    {
+        "name": "Secondary Administrator",
+        "auths": [
+            "R_BUILDMODE", "R_ADMIN", "R_BAN", "R_FUN", "R_STEALTH", "R_SERVER",
+            "R_VAREDIT", "R_SOUND", "R_SPAWN", "R_MODERATOR",
+            "R_DEVELOPER", "R_CCIAA"
+        ]
+    },
+    {
+        "name": "Moderator",
+        "auths": [
+            "R_MODERATOR", "R_BAN", "R_SPAWN"
+        ]
+    },
+    {
+        "name": "Trial Moderator",
+        "auths": [
+            "R_MODERATOR"
+        ]
+    },
+    {
+        "name": "Developer",
+        "auths": [
+            "R_DEVELOPER"
+        ]
+    },
+    {
+        "name": "CCIA Agent",
+        "auths": [
+            "R_CCIAA"
+        ]
+    },
+    {
+        "name": "CCIA Leader",
+        "auths": [
+            "R_CCIAA"
+        ]
+    }
+]
