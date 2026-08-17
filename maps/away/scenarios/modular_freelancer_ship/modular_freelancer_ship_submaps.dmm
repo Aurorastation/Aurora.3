@@ -5395,10 +5395,7 @@
 /turf/unsimulated/marker/green,
 /area/template_noop)
 "azs" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "azw" = (
@@ -7118,14 +7115,6 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"aJx" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#5F78A0";
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
-/turf/simulated/floor,
 /area/template_noop)
 "aJA" = (
 /obj/structure/table/wood/maple,
@@ -9395,11 +9384,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aWe" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#8a7387";
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple/grille/firedoor,
 /turf/simulated/floor,
 /area/template_noop)
 "aWf" = (
@@ -9917,10 +9902,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "aYG" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/guns)
 "aYI" = (
@@ -10703,7 +10685,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "ciV" = (
 /obj/structure/cable{
@@ -12793,10 +12775,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/modular_freelancer_ship/container/c06)
 "fuO" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/crew)
 "fvf" = (
@@ -13145,10 +13124,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/guns)
 "fZa" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/hallway)
 "fZo" = (
@@ -14043,7 +14019,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "hqj" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -14094,10 +14070,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
 "hwl" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/fore)
 "hxe" = (
@@ -15908,10 +15881,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "keH" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/starboard)
 "keW" = (
@@ -15949,10 +15919,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
 "kgS" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/hallway)
 "khu" = (
@@ -16128,10 +16095,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/hallway)
 "ksj" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/port)
 "ktj" = (
@@ -17208,10 +17172,7 @@
 /turf/simulated/floor/wood,
 /area/modular_freelancer_ship/fore/crew)
 "meL" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "meR" = (
@@ -18180,6 +18141,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/container/c02)
+"nrW" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/legion/grille/firedoor,
+/turf/simulated/floor,
+/area/template_noop)
 "nsJ" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
@@ -19470,10 +19435,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "pHh" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "pHm" = (
@@ -19848,10 +19810,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "qld" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
 "qln" = (
@@ -20531,10 +20490,7 @@
 /turf/simulated/floor/tiled/cargo/full,
 /area/modular_freelancer_ship/aux/hallway)
 "rpQ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "rqf" = (
@@ -21024,10 +20980,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
 "rWJ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/lounge)
 "rXE" = (
@@ -21826,7 +21779,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "tsJ" = (
 /obj/effect/floor_decal/corner/grey{
@@ -22087,7 +22040,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "tMe" = (
 /obj/structure/cable{
@@ -22433,7 +22386,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "uqa" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -22463,7 +22416,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "urX" = (
 /obj/effect/floor_decal/corner/grey/full{
@@ -22841,10 +22794,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
 "vgT" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aft)
 "vhX" = (
@@ -23157,7 +23107,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "vMl" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -23351,7 +23301,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "wga" = (
 /obj/structure/cable{
@@ -24024,10 +23974,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/shuttles/hallway)
 "xdK" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "xeL" = (
@@ -24285,10 +24232,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "xxb" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "xyb" = (
@@ -62858,7 +62802,7 @@ amF
 aSh
 aRv
 aRv
-azs
+afx
 amY
 qRJ
 azs
@@ -63172,7 +63116,7 @@ asf
 dhm
 aRv
 aRv
-azs
+afx
 wdD
 azf
 jMu
@@ -63329,7 +63273,7 @@ amF
 abz
 abz
 abz
-azs
+afx
 aMl
 abg
 azs
@@ -63931,7 +63875,7 @@ xtZ
 lRc
 tEr
 tEr
-tEr
+pHh
 pHh
 pHh
 tEr
@@ -64407,7 +64351,7 @@ tSc
 bSX
 iVc
 aPN
-tEr
+pHh
 aza
 aUQ
 aOs
@@ -67251,7 +67195,7 @@ wRt
 aPC
 aMs
 aMs
-aJx
+nrW
 aMs
 aXg
 aMs
@@ -67413,9 +67357,9 @@ isN
 aRv
 aRv
 aMs
-aJx
-aJx
-aJx
+nrW
+nrW
+nrW
 aza
 aUQ
 aOs
@@ -67572,8 +67516,8 @@ aRv
 atH
 acU
 aaG
-aJx
-aJx
+nrW
+nrW
 aBg
 arU
 aza
@@ -67730,7 +67674,7 @@ ajR
 azf
 azf
 aoM
-aJx
+nrW
 aUQ
 aOs
 aza
@@ -67886,8 +67830,8 @@ aqb
 aPJ
 atk
 aMl
-aJx
-aJx
+nrW
+nrW
 aUQ
 aOs
 aza
@@ -68041,9 +67985,9 @@ afx
 afx
 afx
 aMs
-aJx
-aJx
-aJx
+nrW
+nrW
+nrW
 aza
 aUQ
 aOs
@@ -68193,7 +68137,7 @@ kOn
 aLp
 aMs
 aMs
-aJx
+nrW
 aMs
 afx
 aMs
@@ -68485,7 +68429,7 @@ afx
 amF
 azs
 amF
-amF
+azs
 amF
 amF
 amF
