@@ -3566,12 +3566,9 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/shuttles)
 "aoM" = (
-/obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(204)
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/template_noop)
+/obj/structure/machinery/vending/clothing,
+/turf/simulated/floor/tiled/slate,
+/area/modular_freelancer_ship/fore/hallway)
 "aoO" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3722,12 +3719,9 @@
 	pixel_x = -7;
 	pixel_y = 12
 	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'WARNING: EQUIPMENT RADIOACTIVE DURING OPERATION'.";
-	icon_state = "radiation";
-	name = "WARNING: EQUIPMENT RADIOACTIVE DURING OPERATION sign";
-	pixel_y = 16;
-	pixel_x = -32
+/obj/structure/sign/radiation{
+	pixel_x = -32;
+	pixel_y = 16
 	},
 /turf/simulated/floor/greengrid,
 /area/modular_freelancer_ship/aft/engineering)
@@ -9430,8 +9424,7 @@
 "aWK" = (
 /obj/structure/machinery/ship_weapon/francisca/compact{
 	pixel_x = -39;
-	pixel_y = -91;
-	weapon_id = "TCAF Shuttle Francisca Rotary Gun"
+	pixel_y = -91
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -9502,9 +9495,7 @@
 /turf/simulated/floor/tiled/cargo,
 /area/template_noop)
 "aXg" = (
-/obj/structure/machinery/ammunition_loader/francisca{
-	weapon_id = "TCAF Shuttle Francisca Rotary Gun"
-	},
+/obj/structure/machinery/ammunition_loader/francisca,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aXj" = (
@@ -10005,6 +9996,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "baA" = (
@@ -12230,6 +12222,7 @@
 	},
 /obj/structure/machinery/power/apc/noid/west,
 /obj/structure/cable,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "eQh" = (
@@ -12963,6 +12956,10 @@
 	},
 /turf/simulated/floor/tiled/cargo/full,
 /area/template_noop)
+"fVO" = (
+/obj/structure/machinery/vending/clothing,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/crew)
 "fWd" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
@@ -22195,12 +22192,9 @@
 	pixel_x = -7;
 	pixel_y = 12
 	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'WARNING: EQUIPMENT RADIOACTIVE DURING OPERATION'.";
-	icon_state = "radiation";
-	name = "WARNING: EQUIPMENT RADIOACTIVE DURING OPERATION sign";
-	pixel_y = 16;
-	pixel_x = -32
+/obj/structure/sign/radiation{
+	pixel_x = -32;
+	pixel_y = 16
 	},
 /turf/simulated/floor/greengrid,
 /area/modular_freelancer_ship/aft/atmos)
@@ -22695,6 +22689,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
+"vgy" = (
+/obj/structure/machinery/vending/clothing,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "vgT" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -32775,7 +32773,7 @@ amp
 dcU
 dcU
 kFO
-aqs
+aZb
 qld
 amg
 tkf
@@ -33086,7 +33084,7 @@ oAV
 mrs
 uQj
 kCH
-aCk
+vgy
 amc
 qpO
 aqs
@@ -33744,7 +33742,7 @@ aza
 aLe
 amg
 nUI
-aZb
+aoM
 aZb
 asi
 akZ
@@ -33803,7 +33801,7 @@ mrs
 hrR
 ngE
 aWg
-kRl
+fVO
 cNr
 vnY
 ouV
@@ -67575,7 +67573,7 @@ aRv
 ajR
 azf
 azf
-aoM
+jMu
 tqz
 aUQ
 aOs
