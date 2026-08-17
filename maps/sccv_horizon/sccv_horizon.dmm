@@ -1838,16 +1838,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/wing/port/far)
-"akD" = (
-/obj/structure/reagent_dispensers/water_cooler,
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/reception)
 "akE" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
@@ -21999,6 +21989,7 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/icu)
 "cTO" = (
@@ -24757,7 +24748,9 @@
 "dlC" = (
 /obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/icu)
 "dlD" = (
@@ -41900,8 +41893,8 @@
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/horizon/medical/gen_treatment)
@@ -50582,9 +50575,6 @@
 /obj/structure/disposalpipe/junction{
 	dir = 8;
 	icon_state = "pipe-j2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
@@ -59514,21 +59504,6 @@
 /obj/item/deck/cards,
 /turf/unsimulated/floor/wood,
 /area/centcom/bar)
-"hMH" = (
-/obj/structure/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "Medical Lockdown Shutters";
-	opacity = 0
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "recovery"
-	},
-/obj/structure/sign/greencross/small,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/medical/ward)
 "hMK" = (
 /obj/structure/lattice,
 /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -74297,9 +74272,6 @@
 /turf/simulated/wall,
 /area/horizon/medical/hallway/upper)
 "jIN" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
@@ -83678,6 +83650,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/item/storage/box/unique/monkeycubes,
 /obj/structure/machinery/firealarm/south,
+/obj/item/reagent_containers/blood/sbs,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -88153,6 +88126,11 @@
 "luZ" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
+	},
+/obj/structure/machinery/ringer_button{
+	id = "medbay_ringer";
+	pixel_x = -19;
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/central)
@@ -93911,6 +93889,10 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/meeting_room)
+"mhZ" = (
+/turf/space,
+/turf/simulated/wall/r_wall,
+/area/horizon/medical/pharmacy)
 "mia" = (
 /obj/effect/floor_decal/corner/paleblue,
 /turf/unsimulated/floor,
@@ -118734,8 +118716,11 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigations_hallway)
 "puX" = (
-/obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner_wide/seafoam/diagonal,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "pva" = (
@@ -127122,6 +127107,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/icu)
 "qyV" = (
@@ -134045,20 +134031,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "rrr" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/machinery/door/blast/shutters/open{
-	dir = 2;
 	id = "CHE2shutters";
 	name = "Window Shutter"
 	},
-/obj/structure/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/medical/pharmacy)
 "rrt" = (
@@ -136905,10 +136882,14 @@
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	id_tag = "main_door";
-	name = "Triage Room Main Entrance";
-	req_access = list(5);
+	id_tag = "icu_door";
+	name = "Medical ICU Entrance";
+	req_access = s;
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/shutters{
@@ -136919,10 +136900,6 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/icu)
 "rLE" = (
@@ -140930,6 +140907,15 @@
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 4
 	},
+/obj/structure/machinery/button/remote/airlock{
+	name = "ICU Door Bolt Control";
+	dir = 10;
+	pixel_x = -6;
+	pixel_y = 7;
+	req_access = list(5);
+	id = "icu_door";
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/icu)
 "siV" = (
@@ -144415,11 +144401,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/storage/secure/ops_vault)
 "sGv" = (
-/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/seafoam/full,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "sGz" = (
@@ -149498,18 +149484,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
-"tpr" = (
-/obj/structure/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/medical/pharmacy)
 "tpt" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/lino,
@@ -175794,13 +175768,10 @@
 /area/horizon/maintenance/deck_2/wing/port/nacelle)
 "wHy" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/structure/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
+/obj/structure/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "CHE2shutters";
+	name = "Window Shutter"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/medical/pharmacy)
@@ -280213,7 +280184,7 @@ rFg
 rft
 rft
 rft
-wHy
+mhZ
 wHy
 wHy
 wHy
@@ -281246,7 +281217,7 @@ mnl
 won
 tuo
 tar
-tpr
+rrr
 tvJ
 cQD
 ybS
@@ -281503,7 +281474,7 @@ qcW
 ssp
 gMh
 nNT
-tpr
+rrr
 gEF
 rSe
 rfK
@@ -283040,7 +283011,7 @@ lPj
 oSh
 mPK
 uar
-akD
+kYl
 irL
 kYl
 kYl
@@ -285358,7 +285329,7 @@ ode
 aKx
 iox
 iPZ
-hMH
+etV
 gLY
 nYL
 nzz
