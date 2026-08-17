@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the option to manually change the looping sound channel volume in the SFX Preferences tab."
