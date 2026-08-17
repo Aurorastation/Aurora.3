@@ -103794,13 +103794,13 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/grey,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/machinery/disposal/small/east,
+/obj/structure/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
 /obj/structure/machinery/light_switch/idris{
 	dir = 1;
-	pixel_y = 28;
+	pixel_y = 32;
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark/full,
