@@ -21989,6 +21989,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/light,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/icu)
 "cTO" = (
@@ -89637,6 +89640,9 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
 "lFh" = (
@@ -130830,9 +130836,6 @@
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/corner/beige/full,
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
 "qXl" = (
@@ -162152,9 +162155,6 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/icu)
 "uWM" = (
@@ -165129,9 +165129,6 @@
 	},
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
@@ -175231,6 +175228,9 @@
 /obj/structure/machinery/camera/network/medbay{
 	c_tag = "Medical - General Treatment 1";
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
