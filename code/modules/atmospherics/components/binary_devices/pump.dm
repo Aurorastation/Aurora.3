@@ -12,7 +12,7 @@ Thus, the two variables affect pump operation are set in New():
 			but overall network volume is also increased as this increases...
 */
 
-/obj/machinery/atmospherics/binary/pump
+/obj/structure/machinery/atmospherics/binary/pump
 	name = "gas pump"
 	desc = "A pump."
 	icon = 'icons/atmos/pump.dmi'
@@ -40,70 +40,70 @@ Thus, the two variables affect pump operation are set in New():
 	var/measure_enabled = FALSE
 	var/moles_pumped = 0
 
-/obj/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This moves gas from one pipe to another. A higher target pressure demands more energy."
 	. += "The side with the colored end is the output."
 	. += "The normalized flow rate is the flow rate in L based on the moles transferred normalized to a preassure 1ATM and temperature of 20C."
 	. += "The same applies to the measurement section."
 
-/obj/machinery/atmospherics/binary/pump/Initialize()
+/obj/structure/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP
 	air2.volume = ATMOS_DEFAULT_VOLUME_PUMP
 
-/obj/machinery/atmospherics/binary/pump/on
+/obj/structure/machinery/atmospherics/binary/pump/on
 	icon_state = "map_on"
 	use_power = POWER_USE_IDLE
 
-/obj/machinery/atmospherics/binary/pump/fuel
+/obj/structure/machinery/atmospherics/binary/pump/fuel
 	icon_state = "map_off-fuel"
 	base_icon = "pump-fuel"
 	icon_connect_type = "-fuel"
 	connect_types = CONNECT_TYPE_FUEL
 
-/obj/machinery/atmospherics/binary/pump/fuel/on
+/obj/structure/machinery/atmospherics/binary/pump/fuel/on
 	icon_state = "map_on-fuel"
 	use_power = POWER_USE_IDLE
 
-/obj/machinery/atmospherics/binary/pump/aux
+/obj/structure/machinery/atmospherics/binary/pump/aux
 	icon_state = "map_off-aux"
 	base_icon = "pump-aux"
 	icon_connect_type = "-aux"
 	connect_types = CONNECT_TYPE_AUX
 
-/obj/machinery/atmospherics/binary/pump/aux/on
+/obj/structure/machinery/atmospherics/binary/pump/aux/on
 	icon_state = "map_on-aux"
 	use_power = POWER_USE_IDLE
 
-/obj/machinery/atmospherics/binary/pump/supply
+/obj/structure/machinery/atmospherics/binary/pump/supply
 	icon_state = "map_off-supply"
 	base_icon = "pump-supply"
 	icon_connect_type = "-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 
-/obj/machinery/atmospherics/binary/pump/supply/on
+/obj/structure/machinery/atmospherics/binary/pump/supply/on
 	icon_state = "map_on-supply"
 	use_power = POWER_USE_IDLE
 
-/obj/machinery/atmospherics/binary/pump/scrubber
+/obj/structure/machinery/atmospherics/binary/pump/scrubber
 	icon_state = "map_off-scrubber"
 	base_icon = "pump-scrubber"
 	icon_connect_type = "-scrubber"
 	connect_types = CONNECT_TYPE_SCRUBBER
 
-/obj/machinery/atmospherics/binary/pump/scrubber/on
+/obj/structure/machinery/atmospherics/binary/pump/scrubber/on
 	icon_state = "map_on-scrubber"
 	use_power = POWER_USE_IDLE
 
 
-/obj/machinery/atmospherics/binary/pump/update_icon()
+/obj/structure/machinery/atmospherics/binary/pump/update_icon()
 	if(!powered())
 		icon_state = "[base_icon]-off"
 	else
 		icon_state = "[use_power ? "[base_icon]-on" : "[base_icon]-off"]"
 
-/obj/machinery/atmospherics/binary/pump/update_underlays()
+/obj/structure/machinery/atmospherics/binary/pump/update_underlays()
 	if(..())
 		underlays.Cut()
 		var/turf/T = get_turf(src)
@@ -112,10 +112,10 @@ Thus, the two variables affect pump operation are set in New():
 		add_underlay(T, node1, turn(dir, -180), node1?.icon_connect_type)
 		add_underlay(T, node2, dir, node2?.icon_connect_type)
 
-/obj/machinery/atmospherics/binary/pump/hide(var/i)
+/obj/structure/machinery/atmospherics/binary/pump/hide(var/i)
 	update_underlays()
 
-/obj/machinery/atmospherics/binary/pump/process()
+/obj/structure/machinery/atmospherics/binary/pump/process()
 	last_power_draw = 0
 	last_flow_rate = 0
 	last_mole_transfer = 0
@@ -152,13 +152,13 @@ Thus, the two variables affect pump operation are set in New():
 
 //Radio remote control
 
-/obj/machinery/atmospherics/binary/pump/proc/set_frequency(new_frequency)
+/obj/structure/machinery/atmospherics/binary/pump/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	if(frequency)
 		radio_connection = SSradio.add_object(src, frequency, filter = RADIO_ATMOSIA)
 
-/obj/machinery/atmospherics/binary/pump/proc/broadcast_status()
+/obj/structure/machinery/atmospherics/binary/pump/proc/broadcast_status()
 	if(!radio_connection)
 		return 0
 
@@ -178,13 +178,13 @@ Thus, the two variables affect pump operation are set in New():
 
 	return 1
 
-/obj/machinery/atmospherics/binary/pump/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/atmospherics/binary/pump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "AtmosPump", capitalize_first_letters(name))
 		ui.open()
 
-/obj/machinery/atmospherics/binary/pump/ui_data()
+/obj/structure/machinery/atmospherics/binary/pump/ui_data()
 	var/data = list()
 	data["on"] = use_power
 	data["pressure"] = round(target_pressure)
@@ -198,7 +198,7 @@ Thus, the two variables affect pump operation are set in New():
 	data["liters_pumped"] = round((moles_pumped * R_IDEAL_GAS_EQUATION * T20C) / ONE_ATMOSPHERE)
 	return data
 
-/obj/machinery/atmospherics/binary/pump/ui_act(action, params)
+/obj/structure/machinery/atmospherics/binary/pump/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -222,12 +222,12 @@ Thus, the two variables affect pump operation are set in New():
 			moles_pumped = 0
 	update_icon()
 
-/obj/machinery/atmospherics/binary/pump/atmos_init()
+/obj/structure/machinery/atmospherics/binary/pump/atmos_init()
 	..()
 	if(frequency)
 		set_frequency(frequency)
 
-/obj/machinery/atmospherics/binary/pump/receive_signal(datum/signal/signal)
+/obj/structure/machinery/atmospherics/binary/pump/receive_signal(datum/signal/signal)
 	if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
 		return 0
 
@@ -254,7 +254,7 @@ Thus, the two variables affect pump operation are set in New():
 	broadcast_status_next_process = TRUE
 	update_icon()
 
-/obj/machinery/atmospherics/binary/pump/attack_hand(user as mob)
+/obj/structure/machinery/atmospherics/binary/pump/attack_hand(user as mob)
 	if(..())
 		return
 	src.add_fingerprint(usr)
@@ -265,13 +265,13 @@ Thus, the two variables affect pump operation are set in New():
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/pump/power_change()
+/obj/structure/machinery/atmospherics/binary/pump/power_change()
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/binary/pump/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/binary/pump/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)

@@ -116,6 +116,7 @@
 		/obj/item/storage/box/lights/colored/cyan = 0.1,
 		/obj/item/storage/box/lights/colored/green = 0.1,
 		/obj/item/storage/box/lights/colored/magenta = 0.1,
+		/obj/item/storage/box/lights/colored/pale_purple = 0.1,
 		/obj/item/storage/box/lights/colored/red = 0.1,
 		/obj/item/storage/box/lights/colored/yellow = 0.1,
 		/obj/item/storage/box/lights/coloredmixed = 0.2,

@@ -714,3 +714,14 @@
 	icon_state = "schnitzelpita"
 	filling_color = "#cf7105"
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/french_toast
+	name = "french toast"
+	desc = "Two slices of bread pan-fried in a mixture of egg yolk, honey and milk. Serve with a side of fruit or bacon, depending on if you want to maintain the illusion that this could somehow be considered a nutritious breakfast, or just double down on how much it absolutely isn't."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "frenchtoast"
+	filling_color = "#e7b160"
+	center_of_mass = list("x"=15, "y"=12)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein/egg = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("milky bread" = 5, "honey" = 5))
+	bitesize = 3

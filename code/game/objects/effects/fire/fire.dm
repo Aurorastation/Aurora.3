@@ -154,7 +154,7 @@
 			var/turf/simulated/other_tile = get_step(T, direction)
 
 			// Exit the loop early if the checked tile is not a valid direction for the fire to spread.
-			if(!istype(other_tile) || (T.open_directions & direction) || other_tile.hotspot || other_tile.turf_fire) //Grab all valid bordering tiles
+			if(!istype(other_tile) || !(T.open_directions && direction) || other_tile.hotspot || other_tile.turf_fire) //Grab all valid bordering tiles
 				continue
 
 			other_tile.hotspot_expose(effective_temperature)

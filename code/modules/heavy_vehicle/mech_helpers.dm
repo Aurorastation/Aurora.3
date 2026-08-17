@@ -29,7 +29,7 @@
 		return
 
 
-	next_mecha_move = delay_modifier + world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)
+	next_mecha_move = world.time + max(legs.move_delay, delay_modifier + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope))
 	return TRUE
 
 /mob/living/heavy_vehicle/proc/can_turn(var/mob/user, delay_modifier)
@@ -63,7 +63,7 @@
 		return
 
 
-	next_mecha_turn = delay_modifier + world.time + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)
+	next_mecha_turn = world.time + max(legs.move_delay, delay_modifier + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope))
 	return TRUE
 
 /mob/living/heavy_vehicle/proc/can_strafe(var/mob/user, delay_modifier)
@@ -102,7 +102,7 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
-	next_mecha_move = world.time + ((legs.move_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)) * legs.strafe_delay_modifier)
+	next_mecha_move = world.time + max(legs.move_delay, delay_modifier + ((legs.move_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)) * legs.strafe_delay_modifier))
 	return TRUE
 
 /mob/living/heavy_vehicle/get_standard_pixel_x()
@@ -161,20 +161,32 @@
 
 /mob/living/heavy_vehicle/proc/use_cell_power(var/power_to_use)
 	var/power_used = get_cell()?.use(power_to_use)
-	if(power_used <= 0)
+	if(power_used < power_to_use - 1) //Self recharging cells would otherwise allow a mech to run indefinately at full functionality with 0.1% charge.
 		for(var/hardpoint in hardpoints)
 			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
 			if(ME)
 				ME.deactivate()
+			if(power == MECH_POWER_ON)
+				playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+				power = MECH_POWER_OFF
+				update_emp_protection()
+				if(hud_power_control)
+					SSicon_update.add_to_queue(hud_power_control)
 	return power_used
 
 /mob/living/heavy_vehicle/proc/drain_cell_power(var/power_to_drain)
 	var/power_used = get_cell()?.drain_power(0, 0, power_to_drain)
-	if(power_used <= 0)
+	if(power_used < power_to_drain - 1) //Self recharging cells would otherwise allow a mech to run indefinately at full functionality with 0.1% charge.
 		for(var/hardpoint in hardpoints)
 			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
 			if(ME)
 				ME.deactivate()
+			if(power == MECH_POWER_ON)
+				playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+				power = MECH_POWER_OFF
+				update_emp_protection()
+				if(hud_power_control)
+					SSicon_update.add_to_queue(hud_power_control)
 	return power_used
 
 /mob/living/heavy_vehicle/proc/checked_use_cell(var/power_to_drain)

@@ -25,7 +25,7 @@
 			if(target_organ)
 				var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
 				if(I)
-					var/can_damage = I.max_damage - I.damage
+					var/can_damage = I.max_damage - I.get_damage()
 					if(can_damage > 0)
 						if(dam > can_damage)
 							I.take_internal_damage(can_damage, silent=TRUE)
@@ -183,7 +183,7 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.3) //being splashed directly with phoron causes minor chemical burns
+	M.take_organ_damage(0, removed * 0.3, used_weapon = "Phoron chemical burns", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //being splashed directly with phoron causes minor chemical burns
 	if(prob(50))
 		M.pl_effects()
 
@@ -194,7 +194,7 @@
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
-	M.take_organ_damage(0, removed * 0.6) //Breathing phoron? Oh hell no boy my boy.
+	M.take_organ_damage(0, removed * 0.6, used_weapon = "Phoron inhalation", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE) //Breathing phoron? Oh hell no boy my boy.
 	if(prob(50))
 		M.pl_effects()
 
@@ -238,12 +238,12 @@
 		for(var/obj/item/reagent_containers/food/snacks/grown/K in T)
 			if((K.plantname == "koisspore" || K.plantname == "blackkois") || (K.name == "kois" || K.name == "black kois"))
 				qdel(K)
-		for(var/obj/machinery/portable_atmospherics/hydroponics/H in T)
+		for(var/obj/structure/machinery/portable_atmospherics/hydroponics/H in T)
 			if(((H.name == "kois" || H.name == "black kois") || H.seed == /datum/seed/koisspore) && !(H.closed_system))
 				H.health = 0 // kill this boi - geeves
 				H.force_update = TRUE // and quick
 				H.process()
-				if(istype(H, /obj/machinery/portable_atmospherics/hydroponics/soil/invisible))
+				if(istype(H, /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible))
 					qdel(H)
 
 	if(istype(T))
@@ -1054,28 +1054,31 @@
 
 		victim.add_chemical_effect(CE_PULSE, -2)
 		var/dose = victim.chem_doses[type]
-		if(dose > 2)
+		if(dose > 2) // at least 1 bite
 			if(ishuman(victim) && (dose == metabolism * 2 || prob(3)))
 				victim.emote("yawn")
-		if(dose > 20)
+		if(dose > 10) // at least 3 bites
 			victim.eye_blurry = max(victim.eye_blurry, 10)
-		if(dose > 40)
+		if(dose > 18) // at least 5 bites
 			victim.Weaken(1)
 			victim.drowsiness = max(victim.drowsiness, 20)
 
 		if(victim.chem_effects[CE_ANTIPARASITE])
 			return
 
-		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER] && prob(20))
-			var/obj/item/organ/external/affected = pick(victim.organs)
-			if(BP_IS_ROBOTIC(affected))
-				return
-			// Give the victim an extra chance to NOT get an eggsac in their head; reroll. Ditto mechanical limbs.
-			if(affected == BP_HEAD)
-				affected = pick(victim.organs)
-			var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
-			infest.parent_organ = affected.limb_name
-			infest.replaced(victim, affected)
+		if(dose > 10) // at least 3 bites
+			if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER] && prob(20))
+				var/obj/item/organ/external/affected = pick(victim.organs)
+				if(BP_IS_ROBOTIC(affected))
+					return
+				// Give the victim an extra chance to NOT get an eggsac somewhere that will insta-kill them; reroll. Ditto mechanical limbs.
+				if(affected == BP_HEAD || affected == BP_CHEST || affected == BP_GROIN)
+					affected = pick(victim.organs)
+				var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
+				infest.parent_organ = affected.limb_name
+				infest.replaced(victim, affected)
+
+				victim.chem_doses[type] = dose / 2
 
 /singleton/reagent/toxin/malignant_tumour_cells
 	name = "Malignant Tumour Cells"

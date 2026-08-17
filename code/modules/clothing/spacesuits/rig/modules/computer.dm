@@ -23,22 +23,47 @@
 		to_chat(usr, SPAN_WARNING("Your module is not installed in a hardsuit."))
 		return
 
-	module.holder.ui_interact(usr, nano_state = GLOB.contained_state)
+	module.holder.ui_interact(usr)
 
-/mob
-	var/get_rig_stats = 0
+/obj/item/ai_verbs/verb/toggle_hardsuit_camera()
+	set category = "Hardsuit"
+	set name = "Helmet Camera - Toggle On/Off"
+	set src in usr
+
+	var/obj/item/rig/rig = usr.get_rig()
+	if(!istype(rig) || !rig.is_integrated_rig_ai(usr))
+		to_chat(usr, SPAN_WARNING("You are not loaded into a hardsuit."))
+		return
+	if(!rig.helmet?.camera)
+		to_chat(usr, SPAN_WARNING("\The [rig] has no helmet camera."))
+		return
+
+	rig.helmet.toggle_camera_for(usr)
+
+/obj/item/ai_verbs/verb/toggle_hardsuit_expedition_camera_network()
+	set category = "Hardsuit"
+	set name = "Helmet Camera - Toggle Expedition Network"
+	set src in usr
+
+	var/obj/item/rig/rig = usr.get_rig()
+	if(!istype(rig) || !rig.is_integrated_rig_ai(usr))
+		to_chat(usr, SPAN_WARNING("You are not loaded into a hardsuit."))
+		return
+	if(!rig.helmet?.camera)
+		to_chat(usr, SPAN_WARNING("\The [rig] has no helmet camera."))
+		return
+
+	rig.helmet.toggle_expedition_camera_network_for(usr)
 
 /obj/item/rig_module/ai_container
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
 	icon_state = "IIS"
-	toggleable = TRUE
-	usable = TRUE
-	disruptive = FALSE
+	module_type = MODULETYPE_TOGGLE
 	activates_on_touch = TRUE
 	confined_use = TRUE
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 7500)
+	construction_cost = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 7500)
 	construction_time = 300
 
 	engage_string = "Eject AI"
@@ -46,10 +71,12 @@
 	deactivate_string = "Disable Dataspike"
 
 	interface_name = "integrated intelligence system"
-	interface_desc = "A socket that supports a range of artificial intelligence systems."
+	interface_desc = "A socket that supports a range of artificial intelligence systems. When active, you can click on any active AI (including traditional ship/station AIs, pAIs, and robot intelligence circuits) to attempt to integrate it into your suit systems."
 
-	var/mob/integrated_ai // Direct reference to the actual mob held in the suit.
-	var/obj/item/ai_card  // Reference to the MMI, posibrain, intellicard or pAI card previously holding the AI.
+	/// Direct reference to the actual mob held in the suit.
+	var/mob/integrated_ai
+	/// Reference to the MMI, intellicard or pAI card previously holding the AI.
+	var/obj/item/ai_card
 	var/obj/item/ai_verbs/verb_holder
 
 	category = MODULE_GENERAL
@@ -59,21 +86,20 @@
 	qdel(verb_holder)
 	return ..()
 
-/obj/item/rig_module/ai_container/process()
-	if(integrated_ai)
-		var/obj/item/rig/rig = get_rig()
-		if(rig && rig.ai_override_enabled)
-			integrated_ai.get_rig_stats = 1
-		else
-			integrated_ai.get_rig_stats = 0
-
 /obj/item/rig_module/ai_container/proc/update_verb_holder()
 	if(!verb_holder)
 		verb_holder = new(src)
+	var/mob/previous_user
+	if(ismob(verb_holder.loc))
+		previous_user = verb_holder.loc
 	if(integrated_ai)
 		verb_holder.forceMove(integrated_ai)
 	else
 		verb_holder.forceMove(src)
+	if(previous_user?.client)
+		previous_user.client.init_verbs()
+	if(integrated_ai?.client && integrated_ai != previous_user)
+		integrated_ai.client.init_verbs()
 
 /obj/item/rig_module/ai_container/accepts_item(var/obj/item/input_device, var/mob/living/user)
 	// Check if there's actually an AI to deal with.
@@ -136,6 +162,18 @@
 		return TRUE
 
 	return FALSE
+
+/obj/item/rig_module/ai_container/get_configuration()
+	. = ..()
+	var/button_label = "No AI Currently Installed"
+	if(integrated_ai)
+		button_label = integrated_ai.name
+	.["eject"] = add_ui_configuration(engage_string, "button", button_label)
+
+/obj/item/rig_module/ai_container/configure_edit(key, value, user)
+	switch(key)
+		if("eject")
+			engage(null, user)
 
 /obj/item/rig_module/ai_container/engage(atom/target, mob/user)
 	if(!..())
@@ -227,10 +265,10 @@
 	name = "datajack module"
 	desc = "A simple induction datalink module."
 	icon_state = "datajack"
-	toggleable = TRUE
 	activates_on_touch = TRUE
-	usable = FALSE
+	module_type = MODULETYPE_USABLE
 
+	engage_string = "Eject AI"
 	activate_string = "Enable Datajack"
 	deactivate_string = "Disable Datajack"
 
@@ -269,17 +307,17 @@
 		return TRUE
 
 	// I fucking hate R&D code. This typecheck spam would be totally unnecessary in a sane setup.
-	else if(istype(input_device,/obj/machinery))
+	else if(istype(input_device,/obj/structure/machinery))
 		var/datum/research/incoming_files
-		if(istype(input_device,/obj/machinery/computer/rdconsole))
-			var/obj/machinery/computer/rdconsole/input_machine = input_device
+		if(istype(input_device,/obj/structure/machinery/computer/rdconsole))
+			var/obj/structure/machinery/computer/rdconsole/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/machinery/r_n_d/server))
-			var/obj/machinery/r_n_d/server/input_machine = input_device
+		else if(istype(input_device,/obj/structure/machinery/r_n_d/server))
+			var/obj/structure/machinery/r_n_d/server/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/machinery/mecha_part_fabricator))
-			var/obj/machinery/mecha_part_fabricator/input_machine = input_device
-			incoming_files = input_machine.files
+		else if(istype(input_device, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+			var/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/input_mechfab = input_device
+			incoming_files = input_mechfab.linked_console?.files
 
 		if(!incoming_files || !incoming_files.known_tech || !incoming_files.known_tech.len)
 			to_chat(user, SPAN_WARNING("Memory failure. There is nothing accessible stored on this terminal."))
@@ -318,8 +356,7 @@
 	name = "electrowarfare module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips."
 	icon_state = "ewar"
-	toggleable = TRUE
-	usable = FALSE
+	module_type = MODULETYPE_TOGGLE
 	confined_use = TRUE
 
 	activate_string = "Enable Countermeasures"
@@ -352,11 +389,11 @@
 	name = "hardsuit power sink"
 	desc = "An heavy-duty power sink."
 	icon_state = "powersink"
-	toggleable = TRUE
+	module_type = MODULETYPE_TOGGLE
 	activates_on_touch = TRUE
 	disruptive = FALSE
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GOLD =2000, MATERIAL_SILVER =3000, MATERIAL_GLASS =2000)
+	construction_cost = list(MATERIAL_STEEL=10000, MATERIAL_GOLD =2000, MATERIAL_SILVER =3000, MATERIAL_GLASS =2000)
 	construction_time = 500
 
 	activate_string = "Enable Power Sink"

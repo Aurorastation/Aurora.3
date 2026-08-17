@@ -34,7 +34,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/corner,
-/obj/machinery/stargazer,
+/obj/structure/machinery/stargazer,
 /turf/simulated/floor/carpet/rubber,
 /area/sol_listening_post)
 "ch" = (
@@ -46,15 +46,15 @@
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = 22;
 	pixel_y = 28
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/sol_listening_post)
@@ -68,7 +68,7 @@
 /area/sol_listening_post)
 "dO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -86,7 +86,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/sol_listening_post)
 "ej" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -103,7 +103,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "fI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid/server,
@@ -114,10 +114,10 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "fK" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -125,13 +125,13 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "fW" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8;
 	req_access = list(150)
 	},
@@ -142,7 +142,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "gt" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "hp" = (
@@ -150,7 +150,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "hW" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "ij" = (
@@ -169,7 +169,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "ka" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "kp" = (
@@ -186,10 +186,10 @@
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -202,7 +202,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "kX" = (
@@ -210,7 +210,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "lm" = (
@@ -227,14 +227,14 @@
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "lI" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 1;
 	name = "Control"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "lL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -264,27 +264,27 @@
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = -10
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/sol_listening_post)
 "np" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "nB" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8;
 	req_access = list(150)
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(150)
 	},
@@ -296,7 +296,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -325,12 +325,12 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "rw" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	req_access = list(150)
 	},
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8;
 	req_access = list(150)
 	},
@@ -359,7 +359,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -383,7 +383,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(203)
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -406,7 +406,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/sol_listening_post)
 "wp" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 8;
 	name = "EVA Storaage"
 	},
@@ -474,7 +474,7 @@
 "yt" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -518,11 +518,11 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Ah" = (
-/obj/machinery/suit_cycler,
+/obj/structure/machinery/suit_cycler,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Bx" = (
@@ -531,15 +531,15 @@
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_y = -6;
 	pixel_x = 20
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 6
@@ -554,7 +554,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "CC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "CF" = (
@@ -573,7 +573,7 @@
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/automatic/c20r/sol,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "Dt" = (
@@ -583,18 +583,18 @@
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "Ej" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 8;
 	name = "Armory"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Fd" = (
-/obj/machinery/blackbox_recorder,
+/obj/structure/machinery/blackbox_recorder,
 /turf/simulated/floor/bluegrid/server,
 /area/sol_listening_post)
 "Fr" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -661,7 +661,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/sol_listening_post)
 "IX" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Jg" = (
@@ -676,22 +676,22 @@
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/sol_listening_post)
 "JY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Ky" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 8;
 	name = "Lieutenant's Quarters"
 	},
@@ -699,10 +699,10 @@
 /area/sol_listening_post)
 "LC" = (
 /obj/structure/table/steel,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = list(203)
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -720,7 +720,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Nx" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -734,7 +734,7 @@
 /turf/simulated/floor/bluegrid/server,
 /area/sol_listening_post)
 "Ob" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	dir = 8;
 	name = "Barracks"
 	},
@@ -750,14 +750,14 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Ot" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/bluegrid/server,
 /area/sol_listening_post)
 "OR" = (
-/obj/machinery/light,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/light,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Pz" = (
@@ -771,7 +771,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "Rd" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8;
 	req_access = list(150)
 	},
@@ -782,7 +782,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "Ri" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -793,7 +793,7 @@
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/sol_listening_post)
@@ -847,7 +847,7 @@
 /area/sol_listening_post)
 "VQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -883,13 +883,13 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Yq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "YO" = (
-/obj/machinery/power/apc/empty,
+/obj/structure/machinery/power/apc/empty,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 

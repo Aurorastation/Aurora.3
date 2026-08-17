@@ -18,11 +18,14 @@
 /mob/living/test
 	var/heard = FALSE
 
-/mob/living/test/on_hear_say(var/message)
-	. = ..(message)
+// Clientless test mobs still need to reach the output sink to record a hearing.
+/mob/living/test/has_chat_sink()
+	return TRUE
+
+/mob/living/test/on_hear_message(message)
+	..()
 	if(message)
 		heard = TRUE
-	return .
 
 /datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
@@ -118,6 +121,45 @@
 		TEST_FAIL("Mob is not taking oxygen damage.  Damange is [ending_oxyloss]")
 
 	return 1	// return 1 to show we're done and don't want to recheck the result.
+
+/datum/unit_test/closed_eyes
+	name = "MOB: Closing eyes blinds and protects from flashes"
+	groups = list("mob")
+
+/datum/unit_test/closed_eyes/start_test()
+	var/mob/living/carbon/human/H = new(pick(GLOB.tdome1))
+	var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
+
+	if(!eyes)
+		TEST_FAIL("Test human spawned without an eye organ.")
+		qdel(H)
+		return TRUE
+
+	eyes.eyes_closed = TRUE
+	if(!H.is_blind())
+		TEST_FAIL("A human with closed eyes was not considered blind.")
+		qdel(H)
+		return TRUE
+
+	if(H.flash_act(affect_silicon = TRUE, ignore_inherent = TRUE))
+		TEST_FAIL("A flash affected a human with closed eyes.")
+		qdel(H)
+		return TRUE
+
+	eyes.eyes_closed = FALSE
+	if(H.is_blind())
+		TEST_FAIL("Opening healthy eyes did not restore the human's vision.")
+		qdel(H)
+		return TRUE
+
+	if(!H.flash_act(ignore_inherent = TRUE))
+		TEST_FAIL("A flash did not affect a human with open, unprotected eyes.")
+		qdel(H)
+		return TRUE
+
+	TEST_PASS("Closed eyes blind their owner and prevent flash effects.")
+	qdel(H)
+	return TRUE
 
 // ============================================================================
 
@@ -526,7 +568,7 @@
 	name = "MOB: Robot module icon check"
 	groups = list("mob")
 
-	var/icon_file = 'icons/mob/screen/robot.dmi'
+	var/icon_file = 'icons/hud/mob/robot.dmi'
 
 /datum/unit_test/robot_module_icons/start_test()
 	var/failed = 0

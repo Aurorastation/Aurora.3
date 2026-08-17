@@ -13,7 +13,7 @@
 	},
 /area/moghes_mikuetz)
 "e" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/ghostspawpoint{
@@ -87,7 +87,7 @@
 	},
 /area/moghes_mikuetz)
 "r" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber{
@@ -104,7 +104,7 @@
 	},
 /area/moghes_mikuetz)
 "u" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -29
 	},
@@ -150,7 +150,7 @@
 /area/moghes_mikuetz)
 "D" = (
 /obj/structure/closet/crate,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/clothing/accessory/poncho/vaurca{
@@ -197,7 +197,7 @@
 /area/moghes_mikuetz)
 "G" = (
 /obj/structure/closet/crate/weapon,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/item/flamethrower/full,
@@ -231,7 +231,7 @@
 	},
 /area/moghes_mikuetz)
 "J" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber{
@@ -240,7 +240,7 @@
 /area/moghes_mikuetz)
 "K" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber{
@@ -265,7 +265,7 @@
 /area/moghes_mikuetz)
 "N" = (
 /obj/structure/closet/crate,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/item/synthesized_instrument/guitar,

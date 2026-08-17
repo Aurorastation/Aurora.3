@@ -15,7 +15,7 @@
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
-	matter = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 2000)
+	matter = list(MATERIAL_STEEL = 4000, MATERIAL_GLASS = 2000)
 	projectile_type = /obj/projectile/beam/plasmacutter
 	cell_type = /obj/item/cell/high
 	charge_cost = 666.66 // 15 shots on a high cap cell
@@ -69,13 +69,14 @@
 /obj/projectile/beam/plasmacutter
 	name = "plasma arc"
 	icon_state = "omnilaser"
-	damage = 20
+	damage = 32
 	damage_type = DAMAGE_BURN
 	check_armor = LASER
-	range = 5
+	range = 3
 	pass_flags = PASSTABLE|PASSRAILING
 
-	var/mineral_passes = 2 // amount of mineral turfs it passes through before ending
+	/// Number of mineral turfs it passes through before ending.
+	var/mineral_passes = 2
 
 	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
 	tracer_type = /obj/effect/projectile/tracer/plasma_cutter

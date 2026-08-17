@@ -16,7 +16,7 @@
 	suffix = "blueriver.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole ass planet, shouldn't have it in predefined sectors
+	sectors_blacklist = list(ALL_SPECIFIC_SECTORS, LEMURIAN_SEA_SECTORS) //it's a whole ass planet, shouldn't have it in predefined sectors
 
 	unit_test_groups = list(1)
 

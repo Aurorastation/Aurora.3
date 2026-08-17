@@ -223,7 +223,7 @@
 /obj/item/grenade/spawnergrenade/vaurca
 	name = "K'ois delivery pod"
 	desc = "A sophisticated K'ois delivery pod, for seeding a planet from the comfort of space."
-	spawner_type = /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
+	spawner_type = /obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible
 	deliveryamt = 7
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -242,7 +242,7 @@
 			M.flash_act(ignore_inherent = TRUE)
 
 		for(var/i=1, i<=deliveryamt, i++)
-			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
+			var/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new seed())
 			x.tumble(4)
 	qdel(src)
 	return

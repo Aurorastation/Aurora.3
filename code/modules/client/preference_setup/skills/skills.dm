@@ -68,11 +68,6 @@
 		loaded_skills = list()
 
 	pref.skills = list()
-	for(var/key in SSskills.required_skills)
-		var/singleton/skill/skill = GET_SINGLETON(key)
-		if (istype(skill))
-			pref.skills[skill.type] = SKILL_LEVEL_UNFAMILIAR
-
 	for(var/key,value in loaded_skills)
 		if (!key)
 			continue
@@ -155,14 +150,11 @@
 	if(skill.type in pref.skills)
 		current_level = pref.skills[skill.type]
 
-	var/current_cost = 0
-	if(!(skill.type in education.skills))
-		current_cost = skill.get_cost(current_level)
-
+	var/current_cost = get_paid_skill_cost(skill, current_level, education)
 	var/available_points = remaining_skill_points + current_cost
 
 	for(var/skill_level = base_maximum_level; skill_level >= SKILL_LEVEL_UNFAMILIAR; skill_level--)
-		if(skill.get_cost(skill_level) <= available_points)
+		if(get_paid_skill_cost(skill, skill_level, education) <= available_points)
 			return skill_level
 
 	return SKILL_LEVEL_UNFAMILIAR
@@ -179,12 +171,14 @@
 	var/cost = skill.get_cost(effective_level)
 	var/button_label = "[level_name] ([cost])"
 	var/given_skill = FALSE
+	var/education_skill = 0
 
 	// Prevent removal of skills given by education. These are meant to be minimum skills for jobs, after all.
 	if(skill.type in education.skills)
 		given_skill = TRUE
+		education_skill = education.skills[skill.type]
 
-	if((effective_level < current_level) && given_skill)
+	if((effective_level < education_skill) && given_skill)
 		return "<th>[span("Forced", "[button_label]")]</th>"
 	else if((effective_level < current_level) && !given_skill)
 		return "<th>[add_link(skill, education, button_label, "'Current'", effective_level)]</th>"
@@ -215,7 +209,8 @@
 	return skill_points_remaining - current_points_used
 
 /**
- * Returns the amount of used skill points in a certain skill category, ignoring skills given by education.
+ * Returns the amount of used skill points in a certain skill category.
+ * Skills granted by education only cost points for levels above the granted level.
  */
 /datum/category_item/player_setup_item/skills/proc/get_used_skill_points_per_category(singleton/skill_category/skill_category, singleton/education/education)
 	if(!istype(skill_category))
@@ -230,10 +225,26 @@
 		if(skill.category != skill_category.type)
 			continue
 
-		if(skill.type in education.skills)
-			continue
+		. += get_paid_skill_cost(skill, pref.skills[skill.type], education)
 
-		. += skill.get_cost(pref.skills[skill.type])
+/**
+ * Returns how many points the player actually has to pay for a skill level.
+ * Education granted levels are considered free.
+ */
+/datum/category_item/player_setup_item/skills/proc/get_paid_skill_cost(singleton/skill/skill, level, singleton/education/education)
+	if(!istype(skill))
+		crash_with("Invalid skill [skill] fed to get_paid_skill_cost!")
+
+	if(!istype(education))
+		crash_with("Invalid education [education] fed to get_paid_skill_cost!")
+
+	var/cost = skill.get_cost(level)
+
+	if(skill.type in education.skills)
+		var/education_level = education.skills[skill.type]
+		cost -= skill.get_cost(education_level)
+
+	return max(0, cost)
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
 	if(href_list["skillinfo"])

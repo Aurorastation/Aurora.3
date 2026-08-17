@@ -9,6 +9,7 @@
 	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one's transponder identifies it, obviously, as the SCCV Horizon."
 	icon_state = "venator"
 	moving_state = "venator_moving"
+	pilot_class = PILOTING_CLASS_MAX
 	colors = list("#cfd4ff", "#78adf8")
 	fore_dir = SOUTH
 	vessel_mass = 70000
@@ -89,7 +90,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/terminal/intrepid
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/intrepid
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(ACCESS_INTREPID)
@@ -128,7 +129,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/mining_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/mining_shuttle
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(ACCESS_MINING)
@@ -170,7 +171,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/canary
+/obj/structure/machinery/computer/shuttle_control/explore/canary
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
 	req_access = list(ACCESS_INTREPID)
@@ -181,7 +182,7 @@
 	icon_keyboard = null
 	circuit = null
 
-/obj/machinery/computer/shuttle_control/explore/canary/left
+/obj/structure/machinery/computer/shuttle_control/explore/canary/left
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
 	req_access = list(ACCESS_INTREPID)
@@ -226,7 +227,7 @@
 // 	skybox_image.pixel_y = rand(128,256) // <---------- hopefully someone sprites it some day
 // 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/terminal/quark
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/quark
 	name = "\improper Quark control console"
 	shuttle_tag = "Quark"
 	req_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH)

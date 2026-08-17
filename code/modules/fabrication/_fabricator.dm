@@ -1,4 +1,4 @@
-ABSTRACT_TYPE(/obj/machinery/fabricator)
+ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_IDLE
@@ -19,7 +19,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	var/list/storage_capacity = list()
 	/// Base storage capacity, which is modified by default by the amount and tier of matter bins.
 	var/list/base_storage_capacity = list(
-		DEFAULT_WALL_MATERIAL = 25000,
+		MATERIAL_STEEL = 25000,
 		MATERIAL_ALUMINIUM = 25000,
 		MATERIAL_GLASS = 12500,
 		MATERIAL_PLASTIC = 12500,
@@ -64,27 +64,29 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	///The looping sound used while the fabricator is running
 	VAR_PRIVATE/datum/looping_sound/fabricator_looping_sound
 
-/obj/machinery/fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/fabricator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += SPAN_NOTICE("	- The current storage limit per material type is <b>[storage_capacity[DEFAULT_WALL_MATERIAL] / 2000]</b> sheets")
+	. += SPAN_NOTICE("	- The current storage limit per material type is <b>[SSmaterials.get_material_amount(storage_capacity, MATERIAL_STEEL) / 2000]</b> sheets")
 	. += "- Upgraded <b>micro lasers</b> will improve material use efficiency."
 	. += SPAN_NOTICE("	- The current material cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 	. += "- Upgraded <b>manipulators</b> will increase the fabrication speed."
 	. += SPAN_NOTICE("	- The current build speed increase is <b>[round(build_time_multiplier * 100)]%</b>")
 
-/obj/machinery/fabricator/Initialize(mapload)
+/obj/structure/machinery/fabricator/Initialize(mapload)
 	wires = new(src)
 	print_loc = src
+	base_storage_capacity = base_storage_capacity.Copy()
+	SSmaterials.normalize_material_amounts(base_storage_capacity)
 	stored_material = list()
 	for(var/mat in base_storage_capacity)
 		stored_material[mat] = 0
 
 		// Update global type to string cache.
 		if(!stored_substances_to_names[mat])
-			if(ispath(mat, /material))
-				var/material/mat_instance = mat
-				mat_instance = SSmaterials.get_material_by_name(initial(mat_instance.name))
+			if(ispath(mat, /singleton/material))
+				var/singleton/material/mat_instance = mat
+				mat_instance = GET_SINGLETON(mat_instance)
 				if(istype(mat_instance))
 					stored_substances_to_names[mat] = mat_instance.display_name
 			else if(ispath(mat, /singleton/reagent))
@@ -93,7 +95,11 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	update_icon()
 	. = ..()
 
-/obj/machinery/fabricator/Destroy()
+/obj/structure/machinery/fabricator/proc/normalize_material_storage()
+	SSmaterials.normalize_material_amounts(stored_material)
+	SSmaterials.normalize_material_amounts(storage_capacity)
+
+/obj/structure/machinery/fabricator/Destroy()
 	print_loc = null
 	QDEL_NULL(currently_printing)
 	QDEL_NULL(wires)
@@ -103,14 +109,15 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 
 	return ..()
 
-/obj/machinery/fabricator/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/fabricator/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Autolathe", capitalize_first_letters(name))
 		ui.open()
 
-/obj/machinery/fabricator/ui_data(mob/user)
+/obj/structure/machinery/fabricator/ui_data(mob/user)
 	. = ..()
+	normalize_material_storage()
 	var/list/data = list()
 	data["manufacturer"] = manufacturer
 	data["disabled"] = (fab_status_flags & FAB_DISABLED)
@@ -120,7 +127,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	data["build_time"] = currently_printing?.remaining_time
 	data["show_category"] = show_category
 	for(var/material in stored_material)
-		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
+		data["materials"] += list(list("material" = SSmaterials.material_display_name(material), "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
 	for(var/recipe in SSfabrication.get_recipes(fabricator_class))
 		var/singleton/fabricator_recipe/R = recipe
@@ -133,10 +140,17 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		recipe_data["hack_only"] = R.hack_only
 		recipe_data["enabled"] = can_print_item(R)
 		var/list/resources = list()
+		recipe_data["sheets"] = null
+		recipe_data["can_make"] = FALSE
 		for(var/resource in R.resources)
-			resources += "[R.resources[resource] * mat_efficiency] [resource]"
-			recipe_data["sheets"] = stored_material[resource]/round(R.resources[resource]*mat_efficiency)
-			recipe_data["can_make"] = !isnull(stored_material[resource]) && stored_material[resource] < round(R.resources[resource]*mat_efficiency)
+			var/resource_cost = round(R.resources[resource] * mat_efficiency)
+			var/material = SSmaterials.material_to_path(resource, FALSE)
+			resources += "[resource_cost] [SSmaterials.material_display_name(resource)]"
+			if(!material || isnull(stored_material[material]) || stored_material[material] < resource_cost)
+				recipe_data["can_make"] = TRUE
+			if(resource_cost > 0 && material && !isnull(stored_material[material]))
+				var/craftable = stored_material[material] / resource_cost
+				recipe_data["sheets"] = isnull(recipe_data["sheets"]) ? craftable : min(recipe_data["sheets"], craftable)
 		recipe_data["category"] = R.category
 		recipe_data["resources"] = english_list(resources)
 		recipe_data["build_time"] = (R.build_time / 10)
@@ -164,7 +178,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		)
 	return data
 
-/obj/machinery/fabricator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(fab_status_flags & FAB_BUSY)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return TRUE
@@ -174,6 +188,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
+
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
@@ -198,15 +213,38 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	load_lathe(attacking_item, user)
 	return TRUE
 
-/obj/machinery/fabricator/attack_hand(mob/user)
+/obj/structure/machinery/fabricator/autolathe/proc/recycle_item_contents(obj/item/R, mob/user)
+	var/recycled = 0
+	var/recyclable = 0
+	var/rejected = 0
+
+	for(var/obj/item/item in R.contents.Copy())
+		if(!item.matter || !item.recyclable)
+			continue
+		recyclable++
+		if(load_lathe(item, user, FALSE))
+			recycled++
+		else
+			rejected++
+
+	if(recycled)
+		to_chat(user, SPAN_NOTICE("You recycle [recycled] item\s from \the [R] into \the [src]."))
+	else if(!recyclable)
+		to_chat(user, SPAN_WARNING("\The [R] contains no recyclable materials for \the [src]."))
+	else
+		to_chat(user, SPAN_WARNING("\The [src] could not accept any recyclable contents from \the [R]."))
+
+	if(rejected)
+		to_chat(user, SPAN_WARNING("Some contents could not be accepted and remain in \the [R]."))
+
+/obj/structure/machinery/fabricator/attack_hand(mob/user)
 	user.set_machine(src)
 	ui_interact(user)
 
-///
-/obj/machinery/fabricator/proc/is_functioning()
+/obj/structure/machinery/fabricator/proc/is_functioning()
 	. = use_power != POWER_USE_OFF && !(fab_status_flags & FAB_DISABLED)
 
-/obj/machinery/fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -234,12 +272,12 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		try_cancel_build(order)
 		. = TRUE
 
-/obj/machinery/fabricator/process(seconds_per_tick)
+/obj/structure/machinery/fabricator/process(seconds_per_tick)
 	..()
 	if(use_power == POWER_USE_ACTIVE && (fab_status_flags & FAB_BUSY))
 		update_current_build(seconds_per_tick)
 
-/obj/machinery/fabricator/update_icon()
+/obj/structure/machinery/fabricator/update_icon()
 	if(!does_flick)
 		return
 	ClearOverlays()
@@ -253,11 +291,11 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
 		AddOverlays("[icon_state]_lights")
 
-/obj/machinery/fabricator/proc/remove_mat_overlay(mat_overlay)
+/obj/structure/machinery/fabricator/proc/remove_mat_overlay(mat_overlay)
 	CutOverlays(mat_overlay)
 	update_icon()
 
-/obj/machinery/fabricator/RefreshParts()
+/obj/structure/machinery/fabricator/RefreshParts()
 	..()
 	var/mb_rating = 0
 	var/man_rating = 0
@@ -268,17 +306,20 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		man_rating += M.rating
 	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
 		las_rating += L.rating
+	SSmaterials.normalize_material_amounts(base_storage_capacity)
+	storage_capacity = list()
 	for(var/mat in base_storage_capacity)
 		storage_capacity[mat] = mb_rating * base_storage_capacity[mat]
 	mat_efficiency = 1.1 - (las_rating * 0.1) // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 	build_time_multiplier = initial(build_time_multiplier) * man_rating
 
-/obj/machinery/fabricator/dismantle()
+/obj/structure/machinery/fabricator/dismantle()
+	normalize_material_storage()
 	for(var/mat in stored_material)
-		var/material/M = SSmaterials.get_material_by_name(mat)
-		if(!istype(M))
+		var/stack_type = SSmaterials.material_stack_type(mat)
+		if(!stack_type)
 			continue
-		var/obj/item/stack/material/S = new M.stack_type(get_turf(src))
+		var/obj/item/stack/material/S = new stack_type(get_turf(src))
 		if(stored_material[mat] > S.perunit)
 			S.amount = round(stored_material[mat] / S.perunit)
 		else

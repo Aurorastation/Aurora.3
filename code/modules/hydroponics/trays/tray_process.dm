@@ -1,4 +1,4 @@
-/obj/machinery/portable_atmospherics/hydroponics/process()
+/obj/structure/machinery/portable_atmospherics/hydroponics/process()
 
 	// If there is no power, and stasis is enabled, disable stasis.
 	if((stat & (NOPOWER|BROKEN)) && stasis)

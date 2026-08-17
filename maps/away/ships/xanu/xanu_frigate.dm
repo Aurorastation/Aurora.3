@@ -98,7 +98,7 @@
 	designation = "[pick("Halberd", "Guisarme", "Ranseur", "Goedendag", "Bardiche", "Swordstaff", "Mancatcher")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/xanu_fighter
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/xanu_fighter
 	name = "fightercraft control console"
 	shuttle_tag = "Xanu Fighter"
 
@@ -139,7 +139,7 @@
 	designation = "[pick("Phoebe", "Lark", "Siskin", "Grosbeak", "Cormorant", "Skua", "Gannet")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/xanu_boarder
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/xanu_boarder
 	name = "shuttle control console"
 	shuttle_tag = "Xanu Boarder"
 

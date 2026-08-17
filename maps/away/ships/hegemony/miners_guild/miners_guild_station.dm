@@ -107,7 +107,7 @@
 	designation = "[pick("Stonebreaker", "Son of Kutah", "Asteroid's Bane", "Sinta Pride", "Ancestors' Glory", "Azhal's Blessing", "Fires of Sk'akh", "Pickaxe", "Where's The Phoron", "How Do I Reset The IFF")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/miners_guild
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/miners_guild
 	name = "shuttle control console"
 	shuttle_tag = "Miners' Guild Shuttle"
 

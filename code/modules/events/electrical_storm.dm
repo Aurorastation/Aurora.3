@@ -31,7 +31,7 @@
 /datum/event/electrical_storm/start()
 	..()
 	valid_apcs = list()
-	for(var/obj/machinery/power/apc/valid_apc in SSmachinery.apc_units)
+	for(var/obj/structure/machinery/power/apc/valid_apc in SSmachinery.apc_units)
 		if((valid_apc.z in affecting_z) && !valid_apc.is_critical)
 			valid_apcs += valid_apc
 	for(var/mob/living/carbon/human/victim_ipc in GLOB.human_mob_list)
@@ -72,7 +72,7 @@
 	for(var/i = 0, i < (severity * 2), i++)
 		picked_apcs |= pick(valid_apcs)
 
-	for(var/obj/machinery/power/apc/victim_apc in picked_apcs)
+	for(var/obj/structure/machinery/power/apc/victim_apc in picked_apcs)
 		// Determine what each APC does. Depending on how bad they roll, might be nothing or might blow out the entire thing.
 		// Mundane storm:  0-55 nothing, 56+ lights flicker, 86+ damage (2 APC at a time)
 		// Moderate storm: 0-30 nothing, 31+ lights flicker, 81+ damage (3 APCs at a time)

@@ -7,11 +7,11 @@
 /turf/simulated/wall/wood,
 /area/template_noop)
 "e" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "f" = (
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "g" = (

@@ -75,9 +75,9 @@
 	head = /obj/item/clothing/head/chefhat/nt
 	shoes = /obj/item/clothing/shoes/sneakers/black
 
-	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
-	tablet = /obj/item/modular_computer/handheld/preset/civilian
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chef
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chef
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/chef
 
 	headset = /obj/item/radio/headset/headset_service
 	bowman = /obj/item/radio/headset/headset_service/alt
@@ -348,7 +348,7 @@
 	)
 
 	job_access = list(ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_SHIP_WEAPONS, ACCESS_MINING_STATION, ACCESS_KEYCARD_AUTH, ACCESS_RC_ANNOUNCE, ACCESS_HEADS,
-						ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_ENGINE, ACCESS_TELEPORTER, ACCESS_EVA, ACCESS_INTREPID)
+						ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_ENGINE, ACCESS_TELEPORTER, ACCESS_EVA, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_CANARY)
 
 	outfit = /obj/outfit/job/operations_manager
 
@@ -401,7 +401,7 @@
 	)
 
 	job_access = list(
-		ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING
+		ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING, ACCESS_EVA
 	)
 	outfit = /obj/outfit/job/hangar_tech
 

@@ -24,6 +24,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	attacktext = "chomps"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 4
 	projectiletype = /obj/projectile/beam/cavern
@@ -210,7 +211,7 @@
 /mob/living/simple_animal/hostile/retaliate/minedrone/adjustHalLoss(var/damage)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact()
+/mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	visible_message(SPAN_DANGER("\The [src] bounces harmlessly on its inflated wheels."))
 	return FALSE
 

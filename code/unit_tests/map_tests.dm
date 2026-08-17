@@ -28,8 +28,6 @@
 	if (!SSatlas.current_map)
 		return
 
-	// This is formatted strangely because it fails the indentation test if it's formatted properly.
-	// ¯\_(ツ)_/¯
 	var/list/exempt_areas = typecacheof(SSatlas.current_map.ut_environ_exempt_areas)
 	var/list/exempt_from_atmos = typecacheof(SSatlas.current_map.ut_atmos_exempt_areas)
 	var/list/exempt_from_apc = typecacheof(SSatlas.current_map.ut_apc_exempt_areas)
@@ -52,7 +50,7 @@
 				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air vent."))
 				bad_airv++
 
-			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
+			if(!(locate(/obj/structure/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
 				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks a fire alarm."))
 				bad_fire++
 
@@ -158,7 +156,9 @@
 /datum/unit_test/map_test/bad_doors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	for(var/obj/machinery/door/airlock/A in world)
+	for(var/obj/structure/machinery/door/airlock/A in world)
+		if(QDELETED(A))
+			continue
 		var/turf/T = get_turf(A)
 		checks++
 		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the door at [A.x],[A.y],[A.z]")
@@ -179,11 +179,14 @@
 /datum/unit_test/map_test/bad_firedoors/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	for(var/obj/machinery/door/firedoor/F in world)
+	for(var/obj/structure/machinery/door/firedoor/F in world)
+		if(QDELETED(F))
+			continue
 		var/turf/T = get_turf(F)
 		checks++
+		TEST_ASSERT_NOTNULL(T, "A turf does not exist under the firedoor at [F.x],[F.y],[F.z]")
 		var/firelock_increment = 0
-		for(var/obj/machinery/door/firedoor/FD in T)
+		for(var/obj/structure/machinery/door/firedoor/FD in T)
 			firelock_increment += 1
 		if(firelock_increment > 1)
 			failed_checks++
@@ -207,7 +210,7 @@
 	var/failed_checks = 0
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
-	for (var/obj/machinery/atmospherics/plumbing in world)
+	for (var/obj/structure/machinery/atmospherics/plumbing in world)
 		if(!is_station_level(plumbing.z))
 			continue
 		checks++
@@ -216,7 +219,7 @@
 			TEST_FAIL("Unconnected [plumbing.name] located at [plumbing.x],[plumbing.y],[plumbing.z] ([get_area(plumbing.loc)])")
 
 	//Manifolds
-	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
+	for (var/obj/structure/machinery/atmospherics/pipe/manifold/pipe in world)
 		if(!is_station_level(pipe.z))
 			continue
 		checks++
@@ -225,7 +228,7 @@
 			TEST_FAIL("Unconnected [pipe.name] located at [pipe.x],[pipe.y],[pipe.z] ([get_area(pipe.loc)])")
 
 	//Pipes
-	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
+	for (var/obj/structure/machinery/atmospherics/pipe/simple/pipe in world)
 		if(!is_station_level(pipe.z))
 			continue
 		checks++
@@ -237,7 +240,7 @@
 		for(var/turf/T in world)
 			for(var/dir in GLOB.cardinals)
 				var/alist/connect_types = alist(1 = 0, 2 = 0, 3 = 0)
-				for(var/obj/machinery/atmospherics/pipe in T)
+				for(var/obj/structure/machinery/atmospherics/pipe in T)
 					checks++
 					if(dir & pipe.initialize_directions)
 						for(var/connect_type in pipe.connect_types)
@@ -258,13 +261,13 @@
 /datum/unit_test/map_test/mapped_products/start_test()
 	var/checks = 0
 	var/failed_checks = 0
-	var/list/obj/machinery/vending/V_to_test = list()
+	var/list/obj/structure/machinery/vending/V_to_test = list()
 
-	for(var/obj/machinery/vending/T in world)
+	for(var/obj/structure/machinery/vending/T in world)
 		checks++
 		V_to_test += T
-	for(var/obj/machinery/vending/V in V_to_test)
-		var/obj/machinery/vending/temp_V = new V.type
+	for(var/obj/structure/machinery/vending/V in V_to_test)
+		var/obj/structure/machinery/vending/temp_V = new V.type
 		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
 			failed_checks++
 
@@ -445,43 +448,90 @@
 
 	return test_status
 
-// At present, only fire alarms have NSEW as immediate children, whereas APCs and Air Alarms also have them as sub-children.
-// In the future, areas should have additional vars to populate APC data automatically, allowing them to have directional
-// immediate children too for mapping testing.
-/datum/unit_test/map_test/no_panel_dir_var_edits
-	name = "MAP: Check for Fire Alarm dir var edits"
+// Checks mapped wall-mounted objects with direction presets.
+/datum/unit_test/map_test/no_directional_subtype_dir_var_edits
+	name = "MAP: Check for directional subtype dir var edits"
+	// Right now, this only runs on the Horizon. ALL NEW MAPS should opt-in to this unit test.
+	// Old maps are REQUIRED to be opted-in when they're touched for the first time since this unit test was added.
+	map_path = list("sccv_horizon")
 
-/datum/unit_test/map_test/no_panel_dir_var_edits/start_test()
+/datum/unit_test/map_test/no_directional_subtype_dir_var_edits/start_test()
 	var/test_status = UNIT_TEST_PASSED
 	var/checks = 0
 	var/failed_checks = 0
-	var/firealarm_increment
-	var/turf/T
+	var/list/checked_types = typecacheof(list(
+		/obj/structure/machinery/alarm,
+		/obj/structure/machinery/power/apc,
+		/obj/structure/machinery/firealarm,
+		// save this for nbt2. fuck me. i don't have the strength for this rn. no one does.
+		// /obj/structure/machinery/light_switch,
+		/obj/structure/extinguisher_cabinet,
+		/obj/structure/fireaxecabinet,
+		/obj/structure/closet/walllocker,
+		/obj/item/radio/intercom,
+	))
 
-	for(var/obj/machinery/firealarm/F in world)
-		T = get_turf(F)
-		firealarm_increment = 0
-		if(istype(F, /obj/machinery/firealarm/north))
-			if(F.dir != NORTH)
-				firealarm_increment++
-		if(istype(F, /obj/machinery/firealarm/south))
-			if(F.dir != SOUTH)
-				firealarm_increment++
-		if(istype(F, /obj/machinery/firealarm/east))
-			if(F.dir != EAST)
-				firealarm_increment++
-		if(istype(F, /obj/machinery/firealarm/west))
-			if(F.dir != WEST)
-				firealarm_increment++
+	for(var/obj/O in world)
+		if(!is_type_in_typecache(O, checked_types))
+			continue
+
+		var/turf/object_turf = O.loc
+		if(istype(object_turf))
+			if(!is_station_level(object_turf.z))
+				continue
+
+		var/obj/obj_type = O.type
+		var/expected_dir = initial(obj_type.dir)
 		checks++
-		if(firealarm_increment > 1)
+
+		if(O.dir != expected_dir)
 			failed_checks++
-			TEST_FAIL("Manually var edited [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+			TEST_FAIL("Mapped [O] ([O.type]) at ([O.x],[O.y],[O.z]) in [get_area(O)] has dir [dir2text(O.dir)], but its type's initial dir is [dir2text(expected_dir)]. Use the matching directional subtype instead of editing dir.")
 
 	if(failed_checks)
-		TEST_FAIL("\[[failed_checks] / [checks]\] Some fire alarms had their dir var manually edited instead of using a preset variant. Please also check new APCs and air alarms in the area.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] Checked objects had their dir var manually edited.")
 	else
-		TEST_PASS("All \[[checks]\] fire alarms mapped properly.")
+		TEST_PASS("All \[[checks]\] checked objects are mapped with their initial dir values.")
+
+	return test_status
+
+/datum/unit_test/map_test/research_fabricator_connections
+	name = "MAP: Research fabricator connections"
+
+/datum/unit_test/map_test/research_fabricator_connections/start_test()
+	var/fabricator_count = 0
+	var/console_count = 0
+	var/fabricators_without_console = 0
+	var/consoles_without_silo = 0
+	var/test_status = UNIT_TEST_PASSED
+
+	for(var/obj/structure/machinery/r_n_d/fabricator/fabricator in world)
+		fabricator_count++
+
+		var/obj/structure/machinery/computer/rdconsole/nearby_console = locate() in range(7, fabricator)
+		if(nearby_console)
+			continue
+
+		fabricators_without_console++
+		TEST_FAIL("[fabricator.name] at ([fabricator.x], [fabricator.y], [fabricator.z]) in [get_area(fabricator)] has no research console within 7 turfs.")
+
+	for(var/obj/structure/machinery/computer/rdconsole/console in world)
+		if(QDELETED(console) || !is_station_level(console.z))
+			continue
+
+		console_count++
+
+		var/obj/structure/machinery/r_n_d/material_silo/nearby_silo = locate() in range(7, console)
+		if(nearby_silo)
+			continue
+
+		consoles_without_silo++
+		TEST_FAIL("[console.name] at ([console.x], [console.y], [console.z]) in [get_area(console)] has no material silo within 7 turfs.")
+
+	if(fabricators_without_console || consoles_without_silo)
+		test_status = TEST_FAIL("\[[fabricators_without_console] / [fabricator_count]\] research fabricators lacked a nearby research console. \[[consoles_without_silo] / [console_count]\] research consoles lacked a nearby material silo.")
+	else
+		TEST_PASS("All [fabricator_count] research fabricators had a nearby research console, and all [console_count] research consoles had a nearby material silo.")
 
 	return test_status
 

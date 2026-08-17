@@ -23,7 +23,7 @@
 /area/dungeon/crashed_satellite)
 "f" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/obj/machinery/power/smes/batteryrack,
+/obj/structure/machinery/power/smes/batteryrack,
 /turf/simulated/floor/airless,
 /area/dungeon/crashed_satellite)
 "g" = (

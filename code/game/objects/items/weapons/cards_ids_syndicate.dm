@@ -179,8 +179,11 @@
 			if(!isnull(newName))
 				if(newName == "")
 					newName = initial(name)
+					registered_name = initial(registered_name)
 				else
 					name = newName
+					registered_name = newName
+					update_name()
 				to_chat(user, SPAN_NOTICE("Name has been set to '[name]'."))
 		if("setAge")
 			var/newAge = params["age"]

@@ -14,7 +14,7 @@
 /area/centcom/distress_prep)
 "E" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/power/emitter{
+/obj/structure/machinery/power/emitter{
 	req_access = list(111)
 	},
 /turf/unsimulated/floor,

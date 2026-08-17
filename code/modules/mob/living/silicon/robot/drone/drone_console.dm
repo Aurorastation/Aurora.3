@@ -1,4 +1,4 @@
-/obj/machinery/computer/drone_control
+/obj/structure/machinery/computer/drone_control
 	name = "Maintenance Drone Control"
 	desc = "Used to monitor the station's drone population and the assembler that services them."
 	icon_screen = "power_monitor"
@@ -11,20 +11,20 @@
 	//Used when pinging drones.
 	var/drone_call_area = "Engineering"
 	//Used to enable or disable drone fabrication.
-	var/obj/machinery/drone_fabricator/dronefab
+	var/obj/structure/machinery/drone_fabricator/dronefab
 
 	var/static/list/call_area_names
 
-/obj/machinery/computer/drone_control/New()
+/obj/structure/machinery/computer/drone_control/New()
 	..()
 	desc = "Used to monitor the [station_name(TRUE)]'s drone population and the assembler that services them."
 
-/obj/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
+/obj/structure/machinery/computer/drone_control/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
 
-/obj/machinery/computer/drone_control/attack_hand(var/mob/user as mob)
+/obj/structure/machinery/computer/drone_control/attack_hand(var/mob/user as mob)
 	if(..())
 		return
 
@@ -55,7 +55,7 @@
 	drone_win.set_content(dat)
 	drone_win.open()
 
-/obj/machinery/computer/drone_control/Topic(href, href_list)
+/obj/structure/machinery/computer/drone_control/Topic(href, href_list)
 	if(..())
 		return
 
@@ -106,7 +106,7 @@
 	else if (href_list["search_fab"])
 		if(dronefab)
 			return
-		for(var/obj/machinery/drone_fabricator/fab in oview(3,src))
+		for(var/obj/structure/machinery/drone_fabricator/fab in oview(3,src))
 			if(fab.stat & NOPOWER)
 				continue
 			dronefab = fab

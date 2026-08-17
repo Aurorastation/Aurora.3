@@ -6,6 +6,7 @@
 	suffix = "tramp_freighter.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tramp_freighter"
@@ -84,7 +85,7 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freight Shuttle"
 

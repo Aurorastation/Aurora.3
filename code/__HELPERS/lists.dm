@@ -426,18 +426,24 @@
 /**
  * List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
  */
-/proc/sortByKey(var/list/L, var/key)
+/proc/sortByKeyText(var/list/L, var/key)
 	if(L.len < 2)
 		return L
 	var/middle = L.len / 2 + 1
-	return mergeKeyedLists(sortByKey(L.Copy(0, middle), key), sortByKey(L.Copy(middle), key), key)
+	return mergeKeyedLists(sortByKeyText(L.Copy(0, middle), key), sortByKeyText(L.Copy(middle), key), key)
 
-/proc/mergeKeyedLists(var/list/L, var/list/R, var/key)
+/proc/sortByKeyNumber(var/list/L, var/key)
+	if(L.len < 2)
+		return L
+	var/middle = L.len / 2 + 1
+	return mergeKeyedLists(sortByKeyNumber(L.Copy(0, middle), key), sortByKeyNumber(L.Copy(middle), key), key, value_is_number = TRUE)
+
+/proc/mergeKeyedLists(var/list/L, var/list/R, var/key, var/value_is_number = FALSE)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
 	while(Li <= L.len && Ri <= R.len)
-		if(sorttext(L[Li][key], R[Ri][key]) < 1)
+		if((value_is_number && L[Li][key] < R[Ri][key]) || (!value_is_number && sorttext(L[Li][key], R[Ri][key]) < 1))
 			// Works around list += list2 merging lists; it's not pretty but it works.
 			result += "temp item"
 			result[result.len] = R[Ri++]
@@ -894,13 +900,13 @@
 
 /datum/proc/dd_SortValue()
 	return "[src]"
-
-/obj/machinery/dd_SortValue()
+/*
+/obj/structure/machinery/dd_SortValue()
 	return "[sanitize_old(name)]"
 
-/obj/machinery/camera/dd_SortValue()
+/obj/structure/machinery/camera/dd_SortValue()
 	return "[c_tag]"
-
+*/
 /datum/alarm/dd_SortValue()
 	return "[sanitize_old(last_name)]"
 

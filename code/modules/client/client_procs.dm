@@ -391,6 +391,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	winset(src, "map", "style=\"[MAP_STYLESHEET]\"")
 
+	winset(src, null, list("browser-options" = "+find,refresh"))
+
 	if(IsGuestKey(key) && GLOB.config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
@@ -1085,6 +1087,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		if(!verb_to_init)
 			continue
 		if(verb_to_init.hidden)
+			continue
+		if(verb_to_init == /client/verb/ping_storyteller && !istype(SSticker?.mode, /datum/game_mode/odyssey))
 			continue
 		if(!istext(verb_to_init.category))
 			continue

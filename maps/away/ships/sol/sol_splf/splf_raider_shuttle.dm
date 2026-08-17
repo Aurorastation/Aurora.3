@@ -20,7 +20,7 @@
 	designation = "[pick("Ours Now", "Better Use", "Watch It Closer", "Repurposed", "Liberated", "People's Mule", "You're Welcome")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/splf_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/splf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SPLF Shuttle"
 	req_access = list(ACCESS_SPLF)

@@ -191,7 +191,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/biesel_camp_site)
 "I" = (
-/obj/machinery/appliance/cooker/grill,
+/obj/structure/machinery/appliance/cooker/grill,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/biesel_camp_site)
 "J" = (
@@ -213,7 +213,7 @@
 /obj/random/automobile{
 	dir = 4
 	},
-/obj/machinery/media/jukebox{
+/obj/structure/machinery/media/jukebox{
 	anchored = 1;
 	pixel_x = -11;
 	density = 0;

@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/rig/merc
 	light_overlay = "merc_rig_lights"
 	light_color = "#ffffff"
-	camera = /obj/machinery/camera/network/mercenary
+	camera = /obj/structure/machinery/camera/network/mercenary
 
 /obj/item/rig/merc
 	name = "crimson hardsuit control module"

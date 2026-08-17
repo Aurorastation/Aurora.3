@@ -13,7 +13,7 @@
 	edge = TRUE
 	var/active = 1 // For butterfly knives
 	force_divisor = 0.15 // 9 when wielded with hardness 60 (steel)
-	matter = list(DEFAULT_WALL_MATERIAL = 12000)
+	matter = list(MATERIAL_STEEL = 12000)
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
@@ -58,7 +58,7 @@
 		var/obj/S = thing
 		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."))
 		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
-		H.custom_pain(SPAN_DANGER("<font size=3>It burns!</font>"), 50)
+		H.custom_pain(SPAN_DANGER("<font size=4>It burns!</font>"), 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
 			log_and_message_admins("has extracted [S] out of [key_name(H)]")

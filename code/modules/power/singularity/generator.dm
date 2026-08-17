@@ -1,5 +1,5 @@
 /////SINGULARITY SPAWNER
-/obj/machinery/the_singularitygen
+/obj/structure/machinery/the_singularitygen
 	name = "gravitational singularity generator"
 	desc = "An Odd Device which produces a Gravitational Singularity when set up."
 	icon = 'icons/obj/singularity.dmi'
@@ -10,7 +10,7 @@
 	var/energy = 0
 	var/creation_type = /obj/singularity
 
-/obj/machinery/the_singularitygen/update_icon()
+/obj/structure/machinery/the_singularitygen/update_icon()
 	ClearOverlays()
 	if(anchored)
 		AddOverlays("[icon_state]+bolts")
@@ -18,13 +18,13 @@
 		lights_image.plane = ABOVE_LIGHTING_PLANE
 		AddOverlays(lights_image)
 
-/obj/machinery/the_singularitygen/process()
+/obj/structure/machinery/the_singularitygen/process()
 	var/turf/T = get_turf(src)
 	if(src.energy >= 200)
 		new creation_type(T, 50)
 		if(src) qdel(src)
 
-/obj/machinery/the_singularitygen/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/the_singularitygen/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		attacking_item.play_tool_sound(get_turf(src), 75)

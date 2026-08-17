@@ -37,6 +37,21 @@
 			return
 		return create_mob(usr)
 
+	else if(href_list["storyteller_jump_to"])
+		if(usr != src)
+			return
+
+		var/mob/target = locate(href_list["storyteller_jump_to"])
+		if(!istype(target))
+			return
+
+		var/turf/target_turf = get_turf(target)
+		if(target_turf)
+			abstract_move(target_turf)
+		else
+			to_chat(src, SPAN_WARNING("That player is not currently on a valid turf."))
+		return
+
 	else if(href_list["object_list"])
 		if(!GLOB.config.allow_admin_spawning)
 			to_chat(usr, "Spawning of items is not allowed.")
@@ -191,6 +206,29 @@
 
 	log_admin("GlobalScreenText: [key_name(usr)] : [msg]")
 	message_admins(SPAN_NOTICE("Global Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+
+/mob/abstract/ghost/storyteller/verb/SwitchHivenetEchoes()
+	set name = "Switch Off/On Hivenet Echoes"
+	set category = "Storyteller"
+	set desc = "Switch if Vaurcae can hear faint echoes (fluff) of the greater Hivenet. They will notice."
+
+	if(is_lemurian_sea_sector())
+		SSatlas.current_sector.hivenet_echoes = FALSE
+		to_chat(src, "The Fog prevents Hivenet Echoes from being restored in the Lemurian Sea.")
+		return
+
+	if(SSatlas.current_sector.hivenet_echoes)
+		SSatlas.current_sector.hivenet_echoes = FALSE
+		to_chat(src, "Vaurcae have been cut off from echoes (fluff) of the greater Hivenet.")
+		for(var/mob/living/carbon/human/player in GLOB.player_list)
+			if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET] && !within_jamming_range(player) && GLOB.all_languages[LANGUAGE_VAURCA])
+				to_chat(player, SPAN_CULT("The absence of echoes makes you feel dreadful."))
+	else if(!SSatlas.current_sector.hivenet_echoes)
+		SSatlas.current_sector.hivenet_echoes = TRUE
+		to_chat(src, "Vaurcae will receive echoes (fluff) of the greater Hivenet.")
+		for(var/mob/living/carbon/human/player in GLOB.player_list)
+			if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET] && !within_jamming_range(player) && GLOB.all_languages[LANGUAGE_VAURCA])
+				to_chat(player, SPAN_NOTICE("You feel echoes of the greater Hivenet drift back in."))
 
 /mob/abstract/ghost/storyteller/verb/storyteller_direct_narrate(var/mob/M)
 	set name = "Direct Narrate"

@@ -12,12 +12,15 @@
 	throw_speed = 4
 	throw_range = 20
 	obj_flags = OBJ_FLAG_CONDUCTABLE
+	pass_flags_self = PASSTABLE | PASSRAILING
 	slot_flags = SLOT_BELT
 	contained_sprite = 1
 	var/active = 0
 	var/det_time = 30
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
+	pickup_sound = 'sound/items/pickup/grenade.ogg'
+	drop_sound = 'sound/items/drop/grenade.ogg'
 
 /obj/item/grenade/Destroy()
 	// Stop all animations to prevent a hard delete.
@@ -113,5 +116,5 @@
 	..()
 	return
 
-/obj/item/grenade/vendor_action(var/obj/machinery/vending/V)
+/obj/item/grenade/vendor_action(var/obj/structure/machinery/vending/V)
 	activate(V)

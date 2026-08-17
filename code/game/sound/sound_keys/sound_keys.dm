@@ -213,15 +213,6 @@
 		'sound/ambience/fire/Fire_Ambient_03.ogg'
 	)
 
-/datum/sound_effect/hiss_sound
-	key = SFX_HISS
-	file_paths = list(
-		'sound/voice/hiss1.ogg',
-		'sound/voice/hiss2.ogg',
-		'sound/voice/hiss3.ogg',
-		'sound/voice/hiss4.ogg'
-	)
-
 /datum/sound_effect/page_sound
 	key = SFX_PAGE_TURN
 	file_paths = list(
@@ -911,4 +902,96 @@
 		'sound/effects/whiteboard_scribble_1.ogg',
 		'sound/effects/whiteboard_scribble_2.ogg',
 		'sound/effects/whiteboard_scribble_3.ogg'
+	)
+
+/datum/sound_effect/headset_equip
+	key = SFX_HEADSET_EQUIP
+	file_paths = list(
+		'sound/items/equip/headset1.ogg',
+		'sound/items/equip/headset2.ogg',
+	)
+
+/datum/sound_effect/headset_pickup
+	key = SFX_HEADSET_PICKUP
+	file_paths = list(
+		'sound/items/pickup/headset1.ogg',
+		'sound/items/pickup/headset2.ogg',
+		'sound/items/pickup/headset3.ogg',
+	)
+
+/datum/sound_effect/cloth_drop
+	key = SFX_CLOTH_DROP
+	file_paths = list(
+		'sound/items/drop/cloth1.ogg',
+		'sound/items/drop/cloth2.ogg',
+		'sound/items/drop/cloth3.ogg',
+		'sound/items/drop/cloth4.ogg',
+	)
+
+/datum/sound_effect/cloth_pickup
+	key = SFX_CLOTH_PICKUP
+	file_paths = list(
+		'sound/items/pickup/cloth1.ogg',
+		'sound/items/pickup/cloth2.ogg',
+		'sound/items/pickup/cloth3.ogg',
+		'sound/items/pickup/cloth4.ogg',
+	)
+
+/datum/sound_effect/visor_down
+	key = SFX_VISOR_DOWN
+	file_paths = list(
+		'sound/items/do_flip/visor_down1.ogg',
+		'sound/items/do_flip/visor_down2.ogg',
+		'sound/items/do_flip/visor_down3.ogg',
+	)
+
+/datum/sound_effect/visor_up
+	key = SFX_VISOR_UP
+	file_paths = list(
+		'sound/items/do_flip/visor_up1.ogg',
+		'sound/items/do_flip/visor_up2.ogg',
+	)
+
+/datum/sound_effect/light_armour
+	key = SFX_LIGHT_ARMOUR_FOOTSTEPS
+	file_paths = list(
+		'sound/items/movement/rattle_light_1.ogg',
+		'sound/items/movement/rattle_light_2.ogg',
+		'sound/items/movement/rattle_light_3.ogg',
+		'sound/items/movement/rattle_light_4.ogg',
+		'sound/items/movement/rattle_light_5.ogg'
+	)
+
+/datum/sound_effect/heavy_armour
+	key = SFX_HEAVY_ARMOUR_FOOTSTEPS
+	file_paths = list(
+		'sound/items/movement/rattle_cloth_heavy_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_5.ogg',
+		'sound/items/movement/rattle_cloth_heavy_6.ogg',
+		'sound/items/movement/rattle_cloth_heavy_7.ogg',
+		'sound/items/movement/rattle_cloth_heavy_8.ogg'
+	)
+
+/datum/sound_effect/voidsuit
+	key = SFX_VOIDSUIT_FOOTSTEPS
+	file_paths = list(
+		'sound/items/movement/rattle_light_6.ogg',
+		'sound/items/movement/rattle_light_7.ogg',
+		'sound/items/movement/rattle_light_8.ogg',
+		'sound/items/movement/rattle_light_9.ogg',
+		'sound/items/movement/rattle_light_10.ogg',
+		'sound/items/movement/rattle_light_11.ogg',
+	)
+
+/datum/sound_effect/armoured_voidsuit
+	key = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+	file_paths = list(
+		'sound/items/movement/rattle_cloth_heavy_light_1.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_2.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_3.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_4.ogg',
+		'sound/items/movement/rattle_cloth_heavy_light_5.ogg'
 	)

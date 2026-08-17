@@ -63,7 +63,7 @@
 	if(src.name in SSshuttle.shuttles)
 		CRASH("A shuttle with the name '[name]' is already defined.")
 	SSshuttle.shuttles[src.name] = src
-	for(var/obj/machinery/computer/shuttle_control/SC as anything in SSshuttle.lonely_shuttle_computers)
+	for(var/obj/structure/machinery/computer/shuttle_control/SC as anything in SSshuttle.lonely_shuttle_computers)
 		if(SC.shuttle_tag == name)
 			SSshuttle.lonely_shuttle_computers -= SC
 			shuttle_computers += SC
@@ -312,7 +312,7 @@
 
 /datum/shuttle/proc/set_process_state(var/new_state)
 	process_state = new_state
-	for(var/obj/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
+	for(var/obj/structure/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
 		SC.update_helmets(src)
 
 /datum/shuttle/proc/on_move_interim()

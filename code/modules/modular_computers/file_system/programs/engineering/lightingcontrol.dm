@@ -23,7 +23,9 @@
 	..()
 	lstate = SSnightlight.is_active() ? "dark" : "full"
 
-/datum/computer_file/program/lighting_control/proc/update_lighting()
+/datum/computer_file/program/lighting_control/proc/update_lighting(var/new_context = context, var/new_lstate = lstate)
+	context = new_context
+	lstate = new_lstate
 
 	// whether to only select areas explicitly marked for nightlighting
 	var/wl_only = context == "all" ? 0 : 1
@@ -48,7 +50,8 @@
 			lstate = params["mode"]
 			. = TRUE
 		if ("set")
-			update_lighting()
+			update_lighting(params["context"] || context, params["mode"] || lstate)
+			. = TRUE
 
 /datum/computer_file/program/lighting_control/ui_data(mob/user)
 	var/list/data = initial_data()

@@ -39,7 +39,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "bT" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -81,15 +81,15 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "cx" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "cB" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white/airless,
 /area/phoron_deposit_shuttle)
 "cD" = (
@@ -108,7 +108,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "cK" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -155,7 +155,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "eQ" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -279,7 +279,7 @@
 /area/phoron_deposit_shuttle)
 "iW" = (
 /obj/random/dirt_75,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "kb" = (
@@ -326,7 +326,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "lj" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -368,7 +368,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "ob" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -393,7 +393,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
 "pg" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -443,7 +443,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "pO" = (
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/phoron_deposit_shuttle)
@@ -453,10 +453,10 @@
 /area/mine)
 "qn" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
@@ -477,7 +477,7 @@
 /area/mine)
 "qV" = (
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -530,7 +530,7 @@
 /area/phoron_deposit_shuttle)
 "tW" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -603,7 +603,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "wR" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -654,7 +654,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
 "xV" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -679,7 +679,7 @@
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "yl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -692,7 +692,7 @@
 /area/phoron_deposit_shuttle)
 "yu" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -717,7 +717,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "zd" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -729,7 +729,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Ae" = (
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
 "Ak" = (
@@ -738,7 +738,7 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
 "Ap" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -797,7 +797,7 @@
 /area/phoron_deposit_shuttle)
 "BS" = (
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -814,7 +814,7 @@
 "Cl" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -862,12 +862,12 @@
 /area/mine)
 "DP" = (
 /obj/random/dirt_75,
-/obj/machinery/mining/brace,
+/obj/structure/machinery/mining/brace,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "DQ" = (
 /obj/structure/table/rack,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -904,7 +904,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "ED" = (
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
 "EJ" = (
@@ -932,7 +932,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit,
 /area/mine)
 "Fq" = (
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "Fr" = (
@@ -990,8 +990,8 @@
 /area/mine)
 "GA" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "Hd" = (
@@ -1039,7 +1039,7 @@
 /area/mine)
 "IP" = (
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -1113,7 +1113,7 @@
 /area/mine)
 "Mc" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "Md" = (
@@ -1176,14 +1176,14 @@
 /area/mine)
 "Pu" = (
 /obj/random/dirt_75,
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "PH" = (
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "PK" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -1265,7 +1265,7 @@
 "Ts" = (
 /obj/structure/table/steel,
 /obj/item/wrench,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -1276,14 +1276,14 @@
 "Tx" = (
 /obj/structure/table/standard,
 /obj/item/flashlight/lamp,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
 "TK" = (
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -1339,7 +1339,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/phoron_deposit_shuttle)
 "Wc" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 8
 	},
 /obj/structure/curtain/open/shower,
@@ -1367,7 +1367,7 @@
 "Ww" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/cups,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -1395,7 +1395,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "Xu" = (
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
@@ -1420,7 +1420,7 @@
 /area/phoron_deposit_shuttle)
 "XN" = (
 /obj/random/dirt_75,
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/phoron_deposit_shuttle)
@@ -1449,18 +1449,18 @@
 /area/phoron_deposit_shuttle)
 "Zc" = (
 /obj/effect/decal/cleanable/floor_damage/broken2,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/item/broken_device,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "Zn" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
 "Zv" = (
 /obj/random/dirt_75,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 8
 	},
 /obj/structure/table/standard,

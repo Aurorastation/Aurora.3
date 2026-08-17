@@ -6,7 +6,7 @@ It is used to destroy hand-held objects and advance technological research. Cont
 Note: Must be placed within 3 tiles of the R&D Console
 */
 
-/obj/machinery/r_n_d/destructive_analyzer
+/obj/structure/machinery/r_n_d/destructive_analyzer
 	name = "destructive analyzer"
 	desc = "A cutting-edge research device that allows scientists to discover and further knowledge in fields that were used in the manufacture of certain objects."
 	icon_state = "d_analyzer"
@@ -23,13 +23,13 @@ Note: Must be placed within 3 tiles of the R&D Console
 		/obj/item/stock_parts/micro_laser
 	)
 
-/obj/machinery/r_n_d/destructive_analyzer/upgrade_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/r_n_d/destructive_analyzer/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>micro-lasers</b> will increase data gathered from destructive analysis."
 	. += "Upgraded <b>scanning modules</b> will increase data gathered from destructive analysis."
 	. += "Upgraded <b>manipulators</b> will increase data gathered from destructive analysis."
 
-/obj/machinery/r_n_d/destructive_analyzer/RefreshParts()
+/obj/structure/machinery/r_n_d/destructive_analyzer/RefreshParts()
 	..()
 	var/T = 0
 
@@ -37,7 +37,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 		T += S.rating
 	decon_mod = T * 0.1
 
-/obj/machinery/r_n_d/destructive_analyzer/update_icon()
+/obj/structure/machinery/r_n_d/destructive_analyzer/update_icon()
 	if(panel_open)
 		icon_state = "d_analyzer_t"
 	else if(loaded_item)
@@ -45,7 +45,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 	else
 		icon_state = "d_analyzer"
 
-/obj/machinery/r_n_d/destructive_analyzer/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/r_n_d/destructive_analyzer/attackby(obj/item/attacking_item, mob/user)
 	if(busy)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy right now."))
 		return

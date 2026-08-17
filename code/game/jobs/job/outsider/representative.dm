@@ -16,13 +16,20 @@
 	)
 
 	job_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
-	alt_titles = list("Freelance Journalist")
+	alt_titles = list("Independent Reporter", "Corporate Journalist", "Independent Journalist", "Media Broadcaster")
 	alt_factions = list(
 		"Corporate Reporter" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
-		"Freelance Journalist" = list("Independent")
+		"Corporate Journalist" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
+		"Independent Reporter" = list("Independent"),
+		"Independent Journalist" = list("Independent"),
+		"Media Broadcaster" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate", "Independent")
 	)
-	alt_outfits = list("Freelance Journalist" = /obj/outfit/job/journalistf)
-	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
+
+	title_accesses = list(
+		"Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE),
+		"Corporate Journalist" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE)
+	)
+
 	outfit = /obj/outfit/job/journalist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -54,7 +61,7 @@
 	)
 
 /obj/outfit/job/journalistf
-	name = "Freelance Journalist"
+	name = "Independent Journalist"
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
@@ -218,17 +225,18 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
-	alt_titles = list("Foreign Service Officer", "Party Representative")
+	alt_titles = list("Foreign Service Officer", "Party Representative", "Kreshwan")
 	alt_citizenships = list(
-		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Izweski Hegemony", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiarchy of Orepit"),
+		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
 		"Foreign Service Officer" = list("Sol Alliance"),
-		"Party Representative" = list("People's Republic of Adhomai")
+		"Party Representative" = list("People's Republic of Adhomai"),
+		"Kreshwan" = list("Karszekani Moghes")
 	)
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 150,
-		SPECIES_SKRELL_AXIORI = 150
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
 	)
 
 	job_access = list(ACCESS_CONSULAR)

@@ -102,8 +102,8 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = SFX_CLOTH_DROP
+	pickup_sound = SFX_CLOTH_PICKUP
 
 /obj/item/stack/tile/carpet/cyan
 	name = "cyan carpet"
@@ -170,8 +170,8 @@
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 	matter = list(MATERIAL_PLASTIC = TILE_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/lino/diamond
@@ -188,7 +188,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_bcircuit"
 	force = 14
-	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
+	matter = list(MATERIAL_STEEL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -200,7 +200,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_gcircuit"
 	force = 14
-	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
+	matter = list(MATERIAL_STEEL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -212,7 +212,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_rcircuit"
 	force = 14
-	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
+	matter = list(MATERIAL_STEEL = TILE_MATERIAL_AMOUNT, MATERIAL_GLASS = TILE_MATERIAL_AMOUNT)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -228,7 +228,7 @@
 	desc = "A set of steel floor tiles."
 	icon_state = "tile"
 	force = 14
-	matter = list(DEFAULT_WALL_MATERIAL = TILE_MATERIAL_AMOUNT)
+	matter = list(MATERIAL_STEEL = TILE_MATERIAL_AMOUNT)
 	throwforce = 6
 	throw_speed = 5
 	throw_range = 10

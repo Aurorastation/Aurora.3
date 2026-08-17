@@ -49,7 +49,7 @@
 			if(C.locked)
 				cultist_free = FALSE
 				C.locked = FALSE
-		for(var/obj/machinery/door/airlock/door in range(2, get_turf(cultist)))
+		for(var/obj/structure/machinery/door/airlock/door in range(2, get_turf(cultist)))
 			if(door.locked)
 				cultist_free = FALSE
 				door.unlock()

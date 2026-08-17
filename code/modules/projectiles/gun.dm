@@ -50,7 +50,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5
 	throw_speed = 4
@@ -420,11 +420,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(!special_check(user))
 		return FALSE
 
-	var/failure_chance = 100 - reliability
-	if(prob(failure_chance))
-		handle_reliability_fail(user)
-		return FALSE
-
 	if(world.time < next_fire_time)
 		if(world.time % 3 && !can_autofire) //to prevent spam
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
@@ -433,6 +428,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/shoot_time = get_appropriate_delay()
 	user.setClickCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
+
+	var/failure_chance = 100 - reliability //Here so there is click delay even if the gun malfunctions.
+	if(prob(failure_chance))
+		handle_reliability_fail(user)
+		return FALSE
 
 	user.face_atom(target, TRUE)
 
@@ -461,7 +461,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			break
 
 		var/acc = burst_accuracy[min(i, burst_accuracy.len)] - accuracy_decrease
-		var/disp = dispersion[min(i, dispersion.len)] + dispersion_increase
+		var/disp = max(0, dispersion[min(i, dispersion.len)] + dispersion_increase)
 		process_accuracy(projectile, user, target, acc, disp)
 
 		if(pointblank)
@@ -597,12 +597,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
-			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate()
+			R.attack_disrupt_check()  //This currently handles decloaking ninjas who shoot guns. Other modules could use attack_disrupt_check() in future.
 	update_icon()
 
 /obj/item/gun/proc/play_fire_sound()
@@ -702,21 +701,23 @@ ABSTRACT_TYPE(/obj/item/gun)
 		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
+
+	user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
+	if (!pin && needspin) // Checks the pin of the gun.
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+	else if (!pin.pin_auth() && needspin)
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+	else if(safety() && user.a_intent != I_HURT)
+		handle_click_empty(user)
+		mouthshoot = FALSE
+		return
+
 	var/obj/projectile/in_chamber = consume_next_projectile()
 	if(istype(in_chamber))
-		user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
-		if (!pin && needspin) // Checks the pin of the gun.
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
-		if (!pin.pin_auth() && needspin)
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
-		if(safety() && user.a_intent != I_HURT)
-			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
 		play_fire_sound()
 
 		in_chamber.on_hit(M)
@@ -884,17 +885,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 	update_icon()
 	update_held_icon()
 
-#define LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER 0.9 //If the mob is intentionally lying down, apply this as a bonus to the fire delay and recoil
-#define LYING_DOWN_ACCURACY_STAT_MULTIPLIER 1.1 //If the mob is intentionally lying down, apply this as a bonus to accuracy
-
 /obj/item/gun/proc/update_firing_delays()
 	if(wielded)
 		if(!isnull(fire_delay_wielded))
-			fire_delay = usr.lying_is_intentional ? (fire_delay_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : fire_delay_wielded
+			fire_delay = fire_delay_wielded
 		if(!isnull(recoil_wielded))
-			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
+			recoil = recoil_wielded
 		if(!isnull(accuracy_wielded))
-			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
+			accuracy = accuracy_wielded
 	else
 		if(!isnull(fire_delay_wielded))
 			fire_delay = initial(fire_delay)
@@ -903,16 +901,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 		if(!isnull(accuracy_wielded))
 			accuracy = initial(accuracy)
 
-#undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
-#undef LYING_DOWN_ACCURACY_STAT_MULTIPLIER
-
-/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, ignore_blocked)
+/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	//Cannot equip wielded items.
-	if(wielded)
-		unwield()
-		var/obj/item/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+	if(!is_overlay_check)
+		if(wielded)
+			unwield()
+			var/obj/item/offhand/O = user.get_inactive_hand()
+			if(istype(O))
+				O.unwield()
 	return ..()
 
 /obj/item/gun/throw_at()
@@ -989,7 +985,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if (!QDELETED(src))
 		qdel(src)
 
-/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE, bypass_blocked_check = FALSE, is_overlay_check = FALSE)
 	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand)
 	if(slot in equippable_slots)
 		return TRUE

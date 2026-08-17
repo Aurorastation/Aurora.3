@@ -62,6 +62,11 @@
 	electronics.heal_damage(electronics.max_integrity)
 	integrity_event_cooldown = initial(integrity_event_cooldown)
 
+/obj/item/organ/internal/machine/heal_damage(amount)
+	. = ..()
+	if(initial(diagnostics_suite_visible) && !diagnostics_suite_visible)
+		diagnostics_suite_visible = TRUE
+
 /obj/item/organ/internal/machine/process(seconds_per_tick)
 	..()
 	if(!owner)
@@ -107,11 +112,17 @@
 
 /obj/item/organ/internal/machine/emp_act(severity)
 	. = ..()
+	var/damage_taken
 	switch(severity)
 		if(EMP_HEAVY)
-			take_internal_damage(4 * emp_coeff)
+			damage_taken = 15 * emp_coeff
+			take_internal_damage(damage_taken)
 		if(EMP_LIGHT)
-			take_internal_damage(2 * emp_coeff)
+			damage_taken = 10 * emp_coeff
+			take_internal_damage(damage_taken)
+
+	if(damage_taken)
+		SEND_SIGNAL(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, damage_taken)
 
 /**
  * Called when prefs are synced to the organ to set the proper synthetic organ preset. Turns the pref into a preset singleton.

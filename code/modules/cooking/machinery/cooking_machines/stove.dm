@@ -1,4 +1,4 @@
-/obj/machinery/appliance/cooker/stove
+/obj/structure/machinery/appliance/cooker/stove
 	name = "stove"
 	desc = "Don't touch it!"
 	icon_state = "stove"
@@ -22,6 +22,12 @@
 
 	stat = POWEROFF	//Starts turned off
 
+	component_types = list(
+		/obj/item/circuitboard/stove,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/matter_bin = 2)
+
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/skillet,
 		/obj/item/reagent_containers/cooking_container/pot,
@@ -35,7 +41,7 @@
 		list(7, -3)
 	)
 
-/obj/machinery/appliance/cooker/stove/update_icon()
+/obj/structure/machinery/appliance/cooker/stove/update_icon()
 	. = ..()
 	ClearOverlays()
 	var/list/pans = list()
@@ -86,12 +92,12 @@
 		return
 	AddOverlays(pans)
 
-/obj/machinery/appliance/cooker/stove/adhomai
+/obj/structure/machinery/appliance/cooker/stove/adhomai
 	name = "adhomian stove"
 	desc = "A rustic Adhomian stove. Warm enough to gather around the winter."
 	icon_state = "adhomai_stove_off"
 
-/obj/machinery/appliance/cooker/stove/adhomai/update_icon()
+/obj/structure/machinery/appliance/cooker/stove/adhomai/update_icon()
 	ClearOverlays()
 	if(!stat)
 		icon_state = "adhomai_stove_on"

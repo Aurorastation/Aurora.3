@@ -75,6 +75,7 @@
 		)
 
 	ccia_link = FALSE
+	hivenet_echoes = FALSE
 
 	lore_radio_stations = list(
 		"74.4 Faint Radio Transmission" = 'texts/lore_radio/crescent_expanse/74.4_CE_Uncharted-Damaged_Station.txt',

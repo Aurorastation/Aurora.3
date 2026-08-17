@@ -1,14 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aE" = (
-/obj/machinery/power/smes/buildable,
+/obj/structure/machinery/power/smes/buildable,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "bn" = (
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	light_range = 1
 	},
 /obj/effect/decal/warning_stripes,
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -17,7 +17,7 @@
 /turf/simulated/mineral/random/exoplanet,
 /area/grove_sdf_outpost)
 "bx" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -51,7 +51,7 @@
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "fa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -61,16 +61,16 @@
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "gb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "gA" = (
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -96,7 +96,7 @@
 "hD" = (
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -107,18 +107,18 @@
 /area/grove_sdf_outpost)
 "hM" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "if" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/sign/flag/sol/old{
@@ -127,8 +127,8 @@
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "iZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/full,
@@ -144,7 +144,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /obj/random/junk,
@@ -152,7 +152,7 @@
 /area/grove_sdf_outpost)
 "kU" = (
 /obj/effect/floor_decal/corner_wide/dark_green,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -190,7 +190,7 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -203,9 +203,9 @@
 "nD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/item/soap/blue_soap,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -230,7 +230,7 @@
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "pK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -239,17 +239,17 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "pT" = (
-/obj/machinery/door/airlock/generic{
+/obj/structure/machinery/door/airlock/generic{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -259,14 +259,14 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/terminal{
+/obj/structure/machinery/computer/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "qU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -292,13 +292,13 @@
 /area/grove_sdf_outpost)
 "ru" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -307,24 +307,24 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "rW" = (
-/obj/machinery/door/airlock/generic{
+/obj/structure/machinery/door/airlock/generic{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -338,15 +338,15 @@
 "tl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/toilet,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/grove_sdf_outpost)
 "tu" = (
-/obj/machinery/door/airlock/service,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/service,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "tZ" = (
@@ -364,11 +364,11 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /obj/structure/closet/crate/bin,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/random/junk,
@@ -407,20 +407,20 @@
 /area/grove_sdf_outpost)
 "vR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "wl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -443,33 +443,33 @@
 "wO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "yR" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 27
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 38
 	},
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "zt" = (
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/exoplanet/barren,
 /area/grove_sdf_outpost)
 "zT" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 6
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 33;
 	pixel_y = -6
 	},
@@ -492,7 +492,7 @@
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "CT" = (
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -501,7 +501,7 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
 	},
-/obj/machinery/light/small/broken{
+/obj/structure/machinery/light/small/broken{
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/dead,
@@ -519,7 +519,7 @@
 	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -554,24 +554,24 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/generic,
-/obj/machinery/computer/terminal{
+/obj/structure/machinery/computer/terminal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "GQ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "HT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -580,22 +580,22 @@
 /obj/effect/floor_decal/corner_wide/dark_green/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "Iu" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "Jh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -612,7 +612,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/grove_sdf_outpost)
 "Kh" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -641,18 +641,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner_wide/dark_green/full,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "LV" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -661,11 +661,11 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/rtg,
+/obj/structure/machinery/power/rtg,
 /turf/simulated/floor/exoplanet/plating,
 /area/grove_sdf_outpost)
 "Ml" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -686,7 +686,7 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -694,7 +694,7 @@
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "Om" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/closet/cabinet,
@@ -704,7 +704,7 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military,
 /obj/item/towel/random,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/random/junk,
@@ -716,7 +716,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = -7;
 	pixel_y = 30;
 	req_access = null
@@ -725,7 +725,7 @@
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "OW" = (
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -752,8 +752,8 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "Qk" = (
@@ -778,7 +778,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_y = 18;
 	pixel_x = 1
 	},
@@ -797,7 +797,7 @@
 /obj/structure/sign/flag/sol/old{
 	pixel_y = -32
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/closet/secure_closet/guncabinet{
 	locked = 0;
 	opened = 1;
@@ -813,7 +813,7 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 5
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -830,7 +830,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/grove_sdf_outpost)
 "RT" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -838,14 +838,14 @@
 "SE" = (
 /obj/effect/map_effect/marker/airlock,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "SR" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -857,21 +857,21 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/rtg,
+/obj/structure/machinery/power/rtg,
 /turf/simulated/floor/exoplanet/plating,
 /area/grove_sdf_outpost)
 "TN" = (
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/grove_sdf_outpost)
 "UW" = (
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -33;
 	pixel_y = -6
 	},
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -890,8 +890,8 @@
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "WN" = (
-/obj/machinery/power/apc/high/north,
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/apc/high/north,
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -905,12 +905,12 @@
 /area/grove_sdf_outpost)
 "YN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)
 "Zn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,

@@ -1,7 +1,7 @@
+import { Box, Button, Section, Table } from 'tgui-core/components';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { capitalizeAll } from '../../common/string';
 import { Window } from '../layouts';
-import { Section, Button, Box, Table } from '../components';
 
 type VoteChoice = {
   choice: string;
@@ -23,11 +23,11 @@ export type VotingData = {
   total_players_ready: number;
 };
 
-export const Voting = (props, context) => {
-  const { act, data } = useBackend<VotingData>(context);
+export const Voting = (props) => {
+  const { act, data } = useBackend<VotingData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.mode ? <VoteWindow /> : <StartVoteWindow />}
       </Window.Content>
@@ -35,8 +35,8 @@ export const Voting = (props, context) => {
   );
 };
 
-export const VoteWindow = (props, context) => {
-  const { act, data } = useBackend<VotingData>(context);
+export const VoteWindow = (props) => {
+  const { act, data } = useBackend<VotingData>();
 
   const extra_column =
     data.choices.filter((choice) => {
@@ -58,7 +58,6 @@ export const VoteWindow = (props, context) => {
 
   return (
     <Section
-      collapsing
       title={data.question}
       buttons={
         data.is_staff ? (
@@ -117,10 +116,10 @@ export const VoteWindow = (props, context) => {
   );
 };
 
-export const StartVoteWindow = (props, context) => {
-  const { act, data } = useBackend<VotingData>(context);
+export const StartVoteWindow = (props) => {
+  const { act, data } = useBackend<VotingData>();
   return (
-    <Section collapsing title="Start a Vote">
+    <Section title="Start a Vote">
       <Box>
         <Button
           content="Restart"

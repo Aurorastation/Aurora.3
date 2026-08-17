@@ -1,5 +1,5 @@
 
-/obj/machinery/replicator
+/obj/structure/machinery/replicator
 	name = "alien machine"
 	desc = "It's some kind of pod with strange wires and gadgets all over it."
 	icon = 'icons/obj/robot_charger.dmi'
@@ -19,7 +19,7 @@
 
 	var/fail_message
 
-/obj/machinery/replicator/Initialize()
+/obj/structure/machinery/replicator/Initialize()
 	. = ..()
 
 	var/list/viables = list(\
@@ -84,7 +84,7 @@
 		[pick("front","side","top","bottom","rear","inside")] of [src]. A [pick("slot","funnel","chute","tube")] opens up in the \
 		[pick("front","side","top","bottom","rear","inside")].</span>"
 
-/obj/machinery/replicator/process()
+/obj/structure/machinery/replicator/process()
 	if(spawning_types.len && powered())
 		spawn_progress_time += world.time - last_process_time
 		if(spawn_progress_time > max_spawn_time)
@@ -115,10 +115,10 @@
 
 	last_process_time = world.time
 
-/obj/machinery/replicator/attack_hand(mob/user as mob)
+/obj/structure/machinery/replicator/attack_hand(mob/user as mob)
 	interact(user)
 
-/obj/machinery/replicator/interact(mob/user)
+/obj/structure/machinery/replicator/interact(mob/user)
 	var/dat = "The control panel displays an incomprehensible selection of controls, many with unusual markings or text around them.<br>"
 	dat += "<br>"
 	for(var/index=1, index<=construction.len, index++)
@@ -126,12 +126,12 @@
 
 	user << browse(HTML_SKELETON(dat), "window=alien_replicator")
 
-/obj/machinery/replicator/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/replicator/attackby(obj/item/attacking_item, mob/user)
 	user.drop_from_inventory(attacking_item, src)
 	stored_materials.Add(attacking_item)
 	src.visible_message(SPAN_NOTICE("[user] inserts [attacking_item] into [src]."))
 
-/obj/machinery/replicator/Topic(href, href_list)
+/obj/structure/machinery/replicator/Topic(href, href_list)
 
 	if(href_list["activate"])
 		var/index = text2num(href_list["activate"])

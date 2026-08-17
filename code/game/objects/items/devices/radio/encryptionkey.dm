@@ -170,13 +170,13 @@
 /obj/item/encryptionkey/heads/captain
 	name = "captain's encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_HAILING = TRUE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_OPERATIONS = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/encryptionkey/heads/ai_integrated
 	name = "ai integrated encryption key"
 	desc = "Integrated encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_AI_PRIVATE = TRUE, CHANNEL_HAILING = TRUE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_PENAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_OPERATIONS = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_AI_PRIVATE = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/encryptionkey/heads/rd
 	name = "research director's encryption key"
@@ -206,12 +206,12 @@
 /obj/item/encryptionkey/headset_cargo
 	name = "operations radio encryption key"
 	icon_state = "cargo_cypherkey"
-	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
+	channels = list(CHANNEL_OPERATIONS = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/encryptionkey/headset_operations_manager
 	name = "operations manager radio encryption key"
 	icon_state = "cargo_cypherkey"
-	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
+	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_OPERATIONS = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/encryptionkey/headset_service
 	name = "service radio encryption key"
@@ -220,7 +220,7 @@
 
 /obj/item/encryptionkey/ert
 	name = "\improper ERT radio encryption key"
-	channels = list(CHANNEL_RESPONSE_TEAM = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_HAILING = TRUE)
+	channels = list(CHANNEL_RESPONSE_TEAM = TRUE, CHANNEL_SCIENCE = TRUE, CHANNEL_COMMAND = TRUE, CHANNEL_MEDICAL = TRUE, CHANNEL_ENGINEERING = TRUE, CHANNEL_SECURITY = TRUE, CHANNEL_OPERATIONS = TRUE, CHANNEL_SERVICE = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/encryptionkey/onlyert
 	name = "\improper ERT radio encryption key"
@@ -254,7 +254,7 @@
 
 /obj/item/encryptionkey/cargo_spare
 	name = "spare operations radio encryption key"
-	additional_channels = list(CHANNEL_SUPPLY = TRUE)
+	additional_channels = list(CHANNEL_OPERATIONS = TRUE)
 
 /obj/item/encryptionkey/service_spare
 	name = "spare service radio encryption key"

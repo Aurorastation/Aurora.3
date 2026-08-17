@@ -1,15 +1,16 @@
 /** Window sizes in pixels */
-export enum WINDOW_SIZES {
-  small = 30,
-  medium = 50,
-  large = 70,
-  width = 380,
+export enum WindowSize {
+  Small = 30,
+  Medium = 50,
+  Large = 70,
+  Width = 462,
 }
 
 /** Line lengths for autoexpand */
-export enum LINE_LENGTHS {
-  small = 54,
-  medium = 108,
+export enum LineLength {
+  Small = 40,
+  Medium = 78,
+  Large = 118,
 }
 
 /**
@@ -17,22 +18,30 @@ export enum LINE_LENGTHS {
  * Displays the name in the left button, tags a css class.
  */
 export const RADIO_PREFIXES = {
-  '; ': 'Com',
-  ':b ': 'io',
+  ':r ': 'REar',
+  ':l ': 'LEar',
+  ':i ': 'Int',
+  ':h ': 'Dept',
+  ':+ ': 'Spec',
+  ':a ': 'Hive',
+  ':b ': 'Burg',
   ':c ': 'Cmd',
+  ':d ': 'Exp',
   ':e ': 'Engi',
+  ':f ': 'Navy',
   ':g ': 'Cling',
+  ':j ': 'Blue',
+  ':k ': 'Jock',
   ':m ': 'Med',
   ':n ': 'Sci',
-  ':o ': 'AI',
-  ':z ': 'Ent',
+  ':p ': 'AI',
+  ':q ': 'Penal',
   ':s ': 'Sec',
-  ':x ': 'Synd',
-  ':u ': 'Supp',
-  ':v ': 'Svc',
-  ':y ': 'Hail',
-  ':f ': 'Uncom',
-  ':q ': 'Pen',
   ':t ': 'Merc',
-  ':d ': 'Exped',
+  ':u ': 'Ops',
+  ':v ': 'Svc',
+  ':w ': 'Whsp',
+  ':x ': 'Raid',
+  ':y ': 'Hail',
+  ':z ': 'Ent',
 } as const;

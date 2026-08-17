@@ -7,6 +7,12 @@
 	var/list/animals = list()
 	var/max_animal_count
 	var/datum/gas_mixture/atmosphere
+	/// Cached main ZAS surface zone per generated z-level. Resolved lazily after ZAS finishes building.
+	var/list/main_planetary_zones = list()
+	/// Last ZAS update revision processed per generated z-level.
+	var/list/main_planetary_zone_atmosphere_revisions = list()
+	/// Next time to retry resolving a z-level which currently has no qualifying surface zone.
+	var/list/main_planetary_zone_retry_times = list()
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
@@ -222,6 +228,7 @@
 	generate_features()
 	theme.after_map_generation(src)
 	generate_landing(2)
+	finalize_outdoor_atmosphere()
 	update_biome()
 	generate_planet_image()
 	START_PROCESSING(SSprocessing, src)
@@ -272,17 +279,77 @@
 
 		if(!atmosphere)
 			continue
-		var/zone/Z
-		for(var/i = 1 to maxx)
-			var/turf/simulated/T = locate(i, 2, zlevel)
-			if(istype(T) && T.zone && T.zone.contents.len > (maxx*maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
-				Z = T.zone
-				break
-		if(Z && !length(Z.fire_tiles) && !atmosphere.compare(Z.air)) //let fire die out first if there is one
+		var/zone/Z = get_main_planetary_zone(zlevel)
+		if(!Z)
+			continue
+		var/zlevel_key = "[zlevel]"
+		var/last_atmosphere_revision = main_planetary_zone_atmosphere_revisions[zlevel_key]
+		if(!isnull(last_atmosphere_revision) && last_atmosphere_revision == Z.update_revision)
+			continue
+		// Let ZAS settle and fire die out first if there is one
+		if(Z.needs_update || length(Z.fire_tiles))
+			continue
+		if(!atmosphere.compare(Z.air))
 			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
 			daddy.copy_from(atmosphere)
 			daddy.group_multiplier = Z.air.group_multiplier
 			Z.air.equalize(daddy)
+			SSair.mark_zone_update(Z)
+			continue
+		main_planetary_zone_atmosphere_revisions[zlevel_key] = Z.update_revision
+
+/// Attempts to not only identify the largest air zone, but also cache it for subsequent ticks.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/get_main_planetary_zone(zlevel)
+	var/zlevel_key = "[zlevel]"
+	var/zone/cached_zone = main_planetary_zones[zlevel_key]
+	// ZAS may invalidate and rebuild zones after terrain changes. Keep the cached zone only while it is still valid.
+	if(cached_zone && !cached_zone.invalid)
+		return cached_zone
+
+	main_planetary_zones -= zlevel_key
+	main_planetary_zone_atmosphere_revisions -= zlevel_key
+	if(main_planetary_zone_retry_times[zlevel_key] > world.time)
+		return null
+	main_planetary_zone_retry_times -= zlevel_key
+
+	// Do not cache a zone while ZAS still has geometry to rebuild. Checking the queues is constant-time;
+	// scanning every surface turf's needs_air_update flag here was the source of the hot path.
+	if(length(SSair.tiles_to_update) || length(SSair.deferred))
+		main_planetary_zone_retry_times[zlevel_key] = world.time + 15 SECOND
+		return null
+
+	// Exoplanet transition edges are unsimulated, so only scan the generated interior for the minimum useful surface size.
+	var/min_x = TRANSITIONEDGE + 1
+	var/min_y = TRANSITIONEDGE + 1
+	var/max_x = maxx - (TRANSITIONEDGE + 1)
+	var/max_y = maxy - (TRANSITIONEDGE + 1)
+	if(max_x < min_x || max_y < min_y)
+		return null
+
+	// If it's a quarter of the generated surface, good enough odds it's the main planetary zone.
+	var/minimum_zone_size = (max_x - min_x + 1) * (max_y - min_y + 1) * 0.25
+	var/zone/best_zone
+	var/best_zone_size = 0
+	// Zones already own their member turfs. Enumerating them avoids scanning every turf on the z-level.
+	for(var/zone/current_zone as anything in SSair.zones)
+		if(current_zone.invalid)
+			continue
+		var/current_zone_size = length(current_zone.contents)
+		if(current_zone_size <= best_zone_size || current_zone_size <= minimum_zone_size)
+			continue
+		var/turf/zone_turf = current_zone.contents[1]
+		if(!zone_turf || zone_turf.z != zlevel)
+			continue
+		best_zone = current_zone
+		best_zone_size = current_zone_size
+
+	if(best_zone)
+		main_planetary_zones[zlevel_key] = best_zone
+	else
+		// ZAS may still be settling, or this terrain may never form one large surface zone.
+		// Retry slowly so either case cannot become a once-per-second hot path.
+		main_planetary_zone_retry_times[zlevel_key] = world.time + 15 SECONDS
+	return best_zone
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
@@ -317,6 +384,56 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
+
+/**
+ * Applies the generated planetary atmosphere AFTER terrain and ruins finish loading.
+ *
+ * Exoplanet turf subtypes initialize themselves with the planet's air, but ruins and
+ * terrain generation may place ordinary simulated turfs which otherwise retain their
+ * type's standard atmosphere. The area's mapped is_outside value is authoritative:
+ * OUTSIDE_NO preserves sealed interiors, while every outdoor turf receives planetary air.
+ *
+ * Without this behavior, you see weird cross-contamination issues, especially in cases
+ * where maps don't have their /areas configured properly.
+ */
+/obj/effect/overmap/visitable/sector/exoplanet/proc/finalize_outdoor_atmosphere()
+	if(!atmosphere)
+		return
+
+	var/list/outdoor_zones = list()
+	for(var/zlevel in map_z)
+		var/turf/lower_left = locate(TRANSITIONEDGE + 1, TRANSITIONEDGE + 1, zlevel)
+		var/turf/upper_right = locate(maxx - (TRANSITIONEDGE + 1), maxy - (TRANSITIONEDGE + 1), zlevel)
+		if(!lower_left || !upper_right)
+			continue
+
+		for(var/turf/simulated/T in block(lower_left, upper_right))
+			var/area/A = get_area(T)
+			if(!A || A.is_outside == OUTSIDE_NO)
+				continue
+
+			T.initial_gas = atmosphere.gas.Copy()
+			T.temperature = atmosphere.temperature
+
+			// Dynamic z-levels are created after SSair initializes. Usually these turfs are
+			// still unzoned... but if ZAS already found them, take care not to break them.
+			if(TURF_HAS_VALID_ZONE(T))
+				outdoor_zones |= T.zone
+			else if(T.air)
+				T.air.group_multiplier = 1
+				T.air.copy_from(atmosphere)
+			else
+				T.make_air()
+
+			CHECK_TICK
+
+	// A zone stores ONE shared mixture, so update it once rather than once per member turf.
+	for(var/zone/Z as anything in outdoor_zones)
+		if(Z.invalid)
+			continue
+		Z.air.copy_from(atmosphere)
+		SSair.mark_zone_update(Z)
+		CHECK_TICK
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/update_biome()
 	for(var/datum/seed/S as anything in seeds)
@@ -441,9 +558,12 @@
 	else //let the fuckery commence
 		var/list/newgases = gas_data.gases.Copy()
 		newgases -= GAS_PHORON
+		newgases -= GAS_DEUTERIUM
+		newgases -= GAS_TRITIUM
+		newgases -= GAS_HELIUMFUEL
+		newgases -= GAS_WATERVAPOR
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= GAS_ALIEN
-		newgases -= GAS_WATERVAPOR
 
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/badflag = 0

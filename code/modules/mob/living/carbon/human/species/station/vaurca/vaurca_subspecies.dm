@@ -66,6 +66,8 @@
 		"C'thur: Unbound Xetl" = "#370078"
 	)
 
+	mass_modifier = REFERENCE_MASS_VAURCA_ZA / REFERENCE_MASS_HUMAN
+
 /datum/species/bug/type_b/type_bb
 	name = SPECIES_VAURCA_ATTENDANT
 	name_plural = "Type BB"
@@ -151,10 +153,6 @@
 	default_genders = list(FEMALE)
 	economic_modifier = 12
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 100
-
-	death_sound = 'sound/voice/hiss6.ogg'
 	damage_overlays = 'icons/mob/human_races/masks/dam_breeder.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
@@ -224,6 +222,8 @@
 		"C'thur: Mouv" = "#7D75FF"
 	)
 
+	mass_modifier = REFERENCE_MASS_VAURCA_TA / REFERENCE_MASS_HUMAN
+
 /datum/species/bug/type_c/New()
 	..()
 	equip_adjust = list(
@@ -267,10 +267,6 @@
 	mob_weight = MOB_WEIGHT_SUPERHEAVY
 	mob_strength = MOB_STRENGTH_VERY_STRONG
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 100
-
-	death_sound = 'sound/voice/hiss6.ogg'
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
@@ -316,6 +312,7 @@
 	default_h_style = "Bald"
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
 	valid_prosthetics = null
+	mass_modifier = REFERENCE_MASS_VAURCA_BA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= HULK
@@ -391,8 +388,7 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 
 	sprint_speed_factor = 1.0
 	stamina = 50
-	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
-	valid_prosthetics = null
+	valid_prosthetics = list(PROSTHETIC_VAURCA_BULWARK)
 
 	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN | NO_EQUIP_SPEEDMODS
 
@@ -414,6 +410,8 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 		"C'thur: Unbound Mouv" = "#7D75FF", "C'thur: Bound Mouv" = "#4A8AFC",
 		"C'thur: Unbound Xetl" = "#3F0876", "C'thur: Bound Xetl" = "#330563"
 	)
+
+	mass_modifier = REFERENCE_MASS_VAURCA_RA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/type_e/New()
 	..()

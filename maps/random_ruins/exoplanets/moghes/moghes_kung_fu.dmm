@@ -65,7 +65,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "y" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/template_noop)
 "z" = (

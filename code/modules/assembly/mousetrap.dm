@@ -10,7 +10,7 @@
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	surgerysound = 'sound/items/surgery/fixovein.ogg'
 	origin_tech = list(TECH_COMBAT = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	matter = list(MATERIAL_STEEL = 100)
 	var/armed = FALSE
 
 /obj/item/assembly/mousetrap/Initialize(mapload)

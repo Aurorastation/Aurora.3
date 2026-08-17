@@ -795,7 +795,7 @@
 	description = "An intravenous drip stand used for hooking up IV bags. It also features an emergency positive pressure system for breathing-compromised patients. Comes with a breath mask. Tank or IV bags not included."
 	price = 150
 	items = list(
-		/obj/machinery/iv_drip,
+		/obj/structure/machinery/iv_drip,
 		/obj/item/clothing/mask/breath/medical
 	)
 	access = ACCESS_MEDICAL

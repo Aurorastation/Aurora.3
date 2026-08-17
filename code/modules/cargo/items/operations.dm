@@ -91,7 +91,7 @@
 	description = "Needed office equipment for any space based corporation to function."
 	price = 300
 	items = list(
-		/obj/machinery/photocopier/faxmachine
+		/obj/structure/machinery/photocopier/faxmachine
 	)
 	access = 0
 	container_type = "box"
@@ -239,7 +239,7 @@
 	description = "When you're too lazy to write a copy yourself."
 	price = 300
 	items = list(
-		/obj/machinery/photocopier
+		/obj/structure/machinery/photocopier
 	)
 	access = 0
 	container_type = "box"

@@ -40,7 +40,9 @@
 	///Boolean, if set, can be crushed into a trash item when empty
 	var/trash = null
 
-	use_sound = 'sound/items/storage/box.ogg'
+	var/maxHealth = 20	//health is already defined
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
+	rustle_sound = 'sound/items/rustle/cardboardbox.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
@@ -533,16 +535,13 @@
 	desc = "A box full of laser modulators, used to build laser weapons."
 	illustration = "firecracker"
 	starts_with = list(
+		/obj/item/laser_components/modulator = 1,
 		/obj/item/laser_components/modulator/taser = 1,
 		/obj/item/laser_components/modulator/tesla = 1,
 		/obj/item/laser_components/modulator/ion = 1,
 		/obj/item/laser_components/modulator/floramut = 1,
 		/obj/item/laser_components/modulator/floramut2 = 1,
-		/obj/item/laser_components/modulator/arodentia = 1,
-		/obj/item/laser_components/modulator/red = 1,
-		/obj/item/laser_components/modulator/blue = 1,
-		/obj/item/laser_components/modulator/omni = 1,
-		/obj/item/laser_components/modulator/practice = 1,
+		/obj/item/laser_components/modulator/xenovermin = 1,
 		/obj/item/laser_components/modulator/mindflayer = 1,
 		/obj/item/laser_components/modulator/decloner = 1,
 		/obj/item/laser_components/modulator/ebow = 1,
@@ -873,7 +872,7 @@
 		/obj/item/light/tube/colored/blue,
 		/obj/item/light/tube/colored/magenta,
 		/obj/item/light/tube/colored/yellow,
-		/obj/item/light/tube/colored/cyan
+		/obj/item/light/tube/colored/pale_purple
 	)
 	var/static/list/bulbs_colors = list(
 		/obj/item/light/bulb/colored/red,
@@ -881,7 +880,7 @@
 		/obj/item/light/bulb/colored/blue,
 		/obj/item/light/bulb/colored/magenta,
 		/obj/item/light/bulb/colored/yellow,
-		/obj/item/light/bulb/colored/cyan
+		/obj/item/light/bulb/colored/pale_purple
 	)
 	for(var/i = 0, i < 14, i++)
 		var/type = pick(tube_colors)
@@ -920,11 +919,23 @@
 	color = COLOR_YELLOW_GRAY
 	starts_with = list(/obj/item/light/tube/colored/yellow = 14, /obj/item/light/bulb/colored/yellow = 7)
 
+/obj/item/storage/box/lights/colored/pale_purple
+	name = "box of pale purple lights"
+	illustration = "lightmixed"
+	color = COLOR_PURPLE_GRAY
+	starts_with = list(/obj/item/light/tube/colored/pale_purple = 14, /obj/item/light/bulb/colored/pale_purple = 7)
+
 /obj/item/storage/box/lights/colored/magenta
 	name = "box of magenta lights"
 	illustration = "lightmixed"
 	color = COLOR_PALE_PINK
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
+
+/obj/item/storage/box/lights/colored/beige
+	name = "box of beige lights"
+	illustration = "lightmixed"
+	color = COLOR_BEIGE
+	starts_with = list(/obj/item/light/tube/colored/beige = 14, /obj/item/light/bulb/colored/beige = 7)
 
 /obj/item/storage/box/kitchen
 	name = "galley supplies"
@@ -947,6 +958,20 @@
 	for (var/i = 0,i<6,i++)
 		var/type = pick(utensils)
 		new type(src)
+
+/obj/item/storage/box/large/tableware
+	name = "assorted tableware"
+	illustration = "bowl"
+	color = COLOR_PALE_GREEN_GRAY
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	desc = "Contains plates, bowls, and basic cutlery sets."
+	starts_with = list(
+		/obj/item/material/kitchen/utensil/fork = 3,
+		/obj/item/material/kitchen/utensil/spoon = 3,
+		/obj/item/material/kitchen/utensil/knife = 3,
+		/obj/item/reagent_containers/bowl = 3,
+		/obj/item/reagent_containers/bowl/plate = 3
+	)
 
 /obj/item/storage/box/snack
 	name = "rations box"
@@ -1050,16 +1075,17 @@
 
 /obj/item/storage/box/large/candy/fill()
 	var/list/assorted_list = list(
-		/obj/item/reagent_containers/food/snacks/cb01 = 1,
-		/obj/item/reagent_containers/food/snacks/cb02 = 1,
-		/obj/item/reagent_containers/food/snacks/cb03 = 1,
-		/obj/item/reagent_containers/food/snacks/cb04 = 1,
-		/obj/item/reagent_containers/food/snacks/cb05 = 1,
-		/obj/item/reagent_containers/food/snacks/cb06 = 1,
-		/obj/item/reagent_containers/food/snacks/cb07 = 1,
-		/obj/item/reagent_containers/food/snacks/cb08 = 1,
-		/obj/item/reagent_containers/food/snacks/cb09 = 1,
-		/obj/item/reagent_containers/food/snacks/cb10 = 1
+		/obj/item/reagent_containers/food/snacks/chocolate_bar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1
 	)
 
 	for(var/i in 1 to 24)
@@ -1418,8 +1444,8 @@
 		/obj/item/flag/ouerea/l = 1,
 		/obj/item/flag/sol/old = rand(1,2),
 		/obj/item/flag/sol/old/l = 1,
-		/obj/item/flag/old_visegrad = rand(1,2),
-		/obj/item/flag/old_visegrad/l = 1,
+		/obj/item/flag/visegrad_old = rand(1,2),
+		/obj/item/flag/visegrad_old/l = 1,
 		/obj/item/flag/fisanduh = rand(1,2),
 		/obj/item/flag/fisanduh/l = 1,
 		/obj/item/flag/hiskyn = rand(1,2),
@@ -1918,3 +1944,60 @@
 		/obj/item/organ/internal/augment/bioaug/mind_blanker
 	)
 	storage_slots = 4
+
+// Trash components. Bottom of the line
+/obj/item/storage/box/components
+	name = "low-grade component box"
+	illustration = "circuit"
+	color = COLOR_BLUE_GRAY
+	make_exact_fit = TRUE
+	can_hold_strict = TRUE
+	display_contents_with_number = TRUE
+	allow_quick_gather = TRUE
+	use_to_pickup = TRUE
+	can_hold = list(/obj/item/stock_parts)
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor = 4,
+		/obj/item/stock_parts/scanning_module = 4,
+		/obj/item/stock_parts/manipulator = 4,
+		/obj/item/stock_parts/micro_laser = 4,
+		/obj/item/stock_parts/matter_bin = 4,
+	)
+
+// The decent stuff. Better than the small ones
+/obj/item/storage/box/components/advanced
+	name = "mid-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/adv = 4,
+		/obj/item/stock_parts/scanning_module/adv = 4,
+		/obj/item/stock_parts/manipulator/nano = 4,
+		/obj/item/stock_parts/micro_laser/high = 4,
+		/obj/item/stock_parts/matter_bin/adv = 4,
+	)
+
+// Top tier components
+/obj/item/storage/box/components/super_advanced
+	name = "high-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/super = 4,
+		/obj/item/stock_parts/scanning_module/phasic = 4,
+		/obj/item/stock_parts/manipulator/pico = 4,
+		/obj/item/stock_parts/micro_laser/ultra = 4,
+		/obj/item/stock_parts/matter_bin/super = 4,
+	)
+
+//Telecomms parts
+/obj/item/storage/box/components/telecomms
+	name = "telecomm component box"
+	starts_with = list(
+		/obj/item/stock_parts/subspace/ansible = 4,
+		/obj/item/stock_parts/subspace/filter = 4,
+		/obj/item/stock_parts/subspace/amplifier = 4,
+		/obj/item/stock_parts/subspace/treatment = 4,
+		/obj/item/stock_parts/subspace/analyzer = 4,
+		/obj/item/stock_parts/subspace/crystal = 4,
+		/obj/item/stock_parts/subspace/transmitter = 4
+	)

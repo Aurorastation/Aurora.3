@@ -56,7 +56,7 @@ GLOBAL_VAR_INIT(intercom_range_display_status, 0)
 		qdel(C)
 
 	if(GLOB.camera_range_display_status)
-		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+		for(var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 			new/obj/effect/debugging/camera_range(C.loc)
 	feedback_add_details("admin_verb","mCRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -70,19 +70,19 @@ GLOBAL_VAR_INIT(intercom_range_display_status, 0)
 		alert(usr,"Master_controller not found.","Sec Camera Report")
 		return 0
 
-	var/list/obj/machinery/camera/CL = list()
+	var/list/obj/structure/machinery/camera/CL = list()
 
-	for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for(var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		if (isturf(C.loc))
 			CL += C
 
 	var/output = {"<B>CAMERA ANNOMALITIES REPORT</B><HR>
 <B>The following annomalities have been detected. The ones in red need immediate attention: Some of those in black may be intentional.</B><BR><ul>"}
 
-	for(var/obj/machinery/camera/C1 in CL)
+	for(var/obj/structure/machinery/camera/C1 in CL)
 		if(C1.c_tag == null)
 			output += "<li><span class='warning'>null c_tag for sec camera at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc])</span></li>"
-		for(var/obj/machinery/camera/C2 in CL)
+		for(var/obj/structure/machinery/camera/C2 in CL)
 			if(C1 != C2)
 				if(C1.c_tag == C2.c_tag)
 					output += "<li><span class='warning'>c_tag match for sec. cameras at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) and \[[C2.x], [C2.y], [C2.z]\] ([C2.loc.loc]) - c_tag is [C1.c_tag]</span></li>"
@@ -406,7 +406,7 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 	set category = "Mapping"
 	set name = "Find Bad Doors"
 
-	for(var/obj/machinery/door/airlock/A in world)
+	for(var/obj/structure/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
 		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/exoplanet/asteroid) || isopenturf(T) || T.density)
 			to_chat(usr, "Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
@@ -415,10 +415,10 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 	set category = "Mapping"
 	set name = "Find Bad Fire Doors"
 
-	for(var/obj/machinery/door/firedoor/F in world)
+	for(var/obj/structure/machinery/door/firedoor/F in world)
 		var/turf/T = get_turf(F)
 		var/firelock_increment = 0
-		for(var/obj/machinery/door/firedoor/FD in T)
+		for(var/obj/structure/machinery/door/firedoor/FD in T)
 			firelock_increment += 1
 		if(firelock_increment > 1)
 			to_chat(usr, "Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")

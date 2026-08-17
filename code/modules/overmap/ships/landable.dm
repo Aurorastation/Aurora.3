@@ -11,6 +11,7 @@
 	var/use_mapped_z_levels = FALSE //If you use this, use /obj/effect/shuttle_landmark/ship as the landmark (set the landmark_tag to match on the shuttle, no other setup needed)
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	pilot_class = PILOTING_CLASS_SHUTTLE
 	layer = OVERMAP_SHUTTLE_LAYER
 
 /obj/effect/overmap/visitable/ship/landable/Destroy()
@@ -97,7 +98,7 @@
 
 	var/obj/effect/overmap/visitable/mothership = GLOB.map_sectors["[shuttle_datum.current_location.z]"]
 	if(mothership)
-		for(var/obj/machinery/computer/ship/sensors/sensor_console in consoles)
+		for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in consoles)
 			sensor_console.datalink_add_ship_datalink(mothership)
 			break
 

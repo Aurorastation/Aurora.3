@@ -24,7 +24,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ag" = (
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ah" = (
@@ -33,7 +33,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ai" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -50,7 +50,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ak" = (
-/obj/machinery/suit_cycler/science,
+/obj/structure/machinery/suit_cycler/science,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "al" = (
@@ -89,13 +89,13 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ar" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "as" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -126,14 +126,14 @@
 /area/dungeon/bluespace_outpost)
 "ay" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "az" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aA" = (
@@ -143,11 +143,11 @@
 /area/dungeon/bluespace_outpost)
 "aB" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/structure/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aC" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aD" = (
@@ -165,7 +165,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/freezer,
 /obj/item/organ/internal/kidneys,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/paper{
 	info = "Taeyang is dead.\[br]Another one of those 'Vannatusk' came out. I don't know what we were expecting, maybe that things would just go back to routine, hoping another lifeless, ancient relic would pop in. This one was far more aggressive than the other two, practically a raving beast compared to the second one's confused and frightened demeanor. This time I was the one who used the lance and thank God they had the foresight to stock one here. I was not able to save Taeyang though, there was no time at all. The moment the Vannatusk came through, it had already bridged the gap between itself and Taeyang and impaled him several times, killing him quickly. It would have surely gotten Lowell as well had she been in the room, I hardly had enough time to flee into the ready room as it was.";
 	name = "note"
@@ -188,7 +188,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aJ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -249,7 +249,7 @@
 /area/dungeon/bluespace_outpost)
 "aV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/shieldgen,
+/obj/structure/machinery/shieldgen,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "aW" = (
@@ -273,11 +273,11 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ba" = (
-/obj/machinery/shieldgen,
+/obj/structure/machinery/shieldgen,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bb" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bc" = (
@@ -320,13 +320,13 @@
 /area/dungeon/bluespace_outpost)
 "bh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bi" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -337,7 +337,7 @@
 /area/dungeon/bluespace_outpost)
 "bk" = (
 /obj/structure/trash_pile,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -345,14 +345,14 @@
 "bl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/trash_pile,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bm" = (
 /obj/structure/table/standard,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -360,7 +360,7 @@
 "bn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/walllocker/emerglocker/east,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -407,7 +407,7 @@
 "bu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine,
+/obj/structure/machinery/photocopier/faxmachine,
 /obj/item/paper{
 	info = "Another one! Christ, what were the odds that the next thing to come out would be yet another? By no means am I complaining, and such an easier subject this one was.\[br] ...Until it smashed the glass and came screaming out into the lab, being shredded by Taeyang a second later - no energy weapon this time!\[br]Well, at least we got a better specimen for Lowell to examine. For the time it was alive this one was very different than the first. Our second guest seemed...scared? Confused? Nothing at all like the first one who acted somewhat startled but immediately after became hostile. We figured that another could possibly come through again, thus keeping the chamber sealed from then on.\[br]Not like it really mattered it seems, this second Vannatusk smashed down the silicate panel like it was made of plywood. I doubt that I will get a response, but I've sent a transmission to the Aurora for replacement chamber paneling, a stronger one at that. Perhaps I should ask Taeyang to head over.";
 	name = "note"
@@ -416,7 +416,7 @@
 /area/dungeon/bluespace_outpost)
 "bv" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /obj/item/paper{
 	info = "This is becoming obscene. I at first thought it was that fool Fayad's laziness when they failed to respond about our contact with the Vannatusk. As grossly negligent as that is I can imagine it as so. But no response to Taeyang's death? No response to the panel request?\[\\br]I am speechless, even now as I write it is hard to find the words for what I am feeling. Did they fucking leave? Did they perish? Neither I nor Lowell has felt any tremors of which came whenever the Tajara carve out another huge cavern for more of the station to be built. Perhaps they've made a grievous error in the last one?\[\\br]Could it be something else? My mind is racing with the possibilities, but something must happen soon. Supplies are running low, along with charged cells to power our habitation. As horrible as it is to say, Taeyang's death has bought some time if things are as my worst fears believe them to be. Nevertheless, something must happen.\[\\br]If we do not hear from the Aurora, or someone in person in the next day or so, either I or Lowell will make the trek to the Aurora.";
 	name = "note"
@@ -450,17 +450,17 @@
 "bB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard,
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bC" = (
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bE" = (
@@ -471,7 +471,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bF" = (
-/obj/machinery/chemical_dispenser,
+/obj/structure/machinery/chemical_dispenser,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bG" = (
@@ -487,7 +487,7 @@
 /area/dungeon/bluespace_outpost)
 "bI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bJ" = (
@@ -495,7 +495,7 @@
 	dir = 1
 	},
 /obj/effect/decal/remains/human,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/gun/energy/pistol,
 /obj/item/paper{
 	info = "There is nothing more for me to do. I cannot leave this place, Lowell has not returned nor anyone for that matter in over a month. With no suit? An un-programmed hand teleporter? There is no escaping this place. What's more, there will soon be no more water, no more air, no more power - At least I will not starve? There really is no hope, not that I can see. I am writing this because someone will come, eventually. They'll find this note.\[br]I do not want to suffer, and I do not want to die at the hands of those bluespace beings. Sorry for the mess.";
@@ -517,7 +517,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -534,24 +534,24 @@
 /area/dungeon/bluespace_outpost)
 "bP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/carpet,
 /area/dungeon/bluespace_outpost)
 "bR" = (
 /obj/random/junk,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
@@ -560,14 +560,14 @@
 /obj/structure/toilet{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bV" = (
 /obj/structure/toilet{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /mob/living/simple_animal/hostile/giant_spider/hunter,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
@@ -576,24 +576,24 @@
 /obj/structure/toilet{
 	dir = 1
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "cd" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ce" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "cg" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid,

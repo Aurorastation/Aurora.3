@@ -54,7 +54,7 @@
 	force = 15
 	throwforce = 7.0
 	w_class = WEIGHT_CLASS_BULKY
-	matter = list(DEFAULT_WALL_MATERIAL = 50)
+	matter = list(MATERIAL_STEEL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 	var/can_support = TRUE
 
@@ -215,7 +215,7 @@
 		target_mob.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
 
 	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", "<span class='[class]'>[endmessage1st][punct]</span>")
-	user.do_attack_animation(target_mob)
+	user.do_attack_animation(target_mob, used_item = src)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(soundname)
@@ -447,7 +447,7 @@
 	name = "power control module"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
+	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
 
 /obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
@@ -483,7 +483,7 @@
 
 /obj/item/camera_bug/attack_self(mob/user as mob)
 	var/list/cameras = new/list()
-	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
+	for (var/obj/structure/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
@@ -492,13 +492,13 @@
 
 	var/list/friendly_cameras = new/list()
 
-	for (var/obj/machinery/camera/C in cameras)
+	for (var/obj/structure/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
 	var/target = tgui_input_list(user, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
-	for (var/obj/machinery/camera/C in cameras)
+	for (var/obj/structure/machinery/camera/C in cameras)
 		if (C.c_tag == target)
 			target = C
 			break
@@ -512,7 +512,7 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "wire1"
 
-	var/obj/machinery/machine
+	var/obj/structure/machinery/machine
 
 /obj/item/neuralbroke
 	name = "fried neural socket"
@@ -546,6 +546,20 @@
 	display_contents_with_number = TRUE
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 100
+
+/obj/item/storage/part_replacer/full
+	starts_with = list(
+		/obj/item/stock_parts/capacitor/adv = 5,
+		/obj/item/stock_parts/capacitor/super = 5,
+		/obj/item/stock_parts/manipulator/nano = 5,
+		/obj/item/stock_parts/manipulator/pico = 5,
+		/obj/item/stock_parts/scanning_module/adv = 5,
+		/obj/item/stock_parts/scanning_module/phasic = 5,
+		/obj/item/stock_parts/matter_bin/adv = 5,
+		/obj/item/stock_parts/matter_bin/super = 5,
+		/obj/item/stock_parts/micro_laser/high = 5,
+		/obj/item/stock_parts/micro_laser/ultra = 5,
+	)
 
 /obj/item/ectoplasm
 	name = "ectoplasm"

@@ -213,7 +213,7 @@
 	description = "It dispenses bigger pipes for things to travel through. No, the pipes aren't green."
 	price = 30
 	items = list(
-		/obj/machinery/pipedispenser/disposal/orderable
+		/obj/structure/machinery/pipedispenser/disposal/orderable
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -339,7 +339,7 @@
 	description = "It is a heavy duty industrial laser."
 	price = 1850
 	items = list(
-		/obj/machinery/power/emitter
+		/obj/structure/machinery/power/emitter
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"
@@ -395,7 +395,7 @@
 	description = "A large thermal battery that projects a high amount of energy when powered."
 	price = 250
 	items = list(
-		/obj/machinery/field_generator
+		/obj/structure/machinery/field_generator
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -421,9 +421,23 @@
 	name = "fuel tank"
 	supplier = "hephaestus"
 	description = "A tank filled with welding fuel."
-	price = 10
+	price = 600
 	items = list(
 		/obj/structure/reagent_dispensers/fueltank
+	)
+	access = 0
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/extinguishertank
+	category = "engineering"
+	name = "extinguisher tank"
+	supplier = "hephaestus"
+	description = "A tank filled with extinguisher fluid."
+	price = 600
+	items = list(
+		/obj/structure/reagent_dispensers/extinguisher
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -635,7 +649,7 @@
 	description = "This controls the density of the particles."
 	price = 2250
 	items = list(
-		/obj/machinery/particle_accelerator/control_box
+		/obj/structure/machinery/particle_accelerator/control_box
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"
@@ -719,7 +733,7 @@
 	description = "Used to generate a Singularity. It is not adviced to use this on the asteroid."
 	price = 17000
 	items = list(
-		/obj/machinery/the_singularitygen
+		/obj/structure/machinery/the_singularitygen
 	)
 	access = ACCESS_HEADS
 	container_type = "box"
@@ -747,7 +761,7 @@
 	description = "An unstable, radioactive crystal that forms the power source of several experimental ships and stations. Extremely dangerous."
 	price = 18500
 	items = list(
-		/obj/machinery/power/supermatter
+		/obj/structure/machinery/power/supermatter
 	)
 	access = ACCESS_CAPTAIN
 	container_type = "box"
@@ -761,9 +775,9 @@
 	description = "A kit that comes with a thermoelectric generator and two circulators that attach to it. For usage in high-power energy generation."
 	price = 1200
 	items = list(
-		/obj/machinery/power/generator,
-		/obj/machinery/atmospherics/binary/circulator,
-		/obj/machinery/atmospherics/binary/circulator
+		/obj/structure/machinery/power/generator,
+		/obj/structure/machinery/atmospherics/binary/circulator,
+		/obj/structure/machinery/atmospherics/binary/circulator
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -795,20 +809,6 @@
 	)
 	access = 0
 	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/watertank
-	category = "engineering"
-	name = "watertank"
-	supplier = "hephaestus"
-	description = "A tank filled with water."
-	price = 10
-	items = list(
-		/obj/structure/reagent_dispensers/watertank
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -847,7 +847,7 @@
 	description = "A radiation collector array. Used to augment the power generation of a generator that emits ionising radiation."
 	price = 650
 	items = list(
-		/obj/machinery/power/rad_collector
+		/obj/structure/machinery/power/rad_collector
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"

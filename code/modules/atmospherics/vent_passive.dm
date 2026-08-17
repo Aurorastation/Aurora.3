@@ -1,4 +1,4 @@
-/obj/machinery/atmospherics/pipe/vent_passive
+/obj/structure/machinery/atmospherics/pipe/vent_passive
 	name = "passive vent"
 	desc = ""
 	icon = 'icons/atmos/vent_passive.dmi'
@@ -13,28 +13,28 @@
 	dir = SOUTH
 	initialize_directions = SOUTH
 
-	var/obj/machinery/atmospherics/node
+	var/obj/structure/machinery/atmospherics/node
 	var/welded = FALSE
 
-/obj/machinery/atmospherics/pipe/vent_passive/Initialize()
+/obj/structure/machinery/atmospherics/pipe/vent_passive/Initialize()
 	initialize_directions = dir
 	. = ..()
 
-/obj/machinery/atmospherics/pipe/vent_passive/hide(var/i)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/hide(var/i)
 	if(istype(loc, /turf/simulated))
 		set_invisibility(i ? 101 : 0)
 	queue_icon_update()
 
-/obj/machinery/atmospherics/pipe/vent_passive/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	. += "This passively outputs the contents of the attached pipe out into the atmosphere."
 
-/obj/machinery/atmospherics/pipe/vent_passive/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	if(welded)
 		. += "It seems welded shut."
 
-/obj/machinery/atmospherics/pipe/vent_passive/update_icon(safety = 0)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/update_icon(safety = 0)
 
 	var/vent_icon = ""
 
@@ -47,13 +47,13 @@
 
 	update_underlays()
 
-/obj/machinery/atmospherics/pipe/vent_passive/update_underlays()
+/obj/structure/machinery/atmospherics/pipe/vent_passive/update_underlays()
 	if(..())
 		underlays.Cut()
 		var/turf/T = get_turf(src)
 		if(!istype(T))
 			return
-		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+		if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/structure/machinery/atmospherics/pipe))
 			return
 		else
 			if(node)
@@ -62,13 +62,13 @@
 				add_underlay(T,, dir)
 			underlays += "frame"
 
-/obj/machinery/atmospherics/pipe/vent_passive/process(seconds_per_tick)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/process(seconds_per_tick)
 	if(!parent)
 		..()
 	else
 		parent.mingle_with_turf(loc, volume)
 
-/obj/machinery/atmospherics/pipe/vent_passive/Destroy()
+/obj/structure/machinery/atmospherics/pipe/vent_passive/Destroy()
 	if(node)
 		node.disconnect(src)
 
@@ -76,11 +76,11 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/pipe/vent_passive/pipeline_expansion()
+/obj/structure/machinery/atmospherics/pipe/vent_passive/pipeline_expansion()
 	return list(node)
 
-/obj/machinery/atmospherics/pipe/vent_passive/atmos_init()
-	for(var/obj/machinery/atmospherics/target in get_step(src, dir))
+/obj/structure/machinery/atmospherics/pipe/vent_passive/atmos_init()
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src, dir))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
 				node = target
@@ -89,9 +89,9 @@
 	atmos_initialised = TRUE
 	SSicon_update.add_to_queue(src)
 
-/obj/machinery/atmospherics/pipe/vent_passive/disconnect(obj/machinery/atmospherics/reference)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/disconnect(obj/structure/machinery/atmospherics/reference)
 	if(reference == node)
-		if(istype(node, /obj/machinery/atmospherics/pipe))
+		if(istype(node, /obj/structure/machinery/atmospherics/pipe))
 			qdel(parent)
 		node = null
 
@@ -99,7 +99,7 @@
 
 	return null
 
-/obj/machinery/atmospherics/pipe/vent_passive/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atmospherics/pipe/vent_passive/attackby(obj/item/attacking_item, mob/user)
 
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
@@ -128,13 +128,13 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded air vents!"))
 			return TRUE
 		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
-		user.do_attack_animation(src, attacking_item)
+		user.do_attack_animation(src, used_item = attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
 			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
-			user.do_attack_animation(src, attacking_item)
+			user.do_attack_animation(src, used_item = attacking_item)
 			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
@@ -174,5 +174,5 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/pipe/vent_passive/is_welded()
+/obj/structure/machinery/atmospherics/pipe/vent_passive/is_welded()
 	return welded

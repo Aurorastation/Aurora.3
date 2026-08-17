@@ -94,7 +94,7 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/merchants_guild
+/obj/structure/machinery/computer/shuttle_control/explore/merchants_guild
 	name = "shuttle control console"
 	shuttle_tag = "Merchants' Guild Shuttle"
 	req_access = list(ACCESS_MERCHANTS_GUILD)

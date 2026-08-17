@@ -6,14 +6,21 @@
 	all_vaurca = set_all_vaurca
 
 /datum/tgui_module/hivenet_manifest/ui_interact(var/mob/user, var/datum/tgui/ui)
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(user.z))
+		to_chat(user, SPAN_WARNING("You attempt to query the Hivenet, but find nothing."))
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "HivenetManifest", "Hivenet Manifest", 350, 400)
-		ui.autoupdate = FALSE
 		ui.open()
 
 /datum/tgui_module/hivenet_manifest/ui_data(mob/user)
 	var/list/data = list()
+
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(user.z))
+		SStgui.close_uis(src)
+		return data
 
 	var/list/zora_vaurca = list()
 	var/list/cthur_vaurca = list()
@@ -31,9 +38,9 @@
 				klax_vaurca += vaurca_to_data(vaurca)
 
 	data["all_vaurca"] = list(
-		"Zo'ra" = list("vaurca" = sort_vaurca_list(zora_vaurca), "color" = "Security"),
-		"C'thur" = list("vaurca" = sort_vaurca_list(cthur_vaurca), "color" = "Command"),
-		"K'lax" = list("vaurca" = sort_vaurca_list(klax_vaurca), "color" = "Medical")
+		"Zo'ra" = list("vaurca" = sort_vaurca_list(zora_vaurca), "color" = "red"),
+		"C'thur" = list("vaurca" = sort_vaurca_list(cthur_vaurca), "color" = "violet"),
+		"K'lax" = list("vaurca" = sort_vaurca_list(klax_vaurca), "color" = "gold")
 	)
 
 	return data

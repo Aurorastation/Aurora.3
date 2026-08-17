@@ -36,11 +36,11 @@
 /turf/template_noop,
 /area/template_noop)
 "du" = (
-/obj/machinery/light/small/red,
+/obj/structure/machinery/light/small/red,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "dA" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -122,8 +122,8 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "jI" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -303,7 +303,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "Cq" = (
-/obj/machinery/atmospherics/valve{
+/obj/structure/machinery/atmospherics/valve{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -332,13 +332,13 @@
 /turf/template_noop,
 /area/template_noop)
 "Ec" = (
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Eo" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
@@ -349,7 +349,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Fv" = (
-/obj/machinery/light/small/red{
+/obj/structure/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -401,7 +401,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Jj" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -422,7 +422,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Mw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/airless,
@@ -432,7 +432,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Oe" = (
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4;
 	pixel_x = -4
 	},
@@ -513,7 +513,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Wg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/airless,

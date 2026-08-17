@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { Box, Button, Section } from '../components';
+import { Box, Button, Section } from 'tgui-core/components';
 
 export const meta = {
   title: 'Button',
@@ -28,7 +28,7 @@ const COLORS_SPECTRUM = [
 
 const COLORS_STATES = ['good', 'average', 'bad', 'black', 'white'];
 
-const Story = (props, context) => {
+const Story = (props) => {
   return (
     <Section>
       <Box mb={1}>

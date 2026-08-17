@@ -73,7 +73,7 @@
 	var/damageoverlaytemp = 0
 	var/computer_id = null
 	var/character_id = 0
-	var/obj/machinery/machine = null
+	var/obj/structure/machinery/machine = null
 	var/height = HEIGHT_NOT_USED
 	var/sdisabilities = 0				//Carbon
 	var/disabilities = 0				//Carbon
@@ -91,16 +91,8 @@
 	var/brokejaw = null
 	var/real_name = null
 	var/flavor_text = ""
-	var/med_record = ""
-	var/sec_record = ""
-	var/list/incidents = list()
 	var/list/additional_vision_handlers = list()
-	var/gen_record = ""
-	var/ccia_record = ""
-	var/list/ccia_actions = list()
-	var/exploit_record = ""
 	var/blinded = null
-	var/bhunger = 0						//Carbon
 	var/ajourn = 0
 	var/druggy = 0						//Carbon
 	var/confused = 0					//Carbon
@@ -114,7 +106,6 @@
 	var/resting = 0						//Carbon
 	var/lying = 0	// Is the mob lying down?
 	var/lying_prev = 0	// Was the mob lying down before?
-	var/lying_is_intentional = FALSE	// Is the mob lying down intentionally? (eg. a manouver)
 	var/canmove = 1
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
 	var/incorporeal_move = INCORPOREAL_DISABLE
@@ -127,7 +118,7 @@
 	var/emote_type = 1		// Define emote default type, 1 for seen emotes, 2 for heard emotes
 	var/facing_dir = null   // Used for the ancient art of moonwalking.
 
-	var/obj/machinery/hologram/holopad/holo = null
+	var/obj/structure/machinery/hologram/holopad/holo = null
 
 	var/name_archive //For admin things like possession
 
@@ -156,7 +147,6 @@
 	var/stunned = 0
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
-	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
@@ -171,12 +161,9 @@
 	var/list/alerts = list()
 	var/list/screens = list()
 
-	var/seer = 0 //for cult//Carbon, probably Human
-
 	var/datum/hud/hud_used = null
 
 	var/list/grabbed_by = list(  )
-	var/list/requests = list(  )
 
 	var/list/mapobjs = list()
 
@@ -185,10 +172,6 @@
 	var/inertia_dir = 0
 
 	var/job = null//Living
-
-	var/const/blindness = 1//Carbon
-	var/const/deafness = 2//Carbon
-	var/const/muteness = 4//Carbon
 
 	var/can_pull_size = 10              // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER // Whether or not the mob can pull other mobs.
@@ -223,13 +206,6 @@
 
 //Wizard mode, but can be used in other modes thanks to the brand new "Give Spell" badmin button
 	var/list/spell/spell_list
-
-//List of active diseases
-
-	var/list/viruses = list() // replaces var/datum/disease/virus
-
-//Monkey/infected mode
-	var/list/resistances = list()
 
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
@@ -270,7 +246,6 @@
 
 	var/frozen = FALSE //related to wizard statues, if set to true, life won't process
 
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
 
 	var/mob_thinks = TRUE
@@ -288,3 +263,77 @@
 
 	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
 	var/list/message_notifications
+
+	var/mob/living/vr_mob = null // In which mob is our mind
+	var/mob/living/old_mob = null // Which mob is our old mob
+
+	/**
+	* LAZYLIST (Instances of `/datum/click_handler`). Click handlers for this mob that should intercept and handle click
+	* calls.
+	*
+	* The 'topmost'/'active' click handler for the mob is the handler currently at index `1`. By default, this will be
+	* `/datum/click_handler/default`.
+	*/
+	var/list/click_handlers
+
+	var/should_add_to_mob_list = TRUE
+
+	/// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
+	var/do_unique_user_handle = 0
+
+	var/mob/lastattacker = null
+	var/mob/lastattacked = null
+	var/attack_log = list()
+
+	/// Spam control, can only point when the previous pointer qdels
+	var/obj/effect/decal/point/pointing_effect = null
+
+	/// 1 decisecond click delay (above and beyond mob/next_move)
+	var/next_click = 0
+
+	var/dizziness = 0//Carbon
+	var/is_dizzy = 0
+	var/is_jittery = 0
+	var/jitteriness = 0//Carbon
+
+	//handles up-down floaty effect in space and zero-gravity
+	var/is_floating = FALSE
+
+	var/last_pain_message = ""
+	var/next_pain_time = 0
+
+	/**
+	* global
+	*
+	* Tracks open UIs for a user.
+	*/
+	var/list/tgui_open_uis = list()
+
+	var/tmp/last_airflow_stun = 0
+
+	//thou shall always be able to see the Geometer of Blood
+	var/image/narsimage = null
+	var/image/narglow = null
+
+	//thou shall always be able to see the rift
+	var/image/riftimage = null
+
+	var/list/client_colors = list()
+
+	var/bloody_hands = null
+	var/datum/weakref/bloody_hands_mob
+	var/track_footprint = 0
+	var/list/feet_blood_DNA
+	var/track_footprint_type
+	var/footprint_color
+
+	var/mob/abstract/eye/eyeobj
+
+	var/mob/living/brain_ghost/bg
+
+	var/list/default_emotes = list()
+	var/list/usable_emotes = list()
+
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
+
+	var/thinking_enabled = FALSE

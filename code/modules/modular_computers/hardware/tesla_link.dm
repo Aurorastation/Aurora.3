@@ -20,7 +20,7 @@
 	hardware_size = 1
 	origin_tech = list(TECH_ENGINEERING = 1, TECH_POWER = 1)
 	passive_charging_rate = 2500 // mW
-	var/obj/machinery/power/source
+	var/obj/structure/machinery/power/source
 	var/datum/beam/beam
 	var/cable_length = 3
 
@@ -29,7 +29,7 @@
 		untether()
 	return ..()
 
-/obj/item/computer_hardware/tesla_link/charging_cable/toggle(var/obj/machinery/power/power_source, mob/user)
+/obj/item/computer_hardware/tesla_link/charging_cable/toggle(var/obj/structure/machinery/power/power_source, mob/user)
 	if(!source)
 		if(!istype(power_source))
 			return
@@ -48,7 +48,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/computer_hardware/tesla_link/charging_cable/proc/tether(var/obj/machinery/power/P)
+/obj/item/computer_hardware/tesla_link/charging_cable/proc/tether(var/obj/structure/machinery/power/P)
 	if(!istype(P))
 		return
 	source = P

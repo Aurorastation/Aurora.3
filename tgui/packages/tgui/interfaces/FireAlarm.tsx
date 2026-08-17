@@ -1,19 +1,19 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Button, Box } from '../components';
 import { Window } from '../layouts';
 
 export type FireAlarmData = {
-  alertLevel: String;
+  alertLevel: string;
   time: number;
   active: BooleanLike;
   timing: BooleanLike;
 };
 
-export const FireAlarm = (props, context) => {
-  const { act, data } = useBackend<FireAlarmData>(context);
+export const FireAlarm = (props) => {
+  const { act, data } = useBackend<FireAlarmData>();
   return (
-    <Window resizable theme="hephaestus" title="Fire Alarm">
+    <Window theme="hephaestus" title="Fire Alarm">
       <Window.Content scrollable>
         <Section title="Alert Level">
           {data.alertLevel.toLocaleUpperCase()}
@@ -27,14 +27,15 @@ export const FireAlarm = (props, context) => {
           </Button>
         </Section>
         <Section title="Timed Lockdown">
-          <Box title="Current Timer">
+          <Box>
+            Current Timer:{' '}
             {data.time > 1
-              ? (data.time / 10).toFixed(0).toString() + ' seconds'
+              ? `${(data.time / 10).toFixed(0).toString()} seconds`
               : 'Not Set'}
           </Box>
           <Button.Input
             content="Set Activation Timer"
-            onCommit={(e, value) => {
+            onCommit={(value) => {
               act('set_timer', {
                 set_timer: value,
               });

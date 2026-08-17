@@ -104,12 +104,11 @@
 		D.set_color()
 		D.set_up(my_target, spray_size, 10)
 
-	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(istype(H.back,/obj/item/rig))
 			var/obj/item/rig/R = H.back
-			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
-				S.deactivate()
+			R.attack_disrupt_check()  //This currently handles decloaking ninjas who spray acid or lube. Other modules could use attack_disrupt_check() in future.
 
 /obj/item/reagent_containers/spray/attack_self(var/mob/user)
 	if(!possible_transfer_amounts)
@@ -134,6 +133,11 @@
 /obj/item/reagent_containers/spray/cleaner
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
+
+/obj/item/reagent_containers/spray/cleaner/surgical
+	name = "surgical cleaner"
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back."
+	icon_state = "sterilespray"
 
 /obj/item/reagent_containers/spray/cleaner/drone
 	name = "space cleaner"
@@ -177,6 +181,8 @@
 	volume = 40
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
+	drop_sound = 'sound/items/drop/pepper_spray.ogg'
+	pickup_sound = 'sound/items/pickup/pepper_spray.ogg'
 
 /obj/item/reagent_containers/spray/pepper/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -293,3 +299,14 @@
 		return
 
 	..()
+
+/obj/item/reagent_containers/spray/cleaner/glass_glue
+	name = "single-use glass adhesive spray"
+	desc = "A small spray tube of a Hephaestus Industries ultra-strong silicate epoxy adhesive. For window and glass repair. Single-use!"
+	volume = 20
+	icon_state = "deodorant"
+	item_state = "deodorant"
+	possible_transfer_amounts = null
+	spray_size = 1
+	spray_sizes = null
+	reagents_to_add = list(/singleton/reagent/silicate = 20)

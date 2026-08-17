@@ -9,6 +9,7 @@
 	suffix = "freebooter_ship_.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	spawn_weight = 1
 	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
@@ -98,7 +99,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/freebooter_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/freebooter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freebooter Shuttle"
 

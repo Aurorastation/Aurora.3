@@ -1,4 +1,4 @@
-/obj/machinery/ship_weapon/nephilim
+/obj/structure/machinery/ship_weapon/nephilim
 	name = "nephilim blaster repeater"
 	desc = "The Nephilim is a reliable blaster repeater produced on-contract by several factories across the spur. Seeing widespread use on both sides of the piracy epidemic in the Coalition, it has been shown to be effective and easy to maintain; two details not shared by earlier ship-mounted blaster weapons. Utilising hydrogen blaster cells, it is quicker to charge, while necessitating frequent reloads."
 	icon = 'icons/obj/machinery/ship_guns/nephilim.dmi'
@@ -11,7 +11,7 @@
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
 
-/obj/machinery/ship_weapon/nephilim/pre_fire(/atom/target, /obj/effect/landmark/landmark)
+/obj/structure/machinery/ship_weapon/nephilim/pre_fire(/atom/target, /obj/effect/landmark/landmark)
 	for(var/mob/M in GLOB.living_mob_list)
 		if(AreConnectedZLevels(GET_Z(M), z))
 			sound_to(M, sound('sound/weapons/gunshot/ship_weapons/gatling_laser.ogg'))
@@ -19,7 +19,7 @@
 	sleep(1.1 SECONDS)
 	. = ..()
 
-/obj/machinery/ammunition_loader/nephilim
+/obj/structure/machinery/ammunition_loader/nephilim
 	name = "nephilim ammunition loader"
 
 /obj/item/ship_ammunition/nephilim
@@ -34,6 +34,7 @@
 	caliber = SHIP_CALIBER_BLASTER
 	burst = 15
 	cookoff_heavy = 0
+	projectile_type_override = /obj/projectile/ship_ammo/nephilim/he
 
 /obj/item/ship_ammunition/nephilim/ap
 	name = "Blaster AP hydrogen cell"
@@ -42,6 +43,7 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_nephilim.dmi'
 	icon_state = "repeater_ap"
 	impact_type = SHIP_AMMO_IMPACT_AP
+	projectile_type_override = /obj/projectile/ship_ammo/nephilim/ap
 
 /obj/projectile/ship_ammo/nephilim
 	name = "hydrogen cell he"
@@ -50,6 +52,7 @@
 	damage = 40
 	armor_penetration = 40
 	penetrating = 0
+	explosion_strength = list(0, 2, 3)
 
 
 /obj/projectile/ship_ammo/nephilim/ap
@@ -57,7 +60,8 @@
 	damage = 20
 	armor_penetration = 100
 	penetrating = 4
+	explosion_strength = list(0, 0, 0)
 
 /obj/projectile/ship_ammo/nephilim/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	explosion(target, 0, 2, 3)
+	explosion(get_turf(target), explosion_strength[1], explosion_strength[2], explosion_strength[3])

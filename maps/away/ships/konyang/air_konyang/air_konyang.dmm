@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -17,13 +17,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "bd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "bp" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/coolanttank,
@@ -31,7 +31,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "bQ" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -39,46 +39,46 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "bR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/engineering)
 "bZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "cf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "cg" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/air_konyang,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "co" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "ct" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -102,27 +102,27 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/atmos)
 "dy" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/crew)
 "dB" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "dI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, docking port"
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_air_konyang";
 	name = "airlock_air_konyang";
@@ -134,7 +134,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "dL" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 0663;
 	id_tag = "co2_out";
 	dir = 1
@@ -146,14 +146,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
 "ei" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = 32
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "ep" = (
-/obj/machinery/airlock_sensor/airlock_interior{
+/obj/structure/machinery/airlock_sensor/airlock_interior{
 	dir = 4;
 	pixel_x = 24;
 	pixel_y = -5
@@ -169,20 +169,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/rear_hall)
 "eH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/air_konyang/mainroom)
 "eQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "eX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/brown,
@@ -191,10 +191,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/crew)
 "fK" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -206,22 +206,22 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/crew)
 "ga" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/air_konyang/engineering)
 "gd" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "ge" = (
@@ -231,18 +231,18 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/computer/shuttle_control/explore/air_konyang,
+/obj/structure/machinery/computer/shuttle_control/explore/air_konyang,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "gm" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/engineering)
 "gp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -272,8 +272,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
@@ -292,10 +292,10 @@
 /area/shuttle/air_konyang/bridge)
 "hq" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -306,8 +306,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -317,15 +317,15 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "ie" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = 6
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 8;
 	pixel_x = 20;
 	pixel_y = -6
@@ -341,7 +341,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "iq" = (
-/obj/machinery/vending/dinnerware/plastic,
+/obj/structure/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "jq" = (
@@ -351,12 +351,12 @@
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/engineering)
 "kc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "kd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -365,7 +365,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "kf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -381,7 +381,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "kn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -391,10 +391,10 @@
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 20
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 22
 	},
 /turf/simulated/floor/plating,
@@ -404,10 +404,10 @@
 /area/shuttle/air_konyang/atmos)
 "kQ" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -32;
 	req_access = null
@@ -419,7 +419,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/air_konyang/mainroom)
 "kX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/rear_hall)
 "lR" = (
@@ -427,7 +427,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/air_konyang/mainroom)
 "mc" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
 	name = "CO2 to Thrusters"
 	},
@@ -435,7 +435,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "mp" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -447,13 +447,13 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/crew)
 "mS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -469,24 +469,24 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/crew)
 "mY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "ng" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/blue,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "nv" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_air_konyang";
 	name = "airlock_air_konyang";
@@ -497,7 +497,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "nG" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -506,7 +506,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -525,14 +525,14 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "oc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "ot" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -543,24 +543,24 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "oY" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
+/obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "pa" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -572,20 +572,20 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "pv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "pR" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -593,7 +593,7 @@
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 8;
 	pixel_y = 28;
 	dir = 4
@@ -601,10 +601,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "qs" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/closet/radiation,
@@ -626,11 +626,11 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/item/clothing/head/helmet/pilot,
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	pixel_y = 8
 	},
 /obj/item/eftpos,
@@ -644,14 +644,14 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/atmos)
 "qH" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/rear_hall)
 "rk" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/brown,
@@ -669,8 +669,8 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/air_konyang/mainroom)
 "sl" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 23;
 	pixel_y = -24
@@ -692,13 +692,13 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "tm" = (
 /obj/structure/table/steel,
 /obj/item/newspaper,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -708,10 +708,10 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_x = -32;
 	pixel_y = 10
 	},
@@ -731,38 +731,38 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "up" = (
-/obj/machinery/vending/snack/konyang{
+/obj/structure/machinery/vending/snack/konyang{
 	prices = list()
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "uA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "uG" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/ghostspawpoint{
 	name = "igs - air_konyang_passenger";
 	identifier = "air_konyang_passenger"
@@ -770,15 +770,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
 "uT" = (
-/obj/machinery/computer/ship/helm,
+/obj/structure/machinery/computer/ship/helm,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "vm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_air_konyang";
 	name = "airlock_air_konyang";
@@ -790,7 +790,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "vs" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -798,22 +798,22 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
 "vv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "vM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/brown,
@@ -827,7 +827,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/bridge)
 "wl" = (
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/bridge)
@@ -835,7 +835,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/ghostspawpoint{
@@ -848,8 +848,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/light,
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
@@ -860,7 +860,7 @@
 	dir = 6
 	},
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffeemaster/full,
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_y = 10;
 	pixel_x = 6
@@ -883,13 +883,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -900,21 +900,21 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "wX" = (
-/obj/machinery/atmospherics/binary/pump/fuel,
+/obj/structure/machinery/atmospherics/binary/pump/fuel,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -926,8 +926,8 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/bridge)
 "xW" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/machinery/air_sensor{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/machinery/air_sensor{
 	frequency = 0663;
 	id_tag = "co2_sensor"
 	},
@@ -944,10 +944,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Rear Hallway"
 	},
 /turf/simulated/floor/plating,
@@ -956,7 +956,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "yL" = (
@@ -973,19 +973,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "yY" = (
-/obj/machinery/vending/cola/konyang{
+/obj/structure/machinery/vending/cola/konyang{
 	prices = list()
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "zd" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "ze" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -997,17 +997,17 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/crew)
 "zq" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -1015,7 +1015,7 @@
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 8;
 	pixel_y = 28;
 	dir = 4
@@ -1023,10 +1023,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "zr" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 1;
 	name = "scrubbers to waste"
 	},
@@ -1034,7 +1034,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "zH" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -1044,7 +1044,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "zL" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1061,7 +1061,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/rear_hall)
 "Aq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -1072,10 +1072,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Crew Compartment"
 	},
 /turf/simulated/floor/plating,
@@ -1089,7 +1089,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "AC" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/structure/machinery/computer/general_air_control/large_tank_control{
 	frequency = 0663;
 	input_tag = "co2_in";
 	name = "Carbon Dioxide Supply Monitor";
@@ -1103,7 +1103,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/bridge)
 "Bv" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/engineering)
 "BB" = (
@@ -1121,19 +1121,19 @@
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 20
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "Cd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "Ck" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -1148,7 +1148,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
 "Cz" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/plating,
@@ -1162,21 +1162,21 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "CU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1185,10 +1185,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = null
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "DJ" = (
@@ -1197,9 +1197,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/command{
 	name = "Helm"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1209,28 +1209,28 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "En" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/atmos)
 "EN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "Ff" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -1246,7 +1246,7 @@
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_y = 22
 	},
 /turf/simulated/floor/plating,
@@ -1265,7 +1265,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/rear_hall)
 "FT" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -1273,12 +1273,12 @@
 /area/shuttle/air_konyang/engineering)
 "Gk" = (
 /obj/structure/cable,
-/obj/machinery/power/terminal,
+/obj/structure/machinery/power/terminal,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "Gm" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -1288,7 +1288,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1301,7 +1301,7 @@
 /area/shuttle/air_konyang/mainroom)
 "GM" = (
 /obj/structure/table/steel,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Air Konyang Vessel"
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1310,7 +1310,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1322,7 +1322,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/atmos)
 "HB" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/bridge)
@@ -1334,11 +1334,11 @@
 /area/space)
 "HY" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "Id" = (
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_air_konyang";
 	name = "airlock_air_konyang";
@@ -1353,7 +1353,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
@@ -1363,13 +1363,13 @@
 /area/shuttle/air_konyang/atmos)
 "IW" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
 "IY" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -1389,13 +1389,13 @@
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/mainroom)
 "JE" = (
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "JH" = (
-/obj/machinery/atmospherics/pipe/tank,
+/obj/structure/machinery/atmospherics/pipe/tank,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "JP" = (
@@ -1407,13 +1407,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1433,13 +1433,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "KO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/atmos)
 "LA" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -1456,12 +1456,12 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "Mf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1481,10 +1481,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1496,8 +1496,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "MB" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
 	pixel_y = 12
@@ -1513,7 +1513,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "Ne" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -1521,7 +1521,7 @@
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -8;
 	pixel_y = 28;
 	dir = 8
@@ -1529,7 +1529,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "Ni" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1542,7 +1542,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "Nw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -1553,17 +1553,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
 	name = "Engineering"
 	},
@@ -1575,17 +1575,17 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "Oa" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1593,26 +1593,26 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/east{
+/obj/structure/machinery/power/apc/high/east{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "Oc" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, atmospherics"
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/atmos)
 "OP" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "OU" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1623,17 +1623,17 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/crew)
 "Pa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "Py" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -1653,13 +1653,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "PZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "Qa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1677,7 +1677,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "QK" = (
-/obj/machinery/vending/coffee/free,
+/obj/structure/machinery/vending/coffee/free,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "QT" = (
@@ -1685,19 +1685,19 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "Rb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/rear_hall)
 "Rd" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1715,16 +1715,16 @@
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/mainroom)
 "RO" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "RQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1737,10 +1737,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "Sf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_air_konyang";
 	name = "airlock_air_konyang";
@@ -1752,19 +1752,19 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/rear_hall)
 "Sv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "To" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1784,7 +1784,7 @@
 /area/shuttle/air_konyang/engineering)
 "Ut" = (
 /obj/structure/table/steel,
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -1804,20 +1804,20 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
 "VN" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/engineering)
 "VU" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/crew)
@@ -1839,32 +1839,32 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "WH" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "WM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/engineering)
 "WQ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1882,17 +1882,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/atmos{
+/obj/structure/machinery/door/airlock/atmos{
 	dir = 4;
 	name = "Atmospherics"
 	},
@@ -1905,13 +1905,13 @@
 	icon_state = "4-8";
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/air_konyang/engineering)
 "Yt" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -1922,10 +1922,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/mainroom)
 "Yw" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1933,38 +1933,38 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/mainroom)
 "YC" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/crew)
 "YI" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/rear_hall)
 "YX" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light{
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/shuttle/air_konyang/engineering)
 "ZB" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/engineering)
 "ZM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/effect/landmark/entry_point/aft{
@@ -1973,11 +1973,11 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/engineering)
 "ZT" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/plating,

@@ -6,6 +6,7 @@
 	item_state = "generic_casing_obj"
 	caliber = SHIP_CALIBER_406MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
+	projectile_type_override = /obj/projectile/ship_ammo/longbow
 	var/obj/item/primer/primer
 	var/obj/item/warhead/longbow/warhead
 
@@ -28,7 +29,9 @@
 				H.drop_from_inventory(W)
 				add_warhead(W)
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
-	update_status()
+		update_status()
+
+	return ..()
 
 /obj/item/ship_ammunition/longbow/can_be_loaded()
 	if(primer && warhead)

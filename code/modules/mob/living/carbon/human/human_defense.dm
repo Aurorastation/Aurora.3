@@ -41,11 +41,23 @@ emp_act
 		if(prob(20 + max(hitting_projectile.damage + hitting_projectile.embed_chance - armor, -10)))
 			hitting_projectile.do_embed(organ)
 
-/mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
+/mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/damage_type, var/def_zone, var/used_weapon, var/damage_flags, var/check_armor)
 	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
 	var/siemens_coeff = get_siemens_coefficient_organ(affected)
-	stun_amount *= siemens_coeff
-	agony_amount *= siemens_coeff
+	var/obj/attack_source = used_weapon
+	var/stun_after_armor = stun_amount
+	var/agony_after_armor = agony_amount
+
+	if(damage_type)
+		if (check_armor != ENERGY && check_armor != LASER)
+			if(agony_amount)
+				agony_after_armor *= (1 - get_blocked_ratio(def_zone, damage_type, damage_flags, attack_source.armor_penetration, agony_amount, check_armor))
+			if(stun_amount)
+				stun_after_armor *= (1 - get_blocked_ratio(def_zone, damage_type, damage_flags, attack_source.armor_penetration, stun_amount, check_armor))
+
+	if (!check_armor || check_armor == ENERGY || check_armor == LASER)
+		stun_after_armor *= siemens_coeff
+		agony_after_armor *= siemens_coeff
 
 	switch (def_zone)
 		if(BP_HEAD)
@@ -68,9 +80,9 @@ emp_act
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 					visible_message("<b>[src]</b> [(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
 
-	..(stun_amount, agony_amount, def_zone, used_weapon, damage_flags)
+	..(stun_after_armor, agony_after_armor, damage_type, def_zone, used_weapon, damage_flags)
 
-/mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
+/mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage, check_armor)
 	if(!def_zone && (damage_flags & DAMAGE_FLAG_DISPERSED))
 		var/tally
 		for(var/zone in GLOB.organ_rel_size)
@@ -152,6 +164,7 @@ emp_act
 	return null
 
 /mob/living/carbon/human/check_shields(damage, atom/damage_source, mob/attacker, def_zone, attack_text = "the attack")
+	var/result = BULLET_ACT_HIT
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
 		if(!shield)
 			continue
@@ -160,9 +173,10 @@ emp_act
 			if(!shield.can_shield_back())
 				continue
 			is_on_back = TRUE
-		return shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
-
-	return BULLET_ACT_HIT
+		result = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
+		if (result == BULLET_ACT_FORCE_PIERCE || result == BULLET_ACT_BLOCK) //Necessary to handle multiple shields.
+			return result
+	return result
 
 /mob/living/carbon/human/emp_act(severity)
 	/*
@@ -179,10 +193,6 @@ emp_act
 
 	if(emp_protect_ipc)
 		RemoveElement(/datum/element/empprotection, emp_protect_ipc)
-
-	if(!(.|emp_protect_ipc & EMP_PROTECT_CONTENTS))
-		for(var/obj/O in src)
-			O.emp_act(severity)
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)

@@ -15,7 +15,15 @@
 	var/timer = 300
 	var/atom/target = null
 	var/open_panel = 0
-	var/obj/effect/plastic_explosive/effect_overlay
+
+	/// Type of plastic explosive effect created on the obj we attack.
+	var/plastic_explosive_type = /obj/effect/plastic_explosive
+	/// Devastation range for the explosion.
+	var/devastation_range = -1
+	/// Heavy range for the explosion.
+	var/heavy_impact_range = -1
+	/// Light range for the explosion.
+	var/light_impact_range = 2
 
 /obj/item/plastique/mechanics_hints()
 	. += ..()
@@ -40,6 +48,7 @@
 /obj/item/plastique/Destroy()
 	qdel(wires)
 	wires = null
+	target = null
 	return ..()
 
 /obj/item/plastique/attackby(obj/item/attacking_item, mob/user)
@@ -100,7 +109,7 @@
 
 	log_and_message_admins("planted [src.name] on [target.name] with [timetext] fuse", user, get_turf(target))
 
-	new /obj/effect/plastic_explosive(get_turf(user), target, src)
+	new plastic_explosive_type(get_turf(user), target, src)
 	to_chat(user, SPAN_WARNING("Bomb has been planted. Timer counting down from [timetext]."))
 
 	detonate_time = world.time + (timer)
@@ -111,9 +120,8 @@
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	QDEL_NULL(effect_overlay)
 	if(location)
-		explosion(location, -1, -1, 2, 3, spreading = 0)
+		explosion(location, devastation_range, heavy_impact_range, light_impact_range, 3, spreading = 0)
 
 	if(target)
 		if (istype(target, /turf/simulated/wall))
@@ -124,6 +132,9 @@
 		else
 			target.ex_act(1)
 
+	var/obj/effect/plastic_explosive/effect = locate(/obj/effect/plastic_explosive) in get_turf(src)
+	if(effect)
+		qdel(effect)
 	qdel(src)
 
 /obj/item/plastique/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -183,8 +194,49 @@
 	desc = "A small explosive laced with radium. The explosion is small, but the radioactive material will remain for a fair while."
 	timer = 30 SECONDS
 
-/obj/item/plastique/dirty/explode(turf/location)
+/obj/item/plastique/dirty/explode(turf/location) //Does not call parent because we need a different order of operations.
+	if(!target)
+		target = get_atom_on_turf(src)
+	if(!target)
+		target = src
+	if(target)
+		if (istype(target, /turf/simulated/wall))
+			var/turf/simulated/wall/W = target
+			W.dismantle_wall(1, no_product = TRUE)
+		else if(istype(target, /mob/living))
+			target.ex_act(2) // c4 can't gib mobs anymore.
+			target.rad_act(800) //A dirty bomb going off on top of you completely irradiates you, radsuit or not.
+		else
+			target.ex_act(1)
+
 	if(location)
-		SSradiation.radiate(src, 250)
-		new /obj/effect/decal/cleanable/greenglow/radioactive/medium(get_turf(src))
-	..()
+		explosion(location, devastation_range, heavy_impact_range, light_impact_range, 3, spreading = 0)
+		SSradiation.radiate(location, 250)
+		new /obj/effect/decal/cleanable/greenglow/radioactive/extreme(location)
+
+		for(var/turf/T in RANGE_TURFS(4, location))
+			if(T == location)
+				continue
+
+			if(T in RANGE_TURFS(1, location)) //High radioactive puddles 1 tile from the epicenter, medium up to 4 tiles away.
+				if(prob(75))
+					new /obj/effect/decal/cleanable/greenglow/radioactive/high(T)
+			else if(prob(25))
+				new /obj/effect/decal/cleanable/greenglow/radioactive/medium(T)
+
+	var/obj/effect/plastic_explosive/effect = locate(/obj/effect/plastic_explosive) in get_turf(src)
+	if(effect)
+		qdel(effect)
+	qdel(src)
+
+/obj/item/plastique/strong
+	name = "bundled plastic explosives"
+	desc = "Used to put big holes in specific areas with a lot of extra hole."
+	icon_state = "plastic-explosive-big0"
+	item_state = "plasticx-big"
+	w_class = WEIGHT_CLASS_NORMAL
+
+	plastic_explosive_type = /obj/effect/plastic_explosive/big
+	devastation_range = 2
+	heavy_impact_range = 4
+	light_impact_range = 6

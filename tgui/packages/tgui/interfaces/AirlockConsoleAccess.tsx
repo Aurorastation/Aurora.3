@@ -1,7 +1,7 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type AccessAirlockConsoleData = {
   exterior_secured: BooleanLike;
@@ -9,11 +9,11 @@ export type AccessAirlockConsoleData = {
   processing: boolean;
 };
 
-export const AirlockConsoleAccess = (props, context) => {
-  const { act, data } = useBackend<AccessAirlockConsoleData>(context);
+export const AirlockConsoleAccess = (props) => {
+  const { act, data } = useBackend<AccessAirlockConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <Box>

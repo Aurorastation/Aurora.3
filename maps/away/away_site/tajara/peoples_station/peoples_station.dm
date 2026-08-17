@@ -96,7 +96,7 @@
 	else
 		designation = "[pick("Adhomai's Finest", "Party's Dagger", "Sunray", "Kazarrhaldiye", "Revolutionary Courage", "Hadiist Avenger")]"
 	..()
-/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Fang"
 
@@ -129,7 +129,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport
 	name = "shuttle control console"
 	shuttle_tag = "People's Station Transport Shuttle"
 

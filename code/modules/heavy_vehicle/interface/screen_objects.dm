@@ -1,7 +1,7 @@
 // Screen objects hereon out.
 /atom/movable/screen/mecha
 	name = "hardpoint"
-	icon = 'icons/mecha/mecha_hud.dmi'
+	icon = 'icons/hud/mecha/mecha_hud.dmi'
 	icon_state = "hardpoint"
 	var/mob/living/heavy_vehicle/owner
 	maptext_y = 11
@@ -100,19 +100,19 @@
 
 	// Draw background.
 	if(!default_hardpoint_background)
-		default_hardpoint_background = image(icon = 'icons/mecha/mecha_hud.dmi', icon_state = "bar_bkg")
+		default_hardpoint_background = image(icon = 'icons/hud/mecha/mecha_hud.dmi', icon_state = "bar_bkg")
 		default_hardpoint_background.pixel_x = 34
 	new_overlays |= default_hardpoint_background
 
 	if(value == 0)
 		if(!hardpoint_bar_empty)
-			hardpoint_bar_empty = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar_flash")
+			hardpoint_bar_empty = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="bar_flash")
 			hardpoint_bar_empty.pixel_x = 24
 			hardpoint_bar_empty.color = "#FF0000"
 		new_overlays |= hardpoint_bar_empty
 	else if(value < 0)
 		if(!hardpoint_error_icon)
-			hardpoint_error_icon = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar_error")
+			hardpoint_error_icon = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="bar_error")
 			hardpoint_error_icon.pixel_x = 34
 		new_overlays |= hardpoint_error_icon
 	else
@@ -120,7 +120,7 @@
 		// Draw statbar.
 		if(!LAZYLEN(GLOB.hardpoint_bar_cache))
 			for(var/i=0;i<BAR_CAP;i++)
-				var/image/bar = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar")
+				var/image/bar = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="bar")
 				bar.pixel_x = 24+(i*2)
 				if(i>5)
 					bar.color = "#00ff00"
@@ -160,6 +160,7 @@
 	else
 		if(owner.set_hardpoint(hardpoint_tag))
 			icon_state = "hardpoint_selected"
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/eject
 	name = "eject"
@@ -216,6 +217,7 @@
 	var/main_color = owner.use_air ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
 	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
@@ -230,6 +232,7 @@
 	var/main_color = owner.maintenance_protocols ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
 	notify_user(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/power_control
 	name = "power control"
@@ -263,6 +266,7 @@
 	var/main_color = owner.hardpoints_locked ? "#d1d1d1" : "#525252"
 	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
 	notify_user(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
+	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
@@ -318,7 +322,7 @@
 
 	toggled = !toggled
 	owner.hatch_closed = toggled
-	playsound(owner.loc, owner.hatch_closed ? 'sound/effects/metal_close.ogg' : 'sound/effects/air_seal.ogg', 75, 1)
+	playsound(owner.loc, owner.hatch_closed ? 'sound/mecha/hatch-door-close.ogg' : 'sound/effects/air_seal.ogg', 75, 1)
 	if(notify_user)
 		notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ]."))
 	update_icon()

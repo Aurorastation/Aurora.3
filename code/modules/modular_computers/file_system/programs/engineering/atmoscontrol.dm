@@ -30,13 +30,13 @@
 /datum/computer_file/program/atmos_control/proc/get_alarms(var/list/monitored_alarm_ids)
 	if(computer)
 		if(monitored_alarm_ids)
-			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+			for(var/obj/structure/machinery/alarm/alarm in SSmachinery.processing)
 				if(alarm.alarm_id && (alarm.alarm_id in monitored_alarm_ids) && AreConnectedZLevels(computer.z, alarm.z))
 					monitored_alarms |= alarm
 		else
 			/// The computer of a silicon has null Z, so...
 			var/turf/T = get_turf(computer)
-			for(var/obj/machinery/alarm/alarm in SSmachinery.processing)
+			for(var/obj/structure/machinery/alarm/alarm in SSmachinery.processing)
 				if(AreConnectedZLevels(T.z, alarm.z))
 					monitored_alarms |= alarm
 
@@ -47,8 +47,8 @@
 	switch(action)
 		// Opens the interface for the given air alarm.
 		if("alarm")
-			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
-			if(alarm)
+			var/obj/structure/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
+			if(alarm?.rcon_setting)
 				alarm.ui_interact(usr)
 			return TRUE
 		// Manually clear and repopulate the alarm list.
@@ -64,7 +64,9 @@
 		get_alarms()
 
 	var/alarms = list()
-	for(var/obj/machinery/alarm/alarm in monitored_alarms)
+	for(var/obj/structure/machinery/alarm/alarm in monitored_alarms)
+		if(!alarm.rcon_setting)
+			continue
 		alarms += list(list(
 			"deck" = alarm.alarm_area.horizon_deck,
 			"dept" = alarm.alarm_area.department,
@@ -77,4 +79,3 @@
 	data["alarms"] = alarms
 
 	return data
-

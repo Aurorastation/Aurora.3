@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(all_ui_styles, list(
-	"Midnight"     = 'icons/mob/screen/midnight.dmi',
-	"Orange"       = 'icons/mob/screen/orange.dmi',
-	"old"          = 'icons/mob/screen/old.dmi',
-	"White"        = 'icons/mob/screen/white.dmi',
-	"old-noborder" = 'icons/mob/screen/old-noborder.dmi'
+	"Midnight"     = 'icons/hud/mob/midnight.dmi',
+	"Orange"       = 'icons/hud/mob/orange.dmi',
+	"old"          = 'icons/hud/mob/old.dmi',
+	"White"        = 'icons/hud/mob/white.dmi',
+	"old-noborder" = 'icons/hud/mob/old-noborder.dmi'
 	))
 
 GLOBAL_LIST_INIT(all_tooltip_styles, list(

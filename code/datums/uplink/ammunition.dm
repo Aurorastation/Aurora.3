@@ -123,11 +123,11 @@
 	path = /obj/item/ammo_magazine/super_heavy
 	desc = "A spare magazine, for the super heavy K2557 pistol."
 
-/datum/uplink_item/item/ammo/shotgun_slug
-	name = "Shotgun Slug"
-	telecrystal_cost = 1
-	path = /obj/item/ammo_casing/shotgun
-	desc = "A shotgun slug."
+/datum/uplink_item/item/ammo/shotgun_slugs
+	name = "Box of Slug Shells"
+	telecrystal_cost = 2
+	path = /obj/item/storage/box/shells/slugs
+	desc = "Contains eight shotgun slug shells."
 
 /datum/uplink_item/item/ammo/tungsten_ammo_box
 	name = "Tungsten Ammo Box"
@@ -137,13 +137,13 @@
 
 /datum/uplink_item/item/ammo/slug_magazine
 	name = "Slug Magazine"
-	telecrystal_cost = 8
+	telecrystal_cost = 2
 	path = /obj/item/ammo_magazine/assault_shotgun
 	desc = "A magazine for an assault shotgun, loaded with slug shells."
 
 /datum/uplink_item/item/ammo/buckshot_magazine
 	name = "Buckshot Magazine"
-	telecrystal_cost = 4
+	telecrystal_cost = 1
 	path = /obj/item/ammo_magazine/assault_shotgun/shells
 	desc = "A magazine for an assault shotgun, loaded with buckshot shells."
 

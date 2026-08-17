@@ -758,31 +758,6 @@
 	flippable = FALSE
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/trinary
-	name = "trinary perfection cape"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-	icon = 'icons/obj/clothing/ties.dmi'
-	icon_override = 'icons/mob/ties.dmi'
-	icon_state = "trinary_cape"
-	item_state = "trinary_cape"
-	overlay_state = "trinary_cape"
-	contained_sprite = FALSE
-	protects_against_weather = FALSE
-
-/obj/item/clothing/accessory/poncho/trinary/pellegrina
-	name = "trinary perfection pellegrina"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
-	icon_state = "trinary_pellegrina"
-	item_state = "trinary_pellegrina"
-	overlay_state = "trinary_pellegrina"
-
-/obj/item/clothing/accessory/poncho/trinary/shouldercape
-	name = "trinary perfection shoulder cape"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
-	icon_state = "trinary_shouldercape"
-	item_state = "trinary_shouldercape"
-	overlay_state = "trinary_shouldercape"
-
 /obj/item/clothing/accessory/poncho/assunzione
 	name = "\improper Luceian cloak"
 	desc = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
@@ -1450,6 +1425,21 @@
 		set_light_range_power_color(0.5, 0.4, color)
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
+	var/image/I = ..()
+	I.plane = ABOVE_LIGHTING_PLANE
+	I.appearance_flags |= KEEP_APART
+	return I
+
+/obj/item/clothing/accessory/newgibson_uraniumglass_necklace
+	name = "uranium glass bead necklace"
+	desc = "A beaded necklace made out of a radiofluorescent, green, uranium glass. It is only marginally radioactive. Commonly seen worn by New Gibsonites."
+	icon = 'icons/obj/item/clothing/accessory/human/biesel/newgibson_uraniumglass_necklace.dmi'
+	icon_state = "newgibson_necklace"
+	item_state = "newgibson_necklace"
+	plane = ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/newgibson_uraniumglass_necklace/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
 	I.plane = ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART

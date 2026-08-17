@@ -2,8 +2,6 @@
 				BLOOD SYSTEM
 ****************************************************/
 
-/mob/living/carbon/human/var/datum/reagents/vessel	//Container for blood and BLOOD ONLY. Do not transfer other chems here.
-
 //Initializes blood vessels
 /mob/living/carbon/human/proc/make_blood()
 	if(vessel)
@@ -113,7 +111,7 @@
 				pulse_mod *= heart.too_fast_pump_modifier
 			if(PULSE_THREADY)
 				pulse_mod *= heart.thready_pump_modifier
-	blood_volume *= pulse_mod * max(min_efficiency, (1-(heart.damage / heart.max_damage)))
+	blood_volume *= pulse_mod * max(min_efficiency, (1-(heart.get_damage() / heart.max_damage)))
 
 	return min(blood_volume, 100)
 

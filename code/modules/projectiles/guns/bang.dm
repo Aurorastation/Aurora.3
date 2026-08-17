@@ -20,6 +20,8 @@ ABSTRACT_TYPE(/obj/item/gun/bang)
 	var/suppressor_x_offset
 	///Pixel offset for the suppressor overlay on the y axis.
 	var/suppressor_y_offset
+	drop_sound = 'sound/items/drop/pistol.ogg'
+	pickup_sound = 'sound/items/pickup/pistol.ogg'
 
 /obj/item/gun/bang/update_icon()
 	..()

@@ -48,11 +48,11 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	var/image/applied_distress_overlay
 
 	var/targeting_flags = TARGETING_FLAG_ENTRYPOINTS|TARGETING_FLAG_GENERIC_WAYPOINTS
-	var/list/obj/machinery/ship_weapon/ship_weapons
+	var/list/obj/structure/machinery/ship_weapon/ship_weapons
 	var/list/obj/effect/landmark/entry_points
 	var/obj/effect/overmap/targeting
-	var/obj/machinery/leviathan_safeguard/levi_safeguard
-	var/obj/machinery/gravity_generator/main/gravity_generator
+	var/obj/structure/machinery/leviathan_safeguard/levi_safeguard
+	var/obj/structure/machinery/gravity_generator/main/gravity_generator
 
 	/// Whether ghostroles attached to this overmap object spawn with comms
 	var/comms_support = FALSE
@@ -106,15 +106,19 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 		detarget(targeting)
 
 /obj/effect/overmap/visitable/Destroy()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+	for(var/obj/structure/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		if(H.linked == src)
 			H.linked = null
-	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.linked == src)
 			T.linked = null
+	if(GLOB.ntnet_global)
+		for(var/obj/structure/machinery/ntnet_relay/R as anything in GLOB.ntnet_global.relays)
+			if(R.linked == src)
+				R.linked = null
 	if(entry_points)
 		entry_points.Cut()
-	for(var/obj/machinery/ship_weapon/SW in ship_weapons)
+	for(var/obj/structure/machinery/ship_weapon/SW in ship_weapons)
 		SW.linked = null
 	if(ship_weapons)
 		ship_weapons.Cut()
@@ -146,10 +150,13 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
-	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
+	for(var/obj/structure/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		H.attempt_hook_up(src)
-	for(var/obj/machinery/telecomms/T in SSmachinery.all_telecomms)
+	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 		T.attempt_hook_up(src)
+	if(GLOB.ntnet_global)
+		for(var/obj/structure/machinery/ntnet_relay/R as anything in GLOB.ntnet_global.relays)
+			R.attempt_hook_up(src)
 
 /obj/effect/overmap/visitable/proc/get_areas()
 	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))
@@ -178,16 +185,16 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 /obj/effect/overmap/visitable/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	landmark.sector_set(src, shuttle_name)
 	if(shuttle_name)
-		LAZYADD(restricted_waypoints[shuttle_name], landmark)
+		LAZYDISTINCTADD(restricted_waypoints[shuttle_name], landmark)
 	else
-		generic_waypoints += landmark
+		LAZYDISTINCTADD(generic_waypoints, landmark)
 
 /obj/effect/overmap/visitable/proc/remove_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	if(shuttle_name)
 		var/list/shuttles = restricted_waypoints[shuttle_name]
 		LAZYREMOVE(shuttles, landmark)
 	else
-		generic_waypoints -= landmark
+		LAZYREMOVE(generic_waypoints, landmark)
 
 /obj/effect/overmap/visitable/proc/get_waypoints(var/shuttle_name)
 	. = list()

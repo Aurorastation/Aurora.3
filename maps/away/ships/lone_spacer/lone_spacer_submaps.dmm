@@ -4,7 +4,7 @@
 /area/space)
 "c" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	pixel_x = 22;
 	name = "Cargo Hold #1 Shutters";
@@ -18,7 +18,7 @@
 /area/shuttle/lone_spacer/storage)
 "d" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
@@ -32,17 +32,17 @@
 /area/shuttle/lone_spacer/storage)
 "e" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "f" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/largecrate/animal/shark,
@@ -51,13 +51,13 @@
 /area/shuttle/lone_spacer/storage)
 "g" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "h" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
@@ -81,7 +81,7 @@
 /area/shuttle/lone_spacer/storage)
 "j" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
@@ -89,29 +89,19 @@
 	pixel_y = -1;
 	req_access = list(243)
 	},
-/obj/structure/table/rack/folding_table,
-/obj/item/storage/box/masks{
-	pixel_x = -6;
-	pixel_y = 12
-	},
-/obj/item/storage/box/gloves{
-	pixel_x = -6;
-	pixel_y = 1
-	},
-/obj/item/stack/nanopaste{
-	pixel_y = 4;
-	pixel_x = 8
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "k" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "l" = (
@@ -119,10 +109,10 @@
 /area/shuttle/lone_spacer/storage)
 "m" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/chemical_dispenser/full{
+/obj/structure/machinery/chemical_dispenser/full{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -130,7 +120,7 @@
 /area/shuttle/lone_spacer/storage)
 "p" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/random/highvalue/no_weapon,
@@ -155,7 +145,7 @@
 /area/shuttle/lone_spacer/storage)
 "r" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/closet/crate/drop,
@@ -180,6 +170,18 @@
 /obj/item/robot_parts/r_arm,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paint_sprayer,
+/obj/item/storage/box/masks{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/stack/nanopaste{
+	pixel_y = 4;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "t" = (
@@ -199,7 +201,7 @@
 /area/shuttle/lone_spacer/storage)
 "w" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/stasis_cage{
+/obj/structure/machinery/stasis_cage{
 	req_access = list()
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -213,7 +215,7 @@
 /area/shuttle/lone_spacer/storage)
 "y" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 17;
 	pixel_x = 6
 	},
@@ -228,7 +230,7 @@
 /area/shuttle/lone_spacer/storage)
 "z" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/closet/crate/loot,
@@ -237,7 +239,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "A" = (
-/obj/machinery/chem_heater,
+/obj/structure/machinery/chem_heater,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "B" = (
@@ -303,7 +305,7 @@
 /area/shuttle/lone_spacer/storage)
 "I" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
@@ -311,7 +313,7 @@
 	pixel_y = -1;
 	req_access = list(243)
 	},
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
@@ -356,7 +358,7 @@
 /area/shuttle/lone_spacer/storage)
 "L" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
@@ -365,17 +367,17 @@
 /area/shuttle/lone_spacer/storage)
 "M" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/phoron,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_1,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "N" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/closet/crate/loot,
@@ -384,7 +386,7 @@
 /area/shuttle/lone_spacer/storage)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = null;
 	dir = 1
 	},
@@ -410,7 +412,7 @@
 /area/shuttle/lone_spacer/storage)
 "Q" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/closet/crate/loot,
@@ -420,19 +422,26 @@
 /area/shuttle/lone_spacer/storage)
 "R" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "T" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/stasis_cage{
+/obj/structure/machinery/stasis_cage{
 	req_access = list()
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"U" = (
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "W" = (
@@ -446,7 +455,7 @@
 /area/shuttle/lone_spacer/storage)
 "X" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/vending/cigarette/hacked,
+/obj/structure/machinery/vending/cigarette/hacked,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
@@ -456,7 +465,7 @@
 /area/shuttle/lone_spacer/storage)
 "Z" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -727,7 +736,7 @@ a
 a
 r
 W
-B
+U
 k
 a
 a

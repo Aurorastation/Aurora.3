@@ -34,7 +34,7 @@
 	else if (istype(A, /mob/living/simple_animal/bee))
 		capture_bees(A, user)
 		return TRUE
-	else if (istype(A, /obj/machinery/beehive) && caught_bees)
+	else if (istype(A, /obj/structure/machinery/beehive) && caught_bees)
 		deposit_bees(A, user)
 		return TRUE
 	..(A, user, click_parameters)
@@ -89,7 +89,7 @@
 	if(!QDELETED(target))
 		target.update_icon()
 
-/obj/item/bee_net/proc/deposit_bees(var/obj/machinery/beehive/newhome, var/mob/user)
+/obj/item/bee_net/proc/deposit_bees(var/obj/structure/machinery/beehive/newhome, var/mob/user)
 	if(!newhome.closed)
 		var/delta = min(100 - newhome.bee_count, caught_bees)
 

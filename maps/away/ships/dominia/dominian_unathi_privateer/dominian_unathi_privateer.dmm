@@ -10,7 +10,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -21,7 +21,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/white{
@@ -37,10 +37,10 @@
 /area/shuttle/dominian_unathi)
 "aj" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -59,7 +59,7 @@
 /obj/structure/cable/green{
 	dir = 4
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -73,10 +73,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -86,11 +86,11 @@
 /area/ship/dominian_unathi/porthall)
 "av" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
@@ -106,8 +106,8 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -124,10 +124,10 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardhall)
@@ -137,10 +137,10 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -161,10 +161,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -178,13 +178,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
 	req_access = list(212);
 	dir = 4
@@ -202,7 +202,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/captain)
 "bx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -211,16 +211,16 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "bG" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(212);
 	name = "Custodial Closet"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -230,7 +230,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -239,13 +239,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "bY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -254,13 +254,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "cl" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating/cooled,
 /area/ship/dominian_unathi/portthrust)
@@ -270,8 +270,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -288,21 +288,21 @@
 	},
 /area/ship/dominian_unathi/hangar)
 "cr" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Operating Theatre";
 	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "cs" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "cy" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -310,7 +310,7 @@
 "cF" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/stool/bar/padded/orange,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "cH" = (
@@ -322,7 +322,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/dock)
 "cI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -336,7 +336,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -345,7 +345,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/crew)
 "cQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -360,7 +360,7 @@
 /obj/item/gun/projectile/pistol/super_heavy,
 /obj/item/ammo_magazine/super_heavy,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -375,7 +375,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "cX" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -388,14 +388,14 @@
 /area/ship/dominian_unathi/armory)
 "da" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "db" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /obj/structure/bed/handrail{
@@ -423,7 +423,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/armory)
 "dm" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/dominian_unathi/starboardthrust)
 "dr" = (
@@ -434,14 +434,14 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/gun)
 "dv" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "dx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/roller,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -452,7 +452,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -469,7 +469,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_unathi/engineering)
 "dF" = (
-/obj/machinery/suit_cycler/offship/dominia,
+/obj/structure/machinery/suit_cycler/offship/dominia,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
@@ -482,10 +482,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -501,8 +501,8 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -515,10 +515,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/med)
 "dY" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -526,16 +526,16 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "dZ" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "ee" = (
@@ -546,14 +546,14 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "ei" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "ek" = (
@@ -564,16 +564,16 @@
 /area/ship/dominian_unathi/pods)
 "em" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/toilet)
 "en" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/plating,
@@ -589,7 +589,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "eq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
@@ -645,16 +645,16 @@
 /obj/structure/closet,
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/white,
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "ff" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
@@ -671,14 +671,14 @@
 /obj/structure/toilet{
 	dir = 1
 	},
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 4;
 	id = "kazhkz_stall_2";
 	name = "Stall Door Lock";
 	pixel_x = 24;
 	specialfunctions = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -707,13 +707,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	name = "Temple of The Holy Tribunal";
 	req_access = list(212);
 	dir = 8
@@ -721,7 +721,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "fx" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
@@ -769,22 +769,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "fY" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "gc" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "gd" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -803,7 +803,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "gh" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "gi" = (
@@ -815,10 +815,10 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
 "gt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -839,10 +839,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "gw" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -854,7 +854,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/dock)
 "gx" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/lino,
 /area/ship/dominian_unathi/canteen)
 "gy" = (
@@ -863,7 +863,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/storage)
 "gz" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -875,11 +875,11 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/dock)
 "gB" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
@@ -891,10 +891,10 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/dock)
 "gD" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -907,7 +907,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/janitor)
 "gN" = (
-/obj/machinery/door/airlock/maintenance_hatch{
+/obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -921,7 +921,7 @@
 	pixel_x = 10
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/toilet)
 "gR" = (
@@ -929,7 +929,7 @@
 /area/ship/dominian_unathi/storage)
 "gV" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/toilet)
 "gY" = (
@@ -939,7 +939,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/computer/ship/targeting{
+/obj/structure/machinery/computer/ship/targeting{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -954,7 +954,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "hl" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -964,22 +964,22 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	pixel_y = 32;
 	req_access = null
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "hs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "hF" = (
@@ -991,16 +991,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/armory)
 "hN" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
@@ -1013,10 +1013,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1042,7 +1042,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "ip" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1074,7 +1074,7 @@
 /area/ship/dominian_unathi/loot)
 "ix" = (
 /obj/effect/floor_decal/corner/orange,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1083,7 +1083,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1093,16 +1093,16 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/orange,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "iG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1112,11 +1112,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "iK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/dock)
@@ -1130,20 +1130,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "iW" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1158,16 +1158,16 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "jg" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_kazhkz_1";
 	name = "airlock_kazhkz_1";
@@ -1182,10 +1182,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1200,8 +1200,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -1219,7 +1219,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "jA" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "jE" = (
@@ -1239,7 +1239,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(212)
 	},
@@ -1262,10 +1262,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/structure/cable/green{
@@ -1280,11 +1280,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "jU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "kc" = (
@@ -1321,7 +1321,7 @@
 /area/ship/dominian_unathi/med)
 "km" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "kw" = (
@@ -1333,7 +1333,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1342,13 +1342,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "ky" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "kA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1357,10 +1357,10 @@
 /obj/structure/cable/green{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1375,19 +1375,19 @@
 	icon_state = "lift";
 	name = "SUPB lauching panel"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "kJ" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "kO" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
@@ -1396,7 +1396,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "kT" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
@@ -1411,13 +1411,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Primary Ship Armament";
 	req_access = list(212);
 	dir = 4
@@ -1439,10 +1439,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1452,8 +1452,8 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
 "lu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1463,14 +1463,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "lv" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "lx" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	id_tag = "kazhkz_stall_2";
 	name = "Stall 2";
 	dir = 1
@@ -1478,17 +1478,17 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/toilet)
 "ly" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/lino,
 /area/ship/dominian_unathi/canteen)
 "lz" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
 /area/ship/dominian_unathi/canteen)
 "lB" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1508,7 +1508,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1536,10 +1536,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1553,11 +1553,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "lV" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1577,8 +1577,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -1594,19 +1594,19 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "mr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/bed/stool/chair/sofa/right/black{
 	dir = 4;
 	name = "pew";
@@ -1623,7 +1623,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "mw" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1634,7 +1634,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
 "mE" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Infirmary";
 	req_access = list(212)
 	},
@@ -1643,14 +1643,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "mF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1659,7 +1659,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "mH" = (
-/obj/machinery/ship_weapon/francisca/compact{
+/obj/structure/machinery/ship_weapon/francisca/compact{
 	weapon_id = "Kazkhz Rotary Cannon";
 	pixel_x = -40;
 	pixel_y = -64
@@ -1668,10 +1668,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "mJ" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 28
@@ -1686,11 +1686,11 @@
 /area/ship/dominian_unathi/porthall)
 "mK" = (
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "mN" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1723,10 +1723,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1769,7 +1769,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "nf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/orange,
@@ -1787,7 +1787,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "nq" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/orange,
@@ -1798,8 +1798,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardhall)
@@ -1812,20 +1812,20 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/porthall)
 "nF" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "nP" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1834,7 +1834,7 @@
 	frequency = 1989
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
@@ -1845,7 +1845,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "nS" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
@@ -1858,15 +1858,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "nZ" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -1889,7 +1889,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -1900,7 +1900,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -1908,8 +1908,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "ot" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -1921,10 +1921,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1944,7 +1944,7 @@
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "ox" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1960,7 +1960,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/power/apc/south{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1969,7 +1969,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "oE" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	dir = 1
 	},
@@ -1977,16 +1977,16 @@
 /area/ship/dominian_unathi/engineering)
 "oF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "oH" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "oI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2000,7 +2000,7 @@
 /area/ship/dominian_unathi/engineering)
 "oN" = (
 /obj/structure/closet/crate/loot,
-/obj/machinery/light/broken{
+/obj/structure/machinery/light/broken{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -2028,13 +2028,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Fighter Bay";
 	req_access = list(212);
 	dir = 8
@@ -2045,11 +2045,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "pk" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "pp" = (
@@ -2062,19 +2062,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "ps" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "pu" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "pz" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
@@ -2089,13 +2089,13 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
 "pL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
@@ -2106,7 +2106,7 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = 25
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2117,9 +2117,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2160,13 +2160,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	req_access = list(212);
 	name = "Port Engineering";
 	dir = 8
@@ -2175,15 +2175,15 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "qg" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -2197,8 +2197,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2243,10 +2243,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/white{
@@ -2256,8 +2256,8 @@
 /area/ship/dominian_unathi/chapel)
 "qn" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/airlock/engineering{
 	name = "Telecommunications"
 	},
 /turf/simulated/floor/plating/cooled,
@@ -2268,10 +2268,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/janitor)
 "qs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "qv" = (
@@ -2300,17 +2300,17 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
 "qD" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "qG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -2321,10 +2321,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/white{
@@ -2344,10 +2344,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
@@ -2356,7 +2356,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "rb" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2375,7 +2375,7 @@
 	icon_state = "lift";
 	name = "SUPB lauching panel"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2393,8 +2393,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
@@ -2422,10 +2422,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "rH" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
+/obj/structure/machinery/airlock_sensor/airlock_interior{
 	pixel_x = -5;
 	pixel_y = 25
 	},
@@ -2437,7 +2437,7 @@
 	req_one_access = list(212)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -5;
 	pixel_y = 20
 	},
@@ -2451,19 +2451,19 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "rO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
@@ -2477,7 +2477,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
 "rP" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2489,7 +2489,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2504,15 +2504,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "rS" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Boarding Pods";
 	req_access = list(212);
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2521,7 +2521,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "rV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -2541,15 +2541,15 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "sg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "si" = (
@@ -2566,10 +2566,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "sp" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2580,7 +2580,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/bridgefoyer)
 "sq" = (
-/obj/machinery/alarm{
+/obj/structure/machinery/alarm{
 	req_one_access = null;
 	pixel_y = 32;
 	dir = 0
@@ -2591,21 +2591,21 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "sw" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	id_tag = "intrepid_washroom";
 	name = "Washroom Compartment";
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2614,13 +2614,13 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "sy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2629,7 +2629,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/loot)
 "sD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -2653,8 +2653,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2675,7 +2675,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/armory)
@@ -2691,14 +2691,14 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "tg" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2711,7 +2711,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "ti" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -2720,12 +2720,12 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/alarm{
+/obj/structure/machinery/alarm{
 	req_one_access = null;
 	dir = 8;
 	pixel_x = 32
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2736,11 +2736,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -2751,8 +2751,8 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2783,7 +2783,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "tA" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2807,11 +2807,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/portthrust)
 "tP" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2819,11 +2819,11 @@
 	name = "airlock_kazhkz_3";
 	frequency = 2126
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -2855,7 +2855,7 @@
 /turf/template_noop,
 /area/space)
 "um" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2866,7 +2866,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "uq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -2882,7 +2882,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2891,32 +2891,32 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "uC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "uD" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "uI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "uN" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2928,7 +2928,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardhall)
 "uR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2971,10 +2971,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
@@ -2994,13 +2994,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Battle Bridge";
 	req_access = list(212);
 	dir = 8
@@ -3008,14 +3008,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "vi" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
 "vq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3042,10 +3042,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
@@ -3056,10 +3056,10 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3070,7 +3070,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3087,21 +3087,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "vM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "vR" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "vT" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "vV" = (
@@ -3129,12 +3129,12 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "wf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -3147,8 +3147,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/mech_recharger,
-/obj/machinery/light{
+/obj/structure/machinery/mech_recharger,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3159,10 +3159,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3180,7 +3180,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/engineering)
 "wC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3196,8 +3196,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "wL" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -3207,13 +3207,13 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/porthall)
 "wN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3225,7 +3225,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi)
 "wQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3237,16 +3237,16 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/loot)
 "wV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "wW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3277,7 +3277,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/cic)
 "xv" = (
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/structure/table/standard,
@@ -3291,16 +3291,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
 "xD" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "pump to waste"
 	},
@@ -3315,7 +3315,7 @@
 /area/ship/dominian_unathi/toilet)
 "xF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "xL" = (
@@ -3330,7 +3330,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3341,10 +3341,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3356,10 +3356,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -3376,7 +3376,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3398,14 +3398,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "yp" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3424,13 +3424,13 @@
 	icon_state = "lift";
 	name = "SUPB lauching panel"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "yu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3442,12 +3442,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(212)
 	},
@@ -3459,24 +3459,24 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "yK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "yM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/orange,
@@ -3500,23 +3500,23 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	req_access = list(212);
 	name = "Starboard Engineering";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "zb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3531,11 +3531,11 @@
 /obj/item/clothing/accessory/dominia,
 /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/surcoat,
 /obj/item/clothing/head/beret/dominia,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "zh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3543,14 +3543,14 @@
 /area/ship/dominian_unathi/portthrust)
 "zj" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower,
-/obj/machinery/door/window,
+/obj/structure/machinery/shower,
+/obj/structure/machinery/door/window,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/toilet)
 "zA" = (
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -3564,14 +3564,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "zF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "zG" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -3588,7 +3588,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3600,20 +3600,20 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "zQ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/toilet)
 "zU" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(212)
 	},
@@ -3623,14 +3623,14 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "Aa" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "Ab" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3641,7 +3641,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardhall)
@@ -3651,10 +3651,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "Aj" = (
@@ -3663,19 +3663,19 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "Ak" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/porthall)
 "Ao" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -3685,7 +3685,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "Aq" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
@@ -3695,14 +3695,14 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3715,12 +3715,12 @@
 /area/ship/dominian_unathi/janitor)
 "Au" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "Aw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -3728,23 +3728,23 @@
 /area/ship/dominian_unathi)
 "Ax" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "Az" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/portthrust)
 "AA" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1;
 	pixel_y = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3764,15 +3764,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "AI" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 8;
 	target_pressure = 250
 	},
@@ -3780,10 +3780,10 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "AK" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
@@ -3823,7 +3823,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "AW" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -3839,10 +3839,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "Bi" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -3851,7 +3851,7 @@
 	frequency = 1939
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 28
@@ -3864,10 +3864,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3879,27 +3879,27 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "Bm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "Bt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "Bx" = (
@@ -3907,7 +3907,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3919,16 +3919,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "BF" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "BG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
@@ -3939,8 +3939,8 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/dock)
 "BI" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/machinery/light,
+/obj/structure/machinery/portable_atmospherics/canister/hydrogen,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -3948,8 +3948,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "BJ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/plating,
@@ -3963,8 +3963,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -3976,7 +3976,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "BZ" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3989,16 +3989,16 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "Cs" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4006,7 +4006,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4019,15 +4019,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/portthrust)
 "Cy" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	pixel_y = -28;
 	req_one_access = list(113)
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/adv{
 	pixel_x = -3;
@@ -4068,8 +4068,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -4079,20 +4079,20 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
 "CD" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "CE" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "CF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4101,7 +4101,7 @@
 /obj/structure/cable/green{
 	dir = 4
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4116,10 +4116,10 @@
 /area/ship/dominian_unathi/bridge)
 "CK" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -4149,13 +4149,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/dock)
 "CT" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
@@ -4166,7 +4166,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "CX" = (
@@ -4175,14 +4175,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "CY" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	name = "Docking Bay";
 	req_access = list(212)
@@ -4190,13 +4190,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/dock)
 "Dd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4208,7 +4208,7 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/dominia,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/item/gun/projectile/automatic/rifle/dominia_carbine,
 /obj/item/ammo_magazine/c762/dominia,
 /obj/item/ammo_magazine/c762/dominia,
@@ -4222,16 +4222,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "Dj" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4242,12 +4242,12 @@
 /turf/simulated/floor/airless,
 /area/ship/dominian_unathi/gun)
 "Dm" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "Dr" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
@@ -4276,9 +4276,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(212)
 	},
@@ -4297,13 +4297,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "DD" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/lino,
 /area/ship/dominian_unathi/canteen)
 "DI" = (
@@ -4315,15 +4315,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "DM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "kazhkz_shuttle_dock";
 	pixel_y = 28
@@ -4331,7 +4331,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "DP" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4358,10 +4358,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4383,7 +4383,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/bridge)
 "Ej" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
@@ -4400,10 +4400,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4419,7 +4419,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/ship_ammunition/lammergeier,
@@ -4445,7 +4445,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "EH" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4457,9 +4457,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass_engineering{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock/glass_engineering{
 	name = "Engineering";
 	req_access = list(212)
 	},
@@ -4467,11 +4467,11 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "EO" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "EQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4485,17 +4485,17 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
 "ES" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -4515,7 +4515,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kazhkz_shuttle";
@@ -4528,7 +4528,7 @@
 /area/shuttle/dominian_unathi)
 "Fc" = (
 /obj/effect/overmap/visitable/ship/landable/dominian_unathi_shuttle,
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "Fe" = (
@@ -4537,10 +4537,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4571,25 +4571,25 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/crew)
 "Fq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/stool/bar/padded/orange,
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "Ft" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "Fv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4598,7 +4598,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4618,14 +4618,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "FE" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/armory)
 "FH" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/sleeper,
+/obj/structure/machinery/sleeper,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "FI" = (
@@ -4640,7 +4640,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4;
 	name = "Ammunition Storage";
 	req_access = list(212)
@@ -4649,13 +4649,13 @@
 /area/shuttle/dominian_unathi)
 "FK" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "FN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4669,24 +4669,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "FP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "FU" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "FV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4695,7 +4695,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "FW" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
@@ -4704,7 +4704,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4716,7 +4716,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/armory)
 "Gc" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -4746,7 +4746,7 @@
 /obj/item/spacecash/c1000,
 /obj/item/spacecash/c1000,
 /obj/item/spacecash/c1000,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "Gr" = (
@@ -4757,14 +4757,14 @@
 /obj/structure/toilet{
 	dir = 1
 	},
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	dir = 8;
 	id = "kazhkz_stall_1";
 	name = "Stall Door Lock";
 	pixel_x = -24;
 	specialfunctions = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4776,16 +4776,16 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "Gz" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "GE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
@@ -4816,10 +4816,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4840,10 +4840,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -4854,13 +4854,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(212);
 	name = "Mess Hall";
 	dir = 8
@@ -4878,8 +4878,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/armory)
 "GX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -4894,7 +4894,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "GZ" = (
@@ -4902,7 +4902,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -4918,7 +4918,7 @@
 /obj/structure/cable/green{
 	dir = 8
 	},
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -4927,14 +4927,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "Hk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "Ht" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -4957,7 +4957,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4976,7 +4976,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4985,7 +4985,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/bridgefoyer)
 "HP" = (
-/obj/machinery/ship_weapon/lammergeier{
+/obj/structure/machinery/ship_weapon/lammergeier{
 	pixel_y = -224;
 	pixel_x = -32;
 	weapon_id = "Kazkhz Typhoon Cannon"
@@ -5003,14 +5003,14 @@
 /area/ship/dominian_unathi/porthall)
 "Im" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "In" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -5031,13 +5031,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5058,9 +5058,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5072,7 +5072,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "IA" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5086,7 +5086,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "IN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/kazhkz{
@@ -5104,13 +5104,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "IR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "IS" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5131,10 +5131,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/hangar)
 "Jb" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -5155,10 +5155,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "Jt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5170,7 +5170,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5179,7 +5179,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "Jy" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -5189,13 +5189,13 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "JE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 28
@@ -5221,13 +5221,13 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "JN" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thruster"
@@ -5245,7 +5245,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "JP" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
@@ -5253,7 +5253,7 @@
 /obj/structure/cable/green{
 	dir = 4
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5262,9 +5262,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "JW" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "JX" = (
@@ -5273,10 +5273,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5303,16 +5303,16 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "Ki" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/empty{
+/obj/structure/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
 /turf/simulated/floor/plating,
@@ -5324,11 +5324,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "Km" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "Kn" = (
@@ -5337,13 +5337,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "Ko" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/janitor)
 "Kp" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5364,10 +5364,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "Kr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5376,7 +5376,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "Kx" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/table/standard,
@@ -5384,7 +5384,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "Ky" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5395,7 +5395,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5404,8 +5404,8 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5417,13 +5417,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	name = "Fighter Bay";
 	req_access = list(212);
 	dir = 8
@@ -5431,15 +5431,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "KT" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "KZ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -5460,7 +5460,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "Ln" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -5487,26 +5487,26 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "Lv" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardthrust)
 "Ly" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5526,7 +5526,7 @@
 /area/ship/dominian_unathi/dock)
 "LO" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "LP" = (
@@ -5552,7 +5552,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/porthall)
 "LU" = (
-/obj/machinery/ammunition_loader/francisca{
+/obj/structure/machinery/ammunition_loader/francisca{
 	weapon_id = "Kazkhz Rotary Cannon"
 	},
 /turf/simulated/floor/plating,
@@ -5584,8 +5584,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "Mb" = (
@@ -5612,13 +5612,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "Mj" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -5634,13 +5634,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(212);
 	name = "Crew Quarters";
 	dir = 4
@@ -5649,7 +5649,7 @@
 /area/ship/dominian_unathi/starboardhall)
 "Mn" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5659,10 +5659,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/structure/bed/stool/chair/padded/black,
@@ -5672,7 +5672,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/captain)
 "MG" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5681,7 +5681,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "MM" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5695,7 +5695,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "MR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5710,7 +5710,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "Nc" = (
-/obj/machinery/alarm/west{
+/obj/structure/machinery/alarm/west{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5728,7 +5728,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "Ni" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -5745,7 +5745,7 @@
 	dir = 9
 	},
 /obj/effect/overmap/visitable/ship/dominian_unathi,
-/obj/machinery/hologram/holopad/long_range{
+/obj/structure/machinery/hologram/holopad/long_range{
 	pixel_x = 16
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5775,7 +5775,7 @@
 	},
 /area/ship/dominian_unathi/bridge)
 "Ny" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -5784,10 +5784,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "NE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -5796,7 +5796,7 @@
 	frequency = 1989
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 28
@@ -5804,10 +5804,10 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/bridgefoyer)
 "NJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -5819,7 +5819,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5831,10 +5831,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "NX" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 28
 	},
@@ -5843,7 +5843,7 @@
 	name = "airlock_kazhkz_4";
 	frequency = 2222
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28;
 	pixel_x = -6
 	},
@@ -5855,12 +5855,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/airlock{
 	name = "Central Hall"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
@@ -5885,14 +5885,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "OG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -5905,7 +5905,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5923,7 +5923,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/computer/shuttle_control/explore/dominian_unathi_shuttle,
+/obj/structure/machinery/computer/shuttle_control/explore/dominian_unathi_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "Pd" = (
@@ -5936,7 +5936,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/computer/ship/targeting{
+/obj/structure/machinery/computer/ship/targeting{
 	dir = 8;
 	req_access = list(212)
 	},
@@ -5961,7 +5961,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "Pq" = (
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5970,7 +5970,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6007,7 +6007,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "PR" = (
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -6019,13 +6019,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Treasure Room";
 	req_access = list(212);
 	dir = 4
@@ -6042,7 +6042,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "Qe" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "Qf" = (
@@ -6055,13 +6055,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "Qh" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/lino,
 /area/ship/dominian_unathi/canteen)
 "Qk" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/vending/boozeomat/unathi_pirate{
+/obj/structure/machinery/vending/boozeomat/unathi_pirate{
 	req_access = null;
 	pixel_y = 32
 	},
@@ -6073,17 +6073,17 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "Qo" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -6095,7 +6095,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardhall)
 "Qv" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
@@ -6105,20 +6105,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "QF" = (
-/obj/machinery/ammunition_loader/lammergeier{
+/obj/structure/machinery/ammunition_loader/lammergeier{
 	weapon_id = "Kazkhz Typhoon Cannon"
 	},
 /turf/simulated/floor/plating,
@@ -6150,7 +6150,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "QQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -6159,7 +6159,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_unathi/engineering)
 "QR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6168,19 +6168,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/dock)
 "QW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "QX" = (
 /turf/simulated/floor/lino,
 /area/ship/dominian_unathi/canteen)
 "QY" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6206,8 +6206,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -6219,7 +6219,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "Rq" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	id_tag = "kazhkz_stall_1";
 	name = "Stall 1";
 	dir = 1
@@ -6232,11 +6232,11 @@
 	},
 /area/ship/dominian_unathi/hangar)
 "RC" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	req_access = list(212)
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	dir = 4;
 	pixel_x = -28;
 	pixel_y = 7
@@ -6249,16 +6249,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "RQ" = (
-/obj/machinery/computer/ship/sensors,
+/obj/structure/machinery/computer/ship/sensors,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
@@ -6268,7 +6268,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "RW" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
@@ -6292,22 +6292,22 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "Sc" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6316,7 +6316,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "Sg" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6325,7 +6325,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -6345,7 +6345,7 @@
 "St" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/stool/bar/padded/orange,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6373,7 +6373,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6387,10 +6387,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6401,28 +6401,28 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "SD" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
 	pixel_y = -22;
 	pixel_x = -6
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -22;
 	pixel_x = 6
@@ -6435,7 +6435,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/bridgefoyer)
 "SF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "SH" = (
@@ -6446,7 +6446,7 @@
 /area/ship/dominian_unathi/eva)
 "SJ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Equipment Storage";
 	req_access = list(212);
 	dir = 8
@@ -6458,13 +6458,13 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "SP" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
@@ -6477,10 +6477,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/orange,
@@ -6509,11 +6509,11 @@
 	req_one_access = list(212)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/structure/bed/handrail{
@@ -6522,7 +6522,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "Td" = (
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -6534,20 +6534,20 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "Ti" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "Tj" = (
-/obj/machinery/computer/ship/targeting{
+/obj/structure/machinery/computer/ship/targeting{
 	dir = 8;
 	req_access = list(212)
 	},
@@ -6558,7 +6558,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "Tk" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible/blue,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/visible/blue,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "Tn" = (
@@ -6568,13 +6568,13 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/hangar)
 "Tq" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/stool/bar/padded/orange,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "Tt" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6591,33 +6591,33 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi)
 "Tv" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
 "TB" = (
-/obj/machinery/vending/engineering{
+/obj/structure/machinery/vending/engineering{
 	req_access = null
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "TC" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory & Munitions";
 	req_access = list(212)
 	},
@@ -6629,10 +6629,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -6654,10 +6654,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6676,7 +6676,7 @@
 /obj/structure/cable/green{
 	dir = 4
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -6687,15 +6687,15 @@
 /turf/simulated/floor/greengrid,
 /area/ship/dominian_unathi/engineering)
 "Uc" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 1;
 	pixel_y = -22;
 	pixel_x = -6
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -22;
 	pixel_x = 6
@@ -6711,7 +6711,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "Un" = (
@@ -6721,7 +6721,7 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6730,10 +6730,10 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
@@ -6744,13 +6744,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "UA" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "UB" = (
@@ -6764,7 +6764,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/porthall)
 "UD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -6781,7 +6781,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6793,10 +6793,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -6815,8 +6815,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor";
 	req_access = list(212)
 	},
@@ -6826,7 +6826,7 @@
 /obj/structure/cable/green{
 	dir = 4
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6851,7 +6851,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "Vn" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6862,10 +6862,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -6878,7 +6878,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6898,14 +6898,14 @@
 	pixel_y = -1
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "Vw" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/orange,
@@ -6946,8 +6946,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
@@ -6957,9 +6957,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/porthall)
@@ -6975,7 +6975,7 @@
 /area/ship/dominian_unathi/loot)
 "VP" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "VR" = (
@@ -6988,7 +6988,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "VX" = (
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -6996,16 +6996,16 @@
 /area/ship/dominian_unathi)
 "VY" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/toilet)
 "VZ" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
@@ -7021,14 +7021,14 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "We" = (
-/obj/machinery/light,
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/light,
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7049,7 +7049,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -7059,7 +7059,7 @@
 	shuttle_tag = "Kazhkz Fighter";
 	req_one_access = list(212)
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "Wn" = (
@@ -7082,10 +7082,10 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -7093,7 +7093,7 @@
 /area/ship/dominian_unathi/porthall)
 "Wu" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/alarm/north{
+/obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7104,10 +7104,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7129,7 +7129,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "WU" = (
-/obj/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/porthall)
@@ -7151,13 +7151,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -7177,19 +7177,19 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "Xh" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/suit_cycler/offship/dominia,
+/obj/structure/machinery/suit_cycler/offship/dominia,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
@@ -7213,7 +7213,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/porthall)
 "Xq" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
@@ -7227,13 +7227,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "Xx" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
 "Xz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -7248,7 +7248,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "XD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7266,7 +7266,7 @@
 	icon_state = "lift";
 	name = "SUPB lauching panel"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "XH" = (
@@ -7286,7 +7286,7 @@
 /area/ship/dominian_unathi/chapel)
 "XM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 1;
 	name = "air to filling"
 	},
@@ -7298,13 +7298,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory & Munitions";
 	req_access = list(212);
 	dir = 4
@@ -7312,7 +7312,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "XV" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -7321,7 +7321,7 @@
 	frequency = 1939
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 28
@@ -7334,7 +7334,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/east{
+/obj/structure/machinery/alarm/east{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7362,10 +7362,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7392,7 +7392,7 @@
 	name = "aft, port hallway"
 	},
 /obj/effect/landmark/entry_point/aft,
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "airlock_kazhkz_shuttle";
@@ -7400,12 +7400,12 @@
 	shuttle_tag = "Kazhkz Fighter";
 	req_one_access = list(212)
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -7418,7 +7418,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7433,7 +7433,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "Yt" = (
-/obj/machinery/shipsensors,
+/obj/structure/machinery/shipsensors,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -7452,7 +7452,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/dock)
 "YB" = (
@@ -7462,14 +7462,14 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/computer/ship/targeting{
+/obj/structure/machinery/computer/ship/targeting{
 	dir = 4;
 	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "YH" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -7490,15 +7490,15 @@
 	shuttle_tag = "Kazhkz Fighter";
 	req_one_access = list(212)
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_y = 6;
 	pixel_x = 20
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	dir = 4;
 	pixel_x = -24;
 	pixel_y = -6
@@ -7515,10 +7515,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7532,13 +7532,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "Zb" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -24;
 	pixel_y = -21;
 	dir = 1
@@ -7571,7 +7571,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7585,20 +7585,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "Zl" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
 "Zp" = (
 /turf/simulated/wall,
 /area/ship/dominian_unathi/toilet)
 "Zs" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/noid{
+/obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7610,10 +7610,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -7651,7 +7651,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "ZN" = (
@@ -7675,7 +7675,7 @@
 	dir = 5
 	},
 /obj/structure/closet/emcloset,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,

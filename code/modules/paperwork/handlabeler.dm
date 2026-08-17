@@ -36,7 +36,7 @@
 	var/label = null
 	var/labels_left = 30
 	var/mode = 0	//off or on.
-	matter = list(DEFAULT_WALL_MATERIAL = 120, MATERIAL_GLASS = 80)
+	matter = list(MATERIAL_STEEL = 120, MATERIAL_GLASS = 80)
 
 /obj/item/hand_labeler/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
@@ -72,8 +72,8 @@
 	if(istype(A, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_NOTICE("The label can't stick to the [A.name]. (Try using a pen!)"))
 		return
-	if(istype(A, /obj/machinery/portable_atmospherics/hydroponics))
-		var/obj/machinery/portable_atmospherics/hydroponics/tray = A
+	if(istype(A, /obj/structure/machinery/portable_atmospherics/hydroponics))
+		var/obj/structure/machinery/portable_atmospherics/hydroponics/tray = A
 		if(!tray.mechanical)
 			to_chat(user, SPAN_NOTICE("How are you going to label that?"))
 			return

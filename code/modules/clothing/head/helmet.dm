@@ -18,9 +18,10 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	w_class = WEIGHT_CLASS_NORMAL
-	var/obj/machinery/camera/camera
+	var/obj/structure/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+	equip_sound = 'sound/items/equip/helm.ogg'
 	protects_against_weather = TRUE
 
 	var/has_storage = TRUE
@@ -31,6 +32,7 @@
 	. = ..()
 	if(camera)
 		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+		verbs += /obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network
 	if(has_storage)
 		hold = new /obj/item/storage/internal/helmet(src)
 		hold.storage_slots = slots
@@ -80,10 +82,13 @@
 	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
-	set name = "Toggle Helmet Camera"
+	set name = "Helmet Camera - Toggle On/Off"
 	set category = "Object.Equipped"
 	set src in usr
 
+	toggle_camera_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_camera_for(mob/user)
 	if(ispath(camera))
 		camera = new camera(src)
 		camera.set_status(0)
@@ -91,15 +96,42 @@
 	if(camera)
 		camera.set_status(!camera.status)
 		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
+			camera.c_tag = FindNameFromID(user)
+			to_chat(user, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
 		else
-			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
+			to_chat(user, SPAN_NOTICE("Camera deactivated."))
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network()
+	set name = "Helmet Camera - Toggle Expedition Network"
+	set category = "Object.Equipped"
+	set src in usr
+
+	toggle_expedition_camera_network_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network_for(mob/user)
+	if(ispath(camera))
+		camera = new camera(src)
+		camera.set_status(0)
+
+	if(!camera)
+		return
+
+	if(NETWORK_EXPEDITION in camera.network)
+		if(length(camera.network) == 1)
+			to_chat(user, SPAN_WARNING("This camera is already an expedition camera."))
+			return
+
+		camera.remove_network(NETWORK_EXPEDITION)
+		to_chat(user, SPAN_NOTICE("Camera disconnected from the expedition network."))
+		return
+
+	camera.add_network(NETWORK_EXPEDITION)
+	to_chat(user, SPAN_NOTICE("Camera connected to the expedition network."))
 
 /obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((distance <= 1) && camera)
-		. += FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>."))
+		. += FONT_SMALL(SPAN_NOTICE("To toggle or configure the helmet camera, right-click the helmet for options, or equip it and view your new Object verbs."))
 		. += "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active."
 
 /obj/item/clothing/head/helmet/hos
@@ -155,25 +187,47 @@
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
+/obj/item/clothing/head/helmet/riot/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "You can <b>Alt-Shift-Click</b> to [icon_state == initial(icon_state) ? "raise" : "lower"] the visor."
+
+/obj/item/clothing/head/helmet/riot/AltShiftClick(user)
+	do_flip(user)
+
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if (use_check_and_message(user))
+	do_flip(user)
+
+/obj/item/clothing/head/helmet/riot/proc/do_flip(mob/user)
+	if(use_check_and_message(user))
 		return
 
-	do_flip(user)
-	update_clothing_icon()
-
-/obj/item/clothing/head/helmet/riot/proc/do_flip(var/mob/user)
 	if(icon_state == initial(icon_state))
 		icon_state = "[icon_state]-up"
 		item_state = icon_state
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You raise the visor on \the [src]."))
 		body_parts_covered = HEAD
 	else
 		icon_state = initial(icon_state)
 		item_state = icon_state
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, SPAN_NOTICE("You lower the visor on \the [src]."))
 		body_parts_covered = HEAD|FACE|EYES
 
+	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/riot/lancer
+	name = "ceres lance helmet"
+	desc = "A state-of-the-art combat helmet used by Ceres Lance. It is made with an additional layer of padding and ballstic visor designed to protect operatives attempting to physically restrain hostile IPCs, but has poor heat dissipation characteristics as a result."
+	icon_state = "helm_lance"
+	item_state = "helm_lance"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED,
+	)
 
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
@@ -259,10 +313,12 @@
 
 	if(src.icon_state == initial(icon_state))
 		src.icon_state = "[icon_state]-up"
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		to_chat(user, "You raise the visor on \the [src].")
 		body_parts_covered = HEAD
 	else
 		src.icon_state = initial(icon_state)
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
 		to_chat(user, "You lower the visor on \the [src].")
 		body_parts_covered = HEAD|FACE|EYES
 	update_clothing_icon()
@@ -470,5 +526,5 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
 	light_range = 6
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
 	on = 0

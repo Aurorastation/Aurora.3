@@ -143,6 +143,7 @@
 		/singleton/origin_item/culture/ipc_elyra,
 		/singleton/origin_item/culture/ipc_coalition,
 		/singleton/origin_item/culture/ipc_tau_ceti,
+		/singleton/origin_item/culture/axiom,
 		/singleton/origin_item/culture/golden_deep,
 		/singleton/origin_item/culture/megacorporate,
 		/singleton/origin_item/culture/scrapper
@@ -162,6 +163,9 @@
 		ballistic = ARMOR_BALLISTIC_MINOR,
 		melee = ARMOR_MELEE_KNIVES
 	)
+
+	species_components = list(/datum/component/synthetic_endoskeleton)
+	mass_modifier = REFERENCE_MASS_IPC / REFERENCE_MASS_HUMAN
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.05
@@ -217,7 +221,6 @@
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/synthetic_endoskeleton)
 	check_tag(H, H.client)
 	var/obj/item/organ/internal/machine/power_core/C = H.internal_organs_by_name[BP_CELL]
 	if(C)
@@ -504,5 +507,5 @@
 	if(istype(voice_synth))
 		if(voice_synth.is_bruised())
 			// at most, 30 * 2 + 10 = 70, which is the maximum value we can use for Gibberish
-			message = Gibberish(message, voice_synth.damage * 2 + (voice_synth.is_broken() ? 10 : 0))
+			message = Gibberish(message, voice_synth.get_damage() * 2 + (voice_synth.is_broken() ? 10 : 0))
 			return list(HSP_MSG = message, HSP_VERB = pick(list("crackles", "buzzes")))

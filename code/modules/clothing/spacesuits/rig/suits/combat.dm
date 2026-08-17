@@ -31,7 +31,6 @@
 	light_overlay = "helmet_light_dual_cyan"
 
 /obj/item/rig/combat/equipped
-
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,
@@ -161,12 +160,12 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA // all modules
 
 /obj/item/rig/retro
-	name = "retrofitted military hardsuit control module"
-	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Armed Forces."
+	name = "retrofitted foreign legions hardsuit control module"
+	desc = "An old repurposed construction exoskeleton redesigned for combat. It is adorned with insignia of the TCAF's Foreign Legions."
 	icon = 'icons/obj/item/clothing/rig/legion.dmi'
 	icon_state = "legion_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
-	suit_type = "retrofitted military hardsuit"
+	suit_type = "retrofitted foreign legions military hardsuit"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
 		BULLET = ARMOR_BALLISTIC_PISTOL,
@@ -204,7 +203,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/retro/equipped
-	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
+	req_one_access = list(ACCESS_TCAF)
 	initial_modules = list(
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/device/drill,
@@ -214,7 +213,7 @@
 		)
 
 /obj/item/clothing/head/helmet/space/rig/tcfl
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
 
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
@@ -573,17 +572,18 @@
 /obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
 	light_overlay = "helmet_light_dual"
 
-/obj/item/rig/combat/legionnaire
-	name = "\improper Legionnaire Hardsuit"
-	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces. The red shoulder pad dignifying the individual as a member of rank. \
-	Its golden visor reflecting the shining liberty the TCAF stands for."
-	desc_extended = "This hardsuit is brimming with modules and material. Manufactured initially by NanoTrasen, and later modified by Zavodskoi, \
-	the Legionnaire hardsuit comes in many shapes and sizes to accommodate its missions. Seeing both action in orbit and on the ground. \
-	The blue armored plates are layered with brown ballistic padding, and finally a tightly woven black armored liner to keep out any hazardous environment, from air to space."
+/obj/item/rig/combat/tcaf
+	name = "\improper TCAF Jötnar tactical hardsuit"
+	desc = "An armored combat hardsuit in the blue colors of the Tau Ceti Armed Forces."
+	desc_extended = "The Type-60A ‘Jötnar’ Tactical Hardsuit is an armoured combat hardsuit, produced in 2468 \
+	and upgraded from previous iterations. It is brimming with modules and armour plates, the inside lined wit \
+	brown ballistic padding and a tightly 	woven Caprician Weave liner to keep out hazardous environments. \
+	Designed by Zavodskoi Interstellar, with modules generally supplied by NanoTrasen Corporation, Zavodskoi \
+	Interstellar, and Zeng-Hu Pharmaceuticals."
 	icon = 'icons/obj/item/clothing/rig/tcaf_legionnaire.dmi'
 	icon_state = "legionnaire_rig"
 	icon_supported_species_tags = null
-	suit_type = "\improper Legionnaire Hardsuit"
+	suit_type = "\improper TCAF Jötnar combat hardsuit"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
 		BULLET = ARMOR_BALLISTIC_MAJOR,
@@ -597,7 +597,7 @@
 	offline_slowdown = 1.5
 	offline_vision_restriction = TINT_HEAVY
 
-	helm_type = /obj/item/clothing/head/helmet/space/rig/legionnaire
+	helm_type = /obj/item/clothing/head/helmet/space/rig/tcaf
 
 	allowed = list(
 		/obj/item/flashlight,
@@ -616,13 +616,13 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
-/obj/item/clothing/head/helmet/space/rig/legionnaire
+/obj/item/clothing/head/helmet/space/rig/tcaf
 	light_overlay = "helmet_light_tcaf_legionnaire"
-	camera = /obj/machinery/camera/network/tcfl
+	camera = /obj/structure/machinery/camera/network/tcaf
 
-/obj/item/rig/combat/legionnaire/equipped
+/obj/item/rig/combat/tcaf/equipped
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators,
@@ -634,3 +634,82 @@
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/recharger
 		)
+
+/obj/item/rig/combat/zavod_heavy
+	name = "reaper hardsuit control module"
+	desc = "A heavily armored hardsuit manufactured and used by Zavodskoi operatives, the K2-98Z \"Reaper\" is employed by Zavodskoi's elite asset protection, as well as in corporate-sponsored police forces."
+	desc_extended = "Borrowing design cues from their other popular hardsuits, such as those within the Solarian military, the Reaper was originally commissioned by the police chief in Rahe, " \
+		+ "Vysoka for usage by point men in door-kicking operations and other close quarters assignments. " \
+		+ "Corporate campaigns have all but normalized the motto \"Fear The Reaper\" as an attempt to increase sales—an attempt that was wildly successful. " \
+		+ "Nowadays, they see extensive use in high-risk cargo vessels, with specialists directly attached to Zavodskoi VIPs, and joint operations with the Stellar Corporate Conglomerate."
+	icon = 'icons/obj/item/clothing/rig/zavodheavy.dmi'
+	icon_state = "zavod_heavy"
+	icon_supported_species_tags = null
+	suit_type = "reaper hardsuit"
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	species_restricted = list(BODYTYPE_HUMAN)
+	chest_type = /obj/item/clothing/suit/space/rig/zavod_heavy
+	helm_type = /obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
+
+/obj/item/rig/combat/zavod_heavy/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/grenade_launcher/frag,
+		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/combat/zavod_heavy/ninja
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/grenade_launcher/frag,
+		)
+
+/obj/item/clothing/suit/space/rig/zavod_heavy
+	var/lights_active = FALSE
+
+/obj/item/clothing/suit/space/rig/zavod_heavy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot != slot_wear_suit_str)
+		return I
+
+	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
+	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
+		// Turn off the suit lights
+		if (lights_active)
+			set_light_on(FALSE)
+			lights_active = FALSE
+		return I
+
+	if (!lights_active && !rigcontroller.sealing)
+		set_light_range_power_color(0.3, 0.2, "#ff0800")
+		set_light_on(TRUE)
+		lights_active = TRUE
+
+	var/image/emissive_overlay = emissive_appearance(mob_icon, "zavod_heavy_sealed_su-emissive")
+	I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy
+	light_overlay = "helmet_light"
+	light_color = "#ff0800"
+
+/obj/item/clothing/head/helmet/space/rig/combat/zavod_heavy/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot != slot_head_str)
+		return I
+
+	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
+	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
+		return I
+
+	var/image/emissive_overlay = emissive_appearance(mob_icon, "zavod_heavy_sealed_he-emissive")
+	I.AddOverlays(emissive_overlay)
+	return I

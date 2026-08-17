@@ -3,7 +3,7 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "ab" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
@@ -13,7 +13,7 @@
 /area/dungeon/sol_outpost)
 "ad" = (
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ae" = (
@@ -21,16 +21,16 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "af" = (
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ah" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ai" = (
@@ -44,7 +44,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ak" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "al" = (
@@ -58,7 +58,7 @@
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "am" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -144,7 +144,7 @@
 /area/dungeon/sol_outpost)
 "aD" = (
 /obj/structure/bed/stool/padded/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/tiled,
@@ -156,7 +156,7 @@
 "aF" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/tiled,
@@ -172,7 +172,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "aI" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -188,7 +188,7 @@
 /area/dungeon/sol_outpost)
 "aL" = (
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	pixel_x = -7;
 	pixel_y = 30;
 	req_access = null
@@ -208,7 +208,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "aP" = (
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
@@ -218,7 +218,7 @@
 /area/dungeon/sol_outpost)
 "aR" = (
 /obj/structure/sign/flag/sol/large/north,
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
@@ -282,7 +282,7 @@
 /area/dungeon/sol_outpost)
 "bc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/tiled/white,
@@ -297,7 +297,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "bf" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -305,7 +305,7 @@
 /area/dungeon/sol_outpost)
 "bg" = (
 /obj/effect/decal/cleanable/mucus,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor,
@@ -316,7 +316,7 @@
 /area/dungeon/sol_outpost)
 "bi" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/porta_turret/pulse,
+/obj/structure/machinery/porta_turret/pulse,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
@@ -325,7 +325,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bk" = (
-/obj/machinery/porta_turret/pulse,
+/obj/structure/machinery/porta_turret/pulse,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
@@ -335,7 +335,7 @@
 /area/dungeon/sol_outpost)
 "bm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -370,7 +370,7 @@
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
 "br" = (
-/obj/machinery/door/airlock/centcom{
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -405,7 +405,7 @@
 	},
 /area/dungeon/sol_outpost)
 "bv" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 1;
 	status = 2
@@ -424,7 +424,7 @@
 /area/dungeon/sol_outpost)
 "by" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -435,7 +435,7 @@
 	},
 /area/dungeon/sol_outpost)
 "bz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/door_assembly/door_assembly_ext,
 /turf/simulated/floor,
 /area/dungeon/sol_outpost)
@@ -461,7 +461,7 @@
 /area/mine/unexplored)
 "bD" = (
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine,
+/obj/structure/machinery/photocopier/faxmachine,
 /obj/item/paper{
 	info = "2452 - SOL CENTRAL GOVERNMENT - Operations are to be ceased immediately and the bunker is to be abandoned due to the recent indepenence of Tau Ceti."
 	},
@@ -513,7 +513,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/structure/sign/vacuum{
 	pixel_y = 32
 	},
@@ -523,11 +523,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/spiderling_remains,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "bM" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
@@ -535,7 +535,7 @@
 /obj/structure/sign/flag/sol{
 	pixel_x = -32
 	},
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
@@ -568,7 +568,7 @@
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "bS" = (
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "bT" = (
@@ -584,7 +584,7 @@
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
@@ -603,14 +603,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/sol,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "bY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/airless,
@@ -618,7 +618,7 @@
 "bZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/airless,
@@ -669,7 +669,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/eastleft,
+/obj/structure/machinery/door/window/eastleft,
 /obj/item/clothing/head/helmet/space/void/sol,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
@@ -680,14 +680,14 @@
 /area/dungeon/sol_outpost)
 "ci" = (
 /obj/random/junk,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cj" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/airless,
@@ -726,7 +726,7 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
 	},
-/obj/machinery/light_construct,
+/obj/structure/machinery/light_construct,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cp" = (
@@ -734,13 +734,13 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/northleft{
+/obj/structure/machinery/door/window/northleft{
 	name = "Airlock Canisters"
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "cq" = (
@@ -748,13 +748,13 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/window/northleft{
+/obj/structure/machinery/door/window/northleft{
 	name = "Airlock Canisters"
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/sign/flag/sol{
 	pixel_y = -32
 	},
@@ -764,7 +764,7 @@
 /obj/structure/sign/vacuum{
 	pixel_x = -32
 	},
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
@@ -812,7 +812,7 @@
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/obj/machinery/light_construct{
+/obj/structure/machinery/light_construct{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
@@ -934,7 +934,7 @@
 /area/dungeon/sol_outpost)
 "cN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/wood{
@@ -948,7 +948,7 @@
 	icon_state = "spiderling";
 	name = "dead greimorian"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282"
 	},
 /turf/simulated/floor/wood{
@@ -971,14 +971,14 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
-/obj/machinery/light_construct,
+/obj/structure/machinery/light_construct,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cS" = (
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
-/obj/machinery/light_construct,
+/obj/structure/machinery/light_construct,
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cT" = (
@@ -1049,7 +1049,7 @@
 /area/dungeon/sol_outpost)
 "di" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 8
 	},
@@ -1067,7 +1067,7 @@
 /area/dungeon/sol_outpost)
 "dk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 4
 	},

@@ -25,6 +25,9 @@
 		var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics = ipc.internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
 		if(!istype(diagnostics))
 			data["broken"] = TRUE
+			data["patient_name"] = ipc.real_name
+			data["machine_ui_theme"] = machine_species.machine_ui_theme
+			return data
 
 		data["patient_name"] = ipc.real_name
 		data["broken"] = diagnostics.is_broken()
@@ -49,7 +52,7 @@
 
 			organ_data["name"] = organ.name
 			organ_data["desc"] = organ.desc
-			organ_data["damage"] = edit_organ_status(organ.damage, diagnostics)
+			organ_data["damage"] = edit_organ_status(organ.get_damage(), diagnostics)
 			organ_data["max_damage"] = organ.max_damage
 
 			data["organs"] += list(organ_data)

@@ -132,12 +132,12 @@
 		return TRUE
 	return FALSE
 
-/mob/living/simple_animal/hostile/icarus_drone/validator_bot(var/obj/machinery/bot/B, var/atom/current)
+/mob/living/simple_animal/hostile/icarus_drone/validator_bot(var/obj/structure/machinery/bot/B, var/atom/current)
 	if(malfunctioning)
 		return ..()
 	return FALSE
 
-/mob/living/simple_animal/hostile/icarus_drone/validator_turret(var/obj/machinery/porta_turret/T, var/atom/current)
+/mob/living/simple_animal/hostile/icarus_drone/validator_turret(var/obj/structure/machinery/porta_turret/T, var/atom/current)
 	if(malfunctioning)
 		return ..()
 	if(is_station_area(get_area(T))) // any turrets not on station turf is probably hostile

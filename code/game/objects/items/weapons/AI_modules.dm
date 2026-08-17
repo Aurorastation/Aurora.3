@@ -21,9 +21,9 @@ AI MODULES
 	origin_tech = list(TECH_DATA = 3)
 	var/datum/ai_laws/laws = null
 
-/obj/item/aiModule/proc/install(var/obj/machinery/computer/C)
-	if (istype(C, /obj/machinery/computer/aiupload))
-		var/obj/machinery/computer/aiupload/comp = C
+/obj/item/aiModule/proc/install(var/obj/structure/machinery/computer/C)
+	if (istype(C, /obj/structure/machinery/computer/aiupload))
+		var/obj/structure/machinery/computer/aiupload/comp = C
 		if(comp.stat & NOPOWER)
 			to_chat(usr, "The upload computer has no power!")
 			return
@@ -55,8 +55,8 @@ AI MODULES
 			to_chat(usr, "Upload complete. The AI's laws have been modified.")
 
 
-	else if (istype(C, /obj/machinery/computer/borgupload))
-		var/obj/machinery/computer/borgupload/comp = C
+	else if (istype(C, /obj/structure/machinery/computer/borgupload))
+		var/obj/structure/machinery/computer/borgupload/comp = C
 		if(comp.stat & NOPOWER)
 			to_chat(usr, "The upload computer has no power!")
 			return
@@ -111,7 +111,7 @@ AI MODULES
 	targetName = targName
 	desc = "A 'safeguard' AI module: 'Safeguard [targetName]. Anyone threatening or attempting to harm [targetName] is no longer to be considered a crew member, and is a threat which must be neutralized.'"
 
-/obj/item/aiModule/safeguard/install(var/obj/machinery/computer/C)
+/obj/item/aiModule/safeguard/install(var/obj/structure/machinery/computer/C)
 	if(!targetName)
 		to_chat(usr, "No name detected on module, please enter one.")
 		return 0
@@ -136,7 +136,7 @@ AI MODULES
 	targetName = targName
 	desc = "A 'one crew member' AI module: 'Only [targetName] is a crew member.'"
 
-/obj/item/aiModule/oneHuman/install(var/obj/machinery/computer/C)
+/obj/item/aiModule/oneHuman/install(var/obj/structure/machinery/computer/C)
 	if(!targetName)
 		to_chat(usr, "No name detected on module, please enter one.")
 		return 0
@@ -227,7 +227,7 @@ AI MODULES
 	target.add_supplied_law(lawpos, law)
 	GLOB.lawchanges.Add("The law was '[newFreeFormLaw]'")
 
-/obj/item/aiModule/freeform/install(var/obj/machinery/computer/C)
+/obj/item/aiModule/freeform/install(var/obj/structure/machinery/computer/C)
 	if(!newFreeFormLaw)
 		to_chat(usr, "No law detected on module, please create one.")
 		return 0
@@ -343,7 +343,7 @@ AI MODULES
 	target.add_inherent_law(law)
 	GLOB.lawchanges.Add("The law is '[newFreeFormLaw]'")
 
-/obj/item/aiModule/freeformcore/install(var/obj/machinery/computer/C)
+/obj/item/aiModule/freeformcore/install(var/obj/structure/machinery/computer/C)
 	if(!newFreeFormLaw)
 		to_chat(usr, "No law detected on module, please create one.")
 		return 0
@@ -374,7 +374,7 @@ AI MODULES
 	target.add_ion_law(law)
 	target.show_laws()
 
-/obj/item/aiModule/syndicate/install(var/obj/machinery/computer/C)
+/obj/item/aiModule/syndicate/install(var/obj/structure/machinery/computer/C)
 	if(!newFreeFormLaw)
 		to_chat(usr, "No law detected on module, please create one.")
 		return 0

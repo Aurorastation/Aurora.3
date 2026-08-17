@@ -31,7 +31,7 @@
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_STEEL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	usesound = 'sound/items/wrench.ogg'
 	surgerysound = 'sound/items/surgery/bonesetter.ogg'
@@ -59,7 +59,7 @@
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_TINY
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_STEEL = 75)
 	attack_verb = list("stabbed")
 	usesound = 'sound/items/Screwdriver.ogg'
 	surgerysound = 'sound/items/Screwdriver.ogg'
@@ -134,7 +134,7 @@
 	throw_range = 9
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 80)
+	matter = list(MATERIAL_STEEL = 80)
 	attack_verb = list("pinched", "nipped")
 	sharp = TRUE
 	edge = TRUE
@@ -207,6 +207,7 @@
 	name = "bomb defusal wirecutters"
 	desc = "A tool used to delicately sever the wires used in bomb fuses."
 	icon_state = "mini_wirecutters"
+	w_class = WEIGHT_CLASS_TINY
 	toolspeed = 0.6
 	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
 
@@ -242,7 +243,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 	/// Cost to make in the autolathe
-	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
+	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 30)
 
 	/// R&D tech level
 	origin_tech = list(TECH_ENGINEERING = 1)
@@ -270,7 +271,7 @@
 	icon_state = "indwelder"
 	item_state = "welder"
 	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 60)
 	origin_tech = list(TECH_ENGINEERING = 2)
 
 /obj/item/weldingtool/hugetank
@@ -279,7 +280,7 @@
 	icon_state = "advwelder"
 	item_state = "advwelder"
 	max_fuel = 80
-	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
+	matter = list(MATERIAL_STEEL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
 
 /obj/item/weldingtool/emergency
@@ -296,7 +297,7 @@
 	icon_state = "expwelder"
 	item_state = "expwelder"
 	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	light_color = LIGHT_COLOR_BLUE
 
@@ -319,11 +320,34 @@
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
+	var/welding_blind = user.is_blind()
+	if(welding_blind)
+		delay *= 3
+
 	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
 	welding_sparks.plane = ABOVE_LIGHTING_PLANE
 	target.AddOverlays(welding_sparks)
 	. = ..()
 	target.CutOverlays(welding_sparks)
+
+	if(. && welding_blind && prob(80))
+		to_chat(user, SPAN_WARNING("Unable to see your work, you botch the weld!"))
+		if(prob(50))
+			var/burn_zone
+			if(ishuman(user))
+				switch(get_equip_slot())
+					if(slot_l_hand)
+						burn_zone = BP_L_HAND
+					if(slot_r_hand)
+						burn_zone = BP_R_HAND
+					else
+						burn_zone = pick(BP_L_HAND, BP_R_HAND)
+			user.apply_damage(rand(5, 10), DAMAGE_BURN, burn_zone, src)
+			user.visible_message(
+				SPAN_DANGER("[user] jerks back after burning themselves with \the [src]!"),
+				SPAN_DANGER("Your blind welding slips, burning your hand!")
+			)
+		return FALSE
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
@@ -438,7 +462,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 
-	if(do_mob(user, target, 30))
+	if(use_tool(target, user, 30, volume = 15))
 		if(use(0))
 			var/static/list/repair_messages = list(
 				"patches some dents",
@@ -705,7 +729,7 @@
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_STEEL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	tool_behaviour = TOOL_PIPEWRENCH
 
@@ -736,6 +760,7 @@
 		"multitool"
 		)
 	var/current_tool = 1
+	var/combitool_level = STANDARD_TOOL_LEVEL - 1
 
 /obj/item/combitool/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -764,22 +789,27 @@
 				usesound = 'sound/items/wrench.ogg'
 				surgerysound = 'sound/items/surgery/bonesetter.ogg'
 				tool_behaviour = TOOL_WRENCH
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_WRENCH = combitool_level), toolComp)
 			if("screwdriver")
 				usesound = 'sound/items/screwdriver.ogg'
 				surgerysound = 'sound/items/screwdriver.ogg'
 				tool_behaviour = TOOL_SCREWDRIVER
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_SCREWDRIVER = combitool_level), toolComp)
 			if("wirecutters")
 				usesound = 'sound/items/wirecutter.ogg'
 				surgerysound = 'sound/items/surgery/hemostat.ogg'
 				tool_behaviour = TOOL_WIRECUTTER
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_WIRECUTTER = combitool_level), toolComp)
 			if("crowbar")
 				usesound = SFX_CROWBAR
 				surgerysound = 'sound/items/surgery/retractor.ogg'
 				tool_behaviour = TOOL_CROWBAR
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_CROWBAR = combitool_level), toolComp)
 			if("multitool")
 				usesound = null
 				surgerysound = null
 				tool_behaviour = TOOL_MULTITOOL
+				LOAD_TOOL_QUALITIES(src, alist(TOOL_MULTITOOL = combitool_level), toolComp)
 		update_tool()
 	return 1
 
@@ -801,6 +831,7 @@
 		"screwdriver",
 		"wrench"
 		)
+	var/powerdrill_level = STANDARD_TOOL_LEVEL + 1
 
 /obj/item/powerdrill/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -810,6 +841,7 @@
 	. = ..()
 	// When spawned, it has the screwdriver bit enabled. Reflect that.
 	tool_behaviour = TOOL_SCREWDRIVER
+	LOAD_TOOL_QUALITIES(src, alist(TOOL_SCREWDRIVER = powerdrill_level), toolComp)
 	update_tool()
 
 /obj/item/powerdrill/set_initial_maptext()
@@ -832,11 +864,13 @@
 		icon_state = "impact_wrench-screw"
 		check_maptext(SMALL_FONTS(7, "S"))
 		tool_behaviour = TOOL_SCREWDRIVER
+		LOAD_TOOL_QUALITIES(src, alist(TOOL_SCREWDRIVER = powerdrill_level), toolComp)
 	else if(tool == TOOL_WRENCH)
 		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
 		check_maptext(SMALL_FONTS(7, "W"))
 		tool_behaviour = TOOL_WRENCH
+		LOAD_TOOL_QUALITIES(src, alist(TOOL_WRENCH = powerdrill_level), toolComp)
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
@@ -849,9 +883,6 @@
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool(tool)
 	return TRUE
-
-/obj/item/powerdrill/issurgerycompatible()
-	return FALSE // too unwieldy for most surgeries
 
 /obj/item/steelwool
 	name = "steel wool"
@@ -931,7 +962,7 @@
 	throw_speed = 3
 	throw_range = 3
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_STEEL = 75)
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
@@ -943,4 +974,3 @@
 	var/mutable_appearance/handle = mutable_appearance('icons/obj/tools.dmi', "hammer_handle")
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 	AddOverlays(handle)
-
