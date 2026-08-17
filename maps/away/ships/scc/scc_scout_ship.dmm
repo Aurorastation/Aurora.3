@@ -2265,9 +2265,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/scc_scout_ship/quarters)
 "mF" = (
-/obj/structure/machinery/ammunition_loader/grauwolf{
-	weapon_id = "SCC Scout Ship Flak Cannon"
-	},
+/obj/structure/machinery/ammunition_loader/grauwolf,
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
 "mH" = (
@@ -3426,8 +3424,7 @@
 /obj/structure/ship_weapon_dummy,
 /obj/structure/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "SCC Scout Ship Flak Cannon"
+	pixel_y = -192
 	},
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/maint_atmos)
