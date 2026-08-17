@@ -93880,10 +93880,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/meeting_room)
-"mhZ" = (
-/turf/space,
-/turf/simulated/wall/r_wall,
-/area/horizon/medical/pharmacy)
 "mia" = (
 /obj/effect/floor_decal/corner/paleblue,
 /turf/unsimulated/floor,
@@ -280141,7 +280137,7 @@ rFg
 rft
 rft
 rft
-mhZ
+rft
 wHy
 wHy
 wHy
