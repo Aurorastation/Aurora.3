@@ -140907,15 +140907,6 @@
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 4
 	},
-/obj/structure/machinery/button/remote/airlock{
-	name = "ICU Door Bolt Control";
-	dir = 10;
-	pixel_x = -6;
-	pixel_y = 7;
-	req_access = list(5);
-	id = "icu_door";
-	specialfunctions = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/icu)
 "siV" = (
