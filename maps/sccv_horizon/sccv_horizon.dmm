@@ -2248,8 +2248,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/stairwell/port/deck_3)
 "ane" = (
-/obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "ann" = (
@@ -6591,14 +6591,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "aRO" = (
 /obj/structure/railing/mapped,
@@ -28733,9 +28732,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -28743,7 +28739,7 @@
 	icon_state = "pipe-c-yellow";
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "dKr" = (
 /obj/random/loot{
@@ -28898,15 +28894,6 @@
 /obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/cafeteria)
-"dLy" = (
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/horizon/medical/gen_treatment)
 "dLC" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, mess hall"
@@ -41887,16 +41874,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "fye" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -50570,12 +50554,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "gFk" = (
-/obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/medical,
 /obj/structure/disposalpipe/junction{
 	dir = 8;
 	icon_state = "pipe-j2"
 	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "gFm" = (
@@ -85646,17 +85630,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor,
 /area/centcom/legion)
-"let" = (
-/obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/medical,
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/gen_treatment)
 "lew" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -102361,7 +102334,6 @@
 /turf/simulated/open,
 /area/horizon/hallway/primary/deck_3/central)
 "nmD" = (
-/obj/effect/floor_decal/sign/gtr,
 /obj/structure/disposalpipe/sortjunction{
 	dir = 1;
 	sortType = "Psychiatry";
@@ -121862,14 +121834,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/storage_hard/upper)
 "pPD" = (
-/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "pPE" = (
@@ -124550,10 +124522,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "qhn" = (
 /obj/structure/window/shuttle/unique/scc/scout{
@@ -135878,13 +135847,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "rDZ" = (
 /obj/structure/machinery/camera/network/third_deck{
@@ -153696,9 +153662,6 @@
 "tSR" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -153706,13 +153669,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "tST" = (
 /obj/structure/table/rack,
@@ -158951,11 +158910,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/upperdeck)
-"uCx" = (
-/obj/effect/floor_decal/industrial/outline/medical,
-/obj/structure/bed/roller,
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/gen_treatment)
 "uCB" = (
 /obj/structure/curtain/open/medical,
 /obj/structure/machinery/light_switch{
@@ -161895,13 +161849,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "uVe" = (
 /obj/structure/table/standard,
@@ -168861,6 +168812,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/sign/gtr,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "vRl" = (
@@ -169013,15 +168965,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "vSM" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -171685,12 +171634,12 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/hapt)
 "wjH" = (
-/obj/structure/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "wjI" = (
@@ -180336,11 +180285,8 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "xjZ" = (
 /obj/structure/machinery/door/blast/regular/open{
@@ -282995,8 +282941,8 @@ aYn
 qHI
 wll
 lFg
-let
-uCx
+wpw
+tRI
 fyd
 lPj
 oSh
@@ -283769,7 +283715,7 @@ xjR
 aRM
 tSR
 vSI
-dLy
+eVB
 iFV
 sqU
 cDH
