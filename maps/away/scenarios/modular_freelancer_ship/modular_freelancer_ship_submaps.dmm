@@ -155,9 +155,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aav" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#4e596e"
 	},
 /turf/simulated/floor,
@@ -1006,9 +1004,7 @@
 /turf/space/dynamic,
 /area/template_noop)
 "acO" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#BCA77E"
 	},
 /turf/simulated/floor,
@@ -3245,9 +3241,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "ana" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#E14644"
 	},
 /turf/simulated/floor,
@@ -4194,9 +4188,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/lounge)
 "asw" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#E14644"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -5455,9 +5447,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
 "aAh" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#90C1DB"
 	},
 /turf/simulated/floor,
@@ -5829,9 +5819,7 @@
 	},
 /area/template_noop)
 "aCA" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#C5C5C5"
 	},
 /turf/simulated/floor,
@@ -6446,9 +6434,7 @@
 /turf/space/dynamic,
 /area/template_noop)
 "aGh" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#E14611"
 	},
 /turf/simulated/floor,
@@ -7329,9 +7315,7 @@
 /turf/simulated/wall/r_wall,
 /area/template_noop)
 "aKL" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#E14644"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -7587,9 +7571,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "aMn" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#A65858"
 	},
 /turf/simulated/floor,
@@ -9510,9 +9492,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aXb" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor{
 	color = "#88A866"
 	},
 /turf/simulated/floor,

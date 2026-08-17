@@ -237,6 +237,12 @@
 	frame_path = /obj/structure/window_frame/shuttle
 	window_path = /obj/structure/window/full/reinforced
 
+/obj/effect/map_effect/window_spawner/full/shuttle/grille
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor
+	spawn_firedoor = TRUE
+
 /obj/effect/map_effect/window_spawner/full/shuttle/scc
 	icon_state = "full_rwindow_shuttle_scc"
 	frame_color = "#AAAFC7"
