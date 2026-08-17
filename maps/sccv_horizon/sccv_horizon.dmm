@@ -71621,6 +71621,12 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/atmos_crosser)
+"jqO" = (
+/obj/structure/machinery/light/floor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/gen_treatment)
 "jqP" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -162292,11 +162298,13 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "uXy" = (
-/obj/structure/machinery/light/floor{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 19
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
@@ -175225,12 +175233,12 @@
 /area/horizon/engineering/atmos/propulsion/starboard)
 "wES" = (
 /obj/effect/floor_decal/corner/beige/full,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
 /obj/structure/machinery/camera/network/medbay{
 	c_tag = "Medical - General Treatment 1";
 	dir = 4
-	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/gen_treatment)
@@ -284227,7 +284235,7 @@ wDx
 fCb
 uXy
 wFa
-tRI
+jqO
 rcC
 xhw
 jYO
