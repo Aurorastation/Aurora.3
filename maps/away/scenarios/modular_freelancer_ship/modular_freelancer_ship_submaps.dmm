@@ -1609,8 +1609,7 @@
 "aeP" = (
 /obj/structure/machinery/ship_weapon/blaster{
 	pixel_y = -195;
-	pixel_x = -24;
-	weapon_id = "Freebooter Ship Blaster"
+	pixel_x = -24
 	},
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -2674,8 +2673,7 @@
 "ajp" = (
 /obj/structure/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "Grauwolf Flak Battery"
+	pixel_y = -192
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -3946,9 +3944,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "aqV" = (
-/obj/structure/machinery/ammunition_loader/longbow{
-	weapon_id = "Longbow Cannon"
-	},
+/obj/structure/machinery/ammunition_loader/longbow,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
 "aqW" = (
@@ -7676,9 +7672,7 @@
 /turf/simulated/wall/shuttle/legion,
 /area/template_noop)
 "aMt" = (
-/obj/structure/machinery/ammunition_loader/blaster{
-	weapon_id = "Freebooter Ship Blaster"
-	},
+/obj/structure/machinery/ammunition_loader/blaster,
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/guns)
 "aMu" = (
@@ -9332,9 +9326,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
 "aVH" = (
-/obj/structure/machinery/ammunition_loader/autocannon{
-	weapon_id = "tcaf_autocannon"
-	},
+/obj/structure/machinery/ammunition_loader/autocannon,
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/guns)
 "aVK" = (
@@ -13941,8 +13933,7 @@
 "hic" = (
 /obj/structure/machinery/ship_weapon/longbow{
 	pixel_x = -32;
-	pixel_y = -320;
-	weapon_id = "Longbow Cannon"
+	pixel_y = -320
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/ship_weapon_dummy,
@@ -14016,7 +14007,6 @@
 "hmZ" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/machinery/ship_weapon/autocannon{
-	weapon_id = "tcaf_autocannon";
 	pixel_y = -64
 	},
 /turf/simulated/floor/airless,
@@ -17534,9 +17524,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/machinery/ammunition_loader/longbow{
-	weapon_id = "Longbow Cannon"
-	},
+/obj/structure/machinery/ammunition_loader/longbow,
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/guns)
 "mxZ" = (
