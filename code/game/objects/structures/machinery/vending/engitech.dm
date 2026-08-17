@@ -49,6 +49,9 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "hephaestus"
 
+/obj/structure/machinery/vending/robotics
+	req_access = null
+
 /obj/item/vending_refill/robo
 	name = "robo-tools resupply canister"
 	vend_id = "robo-tools"
@@ -86,6 +89,9 @@
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
+/obj/structure/machinery/vending/engivend/noid
+	req_access = null
+
 /obj/structure/machinery/vending/engivend/low_supply
 	products = list(
 		/obj/item/multitool = 2,
@@ -106,7 +112,6 @@
 	icon_state = "tool"
 	icon_vend = "tool-vend"
 	vend_id = "tools"
-	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
 	products = list(
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/crowbar = 5,
@@ -194,6 +199,9 @@
 	restock_items = TRUE
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
+
+/obj/structure/machinery/vending/engineering
+	req_access = null
 
 /obj/item/vending_refill/tools
 	name = "tools resupply canister"

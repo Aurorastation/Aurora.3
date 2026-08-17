@@ -661,9 +661,7 @@
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/fore/hallway)
 "abL" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/random/firstaid{
 	pixel_y = 6;
 	pixel_x = -5
@@ -1432,9 +1430,7 @@
 "aem" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/zora{
-	prices = list()
-	},
+/obj/structure/machinery/vending/zora/free,
 /turf/simulated/floor/tiled/steel,
 /area/modular_freelancer_ship/mid/lounge)
 "aen" = (
@@ -1987,15 +1983,11 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "afX" = (
-/obj/structure/machinery/fabricator/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe"
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/noid/north,
+/obj/structure/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/tiled/techmaint,
 /area/modular_freelancer_ship/aft/engineering)
 "afY" = (
@@ -2096,9 +2088,7 @@
 "agk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/cigarette/hacked{
-	name = "cigarette machine"
-	},
+/obj/structure/machinery/vending/cigarette/free,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/aft/hallway)
 "agm" = (
@@ -2177,9 +2167,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "agv" = (
-/obj/structure/machinery/vending/medical{
-	req_access = null
-	},
+/obj/structure/machinery/vending/medical/noid,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
@@ -2250,9 +2238,7 @@
 "agJ" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/structure/machinery/vending/engivend/noid,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/engineering)
 "agM" = (
@@ -2287,9 +2273,7 @@
 /area/template_noop)
 "agS" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/structure/machinery/vending/engivend/noid,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/shuttles/hallway)
@@ -2492,9 +2476,7 @@
 /area/modular_freelancer_ship/aft/hallway)
 "aif" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/item/storage/firstaid/surgery{
 	pixel_x = -3;
 	pixel_y = 6
@@ -2767,9 +2749,7 @@
 "ajM" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/vending/engineering{
-	req_access = null
-	},
+/obj/structure/machinery/vending/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aft/engineering)
 "ajO" = (
@@ -3274,9 +3254,7 @@
 /area/modular_freelancer_ship/misc/maint/aux)
 "ang" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/random/medical{
 	pixel_x = -5;
 	pixel_y = 5
@@ -3359,14 +3337,13 @@
 "anC" = (
 /obj/structure/machinery/button/remote/airlock{
 	dir = 1;
-	id = "mod_free_ship_brig_2";
-	specialfunctions = 4;
 	pixel_y = 26;
 	pixel_x = 26
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "anG" = (
@@ -3722,9 +3699,7 @@
 /area/modular_freelancer_ship/aft/engineering)
 "apC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/random/medical,
 /turf/simulated/floor/tiled/white,
 /area/modular_freelancer_ship/fore/hallway)
@@ -3869,9 +3844,7 @@
 /area/modular_freelancer_ship/fore/hallway)
 "aqw" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/item/roller{
 	pixel_y = 3
 	},
@@ -4005,9 +3978,7 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/template_noop)
 "arj" = (
-/obj/structure/machinery/vending/medical{
-	req_access = null
-	},
+/obj/structure/machinery/vending/medical/noid,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -4083,9 +4054,7 @@
 /area/modular_freelancer_ship/aft/engineering)
 "arP" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/item/storage/box/gloves{
 	pixel_x = -3;
 	pixel_y = 8
@@ -4545,10 +4514,9 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/airlock/highsecurity{
-	id_tag = "mod_free_ship_brig_1"
-	},
+/obj/structure/machinery/door/airlock/highsecurity,
 /obj/effect/map_effect/door_helper/lock,
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "atV" = (
@@ -5372,11 +5340,8 @@
 /area/template_noop)
 "azm" = (
 /obj/structure/table/glass,
-/obj/item/clothing/head/softcap/colorable{
-	pixel_x = 6;
-	name = "Nexus Corporate Security softcap";
-	desc = "It's a softcap in Nexus Corporate Security colors.";
-	color = "#4F6583";
+/obj/item/clothing/head/softcap/pmc{
+	pixel_x = 4;
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5742,11 +5707,10 @@
 "aBz" = (
 /obj/structure/machinery/button/remote/airlock{
 	dir = 1;
-	id = "mod_free_ship_brig_1";
-	specialfunctions = 4;
 	pixel_y = 26;
 	pixel_x = 26
 	},
+/obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aBG" = (
@@ -5790,17 +5754,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
-/area/template_noop)
-"aCc" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/airlock/highsecurity{
-	id_tag = "mod_free_ship_brig_2"
-	},
-/obj/effect/map_effect/door_helper/lock,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aCd" = (
 /obj/structure/table/rack,
@@ -6368,9 +6321,7 @@
 /turf/simulated/floor/reinforced,
 /area/modular_freelancer_ship/fore/guns)
 "aFG" = (
-/obj/structure/machinery/vending/frontiervend/hacked{
-	name = "FrontierVend"
-	},
+/obj/structure/machinery/vending/frontiervend/hacked,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark,
@@ -6528,9 +6479,7 @@
 "aGu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/cola{
-	prices = list()
-	},
+/obj/structure/machinery/vending/cola/free,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/aft/hallway)
 "aGv" = (
@@ -7116,6 +7065,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"aJx" = (
+/obj/random/vendor{
+	scan_id = 0
+	},
+/turf/template_noop,
+/area/template_noop)
 "aJA" = (
 /obj/structure/table/wood/maple,
 /obj/item/flashlight/lamp/green{
@@ -7582,9 +7537,7 @@
 /area/template_noop)
 "aLZ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/item/storage/firstaid/surgery{
 	pixel_y = 6
 	},
@@ -7929,15 +7882,11 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aOo" = (
-/obj/structure/machinery/fabricator/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe"
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/noid/north,
+/obj/structure/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/tiled/techfloor,
 /area/modular_freelancer_ship/aft/engineering)
 "aOp" = (
@@ -8084,9 +8033,7 @@
 /turf/simulated/floor/tiled/cargo,
 /area/template_noop)
 "aPd" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
@@ -8292,9 +8239,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/template_noop)
 "aQN" = (
-/obj/structure/machinery/vending/medical{
-	req_access = null
-	},
+/obj/structure/machinery/vending/medical/noid,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
 /turf/simulated/floor/tiled/white,
@@ -8637,9 +8582,7 @@
 /area/template_noop)
 "aSz" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/item/roller{
 	pixel_y = 3
 	},
@@ -8697,9 +8640,7 @@
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/lounge)
 "aSL" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/item/storage/box/masks{
 	pixel_x = -3;
 	pixel_y = 14
@@ -8859,9 +8800,7 @@
 "aTD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/mredispenser{
-	prices = list()
-	},
+/obj/structure/machinery/vending/mredispenser/free,
 /obj/structure/machinery/light{
 	dir = 1
 	},
@@ -8901,9 +8840,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "aTP" = (
-/obj/structure/machinery/vending/coffee/free{
-	name = "Hot Drinks machine"
-	},
+/obj/structure/machinery/vending/coffee/free,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/steel,
@@ -9418,9 +9355,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/shuttles/hallway)
 "aWk" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
@@ -10041,9 +9976,7 @@
 "aZD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/snack{
-	prices = list()
-	},
+/obj/structure/machinery/vending/snack/free,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/aft/hallway)
 "aZE" = (
@@ -10992,9 +10925,7 @@
 /area/modular_freelancer_ship/shuttles/hallway)
 "cHh" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/structure/machinery/vending/engivend/noid,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/fore/port)
@@ -11825,9 +11756,7 @@
 "dYd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/frontiervend/hacked{
-	name = "FrontierVend"
-	},
+/obj/structure/machinery/vending/frontiervend/hacked,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "dYy" = (
@@ -11880,9 +11809,7 @@
 "efl" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/mredispenser{
-	prices = list()
-	},
+/obj/structure/machinery/vending/mredispenser/free,
 /turf/simulated/floor/tiled/steel,
 /area/modular_freelancer_ship/mid/hallway)
 "efN" = (
@@ -12394,9 +12321,7 @@
 /area/template_noop)
 "eXq" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/structure/machinery/vending/engivend/noid,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/machinery/light{
 	dir = 4
@@ -12434,9 +12359,7 @@
 /area/modular_freelancer_ship/fore/starboard)
 "eXR" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass,
 /obj/item/roller{
 	pixel_y = 3
 	},
@@ -13842,9 +13765,7 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
 "hdM" = (
-/obj/structure/machinery/vending/coffee/free{
-	name = "Hot Drinks machine"
-	},
+/obj/structure/machinery/vending/coffee/free,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/light{
@@ -17177,9 +17098,7 @@
 /area/modular_freelancer_ship/aux/hallway)
 "meR" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/structure/machinery/vending/engivend/noid,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/modular_freelancer_ship/fore/hallway)
@@ -18020,9 +17939,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/modular_freelancer_ship/fore/hallway)
 "ngE" = (
-/obj/structure/machinery/vending/frontiervend/hacked{
-	name = "FrontierVend"
-	},
+/obj/structure/machinery/vending/frontiervend/hacked,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark,
@@ -18141,10 +18058,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/container/c02)
-"nrW" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/legion/grille/firedoor,
-/turf/simulated/floor,
-/area/template_noop)
 "nsJ" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
@@ -19813,6 +19726,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
+"qle" = (
+/obj/structure/machinery/vending/boozeomat/abandoned,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/crew)
 "qln" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -21765,6 +21682,10 @@
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
+"tqz" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/legion/grille/firedoor,
+/turf/simulated/floor,
+/area/template_noop)
 "tre" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -34213,7 +34134,7 @@ eKr
 qRg
 mrs
 hrR
-iEc
+qle
 nSj
 rfN
 bae
@@ -53762,10 +53683,10 @@ aza
 aza
 apn
 aza
+aJx
 aza
-aza
-aza
-aza
+aJx
+ahE
 aza
 aza
 act
@@ -53920,7 +53841,7 @@ aza
 apn
 aza
 aza
-aza
+aJx
 aza
 aza
 aza
@@ -54076,10 +53997,10 @@ aza
 aza
 apn
 aza
+aJx
 aza
 aza
-aza
-aza
+aJx
 aza
 aza
 act
@@ -54234,8 +54155,8 @@ aza
 apn
 aza
 aza
-aza
-aza
+aJx
+aJx
 aza
 aza
 aza
@@ -54390,8 +54311,8 @@ aza
 aza
 apn
 aza
-aza
-aza
+aze
+aze
 aza
 aza
 aza
@@ -58232,7 +58153,7 @@ aza
 aim
 aQU
 alm
-aCc
+atU
 anC
 wVH
 aZv
@@ -67195,7 +67116,7 @@ wRt
 aPC
 aMs
 aMs
-nrW
+tqz
 aMs
 aXg
 aMs
@@ -67357,9 +67278,9 @@ isN
 aRv
 aRv
 aMs
-nrW
-nrW
-nrW
+tqz
+tqz
+tqz
 aza
 aUQ
 aOs
@@ -67516,8 +67437,8 @@ aRv
 atH
 acU
 aaG
-nrW
-nrW
+tqz
+tqz
 aBg
 arU
 aza
@@ -67674,7 +67595,7 @@ ajR
 azf
 azf
 aoM
-nrW
+tqz
 aUQ
 aOs
 aza
@@ -67830,8 +67751,8 @@ aqb
 aPJ
 atk
 aMl
-nrW
-nrW
+tqz
+tqz
 aUQ
 aOs
 aza
@@ -67985,9 +67906,9 @@ afx
 afx
 afx
 aMs
-nrW
-nrW
-nrW
+tqz
+tqz
+tqz
 aza
 aUQ
 aOs
@@ -68137,7 +68058,7 @@ kOn
 aLp
 aMs
 aMs
-nrW
+tqz
 aMs
 afx
 aMs
