@@ -136889,7 +136889,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	id_tag = "icu_door";
 	name = "Medical ICU Entrance";
-	req_access = s;
+	req_access = list(5);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/shutters{
@@ -172762,7 +172762,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	id_tag = "main_door";
 	name = "Triage Room Main Entrance";
-	req_access = list(5)
+	req_access = s
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
