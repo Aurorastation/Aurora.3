@@ -21988,9 +21988,12 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
-/obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
+	},
+/obj/structure/machinery/disposal/small/north,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/icu)
@@ -23214,6 +23217,9 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/icu)
 "dct" = (
@@ -94286,10 +94292,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/operations/machinist)
 "mkD" = (
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/icu)
 "mkG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -131662,6 +131665,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/seafoam,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "rcD" = (
@@ -143116,9 +143122,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/junction{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
@@ -149793,6 +149798,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/icu)
 "tru" = (
@@ -162161,6 +162169,7 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/medical/icu)
 "uWM" = (
@@ -170526,6 +170535,9 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/icu)
 "wcB" = (
