@@ -1345,9 +1345,9 @@
 /area/modular_freelancer_ship/shuttles/hallway)
 "adX" = (
 /obj/structure/machinery/mineral/stacking_machine{
-	id = "mod_free_ship_mining_stack_1";
 	dir = 8
 	},
+/obj/effect/map_effect/marker/mining_conveyor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "adY" = (
@@ -6267,6 +6267,7 @@
 /obj/structure/machinery/mineral/unloading_machine{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/mining_conveyor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aFj" = (
@@ -7451,13 +7452,13 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/mineral/stacking_unit_console{
-	id = "mod_free_ship_mining_stack_1";
 	pixel_y = 32
 	},
 /obj/item/stack/material/aluminium/full{
 	pixel_x = -7;
 	pixel_y = -2
 	},
+/obj/effect/map_effect/marker/mining_conveyor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aLD" = (
@@ -7969,9 +7970,9 @@
 /area/template_noop)
 "aON" = (
 /obj/structure/machinery/conveyor{
-	dir = 8;
-	id = "mod_free_ship_mining_conv_1"
+	dir = 8
 	},
+/obj/effect/map_effect/marker/mining_conveyor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aOO" = (
@@ -8546,14 +8547,14 @@
 /area/modular_freelancer_ship/misc/maint/aux)
 "aSr" = (
 /obj/structure/machinery/conveyor_switch/oneway{
-	pixel_y = 7;
-	id = "mod_free_ship_mining_conv_1"
+	pixel_y = 7
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/mining_conveyor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aSs" = (
@@ -8706,10 +8707,10 @@
 /area/template_noop)
 "aSY" = (
 /obj/structure/machinery/mineral/processing_unit{
-	id = "mod_free_ship_mining_proc_1";
 	dir = 8
 	},
 /obj/structure/machinery/alarm/noid/north,
+/obj/effect/map_effect/marker/mining_conveyor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aSZ" = (
@@ -8718,9 +8719,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/mineral/processing_unit_console{
-	id = "mod_free_ship_mining_proc_1";
 	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/mining_conveyor,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "aTb" = (
@@ -15975,6 +15976,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
+"kou" = (
+/obj/structure/machinery/vending/boozeomat/abandoned,
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/crew)
 "koN" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -19726,10 +19731,6 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/fore/hallway)
-"qle" = (
-/obj/structure/machinery/vending/boozeomat/abandoned,
-/turf/simulated/floor/tiled/dark,
-/area/modular_freelancer_ship/fore/crew)
 "qln" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -34134,7 +34135,7 @@ eKr
 qRg
 mrs
 hrR
-qle
+kou
 nSj
 rfN
 bae
