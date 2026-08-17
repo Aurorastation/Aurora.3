@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "The fuel tank from the cargo ordering program is no longer access restricted."
