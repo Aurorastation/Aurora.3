@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 # Allowed variable modifications
-ALLOWED_VARS = {"dir", "pixel_x", "pixel_y", "icon_state", "name"}
+ALLOWED_VARS = {"dir", "pixel_x", "pixel_y", "icon_state"}
 
 def scan_dmm_file(file_path: str):
     path = Path(file_path)
