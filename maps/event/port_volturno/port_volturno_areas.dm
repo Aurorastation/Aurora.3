@@ -133,3 +133,12 @@
 	name = "Port Volturno - Triesto Tram Line"
 	icon_state = "ship"
 	area_blurb = "The tram stations at Port Volturno serve not only as the fastest link to the rest of Triesto, but also as emergency shelters in the catastrophic event of a dome breach."
+
+/area/port_volturno/unsimulated
+	name = "Port Volturno - Exterior"
+	icon_state = "nature_showcase"
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_PREVENT_PERSISTENT_TRASH
+	base_turf = /turf/simulated/floor/exoplanet/assunzione
+	ambience = AMBIENCE_KONYANG_TRAFFIC
+	sound_environment = SOUND_ENVIRONMENT_CITY
+	is_outside = OUTSIDE_NO
