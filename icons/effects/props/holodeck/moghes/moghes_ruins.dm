@@ -4,6 +4,7 @@
 	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi'
 	icon_state = "pillar1"
 	layer = ABOVE_HUMAN_LAYER
+	density = TRUE
 
 /obj/structure/moghes_ruin/variant
 	icon_state = "pillar2"
@@ -18,6 +19,7 @@
 	name = "Karszekani Moghes flag"
 	desc = "The proudly waving flag of the Izweski Nation."
 	icon_state = "flag"
+	density = FALSE
 
 /obj/structure/moghes_ruin/giant
 	name = "giant overgrown pillar"
