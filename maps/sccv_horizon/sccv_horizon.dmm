@@ -2353,9 +2353,6 @@
 	pixel_y = 14
 	},
 /obj/effect/decal/rolling_fog,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_biesel)
 "anG" = (
@@ -2436,7 +2433,8 @@
 	icon_state = "post";
 	name = "post";
 	pixel_x = 3;
-	pixel_y = -1
+	pixel_y = -1;
+	layer = 2.11
 	},
 /turf/simulated/floor/holofloor/grass{
 	desc = "Lush, mossy grass. A staple of Konyang.";
@@ -2783,6 +2781,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/engineering/deck_2)
+"arF" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/carpet/rubber,
+/area/horizon/holodeck/source_gym)
 "arG" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -7521,6 +7523,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/operations)
+"aYu" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_luceism)
 "aYz" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
@@ -12709,15 +12719,9 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/operations/starboard)
 "bGN" = (
-/obj/effect/decal/rolling_fog,
-/obj/item/flashlight/lamp/holodeck{
-	light_color = "#C48A18";
-	light_power = 2;
-	light_range = 14;
-	on = 0
-	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_jupiter)
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_chapel)
 "bGP" = (
 /turf/simulated/wall,
 /area/horizon/medical/reception)
@@ -20815,6 +20819,13 @@
 /obj/structure/platform_deco,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard/near)
+"cLV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_courtroom)
 "cLX" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -28396,6 +28407,14 @@
 "dHR" = (
 /turf/simulated/floor/carpet,
 /area/horizon/repoffice/consular_one)
+"dHX" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/effect/floor_decal/corner_wide/mauve/diagonal{
+	dir = 4
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_luceism)
 "dHY" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 10
@@ -29426,6 +29445,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
+"dPi" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_meetinghall)
 "dPk" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -35034,13 +35060,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/checkpoint)
 "eBx" = (
-/obj/effect/mist,
-/turf/simulated/floor/exoplanet/water/shallow{
-	dir = 6;
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	icon_state = "beach"
-	},
-/area/horizon/holodeck/source_moghes)
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_meetinghall)
 "eBA" = (
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/holofloor/tiled,
@@ -36237,6 +36259,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/medical/morgue)
+"eKu" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "eKv" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -36853,6 +36882,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/upperdeck)
+"ePh" = (
+/obj/item/flashlight/lamp/holodeck{
+	light_color = "#C48A18"
+	},
+/turf/simulated/floor/holofloor/grass{
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "grass";
+	name = "overgrowth"
+	},
+/area/horizon/holodeck/source_moghes)
 "ePz" = (
 /obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/closet/walllocker/emerglocker{
@@ -39481,7 +39520,7 @@
 /turf/simulated/floor,
 /area/horizon/ai/upload_foyer)
 "fgX" = (
-/obj/effect/decal/fake_object/light_source/invisible,
+/obj/item/flashlight/lamp/holodeck,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_combat_training)
 "fgY" = (
@@ -41967,6 +42006,10 @@
 "fyB" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/maintenance/substation/civ_d3)
+"fyE" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "fyI" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -45533,6 +45576,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/engineering/hallway/fore)
+"fWZ" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/carpet,
+/area/horizon/holodeck/source_courtroom)
 "fXe" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -46434,7 +46481,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "gdm" = (
-/obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "beachcorner"
@@ -47234,6 +47280,10 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/horizon/command/heads/rd)
+"giO" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "giR" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/maintenance/deck_2/wing/starboard/far)
@@ -63322,6 +63372,10 @@
 	icon_state = "white"
 	},
 /area/centcom/holding)
+"imQ" = (
+/obj/effect/map_effect/perma_light/starlight,
+/turf/simulated/floor/holofloor/space,
+/area/horizon/holodeck/source_basketball)
 "imR" = (
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow"
@@ -64399,9 +64453,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/weapons/longbow)
 "itU" = (
-/obj/item/flashlight/lamp/holodeck,
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/horizon/holodeck/source_beach)
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/obj/effect/map_effect/perma_light/starlight,
+/turf/simulated/floor/holofloor/space,
+/area/horizon/holodeck/source_basketball)
 "itZ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -67387,6 +67444,13 @@
 /obj/structure/closet/crate/miningcart,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/xenoarch/anomaly_storage)
+"iNZ" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble,
+/area/horizon/holodeck/source_tribunal)
 "iOa" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -68745,7 +68809,8 @@
 	icon_state = "post";
 	name = "post";
 	pixel_x = 3;
-	pixel_y = -1
+	pixel_y = -1;
+	layer = 2.11
 	},
 /turf/simulated/floor/holofloor/grass{
 	desc = "Lush, mossy grass. A staple of Konyang.";
@@ -70359,6 +70424,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/item/flashlight/lamp/holodeck,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "jhR" = (
@@ -73362,6 +73428,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/item/flashlight/lamp/holodeck,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "jCg" = (
@@ -75602,6 +75669,7 @@
 /obj/effect/floor_decal/corner{
 	dir = 9
 	},
+/obj/item/flashlight/lamp/holodeck,
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
 "jRu" = (
@@ -75717,6 +75785,14 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/air)
+"jRS" = (
+/obj/item/flashlight/lamp/holodeck{
+	light_color = "#C48A18"
+	},
+/turf/simulated/floor/holofloor/beach/sand{
+	icon_state = "desert2"
+	},
+/area/horizon/holodeck/source_desert)
 "jRW" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -78424,6 +78500,13 @@
 /obj/structure/machinery/light/small/floor,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
+"kkc" = (
+/obj/structure/railing/mapped{
+	name = "adjusted railing"
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_chapel)
 "kkf" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -78867,13 +78950,12 @@
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/engineering)
 "kmU" = (
-/obj/effect/mist,
-/turf/simulated/floor/exoplanet/water/shallow{
-	dir = 9;
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	icon_state = "beach"
+/obj/effect/decal/rolling_fog,
+/obj/item/flashlight/lamp/holodeck{
+	light_color = "#C48A18"
 	},
-/area/horizon/holodeck/source_moghes)
+/turf/simulated/floor/holofloor/reinforced,
+/area/horizon/holodeck/source_jupiter)
 "knf" = (
 /obj/effect/map_effect/door_helper/unres,
 /obj/structure/machinery/door/firedoor,
@@ -80982,6 +81064,10 @@
 /obj/structure/machinery/shield_diffuser,
 /turf/simulated/open/airless,
 /area/horizon/exterior/no_shields)
+"kzX" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_luceism)
 "kzZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/machinery/door/firedoor,
@@ -88440,6 +88526,9 @@
 /obj/item/book/manual/tcaf_pamphlet{
 	pixel_y = 12
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
 "lyf" = (
@@ -88595,6 +88684,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
+"lyX" = (
+/obj/item/flashlight/lamp/holodeck{
+	light_color = "#C48A18"
+	},
+/turf/simulated/floor/holofloor/beach/sand{
+	icon_state = "desert4"
+	},
+/area/horizon/holodeck/source_beach)
 "lza" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -89361,7 +89458,7 @@
 	icon = 'icons/obj/weapons.dmi';
 	icon_state = "towel_flat";
 	name = "flooring cloth";
-	pixel_x = -6;
+	pixel_x = -3;
 	pixel_y = 11
 	},
 /turf/simulated/floor/holofloor/wood{
@@ -101162,7 +101259,8 @@
 	icon_state = "post";
 	name = "post";
 	pixel_x = 3;
-	pixel_y = -1
+	pixel_y = -1;
+	layer = 2.11
 	},
 /turf/simulated/floor/holofloor/grass{
 	desc = "Lush, mossy grass. A staple of Konyang.";
@@ -103188,6 +103286,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/holofloor,
 /area/horizon/holodeck/source_biesel)
@@ -106693,6 +106794,7 @@
 /obj/effect/floor_decal/carpet{
 	dir = 1
 	},
+/obj/item/flashlight/lamp/holodeck,
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
 "nQl" = (
@@ -107395,6 +107497,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
+"nUW" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_courtroom)
 "nUX" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -114296,6 +114402,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
 "oRd" = (
@@ -114543,24 +114652,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/upperdeck)
 "oSk" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/structure/table/wood,
-/obj/structure/window/reinforced/holowindow{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/wood{
-	dir = 6;
-	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	icon_state = "water";
-	name = "shallow water"
-	},
-/area/horizon/holodeck/source_konyang)
+/obj/effect/map_effect/perma_light/starlight/wide,
+/turf/simulated/floor/holofloor/space,
+/area/horizon/holodeck/source_space)
 "oSn" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -118299,9 +118393,6 @@
 	pixel_x = -1;
 	pixel_y = 4
 	},
-/obj/structure/machinery/door/window/holowindoor{
-	dir = 1
-	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -119076,6 +119167,13 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/substation/operations)
+"pxp" = (
+/obj/effect/floor_decal/corner{
+	dir = 4
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_tribunal)
 "pxv" = (
 /obj/item/beach_ball,
 /turf/simulated/floor/beach/sand{
@@ -122687,6 +122785,13 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/wing/starboard)
+"pUK" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/obj/effect/map_effect/perma_light/starlight,
+/turf/simulated/floor/holofloor/space,
+/area/horizon/holodeck/source_basketball)
 "pUN" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -125231,6 +125336,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/break_room)
+"qme" = (
+/obj/effect/floor_decal/corner{
+	dir = 9
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_tribunal)
 "qmm" = (
 /obj/item/flashlight/flare,
 /obj/item/flashlight/flare,
@@ -126512,9 +126624,7 @@
 	dir = 9
 	},
 /obj/item/flashlight/lamp/holodeck{
-	light_color = "#C48A18";
-	light_power = 2;
-	light_range = 14
+	light_color = "#C48A18"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_biesel)
@@ -128741,12 +128851,12 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/holding_cell_b)
 "qJv" = (
-/obj/effect/decal/rolling_fog,
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
 	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_biesel)
+/obj/effect/map_effect/perma_light/starlight,
+/turf/simulated/floor/holofloor/space,
+/area/horizon/holodeck/source_basketball)
 "qJw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -133564,6 +133674,10 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
+"rnQ" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/space/srom_space,
+/area/centcom/shared_dream)
 "rnR" = (
 /obj/structure/machinery/chem_master,
 /obj/effect/floor_decal/spline/plain{
@@ -134195,6 +134309,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/controlroom)
+"rsb" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner{
+	dir = 10
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_trinary)
 "rsi" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/alarm/north,
@@ -134527,6 +134651,7 @@
 /obj/effect/floor_decal/corner{
 	dir = 6
 	},
+/obj/item/flashlight/lamp/holodeck,
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
 "ruF" = (
@@ -139802,6 +139927,9 @@
 /obj/structure/railing/mapped{
 	name = "adjusted railing"
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
 "scJ" = (
@@ -140292,12 +140420,15 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "sgj" = (
-/obj/effect/decal/rolling_fog,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
-/turf/simulated/floor/holofloor/reinforced,
-/area/horizon/holodeck/source_biesel)
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 6
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_luceism)
 "sgk" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/warning,
@@ -145318,6 +145449,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
 "sMY" = (
@@ -145785,9 +145919,7 @@
 	dir = 6
 	},
 /obj/item/flashlight/lamp/holodeck{
-	light_color = "#C48A18";
-	light_power = 2;
-	light_range = 14
+	light_color = "#C48A18"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_biesel)
@@ -153386,25 +153518,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "tPH" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
+/obj/item/flashlight/lamp/holodeck{
+	light_color = "#C48A18"
 	},
-/obj/structure/table/wood,
-/obj/item/flashlight/lamp/box{
-	on = 0;
-	pixel_y = 11
+/turf/simulated/floor/holofloor/beach/sand{
+	icon_state = "desert"
 	},
-/turf/simulated/floor/holofloor/wood{
-	dir = 6;
-	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	icon_state = "water";
-	name = "shallow water"
-	},
-/area/horizon/holodeck/source_konyang)
+/area/horizon/holodeck/source_desert)
 "tPI" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -163699,9 +163819,7 @@
 /area/antag/jockey)
 "vfN" = (
 /obj/structure/table/wood,
-/obj/item/flashlight/lamp/box{
-	on = 0
-	},
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/holofloor/grass{
 	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -164201,7 +164319,8 @@
 	icon_state = "post";
 	name = "post";
 	pixel_x = 3;
-	pixel_y = -1
+	pixel_y = -1;
+	layer = 2.11
 	},
 /turf/simulated/floor/holofloor/grass{
 	desc = "Lush, mossy grass. A staple of Konyang.";
@@ -166536,6 +166655,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/supermatter/airlock)
+"vAS" = (
+/obj/item/flashlight/lamp/holodeck{
+	light_color = "#C48A18"
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/horizon/holodeck/source_beach)
 "vAU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -171637,6 +171762,9 @@
 /obj/structure/railing/mapped{
 	name = "adjusted railing"
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
 "wiR" = (
@@ -171837,6 +171965,10 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"wko" = (
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_tribunal)
 "wkq" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -172692,6 +172824,11 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/cafe)
+"wpu" = (
+/obj/structure/window/reinforced/holowindow,
+/obj/effect/map_effect/perma_light/starlight,
+/turf/simulated/floor/holofloor/space,
+/area/horizon/holodeck/source_basketball)
 "wpw" = (
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 5
@@ -174506,6 +174643,9 @@
 	name = "lounging chair"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -176376,9 +176516,6 @@
 	pixel_y = 14
 	},
 /obj/effect/decal/rolling_fog,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_biesel)
 "wMl" = (
@@ -179370,7 +179507,14 @@
 	layer = 2.1
 	},
 /obj/structure/table/wood,
-/obj/item/flame/candle,
+/obj/item/flame/candle{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/flame/candle{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -180303,6 +180447,16 @@
 "xiW" = (
 /turf/simulated/wall,
 /area/horizon/security/interrogation/monitoring)
+"xiY" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/holofloor/wood,
+/area/horizon/holodeck/source_courtroom)
 "xja" = (
 /obj/structure/platform_stairs/full{
 	dir = 4
@@ -183066,6 +183220,9 @@
 	},
 /obj/structure/table/wood,
 /obj/item/flame/candle,
+/obj/item/flame/candle{
+	pixel_x = 5
+	},
 /turf/simulated/floor/holofloor/wood{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
@@ -184595,6 +184752,9 @@
 	dir = 4
 	},
 /obj/item/versebook/biesel,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
 "xNy" = (
@@ -184995,6 +185155,10 @@
 	icon_state = "table";
 	name = "luxurious Konyang table cover"
 	},
+/obj/item/flashlight/lamp/box{
+	pixel_y = 4;
+	pixel_x = 6
+	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -185137,6 +185301,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
+"xQW" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/item/flashlight/lamp/holodeck,
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "xQY" = (
 /obj/structure/shuttle_part/ert{
 	icon_state = "10,1";
@@ -422248,7 +422419,7 @@ oeZ
 isi
 sZM
 sZM
-isi
+nUW
 sZM
 sZM
 sZM
@@ -422792,10 +422963,10 @@ kSV
 bdb
 oeZ
 oOX
-sgj
-sgj
-sgj
-sgj
+oOX
+oOX
+oOX
+oOX
 oOX
 oOX
 oeZ
@@ -423059,7 +423230,7 @@ oeZ
 rFd
 mpG
 lsh
-lsh
+eKu
 lsh
 jhA
 gev
@@ -423271,7 +423442,7 @@ vnS
 rRo
 hcW
 wtU
-awz
+rsb
 oeZ
 tTe
 otv
@@ -423531,10 +423702,10 @@ kCV
 awz
 oeZ
 tTe
-otv
+xiY
 fBY
 ljk
-sVe
+fWZ
 sVe
 raz
 oeZ
@@ -424042,7 +424213,7 @@ dly
 gqL
 rof
 rum
-awz
+rsb
 oeZ
 tTe
 hDi
@@ -424344,7 +424515,7 @@ oeZ
 dFh
 eSI
 dvf
-dvf
+xQW
 dvf
 mJj
 gev
@@ -424591,9 +424762,9 @@ qIo
 sQw
 oeZ
 oOX
-qJv
+oOX
 wMj
-qJv
+oOX
 anF
 oOX
 oOX
@@ -424818,7 +424989,7 @@ oeZ
 kfA
 qEb
 qEb
-qEb
+cLV
 qEb
 qEb
 jvb
@@ -425573,7 +425744,7 @@ oeZ
 dmP
 dmP
 dmP
-dmP
+oSk
 dmP
 dmP
 dmP
@@ -425827,13 +425998,13 @@ eSV
 eSV
 eSV
 oeZ
-dmP
+oSk
 jDX
 dmP
 jDX
 dmP
 jDX
-dmP
+oSk
 oeZ
 lyu
 fvk
@@ -425867,13 +426038,13 @@ kVd
 duO
 qkM
 oeZ
-hLR
+imQ
 kxu
 kxu
+pUK
 kxu
 kxu
-kxu
-hLR
+imQ
 oeZ
 dKX
 sVG
@@ -426094,9 +426265,9 @@ dmP
 oeZ
 lyu
 eST
-taS
+qme
 hdh
-taS
+qme
 taS
 ssF
 oeZ
@@ -426374,11 +426545,11 @@ vhU
 qKt
 oeZ
 qkM
-eBY
+kkc
 duE
 mai
 tyH
-qkM
+bGN
 qkM
 oeZ
 amq
@@ -426398,11 +426569,11 @@ iRX
 oIm
 oeZ
 tBb
+fyE
 wdo
 wdo
 wdo
-wdo
-wdo
+fyE
 vsI
 oeZ
 eSV
@@ -426598,19 +426769,19 @@ eSV
 eSV
 eSV
 oeZ
+oSk
 dmP
 dmP
+oSk
 dmP
 dmP
-dmP
-dmP
-dmP
+oSk
 oeZ
 lyu
 aui
-jTp
+wko
 bLo
-jny
+pxp
 jTp
 ssF
 oeZ
@@ -426638,13 +426809,13 @@ qkM
 qkM
 qkM
 oeZ
-amq
+wpu
 nZN
 nZN
 nZN
 nZN
 nZN
-vYu
+qJv
 oeZ
 ycd
 qQW
@@ -427152,7 +427323,7 @@ rqm
 rqm
 qkM
 oeZ
-amq
+wpu
 amb
 amb
 lXI
@@ -427369,13 +427540,13 @@ eSV
 eSV
 eSV
 oeZ
+oSk
 dmP
 dmP
+oSk
 dmP
 dmP
-dmP
-dmP
-dmP
+oSk
 oeZ
 lyu
 csq
@@ -427415,7 +427586,7 @@ nZN
 nZN
 nZN
 nZN
-vYu
+qJv
 oeZ
 dKX
 ngY
@@ -427659,14 +427830,14 @@ vhU
 qKt
 oeZ
 qkM
+bGN
 qkM
 qkM
 qkM
-qkM
-qkM
+bGN
 qkM
 oeZ
-amq
+wpu
 nZN
 nZN
 xAA
@@ -427683,11 +427854,11 @@ iRX
 oIm
 oeZ
 sla
+fyE
 wdo
 wdo
 wdo
-wdo
-wdo
+fyE
 yep
 oeZ
 eSV
@@ -428140,13 +428311,13 @@ eSV
 eSV
 eSV
 oeZ
-dmP
+oSk
 jDX
 dmP
 jDX
 dmP
 jDX
-dmP
+oSk
 oeZ
 lyu
 kIE
@@ -428180,13 +428351,13 @@ qkM
 qkM
 qkM
 oeZ
-hLR
+imQ
 blz
 blz
+itU
 blz
 blz
-blz
-hLR
+imQ
 oeZ
 dKX
 wOv
@@ -428400,16 +428571,16 @@ oeZ
 dmP
 dmP
 dmP
-dmP
+oSk
 dmP
 dmP
 dmP
 oeZ
 gmW
 otg
+iNZ
 iKM
-iKM
-iKM
+iNZ
 mpa
 rsG
 oeZ
@@ -429442,11 +429613,11 @@ nCw
 dnl
 oeZ
 mIl
-mIl
+giO
 mIl
 uFc
 mIl
-mIl
+giO
 mIl
 oeZ
 tgx
@@ -429478,7 +429649,7 @@ paV
 paV
 paV
 paV
-paV
+kmU
 paV
 oeZ
 smd
@@ -429691,11 +429862,11 @@ tVa
 dNx
 oeZ
 vis
-cYh
+sgj
 hSq
 cYh
 hKy
-cYh
+sgj
 hKy
 oeZ
 mIl
@@ -429732,14 +429903,14 @@ veQ
 oeZ
 paV
 paV
-paV
+kmU
 paV
 paV
 paV
 paV
 oeZ
 smd
-bjz
+fgX
 bjz
 bjz
 bjz
@@ -429939,7 +430110,7 @@ eSV
 eSV
 eSV
 oeZ
-dNx
+vFH
 cLi
 pjw
 kDV
@@ -430247,7 +430418,7 @@ oeZ
 paV
 paV
 paV
-bGN
+paV
 paV
 paV
 paV
@@ -430462,11 +430633,11 @@ qyF
 dNx
 oeZ
 cnX
-iHk
+dHX
 oUi
 dTi
 viQ
-kfF
+aYu
 bWA
 oeZ
 mIl
@@ -431024,7 +431195,7 @@ paV
 paV
 oeZ
 smd
-bjz
+fgX
 bjz
 bjz
 bjz
@@ -431241,11 +431412,11 @@ nCw
 dnl
 oeZ
 uqF
+giO
 mIl
 mIl
 mIl
-mIl
-mIl
+giO
 mIl
 oeZ
 tgx
@@ -431276,7 +431447,7 @@ paV
 paV
 paV
 paV
-paV
+kmU
 paV
 paV
 oeZ
@@ -431746,13 +431917,13 @@ dNx
 dNx
 dNx
 oeZ
-nCw
+kzX
 qSS
 yjc
 xIi
 yjc
 myB
-nCw
+kzX
 oeZ
 mIl
 mIl
@@ -432302,7 +432473,7 @@ tpt
 oeZ
 lEJ
 rpk
-iQX
+ePh
 iQX
 iQX
 iQX
@@ -432554,7 +432725,7 @@ dfn
 tKo
 tKo
 eFS
-iPd
+eBx
 tpt
 oeZ
 mtF
@@ -432799,11 +432970,11 @@ hkk
 oTM
 oeZ
 kAi
-kAi
+lyX
 kAi
 jCp
 nOT
-itU
+nOT
 nOT
 oeZ
 iPd
@@ -433024,11 +433195,11 @@ eSV
 eSV
 oeZ
 nuR
-nuR
+arF
 aSh
 ffL
 pWW
-nuR
+arF
 iov
 oeZ
 iql
@@ -433041,7 +433212,7 @@ bdm
 oeZ
 fPo
 rqN
-lHC
+jRS
 wEj
 rqN
 fPo
@@ -433072,7 +433243,7 @@ iPd
 inZ
 oeZ
 eEV
-eBx
+mbh
 aPt
 ffr
 gjk
@@ -433329,7 +433500,7 @@ iPd
 dXz
 oeZ
 mbh
-kmU
+tEq
 wsm
 kJC
 gjk
@@ -433548,7 +433719,7 @@ oeZ
 ubS
 iWK
 xCl
-tPH
+oZO
 xQc
 dPo
 bdm
@@ -434309,17 +434480,17 @@ eSV
 eSV
 oeZ
 nuR
-nuR
+arF
 ebl
 ffL
 pWW
-nuR
+arF
 nuR
 oeZ
 bdm
 ned
 vRl
-oSk
+oZO
 nRd
 kHL
 bdm
@@ -434328,7 +434499,7 @@ fPo
 rqN
 lHC
 wEj
-rqN
+tPH
 fPo
 hGF
 oeZ
@@ -434360,7 +434531,7 @@ kBb
 iQX
 iQX
 gAX
-iQX
+ePh
 iQX
 iQX
 oeZ
@@ -434601,13 +434772,13 @@ pEM
 kAi
 sWb
 oLk
+vAS
 nOT
-itU
 nOT
 oeZ
 iPd
 eAo
-lDp
+dPi
 lDp
 eNO
 kFB
@@ -435124,7 +435295,7 @@ iPd
 iPd
 iPd
 iPd
-iPd
+eBx
 iPd
 oeZ
 iQX
@@ -438180,7 +438351,7 @@ rmb
 rmb
 rmb
 rmb
-fTI
+rnQ
 fTI
 fTI
 fTI

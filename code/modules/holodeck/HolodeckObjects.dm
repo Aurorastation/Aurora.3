@@ -97,7 +97,7 @@
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
 	I.plane = DUST_PLANE
-	I.alpha = 80
+	I.alpha = 0
 	I.blend_mode = BLEND_ADD
 	AddOverlays(I)
 
