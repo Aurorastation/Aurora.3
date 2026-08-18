@@ -4,4 +4,4 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "Directional submap insert marker."
+  - rscadd: "Submap insert markers now support different directions."
