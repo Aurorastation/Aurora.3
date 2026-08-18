@@ -19359,9 +19359,6 @@
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/chapel)
 "ntu" = (
-/obj/structure/machinery/mecha_part_fabricator{
-	req_access = list(219)
-	},
 /obj/structure/machinery/light{
 	dir = 8
 	},
@@ -33399,9 +33396,7 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "scc_shuttle_hatch";
-	layer = 2.8;
-	name = "Ship External Access";
-	open_layer = 2.8
+	name = "Ship External Access"
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "ssc_shuttle";
@@ -34382,13 +34377,6 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/tiled/slate,
 /area/port_volturno/interior/stafylia)
-"xLh" = (
-/obj/structure/machinery/mecha_part_fabricator{
-	req_access = list(219)
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/port_volturno/interior/robotics)
 "xLF" = (
 /obj/structure/machinery/light/floor{
 	dir = 8
@@ -137635,7 +137623,7 @@ ibD
 agK
 dvD
 ntu
-xLh
+fQr
 fjA
 fYC
 bhN
