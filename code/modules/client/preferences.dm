@@ -522,7 +522,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	character.headset_choice = headset_choice
 
-	if(length(psionics))
+	if(length(psionics) && character.psi)
 		for(var/power in psionics)
 			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
 			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
