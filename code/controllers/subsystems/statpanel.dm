@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(statpanels)
 		var/client/target = currentrun[length(currentrun)]
 		currentrun.len--
 
-		if(!target.stat_panel || !target.stat_panel.is_ready())
+		if(!target?.stat_panel?.is_ready())
 			continue
 
 		if(target.stat_tab == "Status" && num_fires % status_wait == 0)
