@@ -2425,24 +2425,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/indra/mainchamber)
-"aos" = (
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_x = 3;
-	pixel_y = -1;
-	layer = 2.11
-	},
-/turf/simulated/floor/holofloor/grass{
-	desc = "Lush, mossy grass. A staple of Konyang.";
-	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	icon_state = "grass";
-	name = "mossy grass"
-	},
-/area/horizon/holodeck/source_konyang)
 "aou" = (
 /obj/structure/machinery/suit_storage_unit/standard_unit,
 /turf/unsimulated/floor,
@@ -6299,23 +6281,6 @@
 "aPs" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/engineering/break_room)
-"aPt" = (
-/obj/effect/decal/fake_object{
-	desc = "A vine-covered shrine to the three faces of Sk'akh, a prominent faith in the Unathi people.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/64x128.dmi';
-	icon_state = "arch_center";
-	name = "The Faces of Sk'akh";
-	pixel_x = -16;
-	pixel_y = -31;
-	layer = 4.15
-	},
-/obj/effect/mist,
-/turf/simulated/floor/exoplanet/water/shallow{
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	icon_state = "water"
-	},
-/area/horizon/holodeck/source_moghes)
 "aPu" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/platform,
@@ -6828,29 +6793,16 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "aTz" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post{
+	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
+/obj/random/pottedplant,
+/obj/structure/rope_railing{
+	dir = 1
 	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
+/obj/structure/rope_railing{
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
@@ -20414,6 +20366,10 @@
 	},
 /area/centcom/control)
 "cJl" = (
+/obj/structure/moghes_ruin/rubble{
+	pixel_x = -16;
+	pixel_y = 22
+	},
 /turf/simulated/floor/holofloor/grass{
 	dir = 10;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -22182,6 +22138,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hangar/operations)
+"cUT" = (
+/obj/structure/moghes_ruin/rubble/variant{
+	pixel_x = 11;
+	pixel_y = 21
+	},
+/turf/simulated/floor/holofloor/grass{
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "grass";
+	name = "overgrowth"
+	},
+/area/horizon/holodeck/source_moghes)
 "cUW" = (
 /obj/structure/machinery/power/apc/west,
 /obj/item/storage/box/unique/sharps,
@@ -29443,29 +29410,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/atmos)
 "dPo" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
 /turf/simulated/floor/holofloor/wood{
 	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -46319,13 +46266,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/operations/lobby)
 "gco" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/holostool{
 	dir = 4
 	},
@@ -47085,22 +47026,6 @@
 /obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/port/docks)
-"gii" = (
-/obj/effect/mist,
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/32x32.dmi';
-	icon_state = "rubble2";
-	name = "rubble";
-	pixel_x = -45;
-	pixel_y = -9
-	},
-/turf/simulated/floor/exoplanet/water/shallow{
-	dir = 4;
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	icon_state = "beach"
-	},
-/area/horizon/holodeck/source_moghes)
 "gij" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Workshop Surgical Theatre";
@@ -50015,14 +49940,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/rnd/hallway)
 "gAX" = (
-/obj/effect/decal/fake_object{
-	desc = "The proudly waving flag of the Izweski Nation.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
-	icon_state = "flag";
-	name = "hegemony flag";
-	layer = 4.15
-	},
+/obj/structure/moghes_ruin/flag,
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "grass";
@@ -60301,15 +60219,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/horizon/operations/warehouse)
 "hRH" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A decrepit stone pillar.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
-	icon_state = "pillar2";
-	name = "giant pillar";
-	layer = 4.15
-	},
+/obj/structure/moghes_ruin,
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "grass";
@@ -61186,30 +61096,19 @@
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "hYR" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/random/pottedplant,
+/obj/structure/rope_post,
+/obj/structure/rope_post{
+	dir = 8
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing,
+/obj/structure/rope_railing{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -62197,21 +62096,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/chargebay)
 "ieU" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post{
+	dir = 1
 	},
-/obj/effect/decal/fake_object{
-	desc = "A lovely umbrella for those rainy Konyanger days.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/64x64.dmi';
-	icon_state = "umbrella2";
-	name = "traditional Konyanger umbrella";
-	pixel_x = -31;
-	pixel_y = 3
+/obj/structure/rope_railing{
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 8;
@@ -68758,28 +68648,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/atmos/turbine)
 "iWK" = (
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post{
+	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_x = 3;
-	pixel_y = -1;
-	layer = 2.11
+/obj/structure/rope_post{
+	dir = 1
 	},
-/turf/simulated/floor/holofloor/grass{
-	desc = "Lush, mossy grass. A staple of Konyang.";
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/wood{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	icon_state = "grass";
-	name = "mossy grass"
+	icon_state = "beach";
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "iWL" = (
@@ -72513,16 +72395,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/custodial/disposals/deck_1)
 "jwd" = (
-/obj/effect/decal/fake_object/light_source{
-	density = 1;
-	desc = "A decrepit stone pillar.";
-	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
-	icon_state = "pillar_torch";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "giant pillar";
-	layer = 4.15
-	},
+/obj/structure/moghes_ruin/torch,
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "dirt";
@@ -82360,22 +82233,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/cciaroom)
 "kHr" = (
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
 /turf/simulated/floor/exoplanet/water/shallow{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beachcorner";
@@ -82387,30 +82244,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hangar/auxiliary)
 "kHL" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/table/wood,
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
 /turf/simulated/floor/holofloor/wood{
 	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -85028,15 +84865,8 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "kZW" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A vine-covered, decrepit stone pillar.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/64x128.dmi';
-	icon_state = "arch_r";
-	name = "giant overgrown pillar";
-	pixel_x = -32;
-	layer = 4.15
+/obj/structure/moghes_ruin/giant{
+	pixel_x = -32
 	},
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -88881,29 +88711,9 @@
 /turf/simulated/floor/grass/no_edge,
 /area/horizon/service/hydroponics/lower)
 "lAH" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.11
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
 /turf/simulated/floor/holofloor/wood{
 	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -89384,30 +89194,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion)
 "lDP" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
 	desc = "A soft cotton cloth strewn across the floor. Cozy.";
@@ -89416,6 +89203,12 @@
 	name = "flooring cloth";
 	pixel_x = -3;
 	pixel_y = 11
+	},
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
@@ -91706,22 +91499,6 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/starboard)
-"lTG" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A decrepit stone pillar.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
-	icon_state = "pillar1";
-	name = "giant pillar";
-	layer = 4.15
-	},
-/turf/simulated/floor/holofloor/grass{
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	icon_state = "grass";
-	name = "overgrowth"
-	},
-/area/horizon/holodeck/source_moghes)
 "lTN" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/effect/floor_decal/industrial/warning,
@@ -100758,19 +100535,14 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/engineering/atmos/propulsion)
 "nby" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/32x32.dmi';
-	icon_state = "rubble1";
-	name = "rubble";
-	pixel_x = -20;
-	pixel_y = -10
+/obj/structure/moghes_ruin/giant/centre{
+	pixel_x = -16;
+	pixel_y = -64
 	},
-/turf/simulated/floor/holofloor/grass{
-	dir = 8;
+/turf/simulated/floor/exoplanet/water/shallow{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	icon_state = "edge";
-	name = "overgrowth"
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "nbD" = (
@@ -101219,16 +100991,6 @@
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "plank_stairs";
 	name = "floor planks"
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_x = 3;
-	pixel_y = -1;
-	layer = 2.11
 	},
 /turf/simulated/floor/holofloor/grass{
 	desc = "Lush, mossy grass. A staple of Konyang.";
@@ -104126,16 +103888,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/fore)
 "nzA" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks3";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16;
-	layer = 2;
-	density = 0
-	},
+/obj/structure/flora/grass/jungle,
 /turf/simulated/floor/holofloor/grass{
 	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -104865,29 +104618,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/mining)
 "nDA" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/effect/decal/fake_object{
 	color = "#8934eb";
 	desc = "A soft cotton cloth strewn across the floor. Cozy.";
@@ -104896,6 +104627,8 @@
 	name = "flooring cloth";
 	pixel_y = 13
 	},
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
 /turf/simulated/floor/holofloor/wood{
 	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -106971,13 +106704,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/atmos)
 "nRd" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/box{
 	on = 0
@@ -115790,13 +115517,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/main/starboard)
 "oZO" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
@@ -118374,38 +118095,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "psn" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post{
+	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
-/obj/effect/decal/fake_object{
-	desc = "A lovely umbrella for those rainy Konyanger days.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/64x64.dmi';
-	icon_state = "umbrella";
-	name = "traditional Konyanger umbrella";
-	pixel_x = -1;
-	pixel_y = 4
+/obj/structure/rope_railing{
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
@@ -127528,13 +127223,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/hazard)
 "qBz" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/holostool{
 	dir = 4
 	},
@@ -134491,12 +134180,12 @@
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/central)
 "rtx" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood{
 	dir = 4;
@@ -137831,13 +137520,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/teleporter)
 "rPW" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /turf/simulated/floor/holofloor/wood{
 	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -147721,16 +147404,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "tdd" = (
-/obj/effect/decal/fake_object/light_source{
-	density = 1;
-	desc = "A decrepit stone pillar.";
-	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
-	icon_state = "pillar_torch";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "giant pillar";
-	layer = 4.15
-	},
+/obj/structure/moghes_ruin/torch,
 /turf/simulated/floor/holofloor/grass{
 	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -164333,30 +164007,20 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "vke" = (
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	pixel_x = 3;
-	pixel_y = 5
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post{
+	dir = 1
 	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_x = 3;
-	pixel_y = -1;
-	layer = 2.11
+/obj/structure/rope_post{
+	dir = 4
 	},
-/turf/simulated/floor/holofloor/grass{
-	desc = "Lush, mossy grass. A staple of Konyang.";
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/wood{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	icon_state = "grass";
-	name = "mossy grass"
+	icon_state = "beach";
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "vkf" = (
@@ -169061,12 +168725,9 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
 "vRl" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_post{
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/wood{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -172654,13 +172315,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_1/central)
 "wof" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/wood{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -175573,15 +175228,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/break_room)
 "wFF" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A vine-covered, decrepit stone pillar.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/moghes/64x128.dmi';
-	icon_state = "arch_l";
-	name = "giant overgrown pillar";
-	layer = 4.15
-	},
+/obj/structure/moghes_ruin/giant/l,
 /turf/simulated/floor/holofloor/grass{
 	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -177215,38 +176862,15 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/propulsion)
 "wPI" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/rope_railing,
+/obj/structure/rope_post{
+	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
+/obj/structure/rope_railing{
+	dir = 4
 	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	name = "short rope";
-	layer = 2.12
-	},
-/obj/effect/decal/fake_object{
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "post";
-	name = "post";
-	pixel_y = -4;
-	layer = 2.11
-	},
-/obj/random/pottedplant,
+/obj/structure/rope_post,
 /turf/simulated/floor/holofloor/wood{
 	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -179526,13 +179150,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/cciaroom)
 "xdc" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/table/wood,
 /obj/item/flame/candle{
 	pixel_x = 2;
@@ -183242,18 +182860,12 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/tcommsat/chamber)
 "xCl" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
-/obj/structure/table/wood,
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/item/flame/candle,
 /obj/item/flame/candle{
 	pixel_x = 5
 	},
+/obj/structure/table/wood,
 /turf/simulated/floor/holofloor/wood{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
@@ -185163,13 +184775,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/horizon/operations/ship_supply_warehouse)
 "xQc" = (
-/obj/effect/decal/fake_object{
-	dir = 4;
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "plank";
-	name = "floor planks";
-	layer = 2.1
-	},
+/obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object{
 	desc = "A table cover featuring the emblem of the planet of Konyang quite proudly.";
@@ -187013,6 +186619,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/medical)
+"ydQ" = (
+/obj/structure/moghes_ruin/variant,
+/turf/simulated/floor/holofloor/grass{
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "grass";
+	name = "overgrowth"
+	},
+/area/horizon/holodeck/source_moghes)
 "ydR" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -432498,7 +432112,7 @@ lEJ
 rpk
 iQX
 iQX
-iQX
+cUT
 iQX
 iQX
 oeZ
@@ -432970,10 +432584,10 @@ nuR
 oeZ
 bdm
 bdm
-aos
-vke
-vke
-vke
+bdm
+bdm
+bdm
+bdm
 bdm
 oeZ
 dPF
@@ -433011,7 +432625,7 @@ oeZ
 eBh
 gdm
 ueC
-gii
+hew
 gjk
 hew
 vDc
@@ -433226,7 +432840,7 @@ bGN
 iov
 oeZ
 iql
-aos
+bdm
 rou
 rtx
 ieU
@@ -433266,8 +432880,8 @@ iPd
 inZ
 oeZ
 eEV
-mbh
-aPt
+nby
+oKs
 oKs
 xsY
 oKs
@@ -433483,8 +433097,8 @@ nuR
 iov
 oeZ
 ubS
-iWK
-vRl
+bdm
+vke
 gco
 qBz
 lAH
@@ -433740,7 +433354,7 @@ nuR
 iov
 oeZ
 ubS
-iWK
+bdm
 xCl
 oZO
 xQc
@@ -433997,7 +433611,7 @@ nuR
 iov
 oeZ
 hcl
-iWK
+bdm
 wof
 oZO
 xdc
@@ -434039,7 +433653,7 @@ oeZ
 nXz
 nvd
 nwN
-nby
+nwN
 cJl
 rxa
 nvd
@@ -434254,8 +433868,8 @@ nuR
 nuR
 oeZ
 bdm
+bdm
 iWK
-vRl
 rPW
 rPW
 dPo
@@ -435065,11 +434679,11 @@ cKG
 cKG
 oeZ
 iQX
-lTG
-iQX
 hRH
 iQX
-lTG
+ydQ
+iQX
+hRH
 iQX
 oeZ
 shZ
