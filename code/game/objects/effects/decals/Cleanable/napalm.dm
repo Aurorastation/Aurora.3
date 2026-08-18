@@ -5,6 +5,7 @@
 	icon_state = "napalm"
 	layer = BLOOD_LAYER
 	anchored = 1
+	cleanable_by_basic_cleaners = FALSE
 	///How much power we want to use for each reagent amount
 	var/power_mult = 250 // Over 2k Kelvin in a few seconds
 	///The color of the fire. Null will default to the standard

@@ -60,17 +60,22 @@
 			is_frenzied = TRUE
 	if(owner.species.has_organ[owner.species.vision_organ])
 		var/obj/item/organ/internal/eyes/eyes = owner.get_eyes()
-		if(eyes && species.eyes && !is_frenzied)
+		if(eyes && species.eyes && (!is_frenzied || eyes.eyes_closed))
 			var/eyecolor
-			if (eyes.eye_colour)
+			if(eyes.eye_colour && !eyes.eyes_closed)
 				eyecolor = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
 
-			var/cache_key = "[species.eyes]_[eyecolor || "nocolor"]"
+			var/cache_key = "[species.eyes]_[eyes.eyes_closed ? "closed" : (eyecolor || "nocolor")]"
 
 			var/icon/eyes_icon = SSicon_cache.human_eye_cache[cache_key]
 			if (!eyes_icon)
 				eyes_icon = new/icon(species.eyes_icons, species.eyes)
-				if(eyecolor)
+				if(eyes.eyes_closed)
+					// A translucent black eye mask darkens the skin beneath it, creating eyelids
+					// which follow both colour-based skin and tone-shaded human complexions.
+					eyes_icon.Blend(rgb(0, 0, 0), ICON_MULTIPLY)
+					eyes_icon.ChangeOpacity(0.2)
+				else if(eyecolor)
 					eyes_icon.Blend(eyecolor, species.eyes_icon_blend)
 				else
 					eyes_icon.Blend(rgb(128,0,0), species.eyes_icon_blend)
@@ -109,6 +114,9 @@
 	var/list/bonus_overlays = list()
 
 	var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
+	if(eyes?.eyes_closed)
+		return mob_overlays
+
 	if(eyes && BP_IS_ROBOTIC(eyes))
 		var/datum/robolimb/robolimb_data = GLOB.all_robolimbs[eyes.model]
 		if(robolimb_data.emissive)

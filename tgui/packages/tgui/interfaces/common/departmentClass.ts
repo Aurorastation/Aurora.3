@@ -9,8 +9,8 @@ type DepartmentStyle = CSSProperties & {
 const departmentColorByName: Record<string, string> = {
   cargo: COLORS.department.cargo,
   operations: COLORS.department.cargo,
-  command: COLORS.department.medbay,
-  'command-support': COLORS.department.medbay,
+  command: COLORS.department.command,
+  commandsupport: COLORS.department.commandsupport,
   security: COLORS.department.security,
   engineering: COLORS.department.engineering,
   medical: COLORS.department.medbay,

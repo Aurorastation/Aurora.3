@@ -73,7 +73,7 @@
 /obj/structure/girder/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	//Girders only provide partial cover. There's a chance that the projectiles will just pass through. (unless you are trying to shoot the girder)
 	if(hitting_projectile.original != src && !prob(cover))
-		return BULLET_ACT_HIT //pass through
+		return BULLET_ACT_FORCE_PIERCE //pass through
 
 	var/damage = hitting_projectile.get_structure_damage()
 	if(!damage)

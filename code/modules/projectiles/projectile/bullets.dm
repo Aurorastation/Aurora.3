@@ -14,7 +14,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/projectile/bullet/on_hit(atom/target, blocked, def_zone)
-	if(isliving(target) && (..(target, blocked, def_zone) == BULLET_ACT_HIT))
+	if(isliving(target) && blocked < 100)
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 	return ..()
@@ -112,6 +112,7 @@
 	name = "rubber ball"
 	icon_state = "pellets"
 	damage = 2
+	check_armor = MELEE
 	agony = 50
 	embed = FALSE
 	var/balls = 4
@@ -476,12 +477,19 @@
 
 /obj/projectile/bullet/gauss/highex
 	name = "high-ex shell"
-	damage = 10
+	damage = 11
 	armor_penetration = 30
+	anti_materiel_potential = 9 //Just enough to be able to destroy doors with repeated hits.
 
 /obj/projectile/bullet/gauss/highex/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	explosion(get_turf(target), -1, 0, 2)
+	if(ismob(target))
+		var/mob/living/exploding_mob = target  //This damage is dealt directly, instead of using ex_act, so that floors aren't destroyed and the target isnt stunned.
+		exploding_mob.apply_damage(40, DAMAGE_BRUTE, def_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
+		exploding_mob.apply_damage(40, DAMAGE_BURN, def_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
+		exploding_mob.apply_damage(15, DAMAGE_BRUTE, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
+		exploding_mob.apply_damage(15, DAMAGE_BURN, null, "Explosive blast", DAMAGE_FLAG_EXPLODE | DAMAGE_FLAG_DISPERSED)
 	if(ismovable(target))
 		var/atom/movable/T = target
 		var/throwdir = get_dir(firer,target)

@@ -1,5 +1,5 @@
-/mob/living/proc/modify_damage_by_armor(def_zone, damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE)
-	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/modify_damage_by_armor(def_zone, damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE, check_armor)
+	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = args.Copy(2)
 	for(var/armor in armors)
 		var/datum/component/armor/armor_datum = armor
@@ -8,18 +8,18 @@
 /mob/living/check_projectile_armor(def_zone, obj/projectile/impacting_projectile, is_silent)
 	if(impacting_projectile.damage > 0) // Run the block computation if we did damage or if we only use armor for effects (nodamage)
 		//Since we get a ratio from this and we need a percentage, we multiply by 100 to get the percentage
-		return (get_blocked_ratio(def_zone, impacting_projectile.damage_type, impacting_projectile.damage_flags(), impacting_projectile.armor_penetration, impacting_projectile.damage) * 100)
+		return (get_blocked_ratio(def_zone, impacting_projectile.damage_type, impacting_projectile.damage_flags(), impacting_projectile.armor_penetration, impacting_projectile.damage, impacting_projectile.check_armor) * 100)
 	return 0
 
-/mob/living/proc/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
-	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage, check_armor)
+	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = 0
 	for(var/armor in armors)
 		var/datum/component/armor/armor_datum = armor
-		. = 1 - (1 - .) * (1 - armor_datum.get_blocked(damage_type, damage_flags, armor_pen, damage)) // multiply the amount we let through
+		. = 1 - (1 - .) * (1 - armor_datum.get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)) // multiply the amount we let through
 	. = min(1, .)
 
-/mob/living/proc/get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = list()
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
@@ -56,8 +56,7 @@
 	//Auras, essentially magic and encompassing around us, gets checked first
 	if(!src.aura_check(AURA_TYPE_BULLET, hitting_projectile, def_zone, piercing_hit))
 		blocked = 100
-		return BULLET_ACT_FORCE_PIERCE
-
+		return BULLET_ACT_BLOCK
 
 	//Shields, in front of us (hopefully), check the bullet before it reaches us
 	var/shield_check = check_shields(hitting_projectile.damage, hitting_projectile, hitting_projectile.firer, def_zone, "the [hitting_projectile.name]")
@@ -186,7 +185,7 @@
 	return BULLET_IMPACT_MEAT
 
 //Handles the effects of "stun" weapons
-/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
+/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/damage_type, var/def_zone, var/used_weapon, var/damage_flags, var/check_armor)
 	flash_pain(stun_amount)
 
 	if(stun_amount)
@@ -502,6 +501,8 @@
 		if(A.CheckRemoval(src))
 			A.Remove(src)
 
+	update_camera_view_action()
+
 	for(var/obj/item/I in src)
 		if(!I.action_button_name)
 			continue
@@ -548,6 +549,41 @@
 			item_action.Grant(src)
 
 	return
+
+/mob/living/proc/is_viewing_z_eye()
+	return client && z_eye && client.eye == z_eye
+
+/mob/living/is_viewing_remote_view()
+	return ..() || is_viewing_z_eye()
+
+/mob/living/proc/clear_z_eye()
+	if(!z_eye)
+		return FALSE
+	var/was_viewing_z_eye = is_viewing_z_eye()
+	if(was_viewing_z_eye)
+		reset_view(null)
+	QDEL_NULL(z_eye)
+	update_camera_view_action()
+	return was_viewing_z_eye
+
+/mob/living/proc/update_camera_view_action()
+	if(is_viewing_remote_view())
+		if(!camera_view_cancel_action)
+			camera_view_cancel_action = new
+		camera_view_cancel_action.Grant(src)
+	else if(camera_view_cancel_action?.owner)
+		camera_view_cancel_action.Remove(src)
+
+/mob/living/proc/cancel_remote_view()
+	if(istype(machine, /obj/structure/machinery/computer/ship))
+		var/obj/structure/machinery/computer/ship/ship_console = machine
+		if(ship_console.viewing_overmap(src))
+			ship_console.unlook(src)
+			update_camera_view_action()
+			return
+
+	cancel_camera()
+	update_camera_view_action()
 
 /mob/living/update_action_buttons()
 	if(!hud_used) return

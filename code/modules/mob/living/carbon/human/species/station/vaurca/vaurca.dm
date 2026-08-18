@@ -174,6 +174,10 @@
 	mob_strength = 1.35 // Requested by Vaurca lore to make them a bit more different
 	mass_modifier = REFERENCE_MASS_VAURCA_KA / REFERENCE_MASS_HUMAN
 
+/datum/species/bug/get_random_name(gender, hive, bound = FALSE)
+	var/datum/language/L = GLOB.all_languages[name_language]
+	return L.get_random_name(name, hive, bound)
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER

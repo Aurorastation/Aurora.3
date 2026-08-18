@@ -370,6 +370,9 @@ Class Procs:
 			attack_hand(user)
 
 /obj/structure/machinery/attackby(obj/item/attacking_item, mob/user)
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 	if(obj_flags & OBJ_FLAG_SIGNALER)
 		if(issignaler(attacking_item))
 			if(signaler)
@@ -488,23 +491,43 @@ Class Procs:
 	update_icon()
 	return TRUE
 
+/obj/structure/machinery/proc/get_part_replacement_type(obj/item/part)
+	var/obj/item/circuitboard/board = locate(/obj/item/circuitboard) in component_parts
+	var/replacement_type
+
+	if(board?.req_components)
+		for(var/component_type in board.req_components)
+			var/board_part_type = ispath(component_type) ? component_type : text2path(component_type)
+			if(!ispath(board_part_type, /obj/item/stock_parts) && !ispath(board_part_type, /obj/item/reagent_containers/glass))
+				continue
+			if(istype(part, board_part_type) && (!replacement_type || ispath(board_part_type, replacement_type)))
+				replacement_type = board_part_type
+
+	if(replacement_type)
+		return replacement_type
+
+	for(var/component_type in component_types)
+		var/component_part_type = ispath(component_type) ? component_type : text2path(component_type)
+		if(!ispath(component_part_type, /obj/item/stock_parts) && !ispath(component_part_type, /obj/item/reagent_containers/glass))
+			continue
+		if(istype(part, component_part_type) && (!replacement_type || ispath(component_part_type, replacement_type)))
+			replacement_type = component_part_type
+
+	return replacement_type
+
 /obj/structure/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!LAZYLEN(component_parts))
 		return FALSE
 	else if(istype(R))
 		var/parts_replaced = FALSE
 		if(panel_open)
-			var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
-			var/P
 			for(var/obj/item/reagent_containers/glass/G in component_parts)
-				for(var/D in CB.req_components)
-					var/T = text2path(D)
-					if(ispath(G.type, T))
-						P = T
-						break
+				var/replacement_type = get_part_replacement_type(G)
+				if(!replacement_type)
+					continue
 				for(var/obj/item/reagent_containers/glass/B in R.contents)
 					if(B.reagents && B.reagents.total_volume > 0) continue
-					if(istype(B, P) && istype(G, P))
+					if(istype(B, replacement_type))
 						if(B.volume > G.volume)
 							R.remove_from_storage(B, src)
 							R.handle_item_insertion(G, 1)
@@ -512,15 +535,14 @@ Class Procs:
 							component_parts += B
 							B.forceMove(src)
 							to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+							parts_replaced = TRUE
 							break
 			for(var/obj/item/stock_parts/A in component_parts)
-				for(var/D in CB.req_components)
-					var/T = text2path(D)
-					if(ispath(A.type, T))
-						P = T
-						break
+				var/replacement_type = get_part_replacement_type(A)
+				if(!replacement_type)
+					continue
 				for(var/obj/item/stock_parts/B in R.contents)
-					if(istype(B, P) && istype(A, P))
+					if(istype(B, replacement_type))
 						if(B.rating > A.rating)
 							R.remove_from_storage(B, src)
 							R.handle_item_insertion(A, 1)
@@ -530,9 +552,9 @@ Class Procs:
 							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 							parts_replaced = TRUE
 							break
-			RefreshParts()
-			update_icon()
-			if(parts_replaced) //only play sound when RPED actually replaces parts
+			if(parts_replaced)
+				RefreshParts()
+				update_icon()
 				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 			return TRUE
 		else

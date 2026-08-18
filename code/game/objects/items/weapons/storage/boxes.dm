@@ -1075,16 +1075,17 @@
 
 /obj/item/storage/box/large/candy/fill()
 	var/list/assorted_list = list(
-		/obj/item/reagent_containers/food/snacks/cb01 = 1,
-		/obj/item/reagent_containers/food/snacks/cb02 = 1,
-		/obj/item/reagent_containers/food/snacks/cb03 = 1,
-		/obj/item/reagent_containers/food/snacks/cb04 = 1,
-		/obj/item/reagent_containers/food/snacks/cb05 = 1,
-		/obj/item/reagent_containers/food/snacks/cb06 = 1,
-		/obj/item/reagent_containers/food/snacks/cb07 = 1,
-		/obj/item/reagent_containers/food/snacks/cb08 = 1,
-		/obj/item/reagent_containers/food/snacks/cb09 = 1,
-		/obj/item/reagent_containers/food/snacks/cb10 = 1
+		/obj/item/reagent_containers/food/snacks/chocolate_bar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1
 	)
 
 	for(var/i in 1 to 24)
@@ -1443,8 +1444,8 @@
 		/obj/item/flag/ouerea/l = 1,
 		/obj/item/flag/sol/old = rand(1,2),
 		/obj/item/flag/sol/old/l = 1,
-		/obj/item/flag/old_visegrad = rand(1,2),
-		/obj/item/flag/old_visegrad/l = 1,
+		/obj/item/flag/visegrad_old = rand(1,2),
+		/obj/item/flag/visegrad_old/l = 1,
 		/obj/item/flag/fisanduh = rand(1,2),
 		/obj/item/flag/fisanduh/l = 1,
 		/obj/item/flag/hiskyn = rand(1,2),
@@ -1943,3 +1944,60 @@
 		/obj/item/organ/internal/augment/bioaug/mind_blanker
 	)
 	storage_slots = 4
+
+// Trash components. Bottom of the line
+/obj/item/storage/box/components
+	name = "low-grade component box"
+	illustration = "circuit"
+	color = COLOR_BLUE_GRAY
+	make_exact_fit = TRUE
+	can_hold_strict = TRUE
+	display_contents_with_number = TRUE
+	allow_quick_gather = TRUE
+	use_to_pickup = TRUE
+	can_hold = list(/obj/item/stock_parts)
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor = 4,
+		/obj/item/stock_parts/scanning_module = 4,
+		/obj/item/stock_parts/manipulator = 4,
+		/obj/item/stock_parts/micro_laser = 4,
+		/obj/item/stock_parts/matter_bin = 4,
+	)
+
+// The decent stuff. Better than the small ones
+/obj/item/storage/box/components/advanced
+	name = "mid-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/adv = 4,
+		/obj/item/stock_parts/scanning_module/adv = 4,
+		/obj/item/stock_parts/manipulator/nano = 4,
+		/obj/item/stock_parts/micro_laser/high = 4,
+		/obj/item/stock_parts/matter_bin/adv = 4,
+	)
+
+// Top tier components
+/obj/item/storage/box/components/super_advanced
+	name = "high-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/super = 4,
+		/obj/item/stock_parts/scanning_module/phasic = 4,
+		/obj/item/stock_parts/manipulator/pico = 4,
+		/obj/item/stock_parts/micro_laser/ultra = 4,
+		/obj/item/stock_parts/matter_bin/super = 4,
+	)
+
+//Telecomms parts
+/obj/item/storage/box/components/telecomms
+	name = "telecomm component box"
+	starts_with = list(
+		/obj/item/stock_parts/subspace/ansible = 4,
+		/obj/item/stock_parts/subspace/filter = 4,
+		/obj/item/stock_parts/subspace/amplifier = 4,
+		/obj/item/stock_parts/subspace/treatment = 4,
+		/obj/item/stock_parts/subspace/analyzer = 4,
+		/obj/item/stock_parts/subspace/crystal = 4,
+		/obj/item/stock_parts/subspace/transmitter = 4
+	)

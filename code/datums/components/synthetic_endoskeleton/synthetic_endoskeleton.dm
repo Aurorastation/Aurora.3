@@ -21,7 +21,7 @@
 		owner = parent
 	else
 		log_debug("Synthetic endoskeleton component spawned on non-IPC. Deleting.")
-		qdel_self()
+		return COMPONENT_INCOMPATIBLE
 
 	RegisterSignal(owner, COMSIG_DAMAGE_TO_ENDOSKELETON, PROC_REF(receive_damage))
 	RegisterSignal(owner, COMSIG_SYNTH_ENDOSKELETON_REPAIR, PROC_REF(heal_damage))

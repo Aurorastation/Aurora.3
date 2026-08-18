@@ -574,7 +574,7 @@
 
 	var/open = 0 // Is the box open?
 	var/ismessy = 0 // Fancy mess on the lid
-	var/obj/item/reagent_containers/food/snacks/sliceable/pizza/pizza // Content pizza
+	var/obj/item/reagent_containers/food/snacks/pizza // Content pizza
 	var/pizza_type
 	var/list/boxes = list() // If the boxes are stacked, they come here
 	var/boxtag = ""
@@ -699,7 +699,7 @@
 
 		return
 
-	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sliceable/pizza/)) // Long ass fucking object name
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sliceable/pizza/) || istype(attacking_item, /obj/item/reagent_containers/food/snacks/variable/pizza)) // Long ass fucking object name
 
 		if(src.open)
 			user.drop_from_inventory(attacking_item, src)

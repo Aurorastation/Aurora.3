@@ -1,7 +1,7 @@
 /datum/wires/robot
 	proper_name = "Synthetic"
-	random = TRUE
 	holder_type = /mob/living/silicon/robot
+	associated_skill = ROBOTICS_SKILL_COMPONENT
 
 /datum/wires/robot/New()
 	wires = list(

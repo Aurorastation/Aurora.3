@@ -9,7 +9,7 @@ GLOBAL_VAR_INIT(security_level, SEC_LEVEL_GREEN)
 /var/datum/announcement/priority/security/security_announcement_sound = new(do_log = FALSE, do_newscast = TRUE, new_sound = sound('sound/ai/announcements/security_level.ogg'))
 /var/datum/announcement/priority/security/security_announcement = new(do_log = FALSE, do_newscast = TRUE)
 
-/proc/set_security_level(var/level)
+/proc/set_security_level(var/level, var/nuke = FALSE, var/area/A)
 	switch(level)
 		if("green")
 			level = SEC_LEVEL_GREEN
@@ -49,7 +49,12 @@ GLOBAL_VAR_INIT(security_level, SEC_LEVEL_GREEN)
 				GLOB.security_level = SEC_LEVEL_RED
 				post_display_status("alert", "redalert")
 			if(SEC_LEVEL_DELTA)
-				security_announcement_sound.Announce("[GLOB.config.alert_desc_delta]", "Attention! Delta security level reached!", new_sound = 'sound/effects/siren.ogg')
+				if(!nuke)
+					security_announcement_sound.Announce("[GLOB.config.alert_desc_delta]", "Attention! Delta security level reached!", new_sound = 'sound/effects/siren.ogg')
+				else if (A)
+					security_announcement_sound.Announce("An active nuclear device has been detected in the [get_area_display_name(A)]. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.", "Attention! Delta security level reached!", new_sound = 'sound/effects/siren.ogg')
+				else
+					security_announcement_sound.Announce("An active nuclear device has been detected onboard. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.", "Attention! Delta security level reached!", new_sound = 'sound/effects/siren.ogg')
 				GLOB.security_level = SEC_LEVEL_DELTA
 				SSnightlight.temp_disable()
 
