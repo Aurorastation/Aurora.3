@@ -44935,6 +44935,7 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
 	},
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/main_storage)
 "fTi" = (
