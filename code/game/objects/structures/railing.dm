@@ -168,7 +168,7 @@
 	NeighborsCheck(update_neighbors)
 	CutOverlays()
 	if(dir == SOUTH)
-		layer = ABOVE_HUMAN_LAYER
+		layer = ABOVE_ABOVE_HUMAN_LAYER
 	else
 		layer = initial(layer)
 	if(!neighbor_status || !anchored)
