@@ -115,6 +115,106 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	reserved_materials = null
 	return ..()
 
+/datum/research_console_device_tgui_data
+	/// Number of linked destructive analyzers.
+	var/analyzer = 0
+	/// Number of linked protolathes.
+	var/protolathe = 0
+	/// Number of linked circuit imprinters.
+	var/imprinter = 0
+	/// Number of linked synthetic fabricators.
+	var/mechfab = 0
+	/// Number of linked material silos.
+	var/silo = 0
+
+/datum/research_console_device_tgui_data/proc/to_list()
+	return list(
+		"analyzer" = analyzer,
+		"protolathe" = protolathe,
+		"imprinter" = imprinter,
+		"mechfab" = mechfab,
+		"silo" = silo
+	)
+
+/datum/research_console_disk_tgui_data
+	/// Disk kind exposed to TGUI. Either "technology" or "design".
+	var/design_type
+	/// Display name of the inserted disk.
+	var/name
+	/// Display name of the datum currently stored on the disk.
+	var/stored_name
+	/// Description of the datum currently stored on the disk.
+	var/stored_description
+	/// Stored technology level, when this is a technology disk.
+	var/stored_level
+
+/datum/research_console_disk_tgui_data/proc/to_list()
+	return list(
+		"type" = type,
+		"name" = name,
+		"stored_name" = stored_name,
+		"stored_description" = stored_description,
+		"stored_level" = stored_level
+	)
+
+/datum/research_console_tgui_data
+	/// Manufacturer theme used by the ResearchConsole TGUI.
+	var/manufacturer
+	/// Name of the screen currently being displayed.
+	var/screen
+	/// Whether the current user can perform restricted console actions.
+	var/authorized = FALSE
+	/// Whether the console's access restrictions have been emagged.
+	var/emagged = FALSE
+	/// Whether this console participates in research network synchronization.
+	var/network_sync = FALSE
+	/// Text displayed while a delayed console operation is running.
+	var/busy_message
+	/// Information about the disk currently inserted into the console.
+	var/datum/research_console_disk_tgui_data/loaded_disk
+	/// Number of copies added by a fabrication queue action.
+	var/queue_amount = 1
+	/// Counts of machinery currently linked to the console.
+	var/datum/research_console_device_tgui_data/devices
+	/// Technology rows displayed by technology-related screens.
+	var/list/technologies
+	/// Design rows displayed by design-related screens.
+	var/list/designs
+	/// Live destructive-analyzer payload.
+	var/list/analyzer
+	/// Live payload for the fabricator screen currently being displayed.
+	var/list/fabricator
+
+/datum/research_console_tgui_data/New()
+	. = ..()
+	devices = new
+
+/datum/research_console_tgui_data/Destroy()
+	QDEL_NULL(loaded_disk)
+	QDEL_NULL(devices)
+	technologies = null
+	designs = null
+	analyzer = null
+	fabricator = null
+	return ..()
+
+/datum/research_console_tgui_data/proc/to_list()
+	return list(
+		"manufacturer" = manufacturer,
+		"screen" = screen,
+		"authorized" = authorized,
+		"emagged" = emagged,
+		"network_sync" = network_sync,
+		"busy_message" = busy_message,
+		"loaded_disk" = loaded_disk?.to_list(),
+		"queue_amount" = queue_amount,
+		"devices" = devices.to_list(),
+		"technologies" = technologies,
+		"designs" = designs,
+		"analyzer" = analyzer,
+		"fabricator" = fabricator
+	)
+
 /obj/structure/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	return SSmaterials.material_display_name(ID)
 
@@ -702,45 +802,57 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/structure/machinery/computer/rdconsole/ui_data(mob/user)
 	validate_fabricator_screen()
-	var/list/data = list(
-		"manufacturer" = manufacturer,
-		"screen" = tgui_screen_name(),
-		"authorized" = allowed(user) || emagged,
-		"emagged" = emagged,
-		"network_sync" = sync,
-		"busy_message" = busy_message,
-		"loaded_disk" = null,
-		"queue_amount" = queue_amount,
-		"devices" = list(
-			"analyzer" = linked_destroy ? 1 : 0,
-			"protolathe" = length(get_fabricators(PROTOLATHE)),
-			"imprinter" = length(get_fabricators(IMPRINTER)),
-			"mechfab" = length(get_fabricators(MECHFAB)),
-			"silo" = linked_silo ? 1 : 0
-		)
-	)
+
+	var/datum/research_console_tgui_data/data = new
+	data.manufacturer = manufacturer
+	data.screen = tgui_screen_name()
+	data.authorized = allowed(user) || emagged
+	data.emagged = emagged
+	data.network_sync = sync
+	data.busy_message = busy_message
+	data.queue_amount = queue_amount
+
+	data.devices.analyzer = linked_destroy ? 1 : 0
+	data.devices.protolathe = length(get_fabricators(PROTOLATHE))
+	data.devices.imprinter = length(get_fabricators(IMPRINTER))
+	data.devices.mechfab = length(get_fabricators(MECHFAB))
+	data.devices.silo = linked_silo ? 1 : 0
+
 	if(t_disk)
-		data["loaded_disk"] = list("type" = "technology", "name" = t_disk.name, "stored_name" = t_disk.stored?.name, "stored_description" = t_disk.stored?.desc, "stored_level" = t_disk.stored?.level)
+		data.loaded_disk = new
+		data.loaded_disk.design_type = "technology"
+		data.loaded_disk.name = t_disk.name
+		data.loaded_disk.stored_name = t_disk.stored?.name
+		data.loaded_disk.stored_description = t_disk.stored?.desc
+		data.loaded_disk.stored_level = t_disk.stored?.level
 	else if(d_disk)
-		data["loaded_disk"] = list("type" = "design", "name" = d_disk.name, "stored_name" = d_disk.blueprint?.name, "stored_description" = d_disk.blueprint?.desc)
-	switch(data["screen"])
+		data.loaded_disk = new
+		data.loaded_disk.design_type = "design"
+		data.loaded_disk.name = d_disk.name
+		data.loaded_disk.stored_name = d_disk.blueprint?.name
+		data.loaded_disk.stored_description = d_disk.blueprint?.desc
+
+	switch(data.screen)
 		if("levels")
-			data["technologies"] = get_technology_tgui_data()
+			data.technologies = get_technology_tgui_data()
 		if("designs")
-			data["designs"] = get_design_tgui_data()
+			data.designs = get_design_tgui_data()
 		if("tech_disk")
-			data["technologies"] = get_technology_tgui_data()
+			data.technologies = get_technology_tgui_data()
 		if("design_disk")
-			data["designs"] = get_design_tgui_data()
+			data.designs = get_design_tgui_data()
 		if("analyzer")
-			data["analyzer"] = get_analyzer_tgui_data()
+			data.analyzer = get_analyzer_tgui_data()
 		if("protolathe")
-			data["fabricator"] = get_research_fabricator_live_data(PROTOLATHE)
+			data.fabricator = get_research_fabricator_live_data(PROTOLATHE)
 		if("imprinter")
-			data["fabricator"] = get_research_fabricator_live_data(IMPRINTER)
+			data.fabricator = get_research_fabricator_live_data(IMPRINTER)
 		if("mechfab")
-			data["fabricator"] = get_research_fabricator_live_data(MECHFAB)
-	return data
+			data.fabricator = get_research_fabricator_live_data(MECHFAB)
+
+	var/list/result = data.to_list()
+	qdel(data)
+	return result
 
 /obj/structure/machinery/computer/rdconsole/proc/eject_fabricator_material(obj/structure/machinery/r_n_d/machine, material_id, requested_sheets)
 	return linked_silo?.eject_material(material_id, requested_sheets)
