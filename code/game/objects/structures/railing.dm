@@ -94,7 +94,7 @@
 		if(material.products_need_process())
 			START_PROCESSING(SSprocessing, src)
 	if(anchored)
-		update_icon()
+		update_icon(FALSE)
 
 /obj/structure/railing/Destroy()
 	anchored = FALSE
@@ -221,7 +221,7 @@
 
 	forceMove(get_step(src, src.dir))
 	set_dir(turn(dir, 180))
-	update_icon(FALSE)
+	update_icon()
 
 /obj/structure/railing/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
