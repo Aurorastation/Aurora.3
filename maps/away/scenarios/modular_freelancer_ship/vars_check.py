@@ -41,6 +41,9 @@ def scan_dmm_file(file_path: str):
     print(f"Banned variable changes found: {len(violations)}\n")
 
     if violations:
+        # Sort by variable name (case-insensitive) first, then atom type
+        violations.sort(key=lambda item: (item[1].lower(), item[0].lower()))
+
         print(f"{'ATOM TYPE':<65} | {'BANNED VAR':<20} | {'VALUE'}")
         print("-" * 105)
         for atom_type, var_name, var_val in violations:
