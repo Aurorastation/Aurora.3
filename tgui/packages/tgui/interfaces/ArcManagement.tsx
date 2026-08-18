@@ -141,8 +141,8 @@ export const ArcManagement = (props) => {
                 color="good"
                 icon="plus"
                 disabled={addDisabled}
-                title={addArcButtonTitle}
-                onClick={() => setShowAddArc((value) => !value)}
+                tooltip={addArcButtonTitle}
+                onClick={() => setShowAddArc(!showAddArc)}
               />
               <Button
                 content="Refresh"
@@ -268,7 +268,7 @@ export const ArcManagement = (props) => {
                   </Table.Row>
                   {decisions.length === 0 && (
                     <Table.Row>
-                      <Table.Cell colspan={4}>No decisions recorded yet.</Table.Cell>
+                      <Table.Cell colSpan={4}>No decisions recorded yet.</Table.Cell>
                     </Table.Row>
                   )}
                   {decisions.map((decision) => (
