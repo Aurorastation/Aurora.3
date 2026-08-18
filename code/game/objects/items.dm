@@ -513,7 +513,8 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	in_inventory = FALSE
 
-	SEND_SIGNAL(user, COMSIG_MOB_REMOVE_FOOTSTEP_SOUND, src, movement_sounds)
+	if(user)
+		SEND_SIGNAL(user, COMSIG_MOB_REMOVE_FOOTSTEP_SOUND, src, movement_sounds)
 
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
