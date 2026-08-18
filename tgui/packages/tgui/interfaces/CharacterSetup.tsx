@@ -1394,11 +1394,13 @@ export const CharacterSetup = () => {
                   </Box>
                 </Stack.Item>
                 <Stack.Item grow>
-                  <Box bold fontSize={1.3}>
-                    {data.character_name || 'Unsaved Character'}
-                  </Box>
-                  <Box color="label">
-                    Active character setup &middot; {data.faction_name}
+                  <Box className="CharacterSetup__identity">
+                    <Box as="span" bold fontSize={1.3}>
+                      {data.character_name || 'Unsaved Character'}
+                    </Box>
+                    <Box as="span" color="label">
+                      &middot; {data.faction_name}
+                    </Box>
                   </Box>
                 </Stack.Item>
                 <Stack.Item>

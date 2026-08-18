@@ -65,6 +65,13 @@
     box-shadow: inset 0 0 0.8em hsla(0, 0%, 100%, 0.08);
   }
 
+  &__identity {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 var(--space-s);
+  }
+
   &__action {
     min-height: 2.4em;
     padding-inline: var(--space-m);
