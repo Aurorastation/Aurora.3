@@ -1,6 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - balance: "Allows grenades to be thrown over barricades from the blocking side. The chance to block a grenade is one third of the barricade's chance to block a bullet."
