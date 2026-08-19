@@ -141,7 +141,7 @@
 	logging_home_tag = "nav_modular_freelancer_shuttle_fighter_dock"
 	defer_initialisation = TRUE
 
-/obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
+/obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/fighter
 	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter::shuttle
 	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter::shuttle
 	master_tag = /datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::dock_target
@@ -191,7 +191,7 @@
 	logging_home_tag = "nav_modular_freelancer_shuttle_ferry_dock"
 	defer_initialisation = TRUE
 
-/obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
+/obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/ferry
 	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry::shuttle
 	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry::shuttle
 	master_tag = /datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::dock_target

@@ -146,7 +146,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 
 // ------------------------- shuttles
 
-ABSTRACT_TYPE(/area/shuttle/scc_scout_ship_shuttle)
+ABSTRACT_TYPE(/area/shuttle/modular_freelancer_shuttle)
 	name = "Base/Parent Area"
 	icon_state = "white128a"
 	requires_power = TRUE
