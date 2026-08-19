@@ -1,8 +1,0 @@
-author: mineymonkey
-
-
-delete-after: True
-
-changes:
-  - bugfix: Actually, reduces the maximum amount of metal and phoron that can be stored in a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can hit those numbers, so this is just a safety measure to prevent accidental loss of materials.
-  - qol: Added in examine hints for the electronic radio headset for clarity in how to access the circuitry portions. Also makes mention that the TTS circuit can only be heard by those wearing the device, it does not broadcast to the room in this specific case.
