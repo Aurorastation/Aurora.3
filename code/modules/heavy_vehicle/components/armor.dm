@@ -11,6 +11,7 @@
 		RAD = ARMOR_RAD_MINOR
 	)
 	origin_tech = list(TECH_MATERIAL = 1)
+	var/emp_protection = 0
 
 /obj/item/robot_parts/robot_component/armor/mech/Initialize()
 	. = ..()
@@ -33,8 +34,8 @@
 	origin_tech = list(TECH_MATERIAL = 3)
 
 /obj/item/robot_parts/robot_component/armor/mech/em
-	name = "EM-shielded armor plating"
-	desc = "A shielded plating that sorrounds the eletronics and protects them from electromagnetic radiation."
+	name = "anti EM reactive armor plating"
+	desc = "An advanced active-defense system that insulates the eletronics and destructively interferes with electromagnetic radiation."
 	icon_state = "armor_e"
 	icon_state_broken = "armor_e_broken"
 	armor = list(
@@ -47,6 +48,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	origin_tech = list(TECH_MATERIAL = 3)
+	emp_protection = 1
 
 /obj/item/robot_parts/robot_component/armor/mech/combat
 	name = "heavy combat plating"

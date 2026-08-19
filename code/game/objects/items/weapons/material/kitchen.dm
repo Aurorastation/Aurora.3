@@ -153,6 +153,10 @@
 	attack_verb = list("attacked", "poked")
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
 
+/obj/item/material/kitchen/utensil/spoon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Characters with high bartending skill can click on a drink with a spoon to stir it, improving the quality of the drink and the morale boost it provides."
+
 /obj/item/material/kitchen/utensil/spoon/bamboo
 	icon_state = "plastic_spoon"
 	default_material = MATERIAL_BAMBOO
@@ -220,7 +224,7 @@
 	icon_state = "rolling_pin"
 	item_state = "rolling_pin"
 	attack_verb = list("bashed", "battered", "bludgeoned", "thrashed", "whacked")
-	default_material = "wood"
+	default_material = MATERIAL_WOOD
 	force_divisor = 0.7 // 10 when wielded with weight 15 (wood)
 	thrown_force_divisor = 1 // as above
 	use_material_name = TRUE

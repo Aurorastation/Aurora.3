@@ -195,6 +195,9 @@
 	..()
 	update()
 
+/obj/structure/machinery/conveyor/can_attach_sticker(mob/user, obj/item/sticker/S)
+	return FALSE
+
 // the conveyor control switch
 //
 //

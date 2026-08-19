@@ -32,15 +32,23 @@
 
 	var/list/map_z = list()
 
-	var/known = 0		//shows up on nav computers automatically
-	var/scannable       //if set to TRUE will show up on ship sensors for detailed scans
-	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
-	var/requires_contact = TRUE //whether or not the effect must be identified by ship sensors before being seen.
-	var/instant_contact  = FALSE //do we instantly identify ourselves to any ship in sensors range?
-	var/sensor_range_override = FALSE //When true, this overmap object will be scanned with range instead of view.
+	/// Shows up on nav computers automatically
+	var/known = 0
+	/// If set to TRUE will show up on ship sensors for detailed scans
+	var/scannable
+	/// A unique identifier used when this entity is scanned. Assigned in Initialize().
+	var/unknown_id
+	/// Whether or not the effect must be identified by ship sensors before being seen.
+	var/requires_contact = TRUE
+	/// Do we instantly identify ourselves to any ship in sensors range?
+	var/instant_contact  = FALSE
+	/// When true, this overmap object will be scanned with range instead of view.
+	var/sensor_range_override = FALSE
 
-	var/sensor_visibility = 10	 //how likely it is to increase identification process each scan.
-	var/vessel_mass = 10000             // metric tonnes, very rough number, affects acceleration provided by engines
+	/// How likely it is to increase identification process each scan.
+	var/sensor_visibility = 10
+	/// Metric tonnes, very rough number, affects acceleration provided by engines
+	var/vessel_mass = 10000
 
 	var/image/targeted_overlay
 

@@ -80,11 +80,11 @@
 		awaken_impl(TRUE)
 		body.handle_shared_dreaming(TRUE)
 
-/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/brain_ghost/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(!istype(body) || body.stat!=UNCONSCIOUS)
 		return
 	if(prob(20)) // 1/5 chance to mumble out anything you say in the dream.
-		var/list/words = text2list(replacetext(message, "\[^a-zA-Z]*$", ""), " ")
+		var/list/words = text2list(replacetext(text, "\[^a-zA-Z]*$", ""), " ")
 		var/word_count = rand(1, words.len) // How many words to mumble out from within the sentance
 		var/words_start = rand(1, words.len - (word_count - 1)) // Where the chunk of said words should start.
 
@@ -97,7 +97,7 @@
 		body.say(mumble_message) // Mumble in Nral Malic
 		body.set_stat(UNCONSCIOUS) // Toggled before anything else can happen. Ideally.
 
-	..(message, speaking, verb="says", alt_name="")
+	..(text, speaking, verb="says", alt_name="")
 
 
 /mob/living/brain_ghost/get_floating_chat_y_offset()

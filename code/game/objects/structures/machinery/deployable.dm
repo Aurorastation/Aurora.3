@@ -19,7 +19,10 @@ Deployable Kits
 	density = TRUE
 	layer = ABOVE_DOOR_LAYER // above door layer so it can appear on the airlocks like a proper barricade
 	maxhealth = OBJECT_HEALTH_LOW
-
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL
+	)
 	var/force_material
 
 /obj/structure/blocker/Initialize(mapload, var/material_name)
@@ -31,7 +34,7 @@ Deployable Kits
 /obj/structure/blocker/proc/set_material(var/material_name)
 	if(force_material)
 		material_name = force_material
-	material = SSmaterials.get_material_by_name(material_name)
+	material = SSmaterials.get_material_by_id(material_name)
 	if(!material)
 		qdel(src)
 		return
@@ -46,13 +49,6 @@ Deployable Kits
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	var/damage_modifier = 0.4
-	switch(hitting_projectile.damage_type)
-		if(DAMAGE_BURN)
-			damage_modifier = 1
-		if(DAMAGE_BRUTE)
-			damage_modifier = 0.75
-	health -= hitting_projectile.damage * damage_modifier
 	if(!check_dismantle())
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
 
@@ -61,7 +57,7 @@ Deployable Kits
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return ..()
 			if(health < maxhealth)
@@ -76,11 +72,6 @@ Deployable Kits
 			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(attacking_item.damtype)
-			if(DAMAGE_BURN)
-				src.health -= attacking_item.force * 1
-			if(DAMAGE_BRUTE)
-				src.health -= attacking_item.force * 0.75
 		shake_animation()
 		playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
 		if(check_dismantle())
@@ -263,7 +254,7 @@ Deployable Kits
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
-	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
+	req_one_access = list(ACCESS_TCAF)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
@@ -324,8 +315,8 @@ Deployable Kits
 	new /obj/structure/curtain/open/medical(free_spot, src)
 
 /obj/item/deployable_kit/legion_turret
-	name = "legion blaster turret assembly kit"
-	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCFL id card to configure it once assembled."
+	name = "TCAF blaster turret assembly kit"
+	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCAF  id card to configure it once assembled."
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "blaster_turret_kit"
 	item_state = "table_parts"

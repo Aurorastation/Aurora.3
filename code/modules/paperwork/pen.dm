@@ -49,7 +49,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 7
 	throw_range = 15
-	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	matter = list(MATERIAL_STEEL = 10)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 

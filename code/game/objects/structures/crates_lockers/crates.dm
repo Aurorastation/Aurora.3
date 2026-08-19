@@ -501,11 +501,11 @@
 	icon_state = "syndi_crate1"
 	icon_door = "syndi_crate1"
 
-/obj/structure/closet/crate/secure/legion
-	name = "foreign legion supply crate"
-	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
+/obj/structure/closet/crate/secure/tcaf
+	name = "tau ceti armed forces supply crate"
+	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
 	icon_state = "tcfl_crate"
-	req_access = list(ACCESS_LEGION)
+	req_access = list(ACCESS_TCAF)
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
@@ -797,3 +797,8 @@
 	new /obj/item/storage/box/unique/tea/messa(src)
 	new /obj/item/reagent_containers/toothpaste(src)
 	new /obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash(src)
+
+/obj/structure/closet/crate/tool/machinist/fill()
+	new /obj/item/reagent_containers/weldpack(src)
+	new /obj/item/portable_whiteboard(src)
+	new /obj/item/paint_sprayer(src)

@@ -37,7 +37,8 @@
 	desc = "Security Equipment"
 	region = ACCESS_REGION_SECURITY
 
-#define ACCESS_BRIG 2 // Brig timers and permabrig
+/// Brig timers and permabrig
+#define ACCESS_BRIG 2
 /datum/access/holding
 	id = ACCESS_BRIG
 	desc = "Holding Cells"
@@ -73,12 +74,14 @@
 	desc = "R&D Lab"
 	region = ACCESS_REGION_RESEARCH
 
+/// Used only for science lockers/science gun cabinets
 #define ACCESS_TOX_STORAGE 8
 /datum/access/tox_storage
 	id = ACCESS_TOX_STORAGE
 	desc = "Toxins Lab"
 	region = ACCESS_REGION_RESEARCH
 
+/// NOT CURRENT USED ANYWHERE
 #define ACCESS_GENETICS 9
 /datum/access/genetics
 	id = ACCESS_GENETICS
@@ -109,12 +112,14 @@
 	desc = "External Airlocks"
 	region = ACCESS_REGION_ENGINEERING
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_EMERGENCY_STORAGE 14
 /datum/access/emergency_storage
 	id = ACCESS_EMERGENCY_STORAGE
 	desc = "Emergency Storage"
 	region = ACCESS_REGION_ENGINEERING
 
+/// Used only in '/datum/computer_file/program/card_mod'
 #define ACCESS_CHANGE_IDS 15
 /datum/access/change_ids
 	id = ACCESS_CHANGE_IDS
@@ -187,6 +192,7 @@
 	desc = "Custodial Closet"
 	region = ACCESS_REGION_GENERAL
 
+/// Only used for morgue crematorium switch, and the only one that exists has its access vars nulled anyway.
 #define ACCESS_CREMATORIUM 27
 /datum/access/crematorium
 	id = ACCESS_CREMATORIUM
@@ -217,6 +223,7 @@
 	desc = "Cargo Bay"
 	region = ACCESS_REGION_SUPPLY
 
+/// Used only for locked welding lockers and engineering suit cyclers, weirdly.
 #define ACCESS_CONSTRUCTION 32
 /datum/access/construction
 	id = ACCESS_CONSTRUCTION
@@ -229,6 +236,7 @@
 	desc = "Pharmacy Lab"
 	region = ACCESS_REGION_MEDBAY
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_CARGO_BOT 34
 /datum/access/cargo_bot
 	id = ACCESS_CARGO_BOT
@@ -241,6 +249,7 @@
 	desc = "Hydroponics"
 	region = ACCESS_REGION_GENERAL
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_MANUFACTURING 36
 /datum/access/manufacturing
 	id = ACCESS_MANUFACTURING
@@ -259,6 +268,7 @@
 	desc = "Representative"
 	region = ACCESS_TYPE_CENTCOM
 
+/// Used only for '/obj/item/storage/lockbox/vials' and a smartfridge variant no longer mapped anywhere.
 #define ACCESS_VIROLOGY 39
 /datum/access/virology
 	id = ACCESS_VIROLOGY
@@ -283,6 +293,7 @@
 	desc = "Station Network"
 	region = ACCESS_REGION_RESEARCH
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_LEVIATHAN 43
 /datum/access/leviathan
 	id = ACCESS_LEVIATHAN
@@ -311,12 +322,14 @@
 	desc = "Mining"
 	region = ACCESS_REGION_SUPPLY
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_MINING_OFFICE 49
 /datum/access/mining_office
 	id = ACCESS_MINING_OFFICE
 	desc = "Mining Office"
 	access_type = ACCESS_TYPE_NONE
 
+/// Only used as a weird standin for Operations in camera network access.
 #define ACCESS_MAILSORTING 50
 /datum/access/mailsorting
 	id = ACCESS_MAILSORTING
@@ -331,12 +344,14 @@
 	desc = "Xenobotany"
 	region = ACCESS_REGION_RESEARCH
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_HEADS_VAULT 53
 /datum/access/heads_vault
 	id = ACCESS_HEADS_VAULT
 	desc = "Main Vault"
 	region = ACCESS_REGION_COMMAND
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_MINING_STATION 54
 /datum/access/mining_station
 	id = ACCESS_MINING_STATION
@@ -367,37 +382,43 @@
 	desc = "Head of Security"
 	region = ACCESS_REGION_SECURITY
 
-#define ACCESS_RC_ANNOUNCE 59 //Requests console announcements
+/// Requests console announcements
+#define ACCESS_RC_ANNOUNCE 59
 /datum/access/RC_announce
 	id = ACCESS_RC_ANNOUNCE
 	desc = "RC Announcements"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_KEYCARD_AUTH 60 //Used for events which require at least two people to confirm them
+/// Used for events which require at least two people to confirm them
+#define ACCESS_KEYCARD_AUTH 60
 /datum/access/keycard_auth
 	id = ACCESS_KEYCARD_AUTH
 	desc = "Keycode Auth. Device"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_TCOMSAT 61 // has access to the entire telecomms satellite / machinery
+/// Has access to the interior Telecomms compartment
+#define ACCESS_TCOMSAT 61
 /datum/access/tcomsat
 	id = ACCESS_TCOMSAT
 	desc = "Telecommunications"
 	region = ACCESS_REGION_COMMAND
 
+/// NOT CURRENTLY USED ANYWHERE
 #define ACCESS_GATEWAY 62
 /datum/access/gateway
 	id = ACCESS_GATEWAY
 	desc = "Gateway"
 	region = ACCESS_REGION_COMMAND
 
-#define ACCESS_SEC_DOORS 63 // Security front doors
+/// Security front doors
+#define ACCESS_SEC_DOORS 63
 /datum/access/sec_doors
 	id = ACCESS_SEC_DOORS
 	desc = "Security"
 	region = ACCESS_REGION_SECURITY
 
-#define ACCESS_PSYCHIATRIST 64 // Psychiatrist's office
+/// Psychiatrist's office
+#define ACCESS_PSYCHIATRIST 64
 /datum/access/psychiatrist
 	id = ACCESS_PSYCHIATRIST
 	desc = "Psychiatrist's Office"
@@ -423,19 +444,22 @@
 
 // free_access_id = 68
 
+/// Used by firing pins.
 #define ACCESS_WEAPONS 69
 /datum/access/weapons
 	id = ACCESS_WEAPONS
 	desc = "Weaponry Permission"
 	region = ACCESS_REGION_SECURITY
 
-#define ACCESS_JOURNALIST 70//journalist's office access
+/// Journalist's office access
+#define ACCESS_JOURNALIST 70
 /datum/access/journalist
 	id = ACCESS_JOURNALIST
 	desc = "Journalist Office"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_IT 71 // allows some unique interactions with devices
+/// Allows some unique interactions with devices
+#define ACCESS_IT 71
 /datum/access/tech_support
 	id = ACCESS_IT
 	desc = "Tech Support"
@@ -549,10 +573,10 @@
 	desc = "Merchant Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_LEGION 111//tau ceti foreign legion access
-/datum/access/legion
-	id = ACCESS_LEGION
-	desc = "Tau Ceti Foreign Legion Access"
+#define ACCESS_TCAF 111//tau ceti armed forces access
+/datum/access/tcaf
+	id = ACCESS_TCAF
+	desc = "Tau Ceti Armed Forces Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_DISTRESS 112
@@ -623,10 +647,7 @@
 	id = ACCESS_SOL_SHIPS
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_TCAF_SHIPS 204
-/datum/access/tcfl_peacekeeper_ship
-	id = ACCESS_TCAF_SHIPS
-	access_type = ACCESS_TYPE_CENTCOM
+/// 204 is vacant
 
 #define ACCESS_EE_SPY_SHIP 205
 /datum/access/ee_spy_ship

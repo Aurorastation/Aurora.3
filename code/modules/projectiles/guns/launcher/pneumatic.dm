@@ -178,9 +178,13 @@
 			buildstate++
 			update_icon()
 			return
-	else if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
+	else if(istype(attacking_item, /obj/item/stack/material))
+		var/obj/item/stack/material/material_stack = attacking_item
+		var/singleton/material/stack_material = material_stack.get_material()
+		if(stack_material?.type != MATERIAL_STEEL)
+			return ..()
 		if(buildstate == 2)
-			var/obj/item/stack/material/M = attacking_item
+			var/obj/item/stack/material/M = material_stack
 			if(M.use(5))
 				to_chat(user, SPAN_NOTICE("You assemble a chassis around the cannon frame."))
 				buildstate++

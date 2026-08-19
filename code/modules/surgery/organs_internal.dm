@@ -27,9 +27,7 @@
 	/obj/item/stack/medical/advanced/bruise_pack= 100,		\
 	/obj/item/stack/medical/bruise_pack = 20
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -116,9 +114,7 @@
 	/obj/item/surgery/bone_gel = 30,
 	TOOL_SCREWDRIVER = 70
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -160,6 +156,7 @@
 				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
 					SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
 				I.surgical_fix(user)
+				START_PROCESSING(SSprocessing, I)
 				if(istype(tool, /obj/item/stack/nanopaste))
 					var/obj/item/stack/nanopaste/nanopaste = tool
 					nanopaste.use(1)
@@ -188,9 +185,7 @@
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -255,9 +250,7 @@
 	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
-
-	min_duration = 40
-	max_duration = 60
+	base_surgery_time = 6 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -315,9 +308,7 @@
 	allowed_tools = list(
 	/obj/item/organ = 100
 	)
-
-	min_duration = 40
-	max_duration = 60
+	base_surgery_time = 6 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -349,7 +340,7 @@
 		return FALSE
 	else if(target.species.has_organ[O.organ_tag] || O.is_augment)
 
-		if(O.damage > (O.max_damage * 0.75))
+		if(O.get_damage() > (O.max_damage * 0.75))
 			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_is] in no state to be transplanted."))
 			return SURGERY_FAILURE
 
@@ -421,9 +412,7 @@
 	/obj/item/surgery/fix_o_vein = 100, \
 	TOOL_CABLECOIL = 75
 	)
-
-	min_duration = 80
-	max_duration = 100
+	base_surgery_time = 10 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/attach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -476,9 +465,7 @@
 	TOOL_DRILL = 75,
 	/obj/item/pickaxe/ = 5
 	)
-
-	min_duration = 80
-	max_duration = 100
+	base_surgery_time = 10 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

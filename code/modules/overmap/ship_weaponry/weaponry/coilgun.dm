@@ -20,6 +20,7 @@
 	caliber = SHIP_CALIBER_COILGUN
 	overmap_icon_state = "cannon"
 	impact_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
+	projectile_type_override = /obj/projectile/ship_ammo/coilgun
 
 /obj/projectile/ship_ammo/coilgun
 	name = "high-power tungsten rod"
@@ -27,14 +28,16 @@
 	damage = 10000
 	armor_penetration = 1000
 	penetrating = 50
+	explosion_strength = list(1, 5, 3)
 
 /obj/projectile/ship_ammo/coilgun/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
+	var/turf/epicenter = get_turf(target)
 	if(ismob(target))
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M]'s chest apart and punches straight through!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 1, 5, 3)
+		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 
 /obj/structure/machinery/ammunition_loader/sol
 	icon_state = "ammo_loader_sol"

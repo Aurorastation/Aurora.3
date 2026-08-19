@@ -26,6 +26,7 @@
 
 /obj/projectile/ship_ammo/longbow/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
+	var/turf/epicenter = get_turf(target)
 	if(ismob(target))
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M] apart and punches straight through!</font>"))
@@ -39,13 +40,13 @@
 						qdel(target)
 					penetrated = TRUE
 				else
-					explosion(target, 4, 8, 12)
+					explosion(epicenter, 4, 8, 12)
 					qdel(src)
 			if(SHIP_AMMO_IMPACT_HE)
-				explosion(target, 6, 8, 10)
+				explosion(epicenter, 6, 8, 10)
 			if(SHIP_AMMO_IMPACT_BUNKERBUSTER)
 				target.visible_message(SPAN_DANGER("<font size=5>\The [src] punches straight through \the [target]!</font>"))
-				explosion(target, 1, 2, 4)
+				explosion(epicenter, 1, 2, 4)
 				target.ex_act(1)
 				if(!QDELING(target) && target.density)
 					qdel(target)

@@ -16,10 +16,9 @@
 		return FALSE
 
 	var/odyssey_message = "The scenario picked for this round is: [SPAN_BOLD(SPAN_NOTICE(SSodyssey.scenario.name))].<br>\
-			It is a [SPAN_BOLD(SSodyssey.scenario.scenario_type)] scenario.<br>"
+			It is a [SPAN_BOLD(SSticker.round_canon.name)] scenario.<br>"
 
-	if(SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON)
-		odyssey_message += SPAN_DANGER("A Canon Odyssey scenario follows the same rules as Extended canonicity, meaning that character deaths may be retconned if all parties agree. Adminhelp or refer to the rules for more information.<br>")
+	odyssey_message += SPAN_DANGER("For information on the canonicity of the scenario, refer to the Canon Panel by pressing the [SSticker.round_canon.name] button in your Status panel. Remember that Storytellers and Admins may change this at will.<br>")
 
 	odyssey_message += "Please keep in mind that the Storyteller and the Actors may alter the story as they see fit, and remember to go along with what they have planned!"
 

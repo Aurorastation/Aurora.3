@@ -19,14 +19,14 @@
 	name = "human skin"
 	desc = "The by-product of human farming."
 	singular_name = "human skin piece"
-	default_type = "human hide"
+	default_type = MATERIAL_HIDE_HUMAN
 
 /obj/item/stack/material/animalhide/corgi
 	name = "corgi hide"
 	desc = "The by-product of corgi farming."
 	singular_name = "corgi hide piece"
 	icon_state = "sheet-corgi"
-	default_type = "corgi hide"
+	default_type = MATERIAL_HIDE_CORGI
 	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/cat
@@ -34,7 +34,7 @@
 	desc = "The by-product of cat farming."
 	icon_state = "sheet-cat"
 	singular_name = "cat hide piece"
-	default_type = "cat hide"
+	default_type = MATERIAL_HIDE_CAT
 	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/monkey
@@ -42,7 +42,7 @@
 	desc = "The by-product of monkey farming."
 	singular_name = "monkey hide piece"
 	icon_state = "sheet-monkey"
-	default_type = "monkey hide"
+	default_type = MATERIAL_HIDE_MONKEY
 	icon_has_variants = FALSE
 
 /obj/item/stack/material/animalhide/lizard
@@ -50,7 +50,7 @@
 	desc = "Sssssss..."
 	singular_name = "lizard skin piece"
 	icon_state = "sheet-lizard"
-	default_type = "lizard hide"
+	default_type = MATERIAL_HIDE_LIZARD
 	icon_has_variants = FALSE
 	hide_type = "scales"
 
@@ -59,7 +59,7 @@
 	desc = "A hide without fur or scales. Can be tanned into leather."
 	singular_name = "bare hide piece"
 	icon_state = "sheet-hairlesshide"
-	default_type = "bare hide"
+	default_type = MATERIAL_HIDE_BARE
 	bare = TRUE
 
 /obj/item/stack/material/animalhide/barehide/mechanics_hints(mob/user, distance, is_adjacent)
@@ -71,7 +71,7 @@
 	desc = "This leather has been cleaned but still needs to be dried."
 	singular_name = "wet leather piece"
 	icon_state = "sheet-wetleather"
-	default_type = "wet leather"
+	default_type = MATERIAL_WET_LEATHER
 	icon_has_variants = TRUE
 	bare = TRUE
 	var/wetness = 30 //Reduced when exposed to high temperautres or manually dried with a welding tool.

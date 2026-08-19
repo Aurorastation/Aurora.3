@@ -1,7 +1,3 @@
-/mob/living/carbon/human
-	var/singleton/origin_item/culture/culture
-	var/singleton/origin_item/origin/origin
-
 /datum/category_item/player_setup_item/origin
 	name = "Origin"
 	sort_order = 1

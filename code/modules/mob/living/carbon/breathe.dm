@@ -8,7 +8,7 @@
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
 	if(species && (species.flags & NO_BREATHE))
 		return
-	if(HAS_TRAIT(src, TRAIT_PRESSURE_IMMUNITY))
+	if(HAS_TRAIT(src, TRAIT_NO_BREATHE))
 		return
 
 	volume_needed *= (species?.breath_vol_mul || 1)

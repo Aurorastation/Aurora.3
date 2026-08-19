@@ -9,7 +9,7 @@
 	contained_sprite = 1
 	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
 

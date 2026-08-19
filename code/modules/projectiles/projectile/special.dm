@@ -76,7 +76,7 @@
 	edge = TRUE
 
 /obj/projectile/bullet/gyro/on_hit(atom/target, blocked, def_zone)
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	. = ..()
 
 /obj/projectile/bullet/gyro/law
@@ -87,7 +87,7 @@
 /obj/projectile/bullet/gyro/law/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	var/obj/T = target
 	var/throwdir = get_dir(firer,target)
 	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
@@ -141,7 +141,7 @@
 	icon_state = "energy"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	check_armor = ENERGY
+	check_armor = RAD
 
 /obj/projectile/energy/floramut/gene
 	name = "gamma somatoray"
@@ -172,7 +172,8 @@
 				M.adjustFireLoss(rand(5,15))
 				M.show_message(SPAN_WARNING("The radiation beam singes you!"))
 	else if(iscarbon(target))
-		M.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
+		if(damage <= 5)
+			M.show_message(SPAN_NOTICE("The radiation beam mostly dissipates harmlessly through your body."))
 	else
 		return 1
 
@@ -181,7 +182,7 @@
 	icon_state = "energy2"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	check_armor = ENERGY
+	check_armor = RAD
 
 /obj/projectile/energy/florayield/on_hit(atom/target, blocked, def_zone)
 	. = ..()
@@ -191,10 +192,10 @@
 		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 			M.adjustNutritionLoss(-30)
 	else if (istype(target, /mob/living/carbon/))
-		M.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
+		if(damage <= 5)
+			M.show_message(SPAN_NOTICE("The radiation beam mostly dissipates harmlessly through your body."))
 	else
 		return 1
-
 
 /obj/projectile/beam/mindflayer
 	name = "flayer ray"
@@ -215,7 +216,7 @@
 	edge = TRUE
 
 /obj/projectile/bullet/trod/on_hit(atom/target, blocked, def_zone)
-	explosion(target, 0, 0, 4)
+	explosion(get_turf(target), 0, 0, 4)
 	. = ..()
 
 /obj/projectile/chameleon
@@ -235,7 +236,7 @@
 	penetrating = 1
 
 /obj/projectile/bullet/cannon/on_hit(atom/target, blocked, def_zone)
-	explosion(target, 1, 2, 3, 3)
+	explosion(get_turf(target), 1, 2, 3, 3)
 	. = ..()
 
 //magic
@@ -256,7 +257,7 @@
 	damage_type = DAMAGE_BURN
 
 /obj/projectile/magic/fireball/on_hit(atom/target, blocked, def_zone)
-	explosion(target, 0, 0, 4)
+	explosion(get_turf(target), 0, 0, 4)
 	. = ..()
 
 /obj/projectile/magic/teleport //literaly bluespace crystal code, because i am lazy and it seems to work
@@ -301,7 +302,7 @@
 
 /obj/item/missile/throw_impact(atom/hit_atom)
 	if(primed)
-		explosion(hit_atom, 0, 1, 2, 4)
+		explosion(get_turf(hit_atom), 0, 1, 2, 4)
 		qdel(src)
 	else
 		..()

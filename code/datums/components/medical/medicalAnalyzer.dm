@@ -84,6 +84,15 @@
 			reagent_results = list()
 			return TRUE
 
+/datum/component/health_analyzer/ui_status(mob/user, datum/ui_state/state)
+	var/obj/item/rig_module/containing_rig_module = owner?.loc
+	if(!containing_rig_module)
+		return ..()
+	else if(containing_rig_module)
+		return UI_INTERACTIVE
+
+	return UI_CLOSE
+
 /datum/component/health_analyzer/proc/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = TRUE
 
@@ -93,7 +102,7 @@
 	// each device level and anatomy rank reduces the time by half a second. Get that skill up
 	var/time = max(5 - (0.5 * (device_level + (anatomy ? anatomy : 1))), 1)
 
-	if(do_after(user, time SECONDS, target_mob, DO_UNIQUE))
+	if(do_after(user, time SECONDS, target_mob)) //This can't be DO_UNIQUE because prevents two people from scanning the same patient.
 		flick("[owner.icon_state]-scan", owner)
 
 		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)
@@ -104,6 +113,8 @@
 		user.visible_message("\The [user] stops scanning \the [target_mob].")
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
+	if(scan_title == "" || scan_title == null)
+		health_scan_mob(user, user, FALSE, sound_scan = sound_scan)
 	ui_interact(user)
 
 	owner.add_fingerprint(user)

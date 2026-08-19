@@ -114,7 +114,8 @@ var/list/ANTAG_FREQS = list(
 	RAID_FREQ,
 	NINJ_FREQ,
 	BLSP_FREQ,
-	BURG_FREQ
+	BURG_FREQ,
+	JOCK_FREQ
 )
 
 var/list/ANTAG_FREQS_ASSOC = list(
@@ -122,7 +123,8 @@ var/list/ANTAG_FREQS_ASSOC = list(
 	"[RAID_FREQ]" = TRUE,
 	"[NINJ_FREQ]" = TRUE,
 	"[BURG_FREQ]" = TRUE,
-	"[BLSP_FREQ]" = TRUE
+	"[BLSP_FREQ]" = TRUE,
+	"[JOCK_FREQ]" = TRUE
 )
 
 /// Department channels, arranged lexically

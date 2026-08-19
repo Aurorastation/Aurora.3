@@ -51,7 +51,7 @@
 /area/centcom/distress_prep)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/closet/crate/secure/legion{
+/obj/structure/closet/crate/secure/tcaf{
 	name = "republican fleet supply crate"
 	},
 /obj/item/deployable_kit/legion_barrier,
@@ -59,15 +59,15 @@
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
 /obj/item/deployable_kit/legion_barrier,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
-/obj/item/magnetic_lock/security/legion,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
+/obj/item/magnetic_lock/security/tcaf,
 /obj/item/deployable_kit/legion_turret{
 	name = "blaster turret assembly kit"
 	},

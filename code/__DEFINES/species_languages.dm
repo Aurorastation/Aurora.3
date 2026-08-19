@@ -102,6 +102,20 @@
 #define PRESSUREPROOF BITFLAG(11) // Pressure doesn't affect hearing
 #define PASSLISTENOBJ BITFLAG(12) // Listening Objs can't hear this language
 
+// These language flags do not support multiple languages in one message.
+#define LANG_NO_MULTILANG (SIGNLANG | HIVEMIND | PRESSUREPROOF | KNOWONLYHEAR)
+
+// Clarity levels: how clearly one listener perceives one message (the acoustic/sight axis).
+#define CLARITY_NONE   0   // not perceived (deaf / vacuum / blind-sign)
+#define CLARITY_FAINT  1   // body stars()-ed (radio static, whisper eavesdrop)
+#define CLARITY_DROWSY 2   // word-sampled "you almost hear..." (asleep)
+#define CLARITY_CLEAR  3   // verbatim (subject to comprehension only)
+
+// Delivery mode: how the message reached the listener. Selects the envelope.
+#define SAYMODE_SPOKEN 1
+#define SAYMODE_RADIO  2
+#define SAYMODE_SIGN   3
+
 // Autohiss
 #define AUTOHISS_OFF 0
 #define AUTOHISS_BASIC 1

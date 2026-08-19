@@ -6,6 +6,7 @@
 	suffix = "tramp_freighter.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tramp_freighter"

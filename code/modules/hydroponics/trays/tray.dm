@@ -376,7 +376,8 @@
 		return
 
 	if(user)
-		seed.harvest(user,yield_mod,stunted_status = stunted)
+		if(!seed.harvest(user,yield_mod,stunted_status = stunted))
+			return
 	else
 		seed.harvest(get_turf(src),yield_mod, stunted_status = stunted)
 	// Reset values.

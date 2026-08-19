@@ -41,6 +41,24 @@
 
 	usr << browse(HTML_SKELETON(output), "window=airreport")
 
+/client/proc/toggle_nonhorizon_temperature_graphics()
+	set category = "Debug"
+	set name = "Toggle Non-Horizon Temperature Graphics"
+	set desc = "Toggle gas temperature graphics on all non-Horizon z-levels."
+
+	if(!check_rights(R_DEBUG))
+		return
+	if(!SSair)
+		to_chat(src, SPAN_WARNING("The air subsystem is unavailable."))
+		return
+
+	var/suppress = !SSair.suppress_nonhorizon_temperature_graphics
+	to_chat(src, SPAN_NOTICE("[suppress ? "Disabling" : "Re-enabling"] non-Horizon temperature graphics. This may take several ticks."))
+
+	var/updated_graphics = SSair.set_nonhorizon_temperature_graphics_suppressed(suppress)
+	log_and_message_admins("has [suppress ? "disabled" : "enabled"] GAS_HEAT and GAS_COLD graphics on non-Horizon z-levels ([updated_graphics] graphic reference\s updated).")
+	feedback_add_details("admin_verb", "TNTG")
+
 /client/proc/fix_next_move()
 	set category = "Debug"
 	set name = "Unfreeze Everyone"

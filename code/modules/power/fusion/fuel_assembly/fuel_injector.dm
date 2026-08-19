@@ -81,6 +81,11 @@
 		return TRUE
 
 	if(cur_assembly)
+		if(istype(user, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = user
+			var/active_module = R.get_active_hand()
+			if(istype(active_module, /obj/item/gripper))
+				return TRUE
 		cur_assembly.dropInto(loc)
 		user.put_in_hands(cur_assembly)
 		visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."))
@@ -112,6 +117,7 @@
 				var/amount = cur_assembly.rod_quantities[reagent] * fuel_usage * injection_rate
 				if(amount < 1)
 					amount = 1
+				amount = min(amount, cur_assembly.rod_quantities[reagent])
 				var/obj/effect/accelerated_particle/A = new/obj/effect/accelerated_particle(get_turf(src), dir)
 				A.particle_type = reagent
 				A.additional_particles = amount
@@ -120,7 +126,11 @@
 					cur_assembly.rod_quantities[reagent] -= amount
 					amount_left += cur_assembly.rod_quantities[reagent]
 		if(cur_assembly)
-			cur_assembly.percent_depleted = amount_left / cur_assembly.initial_amount
+			if(cur_assembly.initial_amount > 0)
+				cur_assembly.percent_depleted = amount_left / cur_assembly.initial_amount
+			else
+				cur_assembly.percent_depleted = 0
+				StopInjecting()
 		flick("injector-emitting",src)
 	else
 		StopInjecting()

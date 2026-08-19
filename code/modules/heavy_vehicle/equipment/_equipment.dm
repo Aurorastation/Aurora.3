@@ -5,7 +5,7 @@
 	icon = 'icons/mecha/mech_equipment.dmi'
 	icon_state = ""
 	var/on_mech_icon_state
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
+	matter = list(MATERIAL_STEEL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
 	force = 15
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner
@@ -77,11 +77,13 @@
 	return
 
 /obj/item/mecha_equipment/proc/installed(var/mob/living/heavy_vehicle/_owner)
+	SHOULD_CALL_PARENT(TRUE)
 	owner = _owner
 	//generally attached. Nothing should be able to grab it
 	canremove = FALSE
 
 /obj/item/mecha_equipment/proc/uninstalled()
+	SHOULD_CALL_PARENT(TRUE)
 	if(active)
 		deactivate()
 	owner = null
@@ -89,7 +91,7 @@
 
 /obj/item/mecha_equipment/Destroy()
 	owner = null
-	. = ..()
+	return ..()
 
 /obj/item/mecha_equipment/mob_can_unequip(mob/M, slot, disable_warning)
 	. = ..()

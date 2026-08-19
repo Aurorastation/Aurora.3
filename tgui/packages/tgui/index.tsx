@@ -34,61 +34,47 @@ import './styles/themes/hephaestus.scss';
 import './styles/themes/sol.scss';
 import './styles/themes/vaurca.scss';
 import './styles/themes/amberpos.scss';
+import './styles/themes/dossier.scss';
+import './styles/themes/orion.scss';
+import { setupGlobalEvents } from 'tgui-core/events';
+import { setupHotKeys } from 'tgui-core/hotkeys';
+import { captureExternalLinks } from 'tgui-core/links';
+import { setupHotReloading } from 'tgui-dev-server/link/client';
+import { App } from './App';
+import { setDebugHotKeys } from './debug/use-debug';
+import { bus } from './events/listeners';
+import { render } from './renderer';
+import { createStackAugmentor } from './stack';
 
-import { StoreProvider, configureStore } from './store';
-
-import { captureExternalLinks } from './links';
-import { createRenderer } from './renderer';
-import { perf } from 'common/perf';
-import { setupGlobalEvents } from './events';
-import { setupHotKeys } from './hotkeys';
-import { setupHotReloading } from 'tgui-dev-server/link/client.cjs';
-
-perf.mark('inception', window.performance?.timing?.navigationStart);
-perf.mark('init');
-
-const store = configureStore();
-
-const renderApp = createRenderer(() => {
-  const { getRoutedComponent } = require('./routes');
-  const Component = getRoutedComponent(store);
-  return (
-    <StoreProvider store={store}>
-      <Component />
-    </StoreProvider>
-  );
-});
-
-const setupApp = () => {
+function setupApp() {
   // Delay setup
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupApp);
     return;
   }
+  window.__augmentStack__ = createStackAugmentor();
 
   setupGlobalEvents();
-  setupHotKeys();
+  setupHotKeys({
+    keyUpVerb: 'KeyUp',
+    keyDownVerb: 'KeyDown',
+    // In the future you could send a winget here to get mousepos/size from the map here if it's necessary
+    verbParamsFn: (verb, key) => `${verb} "${key}" 0 0 0 0`,
+  });
   captureExternalLinks();
 
-  // Re-render UI on store updates
-  store.subscribe(renderApp);
+  Byond.subscribe((type, payload) => bus.dispatch({ type, payload }));
 
-  // Dispatch incoming messages as store actions
-  Byond.subscribe((type, payload) => store.dispatch({ type, payload }));
+  render(<App />);
 
   // Enable hot module reloading
-  if (module.hot) {
+  if (import.meta.webpackHot) {
+    setDebugHotKeys();
     setupHotReloading();
-    // prettier-ignore
-    module.hot.accept([
-      './components',
-      './debug',
-      './layouts',
-      './routes',
-    ], () => {
-      renderApp();
-    });
+    import.meta.webpackHot.accept(['./layouts', './routes', './App'], () =>
+      render(<App />),
+    );
   }
-};
+}
 
 setupApp();

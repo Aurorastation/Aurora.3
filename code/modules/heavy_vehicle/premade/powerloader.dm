@@ -27,7 +27,7 @@
 
 /mob/living/heavy_vehicle/premade/ripley/loader/tcaf
 	name = "TCAF powerloader"
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 
 /mob/living/heavy_vehicle/premade/ripley/janitorial
 	name = "janitorial power loader"
@@ -123,7 +123,7 @@
 
 /mob/living/heavy_vehicle/premade/firefighter/Initialize()
 	. = ..()
-	material = SSmaterials.get_material_by_name(MATERIAL_PLASTEEL)
+	material = GET_SINGLETON(MATERIAL_PLASTEEL)
 
 /obj/item/mech_component/sensors/firefighter/prebuild()
 	..()
@@ -144,7 +144,7 @@
 	e_body = /obj/item/mech_component/chassis/ripley/nuclear
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/ripley
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher

@@ -29987,7 +29987,7 @@
 /obj/random/dirt_75,
 /obj/outfit/admin/generic,
 /obj/random/loot,
-/obj/structure/sign/flag/old_visegrad{
+/obj/structure/sign/flag/visegrad_old{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -36360,7 +36360,7 @@
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
 /obj/random/loot,
-/obj/structure/sign/flag/old_xanu{
+/obj/structure/sign/flag/xanu_old{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,

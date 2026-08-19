@@ -10,6 +10,7 @@
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/lone_spacer)
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 
 	unit_test_groups = list(1)
 

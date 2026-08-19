@@ -1,5 +1,4 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -8,7 +7,9 @@ import {
   Section,
   Table,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 // ---- Types ----
@@ -22,8 +23,9 @@ type AirAlarmData = {
   target_temperature: number;
   // Access
   locked: BooleanLike;
+  remote_view: BooleanLike;
   shorted: BooleanLike;
-  rcon: number;
+  rcon: BooleanLike;
   // Mode
   mode: number;
   modes: ModeEntry[];
@@ -97,15 +99,12 @@ const DANGER_LABEL: Record<number, string> = {
   2: 'DANGER: Internals Required',
 };
 
-const RCON_NO = 1;
-const RCON_AUTO = 2;
-const RCON_YES = 3;
-
 // ---- Root component ----
 
-export const AirAlarm = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
-  const [tab, setTab] = useLocalState(context, 'tab', 'status');
+export const AirAlarm = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
+  const [tab, setTab] = useLocalState('tab', 'status');
+  const lockedMessage = 'Swipe ID card to unlock interface.';
 
   const tabs = [
     { id: 'status', label: 'Status' },
@@ -120,7 +119,7 @@ export const AirAlarm = (props, context) => {
       <Window.Content scrollable>
         <StatusSection />
         {data.locked ? (
-          <NoticeBox>Swipe ID card to unlock interface.</NoticeBox>
+          <NoticeBox>{lockedMessage}</NoticeBox>
         ) : (
           <Section>
             <Tabs>
@@ -148,8 +147,8 @@ export const AirAlarm = (props, context) => {
 
 // ---- Status section (always visible) ----
 
-const StatusSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const StatusSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Air Status">
@@ -183,24 +182,11 @@ const StatusSection = (props, context) => {
       <Box mt={1}>
         <LabeledList>
           <LabeledList.Item label="Remote Control">
-            <Button
-              content="Off"
-              selected={data.rcon === RCON_NO}
-              disabled={!!data.shorted}
-              onClick={() => act('rcon', { value: RCON_NO })}
-            />
-            <Button
-              content="Auto"
-              selected={data.rcon === RCON_AUTO}
-              disabled={!!data.shorted}
-              onClick={() => act('rcon', { value: RCON_AUTO })}
-            />
-            <Button
-              content="On"
-              selected={data.rcon === RCON_YES}
-              disabled={!!data.shorted}
-              onClick={() => act('rcon', { value: RCON_YES })}
-            />
+            {data.rcon ? (
+              <Box color="good">Enabled</Box>
+            ) : (
+              <Box color="bad">Disabled</Box>
+            )}
           </LabeledList.Item>
           <LabeledList.Item label="Thermostat">
             <Button
@@ -217,8 +203,8 @@ const StatusSection = (props, context) => {
 
 // ---- Main tab ----
 
-const MainSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const MainSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Controls">
@@ -250,8 +236,11 @@ const MainSection = (props, context) => {
 
 // ---- Vents tab ----
 
-const VentsSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const VentsSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
+  const [ventOverrides, setVentOverrides] = useState<
+    Record<string, Partial<Pick<VentEntry, 'power' | 'checks'>>>
+  >({});
 
   if (!data.vents.length) {
     return <NoticeBox>No vents connected.</NoticeBox>;
@@ -259,85 +248,114 @@ const VentsSection = (props, context) => {
 
   return (
     <>
-      {data.vents.map((vent) => (
-        <Section key={vent.id_tag} title={vent.long_name}>
-          <LabeledList>
-            <LabeledList.Item label="Operating">
-              <Button
-                content={vent.power ? 'On' : 'Off'}
-                color={vent.power ? 'default' : 'bad'}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'power',
-                    val: vent.power ? 0 : 1,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Operation Mode">
-              {vent.direction === 'siphon' ? 'Siphoning' : 'Pressurizing'}
-            </LabeledList.Item>
-            <LabeledList.Item label="Pressure Checks">
-              <Button
-                content="External"
-                selected={!!(vent.checks & 1)}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'checks',
-                    val: vent.checks ^ 1,
-                  })
-                }
-              />
-              <Button
-                content="Internal"
-                selected={!!(vent.checks & 2)}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'checks',
-                    val: vent.checks ^ 2,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="External Pressure Bound">
-              <Button
-                content={`${vent.external.toFixed(2)} kPa`}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'set_external_pressure',
-                  })
-                }
-              />
-              <Button
-                content="Reset"
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: vent.id_tag,
-                    command: 'reset_external_pressure',
-                  })
-                }
-              />
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      ))}
+      {data.vents.map((vent) => {
+        const localVent = ventOverrides[vent.id_tag];
+        const power = localVent?.power ?? vent.power;
+        const checks = localVent?.checks ?? vent.checks;
+
+        return (
+          <Section key={vent.id_tag} title={vent.long_name}>
+            <LabeledList>
+              <LabeledList.Item label="Operating">
+                <Button
+                  content={power ? 'On' : 'Off'}
+                  color={power ? 'default' : 'bad'}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = power ? 0 : 1;
+                    setVentOverrides((vents) => ({
+                      ...vents,
+                      [vent.id_tag]: { ...vents[vent.id_tag], power: val },
+                    }));
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'power',
+                      val,
+                    });
+                  }}
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Operation Mode">
+                {vent.direction === 'siphon' ? 'Siphoning' : 'Pressurizing'}
+              </LabeledList.Item>
+              <LabeledList.Item label="Pressure Checks">
+                <Button
+                  content="External"
+                  selected={!!(checks & 1)}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = checks ^ 1;
+                    setVentOverrides((vents) => ({
+                      ...vents,
+                      [vent.id_tag]: { ...vents[vent.id_tag], checks: val },
+                    }));
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'checks',
+                      val,
+                    });
+                  }}
+                />
+                <Button
+                  content="Internal"
+                  selected={!!(checks & 2)}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = checks ^ 2;
+                    setVentOverrides((vents) => ({
+                      ...vents,
+                      [vent.id_tag]: { ...vents[vent.id_tag], checks: val },
+                    }));
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'checks',
+                      val,
+                    });
+                  }}
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="External Pressure Bound">
+                <Button
+                  content={`${vent.external.toFixed(2)} kPa`}
+                  disabled={!!data.shorted}
+                  onClick={() =>
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'set_external_pressure',
+                    })
+                  }
+                />
+                <Button
+                  content="Reset"
+                  disabled={!!data.shorted}
+                  onClick={() =>
+                    act('command', {
+                      id_tag: vent.id_tag,
+                      command: 'reset_external_pressure',
+                    })
+                  }
+                />
+              </LabeledList.Item>
+            </LabeledList>
+          </Section>
+        );
+      })}
     </>
   );
 };
 
 // ---- Scrubbers tab ----
 
-const ScrubbersSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const ScrubbersSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
+  const [scrubberOverrides, setScrubberOverrides] = useState<
+    Record<
+      string,
+      Partial<Pick<ScrubberEntry, 'power' | 'scrubbing'>> & {
+        filters?: Record<string, BooleanLike>;
+      }
+    >
+  >({});
 
   if (!data.scrubbers.length) {
     return <NoticeBox>No scrubbers connected.</NoticeBox>;
@@ -345,65 +363,103 @@ const ScrubbersSection = (props, context) => {
 
   return (
     <>
-      {data.scrubbers.map((scrubber) => (
-        <Section key={scrubber.id_tag} title={scrubber.long_name}>
-          <LabeledList>
-            <LabeledList.Item label="Operating">
-              <Button
-                content={scrubber.power ? 'On' : 'Off'}
-                color={scrubber.power ? 'default' : 'bad'}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: scrubber.id_tag,
-                    command: 'power',
-                    val: scrubber.power ? 0 : 1,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Operation Mode">
-              <Button
-                content={scrubber.scrubbing ? 'Scrubbing' : 'Siphoning'}
-                color={scrubber.scrubbing ? 'default' : 'bad'}
-                disabled={!!data.shorted}
-                onClick={() =>
-                  act('command', {
-                    id_tag: scrubber.id_tag,
-                    command: 'scrubbing',
-                    val: scrubber.scrubbing ? 0 : 1,
-                  })
-                }
-              />
-            </LabeledList.Item>
-            <LabeledList.Item label="Filters">
-              {scrubber.filters.map((filter) => (
+      {data.scrubbers.map((scrubber) => {
+        const localScrubber = scrubberOverrides[scrubber.id_tag];
+        const power = localScrubber?.power ?? scrubber.power;
+        const scrubbing = localScrubber?.scrubbing ?? scrubber.scrubbing;
+
+        return (
+          <Section key={scrubber.id_tag} title={scrubber.long_name}>
+            <LabeledList>
+              <LabeledList.Item label="Operating">
                 <Button
-                  key={filter.command}
-                  content={filter.name}
-                  selected={!!filter.val}
+                  content={power ? 'On' : 'Off'}
+                  color={power ? 'default' : 'bad'}
                   disabled={!!data.shorted}
-                  onClick={() =>
+                  onClick={() => {
+                    const val = power ? 0 : 1;
+                    setScrubberOverrides((scrubbers) => ({
+                      ...scrubbers,
+                      [scrubber.id_tag]: {
+                        ...scrubbers[scrubber.id_tag],
+                        power: val,
+                      },
+                    }));
                     act('command', {
                       id_tag: scrubber.id_tag,
-                      command: filter.command,
-                      val: filter.val ? 0 : 1,
-                    })
-                  }
+                      command: 'power',
+                      val,
+                    });
+                  }}
                 />
-              ))}
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
-      ))}
+              </LabeledList.Item>
+              <LabeledList.Item label="Operation Mode">
+                <Button
+                  content={scrubbing ? 'Scrubbing' : 'Siphoning'}
+                  color={scrubbing ? 'default' : 'bad'}
+                  disabled={!!data.shorted}
+                  onClick={() => {
+                    const val = scrubbing ? 0 : 1;
+                    setScrubberOverrides((scrubbers) => ({
+                      ...scrubbers,
+                      [scrubber.id_tag]: {
+                        ...scrubbers[scrubber.id_tag],
+                        scrubbing: val,
+                      },
+                    }));
+                    act('command', {
+                      id_tag: scrubber.id_tag,
+                      command: 'scrubbing',
+                      val,
+                    });
+                  }}
+                />
+              </LabeledList.Item>
+              <LabeledList.Item label="Filters">
+                {scrubber.filters.map((filter) => {
+                  const filterValue =
+                    localScrubber?.filters?.[filter.command] ?? filter.val;
+
+                  return (
+                    <Button
+                      key={filter.command}
+                      content={filter.name}
+                      selected={!!filterValue}
+                      disabled={!!data.shorted}
+                      onClick={() => {
+                        const val = filterValue ? 0 : 1;
+                        setScrubberOverrides((scrubbers) => ({
+                          ...scrubbers,
+                          [scrubber.id_tag]: {
+                            ...scrubbers[scrubber.id_tag],
+                            filters: {
+                              ...scrubbers[scrubber.id_tag]?.filters,
+                              [filter.command]: val,
+                            },
+                          },
+                        }));
+                        act('command', {
+                          id_tag: scrubber.id_tag,
+                          command: filter.command,
+                          val,
+                        });
+                      }}
+                    />
+                  );
+                })}
+              </LabeledList.Item>
+            </LabeledList>
+          </Section>
+        );
+      })}
     </>
   );
 };
 
 // ---- Mode tab ----
 
-const ModeSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const ModeSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Environmental Mode">
@@ -418,7 +474,7 @@ const ModeSection = (props, context) => {
             disabled={!!data.shorted}
             onClick={() => act('mode', { mode: m.mode })}
           >
-            <Box bold display="inline-block">
+            <Box bold style={{ display: 'inline-block' }}>
               {m.name}
             </Box>{' '}
             — {m.description}
@@ -433,8 +489,8 @@ const ModeSection = (props, context) => {
 
 const THRESHOLD_LABELS = ['Min²', 'Min¹', 'Max¹', 'Max²'];
 
-const SensorsSection = (props, context) => {
-  const { act, data } = useBackend<AirAlarmData>(context);
+const SensorsSection = (props) => {
+  const { act, data } = useBackend<AirAlarmData>();
 
   return (
     <Section title="Alarm Thresholds">

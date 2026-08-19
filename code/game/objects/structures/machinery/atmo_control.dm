@@ -141,7 +141,7 @@
 
 	var/list/sensor_information = list()
 	var/datum/radio_frequency/radio_connection
-	var/ui_type = "AtmosControl"
+	ui_type = "AtmosControl"
 	circuit = /obj/item/circuitboard/air_management
 
 /obj/structure/machinery/computer/general_air_control/Destroy()

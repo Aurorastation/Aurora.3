@@ -14,7 +14,7 @@
 	desc_extended = "It takes significantly longer to apply nanopaste to yourself than it does to apply it to others. Nanites are best enjoyed with a friend!"
 
 	/// What materials does it take to fabricate nanopaste?
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
+	var/list/construction_cost = list(MATERIAL_STEEL = 7000, MATERIAL_GLASS = 7000)
 	/// How long does it take to apply nanopaste?
 	var/time_to_apply = 2 SECONDS
 	/// Multiplier applied to time_to_apply, if we want it to take longer in some situations.
@@ -94,11 +94,11 @@
 				if (application_in_progress == FALSE)
 					application_in_progress = TRUE
 					user.visible_message(SPAN_NOTICE("\The [user] begins to apply nanite past to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton..."), \
-						SPAN_NOTICE("You begin to apply nanite paste to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "your"] [endoskeleton]..."))
+						SPAN_NOTICE("You begin to apply nanite paste to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "your"] endoskeleton..."))
 					if(do_mob(user, target_mob, application_time))
 						SEND_SIGNAL(target_mob, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(15, 30))
 						user.visible_message(SPAN_NOTICE("\The [user] mends the broken links in [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton with \the [src]."),\
-												SPAN_NOTICE("You successfully mend the broken links in[user == target_mob ? "your" : "[target_mob]'s"] endoskeleton with \the [src]."))
+												SPAN_NOTICE("You successfully mend the broken links in [user == target_mob ? "your" : "[target_mob]'s"] endoskeleton with \the [src]."))
 						use(1)
 					application_in_progress = FALSE
 

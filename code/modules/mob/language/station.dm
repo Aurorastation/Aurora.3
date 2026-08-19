@@ -219,22 +219,66 @@
 	key = "9"
 	native = 1
 	flags = WHITELISTED | HIVEMIND
-	syllables = list("vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
-	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'ayek","ka'mil","sc'","ik'yir","yol","kig","k'zit","'","'","zrk","krg","isk'yet","na'k",
-	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","iy'it","azzg","a'","i'","o'","u'","a","i","o","u","zz","kr","ak","nrk")
+	syllables = list("vaur","uyek","uyit","avek","sth'ec","k'ztak","teth","wre'ge","dra","zo","ra","zz","vh","iek","ak",
+	"uhk","zir","sc'orth","sc'er","thc'yek","th'zirk","th'esk","k'aye","ka'il","sc","i'ir","yol","kig","k'z","xi'v","xa'r","zrk","krg","k'yet","na'k",
+	"sc'azz","th'sc","nil","n'ahk","sc'yeth","aur'sk","y'it","azzg","a'vl","i'or","o'ue","u'kh","agh","iv","osh","utt","zz","kr","ak","nrk")
 
-/datum/language/bug/get_random_name()
-	var/new_name = "[pick(list("Ka'","Za'","Ka'"))]"
-	new_name += "[pick(list("Akaix'","Viax'"))]"
-	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Agha"))]"
-	var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
-	new_name += " [pickweight(hive_names)]"
+/datum/language/bug/get_random_name(species, hive, bound = FALSE)
+	var/new_name
+	if(!species)
+		new_name = "[pick(list("Ka'","Za'","Ka'"))]"
+	switch(species)
+		if(SPECIES_VAURCA_WORKER)
+			new_name = "Ka'"
+		if(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WARFORM)
+			new_name = "Za'"
+		if(SPECIES_VAURCA_BREEDER)
+			new_name = "Ta'"
+		if(SPECIES_VAURCA_BULWARK)
+			new_name = "Ra'"
+	if(bound || species == SPECIES_VAURCA_WARFORM) // Warforms are exclusively Bound
+		new_name += "Viax'"
+	else
+		new_name += "Akaix'"
+	var/list/name_sounds = list("uew", "ek", "yi", "it", "ave", "te", "theth", "zta" ,"ak","th","zi", "rr", "yek","zik","ae",
+	"ir", "kg", "yol", "rk", "azg", "wt", "nak", "kii", "ru", "uur", "aer", "ai", "ee", "eie", "ou", "oh", "oo", "yh", "yv", "yu",
+	"nag", "zkk", "zohd", "norc", "graz", "izg", "yin", "nur", "iii", "lix", "li", "dre", "dru", "fe", "fra", "je", "jv", "ge",
+	"nha", "xir", "zz", "zhul", "gr", "ak", "isk", "a", "gha", "bz", "bl", "va", "xn", "qk", "qr", "qa", "ql")
+	var/personal_name
+	if(species == SPECIES_VAURCA_BREEDER) // Ta use different names and are allowed >2 syllables
+		for(var/i in 1 to 3)
+			if(prob(50) && i < 3)
+				personal_name += "[pick(syllables)][prob(50) ? "'":""]"
+			else
+				personal_name += "[pick(name_sounds)]"
+	else if(!personal_name)
+		if(prob(40))
+			personal_name += "[pick(syllables)][prob(20) ? "'":""]" // Occasionally dip into the syllable list for extra variety
+		else
+			personal_name += "[pick(name_sounds)][prob(40) ? "'":""]"
+		personal_name += "[pick(name_sounds)]"
+	new_name += "[capitalize(personal_name)]"
+	switch(hive)
+		if("C'thur")
+			new_name += " C'thur"
+		if("K'lax")
+			new_name += " K'lax"
+		if("Zo'ra")
+			new_name += " Zo'ra"
+		else
+			var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
+			new_name += " [pickweight(hive_names)]"
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]")
 
-	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper robes, which obscure Hive affiliation
+
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(speaker.z))
+		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing this far from relays!"))
+		return
+
+	var/mob/living/carbon/human/H = speaker //Check for Preimminent Shaper helmet, which obscure Hive affiliation
 	var/obj/item/clothing/head/shaper/helmet = H.get_equipped_item(slot_head)
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
@@ -304,6 +348,9 @@
 	return "[verb], <span class='message'><span class='[message_color]'>\"[capitalize(message)]\"</span></span>"
 
 /datum/language/bug/check_special_condition(var/mob/other)
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(other.z))
+		return 0
+
 	if(istype(other, /mob/living/silicon))
 		var/mob/living/silicon/S = other
 		if(S.can_hear_hivenet)
@@ -340,6 +387,10 @@
 	return 0
 
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(speaker.z))
+		to_chat(speaker, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing this far from relays!"))
+		return FALSE
+
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]

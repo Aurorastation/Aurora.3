@@ -30,7 +30,6 @@
 	speed = 4
 	tameable = FALSE
 	flying = TRUE
-	smart_melee = FALSE
 	pass_flags = PASSTABLE|PASSRAILING
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
@@ -42,6 +41,8 @@
 	attack_emote = "focuses on"
 	psi_pingable = FALSE
 	sample_data = null
+
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 
 	/// Weakref to the beacon that potentially spawned us.
 	var/datum/weakref/parent_beacon

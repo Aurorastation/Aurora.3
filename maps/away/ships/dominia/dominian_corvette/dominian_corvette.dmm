@@ -1733,6 +1733,13 @@
 /area/dominian_corvette/morgue)
 "dhp" = (
 /obj/structure/table/wood,
+/obj/item/journal,
+/obj/item/flame/lighter/zippo{
+	pixel_x = -4
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar{
+	pixel_x = 2
+	},
 /turf/simulated/floor/carpet/red,
 /area/dominian_corvette/co_office)
 "dhC" = (
@@ -8692,6 +8699,12 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/item/flame/lighter/zippo{
+	pixel_x = -4
+	},
+/obj/item/clothing/mask/smokable/cigarette/cigar{
+	pixel_x = 2
+	},
 /turf/simulated/floor/wood,
 /area/dominian_corvette/fo_office)
 "qcn" = (
@@ -8743,6 +8756,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/table/steel,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night{
+	pixel_y = 7
+	},
 /turf/simulated/floor,
 /area/dominian_corvette/eva_prep)
 "qhe" = (
@@ -11460,6 +11477,7 @@
 	dir = 5
 	},
 /obj/structure/machinery/light,
+/obj/structure/whiteboard/portable,
 /turf/simulated/floor/wood,
 /area/dominian_corvette/co_office)
 "vxs" = (

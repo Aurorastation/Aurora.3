@@ -64,7 +64,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
-							"Begin the TCFL enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
+							"Begin the TCAF Foreign Legions enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)

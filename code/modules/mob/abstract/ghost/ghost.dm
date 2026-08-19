@@ -6,7 +6,7 @@
 	/// This variable generally controls whether a ghost has restrictions on where it can go or not (ex. if the ghost can bypass holy places).
 	var/has_ghost_restrictions = TRUE
 	/// If the ghost has antagHUD.
-	var/antagHUD = 0
+	var/antagHUD = FALSE
 	/// Necessary for seeing wires.
 	var/obj/item/multitool/ghost_multitool
 	/// The POI we're orbiting.
@@ -22,6 +22,7 @@
 
 /mob/abstract/ghost/Destroy()
 	QDEL_NULL(ghost_multitool)
+	orbiting_ref = null
 	return ..()
 
 /mob/abstract/ghost/Topic(href, href_list)

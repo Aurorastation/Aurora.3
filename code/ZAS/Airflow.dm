@@ -2,7 +2,6 @@
 Contains helper procs for airflow, handled in /connection_group.
 */
 
-/mob/var/tmp/last_airflow_stun = 0
 /mob/proc/airflow_stun()
 	if(stat == 2)
 		return 0
@@ -59,11 +58,6 @@ Contains helper procs for airflow, handled in /connection_group.
 			if(n < GLOB.vsc.airflow_light_pressure) return 0
 		if(4,5)
 			if(n < GLOB.vsc.airflow_medium_pressure) return 0
-
-/atom/movable/var/tmp/turf/airflow_dest
-/atom/movable/var/tmp/airflow_speed = 0
-/atom/movable/var/tmp/airflow_time = 0
-/atom/movable/var/tmp/last_airflow = 0
 
 /atom/movable/proc/AirflowCanMove(n)
 	return 1

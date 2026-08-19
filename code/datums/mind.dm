@@ -35,6 +35,7 @@
 	var/mob/living/current
 	var/mob/living/original	//This is being used now, don't remove it
 	var/active = 0
+	var/time_joined
 
 	var/mob/living/admin_mob_placeholder = null
 
@@ -94,7 +95,6 @@
 			current.remove_vampire_powers()
 		current.mind = null
 
-		SSnanoui.user_transferred(current, new_character)
 		SStgui.on_transfer(current, new_character)
 		if(current.client && GLOB.ticket_panels[current.client])
 			var/datum/ticket_panel/tp = GLOB.ticket_panels[current.client]
@@ -539,6 +539,7 @@
 			mind.signature = client.prefs.signature
 		if (client.prefs.signfont)
 			mind.signfont = client.prefs.signfont
+	mind.time_joined = world.time
 	mind.current = src
 
 //HUMAN

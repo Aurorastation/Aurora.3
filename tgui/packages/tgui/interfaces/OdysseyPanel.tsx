@@ -1,6 +1,12 @@
-import { BooleanLike } from 'common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type OdysseyData = {
@@ -19,11 +25,11 @@ type Role = {
   type: string;
 };
 
-export const OdysseyPanel = (props, context) => {
-  const { act, data } = useBackend<OdysseyData>(context);
+export const OdysseyPanel = (props) => {
+  const { act, data } = useBackend<OdysseyData>();
 
   return (
-    <Window resizable theme="admin" width={500} height={600}>
+    <Window theme="admin" width={500} height={600}>
       <Window.Content scrollable>
         <Section
           title={
@@ -60,7 +66,7 @@ export const OdysseyPanel = (props, context) => {
             scenario&apos;s intended canon status.
           </NoticeBox>
         </Section>
-        {data.scenario_roles && data.scenario_roles.length ? (
+        {data.scenario_roles?.length ? (
           <RoleDisplay />
         ) : (
           <NoticeBox>There are no roles for this scenario.</NoticeBox>
@@ -70,8 +76,8 @@ export const OdysseyPanel = (props, context) => {
   );
 };
 
-export const RoleDisplay = (props, context) => {
-  const { act, data } = useBackend<OdysseyData>(context);
+export const RoleDisplay = (props) => {
+  const { act, data } = useBackend<OdysseyData>();
 
   return (
     <Section title="Roles">

@@ -1,6 +1,12 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 type SynthesizerData = {
@@ -40,8 +46,8 @@ type SynthesizerData = {
   };
 };
 
-export const Synthesizer = (props, context) => {
-  const { act, data } = useBackend<SynthesizerData>(context);
+export const Synthesizer = (props) => {
+  const { act, data } = useBackend<SynthesizerData>();
   const { playback, basic_options, advanced_options, sustain, show, status } =
     data;
 

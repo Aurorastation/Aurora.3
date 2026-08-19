@@ -64,7 +64,7 @@
 		blood_overlay_icon = initial(blood_overlay_icon)
 	handle_blood(TRUE)
 
-/mob/living/simple_animal/carp/fall_impact()
+/mob/living/simple_animal/carp/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	src.visible_message(SPAN_NOTICE("\The [src] gently floats to a stop."))
 	return FALSE
 

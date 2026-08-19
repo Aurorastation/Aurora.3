@@ -23,6 +23,13 @@
 
 	var/mob/living/carbon/human/H = user
 
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/gun))
 		check_swap(user, attacking_item)
 		item = attacking_item
@@ -55,7 +62,8 @@
 			addtimer(CALLBACK(src, PROC_REF(reset)), 15)
 		process = TRUE
 		update_icon()
-
+	else if(istype(attacking_item, /obj/item/combitool))
+		return
 	else if(attacking_item)
 		check_swap(user, attacking_item)
 		item = attacking_item
@@ -120,7 +128,7 @@
 	if(istype(item, /obj/item/laser_assembly))
 		var/obj/item/laser_assembly/A = item
 		A.update_icon()
-		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
+		icon_state = process ? "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(item.icon, item.icon_state)
 	else if(item)
 		icon_state = "[icon_state]_on"

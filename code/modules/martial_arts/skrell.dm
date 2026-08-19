@@ -22,7 +22,7 @@
 	return 0
 
 /datum/martial_art/karak_virul/proc/leg_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 	if(D.stat || D.weakened)
 		return 0
 	D.visible_message(SPAN_WARNING("[A] leg sweeps [D]!"))

@@ -11,6 +11,7 @@
 	melee_damage_upper = 30
 	organ_names = list("meaty core")
 	attacktext = "chomps"
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "creature"
 	speed = 4

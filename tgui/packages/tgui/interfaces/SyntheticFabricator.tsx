@@ -1,5 +1,3 @@
-import { round } from '../../common/math';
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -12,7 +10,9 @@ import {
   Section,
   Table,
   Tabs,
-} from '../components';
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type FabricatorData = {
@@ -64,11 +64,11 @@ type Material = {
   amount: number;
 };
 
-export const SyntheticFabricator = (props, context) => {
-  const { act, data } = useBackend<FabricatorData>(context);
+export const SyntheticFabricator = (props) => {
+  const { act, data } = useBackend<FabricatorData>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         <Flex fontSize="1.2rem" wrap>
           <Flex.Item>
@@ -88,21 +88,19 @@ export const SyntheticFabricator = (props, context) => {
                 {data.materials.map((material) => (
                   <LabeledControls.Item
                     key={material.name}
-                    label={
-                      <Button
-                        icon="eject"
-                        content={material.name}
-                        tooltip="Eject"
-                        color="grey"
-                        onClick={() =>
-                          act('eject', {
-                            eject: material.name,
-                            amount: material.amount,
-                          })
-                        }
-                      />
-                    }
+                    label={material.name}
                   >
+                    <Button
+                      icon="eject"
+                      tooltip="Eject"
+                      color="grey"
+                      onClick={() =>
+                        act('eject', {
+                          eject: material.name,
+                          amount: material.amount,
+                        })
+                      }
+                    />
                     <ProgressBar
                       ranges={{
                         good: [
@@ -145,7 +143,6 @@ export const SyntheticFabricator = (props, context) => {
                       textAlign="center"
                       selected={data.category === category.name}
                       key={category.name}
-                      collapsing
                       onClick={() =>
                         act('category', { category: category.name })
                       }

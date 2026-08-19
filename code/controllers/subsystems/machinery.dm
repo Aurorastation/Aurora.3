@@ -46,6 +46,7 @@ SUBSYSTEM_DEF(machinery)
 	var/list/all_cameras = list()
 	var/list/obj/structure/machinery/hologram/holopad/all_holopads = list()
 	var/list/obj/structure/machinery/power/apc/all_apcs = list()
+	var/list/obj/structure/machinery/light/all_lights = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
 	var/list/obj/structure/machinery/telecomms/all_telecomms = list()
@@ -70,10 +71,15 @@ SUBSYSTEM_DEF(machinery)
 	// Cooking stuff. Not substantial enough to get its own SS, so it's shoved in here.
 	var/list/recipe_datums = list()
 
+	// LEMURIAN SEA ARC SNOWFLAKE: Break one random ship light every few minutes. REMOVE AFTER ARC
+	var/next_arc_light_break = 0
+
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
 	all_holopads = SSmachinery.all_holopads
 	all_apcs = SSmachinery.all_apcs
+	all_lights = SSmachinery.all_lights
+	next_arc_light_break = SSmachinery.next_arc_light_break
 	recipe_datums = SSmachinery.recipe_datums
 	breaker_boxes = SSmachinery.breaker_boxes
 	all_sensors = SSmachinery.all_sensors
@@ -85,6 +91,7 @@ SUBSYSTEM_DEF(machinery)
 	makepowernets()
 	build_rcon_lists()
 	setup_atmos_machinery(machinery)
+	next_arc_light_break = world.time + 3 MINUTES // LEMURIAN SEA, REMOVE AFTER ARC
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
 
 	return SS_INIT_SUCCESS
@@ -115,6 +122,10 @@ SUBSYSTEM_DEF(machinery)
 			return
 		current_step = SSMACHINERY_PIPENETS
 		resumed = FALSE
+	// LEMURIAN SEA, REMOVE AFTER ARC
+	if(!resumed && world.time >= next_arc_light_break)
+		break_random_arc_light()
+		next_arc_light_break = world.time + 3 MINUTES
 
 /datum/controller/subsystem/machinery/proc/makepowernets()
 	for(var/datum/powernet/powernet as anything in powernets)
@@ -224,6 +235,27 @@ SUBSYSTEM_DEF(machinery)
 		else if (MC_TICK_CHECK)
 			queue.Cut(i)
 			return
+
+/// LEMURIAN SEA, REMOVE AFTER ARC
+/datum/controller/subsystem/machinery/proc/break_random_arc_light()
+	var/list/valid_lights = list()
+	for(var/obj/structure/machinery/light/light as anything in all_lights)
+		if(QDELETED(light))
+			continue
+		if(!is_station_level(light.z))
+			continue
+		if(light.status != LIGHT_OK)
+			continue
+		valid_lights += light
+
+	if(!length(valid_lights))
+		return
+
+	var/number_lights_broken = rand(1,4)
+	var/obj/structure/machinery/light/chosen_light
+	for(var/n = 0 to number_lights_broken)
+		chosen_light = pick(valid_lights)
+		chosen_light.broken()
 
 /datum/controller/subsystem/machinery/stat_entry(msg)
 	msg = {"\n\

@@ -37,6 +37,21 @@
 			return
 		return create_mob(usr)
 
+	else if(href_list["storyteller_jump_to"])
+		if(usr != src)
+			return
+
+		var/mob/target = locate(href_list["storyteller_jump_to"])
+		if(!istype(target))
+			return
+
+		var/turf/target_turf = get_turf(target)
+		if(target_turf)
+			abstract_move(target_turf)
+		else
+			to_chat(src, SPAN_WARNING("That player is not currently on a valid turf."))
+		return
+
 	else if(href_list["object_list"])
 		if(!GLOB.config.allow_admin_spawning)
 			to_chat(usr, "Spawning of items is not allowed.")
@@ -196,6 +211,11 @@
 	set name = "Switch Off/On Hivenet Echoes"
 	set category = "Storyteller"
 	set desc = "Switch if Vaurcae can hear faint echoes (fluff) of the greater Hivenet. They will notice."
+
+	if(is_lemurian_sea_sector())
+		SSatlas.current_sector.hivenet_echoes = FALSE
+		to_chat(src, "The Fog prevents Hivenet Echoes from being restored in the Lemurian Sea.")
+		return
 
 	if(SSatlas.current_sector.hivenet_echoes)
 		SSatlas.current_sector.hivenet_echoes = FALSE
