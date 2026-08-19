@@ -12,7 +12,7 @@
 	name = "apportation"
 	icon_state = "apportation"
 	desc = "Allows you to reach through Bluespace with your hand, and grab something, bringing it to you instantly."
-	cooldown = 10
+	cooldown = 50
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_TELE
 
