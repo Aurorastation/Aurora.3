@@ -8,6 +8,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 	base_turf = /turf/space
 	holomap_color = "#ff00f2"
 	color = "#ff00f2"
+	generate_dirt = 75
 
 // ------------------------- main modules
 
@@ -123,6 +124,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 /area/ship/modular_freelancer_ship/misc/maint
 	holomap_color = "#353535"
 	color = "#353535"
+	generate_dirt = 150
 
 /area/ship/modular_freelancer_ship/misc/maint/fore
 	name = "Maint, Fore"
@@ -143,6 +145,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 	name = "Exterior Catwalks/Lattices"
 	icon_state = "exterior"
 	needs_starlight = TRUE
+	generate_dirt = null
 
 // ------------------------- shuttles
 
@@ -150,6 +153,7 @@ ABSTRACT_TYPE(/area/shuttle/modular_freelancer_shuttle)
 	name = "Base/Parent Area"
 	icon_state = "white128a"
 	requires_power = TRUE
+	generate_dirt = 125
 
 /area/shuttle/modular_freelancer_shuttle/fighter
 	name = "Fighter Shuttle"
