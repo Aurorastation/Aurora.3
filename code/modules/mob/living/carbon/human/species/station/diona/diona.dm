@@ -73,7 +73,6 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		MELEE = ARMOR_MELEE_MEDIUM
 	)
 
-
 	pain_mod = 0.5
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
