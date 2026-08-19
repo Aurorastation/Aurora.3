@@ -132,6 +132,9 @@
 
 	if(A.base_turf)
 		baseturf = A.base_turf
+	else if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	update_starlight()
 
@@ -146,15 +149,19 @@
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
 
-	else if(!baseturf)
-		// Hard-coding this for performance reasons.
-		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
-
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
+
+	if(A.generate_dirt > 0 && istype(src, /turf/simulated/floor))
+		var/dirt_to_spawn = round(A.generate_dirt / 100)
+		if(prob(A.generate_dirt % 100))
+			dirt_to_spawn++
+		while(dirt_to_spawn > 0)
+			new /obj/effect/decal/cleanable/dirt(src)
+			dirt_to_spawn--
 
 	return INITIALIZE_HINT_NORMAL
 
