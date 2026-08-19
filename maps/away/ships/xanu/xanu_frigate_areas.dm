@@ -152,6 +152,7 @@
 	name = "Xanu Frigate - Exterior"
 	icon_state = "exterior"
 	needs_starlight = TRUE
+	has_gravity = FALSE
 	requires_power = FALSE
 
 //Shuttles

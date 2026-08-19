@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Resolved awkward starlight interactions in the Xanu Frigate offship."
+  - bugfix: "Resolved awkward starlight interactions in a number of offsites and offships, including the Xanu Frigate and Ranger Corvette."
   - rscadd: "Added missing fore gunnery entry points to the Xanu Frigate offship, and appropriately renamed starboard and portside gunnery entry points to make it clear that they do impact the gunnery nacelles."

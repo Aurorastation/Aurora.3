@@ -5,6 +5,13 @@
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
+/area/ship/kasf_corvette/exterior
+	name = "KASF Corvette - Exterior"
+	icon_state = "exterior"
+	needs_starlight = TRUE
+	has_gravity = FALSE
+	requires_power = FALSE
+
 /area/ship/kasf_corvette/portthrust
 	name = "KASF Corvette - Port Thruster Pod"
 	ambience = AMBIENCE_ATMOS
