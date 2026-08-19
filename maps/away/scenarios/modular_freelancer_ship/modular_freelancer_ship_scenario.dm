@@ -25,10 +25,14 @@
 	)
 	radio_frequency_name = "Freelancer Ship"
 
-	base_area = /area/modular_freelancer_ship
+	base_area = /area/ship/modular_freelancer_ship
 
 /singleton/scenario_announcements/modular_freelancer_ship
 	horizon_announcement_title = "SCC Central Command Outpost"
+	horizon_early_announcement_message = "\
+		Greetings, SCCV Horizon. We have observed an unidentified ship drifting in your current sector. \
+		You are to investigate and report back of your findings.\
+	"
 	horizon_unrestrict_landing_message = "\
 		Greetings, SCCV Horizon. We have observed an unidentified ship drifting in your current sector. \
 		You are to investigate and report back of your findings.\
