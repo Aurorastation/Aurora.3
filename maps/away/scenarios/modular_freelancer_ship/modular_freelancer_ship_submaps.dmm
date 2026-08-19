@@ -433,6 +433,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
 "abi" = (
@@ -3986,6 +3989,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/mid/hallway)
+"arz" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "arA" = (
 /obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 4
@@ -9978,7 +9987,6 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "baA" = (
@@ -10506,6 +10514,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/light/floor,
+/obj/effect/floor_decal/corner/grey{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "cbT" = (
@@ -12999,6 +13010,8 @@
 /area/template_noop)
 "fVO" = (
 /obj/structure/machinery/vending/clothing,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/crew)
 "fWd" = (
@@ -13466,6 +13479,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
 "gKB" = (
@@ -14038,6 +14052,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/guns)
+"hxK" = (
+/obj/effect/floor_decal/corner/lime,
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "hxQ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -15346,6 +15367,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/modular_freelancer_ship/fore/hallway)
+"jxK" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "jxX" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16009,9 +16039,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/aux/hallway)
 "kou" = (
-/obj/structure/machinery/vending/boozeomat/abandoned,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/modular_freelancer_ship/fore/crew)
+/area/modular_freelancer_ship/fore/hallway)
 "koN" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -16804,6 +16845,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aux/hallway)
+"lyZ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "lzO" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -18217,6 +18269,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "nAX" = (
@@ -18503,6 +18558,9 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "nVn" = (
@@ -18546,6 +18604,24 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aux)
+"nZH" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/light/floor{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "nZL" = (
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 28;
@@ -18919,13 +18995,13 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/engineering)
 "oJJ" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/structure/machinery/light,
+/obj/effect/floor_decal/corner/lime{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "oLQ" = (
@@ -23377,6 +23453,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/lime,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/port)
 "wiP" = (
@@ -23699,6 +23776,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/misc/maint/aft)
+"wHC" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "wIl" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -23971,6 +24054,19 @@
 /obj/effect/map_effect/door_helper/lock,
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/container/c01)
+"xau" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/machinery/power/apc/noid/north,
+/obj/effect/floor_decal/corner/lime{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/fore/hallway)
 "xaz" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -32833,7 +32929,7 @@ ied
 kzt
 kCH
 pnb
-qRg
+kou
 aiv
 ktj
 ktj
@@ -32990,7 +33086,7 @@ xaz
 dmX
 kCH
 eKr
-qRg
+kou
 bkW
 rAt
 dcU
@@ -33147,7 +33243,7 @@ qae
 kCH
 kCH
 eKr
-qRg
+kou
 mrs
 cNr
 cNr
@@ -33304,7 +33400,7 @@ vSa
 sse
 sse
 lFh
-gUO
+nZH
 mrs
 vnY
 aVe
@@ -33371,7 +33467,7 @@ aza
 nUI
 rDl
 kTy
-mrs
+hxK
 kCH
 kCH
 kCH
@@ -33459,7 +33555,7 @@ sse
 lFh
 uZk
 jAC
-eTe
+lyZ
 cbr
 eCN
 mrs
@@ -33528,7 +33624,7 @@ aza
 qld
 eKr
 jLn
-mrs
+arz
 amp
 cvk
 kKQ
@@ -33772,7 +33868,7 @@ tcC
 lOj
 mtH
 rAt
-qRg
+kou
 mrs
 cNr
 hrR
@@ -33929,7 +34025,7 @@ kCH
 kCH
 kCH
 eKr
-qRg
+kou
 mrs
 hrR
 ngE
@@ -34243,10 +34339,10 @@ aZK
 awX
 kCH
 eKr
-qRg
+kou
 mrs
 hrR
-kou
+kRl
 nSj
 rfN
 bae
@@ -34399,7 +34495,7 @@ nUI
 kCH
 kCH
 kCH
-rDl
+xau
 nUN
 mrs
 cNr
@@ -34556,7 +34652,7 @@ aqw
 snK
 ouF
 amp
-eKr
+wHC
 tFs
 mrs
 cNr
@@ -34870,7 +34966,7 @@ aPb
 cvk
 alw
 kCH
-pIH
+jxK
 rin
 mjs
 cNr
