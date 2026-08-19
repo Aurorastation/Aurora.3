@@ -56,7 +56,7 @@
 	/// Whether or not the nymph is detached.
 	var/detached = FALSE
 	/// Whether the nymph can crawl through vents.
-	var/mob/living/carbon/alien/diona/dionae_vent_crawl = TRUE
+	var/dionae_vent_crawl = TRUE
 
 
 	var/datum/reagents/metabolism/ingested
