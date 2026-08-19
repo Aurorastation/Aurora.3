@@ -260,3 +260,26 @@
 			icon_state = "nakarkamousse_half"
 		if(51 to INFINITY)
 			icon_state = "nakarkamousse"
+
+/obj/item/reagent_containers/food/snacks/sliceable/tiramisu_tray
+	name = "tiramisu tray"
+	desc = "A sweet and creamy dessert, easily divisable into lovely slices of Tiramisu to share with those around you... Unless..."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "tiramisu_tray"
+	trash = /obj/item/trash/snack_bowl
+	slice_path = /obj/item/reagent_containers/food/snacks/tiramisu_slice
+	slices_num = 4
+	filling_color = "#927155"
+	reagents_to_add = list(/singleton/reagent/nutriment = 16, /singleton/reagent/nutriment/glucose = 8, /singleton/reagent/drink/coffee = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet cream" = 5, "coffee cake" = 4), /singleton/reagent/nutriment/glucose = list("cocoa" = 5))
+	bitesize = 2
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/reagent_containers/food/snacks/tiramisu_slice
+	name = "tiramisu"
+	desc = "A chilled dessert made of coffee-dipped biscuits, a thick helping of sweet mascarpone and cocoa powder. Traditionally it is made with ladyfingers, although in Xanu they are often substituted for cocoa biscuits. 'Tirami su' in Italian roughly translates to 'cheer me up'."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "tiramisu"
+	trash = /obj/item/trash/plate
+	filling_color = "#927155"

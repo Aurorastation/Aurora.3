@@ -4101,6 +4101,7 @@
 #include "code\ZAS\Variable Settings.dm"
 #include "code\ZAS\Zone.dm"
 #include "code\ze_genesis_call\genesis_call.dm"
+#include "icons\effects\props\holodeck\moghes\moghes_ruins.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "interface\fonts\fonts_datum.dm"
