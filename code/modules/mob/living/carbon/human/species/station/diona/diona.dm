@@ -192,7 +192,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
-//used to just handle running for nymphs. Dionae take pain damage the longer they run, no lungs.
+//Used to just handle running for nymphs. Dionae take pain damage the longer they run, no lungs.
 /datum/species/diona/handle_sprint_cost(mob/living/carbon/human/H, cost, pre_move)
 	if(!pre_move)
 		H.adjustHalLoss(cost*0.3)
