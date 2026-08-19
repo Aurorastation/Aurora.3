@@ -97,7 +97,7 @@
 	..()
 
 	for (var/datum/weakref/carp_weakref in spawned_carp)
-		var/mob/living/simple_animal/hostile/carp/fish = carp_weakref.resolve()
+		var/mob/fish = carp_weakref.resolve()
 		if (fish && prob(50) && is_type_in_typecache(fish.loc, despawn_turfs))
 			spawned_carp -= carp_weakref
 			qdel(fish)
