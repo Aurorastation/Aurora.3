@@ -8,43 +8,43 @@
 
 // --------------------- shuttle a dock landmarks and airlocks
 
-/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_a_dock
+/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock
 	name				= "Shuttle Dock A"
-	landmark_tag		= "nav_modular_freelancer_ship_shuttle_a_dock"
-	docking_controller	= "airlock_modular_freelancer_ship_shuttle_a_dock"
+	landmark_tag		= "nav_modular_freelancer_ship_shuttle_fighter_dock"
+	docking_controller	= "airlock_modular_freelancer_ship_shuttle_fighter_dock"
 	dir = EAST
 
-/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_a_dock
-	name			= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_a_dock::name
-	landmark_tag	= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_a_dock::landmark_tag
-	master_tag		= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_a_dock::docking_controller
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock
+	name			= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::name
+	landmark_tag	= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::landmark_tag
+	master_tag		= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::docking_controller
 
 // ----
 
-/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_a_transit
+/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_transit
 	name = "In transit"
-	landmark_tag = "nav_modular_freelancer_ship_shuttle_a_transit"
+	landmark_tag = "nav_modular_freelancer_ship_shuttle_fighter_transit"
 	base_turf = /turf/space/transit
 	auto_register = FALSE
 
 // --------------------- shuttle b dock landmarks and airlocks
 
-/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_b_dock
+/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock
 	name				= "Shuttle Dock B"
-	landmark_tag		= "nav_modular_freelancer_ship_shuttle_b_dock"
-	docking_controller	= "airlock_modular_freelancer_ship_shuttle_b_dock"
+	landmark_tag		= "nav_modular_freelancer_ship_shuttle_ferry_dock"
+	docking_controller	= "airlock_modular_freelancer_ship_shuttle_ferry_dock"
 	dir = WEST
 
-/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_b_dock
-	name			= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_b_dock::name
-	landmark_tag	= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_b_dock::landmark_tag
-	master_tag		= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_b_dock::docking_controller
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock
+	name			= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::name
+	landmark_tag	= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::landmark_tag
+	master_tag		= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::docking_controller
 
 // ----
 
-/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_b_transit
+/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_transit
 	name = "In transit"
-	landmark_tag = "nav_modular_freelancer_ship_shuttle_b_transit"
+	landmark_tag = "nav_modular_freelancer_ship_shuttle_ferry_transit"
 	base_turf = /turf/space/transit
 	auto_register = FALSE
 

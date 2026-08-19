@@ -108,5 +108,5 @@
 /obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
 	name = /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle::shuttle
 	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle::shuttle
-	master_tag = "airlock_scc_scout_shuttle"
+	master_tag = /datum/shuttle/autodock/overmap/scc_scout_shuttle::dock_target
 	cycle_to_external_air = TRUE
