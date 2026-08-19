@@ -2061,7 +2061,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/port_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/port_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "kW" = (
@@ -4474,7 +4474,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock/tramp_freighter/port_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/port_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "wB" = (
@@ -4962,7 +4962,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/port_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/port_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "yS" = (
@@ -8623,7 +8623,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/starboard_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/starboard_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/equipment)
 "SH" = (
@@ -9541,7 +9541,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/starboard_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/starboard_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/equipment)
 "Xa" = (
@@ -9775,7 +9775,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock/tramp_freighter/starboard_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/starboard_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/equipment)
 "Yp" = (

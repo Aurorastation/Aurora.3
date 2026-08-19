@@ -3175,7 +3175,7 @@
 	pixel_y = 28;
 	req_access = list(222)
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "xanufrigate_eng_airlock";
 	master_tag = "xanufrigate_eng_airlock"
 	},
@@ -13182,7 +13182,7 @@
 	pixel_x = 28;
 	req_access = list(222)
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "xanufrigate_eng_airlock";
 	master_tag = "xanufrigate_eng_airlock"
 	},
@@ -15180,7 +15180,7 @@
 	pixel_y = 10;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "xanufrigate_eng_airlock";
 	master_tag = "xanufrigate_eng_airlock"
 	},
