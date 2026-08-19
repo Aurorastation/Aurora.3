@@ -2,6 +2,9 @@
 "aaa" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "aab" = (
@@ -12,6 +15,9 @@
 "aac" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "aad" = (
@@ -19,6 +25,9 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "aae" = (
@@ -114,6 +123,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "aaq" = (
@@ -209,6 +221,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "aaC" = (
@@ -364,6 +379,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/modular_freelancer_shuttle/fighter)
@@ -2468,6 +2486,10 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "aif" = (
@@ -4791,6 +4813,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "avG" = (
@@ -4989,27 +5014,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/modular_freelancer_ship/fore/guns)
 "axp" = (
-/obj/random/pizzabox{
-	pixel_y = 5
-	},
-/obj/random/pizzabox{
-	pixel_y = 5
-	},
-/obj/random/pizzabox{
-	pixel_y = 5
-	},
-/obj/random/pizzabox{
-	pixel_y = 5
-	},
-/obj/random/pizzabox{
-	pixel_y = 5
-	},
-/obj/random/pizzabox{
-	pixel_y = 5
-	},
-/obj/structure/closet/crate/freezer{
-	name = "pizza freezer"
-	},
+/obj/structure/closet/crate/freezer/pizza,
 /turf/template_noop,
 /area/template_noop)
 "axt" = (
@@ -5820,6 +5825,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "aCL" = (
@@ -6412,6 +6420,10 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "aGg" = (
@@ -7853,6 +7865,9 @@
 	pixel_x = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "aOn" = (
@@ -10134,7 +10149,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "blh" = (
 /obj/effect/floor_decal/corner/grey{
@@ -10225,7 +10244,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "buF" = (
 /obj/effect/floor_decal/corner/grey{
@@ -10245,6 +10266,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"bvA" = (
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "byb" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10388,7 +10413,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "bHE" = (
 /turf/simulated/floor/tiled/cargo/full,
@@ -10413,6 +10440,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"bIz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/internals/filled,
+/turf/simulated/floor/tiled/cargo/full,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "bIF" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -10435,6 +10467,12 @@
 /obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"bMC" = (
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "bNn" = (
 /obj/structure/flora/bush/jungle/random,
 /turf/simulated/floor/exoplanet/grass/stalk,
@@ -10542,7 +10580,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "cbr" = (
 /obj/structure/cable{
@@ -10604,7 +10646,9 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft_starboard,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "cfJ" = (
 /obj/structure/machinery/alarm/noid/south,
@@ -10686,6 +10730,7 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "cld" = (
@@ -10772,6 +10817,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"crO" = (
+/obj/structure/machinery/atmospherics/portables_connector/fuel,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "csu" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/machinery/light{
@@ -10887,6 +10937,9 @@
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "cxa" = (
@@ -10931,6 +10984,9 @@
 "cCg" = (
 /obj/structure/cable{
 	icon_state = "2-8"
+	},
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
@@ -11115,6 +11171,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
+"cRJ" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "cRK" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -11153,7 +11216,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "cWI" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -11228,7 +11295,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "cZY" = (
 /obj/random/pottedplant,
@@ -11311,6 +11382,9 @@
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "deJ" = (
@@ -11333,7 +11407,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "dfj" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -11373,7 +11451,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "dhh" = (
 /obj/effect/floor_decal/corner/grey,
@@ -11446,6 +11526,15 @@
 /obj/structure/machinery/alarm/noid/south,
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"dpD" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "dqh" = (
 /obj/structure/bed/stool/chair/padded/brown,
 /turf/simulated/floor/carpet/darkblue,
@@ -11520,6 +11609,15 @@
 /obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/cargo,
 /area/template_noop)
+"dxu" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "dyO" = (
 /obj/effect/landmark/minimap_poi{
 	name = "Medbay"
@@ -11552,6 +11650,12 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "dDi" = (
@@ -11618,6 +11722,15 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/space/aft_port,
 /turf/template_noop,
 /area/template_noop)
+"dHq" = (
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "dIs" = (
 /obj/random/canister,
 /turf/simulated/floor/plating,
@@ -11675,6 +11788,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
+"dKY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/cargo/full,
+/area/shuttle/modular_freelancer_shuttle/ferry)
+"dLR" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "dMf" = (
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
@@ -11722,13 +11846,23 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "dPN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"dQj" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "dQl" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -11770,8 +11904,17 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"dRe" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/cargo,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "dTc" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -11827,6 +11970,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "dXl" = (
@@ -11964,6 +12110,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aux/hallway)
+"eiH" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/palepurple,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "eiQ" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/blue,
@@ -12201,6 +12353,12 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
+"ezX" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/palepurple,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "eAU" = (
 /obj/effect/landmark/minimap_poi{
 	name = "Crew Quarters"
@@ -12283,6 +12441,10 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
+	dir = 8
+	},
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "eJR" = (
@@ -12290,6 +12452,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "eKr" = (
@@ -12522,6 +12687,14 @@
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"eYj" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/fore/starboard)
 "eYk" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -12578,6 +12751,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"fbf" = (
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "fbx" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -12638,6 +12817,12 @@
 	dir = 10
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "feB" = (
@@ -12658,6 +12843,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/cargo,
 /area/shuttle/modular_freelancer_shuttle/ferry)
+"ffK" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "ffU" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -12697,6 +12888,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"fix" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "fiz" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -12858,6 +13055,13 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/steel,
 /area/ship/modular_freelancer_ship/fore/starboard)
+"fxz" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "fyw" = (
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
@@ -12976,8 +13180,16 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"fLy" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "fLG" = (
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
@@ -13053,6 +13265,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"fQF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider/grille/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "fRN" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -13115,6 +13334,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "fUF" = (
@@ -13207,6 +13429,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "gaD" = (
@@ -13322,6 +13547,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"gnJ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "goz" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -13447,6 +13681,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "gAY" = (
@@ -13532,6 +13769,7 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "gIj" = (
@@ -13556,7 +13794,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "gJx" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13609,6 +13851,10 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"gLy" = (
+/obj/structure/machinery/floodlight,
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "gNd" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -13742,6 +13988,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "gTY" = (
@@ -14009,7 +14258,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "hjV" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -14068,6 +14321,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/modular_freelancer_ship/fore/guns)
+"hnB" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/palepurple,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "hoW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -14100,7 +14359,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "hpR" = (
 /obj/structure/shuttle/engine/heater{
@@ -14132,6 +14395,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
+"hsI" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "htl" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/modular_freelancer_shuttle_ferry{
 	dir = 8
@@ -14152,6 +14424,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "huQ" = (
@@ -14207,6 +14482,12 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/space/mid_port,
 /turf/template_noop,
 /area/template_noop)
+"hyy" = (
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "hyV" = (
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
@@ -14217,6 +14498,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "hzd" = (
@@ -14234,6 +14516,12 @@
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "hAh" = (
@@ -14266,6 +14554,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/noid/east,
+/obj/structure/closet/crate/internals/filled,
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "hDa" = (
@@ -14320,6 +14609,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "hHf" = (
@@ -14342,6 +14635,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aux/hallway)
+"hIJ" = (
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "hIX" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -14408,6 +14707,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"hNz" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/structure/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/fore/starboard)
 "hNC" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/mid,
@@ -14438,6 +14748,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"hQf" = (
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "hQS" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -14465,6 +14785,13 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"hUz" = (
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "hUF" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 4
@@ -14614,6 +14941,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"iio" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/structure/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/fore/port)
 "iir" = (
 /obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
@@ -14712,11 +15053,25 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/shuttles)
+"irs" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/shuttles/hallway)
 "irw" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "isw" = (
 /obj/effect/landmark/minimap_poi{
@@ -14742,6 +15097,7 @@
 "isN" = (
 /obj/structure/cable/pink,
 /obj/structure/machinery/power/apc/noid/west,
+/obj/structure/closet/crate/internals/filled,
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "isY" = (
@@ -14869,6 +15225,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "iDq" = (
@@ -15189,7 +15548,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "iZA" = (
 /turf/simulated/floor/tiled/cargo,
@@ -15276,6 +15639,9 @@
 	pixel_y = -20;
 	pixel_x = 6
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "jgr" = (
@@ -15314,7 +15680,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "jhz" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -15330,7 +15698,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "jhW" = (
 /obj/effect/floor_decal/corner/blue{
@@ -15392,6 +15764,12 @@
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/atmos)
+"jlc" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "jlD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/map_effect/marker/mapmanip/submap/insert/modular_freelancer_ship/misc/storage,
@@ -15412,6 +15790,10 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "jmn" = (
@@ -15504,6 +15886,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"jtv" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "jtE" = (
 /obj/structure/safe/cash,
 /turf/template_noop,
@@ -15679,6 +16065,10 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "jCL" = (
@@ -15701,6 +16091,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"jDM" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "jEc" = (
 /obj/effect/shuttle_landmark/modular_freelancer_ship/space/fore_starboard,
 /turf/template_noop,
@@ -15857,6 +16253,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"jPJ" = (
+/obj/structure/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "jPT" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -15943,6 +16349,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "jWn" = (
@@ -15993,6 +16402,12 @@
 "jZe" = (
 /turf/simulated/wall,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"jZp" = (
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "jZx" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16107,6 +16522,15 @@
 	},
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"kgs" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "kgC" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -16205,7 +16629,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "kkw" = (
 /obj/effect/floor_decal/corner/grey{
@@ -16321,6 +16749,9 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/structure/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "ksj" = (
@@ -16331,6 +16762,9 @@
 /obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/ferry,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
@@ -16380,7 +16814,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "kwe" = (
 /turf/simulated/floor/tiled/dark,
@@ -16408,6 +16844,7 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "kxE" = (
@@ -16459,6 +16896,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
+"kBf" = (
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
+	dir = 8
+	},
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "kBg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16470,6 +16914,12 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/misc/maint/aux)
+"kBB" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "kBG" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/modular_freelancer_ship/container/c05)
@@ -16487,6 +16937,12 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"kDH" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/palepurple,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "kFq" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -16693,6 +17149,12 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/modular_freelancer_shuttle/ferry)
+"kOE" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "kOG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -16741,7 +17203,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "kTy" = (
 /obj/structure/cable{
@@ -16860,6 +17326,9 @@
 	dir = 8;
 	pixel_y = -6
 	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "ldw" = (
@@ -16904,9 +17373,14 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "lgY" = (
+/obj/structure/closet/crate/internals/filled,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "lhM" = (
@@ -16928,7 +17402,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "lio" = (
 /obj/structure/cable{
@@ -16998,7 +17474,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "lop" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
@@ -17037,8 +17515,13 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
+"lqE" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "lqZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -17194,7 +17677,9 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/atmos)
 "lCU" = (
-/obj/structure/machinery/computer/ship/engines/terminal,
+/obj/structure/machinery/computer/ship/engines/terminal{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "lDe" = (
@@ -17233,6 +17718,12 @@
 "lDW" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/modular_freelancer_ship/container/c01)
+"lEy" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "lEH" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -17398,6 +17889,13 @@
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"lRU" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "lSs" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/access_button{
@@ -17405,7 +17903,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "lSK" = (
 /obj/structure/flora/grass/junglegrass/dense/random,
@@ -17420,6 +17922,9 @@
 	dir = 10
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "lXN" = (
@@ -17481,6 +17986,13 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"mfl" = (
+/obj/structure/machinery/ammunition_loader/francisca,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "mft" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/modular_freelancer_ship/fore/port)
@@ -17551,6 +18063,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "mlh" = (
@@ -17702,6 +18215,7 @@
 "mtR" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/noid/north,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "mum" = (
@@ -17766,6 +18280,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "mxo" = (
@@ -17803,6 +18320,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "myO" = (
@@ -18108,7 +18626,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "mSE" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -18116,6 +18638,12 @@
 	},
 /obj/structure/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "mSH" = (
@@ -18128,7 +18656,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "mSR" = (
 /obj/structure/machinery/door/airlock/external{
@@ -18170,7 +18702,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "mVl" = (
 /obj/structure/machinery/door/airlock/external,
@@ -18182,7 +18718,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "mVP" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -18209,6 +18749,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "mXC" = (
@@ -18371,7 +18914,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "nhq" = (
 /obj/structure/closet/crate/loot,
@@ -18417,6 +18964,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"nlQ" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "nns" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -18486,6 +19039,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/misc/maint/mid)
+"nvk" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "nvm" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -18539,7 +19098,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "nyu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18585,6 +19148,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
+"nzX" = (
+/obj/structure/machinery/atmospherics/portables_connector/fuel,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "nAq" = (
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/container/c04)
@@ -18638,6 +19206,15 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/ferry,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "nFA" = (
@@ -18733,6 +19310,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"nJy" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple/grille/firedoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "nJP" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/access_button{
@@ -18757,6 +19341,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "nLn" = (
@@ -18821,6 +19408,12 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "nPF" = (
@@ -18829,6 +19422,15 @@
 /obj/item/stack/material/steel/full,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/engineering)
+"nPL" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "nQN" = (
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/lounge)
@@ -18872,6 +19474,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "nTx" = (
@@ -18929,6 +19534,12 @@
 /obj/structure/machinery/alarm/noid/west,
 /turf/simulated/floor/tiled/slate,
 /area/ship/modular_freelancer_ship/fore/crew)
+"nWn" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/palepurple,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "nXi" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/structure/machinery/alarm/noid/north,
@@ -18938,6 +19549,12 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/techmaint,
 /area/ship/modular_freelancer_ship/aft/engineering)
+"nZf" = (
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "nZg" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
@@ -18990,6 +19607,9 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "oaV" = (
@@ -19091,6 +19711,15 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"old" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "olv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/cargo/brass,
@@ -19133,6 +19762,13 @@
 /obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"osB" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "otL" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -19204,6 +19840,9 @@
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "oyo" = (
@@ -19585,6 +20224,10 @@
 "pfQ" = (
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
+"pgD" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "pgR" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -19714,6 +20357,13 @@
 /obj/effect/map_effect/marker/button_control/airlock/bolts,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"pzw" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "pzI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/bin/filled,
@@ -19867,6 +20517,10 @@
 "pHm" = (
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/fore/guns)
+"pHt" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "pIu" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -19908,7 +20562,9 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_starboard,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "pLY" = (
 /obj/structure/cable{
@@ -19933,6 +20589,7 @@
 /area/ship/modular_freelancer_ship/fore/starboard)
 "pMZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/cargo/full,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "pNp" = (
@@ -19955,7 +20612,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "pOJ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -20100,8 +20761,16 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
+"qbc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/floodlight{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/cargo/full,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "qbr" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -20215,6 +20884,9 @@
 "qhW" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "qiD" = (
@@ -20410,6 +21082,12 @@
 	pixel_y = -20;
 	pixel_x = 6
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "qzu" = (
@@ -20417,6 +21095,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/noid/north,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "qzY" = (
@@ -20451,6 +21130,15 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/fighter,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "qCj" = (
@@ -20460,7 +21148,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "qDq" = (
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -20571,7 +21263,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_c,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "qKd" = (
 /obj/structure/cable{
@@ -20593,6 +21289,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "qKU" = (
@@ -20790,6 +21489,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "rek" = (
@@ -21136,11 +21838,18 @@
 	pixel_x = 20
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "rwM" = (
 /obj/structure/cable/pink{
 	icon_state = "2-4"
+	},
+/obj/structure/machinery/computer/ship/engines/terminal{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
@@ -21250,6 +21959,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "rFO" = (
@@ -21284,6 +21994,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "rIy" = (
@@ -21457,7 +22168,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "rVS" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -21600,6 +22315,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"sgY" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "shW" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -21610,6 +22331,13 @@
 /obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"siP" = (
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "sjb" = (
 /obj/structure/machinery/suit_cycler/syndicate{
 	req_access = null
@@ -21652,6 +22380,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aux/hallway)
+"smW" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "snK" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -21717,8 +22451,27 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
+/obj/structure/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
+"sqd" = (
+/obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/fighter,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/structure/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "sse" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -21748,6 +22501,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "stL" = (
@@ -21848,7 +22603,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "sEO" = (
 /obj/structure/closet/crate/bin/filled,
@@ -21967,6 +22724,9 @@
 	},
 /obj/structure/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "sOg" = (
@@ -22010,6 +22770,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/aux)
+"sQV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/cargo,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "sRe" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -22072,7 +22839,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/fore_back,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "sUB" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
@@ -22116,6 +22887,17 @@
 "sXg" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/modular_freelancer_ship/container/c02)
+"sXu" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/structure/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/shuttles/hallway)
 "sYj" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/alarm/noid/north,
@@ -22130,6 +22912,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/atmos)
+"tbw" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/internals/filled,
+/turf/simulated/floor/tiled/cargo,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "tbx" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/machinery/light/small/emergency{
@@ -22153,6 +22940,9 @@
 "tce" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/modular_freelancer_shuttle_fighter{
 	dir = 1
+	},
+/obj/structure/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/modular_freelancer_shuttle/fighter)
@@ -22213,6 +23003,9 @@
 	pixel_x = 6
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "tkf" = (
@@ -22322,6 +23115,9 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "tsc" = (
@@ -22448,6 +23244,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_b,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "tzB" = (
@@ -22486,6 +23285,10 @@
 "tEG" = (
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "tEL" = (
@@ -22565,7 +23368,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "tJw" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -22657,6 +23464,10 @@
 	dir = 8
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28;
+	pixel_x = 6
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "tNP" = (
@@ -22668,7 +23479,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "tQH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22869,7 +23684,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "ubK" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -22974,6 +23793,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_a,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "uod" = (
@@ -23059,6 +23881,11 @@
 /obj/structure/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/atmos)
+"uzn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/cargo/full,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "uzs" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -23110,6 +23937,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"uBw" = (
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/cargo,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "uCF" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/modular_freelancer_ship/misc/maint/shuttles)
@@ -23330,6 +24163,17 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/atmos)
+"uYp" = (
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/structure/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/fore/starboard)
 "uZk" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -23363,7 +24207,11 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/dock/aft_port,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/aft_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "vcp" = (
 /obj/structure/cable{
@@ -23389,6 +24237,13 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"vge" = (
+/obj/structure/machinery/mech_recharger,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "vgj" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -23455,6 +24310,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"vmL" = (
+/obj/structure/machinery/atmospherics/binary/pump/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "vmO" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/structure/machinery/light{
@@ -23547,6 +24408,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "vuK" = (
@@ -23595,6 +24460,13 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"vxT" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "vxX" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -23603,6 +24475,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "vyW" = (
@@ -23648,6 +24521,10 @@
 /obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/fighter,
 /obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/fighter,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "vBJ" = (
@@ -23665,6 +24542,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
+"vCV" = (
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline/medical/dark_green,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "vDL" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -23694,7 +24587,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "vHK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -23716,6 +24613,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"vJw" = (
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "vJJ" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -23889,6 +24793,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
 "vZf" = (
@@ -23967,6 +24874,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/atmos)
+"wgq" = (
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "whp" = (
 /obj/structure/machinery/atmospherics/binary/pump/scrubber/on{
 	dir = 4
@@ -24015,7 +24928,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_back,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "wjb" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -24062,6 +24979,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_port,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "wmK" = (
@@ -24457,6 +25377,12 @@
 	},
 /obj/structure/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "wPR" = (
@@ -24691,6 +25617,9 @@
 	},
 /obj/structure/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "xgU" = (
@@ -24774,6 +25703,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
+"xnD" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/palepurple,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "xnU" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/structure/machinery/light{
@@ -24816,6 +25751,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/structure/closet/crate/internals/filled,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "xpV" = (
@@ -24893,6 +25829,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/port)
 "xtu" = (
@@ -24902,6 +25841,12 @@
 /obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/steel,
 /area/ship/modular_freelancer_ship/fore/starboard)
+"xtv" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/legion,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "xtZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -24910,6 +25855,9 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "xuU" = (
@@ -25019,6 +25967,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_starboard,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "xFI" = (
@@ -25114,7 +26065,11 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/dock/fore_c,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
 "xLU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25322,6 +26277,15 @@
 /mob/living/heavy_vehicle/premade/random/extra,
 /turf/template_noop,
 /area/template_noop)
+"ygj" = (
+/obj/structure/machinery/computer/ship/navigation/terminal{
+	dir = 4
+	},
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "ygv" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -28793,7 +29757,7 @@ aza
 aza
 eXP
 huv
-wPK
+uYp
 eXP
 aza
 aza
@@ -29110,7 +30074,7 @@ nTX
 ebt
 irw
 eJR
-uoa
+hNz
 lSs
 aza
 aza
@@ -30166,7 +31130,7 @@ nTX
 ucu
 irw
 uoa
-eJR
+eYj
 lSs
 aza
 aza
@@ -32782,7 +33746,7 @@ oHz
 bqD
 dcL
 kCH
-bqD
+gLy
 bqD
 eKr
 qRg
@@ -36600,7 +37564,7 @@ aza
 aza
 mft
 fev
-sNP
+iio
 mft
 aza
 aza
@@ -62844,13 +63808,13 @@ aza
 aza
 amg
 fvc
-aYx
-jMU
-jMU
+ezX
+dHq
+lRU
 rwM
 aHe
 aYx
-aNk
+vCV
 aYx
 aWe
 aYx
@@ -62873,7 +63837,7 @@ amF
 amF
 amF
 jMU
-aga
+jPJ
 amF
 amF
 ezM
@@ -63000,10 +63964,10 @@ aza
 aza
 amg
 acN
-aYx
-aYx
-lCU
-jMU
+xnD
+hnB
+vJw
+fbf
 bAF
 aga
 aYx
@@ -63025,17 +63989,17 @@ aza
 amg
 aza
 fvc
-amF
-jMU
-jMU
-jMU
-jMU
-aBj
+jlc
+hQf
+sgY
+dLR
+hyy
+nPL
 amF
 amY
 sMz
 sMz
-adE
+cRJ
 aNk
 rRw
 amF
@@ -63157,18 +64121,18 @@ aza
 aza
 aza
 amg
-aYx
-jMU
-jMU
-jMU
+eiH
+nzX
+fix
+jDM
 wQW
 aBj
 aYx
-eLO
+wgq
 eLO
 aZr
 aWe
-qRJ
+ygj
 amY
 aYx
 aYx
@@ -63182,14 +64146,14 @@ aza
 amg
 aza
 aYr
-amF
+jtv
 lCU
-jMU
+nZf
 jMU
 kdU
 eJq
 amF
-aSh
+vxT
 jjb
 jjb
 adE
@@ -63314,7 +64278,7 @@ aza
 aza
 aza
 amg
-aYx
+eiH
 aYx
 aYx
 aYx
@@ -63339,7 +64303,7 @@ aza
 amg
 aza
 amF
-amF
+smW
 amF
 amF
 amF
@@ -63471,10 +64435,10 @@ aza
 aza
 aza
 amg
-aYx
+eiH
 jgy
-pMZ
-jgy
+dKY
+tbw
 aYx
 hrk
 sMz
@@ -63496,14 +64460,14 @@ aza
 amg
 aza
 aza
-ezM
+fQF
 pMZ
-jgy
-pMZ
+sQV
+bIz
 hrk
-jjb
+kOE
 amF
-aSh
+vxT
 jjb
 jjb
 ezM
@@ -63628,8 +64592,8 @@ aza
 aza
 aza
 amg
-aWe
-pMZ
+nJy
+uzn
 dWm
 stL
 asf
@@ -63653,8 +64617,8 @@ aza
 amg
 aza
 amF
-amF
-jgy
+smW
+dRe
 wmK
 dWm
 lhM
@@ -63785,7 +64749,7 @@ aza
 aza
 aza
 amg
-aYx
+eiH
 jjQ
 tUG
 jif
@@ -63793,10 +64757,10 @@ bpk
 wQP
 vPF
 abz
-abz
+kgs
 abz
 aWe
-amY
+pzw
 abz
 aYx
 aYx
@@ -63810,7 +64774,7 @@ aza
 amg
 aza
 fvc
-amF
+jtv
 drG
 feI
 tUG
@@ -63942,9 +64906,9 @@ aza
 act
 amg
 acN
-aYx
-aYx
-dWm
+kDH
+nWn
+uBw
 wmK
 aYx
 ifY
@@ -63967,14 +64931,14 @@ amg
 acN
 amg
 aYr
-amF
+nlQ
 tFe
 jMU
 amF
 tLt
 mLv
 amF
-abz
+dxu
 abz
 abz
 ezM
@@ -64100,8 +65064,8 @@ aza
 aza
 amg
 aYr
-aYx
-pMZ
+hnB
+qbc
 jgy
 aYx
 nER
@@ -64576,7 +65540,7 @@ tEr
 tEr
 wBt
 xtZ
-lRc
+irs
 tEr
 tEr
 pHh
@@ -64733,7 +65697,7 @@ tEr
 tbJ
 lop
 aap
-kIa
+sXu
 tbJ
 ahB
 aeU
@@ -67897,11 +68861,11 @@ pHh
 amg
 wRt
 aPC
-aMs
+xtv
 aMs
 tqz
 aMs
-aXg
+mfl
 aMs
 aMs
 aic
@@ -68054,7 +69018,7 @@ tEr
 amg
 aMs
 aMs
-aMs
+kBB
 aMs
 qtu
 isN
@@ -68211,13 +69175,13 @@ tEr
 tEr
 aMs
 hWt
-hWt
-aMs
+sqd
+lqE
 aGf
-aVB
+old
 aqb
 aPJ
-atH
+vge
 acU
 aaG
 tqz
@@ -68341,7 +69305,7 @@ aza
 amg
 aza
 aiL
-wWF
+lEy
 tEG
 bbW
 xuU
@@ -68371,7 +69335,7 @@ vVN
 vBs
 qEi
 aQz
-aqb
+vmL
 aqb
 aqb
 ajR
@@ -68498,7 +69462,7 @@ aza
 amg
 aza
 aob
-wWF
+pHt
 ptQ
 aEF
 aqb
@@ -68528,10 +69492,10 @@ ksg
 lda
 aMs
 rqY
-djn
-aqb
-aqb
-ofj
+dpD
+hIJ
+nvk
+osB
 atk
 mCJ
 tqz
@@ -68655,10 +69619,10 @@ aza
 amg
 aza
 vxs
-wWF
-pfQ
+dQj
+pgD
 cCg
-aSb
+gnJ
 aSb
 vCI
 aqb
@@ -68682,12 +69646,12 @@ tEr
 tEr
 aMs
 aMs
-aMs
+kBB
 aMs
 tNa
+bMC
 pfQ
-pfQ
-pfQ
+kBf
 aMs
 tqz
 tqz
@@ -68814,8 +69778,8 @@ aza
 wWF
 wWF
 wWF
-pfQ
-pfQ
+hUz
+fLy
 pfQ
 aLf
 aqb
@@ -68839,11 +69803,11 @@ aza
 amg
 lhN
 aLp
-aMs
+ffK
 aMs
 tqz
 aMs
-pfQ
+siP
 aMs
 aMs
 wGB
@@ -68971,13 +69935,13 @@ amg
 amg
 lhN
 azs
-pfQ
-pfQ
+bvA
+jZp
 hCV
 mPb
+hsI
 djn
-djn
-djn
+hsI
 ofj
 wWF
 aza
@@ -69128,8 +70092,8 @@ aza
 aza
 aza
 wWF
-pfQ
-pfQ
+crO
+fxz
 wWF
 azs
 wWF
