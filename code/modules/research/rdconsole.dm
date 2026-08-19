@@ -137,7 +137,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	)
 
 /datum/research_console_disk_tgui_data
-	/// Disk kind exposed to TGUI. Either "technology" or "design".
+	/// Disk type exposed to TGUI. Either "technology" or "design".
 	var/design_type
 	/// Display name of the inserted disk.
 	var/name
