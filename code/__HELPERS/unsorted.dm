@@ -635,17 +635,19 @@ Turf and target are seperate in case you want to teleport some distance from a t
  * * do_flags: Flags that determine what the user and target can and cannot do, defined in [mobs.dm]. Defaults to DO_DEFAULT.
  * * incapacitation_flags: Incapacitation flags that determines if the user can be incapacitated. Defaults to INCAPACITATION_DEFAULT.
  * * extra_checks: Optional extra checks, that uses a callback. See [datum/callback].
+ * * looping_sound_type: Optional `/datum/looping_sound` type to play for the duration of the action.
+ * * looping_sound_source: Optional atom for the looping sound to originate from. Defaults to the target or user.
  *
  */
-/proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
-	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags, extra_checks)
+/proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks, looping_sound_type, atom/looping_sound_source)
+	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags, extra_checks, looping_sound_type, looping_sound_source)
 
 /**
  * See [/proc/do_after]
  * Returns the exact error, defined in [mobs.dm] for custom error messages.
  * Overlaps with do_flags, with some extra error messages available.
  */
-/proc/do_after_detailed(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
+/proc/do_after_detailed(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks, looping_sound_type, atom/looping_sound_source)
 	if(!delay)
 		return FALSE
 
@@ -687,6 +689,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if ((do_flags & DO_SHOW_PROGRESS) && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
 		var/progbar_pos = (do_flags & DO_PLACE_PROGRESSBAR_ON_USER) ? user : (target || user)
 		progbar = new(user, delay, progbar_pos)
+
+	var/datum/looping_sound/action_sound
+	if(ispath(looping_sound_type, /datum/looping_sound))
+		action_sound = new looping_sound_type(looping_sound_source || target || user, TRUE)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
 
@@ -756,6 +762,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	if(!QDELETED(progbar))
 		progbar.end_progress()
+	QDEL_NULL(action_sound)
 	if ((do_flags & DO_USER_UNIQUE_ACT) && user.do_unique_user_handle == initial_handle)
 		user.do_unique_user_handle = 0
 	if ((do_flags & DO_TARGET_UNIQUE_ACT) && target)

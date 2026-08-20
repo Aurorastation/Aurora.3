@@ -587,7 +587,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		var/list/resources = list()
 		var/list/requirements = list()
 
-		for(var/material_id in design.materials)
+		var/list/design_materials = design.GetFabricationMaterials(primary)
+		for(var/material_id in design_materials)
 			var/material_path = SSmaterials.material_to_path(material_id, FALSE)
 			if(!material_path)
 				material_path = material_id
@@ -615,8 +616,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				fastest_time = machine_time
 
 		data["recipes"] += list(list(
-			"name" = design.name,
-			"description" = design.desc,
+			"name" = design.GetFabricationName(primary),
+			"description" = design.GetFabricationDesc(primary),
 			"design" = "[path]",
 			"category" = category,
 			"resources" = english_list(resources),
@@ -628,11 +629,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/index = 1
 	for(var/datum/research_fabrication_job/job as anything in job_queue)
 		var/obj/structure/machinery/r_n_d/fabricator/machine = job.assigned_machine
+		var/obj/structure/machinery/r_n_d/fabricator/display_machine = machine ? machine : primary
 		var/build_time = machine ? round(job.design.time / machine.production_speed) : round(job.design.time / primary.production_speed)
 		var/remaining_time = machine?.build_callback_timer ? max(0, timeleft(machine.build_callback_timer)) : 0
 		data["queue"] += list(list(
 			"index" = index,
-			"name" = job.design.name,
+			"name" = job.design.GetFabricationName(display_machine),
 			"build_time" = build_time,
 			"active" = !!machine,
 			"machine" = machine?.name,

@@ -1,5 +1,66 @@
 /datum/design/circuit/machine
 	p_category = "Machine Circuit Designs"
+	category = "Flatpaks"
+	build_type = IMPRINTER | MECHFAB
+	var/list/flatpak_materials
+
+/datum/design/circuit/machine/New()
+	..()
+	var/obj/item/circuitboard/board = build_path
+	var/product_path = initial(board.build_path)
+	if(istext(product_path))
+		product_path = text2path(product_path)
+	if(!ispath(product_path, /obj))
+		build_type &= ~MECHFAB
+
+/datum/design/circuit/machine/GetFabricationName(var/fabricator)
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return "[name] flatpak"
+	return ..()
+
+/datum/design/circuit/machine/GetFabricationDesc(var/fabricator)
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return "A deployable flatpak containing everything needed to set up \a [lowertext(name)]."
+	return ..()
+
+/datum/design/circuit/machine/GetFabricationMaterials(var/fabricator)
+	if(!istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return ..()
+	if(flatpak_materials)
+		return flatpak_materials
+
+	// Start with the material cost of printing the circuit board itself.
+	flatpak_materials = materials.Copy()
+
+	// A normal machine blueprint consumes two steel sheets and five cable lengths.
+	flatpak_materials[MATERIAL_STEEL] = (flatpak_materials[MATERIAL_STEEL] || 0) + (2 * SHEET_MATERIAL_AMOUNT)
+	var/obj/item/stack/cable_coil/cable = new
+	for(var/material in cable.matter)
+		flatpak_materials[material] = (flatpak_materials[material] || 0) + (cable.matter[material] * 5)
+	qdel(cable)
+
+	// Add the raw material value of every component required by the related board.
+	var/obj/item/circuitboard/board = new build_path
+	for(var/component_type in board.req_components)
+		var/component_path = component_type
+		if(istext(component_path))
+			component_path = text2path(component_path)
+		if(!ispath(component_path, /obj/item))
+			continue
+		var/obj/item/component = new component_path
+		var/component_count = board.req_components[component_type]
+		for(var/material in component.matter)
+			flatpak_materials[material] = (flatpak_materials[material] || 0) + (component.matter[material] * component_count)
+		qdel(component)
+	qdel(board)
+
+	SSmaterials.normalize_material_amounts(flatpak_materials)
+	return flatpak_materials
+
+/datum/design/circuit/machine/Fabricate(var/newloc, var/fabricator)
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return new /obj/item/flatpak(newloc, build_path, GetFabricationMaterials(fabricator))
+	return ..()
 
 /datum/design/circuit/machine/arcademachine
 	name = "Battle Arcade Machine"

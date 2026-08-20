@@ -269,6 +269,126 @@ Deployable Kits
 	var/kit_product = /obj/structure/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 
+/**
+ * A single-use, fabricator-produced package that deploys a complete machine.
+ */
+/obj/item/flatpak
+	name = "flatpak"
+	desc = "A compact package that unfolds into a complete machine when used on an unobstructed floor."
+	icon = 'icons/obj/storage/briefcase.dmi'
+	icon_state = "inf_box"
+	item_state = "inf_box"
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_BULKY
+	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
+	var/circuit_type
+	var/machine_type
+	var/deploying = FALSE
+	/// Base time required to deploy the flatpak at the required skill level.
+	var/deployment_time = 15 SECONDS
+	/// Additional deployment time per skill level below the requirement, or reduction per level above it.
+	var/deployment_time_per_skill_level = 5 SECONDS
+	var/deployment_looping_sound = /datum/looping_sound/construction
+	/// Skill component used to adjust deployment time. Null skill components bypass the adjustment.
+	var/required_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
+	/// Skill level that deploys the flatpak in the base deployment time.
+	var/required_level = SKILL_LEVEL_TRAINED
+
+/obj/item/flatpak/Initialize(mapload, new_circuit_type, list/material_cost)
+	. = ..()
+	circuit_type = new_circuit_type
+	if(ispath(circuit_type, /obj/item/circuitboard))
+		var/obj/item/circuitboard/board = circuit_type
+		machine_type = initial(board.build_path)
+		if(istext(machine_type))
+			machine_type = text2path(machine_type)
+	if(material_cost)
+		matter = material_cost.Copy()
+	if(machine_type)
+		var/obj/structure/machinery/machine = machine_type
+		name = "[initial(machine.name)] flatpak"
+		desc = "A compact package that unfolds into \a [initial(machine.name)] when used on an unobstructed floor."
+
+/obj/item/flatpak/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use \the [src] on an adjacent, unobstructed floor to deploy its machine."
+	. += "Relevant technical skill affects how quickly the flatpak can be deployed."
+
+/obj/item/flatpak/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(deploying || !proximity_flag || use_check(user) || !isturf(target))
+		return
+	var/turf/deployment_turf = target
+	if(!isfloor(deployment_turf))
+		to_chat(user, SPAN_WARNING("\The [src] can only be deployed on a floor."))
+		return
+	if(!turf_clear(deployment_turf))
+		to_chat(user, SPAN_WARNING("There is not enough room to deploy \the [src] there."))
+		return
+	if(!ispath(circuit_type, /obj/item/circuitboard) || !ispath(machine_type, /obj))
+		to_chat(user, SPAN_WARNING("\The [src] has no valid machine data."))
+		return
+
+	var/deployment_duration = deployment_time
+	var/skill_level = required_skill ? GET_SKILL_LEVEL(user, required_skill) : null
+	if(!isnull(skill_level))
+		deployment_duration = max(0, deployment_duration + ((required_level - skill_level) * deployment_time_per_skill_level))
+
+	deploying = TRUE
+	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE("You begin setting up \the [src]."))
+	if(!do_after(user, deployment_duration, user, DO_DEFAULT | DO_USER_UNIQUE_ACT, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
+		deploying = FALSE
+		return
+	deploying = FALSE
+	if(!user || QDELETED(user))
+		return
+	if(!user.Adjacent(deployment_turf) || !isfloor(deployment_turf) || !turf_clear(deployment_turf))
+		to_chat(user, SPAN_WARNING("There is no longer enough room to deploy \the [src] there."))
+		return
+
+	var/obj/deployed_machine
+	if(ispath(machine_type, /obj/structure/machinery))
+		var/obj/item/circuitboard/board = new circuit_type
+		var/obj/structure/machinery/machine = new machine_type(deployment_turf, user.dir, FALSE)
+		machine.component_parts = list()
+
+		if(istype(board, /obj/item/circuitboard/unary_atmos))
+			var/obj/item/circuitboard/unary_atmos/atmos_board = board
+			atmos_board.init_dirs = user.dir
+			atmos_board.machine_dir = user.dir
+
+		for(var/component_type in board.req_components)
+			var/component_path = component_type
+			if(istext(component_path))
+				component_path = text2path(component_path)
+			if(!ispath(component_path, /obj/item))
+				continue
+			var/component_count = board.req_components[component_type]
+			if(ispath(component_path, /obj/item/stack))
+				machine.component_parts += new component_path(machine, component_count)
+			else
+				for(var/i in 1 to component_count)
+					machine.component_parts += new component_path(machine)
+
+		board.construct(machine)
+		if(board.contain_parts)
+			board.forceMove(machine)
+			machine.component_parts += board
+		else
+			qdel(board)
+		machine.RefreshParts()
+		machine.anchored = TRUE
+		deployed_machine = machine
+	else
+		// Some machine circuit boards build non-machinery objects, such as cargo train trolleys.
+		deployed_machine = new machine_type(deployment_turf)
+		deployed_machine.set_dir(user.dir)
+
+	user.visible_message(SPAN_NOTICE("[user] deploys \a [deployed_machine] from \the [src]."), SPAN_NOTICE("You deploy \a [deployed_machine] from \the [src]."))
+	playsound(deployment_turf, 'sound/items/Deconstruct.ogg', 50, TRUE)
+	deployed_machine.add_fingerprint(user)
+	qdel(src)
+
 /obj/item/deployable_kit/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, assembly_time, src, DO_DEPLOY))
