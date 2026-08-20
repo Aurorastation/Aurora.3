@@ -1318,7 +1318,7 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/ship/xanu_frigate/exterior)
+/area/ship/xanu_frigate/weapon/grauwolf)
 "eI" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -5762,6 +5762,11 @@
 "tQ" = (
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/cargo_bay)
+"tT" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/ship/xanu_frigate/weapon/longbow)
 "tU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11419,7 +11424,7 @@
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/ship/xanu_frigate/exterior)
+/area/ship/xanu_frigate/weapon/grauwolf)
 "Nb" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -13418,10 +13423,15 @@
 /obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/ship/xanu_frigate/exterior)
+/area/ship/xanu_frigate/weapon/longbow)
 "TH" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/shuttle/xanu_boarder/cockpit)
+"TJ" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/ship/xanu_frigate/weapon/longbow)
 "TK" = (
 /obj/structure/machinery/atmospherics/binary/pump/aux/on{
 	name = "Distribution to CIC Loop";
@@ -41418,12 +41428,12 @@ sG
 sG
 JG
 ry
-Na
+TJ
 TF
 TF
 TF
 TF
-eG
+tT
 Zm
 Zm
 Zm
@@ -41675,7 +41685,7 @@ Hs
 sG
 JG
 ry
-Na
+TJ
 TF
 TF
 TF
