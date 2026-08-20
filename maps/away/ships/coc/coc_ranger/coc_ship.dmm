@@ -1104,6 +1104,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
+"eAe" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/ship/ranger_corvette/gunnery)
 "eBG" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -2272,6 +2277,10 @@
 "iOe" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
+"iOV" = (
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/ship/ranger_corvette/engine1)
 "iPn" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -2568,6 +2577,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/leader)
+"jQr" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/space,
+/area/ship/ranger_corvette/engine1)
 "jRF" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -2828,10 +2842,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "lhJ" = (
-/obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk,
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/space,
-/area/ship/ranger_corvette/exterior)
+/area/ship/ranger_corvette/gunnery)
 "lkY" = (
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = -20;
@@ -3189,6 +3203,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
+"mrW" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/ship/ranger_corvette/engine1)
 "mun" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4107,7 +4126,7 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/ship/ranger_corvette/exterior)
+/area/ship/ranger_corvette/engine1)
 "qcF" = (
 /obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green,
@@ -4343,7 +4362,7 @@
 	weapon_id = "Ranger Francisca Rotary Gun"
 	},
 /turf/space,
-/area/ship/ranger_corvette/exterior)
+/area/ship/ranger_corvette/engine1)
 "qMt" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -4984,7 +5003,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/ship/ranger_corvette/exterior)
+/area/ship/ranger_corvette/gunnery)
 "sYH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -37124,7 +37143,7 @@ tWh
 tWh
 tWh
 tWh
-pZW
+iOV
 xRX
 xRX
 xRX
@@ -37381,7 +37400,7 @@ tWh
 hUh
 hUh
 hUh
-pZW
+iOV
 qHO
 xRX
 xRX
@@ -37638,7 +37657,7 @@ tWh
 hUh
 hUh
 hUh
-lhJ
+mrW
 qbD
 xRX
 xRX
@@ -37895,8 +37914,8 @@ tWh
 hUh
 hUh
 hUh
-pZW
-aXi
+iOV
+jQr
 xRX
 rrQ
 rrQ
@@ -38152,7 +38171,7 @@ tWh
 boM
 tWh
 tWh
-pZW
+iOV
 xRX
 xRX
 rrQ
@@ -38167,7 +38186,7 @@ pFK
 tLA
 nIu
 nIu
-lhJ
+eAe
 lhJ
 xRX
 xRX
@@ -38681,7 +38700,7 @@ hbk
 deS
 deS
 hPo
-lhJ
+eAe
 lhJ
 xRX
 xRX
