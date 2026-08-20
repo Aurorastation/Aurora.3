@@ -3514,12 +3514,6 @@
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -4392,6 +4386,25 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/freezer,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
+/obj/random/kitchen_staples,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "asZ" = (
@@ -5378,6 +5391,10 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
+/obj/item/reagent_containers/food/snacks/diona_cuts/filled{
+	pixel_x = 5;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
 "azJ" = (
@@ -5637,6 +5654,7 @@
 	},
 /obj/item/gun/projectile/tanto,
 /obj/structure/machinery/light/colored/blue,
+/obj/random/weapon_and_ammo/concealable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
 "aBq" = (
@@ -6360,20 +6378,27 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
+/obj/item/reagent_containers/food/snacks/meat/dionanymph,
+/obj/item/reagent_containers/food/snacks/meat/dionanymph,
+/obj/item/reagent_containers/food/snacks/meat/dionanymph,
+/obj/item/reagent_containers/food/snacks/meat/dionanymph,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "aFR" = (
@@ -6680,12 +6705,11 @@
 /area/ship/modular_freelancer_ship/misc/maint/aux)
 "aHs" = (
 /obj/structure/table/steel,
-/obj/item/pizzabox/pepperoni{
-	pixel_x = -4;
-	pixel_y = 10
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
+	},
+/obj/item/reagent_containers/food/snacks/sliceable/dionaroast{
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
@@ -7022,12 +7046,16 @@
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/random/syrup{
-	pixel_x = -12;
+	pixel_x = -14;
 	pixel_y = 12
 	},
 /obj/item/material/knife{
 	pixel_x = 5;
 	pixel_y = 6
+	},
+/obj/item/material/kitchen/utensil/spork{
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /obj/item/material/knife/bayonet/silver{
 	pixel_x = 3;
@@ -7116,6 +7144,10 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/machinery/reagentgrinder{
 	pixel_y = 17
+	},
+/obj/random/syrup{
+	pixel_x = -8;
+	pixel_y = 4
 	},
 /turf/simulated/floor/marble,
 /area/template_noop)
@@ -7824,8 +7856,11 @@
 /obj/item/storage/box/large/condiment{
 	pixel_y = 16
 	},
-/obj/item/storage/box/large/condiment{
+/obj/item/storage/box/large/condimentbottles{
 	pixel_y = 10
+	},
+/obj/item/storage/box/large/condiment{
+	pixel_y = 4
 	},
 /turf/simulated/floor/marble,
 /area/template_noop)
@@ -7961,7 +7996,10 @@
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "aOG" = (
-/obj/item/trash/peanutsnack/pepper,
+/obj/item/trash/peanutsnack/pepper{
+	pixel_x = 7;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "aOH" = (
@@ -8547,6 +8585,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/apc/noid/north,
+/obj/random/weapon_and_ammo/concealable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
 "aSm" = (
@@ -11910,6 +11949,11 @@
 /obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/hallway)
+"dPY" = (
+/obj/item/stack/material/wood/full,
+/obj/item/stack/material/wood/full,
+/turf/template_noop,
+/area/template_noop)
 "dQl" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -15888,6 +15932,9 @@
 "jmn" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "jmS" = (
@@ -18025,6 +18072,10 @@
 /obj/structure/flora/grass/junglegrass/dense/random,
 /turf/simulated/floor/exoplanet/grass/marsh,
 /area/template_noop)
+"lVy" = (
+/obj/random/sword,
+/turf/template_noop,
+/area/template_noop)
 "lXM" = (
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 28;
@@ -18196,13 +18247,18 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
-/obj/item/reagent_containers/bowl/plate{
+/obj/item/reagent_containers/bowl/plate,
+/obj/item/reagent_containers/food/snacks/egg/red{
 	pixel_x = 1;
-	pixel_y = -4
+	pixel_y = 6
 	},
 /obj/item/reagent_containers/food/snacks/sausage{
-	pixel_x = 1;
-	pixel_y = -3
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/snacks/egg/red{
+	pixel_x = 5;
+	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
@@ -20361,6 +20417,15 @@
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"pmT" = (
+/obj/structure/closet,
+/obj/outfit/admin/generic,
+/obj/outfit/admin/generic,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "pmV" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
@@ -24291,6 +24356,9 @@
 "uQj" = (
 /obj/random/pottedplant,
 /obj/structure/machinery/light,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "uQr" = (
@@ -24490,6 +24558,9 @@
 /area/ship/modular_freelancer_ship/fore/guns)
 "vgy" = (
 /obj/structure/machinery/vending/clothing,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "vgT" = (
@@ -26127,6 +26198,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"xuC" = (
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/turf/template_noop,
+/area/template_noop)
 "xuU" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -26591,6 +26667,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"yhC" = (
+/obj/item/ammo_magazine/submachinemag/assassin,
+/obj/item/ammo_magazine/submachinemag/assassin,
+/obj/item/ammo_magazine/submachinemag/assassin,
+/obj/item/ammo_magazine/submachinemag/assassin,
+/obj/item/gun/projectile/automatic/tommygun/assassin,
+/turf/template_noop,
+/area/template_noop)
 "yit" = (
 /obj/effect/landmark/minimap_poi{
 	name = "Aft"
@@ -34520,7 +34604,7 @@ qRg
 uFb
 ipC
 kCH
-aCk
+pmT
 aCk
 tJW
 aqs
@@ -34832,9 +34916,9 @@ dcU
 uZk
 opD
 mrs
-dcU
+mtH
 amp
-dcU
+eKr
 dcU
 kFO
 aZb
@@ -55107,7 +55191,7 @@ aza
 act
 akM
 aza
-avH
+xuC
 aza
 aza
 akM
@@ -55264,7 +55348,7 @@ aza
 act
 aza
 aSG
-aiw
+dPY
 aJS
 aWl
 aza
@@ -58246,7 +58330,7 @@ aza
 aza
 act
 aza
-aza
+lVy
 ahG
 ahG
 aza
@@ -58403,7 +58487,7 @@ aza
 aza
 act
 aza
-aza
+yhC
 ahG
 aza
 aWl
