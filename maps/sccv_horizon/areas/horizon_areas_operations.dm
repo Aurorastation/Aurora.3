@@ -61,15 +61,6 @@
 	area_blurb = "Even here, all the way out into the depths of space, retail work is found. The commissary room is eerily bare when not run— with empty shelves being such a rarity in the 25th century for most worlds, seeing them here is almost unnatural. Where are your treats?"
 	lightswitch = FALSE
 
-/area/horizon/operations/secure_ammunition_storage
-	name = "Secure Ammunitions Storage"
-	icon_state = "ammo"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	ambience = AMBIENCE_FOREBODING
-	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
-	horizon_deck = 2
-	area_blurb = "Armor-piercing, bunker-busting, high-explosive... Don't sneeze!"
-
 /// OPERATIONS_AREAS - HANGAR_AREAS
 /area/horizon/hangar
 	name = "Hangar (PARENT AREA - DON'T USE)"
@@ -139,28 +130,6 @@
 /area/horizon/operations/mining_main/refinery
 	name = "Mining Refinery"
 	horizon_deck = 1
-
-/// WEAPONS_AREAS
-/area/horizon/weapons
-	icon_state = "bridge_weapon"
-	area_lighting = LIGHT_ENGINEERING_COLORS
-	sound_environment = SOUND_AREA_LARGE_ENCLOSED
-	ambience = AMBIENCE_HIGHSEC
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
-
-/area/horizon/weapons/longbow
-	name = "Longbow Weapon System"
-	horizon_deck = 3
-	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
-	department = LOC_COMMAND
-	lightswitch = FALSE
-
-/area/horizon/weapons/grauwolf
-	name = "Grauwolf Weapon System"
-	horizon_deck = 2
-	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
-	department = LOC_COMMAND
-	lightswitch = FALSE
 
 /// STORAGE_AREAS
 /area/horizon/storage

@@ -277,3 +277,16 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 		"privacy window tint" = list("type" = "windowtint", "id" = "xo_privacy_tint"),
 		"privacy shutter" = list("type" = "blast_door", "id" = "xo_office_privacy_shutter"),
 	)
+
+/obj/structure/machinery/controlhub/weapon_systems/fire_control
+	name = "fire control hub"
+	icon_state = "holocontrol"
+	req_access = list(ACCESS_SHIP_WEAPONS)
+	controls = list(
+		"Compartment Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_fire_control"),
+		"Ammunition Magazine Bulkhead" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_magazine"),
+		"Starboard Hallway Bulkhead" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_starboard"),
+		"Port Hallway Bulkhead" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_port"),
+		"Longbow Loading Shutter" = list("type" = "blast_door", "id" = "gunnery_wing_longbow_shutter"),
+		"Grauwowlf Loading Shutter" = list("type" = "blast_door", "id" = "gunnery_wing_grauwolf_shutter")
+	)

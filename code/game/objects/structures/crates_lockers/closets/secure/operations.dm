@@ -128,3 +128,19 @@
 	new /obj/item/gps/mining(src)
 	new /obj/item/flashlight/lantern(src)
 	new /obj/item/pickaxe(src)
+
+/obj/structure/closet/secure_closet/gunnery_loading
+	name = "gunnery loading locker"
+	icon_state = "hangar_tech"
+	req_access = list(ACCESS_SHIP_WEAPONS)
+
+/obj/structure/closet/secure_closet/gunnery_loading/fill()
+	..()
+	new /obj/item/clothing/head/hardhat/red(src)
+	new /obj/item/clothing/glasses/safety/goggles(src)
+	new /obj/item/clothing/ears/earmuffs(src)
+	new /obj/item/radio/headset/wrist/clip/cargo(src)
+	new /obj/item/clothing/suit/storage/hazardvest/red(src)
+	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/gloves/black/tajara(src)
+	new /obj/item/clothing/gloves/black/unathi(src)

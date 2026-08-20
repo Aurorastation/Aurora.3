@@ -147,3 +147,40 @@
 	icon_state = "teleporter"
 	horizon_deck = 1
 	area_blurb = "The air in here always feels charged with the subdued crackle of electricity, tasting faintly of ozone."
+
+/// GUNNERY_AREAS
+/area/horizon/gunnery
+	name = "Gunnery Wing"
+	icon_state = "bridge_weapon"
+	horizon_deck = 2
+	area_lighting = LIGHT_ENGINEERING_COLORS
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
+	department = SUBLOC_WEAPON_SYSTEMS
+
+/area/horizon/gunnery/hallway
+	name = "Gunnery Wing - Hallway"
+	icon_state = "hallS"
+	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+
+/area/horizon/gunnery/ammunition_magazine
+	name = "Gunnery Wing - Ammunition Magazine"
+	icon_state = "ammo"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "Armor-piercing, bunker-busting, high-explosive... Don't sneeze!"
+
+/area/horizon/gunnery/weapon_systems
+	name = "Gunnery Wing - Weapon Systems"
+	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
+	lightswitch = FALSE
+
+/area/horizon/gunnery/weapon_systems/fire_control
+	name = "Gunnery Wing - Fire Control Compartment"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/horizon/gunnery/weapon_systems/casemate/grauwolf
+	name = "Gunnery Wing - Grauwolf Weapon System"
+
+/area/horizon/gunnery/weapon_systems/casemate/longbow
+	name = "Gunnery Wing - Longbow Weapon System"
