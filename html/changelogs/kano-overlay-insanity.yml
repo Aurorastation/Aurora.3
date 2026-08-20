@@ -1,4 +1,0 @@
-author: kano
-delete-after: True
-changes:
-  - bugfix: "Fixed the smooth icon overlays appearing under the adjacent turfs."
