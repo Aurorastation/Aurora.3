@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Submap insert markers now support different directions."

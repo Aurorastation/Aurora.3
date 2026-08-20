@@ -403,3 +403,16 @@
       to access the circuitry portions. Also makes mention that the TTS circuit can
       only be heard by those wearing the device, it does not broadcast to the room
       in this specific case.
+2026-08-20:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Additional LS logic fixes.
+  Hellfirejag:
+  - bugfix: Fixed a small lag spike caused by ownerless IPCs dying.
+  hazelmouse:
+  - bugfix: Resolved a few lighting bugs with holodeck spaces.
+  - bugfix: Removes the erroneous 'Chessboard' setting visible in the holodeck console's
+      menu. There was never any chessboard. You have been lied to.
+  - bugfix: Fixed versebook onmobs.
+  - bugfix: South-facing platforms no longer layer over south-facing railings.
+  kano:
+  - bugfix: Fixed the smooth icon overlays appearing under the adjacent turfs.

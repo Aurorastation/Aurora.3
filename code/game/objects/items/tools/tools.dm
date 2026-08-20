@@ -445,8 +445,8 @@
 			to_chat(user, SPAN_WARNING("You need to light the welding tool first!"))
 			return
 
-		if(S.brute_dam)
-			if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
+		if(LIMB_GET_BRUTE_DAMAGE(S))
+			if(LIMB_GET_BRUTE_DAMAGE(S) > ROBOLIMB_SELF_REPAIR_CAP)
 				to_chat(user, SPAN_WARNING("The damage is far too severe to patch over externally!"))
 				return
 			else
@@ -458,7 +458,7 @@
 		return ..()
 
 /obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
-	if(!affecting.brute_dam)
+	if(!LIMB_GET_BRUTE_DAMAGE(affecting))
 		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 
@@ -532,7 +532,7 @@
 /obj/item/weldingtool/proc/get_fuel()
 	return REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 
-//Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
+//Removes fuel from the welding tool. If a mob is passed, it will expose nearby onlookers to the welding arc.
 /obj/item/weldingtool/use(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
 	if(!welding)
 		return 0
@@ -541,12 +541,28 @@
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/singleton/reagent/fuel, amount)
 		if(M && produces_flash)
-			M.flash_act(FLASH_PROTECTION_MAJOR)
+			flash_welding_arc(M)
 		return 1
 	else
 		if(M)
 			to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 		return 0
+
+/// Damages the eyes of the welder and any visible living mobs looking towards the welding arc.
+/obj/item/weldingtool/proc/flash_welding_arc(mob/living/user)
+	var/turf/welding_turf = get_turf(src)
+	if(!welding_turf)
+		return
+
+	var/list/potential_viewers = viewers(2, welding_turf)
+	// Preserve the existing behaviour for the user if their container keeps them out of viewers().
+	if(!(user in potential_viewers))
+		potential_viewers += user
+
+	for(var/mob/living/onlooker in potential_viewers)
+		// Someone sharing the arc's turf cannot meaningfully look away from it.
+		if(get_turf(onlooker) == welding_turf || (onlooker.dir & get_dir(onlooker, welding_turf)))
+			onlooker.flash_act(FLASH_PROTECTION_MAJOR)
 
 /obj/item/weldingtool/use_resource(mob/user, var/use_amount)
 	if(get_fuel() >= use_amount)

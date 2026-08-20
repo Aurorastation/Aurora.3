@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - qol: "Airlock controllers now display controller and door power, door and bolt status, pump activity, the current cycle phase, and unresponsive equipment."

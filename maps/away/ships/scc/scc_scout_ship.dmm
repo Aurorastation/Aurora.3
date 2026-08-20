@@ -49,7 +49,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
@@ -545,7 +545,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
@@ -838,7 +838,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
@@ -1846,7 +1846,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
@@ -1903,7 +1903,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "lw" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_aft_port";
 	name = "airlock_scc_scout_aft_port"
 	},
@@ -2023,7 +2023,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "lW" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -2113,7 +2113,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -2708,7 +2708,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -3103,7 +3103,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -3302,7 +3302,7 @@
 /turf/space/dynamic,
 /area/ship/scc_scout_ship/maint_atmos)
 "tM" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -3462,7 +3462,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/eva)
 "uZ" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_aft_port";
 	name = "airlock_scc_scout_aft_port"
 	},
@@ -3686,7 +3686,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -3860,7 +3860,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "xz" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -4042,7 +4042,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
@@ -4102,7 +4102,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/engineering_cargo)
 "zg" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -5075,7 +5075,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_starboard)
 "Hb" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -5313,7 +5313,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/hydroponics)
 "IB" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -5523,7 +5523,7 @@
 	pixel_y = -6;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_fore_starboard";
 	name = "airlock_scc_scout_fore_starboard"
 	},
@@ -6793,7 +6793,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_shuttle_side";
 	name = "airlock_scc_scout_shuttle_side"
 	},
@@ -7270,7 +7270,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Wm" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_scc_scout_aft_port";
 	name = "airlock_scc_scout_aft_port"
 	},
