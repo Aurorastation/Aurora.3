@@ -840,7 +840,7 @@
 	pixel_x = 20
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard{
 	req_one_access = list(211)
 	},
 /turf/simulated/floor,
@@ -1732,7 +1732,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port{
 	req_one_access = list(211)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -3489,7 +3489,7 @@
 	pixel_x = -20
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port{
 	req_one_access = list(211)
 	},
 /turf/simulated/floor,
@@ -3910,7 +3910,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard{
 	req_one_access = list(211)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -4454,7 +4454,7 @@
 	pixel_x = 20
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard{
 	req_one_access = list(211)
 	},
 /turf/simulated/floor,
@@ -6024,7 +6024,7 @@
 	pixel_y = -10
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port{
 	req_one_access = list(211)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -6149,7 +6149,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard{
 	req_one_access = list(211)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -6483,7 +6483,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port{
 	req_one_access = list(211)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -6766,7 +6766,7 @@
 	pixel_y = -10
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard{
 	req_one_access = list(211)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -7863,7 +7863,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard{
 	req_one_access = list(211)
 	},
 /turf/simulated/floor,
@@ -8597,7 +8597,7 @@
 	pixel_x = -20
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port{
 	req_one_access = list(211)
 	},
 /turf/simulated/floor,
@@ -9158,7 +9158,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port{
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port{
 	req_one_access = list(211)
 	},
 /turf/simulated/floor,

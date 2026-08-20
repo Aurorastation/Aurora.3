@@ -184,7 +184,7 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},
@@ -249,7 +249,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},
@@ -408,7 +408,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -447,7 +447,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -488,7 +488,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -1103,7 +1103,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -1118,7 +1118,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -1688,7 +1688,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_3";
 	name = "airlock_cult_base_3"
 	},
@@ -1766,7 +1766,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},
@@ -2090,7 +2090,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},
@@ -2125,7 +2125,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_3";
 	name = "airlock_cult_base_3"
 	},
@@ -2271,7 +2271,7 @@
 /area/cult_base/hallways_north)
 "aiE" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},
@@ -2516,7 +2516,7 @@
 	dir = 4;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -2628,7 +2628,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -2662,7 +2662,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},
@@ -3207,7 +3207,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -3641,7 +3641,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -4478,7 +4478,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -4623,7 +4623,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -5238,7 +5238,7 @@
 	pixel_y = 6;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -5574,7 +5574,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -6566,7 +6566,7 @@
 	dir = 4;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_3";
 	name = "airlock_cult_base_3"
 	},
@@ -6932,7 +6932,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -7062,7 +7062,7 @@
 	pixel_y = 6;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_3";
 	name = "airlock_cult_base_3"
 	},
@@ -7251,7 +7251,7 @@
 	dir = 1
 	},
 /obj/random/junk,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},
@@ -7456,7 +7456,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -8552,7 +8552,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -9314,7 +9314,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -10158,7 +10158,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -10289,7 +10289,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -10580,7 +10580,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
@@ -10789,7 +10789,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -11676,7 +11676,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -12151,7 +12151,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
@@ -12336,7 +12336,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
@@ -12525,7 +12525,7 @@
 /area/cult_base/hallways_south)
 "uIq" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_cult_base_1";
 	name = "airlock_cult_base_1"
 	},

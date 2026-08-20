@@ -338,3 +338,81 @@
   kano:
   - qol: Deployable kits now show the progress bar on the mob.
   - rscadd: Ported various platform sprites from CM.
+2026-08-17:
+  ASmallCuteCat:
+  - qol: Swaps the placement of the ICU and the storage room in Medical.
+  - qol: Moves the Pharmacy and the Recovery Ward, with the lobby centered between
+      them.
+  - qol: The Medical Department's floor decals are now seafoam green, for less eye
+      strain and greater difference with Service green.
+  DreamySkrell:
+  - rscadd: Bapi mapmanip submap weight.
+  Fenodyree:
+  - bugfix: Fixes all rubber bullets dealing damage twice.
+  - bugfix: Fixes all attacks that dealt pain damage checking siemens coefficient.
+      This makes everything but hardsuits and voidsuits stronger against rubber bullets.
+      Insulated gloves are also no longer immune to rubber bullets.
+  - bugfix: Fixes pain failing to make you blurt out whatever you were typing. Now
+      getting shot will cause you to say whatever was in the typing window when you
+      were hit and close the window immediately, allowing you to move.
+  - bugfix: Fixes all attacks that had manually set armour checks, previously they
+      ignored the armour they were meant to check and decided what armour affected
+      them based only on their damage type.
+  - qol: Cloned circuit assemblies now spawn with uncharged batteries.
+  - rscadd: Lets some small integrated circuit designs be worn on the wrist, belt,
+      or clipped to a helmet for helmet cameras.
+  - bugfix: Fixes the Mend power taking 15 seconds to scan every organ, even if the
+      organ is healthy.
+  - bugfix: Fixes the Mend power not being able to fix blindness.
+  - bugfix: Fixes the Mend power not being able to fix heart attacks.
+  - bugfix: Fixes the Mend power not being able to fix brute or burn damage.
+  - bugfix: Fixes the Mend power not being able to fix tendons.
+  - bugfix: Fixes the Mend power not respecting psychic sensitivity.
+  - bugfix: Fixes the Mend power thinking every external organ is robotic.
+  Geeves:
+  - rscadd: Added the option to manually change the looping sound channel volume in
+      the SFX Preferences tab.
+  Hellfirejag:
+  - rscadd: The mechanical engineering skill now provides a situational damage bonus
+      for attacking structures such as airlocks and windows.
+  - rscadd: The mechanical engineering skill now modifies the speed and repair amount
+      when repairing a mech with a welder.
+  - rscadd: Repairing mechs is now no longer instantaneous.
+  - rscadd: Attempting to repair a mech with a welder will now automatically repeat
+      the repair action until either completed, or interrupted.
+  TheGreyWolf:
+  - bugfix: Fixed that the EMP implant was visible in the bodyscanner.
+  - rscadd: The fuel tank from the cargo ordering program is no longer access restricted.
+  Tomixcomics:
+  - rscadd: Added the 'Idris Delights' vending machine and the various treats it sells.
+  - rscadd: Added two new types of trash to go along with the new treats.
+  - rscadd: Added several new food dishes including Takoyaki, French toast, Lava cakes
+      and Tiramisu.
+  - rscadd: Added a multitude of Psiren meat based dishes.
+  - qol: Added line of code to keep the game from crashing when flavors don't get
+      listed properly in the code.
+  - qol: Adjusted Citrus Delight dish so that it doesn't take forever to finish
+  fyni:
+  - rscadd: Updates the earth accent tag. The old tag did not fit the accent tag format.
+  mineymonkey:
+  - bugfix: Actually, reduces the maximum amount of metal and phoron that can be stored
+      in a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can
+      hit those numbers, so this is just a safety measure to prevent accidental loss
+      of materials.
+  - qol: Added in examine hints for the electronic radio headset for clarity in how
+      to access the circuitry portions. Also makes mention that the TTS circuit can
+      only be heard by those wearing the device, it does not broadcast to the room
+      in this specific case.
+2026-08-20:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Additional LS logic fixes.
+  Hellfirejag:
+  - bugfix: Fixed a small lag spike caused by ownerless IPCs dying.
+  hazelmouse:
+  - bugfix: Resolved a few lighting bugs with holodeck spaces.
+  - bugfix: Removes the erroneous 'Chessboard' setting visible in the holodeck console's
+      menu. There was never any chessboard. You have been lied to.
+  - bugfix: Fixed versebook onmobs.
+  - bugfix: South-facing platforms no longer layer over south-facing railings.
+  kano:
+  - bugfix: Fixed the smooth icon overlays appearing under the adjacent turfs.
