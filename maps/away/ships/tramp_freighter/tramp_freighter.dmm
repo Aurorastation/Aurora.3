@@ -2660,7 +2660,7 @@
 /obj/structure/ship_weapon_dummy,
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/tramp_freighter/exterior)
+/area/tramp_freighter/bridge)
 "nX" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -3330,7 +3330,7 @@
 "ry" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/tramp_freighter/exterior)
+/area/tramp_freighter/bridge)
 "rB" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7981,7 +7981,7 @@
 	weapon_id = "Tramp Rotary"
 	},
 /turf/simulated/floor/airless,
-/area/tramp_freighter/exterior)
+/area/tramp_freighter/bridge)
 "PK" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -8132,7 +8132,7 @@
 "Qt" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
-/area/tramp_freighter/exterior)
+/area/tramp_freighter/bridge)
 "Qu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
