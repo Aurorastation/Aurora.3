@@ -10306,6 +10306,12 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"brB" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard"
+	},
+/turf/template_noop,
+/area/template_noop)
 "bsB" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -10341,6 +10347,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"bvd" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard"
+	},
+/turf/template_noop,
+/area/template_noop)
 "byb" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10550,6 +10562,12 @@
 "bNn" = (
 /obj/structure/flora/bush/jungle/random,
 /turf/simulated/floor/exoplanet/grass/stalk,
+/area/template_noop)
+"bQI" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore"
+	},
+/turf/template_noop,
 /area/template_noop)
 "bSd" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -10932,6 +10950,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
+"ctw" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, shuttle docks"
+	},
+/turf/template_noop,
+/area/template_noop)
 "ctE" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca{
@@ -12023,12 +12047,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aux/hallway)
-"dUu" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, shuttle docks"
-	},
-/turf/template_noop,
-/area/template_noop)
 "dUP" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -13194,6 +13212,12 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"fCm" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, containers"
+	},
+/turf/template_noop,
+/area/template_noop)
 "fDI" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -13220,6 +13244,12 @@
 /obj/structure/closet/crate/bin/filled,
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/aux/hallway)
+"fGy" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aft, engines"
+	},
+/turf/template_noop,
+/area/template_noop)
 "fHt" = (
 /obj/structure/table/steel,
 /obj/random/tool{
@@ -13421,6 +13451,12 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"fUb" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port"
+	},
+/turf/template_noop,
+/area/template_noop)
 "fUj" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -13877,6 +13913,12 @@
 /obj/structure/machinery/light,
 /turf/simulated/floor/tiled/gunmetal,
 /area/template_noop)
+"gGY" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fore"
+	},
+/turf/template_noop,
+/area/template_noop)
 "gHO" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -14184,6 +14226,12 @@
 /obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"gWa" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, shuttle docks"
+	},
+/turf/template_noop,
+/area/template_noop)
 "gWi" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -14375,12 +14423,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/fore/hallway)
-"hjK" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, aft, engines"
-	},
-/turf/template_noop,
-/area/template_noop)
 "hjR" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -14608,12 +14650,6 @@
 /area/ship/modular_freelancer_ship/aft/atmos)
 "hyo" = (
 /obj/effect/shuttle_landmark/modular_freelancer_ship/space/mid_port,
-/turf/template_noop,
-/area/template_noop)
-"hyL" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port"
-	},
 /turf/template_noop,
 /area/template_noop)
 "hyV" = (
@@ -15098,12 +15134,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/cargo,
 /area/ship/modular_freelancer_ship/aux/hallway)
-"ikp" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, containers"
-	},
-/turf/template_noop,
-/area/template_noop)
 "ikH" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -15148,6 +15178,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"ioB" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, aft, engines"
+	},
+/turf/template_noop,
+/area/template_noop)
 "ioC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable{
@@ -15354,12 +15390,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/atmos)
-"iCB" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, fore"
-	},
-/turf/template_noop,
-/area/template_noop)
 "iCS" = (
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 28;
@@ -15487,9 +15517,9 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/modular_freelancer_shuttle/fighter)
-"iJX" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, shuttle docks"
+"iLf" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, center"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -15932,6 +15962,12 @@
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/cargo,
 /area/shuttle/modular_freelancer_shuttle/ferry)
+"jkv" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, aux"
+	},
+/turf/template_noop,
+/area/template_noop)
 "jkT" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -16613,12 +16649,6 @@
 /obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aux/hallway)
-"kbK" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard"
-	},
-/turf/template_noop,
-/area/template_noop)
 "kbL" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -16953,12 +16983,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
-"ksH" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, starboard"
-	},
-/turf/template_noop,
-/area/template_noop)
 "ktj" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -17213,6 +17237,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/port)
+"kKv" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, port"
+	},
+/turf/template_noop,
+/area/template_noop)
 "kKw" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -18261,12 +18291,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/crew)
-"mjY" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, fore"
-	},
-/turf/template_noop,
-/area/template_noop)
 "mkk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/canister,
@@ -19387,12 +19411,6 @@
 "nAq" = (
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/container/c04)
-"nAx" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, aft"
-	},
-/turf/template_noop,
-/area/template_noop)
 "nAA" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -20436,6 +20454,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"pfG" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, center"
+	},
+/turf/template_noop,
+/area/template_noop)
 "pfQ" = (
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/fighter)
@@ -20662,12 +20686,6 @@
 /obj/effect/shuttle_landmark/modular_freelancer_ship/catwalk/mid,
 /obj/item/hullbeacon/green,
 /turf/space/dynamic,
-/area/template_noop)
-"pDF" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, aux"
-	},
-/turf/template_noop,
 /area/template_noop)
 "pDI" = (
 /obj/structure/cable{
@@ -21048,12 +21066,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/fore/guns)
-"qcP" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, center"
-	},
-/turf/template_noop,
-/area/template_noop)
 "qdr" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -21070,6 +21082,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
+"qdx" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aft"
+	},
+/turf/template_noop,
+/area/template_noop)
 "qdJ" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -21274,12 +21292,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/ship/modular_freelancer_ship/fore/hallway)
-"qqS" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, aft"
-	},
-/turf/template_noop,
-/area/template_noop)
 "qru" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/maintenance_junk_or_loot,
@@ -21720,6 +21732,12 @@
 /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/modular_freelancer_shuttle/ferry)
+"qTT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aux"
+	},
+/turf/template_noop,
+/area/template_noop)
 "qUq" = (
 /turf/simulated/floor/wood,
 /area/ship/modular_freelancer_ship/fore/hallway)
@@ -22266,12 +22284,6 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/hallway)
-"rDR" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, center"
-	},
-/turf/template_noop,
-/area/template_noop)
 "rFg" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -23454,12 +23466,6 @@
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/fore_a,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/fore/hallway)
-"tpy" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, containers"
-	},
-/turf/template_noop,
-/area/template_noop)
 "tqz" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/legion/grille/firedoor,
 /turf/simulated/floor,
@@ -24018,12 +24024,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/modular_freelancer_shuttle/ferry)
-"uaE" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, aux"
-	},
-/turf/template_noop,
-/area/template_noop)
 "uaI" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -24616,12 +24616,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/modular_freelancer_ship/mid/lounge)
-"vcI" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, port"
-	},
-/turf/template_noop,
-/area/template_noop)
 "vdW" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -26407,12 +26401,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/hallway)
-"xDJ" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, aft, engines"
-	},
-/turf/template_noop,
-/area/template_noop)
 "xEy" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -26499,6 +26487,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"xJu" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, containers"
+	},
+/turf/template_noop,
+/area/template_noop)
 "xJE" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -26621,6 +26615,12 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"xRf" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, aft"
+	},
+/turf/template_noop,
+/area/template_noop)
 "xSt" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/legion,
@@ -31347,7 +31347,7 @@ kjJ
 jNv
 eXP
 aza
-ksH
+brB
 aza
 aza
 aza
@@ -31563,7 +31563,7 @@ aza
 aza
 aza
 amg
-mjY
+gGY
 aza
 aza
 aza
@@ -31965,7 +31965,7 @@ aza
 aza
 aza
 amg
-mjY
+gGY
 aza
 keH
 aCQ
@@ -32077,7 +32077,7 @@ aza
 aza
 aza
 aza
-mjY
+gGY
 aza
 aza
 aza
@@ -32717,7 +32717,7 @@ gZA
 soQ
 eXP
 aza
-ksH
+brB
 aza
 aza
 aza
@@ -33145,7 +33145,7 @@ vGQ
 vGQ
 rAR
 rAR
-ksH
+brB
 aza
 aza
 aza
@@ -34498,7 +34498,7 @@ qrS
 aYG
 ezj
 aza
-rDR
+pfG
 aza
 aza
 aza
@@ -34560,7 +34560,7 @@ kCH
 kCH
 kCH
 nUI
-rDR
+pfG
 aza
 aza
 aza
@@ -34769,7 +34769,7 @@ nTx
 qrS
 aYG
 ezj
-rDR
+pfG
 aza
 aza
 aza
@@ -36128,7 +36128,7 @@ kCH
 kCH
 kCH
 nUI
-vcI
+kKv
 aza
 aza
 aWJ
@@ -36642,7 +36642,7 @@ dhh
 aMJ
 mft
 aza
-vcI
+kKv
 aza
 aza
 aza
@@ -37258,7 +37258,7 @@ aza
 aza
 aza
 aza
-iCB
+bQI
 aza
 aza
 aza
@@ -37529,7 +37529,7 @@ aza
 aza
 aza
 aza
-iCB
+bQI
 aza
 aza
 aza
@@ -37617,7 +37617,7 @@ aza
 amg
 aza
 aza
-iCB
+bQI
 aza
 aza
 mft
@@ -38256,7 +38256,7 @@ nJr
 uDZ
 mft
 aza
-vcI
+kKv
 aza
 aza
 aza
@@ -43706,7 +43706,7 @@ aza
 aza
 amg
 aza
-ikp
+xJu
 aza
 amg
 aza
@@ -44127,7 +44127,7 @@ aza
 acN
 aza
 aza
-ikp
+xJu
 aza
 aza
 aza
@@ -44540,7 +44540,7 @@ aza
 aza
 acN
 aza
-ikp
+xJu
 aza
 aza
 acN
@@ -51605,7 +51605,7 @@ aza
 aza
 tkf
 aza
-tpy
+fCm
 aza
 aza
 tkf
@@ -51820,7 +51820,7 @@ aza
 tkf
 aza
 aza
-tpy
+fCm
 aza
 aza
 aza
@@ -52341,7 +52341,7 @@ aza
 aza
 amg
 aza
-tpy
+fCm
 aza
 amg
 aza
@@ -63696,7 +63696,7 @@ aza
 aza
 aza
 aza
-dUu
+ctw
 aza
 aza
 aza
@@ -63829,7 +63829,7 @@ amg
 amg
 aza
 aza
-dUu
+ctw
 aza
 aza
 aza
@@ -70599,7 +70599,7 @@ aza
 aza
 aza
 amg
-iJX
+gWa
 aza
 aza
 amg
@@ -70898,7 +70898,7 @@ aza
 aza
 aza
 aza
-iJX
+gWa
 aza
 aza
 aza
@@ -75097,7 +75097,7 @@ aza
 aza
 aza
 aza
-uaE
+qTT
 aza
 aza
 aza
@@ -76241,7 +76241,7 @@ aza
 acN
 aza
 aza
-uaE
+qTT
 aza
 aza
 amg
@@ -76845,7 +76845,7 @@ aza
 aza
 aza
 aza
-uaE
+qTT
 aza
 aza
 aza
@@ -77044,7 +77044,7 @@ aza
 aza
 aza
 aza
-uaE
+qTT
 aza
 aza
 aUo
@@ -81597,7 +81597,7 @@ aza
 aza
 aza
 aza
-pDF
+jkv
 aza
 aza
 aUo
@@ -82207,7 +82207,7 @@ aza
 amg
 aza
 aza
-pDF
+jkv
 aza
 aza
 amg
@@ -82341,7 +82341,7 @@ aza
 aza
 aza
 aza
-pDF
+jkv
 aza
 aza
 aza
@@ -83418,7 +83418,7 @@ aza
 aza
 aza
 aza
-pDF
+jkv
 aza
 aza
 aza
@@ -88507,7 +88507,7 @@ ngY
 bGT
 fSs
 aza
-qqS
+qdx
 aza
 aza
 aza
@@ -88963,7 +88963,7 @@ aza
 aza
 aza
 aza
-kbK
+bvd
 aza
 aza
 amg
@@ -89119,7 +89119,7 @@ aza
 aza
 aza
 aza
-hjK
+fGy
 aza
 aza
 aza
@@ -90999,7 +90999,7 @@ aza
 aMv
 aza
 aza
-qcP
+iLf
 aza
 bfZ
 bfZ
@@ -93044,7 +93044,7 @@ aza
 aza
 aza
 aza
-xDJ
+ioB
 aza
 aza
 aza
@@ -93202,7 +93202,7 @@ aza
 aza
 aza
 aza
-hyL
+fUb
 aza
 aza
 amg
@@ -93688,7 +93688,7 @@ fZa
 fZa
 fSs
 aza
-nAx
+xRf
 aza
 aza
 aza
