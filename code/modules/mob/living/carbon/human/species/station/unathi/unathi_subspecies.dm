@@ -1,5 +1,6 @@
 /datum/species/unathi/unathi_urawani
 	name = SPECIES_UNATHI_URAWANI
+	short_name = "ura"
 	name_plural = "Urawani Sinta"
 	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
 	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
@@ -45,7 +46,6 @@
 
 	pain_mod = 1				// Standard pain
 	fall_mod = 0.9				// Acclimated to quick movement through trees
-	radiation_mod = 0.9			// While adaptable, Urawani are not adjusted to radiation like Azaziba
 	grab_mod = 1				// Lithe and wily variants
 	resist_mod = 1.5 			// Physically the weakest sinta, but still big lizardmen
 	toxins_mod = 1.1			// They pump blood very quickly
@@ -101,6 +101,7 @@
 
 /datum/species/unathi/unathi_Ziralixi
 	name = SPECIES_UNATHI_ZIRALIXI
+	short_name = "zir"
 	name_plural = "Ziralixi Sinta"
 	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
 	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
@@ -147,16 +148,17 @@
 	hydration_loss_factor = 0.9
 
 	pain_mod = 1				// Standard pain
-	radiation_mod = 0.9			// While adaptable, Ziralixi are not adjusted to radiation like Azaziba
 	grab_mod = 1.25				// Easier to grab than Urawani
 	resist_mod = 2				// Not as strong as Azaziba but still fairly buff
 	flash_mod = 1.1				// Parietal eye sensitivity
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_SMALL,
-		melee = ARMOR_MELEE_MEDIUM,
+		ballistic = ARMOR_BALLISTIC_MINOR,
+		melee = ARMOR_MELEE_KNIVES,
+		laser = ARMOR_LASER_SMALL,
 		rad =  ARMOR_RAD_MINOR,
 		bio = ARMOR_BIO_MINOR
+
 	)							// Tuberculate integumentary system plus subtympanic shield
 
 	climb_coeff = 1.1			// Closer to Azaziba than Urawani here

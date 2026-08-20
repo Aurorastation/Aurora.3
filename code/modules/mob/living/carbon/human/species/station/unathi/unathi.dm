@@ -1,7 +1,7 @@
 /datum/species/unathi
 	name = SPECIES_UNATHI
-	short_name = "una"
-	name_plural = "Unathi"
+	short_name = "aza"
+	name_plural = "Azaziba"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
 	species_height = HEIGHT_CLASS_HUGE
@@ -36,13 +36,13 @@
 	mob_strength = MOB_STRENGTH_STRONG
 	pain_mod = 0.9				// Crocodilian pain tolerance
 	fall_mod = 1.2				// They are heavy and ungraceful.
-	radiation_mod = 0.8			// Azaziba are the sinta that survived and adapted to irradiated zones
 	grab_mod = 1.5				// Huge, usually have horns
 	resist_mod = 2.5 			// Arguably our strongest organic species
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_PISTOL,
-		melee = ARMOR_MELEE_KEVLAR,
+		ballistic = ARMOR_BALLISTIC_SMALL,
+		melee = ARMOR_MELEE_MEDIUM,
+		laser = ARMOR_LASER_MINOR,
 		rad =  ARMOR_RAD_SMALL
 	)							// Crocodilian integumentary system
 
