@@ -10,11 +10,17 @@
 	var/tmp/waiting_for_roundstart
 
 /obj/structure/machinery/door/airlock/receive_signal(datum/signal/signal)
-	if (!arePowerSystemsOn()) return //no power
-
 	if(!signal || signal.encryption) return
 
 	if(id_tag != signal.data["tag"] || !signal.data["command"]) return
+
+	// Status requests need to work while the door is unpowered so that remote
+	// controllers can distinguish a power failure from a closed, locked door.
+	if(signal.data["command"] == "update")
+		send_status()
+		return
+
+	if (!arePowerSystemsOn()) return //no power
 
 	cur_command = signal.data["command"]
 	execute_current_command()
@@ -112,6 +118,7 @@
 
 		signal.data["door_status"] = density?("closed"):("open")
 		signal.data["lock_status"] = locked?("locked"):("unlocked")
+		signal.data["power"] = arePowerSystemsOn()
 
 		if (bumped)
 			signal.data["bumped_with_access"] = 1

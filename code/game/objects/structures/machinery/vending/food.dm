@@ -117,3 +117,54 @@
 		/obj/item/storage/box/fancy/toptarts_blueberry = 5.00,
 		/obj/item/storage/box/unique/donkpockets = 11.00
 	)
+
+/obj/structure/machinery/vending/idris_delights
+	name = "\improper idris delights vendor"
+	desc = "A selection of delicious cold ice creams and popsicles, brought to you by the Idris corporation. The various colors form the ice creams on offer stand out from the monochromatic Idris color scheme."
+	icon_state = "idrisdelight"
+	icon_screen = "idrisdelight-screen"
+	icon_vend = "idrisdelight-vend"
+	icon_deny = "idrisdelight-deny"
+	light_mask = "idrisdelight-lightmask"
+
+	product_slogans = "It's always summer somewhere!"
+	idle_power_usage = 255
+	temperature_setting = -1
+	light_range = 2
+	light_color = COLOR_BABY_BLUE
+	products = list(
+		/obj/item/storage/box/fancy/popsicle/choc_o_block_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/odin_pop_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/burrly_duo_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/burrly_white_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/swimstars_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/idrice_strawberry_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/idrice_lemon_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/idrice_cola_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/sunsicle_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/dreamwich_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/torpedo_classic_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dirtberry_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dyn_packaged = 3
+	)
+	premium = list(
+		/obj/item/storage/box/fancy/popsicle/chocolate_taco_packaged = 2
+	)
+	contraband = list(
+		/obj/item/storage/box/fancy/popsicle/traitor_pop_packaged = 5
+	)
+	prices = list(
+		/obj/item/storage/box/fancy/popsicle/choc_o_block_packaged = 1.80,
+		/obj/item/storage/box/fancy/popsicle/odin_pop_packaged = 2.50,
+		/obj/item/storage/box/fancy/popsicle/burrly_duo_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/burrly_white_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/swimstars_packaged = 3.50,
+		/obj/item/storage/box/fancy/popsicle/idrice_strawberry_packaged = 1.00,
+		/obj/item/storage/box/fancy/popsicle/idrice_lemon_packaged = 1.00,
+		/obj/item/storage/box/fancy/popsicle/idrice_cola_packaged = 1.00,
+		/obj/item/storage/box/fancy/popsicle/sunsicle_packaged = 2.00,
+		/obj/item/storage/box/fancy/popsicle/dreamwich_packaged = 2.00,
+		/obj/item/storage/box/fancy/popsicle/torpedo_classic_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dirtberry_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dyn_packaged = 4.00
+	)

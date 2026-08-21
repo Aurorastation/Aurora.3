@@ -858,3 +858,45 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/milk/adhomai/fermented = 1, /singleton/reagent/nutriment/protein/cheese = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("pretzel" = 3), /singleton/reagent/nutriment/protein/cheese = list("chewy cheese" = 3))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/breadbake_meat
+	name = "meat thamo"
+	desc = "An Adhomian pastry made of thick bread enveloping a filling of ground meat mixed with Messa's Tear and rock salt. Traditionally eaten with utensils, unlike the similarly made Rikazus that were inspired from it. Other cultures sometimes mistake it for handheld food, often with messy results."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "breadbake_meat"
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("thick dough" = 4), /singleton/reagent/nutriment/protein = list("salty meat" = 4, "honey" = 2))
+	filling_color = "#422f12"
+
+/obj/item/reagent_containers/food/snacks/breadbake_meat/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_breadbake_meat = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_breadbake_meat)
+		if(0 to 50)
+			icon_state = "breadbake_meat_half"
+		if(51 to INFINITY)
+			icon_state = "breadbake_meat"
+
+/obj/item/reagent_containers/food/snacks/breadbake_cheese
+	name = "cheese thamo"
+	desc = "An Adhomian pastry made of thick bread enveloping a filling of Adhomian cheese mixed with Messa's Tear. Originally named Tha'la Lekhshoma which roughly translates to breadbake in Common. However, this name has gradually been overtaken by the newer Siik name of Thamo."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "breadbake_cheese"
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/cheese = 3, /singleton/reagent/drink/milk/adhomai/fermented = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("thick dough" = 4, "honey" = 2), /singleton/reagent/nutriment/protein/cheese = list("salted cheese" = 10))
+	filling_color = "#e6e5e5"
+
+/obj/item/reagent_containers/food/snacks/breadbake_cheese/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_breadbake_cheese = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_breadbake_cheese)
+		if(0 to 50)
+			icon_state = "breadbake_cheese_half"
+		if(51 to INFINITY)
+			icon_state = "breadbake_cheese"

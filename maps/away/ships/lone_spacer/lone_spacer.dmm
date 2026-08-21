@@ -212,7 +212,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/lone_spacer,
+/obj/effect/map_effect/marker/airlock/external/lone_spacer,
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_x = -27;
 	dir = 4
@@ -1077,7 +1077,7 @@
 "oZ" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/lone_spacer,
+/obj/effect/map_effect/marker/airlock/external/lone_spacer,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = -29;
@@ -1738,7 +1738,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock/lone_spacer,
+/obj/effect/map_effect/marker/airlock/external/lone_spacer,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
 	pixel_x = 27;

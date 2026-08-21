@@ -315,7 +315,7 @@ There are several things that need to be remembered:
 	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lipstick_color || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
-		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
+		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])][eyes.eyes_closed ? "closed" : "open"]"
 	else
 		icon_key += "#000000"
 
@@ -1350,11 +1350,13 @@ There are several things that need to be remembered:
 	overlays_raw[TAIL_NORTH_LAYER] = null
 	overlays_raw[TAIL_SOUTH_LAYER] = null
 
-	var/tail_layer = GET_TAIL_LAYER
-
 	if(species.tail && !(mutations & HUSK) && !(mutations & SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
+		// Keep both ordering slots populated. The _n states contain pixels only in
+		// their north-facing frame, so the renderer naturally selects the correct
+		// layer when this appearance is copied and given a new direction.
+		overlays_raw[TAIL_SOUTH_LAYER] = image(tail_s, icon_state = "[tail_style]_s")
+		overlays_raw[TAIL_NORTH_LAYER] = image(tail_s, icon_state = "[tail_style]_s_n")
 		animate_tail_reset(FALSE)
 		update_tail_accessory(FALSE)
 
@@ -1384,16 +1386,18 @@ There are several things that need to be remembered:
 	if(!tail_style)
 		return
 
-	var/tail_layer = GET_TAIL_LAYER
-	var/image/tail_overlay = overlays_raw[tail_layer]
+	var/image/tail_overlay = overlays_raw[TAIL_SOUTH_LAYER]
+	var/image/north_tail_overlay = overlays_raw[TAIL_NORTH_LAYER]
 
 	var/obj/item/clothing/tail_accessory/TA = get_tail_accessory()
 	if(TA && !(tail_style in TA.compatible_animated_tail))
 		mob_state = "[tail_style]_static"
 
 	if(tail_overlay && species.tail_animation)
-		if(tail_overlay.icon_state != mob_state)
+		if(tail_overlay.icon_state != mob_state || (north_tail_overlay && north_tail_overlay.icon_state != "[mob_state]_n"))
 			tail_overlay.icon_state = mob_state
+			if(north_tail_overlay)
+				north_tail_overlay.icon_state = "[mob_state]_n"
 			update_tail_accessory(update)
 		return tail_overlay
 	return null
@@ -1403,9 +1407,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/animate_tail_once()
 	var/mob_state = "[tail_style]_once"
 
-	var/tail_layer = GET_TAIL_LAYER
-
-	var/image/tail_overlay = overlays_raw[tail_layer]
+	var/image/tail_overlay = overlays_raw[TAIL_SOUTH_LAYER]
 	if(tail_overlay && tail_overlay.icon_state == mob_state)
 		return //let the existing animation finish
 
@@ -1415,8 +1417,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
-	var/tail_layer = GET_TAIL_LAYER
-	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[tail_style]_once")
+	if(overlays_raw[TAIL_SOUTH_LAYER] == tail_overlay && tail_overlay.icon_state == "[tail_style]_once")
 		animate_tail_stop()
 		update_tail_accessory()
 
@@ -1443,11 +1444,12 @@ There are several things that need to be remembered:
 	if(!TA)
 		return
 
-	var/image/tail_overlay = overlays_raw[GET_TAIL_LAYER]
+	var/image/tail_overlay = overlays_raw[TAIL_SOUTH_LAYER]
 	if(!tail_overlay)
 		return
 
-	overlays_raw[GET_TAIL_ACC_LAYER] = TA.get_mob_overlay(src, TA.icon, "[tail_overlay.icon_state]_to", slot_tail_str)
+	overlays_raw[TAIL_SOUTH_ACC_LAYER] = TA.get_mob_overlay(src, TA.icon, "[tail_overlay.icon_state]_to", slot_tail_str)
+	overlays_raw[TAIL_NORTH_ACC_LAYER] = TA.get_mob_overlay(src, TA.icon, "[tail_overlay.icon_state]_to_n", slot_tail_str)
 
 	if(update_icons)
 		update_icon()

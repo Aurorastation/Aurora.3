@@ -1,0 +1,5 @@
+author: fyni
+delete-after: True
+changes:
+  - rscadd: "Adds the [!] to the gravity anomoly overmap icon."
+  - rscadd: "Adds a new psiren overmap icon, so they no longer share an icon with carp."
