@@ -1,9 +1,10 @@
-/datum/map_template/ruin/away_site/port_volturno
+/datum/map/event/port_volturno
 	name = "Assunzione - Port Volturno"
-	id = "port_volturno"
+	// id = "port_volturno"
 	description = "A landing zone designated by local authorities within a Zeng-Hu-affiliated spaceport in the planetary capital of Triesto. Accommodations have been made to ensure full visitation of any open facilities present."
-	sectors = list(SECTOR_AL_MAQDISI)
-
+	// sectors = list(SECTOR_AL_MAQDISI)
+	path = "event/port_volturno"
+	allowed_jobs = list(/datum/job/visitor)
 	traits = list(
 		//Z1
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_PORTOFCALL = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
@@ -11,14 +12,14 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_PORTOFCALL = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
-	prefix = "away_site/assunzione/port_volturno/"
-	suffix = "port_volturno.dmm"
+	// prefix = "away_site/assunzione/port_volturno/"
+	// suffix = "port_volturno.dmm"
 
-	spawn_weight = 1
-	spawn_cost = 1
-	template_flags = TEMPLATE_FLAG_PORT_SPAWN
+	// spawn_weight = 1
+	// spawn_cost = 1
+	// template_flags = TEMPLATE_FLAG_PORT_SPAWN
 
-	unit_test_groups = list(2)
+	// unit_test_groups = list(2)
 
 /singleton/submap_archetype/port_volturno
 	map = "port_volturno"
