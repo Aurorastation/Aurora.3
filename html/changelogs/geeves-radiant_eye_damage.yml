@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - balance: "Welding arcs now damage the eyes of visible onlookers within two tiles who are facing the welder and are not wearing eye protection."
