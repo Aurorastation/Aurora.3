@@ -41259,6 +41259,7 @@
 /obj/structure/window/reinforced/polarized{
 	id = "media_office_private_tint"
 	},
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew/media_office)
 "fsY" = (
@@ -55167,6 +55168,7 @@
 /obj/structure/machinery/status_display{
 	pixel_x = 32
 	},
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew/media_office)
 "hjK" = (
@@ -65329,7 +65331,6 @@
 	dir = 1
 	},
 /obj/structure/table/glass,
-/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew/media_office)
 "izo" = (
@@ -183490,11 +183491,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor,
 /area/centcom/holding)
-"xFm" = (
-/obj/structure/table/glass,
-/obj/structure/machinery/light/small/floor,
-/turf/simulated/floor/carpet/rubber,
-/area/horizon/crew/media_office)
 "xFx" = (
 /obj/structure/machinery/optable,
 /obj/effect/floor_decal/corner/paleblue/diagonal{
@@ -358879,7 +358875,7 @@ pKn
 aCj
 izm
 qaS
-xFm
+qaS
 nRY
 lTT
 rOC
