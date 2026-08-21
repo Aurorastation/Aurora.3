@@ -53,7 +53,7 @@ Contains:
 				return 1
 
 		if(affecting.status & ORGAN_LIFELIKE)
-			if(!(LIMB_GET_BRUTE_DAMAGE(affecting) || LIMB_GET_BURN_DAMAGE(affecting)))
+			if(!(affecting.brute_dam || affecting.burn_dam))
 				to_chat(user, SPAN_NOTICE("[target_mob] seems healthy, there are no wounds to treat! "))
 				return 1
 
