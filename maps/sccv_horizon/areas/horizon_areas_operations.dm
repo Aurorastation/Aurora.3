@@ -46,7 +46,6 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	lightswitch = FALSE
 
-
 /area/horizon/operations/office
 	name = "Office"
 	icon_state = "quartoffice"
