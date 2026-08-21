@@ -26,8 +26,6 @@
 
 	ID.mining_points = adjusted_points
 	var/mob/living/carbon/human/card_owner = ID.mob_id?.resolve()
-	if(!card_owner?.character_id)
-		return FALSE
 
 	SSpersistence.historyAddCharacterRecord(
 		/singleton/persistent_type/history/character/mining_point_balance,
