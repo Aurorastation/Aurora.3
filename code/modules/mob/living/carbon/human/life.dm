@@ -883,11 +883,11 @@
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
 			drowsiness = max(0, drowsiness - 5)
-			adjustHalLoss(-0.3)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-0.1)
+			adjustHalLoss(-0.1 * seconds_per_tick)
 
 		//Other
 		handle_statuses()
