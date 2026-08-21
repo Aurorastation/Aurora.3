@@ -24743,7 +24743,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "djX" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1
@@ -31368,6 +31368,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/brown,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/break_room)
 "ebQ" = (
@@ -37117,7 +37120,7 @@
 	name = "Shower"
 	},
 /turf/simulated/floor/tiled/full,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "eRe" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 1
@@ -37729,6 +37732,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/break_room)
@@ -53889,8 +53895,9 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "hbb" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
@@ -70854,6 +70861,9 @@
 /obj/structure/machinery/light_switch/south{
 	pixel_x = 7
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/break_room)
 "jkY" = (
@@ -73766,7 +73776,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/wall,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "jEi" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/operations/commissary)
@@ -77799,8 +77809,11 @@
 /obj/structure/mirror{
 	pixel_x = 27
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "kfN" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -78237,7 +78250,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "kiL" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -79832,6 +79845,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion/starboard)
+"ktn" = (
+/turf/simulated/wall,
+/area/horizon/operations/restroom)
 "ktp" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -90864,7 +90880,7 @@
 /obj/item/bikehorn/rubberducky,
 /obj/structure/machinery/light_switch/south,
 /turf/simulated/floor/tiled/white,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "lNq" = (
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 1;
@@ -115589,7 +115605,7 @@
 	req_one_access = list(31,67)
 	},
 /turf/simulated/floor/plating,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "oZY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -116545,8 +116561,11 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "pgw" = (
 /obj/random/pottedplant,
 /obj/structure/railing/mapped,
@@ -119675,7 +119694,7 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "pCe" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/access_button{
@@ -122642,7 +122661,7 @@
 	must_start_working = 1
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "pVY" = (
 /obj/structure/machinery/door/blast/regular{
 	dir = 2;
@@ -137522,8 +137541,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/machinery/power/apc/low/north,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/white,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "rPE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -148034,6 +148057,12 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/sign/radshield{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/break_room)
@@ -172862,6 +172891,9 @@
 	dir = 10
 	},
 /obj/item/radio/intercom/south,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/break_room)
 "wqn" = (
@@ -181580,8 +181612,11 @@
 	name = "Washroom"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/full,
-/area/horizon/operations/break_room)
+/area/horizon/operations/restroom)
 "xsT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -272854,10 +272889,10 @@ eIx
 nHy
 nEW
 fJX
-nwj
-nwj
-nwj
-nwj
+ktn
+ktn
+ktn
+ktn
 xUQ
 nwj
 nwj
@@ -273112,9 +273147,9 @@ bhJ
 xpH
 fJX
 pVT
-nwj
+ktn
 pCd
-nwj
+ktn
 iHG
 jsO
 xva
@@ -273369,9 +273404,9 @@ msC
 gyK
 fJX
 eQX
-nwj
+ktn
 kiJ
-nwj
+ktn
 rNQ
 uGE
 aOf
@@ -273628,7 +273663,7 @@ fJX
 haW
 djR
 lNh
-nwj
+ktn
 fSu
 uGE
 aOf
@@ -274140,8 +274175,8 @@ tDL
 ipZ
 fJX
 oZX
-nwj
-nwj
+ktn
+ktn
 jEc
 lhf
 wqm
