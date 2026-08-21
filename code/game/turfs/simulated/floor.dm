@@ -28,6 +28,17 @@
 	// ideally this shouldn't be true by default, not all turfs have edges
 	var/has_edge_icon = TRUE
 
+/turf/simulated/floor/Initialize()
+	. = ..()
+	var/area/area = loc
+	if(area.generate_dirt > 0)
+		var/dirt_to_spawn = round(area.generate_dirt / 100)
+		if(prob(area.generate_dirt % 100))
+			dirt_to_spawn++
+		while(dirt_to_spawn > 0)
+			new /obj/effect/decal/cleanable/dirt(src)
+			dirt_to_spawn--
+
 /turf/simulated/floor/examine_descriptor(mob/user)
 	return "floor"
 
