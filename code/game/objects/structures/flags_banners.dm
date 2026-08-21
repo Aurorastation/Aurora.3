@@ -171,7 +171,12 @@
 	if(isfloor(user.loc))
 		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
 		user.drop_from_inventory(src)
-		new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
+		var/obj/structure/sign/flag/F = new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
+		F.name = src.name
+		F.desc = src.desc
+		if(F.linked_flag)
+			F.linked_flag.name = src.name
+			F.linked_flag.desc = src.desc
 		qdel(src)
 
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent)
@@ -192,7 +197,12 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
-	new flag_structure(user.loc, placement_dir, deploy = TRUE, item_flag_path = flag_path)
+	var/obj/structure/sign/flag/F = new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
+	F.name = src.name
+	F.desc = src.desc
+	if(F.linked_flag)
+		F.linked_flag.name = src.name
+		F.linked_flag.desc = src.desc
 	qdel(src)
 
 
@@ -222,6 +232,8 @@
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src] and folds it back up."), SPAN_NOTICE("You unfasten \the [src] and fold it back up."))
 		var/obj/item/flag/F = new flag_item(get_turf(user))
+		F.name = src.name
+		F.desc = src.desc
 		user.put_in_hands(F)
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] unfastens the tattered remnants of \the [src]."), SPAN_NOTICE("You unfasten the tattered remains of \the [src]."))

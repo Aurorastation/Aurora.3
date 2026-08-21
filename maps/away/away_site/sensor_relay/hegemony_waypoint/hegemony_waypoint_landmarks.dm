@@ -36,30 +36,30 @@
 	landmark_tag = "hegemony_waypoint_n_space"
 
 // Airlocks
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/south
+/obj/effect/map_effect/marker/airlock/external/hegemony_waypoint/south
 	name = "South Airlock"
 	master_tag = "hegemony_waypoint_south"
 
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/north
+/obj/effect/map_effect/marker/airlock/external/hegemony_waypoint/north
 	name = "North Airlock"
 	master_tag = "hegemony_waypoint_north"
 
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/west
+/obj/effect/map_effect/marker/airlock/external/hegemony_waypoint/west
 	name = "West Airlock"
 	master_tag = "hegemony_waypoint_west"
 
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/east
+/obj/effect/map_effect/marker/airlock/external/hegemony_waypoint/east
 	name = "East Airlock"
 	master_tag = "hegemony_waypoint_east"
 
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/maintenance1
+/obj/effect/map_effect/marker/airlock/external/hegemony_waypoint/maintenance1
 	name = "Maintenance Airlock #1"
 	master_tag = "hegemony_waypoint_maintenance1"
 
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/maintenance2
+/obj/effect/map_effect/marker/airlock/external/hegemony_waypoint/maintenance2
 	name = "Maintenance Airlock #2"
 	master_tag = "hegemony_waypoint_maintenance2"
 
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/maintenance3
+/obj/effect/map_effect/marker/airlock/external/hegemony_waypoint/maintenance3
 	name = "Maintenance Airlock #3"
 	master_tag = "hegemony_waypoint_maintenance3"

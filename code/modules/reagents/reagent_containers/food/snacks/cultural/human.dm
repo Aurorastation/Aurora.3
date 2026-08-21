@@ -607,6 +607,17 @@
 	icon_state = "eggroll_meat"
 	filling_color = "#613e16"
 
+/obj/item/reagent_containers/food/snacks/takoyaki
+	name = "takoyaki"
+	desc = "It's notoriously impossible to get good, authentic Takoyaki in space. While batter, green onions and mayonnaise are reasonably accessible - good squid meat or pickled ginger are a bit more difficult. Not to mention, fried Bonito fish shavings, Takoyaki sauce, or the special round pans used to make Takoyaki in the firstplace are all downright impossible unless you're in an area with a very large Japanese or Konyanger population. As such - if you get Takoyaki anywhere else, be cautious and expect substitutions."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "takoyaki"
+	filling_color = "#C97F02"
+	trash = /obj/item/trash/chipbasket
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried batter" = 4), /singleton/reagent/nutriment/protein/seafood = list("gooey squid" = 5, "umami" = 4))
+	bitesize = 2
+
 // Mictlani
 
 /obj/item/reagent_containers/food/snacks/soup/pozole

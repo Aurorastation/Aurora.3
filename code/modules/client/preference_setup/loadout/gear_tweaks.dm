@@ -153,7 +153,7 @@ Path adjustment
 	return pick(valid_paths)
 
 /datum/gear_tweak/path/get_metadata(var/user, var/metadata)
-	return tgui_input_list(user, "Choose a type.", "Character Preference", valid_paths, metadata)
+	return tgui_gear_selection(user, valid_paths, metadata)
 
 /datum/gear_tweak/path/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
 	if(metadata in valid_paths)

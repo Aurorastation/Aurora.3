@@ -205,11 +205,15 @@
 	check_ammo()
 
 /obj/item/ammo_pile/proc/scatter()
+	var/turf/T = get_turf(src)
 	for(var/thing in ammo)
 		var/obj/bullet = thing
-		bullet.forceMove(get_turf(src))
+		UnregisterSignal(bullet, COMSIG_QDELETING)
+		bullet.forceMove(T)
 		bullet.throw_at_random(FALSE, 2, 7)
-		remove_ammo(bullet)
+	ammo.Cut()
+	CutOverlays()
+	qdel(src)
 
 /obj/item/ammo_pile/throw_at()
 	..()
