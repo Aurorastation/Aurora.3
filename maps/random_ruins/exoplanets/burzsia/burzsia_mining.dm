@@ -43,7 +43,7 @@
 	icon_state = "anolab"
 
 // Airlock Marker
-/obj/effect/map_effect/marker/airlock/burzsia_mining
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining
 	name = "Primary Airlock"
 	master_tag = "airlock_burzsia_mining_primary"
 	cycle_to_external_air = TRUE

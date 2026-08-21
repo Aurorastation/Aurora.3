@@ -255,8 +255,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "hs" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -341,7 +341,7 @@
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "jA" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -638,7 +638,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "pK" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
@@ -894,7 +894,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
 "vt" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/structure/machinery/airlock_sensor{
@@ -1185,14 +1185,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "Bn" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "Bo" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
@@ -1280,8 +1280,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "DG" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
@@ -1528,7 +1528,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "JL" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -1644,7 +1644,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
@@ -1661,7 +1661,7 @@
 /turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "MA" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
@@ -1834,7 +1834,7 @@
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "Qk" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -1976,7 +1976,7 @@
 	dir = 10
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/structure/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20;
@@ -1986,7 +1986,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "TM" = (
-/obj/effect/map_effect/marker/airlock/burzsia_mining,
+/obj/effect/map_effect/marker/airlock/external/burzsia_mining,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},

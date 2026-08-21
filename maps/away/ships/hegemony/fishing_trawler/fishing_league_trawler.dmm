@@ -35,7 +35,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -511,7 +511,7 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "eH" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"
@@ -641,7 +641,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"
@@ -1008,7 +1008,7 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "jk" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -1335,7 +1335,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -1672,7 +1672,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"
@@ -2198,7 +2198,7 @@
 /area/ship/fishing_trawler/bridge)
 "ri" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -2899,7 +2899,7 @@
 	dir = 1;
 	pixel_y = -21
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -3064,7 +3064,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"
@@ -3587,7 +3587,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"
@@ -4034,7 +4034,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -4557,7 +4557,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"
@@ -4769,7 +4769,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -5064,7 +5064,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "fore_starboard_airlock";
 	name = "fore_starboard_airlock"
@@ -5494,7 +5494,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
 "Qs" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"
@@ -6327,7 +6327,7 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "Xf" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1005;
 	master_tag = "port_starboard_airlock";
 	name = "port_starboard_airlock"

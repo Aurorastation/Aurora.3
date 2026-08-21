@@ -59,7 +59,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /obj/structure/machinery/light/small/red{
 	dir = 4
 	},
@@ -352,7 +352,7 @@
 	pixel_y = -6
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
@@ -502,7 +502,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "od" = (
@@ -675,7 +675,7 @@
 "sI" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
@@ -817,7 +817,7 @@
 	},
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
@@ -843,7 +843,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
 "xW" = (
@@ -855,7 +855,7 @@
 	pixel_y = -6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 7;
 	dir = 4;
@@ -1254,7 +1254,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/sol_bunker,
+/obj/effect/map_effect/marker/airlock/external/sol_bunker,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
 /area/sol_bunker)
