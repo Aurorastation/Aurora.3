@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Made passive pain recovery 10x as fast and tick-invariant."
