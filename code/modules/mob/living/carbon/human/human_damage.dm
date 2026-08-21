@@ -72,7 +72,7 @@
 /mob/living/carbon/human/getHalLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
-		amount += LIMB_GET_PAIN(E)
+		amount += E.get_pain()
 	return amount
 
 ///These procs fetch a cumulative total damage from all organs
@@ -81,7 +81,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
 			continue //robot limbs don't count towards shock and crit
-		amount += LIMB_GET_BRUTE_DAMAGE(O)
+		amount += O.brute_dam
 	return amount
 
 /mob/living/carbon/human/getFireLoss()
@@ -89,7 +89,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
 			continue //robot limbs don't count towards shock and crit
-		amount += LIMB_GET_BURN_DAMAGE(O)
+		amount += O.burn_dam
 	return amount
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
@@ -133,7 +133,7 @@
 /mob/living/carbon/human/getCloneLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
-		amount += LIMB_GET_GENETIC_DAMAGE(E)
+		amount += E.get_genetic_damage()
 	return amount
 
 /mob/living/carbon/human/setCloneLoss(var/amount)
@@ -286,7 +286,7 @@
 			continue
 
 		if(heal)
-			if(LIMB_GET_PAIN(E) > 0)
+			if(E.get_pain() > 0)
 				amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
@@ -309,7 +309,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(!prosthetic && BP_IS_ROBOTIC(O))
 			continue
-		if((brute && LIMB_GET_BRUTE_DAMAGE(O)) || (burn && LIMB_GET_BURN_DAMAGE(O)))
+		if((brute && O.brute_dam) || (burn && O.burn_dam))
 			parts += O
 	return parts
 
@@ -360,13 +360,13 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	while(parts.len && (brute>0 || burn>0) )
 		var/obj/item/organ/external/picked = pick(parts)
 
-		var/brute_was = LIMB_GET_BRUTE_DAMAGE(picked)
-		var/burn_was = LIMB_GET_BURN_DAMAGE(picked)
+		var/brute_was = picked.brute_dam
+		var/burn_was = picked.burn_dam
 
 		update |= picked.heal_damage(brute,burn)
 
-		brute -= (brute_was - LIMB_GET_BRUTE_DAMAGE(picked))
-		burn -= (burn_was - LIMB_GET_BURN_DAMAGE(picked))
+		brute -= (brute_was-picked.brute_dam)
+		burn -= (burn_was-picked.burn_dam)
 
 		parts -= picked
 	updatehealth()
@@ -383,12 +383,12 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	while(parts.len && (brute>0 || burn>0) )
 		var/obj/item/organ/external/picked = pick(parts)
 
-		var/brute_was = LIMB_GET_BRUTE_DAMAGE(picked)
-		var/burn_was = LIMB_GET_BURN_DAMAGE(picked)
+		var/brute_was = picked.brute_dam
+		var/burn_was = picked.burn_dam
 
 		update = picked.take_damage(brute, burn, damage_flags, used_weapon) ? TRUE : FALSE
-		brute	-= (LIMB_GET_BRUTE_DAMAGE(picked) - brute_was)
-		burn	-= (LIMB_GET_BURN_DAMAGE(picked) - burn_was)
+		brute	-= (picked.brute_dam - brute_was)
+		burn	-= (picked.burn_dam - burn_was)
 
 		parts -= picked
 	updatehealth()
