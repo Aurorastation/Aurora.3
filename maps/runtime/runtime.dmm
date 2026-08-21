@@ -100,6 +100,20 @@
 /obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/main)
+"an" = (
+/obj/structure/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the AI core maintenance door.";
+	id = "runtime_blastdoors";
+	name = "Runtime Safety Blast Doors";
+	pixel_y = 4;
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/runtime/floor_two/main)
 "ao" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -121,6 +135,30 @@
 /obj/structure/machinery/light/floor,
 /turf/simulated/floor/tiled/bitile,
 /area/runtime/floor_one/main)
+"aq" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/camera/network/civilian_main{
+	c_tag = "Upper Floor 3";
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/runtime/floor_two/main)
+"ar" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/runtime/floor_two/main)
+"as" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/runtime/floor_two/main)
 "at" = (
 /obj/effect/shuttle_landmark/supply/horizon/dock{
 	dir = 1
@@ -128,6 +166,12 @@
 /obj/structure/railing/retractable,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_one/main)
+"au" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/full,
+/area/runtime/floor_one/construction)
 "av" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/full,
@@ -727,7 +771,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
 /turf/simulated/floor/plating,
 /area/runtime/floor_two/main)
 "ca" = (
@@ -1262,6 +1306,14 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/main)
+"dB" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/turf/simulated/floor/airless,
+/area/runtime/floor_one/construction)
 "dC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -1294,6 +1346,20 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
+"dI" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 4
+	},
+/obj/structure/machinery/access_button{
+	pixel_x = 9;
+	pixel_y = 33;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/runtime/dock/west,
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_one/construction)
 "dL" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -2240,6 +2306,18 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
+"jg" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 24;
+	pixel_x = 10
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/turf/simulated/floor/airless,
+/area/runtime/floor_one/construction)
 "ji" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 1
@@ -2576,7 +2654,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
 /turf/simulated/floor/plating,
 /area/runtime/floor_two/main)
 "lk" = (
@@ -2844,6 +2922,15 @@
 	},
 /turf/simulated/floor/airless,
 /area/runtime/floor_one/atmospherics)
+"mz" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/runtime/dock/south,
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_two/main)
 "mA" = (
 /obj/structure/railing/mapped/no_density/low,
 /turf/simulated/floor/airless,
@@ -2971,6 +3058,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/supply/dock)
+"nm" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_two/main)
 "np" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3323,6 +3421,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/runtime/floor_two/bridge)
+"pA" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/airlock_sensor{
+	pixel_x = -9;
+	pixel_y = 26
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/turf/simulated/floor/airless,
+/area/runtime/floor_one/construction)
 "pD" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -3360,6 +3467,15 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/runtime/floor_one/atmospherics)
+"pU" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/obj/structure/machinery/light/small/emergency{
+	dir = 4;
+	pixel_x = 11
+	},
+/turf/simulated/floor/airless,
+/area/runtime/floor_two/main)
 "pV" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 10
@@ -3841,6 +3957,20 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
+"sD" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_one/construction)
 "sE" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -4381,6 +4511,14 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/runtime/floor_one/main)
+"vv" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/obj/structure/machinery/light/small/emergency{
+	pixel_y = -21
+	},
+/turf/simulated/floor/airless,
+/area/runtime/floor_one/construction)
 "vw" = (
 /obj/structure/machinery/door/firedoor{
 	dir = 4
@@ -4479,12 +4617,10 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/runtime/floor_one/atmospherics)
 "wi" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/runtime/floor_two/main)
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor/tiled/full,
+/area/runtime/floor_one/construction)
 "wj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4961,7 +5097,7 @@
 /obj/structure/machinery/door/airlock/external/blue{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
 "yW" = (
@@ -5671,17 +5807,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
-"Di" = (
-/obj/structure/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the AI core maintenance door.";
-	id = "runtime_blastdoors";
-	name = "Runtime Safety Blast Doors";
-	pixel_y = 4;
-	dir = 4;
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/full,
-/area/runtime/floor_two/main)
 "Dl" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -5953,14 +6078,6 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
-"EQ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/machinery/camera/network/civilian_main{
-	c_tag = "Upper Floor 3";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/runtime/floor_two/main)
 "ET" = (
 /obj/effect/decal/curb,
 /obj/effect/floor_decal/corner/brown{
@@ -6200,10 +6317,10 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
 /obj/structure/machinery/door/airlock/external/blue{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
 "GC" = (
@@ -6276,10 +6393,12 @@
 /area/runtime/floor_one/atmospherics)
 "GY" = (
 /obj/structure/machinery/light/small/emergency{
-	dir = 4
+	dir = 4;
+	pixel_x = 11
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
 /turf/simulated/floor/plating,
 /area/runtime/floor_two/main)
 "Hb" = (
@@ -6977,7 +7096,7 @@
 	pixel_y = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
 /turf/simulated/floor/plating,
 /area/runtime/floor_two/main)
 "Ky" = (
@@ -7183,6 +7302,22 @@
 	},
 /turf/simulated/floor/airless,
 /area/runtime/floor_one/atmospherics)
+"LS" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 4
+	},
+/obj/structure/machinery/access_button{
+	pixel_x = -10;
+	pixel_y = -30;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_one/construction)
 "LU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -7209,7 +7344,7 @@
 /obj/structure/machinery/door/airlock/external/blue{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
 "Ma" = (
@@ -7634,6 +7769,19 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
+"ON" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 1
+	},
+/obj/structure/machinery/access_button{
+	pixel_x = 30;
+	pixel_y = 11;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_two/main)
 "OT" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 9
@@ -7740,12 +7888,6 @@
 /obj/effect/floor_decal/industrial/hatch_small/yellow,
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
-"PP" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/full,
-/area/runtime/floor_two/main)
 "PS" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -8037,6 +8179,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/runtime/floor_one/atmospherics)
+"Rg" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/turf/simulated/floor/airless,
+/area/runtime/floor_two/main)
 "Rh" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -9003,6 +9153,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/runtime/floor_two/main)
+"Ws" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/airlock_sensor{
+	pixel_x = -25;
+	pixel_y = -6;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/turf/simulated/floor/airless,
+/area/runtime/floor_two/main)
 "Wx" = (
 /obj/structure/tank_wall/phoron{
 	density = 0;
@@ -9030,13 +9190,11 @@
 	pixel_x = 30;
 	pixel_y = -2
 	},
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock,
-/obj/effect/shuttle_landmark/runtime/dock{
-	dir = 1
-	},
 /obj/structure/machinery/door/airlock/external/blue{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north,
+/obj/effect/shuttle_landmark/runtime/dock/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
 "WM" = (
@@ -9332,6 +9490,21 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/warehouse)
+"Ym" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/structure/machinery/access_button{
+	pixel_x = -30;
+	pixel_y = -2
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_two/main)
 "Yn" = (
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
@@ -9438,6 +9611,28 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_two/comms)
+"YZ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2
+	},
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = 10
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
+/turf/simulated/floor/airless,
+/area/runtime/floor_two/main)
+"Za" = (
+/obj/structure/machinery/door/airlock/external/blue{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/runtime/floor_one/construction)
 "Zi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/telecomms/broadcaster/preset_right,
@@ -19508,8 +19703,8 @@ aa
 aa
 aa
 fG
-CB
-CB
+wi
+au
 CB
 CB
 CB
@@ -19766,8 +19961,8 @@ aa
 aa
 fG
 fG
-fG
-fG
+sD
+LS
 fG
 fG
 fG
@@ -20022,10 +20217,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+fG
+jg
+dB
+fG
 aa
 aa
 aa
@@ -20279,10 +20474,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+fG
+pA
+vv
+fG
 aa
 aa
 aa
@@ -20536,10 +20731,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+fG
+dI
+Za
+fG
 aa
 aa
 aa
@@ -77860,9 +78055,9 @@ uh
 Tn
 BQ
 pI
-pI
-ci
 Uf
+ci
+pI
 pI
 TH
 pI
@@ -82229,7 +82424,7 @@ uh
 uh
 uh
 BQ
-Jf
+ZG
 lB
 rA
 Pt
@@ -82739,9 +82934,9 @@ uh
 uh
 uh
 uh
-uh
-uh
-uh
+BQ
+BQ
+BQ
 BQ
 Jf
 wo
@@ -82996,11 +83191,11 @@ uh
 uh
 uh
 uh
-uh
-uh
-uh
-BQ
-ZG
+mz
+Ws
+YZ
+Ym
+Jf
 Wh
 Px
 BO
@@ -83253,17 +83448,17 @@ uh
 uh
 uh
 uh
-uh
-uh
-uh
-BQ
-Di
-EQ
-pI
-pI
-wi
-PP
-PP
+ON
+pU
+Rg
+nm
+an
+aq
+ar
+ar
+as
+ar
+ar
 yg
 iy
 LY
@@ -83510,9 +83705,9 @@ uh
 uh
 uh
 uh
-uh
-uh
-uh
+BQ
+BQ
+BQ
 BQ
 BQ
 zd

@@ -1,0 +1,4 @@
+author: Geeves
+delete-after: True
+changes:
+  - rscadd: "Shuttles can now rotate to match differently oriented docking landmarks, allowing them to use docks that face another direction."

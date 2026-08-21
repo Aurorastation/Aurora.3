@@ -79,6 +79,7 @@
 /obj/structure/machinery/iff_beacon/horizon/shuttle
 	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
 	icon_state = "iff"
+	rotate_icon_with_shuttle = TRUE
 
 /obj/structure/machinery/iff_beacon/name_change
 	can_change_name = TRUE
