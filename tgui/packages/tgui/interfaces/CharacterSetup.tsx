@@ -353,6 +353,8 @@ export const CharacterSetup = () => {
       <Box className="CharacterSetup__slotOverlay">
         <Section
           className="CharacterSetup__slotDialog"
+          fill
+          scrollable
           title="Character Slots"
           buttons={
             <Button
