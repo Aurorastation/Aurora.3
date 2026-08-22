@@ -1,0 +1,4 @@
+CREATE TABLE `ss13_registry` (
+    `key` VARCHAR(128) NOT NULL UNIQUE PRIMARY KEY,
+    `value` VARCHAR(1024) NOT NULL
+);
