@@ -21,7 +21,7 @@
 	pixel_x = -9;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_aft_starboard";
 	name = "airlock_gadpathurian_corvette_aft_starboard";
 	req_one_access = list(223,224)
@@ -1899,7 +1899,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_aft_starboard";
 	name = "airlock_gadpathurian_corvette_aft_starboard";
 	req_one_access = list(223,224)
@@ -2728,7 +2728,7 @@
 	pixel_x = -22;
 	pixel_y = 26
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
 	req_one_access = list(223,224)
@@ -3828,7 +3828,7 @@
 	pixel_x = -9;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_aft_port";
 	name = "airlock_gadpathurian_corvette_aft_port";
 	req_one_access = list(223,224)
@@ -4155,7 +4155,7 @@
 	dir = 4;
 	pixel_x = 9
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_aft_port";
 	name = "airlock_gadpathurian_corvette_aft_port";
 	req_one_access = list(223,224)
@@ -4782,7 +4782,7 @@
 	pixel_y = -19
 	},
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_aft_starboard";
 	name = "airlock_gadpathurian_corvette_aft_starboard";
 	req_one_access = list(223,224)
@@ -5070,7 +5070,7 @@
 	},
 /obj/structure/machinery/light/small,
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_aft_port";
 	name = "airlock_gadpathurian_corvette_aft_port";
 	req_one_access = list(223,224)
@@ -5705,7 +5705,7 @@
 /area/ship/gadpathur_patrol/eva)
 "SC" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
 	req_one_access = list(223,224)
@@ -5741,7 +5741,7 @@
 	pixel_x = -26;
 	pixel_y = -7
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
 	req_one_access = list(223,224)
@@ -6227,7 +6227,7 @@
 	pixel_x = 22
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_gadpathurian_corvette_fore_starboard";
 	name = "airlock_gadpathurian_corvette_fore_starboard";
 	req_one_access = list(223,224)

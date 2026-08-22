@@ -548,7 +548,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
@@ -973,7 +973,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod2)
 "hJ" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
@@ -1430,7 +1430,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
@@ -1857,7 +1857,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "pW" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
@@ -4007,7 +4007,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/bridge)
 "Jb" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
@@ -4163,7 +4163,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"
@@ -4627,7 +4627,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3002;
 	master_tag = "airlock_konyang_wreck";
 	name = "airlock_konyang_wreck"

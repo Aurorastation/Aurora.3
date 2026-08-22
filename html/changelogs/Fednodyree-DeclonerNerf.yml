@@ -1,0 +1,7 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - balance: "Reduced the genetic damage of the decloner module by 20%."
+  - balance: "Genetic damage is now a chance to spawn a tumour, rather than a guaranteed tumour at 10% damage.  The chance is equal to 10 + the amount of genetic damage.  This means that at 100% genetic damage, you are guaranteed to spawn a tumour."

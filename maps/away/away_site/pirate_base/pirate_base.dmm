@@ -332,7 +332,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -374,7 +374,7 @@
 	pixel_x = -28
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_shuttle";
 	name = "airlock_pirate_base_shuttle"
 	},
@@ -511,7 +511,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_maint";
 	name = "airlock_pirate_base_maint"
 	},
@@ -810,7 +810,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -2040,7 +2040,7 @@
 /area/piratebase/living)
 "jK" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_maint";
 	name = "airlock_pirate_base_maint"
 	},
@@ -2590,7 +2590,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_maint";
 	name = "airlock_pirate_base_maint"
 	},
@@ -3808,7 +3808,7 @@
 "rZ" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -4907,7 +4907,7 @@
 	pixel_x = 28;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_shuttle";
 	name = "airlock_pirate_base_shuttle"
 	},
@@ -5730,7 +5730,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -5747,7 +5747,7 @@
 "Df" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -6714,7 +6714,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -7079,7 +7079,7 @@
 "JH" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -7486,7 +7486,7 @@
 	pixel_y = -6
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_shuttle";
 	name = "airlock_pirate_base_shuttle"
 	},
@@ -8657,7 +8657,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -8940,7 +8940,7 @@
 "Sv" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -9018,7 +9018,7 @@
 "SH" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -9203,7 +9203,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
@@ -10560,7 +10560,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_pirate_base_maint";
 	name = "airlock_pirate_base_maint"
 	},

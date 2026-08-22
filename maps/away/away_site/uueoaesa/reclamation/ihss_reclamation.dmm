@@ -198,7 +198,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_ihss_solars";
 	name = "airlock_ihss_solars";
@@ -4326,7 +4326,7 @@
 	pixel_x = -6;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
@@ -5188,7 +5188,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/southhall)
 "yR" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
@@ -5830,7 +5830,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
@@ -5865,7 +5865,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
@@ -6190,7 +6190,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_ihss_solars";
 	name = "airlock_ihss_solars"
@@ -7181,7 +7181,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
@@ -7479,7 +7479,7 @@
 /area/ihss_reclamation/dock)
 "KM" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_ihss_solars";
 	name = "airlock_ihss_solars"
@@ -7667,7 +7667,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
@@ -9453,7 +9453,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "TO" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
@@ -10759,7 +10759,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 3919;
 	master_tag = "airlock_ihss_aft";
 	name = "airlock_ihss_aft"
