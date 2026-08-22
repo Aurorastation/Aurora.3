@@ -33,19 +33,20 @@ SUBSYSTEM_DEF(registry)
 /datum/controller/subsystem/registry/Initialize()
 	. = ..()
 	if(!GLOB.config.sql_enabled)
-		log("SQL configuration not enabled. Registry subsystem requires SQL. Skipping init.")
+		internal_log("SQL configuration not enabled. Registry subsystem requires SQL. Skipping init.")
 		return SS_INIT_SUCCESS
 
 	if(!databaseCheckConnection())
-		log("SQL connection unavailable. Registry subsystem init not possible.")
-		return SS_INIT_FAILURE
+		internal_log("SQL connection unavailable. Registry subsystem init not possible.")
+		to_world(SPAN_INFO("Configuration registry unreachable, only local configs are available."))
+		return SS_INIT_SUCCESS // If the database is unavaible, local configs should or could be used.
 
 	return SS_INIT_SUCCESS
 
 /**
  * Writes a message to the registry subsystem log when logging is enabled.
  */
-/datum/controller/subsystem/registry/proc/log(message)
+/datum/controller/subsystem/registry/proc/internal_log(message)
 	PRIVATE_PROC(TRUE)
 	if (GLOB.config?.logsettings["log_subsystems_registry"])
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_registry_log"], "SSRegistry: [message]")
@@ -56,11 +57,11 @@ SUBSYSTEM_DEF(registry)
  */
 /datum/controller/subsystem/registry/proc/getValue(key)
 	if(!key)
-		log("Attempted to get registry value with null key.")
+		internal_log("Attempted to get registry value with null key.")
 		return null
 	key = LOWER_TEXT(key)
 	if(key == "")
-		log("Attempted to get registry value with empty key.")
+		internal_log("Attempted to get registry value with empty key.")
 		return null
 
 	var/cached_value = cache[key]
@@ -68,7 +69,7 @@ SUBSYSTEM_DEF(registry)
 		return cached_value
 
 	if(!databaseCheckConnection())
-		log("No DB connnection, attempted: [key]")
+		internal_log("No DB connnection, attempted: [key]")
 		return null
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -79,10 +80,10 @@ SUBSYSTEM_DEF(registry)
 
 	var/value = null
 	if (!query)
-		log("Unkown SQL error, attempted: [key]")
+		internal_log("Unkown SQL error, attempted: [key]")
 		return null
 	else if (query.ErrorMsg())
-		log("SQL error, attempted: [key], " + query.ErrorMsg())
+		internal_log("SQL error, attempted: [key], " + query.ErrorMsg())
 		return null
 	else
 		if(query.NextRow())
@@ -100,15 +101,15 @@ SUBSYSTEM_DEF(registry)
  */
 /datum/controller/subsystem/registry/proc/setValue(key, value)
 	if(!key)
-		log("Attempted to set registry value with null key.")
+		internal_log("Attempted to set registry value with null key.")
 		return FALSE
 	key = LOWER_TEXT(key)
 	if(key == "")
-		log("Attempted to set registry value with empty key.")
+		internal_log("Attempted to set registry value with empty key.")
 		return FALSE
 
 	if(!databaseCheckConnection())
-		log("No DB connnection, attempted to set: [key], with: [value]")
+		internal_log("No DB connnection, attempted to set: [key], with: [value]")
 		return FALSE
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -122,10 +123,10 @@ SUBSYSTEM_DEF(registry)
 	query.Execute()
 
 	if (!query)
-		log("Unknown SQL error, attempted to set: [key], with: [value]")
+		internal_log("Unknown SQL error, attempted to set: [key], with: [value]")
 		return FALSE
 	else if (query.ErrorMsg())
-		log("SQL error, attempted to set: [key], with: [value], " + query.ErrorMsg())
+		internal_log("SQL error, attempted to set: [key], with: [value], " + query.ErrorMsg())
 		return FALSE
 	qdel(query)
 
