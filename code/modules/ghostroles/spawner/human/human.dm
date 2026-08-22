@@ -33,6 +33,12 @@
 	/// Origin restrictions for this spawner. Use types. Not required if culture restriction is set. Make sure that there is at least one origin per allowed species!
 	var/list/origin_restriction = list()
 
+	/// Character factions allowed to select this role as a roundstart offship slot.
+	/// Null prevents the role from being selected at roundstart.
+	var/list/roundstart_factions = list("Independent")
+	/// Persistent occupation-list group. Null excludes non-ship and special ghost roles from roundstart selection.
+	var/roundstart_ship_name
+
 	mob_name = null
 
 	/// Determines whether the mob will have an Idris banking account when they spawn in
@@ -48,7 +54,7 @@
 	var/idris_account_max = 500
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
-/datum/ghostspawner/human/cant_spawn(mob/user)
+/datum/ghostspawner/human/cant_spawn(mob/user, roundstart = FALSE)
 	//If whitelist is required, check if user can spawn in ANY of the possible species
 	if(uses_species_whitelist)
 		var/can_spawn_as_any = FALSE
@@ -58,11 +64,45 @@
 				break
 		if(!can_spawn_as_any)
 			return "This spawner requires whitelists for its spawnable species, and you do not have any such."
-	. = ..()
+	. = ..(user, roundstart)
 
 //Proc executed before someone is spawned in
 /datum/ghostspawner/human/pre_spawn(mob/user)
 	. = ..()
+
+/// Returns the full-sized overmap ship containing this spawner, if it has one.
+/datum/ghostspawner/human/proc/get_roundstart_ship()
+	RETURN_TYPE(/obj/effect/overmap/visitable/ship)
+
+	if(loc_type != GS_LOC_POS)
+		return null
+	var/atom/spawn_location = select_spawnlocation(FALSE)
+	if(!spawn_location)
+		return null
+	var/obj/effect/overmap/visitable/ship/ship = GLOB.map_sectors["[spawn_location.z]"]
+	if(!istype(ship) || ship.static_vessel || istype(ship, /obj/effect/overmap/visitable/ship/landable))
+		return null
+	return ship
+
+/// Whether this role should appear in the roundstart occupation offship list.
+/datum/ghostspawner/human/proc/is_roundstart_offship_role()
+	if(!roundstart_ship_name || !show_on_job_select || !length(roundstart_factions) || ("Antagonist" in tags))
+		return FALSE
+	if(req_perms)
+		return FALSE
+	return TRUE
+
+/// Returns why a character slot cannot select this role, or null when it can.
+/datum/ghostspawner/human/proc/get_roundstart_selection_error(mob/user, datum/preferences/prefs)
+	if(!is_roundstart_offship_role())
+		return "Role unavailable"
+	if(!(prefs.faction in roundstart_factions))
+		return "Requires one of these factions:\n[bulleted_list(roundstart_factions)]"
+	if(!(prefs.species in possible_species))
+		return "Requires one of these species:\n[bulleted_list(possible_species)]"
+	if(uses_species_whitelist && !is_alien_whitelisted(user, prefs.species))
+		return "Species whitelist required"
+	return null
 
 /datum/ghostspawner/human/proc/get_mob_name(mob/user, var/species, var/gender)
 	var/mname = mob_name
@@ -156,25 +196,73 @@
 		age = rand(35, 50)
 	M.age = clamp(age, 21, 65)
 
+	finish_spawn(M, picked_species)
+	return M
+
+/// Spawns a roundstart offship using the selected character slot's appearance and identity.
+/datum/ghostspawner/human/proc/spawn_mob_from_preferences(mob/abstract/new_player/user)
+	var/turf/T = select_spawnlocation()
+	if(!T)
+		LOG_DEBUG("GhostSpawner: Unable to select spawnpoint for roundstart role [short_name]")
+		return null
+
+	var/picked_species = user.client.prefs.species
+	var/mob/living/carbon/human/M = user.create_character()
+	if(!M)
+		return null
+
+	M.forceMove(T)
+	M.lastarea = get_area(M.loc)
+	finish_spawn(M, picked_species, TRUE)
+	return M
+
+/// Resolves the outfit this role uses for a species without mutating the spawner's configured outfit.
+/datum/ghostspawner/human/proc/get_outfit_for_species(picked_species)
+	if(picked_species in species_outfits)
+		return species_outfits[picked_species]
+	if(islist(outfit))
+		return pick(outfit)
+	return outfit
+
+/// Dresses a character-setup mannequin in this role's visible equipment.
+/datum/ghostspawner/human/proc/equip_preview(mob/living/carbon/human/mannequin, picked_species, datum/preferences/prefs)
+	var/role_outfit = get_outfit_for_species(picked_species)
+	if(!role_outfit)
+		return FALSE
+	mannequin.preEquipOutfit(role_outfit, TRUE)
+	mannequin.equipOutfit(role_outfit, TRUE)
+	prefs.filter_job_preview_equipment(mannequin)
+	return TRUE
+
+/// Applies the role, outfit, account, and ghost-role customization shared by both spawn paths.
+/datum/ghostspawner/human/proc/finish_spawn(mob/living/carbon/human/M, picked_species, preserve_appearance = FALSE)
+	if(!istype(M))
+		return FALSE
+
+	if(assigned_role)
+		M.mind.assigned_role = assigned_role
+		M.mind.role_alt_title = assigned_role
+	if(special_role)
+		M.mind.special_role = special_role
+	if(faction)
+		M.faction = faction
+
 	if(has_idris_account)
 		SSeconomy.create_and_assign_account(M, null, rand(idris_account_min, idris_account_max), is_idris_account_public)
 
 	//Setup the Outfit
-	if(picked_species in species_outfits)
-		var/obj/outfit/species_outfit = species_outfits[picked_species]
-		M.preEquipOutfit(species_outfit, FALSE)
-		M.equipOutfit(species_outfit, FALSE)
-	else if(outfit)
-		if(islist(outfit))
-			outfit = pick(outfit)
-		M.preEquipOutfit(outfit, FALSE)
-		M.equipOutfit(outfit, FALSE)
+	var/role_outfit = get_outfit_for_species(picked_species)
+	if(role_outfit)
+		M.preEquipOutfit(role_outfit, FALSE)
+		M.equipOutfit(role_outfit, FALSE)
 
-	//Setup the appearance
-	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M, culture_restriction = src.culture_restriction, origin_restriction = src.origin_restriction, update_id = TRUE)
-	else //otherwise randomize
-		M.client.prefs.randomize_appearance_for(M, FALSE, culture_restriction, origin_restriction)
+	// Roundstart offships use the selected character slot exactly as configured.
+	// Ordinary ghost-menu joins retain the role's appearance changer/randomization behavior.
+	if(!preserve_appearance)
+		if(allow_appearance_change)
+			M.change_appearance(allow_appearance_change, M, culture_restriction = src.culture_restriction, origin_restriction = src.origin_restriction, update_id = TRUE)
+		else
+			M.client.prefs.randomize_appearance_for(M, FALSE, culture_restriction, origin_restriction)
 
 	if(length(culture_restriction))
 		for(var/culture in culture_restriction)
@@ -198,5 +286,4 @@
 	M.update_eyes()
 	M.regenerate_icons()
 	M.ghost_spawner = WEAKREF(src)
-
-	return M
+	return TRUE

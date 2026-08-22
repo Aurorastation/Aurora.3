@@ -198,6 +198,17 @@ SUBSYSTEM_DEF(jobs)
 	//Get the players who are ready
 	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player.ready && player.mind && !player.mind.assigned_role)
+			var/datum/preferences/prefs = player.client?.prefs
+			var/datum/ghostspawner/human/spawner = SSghostroles.spawners[prefs?.selected_job]
+			if(istype(spawner) && spawner.is_roundstart_offship_role())
+				var/offship_error = SSghostroles.get_roundstart_offship_error(player, prefs)
+				if(offship_error)
+					player.ready = FALSE
+					to_chat(player, SPAN_WARNING("Your offship role is no longer available: [offship_error]. You have been returned to the lobby."))
+					continue
+				player.mind.assigned_role = spawner.assigned_role || spawner.name
+				player.mind.role_alt_title = player.mind.assigned_role
+				continue
 			unassigned += player
 
 	Debug("DO, Len: [unassigned.len]")
@@ -819,7 +830,7 @@ SUBSYSTEM_DEF(jobs)
 		log_loadout("EA/([H]): Abort: invalid arguments.")
 		return FALSE
 
-	var/datum/job/rank = H.mind ? GetJob(H.mind.assigned_role) : prefs.return_chosen_high_job()
+	var/datum/job/rank = H.mind ? GetJob(H.mind.assigned_role) : prefs.return_selected_job()
 	switch (rank.title)
 		if ("AI", "Cyborg")
 			log_loadout("EA/([H]): Abort: synthetic.")

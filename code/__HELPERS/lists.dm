@@ -46,6 +46,16 @@
 
 			return "[output][and_text][input[index]]"
 
+/// Returns a newline-separated plain-text bullet list suitable for alerts and TGUI tooltips.
+/proc/bulleted_list(list/input, bullet = "• ")
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/list/lines = list()
+	for(var/item in input)
+		lines += "[bullet][item]"
+	return jointext(lines, "\n")
+
 /**
  * Returns a newline-separated list that counts equal-ish items, outputting count and item names, optionally with icons and specific determiners.
  */

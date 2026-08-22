@@ -135,6 +135,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	)
 
 		//Jobs, uses bitflags
+	// Obsolete priority bitfields retained only for migrating existing character saves.
 	var/job_civilian_high = 0
 	var/job_civilian_med = 0
 	var/job_civilian_low = 0
@@ -150,6 +151,9 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/job_event_high = 0
 	var/job_event_med = 0
 	var/job_event_low = 0
+
+	/// Title of the station job or short name of the offship role selected for this character.
+	var/selected_job
 
 	// A text blob which temporarily houses data from the SQL.
 	var/unsanitized_jobs = ""
@@ -770,6 +774,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		job_event_high = 0
 		job_event_med = 0
 		job_event_low = 0
+		selected_job = null
 
 		alternate_option = 1
 		metadata = ""

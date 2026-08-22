@@ -6,6 +6,7 @@
 
 /datum/category_item/player_setup_item/occupation/load_character(var/savefile/S)
 	S["alternate_option"]	>> pref.alternate_option
+	S["selected_job"]		>> pref.selected_job
 	S["job_civilian_high"]	>> pref.job_civilian_high
 	S["job_civilian_med"]	>> pref.job_civilian_med
 	S["job_civilian_low"]	>> pref.job_civilian_low
@@ -23,18 +24,7 @@
 
 /datum/category_item/player_setup_item/occupation/save_character(var/savefile/S)
 	S["alternate_option"]	<< pref.alternate_option
-	S["job_civilian_high"]	<< pref.job_civilian_high
-	S["job_civilian_med"]	<< pref.job_civilian_med
-	S["job_civilian_low"]	<< pref.job_civilian_low
-	S["job_medsci_high"]	<< pref.job_medsci_high
-	S["job_medsci_med"]		<< pref.job_medsci_med
-	S["job_medsci_low"]		<< pref.job_medsci_low
-	S["job_engsec_high"]	<< pref.job_engsec_high
-	S["job_engsec_med"]		<< pref.job_engsec_med
-	S["job_engsec_low"]		<< pref.job_engsec_low
-	S["job_event_high"]	>> pref.job_event_high
-	S["job_event_med"]		>> pref.job_event_med
-	S["job_event_low"]		>> pref.job_event_low
+	S["selected_job"]		<< pref.selected_job
 	S["player_alt_titles"]	<< pref.player_alt_titles
 	S["faction"]            << pref.faction
 
@@ -68,19 +58,7 @@
 
 /datum/category_item/player_setup_item/occupation/gather_save_parameters()
 	var/list/compiled_jobs = list(
-		"job_civilian_high" = pref.job_civilian_high,
-		"job_civilian_med" = pref.job_civilian_med,
-		"job_civilian_low" = pref.job_civilian_low,
-		"job_medsci_high" = pref.job_medsci_high,
-		"job_medsci_med" = pref.job_medsci_med,
-		"job_medsci_low" = pref.job_medsci_low,
-		"job_engsec_high" = pref.job_engsec_high,
-		"job_engsec_med" = pref.job_engsec_med,
-		"job_engsec_low" = pref.job_engsec_low,
-		"job_event_high" = pref.job_event_high,
-		"job_event_med" = pref.job_event_med,
-		"job_event_low" = pref.job_event_low
-
+		"selected_job" = pref.selected_job
 	)
 
 	return list(
@@ -96,28 +74,22 @@
 	if (sql_load)
 		pref.alternate_option = text2num(pref.alternate_option)
 		pref.player_alt_titles = params2list(pref.player_alt_titles)
+		pref.selected_job = null
+		pref.clear_job_priorities()
 
 		var/list/jobs = params2list(pref.unsanitized_jobs)
 
 		// In case we return 0 data from the database.
 		if (!jobs || !jobs.len)
 			pref.alternate_option	= 0
-			pref.job_civilian_high	= 0
-			pref.job_civilian_med	= 0
-			pref.job_civilian_low	= 0
-			pref.job_medsci_high	= 0
-			pref.job_medsci_med		= 0
-			pref.job_medsci_low		= 0
-			pref.job_engsec_high	= 0
-			pref.job_engsec_med 	= 0
-			pref.job_engsec_low 	= 0
-			pref.job_event_high	= 0
-			pref.job_event_med 	= 0
-			pref.job_event_low 	= 0
+			pref.selected_job = null
 		else
 			for (var/preference in jobs)
 				try
-					pref.vars[preference] = text2num(jobs[preference])
+					if(preference == "selected_job")
+						pref.selected_job = jobs[preference]
+					else
+						pref.vars[preference] = text2num(jobs[preference])
 				catch(var/exception/e)
 					LOG_DEBUG("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
@@ -135,6 +107,7 @@
 	pref.job_event_high   = sanitize_integer(text2num(pref.job_event_high), 0, 65535, initial(pref.job_event_high))
 	pref.job_event_med    = sanitize_integer(text2num(pref.job_event_med), 0, 65535, initial(pref.job_event_med))
 	pref.job_event_low    = sanitize_integer(text2num(pref.job_event_low), 0, 65535, initial(pref.job_event_low))
+	pref.selected_job = sanitize_text(pref.selected_job)
 
 
 	if (!pref.player_alt_titles)
@@ -147,6 +120,13 @@
 		late_sanitize(sql_load)
 
 /datum/category_item/player_setup_item/occupation/proc/late_sanitize(sql_load)
+	// Migrate the former priority system: retain its single High job as Selected
+	// and discard all Medium/Low fallback choices.
+	var/datum/job/legacy_selected_job = pref.return_legacy_high_job()
+	if(legacy_selected_job && !pref.selected_job)
+		pref.selected_job = legacy_selected_job.title
+	pref.clear_job_priorities()
+
 	for (var/datum/job/job in SSjobs.occupations)
 		var/alt_title = pref.player_alt_titles[job.title]
 		if(alt_title && !(alt_title in job.alt_titles))
@@ -197,18 +177,34 @@
 	var/selectable = FALSE
 	var/alt_title_ref
 	var/status_href
+	var/button_label
 	var/ban_reason = jobban_isbanned(user, rank)
 
 	if(ban_reason == "WHITELISTED")
-		status = "WHITELISTED"
+		status = "Whitelist required"
+		button_label = "Whitelist Required"
 	else if(ban_reason == "AGE WHITELISTED")
-		status = "IN [player_old_enough_for_role(user.client, rank)] DAYS"
+		status = "Available in [player_old_enough_for_role(user.client, rank)] days"
+		button_label = "Age Restricted"
 	else if(!LAZYLEN(available))
-		status = "MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.get_alt_character_age(), job.get_minimum_character_age(user.get_species())) : job.get_minimum_character_age(user.get_species())]"
+		var/minimum_age = job.get_minimum_character_age(pref.species)
+		for(var/alt_title in job.alt_ages)
+			var/alt_age = job.get_alt_character_age(pref.species, alt_title)
+			if(isnum(alt_age) && (!isnum(minimum_age) || alt_age < minimum_age))
+				minimum_age = alt_age
+		status = "Minimum age: [minimum_age]"
+		button_label = "Age Restricted"
 	else if(!(job in faction.get_occupations()))
-		status = "FACTION RESTRICTED"
+		var/list/allowed_factions = list()
+		for(var/faction_name in SSjobs.name_factions)
+			var/datum/faction/allowed_faction = SSjobs.name_factions[faction_name]
+			if(job in allowed_faction.get_occupations())
+				allowed_factions += allowed_faction.name
+		status = length(allowed_factions) ? "Requires one of:\n[bulleted_list(allowed_factions)]" : "Faction restricted"
+		button_label = "Faction Restricted"
 	else if(ban_reason)
-		status = "BANNED"
+		status = "You are banned from this role"
+		button_label = "Banned"
 		status_href = "byond://?src=[REF(user.client)];view_jobban=[rank]"
 	else
 		var/species_restricted = FALSE
@@ -221,9 +217,11 @@
 			species_restricted = TRUE
 
 		if(species_restricted)
-			status = "SPECIES RESTRICTED"
+			status = "Species restricted"
+			button_label = "Species Restricted"
 		else if(job.blacklisted_citizenship && (C.name in job.blacklisted_citizenship))
-			status = "BACKGROUND RESTRICTED"
+			status = "Background restricted"
+			button_label = "Background Restricted"
 		else
 			var/list/missing_skills = list()
 			for(var/key, value in job.skill_requirements)
@@ -233,37 +231,21 @@
 				missing_skills += "[skill.name] [value]"
 
 			if(length(missing_skills))
-				status = "MISSING SKILLS: [jointext(missing_skills, "\n")]"
+				status = "Missing skills:\n[jointext(missing_skills, "\n")]"
+				button_label = "Missing Skills"
 			else
 				unavailable = FALSE
 				if(job.alt_titles && (LAZYLEN(available) > 1))
 					display_title = "\[[pref.GetPlayerAltTitle(job)]\]"
 					alt_title_ref = REF(job)
 
-				if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
-					status = null
-					status_tone = "never"
+				selectable = TRUE
+				if(pref.GetJobDepartment(job, 1) & job.flag)
+					status = "Selected"
+					status_tone = "high"
 				else
-					selectable = TRUE
-					if(rank == "Assistant")
-						if(pref.job_civilian_low & ASSISTANT)
-							status = "Yes"
-							status_tone = "high"
-						else
-							status = "No"
-							status_tone = "never"
-					else if(pref.GetJobDepartment(job, 1) & job.flag)
-						status = "High"
-						status_tone = "high"
-					else if(pref.GetJobDepartment(job, 2) & job.flag)
-						status = "Medium"
-						status_tone = "medium"
-					else if(pref.GetJobDepartment(job, 3) & job.flag)
-						status = "Low"
-						status_tone = "low"
-					else
-						status = "NEVER"
-						status_tone = "never"
+					status = "NEVER"
+					status_tone = "never"
 
 	return list(
 		"title" = display_title,
@@ -272,6 +254,8 @@
 		"bold" = head,
 		"unavailable" = unavailable,
 		"selectable" = selectable,
+		"selected" = (pref.GetJobDepartment(job, 1) & job.flag) != 0,
+		"button_label" = button_label,
 		"status" = status,
 		"status_tone" = status_tone,
 		"status_href" = status_href,
@@ -279,15 +263,16 @@
 	)
 
 /datum/category_item/player_setup_item/occupation/ui_data(mob/user)
-	if(!SSjobs.initialized || !SSrecords.initialized)
+	if(!SSjobs.initialized || !SSrecords.initialized || !SSghostroles.initialized)
 		return list(
 			"kind" = "notice",
 			"name" = name,
 			"ref" = REF(src),
-			"message" = "Jobs controller not initialized yet. Please wait a bit and reload this section."
+			"message" = "Jobs and offship roles are still initializing. Please wait a bit and reload this section."
 		)
 
 	var/list/departments = list()
+	var/list/offship_ships = list()
 	var/list/department_order = get_department_order()
 	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
 	for(var/department in department_order)
@@ -301,6 +286,55 @@
 				"jobs" = jobs
 			))
 
+	for(var/role_id in SSghostroles.roundstart_offship_catalog)
+		var/datum/ghostspawner/human/spawner = SSghostroles.roundstart_offship_catalog[role_id]
+		if(!istype(spawner))
+			continue
+
+		var/ship_name = spawner.roundstart_ship_name
+		if(!offship_ships[ship_name])
+			offship_ships[ship_name] = list()
+
+		var/selection_error = spawner.get_roundstart_selection_error(user, pref)
+		var/restriction_label
+		if(selection_error)
+			if(!(pref.faction in spawner.roundstart_factions))
+				restriction_label = "Faction Restricted"
+			else if(!(pref.species in spawner.possible_species))
+				restriction_label = "Species Restricted"
+			else if(spawner.uses_species_whitelist && !is_alien_whitelisted(user, pref.species))
+				restriction_label = "Whitelist Required"
+			else
+				restriction_label = "Unavailable"
+		var/datum/ghostspawner/human/active_spawner = SSghostroles.spawners[role_id]
+		var/availability = "Not available this round"
+		var/currently_available = FALSE
+		if(istype(active_spawner))
+			if(!active_spawner.enabled)
+				availability = "Disabled this round"
+			else if(active_spawner.max_count && active_spawner.count >= active_spawner.max_count)
+				availability = "Full this round"
+			else
+				currently_available = TRUE
+				availability = "Available ([active_spawner.max_count ? max(active_spawner.max_count - active_spawner.count, 0) : "Unlimited"] slot[active_spawner.max_count == 1 ? "" : "s"] remaining)"
+		offship_ships[ship_name] += list(list(
+			"id" = spawner.short_name,
+			"name" = spawner.name,
+			"description" = spawner.desc,
+			"selected" = pref.selected_job == spawner.short_name,
+			"selectable" = !selection_error,
+			"button_label" = restriction_label,
+			"status" = selection_error || availability,
+			"status_tone" = selection_error ? "bad" : (currently_available ? "good" : "label")
+		))
+
+	var/list/offships = list()
+	for(var/ship_name in offship_ships)
+		offships += list(list(
+			"name" = ship_name,
+			"roles" = offship_ships[ship_name]
+		))
+
 	var/alternative = pref.alternate_option == BE_ASSISTANT ? "Be assistant if preference unavailable" : "Return to lobby if preference unavailable"
 	return list(
 		"kind" = "occupation",
@@ -308,6 +342,7 @@
 		"ref" = REF(src),
 		"faction" = pref.faction,
 		"departments" = departments,
+		"offships" = offships,
 		"alternative" = alternative
 	)
 
@@ -389,109 +424,39 @@
 /datum/category_item/player_setup_item/occupation/proc/SetJob(mob/user, role)
 	var/datum/job/job = SSjobs.GetJob(role)
 	if(!job)
+		return SetOffshipRole(user, role)
+	var/already_selected = pref.selected_job == job.title
+	pref.clear_job_priorities()
+	if(!already_selected)
+		pref.set_selected_job(job)
+	else
+		pref.selected_job = null
+	SSticker.cycle_player(user, job)
+	return TRUE
+
+/datum/category_item/player_setup_item/occupation/proc/SetOffshipRole(mob/abstract/new_player/user, role_id)
+	var/datum/ghostspawner/human/spawner = SSghostroles.roundstart_offship_catalog[role_id]
+	if(!istype(spawner))
 		return FALSE
 
-	if(role == "Assistant")
-		if(pref.job_civilian_low & job.flag)
-			pref.job_civilian_low &= ~job.flag
-		else
-			pref.job_civilian_low |= job.flag
-
-		SSticker.cycle_player(user, job)
+	if(pref.selected_job == spawner.short_name)
+		pref.selected_job = null
+		SSticker.cycle_player(user)
 		return TRUE
 
-	if(pref.GetJobDepartment(job, 1) & job.flag) // HIGH -> NONE
-		SetJobDepartment(job, 1)
-		SSticker.cycle_player(user, job)
-	else if(pref.GetJobDepartment(job, 2) & job.flag) // MED -> HIGH
-		SetJobDepartment(job, 2)
-		SSticker.cycle_player(user, job)
-	else if(pref.GetJobDepartment(job, 3) & job.flag) // LOW -> MED
-		SetJobDepartment(job, 3)
-	else // NONE -> LOW
-		SetJobDepartment(job, 4)
-
-	return 1
-
-/datum/category_item/player_setup_item/occupation/proc/SetJobDepartment(var/datum/job/job, var/level)
-	if(!job || !level)
+	var/selection_error = spawner.get_roundstart_selection_error(user, pref)
+	if(selection_error)
+		to_chat(user, SPAN_WARNING("You cannot select [spawner.name]: [selection_error]"))
 		return FALSE
-	switch(level)
-		if(1)//Only one of these should ever be active at once so clear them all here
-			pref.job_civilian_high = 0
-			pref.job_medsci_high = 0
-			pref.job_engsec_high = 0
-			pref.job_event_high = 0
-			return 1
-		if(2)//Set current highs to med, then reset them
-			pref.job_civilian_med |= pref.job_civilian_high
-			pref.job_medsci_med |= pref.job_medsci_high
-			pref.job_engsec_med |= pref.job_engsec_high
-			pref.job_event_med |= pref.job_event_high
-			pref.job_civilian_high = 0
-			pref.job_medsci_high = 0
-			pref.job_engsec_high = 0
-			pref.job_event_high = 0
 
-	switch(job.department_flag)
-		if(SERVICE)
-			switch(level)
-				if(2)
-					pref.job_civilian_high = job.flag
-					pref.job_civilian_med &= ~job.flag
-				if(3)
-					pref.job_civilian_med |= job.flag
-					pref.job_civilian_low &= ~job.flag
-				else
-					pref.job_civilian_low |= job.flag
-		if(MEDSCI)
-			switch(level)
-				if(2)
-					pref.job_medsci_high = job.flag
-					pref.job_medsci_med &= ~job.flag
-				if(3)
-					pref.job_medsci_med |= job.flag
-					pref.job_medsci_low &= ~job.flag
-				else
-					pref.job_medsci_low |= job.flag
-		if(ENGSEC)
-			switch(level)
-				if(2)
-					pref.job_engsec_high = job.flag
-					pref.job_engsec_med &= ~job.flag
-				if(3)
-					pref.job_engsec_med |= job.flag
-					pref.job_engsec_low &= ~job.flag
-				else
-					pref.job_engsec_low |= job.flag
-		if(EVENTDEPT)
-			switch(level)
-				if(2)
-					pref.job_event_high = job.flag
-					pref.job_event_med &= ~job.flag
-				if(3)
-					pref.job_event_med |= job.flag
-					pref.job_event_low &= ~job.flag
-				else
-					pref.job_event_low |= job.flag
-	return 1
+	ResetJobs()
+	pref.selected_job = spawner.short_name
+	SSticker.cycle_player(user)
+	return TRUE
 
 /datum/category_item/player_setup_item/occupation/proc/ResetJobs()
-	pref.job_civilian_high = 0
-	pref.job_civilian_med = 0
-	pref.job_civilian_low = 0
-
-	pref.job_medsci_high = 0
-	pref.job_medsci_med = 0
-	pref.job_medsci_low = 0
-
-	pref.job_engsec_high = 0
-	pref.job_engsec_med = 0
-	pref.job_engsec_low = 0
-
-	pref.job_event_high = 0
-	pref.job_event_med = 0
-	pref.job_event_low = 0
+	pref.clear_job_priorities()
+	pref.selected_job = null
 
 	pref.player_alt_titles.Cut()
 
@@ -525,40 +490,30 @@
 		choices -= t
 	return choices
 
+/// Clears obsolete priority data after it has been migrated.
+/datum/preferences/proc/clear_job_priorities()
+	job_civilian_high = 0
+	job_civilian_med = 0
+	job_civilian_low = 0
+	job_medsci_high = 0
+	job_medsci_med = 0
+	job_medsci_low = 0
+	job_engsec_high = 0
+	job_engsec_med = 0
+	job_engsec_low = 0
+	job_event_high = 0
+	job_event_med = 0
+	job_event_low = 0
+
+/// Stores one station job in the shared selection field.
+/datum/preferences/proc/set_selected_job(datum/job/job)
+	if(!job)
+		return FALSE
+	clear_job_priorities()
+	selected_job = job.title
+	return TRUE
+
 /datum/preferences/proc/GetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)
 		return FALSE
-	switch(job.department_flag)
-		if(SERVICE)
-			switch(level)
-				if(1)
-					return job_civilian_high
-				if(2)
-					return job_civilian_med
-				if(3)
-					return job_civilian_low
-		if(MEDSCI)
-			switch(level)
-				if(1)
-					return job_medsci_high
-				if(2)
-					return job_medsci_med
-				if(3)
-					return job_medsci_low
-		if(ENGSEC)
-			switch(level)
-				if(1)
-					return job_engsec_high
-				if(2)
-					return job_engsec_med
-				if(3)
-					return job_engsec_low
-		if(EVENTDEPT)
-			switch(level)
-				if(1)
-					return job_event_high
-				if(2)
-					return job_event_med
-				if(3)
-					return job_event_low
-	return 0
+	return level == 1 && selected_job == job.title ? job.flag : 0

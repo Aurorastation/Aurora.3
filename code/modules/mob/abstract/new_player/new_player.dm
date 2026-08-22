@@ -89,6 +89,25 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				for(var/char in SSticker.ready_player_jobs[dept])
 					. += "[copytext_char(char, 1, 18)]: [SSticker.ready_player_jobs[dept][char]]"
 
+		var/list/available_offships = list()
+		for(var/role_id in SSghostroles.spawners)
+			var/datum/ghostspawner/human/spawner = SSghostroles.spawners[role_id]
+			if(!istype(spawner) || !spawner.is_roundstart_offship_role())
+				continue
+
+			var/ship_name = spawner.roundstart_ship_name
+			if(!available_offships[ship_name])
+				available_offships[ship_name] = list()
+			var/slots = spawner.max_count ? max(spawner.max_count - spawner.count, 0) : "unlimited"
+			available_offships[ship_name] += "[spawner.name] ([slots] slot[slots == 1 ? "" : "s"])"
+
+		if(length(available_offships))
+			. += ""
+			. += ""
+			. += "Available offships:"
+			for(var/ship_name in available_offships)
+				. += "[ship_name]: [english_list(available_offships[ship_name])]"
+
 
 /mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0
@@ -153,7 +172,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 		SSghostroles.ui_interact(usr)
 
-	if(href_list["SelectedJob"])
+	if(href_list["SelectedJob"] || href_list["SelectedOffship"])
 
 		if(!GLOB.config.enter_allowed)
 			to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
@@ -175,7 +194,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, SPAN_DANGER("Your current species, [client.prefs.species], is not available for play on the [station_name(TRUE)]."))
 			return 0
 
-		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
+		if(href_list["SelectedOffship"])
+			AttemptLateOffshipSpawn(href_list["SelectedOffship"])
+		else
+			AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
 		return
 
 	if(!ready && href_list["preference"])
@@ -265,6 +287,26 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if (key && client.prefs.skills[key] < value)
 			return FALSE
 
+	return TRUE
+
+/mob/abstract/new_player/proc/AttemptLateOffshipSpawn(role_id)
+	if(src != usr || role_id != client?.prefs?.selected_job)
+		return FALSE
+	if(SSticker.current_state != GAME_STATE_PLAYING)
+		to_chat(src, SPAN_WARNING("The round is either not ready, or has already finished..."))
+		return FALSE
+
+	var/offship_error = SSghostroles.get_roundstart_offship_error(src, client.prefs)
+	if(offship_error)
+		to_chat(src, SPAN_WARNING("Unable to join as your selected offship role: [offship_error]."))
+		SStgui.update_uis(late_choices_ui)
+		return FALSE
+
+	var/mob/living/carbon/human/offship_character = SSghostroles.spawn_selected_offship(src)
+	if(!offship_character)
+		return FALSE
+
+	qdel(src)
 	return TRUE
 
 /mob/abstract/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)

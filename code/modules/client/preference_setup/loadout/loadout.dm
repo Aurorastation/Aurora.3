@@ -176,6 +176,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 
 /datum/category_item/player_setup_item/loadout/ui_data(var/mob/user)
 	var/total_cost = 0
+	var/datum/ghostspawner/human/selected_offship = SSghostroles.roundstart_offship_catalog[pref.selected_job]
 	if(pref.gear && pref.gear.len)
 		for(var/i = 1; i <= pref.gear.len; i++)
 			var/datum/gear/G = GLOB.gear_datums[pref.gear[i]]
@@ -197,7 +198,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
-		var/datum/job/job = pref.return_chosen_high_job()
+		var/datum/job/job = pref.return_selected_job()
 		var/available = (G.check_faction(pref.faction) \
 			&& (job && G.check_role(job.title)) \
 			&& G.check_culture(text2path(pref.culture)) \
@@ -260,6 +261,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		"cost" = total_cost,
 		"cost_limit" = GLOB.config.loadout_cost,
 		"gear_reset" = gear_reset,
+		"offship_selected" = istype(selected_offship),
 		"search" = search_input_value,
 		"categories" = categories,
 		"items" = items

@@ -351,7 +351,15 @@ SUBSYSTEM_DEF(ticker)
 		return unready_player(NP.client.prefs)
 
 /datum/controller/subsystem/ticker/proc/ready_player(var/datum/preferences/prefs)
-	var/datum/job/ready_job = prefs.return_chosen_high_job()
+	var/datum/ghostspawner/human/offship_spawner = SSghostroles.spawners[prefs.selected_job]
+	if(istype(offship_spawner) && !SSghostroles.get_roundstart_offship_error(prefs.client?.mob, prefs))
+		LAZYDISTINCTADD(ready_player_jobs[DEPARTMENT_OFFSHIP], prefs.real_name)
+		LAZYSET(ready_player_jobs[DEPARTMENT_OFFSHIP], prefs.real_name, offship_spawner.assigned_role || offship_spawner.name)
+		sortTim(ready_player_jobs[DEPARTMENT_OFFSHIP], GLOBAL_PROC_REF(cmp_text_asc))
+		update_ready_count()
+		return TRUE
+
+	var/datum/job/ready_job = prefs.return_selected_job()
 	if(!istype(ready_job))
 		return FALSE
 
@@ -379,7 +387,15 @@ SUBSYSTEM_DEF(ticker)
 			update_ready_count()
 		return
 
-	var/datum/job/ready_job = prefs.return_chosen_high_job()
+	var/datum/ghostspawner/human/offship_spawner = SSghostroles.roundstart_offship_catalog[prefs.selected_job]
+	if(istype(offship_spawner))
+		if(ready_player_jobs[DEPARTMENT_OFFSHIP][prefs.real_name])
+			ready_player_jobs[DEPARTMENT_OFFSHIP] -= prefs.real_name
+			update_ready_count()
+			return TRUE
+		return FALSE
+
+	var/datum/job/ready_job = prefs.return_selected_job()
 
 	if(!istype(ready_job))
 		// literally how
@@ -753,7 +769,18 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/create_characters()
 	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player && player.ready && player.mind)
-			if(player.mind.assigned_role=="AI")
+			var/datum/ghostspawner/human/offship_spawner = SSghostroles.roundstart_offship_catalog[player.client?.prefs?.selected_job]
+			if(istype(offship_spawner))
+				var/mob/living/carbon/human/offship_character = SSghostroles.spawn_selected_offship(player)
+				if(offship_character)
+					var/datum/component/morale/morale = offship_character.GetComponent(MORALE_COMPONENT)
+					morale?.load_moodlet(/datum/moodlet/roundstart_ready, 10)
+					qdel(player)
+				else
+					player.ready = FALSE
+					player.mind.assigned_role = null
+					player.mind.role_alt_title = null
+			else if(player.mind.assigned_role=="AI")
 				player.close_spawn_windows()
 				player.AIize()
 			else if(!player.mind.assigned_role)
@@ -773,6 +800,9 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/equip_characters()
 	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(player && player.mind && player.mind.assigned_role)
+			// Roundstart offships are already equipped by their ghost spawner. Never apply the character loadout to them.
+			if(player.ghost_spawner)
+				continue
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				equip_custom_items(player, body_only = TRUE) // Equips body-related custom items, like augments and prosthetics.
 				SSjobs.EquipAugments(player, player.client.prefs)

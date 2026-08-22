@@ -120,4 +120,19 @@
 				"current_positions" = job.current_positions
 			))
 
+	var/datum/preferences/prefs = NP.client?.prefs
+	var/datum/ghostspawner/human/offship_spawner = SSghostroles.spawners[prefs?.selected_job]
+	if(istype(offship_spawner) && !SSghostroles.get_roundstart_offship_error(NP, prefs))
+		jobs_available++
+		data["departments"] |= DEPARTMENT_OFFSHIP
+		data["jobs_list"] += list(list(
+			"title" = offship_spawner.assigned_role || offship_spawner.name,
+			"department" = DEPARTMENT_OFFSHIP,
+			"head" = FALSE,
+			"total_positions" = offship_spawner.max_count ? offship_spawner.max_count : -1,
+			"current_positions" = offship_spawner.count,
+			"offship_role" = offship_spawner.short_name
+		))
+		data["jobs_available"] = jobs_available
+
 	return data

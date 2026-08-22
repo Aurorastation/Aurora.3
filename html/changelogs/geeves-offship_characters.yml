@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: true
+
+changes:
+  - rscadd: "Character slots can now select eligible offship roles and join them at roundstart or through late join when the selected ship and role are available. Offship characters retain their saved identity and appearance, use the role's outfit, and share slots with the normal ghost-role spawner."
+  - qol: "Occupation preferences now use one selected role instead of High, Medium, and Low priorities. Existing High-priority selections are migrated automatically, and character previews display the selected role's outfit and clearer restriction information."

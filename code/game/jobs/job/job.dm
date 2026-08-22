@@ -173,23 +173,7 @@
 	pre_equip(H, TRUE)
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 
-	// slightly hacky, but effectively what we're doing here is checking whether we want this preview mob to actually have the uniform we're putting onto it
-	// if not, we drop it from the inventory into nullspace, and then deleting it
-	// i don't THINK this'll make performance that much worse, considering how much we already do to equip the mob in the first place
-
-	var/equip_preview_mob = prefs.equip_preview_mob
-
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head)
-		H.drop_from_inventory(H.head)
-		qdel(H.head)
-
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform)
-		H.drop_from_inventory(H.w_uniform)
-		qdel(H.w_uniform)
-
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit)
-		H.drop_from_inventory(H.wear_suit)
-		qdel(H.wear_suit)
+	prefs.filter_job_preview_equipment(H)
 
 /datum/job/proc/get_access(selected_title)
 	SHOULD_NOT_SLEEP(TRUE)

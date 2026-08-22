@@ -1,13 +1,15 @@
+import type { ReactNode } from 'react';
 import {
   Box,
   Button,
   Icon,
   Input,
+  NoticeBox,
   Section,
   Stack,
   Tabs,
+  Tooltip,
 } from 'tgui-core/components';
-import type { ReactNode } from 'react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import { CharacterPreview } from './common/CharacterPreview';
@@ -182,6 +184,7 @@ type LoadoutPreferenceItem = BasePreferenceItem & {
   cost: number;
   cost_limit: number;
   gear_reset: boolean | number;
+  offship_selected: boolean;
   items: LoadoutItem[];
   search: string;
   slot: number;
@@ -190,9 +193,11 @@ type LoadoutPreferenceItem = BasePreferenceItem & {
 type OccupationJob = {
   alt_title_ref?: string;
   bold: boolean;
+  button_label?: string;
   color: string;
   rank: string;
   selectable: boolean;
+  selected: boolean;
   status?: string;
   status_href?: string;
   status_tone: 'high' | 'medium' | 'low' | 'never' | 'unavailable';
@@ -205,11 +210,28 @@ type OccupationDepartment = {
   jobs: OccupationJob[];
 };
 
+type OffshipRole = {
+  button_label?: string;
+  description: string;
+  id: string;
+  name: string;
+  selectable: boolean;
+  selected: boolean;
+  status: string;
+  status_tone: string;
+};
+
+type Offship = {
+  name: string;
+  roles: OffshipRole[];
+};
+
 type OccupationPreferenceItem = BasePreferenceItem & {
   kind: 'occupation';
   alternative: string;
   departments: OccupationDepartment[];
   faction: string;
+  offships: Offship[];
 };
 
 type PreferenceItem =
@@ -315,10 +337,7 @@ const renderPencode = (text: string) => {
 
   while (stack.length > 1) {
     const frame = stack.pop()!;
-    stack[stack.length - 1].children.push(
-      `[${frame.tag}]`,
-      ...frame.children,
-    );
+    stack[stack.length - 1].children.push(`[${frame.tag}]`, ...frame.children);
   }
   return root.children;
 };
@@ -428,9 +447,7 @@ export const CharacterSetup = () => {
             <Button
               color="transparent"
               icon="xmark"
-              onClick={() =>
-                sendPreferenceAction(bodyItem, 'close_species')
-              }
+              onClick={() => sendPreferenceAction(bodyItem, 'close_species')}
             />
           }
         >
@@ -568,45 +585,53 @@ export const CharacterSetup = () => {
                     key={job.rank}
                     style={{ backgroundColor: job.color }}
                   >
-                    <Box
-                      className={`occupation-job__title${job.bold ? ' occupation-job__title--bold' : ''}`}
-                    >
-                      {job.alt_title_ref ? (
-                        <a
-                          onClick={() =>
-                            sendPreferenceTopic(item, {
-                              select_alt_title: job.alt_title_ref!,
-                            })
-                          }
-                          role="button"
-                          tabIndex={0}
-                        >
-                          {title}
-                        </a>
-                      ) : (
-                        title
-                      )}
-                    </Box>
-                    <Box
-                      className={`occupation-job__status occupation-job__status--${job.status_tone}`}
-                    >
-                      {job.status &&
-                        (job.status_href ? (
-                          <a href={job.status_href}>[{job.status}]</a>
-                        ) : job.selectable ? (
+                    <Box>
+                      <Box
+                        className={`occupation-job__title${job.bold ? ' occupation-job__title--bold' : ''}`}
+                      >
+                        {job.alt_title_ref ? (
                           <a
                             onClick={() =>
-                              sendPreferenceTopic(item, { set_job: job.rank })
+                              sendPreferenceTopic(item, {
+                                select_alt_title: job.alt_title_ref!,
+                              })
                             }
                             role="button"
                             tabIndex={0}
                           >
-                            [{job.status}]
+                            {title}
                           </a>
                         ) : (
-                          <>[{job.status}]</>
-                        ))}
+                          title
+                        )}
+                      </Box>
+                      {!job.selectable && job.status_href && (
+                        <Box className="occupation-job__restriction">
+                          <a href={job.status_href}>View ban details</a>
+                        </Box>
+                      )}
                     </Box>
+                    <Button
+                      color={job.selected ? 'good' : undefined}
+                      disabled={!job.selectable && !job.selected}
+                      icon={job.selected ? 'check' : 'user-plus'}
+                      onClick={() =>
+                        sendPreferenceTopic(item, { set_job: job.rank })
+                      }
+                      tooltip={
+                        !job.selectable ? (
+                          <Box style={{ whiteSpace: 'pre-line' }}>
+                            {job.status}
+                          </Box>
+                        ) : undefined
+                      }
+                    >
+                      {job.selected
+                        ? 'Selected'
+                        : job.selectable
+                          ? 'Select Role'
+                          : job.button_label}
+                    </Button>
                   </Box>
                 );
               })}
@@ -614,13 +639,69 @@ export const CharacterSetup = () => {
           </Box>
         ))}
       </Box>
+      {!!item.offships.length && (
+        <details className="occupation-offships">
+          <summary>
+            <Icon name="shuttle-space" mr={0.5} />
+            Offship Roles
+          </summary>
+          <Box className="occupation-offships__warning">
+            <Tooltip content="Offship characters are separate characters, not alternate versions of SCCV Horizon crew. Ask an administrator before using a Horizon character in an offship role.">
+              <Icon name="circle-question" mr={0.5} />
+            </Tooltip>
+            Do not play SCCV Horizon characters as offships without admin
+            clearance.
+          </Box>
+          <Box className="occupation-offships__ships">
+            {item.offships.map((ship) => (
+              <Box className="occupation-offship" key={ship.name}>
+                <Box className="occupation-offship__title">{ship.name}</Box>
+                {ship.roles.map((role) => (
+                  <Box className="occupation-offship__role" key={role.id}>
+                    <Box>
+                      <Box bold>{role.name}</Box>
+                      <Box color="label" fontSize={0.9}>
+                        {role.description}
+                      </Box>
+                      {!role.button_label && (
+                        <Box color={role.status_tone} fontSize={0.9}>
+                          {role.status}
+                        </Box>
+                      )}
+                    </Box>
+                    <Button
+                      color={role.selected ? 'good' : undefined}
+                      disabled={!role.selectable && !role.selected}
+                      icon={role.selected ? 'check' : 'user-plus'}
+                      onClick={() =>
+                        sendPreferenceTopic(item, {
+                          set_job: role.id,
+                        })
+                      }
+                      tooltip={
+                        <Box style={{ whiteSpace: 'pre-line' }}>
+                          {role.status}
+                        </Box>
+                      }
+                    >
+                      {role.selected
+                        ? 'Selected'
+                        : role.selectable
+                          ? 'Select role'
+                          : role.button_label}
+                    </Button>
+                  </Box>
+                ))}
+              </Box>
+            ))}
+          </Box>
+        </details>
+      )}
       <Stack className="occupation-footer" justify="center">
         <Stack.Item>
           <Button
             color="transparent"
-            onClick={() =>
-              sendPreferenceTopic(item, { job_alternative: 1 })
-            }
+            onClick={() => sendPreferenceTopic(item, { job_alternative: 1 })}
           >
             {item.alternative}
           </Button>
@@ -697,11 +778,7 @@ export const CharacterSetup = () => {
                     color="transparent"
                     icon="minus"
                     onClick={() =>
-                      sendPreferenceAction(
-                        item,
-                        'trait_remove',
-                        disability,
-                      )
+                      sendPreferenceAction(item, 'trait_remove', disability)
                     }
                   />
                 </Box>
@@ -765,11 +842,7 @@ export const CharacterSetup = () => {
             <Box key={`${action.action}-${action.value}`}>
               <a
                 onClick={() =>
-                    sendPreferenceAction(
-                      item,
-                      action.action!,
-                      action.value,
-                    )
+                  sendPreferenceAction(item, action.action!, action.value)
                 }
                 role="button"
                 tabIndex={0}
@@ -809,46 +882,46 @@ export const CharacterSetup = () => {
               {appearance.style && (
                 <>
                   <Stack.Item>Style:</Stack.Item>
-                {appearance.previous_action && (
+                  {appearance.previous_action && (
+                    <Stack.Item>
+                      <a
+                        onClick={() =>
+                          sendPreferenceAction(
+                            item,
+                            appearance.previous_action!,
+                          )
+                        }
+                        role="button"
+                        tabIndex={0}
+                      >
+                        &lt;
+                      </a>
+                    </Stack.Item>
+                  )}
                   <Stack.Item>
                     <a
                       onClick={() =>
-                        sendPreferenceAction(
-                          item,
-                          appearance.previous_action!,
-                        )
+                        sendPreferenceAction(item, appearance.style_action!)
                       }
-                      role="button"
-                      tabIndex={0}
-                    >
-                      &lt;
-                    </a>
-                  </Stack.Item>
-                )}
-                  <Stack.Item>
-                    <a
-                    onClick={() =>
-                      sendPreferenceAction(item, appearance.style_action!)
-                    }
                       role="button"
                       tabIndex={0}
                     >
                       {appearance.style}
                     </a>
                   </Stack.Item>
-                {appearance.next_action && (
-                  <Stack.Item>
-                    <a
-                      onClick={() =>
-                        sendPreferenceAction(item, appearance.next_action!)
-                      }
-                      role="button"
-                      tabIndex={0}
-                    >
-                      &gt;
-                    </a>
-                  </Stack.Item>
-                )}
+                  {appearance.next_action && (
+                    <Stack.Item>
+                      <a
+                        onClick={() =>
+                          sendPreferenceAction(item, appearance.next_action!)
+                        }
+                        role="button"
+                        tabIndex={0}
+                      >
+                        &gt;
+                      </a>
+                    </Stack.Item>
+                  )}
                 </>
               )}
             </Stack>
@@ -886,11 +959,7 @@ export const CharacterSetup = () => {
                     compact
                     icon="chevron-up"
                     onClick={() =>
-                      sendPreferenceAction(
-                        item,
-                        'marking_up',
-                        marking.name,
-                      )
+                      sendPreferenceAction(item, 'marking_up', marking.name)
                     }
                   />
                 </Stack.Item>
@@ -899,11 +968,7 @@ export const CharacterSetup = () => {
                     compact
                     icon="chevron-down"
                     onClick={() =>
-                      sendPreferenceAction(
-                        item,
-                        'marking_down',
-                        marking.name,
-                      )
+                      sendPreferenceAction(item, 'marking_down', marking.name)
                     }
                   />
                 </Stack.Item>
@@ -914,11 +979,7 @@ export const CharacterSetup = () => {
                 compact
                 icon="eye-dropper"
                 onClick={() =>
-                  sendPreferenceAction(
-                    item,
-                    'marking_color',
-                    marking.name,
-                  )
+                  sendPreferenceAction(item, 'marking_color', marking.name)
                 }
               >
                 Color
@@ -929,11 +990,7 @@ export const CharacterSetup = () => {
                 <Button
                   compact
                   onClick={() =>
-                    sendPreferenceAction(
-                      item,
-                      'marking_preset',
-                      marking.name,
-                    )
+                    sendPreferenceAction(item, 'marking_preset', marking.name)
                   }
                 >
                   Preset
@@ -946,11 +1003,7 @@ export const CharacterSetup = () => {
                 color="bad"
                 icon="trash"
                 onClick={() =>
-                  sendPreferenceAction(
-                    item,
-                    'marking_remove',
-                    marking.name,
-                  )
+                  sendPreferenceAction(item, 'marking_remove', marking.name)
                 }
               />
             </Stack.Item>
@@ -973,9 +1026,7 @@ export const CharacterSetup = () => {
                 <Button
                   fluid
                   color="transparent"
-                  onClick={() =>
-                    sendPreferenceAction(item, record.edit_action)
-                  }
+                  onClick={() => sendPreferenceAction(item, record.edit_action)}
                 >
                   {record.preview}
                 </Button>
@@ -986,11 +1037,7 @@ export const CharacterSetup = () => {
                   color="bad"
                   icon="trash"
                   onClick={() =>
-                    sendPreferenceAction(
-                      item,
-                      'clear',
-                      record.clear_value,
-                    )
+                    sendPreferenceAction(item, 'clear', record.clear_value)
                   }
                 >
                   Clear
@@ -1043,8 +1090,8 @@ export const CharacterSetup = () => {
               sectionIndex === 0 &&
               normalizedHeading(section.title) === normalizedHeading(item.name)
             ) && (
-            <Box className="preference-form__heading">{section.title}</Box>
-          )}
+              <Box className="preference-form__heading">{section.title}</Box>
+            )}
           {section.description &&
             (section.description_html ? (
               <Box
@@ -1159,9 +1206,7 @@ export const CharacterSetup = () => {
           </Box>
           {category.subcategories.map((subcategory) => (
             <Box className="skill-subcategory" key={subcategory.name}>
-              <Box className="skill-subcategory__title">
-                {subcategory.name}
-              </Box>
+              <Box className="skill-subcategory__title">{subcategory.name}</Box>
               {subcategory.skills.map((skill) => (
                 <Box className="skill-row" key={skill.type}>
                   <Box className="skill-row__info">
@@ -1176,10 +1221,7 @@ export const CharacterSetup = () => {
                           icon="circle-info"
                           tooltip={
                             <Box preserveWhitespace>
-                              {[
-                                skill.description,
-                                skill.current_description,
-                              ]
+                              {[skill.description, skill.current_description]
                                 .filter(Boolean)
                                 .join('\n\n')}
                             </Box>
@@ -1223,6 +1265,11 @@ export const CharacterSetup = () => {
 
   const renderLoadout = (item: LoadoutPreferenceItem) => (
     <Box className="loadout-preferences">
+      {item.offship_selected && (
+        <NoticeBox>
+          Offship characters do not spawn with loadout items.
+        </NoticeBox>
+      )}
       {item.gear_reset ? (
         <Box color="bad" mb={1} textAlign="center">
           Your loadout failed to load and will be reset if you save this slot.

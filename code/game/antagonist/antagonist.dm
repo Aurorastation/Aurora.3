@@ -106,7 +106,11 @@
 	// Prune restricted status. Broke it up for readability.
 	// Note that this is done before jobs are handed out.
 	for(var/datum/mind/player in SSticker.mode.get_players_for_role(role_type, id))
-		if(ghosts_only && !istype(player.current, /mob/abstract))
+		var/datum/preferences/player_prefs = player.current?.client?.prefs
+		var/datum/ghostspawner/human/offship_spawner = SSghostroles.roundstart_offship_catalog[player_prefs?.selected_job]
+		if(istype(offship_spawner))
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Their character is readied as a roundstart offship role.")
+		else if(ghosts_only && !istype(player.current, /mob/abstract))
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
 		else if(!allow_animals && isanimal(player.current))
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")

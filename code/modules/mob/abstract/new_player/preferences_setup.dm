@@ -207,9 +207,21 @@
 	if(!equip_preview_mob)
 		return
 
-	// Determine what job is marked as 'High' priority, and dress them up as such.
+	var/datum/ghostspawner/human/offship_spawner = SSghostroles.roundstart_offship_catalog[selected_job]
+	if(istype(offship_spawner))
+		mannequin.job = offship_spawner.assigned_role || offship_spawner.name
+		if(equip_preview_mob & EQUIP_PREVIEW_JOB)
+			offship_spawner.equip_preview(mannequin, species, src)
+		if(!SSATOMS_IS_PROBABLY_DONE)
+			SSatoms.CreateAtoms(list(mannequin))
+			mannequin.regenerate_icons()
+		else
+			mannequin.update_icon()
+		return
+
+	// Dress the mannequin for the single selected station job.
 	var/datum/job/previewJob
-	previewJob = return_chosen_high_job()
+	previewJob = return_selected_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -239,14 +251,23 @@
 		else
 			mannequin.update_icon()
 
-/datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
+/datum/preferences/proc/return_selected_job(var/title = FALSE)
+	if(!SSjobs.initialized)
+		return
+	var/datum/job/chosen_job = SSjobs.GetJob(selected_job)
+	if(istype(chosen_job) && title)
+		return chosen_job.title
+	return chosen_job
+
+/// Reads the obsolete High priority fields while migrating an existing character.
+/datum/preferences/proc/return_legacy_high_job()
 	var/datum/job/chosenJob
 	if(!SSjobs.initialized)
 		return
 
 	if(job_civilian_low & ASSISTANT)
-		// Assistant is weird, has to be checked first because it overrides
-		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]
+		// Assistant was stored in the Low field as a special case in the old UI.
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[ASSISTANT]"]
 	else if(job_civilian_high)
 		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
 	else if(job_medsci_high)
@@ -256,9 +277,24 @@
 	else if(job_event_high)
 		chosenJob = SSjobs.bitflag_to_job["[EVENTDEPT]"]["[job_event_high]"]
 
-	if(istype(chosenJob) && title)
-		return chosenJob.title
 	return chosenJob
+
+/// Applies the shared hat, uniform, and suit visibility toggles after preview equipment is created.
+/datum/preferences/proc/filter_job_preview_equipment(mob/living/carbon/human/mannequin)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && mannequin.head)
+		var/obj/item/hidden_hat = mannequin.head
+		mannequin.drop_from_inventory(hidden_hat)
+		qdel(hidden_hat)
+
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && mannequin.w_uniform)
+		var/obj/item/hidden_uniform = mannequin.w_uniform
+		mannequin.drop_from_inventory(hidden_uniform)
+		qdel(hidden_uniform)
+
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && mannequin.wear_suit)
+		var/obj/item/hidden_suit = mannequin.wear_suit
+		mannequin.drop_from_inventory(hidden_suit)
+		qdel(hidden_suit)
 
 /datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmobs.get_mannequin(client.ckey)
