@@ -167,11 +167,11 @@
 
 // airlocks
 
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port
 	name = "Port Airlock"
 	master_tag = "airlock_cyclops_port"
 
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard
 	name = "Starboard Airlock"
 	master_tag = "airlock_cyclops_starboard"
 

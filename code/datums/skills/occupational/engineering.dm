@@ -22,7 +22,8 @@
 /singleton/skill/mechanical_engineering
 	name = "Mechanical Engineering"
 	description = "Mechanical engineering has to do with general construction of objects, walls, windows, and so on. It is also necessary for the usage of heavy machinery \
-				such as emitters. This skill is also commonly used for crafting items out of raw materials, and heavily governs the quality of said objects."
+			such as emitters. This skill is also commonly used for crafting items out of raw materials, and heavily governs the quality of said objects. \
+			It also modifies the damage you deal when attacking structures such as airlocks and windows."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
@@ -39,15 +40,24 @@
 			+ " - Items you craft will be of slightly lower than average quality.<br>" \
 			+ " - You take 50% longer to craft anything.<br>" \
 			+ " - You can interact with some Engineering-related machinery.<br>" \
+			+ " - You deal 10% more damage when attacking structures such as airlocks, windows, and machinery.<br>" \
+			+ " - You can repair exosuits 25% faster<br>" \
+			+ " - Each use of a welder on an exosuit repairs 5 more damage.<br>" \
 			+ " - You can recognize what a few wires do in mechanical devices by sight.",
 		SKILL_LEVEL_TRAINED = "You have formal training in general Engineering concepts, equivalent to a Bachelor's Degree. <br>" \
 			+ " - You can craft items at the standard speed.<br>" \
-			+ " - You can craft a wider variety of items.<br>" \
+			+ " - Items you craft are generally at average quality.<br>" \
 			+ " - You can interact with most if not all Engineering equipment.<br>" \
+			+ " - You deal 15% more damage when attacking structures such as airlocks, windows, and machinery.<br>" \
+			+ " - You can repair exosuits 50% faster<br>" \
+			+ " - Each use of a welder on an exosuit repairs 10 more damage.<br>" \
 			+ " - You can recognize what several wires do in mechanical devices by sight.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
 			+ " - You can craft items 50% faster.<br>" \
-			+ " - You can craft a much wider variety of items.<br>" \
+			+ " - Items you craft are of much higher quality on average.<br>" \
+			+ " - You deal 20% more damage when attacking structures such as airlocks, windows, and machinery.<br>" \
+			+ " - You can repair exosuits 75% faster<br>" \
+			+ " - Each use of a welder on an exosuit repairs 15 more damage.<br>" \
 			+ " - You can recognize what many wires do in mechanical devices by sight.",
 	)
 

@@ -128,7 +128,6 @@
 		"Jupiter Upper Atmosphere" = "jupiter",
 		"Xavier Trasen Memorial Gymnasium" = "gym",
 		"Battle Monsters Duelling Arena" = "battlemonsters",
-		"Chessboard" = "chessboard",
 		"Laser Tag Arena" = "lasertag",
 		"Combat Training Arena" = "combat_training"
 	)

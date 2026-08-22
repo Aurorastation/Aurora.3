@@ -32,9 +32,9 @@
 	if(randomize_range)
 		switch(lighttype)
 			if("tube")
-				brightness_range = rand(5,8) // LEMURIAN SEA - INCREASE BY 1,1 AFTER ARC
+				brightness_range = rand(6,9)
 			if("bulb")
-				brightness_range = rand(3,5) // LEMURIAN SEA - INCREASE BY 1,1 AFTER ARC
+				brightness_range = rand(4,6)
 	if(randomize_color)
 		brightness_color = pick(randomized_colors)
 	update()

@@ -1343,7 +1343,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"
@@ -2796,7 +2796,7 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/brig)
 "rz" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"
@@ -2925,7 +2925,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"
@@ -2973,7 +2973,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"
@@ -4389,7 +4389,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"
@@ -4698,7 +4698,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"
@@ -4891,7 +4891,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"
@@ -5734,7 +5734,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/brig)
 "NY" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1001;
 	master_tag = "airlock_heph_security_starb";
 	name = "airlock_heph_security_starb"

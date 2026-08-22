@@ -1,11 +1,11 @@
 // Aft airlocks
-/obj/effect/map_effect/marker/airlock/ssrm_ship/aft
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/aft
 	name = "Maintenance Hatch"
 	master_tag = "ssrm_aft"
 // --------
 
 // Fore airlocks
-/obj/effect/map_effect/marker/airlock/ssrm_ship/fore
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/fore
 	name = "Maintenance Hatch"
 	master_tag = "ssrm_fore"
 // --------
