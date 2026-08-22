@@ -9,6 +9,12 @@
 	var/power = 0
 	var/initial_power = 0
 	var/power_falloff = 1
+	/// Distance along the path from the epicenter, used to preserve legacy blast radii.
+	var/distance_travelled = 0
+	var/devastation_range
+	var/heavy_impact_range
+	var/light_impact_range
+	var/max_damage_range
 	var/reflection_power_multiplier = 0.4
 	var/direction
 	var/delay = 0
@@ -34,11 +40,29 @@
 		animate(wave_visual, alpha = clamp(round(power), 50, 180), time = 0, flags = ANIMATION_END_NOW)
 
 /datum/automata_cell/explosion/proc/get_severity()
+	var/power_severity
 	if(power >= 200)
-		return 1
-	if(power >= 100)
-		return 2
-	return 3
+		power_severity = 1
+	else if(power >= 100)
+		power_severity = 2
+	else
+		power_severity = 3
+
+	if(max_damage_range <= 0)
+		return power_severity
+
+	var/range_severity
+	if(distance_travelled < devastation_range)
+		range_severity = 1
+	else if(distance_travelled < heavy_impact_range)
+		range_severity = 2
+	else if(distance_travelled < light_impact_range)
+		range_severity = 3
+	else
+		return
+
+	// Resistance may weaken a wave further, but it must never make a legacy damage band stronger.
+	return max(power_severity, range_severity)
 
 /datum/automata_cell/explosion/proc/on_turf_entered(turf/source, atom/movable/arrived)
 	SIGNAL_HANDLER
@@ -130,6 +154,9 @@
 
 	for(var/spread_direction in get_propagation_dirs(reflected))
 		var/direction_falloff = (spread_direction in GLOB.diagonals) ? 1.414 : 1
+		var/new_distance = distance_travelled + direction_falloff
+		if(max_damage_range > 0 && new_distance >= max_damage_range)
+			continue
 		if(isnull(direction))
 			direction_falloff = 0
 
@@ -143,6 +170,11 @@
 		new_cell.power = new_power
 		new_cell.initial_power = initial_power
 		new_cell.power_falloff = power_falloff
+		new_cell.distance_travelled = new_distance
+		new_cell.devastation_range = devastation_range
+		new_cell.heavy_impact_range = heavy_impact_range
+		new_cell.light_impact_range = light_impact_range
+		new_cell.max_damage_range = max_damage_range
 		new_cell.direction = spread_direction
 		new_cell.source_mob = source_mob
 		new_cell.source_name = source_name
@@ -154,7 +186,7 @@
 	qdel(src)
 
 /// Begin a subsystem-paced cellular explosion.
-/proc/cell_explosion(turf/epicenter, power, falloff = 1, direction, mob/source_mob, source_name = "an explosion")
+/proc/cell_explosion(turf/epicenter, power, falloff = 1, direction, devastation_range, heavy_impact_range, light_impact_range, max_damage_range, mob/source_mob, source_name = "an explosion")
 	epicenter = get_turf(epicenter)
 	if(!epicenter || power <= 0)
 		return
@@ -187,6 +219,10 @@
 	cell.power = power
 	cell.initial_power = power
 	cell.power_falloff = max(0.1, falloff)
+	cell.devastation_range = devastation_range
+	cell.heavy_impact_range = heavy_impact_range
+	cell.light_impact_range = light_impact_range
+	cell.max_damage_range = max_damage_range
 	cell.direction = direction
 	cell.source_mob = source_mob
 	cell.source_name = source_name

@@ -62,6 +62,10 @@ SUBSYSTEM_DEF(explosives)
 			above.epicenter = GET_TURF_ABOVE(epicenter)
 			above.rec_pow = data.rec_pow * GLOB.config.iterative_explosives_z_multiplier - GLOB.config.iterative_explosives_z_subtraction
 			above.power_falloff = data.power_falloff
+			above.devastation_range = data.devastation_range
+			above.heavy_impact_range = data.heavy_impact_range
+			above.light_impact_range = data.light_impact_range
+			above.max_damage_range = data.max_damage_range
 			above.z_transfer = UP
 			above.spreading = TRUE
 			above.source_mob = data.source_mob
@@ -72,13 +76,27 @@ SUBSYSTEM_DEF(explosives)
 			below.epicenter = GET_TURF_BELOW(epicenter)
 			below.rec_pow = data.rec_pow * GLOB.config.iterative_explosives_z_multiplier - GLOB.config.iterative_explosives_z_subtraction
 			below.power_falloff = data.power_falloff
+			below.devastation_range = data.devastation_range
+			below.heavy_impact_range = data.heavy_impact_range
+			below.light_impact_range = data.light_impact_range
+			below.max_damage_range = data.max_damage_range
 			below.z_transfer = DOWN
 			below.spreading = TRUE
 			below.source_mob = data.source_mob
 			below.source_name = data.source_name
 			queue(below)
 
-	cell_explosion(epicenter, data.rec_pow, data.power_falloff || 1, source_mob = data.source_mob, source_name = data.source_name)
+	cell_explosion(
+		epicenter,
+		data.rec_pow,
+		data.power_falloff || 1,
+		devastation_range = data.devastation_range,
+		heavy_impact_range = data.heavy_impact_range,
+		light_impact_range = data.light_impact_range,
+		max_damage_range = data.max_damage_range,
+		source_mob = data.source_mob,
+		source_name = data.source_name
+	)
 
 // Handle a non-recusrive explosion.
 /datum/controller/subsystem/explosives/proc/explosion(var/datum/explosiondata/data)
@@ -464,6 +482,7 @@ SUBSYSTEM_DEF(explosives)
 	var/spreading
 	var/rec_pow
 	var/power_falloff
+	var/max_damage_range
 	var/mob/source_mob
 	var/source_name = "an explosion"
 

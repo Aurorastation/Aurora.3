@@ -11,6 +11,7 @@
 	data.adminlog = adminlog
 	data.z_transfer = z_transfer
 	data.spreading = spreading
+	data.max_damage_range = max(devastation_range, heavy_impact_range, light_impact_range)
 	if(devastation_range > 0)
 		data.rec_pow = 300
 	else if(heavy_impact_range > 0)
