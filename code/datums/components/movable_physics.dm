@@ -3,11 +3,12 @@
 
 /// Gives a movable lightweight visual motion across turfs using pixel offsets.
 /datum/component/movable_physics
-	/// Horizontal speed, in pixels per subsystem tick.
-	var/horizontal_velocity
-	/// Vertical speed, in pixels per subsystem tick.
+	// pixel_x and pixel_y form the horizontal plane; "vertical" here means height on pixel_z.
+	/// Horizontal velocity, in pixels per second.
+	var/vector/horizontal_velocity
+	/// Vertical speed, in pixels per second.
 	var/vertical_velocity
-	/// Horizontal speed lost per subsystem tick.
+	/// Horizontal deceleration, in pixels per second squared.
 	var/horizontal_friction
 	/// Downward acceleration, in pixels per second squared.
 	var/z_gravity
@@ -29,16 +30,16 @@
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	horizontal_velocity = _horizontal_velocity
+	angle_of_movement = normalize_angle(_angle_of_movement)
+	horizontal_velocity = vector(_horizontal_velocity * cos(angle_of_movement), _horizontal_velocity * sin(angle_of_movement))
 	vertical_velocity = _vertical_velocity
 	horizontal_friction = _horizontal_friction
 	z_gravity = _z_gravity
 	z_floor = _z_floor
-	angle_of_movement = normalize_angle(_angle_of_movement)
 	physics_flags = _physics_flags
 	bounce_sound = _bounce_sound
 
-	if(vertical_velocity || horizontal_velocity)
+	if(vertical_velocity || horizontal_velocity.size)
 		start_movement()
 
 /datum/component/movable_physics/RegisterWithParent()
@@ -77,37 +78,41 @@
 
 	var/atom/movable/moving_atom = source
 	if(throwing_datum?.target_turf)
-		ricochet(moving_atom, 90 - get_angle(moving_atom, throwing_datum.target_turf))
+		ricochet(90 - get_angle(moving_atom, throwing_datum.target_turf))
 
 /datum/component/movable_physics/proc/bounce_off_floor(atom/movable/moving_atom)
-	angle_of_movement = normalize_angle(angle_of_movement + rand(-3000, 3000) / 100)
+	var/new_angle = normalize_angle(angle_of_movement + rand(-3000, 3000) / 100)
+	horizontal_velocity.Turn(angle_of_movement - new_angle)
+	angle_of_movement = new_angle
 	if(bounce_sound)
 		playsound(moving_atom, bounce_sound, 50, TRUE)
 	moving_atom.SpinAnimation(speed = 0.5 SECONDS, loops = 1)
 	moving_atom.pixel_z = z_floor
-	horizontal_velocity = max(0, horizontal_velocity - (vertical_velocity * 0.8))
-	vertical_velocity = max(0, ((vertical_velocity * -0.8) - 0.2))
+	horizontal_velocity.size = max(0, horizontal_velocity.size - (vertical_velocity * 0.8))
+	vertical_velocity = max(0, ((vertical_velocity * -0.8) - 4))
 
-/datum/component/movable_physics/proc/ricochet(atom/movable/moving_atom, bounce_angle)
-	angle_of_movement = normalize_angle((180 - bounce_angle) - angle_of_movement)
+/datum/component/movable_physics/proc/ricochet(bounce_angle)
+	var/new_angle = normalize_angle((180 - bounce_angle) - angle_of_movement)
+	horizontal_velocity.Turn(angle_of_movement - new_angle)
+	angle_of_movement = new_angle
 
 /datum/component/movable_physics/proc/normalize_angle(angle)
 	return SIMPLIFY_DEGREES(angle)
 
 /datum/component/movable_physics/process(seconds_per_tick)
 	var/atom/movable/moving_atom = parent
-	if(horizontal_velocity <= 0 && moving_atom.pixel_z <= z_floor && vertical_velocity <= 0)
-		horizontal_velocity = 0
+	if(horizontal_velocity.size <= 0 && moving_atom.pixel_z <= z_floor && vertical_velocity <= 0)
+		horizontal_velocity.size = 0
 		vertical_velocity = 0
 		moving_atom.pixel_z = z_floor
 		stop_movement()
 		return PROCESS_KILL
 
-	moving_atom.pixel_x += horizontal_velocity * cos(angle_of_movement)
-	moving_atom.pixel_y += horizontal_velocity * sin(angle_of_movement)
-	horizontal_velocity = max(0, horizontal_velocity - horizontal_friction)
+	moving_atom.pixel_x += horizontal_velocity.x * seconds_per_tick
+	moving_atom.pixel_y += horizontal_velocity.y * seconds_per_tick
+	horizontal_velocity.size = max(0, horizontal_velocity.size - (horizontal_friction * seconds_per_tick))
 
-	moving_atom.pixel_z = max(z_floor, moving_atom.pixel_z + vertical_velocity)
+	moving_atom.pixel_z = max(z_floor, moving_atom.pixel_z + (vertical_velocity * seconds_per_tick))
 	if(moving_atom.pixel_z > z_floor)
 		vertical_velocity -= z_gravity * seconds_per_tick
 	else if(vertical_velocity < 0)
@@ -118,7 +123,7 @@
 			moving_atom.pixel_x = -16
 		else
 			moving_atom.pixel_x = 16
-			ricochet(moving_atom, 0)
+			ricochet(0)
 		return
 
 	if(moving_atom.pixel_x < -16)
@@ -126,7 +131,7 @@
 			moving_atom.pixel_x = 16
 		else
 			moving_atom.pixel_x = -16
-			ricochet(moving_atom, 0)
+			ricochet(0)
 		return
 
 	if(moving_atom.pixel_y > 16)
@@ -134,7 +139,7 @@
 			moving_atom.pixel_y = -16
 		else
 			moving_atom.pixel_y = 16
-			ricochet(moving_atom, 180)
+			ricochet(180)
 		return
 
 	if(moving_atom.pixel_y < -16)
@@ -142,4 +147,4 @@
 			moving_atom.pixel_y = 16
 		else
 			moving_atom.pixel_y = -16
-			ricochet(moving_atom, 180)
+			ricochet(180)
