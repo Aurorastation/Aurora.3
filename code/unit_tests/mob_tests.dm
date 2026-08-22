@@ -112,7 +112,18 @@
 			TEST_FAIL("listener selection for \"[message]\" at range [test_range] was [listener_selected], expected [expected_listener_selected]")
 			return 0
 
-	TEST_PASS("speech test complete; ordinary speech stayed onscreen while yells and shouts reached their offscreen ranges.")
+	var/mob/living/simple_animal/test_animal = new(speaker_turf)
+	var/datum/say_message/animal_message = test_animal.build_say_message("Woof!", null)
+	animal_message.message_range = world.view
+	var/list/animal_offscreen_listeners = test_animal.get_offscreen_speech_listeners(animal_message, list(test_animal))
+	var/animal_listener_selected = (test_listener_mob in animal_offscreen_listeners)
+	qdel(animal_message)
+	qdel(test_animal)
+	if(animal_listener_selected)
+		TEST_FAIL("simple animal speech selected an offscreen listener")
+		return 0
+
+	TEST_PASS("speech test complete; ordinary and animal speech stayed onscreen while yells and shouts reached their offscreen ranges.")
 	return 1
 
 /datum/unit_test/human_breath

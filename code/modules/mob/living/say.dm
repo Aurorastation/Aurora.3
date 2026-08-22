@@ -285,6 +285,9 @@ var/list/channel_to_radio_key = new
 		if(!listener_has_ceiling && (speaker_turf in view(world.view, listener_ceiling)))
 			. |= player
 
+/mob/living/simple_animal/get_offscreen_speech_listeners()
+	return list()
+
 /// Builds and animates the speech bubble over the speaker for the given clients.
 /mob/living/proc/show_speech_bubble(datum/say_message/msg, message, list/client/show_to)
 	var/speech_bubble_state = check_speech_punctuation_state(message)
