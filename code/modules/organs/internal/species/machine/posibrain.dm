@@ -100,7 +100,7 @@
 	. = ..()
 	to_chat(owner, SPAN_MACHINE_DANGER(FONT_LARGE("Your damage failsafes activate; your thought processes grind to a halt as your consciousness is cut off from the exterior world. No sensation or external input reaches you anymore.")))
 	to_chat(owner, SPAN_DANGER(FONT_LARGE("You are now in an emergency low power mode, so that your posibrain can still survive despite your chassis being destroyed.")))
-	owner.mind.transfer_to(stored_mmi.brainmob)
+	owner?.mind?.transfer_to(stored_mmi.brainmob)
 
 /**
  * Helper proc to add fragmentation.

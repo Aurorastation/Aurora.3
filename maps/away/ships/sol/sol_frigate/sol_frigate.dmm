@@ -279,7 +279,7 @@
 	pixel_y = 25
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock/sol_frigate/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/sol_frigate/mid_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sol_frigate/Port_docking_port)
@@ -2383,7 +2383,7 @@
 	pixel_x = -7
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock/sol_frigate/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/sol_frigate/mid_starboard,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
@@ -6457,7 +6457,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/sol_frigate/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/sol_frigate/mid_starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sol_frigate/Port_docking_port)
 "Dj" = (
