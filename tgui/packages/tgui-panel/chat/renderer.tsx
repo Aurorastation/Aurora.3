@@ -404,8 +404,9 @@ class ChatRenderer {
 
           // The scrambling layer is positioned over layout copies of both
           // versions, allowing its letters to change without reflowing chat.
-          const decipherNodes =
-            node.querySelectorAll<HTMLElement>('.language-decipher');
+          const decipherNodes = (
+            node as HTMLElement
+          ).querySelectorAll<HTMLElement>('.language-decipher');
           for (const decipherNode of decipherNodes) {
             const scrambleWord = decipherNode.querySelector<HTMLElement>(
               '.language-decipher-scramble',
