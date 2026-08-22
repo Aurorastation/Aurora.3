@@ -8178,9 +8178,7 @@
 /area/runtime/floor_one/atmospherics)
 "Rg" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/docking/runtime/dock/south,
 /turf/simulated/floor/airless,
 /area/runtime/floor_two/main)
@@ -9610,9 +9608,7 @@
 /area/runtime/floor_two/comms)
 "YZ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2
-	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -24;
 	dir = 4;
