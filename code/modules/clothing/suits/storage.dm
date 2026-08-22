@@ -124,6 +124,18 @@
 	icon_state = "greatcoat_bwn"
 	item_state = "greatcoat_bwn"
 
+/obj/item/clothing/suit/storage/toggle/greatcoat/recolor
+	name = "greatcoat"
+	desc = "A non-descript greatcoat. It looks warmer, if a bit heaver, than most other clothing."
+	icon_state = "greatcoat_recolor"
+	item_state = "greatcoat_recolor"
+	build_from_parts = TRUE
+	worn_overlay = "metal"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/recolor/alt
+	build_from_parts = FALSE
+	has_accents = TRUE
+
 // Corporate Jackets
 
 /obj/item/clothing/suit/storage/toggle/corp

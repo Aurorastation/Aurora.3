@@ -361,8 +361,8 @@
 
 /obj/item/integrated_circuit/output/video_camera
 	name = "video camera circuit"
-	desc = "Creates a camera feed from the assembly's position."
-	extended_desc = "Creates a camera feed. It uses the Research camera network by default, but the network can be changed."
+	desc = "This small camera allows a remote viewer to see what it sees."
+	extended_desc = "Creates a camera feed. It uses the Expedition camera network by default, but the network can be changed."
 	icon_state = "video_camera"
 	w_class = WEIGHT_CLASS_SMALL
 	complexity = 10
@@ -372,12 +372,12 @@
 		"camera active" = IC_PINTYPE_BOOLEAN
 	)
 	inputs_default = list("1" = "video camera circuit",
-						"2" = "Research")
+						"2" = "Expedition")
 	outputs = list()
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_idle = 5 // Raises to 200 when on.
-	var/obj/structure/machinery/camera/network/research/camera
+	var/obj/structure/machinery/camera/network/expedition/camera
 
 /obj/item/integrated_circuit/output/video_camera/Initialize()
 	. = ..()

@@ -734,7 +734,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -760,7 +760,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1319,7 +1319,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -2766,7 +2766,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /turf/simulated/floor/tiled/white,
 /area/runtime/floor_one/main)
 "mh" = (
@@ -2942,7 +2942,7 @@
 /turf/simulated/floor/plating,
 /area/runtime/floor_one/atmospherics)
 "nh" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -3664,7 +3664,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -3995,7 +3995,7 @@
 /turf/unsimulated/floor/dark_monotile,
 /area/runtime/floor_one/atmospherics)
 "tw" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -4088,7 +4088,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -4617,7 +4617,7 @@
 /turf/simulated/floor/reinforced/n20,
 /area/runtime/floor_one/atmospherics)
 "wY" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -4770,7 +4770,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/runtime/floor_two/comms)
 "xU" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -5527,7 +5527,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -6000,7 +6000,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
 "Fm" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -8322,6 +8322,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/white,
 /area/runtime/floor_one/main)
 "SB" = (
@@ -8564,7 +8565,7 @@
 /turf/space,
 /area/runtime/exterior)
 "TQ" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},

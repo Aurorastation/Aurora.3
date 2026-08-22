@@ -1,0 +1,472 @@
+2026-08-02:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Guards emergency shield projectors' maintenance process() logic from inadvertently
+      toggling projector on when anchored and inactive.
+  - bugfix: Bubble shield projectors no longer register candidate turfs for every
+      hearer in range. Once is enough.
+  ChangeMe:
+  - bugfix: Fixes some icon issues with the TCAF berets.
+  FabianK3:
+  - bugfix: Fixed ashtrays not refreshing their material from saved persistence.
+  Fenodyree:
+  - bugfix: Fixes bluespace inhibitors inconsistantly blocking teleports in a square,
+      but finding the alternate desination in a circle. Its all square now.
+  - bugfix: Fixes telescience portals not respecting bluespace inhibitors.
+  - bugfix: Doors and blast doors can be destroyed again with enough sustained damage.
+  - bugfix: Fixes doors 'breaking' repeatedly, when hit at 0 health.
+  - bugfix: Fixes doors taking damage twice when hit by projectiles. This also fixes
+      projectiles ignoring a door's armour.
+  - balance: Increased the armor values on blast doors and vault doors.
+  - rscadd: Added a brief particle effect when a door is destroyed.
+  SimpleMaroon:
+  - bugfix: Fixed some extraneous pixels on the colorable greatcoat south-facing mob
+      sprite when closed, causing the neck to be improperly blocked off.
+  TheGreyWikf:
+  - bugfix: Integrated circuits can now display screen text and other examine related
+      things.
+  - bugfix: Fixed the direction of the wall mounted integrated circuit when placed.
+  - bugfix: Fixed that the integrated circuit kit had the wrong tools.
+  - bugfix: Fixed that the integrated circuit printer put things on the turf instead
+      of in hand.
+  - bugfix: Fixed that removing integrated circuit components put them on the turf,
+      and that they were dropped if they did not fit inside the device.
+  - bugfix: Harvesting a plant multiple times by clicking it repeatedly before it
+      finishes is no longer possible.
+  - bugfix: The kitchen machinery can now be upgraded.
+  - bugfix: The farmbot requirement in bounties was reduced.
+  - bugfix: Fixes the inability to put custom pizzas in the pizza box.
+  diggiez:
+  - bugfix: Surplus Vaurca Drones from Cargo have their Hive names properly set.
+2026-08-03:
+  Banditoz:
+  - rscadd: Megaphones now use your accent, language, and create floating text when
+      used.
+  Batrachophrenoboocosmomachia:
+  - rscadd: Adds NTNet extensibility, requires new machinery constructed on away-site
+      z-levels.
+  - rscadd: Breaks NTNet Relay machinery into Quantum Relay ('core' obj on Horizon)
+      and Field Relay (deployable off-site constructions).
+  - rscadd: Adds several public camera monitor consoles to the Horizon.
+  - rscadd: Adds some spare camera console boards to Horizon technical storage.
+  - rscadd: Adds camera toggle verb for hardsuits and exosuits.
+  - rscadd: Adds camera network configuration verb for helmet cams, hardsuits, and
+      exosuits.
+  - rscadd: Adds linked AI/VR handling for new camera toggle/configuration verbs.
+  - qol: Embedded cameras (basically every video camera EXCEPT those which are installed
+      on walls) can now be viewed from NTNet-connected z-level, not just connected
+      ones.
+  - qol: Adds action button for 'cancel-camera-view' verb while viewing cameras or
+      looking up/down z-level.
+  - qol: Antags get always-access to NTNet for crew manifest, apps, etc. while on
+      z-level 4.
+  - bugfix: Fixes Jockey comms (frequency was missing from ANTAG_FREQS).
+  - bugfix: Fixes look-up/look-down actions intermittently failing without first using
+      cancel-camera-view.
+  - bugfix: Fixes camera assembly upgrades not applying correctly and not providing
+      feedback text.
+  - qol: Mobs in animal traps can now be transferred directly to Stasis Cages by click-dragging
+      rather than requiring them to be in a net.
+  - bugfix: Mobs can no longer use their ranged attacks while contained inside objects
+      (including animal traps).
+  - bugfix: Stasis cages now apply stasis only while powered and correctly clear it
+      when releasing simplemobs.
+  - bugfix: Fixes stasis cage transfers race condition freeing trapped animals randomly.
+  - bugfix: Corrects stasis cage safety-wire status display.
+  - code_imp: Exoplanets now cache their main outdoor atmospheric region instead of
+      trying to search their entire map once per second.
+  - code_imp: Exoplanet atmospheric calculations now run only when necessary using
+      new update_revision counter.
+  - code_imp: Exoplanet atmospheres now wait until all random ruins have been placed
+      before trying to resolve the air everywhere.
+  - admin: Adds new admin debug verb, 'Toggle Non-Horizon Temperature Graphics', which
+      toggles all off-ship gas temp graphics to address lag in a pinch, if still necessary,
+      without removing actual environmental hazard.
+  - rscadd: Adds a Deployable Operating Table kit to the Intrepid medical compartment.
+  - rscdel: Removes the Operating Table Circuit Board and one scanning module from
+      the D1 Maints Workshop.
+  - qol: Replaces many pre-assembled Industrial Floodlight structures with Deployable
+      Floodlight Kit items so as to take up less space; adds a couple extra racks
+      with spares.
+  - bugfix: 'Fixes inconsistent janitorial door access (bypasses from #22620).'
+  - bugfix: Fixes floating Research hallway camera.
+  - code_imp: Miscellaneous dmdocs audit of ACCESS_* defines.
+  FabianK3:
+  - balance: Adjusted cargo import pricing for liquid tanks so fuel, extinguisher
+      foam, and water tanks now cost more to import than they can be sold for, matching
+      the existing export-value logic.
+  - bugfix: Removed the duplicate miscellaneous water tank cargo definition.
+  - bugfix: Stopped empty persistent reagent tanks from being deleted.
+  Fenodyree:
+  - balance: Buffs gattling laser modifier charge time from 3 to 2 seconds. It took
+      so long to charge multiple people thought it was bugged.
+  - balance: Tweaks material costs, replacing uranium with silver and gold. Uranium
+      was previously used everywhere.
+  - bugfix: Fixed a bug where energy guns would not properly handle reliability failures
+      when the gun was out of charge.
+  - bugfix: Fixed improvement potential calculations for ions and slimes. You no longer
+      gain improvement shooting monkeys with ions, or for shooting slimes with lasers.
+  - bugfix: Fixed a bug with bluespace capacitors teleporting items in teleport inhibitor
+      range. This was due to the EMP happening before the teleport and destroying
+      the inhibitor.
+  - bugfix: Fixed Ion modulators not correctly decreasing the number of shots.
+  Geeves:
+  - rscadd: Mining points now carry over between rounds for each character.
+  - balance: Mining point carryover is capped at 15,000 points.
+  - qol: Added the ability to duplicate a loadout into another loadout slot.
+  - rscadd: Readying up and successfully joining the round now gives you a morale
+      bonus that lasts for 30 minutes.
+  Hellfirejag:
+  - rscadd: Mech mounted ore summoners will now pick up ores that the mech walks over.
+  - balance: Mounted ore summoners can now pick up up to 150 ores when actively pulsed,
+      up from 50.
+  - balance: Reduced the explosion radius of the mech heavy kinetic accelerator by
+      2
+  - balance: Increased the range of the mech heavy kinetic accelerator by 1
+  - rscadd: Added more sound effects for mechs, including a looping reactor hum, and
+      warning sounds for critical damage.
+  MattAtlas:
+  - rscadd: Added an Extreme Canonicity for the TWILIGHT OF PEACE lore arc.
+  - rscadd: The journalist's microphone by default no longer allows everyone to speak
+      into it. Click someone with the microphone in hand to allow the microphone to
+      pick up their voice. You can alt-click the microphone to disable this functionality.
+      If you move more than 5 tiles away from the microphone, you will automatically
+      be de-registered from its allowed listeners. People screaming will bypass the
+      allowed listeners.
+  Mineymonkey:
+  - bugfix: Rapid part exchange devices can now upgrade stock parts in all compatible
+      machinery, including science telepads.
+  - qol: Alt-clicking an autolathe with a rapid part exchange device in your active
+      hand now recycles its compatible contents, leaving rejected items inside.
+  The_Ill_fated:
+  - rscadd: Adds Eris Flag and Banner to player loadout options.
+  - imageadd: New sprites for the Eris Flag and Banner.
+  kermit:
+  - rscadd: Represents phoron lore in SMES units via descs + purple accenting on SMES
+      sprites.
+  - rscadd: Adds a phoron-free, cryogenic SMES unit.
+  - rscadd: Represents phoron lore in telecomms component descriptions. Adds a phoron
+      manufacture cost to some of them.
+  - rscadd: The Quantum Relay has been renamed to Bluespace Relay, as Quantum FTL
+      Communications are not in lore.
+  - rscadd: 'Retitles or adds various reporter/journalist (alt)titles. For megacorporate
+      factions: Corporate Reporter, Corporate Journalist. For independents: Independent
+      Reporter, Independent Journalist, Media Broadcaster.'
+2026-08-04:
+  FabianK3:
+  - bugfix: Fixed persistent overmap location of the Horizon.
+2026-08-05:
+  Fenodyree:
+  - bugfix: Fixes the integrated circuit local locator failing if it was installed
+      in clothing.
+  - bugfix: Grenades can now be thrown over barricades from the defender's side. No
+      more accidentally grenading your team because you were one tile from the sandbags.
+  - bugfix: Fixed window frames blocking thrown grenades and bullets.
+  - bugfix: Fixed grenades launched instead of being thrown getting stuck on railings
+      and tables.
+  Noobetski:
+  - rscadd: Adds biesel citizenship to Traverse origin due to the recent refugee influx
+      from Traverse.
+  mineymonkey:
+  - bugfix: Added some safeties to prevent import loss due to server latency.
+  - bugfix: Fixed a bug where cloned built-in circuits were not being properly registered.
+  - balance: Reduced the maximum amount of metal and phoron that can be stored in
+      a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can
+      hit those numbers, so this is just a safety measure to prevent accidental loss
+      of materials.
+  - balance: Made the in-built radio command receiver cost no complexity to keep in-line
+      with other in-built components.
+2026-08-07:
+  Batrachophrenoboocosmomachia:
+  - refactor: Updates exoplanet air caching to be zone-based instead of turf-based.
+  DreamySkrell:
+  - rscadd: Bapi mapmanip script - optional argument to specify a map directory to
+      run manipulations on.
+  FabianK3:
+  - rscadd: Added a ping storyteller verb. People can now ping the storyteller to
+      get their attention using the new verb in the OOC tab.
+  Fenodyree:
+  - bugfix: Fixed many instances where structures took double damage in error.
+  - bugfix: Fixes EMP armor for mechs.
+  - bugfix: Fixes mech pilot's getting EMP'd twice for every EMP hitting the mech.
+  - bugfix: Fixes shields for mechs.
+  - bugfix: Fixes mechs being able to draw infinite power, as long as there was any
+      power in their cell.
+  - bugfix: Fixes cockpit coverage not letting the pilot be hit.
+  - bugfix: Fixes legacy icon updates.
+  - rscadd: Adds a chance for attacks to hit the mech's pilot after the cockpit has
+      been destroyed. This still accounts for the mech's armor and shields.
+  - balance: Allows grenades to be thrown over barricades from the blocking side.
+      The chance to block a grenade is one third of the barricade's chance to block
+      a bullet.
+  Omicega:
+  - bugfix: Fixed the corporate reporter's camera's on-mob sprites not showing up
+      when worn.
+  - rscadd: Allows transfer votes during red alert, with support for weighting votes
+      by round participation.
+  TheGreyWolf:
+  - bugfix: The power draw on the bubble shield circuit now updates correctly again.
+  - rscadd: The nuke can no lonnger be deployed or detonate in rad shielded or non-Horizon
+      areas.
+  - rscadd: The nuke's minimum timer was raised to 10 min and the max timer to 15
+      min.
+  - rscadd: The nuke now announces its location when activated.
+  - bugfix: The wires in hardsuits are now named instead of being numbers.
+  - rscadd: Added a material silo and mech fabricators to the research console.
+  - rscadd: The research console now uses TGUI.
+  fyni:
+  - rscadd: Adds a custom item for Dido Sophonisa.
+  hazelmouse:
+  - bugfix: Interacting with an APC as an IPC on grab intent no longer opens the APC's
+      UI in addition to charging from it.
+  - bugfix: Should resolve some finicky lighting in the Sadar Unified Fleet and Golden
+      Deep ships.
+  kano:
+  - bugfix: Fixed an issue with exoplanet turf edge icons layering below the adjacent
+      turfs.
+  - code_imp: Exoplanet turfs no longer attempt to add edge icons by default.
+2026-08-09:
+  FabianK3:
+  - bugfix: Fixed quotation marks being added to persistent type defines in the database.
+  - rscadd: Added a new TGUI panel for admins called persistence panel. Features subsystem
+      status and detailed information on all persistent content.
+  - qol: Removed the toggle persistence admin verb and moved it into the persistence
+      panel.
+  FabianK3, Wowzewow:
+  - rscadd: Added persistence for cooking oil tanks.
+  - rscadd: Added fill level indicators to water, fuel, extinguisher, lube and cooking
+      oil tanks.
+  - rscadd: Added cooking oil tanks to cargo order manifest.
+  Fenodyree:
+  - qol: Causes the statpanel (Alt-click pickup menu) to immediately update when an
+      item is removed from a turf, instead of waiting for the next update tick.
+  - bugfix: Fixes many bugs related to being able to interact with items normally
+      inaccessable. Eg. Double loading bullets into a magazine.
+  The Stryker:
+  - rscadd: Adds a press vest and helmet to the journalist's office.
+  nauticall:
+  - rscadd: Painted the 'mainline' disposal pipes yellow for better distinction with
+      mapping.
+  - rscadd: Adjusted some disposal piping to be tidier.
+  - bugfix: Packages can now once again be mailed to the Machinist's Workshop.
+2026-08-10:
+  FabianK3:
+  - bugfix: Fixed the mineral asteroid position not being updated after the Horizon's
+      persistent position was applied.
+  - balance: Welding packs (on the Horizon) now start empty to support persistent
+      welding fuel tanks.
+  - imageadd: Added a sprite for empty welding packs.
+  - balance: Reduced the 'optimal' oil amount in the deep fryers from 9000u to 100u.
+      One cooking oil tank can now be used multiple times instead of needing 9 tanks
+      to refill it.
+  - rscadd: Added a wrench to the kitchen to allow better handling of cooking oil
+      tanks.
+  Omicega:
+  - qol: Flags and banners with custom names and descriptions now keep these custom
+      names and descriptions when deployed.
+  hazelmouse:
+  - rscadd: IPC P2P communications now sends messages of transmissions to the chatboxes
+      of both parties.
+  - rscadd: Added new Trinarist assets in the loadout; new tunics, cape variants,
+      coif variants, etc.
+  - imageadd: Implemented resprites for several Trinarist assets, including clerical
+      robes and the Trinarist stave.
+  kermit:
+  - bugfix: fixes smes coils not being insertable into smes units (oops, my bad)
+2026-08-11:
+  Geeves:
+  - bugfix: Fixed ship munitions occasionally failing to enter their overmap target
+      when their original physical projectile no longer existed.
+  - bugfix: Fixed several ship munitions reconstructing as the wrong projectile after
+      overmap travel, ensuring explosive rounds correctly detonate on impact.
+2026-08-14:
+  Batrachophrenoboocosmomachia:
+  - balance: Extends minimum time to organ rupture due to Greimorian egg implantation
+      by 33%.
+  - balance: Adds chest and groin organ choice in Greimorian egg implantation to reroll
+      chance target, like head, to reduce effectively-end-your-round chance.
+  - balance: Removes egg spread chance from Greimorian egg implantation stage 4.
+  - balance: Minor other adjustments to Greimorian egg behavior (ensures increased
+      duration does not increase final larva count, etc.)
+  - balance: Gives Greimorian Servant (playable worker) greater venom per bite than
+      standard workers.
+  DreamySkrell:
+  - rscadd: Bapi autopipe script.
+  - rscadd: Overmap sector list `initial_generic_waypoints` is now optional.
+  - refactor: Small refactor of landmarks and docking markers on the SCC Scout Ship.
+  - rscadd: Door paint markers.
+  FabianK3:
+  - rscdel: Removed the ambience sounds from vents and scrubbers. The amount of sounds
+      degrade performance. The sound files added with it are still available.
+  Fenodyree:
+  - qol: Integrated circuit assemblies can now be recycled in autolathes. They can't
+      be recycled in the printer, because clicking the printer with the circuit is
+      required to scan it for cloning.
+  - qol: Integrated circuits can now be charged in rechargers.
+  - balance: Reduces the damage and armour penetration of shots hitting the mech pilot
+      after going through the hatch. The amount depends on the mech's cockpit design.
+      Values range between 30% and 80% of the original damage and armour penetration.
+  Geeves:
+  - rscadd: You can now close your eyes. This blinds you, but gives you protection
+      against flash effects.
+  - balance: Welding while blind takes three times as long and has an 80% chance to
+      fail, with a risk of burning yourself.
+  Mineymonkey:
+  - bugfix: Removed the matter bin requirements for the circuit imprinter, prolathe,
+      and mechfabricator research boards.
+  TheGreyWolf:
+  - rscdel: The golden slime core can no longer spawn psiren omens, beckoners or the
+      psiren matriarch.
+  - rscdel: Technomancers can no longer summon the psiren omens or beckoners. Other
+      psirens were untouched.
+  - bugfix: Fixed the inability for the himean taj modkit to modify an assembled industrial
+      rig.
+  Tomixcomics:
+  - rscadd: Adds two new adhomian cuisine dishes - the Meat Thamo and the Cheese Thamo.
+  hazelmouse:
+  - rscadd: Added the lesser hivebot boss from Silicon Nightmares to the codebase,
+      tentatively only for admin use.
+  - rscadd: Adds hivebot circuit floors.
+  - qol: Playable hivebots now spawn with the hivebot language as standard.
+  - imageadd: Added the sprites for the greater hivebot boss to the codebase, though
+      it is currently unimplemented.
+  - qol: Playable hivebots now make noises when they speak or emote.
+  - rscadd: Duffel bags can now be accessed while in your hand.
+  - rscadd: Introduced a one second delay to opening duffel bags.
+  - balance: Downgraded the standard power cell in an IPC, bringing their total capacity
+      down by 50% and closer to their values prior to a recent refactor. Recharge
+      stations also made more efficient.
+  kano:
+  - qol: Deployable kits now show the progress bar on the mob.
+  - rscadd: Ported various platform sprites from CM.
+2026-08-17:
+  ASmallCuteCat:
+  - qol: Swaps the placement of the ICU and the storage room in Medical.
+  - qol: Moves the Pharmacy and the Recovery Ward, with the lobby centered between
+      them.
+  - qol: The Medical Department's floor decals are now seafoam green, for less eye
+      strain and greater difference with Service green.
+  DreamySkrell:
+  - rscadd: Bapi mapmanip submap weight.
+  Fenodyree:
+  - bugfix: Fixes all rubber bullets dealing damage twice.
+  - bugfix: Fixes all attacks that dealt pain damage checking siemens coefficient.
+      This makes everything but hardsuits and voidsuits stronger against rubber bullets.
+      Insulated gloves are also no longer immune to rubber bullets.
+  - bugfix: Fixes pain failing to make you blurt out whatever you were typing. Now
+      getting shot will cause you to say whatever was in the typing window when you
+      were hit and close the window immediately, allowing you to move.
+  - bugfix: Fixes all attacks that had manually set armour checks, previously they
+      ignored the armour they were meant to check and decided what armour affected
+      them based only on their damage type.
+  - qol: Cloned circuit assemblies now spawn with uncharged batteries.
+  - rscadd: Lets some small integrated circuit designs be worn on the wrist, belt,
+      or clipped to a helmet for helmet cameras.
+  - bugfix: Fixes the Mend power taking 15 seconds to scan every organ, even if the
+      organ is healthy.
+  - bugfix: Fixes the Mend power not being able to fix blindness.
+  - bugfix: Fixes the Mend power not being able to fix heart attacks.
+  - bugfix: Fixes the Mend power not being able to fix brute or burn damage.
+  - bugfix: Fixes the Mend power not being able to fix tendons.
+  - bugfix: Fixes the Mend power not respecting psychic sensitivity.
+  - bugfix: Fixes the Mend power thinking every external organ is robotic.
+  Geeves:
+  - rscadd: Added the option to manually change the looping sound channel volume in
+      the SFX Preferences tab.
+  Hellfirejag:
+  - rscadd: The mechanical engineering skill now provides a situational damage bonus
+      for attacking structures such as airlocks and windows.
+  - rscadd: The mechanical engineering skill now modifies the speed and repair amount
+      when repairing a mech with a welder.
+  - rscadd: Repairing mechs is now no longer instantaneous.
+  - rscadd: Attempting to repair a mech with a welder will now automatically repeat
+      the repair action until either completed, or interrupted.
+  TheGreyWolf:
+  - bugfix: Fixed that the EMP implant was visible in the bodyscanner.
+  - rscadd: The fuel tank from the cargo ordering program is no longer access restricted.
+  Tomixcomics:
+  - rscadd: Added the 'Idris Delights' vending machine and the various treats it sells.
+  - rscadd: Added two new types of trash to go along with the new treats.
+  - rscadd: Added several new food dishes including Takoyaki, French toast, Lava cakes
+      and Tiramisu.
+  - rscadd: Added a multitude of Psiren meat based dishes.
+  - qol: Added line of code to keep the game from crashing when flavors don't get
+      listed properly in the code.
+  - qol: Adjusted Citrus Delight dish so that it doesn't take forever to finish
+  fyni:
+  - rscadd: Updates the earth accent tag. The old tag did not fit the accent tag format.
+  mineymonkey:
+  - bugfix: Actually, reduces the maximum amount of metal and phoron that can be stored
+      in a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can
+      hit those numbers, so this is just a safety measure to prevent accidental loss
+      of materials.
+  - qol: Added in examine hints for the electronic radio headset for clarity in how
+      to access the circuitry portions. Also makes mention that the TTS circuit can
+      only be heard by those wearing the device, it does not broadcast to the room
+      in this specific case.
+2026-08-20:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Additional LS logic fixes.
+  Hellfirejag:
+  - bugfix: Fixed a small lag spike caused by ownerless IPCs dying.
+  hazelmouse:
+  - bugfix: Resolved a few lighting bugs with holodeck spaces.
+  - bugfix: Removes the erroneous 'Chessboard' setting visible in the holodeck console's
+      menu. There was never any chessboard. You have been lied to.
+  - bugfix: Fixed versebook onmobs.
+  - bugfix: South-facing platforms no longer layer over south-facing railings.
+  kano:
+  - bugfix: Fixed the smooth icon overlays appearing under the adjacent turfs.
+2026-08-21:
+  ASmallCuteCat:
+  - bugfix: Removes some stray items around medbay, re-adds a GTR sink, fixes a broken
+      airvent, fixes pharmacy shutters, ensures proper placement and visibility of
+      items.
+  - qol: Re-adds a single bag of SBS blood to the Operating Room freezer. It was removed
+      for a previous arc but never re-added.
+  - qol: QOL adjustments to the ICU - adds additional lighting and a ringer button.
+  DreamySkrell:
+  - rscadd: Submap insert markers now support different directions.
+  - refactor: External airlock marker.
+  Fenodyree:
+  - bugfix: Fixes technomancer's apportation spell. It now grabs mobs instead of runtiming
+      and has a cooldown.
+  - rscadd: EMPs once again check energy armour. A heavy EMP can be downgraded to
+      a light EMP, and a light EMP can be negated entirely or only affect the mob's
+      contents. This chance is based on the average energy armour of the mob, weighted
+      by limb size.
+  - balance: The effect of an EMP on a power cell is now random. A light EMP can drain
+      up to half the max charge, and a heavy EMP can drain up to the full max charge.
+      Previously heavy would always drain the full max charge, and light would always
+      drain half the max charge.
+  Geeves:
+  - rscadd: Progress bars now use smooth, colour-changing fills and support visual
+      themes.
+  - qol: Gear loadout item variant selections now display item icons in a searchable
+      list.
+  - qol: Airlock controllers now display controller and door power, door and bolt
+      status, pump activity, the current cycle phase, and unresponsive equipment.
+  - balance: Welding arcs now damage the eyes of visible onlookers within two tiles
+      who are facing the welder and are not wearing eye protection.
+  - bugfix: Fixed tails layering oddly in character preview, holograms, photos, etc.
+  Hellfirejag:
+  - bugfix: Fixed a runtime error caused by a player attempting to view the statpanel
+      before its ready.
+  - bugfix: Fixed a runtime error caused by a 'machine' var being used to store non
+      machines.
+  - bugfix: Fixed a hard del caused by ccarp and psiren migrations.
+  - refactor: Refactored get_pain() to have essentially nonexistent cost.
+  - bugfix: Fixed both a runtime error and a hard delete related to ammo piles.
+  - bugfix: Fixed a spammy runtime caused by smoking cigarettes.
+  Wowzewow (Wezzy):
+  - rscadd: Adjusts the kitchen so it's more comfortable for dual-chef gameplay. Also
+      integrates them a bit better.
+  fyni:
+  - rscadd: Adds the [!] to the gravity anomoly overmap icon.
+  - rscadd: Adds a new psiren overmap icon, so they no longer share an icon with carp.
+  hazelmouse:
+  - bugfix: Resolved awkward starlight interactions in a number of offsites and offships,
+      including the Xanu Frigate and Ranger Corvette.
+  - rscadd: Added missing fore gunnery entry points to the Xanu Frigate offship, and
+      appropriately renamed starboard and portside gunnery entry points to make it
+      clear that they do impact the gunnery nacelles.
+  - qol: Shutters no longer layer underneath airlocks.

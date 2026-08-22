@@ -424,7 +424,7 @@
 	msg_admin_attack("An integrated circuit with a shocker circuit was used to shock [M.name] ([M.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 	to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 	spark(get_turf(M), 3, 1)
-	M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2), 0, 30), null)
+	M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2), 0, 30), DAMAGE_PAIN, null)
 	shocktime = world.time
 
 
@@ -610,6 +610,7 @@
 	LAZYREMOVE(deployed_shields, shield)
 	qdel(shield)
 	set_pin_data(IC_OUTPUT, 1, LAZYLEN(deployed_shields))
+	update_power_draw()
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/do_work()
 	if(!assembly)
@@ -652,12 +653,16 @@
 		set_pin_data(IC_OUTPUT, 1, LAZYLEN(deployed_shields))
 		activate_pin(2)
 
+	update_power_draw()
+
+	..()
+
+/obj/item/integrated_circuit/manipulation/bubble_shield/proc/update_power_draw()
+	var/strength = between(10, get_pin_data(IC_INPUT, 3), 50)
 	if(deployed_shields)
 		power_draw_idle = power_draw_per_use * (strength / 10) * LAZYLEN(deployed_shields)
 	else
 		power_draw_idle = 0
-
-	..()
 
 /obj/item/integrated_circuit/manipulation/bubble_shield/power_fail()
 	for(var/obj/structure/machinery/shield/shield in deployed_shields)

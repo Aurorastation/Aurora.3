@@ -13,7 +13,7 @@ atomic_float = "1.0.0"
 bitflags = "2.5.0"
 byondapi = { git = "https://github.com/spacestation13/byondapi-rs", rev = "5afdd9863a0fc1d8d1d42dd2128c9978f54e12ca" }
 eyre = "0.6.12"
-rand = { version = "0.8.6", features = ["small_rng"] }
+rand = { version = "0.8.6", features = ["small_rng", "alloc"] }
 scc = "2.1.1"
 thread-priority = "1.1.0"
 
@@ -37,3 +37,4 @@ regex = "1.10.5"
 # time
 chrono = "0.4.39"
 uuid = { version = "1.18.1", features = ["v4"] }
+libc = "0.2.189"

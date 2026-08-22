@@ -163,32 +163,32 @@
 
 // Upper deck
 
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/west
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/west
 	name = "West Airlock"
 	master_tag = "airlock_decrepit_shipyard_upper_west"
 
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/north_east
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/north_east
 	name = "North-East Airlock"
 	master_tag = "airlock_decrepit_shipyard_upper_north_east"
 
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/south_east
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/south_east
 	name = "South-East Airlock"
 	master_tag = "airlock_decrepit_shipyard_upper_south_east"
 
 // Lower deck
 
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main
 	name = "Dry Dock Supply Airlock"
 	master_tag = "airlock_decrepit_shipyard_lower_main"
 
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary
 	name = "Dry Dock Secondary Airlock"
 	master_tag = "airlock_decrepit_shipyard_lower_secondary"
 
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/south
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/south
 	name = "South Airlock"
 	master_tag = "airlock_decrepit_shipyard_lower_south"
 
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop
 	name = "Dry Dock Workshop Airlock"
 	master_tag = "airlock_decrepit_shipyard_lower_workshop"

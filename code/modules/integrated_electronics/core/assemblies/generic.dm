@@ -46,6 +46,8 @@
 
 /obj/item/electronic_assembly/default
 	name = "basic small circuit case"
+	desc = "A case for building small electronic assemblies. This one has a strap and clip to attach to clothing, belts or wrists."
+	slot_flags = SLOT_WRISTS | SLOT_BELT
 
 /obj/item/electronic_assembly/calc
 	name = "calculator small circuit case"
@@ -65,12 +67,14 @@
 /obj/item/electronic_assembly/hook
 	name = "belt-clip small circuit case"
 	icon_state = "setup_small_hook"
-	desc = "A case for building small electronic assemblies. This one looks like it has a belt clip, but it's purely decorative."
+	desc = "A case for building small electronic assemblies. This one looks like it has a belt clip."
+	slot_flags = SLOT_BELT
 
 /obj/item/electronic_assembly/pda
 	name = "PDA-style small circuit case"
 	icon_state = "setup_small_pda"
-	desc = "A case for building small electronic assemblies. This one resembles a PDA."
+	desc = "A case for building small electronic assemblies. This one resembles a PDA and looks like it has a wrist strap."
+	slot_flags = SLOT_WRISTS | SLOT_BELT
 
 
 // Tiny assemblies.
@@ -99,7 +103,8 @@
 /obj/item/electronic_assembly/tiny/hook
 	name = "belt-clip tiny circuit case"
 	icon_state = "setup_device_hook"
-	desc = "A case for building tiny electronic assemblies. This one looks like it has a belt clip, but it's purely decorative."
+	desc = "A case for building tiny electronic assemblies. This one looks like it has a belt clip."
+	slot_flags = SLOT_BELT
 
 /obj/item/electronic_assembly/tiny/box
 	name = "boxy tiny circuit case"
@@ -284,9 +289,11 @@
 	if(get_dist(on_wall, user) > 1)
 		return
 
-	var/ndir = get_dir(on_wall, user)
+	var/ndir = get_dir(user, on_wall)
 	if(!(ndir in GLOB.cardinals))
 		return
+
+	dir = ndir
 
 	var/turf/T = get_turf(user)
 	if(!istype(T, /turf/simulated/floor))

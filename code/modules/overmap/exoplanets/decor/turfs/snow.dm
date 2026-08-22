@@ -11,7 +11,9 @@
 	canSmoothWith = list(
 		/turf/simulated/floor/exoplanet/snow,
 		/turf/simulated/wall,
-		/turf/unsimulated/wall
+		/turf/unsimulated/wall,
+		/turf/simulated/mineral,
+		/turf/unsimulated/mineral
 	) //Smooths with walls but not the inverse. This way to avoid layering over walls.
 
 /turf/simulated/floor/exoplanet/snow/Initialize()

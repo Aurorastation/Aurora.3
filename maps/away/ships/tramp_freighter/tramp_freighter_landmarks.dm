@@ -89,11 +89,11 @@
 	landmark_tag = "nav_tramp_freighter_stbd_fore"
 
 //airlocks, non-docking
-/obj/effect/map_effect/marker/airlock/tramp_freighter/starboard_small
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/starboard_small
 	name = "Starboard, Small"
 	master_tag = "airlock_tramp_starboard"
 
-/obj/effect/map_effect/marker/airlock/tramp_freighter/port_small
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/port_small
 	name = "Port, Small"
 	master_tag = "airlock_tramp_port"
 

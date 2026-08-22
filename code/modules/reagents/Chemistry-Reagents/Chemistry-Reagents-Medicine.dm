@@ -1280,6 +1280,7 @@
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
 	value = 2
 	alchohol_affected = FALSE
+	fallback_specific_heat = 1.67 // Approximate specific heat of liquid nicotine (J/g·K)
 
 /singleton/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	..()

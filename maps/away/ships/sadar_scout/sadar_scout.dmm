@@ -104,7 +104,7 @@
 /area/shuttle/sadar_shuttle)
 "aQ" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -366,7 +366,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4525;
 	master_tag = "airlock_sadar_scout_starboard_3";
 	name = "airlock_sadar_scout_starboard_3"
@@ -461,13 +461,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/hydro)
 "cK" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/biogenerator,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/hydro)
 "cM" = (
@@ -760,7 +758,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "fw" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -868,7 +866,7 @@
 /area/ship/sadar_scout/forehall)
 "gu" = (
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sadar_scout/exterior)
 "gA" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/o2{
@@ -1156,7 +1154,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4526;
 	master_tag = "airlock_sadar_scout_port_3";
 	name = "airlock_sadar_scout_port_3"
@@ -1199,7 +1197,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sadar_scout/exterior)
 "iG" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/mainhall)
@@ -1334,7 +1332,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -1594,7 +1592,7 @@
 	pixel_y = -6
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4527;
 	master_tag = "airlock_sadar_scout_cic";
 	name = "airlock_sadar_scout_cic"
@@ -1686,7 +1684,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4521;
 	master_tag = "airlock_sadar_scout_starboard_1";
 	name = "airlock_sadar_scout_starboard_1"
@@ -1788,14 +1786,8 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "nq" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/airless,
-/area/space)
+/turf/space/dynamic,
+/area/ship/sadar_scout/exterior)
 "nr" = (
 /obj/structure/machinery/appliance/cooker/stove,
 /obj/structure/machinery/light/colored/decayed/dimmed{
@@ -1837,7 +1829,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -1973,7 +1965,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -1992,7 +1984,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4522;
 	master_tag = "airlock_sadar_scout_port_1";
 	name = "airlock_sadar_scout_port_1"
@@ -2450,7 +2442,7 @@
 /area/ship/sadar_scout/mainhall)
 "rS" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -2487,7 +2479,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -2512,7 +2504,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -2562,7 +2554,7 @@
 /area/shuttle/sadar_shuttle)
 "sE" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -2587,7 +2579,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "tp" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/machinery/portable_atmospherics/canister/oxygen,
@@ -2626,10 +2618,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
-"ts" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/space)
 "tt" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/bed/handrail,
@@ -2726,7 +2714,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -2993,7 +2981,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "vO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped,
@@ -3067,7 +3055,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -3309,7 +3297,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -3320,12 +3308,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/eva)
-"yg" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/space)
 "yi" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3485,7 +3467,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "zq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/alarm/north{
@@ -3572,7 +3554,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sadar_scout/exterior)
 "Aj" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/bed/handrail{
@@ -3901,7 +3883,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4522;
 	master_tag = "airlock_sadar_scout_port_1";
 	name = "airlock_sadar_scout_port_1"
@@ -4042,7 +4024,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4525;
 	master_tag = "airlock_sadar_scout_starboard_3";
 	name = "airlock_sadar_scout_starboard_3"
@@ -4086,7 +4068,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4522;
 	master_tag = "airlock_sadar_scout_port_1";
 	name = "airlock_sadar_scout_port_1"
@@ -4284,7 +4266,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sadar_scout/exterior)
 "Ft" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -4401,7 +4383,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sadar_scout/exterior)
 "GR" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -4508,7 +4490,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "Hy" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
@@ -4688,7 +4670,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4526;
 	master_tag = "airlock_sadar_scout_port_3";
 	name = "airlock_sadar_scout_port_3"
@@ -4754,7 +4736,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -4846,7 +4828,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4527;
 	master_tag = "airlock_sadar_scout_cic";
 	name = "airlock_sadar_scout_cic"
@@ -4916,7 +4898,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sadar_scout/exterior)
 "KN" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/bed/handrail{
@@ -5158,7 +5140,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -5237,7 +5219,7 @@
 	pixel_y = 12
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4527;
 	master_tag = "airlock_sadar_scout_cic";
 	name = "airlock_sadar_scout_cic"
@@ -5259,10 +5241,6 @@
 /obj/structure/grille,
 /turf/template_noop,
 /area/ship/sadar_scout/exterior)
-"Nm" = (
-/obj/structure/lattice,
-/turf/simulated/floor/airless,
-/area/space)
 "No" = (
 /obj/structure/machinery/computer/ship/targeting/terminal,
 /turf/simulated/floor/tiled/dark/full,
@@ -5283,7 +5261,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sadar_scout/exterior)
 "NQ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -5302,7 +5280,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4521;
 	master_tag = "airlock_sadar_scout_starboard_1";
 	name = "airlock_sadar_scout_starboard_1"
@@ -5562,7 +5540,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4526;
 	master_tag = "airlock_sadar_scout_port_3";
 	name = "airlock_sadar_scout_port_3"
@@ -5579,7 +5557,7 @@
 /area/shuttle/sadar_shuttle)
 "PT" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -5765,7 +5743,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "QT" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -5823,7 +5801,7 @@
 /area/ship/sadar_scout/eva)
 "RA" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -6075,7 +6053,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4525;
 	master_tag = "airlock_sadar_scout_starboard_3";
 	name = "airlock_sadar_scout_starboard_3"
@@ -6099,7 +6077,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4521;
 	master_tag = "airlock_sadar_scout_starboard_1";
 	name = "airlock_sadar_scout_starboard_1"
@@ -6566,7 +6544,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "Wy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6680,7 +6658,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/ship/sadar_scout/exterior)
 "Xa" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -6967,7 +6945,7 @@
 /area/ship/sadar_scout/med)
 "ZC" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -32554,10 +32532,10 @@ yL
 ro
 Hq
 sV
-nq
+dv
 fr
 Hq
-nq
+dv
 WZ
 fr
 ro
@@ -35122,14 +35100,14 @@ Zo
 Vj
 jh
 sy
-Nm
+sy
 gu
 iE
-ts
-ts
+Vj
+Vj
 NJ
-yg
-yg
+Yd
+Yd
 Yd
 lV
 Vj
@@ -35911,7 +35889,7 @@ Zo
 Zo
 yL
 ro
-Zo
+nq
 Wk
 No
 QB
@@ -36168,7 +36146,7 @@ Zo
 ro
 yL
 ro
-Zo
+nq
 Wk
 kt
 DT
@@ -36425,7 +36403,7 @@ dG
 dG
 yL
 ro
-Zo
+nq
 qx
 Wk
 lc
@@ -37192,8 +37170,8 @@ ro
 ro
 ro
 ro
-Zo
-Zo
+nq
+nq
 yL
 ro
 Vj
@@ -37210,9 +37188,9 @@ ug
 ug
 ug
 kF
-Zo
-Zo
-Zo
+nq
+nq
+nq
 ro
 ro
 ro
@@ -37446,11 +37424,11 @@ fr
 ro
 kF
 ro
-Zo
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
+nq
 yL
 ro
 KN
@@ -37460,19 +37438,19 @@ cT
 ms
 pq
 cT
-Zo
-Zo
+nq
+nq
 Sl
-Zo
-Zo
+nq
+nq
 ro
 kF
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
+nq
+nq
 ro
 QT
 Vj
@@ -37703,11 +37681,11 @@ fr
 ro
 kF
 ro
-Zo
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
+nq
 yL
 ro
 Vj
@@ -37724,8 +37702,8 @@ ro
 ro
 ro
 kF
-Zo
-Zo
+nq
+nq
 Ds
 ds
 ds
@@ -37960,11 +37938,11 @@ ro
 ro
 kF
 ro
-Zo
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
+nq
 yL
 ro
 Vj
@@ -37974,11 +37952,11 @@ cT
 ZD
 ie
 cT
-Zo
-Zo
+nq
+nq
 ro
-Zo
-Zo
+nq
+nq
 ro
 Vj
 ds
@@ -40566,7 +40544,7 @@ va
 Zj
 en
 Ve
-Zo
+nq
 Sl
 Vj
 oC
@@ -40823,7 +40801,7 @@ Hj
 pa
 en
 bA
-Zo
+nq
 ro
 Vj
 Zo
@@ -41815,10 +41793,10 @@ ro
 ro
 kF
 ro
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
 yL
 ro
 ro
@@ -42072,10 +42050,10 @@ Wu
 ro
 kF
 ro
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
 yL
 Vj
 Vj
@@ -42093,8 +42071,8 @@ Vj
 Vj
 Vj
 Kj
-Zo
-Zo
+nq
+nq
 Cs
 IC
 IC
@@ -42329,10 +42307,10 @@ Wu
 ro
 kF
 ro
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
 yL
 jh
 Zo
@@ -42349,13 +42327,13 @@ Zo
 Zo
 jh
 kF
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
+nq
+nq
+nq
 ro
 yL
 ro
@@ -42589,7 +42567,7 @@ ro
 ro
 ro
 ro
-Zo
+nq
 yL
 ro
 Zo
@@ -42606,10 +42584,10 @@ Zo
 Zo
 ro
 kF
-Zo
-Zo
-Zo
-Zo
+nq
+nq
+nq
+nq
 ro
 ro
 ro
@@ -42863,7 +42841,7 @@ XB
 Zo
 ro
 kF
-Zo
+nq
 ro
 ro
 ro
@@ -44631,14 +44609,14 @@ Zo
 Vj
 jh
 sy
-Nm
+sy
 gu
 iE
-ts
-ts
+Vj
+Vj
 GN
-yg
-yg
+Yd
+Yd
 Yd
 lV
 Vj

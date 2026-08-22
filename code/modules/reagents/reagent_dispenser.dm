@@ -2,17 +2,18 @@
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
 	icon = 'icons/obj/reagent_dispensers.dmi'
-	icon_state = "watertank"
+	icon_state = "watertank" // Mapping icon
 	density = 1
 	anchored = 0
+	maxhealth = OBJECT_HEALTH_HIGH
 	var/accept_any_reagent = TRUE
-
 	var/amount_per_transfer_from_this = 10
 	var/possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 	var/capacity = 1000
 	var/can_tamper = TRUE
 	var/is_leaking = FALSE
-	maxhealth = OBJECT_HEALTH_HIGH
+	var/has_fill_levels = FALSE // Features base underlay and overlays for 100%, 80%, 60%, 40%, 20% fill levels
+	var/is_persistent = FALSE
 
 /obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -29,9 +30,71 @@
 
 /obj/structure/reagent_dispensers/Initialize()
 	. = ..()
+	if(has_fill_levels)
+		icon_state = "[icon_state]_underlay" // Replace mapping icon with underlay version for fill level overlay
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
+	if(is_persistent)
+		SSpersistence.objectsRegisterTrack(src)
+	update_icon()
+
+/obj/structure/reagent_dispensers/update_icon()
+	if(!has_fill_levels)
+		return
+	ClearOverlays()
+
+	var/level = reagents.total_volume / capacity
+	var/fill_level_overlay = null
+
+	if(level <= 1.0)
+		fill_level_overlay = "_100"
+	if(level <= 0.8)
+		fill_level_overlay = "_80"
+	if(level <= 0.6)
+		fill_level_overlay = "_60"
+	if(level <= 0.4)
+		fill_level_overlay = "_40"
+	if(level <= 0.2)
+		fill_level_overlay = "_20"
+	if(level == 0)
+		fill_level_overlay = null
+
+	if(fill_level_overlay)
+		AddOverlays("[initial(icon_state)][fill_level_overlay]")
+	. = ..()
+
+// Debug verb, uncomment if you are in need to adjust a lot of tanks
+//	/obj/structure/reagent_dispensers/verb/adjust_regeant_total_volume()
+//		set name = "Set reagent total volume"
+//		set category = "Object"
+//		set src in view(1)
+//		var/x = tgui_input_number(usr, "Select the total reagent amount for this. ", "[src]", capacity, capacity, 0)
+//		if (x)
+//			reagents.total_volume = x
+//			update_icon()
+
+/obj/structure/reagent_dispensers/persistent_objects_get_content()
+	var/list/content = ..()
+	content["remaining_volume"] = reagents ? reagents.total_volume : 0
+	return content
+
+/obj/structure/reagent_dispensers/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(!content["remaining_volume"] || content["remaining_volume"] <= 0)
+		reagents_to_add = null
+		return
+
+	if(!LAZYLEN(reagents_to_add))
+		return
+
+	// This happens before Initialize, reagents are not generated yet, override to-be-added contents
+	// Keep ratios the same if multiple reagents are within reagents_to_add
+	var/scale = content["remaining_volume"] / capacity
+	for(var/reagent in reagents_to_add)
+		reagents_to_add[reagent] *= scale
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -46,8 +109,8 @@
 	qdel(src)
 
 /obj/structure/reagent_dispensers/attackby(obj/item/attacking_item, mob/user)
-
 	var/obj/item/reagent_containers/RG = attacking_item
+
 	if (istype(RG))
 		if(!user.Adjacent(src)) return
 		if(RG.loc != user && !isrobot(user)) return
@@ -65,6 +128,7 @@
 				RG.standard_pour_into(user,src)
 			else
 				to_chat(user,SPAN_NOTICE("The inlet cap on \the [src] is wrenched on tight!"))
+		update_icon()
 
 	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(use_check(user, USE_DISALLOW_SPECIALS))
@@ -97,6 +161,7 @@
 
 	var/splash_amount = min(amount_per_transfer_from_this,60) //Hard limit of 60 per process
 	reagents.trans_to_turf(get_turf(src),splash_amount)
+	update_icon()
 
 /obj/structure/reagent_dispensers/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!should_use_health)
@@ -113,8 +178,10 @@
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
 	icon_state = "extinguisher_tank"
-	amount_per_transfer_from_this = 30
+	amount_per_transfer_from_this = 150 // Same volume as extinguisher refillers, quality of life value
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate = 1000)
+	has_fill_levels = TRUE
+	is_persistent = TRUE
 
 // Tanks
 /obj/structure/reagent_dispensers/watertank
@@ -123,12 +190,15 @@
 	icon_state = "watertank"
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/water = 1000)
+	has_fill_levels = TRUE
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
 	desc = "A tank filled with a silly amount of lube."
 	icon_state = "lubetank"
 	amount_per_transfer_from_this = 30
+	has_fill_levels = TRUE
 	reagents_to_add = list(/singleton/reagent/lube = 1000)
 
 /obj/structure/reagent_dispensers/fueltank
@@ -141,6 +211,8 @@
 	var/armed = 0
 	var/obj/item/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
+	has_fill_levels = TRUE
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -447,6 +519,8 @@
 	amount_per_transfer_from_this = 120
 	capacity = 1000
 	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 1000)
+	has_fill_levels = TRUE
+	is_persistent = TRUE
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()

@@ -364,7 +364,6 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	dir = NORTH
 
-	GLOB.clients += src
 	GLOB.directory[ckey] = src
 	connection_time = world.time
 	connection_realtime = world.realtime
@@ -382,6 +381,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	// Instantiate stat panel
 	stat_panel = new(src, "statbrowser")
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
+	GLOB.clients += src
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
 	tgui_say = new(src, "tgui_say")
@@ -1087,6 +1087,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		if(!verb_to_init)
 			continue
 		if(verb_to_init.hidden)
+			continue
+		if(verb_to_init == /client/verb/ping_storyteller && !istype(SSticker?.mode, /datum/game_mode/odyssey))
 			continue
 		if(!istext(verb_to_init.category))
 			continue

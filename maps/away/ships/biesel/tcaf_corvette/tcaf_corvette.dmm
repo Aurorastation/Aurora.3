@@ -1470,7 +1470,7 @@
 	pixel_x = 27;
 	pixel_y = 25
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_aft,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_aft,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -1935,7 +1935,7 @@
 	pixel_x = -27;
 	pixel_y = 25
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_aft,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_aft,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -2379,7 +2379,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_fore,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
 	pixel_x = -32;
@@ -2463,9 +2463,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -2473,6 +2470,9 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/workshop)
@@ -3331,7 +3331,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_fore,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = -23;
 	dir = 1;
@@ -3456,7 +3456,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_aft,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_aft,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
 	pixel_x = -32;
@@ -3552,7 +3552,7 @@
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/lounge)
 "mT" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8;
 	req_access = list(111)
 	},
@@ -4277,7 +4277,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_fore,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = -23;
 	dir = 1;
@@ -4320,6 +4320,7 @@
 /obj/structure/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/workshop)
 "pJ" = (
@@ -5435,7 +5436,7 @@
 	pixel_y = -25;
 	pixel_x = -7
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_aft,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_aft,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
@@ -6073,7 +6074,7 @@
 	pixel_y = -25;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_aft,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_aft,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/engine)
@@ -6847,7 +6848,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_fore,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_y = -30;
@@ -9066,7 +9067,7 @@
 	pixel_y = -25;
 	pixel_x = -7
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_aft,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_aft,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/tcaf_corvette/engine)
@@ -9973,12 +9974,11 @@
 /obj/structure/machinery/alarm/south{
 	req_one_access = list(111)
 	},
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tcaf_corvette/workshop)
 "MG" = (
@@ -11943,7 +11943,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_fore,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
 	pixel_x = 32;
@@ -12331,10 +12331,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/autocannon)
 "Wq" = (
-/obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/operations,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/light/small,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tcaf_corvette/workshop)
 "Wt" = (
@@ -12439,7 +12440,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore,
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_fore,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_y = -30;

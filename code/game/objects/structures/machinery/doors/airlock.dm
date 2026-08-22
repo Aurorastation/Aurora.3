@@ -118,8 +118,6 @@
 	var/door_frame_color = COLOR_GRAY20
 	/// Color. The color of the stripe detail.
 	var/stripe_color = null
-	/// Color. The color of the symbol detail.
-	var/symbol_color = null
 	/// Color. The color of the window.
 	var/window_color = null
 	/// String (One of `MATERIAL_*`). The material used for the door's window if `glass` is set. Used to set `window_material` during init.
@@ -523,6 +521,12 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	destroy_hits = 30
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_MEDIUM
+	)
 	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5
@@ -914,6 +918,7 @@ About the new airlock wires panel:
 		ai_action_timer = null
 	if(isAllPowerLoss() && electrified_until) // Disable electricity if required
 		electrify(0)
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/loseBackupPower()
 	backup_power_lost_until = backupPowerCablesCut() ? -1 : world.time + SecondsToTicks(60)
@@ -926,6 +931,7 @@ About the new airlock wires panel:
 		ai_action_timer = null
 	if(isAllPowerLoss() && electrified_until) // Disable electricity if required
 		electrify(0)
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/regainMainPower()
 	if(!mainPowerCablesCut())
@@ -934,12 +940,14 @@ About the new airlock wires panel:
 		if(!backup_power_lost_until)
 			backup_power_lost_until = -1
 		update_icon()
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/regainBackupPower()
 	if(!backupPowerCablesCut())
 		// Restore backup power only if main power is offline, otherwise permanently disable
 		backup_power_lost_until = main_power_lost_until == 0 ? -1 : 0
 		update_icon()
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/electrify(var/duration, var/feedback = 0)
 	var/message = ""
@@ -2152,6 +2160,7 @@ About the new airlock wires panel:
 		revert_powerloss_manual_override = FALSE
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/machinery/door, close), 1)
 	update_icon()
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/prison_open()
 	if(bracer)

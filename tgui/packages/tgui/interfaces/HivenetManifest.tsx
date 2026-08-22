@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 import { Box, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -13,23 +15,27 @@ export type VaurcaListData = {
 };
 
 export type HivenetManifestData = {
-  all_vaurca: VaurcaListData[];
+  all_vaurca: Record<string, VaurcaListData>;
 };
 
-export const HivenetManifest = (props) => {
-  const { act, data } = useBackend<HivenetManifestData>();
+type HiveColorStyle = CSSProperties & {
+  '--hive-color': string;
+};
+
+export const HivenetManifest = () => {
+  const { data } = useBackend<HivenetManifestData>();
 
   return (
     <Window theme="vaurca">
       <Window.Content scrollable>
-        {Object.keys(data.all_vaurca).map((hive) => {
-          const hiveData = data.all_vaurca[hive];
+        {Object.entries(data.all_vaurca || {}).map(([hive, hiveData]) => {
           return hiveData.vaurca.length ? (
             <Section
               key={hive}
               title={hive}
               textAlign="center"
-              className={`border-dept-${hiveData.color.toLowerCase()}`}
+              className="HivenetManifest__Hive"
+              style={{ '--hive-color': hiveData.color } as HiveColorStyle}
               backgroundColor="rgba(10, 10, 10, 0.7)"
             >
               <Table>

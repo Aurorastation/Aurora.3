@@ -32,6 +32,13 @@
 	name = "Ranger Gunboat"
 	requires_power = TRUE
 
+/area/ship/ranger_corvette/exterior
+	name = "Ranger Gunboat Exterior"
+	requires_power = FALSE
+	has_gravity = FALSE
+	icon_state = "exterior"
+	needs_starlight = TRUE
+
 /area/ship/ranger_corvette/bridge
 	name = "Ranger Gunboat Bridge"
 
