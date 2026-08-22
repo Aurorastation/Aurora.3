@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/yacht_civ
+	roundstart_ship_name = "Civilian Yacht"
 	short_name = "yacht_civ_crew"
 	name = "Civilian Yacht Crew"
 	desc = "An affluent owner of a private civilian yacht, shared with three other people. Be rich, seek adventure, see sights, explore stars."

@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/heph_security
+	roundstart_ship_name = "Hephaestus Security Vessel"
 	name = "Hephaestus Asset Protection Agent"
 	short_name = "hephsec"
 	desc = "Crew a Hephaestus asset protection vessel. Ensure the company's operations in the sector stay secure and profitable."

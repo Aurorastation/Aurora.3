@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/fishing_trawler_crewman
+	roundstart_ship_name = "Fishing League Trawler"
 	name = "Fishing League Trawler Multipurpose Crewman"
 	short_name = "fishing_trawler_crewman"
 	desc = "Serve as a crewman aboard a Fishing League contracted Hegemony Freighter; seeking and collecting carp and other food for billions of sinta."

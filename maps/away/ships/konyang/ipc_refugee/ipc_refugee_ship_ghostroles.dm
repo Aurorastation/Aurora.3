@@ -1,5 +1,6 @@
 // Human Refugee
 /datum/ghostspawner/human/refugee_crew
+	roundstart_ship_name = "IPC Refugee Ship"
 	short_name = "refugee_crew"
 	name = "Human Refugee"
 	desc = "You are a human from the Wildlands crewing a heavily run down freighter carrying a number of IPC refugees."

@@ -1,6 +1,7 @@
 //orion express ship
 
 /datum/ghostspawner/human/orion_express_courier
+	roundstart_ship_name = "Orion Express Mobile Station"
 	short_name = "orion_express_courier"
 	name = "Orion Express Station Crew"
 	desc = "Crew the Orion Express mobile refueling station."

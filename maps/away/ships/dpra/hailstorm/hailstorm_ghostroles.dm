@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/hailstorm_crew
+	roundstart_ship_name = "Hailstorm Ship"
 	short_name = "hailstorm_crew"
 	name = "Hailstorm Ship Crew"
 	desc = "Crew a People's Volunteer Spacer Militia ship."

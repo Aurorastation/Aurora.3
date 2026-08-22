@@ -10,6 +10,7 @@
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/adhomian_circus
+	roundstart_ship_name = "Adhomian Traveling Circus"
 	short_name = "adhomian_circus_crew"
 	name = "Adhomian Circus Crew"
 	desc = "Crew the circus, help its crew, and serve the circus-goers."
@@ -156,4 +157,3 @@
 	shoes = /obj/item/clothing/shoes/clown
 	mask = /obj/item/clothing/mask/clown
 	l_pocket = /obj/item/bikehorn
-

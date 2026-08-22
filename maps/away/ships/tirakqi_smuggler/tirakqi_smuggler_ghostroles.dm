@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/tirakqi_crew
+	roundstart_ship_name = "Ti'Rakqi Smuggler"
 	short_name = "tirakqi_crew"
 	name = "Ti'Rakqi Lu'fup"
 	desc = "You crew the ship, mop the floors, cook the meals, and shoot whoever gets too close to the goods. Try to show some initiative!"
@@ -99,6 +100,7 @@
 		H.b_facial = H.b_hair
 
 /datum/ghostspawner/human/tirakqi_captain
+	roundstart_ship_name = "Ti'Rakqi Smuggler"
 	short_name = "tirakqi_captain"
 	name = "Ti'Rakqi Qu'qrot"
 	desc = "Lead the Lu'fup and Qu'oot under your command. Smuggle, cheat, lie, and profit. You've got a crew and a ship to maintain."
@@ -129,6 +131,7 @@
 
 
 /datum/ghostspawner/human/tirakqi_medic
+	roundstart_ship_name = "Ti'Rakqi Smuggler"
 	short_name = "tirakqi_medic"
 	name = "Ti'Rakqi Medic"
 	desc = "You're a trained doctor serving as a Qu'oot with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
@@ -162,6 +165,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 
 /datum/ghostspawner/human/tirakqi_engineer
+	roundstart_ship_name = "Ti'Rakqi Smuggler"
 	short_name = "tirakqi_engineer"
 	name = "Ti'Rakqi Engineer"
 	desc = "You're a trained engineer serving as a Qu'oot with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."

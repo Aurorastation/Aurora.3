@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/kazhkz_privateer
+	roundstart_ship_name = "Kazhkz Privateer Ship"
 	short_name = "kazhkz_privateer"
 	name = "House Kazhkz Privateer"
 	desc = "You are a privateer of the Dominian Great House Kazhkz - sent into the Badlands to pillage and harass the enemies of the Empire and the Kazhkz-Han'san. Vessels of the Serene Republic of Elyra, the Coalition of Colonies, and the Izweski Hegemony are particularly prized targets by the Kazhkz. NOT AN ANTAGONIST! Do not act as such."

@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/merchant_guild
+	roundstart_ship_name = "Merchants' Guild Freighter"
 	short_name = "merchant_guildman"
 	name = "Merchants' Guild Freighter Crew"
 	desc = "You are an apprentice of the Unathi Merchants' Guild, assigned to crew a cargo freighter. Act with honor, but seek profit for your ship and your guild."

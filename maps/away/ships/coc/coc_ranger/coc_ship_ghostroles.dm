@@ -1,6 +1,7 @@
 //rangers
 
 /datum/ghostspawner/human/ranger
+	roundstart_ship_name = "Ranger Gunboat"
 	short_name = "ranger"
 	name = "Coalition Ranger"
 	desc = "Crew the Ranger gunboat. Protect the interests of the Coalition of Colonies and your member-state."

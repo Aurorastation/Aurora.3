@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/idris_cruiser_crew
+	roundstart_ship_name = "Idris Cruiser"
 	name = "Idris Cruise Crew Member"
 	short_name = "idriscrew"
 	desc = "Serve as either a staff member, engineer, janitor, bartender, chef, guard, or service provider of an Idris luxury cruise yacht."

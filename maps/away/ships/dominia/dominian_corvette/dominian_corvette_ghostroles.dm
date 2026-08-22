@@ -1,6 +1,7 @@
 // Voidsmen, regular crew
 
 /datum/ghostspawner/human/imperial_fleet_voidsman
+	roundstart_ship_name = "Dominian Corvette"
 	short_name = "imperial_fleet_voidsman"
 	name = "Imperial Fleet Voidsman"
 	desc = "You are an enlisted Ma'zal (a Dominian citizen not from Moroz) voidsman of the Imperial Fleet. Recruited from the Frontier Worlds such as Novi Jadran and Sun Reach, you are eager to pay off your Mo’ri’zal (“Blood Debt,” the Empire’s form of taxation) via military service. You have been trained to obey your commanding Ensign and Imperial nobility without question or delay. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"

@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/house_volvalaad_voidsman
+	roundstart_ship_name = "Dominian Science Vessel"
 	short_name = "house_volvalaad_voidsman"
 	name = "House Volvalaad Voidsman"
 	desc = "You are an enlisted Ma’zal voidsman of the Imperial Fleet, seconded to House Volvalaad for a scientific mission. Pilot and maintain the ship to support its mission. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
@@ -37,6 +38,7 @@
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/house_volvalaad_officer
+	roundstart_ship_name = "Dominian Science Vessel"
 	short_name = "house_volvalaad_officer"
 	name = "House Volvalaad Captain"
 	desc = "You are a Secondary affiliated with House Volvalaad assigned to captain a science ship. With a background in science, you are expected to serve House Volvalaad by searching for artifacts, surveying planetary bodies, and making scientific discoveries. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Secondary.)"
@@ -69,6 +71,7 @@
 
 
 /datum/ghostspawner/human/house_volvalaad_armsman
+	roundstart_ship_name = "Dominian Science Vessel"
 	short_name = "house_volvalaad_armsman"
 	name = "House Volvalaad Armsman"
 	desc = "You are a Ma’zal who serves as an Imperial Fleet armsman aboard a House Volvalaad science vessel, and are expected to defend the ship from boarders. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal.)"
@@ -102,6 +105,7 @@
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/house_volvalaad_scientist
+	roundstart_ship_name = "Dominian Science Vessel"
 	short_name = "house_volvalaad_scientist"
 	name = "House Volvalaad Scientist"
 	desc = "You are a Secondary or Ma'zal affiliated with House Volvalaad who serves as a scientist aboard a House Volvalaad science vessel. Visit planetary bodies, make new discoveries, and bring honor to the Goddess and House. (OOC Note: Players should be familiar with Dominian lore and play a character with a background appropriate to a Dominian Ma'zal or Secondary.)"

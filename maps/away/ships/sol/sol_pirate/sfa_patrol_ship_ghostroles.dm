@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/sfa_navy_crewman
+	roundstart_ship_name = "SFA Corvette"
 	short_name = "sfa_navy_crewman"
 	name = "SFA Remnant"
 	desc = "Crew the Southern Fleet Administration remnant corvette. Try to stay one step ahead of everyone out to get you."
@@ -38,6 +39,7 @@
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sfa_navy_officer
+	roundstart_ship_name = "SFA Corvette"
 	short_name = "sfa_navy_officer"
 	name = "SFA Remnant Officer"
 	desc = "Pilot and command the Southern Fleet Administration remnant corvette. Be sure to take your cyanide capsule before anyone captures you."

@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/himeo_patrol_ship
+	roundstart_ship_name = "Himean Planetary Guard Vessel"
 	short_name = "himeo_patrol_ship_guard"
 	name = "Himean Planetary Guardsman"
 	desc = "You are a guard of the Himean Planetary Guard. Crew your patrol craft, track down pirates and other infiltrators to Coalition space, and help represent the Syndicates abroad."

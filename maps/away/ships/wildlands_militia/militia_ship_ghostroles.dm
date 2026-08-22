@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/militia_crew
+	roundstart_ship_name = "Militia Ship"
 	short_name = "militia_crew"
 	name = "Militiaman"
 	desc = "Crew the militia ship. Help those that need it, try to keep your slice of space clean and safe of anyone the TCFL and SCC miss - there are people counting on you. Double as a hired gun, to make a few bucks."

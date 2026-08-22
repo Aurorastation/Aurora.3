@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/nka_merchant_crew
+	roundstart_ship_name = "Her Majesty's Mercantile Flotilla Ship"
 	short_name = "nka_merchant_crew"
 	name = "New Kingdom Merchant Navy Crew"
 	desc = "Crew a Her Majesty's Mercantile Flotilla ship."

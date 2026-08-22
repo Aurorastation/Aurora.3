@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/water_barge
+	roundstart_ship_name = "Water Barge"
 	name = "Water Barge Crew"
 	short_name = "water_barge"
 	desc = "Crew a PACHROM water transport barge."
@@ -30,4 +31,3 @@
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF
 		tag.citizenship_info = CITIZENSHIP_COALITION
-

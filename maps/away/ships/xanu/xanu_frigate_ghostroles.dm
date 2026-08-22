@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/xanufrigate_crewman
+	roundstart_ship_name = "Xanu Spacefleet Frigate"
 	name = "All-Xanu Spacefleet Frigate Crewman"
 	short_name = "xanufrigate_crewman"
 	desc = "Serve as a crewmember aboard a naval frigate of the All-Xanu Spacefleet, the navy of Xanu Prime and one of the largest component navies of the Coalition of Colonies."

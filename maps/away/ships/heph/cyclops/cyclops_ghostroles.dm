@@ -1,5 +1,6 @@
 //Cyclops Crew
 /datum/ghostspawner/human/cyclops_crew
+	roundstart_ship_name = "Cyclops Mining Vessel"
 	short_name = "cyclops_crew"
 	name = "Hephaestus Cyclops Mining Crew"
 	desc = "Crew the Hephaestus Mining Vessel."
@@ -136,5 +137,4 @@
 		SPECIES_VAURCA_WORKER = null,
 		SPECIES_VAURCA_BULWARK = null
 	)
-
 

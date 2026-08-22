@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/freighter_crew
+	roundstart_ship_name = "Independent Freighter"
 	short_name = "freighter_crew"
 	name = "Freighter Crewman"
 	desc = "Crew the tramp freighter. Be a tramp - carry cargo, do some mining, go salvaging, and try not to get into anything you can't get out of!"

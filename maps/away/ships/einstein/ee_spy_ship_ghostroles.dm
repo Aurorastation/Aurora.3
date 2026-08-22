@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/ee_crewman
+	roundstart_ship_name = "Einstein Engines Research Ship"
 	short_name = "ee_crewman"
 	name = "Einstein Engines Crewman"
 	desc = "Crew the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability. NOT AN ANTAGONIST! Do not act as such."
@@ -35,6 +36,7 @@
 	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ee_research_officer
+	roundstart_ship_name = "Einstein Engines Research Ship"
 	short_name = "ee_research_officer"
 	name = "Einstein Engines Research Officer"
 	desc = "Command the Einstein Engines research (or more accurately, spy) ship. Collect intelligence on the SCCV Horizon, all while maintaining plausible deniability. NOT AN ANTAGONIST! Do not act as such."
