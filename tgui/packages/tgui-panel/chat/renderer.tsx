@@ -401,6 +401,60 @@ class ChatRenderer {
         // Payload is HTML
         else if (message.html) {
           node.innerHTML = message.html;
+
+          // The scrambling layer is positioned over layout copies of both
+          // versions, allowing its letters to change without reflowing chat.
+          const decipherNodes =
+            node.querySelectorAll<HTMLElement>('.language-decipher');
+          for (const decipherNode of decipherNodes) {
+            const scrambleWord = decipherNode.querySelector<HTMLElement>(
+              '.language-decipher-scramble',
+            );
+            const solution = decipherNode.querySelector<HTMLElement>(
+              '.language-decipher-solution',
+            );
+            const delay = Number(decipherNode.dataset.decipherDelay);
+            const duration = Number(decipherNode.dataset.decipherDuration);
+            if (
+              !scrambleWord ||
+              !solution ||
+              !Number.isFinite(delay) ||
+              !Number.isFinite(duration)
+            ) {
+              continue;
+            }
+            setTimeout(() => {
+              const finalText = solution.textContent || '';
+              const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+              const startedAt = Date.now();
+              const interval = setInterval(() => {
+                const progress = Math.min(
+                  (Date.now() - startedAt) / (duration * 100),
+                  1,
+                );
+                const resolvedCharacters = Math.floor(
+                  finalText.length * progress,
+                );
+                scrambleWord.textContent = Array.from(finalText)
+                  .map((character, index) => {
+                    if (
+                      index < resolvedCharacters ||
+                      !/[a-z0-9]/i.test(character)
+                    ) {
+                      return character;
+                    }
+                    return characters[
+                      Math.floor(Math.random() * characters.length)
+                    ];
+                  })
+                  .join('');
+
+                if (progress >= 1) {
+                  clearInterval(interval);
+                }
+              }, 50);
+            }, delay * 100);
+          }
         } else {
           logger.error('Error: message is missing text payload', message);
         }

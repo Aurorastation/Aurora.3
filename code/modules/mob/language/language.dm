@@ -1,4 +1,6 @@
 #define SCRAMBLE_CACHE_LEN 20
+#define PARTIAL_DECIPHER_BASE_DELAY (0.5 SECONDS)
+#define PARTIAL_DECIPHER_WORD_TIME (1.5 SECONDS)
 
 /*
 	Datum based languages. Easily editable and modular.
@@ -95,8 +97,9 @@
 
 	return "[trim(full_name)]"
 
-/// Scrambles the spoken line by looping through every word in the line, calling scramble_word, and then returning the final result
-/datum/language/proc/scramble(var/input, var/list/known_languages)
+/// Scrambles the spoken line by looping through every word in the line, calling scramble_word, and then returning the final result.
+/// If decipher_over_time is set, words missed through partial understanding are marked up so chat can reveal them over time.
+/datum/language/proc/scramble(var/input, var/list/known_languages, var/decipher_over_time = FALSE)
 
 	// the chance that someone will recognize one of the words
 	var/understand_chance = 0
@@ -115,6 +118,8 @@
 
 	// marks the start of a new sentence in the for loop
 	var/new_sentence = FALSE
+	// tracks only missed words so already-understood words do not delay deciphering
+	var/decipher_index = 0
 
 	// loop through the list of words, scrambling it if the listener doesn't understand it, just putting it in if they can partially understand it
 	var/word_index = 1
@@ -122,6 +127,17 @@
 		var/list/scramble_results = process_word_prescramble(word, "[word] ", word_index, new_sentence, understand_chance, music_notes)
 		var/new_word = scramble_results[1]
 		new_sentence = scramble_results[2]
+		if(decipher_over_time && understand_chance && trim(new_word) != word)
+			var/decipher_delay = PARTIAL_DECIPHER_BASE_DELAY + (decipher_index * PARTIAL_DECIPHER_WORD_TIME)
+			decipher_index++
+			var/initial_word = trim(new_word)
+			var/deciphered_word = word
+			if(word_index == 1)
+				initial_word = capitalize(initial_word)
+				deciphered_word = capitalize(deciphered_word)
+			var/decipher_delay_seconds = decipher_delay / 10
+			var/decipher_duration_seconds = PARTIAL_DECIPHER_WORD_TIME / 10
+			new_word = "<span class='language-decipher' data-decipher-delay='[decipher_delay]' data-decipher-duration='[PARTIAL_DECIPHER_WORD_TIME]' style='--decipher-delay: [decipher_delay_seconds]s; --decipher-duration: [decipher_duration_seconds]s'><span class='language-decipher-initial'>[initial_word]</span><span class='language-decipher-scramble'>[initial_word]</span><span class='language-decipher-solution'>[deciphered_word]</span></span> "
 		scrambled_text += new_word
 		word_index++
 
@@ -200,6 +216,9 @@
 
 /datum/language/proc/scrambled_word_size_requirement(var/input_size)
 	return input_size
+
+#undef PARTIAL_DECIPHER_BASE_DELAY
+#undef PARTIAL_DECIPHER_WORD_TIME
 
 /datum/language/proc/format_message(message, verb)
 	return "[verb], <span class='message'>[colourize("\"[capitalize(message)]\"")]</span>"
