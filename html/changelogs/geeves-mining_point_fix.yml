@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Mining point balances are now loaded only when interacting with mining machinery or transferring a mining point card, preventing unrelated ID cards from querying mining point history."
+  - bugfix: "Claiming zero mining points no longer creates a persistent balance record."
