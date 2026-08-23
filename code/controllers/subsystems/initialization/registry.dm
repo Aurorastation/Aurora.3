@@ -32,11 +32,8 @@ SUBSYSTEM_DEF(registry)
  */
 /datum/controller/subsystem/registry/Initialize()
 	. = ..()
-	if(!GLOB.config.sql_enabled)
-		internal_log("SQL configuration not enabled. Registry subsystem requires SQL. Skipping init.")
-		return SS_INIT_SUCCESS
 
-	if(!databaseCheckConnection())
+	if(!GLOB.config.sql_enabled || !databaseCheckConnection())
 		internal_log("SQL connection unavailable. Registry subsystem init not possible.")
 		to_world(SPAN_INFO("Configuration registry unreachable, only local configs are available.")) // Even if the prod instance relies on the DB, we still need to support non-DB local instances.
 		return SS_INIT_SUCCESS // If the database is unavailable, local configs may be used.
