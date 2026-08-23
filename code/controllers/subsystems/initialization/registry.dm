@@ -96,7 +96,7 @@ SUBSYSTEM_DEF(registry)
  * Inserts or updates a registry value in the database.
  * PARAMS:
  * 	key = The key of the registry entry.
- * 	value = The value to set for the registry entry. Null or empty is not allowed, use clearKey() to remove a value.
+ * 	value = The value to set for the registry entry.
  * RETURN: True if the operation was successful, false if not.
  */
 /datum/controller/subsystem/registry/proc/setValue(key, value)
@@ -106,6 +106,15 @@ SUBSYSTEM_DEF(registry)
 	key = LOWER_TEXT(key)
 	if(key == "")
 		internal_log("Attempted to set registry value with empty key.")
+		return FALSE
+
+	if (length(key) > 128)
+		internal_log("Attempted to set registry value with key exceeding 128 characters: [key]")
+		return FALSE
+	if (value == null || value == "")
+		return clearKey(key) // If the value is null or empty, we treat it as a request to clear the key.
+	if (length(value) > 1024)
+		internal_log("Attempted to set registry value with value exceeding 1024 characters for key: [key]")
 		return FALSE
 
 	if(!databaseCheckConnection())
