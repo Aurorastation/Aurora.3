@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(registry)
 	name = "Registry"
 	init_order = INIT_ORDER_REGISTRY
 	flags = SS_NO_FIRE // This subsystem has no continuous workload, it's init only.
-	var/cache = list() // Read-through cache of registry entries.
+	var/cache = list() // Read-through and write-through cache of registry entries.
 
 /**
  * Subsystem info stub message generation.
