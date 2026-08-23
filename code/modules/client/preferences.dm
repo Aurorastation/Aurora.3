@@ -276,6 +276,9 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)
 		return
+	if(!MC_RUNNING())
+		to_chat(user, SPAN_WARNING("Character Setup is unavailable until the server has finished initializing. Please wait."))
+		return
 
 	ui_interact(user)
 
