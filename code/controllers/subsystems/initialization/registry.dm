@@ -6,7 +6,7 @@
 SUBSYSTEM_DEF(registry)
 	name = "Registry"
 	init_order = INIT_ORDER_REGISTRY
-	flags = SS_NO_FIRE // This subsystem has no continues workload, it's init only.
+	flags = SS_NO_FIRE // This subsystem has no continuous workload, it's init only.
 	var/cache = list() // Read-through cache of registry entries.
 
 /**
@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(registry)
 
 /**
  * Helper method to check database connection.
- * RETURN: True if connection is scuccessful, false if not.
+ * RETURN: True if connection is successful, false if not.
  */
 /datum/controller/subsystem/registry/proc/databaseCheckConnection()
 	PRIVATE_PROC(TRUE)
@@ -38,8 +38,8 @@ SUBSYSTEM_DEF(registry)
 
 	if(!databaseCheckConnection())
 		internal_log("SQL connection unavailable. Registry subsystem init not possible.")
-		to_world(SPAN_INFO("Configuration registry unreachable, only local configs are available."))
-		return SS_INIT_SUCCESS // If the database is unavaible, local configs should or could be used.
+		to_world(SPAN_INFO("Configuration registry unreachable, only local configs are available.")) // Even if the prod instance relies on the DB, we still need to support non-DB local instances.
+		return SS_INIT_SUCCESS // If the database is unavailable, local configs may be used.
 
 	return SS_INIT_SUCCESS
 
@@ -72,7 +72,7 @@ SUBSYSTEM_DEF(registry)
 		return cached_value
 
 	if(!databaseCheckConnection())
-		internal_log("No DB connnection, attempted: [key]")
+		internal_log("No DB connection, attempted: [key]")
 		return fallback_value
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(registry)
 
 	var/value = null
 	if (!query)
-		internal_log("Unkown SQL error, attempted: [key]")
+		internal_log("Unknown SQL error, attempted: [key]")
 		return fallback_value
 	else if (query.ErrorMsg())
 		internal_log("SQL error, attempted: [key], " + query.ErrorMsg())
@@ -112,7 +112,7 @@ SUBSYSTEM_DEF(registry)
 		return FALSE
 
 	if(!databaseCheckConnection())
-		internal_log("No DB connnection, attempted to set: [key], with: [value]")
+		internal_log("No DB connection, attempted to set: [key], with: [value]")
 		return FALSE
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
@@ -152,7 +152,7 @@ SUBSYSTEM_DEF(registry)
 		return FALSE
 
 	if(!databaseCheckConnection())
-		internal_log("No DB connnection, attempted to clear: [key]")
+		internal_log("No DB connection, attempted to clear: [key]")
 		return FALSE
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
