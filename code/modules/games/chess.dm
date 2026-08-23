@@ -3,16 +3,18 @@
 
 GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 
-/// Keeps remote spectators subscribed forever while only allowing players or adjacent living users to interact.
+/// Allows adjacent users to play, nearby observers to watch, and remote users to receive only an opening snapshot.
 /datum/ui_state/chessboard_state/can_use_topic(src_object, mob/user)
 	if(!user?.client)
 		return UI_CLOSE
 	var/obj/item/chessboard/chessboard = src_object
 	if(!istype(chessboard))
 		return UI_CLOSE
+	if(chessboard.ui_opening_user == user)
+		return UI_UPDATE
+	if(!chessboard.is_within_world_view(user))
+		return UI_DISABLED
 	var/user_status = user.shared_ui_interaction(chessboard)
-	if(chessboard.is_board_player(user))
-		return max(UI_UPDATE, user_status)
 	if(isliving(user) && chessboard.Adjacent(user))
 		return max(UI_UPDATE, user_status)
 	return UI_UPDATE
@@ -42,6 +44,8 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 	var/last_to
 	var/list/captured_pieces
 	var/position_version = 0
+	/// Temporarily permits a remote Shift-click to receive the board's initial snapshot.
+	var/mob/ui_opening_user
 
 /obj/item/chessboard/Initialize()
 	. = ..()
@@ -56,6 +60,8 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 	ui_interact(user)
 
 /obj/item/chessboard/attack_hand(mob/user)
+	if(!isturf(loc))
+		return ..()
 	ui_interact(user)
 
 /obj/item/chessboard/attack_ai(mob/user)
@@ -65,7 +71,10 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 	ui_interact(user)
 
 /obj/item/chessboard/ShiftClick(mob/user)
+	ui_opening_user = user
 	ui_interact(user)
+	if(ui_opening_user == user)
+		ui_opening_user = null
 
 /obj/item/chessboard/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(over != user || use_check_and_message(user))
@@ -81,16 +90,14 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 		return FALSE
 	return ..()
 
-/obj/item/chessboard/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "You can <b>left-click</b> the board to open it, or <b>Shift-click</b> it to watch from any distance."
-	. += "A seated player can <b>click-drag the board onto themselves</b> to pick it up. Its mag-clamps reject non-players."
-
 /obj/item/chessboard/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Chess", "Folding Chess Set", 500, 590)
+		ui = new(user, src, "Chess", "Chess Set", 500, 590)
 		ui.open()
+
+/obj/item/chessboard/ui_status(mob/user, datum/ui_state/state)
+	return state.can_use_topic(src, user)
 
 /obj/item/chessboard/ui_state(mob/user)
 	return GLOB.chessboard_state
@@ -239,6 +246,11 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 
 /obj/item/chessboard/proc/is_board_player(mob/user)
 	return user && (user == white_player || user == black_player)
+
+/obj/item/chessboard/proc/is_within_world_view(mob/user)
+	var/turf/board_turf = get_turf(src)
+	var/turf/user_turf = get_turf(user)
+	return board_turf && user_turf && board_turf.z == user_turf.z && get_dist(board_turf, user_turf) <= world.view
 
 /obj/item/chessboard/proc/both_sides_seated()
 	var/white_seated = white_player || computer_color == CHESS_WHITE
