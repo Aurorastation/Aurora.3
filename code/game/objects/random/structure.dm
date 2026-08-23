@@ -125,7 +125,7 @@ ABSTRACT_TYPE(/obj/random/table)
 
 /obj/random/table/wood
 	name = "random wooden table"
-	icon_state = "holoturret"
+	icon_state = "table"
 	spawnlist = list(
 		/obj/structure/table/wood,
 		/obj/structure/table/wood/bamboo,
