@@ -3,13 +3,21 @@
 	desc = "This item type is used to spawn random objects at round-start"
 	icon = 'icons/obj/random.dmi'
 	icon_state = "need-sprite"
-	var/spawn_nothing_percentage = 0 // this variable determines the likelyhood that this random object will not spawn anything
-	var/list/spawnlist
-	var/list/problist
-	var/has_postspawn
+	/// Determines the likelyhood to not spawn anything
+	var/spawn_nothing_percentage = 0
+	/// Spawn list.
+	/// Weights can be provided optionally.
+	/// Items with no weight provided have default weight of 1.
+	var/list/spawnlist = null
+	/// Whether post spawn proc is overriden and should be called.
+	var/has_postspawn = FALSE
+	/// Whether it is area consistent.
+	/// If true, the result is the same for every random spawner in a single area.
+	var/is_area_consistent = FALSE
+	/// Whether it is map template consistent.
+	var/is_map_template_consistent = FALSE
 
-// creates a new object and deletes itself
-
+/// Creates a new object and deletes itself
 /obj/random/Initialize()
 	. = ..()
 	if (!prob(spawn_nothing_percentage))
@@ -20,26 +28,34 @@
 			if(has_postspawn)
 				post_spawn(spawned_item)
 
+#ifdef UNIT_TESTS
+	if(is_area_consistent && is_map_template_consistent)
+		crash_with("[DEBUG_REF(src)] cant have more than one is_consistent toggles on")
+#endif
+
 	return INITIALIZE_HINT_QDEL
 
+/// Any post-spawn actions for the item
 /obj/random/proc/post_spawn(obj/thing)
-	LOG_DEBUG("random_obj: [DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()!")
+#ifdef UNIT_TESTS
+	crash_with("[DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()")
+#endif
 
-// creates the random item
+/// Creates the random item
 /obj/random/proc/spawn_item()
-	if(spawnlist)
-		var/itemtype = pick(spawnlist)
-		. = new itemtype(loc)
+	if(length(spawnlist))
+		var/itemtype
 
-	if(problist)
-		var/itemtype = pickweight(problist)
-		. = new itemtype(loc)
+		if(is_area_consistent)
+			itemtype = pick_area_consistent(spawnlist, get_area(src), src.type)
+		else if(is_map_template_consistent)
+			var/datum/map_template/template = GLOB.map_templates["[z]"]
+			itemtype = pick_maptemplate_consistent(spawnlist, template, src.type)
+		else
+			itemtype = pickweight(spawnlist)
 
-	if (!.)
+		if(ispath(itemtype))
+			. = new itemtype(loc)
+
+	if(!.)
 		LOG_DEBUG("random_obj: [DEBUG_REF(src)] returned null item!")
-
-/obj/random/single
-	name = "randomly spawned object"
-	desc = "This item type is used to randomly spawn a given object at round-start"
-	icon_state = "x3"
-	var/spawn_object = null
