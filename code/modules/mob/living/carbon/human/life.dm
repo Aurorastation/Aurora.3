@@ -799,7 +799,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/human/handle_regular_status_updates()
+/mob/living/carbon/human/handle_regular_status_updates(seconds_per_tick)
 	if(!handle_some_updates())
 		return 0
 
@@ -843,7 +843,7 @@
 					sleeping_msg_debounce = TRUE
 					to_chat(src, EXAMINE_BLOCK_BLUE(SPAN_NOTICE(FONT_LARGE("You are now unconscious. You will not remember anything you see, hear, or feel happening around you until you regain consciousness."))))
 
-			adjustHalLoss(-0.03)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -883,11 +883,11 @@
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
 			drowsiness = max(0, drowsiness - 5)
-			adjustHalLoss(-0.03)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-0.01)
+			adjustHalLoss(-0.1 * seconds_per_tick)
 
 		//Other
 		handle_statuses()
