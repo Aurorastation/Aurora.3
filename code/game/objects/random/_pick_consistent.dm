@@ -10,12 +10,12 @@ The solution: Consistent randomness. In this case, area-consistent. It returns t
 The `consistent_pick_cache` is basically a 2-level assoc list:
 ```
 GLOB.consistent_pick_cache = list(
-    /area/example1 = list(
-        /obj/random/table = /obj/structure/table/wood/bamboo,
-    ),
-    /area/example2 = list(
-        /obj/random/table = /obj/structure/table/wood/maple,
-    ),
+	/area/example1 = list(
+		/obj/random/table = /obj/structure/table/wood/bamboo,
+	),
+	/area/example2 = list(
+		/obj/random/table = /obj/structure/table/wood/maple,
+	),
 )
 ```
 
@@ -28,29 +28,29 @@ GLOB.consistent_pick_cache = list(
  * @param identifier Unique key for this specific roll (like src.type or a string name).
  */
 /proc/pick_consistent(list/choices, scope_key, identifier)
-    if(!length(choices))
-        return null
-    if(!scope_key || !identifier)
-        return pickweight(choices)
+	if(!length(choices))
+		return null
+	if(!scope_key || !identifier)
+		return pickweight(choices)
 
 	// get the scope cache (eg. for the area)
-    var/list/scope_cache = GLOB.consistent_pick_cache[scope_key]
+	var/list/scope_cache = GLOB.consistent_pick_cache[scope_key]
 
 	// if already in cache, just return what was picked for this identifier and scope
-    if(scope_cache?[identifier])
-        return scope_cache[identifier]
+	if(scope_cache?[identifier])
+		return scope_cache[identifier]
 
 	// if first time picking, pick and put the picked item in cache
-    var/picked = pickweight(choices)
-    if(!scope_cache)
-        GLOB.consistent_pick_cache[scope_key] = list()
-    GLOB.consistent_pick_cache[scope_key][identifier] = picked
-    return picked
+	var/picked = pickweight(choices)
+	if(!scope_cache)
+		GLOB.consistent_pick_cache[scope_key] = list()
+	GLOB.consistent_pick_cache[scope_key][identifier] = picked
+	return picked
 
 /// Consistent within the same /area
 /proc/pick_area_consistent(list/choices, area/a, identifier)
-    return pick_consistent(choices, a, identifier)
+	return pick_consistent(choices, a, identifier)
 
 /// Consistent within a specific map template load
 /proc/pick_maptemplate_consistent(list/choices, datum/map_template/t, identifier)
-    return pick_consistent(choices, t, identifier)
+	return pick_consistent(choices, t, identifier)
