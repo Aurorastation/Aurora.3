@@ -63,6 +63,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
 	"log_subsystems_persistence" = TRUE, // Persistence
+	"log_subsystems_registry" = TRUE, // Registry
 	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
