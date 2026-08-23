@@ -290,6 +290,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 /datum/preferences/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		// This bootstrap page provides drag/close controls before React is ready.
 		ui = new(user, src, "CharacterSetup", "Character Setup",
 			ui_x = 1280,
 			ui_y = 900,
