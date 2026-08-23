@@ -127,6 +127,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/character_preview_species
 	/// Whether the native TGUI character-slot picker is open.
 	var/show_character_slots = FALSE
+	/// Whether the character setup is sending its lightweight opening payload.
+	var/character_setup_loading = FALSE
 	var/static/list/preview_map_ids = list(
 		"1" = "character_setup_preview_north",
 		"2" = "character_setup_preview_south",
@@ -288,33 +290,28 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 /datum/preferences/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "CharacterSetup", "Character Setup", 1280, 900)
+		ui = new(user, src, "CharacterSetup", "Character Setup",
+			ui_x = 1280,
+			ui_y = 900,
+			initial_html = file("tgui/public/character-setup-loading.html"),
+			preferred_window_index = TGUI_CHARACTER_SETUP_WINDOW_INDEX)
 		ui.set_autoupdate(FALSE)
+		character_setup_loading = TRUE
 		ui.open()
-	display_character_previews_when_ready(ui.window)
+		addtimer(CALLBACK(src, PROC_REF(finish_character_setup_loading)), 1, TIMER_UNIQUE | TIMER_OVERRIDE)
 
-/// Displays previews only after TGUI reports that its pooled window is visible.
-/datum/preferences/proc/display_character_previews_when_ready(datum/tgui_window/window)
-	if(!window)
-		return
-	if(!window.visible)
-		RegisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE, PROC_REF(display_character_previews_on_visible), override = TRUE)
-		return
-	if(!char_render_holders)
-		update_preview_icon()
-	else
-		show_character_previews()
-
-/datum/preferences/proc/display_character_previews_on_visible(datum/tgui_window/window, client/viewer)
-	SIGNAL_HANDLER
-	UnregisterSignal(window, COMSIG_TGUI_WINDOW_VISIBLE)
-	if(viewer != client)
-		return
-	INVOKE_ASYNC(src, PROC_REF(display_character_previews_when_ready), window)
+/// Sends the expensive preference data after the window shell has rendered.
+/datum/preferences/proc/finish_character_setup_loading()
+	character_setup_loading = FALSE
+	SStgui.update_uis(src)
 
 /datum/preferences/ui_close(mob/user)
 	. = ..()
 	show_character_slots = FALSE
+	character_setup_loading = FALSE
+	if(client)
+		for(var/map_id in preview_map_ids)
+			winset(client, preview_map_ids[map_id], "is-visible=false")
 	clear_character_previews()
 
 /datum/preferences/ui_data(mob/user)
@@ -326,6 +323,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	data["faction_name"] = character_faction.name
 	data["faction_suffix"] = character_faction.title_suffix
 	data["slot_dialog"] = show_character_slots ? get_character_slot_data(user) : null
+	data["loading"] = character_setup_loading
 
 	var/list/categories = list()
 	for(var/datum/category_group/player_setup_category/category in player_setup.categories)
@@ -335,7 +333,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 			"selected" = (category == player_setup.selected_category)
 		))
 	data["categories"] = categories
-	data["items"] = player_setup.selected_category?.ui_data(user) || list()
+	data["items"] = character_setup_loading ? list() : (player_setup.selected_category?.ui_data(user) || list())
 
 	return data
 
@@ -379,6 +377,17 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 		if("close_slots")
 			show_character_slots = FALSE
+			return TRUE
+
+		if("preview_ready")
+			if(char_render_holders)
+				// Force BYOND to bind existing screen objects to the newly mounted
+				// named map controls; an idempotent |= alone does not reattach them.
+				for(var/render_holder in char_render_holders)
+					client.screen -= char_render_holders[render_holder]
+				show_character_previews()
+			else
+				update_preview_icon()
 			return TRUE
 
 		if("select_slot")

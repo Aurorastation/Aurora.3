@@ -1318,3 +1318,49 @@ window "tgui_say"
 		anchor1 = 0,0
 		anchor2 = 0,0
 		saved-params = ""
+
+window "tgui-window-5"
+	elem "tgui-window-5"
+		type = MAIN
+		pos = 0,0
+		size = 1280x900
+		is-visible = false
+		saved-params = ""
+		statusbar = false
+		titlebar = false
+		can-minimize = false
+		can-resize = false
+		background-color = #11151c
+		on-show = ".winset \"tgui-window-5.is-visible=false\""
+	elem "browser"
+		type = BROWSER
+		pos = 0,0
+		size = 1280x900
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #11151c
+		saved-params = ""
+	elem "character_setup_preview_north"
+		type = MAP
+		pos = 0,0
+		size = 1x1
+		is-visible = false
+		saved-params = ""
+	elem "character_setup_preview_south"
+		type = MAP
+		pos = 0,0
+		size = 1x1
+		is-visible = false
+		saved-params = ""
+	elem "character_setup_preview_east"
+		type = MAP
+		pos = 0,0
+		size = 1x1
+		is-visible = false
+		saved-params = ""
+	elem "character_setup_preview_west"
+		type = MAP
+		pos = 0,0
+		size = 1x1
+		is-visible = false
+		saved-params = ""
