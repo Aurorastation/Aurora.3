@@ -53,16 +53,19 @@ SUBSYSTEM_DEF(registry)
 
 /**
  * Retrieves a registry value by key, using the cache before querying the database.
- * RETURN: The value of the registry entry, or null if not found or on error.
+ * PARAMS:
+ * 	key = The key of the registry entry to retrieve.
+ * 	fallback_value = The value to return if the key is not found or on error.
+ * RETURN: The value of the registry entry, or the fallback_value if not found or on error.
  */
-/datum/controller/subsystem/registry/proc/getValue(key)
+/datum/controller/subsystem/registry/proc/getValue(key, fallback_value = null)
 	if(!key)
 		internal_log("Attempted to get registry value with null key.")
-		return null
+		return fallback_value
 	key = LOWER_TEXT(key)
 	if(key == "")
 		internal_log("Attempted to get registry value with empty key.")
-		return null
+		return fallback_value
 
 	var/cached_value = cache[key]
 	if(cached_value)
@@ -70,7 +73,7 @@ SUBSYSTEM_DEF(registry)
 
 	if(!databaseCheckConnection())
 		internal_log("No DB connnection, attempted: [key]")
-		return null
+		return fallback_value
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
 		"SELECT value FROM ss13_registry WHERE key = :lookup",
@@ -81,10 +84,10 @@ SUBSYSTEM_DEF(registry)
 	var/value = null
 	if (!query)
 		internal_log("Unkown SQL error, attempted: [key]")
-		return null
+		return fallback_value
 	else if (query.ErrorMsg())
 		internal_log("SQL error, attempted: [key], " + query.ErrorMsg())
-		return null
+		return fallback_value
 	else
 		if(query.NextRow())
 			value = query.item[1]
@@ -132,3 +135,41 @@ SUBSYSTEM_DEF(registry)
 
 	cache[key] = value
 	return TRUE
+
+/**
+ * Removes a registry value from the database and cache.
+ * PARAMS:
+ * 	key = The key of the registry entry.
+ * RETURN: True if the operation was successful, false if not.
+ */
+/datum/controller/subsystem/registry/proc/clearKey(key)
+	if(!key)
+		internal_log("Attempted to clear registry value with null key.")
+		return FALSE
+	key = LOWER_TEXT(key)
+	if(key == "")
+		internal_log("Attempted to clear registry value with empty key.")
+		return FALSE
+
+	if(!databaseCheckConnection())
+		internal_log("No DB connnection, attempted to clear: [key]")
+		return FALSE
+
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"DELETE FROM ss13_registry WHERE key = :lookup",
+		list("lookup" = key)
+	)
+	query.Execute()
+
+	if (!query)
+		internal_log("Unknown SQL error, attempted to clear: [key]")
+		return FALSE
+	else if (query.ErrorMsg())
+		internal_log("SQL error, attempted to clear: [key], " + query.ErrorMsg())
+		return FALSE
+	qdel(query)
+
+	if(key in cache)
+		cache -= key
+	return TRUE
+
