@@ -73,12 +73,12 @@ SUBSYSTEM_DEF(registry)
 		return fallback_value
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"SELECT value FROM ss13_registry WHERE key = :lookup",
-		list("lookup" = key)
+		"SELECT content FROM ss13_registry WHERE lookup = :key",
+		list("key" = key)
 	)
 	query.Execute()
 
-	var/value = null
+	var/value = fallback_value
 	if (!query)
 		internal_log("Unknown SQL error, attempted: [key]")
 		return fallback_value
@@ -88,7 +88,7 @@ SUBSYSTEM_DEF(registry)
 	else
 		if(query.NextRow())
 			value = query.item[1]
-		cache[key] = value
+			cache[key] = query.item[1]
 	qdel(query)
 	return value
 
@@ -122,11 +122,11 @@ SUBSYSTEM_DEF(registry)
 		return FALSE
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"INSERT INTO ss13_registry (key, value) VALUES (:lookup, :input) \
-		ON DUPLICATE KEY UPDATE value = :input",
+		"INSERT INTO ss13_registry (lookup, content) VALUES (:key, :value) \
+		ON DUPLICATE KEY UPDATE content = :value",
 		list(
-			"lookup" = key,
-			"input" = value
+			"key" = key,
+			"value" = value
 		)
 	)
 	query.Execute()
@@ -162,8 +162,8 @@ SUBSYSTEM_DEF(registry)
 		return FALSE
 
 	var/datum/db_query/query = SSdbcore.NewQuery(
-		"DELETE FROM ss13_registry WHERE key = :lookup",
-		list("lookup" = key)
+		"DELETE FROM ss13_registry WHERE lookup = :key",
+		list("key" = key)
 	)
 	query.Execute()
 
