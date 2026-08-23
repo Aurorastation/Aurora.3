@@ -70,8 +70,7 @@
 	var/liver_regeneration_broken = 0
 
 /obj/item/organ/internal/liver/process(seconds_per_tick)
-
-	..()
+	. = ..()
 
 	if(!owner)
 		return
@@ -120,6 +119,17 @@
 	if(toxin_type in owner.chem_effects)
 		// Hepatoxic(liver damaging) chems start dealing lethal damage to the patient once the liver is broken.
 		owner.adjustToxLoss(max(0, (owner.chem_effects[toxin_type] - filter_strength)) * seconds_per_tick) // as actual organ damage is handled elsewhere
+
+/obj/item/organ/internal/liver/need_process(seconds_per_tick)
+	. = ..()
+	if (!owner || owner.stat == DEAD)
+		return
+	if (germ_level)
+		return TRUE
+	if (owner.intoxication)
+		return TRUE
+	if (damage && (toxin_type in owner.chem_effects))
+		return TRUE
 
 /// Liver damage + alcohol = bad time.
 /obj/item/organ/internal/liver/proc/handle_alcohol_poisoning(var/filter_effect, var/filter_strength, var/seconds_per_tick)

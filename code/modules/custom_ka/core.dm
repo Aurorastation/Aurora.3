@@ -114,7 +114,6 @@
 	return TRUE
 
 /obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-
 	if(require_wield && !wielded)
 		to_chat(user,SPAN_WARNING("\The [src] is too heavy to fire with one hand!"))
 		return
@@ -122,6 +121,8 @@
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
 		return
 
+	// Queue the KA for processing in case it has a charging cell.
+	START_PROCESSING(SSprocessing, src)
 	//Custom fire checks
 	var/warning_message
 	var/disaster
@@ -281,12 +282,12 @@
 	return ..()
 
 /obj/item/gun/custom_ka/process()
-	if(installed_cell)
-		installed_cell.on_update(src)
-	if(installed_barrel)
-		installed_barrel.on_update(src)
-	if(installed_upgrade_chip)
-		installed_upgrade_chip.on_update(src)
+	if(!installed_cell || installed_cell.on_update(src))
+		return PROCESS_KILL
+	if(!installed_barrel || installed_barrel.on_update(src))
+		return PROCESS_KILL
+	if(!installed_upgrade_chip || installed_upgrade_chip.on_update(src))
+		return PROCESS_KILL
 
 /obj/item/gun/custom_ka/update_icon()
 	. = ..()
@@ -402,7 +403,7 @@
 /obj/item/gun/custom_ka/attackby(obj/item/attacking_item, mob/user)
 
 	. = ..()
-
+	START_PROCESSING(SSprocessing, src)
 	if(istype(attacking_item, /obj/item/pen))
 		custom_name = sanitize( tgui_input_text(user, "Enter a custom name for your [name]", "Set Name") )
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")

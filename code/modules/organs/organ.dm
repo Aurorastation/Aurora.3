@@ -162,15 +162,13 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/process(seconds_per_tick)
 	if(loc != owner)
 		owner = null
+	if(owner.stasis_value > 0)
+		// Putting a body in stasis will simultaneously slow down the rate at which organs die
+		// while also slowing down the rate at which they are healed.
+		seconds_per_tick /= owner.stasis_value
 
-	if (QDELETED(src))
-		LOG_DEBUG("QDELETED organ [DEBUG_REF(src)] had process() called!")
-		STOP_PROCESSING(SSprocessing, src)
-		return
-
-	//dead already, no need for more processing
-	if(status & ORGAN_DEAD)
-		return
+	if (!need_process(seconds_per_tick))
+		return PROCESS_KILL
 	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
 	if(istype(loc,/obj/item/mmi))
 		return
@@ -181,8 +179,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if (is_immune)
 		germ_level = 0
 
-	if((BP_IS_ROBOTIC(src) || robotic >= ROBOTIC_MECHANICAL) && surge_damage)
-		tick_surge_damage(seconds_per_tick)
 
 	if(!owner)
 		if (QDELETED(reagents))
@@ -216,6 +212,31 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(damage >= max_damage)
 		die()
 
+/**
+ * Returns TRUE if there's any condition for which the organ should continue processing.
+ * And return TRUE for the first valid condition to state that they must process.
+ * Children should only be trying to return true if they have a valid condition to continue processing.
+ */
+/obj/item/organ/proc/need_process(seconds_per_tick)
+	SHOULD_CALL_PARENT(TRUE)
+	ENFORCE_CALCULUS(seconds_per_tick)
+	if (QDELETED(src))
+		LOG_DEBUG("QDELETED organ [DEBUG_REF(src)] had process() called!")
+		STOP_PROCESSING(SSprocessing, src)
+		return FALSE
+
+	//dead already, no need for more processing
+	if(status & ORGAN_DEAD)
+		return FALSE
+
+	if (surge_damage && (BP_IS_ROBOTIC(src) || robotic >= ROBOTIC_MECHANICAL || (status & ORGAN_ASSISTED)))
+		return tick_surge_damage(seconds_per_tick)
+
+	if (rejecting)
+		return TRUE
+
+	if (damage)
+		return TRUE
 /**
  * Handles per-second EMP damage effects.
  * returns FALSE if there's no EMP effects left.
@@ -294,6 +315,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/rejuvenate()
 	damage = 0
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
@@ -385,6 +407,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 //Note: external organs have their own version of this proc
 /obj/item/organ/proc/take_damage(var/amount, var/silent = 0)
+	START_PROCESSING(SSprocessing, src)
 	if(src.status & ORGAN_ROBOT)
 		src.damage = between(0, src.damage + (amount * 0.8), max_damage)
 	else
@@ -505,15 +528,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		set_dna(owner.dna)
 	return TRUE
 
-/obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
-
-	// Apply our eye colour to the target.
-	if(istype(target) && eye_colour)
-		target.r_eyes = eye_colour[1]
-		target.g_eyes = eye_colour[2]
-		target.b_eyes = eye_colour[3]
-		target.update_eyes()
-	..()
 
 /obj/item/organ/attack(mob/living/target_mob, mob/living/user, target_zone)
 

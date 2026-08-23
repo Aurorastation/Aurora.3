@@ -15,6 +15,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	GLOB.living_mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.human_mob_list -= src
+	for (var/datum/datum in contents)
+		// Nope, literally nothing inside a mannequin needs to process.
+		STOP_PROCESSING(SSprocessing, src)
+
 	delete_inventory()
 
 /mob/living/carbon/human/dummy/mannequin/Destroy()
