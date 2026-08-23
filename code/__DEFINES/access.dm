@@ -389,7 +389,7 @@
 /// Journalist's office access
 /datum/access/journalist
 	id = 70
-	desc = "Journalist Office"
+	desc = "Media Office"
 	region = ACCESS_REGION_GENERAL
 
 /// Allows some unique interactions with devices

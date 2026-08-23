@@ -1,0 +1,8 @@
+author: notagonk
+
+delete-after: True
+
+changes:
+  - rscadd: "Remapped the journalist's office as the refurbished media office."
+  - rscadd: "Created a press lanyard subtype of the regular lanyard, no difference in sprite."
+  - rscadd: "Added the press badges and lanyard to the loadout."

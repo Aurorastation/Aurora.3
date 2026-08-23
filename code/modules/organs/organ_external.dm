@@ -1694,7 +1694,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/last_gene_dam = genetic_degradation
 	genetic_degradation = min(100,max(0,genetic_degradation + amount))
 	if(genetic_degradation > 10)
-		owner.infest_with_parasite(owner, BP_TUMOUR_SPREADING, src)
+		owner.infest_with_parasite(owner, BP_TUMOUR_SPREADING, src, (genetic_degradation + 10)) //Guarantees at least one tumour if you reach maximum degredation.
 	if(genetic_degradation > 20)
 		if(!(status & ORGAN_MUTATED) && prob(genetic_degradation))
 			mutate()

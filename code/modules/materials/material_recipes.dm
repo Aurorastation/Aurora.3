@@ -191,6 +191,7 @@
 		list(
 			new /datum/stack_recipe("box", /obj/item/storage/box/blank),
 			new /datum/stack_recipe("large box", /obj/item/storage/box/large/blank, 2),
+			new /datum/stack_recipe("takeout box", /obj/item/reagent_containers/bowl/takeout_box, 1),
 			new /datum/stack_recipe("donut box", /obj/item/storage/box/fancy/donut/empty),
 			new /datum/stack_recipe("egg carton", /obj/item/storage/box/fancy/egg_box),
 			new /datum/stack_recipe("candle pack", /obj/item/storage/box/fancy/candle_box/empty),

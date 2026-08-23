@@ -106,11 +106,11 @@
 
 // Airlocks
 
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance
 	name = "Entrance"
 	master_tag = "airlock_quarantined_outpost_entrance"
 
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/mining
 	name = "Excavation Sector"
 	master_tag = "airlock_quarantined_outpost_mining"
 

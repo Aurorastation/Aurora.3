@@ -338,3 +338,151 @@
   kano:
   - qol: Deployable kits now show the progress bar on the mob.
   - rscadd: Ported various platform sprites from CM.
+2026-08-17:
+  ASmallCuteCat:
+  - qol: Swaps the placement of the ICU and the storage room in Medical.
+  - qol: Moves the Pharmacy and the Recovery Ward, with the lobby centered between
+      them.
+  - qol: The Medical Department's floor decals are now seafoam green, for less eye
+      strain and greater difference with Service green.
+  DreamySkrell:
+  - rscadd: Bapi mapmanip submap weight.
+  Fenodyree:
+  - bugfix: Fixes all rubber bullets dealing damage twice.
+  - bugfix: Fixes all attacks that dealt pain damage checking siemens coefficient.
+      This makes everything but hardsuits and voidsuits stronger against rubber bullets.
+      Insulated gloves are also no longer immune to rubber bullets.
+  - bugfix: Fixes pain failing to make you blurt out whatever you were typing. Now
+      getting shot will cause you to say whatever was in the typing window when you
+      were hit and close the window immediately, allowing you to move.
+  - bugfix: Fixes all attacks that had manually set armour checks, previously they
+      ignored the armour they were meant to check and decided what armour affected
+      them based only on their damage type.
+  - qol: Cloned circuit assemblies now spawn with uncharged batteries.
+  - rscadd: Lets some small integrated circuit designs be worn on the wrist, belt,
+      or clipped to a helmet for helmet cameras.
+  - bugfix: Fixes the Mend power taking 15 seconds to scan every organ, even if the
+      organ is healthy.
+  - bugfix: Fixes the Mend power not being able to fix blindness.
+  - bugfix: Fixes the Mend power not being able to fix heart attacks.
+  - bugfix: Fixes the Mend power not being able to fix brute or burn damage.
+  - bugfix: Fixes the Mend power not being able to fix tendons.
+  - bugfix: Fixes the Mend power not respecting psychic sensitivity.
+  - bugfix: Fixes the Mend power thinking every external organ is robotic.
+  Geeves:
+  - rscadd: Added the option to manually change the looping sound channel volume in
+      the SFX Preferences tab.
+  Hellfirejag:
+  - rscadd: The mechanical engineering skill now provides a situational damage bonus
+      for attacking structures such as airlocks and windows.
+  - rscadd: The mechanical engineering skill now modifies the speed and repair amount
+      when repairing a mech with a welder.
+  - rscadd: Repairing mechs is now no longer instantaneous.
+  - rscadd: Attempting to repair a mech with a welder will now automatically repeat
+      the repair action until either completed, or interrupted.
+  TheGreyWolf:
+  - bugfix: Fixed that the EMP implant was visible in the bodyscanner.
+  - rscadd: The fuel tank from the cargo ordering program is no longer access restricted.
+  Tomixcomics:
+  - rscadd: Added the 'Idris Delights' vending machine and the various treats it sells.
+  - rscadd: Added two new types of trash to go along with the new treats.
+  - rscadd: Added several new food dishes including Takoyaki, French toast, Lava cakes
+      and Tiramisu.
+  - rscadd: Added a multitude of Psiren meat based dishes.
+  - qol: Added line of code to keep the game from crashing when flavors don't get
+      listed properly in the code.
+  - qol: Adjusted Citrus Delight dish so that it doesn't take forever to finish
+  fyni:
+  - rscadd: Updates the earth accent tag. The old tag did not fit the accent tag format.
+  mineymonkey:
+  - bugfix: Actually, reduces the maximum amount of metal and phoron that can be stored
+      in a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can
+      hit those numbers, so this is just a safety measure to prevent accidental loss
+      of materials.
+  - qol: Added in examine hints for the electronic radio headset for clarity in how
+      to access the circuitry portions. Also makes mention that the TTS circuit can
+      only be heard by those wearing the device, it does not broadcast to the room
+      in this specific case.
+2026-08-20:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Additional LS logic fixes.
+  Hellfirejag:
+  - bugfix: Fixed a small lag spike caused by ownerless IPCs dying.
+  hazelmouse:
+  - bugfix: Resolved a few lighting bugs with holodeck spaces.
+  - bugfix: Removes the erroneous 'Chessboard' setting visible in the holodeck console's
+      menu. There was never any chessboard. You have been lied to.
+  - bugfix: Fixed versebook onmobs.
+  - bugfix: South-facing platforms no longer layer over south-facing railings.
+  kano:
+  - bugfix: Fixed the smooth icon overlays appearing under the adjacent turfs.
+2026-08-21:
+  ASmallCuteCat:
+  - bugfix: Removes some stray items around medbay, re-adds a GTR sink, fixes a broken
+      airvent, fixes pharmacy shutters, ensures proper placement and visibility of
+      items.
+  - qol: Re-adds a single bag of SBS blood to the Operating Room freezer. It was removed
+      for a previous arc but never re-added.
+  - qol: QOL adjustments to the ICU - adds additional lighting and a ringer button.
+  DreamySkrell:
+  - rscadd: Submap insert markers now support different directions.
+  - refactor: External airlock marker.
+  Fenodyree:
+  - bugfix: Fixes technomancer's apportation spell. It now grabs mobs instead of runtiming
+      and has a cooldown.
+  - rscadd: EMPs once again check energy armour. A heavy EMP can be downgraded to
+      a light EMP, and a light EMP can be negated entirely or only affect the mob's
+      contents. This chance is based on the average energy armour of the mob, weighted
+      by limb size.
+  - balance: The effect of an EMP on a power cell is now random. A light EMP can drain
+      up to half the max charge, and a heavy EMP can drain up to the full max charge.
+      Previously heavy would always drain the full max charge, and light would always
+      drain half the max charge.
+  Geeves:
+  - rscadd: Progress bars now use smooth, colour-changing fills and support visual
+      themes.
+  - qol: Gear loadout item variant selections now display item icons in a searchable
+      list.
+  - qol: Airlock controllers now display controller and door power, door and bolt
+      status, pump activity, the current cycle phase, and unresponsive equipment.
+  - balance: Welding arcs now damage the eyes of visible onlookers within two tiles
+      who are facing the welder and are not wearing eye protection.
+  - bugfix: Fixed tails layering oddly in character preview, holograms, photos, etc.
+  Hellfirejag:
+  - bugfix: Fixed a runtime error caused by a player attempting to view the statpanel
+      before its ready.
+  - bugfix: Fixed a runtime error caused by a 'machine' var being used to store non
+      machines.
+  - bugfix: Fixed a hard del caused by ccarp and psiren migrations.
+  - refactor: Refactored get_pain() to have essentially nonexistent cost.
+  - bugfix: Fixed both a runtime error and a hard delete related to ammo piles.
+  - bugfix: Fixed a spammy runtime caused by smoking cigarettes.
+  Wowzewow (Wezzy):
+  - rscadd: Adjusts the kitchen so it's more comfortable for dual-chef gameplay. Also
+      integrates them a bit better.
+  fyni:
+  - rscadd: Adds the [!] to the gravity anomoly overmap icon.
+  - rscadd: Adds a new psiren overmap icon, so they no longer share an icon with carp.
+  hazelmouse:
+  - bugfix: Resolved awkward starlight interactions in a number of offsites and offships,
+      including the Xanu Frigate and Ranger Corvette.
+  - rscadd: Added missing fore gunnery entry points to the Xanu Frigate offship, and
+      appropriately renamed starboard and portside gunnery entry points to make it
+      clear that they do impact the gunnery nacelles.
+  - qol: Shutters no longer layer underneath airlocks.
+2026-08-23:
+  DreamySkrell:
+  - rscadd: Adds a `generate_dirt` var to areas, to allow automatic generating dirt
+      on floor turfs.
+  - rscadd: Fixes plane of `/turf/space/transit`.
+  Fenodyree:
+  - balance: Reduced the genetic damage of the decloner module by 20%.
+  - balance: Genetic damage is now a chance to spawn a tumour, rather than a guaranteed
+      tumour at 10% damage.  The chance is equal to 10 + the amount of genetic damage.  This
+      means that at 100% genetic damage, you are guaranteed to spawn a tumour.
+  Geeves:
+  - bugfix: Turned LED collars into an emissive, it no longer renders above everything.
+  TheGreyWolf:
+  - bugfix: The ops head is now rad proof.
+  - rscadd: Takeout boxes now exist. They can be crafted from cardboard and found
+      in the kitchen dinnerware vending machine.

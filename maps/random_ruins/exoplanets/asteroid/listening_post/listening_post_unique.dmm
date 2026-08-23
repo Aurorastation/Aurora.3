@@ -13,7 +13,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/listening_post/entrance)
@@ -22,7 +22,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/structure/machinery/airlock_sensor{
 	frequency = 1351;
 	id_tag = "listening_post_sensor";
@@ -35,7 +35,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/structure/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
@@ -79,7 +79,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/listening_post/entrance)
 "al" = (
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
@@ -97,7 +97,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = 26
@@ -125,7 +125,7 @@
 /turf/simulated/wall/r_wall,
 /area/listening_post/entrance)
 "as" = (
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/airlock_sensor/airlock_interior{
 	pixel_y = 24;
@@ -146,7 +146,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/listening_post/entrance)
 "av" = (
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = -26;
@@ -245,7 +245,7 @@
 "aN" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1351;
 	id_tag = "listening_post_airlock";
@@ -374,7 +374,7 @@
 "bi" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/listening_post/entrance)
@@ -409,7 +409,7 @@
 "bs" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/structure/machinery/light/small{
 	dir = 4;
 	must_start_working = 1
@@ -924,7 +924,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/listening_post/washroom)
 "sl" = (
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
@@ -1430,7 +1430,7 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/listening_post/entrance)
 "MY" = (
-/obj/effect/map_effect/marker/airlock/listening_post,
+/obj/effect/map_effect/marker/airlock/external/listening_post,
 /obj/random/dirt_75,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled/dark/full,

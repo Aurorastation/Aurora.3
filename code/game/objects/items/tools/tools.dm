@@ -532,7 +532,7 @@
 /obj/item/weldingtool/proc/get_fuel()
 	return REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 
-//Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
+//Removes fuel from the welding tool. If a mob is passed, it will expose nearby onlookers to the welding arc.
 /obj/item/weldingtool/use(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
 	if(!welding)
 		return 0
@@ -541,12 +541,28 @@
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/singleton/reagent/fuel, amount)
 		if(M && produces_flash)
-			M.flash_act(FLASH_PROTECTION_MAJOR)
+			flash_welding_arc(M)
 		return 1
 	else
 		if(M)
 			to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 		return 0
+
+/// Damages the eyes of the welder and any visible living mobs looking towards the welding arc.
+/obj/item/weldingtool/proc/flash_welding_arc(mob/living/user)
+	var/turf/welding_turf = get_turf(src)
+	if(!welding_turf)
+		return
+
+	var/list/potential_viewers = viewers(2, welding_turf)
+	// Preserve the existing behaviour for the user if their container keeps them out of viewers().
+	if(!(user in potential_viewers))
+		potential_viewers += user
+
+	for(var/mob/living/onlooker in potential_viewers)
+		// Someone sharing the arc's turf cannot meaningfully look away from it.
+		if(get_turf(onlooker) == welding_turf || (onlooker.dir & get_dir(onlooker, welding_turf)))
+			onlooker.flash_act(FLASH_PROTECTION_MAJOR)
 
 /obj/item/weldingtool/use_resource(mob/user, var/use_amount)
 	if(get_fuel() >= use_amount)

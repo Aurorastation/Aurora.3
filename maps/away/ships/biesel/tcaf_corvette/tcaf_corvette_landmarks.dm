@@ -65,19 +65,19 @@
 	landmark_tag = "tcaf_corvette_fore_dock"
 
 // Non-docking airlock markers, for the small airlocks on deck two.
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_aft
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_aft
 	name = "Starboard Aft, Small"
 	master_tag = "airlock_tcaf_starboard_aft"
 
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_aft
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_aft
 	name = "Port Aft, Small"
 	master_tag = "airlock_tcaf_port_aft"
 
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/starboard_small_fore
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/starboard_small_fore
 	name = "Starboard Fore, Small"
 	master_tag = "airlock_tcaf_starboard_fore"
 
-/obj/effect/map_effect/marker/airlock/tcaf_corvette/port_small_fore
+/obj/effect/map_effect/marker/airlock/external/tcaf_corvette/port_small_fore
 	name = "Port Fore, Small"
 	master_tag = "airlock_tcaf_port_fore"
 
