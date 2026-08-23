@@ -317,16 +317,25 @@ const renderPencode = (text: string) => {
 
   while (stack.length > 1) {
     const frame = stack.pop()!;
-    stack[stack.length - 1].children.push(
-      `[${frame.tag}]`,
-      ...frame.children,
-    );
+    stack[stack.length - 1].children.push(`[${frame.tag}]`, ...frame.children);
   }
   return root.children;
 };
 
 export const CharacterSetup = () => {
   const { act, data } = useBackend<CharacterSetupData>();
+
+  useEffect(() => {
+    if (!data.loading) {
+      return;
+    }
+    // The server deliberately withholds the expensive preference payload until
+    // React has mounted. Retrying makes recovery automatic if BYOND drops the
+    // first message while its embedded browser is finishing initialization.
+    act('character_setup_ready');
+    const timer = setInterval(() => act('character_setup_ready'), 2000);
+    return () => clearInterval(timer);
+  }, [act, data.loading]);
 
   useEffect(() => {
     if (data.loading) {
@@ -466,9 +475,7 @@ export const CharacterSetup = () => {
             <Button
               color="transparent"
               icon="xmark"
-              onClick={() =>
-                sendPreferenceAction(bodyItem, 'close_species')
-              }
+              onClick={() => sendPreferenceAction(bodyItem, 'close_species')}
             />
           }
         >
@@ -656,9 +663,7 @@ export const CharacterSetup = () => {
         <Stack.Item>
           <Button
             color="transparent"
-            onClick={() =>
-              sendPreferenceTopic(item, { job_alternative: 1 })
-            }
+            onClick={() => sendPreferenceTopic(item, { job_alternative: 1 })}
           >
             {item.alternative}
           </Button>
@@ -735,11 +740,7 @@ export const CharacterSetup = () => {
                     color="transparent"
                     icon="minus"
                     onClick={() =>
-                      sendPreferenceAction(
-                        item,
-                        'trait_remove',
-                        disability,
-                      )
+                      sendPreferenceAction(item, 'trait_remove', disability)
                     }
                   />
                 </Box>
@@ -803,11 +804,7 @@ export const CharacterSetup = () => {
             <Box key={`${action.action}-${action.value}`}>
               <a
                 onClick={() =>
-                    sendPreferenceAction(
-                      item,
-                      action.action!,
-                      action.value,
-                    )
+                  sendPreferenceAction(item, action.action!, action.value)
                 }
                 role="button"
                 tabIndex={0}
@@ -847,46 +844,46 @@ export const CharacterSetup = () => {
               {appearance.style && (
                 <>
                   <Stack.Item>Style:</Stack.Item>
-                {appearance.previous_action && (
+                  {appearance.previous_action && (
+                    <Stack.Item>
+                      <a
+                        onClick={() =>
+                          sendPreferenceAction(
+                            item,
+                            appearance.previous_action!,
+                          )
+                        }
+                        role="button"
+                        tabIndex={0}
+                      >
+                        &lt;
+                      </a>
+                    </Stack.Item>
+                  )}
                   <Stack.Item>
                     <a
                       onClick={() =>
-                        sendPreferenceAction(
-                          item,
-                          appearance.previous_action!,
-                        )
+                        sendPreferenceAction(item, appearance.style_action!)
                       }
-                      role="button"
-                      tabIndex={0}
-                    >
-                      &lt;
-                    </a>
-                  </Stack.Item>
-                )}
-                  <Stack.Item>
-                    <a
-                    onClick={() =>
-                      sendPreferenceAction(item, appearance.style_action!)
-                    }
                       role="button"
                       tabIndex={0}
                     >
                       {appearance.style}
                     </a>
                   </Stack.Item>
-                {appearance.next_action && (
-                  <Stack.Item>
-                    <a
-                      onClick={() =>
-                        sendPreferenceAction(item, appearance.next_action!)
-                      }
-                      role="button"
-                      tabIndex={0}
-                    >
-                      &gt;
-                    </a>
-                  </Stack.Item>
-                )}
+                  {appearance.next_action && (
+                    <Stack.Item>
+                      <a
+                        onClick={() =>
+                          sendPreferenceAction(item, appearance.next_action!)
+                        }
+                        role="button"
+                        tabIndex={0}
+                      >
+                        &gt;
+                      </a>
+                    </Stack.Item>
+                  )}
                 </>
               )}
             </Stack>
@@ -924,11 +921,7 @@ export const CharacterSetup = () => {
                     compact
                     icon="chevron-up"
                     onClick={() =>
-                      sendPreferenceAction(
-                        item,
-                        'marking_up',
-                        marking.name,
-                      )
+                      sendPreferenceAction(item, 'marking_up', marking.name)
                     }
                   />
                 </Stack.Item>
@@ -937,11 +930,7 @@ export const CharacterSetup = () => {
                     compact
                     icon="chevron-down"
                     onClick={() =>
-                      sendPreferenceAction(
-                        item,
-                        'marking_down',
-                        marking.name,
-                      )
+                      sendPreferenceAction(item, 'marking_down', marking.name)
                     }
                   />
                 </Stack.Item>
@@ -952,11 +941,7 @@ export const CharacterSetup = () => {
                 compact
                 icon="eye-dropper"
                 onClick={() =>
-                  sendPreferenceAction(
-                    item,
-                    'marking_color',
-                    marking.name,
-                  )
+                  sendPreferenceAction(item, 'marking_color', marking.name)
                 }
               >
                 Color
@@ -967,11 +952,7 @@ export const CharacterSetup = () => {
                 <Button
                   compact
                   onClick={() =>
-                    sendPreferenceAction(
-                      item,
-                      'marking_preset',
-                      marking.name,
-                    )
+                    sendPreferenceAction(item, 'marking_preset', marking.name)
                   }
                 >
                   Preset
@@ -984,11 +965,7 @@ export const CharacterSetup = () => {
                 color="bad"
                 icon="trash"
                 onClick={() =>
-                  sendPreferenceAction(
-                    item,
-                    'marking_remove',
-                    marking.name,
-                  )
+                  sendPreferenceAction(item, 'marking_remove', marking.name)
                 }
               />
             </Stack.Item>
@@ -1011,9 +988,7 @@ export const CharacterSetup = () => {
                 <Button
                   fluid
                   color="transparent"
-                  onClick={() =>
-                    sendPreferenceAction(item, record.edit_action)
-                  }
+                  onClick={() => sendPreferenceAction(item, record.edit_action)}
                 >
                   {record.preview}
                 </Button>
@@ -1024,11 +999,7 @@ export const CharacterSetup = () => {
                   color="bad"
                   icon="trash"
                   onClick={() =>
-                    sendPreferenceAction(
-                      item,
-                      'clear',
-                      record.clear_value,
-                    )
+                    sendPreferenceAction(item, 'clear', record.clear_value)
                   }
                 >
                   Clear
@@ -1081,8 +1052,8 @@ export const CharacterSetup = () => {
               sectionIndex === 0 &&
               normalizedHeading(section.title) === normalizedHeading(item.name)
             ) && (
-            <Box className="preference-form__heading">{section.title}</Box>
-          )}
+              <Box className="preference-form__heading">{section.title}</Box>
+            )}
           {section.description &&
             (section.description_html ? (
               <Box
@@ -1197,9 +1168,7 @@ export const CharacterSetup = () => {
           </Box>
           {category.subcategories.map((subcategory) => (
             <Box className="skill-subcategory" key={subcategory.name}>
-              <Box className="skill-subcategory__title">
-                {subcategory.name}
-              </Box>
+              <Box className="skill-subcategory__title">{subcategory.name}</Box>
               {subcategory.skills.map((skill) => (
                 <Box className="skill-row" key={skill.type}>
                   <Box className="skill-row__info">
@@ -1214,10 +1183,7 @@ export const CharacterSetup = () => {
                           icon="circle-info"
                           tooltip={
                             <Box preserveWhitespace>
-                              {[
-                                skill.description,
-                                skill.current_description,
-                              ]
+                              {[skill.description, skill.current_description]
                                 .filter(Boolean)
                                 .join('\n\n')}
                             </Box>
@@ -1528,7 +1494,7 @@ export const CharacterSetup = () => {
                   title={`${selectedCategory?.name ?? 'Character'} Preferences`}
                 >
                   {data.loading ? (
-                    <LoadingScreen label="Loading character preferences..." />
+                    <LoadingScreen label="Loading character preferences... (Please press F5 if this gets stuck!)" />
                   ) : (
                     <Box className="CharacterSetup__content">
                       {useWideLayout ? (

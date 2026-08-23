@@ -6,7 +6,9 @@
     display: grid;
     grid-template-rows: 32px 1fr;
     color: #d8dee9;
-    font: 16px Arial, sans-serif;
+    font:
+      16px Arial,
+      sans-serif;
     background: #11151c;
   }
 
@@ -37,7 +39,9 @@
     padding: 0;
     border: 0;
     color: #d8dee9;
-    font: bold 20px/1 Arial, sans-serif;
+    font:
+      bold 20px/1 Arial,
+      sans-serif;
     background: transparent;
     cursor: pointer;
   }
@@ -85,16 +89,14 @@
   </div>
   <div id="tgui-bootstrap-loader-content" role="status">
     <div id="tgui-bootstrap-loader-spinner"></div>
-    <div>Loading character setup...</div>
+    <div>Loading character setup... (Press F5 if this gets stuck!)</div>
   </div>
 </div>
 
 <script>
   (function () {
     var titlebar = document.getElementById('tgui-bootstrap-loader-titlebar');
-    var closeButton = document.getElementById(
-      'tgui-bootstrap-loader-close',
-    );
+    var closeButton = document.getElementById('tgui-bootstrap-loader-close');
     var dragging = false;
     var pointerDown = false;
     var dragOffsetX = 0;

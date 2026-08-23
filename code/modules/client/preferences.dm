@@ -302,12 +302,17 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		ui.set_autoupdate(FALSE)
 		character_setup_loading = TRUE
 		ui.open()
-		addtimer(CALLBACK(src, PROC_REF(finish_character_setup_loading)), 1, TIMER_UNIQUE | TIMER_OVERRIDE)
+		addtimer(CALLBACK(src, PROC_REF(check_character_setup_bootstrap), ui), 8 SECONDS)
 
-/// Sends the expensive preference data after the window shell has rendered.
-/datum/preferences/proc/finish_character_setup_loading()
-	character_setup_loading = FALSE
-	SStgui.update_uis(src)
+/// Reloads only the Character Setup browser if its React frontend never mounts.
+/datum/preferences/proc/check_character_setup_bootstrap(datum/tgui/ui)
+	if(!character_setup_loading || QDELETED(ui) || ui.closing || ui.window?.locked_by != ui)
+		return
+	ui.window.reinitialize()
+	ui.window.send_message("update", ui.get_payload(
+		with_data = TRUE,
+		with_static_data = TRUE))
+	addtimer(CALLBACK(src, PROC_REF(check_character_setup_bootstrap), ui), 8 SECONDS)
 
 /datum/preferences/ui_close(mob/user)
 	. = ..()
@@ -348,6 +353,11 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	var/mob/user = ui.user
 	switch(action)
+		if("character_setup_ready")
+			character_setup_loading = FALSE
+			// Always answer retries so a missed full payload can recover without F5.
+			return TRUE
+
 		if("select_category")
 			var/datum/category_group/player_setup_category/category = locate(params["category"])
 			if(category && (category in player_setup.categories))
