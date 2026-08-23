@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds `pick_consistent` procs."
+  - refactor: "Refactors `/obj/random` a bit."
