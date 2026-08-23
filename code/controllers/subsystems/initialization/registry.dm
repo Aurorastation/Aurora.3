@@ -96,7 +96,7 @@ SUBSYSTEM_DEF(registry)
  * Inserts or updates a registry value in the database.
  * PARAMS:
  * 	key = The key of the registry entry.
- * 	value = The value to set for the registry entry.
+ * 	value = The value to set for the registry entry. Null or empty is not allowed, use clearKey() to remove a value.
  * RETURN: True if the operation was successful, false if not.
  */
 /datum/controller/subsystem/registry/proc/setValue(key, value)
