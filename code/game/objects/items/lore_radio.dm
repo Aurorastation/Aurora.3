@@ -51,6 +51,9 @@
 		user.visible_message("<b>[user]</b> turns \the [src]'s volume [low_volume ? "down" : "up"].", SPAN_NOTICE("You turn \the [src]'s volume [low_volume ? "down" : "up"]."), range = 3)
 		return
 
+/obj/item/lore_radio/format_spoken_chat_message(var/message)
+	return SPAN_LORE_RADIO(message)
+
 /obj/item/lore_radio/proc/get_possible_stations()
 	var/list/possible_stations = list(WEATHER_RADIO_CHANNEL)
 	if(SSatlas.current_sector?.lore_radio_stations)
@@ -76,10 +79,10 @@
 		return
 
 	if(radio_message)
-		output_spoken_message(radio_message, display_chat = !low_volume, chat_class = "lore-radio")
+		output_spoken_message(radio_message, display_chat = !low_volume)
 	else
 		if(!low_volume)
-			audible_message("<span class='lore-radio'>The [SPAN_BOLD("[name]")] only emits white noise...</span>") // using name instead of src so it doesn't add a bolded The or whatever, better control of what displays
+			audible_message(SPAN_LORE_RADIO("The [SPAN_BOLD("[name]")] only emits white noise...")) // using name instead of src so it doesn't add a bolded The or whatever, better control of what displays
 
 /// Listens to when a weather change on this Z-level is broadcasted from a configured weather reader (survey probe), and reads it aloud
 /obj/item/lore_radio/proc/relay_weather_broadcast(var/datum/source, var/z_level, var/singleton/state_transition/weather/weather_transition, var/time_to_transition, var/broadcast_message)
@@ -93,6 +96,6 @@
 	if(!(z_level in connected_z_levels))
 		return
 
-	output_spoken_message(broadcast_message, display_chat = !low_volume, chat_class = "lore-radio")
+	output_spoken_message(broadcast_message, display_chat = !low_volume)
 
 #undef WEATHER_RADIO_CHANNEL
