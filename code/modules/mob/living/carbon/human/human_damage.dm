@@ -125,6 +125,11 @@
 	..()
 
 /mob/living/carbon/human/update_canmove()
+	if(crawling_under_table)
+		if(get_crawlable_table() && mob_size < TABLE_CRAWL_MAX_MOB_SIZE)
+			resting = TRUE
+		else
+			stop_crawling_under_table()
 	var/old_lying = lying
 	. = ..()
 	if(lying && !old_lying && !resting && !buckled_to && isturf(loc)) // fell down

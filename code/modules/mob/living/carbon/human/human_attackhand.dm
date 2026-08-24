@@ -21,6 +21,10 @@
 	var/mob/living/carbon/human/H = M
 	if(!M.can_use_hand())
 		return
+	if(crawling_under_table && istype(H) && H.a_intent == I_GRAB)
+		var/obj/structure/table/table = get_crawlable_table()
+		if(table?.pull_crawler_out(H, src))
+			return TRUE
 
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))

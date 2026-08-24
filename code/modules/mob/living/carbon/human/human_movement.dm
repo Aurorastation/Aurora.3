@@ -123,8 +123,58 @@
 	if(. && tail_style)
 		update_tail_showing(!lying)
 
-/mob/living/carbon/human/Move()
+/mob/living/carbon/human/Move(atom/newloc, direct)
+	// A prone mob already sharing a table's turf without this state is on top of
+	// it, and must crawl off before it can deliberately crawl underneath one.
+	var/started_move_crawling = lying && client?.moving && (crawling_under_table || !(locate(/obj/structure/table) in get_turf(src)))
+	var/obj/structure/table/old_table = crawling_under_table ? get_crawlable_table() : null
+	var/obj/structure/table/new_table = started_move_crawling ? get_crawlable_table(newloc) : null
+	if(started_move_crawling && new_table && mob_size >= TABLE_CRAWL_MAX_MOB_SIZE)
+		to_chat(src, SPAN_WARNING("You are too large to fit underneath \the [new_table]."))
+		return FALSE
+
+	if(started_move_crawling && (old_table || new_table))
+		if(!old_table && new_table)
+			visible_message(
+				SPAN_NOTICE("[src] starts crawling underneath \the [new_table]."),
+				SPAN_NOTICE("You start crawling underneath \the [new_table].")
+			)
+		else if(old_table && !new_table)
+			visible_message(
+				SPAN_NOTICE("[src] starts crawling out from underneath \the [old_table]."),
+				SPAN_NOTICE("You start crawling out from underneath \the [old_table].")
+			)
+		var/obj/structure/table/delay_target = new_table || old_table
+		if(!do_after(src, 0.5 SECOND, delay_target, DO_DEFAULT | DO_USER_UNIQUE_ACT, INCAPACITATION_DEFAULT & ~INCAPACITATION_FORCELYING))
+			return FALSE
+		new_table = get_crawlable_table(newloc)
+		if(new_table && mob_size >= TABLE_CRAWL_MAX_MOB_SIZE)
+			to_chat(src, SPAN_WARNING("You are too large to fit underneath \the [new_table]."))
+			return FALSE
+		if(!old_table && !new_table)
+			return FALSE
+
+	attempting_table_crawl = started_move_crawling
+
+	// Treat prone movement as low enough to pass beneath tables and other
+	// structures which explicitly allow PASSTABLE movers beneath them.
+	var/crawling_under_tables = lying && mob_size < TABLE_CRAWL_MAX_MOB_SIZE && !(pass_flags & PASSTABLE)
+	if(crawling_under_tables)
+		pass_flags |= PASSTABLE
+
 	. = ..()
+
+	if(crawling_under_tables)
+		pass_flags &= ~PASSTABLE
+	attempting_table_crawl = FALSE
+
+	if(. && started_move_crawling && get_crawlable_table())
+		start_crawling_under_table()
+	if(. && started_move_crawling)
+		var/obj/structure/table/rustled_table = get_crawlable_table() || old_table
+		if(!QDELETED(rustled_table))
+			rustled_table.rustle_from_crawler()
+
 	if(.) //We moved
 		handle_leg_damage()
 
@@ -141,6 +191,87 @@
 			return
 		last_x = x
 		last_y = y
+
+/mob/living/carbon/human/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	if(crawling_under_table && ((forced && old_loc != loc) || !get_crawlable_table()))
+		stop_crawling_under_table()
+
+/mob/living/carbon/human/forceMove(atom/destination)
+	if(crawling_under_table && destination != loc)
+		stop_crawling_under_table()
+	return ..()
+
+/mob/living/carbon/human/lay_down()
+	if(crawling_under_table && get_crawlable_table())
+		to_chat(src, SPAN_WARNING("You cannot stand up while underneath a table!"))
+		return
+	return ..()
+
+/mob/living/carbon/human/proc/get_crawlable_table(atom/location = src)
+	for(var/obj/structure/table/table in get_turf(location))
+		if(table.can_crawl_under())
+			return table
+	return null
+
+/mob/living/carbon/human/proc/start_crawling_under_table()
+	if(crawling_under_table || mob_size >= TABLE_CRAWL_MAX_MOB_SIZE)
+		return
+	crawling_under_table = TRUE
+	table_crawl_old_layer = layer
+	layer = HIDING_MOB_LAYER
+
+/mob/living/carbon/human/proc/stop_crawling_under_table()
+	if(!crawling_under_table)
+		return
+	crawling_under_table = FALSE
+	layer = table_crawl_old_layer
+	table_crawl_old_layer = MOB_LAYER
+
+/mob/living/carbon/human/verb/search_nearby()
+	set name = "Search Nearby"
+	set desc = "Search nearby hiding places for concealed characters."
+	set category = "IC.Maneuver"
+
+	if(stat || incapacitated(INCAPACITATION_DISABLED) || lying || !isturf(loc))
+		to_chat(src, SPAN_WARNING("You are not in a position to search nearby hiding places."))
+		return
+	if(world.time < next_table_search)
+		to_chat(src, SPAN_WARNING("You need a moment before searching again."))
+		return
+
+	next_table_search = world.time + 5 SECONDS
+	visible_message(
+		SPAN_NOTICE("[src] begins carefully searching the nearby area."),
+		SPAN_NOTICE("You begin carefully searching the nearby area.")
+	)
+	if(!do_after(src, 2 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
+		return
+
+	clear_table_search_silhouettes()
+	for(var/mob/living/carbon/human/hidden in view(5, src))
+		if(hidden == src || !hidden.crawling_under_table)
+			continue
+		// Images dispatch clicks to their loc, so this generic spot remains a
+		// private, clickable stand-in for the concealed mob.
+		var/image/search_spot = image('icons/effects/effects.dmi', loc = hidden, icon_state = "dirt")
+		search_spot.layer = ABOVE_TABLE_LAYER
+		search_spot.color = "#242424"
+		search_spot.alpha = 190
+		search_spot.mouse_opacity = MOUSE_OPACITY_ICON
+		LAZYADD(table_search_silhouettes, search_spot)
+
+	if(length(table_search_silhouettes))
+		client?.images += table_search_silhouettes
+		to_chat(src, SPAN_NOTICE("You spot [length(table_search_silhouettes)] suspicious disturbance\s nearby."))
+		addtimer(CALLBACK(src, PROC_REF(clear_table_search_silhouettes)), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+	else
+		to_chat(src, SPAN_NOTICE("You find nobody concealed nearby."))
+
+/mob/living/carbon/human/proc/clear_table_search_silhouettes()
+	if(client && length(table_search_silhouettes))
+		client.images -= table_search_silhouettes
+	table_search_silhouettes = null
 
 
 /mob/living/carbon/human/proc/handle_leg_damage()
@@ -173,4 +304,3 @@
 		var/mob/living/carbon/human/H = pulling
 		if(H.species.slowdown > species.slowdown)
 			. += H.species.slowdown - species.slowdown
-
