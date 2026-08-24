@@ -1,4 +1,0 @@
-author: Geeves
-delete-after: True
-changes:
-  - bugfix: "Fixed tails layering oddly in character preview, holograms, photos, etc."

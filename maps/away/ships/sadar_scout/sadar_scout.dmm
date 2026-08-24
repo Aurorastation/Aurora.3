@@ -461,13 +461,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/hydro)
 "cK" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/biogenerator,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/hydro)
 "cM" = (
