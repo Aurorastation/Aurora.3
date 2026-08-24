@@ -399,8 +399,12 @@
 	clean_blood()
 	color = initial(color)
 
-/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS)
-	audible_message("\The <b>[src.name]</b> [message_verb], \"[message]\"")
+/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS, var/display_chat = TRUE, var/chat_class)
+	if(display_chat)
+		var/rendered_message = "\The <b>[src.name]</b> [message_verb], \"[message]\""
+		if(chat_class)
+			rendered_message = "<span class='[chat_class]'>[rendered_message]</span>"
+		audible_message(rendered_message)
 	if(display_overhead)
 		var/list/hearers = get_hearers_in_view(7, src)
 		var/list/clients_in_hearers = list()
