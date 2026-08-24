@@ -139,7 +139,7 @@
 	return ..() && target_zone == BP_MOUTH
 
 /singleton/surgery_step/robotics/face/reconstruct_chassis
-	name = "Reconstruct Chassis Face"
+	name = "Reconstruct Faceplate"
 	allowed_tools = list(
 		/obj/item/stack/material/steel = 100
 	)
@@ -160,8 +160,8 @@
 
 /singleton/surgery_step/robotics/face/reconstruct_chassis/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(
-		SPAN_NOTICE("[user] begins reshaping a steel sheet to reconstruct [target]'s mangled face."),
-		SPAN_NOTICE("You begin reshaping a steel sheet to reconstruct [target]'s mangled face.")
+		SPAN_NOTICE("[user] begins reshaping a steel sheet to reconstruct [target]'s mangled face plating."),
+		SPAN_NOTICE("You begin reshaping a steel sheet to reconstruct [target]'s mangled face plating.")
 	)
 	..()
 
@@ -175,13 +175,13 @@
 	head.disfigured = FALSE
 	target.update_body()
 	user.visible_message(
-		SPAN_NOTICE("[user] finishes reconstructing [target]'s chassis face."),
-		SPAN_NOTICE("You successfully reconstruct [target]'s chassis face.")
+		SPAN_NOTICE("[user] finishes reconstructing [target]'s faceplate."),
+		SPAN_NOTICE("You successfully reconstruct [target]'s faceplate.")
 	)
 
 /singleton/surgery_step/robotics/face/reconstruct_chassis/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(
-		SPAN_WARNING("[user] fails to properly shape the replacement plating for [target]'s face."),
+		SPAN_WARNING("[user] fails to properly shape the replacement plating for [target]'s faceplate."),
 		SPAN_WARNING("You fail to properly shape the replacement facial plating.")
 	)
 
