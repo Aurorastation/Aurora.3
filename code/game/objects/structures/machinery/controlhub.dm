@@ -261,7 +261,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/media_office
 	name = "media office control hub"
 	icon_state = "holocontrol"
-	req_access = list(ACCESS_JOURNALIST)
+	req_access = list(/datum/access/journalist::id)
 	controls = list(
 		"door control" = list("type" = "airlock", "id" = "media_office_door", "functions" = 1),
 		"door bolts" = list("type" = "airlock", "id" = "media_office_door", "functions" = 4),
