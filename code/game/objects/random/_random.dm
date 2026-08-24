@@ -30,7 +30,7 @@
 
 #ifdef UNIT_TESTS
 	if(is_area_consistent && is_map_template_consistent)
-		crash_with("[DEBUG_REF(src)] cant have more than one is_consistent toggles on")
+		crash_with("[DEBUG_REF(src)]: only one is_consistent toggle can be on")
 #endif
 
 	return INITIALIZE_HINT_QDEL
@@ -38,7 +38,7 @@
 /// Any post-spawn actions for the item
 /obj/random/proc/post_spawn(obj/thing)
 #ifdef UNIT_TESTS
-	crash_with("[DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()")
+	crash_with("[DEBUG_REF(src)]: registered as having post_spawn, but did not override post_spawn()")
 #endif
 
 /// Creates the random item
