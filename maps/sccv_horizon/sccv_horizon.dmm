@@ -21930,14 +21930,6 @@
 /area/horizon/medical/hallway/upper)
 "cSu" = (
 /obj/structure/machinery/alarm/south,
-/obj/structure/machinery/button/remote/blast_door{
-	name = "Dividing Door Control";
-	dir = 8;
-	id = "service_divider_shutter";
-	pixel_x = -21;
-	pixel_y = 28;
-	req_one_access = list(25,28)
-	},
 /obj/structure/machinery/alarm/south,
 /obj/structure/machinery/appliance/cooker/microwave{
 	pixel_y = 7
@@ -37012,7 +37004,7 @@
 	icon_state = "pipe-c-yellow";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "eQv" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -40597,7 +40589,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "fpb" = (
 /obj/structure/filingcabinet/chestdrawer{
@@ -48533,17 +48525,9 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/structure/machinery/button/remote/blast_door{
-	name = "Dividing Door Control";
-	dir = 4;
-	id = "service_divider_shutter";
-	pixel_x = 22;
-	pixel_y = 28;
-	req_one_access = list(25,28)
-	},
 /obj/effect/floor_decal/industrial/outline_straight/service,
 /obj/structure/disposalpipe/segment/mainline,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "grc" = (
 /obj/structure/grille,
