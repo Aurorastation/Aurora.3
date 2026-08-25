@@ -179,6 +179,7 @@
 	on = !on
 	update_icon()
 	if(on)
+		START_PROCESSING(SSmachinery, src)
 		if (M.loc == loc)
 			wash(M)
 			process_heat(M)
@@ -271,7 +272,7 @@
 
 /obj/structure/machinery/shower/process()
 	if(!on)
-		return
+		return PROCESS_KILL
 	wash_floor()
 	if(!mobpresent)
 		return
