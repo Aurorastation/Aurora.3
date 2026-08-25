@@ -1,5 +1,5 @@
 author: notagonk
 delete-after: True
 changes:
-  - rscadd: "The Longbow, Grauwolf, and Ammunition Storage have been consolidated into a joint Gunnery Wing, located in the same place as the latter two."
-  - rscdel: "The Longbow is no longer at D3 Portside, and is now at D2 Starboardside"
+  - rscadd: "A Gunnery Wing has been created in place of the Grauwolf and Secure Ammunition Storage, with the Longbow joining them in a new, dedicated area."
+  - rscadd: "The Longbow's old location by the Port Docking Arm has been slightly updated."
