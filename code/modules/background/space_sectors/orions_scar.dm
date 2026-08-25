@@ -32,7 +32,7 @@
 
 	lobby_tracks = list(
 		'sound/music/lobby/anotherstory.ogg',
-		'sound/music/lobby/kaaistoep.ogg'
+		'sound/music/lobby/kaaistoep.ogg',
 		'sound/music/lobby/yuki_satellites.ogg'
 	)
 
