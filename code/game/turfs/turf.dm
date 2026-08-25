@@ -718,7 +718,7 @@
 	if(density)
 		return OUTSIDE_NO
 
-	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
+	for(var/obj/structure/S in src)
 		if(istype(S, /obj/structure/component/tent_canvas))
 			return OUTSIDE_NO
 

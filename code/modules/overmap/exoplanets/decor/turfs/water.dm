@@ -192,3 +192,6 @@
 		var/turf/tile = loc
 		tile.clean_blood()
 		tile.remove_cleanables()
+
+/turf/simulated/floor/exoplanet/water/alt
+	icon_state = "poolwater"

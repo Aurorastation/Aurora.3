@@ -237,6 +237,12 @@
 	name = "[street_name]"
 	desc = "This sign indicates this crossing street is called [street_name]."
 
+/obj/structure/road_sign/notice
+	name = "notice sign"
+	desc = "A sign which warns of about something."
+	icon_state = "notice"
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+
 ABSTRACT_TYPE(/obj/structure/stairs/urban)
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
@@ -528,6 +534,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	anchored = TRUE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
+
+/obj/structure/rod_railing/Initialize()
+	. = ..()
+	if(dir != NORTH)
+		layer = ABOVE_ABOVE_HUMAN_LAYER
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -1248,3 +1259,28 @@ ABSTRACT_TYPE(/obj/structure/arch)
 	icon_state = "gothic_arch_end"
 	dir = 1
 
+// ---------- Quay walls
+/obj/structure/quay_wall
+	name = "quay wall"
+	icon = 'icons/obj/structure/urban/rampart.dmi'
+	icon_state = "center"
+	anchored = TRUE
+	density = TRUE
+	bound_height = 64
+
+/obj/structure/quay_wall/center_side
+	icon_state = "center-side"
+
+/obj/structure/quay_wall/corner
+	icon_state = "corner"
+
+/obj/structure/quay_wall/inner_corner
+	icon_state = "inner-corner"
+
+/obj/structure/quay_wall/side
+	icon_state = "side"
+	bound_height = 32
+
+/obj/structure/quay_wall/edge
+	icon_state = "edge"
+	bound_height = 32
