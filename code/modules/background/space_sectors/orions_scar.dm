@@ -2,8 +2,8 @@
 /datum/space_sector/orions_scar
 	name = SECTOR_ORIONS_SCAR
 	description = "Orion's Scar is named for the higher density streak of stars running along a rough line thirty light years long, forming a bright scar across the stars, especially for those viewing from the Spur's most rimward planets. The area closer to the nations of the Spur is only sparsely populated, and many local powers look to it for future colonization."
-	skybox_icon = "puddle_worlds"
-	starlight_color = "#073F78"
+	skybox_icon = "orions_scar"
+	starlight_color = "#101544"
 	starlight_power = 6//Dense in stars = more light? Maybe not super realistic but sets the tone.
 	starlight_range = 4
 	overmap_hazards_multiplier = 1.5//Slightly denser because this area is dense. I'm feeling dense writing all this.
