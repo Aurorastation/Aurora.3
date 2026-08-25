@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Hopefully fixed that case dossiers sometimes self delete."
