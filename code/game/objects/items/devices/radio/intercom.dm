@@ -552,6 +552,9 @@ pixel_x = 8;
 	set_broadcasting(FALSE)
 	set_listening(TRUE)
 
+/obj/item/radio/intercom/phone/update_icon()
+	ClearOverlays()
+
 /obj/item/radio/intercom/phone/fire_control // Used by Command/Bridge Crew to communicate with loaders from the Fire Control Compartment
 	name = "Fire Control red phone"
 
