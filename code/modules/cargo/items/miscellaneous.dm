@@ -100,3 +100,45 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/hover_stool
+	category = "miscellaneous"
+	name = "hover stool"
+	supplier = "meng"
+	description = "A stool produced in the Nralakk Federation, supported by advanced hover technology."
+	price = 12.50
+	items = list(
+		/obj/structure/bed/stool/hover
+	)
+	access = 0
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/hover_stool/chair
+	category = "miscellaneous"
+	name = "hover chair"
+	supplier = "meng"
+	description = "A chair produced in the Nralakk Federation, supported by advanced hover technology."
+	price = 12.50
+	items = list(
+		/obj/structure/bed/stool/chair/office/hover
+	)
+	access = 0
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/hover_stool/chair/command
+	category = "miscellaneous"
+	name = "padded hover chairs"
+	supplier = "meng"
+	description = "A comfortable chair produced in the Nralakk Federation, supported by advanced hover technology."
+	price = 12.50
+	items = list(
+		/obj/structure/bed/stool/chair/office/hover/command
+	)
+	access = 0
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
