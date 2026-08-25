@@ -74428,6 +74428,12 @@
 /area/horizon/medical/hallway/upper)
 "jIN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/ringer_button{
+	name = "Pharmacy ringer button";
+	id = "pharmacy_ringer";
+	pixel_x = -22;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "jIO" = (
