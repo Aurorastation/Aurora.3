@@ -32849,9 +32849,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
-"elm" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/crew/airstation)
 "elw" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 4
@@ -36940,9 +36937,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mercenary)
-"ePA" = (
-/turf/simulated/wall,
-/area/horizon/crew/airstation)
 "ePB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -38021,14 +38015,17 @@
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/minibar)
 "eWA" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/airstation)
 "eWG" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -52248,6 +52245,8 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew/airstation)
 "gOF" = (
@@ -87698,6 +87697,9 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
+"lmc" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/crew/airstation)
 "lme" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -90244,6 +90246,12 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/firefighting_closet,
 /obj/structure/machinery/firealarm/north,
 /obj/structure/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/airstation)
 "lDS" = (
@@ -95474,7 +95482,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/command/heads/captain)
 "mmK" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -95484,7 +95491,10 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/airstation)
 "mmL" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -102808,6 +102818,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/wing/starboard/far)
+"njC" = (
+/turf/simulated/wall,
+/area/horizon/crew/airstation)
 "njD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -142164,12 +142177,15 @@
 "smr" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/effect/floor_decal/industrial/hatch_tiny/emergency_closet,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/structure/machinery/light{
 	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/airstation)
@@ -143981,7 +143997,9 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
 "syQ" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -275531,7 +275549,7 @@ syQ
 gEp
 etL
 kVu
-elm
+lmc
 luc
 eSV
 eSV
@@ -275783,12 +275801,12 @@ gal
 fUl
 ciL
 kpS
-ePA
+njC
 smr
 ssM
 oNo
 wHY
-ePA
+njC
 iBa
 fZx
 eSV
@@ -276040,7 +276058,7 @@ xbu
 mxg
 kVp
 dCx
-ePA
+njC
 lDI
 gOC
 eWA
@@ -276297,13 +276315,13 @@ gal
 fUl
 jHY
 gyp
-ePA
+njC
 bcw
 bcw
 iBi
 ddr
-ePA
-ePA
+njC
+njC
 cKh
 fZx
 eSV
