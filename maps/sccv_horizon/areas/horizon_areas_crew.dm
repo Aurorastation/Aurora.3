@@ -250,6 +250,12 @@
 	horizon_deck = 2
 	area_blurb = "Contains emergency supplies, surprisingly enough."
 
+/area/horizon/crew/airstation
+	name = "Operations Hallway Air Station"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
+	horizon_deck = 2
+
 // Rad shielded because common afk area.
 /area/horizon/crew/washroom
 	name = "Horizon - Head (PARENT AREA - DON'T USE)"
