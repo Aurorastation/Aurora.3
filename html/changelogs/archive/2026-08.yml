@@ -403,3 +403,112 @@
       to access the circuitry portions. Also makes mention that the TTS circuit can
       only be heard by those wearing the device, it does not broadcast to the room
       in this specific case.
+2026-08-20:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Additional LS logic fixes.
+  Hellfirejag:
+  - bugfix: Fixed a small lag spike caused by ownerless IPCs dying.
+  hazelmouse:
+  - bugfix: Resolved a few lighting bugs with holodeck spaces.
+  - bugfix: Removes the erroneous 'Chessboard' setting visible in the holodeck console's
+      menu. There was never any chessboard. You have been lied to.
+  - bugfix: Fixed versebook onmobs.
+  - bugfix: South-facing platforms no longer layer over south-facing railings.
+  kano:
+  - bugfix: Fixed the smooth icon overlays appearing under the adjacent turfs.
+2026-08-21:
+  ASmallCuteCat:
+  - bugfix: Removes some stray items around medbay, re-adds a GTR sink, fixes a broken
+      airvent, fixes pharmacy shutters, ensures proper placement and visibility of
+      items.
+  - qol: Re-adds a single bag of SBS blood to the Operating Room freezer. It was removed
+      for a previous arc but never re-added.
+  - qol: QOL adjustments to the ICU - adds additional lighting and a ringer button.
+  DreamySkrell:
+  - rscadd: Submap insert markers now support different directions.
+  - refactor: External airlock marker.
+  Fenodyree:
+  - bugfix: Fixes technomancer's apportation spell. It now grabs mobs instead of runtiming
+      and has a cooldown.
+  - rscadd: EMPs once again check energy armour. A heavy EMP can be downgraded to
+      a light EMP, and a light EMP can be negated entirely or only affect the mob's
+      contents. This chance is based on the average energy armour of the mob, weighted
+      by limb size.
+  - balance: The effect of an EMP on a power cell is now random. A light EMP can drain
+      up to half the max charge, and a heavy EMP can drain up to the full max charge.
+      Previously heavy would always drain the full max charge, and light would always
+      drain half the max charge.
+  Geeves:
+  - rscadd: Progress bars now use smooth, colour-changing fills and support visual
+      themes.
+  - qol: Gear loadout item variant selections now display item icons in a searchable
+      list.
+  - qol: Airlock controllers now display controller and door power, door and bolt
+      status, pump activity, the current cycle phase, and unresponsive equipment.
+  - balance: Welding arcs now damage the eyes of visible onlookers within two tiles
+      who are facing the welder and are not wearing eye protection.
+  - bugfix: Fixed tails layering oddly in character preview, holograms, photos, etc.
+  Hellfirejag:
+  - bugfix: Fixed a runtime error caused by a player attempting to view the statpanel
+      before its ready.
+  - bugfix: Fixed a runtime error caused by a 'machine' var being used to store non
+      machines.
+  - bugfix: Fixed a hard del caused by ccarp and psiren migrations.
+  - refactor: Refactored get_pain() to have essentially nonexistent cost.
+  - bugfix: Fixed both a runtime error and a hard delete related to ammo piles.
+  - bugfix: Fixed a spammy runtime caused by smoking cigarettes.
+  Wowzewow (Wezzy):
+  - rscadd: Adjusts the kitchen so it's more comfortable for dual-chef gameplay. Also
+      integrates them a bit better.
+  fyni:
+  - rscadd: Adds the [!] to the gravity anomoly overmap icon.
+  - rscadd: Adds a new psiren overmap icon, so they no longer share an icon with carp.
+  hazelmouse:
+  - bugfix: Resolved awkward starlight interactions in a number of offsites and offships,
+      including the Xanu Frigate and Ranger Corvette.
+  - rscadd: Added missing fore gunnery entry points to the Xanu Frigate offship, and
+      appropriately renamed starboard and portside gunnery entry points to make it
+      clear that they do impact the gunnery nacelles.
+  - qol: Shutters no longer layer underneath airlocks.
+2026-08-23:
+  DreamySkrell:
+  - rscadd: Adds a `generate_dirt` var to areas, to allow automatic generating dirt
+      on floor turfs.
+  - rscadd: Fixes plane of `/turf/space/transit`.
+  Fenodyree:
+  - balance: Reduced the genetic damage of the decloner module by 20%.
+  - balance: Genetic damage is now a chance to spawn a tumour, rather than a guaranteed
+      tumour at 10% damage.  The chance is equal to 10 + the amount of genetic damage.  This
+      means that at 100% genetic damage, you are guaranteed to spawn a tumour.
+  Geeves:
+  - bugfix: Turned LED collars into an emissive, it no longer renders above everything.
+  TheGreyWolf:
+  - bugfix: The ops head is now rad proof.
+  - rscadd: Takeout boxes now exist. They can be crafted from cardboard and found
+      in the kitchen dinnerware vending machine.
+2026-08-24:
+  Geeves:
+  - bugfix: Mining point balances are now loaded only when interacting with mining
+      machinery or transferring a mining point card, preventing unrelated ID cards
+      from querying mining point history.
+  - bugfix: Claiming zero mining points no longer creates a persistent balance record.
+  Hellfirejag:
+  - bugfix: Made showers no longer require always processing.
+  notagonk:
+  - rscadd: Remapped the journalist's office as the refurbished media office.
+  - rscadd: Created a press lanyard subtype of the regular lanyard, no difference
+      in sprite.
+  - rscadd: Added the press badges and lanyard to the loadout.
+2026-08-25:
+  FabianK3:
+  - bugfix: Fixed butazoline OD and cryotreatment not repairing cut tendons.
+  TheGreyWolf:
+  - rscadd: Unathi can now drink regular ethanol based booze.
+  - rscadd: Unathi now get half nutriment from regular nutriments, and double from
+      protein.
+  - balance: Reduced the chance of psiren spawns in the warehouse as the lemurian
+      sea arc has ended.
+  kano:
+  - code_imp: Materials no longer cache pre-coloured wall icons.
+  rattydew:
+  - bugfix: Resolved a few mapping errors introduced in recent Horizon remaps.

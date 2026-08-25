@@ -2681,7 +2681,7 @@
 /area/sensor_relay)
 "csG" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_eng";
 	name = "sensor_relay_eng";
 	req_one_access = null
@@ -2722,7 +2722,7 @@
 /area/space)
 "cPG" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_eng";
 	name = "sensor_relay_eng";
 	req_one_access = null
@@ -2799,7 +2799,7 @@
 /area/sensor_relay/workshop)
 "drD" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null
@@ -2861,7 +2861,7 @@
 /area/sensor_relay/quarters)
 "dMq" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -2914,7 +2914,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -2927,7 +2927,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -2945,7 +2945,7 @@
 	},
 /area/sensor_relay/airlocks)
 "elW" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null
@@ -3115,7 +3115,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "gpi" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null
@@ -3128,7 +3128,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -3157,7 +3157,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -3350,7 +3350,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -3398,7 +3398,7 @@
 /turf/template_noop,
 /area/space)
 "njD" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_eng";
 	name = "sensor_relay_eng";
 	req_one_access = null
@@ -3529,7 +3529,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null
@@ -3558,7 +3558,7 @@
 /area/sensor_relay)
 "pnq" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -3588,7 +3588,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null
@@ -3745,7 +3745,7 @@
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "scO" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_ext";
 	name = "sensor_relay_ext";
 	req_one_access = null
@@ -3880,7 +3880,7 @@
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "tSw" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null
@@ -4008,7 +4008,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null
@@ -4055,7 +4055,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "sensor_relay_int";
 	name = "sensor_relay_int";
 	req_one_access = null

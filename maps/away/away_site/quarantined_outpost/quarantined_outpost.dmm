@@ -1920,7 +1920,7 @@
 /area/quarantined_outpost/dorm_hallway)
 "bro" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -4040,7 +4040,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
@@ -6125,7 +6125,7 @@
 /area/quarantined_outpost/cafeteria)
 "eio" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -10858,7 +10858,7 @@
 /area/quarantined_outpost/extraction_lab)
 "hrr" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
@@ -12588,7 +12588,7 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 8
 	},
@@ -14969,7 +14969,7 @@
 /area/quarantined_outpost/medbay)
 "kha" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 23;
 	pixel_x = 5
@@ -17216,7 +17216,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/effect/floor_decal/industrial/outline_door/yellow,
 /obj/random/dirt_75,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -17713,7 +17713,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/reception)
 "lUw" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 8
 	},
@@ -18917,7 +18917,7 @@
 /area/quarantined_outpost/engineering)
 "mGz" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -19724,7 +19724,7 @@
 /area/quarantined_outpost/engineering/atmospherics)
 "nkm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/machinery/light/small/maybe_broken/decayed,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
@@ -21258,7 +21258,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-8"
 	},
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
@@ -25624,7 +25624,7 @@
 /area/quarantined_outpost/cargo_bay)
 "qXN" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
@@ -25867,7 +25867,7 @@
 "rfu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
@@ -30207,7 +30207,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "tVV" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/effect/floor_decal/industrial/outline_door/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -33389,7 +33389,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/structure/machinery/access_button{
 	dir = 8;
 	pixel_x = -8;
@@ -35489,7 +35489,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
+/obj/effect/map_effect/marker/airlock/external/quarantined_outpost/entrance,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)

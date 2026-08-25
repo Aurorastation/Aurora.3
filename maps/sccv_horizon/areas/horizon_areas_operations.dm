@@ -38,6 +38,14 @@
 	icon_state = "blue"
 	horizon_deck = 2
 
+/area/horizon/operations/restroom
+	name = "Head"
+	icon_state = "washroom"
+	horizon_deck = 2
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
+
 /area/horizon/operations/office
 	name = "Office"
 	icon_state = "quartoffice"

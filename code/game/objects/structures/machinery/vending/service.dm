@@ -38,6 +38,7 @@
 		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/storage/toolbox/lunchbox/idris = 6,
+		/obj/item/reagent_containers/bowl/takeout_box = 6,
 		/obj/item/reagent_containers/glass/rag = 8,
 		/obj/item/evidencebag/plasticbag = 20,
 		/obj/item/tray = 12,
