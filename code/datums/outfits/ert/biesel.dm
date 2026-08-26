@@ -120,4 +120,4 @@
 
 /obj/outfit/admin/ert/tcaf/officer
 	name = "TCAF Republic Espatiers Officer"
-	accessory = /obj/item/clothing/accessory/tcaf/astrarch
+	accessory = /obj/item/clothing/accessory/tcaf/medallion/astrarch
