@@ -222,30 +222,25 @@
 	other.icon_state = icon_state
 	other.name = name
 	other.layer = layer
-	other.decals = decals
+	other.decals = decals?.Copy()
 	other.roof_flags = roof_flags
 	other.roof_type = roof_type
 
-	if (atom_overlay_cache)
-		other.atom_overlay_cache = atom_overlay_cache
-
-	if (atom_protected_overlay_cache)
-		other.atom_protected_overlay_cache = atom_protected_overlay_cache
+	other.atom_overlay_cache = atom_overlay_cache?.Copy()
+	other.atom_protected_overlay_cache = atom_protected_overlay_cache?.Copy()
 
 	other.overlays = overlays.Copy()
 
 /turf/simulated/copy_turf(turf/simulated/other, ignore_air = FALSE)
 	. = ..()
 
-	if (ignore_air || !zone || !istype(other))
-		return
+	if (!ignore_air && zone && istype(other))
+		if (!other.air)
+			other.make_air()
 
-	if (!other.air)
-		other.make_air()
+		other.air.copy_from(zone.air)
 
-	other.air.copy_from(zone.air)
-
-	SSair.mark_for_update(other)
+		SSair.mark_for_update(other)
 
 	other.update_icon()
 
@@ -256,6 +251,7 @@
 /turf/simulated/floor/copy_turf(turf/simulated/floor/other, ignore_air = FALSE)
 	.=..()
 	other.flooring = flooring
+	other.update_icon()
 
 /turf/simulated/wall/shuttle/dark/corner/underlay/copy_turf(turf/simulated/wall/shuttle/dark/corner/underlay/other, ignore_air = FALSE)
 	.=..()
