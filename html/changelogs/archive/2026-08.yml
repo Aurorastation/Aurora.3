@@ -512,3 +512,12 @@
   - code_imp: Materials no longer cache pre-coloured wall icons.
   rattydew:
   - bugfix: Resolved a few mapping errors introduced in recent Horizon remaps.
+2026-08-26:
+  DreamySkrell:
+  - rscadd: Ship gun loader auto connects to ship gun
+  Hellfirejag:
+  - bugfix: Fixed showers not cleaning things.
+  - rscadd: Showers now turn themselves off after 5 minutes to conserve water (and
+      CPU time)
+  TheGreyWolf:
+  - bugfix: Hopefully fixed that case dossiers sometimes self delete.
