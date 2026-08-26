@@ -813,14 +813,14 @@
 
 /singleton/cargo_item/roller_bed/hover
 	category = "medical"
-	name = "hover roller bed"
+	name = "hover rollerbed (x2)"
 	supplier = "zeng_hu"
-	description = "A common sight in Nralakk space, the Ziip’Ta Medicinal hover stretcher can sometimes also be found in select Zeng-Hu facilities."
-	price = 150
+	description = "A common sight in Nralakk space, the Ziip'Ta Medicinal hover stretcher can sometimes also be found in select Zeng-Hu facilities."
+	price = 125
 	items = list(
 		/obj/item/roller/hover
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 2
