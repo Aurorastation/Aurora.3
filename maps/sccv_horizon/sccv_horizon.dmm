@@ -18954,10 +18954,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/wing/starboard)
 "cyI" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment,
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/tiled/white,
+/obj/structure/whiteboard/portable,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "cyK" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -22835,6 +22835,7 @@
 /area/horizon/holodeck/source_luceism)
 "cYl" = (
 /obj/structure/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "cYm" = (
@@ -45156,7 +45157,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/main/port)
 "fTY" = (
-/obj/structure/machinery/chem_master/condimaster,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/smartfridge/foodheater,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "fTZ" = (
@@ -57557,11 +57559,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
-"hyV" = (
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/whiteboard/portable,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "hza" = (
 /obj/structure/machinery/power/breakerbox/activated{
 	RCon_tag = "Security Substation"
@@ -95908,6 +95905,11 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/burglar)
+"mvz" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/chem_master/condimaster,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "mvD" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -105033,6 +105035,7 @@
 "nGl" = (
 /obj/structure/machinery/firealarm/east,
 /obj/structure/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "nGm" = (
@@ -108240,7 +108243,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/service,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "ocx" = (
@@ -123519,7 +123522,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/service,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "qbh" = (
@@ -127464,10 +127467,10 @@
 	},
 /area/tdome/tdomeobserve)
 "qCw" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/noticeboard{
 	pixel_y = 30
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
 	},
@@ -288503,7 +288506,7 @@ cfA
 kDa
 kZI
 pVj
-ofj
+mvz
 btl
 uYQ
 eSV
@@ -288760,7 +288763,7 @@ uyM
 pkR
 muJ
 nYO
-hyV
+ofj
 urZ
 uYQ
 eSV
