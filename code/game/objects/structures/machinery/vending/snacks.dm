@@ -99,8 +99,11 @@
 
 /obj/structure/machinery/vending/snack/low_supply
 	products = list(
+		/obj/item/reagent_containers/food/snacks/candy = 2,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 2,
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 4,
 		/obj/item/reagent_containers/food/snacks/chips = 1,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 1,
 		/obj/item/reagent_containers/food/snacks/sosjerky = 2,
 		/obj/item/reagent_containers/food/snacks/no_raisin = 4,
 		/obj/item/storage/box/fancy/vkrexitaffy = 3,
