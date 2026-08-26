@@ -19,6 +19,10 @@
 #define SECTOR_UUEOAESA				"Uueoa-Esa"		//Uueoa-Esa and its gravity well, Moghes and Ouerea are found here.
 #define ALL_BADLAND_SECTORS		list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
+//Orion's Scar sector. Making this it's own category, there may be future expansion.
+#define SECTOR_ORIONS_SCAR	"Orion's Scar"	//Generic sector
+#define ALL_ORIONS_SCAR_SECTORS	list(SECTOR_ORIONS_SCAR)
+
 //Coalition-aligned sectors
 #define SECTOR_COALITION			"Coalition of Colonies"	//For if we want to specify coalition assets, but not focused on a particular planet
 #define SECTOR_WEEPING_STARS		"Weeping Stars"		//Generic sector
