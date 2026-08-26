@@ -1,9 +1,34 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
+"ai" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "at" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"au" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
+"ay" = (
+/obj/structure/machinery/door/airlock/diona{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa/ammo)
 "aE" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -12,17 +37,23 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "bo" = (
 /turf/simulated/wall/shuttle/space_ship/industrial,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"bD" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/external/wall)
+"bG" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "bI" = (
 /obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "bO" = (
 /obj/structure/table/diona,
 /obj/item/ship_ammunition/francisca,
@@ -31,22 +62,22 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa/ammo)
 "bX" = (
 /obj/structure/machinery/optable,
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "cb" = (
 /obj/structure/diona/bulb,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "cg" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "ci" = (
 /obj/structure/machinery/door/airlock/diona,
 /obj/structure/cable/green{
@@ -54,17 +85,31 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
 "cu" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"cv" = (
+/obj/structure/diona/vines,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
+"cA" = (
+/obj/structure/machinery/door/airlock/diona,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/medical)
 "db" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/wall/diona,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
+"dg" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/armoury)
 "di" = (
 /obj/structure/table/diona,
 /obj/item/reagent_containers/chem_disp_cartridge/uranium{
@@ -74,7 +119,7 @@
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "dn" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -89,20 +134,20 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
 "dy" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/atmospherics/tvalve/mirrored,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "dC" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "dD" = (
 /obj/structure/table/diona,
 /obj/item/reagent_containers/chem_disp_cartridge/radium{
@@ -115,7 +160,10 @@
 	},
 /obj/random/soap,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
+"ef" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "eg" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
@@ -124,10 +172,31 @@
 	dir = 8
 	},
 /obj/structure/machinery/vending/engineering{
-	pixel_y = 22
+	pixel_y = 22;
+	density = 0
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
+"er" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/armoury)
+"es" = (
+/obj/structure/curtain/open,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
+"ew" = (
+/obj/structure/table/diona,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
+"ey" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/meeting)
 "eF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -136,11 +205,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
 "eM" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "eS" = (
 /obj/structure/machinery/power/apc/north,
 /obj/structure/cable/green{
@@ -148,7 +217,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "eU" = (
 /obj/structure/grille,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -156,21 +225,62 @@
 	id = "hierograushutter"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "eV" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
+"eY" = (
+/obj/structure/machinery/door/airlock/diona/external{
+	dir = 4
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "fg" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
+"fq" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
+"fr" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm)
+"fF" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
+"fG" = (
+/obj/structure/machinery/door/airlock/diona,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/armoury)
 "fJ" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/wall/diona,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"fL" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
+"fR" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
+"fZ" = (
+/turf/simulated/floor/uranium{
+	initial_gas = null
+	},
+/area/hieropatrol/dorm/kitchen)
 "gc" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -181,7 +291,7 @@
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "gl" = (
 /obj/structure/table/diona,
 /obj/item/storage/firstaid/surgery,
@@ -195,7 +305,7 @@
 	pixel_x = -8
 	},
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "gn" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -205,28 +315,40 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "gr" = (
 /obj/structure/bed/stool/chair/padded/blue,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
+"gs" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/weapon/francisa/ammo)
+"gy" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "gz" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/wall/diona,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "gA" = (
 /obj/item/trap/animal/large,
+/obj/structure/curtain/open/shower/security,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
+"hi" = (
+/obj/structure/grille,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
 "hm" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "hv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -235,31 +357,31 @@
 	dir = 6
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "hy" = (
 /obj/structure/grille,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "hz" = (
 /obj/structure/diona/bulb,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "hD" = (
 /obj/structure/sign/flag/consortium{
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
 "hE" = (
 /obj/structure/diona/vines,
 /obj/structure/diona/bulb,
 /turf/space/dynamic,
-/area/space)
+/area/hieropatrol/external)
 "hI" = (
 /obj/structure/machinery/seed_storage/garden/xenobotany,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "hK" = (
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
@@ -268,24 +390,24 @@
 /obj/item/ship_ammunition/francisca,
 /obj/structure/table/diona,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa/ammo)
 "hT" = (
 /obj/structure/table/diona,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa/ammo)
 "ik" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "io" = (
 /obj/structure/machinery/ammunition_loader/francisca,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
 "ip" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -294,13 +416,26 @@
 	dir = 8
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
+"it" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "iz" = (
 /obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"iB" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/power)
+"iE" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
 "iF" = (
 /obj/structure/cable/green{
 	icon_state = "0-2";
@@ -308,13 +443,23 @@
 	},
 /obj/structure/machinery/power/apc/high/west,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "iP" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship/industrial,
-/area/space)
+/area/shuttle/hieropatrol)
+"iX" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
+"iY" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "jh" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -325,7 +470,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
 "jz" = (
 /obj/item/clothing/head/hardhat/dblue,
 /obj/item/clothing/head/hardhat/dblue,
@@ -335,10 +480,29 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
 "jI" = (
 /turf/simulated/wall/diona,
-/area/space)
+/area/hieropatrol/corridor/port)
+"jK" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
+"jO" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
+"jX" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
+"kb" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "kc" = (
 /obj/structure/diona/bulb,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
@@ -346,7 +510,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "kn" = (
 /obj/structure/table/diona,
 /obj/item/tank/jetpack/void,
@@ -370,41 +534,41 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "kB" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
 "kD" = (
 /obj/structure/diona/bulb,
 /obj/structure/reagent_dispensers/radioactive_waste,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "kF" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/critical/north,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "kK" = (
 /obj/structure/machinery/atmospherics/binary/pump,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "kN" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "kP" = (
 /obj/structure/diona/bulb,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "kW" = (
 /obj/structure/machinery/access_button{
 	pixel_y = 32
@@ -423,26 +587,26 @@
 /obj/effect/map_effect/marker/airlock/shuttle,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/hieropatrol)
 "kX" = (
 /obj/structure/machinery/ammunition_loader/francisca{
 	dir = 1
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
 "lm" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "lr" = (
 /obj/structure/bed/stool/chair/padded/blue,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "lt" = (
 /obj/structure/machinery/power/apc/west,
 /obj/structure/cable/green{
@@ -451,7 +615,7 @@
 	},
 /obj/structure/machinery/vending/tool,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
 "lC" = (
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
@@ -470,12 +634,15 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
+"lO" = (
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/hieropatrol)
 "lS" = (
 /obj/structure/diona/bulb,
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "lX" = (
 /obj/structure/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -483,13 +650,20 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/industrial,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "mm" = (
 /obj/structure/table/diona,
 /obj/random/hydroponics,
 /obj/random/hydroponics,
+/obj/random/seed,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
+"mn" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
 "mr" = (
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
@@ -511,14 +685,14 @@
 /obj/effect/map_effect/marker/airlock/shuttle,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
 "mA" = (
 /obj/structure/machinery/ship_weapon/grauwolf{
 	name = "embedded grauwolf flak battery";
 	desc = "A Kumar Arms flak battery developed in 2461 as part of the same <i>\"Chivalry\"</i> line of the Longbow. Its barrels may look smaller than its significantly larger kin's, but don't let that fool you: this gun will shred through smaller ships. This one seems to be embedded into biomass"
 	},
 /turf/template_noop,
-/area/space)
+/area/space/rootsong)
 "mH" = (
 /obj/effect/shuttle_landmark/ranger_shuttle/transit{
 	dir = 8
@@ -527,52 +701,76 @@
 /area/space)
 "mK" = (
 /turf/template_noop,
-/area/space)
+/area/space/rootsong)
+"mS" = (
+/obj/structure/machinery/door/airlock/diona{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
 "nc" = (
 /obj/structure/machinery/iff_beacon,
 /obj/structure/sign/flag/consortium{
 	pixel_y = 32
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/hieropatrol)
 "nn" = (
 /obj/structure/machinery/vending/medical{
 	req_access = list(204)
 	},
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "nx" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship/industrial,
-/area/space)
+/area/shuttle/hieropatrol)
+"nB" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/weapon/grauwolf/ammo)
 "nK" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"nU" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "nW" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /obj/structure/machinery/power/apc/east,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa/ammo)
 "of" = (
 /obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"ov" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/armoury)
 "oI" = (
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "oJ" = (
 /obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "pa" = (
 /obj/structure/table/diona,
 /obj/item/bluespace_crystal{
@@ -586,12 +784,12 @@
 	pixel_x = 7
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge/captain)
 "pc" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/trash_pile,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "pn" = (
 /obj/structure/table/diona,
 /obj/item/gun/energy/gun/qukala{
@@ -607,11 +805,11 @@
 	},
 /obj/item/reagent_containers/spray/plantbgone,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
 "pr" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "pz" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -619,7 +817,7 @@
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "pD" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/poncho/hieroaetherian_poncho,
@@ -632,19 +830,22 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "pK" = (
 /obj/structure/diona/bulb,
 /obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
+"pL" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
 "pT" = (
 /obj/structure/machinery/cryopod,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "pW" = (
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "pX" = (
 /obj/item/storage/toolbox/lunchbox/nymph/filled,
 /obj/item/toy/plushie/nymph{
@@ -664,7 +865,20 @@
 	pixel_x = 11
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/external)
+"qo" = (
+/obj/structure/machinery/door/airlock/diona,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
+"qA" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "qL" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -673,7 +887,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "qW" = (
 /turf/space,
 /area/space)
@@ -681,23 +895,26 @@
 /obj/structure/table/diona,
 /obj/random/light,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
+"rx" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/bridge)
 "rz" = (
 /obj/structure/machinery/iff_beacon{
 	pixel_y = -8
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "rH" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "rM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/industrial,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "rO" = (
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = -23;
@@ -706,13 +923,7 @@
 	id = "hierofranshutter"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
-"rP" = (
-/obj/structure/sign/flag/consortium{
-	pixel_x = 32
-	},
-/turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
 "rQ" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -725,12 +936,12 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/hieropatrol)
 "rU" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "sm" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -740,17 +951,33 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
+"sG" = (
+/obj/structure/machinery/door/airlock/diona,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "sV" = (
 /obj/structure/noticeboard{
 	pixel_x = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "tc" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/dynamic,
 /area/space)
+"td" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/weapon/grauwolf)
+"tq" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "tr" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -762,7 +989,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "tz" = (
 /obj/structure/machinery/computer/ship/helm/terminal,
 /obj/item/radio/intercom/hailing/west,
@@ -770,17 +997,22 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
+"tB" = (
+/obj/structure/cable/green,
+/obj/structure/machinery/power/apc/east,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "tD" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "tF" = (
 /obj/structure/diona/vines,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "tW" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -788,14 +1020,15 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
 "tX" = (
 /obj/structure/machinery/shipsensors/strong{
 	pixel_y = -9
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "uk" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -807,25 +1040,48 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "um" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "uT" = (
 /obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "uZ" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
-"vq" = (
-/obj/structure/diona/bulb,
-/turf/template_noop,
-/area/space)
+"vg" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/power)
+"vw" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
+"vD" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
+"vF" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
+"vH" = (
+/obj/structure/diona/vines,
+/turf/space/dynamic,
+/area/hieropatrol/external)
 "vV" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -837,7 +1093,14 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
+"wa" = (
+/obj/structure/table/diona,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
+"wf" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/dorm)
 "wl" = (
 /obj/structure/table/diona,
 /obj/item/ship_ammunition/grauwolf_probe{
@@ -855,7 +1118,7 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf/ammo)
 "wz" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -864,21 +1127,44 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "wN" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
+"xd" = (
+/obj/structure/diona/bulb,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
+"xe" = (
+/obj/structure/bed/padded,
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
 "xf" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
+"xg" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/power)
+"xn" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "xo" = (
 /obj/structure/table/diona,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -887,25 +1173,29 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf/ammo)
 "xp" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/hieropatrol)
 "xC" = (
 /obj/structure/diona/bulb,
 /obj/structure/sign/flag/consortium{
 	pixel_x = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/external)
 "ys" = (
 /obj/structure/grille,
 /obj/structure/machinery/door/blast/shutters/open{
 	id = "hierofranshutter"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
+"yL" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/meeting)
 "yM" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 5
@@ -915,7 +1205,10 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
+"yO" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/weapon/francisa)
 "zm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -925,11 +1218,11 @@
 	},
 /obj/structure/machinery/power/smes/buildable/cryogenic,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "zU" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "Ab" = (
 /obj/structure/table/diona,
 /obj/structure/machinery/button/remote/blast_door{
@@ -943,21 +1236,36 @@
 	pixel_x = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "Ac" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/west,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
+"Ag" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "Am" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
+"Ar" = (
+/obj/effect/decal/cleanable/egg_smudge,
+/turf/simulated/floor/uranium{
+	initial_gas = null
+	},
+/area/hieropatrol/dorm/kitchen)
 "As" = (
 /obj/structure/diona/vines,
 /obj/structure/machinery/button/remote/blast_door{
@@ -967,7 +1275,12 @@
 	id = "hierograushutter"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
+"Az" = (
+/obj/structure/diona/vines,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/space/dynamic,
+/area/hieropatrol/weapon/francisa)
 "AS" = (
 /mob/living/simple_animal/cosmozoan,
 /obj/structure/machinery/door/window{
@@ -977,7 +1290,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge/captain)
 "AV" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -986,7 +1299,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "Bi" = (
 /obj/structure/machinery/ship_weapon/francisca/compact{
 	pixel_y = -80;
@@ -995,13 +1308,17 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
+"Bj" = (
+/obj/structure/grille,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
 "Bp" = (
 /obj/structure/sign/flag/consortium{
 	pixel_x = -32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/external)
 "Br" = (
 /obj/structure/table/diona,
 /obj/item/stack/material/cardboard,
@@ -1013,18 +1330,42 @@
 /obj/item/stack/material/cardboard,
 /obj/item/stack/material/cardboard,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
+"Bx" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "BC" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/structure/sign/flag/consortium{
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"BT" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
+"BV" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "BY" = (
 /obj/structure/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/hieropatrol)
 "Ck" = (
 /obj/structure/table/diona,
 /obj/item/storage/firstaid/combat{
@@ -1070,7 +1411,7 @@
 	},
 /obj/item/reagent_containers/glass/bottle/mortaphenyl,
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "Cm" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -1079,66 +1420,106 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
+"Cq" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "Cu" = (
 /obj/structure/machinery/atmospherics/unary/engine,
 /turf/space/dynamic,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "CA" = (
 /obj/structure/machinery/power/apc/north,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "CE" = (
 /obj/structure/diona/bulb,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "CO" = (
 /obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/yellow,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
+"CQ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/uranium{
+	initial_gas = null
+	},
+/area/hieropatrol/dorm/kitchen)
+"Dd" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf/ammo)
 "Do" = (
 /obj/item/trap/jagged_rock,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/external)
+"DF" = (
+/obj/structure/cable/green,
+/obj/structure/machinery/power/apc/west,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
 "DG" = (
 /obj/structure/grille,
 /obj/structure/machinery/door/blast/shutters/open{
 	id = "hierobridgeshutter"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "DM" = (
 /obj/structure/table/diona,
 /obj/random/plushie,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "DP" = (
 /obj/structure/sink/puddle,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
+"DU" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "Er" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/east,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf/ammo)
 "Et" = (
 /obj/structure/diona/vines,
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/space)
+/area/hieropatrol/external)
+"Ev" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/sign/flag/consortium{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "EK" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
+"EL" = (
+/obj/structure/diona/bulb,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa/ammo)
 "EN" = (
 /obj/structure/closet/secure_closet,
 /obj/item/advanced_healthanalyzer,
@@ -1147,12 +1528,12 @@
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/random/firstaid,
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "EO" = (
 /obj/structure/diona/vines,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/external)
 "EV" = (
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
@@ -1179,7 +1560,11 @@
 /obj/item/ammo_magazine/c45m/stendo/rubber,
 /obj/structure/closet/secure_closet,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
+"Fe" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "Fi" = (
 /obj/structure/machinery/atmospherics/binary/pump/fuel{
 	dir = 1
@@ -1191,7 +1576,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
+"Fs" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "Fu" = (
 /obj/item/reagent_containers/glass/fertilizer/rh{
 	pixel_y = 7;
@@ -1209,13 +1600,13 @@
 /obj/structure/table/diona,
 /obj/item/shovel,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "Fx" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "FA" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -1224,32 +1615,60 @@
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "FC" = (
 /obj/structure/cable/green,
 /obj/structure/machinery/power/apc/west,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "FE" = (
 /obj/structure/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "FF" = (
 /obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Go" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
 	req_access = list(209)
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
+"Gw" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa/ammo)
+"GA" = (
+/obj/structure/machinery/door/airlock/diona{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf/ammo)
+"GD" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
+"Ha" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/bridge/captain)
+"Hc" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/kitchen)
 "Hh" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -1258,7 +1677,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "HT" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -1273,7 +1692,17 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
+"Id" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/engineer/power)
+"Ij" = (
+/obj/structure/diona/bulb,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "Il" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/structure/machinery/door/blast/regular/open{
@@ -1281,7 +1710,11 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"IF" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm)
 "IN" = (
 /obj/structure/machinery/door/airlock/diona{
 	dir = 8
@@ -1290,12 +1723,18 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
+"IU" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "IY" = (
 /obj/structure/table/diona,
 /obj/item/tank/hydrogen/shuttle,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "Ja" = (
 /obj/structure/machinery/reagentgrinder{
 	pixel_x = 8;
@@ -1305,14 +1744,14 @@
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge/captain)
 "Jb" = (
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Jd" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "Jg" = (
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/diona,
 /obj/item/toy/plushie/nymph{
@@ -1327,25 +1766,34 @@
 	pixel_x = -13
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/external)
+"Jy" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "JE" = (
 /obj/structure/table/diona,
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/high,
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "JG" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
+"JT" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/medical)
 "JZ" = (
 /obj/structure/diona/bulb,
 /obj/structure/sign/flag/consortium{
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/external)
 "Kk" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/badge/passport/consortium,
@@ -1353,8 +1801,18 @@
 /obj/item/clothing/under/diona/hieroaetherian_tunic,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/hieroaetheria,
 /obj/item/clothing/accessory/poncho/hieroaetherian_poncho,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge/captain)
+"Kn" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "Kp" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/structure/cable{
@@ -1369,7 +1827,7 @@
 	id = "hieroshuttleshutter"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
 "Kq" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1378,19 +1836,34 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
+"Kw" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/meeting)
 "Ky" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship/industrial,
-/area/space)
+/area/shuttle/hieropatrol)
+"KH" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
+"KK" = (
+/obj/structure/cable/green,
+/obj/structure/machinery/power/apc/west,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
 "KO" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "KP" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -1398,13 +1871,16 @@
 /obj/structure/machinery/power/apc/north,
 /obj/structure/reagent_dispensers/fertilizer,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
+"Lh" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/dorm/kitchen)
 "Lu" = (
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/random/dirt_75,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "LF" = (
 /obj/structure/table/diona,
 /obj/item/shield/riot{
@@ -1417,7 +1893,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
 "LO" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -1426,28 +1902,28 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "LP" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
 "LQ" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "LT" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/wall/diona,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "LV" = (
 /obj/structure/table/diona,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
 "LZ" = (
 /obj/structure/table/diona,
 /obj/item/stack/material/plastic/full,
@@ -1483,13 +1959,18 @@
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/cloth/full,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Mf" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
+"Mq" = (
+/obj/structure/diona/bulb,
+/obj/random/action_figure,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "Mt" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1497,31 +1978,32 @@
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "Mz" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "MG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
 "MJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "ML" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/shuttle,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/hieropatrol)
 "MM" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1532,20 +2014,36 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "MP" = (
 /obj/structure/reagent_dispensers/coolanttank{
 	amount_per_transfer_from_this = 300
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
 "MS" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /obj/structure/closet/crate/trashcart,
+/obj/random/poster_roll/civilian,
+/obj/random/poster_roll/civilian,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/chocolate,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"MU" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
 "MZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1562,7 +2060,7 @@
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "Na" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1571,7 +2069,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "Nu" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -1583,7 +2081,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "ND" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/industrial,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -1591,40 +2089,87 @@
 	id = "hieroshuttleshutter"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/hieropatrol)
 "NG" = (
+/obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
+"NR" = (
+/obj/structure/diona/bulb,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf/ammo)
 "NS" = (
 /obj/item/trap/animal/large,
 /obj/structure/sign/flag/consortium{
 	pixel_y = 32
 	},
+/obj/structure/curtain/open/shower/security,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
+"NT" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "NX" = (
 /obj/structure/closet/crate/trashcart,
+/obj/effect/decal/cleanable/ash,
+/obj/random/poster_roll/lore,
+/obj/random/poster_roll/pinup,
+/obj/random/poster_roll/pinup,
+/obj/random/spacecash,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/booze,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"Od" = (
+/obj/structure/machinery/door/airlock/diona{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/kitchen)
+"Oq" = (
+/obj/structure/sign/flag/consortium{
+	pixel_x = 32
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
+"Oz" = (
+/obj/structure/diona/vines,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "OG" = (
 /obj/structure/machinery/door/airlock/diona,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "OK" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/diona,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "OQ" = (
 /obj/structure/machinery/computer/cryopod{
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "OX" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -1634,24 +2179,31 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
 "Pu" = (
 /obj/structure/sign/flag/consortium{
 	pixel_y = 32
 	},
 /turf/template_noop,
-/area/space)
+/area/space/rootsong)
 "PA" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /obj/structure/machinery/power/smes/buildable/cryogenic,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
 "PH" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"PP" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
+"PV" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf/ammo)
 "Qh" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal{
 	dir = 8
@@ -1660,11 +2212,10 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
-"Qo" = (
-/obj/structure/diona/bulb,
+/area/shuttle/hieropatrol)
+"Qp" = (
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
 "Qr" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -1673,11 +2224,27 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
+"Qs" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "QG" = (
 /obj/structure/machinery/stargazer,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
+"QH" = (
+/obj/structure/diona/bulb,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm)
+"QL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "QM" = (
 /obj/structure/table/diona,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
@@ -1687,18 +2254,28 @@
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf/ammo)
+"QR" = (
+/obj/structure/machinery/atmospherics/unary/engine,
+/turf/space/dynamic,
+/area/shuttle/hieropatrol)
 "QY" = (
 /obj/structure/trash_pile,
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Re" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
+"Ri" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm)
 "Rr" = (
 /turf/space/dynamic,
 /area/space)
@@ -1711,30 +2288,37 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa)
+"RB" = (
+/obj/structure/diona/bulb,
+/obj/structure/sign/flag/consortium{
+	pixel_y = 32
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "RP" = (
 /obj/structure/diona/bulb,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/meeting)
 "Sj" = (
 /obj/structure/machinery/atmospherics/unary/outlet_injector{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Sn" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Sx" = (
 /obj/structure/machinery/ammunition_loader/grauwolf{
 	weapon_id = "Elyran Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/grauwolf)
 "SI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1743,17 +2327,26 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "SW" = (
 /obj/structure/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"Te" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
 "Th" = (
 /obj/structure/machinery/door/airlock/diona/external{
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
 "Tn" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -1761,12 +2354,12 @@
 /obj/structure/machinery/power/apc/east,
 /obj/structure/reagent_dispensers/radioactive_waste,
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
 "TB" = (
 /obj/structure/diona/vines,
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/space/dynamic,
-/area/space)
+/area/hieropatrol/external)
 "TF" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -1777,7 +2370,17 @@
 /obj/structure/machinery/power/apc/shuttle/west,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
+"TH" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
+"TP" = (
+/obj/structure/diona/bulb,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "Ug" = (
 /obj/structure/machinery/door/airlock/diona{
 	dir = 4
@@ -1786,7 +2389,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/power)
 "Up" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1794,15 +2397,17 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
-"UE" = (
-/obj/structure/diona/vines,
-/turf/space/dynamic,
-/area/space)
+/area/hieropatrol/engineer/power)
+"Uz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "UG" = (
 /obj/effect/map_effect/marker/large_tank,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "UH" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -1814,7 +2419,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "UL" = (
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
@@ -1822,25 +2427,36 @@
 /obj/item/ship_ammunition/francisca/frag,
 /obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa/ammo)
 "UO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/port)
+"US" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "UZ" = (
 /obj/structure/sign/flag/consortium{
 	pixel_x = 32
 	},
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/uranium{
 	initial_gas = null
 	},
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "Vc" = (
 /obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"Vk" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/corridor/starboard)
 "VI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1851,17 +2467,26 @@
 	base_turf = null
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "VQ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
+"VV" = (
+/obj/structure/machinery/door/airlock/diona{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/meeting)
 "VY" = (
 /obj/structure/machinery/media/jukebox,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "Wg" = (
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
@@ -1870,7 +2495,7 @@
 /obj/item/ship_ammunition/francisca/frag,
 /obj/item/ship_ammunition/francisca/frag,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/weapon/francisa/ammo)
 "Wy" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/diona/hieroaetherian_tunic,
@@ -1880,20 +2505,27 @@
 /obj/item/clothing/accessory/badge/passport/consortium,
 /obj/item/clothing/accessory/badge/passport/consortium,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "WA" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship/industrial,
-/area/space)
+/area/shuttle/hieropatrol)
+"WB" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa/ammo)
 "WD" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/bed/padded,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
+"WG" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/francisa)
 "WN" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -1905,26 +2537,29 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
+"WQ" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/engineer/propulsioncargo)
 "Xa" = (
 /obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Xb" = (
 /obj/structure/table/diona,
 /obj/random/horticulture_magazine,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm/kitchen)
 "Xd" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Xj" = (
 /obj/structure/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "Xv" = (
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/suit/armor/carrier/heavy,
@@ -1937,7 +2572,22 @@
 /obj/structure/closet/secure_closet,
 /obj/random/barricade_kit,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/armoury)
+"Xw" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm)
+"Xy" = (
+/obj/structure/machinery/door/airlock/diona{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
 "XE" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -1955,19 +2605,29 @@
 	pixel_y = 15
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/hieropatrol)
+"XI" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
+"XS" = (
+/turf/simulated/wall/diona,
+/area/hieropatrol/dorm/meeting)
+"XU" = (
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/kitchen)
 "XY" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Yc" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/wall/diona,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "Yo" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1976,20 +2636,42 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/corridor/starboard)
 "Yq" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
+"Yu" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "YB" = (
 /obj/structure/diona/vines,
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/space/dynamic,
-/area/space)
+/area/hieropatrol/external)
 "YK" = (
 /turf/simulated/floor/uranium,
-/area/space)
+/area/hieropatrol/medical)
+"YV" = (
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
+"YX" = (
+/obj/structure/grille,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
+"Zd" = (
+/obj/structure/machinery/computer/ship/targeting/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/weapon/grauwolf)
 "Zk" = (
 /obj/structure/table/diona,
 /obj/item/bluespace_crystal{
@@ -2012,7 +2694,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge/captain)
+"Zl" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/dorm/meeting)
 "Zq" = (
 /obj/structure/table/diona,
 /obj/item/clothing/head/helmet/pilot{
@@ -2024,29 +2712,30 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/bridge)
 "ZM" = (
 /obj/structure/machinery/door/airlock/diona,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "ZP" = (
 /obj/structure/bed/padded,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/dorm)
 "ZT" = (
 /obj/structure/machinery/door/airlock/diona/external,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "ZV" = (
 /obj/structure/trash_pile,
+/obj/random/junk,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/hieropatrol/engineer/propulsioncargo)
 "ZY" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship/industrial,
-/area/space)
+/area/shuttle/hieropatrol)
 
 (1,1,1) = {"
 mK
@@ -10020,8 +10709,8 @@ mK
 mK
 mK
 mK
-jI
-jI
+nB
+nB
 mK
 mK
 mK
@@ -10171,12 +10860,12 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-Qo
+nB
+nB
+nB
+nB
+nB
+iE
 mK
 mK
 mK
@@ -10322,16 +11011,16 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-rP
-UE
-UE
+nB
+nB
+nB
+nB
+nB
+nB
+nB
+Oq
+vH
+vH
 mK
 mK
 mK
@@ -10473,17 +11162,17 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
+nB
+nB
+nB
 xo
 xo
-jI
-jI
-jI
-jI
-pW
-UE
+nB
+nB
+td
+td
+YV
+vH
 mK
 mK
 mK
@@ -10625,14 +11314,14 @@ mK
 mK
 mK
 mK
-jI
-jI
+nB
+nB
 QM
-pW
-Qo
-pW
-jI
-jI
+Dd
+PV
+Dd
+nB
+td
 db
 db
 Jd
@@ -10776,19 +11465,19 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
+JT
+JT
+nB
 wl
-cb
+NR
 Er
-jI
-jI
+nB
+nB
 db
 db
 db
 zU
-eV
+KH
 mK
 mK
 mK
@@ -10911,9 +11600,9 @@ mK
 mK
 mK
 hE
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 mK
@@ -10927,20 +11616,20 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-Ug
-jI
-jI
-hm
+JT
+JT
+JT
+JT
+nB
+GA
+nB
+nB
+Zd
 db
 db
 db
 zU
-eV
+KH
 mK
 mK
 mK
@@ -11066,7 +11755,7 @@ mK
 mK
 mK
 hE
-UE
+vH
 mK
 mK
 mK
@@ -11077,23 +11766,23 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
+JT
+JT
+JT
+JT
+JT
 JE
-jI
-UO
-pW
-Qo
+JT
+Uz
+ef
+au
 KO
 Sx
-jI
-jI
+td
+td
 hy
-pW
-UE
+YV
+vH
 mK
 mK
 mK
@@ -11218,7 +11907,7 @@ mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
@@ -11227,25 +11916,25 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+JT
+JT
+JT
+JT
 nn
 YK
-jI
+JT
 lm
 Fx
-pW
-pW
-pW
+Cq
+ef
+ef
 hy
 eU
 eU
-tF
-UE
+cv
+vH
 mK
 mK
 mK
@@ -11362,41 +12051,41 @@ mK
 mK
 mK
 mK
-UE
+vH
 hE
-UE
-UE
+vH
+vH
 mK
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
+WQ
+JT
+JT
 bX
 pr
 YK
-jI
-jI
-SI
-pW
-Qo
+JT
+JT
+Ev
+ef
+au
 tF
 hy
 hy
-jI
-tF
+td
+cv
 xC
 mK
 mK
@@ -11507,50 +12196,50 @@ mK
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
 mK
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+JT
 gl
 YK
 pr
 dC
-OG
-Kq
+cA
+Ag
 Fx
-pW
+ef
 As
-jI
-jI
-jI
-jI
-jI
-jI
+td
+td
+td
+td
+td
+td
 Pu
 mK
 mK
@@ -11565,20 +12254,20 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
 mK
 mK
 mK
@@ -11657,53 +12346,53 @@ mK
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
-UE
+vH
 hE
-UE
-UE
+vH
+vH
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 hE
-UE
-UE
+vH
+vH
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+JT
 Ck
 pr
 YK
 Tn
-jI
-jI
-qL
+JT
+td
+Yu
 kP
-EK
-Er
-jI
-jI
-jI
-jI
-jI
-jI
+BV
+tB
+td
+td
+td
+Vk
+Vk
+Vk
 mK
 mK
 mK
@@ -11715,25 +12404,25 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
 mK
 mK
 mK
@@ -11814,80 +12503,80 @@ mK
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
 mK
-UE
+vH
 hE
 mK
 mK
 mK
 mK
-UE
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+vH
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
 kN
-pW
+fF
 kN
 kN
-jI
-jI
-jI
-jI
+WQ
+WQ
+JT
+JT
 EN
-jI
-jI
-jI
-jI
+JT
+JT
+JT
+td
 IN
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-Qo
-pW
-pW
-pW
-rP
-Qo
-pW
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+td
+td
+td
+td
+td
+Vk
+Vk
+Vk
+Vk
+Vk
+iE
+YV
+YV
+YV
+Oq
+iE
+YV
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
 JZ
 mK
 mK
 mK
 mK
 mK
-Qo
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+iE
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
 mK
 mK
 mK
@@ -11963,14 +12652,14 @@ mK
 mK
 mK
 mK
-UE
+vH
 mK
-UE
-mK
-mK
+vH
 mK
 mK
-UE
+mK
+mK
+vH
 mK
 mK
 mK
@@ -11980,47 +12669,47 @@ mK
 mK
 Cu
 Yc
-jI
-jI
-jI
+WQ
+WQ
+WQ
 NX
-ZV
-pW
-pW
-pW
-pW
+vw
+fF
+fF
+iY
+iY
 kN
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+JT
+JT
+JT
 pW
 JG
-EK
+Zl
 Re
 pW
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-Th
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+XS
+Vk
+Vk
+Vk
+Vk
+Vk
+Vk
+Vk
+Vk
+Vk
+Vk
+eY
+Vk
+Vk
+Vk
+Vk
+rx
+bD
+bD
+bD
+bD
 mK
 mK
 mK
@@ -12035,13 +12724,13 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+bD
+bD
+bD
+bD
+bD
+bD
+bD
 mK
 mK
 mK
@@ -12123,7 +12812,7 @@ mK
 mK
 hE
 mK
-UE
+vH
 mK
 mK
 mK
@@ -12132,46 +12821,46 @@ mK
 mK
 Cu
 fJ
-jI
-jI
-Qo
-pW
-pW
-Qo
-kN
-pW
-Qo
+WQ
+WQ
+Mq
+fF
+fq
+TP
+TH
+fF
+Qs
 Sn
-jI
-jI
-jI
+WQ
+WQ
+XS
 eS
 pW
 JG
 Re
 oI
-Qo
+yL
 pW
 pW
-jI
-jI
+Vk
+Vk
 lS
 pK
-jI
-jI
-jI
-jI
-jI
-jI
-Qo
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+Vk
+Vk
+Vk
+Vk
+Vk
+Vk
+gy
+Vk
+Vk
+Vk
+rx
+rx
+rx
+bD
+bD
 mK
 mK
 mK
@@ -12189,11 +12878,11 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
+bD
+bD
+bD
+bD
+bD
 Do
 Do
 mK
@@ -12265,7 +12954,7 @@ mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
@@ -12288,41 +12977,41 @@ OK
 OK
 pc
 eM
-tD
-pW
-Qo
-pW
-pW
+nU
+fF
+TP
+iY
+iY
 kN
-jI
-jI
+WQ
+XS
 pW
-lm
+ey
 MM
 RP
 pW
 pW
 pW
 JG
-EK
-OG
-EK
+Zl
+sG
+NT
 Yo
-Fx
-pW
+ad
+kb
 FE
 kn
-jI
-jI
-jI
-Th
-jI
-jI
-jI
+Vk
+Vk
+Vk
+eY
+Vk
+rx
+rx
 hm
-jI
-jI
-jI
+rx
+rx
+bD
 mK
 mK
 mK
@@ -12342,10 +13031,10 @@ mK
 mK
 mK
 mK
-vq
-jI
-jI
-jI
+iE
+bD
+bD
+bD
 mK
 mK
 mK
@@ -12418,34 +13107,34 @@ mK
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
 hE
-UE
+vH
 mK
 mK
 mK
 mK
 Cu
 fJ
-jI
-jI
-jI
+WQ
+WQ
+WQ
 kD
 MS
 eM
 tD
-Qo
-pW
-pW
+Qs
+QL
+DU
 ZM
 pW
 pW
@@ -12457,23 +13146,23 @@ pW
 aE
 RP
 pW
-jI
-JG
-Re
-lm
-EK
-Kq
-Fx
-pW
-Qo
-jI
-pW
-jI
-jI
-LV
-pW
-Qo
-jI
+Vk
+jO
+qA
+IU
+NT
+BT
+ad
+kb
+gy
+Vk
+kb
+Vk
+rx
+wa
+XI
+Kn
+rx
 EO
 mK
 mK
@@ -12496,7 +13185,7 @@ mK
 mK
 mK
 mK
-jI
+bD
 mK
 mK
 mK
@@ -12572,62 +13261,62 @@ mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 Cu
 LT
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
+WQ
 BC
 XY
 kN
-pW
-pW
-jI
-jI
+iY
+fF
+WQ
+XS
 OQ
-Qo
+yL
 lr
-Fx
+Kw
 pW
 cb
 Re
 pW
-jI
-jI
+XS
+Vk
 VI
-jI
-jI
+Vk
+Vk
 kc
 hz
-lm
-EK
-EK
-EK
-EK
-EK
+IU
+NT
+NT
+NT
+NT
+NT
 OG
-Fx
-Qo
-tF
-jI
-hy
-UE
+vF
+Kn
+Oz
+rx
+hi
+vH
 mK
 mK
 mK
@@ -12723,63 +13412,63 @@ mK
 mK
 mK
 hE
-UE
+vH
 mK
-UE
-UE
+vH
+vH
 hE
-UE
-UE
+vH
+vH
 mK
 mK
 mK
 mK
 mK
 mK
-UE
-UE
-jI
-jI
+vH
+vH
+WQ
+WQ
 mK
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
+WQ
 cu
 tD
-pW
-Qo
-jI
-jI
+fF
+Qs
+WQ
+XS
 pT
 sV
 pW
-lm
+ey
 Hh
 Re
 xf
-jI
-jI
-bo
+XS
+XS
+lO
 kW
-bo
-jI
-jI
-jI
-jI
+lO
+Vk
+Vk
+Vk
+Vk
 IY
-LV
-pW
-Qo
-jI
-jI
-UO
-pW
-tF
+ew
+kb
+gy
+rx
+rx
+tq
+XI
+Oz
 DG
-hy
-UE
+hi
+vH
 mK
 mK
 mK
@@ -12876,62 +13565,62 @@ mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
-UE
-UE
-UE
-UE
-UE
-mK
-mK
-mK
+vH
+vH
+vH
+vH
+vH
 mK
 mK
 mK
-jI
-jI
-jI
-pW
+mK
+mK
+mK
+WQ
+WQ
+WQ
+fF
 um
 Jb
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-Ug
-jI
-jI
-jI
+WQ
+WQ
+XS
+XS
+XS
+XS
+XS
+VV
+XS
+XS
+XS
 ML
 WA
 rQ
-bo
-bo
-bo
-bo
-jI
-jI
-jI
-jI
-jI
-jI
+lO
+lO
+lO
+lO
+Vk
+Vk
+Vk
+Vk
+Vk
+rx
 tz
-CE
-pW
+Ij
+XI
 Ab
 DG
-hy
-hy
+YX
+hi
 mK
 mK
 mK
@@ -13034,9 +13723,9 @@ mK
 mK
 mK
 hE
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 mK
@@ -13048,43 +13737,43 @@ mK
 mK
 mK
 ZT
-Qo
+Qs
 ZT
-pW
+Qs
 FF
 bo
 bo
 bo
 bo
 bo
-jI
-jI
-Qo
+wf
+wf
+IF
 qL
 WD
 FC
-jI
-bo
+wf
+lO
 Ky
 HT
 lC
 uk
 mr
-bo
+lO
 ND
-bo
-bo
-bo
-bo
-jI
+lO
+lO
+lO
+lO
+rx
 Xj
-UO
-pW
+tq
+XI
 Zq
 DG
-hy
-hy
-UE
+YX
+hi
+vH
 mK
 mK
 mK
@@ -13199,9 +13888,9 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
+WQ
+WQ
+WQ
 Jb
 LO
 bo
@@ -13209,34 +13898,34 @@ UG
 Sj
 Sj
 bo
-jI
-jI
+wf
+wf
 sm
-Re
-pW
-Qo
-jI
-Cu
+Xw
+fr
+IF
+wf
+QR
 ZY
 rM
 rM
-bo
+lO
 XE
 TF
 LP
-bo
+lO
 nc
 BY
 xp
-jI
+rx
 kF
-UO
-pW
-tF
+tq
+XI
+Oz
 DG
-hy
-hy
-UE
+YX
+hi
+vH
 mK
 mK
 mK
@@ -13334,9 +14023,9 @@ mK
 mK
 mK
 mK
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 mK
@@ -13351,8 +14040,8 @@ mK
 mK
 mK
 mK
-jI
-jI
+WQ
+WQ
 of
 kK
 cg
@@ -13361,14 +14050,14 @@ Yq
 nK
 LQ
 bo
-jI
-jI
+wf
+wf
 SI
-pW
-pW
-pW
-jI
-Cu
+fr
+fr
+fr
+wf
+QR
 nx
 Lu
 vV
@@ -13376,18 +14065,18 @@ zm
 dn
 Kp
 fg
-bo
+lO
 xp
 xp
 xp
-jI
+rx
 FA
 AV
-Qo
-pW
-jI
-jI
-UE
+Kn
+XI
+rx
+rx
+vH
 mK
 mK
 mK
@@ -13486,26 +14175,26 @@ mK
 mK
 mK
 hE
-UE
+vH
 mK
-UE
-UE
+vH
+vH
 mK
 mK
 mK
 hE
-UE
-UE
+vH
+vH
 mK
 mK
 mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
 Jb
 gn
 bo
@@ -13513,33 +14202,33 @@ Mz
 rH
 rH
 bo
-jI
-jI
+wf
+wf
 Na
-Qo
-pW
+IF
+fr
 ZP
-jI
-Cu
+wf
+QR
 iP
 Fi
 yM
 Nu
 WN
 Qh
-bo
-bo
+lO
+lO
 jI
 jI
 jI
-jI
-pW
+rx
+XI
 Qr
-Fx
-pW
+vF
+XI
 tX
-jI
-jI
+rx
+rx
 mK
 mK
 mK
@@ -13641,57 +14330,57 @@ mK
 mK
 mK
 mK
-UE
-UE
-UE
-UE
-UE
+vH
+vH
+vH
+vH
+vH
 mK
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 mK
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
 ZV
-pW
+fF
 iz
 bo
 bo
 bo
 bo
 bo
-jI
-jI
-UO
+wf
+wf
+Ri
 pD
 Wy
 DM
-jI
-jI
-bo
-bo
+wf
+wf
+lO
+lO
 bI
-bo
+lO
 lX
 ND
-bo
+lO
 jI
 jI
-Qo
-JG
+Fe
+GD
 OG
-EK
+ai
 ip
 Cm
-Fx
+vF
 rz
-jI
-jI
+rx
+rx
 mK
 mK
 mK
@@ -13711,8 +14400,8 @@ mK
 mK
 mK
 mK
-jI
-jI
+bD
+bD
 mK
 mK
 mK
@@ -13794,57 +14483,57 @@ mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
 mK
 mK
 mK
-jI
-jI
+WQ
+WQ
 mK
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
 SW
-pW
+fF
 ik
 Xd
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-CE
-jI
-jI
-jI
-jI
-jI
-jI
-bo
-bo
-bo
+WQ
+WQ
+WQ
+Lh
+Lh
+Lh
+Lh
+QH
+Lh
+Lh
+Lh
+Lh
+Lh
+Lh
+lO
+lO
+lO
 jI
 jI
 jI
 jI
 KP
-Yo
-Re
-jI
-jI
-jI
-jI
-Ug
-jI
-jI
-jI
-jI
+Bx
+Jy
+rx
+rx
+Ha
+Ha
+Xy
+Ha
+Ha
+Ha
+Ha
 mK
 mK
 mK
@@ -13861,11 +14550,11 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
+bD
+bD
+bD
+bD
+bD
 Do
 Do
 mK
@@ -13944,8 +14633,8 @@ mK
 hE
 mK
 mK
-UE
-UE
+vH
+vH
 hE
 mK
 mK
@@ -13955,50 +14644,50 @@ mK
 mK
 Cu
 Yc
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
 LZ
-pW
-Qo
+fF
+Qs
 XY
-pW
+fF
 iF
 PH
-jI
-jI
+WQ
+Lh
 CA
-pW
-jI
-Ug
-jI
+Hc
+Lh
+Od
+Lh
 uT
-Qo
+XU
 Xb
 mm
-jI
+Lh
 jI
 jI
 jI
 jI
 LV
-Qo
-pW
-pW
+Fe
+bG
+bG
 UO
-pW
-Qo
-jI
-jI
+bG
+Fe
+Ha
+Ha
 Kk
-lm
-EK
-FC
-jI
-jI
-jI
-jI
+iX
+jX
+DF
+Ha
+Ha
+Ha
+Ha
 JZ
 mK
 mK
@@ -14011,12 +14700,12 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
+bD
+bD
+bD
 pX
-jI
-jI
+bD
+bD
 mK
 mK
 mK
@@ -14094,8 +14783,8 @@ mK
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 mK
 mK
 mK
@@ -14115,59 +14804,59 @@ eM
 eM
 eM
 Xd
-JG
+Fs
 tr
-EK
-OG
+vD
+qo
 EK
 Kq
-MJ
+CQ
 EK
 gc
-pW
-NG
-pW
-pW
-Qo
+Hc
+fZ
+Hc
+Hc
+XU
 DP
 jI
 jI
-JZ
-pW
-JG
-EK
-EK
-EK
-Re
-pW
-pW
-jI
-jI
-jI
+RB
+bG
+it
+US
+US
+US
+Jy
+bG
+bG
+Ha
+Ha
+Ha
 Zk
-Qo
-pW
-pW
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-Qo
+MU
+PP
+PP
+Ha
+Ha
+Ha
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+iE
 mK
 mK
 mK
-jI
-jI
-jI
-jI
+bD
+bD
+bD
+bD
 Jg
-jI
+bD
 mK
 mK
 mK
@@ -14244,37 +14933,37 @@ mK
 mK
 mK
 hE
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 mK
 hE
-UE
-UE
+vH
+vH
 mK
 mK
 mK
 mK
 Cu
 fJ
-jI
-jI
-jI
+WQ
+WQ
+WQ
 Vc
 Vc
-Qo
-pW
-Qo
-UO
-jI
-jI
-jI
-jI
-pW
-Qo
-NG
+Qs
+fq
+Qs
+xn
+Id
+Id
+Id
+Lh
+Hc
+XU
+Ar
 UH
 MZ
 wz
@@ -14290,36 +14979,36 @@ kB
 Am
 Br
 LV
-Qo
-pW
+Fe
+bG
 jI
-jI
-jI
-jI
+Ha
+Ha
+Ha
 pa
-pW
-Qo
-pW
-pW
-ZP
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+PP
+MU
+PP
+es
+xe
+Ha
+Ha
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
 mK
 mK
 mK
@@ -14405,71 +15094,71 @@ mK
 mK
 mK
 mK
-UE
+vH
 mK
 mK
 mK
 Cu
 fJ
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
 Xa
-pW
+fF
 Xa
-jI
+Id
 Ug
-jI
+Id
 lt
-jI
-jI
-pW
+Id
+Lh
+Hc
 NG
-pW
+Hc
 di
 dD
 Mt
-pW
-Qo
+Hc
+XU
 VQ
 VQ
 jI
-Qo
+Fe
 rt
 rt
-Qo
+Fe
 jI
 jI
 jI
 jI
 Th
 jI
-jI
-jI
-jI
-jI
+Ha
+Ha
+Ha
+Ha
 Ja
-pW
+PP
 AS
-jI
-jI
-jI
-jI
-jI
+Ha
+Ha
+Ha
+bD
+bD
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
+bD
 mK
 mK
 mK
@@ -14555,34 +15244,34 @@ mK
 mK
 mK
 mK
-UE
-UE
-UE
-UE
-UE
+vH
+vH
+vH
+vH
+vH
 mK
 Cu
 LT
-jI
-jI
-jI
-jI
-jI
+WQ
+WQ
+WQ
+WQ
+WQ
 QY
-jI
-jI
+Id
+Id
 tW
 wN
 Up
-jI
-jI
-jI
+Id
+Lh
+Lh
 VY
 UZ
-pW
+Hc
 pz
 CE
-NG
+fZ
 Fu
 oJ
 oJ
@@ -14595,19 +15284,19 @@ jI
 jI
 jI
 jI
-pW
+bG
 jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+bD
+bD
 mK
 mK
 mK
@@ -14701,63 +15390,63 @@ mK
 mK
 mK
 mK
-UE
-UE
-UE
+vH
+vH
+vH
 mK
-UE
-UE
-UE
-mK
-mK
+vH
+vH
+vH
 mK
 mK
-UE
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+mK
+mK
+vH
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+WQ
+Id
 PA
-Re
-pW
+vg
+iB
 MP
-jI
-jI
-jI
-jI
-jI
-NG
-pW
+Id
+dg
+dg
+dg
+dg
+fZ
+Hc
 Mt
 hI
+yO
+yO
+yO
+yO
+yO
+yO
 jI
 jI
 jI
-jI
-jI
-jI
-jI
-jI
-jI
-UE
-pW
+vH
+YV
 jI
 Th
 jI
 jI
 jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
 mK
 mK
 mK
@@ -14852,16 +15541,12 @@ mK
 mK
 mK
 hE
-UE
+vH
 mK
 mK
 mK
-UE
-UE
-mK
-mK
-mK
-mK
+vH
+vH
 mK
 mK
 mK
@@ -14869,44 +15554,48 @@ mK
 mK
 mK
 mK
-UE
-jI
-jI
-jI
-jI
+mK
+mK
+mK
+mK
+vH
+WQ
+WQ
+WQ
+Id
 eg
 Mf
-Qo
+xg
 jz
-jI
-jI
+Id
+dg
 LF
 pn
-jI
-jI
-jI
-Ug
-jI
-jI
+dg
+dg
+yO
+mS
+yO
+yO
 io
-jI
-jI
-jI
-jI
+yO
+yO
+yO
+yO
 Bi
-zU
-TB
+jK
+Az
 mK
-pW
-pW
-pW
-pW
-pW
+YV
+YV
+YV
+YV
+YV
 Bp
-Qo
-pW
-pW
-Qo
+iE
+YV
+YV
+iE
 mK
 mK
 mK
@@ -15018,45 +15707,45 @@ mK
 mK
 mK
 mK
-UE
-UE
-UE
-UE
+vH
+vH
+vH
+vH
 mK
-jI
-jI
-jI
-jI
+WQ
+WQ
+Id
+Id
 OX
 CO
-jI
-jI
-jI
-pW
-pW
+Id
+Id
+dg
+Qp
+Qp
 Ac
-jI
-pW
-Qr
-FC
-Qo
+dg
+pL
+Te
+KK
+WG
 rO
-jI
-jI
-jI
-jI
+yO
+yO
+yO
+yO
 JZ
-pW
+YV
 mK
 mK
 mK
-pW
-pW
-pW
-pW
-Qo
-pW
-pW
+YV
+YV
+YV
+YV
+iE
+YV
+YV
 mK
 mK
 mK
@@ -15158,8 +15847,8 @@ mK
 mK
 mK
 hE
-UE
-UE
+vH
+vH
 mK
 mK
 mK
@@ -15168,45 +15857,45 @@ mK
 mK
 mK
 mK
-UE
-UE
+vH
+vH
 hE
 mK
 mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+WQ
+Id
+Id
+Id
+Id
+Id
+Id
+dg
 NS
-Qo
-lm
-OG
-Yo
-Re
-pW
-pW
-pW
+ov
+er
+fG
+fL
+mn
+fR
+pL
+pL
 ys
-hy
-hy
-UE
-UE
+Bj
+hi
+vH
+vH
 mK
 mK
 mK
 mK
 mK
-Qo
-pW
-pW
-pW
+iE
+YV
+YV
+YV
 mK
 mK
 mK
@@ -15318,9 +16007,9 @@ mK
 mK
 mK
 hE
-UE
-UE
-UE
+vH
+vH
+vH
 mK
 mK
 mK
@@ -15329,25 +16018,25 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+Id
+Id
+Id
+Id
+Id
+Id
+dg
 Xv
-pW
-Qo
-jI
-CE
-pW
-Qo
-pW
-pW
+Qp
+ov
+dg
+xd
+pL
+WG
+pL
+pL
 ys
-hy
-hy
+Bj
+hi
 mK
 mK
 mK
@@ -15483,24 +16172,24 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
+Id
+Id
+Id
+dg
+dg
+dg
 gA
-pW
-jI
-Ug
-jI
+Qp
+gs
+ay
+gs
 hD
-pW
+pL
 kX
-jI
-hy
-pW
-pW
+yO
+Bj
+YV
+YV
 mK
 mK
 mK
@@ -15637,21 +16326,21 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
+dg
+dg
+dg
+dg
+dg
 EV
-jI
-UO
-jI
-jI
+gs
+Gw
+gs
+gs
 jk
-jI
-jI
+yO
+yO
 Rs
-zU
+jK
 eV
 mK
 mK
@@ -15790,21 +16479,21 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-UO
+dg
+dg
+dg
+dg
+gs
+gs
+Gw
 hT
-jI
+gs
 Go
-jI
-jI
-jI
-jI
-UE
+yO
+yO
+yO
+yO
+vH
 mK
 mK
 mK
@@ -15943,20 +16632,20 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
+gs
+gs
+gs
+gs
 hK
-CE
+EL
 UL
-jI
-jI
-jI
-jI
-jI
+gs
+gs
+yO
+yO
+yO
 mK
-UE
+vH
 mK
 mK
 mK
@@ -16096,16 +16785,16 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
+gs
+gs
+gs
 bO
 nW
-pW
+WB
 Wg
-jI
-jI
-jI
+gs
+yO
+yO
 mK
 mK
 mK
@@ -16248,15 +16937,15 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+gs
+gs
+gs
+gs
+gs
+gs
+gs
+gs
+yO
 Pu
 mK
 mK
@@ -16401,14 +17090,14 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
-jI
-jI
-jI
+gs
+gs
+gs
+gs
+gs
+gs
+yO
+yO
 mK
 mK
 mK
@@ -16554,11 +17243,11 @@ mK
 mK
 mK
 mK
-jI
-jI
-jI
-jI
-jI
+gs
+gs
+gs
+gs
+gs
 mK
 mK
 mK
@@ -16707,8 +17396,8 @@ mK
 mK
 mK
 mK
-jI
-jI
+gs
+gs
 mK
 mK
 mK
@@ -17398,7 +18087,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (102,1,1) = {"
 mK
@@ -17550,7 +18239,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (103,1,1) = {"
 mK
@@ -17702,7 +18391,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (104,1,1) = {"
 mK
@@ -17854,7 +18543,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (105,1,1) = {"
 mK
@@ -18006,7 +18695,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (106,1,1) = {"
 mK
@@ -18158,7 +18847,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (107,1,1) = {"
 mK
@@ -18310,7 +18999,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (108,1,1) = {"
 mK
@@ -18462,7 +19151,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (109,1,1) = {"
 mK
@@ -18614,7 +19303,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (110,1,1) = {"
 mK
@@ -18766,7 +19455,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (111,1,1) = {"
 mK
@@ -18918,7 +19607,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (112,1,1) = {"
 mK
@@ -19070,7 +19759,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (113,1,1) = {"
 mK
@@ -19222,7 +19911,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (114,1,1) = {"
 mK
@@ -19374,7 +20063,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (115,1,1) = {"
 mK
@@ -19526,7 +20215,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (116,1,1) = {"
 mK
@@ -19678,7 +20367,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (117,1,1) = {"
 mK
@@ -19830,7 +20519,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (118,1,1) = {"
 mK
@@ -19982,7 +20671,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (119,1,1) = {"
 mK
@@ -20134,7 +20823,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (120,1,1) = {"
 mK
@@ -20286,7 +20975,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (121,1,1) = {"
 mK
@@ -20438,7 +21127,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (122,1,1) = {"
 mK
@@ -20590,7 +21279,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (123,1,1) = {"
 mK
@@ -20742,7 +21431,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (124,1,1) = {"
 mK
@@ -20894,7 +21583,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (125,1,1) = {"
 mK
@@ -21046,7 +21735,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (126,1,1) = {"
 mK
@@ -21198,7 +21887,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (127,1,1) = {"
 mK
@@ -21350,7 +22039,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (128,1,1) = {"
 mK
@@ -21502,7 +22191,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (129,1,1) = {"
 mK
@@ -21654,7 +22343,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (130,1,1) = {"
 mK
@@ -21806,7 +22495,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (131,1,1) = {"
 mK
@@ -21958,7 +22647,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (132,1,1) = {"
 mK
@@ -22110,7 +22799,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (133,1,1) = {"
 mK
@@ -22262,7 +22951,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (134,1,1) = {"
 mK
@@ -22414,7 +23103,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (135,1,1) = {"
 mK
@@ -22566,7 +23255,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (136,1,1) = {"
 mK
@@ -22718,7 +23407,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (137,1,1) = {"
 mK
@@ -22870,7 +23559,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (138,1,1) = {"
 mK
@@ -23022,7 +23711,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (139,1,1) = {"
 mK
@@ -23174,7 +23863,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (140,1,1) = {"
 mK
@@ -23326,7 +24015,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (141,1,1) = {"
 mK
@@ -23478,7 +24167,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (142,1,1) = {"
 mK
@@ -23630,7 +24319,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (143,1,1) = {"
 mK
@@ -23782,7 +24471,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (144,1,1) = {"
 mK
@@ -23934,7 +24623,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (145,1,1) = {"
 mK
@@ -24086,7 +24775,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (146,1,1) = {"
 mK
@@ -24238,7 +24927,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (147,1,1) = {"
 mK
@@ -24390,7 +25079,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (148,1,1) = {"
 mK
@@ -24542,7 +25231,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (149,1,1) = {"
 mK
@@ -24694,7 +25383,7 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
 (150,1,1) = {"
 mK
@@ -24846,5 +25535,5 @@ mK
 mK
 mK
 mK
-qW
+mK
 "}
