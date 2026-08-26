@@ -20,7 +20,7 @@
 #define ALL_BADLAND_SECTORS		list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 //Orion's Scar sector. Making this it's own category, there may be future expansion.
-#define SECTOR_ORIONS_SCAR	"Orion's Scar"	//Generic sector
+#define SECTOR_ORIONS_SCAR		"Orion's Scar"	//Generic sector
 #define ALL_ORIONS_SCAR_SECTORS	list(SECTOR_ORIONS_SCAR)
 
 //Coalition-aligned sectors
