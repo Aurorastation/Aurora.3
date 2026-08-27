@@ -14,6 +14,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/tranquilizerrifle
+	category = "weaponry"
+	name = "tranquilizer rifle"
+	supplier = "zeng_hu"
+	description = "A scoped tranquilizer rifle used to safely incapacitate hostile xenofauna and other threats."
+	price = 1250
+	items = list(
+		/obj/item/gun/projectile/heavysniper/tranq
+	)
+	access = ACCESS_ARMORY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/pistol45
 	category = "weaponry"
 	name = ".45 pistol"
@@ -22,6 +36,20 @@
 	price = 800
 	items = list(
 		/obj/item/gun/projectile/sec
+	)
+	access = ACCESS_ARMORY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/securityrevolver
+	category = "weaponry"
+	name = "C45 revolver"
+	supplier = "zavodskoi"
+	description = "A compact .45 revolver designed for law enforcement and security support personnel."
+	price = 650
+	items = list(
+		/obj/item/gun/projectile/revolver/security
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -78,6 +106,20 @@
 	price = 1300
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/combat
+	)
+	access = ACCESS_ARMORY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/grenadelauncher
+	category = "weaponry"
+	name = "grenade launcher"
+	supplier = "zavodskoi"
+	description = "A bulky pump-action grenade launcher with a six-grenade revolving magazine."
+	price = 1000
+	items = list(
+		/obj/item/gun/launcher/grenade
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -499,6 +541,48 @@
 	price = 35
 	items = list(
 		/obj/item/ammo_magazine/c45m/flash
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/speedloader_45
+	category = "weaponry"
+	name = "speed loader (.45)"
+	supplier = "zavodskoi"
+	description = "A six-round .45-caliber speed loader for revolvers. Contains lethal rounds."
+	price = 30
+	items = list(
+		/obj/item/ammo_magazine/c45/revolver
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/speedloader_45rubber
+	category = "weaponry"
+	name = "speed loader (.45 rubber)"
+	supplier = "zavodskoi"
+	description = "A six-round .45-caliber speed loader for revolvers. Contains less-lethal rubber rounds."
+	price = 25
+	items = list(
+		/obj/item/ammo_magazine/c45/revolver/rubber
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/speedloader_45flash
+	category = "weaponry"
+	name = "speed loader (.45 flash)"
+	supplier = "zavodskoi"
+	description = "A six-round .45-caliber speed loader for revolvers. Contains less-lethal flash rounds."
+	price = 35
+	items = list(
+		/obj/item/ammo_magazine/c45/revolver/flash
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"

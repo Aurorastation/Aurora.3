@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Cargo can now order fragmentation grenades, grenade launchers, tranquilizer rifles, C45 revolvers, plastic explosives, advanced health analyzers, and intelliCards. See the PR for the full list of new cargo inventory."
