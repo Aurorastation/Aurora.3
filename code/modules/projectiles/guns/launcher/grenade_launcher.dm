@@ -100,14 +100,62 @@
 		chambered.activate(null)
 	return chambered
 
+/obj/item/gun/launcher/grenade/process_projectile(obj/item/projectile, mob/user, atom/target, target_zone, params, pointblank, reflex)
+	var/obj/item/grenade/grenade = projectile
+	if(grenade.special_launcher_handling)
+		return grenade.process_launcher_projectile(src, user, target, target_zone, params)
+	return ..()
+
 /obj/item/gun/launcher/grenade/handle_post_fire(mob/user)
-	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
+	if(chambered.notify_admins_on_launcher_fire)
+		message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
 	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).")
+	if(chambered.special_launcher_handling)
+		chambered.handle_launcher_post_fire(src)
 	chambered = null
 	update_maptext()
 
 /obj/item/gun/launcher/grenade/get_ammo()
 	return grenades.len + (chambered? 1 : 0)
+
+/**
+ * A less-lethal round which the grenade launcher converts into a conventional
+ * beanbag projectile when fired. The inert item cannot be activated by hand
+ * or produce the beanbag effect when thrown by other means.
+ */
+/obj/projectile/bullet/shotgun/beanbag/grenade_launcher
+	icon_state = "beanbag"
+	damage = 20
+	agony = 70
+
+/obj/item/grenade/beanbag
+	name = "beanbag round"
+	desc = "A less-than-lethal round intended to be fired by a standard grenade launcher."
+	icon_state = "beanbag"
+	item_state = "grenade"
+	throwforce = 0
+	special_launcher_handling = TRUE
+	notify_admins_on_launcher_fire = FALSE
+
+/obj/item/grenade/beanbag/attack_self(mob/user)
+	to_chat(user, SPAN_WARNING("\The [src] has no hand-operated firing mechanism. It must be loaded into a grenade launcher."))
+
+/obj/item/grenade/beanbag/activate(atom/user)
+	return
+
+/obj/item/grenade/beanbag/process_launcher_projectile(obj/item/gun/launcher/grenade/launcher, mob/user, atom/target, target_zone, params)
+	var/obj/projectile/bullet/shotgun/beanbag/grenade_launcher/beanbag = new(get_turf(user))
+	if(!beanbag.preparePixelProjectile(target, launcher, params))
+		qdel(beanbag)
+		return FALSE
+	beanbag.firer = user
+	beanbag.fired_from = launcher
+	beanbag.def_zone = target_zone
+	return !beanbag.fire()
+
+/obj/item/grenade/beanbag/handle_launcher_post_fire(obj/item/gun/launcher/grenade/launcher)
+	launcher.play_fire_sound()
+	qdel(src)
 
 //Underslung grenade launcher to be used with the Z8
 /obj/item/gun/launcher/grenade/underslung

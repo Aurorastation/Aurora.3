@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added less-than-lethal beanbag rounds for grenade launchers. These have been mapped in to the armory, alongside a single grenade launcher. More ammo can be ordered from cargo."
