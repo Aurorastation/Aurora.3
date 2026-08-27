@@ -27,6 +27,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/red,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa/ammo)
 "aE" = (
@@ -75,7 +76,10 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
 "cg" = (
-/obj/structure/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/visible/aux,
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "ci" = (
@@ -84,6 +88,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/map_effect/marker/door_paint/stripe/green,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "cu" = (
@@ -101,6 +106,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/green,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/medical)
 "db" = (
@@ -234,12 +240,14 @@
 /obj/structure/machinery/door/airlock/diona/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/black,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/starboard)
 "fg" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
+/obj/item/blueprints/shuttle,
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
 "fq" = (
@@ -257,6 +265,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/red,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/armoury)
 "fJ" = (
@@ -309,10 +318,6 @@
 "gn" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	pixel_y = -23;
-	pixel_x = -4
 	},
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
@@ -555,7 +560,7 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "kK" = (
-/obj/structure/machinery/atmospherics/binary/pump,
+/obj/structure/machinery/atmospherics/binary/pump/aux,
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "kN" = (
@@ -709,6 +714,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/red,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa)
 "nc" = (
@@ -732,7 +738,12 @@
 /turf/simulated/wall/diona,
 /area/hieropatrol/weapon/grauwolf/ammo)
 "nK" = (
-/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hieropatrol/engineer/propulsioncargo)
 "nU" = (
@@ -751,7 +762,7 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa/ammo)
 "of" = (
-/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "ov" = (
@@ -782,6 +793,14 @@
 	},
 /obj/item/storage/box/syringes{
 	pixel_x = 7
+	},
+/obj/item/storage/box/unique/monkeycubes/neaeracubes{
+	pixel_x = 8;
+	pixel_y = 12
+	},
+/obj/item/storage/box/unique/monkeycubes/neaeracubes{
+	pixel_x = 8;
+	pixel_y = 12
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
@@ -866,11 +885,16 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/external)
+"qj" = (
+/obj/structure/machinery/pipedispenser,
+/turf/simulated/floor/airless,
+/area/hieropatrol/engineer/propulsioncargo)
 "qo" = (
 /obj/structure/machinery/door/airlock/diona,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/orange,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "qA" = (
@@ -909,6 +933,10 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hieropatrol_co2";
+	name = "hieropatrol_co2"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hieropatrol/engineer/propulsioncargo)
 "rM" = (
@@ -935,6 +963,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/door_paint/stripe/black,
 /turf/simulated/floor/airless,
 /area/shuttle/hieropatrol)
 "rU" = (
@@ -957,6 +986,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/green,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/starboard)
 "sV" = (
@@ -1039,6 +1069,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/door_paint/stripe/black,
 /turf/simulated/floor,
 /area/shuttle/hieropatrol)
 "um" = (
@@ -1058,6 +1089,10 @@
 "vg" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hieropatrol_co2";
+	name = "hieropatrol_co2"
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/power)
@@ -1654,6 +1689,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/red,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf/ammo)
 "GD" = (
@@ -1705,10 +1741,8 @@
 /area/hieropatrol/bridge)
 "Il" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/obj/structure/machinery/door/blast/regular/open{
-	dir = 4
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/reinforced/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "IF" = (
@@ -1722,6 +1756,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/green,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf)
 "IU" = (
@@ -1807,6 +1842,7 @@
 /obj/random/spacecash,
 /obj/random/spacecash,
 /obj/random/spacecash,
+/obj/item/blueprints/outpost,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
 "Kn" = (
@@ -1901,6 +1937,10 @@
 /obj/structure/machinery/computer/general_air_control/large_tank_control/wall{
 	pixel_y = -32
 	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hieropatrol_co2";
+	name = "hieropatrol_co2"
+	},
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "LP" = (
@@ -1911,7 +1951,12 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
 "LQ" = (
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hieropatrol/engineer/propulsioncargo)
 "LT" = (
@@ -2141,6 +2186,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/green,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/kitchen)
 "Oq" = (
@@ -2158,6 +2204,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/blue,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "OK" = (
@@ -2304,7 +2351,11 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
 "Sj" = (
-/obj/structure/machinery/atmospherics/unary/outlet_injector{
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "hieropatrol_co2";
+	name = "hieropatrol_co2"
+	},
+/obj/structure/machinery/atmospherics/unary/outlet_injector/aux{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2345,6 +2396,7 @@
 /obj/structure/machinery/door/airlock/diona/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/black,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "Tn" = (
@@ -2388,6 +2440,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/orange,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/power)
 "Up" = (
@@ -2405,9 +2458,11 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf)
 "UG" = (
-/obj/effect/map_effect/marker/large_tank,
-/turf/simulated/floor/reinforced/carbon_dioxide,
-/area/hieropatrol/engineer/propulsioncargo)
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space/rootsong)
 "UH" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -2481,6 +2536,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/green,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
 "VY" = (
@@ -2586,6 +2642,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/door_paint/stripe/gold,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
 "XE" = (
@@ -2639,6 +2696,7 @@
 /area/hieropatrol/corridor/starboard)
 "Yq" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hieropatrol/engineer/propulsioncargo)
 "Yu" = (
@@ -2693,6 +2751,10 @@
 /obj/structure/sign/flag/consortium/large/north{
 	pixel_y = 32
 	},
+/obj/item/slime_extract/grey{
+	pixel_x = 10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
 "Zl" = (
@@ -2715,6 +2777,7 @@
 /area/hieropatrol/bridge)
 "ZM" = (
 /obj/structure/machinery/door/airlock/diona,
+/obj/effect/map_effect/marker/door_paint/stripe/orange,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "ZP" = (
@@ -2723,6 +2786,7 @@
 /area/hieropatrol/dorm)
 "ZT" = (
 /obj/structure/machinery/door/airlock/diona/external,
+/obj/effect/map_effect/marker/door_paint/stripe/black,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "ZV" = (
@@ -8107,7 +8171,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -8258,7 +8322,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -8409,7 +8473,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -9051,7 +9115,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -10449,7 +10513,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -10602,7 +10666,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -10755,7 +10819,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -13589,7 +13653,7 @@ WQ
 WQ
 fF
 um
-Jb
+qj
 WQ
 WQ
 XS
@@ -13894,7 +13958,7 @@ WQ
 Jb
 LO
 bo
-UG
+Mz
 Sj
 Sj
 bo
@@ -17747,7 +17811,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -17898,7 +17962,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -17984,6 +18048,7 @@ mK
 mK
 mK
 mK
+UG
 mK
 mK
 mK
@@ -18048,8 +18113,7 @@ mK
 mK
 mK
 mK
-mK
-mK
+UG
 mK
 mK
 mK
@@ -18137,7 +18201,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -18290,7 +18354,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
@@ -18479,7 +18543,7 @@ mK
 mK
 mK
 mK
-mK
+UG
 mK
 mK
 mK
