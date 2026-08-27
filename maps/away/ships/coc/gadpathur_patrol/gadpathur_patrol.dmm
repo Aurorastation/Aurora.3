@@ -172,11 +172,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
 "bt" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, officer's compartment"
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine compartment"
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/officer_bath)
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "bC" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -873,11 +873,9 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
 "hn" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, rotary cannon"
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/armanent/francisca)
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "hz" = (
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/ship/gadpathur_patrol/thrusters/port)
@@ -1401,6 +1399,7 @@
 /obj/structure/machinery/door/window/southright{
 	req_one_access = list(224,223,222)
 	},
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
 "la" = (
@@ -1592,9 +1591,11 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/corridor/starboard)
 "mE" = (
-/obj/effect/landmark/entry_point/fore,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, compartment"
+	},
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/crew_prep)
+/area/ship/gadpathur_patrol/exterior)
 "mG" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-13"
@@ -2077,11 +2078,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)
 "qn" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, rotary cannon"
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/quarters_bath)
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "qC" = (
 /obj/structure/machinery/alarm/south,
 /turf/simulated/floor,
@@ -2268,11 +2269,11 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/cic)
 "rL" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, engine compartment"
+/obj/effect/landmark/entry_point/port{
+	name = "port, officer's compartment"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/reactor)
+/area/ship/gadpathur_patrol/exterior)
 "rM" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2745,12 +2746,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
-"vD" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/morgue)
 "vE" = (
 /obj/structure/platform_stairs/full/east_west_cap/half,
 /obj/structure/platform{
@@ -6534,11 +6529,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "XX" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, compartment"
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/eva)
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "Ya" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -34424,7 +34419,7 @@ WA
 bb
 nP
 yh
-yh
+bt
 yh
 yh
 nP
@@ -34681,7 +34676,7 @@ iR
 ad
 HD
 HD
-rL
+HD
 HD
 HD
 HD
@@ -35730,8 +35725,8 @@ pg
 yG
 cx
 ic
-hn
-yh
+rl
+qn
 VZ
 uE
 uE
@@ -37275,8 +37270,8 @@ XE
 el
 So
 QR
-XX
-nP
+Nm
+mE
 RP
 fN
 uE
@@ -38303,8 +38298,8 @@ Sv
 Gf
 dD
 Sv
-mE
-yh
+Sv
+hn
 VZ
 uE
 uE
@@ -41886,7 +41881,7 @@ Pq
 KW
 xz
 xz
-bt
+xz
 xz
 xz
 St
@@ -41898,7 +41893,7 @@ sa
 oQ
 yX
 yX
-vD
+yX
 yX
 yX
 VZ
@@ -42143,7 +42138,7 @@ fc
 bi
 wc
 RP
-nP
+rL
 yh
 yh
 nP
@@ -42155,7 +42150,7 @@ RP
 nP
 yh
 yh
-yh
+XX
 yh
 nP
 VZ
@@ -42389,7 +42384,7 @@ uE
 Lb
 uV
 uV
-qn
+uV
 uV
 uV
 SN
@@ -42646,7 +42641,7 @@ uE
 Lb
 nP
 yh
-yh
+XX
 nP
 yh
 yh
