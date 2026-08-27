@@ -15309,13 +15309,6 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/wood,
 /area/horizon/service/cafeteria)
-"bYJ" = (
-/obj/effect/floor_decal/industrial/arrow/yellow,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/wall/r_wall,
-/area/horizon/medical/pharmacy)
 "bYQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -41320,8 +41313,11 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/effect/floor_decal/corner_wide/orange/full,
-/obj/structure/sign/poster/medical/bay_39{
-	pixel_x = -29
+/obj/structure/machinery/ringer/west{
+	name = "Pharmacy ringer terminal";
+	department = "Pharmacy Frontdesk";
+	id = "pharmacy_ringer";
+	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
@@ -74425,6 +74421,12 @@
 /area/horizon/medical/hallway/upper)
 "jIN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/ringer_button{
+	name = "Pharmacy ringer button";
+	id = "pharmacy_ringer";
+	pixel_x = -22;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "jIO" = (
@@ -106228,6 +106230,9 @@
 	pixel_x = -11;
 	pixel_y = 14
 	},
+/obj/structure/sign/poster/medical/bay_39{
+	pixel_x = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
 "nNW" = (
@@ -122232,15 +122237,6 @@
 /area/horizon/crew/fitness/changing)
 "pRU" = (
 /obj/structure/machinery/light,
-/obj/structure/machinery/ringer/south{
-	department = "Pharmacy Frontdesk";
-	id = "pharmacy_ringer";
-	req_access = list(33)
-	},
-/obj/structure/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry Lab Alpha";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
@@ -147296,6 +147292,10 @@
 	},
 /obj/structure/machinery/vending/wardrobe/chem_wardrobe,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Alpha";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
 "tau" = (
@@ -281020,7 +281020,7 @@ uDP
 uDP
 nQc
 pRU
-bYJ
+rft
 bac
 eUC
 pSz
