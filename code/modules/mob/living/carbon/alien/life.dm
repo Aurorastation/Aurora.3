@@ -55,10 +55,10 @@
 			blinded = 1
 			set_stat(UNCONSCIOUS)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-0.03)
+				adjustHalLoss(-3)
 
 		if(sleeping)
-			adjustHalLoss(-0.03)
+			adjustHalLoss(-3)
 			if (mind)
 				if(mind.active && client != null)
 					sleeping = max(sleeping-1, 0)
@@ -66,12 +66,12 @@
 			set_stat(UNCONSCIOUS)
 		else if(resting)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-0.03)
+				adjustHalLoss(-3)
 
 		else
 			set_stat(CONSCIOUS)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-0.01)
+				adjustHalLoss(-1)
 
 		// Eyes and blindness.
 		if(!has_eyes())

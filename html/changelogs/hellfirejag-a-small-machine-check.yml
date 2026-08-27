@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed a runtime error caused by a 'machine' var being used to store non machines."

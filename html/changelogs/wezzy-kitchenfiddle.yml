@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: ASmallCuteCat
+author: Wowzewow (Wezzy)
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,6 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Removes some stray items around medbay, re-adds a GTR sink, fixes a broken airvent, fixes pharmacy shutters, ensures proper placement and visibility of items."
-  - qol: "Re-adds a single bag of SBS blood to the Operating Room freezer. It was removed for a previous arc but never re-added."
-  - qol: "QOL adjustments to the ICU - adds additional lighting and a ringer button."
+  - rscadd: "Readds the internal kitchen smartheaters so chefs can have somewhere to put their intermediate ingredients again."
