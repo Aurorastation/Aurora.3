@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Non-synthskin IPC can now have their faces fixed."
+  - bugfix: "Using the wrong tool for an IPC surgery will no longer smack them with said item."
