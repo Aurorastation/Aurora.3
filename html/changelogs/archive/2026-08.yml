@@ -521,3 +521,9 @@
       CPU time)
   TheGreyWolf:
   - bugfix: Hopefully fixed that case dossiers sometimes self delete.
+2026-08-27:
+  Wowzewow (Wezzy):
+  - rscadd: Readds the internal kitchen smartheaters so chefs can have somewhere to
+      put their intermediate ingredients again.
+  kano:
+  - bugfix: Corrects platform icon directions in the icon file.
