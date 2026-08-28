@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Material silos can now be upgraded. Each tier is equal to 400 sheets worth of storage."

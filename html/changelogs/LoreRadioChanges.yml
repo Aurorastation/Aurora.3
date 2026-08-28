@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Changed the color of the lore radio in chat and added the ability to turn down the volume to hide the chat messages while keeping the overhead talking."

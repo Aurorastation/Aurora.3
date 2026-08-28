@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed robotic and mechanically assisted organs retaining or recovering from EMP surge damage incorrectly."
-  - bugfix: "Fixed several prosthetic limb interactions causing inappropriate pain, screams, blood, or organic surgery sounds."
