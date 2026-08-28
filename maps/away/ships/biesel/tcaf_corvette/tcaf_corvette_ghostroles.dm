@@ -103,7 +103,7 @@
 	uniform = /obj/item/clothing/under/tcaf/crew
 	accessory = /obj/item/clothing/accessory/holster/hip
 	gloves = /obj/item/clothing/gloves/tcaf
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service, /obj/item/clothing/accessory/tcaf/pauldron/prefect = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service = 1, /obj/item/clothing/accessory/tcaf/pauldron/prefect = 1)
 
 /datum/ghostspawner/human/tcaf_crewman/officer
 	name = "TCAF Republic Astroforce Astrarch"
