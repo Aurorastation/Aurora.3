@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the Stargazers icon state name for the Orion's scar sector."
