@@ -124,5 +124,5 @@
 	uniform = /obj/item/clothing/under/tcaf_officer
 	suit = /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat
 	gloves = /obj/item/clothing/gloves/white
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service, /obj/item/clothing/accessory/tcaf/medallion/astrarch = 1, /obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service = 1, /obj/item/clothing/accessory/tcaf/medallion/astrarch = 1, /obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe = 1)
 	accessory = /obj/item/clothing/accessory/holster/hip
