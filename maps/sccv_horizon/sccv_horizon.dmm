@@ -106219,18 +106219,6 @@
 	dir = 4
 	},
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
-	pixel_x = -11;
-	pixel_y = 18
-	},
-/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
-	pixel_x = -4;
-	pixel_y = 18
-	},
-/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
-	pixel_x = -11;
-	pixel_y = 14
-	},
 /obj/structure/sign/poster/medical/bay_39{
 	pixel_x = 28
 	},
@@ -142248,10 +142236,6 @@
 	pixel_x = 6;
 	pixel_y = -1;
 	req_access = list(33)
-	},
-/obj/item/paper/fluff/psiprotect_memo{
-	pixel_x = -4;
-	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
