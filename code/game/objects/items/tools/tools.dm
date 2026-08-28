@@ -324,7 +324,7 @@
 	if(welding_blind)
 		delay *= 3
 
-	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
+	var/image/welding_sparks = overlay_image('icons/effects/effects.dmi', welding_state, flags = RESET_COLOR)
 	welding_sparks.plane = ABOVE_LIGHTING_PLANE
 	target.AddOverlays(welding_sparks)
 	. = ..()

@@ -499,3 +499,16 @@
   - rscadd: Created a press lanyard subtype of the regular lanyard, no difference
       in sprite.
   - rscadd: Added the press badges and lanyard to the loadout.
+2026-08-25:
+  FabianK3:
+  - bugfix: Fixed butazoline OD and cryotreatment not repairing cut tendons.
+  TheGreyWolf:
+  - rscadd: Unathi can now drink regular ethanol based booze.
+  - rscadd: Unathi now get half nutriment from regular nutriments, and double from
+      protein.
+  - balance: Reduced the chance of psiren spawns in the warehouse as the lemurian
+      sea arc has ended.
+  kano:
+  - code_imp: Materials no longer cache pre-coloured wall icons.
+  rattydew:
+  - bugfix: Resolved a few mapping errors introduced in recent Horizon remaps.
