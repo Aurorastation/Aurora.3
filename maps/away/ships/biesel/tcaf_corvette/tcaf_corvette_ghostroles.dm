@@ -30,7 +30,7 @@
 	id = /obj/item/card/id/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
 	l_ear = /obj/item/radio/headset/ship
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service = 1)
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
