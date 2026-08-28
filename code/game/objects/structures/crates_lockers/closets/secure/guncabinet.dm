@@ -67,6 +67,8 @@
 		new /obj/item/ammo_magazine/mc9mmt/rubber(src)
 	for(var/i = 1 to 4)
 		new /obj/item/storage/box/shells/beanbags(src)
+	for(var/i = 1 to 2)
+		new /obj/item/storage/box/tactical/beanbags(src)
 	new /obj/item/storage/box/shells/flashshells(src)
 	new /obj/item/storage/box/shells/stunshells(src)
 	new /obj/item/storage/box/shells/trackingslugs(src)

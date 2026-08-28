@@ -15309,13 +15309,6 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/wood,
 /area/horizon/service/cafeteria)
-"bYJ" = (
-/obj/effect/floor_decal/industrial/arrow/yellow,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/wall/r_wall,
-/area/horizon/medical/pharmacy)
 "bYQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -18954,10 +18947,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/wing/starboard)
 "cyI" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment,
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/tiled/white,
+/obj/structure/whiteboard/portable,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "cyK" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -22835,6 +22828,7 @@
 /area/horizon/holodeck/source_luceism)
 "cYl" = (
 /obj/structure/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "cYm" = (
@@ -41319,8 +41313,11 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/effect/floor_decal/corner_wide/orange/full,
-/obj/structure/sign/poster/medical/bay_39{
-	pixel_x = -29
+/obj/structure/machinery/ringer/west{
+	name = "Pharmacy ringer terminal";
+	department = "Pharmacy Frontdesk";
+	id = "pharmacy_ringer";
+	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
@@ -45156,7 +45153,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/main/port)
 "fTY" = (
-/obj/structure/machinery/chem_master/condimaster,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/smartfridge/foodheater,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "fTZ" = (
@@ -57557,11 +57555,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
-"hyV" = (
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/whiteboard/portable,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "hza" = (
 /obj/structure/machinery/power/breakerbox/activated{
 	RCon_tag = "Security Substation"
@@ -74428,6 +74421,12 @@
 /area/horizon/medical/hallway/upper)
 "jIN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/ringer_button{
+	name = "Pharmacy ringer button";
+	id = "pharmacy_ringer";
+	pixel_x = -22;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "jIO" = (
@@ -81890,6 +81889,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/gun/projectile/shotgun/pump/unloaded,
 /obj/item/gun/projectile/shotgun/pump/unloaded,
+/obj/item/gun/launcher/grenade,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "kDV" = (
@@ -95908,6 +95908,11 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/burglar)
+"mvz" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/chem_master/condimaster,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "mvD" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -105033,6 +105038,7 @@
 "nGl" = (
 /obj/structure/machinery/firealarm/east,
 /obj/structure/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "nGm" = (
@@ -106224,6 +106230,9 @@
 /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
 	pixel_x = -11;
 	pixel_y = 14
+	},
+/obj/structure/sign/poster/medical/bay_39{
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
@@ -108240,7 +108249,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/service,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "ocx" = (
@@ -122229,15 +122238,6 @@
 /area/horizon/crew/fitness/changing)
 "pRU" = (
 /obj/structure/machinery/light,
-/obj/structure/machinery/ringer/south{
-	department = "Pharmacy Frontdesk";
-	id = "pharmacy_ringer";
-	req_access = list(33)
-	},
-/obj/structure/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry Lab Alpha";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
@@ -123519,7 +123519,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/service,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "qbh" = (
@@ -127464,10 +127464,10 @@
 	},
 /area/tdome/tdomeobserve)
 "qCw" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/noticeboard{
 	pixel_y = 30
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
 	},
@@ -147293,6 +147293,10 @@
 	},
 /obj/structure/machinery/vending/wardrobe/chem_wardrobe,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Alpha";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
 "tau" = (
@@ -281017,7 +281021,7 @@ uDP
 uDP
 nQc
 pRU
-bYJ
+rft
 bac
 eUC
 pSz
@@ -288503,7 +288507,7 @@ cfA
 kDa
 kZI
 pVj
-ofj
+mvz
 btl
 uYQ
 eSV
@@ -288760,7 +288764,7 @@ uyM
 pkR
 muJ
 nYO
-hyV
+ofj
 urZ
 uYQ
 eSV

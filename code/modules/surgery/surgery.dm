@@ -124,10 +124,14 @@
 
 	// What surgeries does our tool/target enable?
 	var/list/possible_surgeries
+	var/is_surgery_tool = FALSE
 	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/decl in all_surgeries)
 		var/singleton/surgery_step/S = all_surgeries[decl]
-		if(S.tool_quality(tool) && S.can_use(user, M, zone, tool))
+		if(!S.tool_quality(tool))
+			continue
+		is_surgery_tool = TRUE
+		if(S.can_use(user, M, zone, tool))
 			LAZYSET(possible_surgeries, S, TRUE)
 
 	// Which surgery, if any, do we actually want to do?
@@ -140,7 +144,7 @@
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
-		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
+		if(is_surgery_tool || (tool.item_flags & ITEM_FLAG_SURGERY)) //Is this supposed to be used for surgery?
 			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
 			return TRUE
 		return FALSE //Just do the normal use for the tool instead

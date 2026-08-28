@@ -512,3 +512,50 @@
   - code_imp: Materials no longer cache pre-coloured wall icons.
   rattydew:
   - bugfix: Resolved a few mapping errors introduced in recent Horizon remaps.
+2026-08-26:
+  DreamySkrell:
+  - rscadd: Ship gun loader auto connects to ship gun
+  Hellfirejag:
+  - bugfix: Fixed showers not cleaning things.
+  - rscadd: Showers now turn themselves off after 5 minutes to conserve water (and
+      CPU time)
+  TheGreyWolf:
+  - bugfix: Hopefully fixed that case dossiers sometimes self delete.
+2026-08-27:
+  Wowzewow (Wezzy):
+  - rscadd: Readds the internal kitchen smartheaters so chefs can have somewhere to
+      put their intermediate ingredients again.
+  kano:
+  - bugfix: Corrects platform icon directions in the icon file.
+2026-08-28:
+  ASmallCuteCat:
+  - bugfix: Readds the pharmacy desk ringer.
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  Geeves:
+  - bugfix: Fixed robotic and mechanically assisted organs retaining or recovering
+      from EMP surge damage incorrectly.
+  - bugfix: Fixed several prosthetic limb interactions causing inappropriate pain,
+      screams, blood, or organic surgery sounds.
+  - rscadd: Added less-than-lethal beanbag rounds for grenade launchers. These have
+      been mapped in to the armory, alongside a single grenade launcher. More ammo
+      can be ordered from cargo.
+  SimpleMaron:
+  - rscadd: 'Added new body markings for Skrell: Axiori Mecha Eyes and regular Xiialt
+      Mecha Eyes.'
+  TheGreyWolf:
+  - rscadd: Material silos can now be upgraded. Each tier is equal to 400 sheets worth
+      of storage.
+  - balance: Reduced the number of overmap psiren shoals.
+  - bugfix: Fixed the lag from the new research console TGUI.
+  - bugfix: Non-synthskin IPC can now have their faces fixed.
+  - bugfix: Using the wrong tool for an IPC surgery will no longer smack them with
+      said item.
+  - rscadd: Changed the color of the lore radio in chat and added the ability to turn
+      down the volume to hide the chat messages while keeping the overhead talking.
+  fyni, nautical:
+  - rscadd: Adds the Orion's Scar sector, an area dense with stars and rumours.

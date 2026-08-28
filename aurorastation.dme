@@ -1918,6 +1918,7 @@
 #include "code\modules\background\space_sectors\badlands.dm"
 #include "code\modules\background\space_sectors\crescent_expanse.dm"
 #include "code\modules\background\space_sectors\generic_sectors.dm"
+#include "code\modules\background\space_sectors\orions_scar.dm"
 #include "code\modules\background\space_sectors\space_sector.dm"
 #include "code\modules\background\space_sectors\tauceti.dm"
 #include "code\modules\background\space_sectors\void.dm"
