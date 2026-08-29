@@ -234,6 +234,6 @@
 	name = "bottle of PsiProtect Personalised pills"
 	desc = "A YomiGenetics high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. It uses Ranixidone as the active ingredient, delivered in gold nanoparticles with targeting ligands on the surface." \
 		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea. " \
-		+ "Thrice as expensive as other brands of ranixidone and market towards more affluent customers. " \
+		+ "Thrice as expensive as other brands of ranixidone and marketed towards more affluent customers. " \
 		+ "Nonetheless, it remains cheaper than the more elegant ZHP-MSV3 'Mindblankers'."
 	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/expensive = 6)
