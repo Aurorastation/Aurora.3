@@ -142,7 +142,7 @@
 				user.visible_message("<b>[user]</b> starts mending the damage to [target]'s [I.name]'s mechanisms.", \
 					SPAN_NOTICE("You start mending the damage to [target]'s [I.name]'s mechanisms." ))
 
-	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 75, affecting = affected)
 	..()
 
 /singleton/surgery_step/internal/fix_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -422,7 +422,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
 		"You start transplanting \the [tool] into [target]'s [affected.name].")
-	target.custom_pain("Someone's rooting around in your [affected.name]!", 75)
+	target.custom_pain("Someone's rooting around in your [affected.name]!", 75, affecting = affected)
 	..()
 
 /singleton/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

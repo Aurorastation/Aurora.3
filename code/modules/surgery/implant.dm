@@ -60,7 +60,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
-	target.custom_pain("The pain in your chest is living hell!",1)
+	target.custom_pain("The pain in your chest is living hell!", 1, affecting = affected)
 	affected.cavity = CAVITY_OPEN
 	..()
 
@@ -91,7 +91,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts mending [target]'s [get_cavity(affected)] cavity wall with \the [tool].", \
 		"You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool]." )
-	target.custom_pain("The pain in your chest is living hell!", 75)
+	target.custom_pain("The pain in your chest is living hell!", 75, affecting = affected)
 	affected.cavity = CAVITY_CLOSED
 	..()
 
@@ -104,6 +104,7 @@
 	name = "Place Item in Cavity"
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
+	blocks_normal_attack = FALSE
 	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
@@ -125,8 +126,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts putting \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
 		SPAN_NOTICE("You start putting \the [tool] inside [target]'s [get_cavity(affected)] cavity." ))
-	target.custom_pain("The pain in your chest is living hell!", 75)
-	playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
+	target.custom_pain("The pain in your chest is living hell!", 75, affecting = affected)
+	playsound(target.loc, BP_IS_ROBOTIC(affected) ? 'sound/items/wrench.ogg' : 'sound/effects/squelch1.ogg', 50, 1)
 	..()
 
 /singleton/surgery_step/cavity/place_item/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -178,7 +179,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
 		"You start poking around inside [target]'s [affected.name] with \the [tool]." )
-	target.custom_pain("The pain in your [affected.name] is living hell!", 50)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 50, affecting = affected)
 	..()
 
 /singleton/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -213,7 +214,7 @@
 					worm.detach()
 					worm.leave_host()
 
-				playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
+				playsound(target.loc, BP_IS_ROBOTIC(affected) ? 'sound/items/wrench.ogg' : 'sound/effects/squelch1.ogg', 50, 1)
 	else
 		user.visible_message("<b>[user]</b> could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.", \
 			SPAN_NOTICE("You could not find anything inside [target]'s [affected.name].") )

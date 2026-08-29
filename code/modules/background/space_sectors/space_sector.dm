@@ -231,7 +231,7 @@
 			broadcast_info[RADIO_NEXT_BROADCAST] = world.time + 30 SECONDS // give it a bit of a breather if we've exhausted all the messages
 		else
 			broadcast_info[RADIO_BROADCAST_INDEX]++
-			broadcast_info[RADIO_NEXT_BROADCAST] = world.time + (rand(6, 10) SECONDS) // otherwise, throw in a randomish delay (considering we're on SSprocessing, it'll uusssuaaalllyyy be about 2 seconds at minimum)
+			broadcast_info[RADIO_NEXT_BROADCAST] = world.time + (rand(10, 14) SECONDS) // otherwise, throw in a randomish delay (considering we're on SSprocessing, it'll uusssuaaalllyyy be about 2 seconds at minimum)
 
 /datum/space_sector/proc/get_chat_description()
 	return "<hr><div align='center'><hr1><B>Current Sector: [name]!</B></hr1><br><i>[description]</i><hr></div>"

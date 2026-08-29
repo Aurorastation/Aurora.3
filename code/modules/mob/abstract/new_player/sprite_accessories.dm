@@ -6615,6 +6615,24 @@ Follow by example and make good judgement based on length which list to include 
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/skrell,/datum/species/skrell/axiori,/datum/species/zombie/skrell)
 
+/datum/sprite_accessory/marking/skr_mecha_eyes
+	name = "Skrell Mecha Eyes"
+	icon = 'icons/mob/human_races/markings_skrell.dmi'
+	icon_state = "skr_mecha_eyes"
+	body_parts = list(BP_HEAD)
+	icon_blend_mode = ICON_MULTIPLY
+	is_painted = TRUE
+	species_allowed = list (/datum/species/skrell)
+
+/datum/sprite_accessory/marking/skr_mecha_eyes_axiori
+	name = "Skrell Mecha Eyes (Axiori)"
+	icon = 'icons/mob/human_races/markings_skrell.dmi'
+	icon_state = "skr_mecha_eyes_axiori"
+	body_parts = list(BP_HEAD)
+	icon_blend_mode = ICON_MULTIPLY
+	is_painted = TRUE
+	species_allowed = list (/datum/species/skrell, /datum/species/skrell/axiori)
+
 /datum/sprite_accessory/marking/diona_leaves
 	name = "Diona Leaves"
 	icon = 'icons/mob/human_races/markings_diona.dmi'

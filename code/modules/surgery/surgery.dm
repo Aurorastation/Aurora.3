@@ -6,6 +6,8 @@
 
 	/// type path referencing tools that can be used for this step, and how well are they suited for it
 	var/list/allowed_tools = null
+	/// Whether tools accepted by this step should have their normal attack blocked when the step cannot be performed.
+	var/blocks_normal_attack = TRUE
 	/// type paths referencing races that this step applies to.
 	var/list/allowed_species = null
 	var/list/disallowed_species = list("Nymph")
@@ -163,10 +165,15 @@
 
 	// What surgeries does our tool/target enable?
 	var/list/possible_surgeries
+	var/is_surgery_tool = FALSE
 	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/decl in all_surgeries)
 		var/singleton/surgery_step/S = all_surgeries[decl]
-		if(S.tool_quality(tool) && S.can_use(user, M, zone, tool))
+		if(!S.tool_quality(tool))
+			continue
+		if(S.blocks_normal_attack)
+			is_surgery_tool = TRUE
+		if(S.can_use(user, M, zone, tool))
 			LAZYSET(possible_surgeries, S, TRUE)
 
 	// Which surgery, if any, do we actually want to do?
@@ -179,7 +186,12 @@
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
-		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
+		var/can_repair_externally = FALSE
+		if(istype(tool, /obj/item/weldingtool) && ishuman(M))
+			var/mob/living/carbon/human/human_target = M
+			var/obj/item/organ/external/affected = human_target.get_organ(zone)
+			can_repair_externally = affected?.status & ORGAN_ASSISTED
+		if((is_surgery_tool && !can_repair_externally) || (tool.item_flags & ITEM_FLAG_SURGERY)) //Is this supposed to be used for surgery?
 			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
 			return TRUE
 		return FALSE //Just do the normal use for the tool instead
