@@ -989,13 +989,13 @@
  * Also deduplicates entries, where (item, item) becomes (item = 2)
  */
 /proc/counted_list(list/input_list)
-    var/list/counted = list()
-    if(!islist(input_list))
-        return counted
-    for(var/item in input_list)
-        var/count = isnum(input_list[item]) ? input_list[item] : 1
-        counted[item] += count
-    return counted
+	var/list/counted = list()
+	if(!islist(input_list))
+		return counted
+	for(var/item in input_list)
+		var/count = isnum(input_list[item]) ? input_list[item] : 1
+		counted[item] += count
+	return counted
 
 /**
  * Takes an input_key, as text, and the list of keys already used, outputting a replacement key in the format of "[input_key] ([number_of_duplicates])" if it finds a duplicate.
