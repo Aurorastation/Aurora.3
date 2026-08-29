@@ -412,7 +412,7 @@
 		to_chat(user, SPAN_DANGER("You're pretty sure [target.species.name_plural] don't normally have a brain."))
 		return SURGERY_FAILURE
 
-	if(!isnull(target.internal_organs[BP_BRAIN]))
+	if(!isnull(target.internal_organs_by_name[BP_BRAIN]))
 		to_chat(user, SPAN_DANGER("Your subject already has a brain."))
 		return SURGERY_FAILURE
 

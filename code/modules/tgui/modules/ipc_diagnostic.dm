@@ -18,6 +18,11 @@
 /datum/tgui_module/ipc_diagnostic/ui_data(mob/user)
 	var/list/data = list()
 	data["broken"] = FALSE
+	data["has_power_core"] = FALSE
+	data["has_endoskeleton"] = FALSE
+	data["has_armor"] = FALSE
+	data["armor_data"] = list()
+	data["missing_organs"] = list()
 
 	if(isipc(patient))
 		var/mob/living/carbon/human/ipc = patient
@@ -57,29 +62,71 @@
 
 			data["organs"] += list(organ_data)
 
+		for(var/organ_name in ipc.species.has_organ)
+			var/expected_organ_path = ipc.species.has_organ[organ_name]
+			if(!locate(expected_organ_path) in ipc.internal_organs)
+				data["missing_organs"] += capitalize_first_letters(organ_name)
+
 		data["robolimb_self_repair_cap"] = ROBOLIMB_SELF_REPAIR_CAP
 		data["limbs"] = list()
 		for(var/obj/item/organ/external/limb in ipc.organs)
-			if(limb.brute_dam || limb.burn_dam)
-				data["limbs"] += list(list("name" = limb.name, "brute_damage" = edit_organ_status(limb.brute_dam, diagnostics), "burn_damage" = edit_organ_status(limb.burn_dam, diagnostics), "max_damage" = limb.max_damage))
+			data["limbs"] += list(list(
+				"name" = limb.name,
+				"brute_damage" = edit_organ_status(limb.brute_dam, diagnostics),
+				"burn_damage" = edit_organ_status(limb.burn_dam, diagnostics),
+				"max_damage" = limb.max_damage,
+				"foreign_bodies" = get_synthetic_foreign_body_findings(limb)
+			))
 
 		var/obj/item/organ/internal/machine/power_core/C = ipc.internal_organs_by_name[BP_CELL]
 		if(C)
+			data["has_power_core"] = TRUE
 			data["charge_percent"] = C.percent()
+			data["power_core_integrity"] = edit_organ_status(C.get_integrity(), diagnostics)
 
 		var/datum/component/synthetic_endoskeleton/endoskeleton = ipc.GetComponent(/datum/component/synthetic_endoskeleton)
 		if(istype(endoskeleton))
+			data["has_endoskeleton"] = TRUE
 			data["endoskeleton_damage"] = endoskeleton.damage
 			data["endoskeleton_max_damage"] = endoskeleton.max_damage
 
 		var/datum/component/armor/synthetic/synth_armor = ipc.GetComponent(/datum/component/armor/synthetic)
 		if(istype(synth_armor))
-			data["armor_data"] = list()
+			data["has_armor"] = TRUE
 			var/list/armor_damage = synth_armor.get_visible_damage()
 			for(var/key in armor_damage)
 				data["armor_data"] += list(list("key" = key, "status" = armor_damage[key]))
 
 	return data
+
+/** Mirrors the body scanner's visibility rules for implants and foreign bodies. */
+/proc/get_synthetic_foreign_body_findings(obj/item/organ/external/limb)
+	var/list/findings = list()
+	var/unknown_objects = 0
+	var/abnormal_organic_bodies = 0
+
+	for(var/atom/movable/foreign_body in limb.implants)
+		if(istype(foreign_body, /obj/item/implant))
+			var/obj/item/implant/implant = foreign_body
+			if(implant.hidden)
+				continue
+			if(implant.known)
+				findings += "[implant.name] installed"
+			else
+				unknown_objects++
+			continue
+
+		if(istype(foreign_body, /obj/effect/spider))
+			abnormal_organic_bodies++
+		else
+			unknown_objects++
+
+	if(unknown_objects)
+		findings += "[unknown_objects] unknown object(s) present"
+	if(abnormal_organic_bodies)
+		findings += abnormal_organic_bodies > 1 ? "Multiple abnormal organic bodies" : "Abnormal organic body"
+
+	return findings
 
 /**
  * Edits a status number based on the diagnostics unit's status.

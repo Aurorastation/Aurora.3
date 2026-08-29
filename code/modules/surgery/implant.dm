@@ -157,6 +157,16 @@
 	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
+/singleton/surgery_step/cavity/implant_removal/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	// Implant, embedded-object, and shrapnel extraction can all use either
+	// organic surgical training or robotics training.
+	return get_alternative_surgery_skill_requirements(
+		user,
+		list(SURGERY_SKILL_COMPONENT, ROBOTICS_SKILL_COMPONENT),
+		SKILL_LEVEL_TRAINED,
+		preferred_skill_component
+	)
+
 /singleton/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
@@ -214,4 +224,3 @@
 	user.visible_message(SPAN_WARNING("[user] loses their grip and stabs [target] with \the [tool]!"), SPAN_WARNING("You lose your grip on \the [tool] and stab [target]!"))
 	affected.sever_artery()
 	target.apply_damage(25, DAMAGE_BRUTE, target_zone)
-

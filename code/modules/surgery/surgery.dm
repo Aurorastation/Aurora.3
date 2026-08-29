@@ -41,6 +41,45 @@
 			return allowed_tools[T]
 	return FALSE
 
+/**
+ * Returns the skills used for this particular operation. Most steps use their
+ * static requirements, but procedures that can cross organic and mechanical
+ * anatomy may select a requirement from the patient state.
+ *
+ * preferred_skill_component is used by specialized planners to ask whether a
+ * step can be performed using their skill. Live surgery leaves it unset.
+ */
+/singleton/surgery_step/proc/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	if(preferred_skill_component && (!skill_requirements || isnull(skill_requirements[preferred_skill_component])))
+		return null
+	return skill_requirements
+
+/** Selects one permitted skill, preferring the surgeon's strongest skill live. */
+/singleton/surgery_step/proc/get_alternative_surgery_skill_requirements(mob/living/user, list/permitted_skills, required_level, preferred_skill_component)
+	if(!length(permitted_skills))
+		return null
+
+	var/selected_skill
+	if(preferred_skill_component)
+		if(!(preferred_skill_component in permitted_skills))
+			return null
+		selected_skill = preferred_skill_component
+	else
+		var/best_level = -1
+		for(var/skill_component in permitted_skills)
+			var/skill_level = GET_SKILL_LEVEL(user, skill_component)
+			if(isnull(skill_level))
+				continue
+			if(!selected_skill || skill_level > best_level)
+				selected_skill = skill_component
+				best_level = skill_level
+		if(!selected_skill)
+			selected_skill = permitted_skills[1]
+
+	var/list/requirements = list()
+	requirements[selected_skill] = required_level
+	return requirements
+
 /// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
 	if(!ishuman(target))
@@ -165,7 +204,8 @@
 			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
 
 			// Skill modifier checks
-			for (var/skill_comp, required_level in S.skill_requirements)
+			var/list/effective_skill_requirements = S.get_surgery_skill_requirements(user, M, zone)
+			for (var/skill_comp, required_level in effective_skill_requirements)
 				var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
 				// Null condition handles NPCs and Antags that won't have the skill setup.
 				if (!isnull(skill_level))
