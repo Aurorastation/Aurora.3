@@ -177,7 +177,7 @@
 	items = list(
 		/obj/item/storage/box/tactical/beanbags
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
