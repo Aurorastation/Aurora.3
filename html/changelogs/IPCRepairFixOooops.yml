@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a bug preventing scanning and using a welder on an IPC in a surgical chair."
