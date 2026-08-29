@@ -234,13 +234,16 @@
 /turf/simulated/copy_turf(turf/simulated/other, ignore_air = FALSE)
 	. = ..()
 
-	if (!ignore_air && zone && istype(other))
-		if (!other.air)
-			other.make_air()
+	if (ignore_air || !zone || !istype(other))
+		other.update_icon()
+		return
 
-		other.air.copy_from(zone.air)
+	if (!other.air)
+		other.make_air()
 
-		SSair.mark_for_update(other)
+	other.air.copy_from(zone.air)
+
+	SSair.mark_for_update(other)
 
 	other.update_icon()
 
