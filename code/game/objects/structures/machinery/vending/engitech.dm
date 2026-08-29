@@ -200,7 +200,7 @@
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
-/obj/structure/machinery/vending/engineering
+/obj/structure/machinery/vending/engineering/noid
 	req_access = null
 
 /obj/item/vending_refill/tools

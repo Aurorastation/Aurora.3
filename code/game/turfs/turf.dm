@@ -155,14 +155,6 @@
 	if (z_flags & ZM_MIMIC_BELOW)
 		setup_zmimic(mapload)
 
-	if(A.generate_dirt > 0 && istype(src, /turf/simulated/floor))
-		var/dirt_to_spawn = round(A.generate_dirt / 100)
-		if(prob(A.generate_dirt % 100))
-			dirt_to_spawn++
-		while(dirt_to_spawn > 0)
-			new /obj/effect/decal/cleanable/dirt(src)
-			dirt_to_spawn--
-
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()

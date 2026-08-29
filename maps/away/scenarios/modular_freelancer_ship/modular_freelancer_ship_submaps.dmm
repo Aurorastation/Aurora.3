@@ -2772,7 +2772,7 @@
 "ajM" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/vending/engineering,
+/obj/structure/machinery/vending/engineering/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/engineering)
 "ajO" = (

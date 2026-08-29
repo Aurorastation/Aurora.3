@@ -11,7 +11,7 @@
 /obj/effect/map_effect/marker/mining_conveyor/Initialize(mapload, ...)
 	..()
 	if(!master_tag)
-		master_tag = "window tint control marker with area tag: [get_area(src)]"
+		master_tag = "mining conveyor marker with area tag: [get_area(src)]"
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/map_effect/marker/mining_conveyor/LateInitialize()
