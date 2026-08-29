@@ -3928,6 +3928,7 @@
 #include "code\modules\surgery\slimes.dm"
 #include "code\modules\surgery\surgery.dm"
 #include "code\modules\surgery\surgery_console.dm"
+#include "code\modules\surgery\surgery_planner_checks.dm"
 #include "code\modules\surgery\~defines.dm"
 #include "code\modules\synthesized_instruments\echo_editor.dm"
 #include "code\modules\synthesized_instruments\env_editor.dm"
