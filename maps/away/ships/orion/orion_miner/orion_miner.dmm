@@ -162,7 +162,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -190,7 +190,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/light,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/corridor)
 "bO" = (
@@ -295,7 +295,7 @@
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "cg" = (
@@ -507,7 +507,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_aft,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/airlock_sensor{
 	dir = 1;
@@ -647,7 +647,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 22
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "eM" = (
@@ -874,7 +874,7 @@
 	dir = 1
 	},
 /obj/structure/bed/handrail,
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "gZ" = (
@@ -918,7 +918,7 @@
 	pixel_x = 24;
 	pixel_y = 23
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -1227,7 +1227,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/machinery/light,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/corridor)
 "kq" = (
@@ -1838,7 +1838,7 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "pG" = (
@@ -1869,7 +1869,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -1948,7 +1948,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "qk" = (
@@ -2054,7 +2054,7 @@
 	dir = 9
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -2143,7 +2143,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_aft,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
 	pixel_x = -12;
@@ -2168,7 +2168,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "sz" = (
@@ -2214,7 +2214,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_aft,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28;
@@ -2385,7 +2385,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/corridor)
 "vQ" = (
@@ -2558,7 +2558,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -2961,7 +2961,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 22
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -3153,7 +3153,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "BU" = (
@@ -3244,7 +3244,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_aft,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = 28;
@@ -3288,7 +3288,7 @@
 	pixel_y = -28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -3323,7 +3323,7 @@
 	dir = 1
 	},
 /obj/structure/bed/handrail,
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "Db" = (
@@ -3783,7 +3783,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "GR" = (
@@ -4096,7 +4096,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/corridor)
 "KB" = (
@@ -5191,7 +5191,7 @@
 	pixel_x = -24;
 	pixel_y = 23
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -5282,7 +5282,7 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
@@ -5423,7 +5423,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_aft,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 28;
@@ -5574,7 +5574,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/orion_miner_aft,
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/main_engineering_port)

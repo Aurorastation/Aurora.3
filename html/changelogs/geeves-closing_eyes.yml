@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "You can now close your eyes. This blinds you, but gives you protection against flash effects."
-  - balance: "Welding while blind takes three times as long and has an 80% chance to fail, with a risk of burning yourself."

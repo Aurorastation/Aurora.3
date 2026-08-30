@@ -167,8 +167,8 @@
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	CutOverlays()
-	if(dir == SOUTH)
-		layer = ABOVE_HUMAN_LAYER
+	if(dir != NORTH)
+		layer = ABOVE_ABOVE_HUMAN_LAYER
 	else
 		layer = initial(layer)
 	if(!neighbor_status || !anchored)

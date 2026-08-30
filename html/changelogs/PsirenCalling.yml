@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscdel: "The golden slime core can no longer spawn psiren omens, beckoners or the psiren matriarch."
-  - rscdel: "Technomancers can no longer summon the psiren omens or beckoners. Other psirens were untouched."

@@ -212,6 +212,27 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 7)
 
+/obj/item/reagent_containers/food/snacks/bowl/psiren_chips
+	name = "psiren chips"
+	gender = PLURAL
+	desc = "Small, thin slices of Psiren skin deep fried and salted. Psiren skin responds very well to being fried, absorbing oil easily and becoming very crunchy in the process."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "psiren_chips"
+	filling_color = "#1a778f"
+	bitesize = 0.5
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("salted fish chips" = 5, "extreme crunchiness" = 5))
+	unitname = "chip"
+	trash = /obj/item/trash/bowl_small
+	vendingobject = /obj/item/reagent_containers/food/snacks/psiren_chip
+
+/obj/item/reagent_containers/food/snacks/psiren_chip
+	name = "psiren chip"
+	desc = "A crunchy square of deep fried Psiren skin. Crunches in your mouth, not in your hand."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "psiren_chip"
+	bitesize = 1
+	filling_color = "#1a778f"
 
 /obj/item/reagent_containers/food/snacks/donut
 	name = "donut"
