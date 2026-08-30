@@ -1506,12 +1506,13 @@
 	if(..())
 		return
 
-	var/burn_temperature = fire_burn_temperature()
+	var/burn_temperature = fire_burn_temperature(environment)
 	var/thermal_protection = get_heat_protection(burn_temperature)
 
-	// Increment bodytemp up by up to BODYTEMP_HEATING_MAX C / sec, as modified by thermal protection.
+	// Increment body temperature by up to BODYTEMP_HEATING_MAX K/sec, as modified by thermal protection.
 	if (thermal_protection < 1 && bodytemperature < burn_temperature)
-		bodytemperature += round(BODYTEMP_HEATING_MAX * (1-thermal_protection) * 20 * seconds_per_tick, 1)
+		var/temperature_increase = round(BODYTEMP_HEATING_MAX * (1 - thermal_protection) * seconds_per_tick, 1)
+		bodytemperature = min(bodytemperature + temperature_increase, burn_temperature)
 
 /mob/living/carbon/human/rejuvenate()
 	restore_blood()
