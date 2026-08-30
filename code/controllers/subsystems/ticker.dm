@@ -192,7 +192,9 @@ SUBSYSTEM_DEF(ticker)
 					"Prefilling syringes...",
 					"Sorting through cargo orders...",
 					"Refilling soda dispensers...",
-					"Unleashing the warehouse beasts..."
+					"Putting viscerators in crates...",
+					"Consulting the Goddess Touched seers...",
+					"Releasing the cave geist..."
 				)))
 
 /datum/controller/subsystem/ticker/proc/game_tick(var/force_end = FALSE)
