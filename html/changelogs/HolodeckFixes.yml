@@ -1,8 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed various bugs on the holodeck regarding invisible items and decals not being deleted."
-  - bugfix: "The holodeck null rod can no longer be reassembled and kept."
-  - bugfix: "The chess and burn test simulations were removed, as they were unused."

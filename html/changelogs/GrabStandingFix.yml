@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed grabbing forcing people to stand up. Now they only stand up with a neck grab, if the grabber attempts to move."
