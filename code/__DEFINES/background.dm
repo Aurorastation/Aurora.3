@@ -226,6 +226,20 @@
 #define CITIZENSHIPS_ALL_IPC list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_ELYRA, CITIZENSHIP_GOLDEN, CITIZENSHIP_NONE)
 
 #define RELIGIONS_BIESEL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)
+#define ORIGINS_BIESEL list(\
+	/singleton/origin_item/origin/biesel, \
+	/singleton/origin_item/origin/new_gibson, \
+	/singleton/origin_item/origin/reade, \
+	/singleton/origin_item/origin/valkyrie, \
+	/singleton/origin_item/origin/biesel_grown, \
+	/singleton/origin_item/origin/diona_district_11, \
+	/singleton/origin_item/origin/titan_prime, \
+	/singleton/origin_item/origin/biesel_wildborn, \
+	/singleton/origin_item/origin/ipc_tau_ceti, \
+	/singleton/origin_item/origin/skrell_biesel, \
+	/singleton/origin_item/origin/little_adhomai, \
+	/singleton/origin_item/origin/little_adhomai/zhan, \
+	/singleton/origin_item/origin/little_adhomai/msai)
 #define CITIZENSHIPS_BIESEL list(CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
 
 #define RELIGIONS_COALITION list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)

@@ -211,6 +211,7 @@
 #define BP_AUG_PSI                "psionic receiver"
 #define BP_AUG_RADIO              "integrated radio"
 #define BP_AUG_SIGHTLIGHTS        "ocular installed sightlights"
+#define BP_AUG_SMES_INDUCTOR	  "SMES induction link"
 #define BP_AUG_SUBDERMAL_CARAPACE "subdermal carapace"
 #define BP_AUG_SUSPENSION         "calf suspension"
 #define BP_AUG_TASTE_BOOSTER      "taste booster"
