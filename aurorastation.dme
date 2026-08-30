@@ -439,7 +439,6 @@
 #include "code\controllers\subsystems\initialization\map_finalization.dm"
 #include "code\controllers\subsystems\initialization\misc_early.dm"
 #include "code\controllers\subsystems\initialization\misc_late.dm"
-#include "code\controllers\subsystems\initialization\persistent_configuration.dm"
 #include "code\controllers\subsystems\initialization\registry.dm"
 #include "code\controllers\subsystems\initialization\xenoarch.dm"
 #include "code\controllers\subsystems\movement\movement.dm"
