@@ -1,5 +1,6 @@
 // naval infantry
 /datum/ghostspawner/human/elyran_navy_crewman
+	roundstart_ship_name = "Elyran Corvette"
 	short_name = "elyran_navy_crewman"
 	name = "Elyran Naval Infantryman"
 	desc = "Crew the Elyran Corvette, and serve as the frontline in any combat situations. Assist in any ship operations as needed. Ensure the integrity and safety of the Serene Republic of Elyra's borders."

@@ -2,6 +2,8 @@
 // ---------------------- spawners
 
 /datum/ghostspawner/human/scc_scout_ship_crew_captain
+	roundstart_ship_name = "SCC Scout Ship"
+	roundstart_factions = list("Stellar Corporate Conglomerate")
 	short_name = "scc_scout_ship_captain"
 	name = "SCC Scout Ship Captain"
 	desc = "\
@@ -34,6 +36,8 @@
 	idris_account_max = 2500
 
 /datum/ghostspawner/human/scc_scout_ship_crew_orion
+	roundstart_ship_name = "SCC Scout Ship"
+	roundstart_factions = list("Orion Express")
 	short_name = "scc_scout_ship_orion"
 	name = "SCC Scout Ship Orion Express Crew"
 	desc = "Be the ship's mechanist, cargo and fuel technician, miner, chef, or a general crew/assistant who knows a tiny bit of everything."
@@ -60,6 +64,8 @@
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew_heph
+	roundstart_ship_name = "SCC Scout Ship"
+	roundstart_factions = list("Hephaestus Industries")
 	short_name = "scc_scout_ship_heph"
 	name = "SCC Scout Ship Hephaestus Crew"
 	desc = "Be the ship's engineer, cargo and fuel technician, a miner, or a general crew/assistant who knows a tiny bit of everything."
@@ -86,6 +92,8 @@
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew_zeng
+	roundstart_ship_name = "SCC Scout Ship"
+	roundstart_factions = list("Zeng-Hu Pharmaceuticals")
 	short_name = "scc_scout_ship_zeng"
 	name = "SCC Scout Ship Zeng-Hu Crew"
 	desc = "Be the ship's scientist, archeologist, physician, surgeon, or a general crew/assistant who knows a tiny bit of everything."
@@ -110,6 +118,8 @@
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew_nanotrasen
+	roundstart_ship_name = "SCC Scout Ship"
+	roundstart_factions = list("NanoTrasen")
 	short_name = "scc_scout_ship_nanotrasen"
 	name = "SCC Scout Ship NanoTrasen Crew"
 	desc = "Be the ship's physician, surgeon, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
@@ -136,6 +146,8 @@
 	respawn_flag = null
 
 /datum/ghostspawner/human/scc_scout_ship_crew_zavod
+	roundstart_ship_name = "SCC Scout Ship"
+	roundstart_factions = list("Zavodskoi Interstellar")
 	short_name = "scc_scout_ship_zavod"
 	name = "SCC Scout Ship Zavod Crew"
 	desc = "Be the ship's engineer, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
@@ -273,4 +285,3 @@
 	back = list(/obj/item/storage/backpack/messenger/zavod, /obj/item/storage/backpack/satchel/zavod)
 	head = list(/obj/item/clothing/head/beret/corporate/zavod, /obj/item/clothing/head/softcap/zavod, /obj/item/clothing/head/sidecap/zavod, /obj/item/clothing/head/surgery/zavod)
 	accessory = /obj/item/clothing/accessory/pin/corporate/zavod
-

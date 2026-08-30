@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/sadar_crew
+	roundstart_ship_name = "Unified Sadar Fleet Scout"
 	short_name = "sadar_crew"
 	name = "Unified Sadar Fleet Crewman"
 	desc = "Crew the Unified Sadar Fleet Scout vessel and be a scarab rogue! Take what you can, give nothing back! (OOC Note: All characters must be of Scarab origin and background, this is enforceable by admin/moderator action)"

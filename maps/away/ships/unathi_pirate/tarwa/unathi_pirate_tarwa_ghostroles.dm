@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/tarwa
+	roundstart_ship_name = "Tarwa Conglomerate Ship"
 	short_name = "tarwa_crew"
 	name = "Tarwa Conglomerate Crewman"
 	desc = "You are a pirate, serving with the enigmetic Tarwa Conglomerate - also called the living-dead fleet. Obey your captain, defend your ship and crew, and survive another day. NOT AN ANTAGONIST! Do not act as such."

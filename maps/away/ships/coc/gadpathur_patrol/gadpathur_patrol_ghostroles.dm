@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/gadpathur_patrol
+	roundstart_ship_name = "Gadpathurian Patrol Corvette"
 	short_name = "gadpathur_patroller"
 	name = "Gadpathurian Patrol Corvette Security Cadre Member"
 	desc = "Crew a Gadpathurian patrol vessel, and ensure the Coalition and Gadpathur never again falls to its enemies."

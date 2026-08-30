@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/voidtamer_crew
+	roundstart_ship_name = "Voidtamer Trade Ship"
 	short_name = "voidtamer_crew"
 	name = "Voidtamer Crew"
 	desc = "Dionae crew of a Voidtamer vessel."

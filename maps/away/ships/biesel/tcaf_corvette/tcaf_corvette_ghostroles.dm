@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/tcaf_crewman
+	roundstart_ship_name = "Republic Astroforce Patrol Vessel"
 	name = "TCAF Republic Astroforce Enlisted Crew"
 	short_name = "tcaf_crewman"
 	desc = "You are an enlisted crewmember aboard a Republic Astroforce patrol vessel. \

@@ -1,6 +1,7 @@
 //orion mining ship
 
 /datum/ghostspawner/human/orion_miner
+	roundstart_ship_name = "Orion Express Mining Skiff"
 	short_name = "orion_miner"
 	name = "Orion Mining Skiff Crewmember"
 	desc = "Crew the Orion Express mining skiff as a crewmate or miner."

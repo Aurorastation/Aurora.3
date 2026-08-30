@@ -1,5 +1,6 @@
 // Orbital Fleet Kosmostrelki - Elite crew of the PRA's Orbital Fleet spaceships.
 /datum/ghostspawner/human/headmaster_kosmostrelki
+	roundstart_ship_name = "Headmaster Ship"
 	short_name = "headmaster_kosmostrelki"
 	name = "Headmaster Ship Kosmostrelki"
 	desc = "Crew an Orbital Fleet ship."

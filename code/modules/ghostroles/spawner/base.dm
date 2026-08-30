@@ -109,8 +109,8 @@
 	return FALSE
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
-/datum/ghostspawner/proc/cant_spawn(mob/user) //If the user can spawn using the spawner
-	if(!ROUND_IS_STARTED)
+/datum/ghostspawner/proc/cant_spawn(mob/user, roundstart = FALSE) //If the user can spawn using the spawner
+	if(!roundstart && !ROUND_IS_STARTED)
 		return "The round is not started yet."
 	if(SSatlas?.current_sector && !SSatlas.current_sector.ghostroles_enabled)
 		return "Ghost roles are unavailable in this sector."
@@ -121,7 +121,7 @@
 		return "You are not a ghost."
 	if(!enabled) //If the spawner id disabled, we cant spawn in
 		return "This spawner is not enabled."
-	if(respawn_flag && !user.MayRespawn(0,respawn_flag))
+	if(!roundstart && respawn_flag && !user.MayRespawn(0,respawn_flag))
 		return "You can not respawn at this time."
 	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."

@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/hiskyn
+	roundstart_ship_name = "Hiskyn's Revanchists Ship"
 	short_name = "hiskyn"
 	name = "Hiskyn's Revanchist Crewman"
 	desc = "Serve aboard a ship of the pirate fleet Hiskyn's Revanchists - former Kazhkz-Han'san Unathi who refused to join the Empire of Dominia. Obey your captain, defend your ship and crew, and keep an eye out for opportunities to shed some Kazhkz-Han'san blood! NOT AN ANTAGONIST! Do not act as such."

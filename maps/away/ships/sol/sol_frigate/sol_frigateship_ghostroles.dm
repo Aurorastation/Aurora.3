@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/ssrm_navy_crewman/solfrig_crewman
+	roundstart_ship_name = "Solarian Navy Frigate"
 	short_name = "solfrig_crewman"
 	name = "Solarian Frigate Crewman"
 	desc = "\
@@ -17,6 +18,7 @@
 	special_role = "Solarian Frigate Crewman"
 
 /datum/ghostspawner/human/ssrm_navy_crewman/solfrig_commander
+	roundstart_ship_name = "Solarian Navy Frigate"
 	short_name = "solfrig_commander"
 	name = "Solarian Frigate Commander"
 	desc = "\
@@ -36,6 +38,7 @@
 	special_role = "Solarian Frigate Commander"
 
 /datum/ghostspawner/human/ssrm_navy_crewman/solfrig_xo
+	roundstart_ship_name = "Solarian Navy Frigate"
 	short_name = "solfrig_xo"
 	name = "Solarian Frigate Lieutenant"
 	desc = "\
@@ -67,6 +70,7 @@
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssrm_ipc/solfrig_ipc
+	roundstart_ship_name = "Solarian Navy Frigate"
 	short_name = "solfrig_ipc"
 	name = "Solarian Frigate Synthetic"
 	desc = "\

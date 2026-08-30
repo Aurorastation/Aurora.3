@@ -1,6 +1,7 @@
 //iac volunteers
 
 /datum/ghostspawner/human/iac_volunteer
+	roundstart_ship_name = "IAC Rescue Ship"
 	short_name = "iac_volunteer"
 	name = "IAC Volunteer"
 	desc = "Crew the IAC Rescue Ship. Act as either a physician, surgeon, first responder (not all three), or as a fresh-faced trainee! Help those in need and respond to medical emergencies or distress calls. Try to raise funds and donations while staying out of trouble. Remember, you're a strictly neutral aid worker sworn to offer assistance to anyone who needs it! Don't get involved in interstellar politics."

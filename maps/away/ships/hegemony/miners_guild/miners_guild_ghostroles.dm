@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/miners_guild
+	roundstart_ship_name = "Miners' Guild Outpost"
 	short_name = "miners_guild"
 	name = "Unathi Guild Miner"
 	desc = "Crew a Miners' Guild outpost in the sector. Break rocks, earn your paycheck."

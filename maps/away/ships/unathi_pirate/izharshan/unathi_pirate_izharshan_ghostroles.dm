@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/izharshan
+	roundstart_ship_name = "Izharshan Shuttle"
 	short_name = "izharshan_crew"
 	name = "Izharshan Crewman"
 	desc = "Quartermaster, Vesselhide, Gunner or mere Crew, whatever your role is, you will obey your captain, for your pirate clan and fleet, the Izharshan. NOT AN ANTAGONIST! Do not act as such."

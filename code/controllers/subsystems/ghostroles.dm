@@ -12,6 +12,8 @@ SUBSYSTEM_DEF(ghostroles)
 	 * This includes spawner datums that might not currently exist anywhere in-game.
 	 */
 	var/list/spawners = list()
+	/// Human offship roles which may be saved in character setup, including roles not mapped this round.
+	var/list/roundstart_offship_catalog = list()
 
 	/**
 	 * The set of all ghostroles that have been taken by players.
@@ -27,6 +29,7 @@ SUBSYSTEM_DEF(ghostroles)
 /datum/controller/subsystem/ghostroles/Recover()
 	src.spawnpoints = SSghostroles.spawnpoints
 	src.spawners = SSghostroles.spawners
+	src.roundstart_offship_catalog = SSghostroles.roundstart_offship_catalog
 
 /datum/controller/subsystem/ghostroles/Initialize(start_timeofday)
 	for(var/spawner in subtypesof(/datum/ghostspawner))
@@ -36,6 +39,9 @@ SUBSYSTEM_DEF(ghostroles)
 		if(!G.short_name || !G.name || !G.desc)
 			log_subsystem_ghostroles("Spawner [G.type] got removed from selection because of missing data")
 			continue
+		var/datum/ghostspawner/human/human_spawner = G
+		if(istype(human_spawner) && human_spawner.is_roundstart_offship_role())
+			roundstart_offship_catalog[G.short_name] = G
 		//Check if we have a spawnpoint on the current map
 		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
 			log_subsystem_ghostroles("Spawner [G.type] got removed from selection because of missing spawnpoint")
@@ -286,6 +292,51 @@ SUBSYSTEM_DEF(ghostroles)
 	if(spawner_name in spawners)
 		return spawners[spawner_name]
 	return null
+
+/// Returns why a saved offship role cannot ready/spawn in the current round, or null when it can.
+/datum/controller/subsystem/ghostroles/proc/get_roundstart_offship_error(mob/user, datum/preferences/prefs)
+	var/datum/ghostspawner/human/spawner = spawners[prefs?.selected_job]
+	if(!istype(spawner))
+		return "That offship is not available this round"
+	var/selection_error = spawner.get_roundstart_selection_error(user, prefs)
+	if(selection_error)
+		return selection_error
+	return spawner.cant_spawn(user, TRUE)
+
+/// Spawns a selected character slot through a human ghost role while sharing its normal capacity and manifest tracking.
+/datum/controller/subsystem/ghostroles/proc/spawn_selected_offship(mob/abstract/new_player/player)
+	RETURN_TYPE(/mob/living/carbon/human)
+
+	var/datum/preferences/prefs = player?.client?.prefs
+	var/datum/ghostspawner/human/spawner = spawners[prefs?.selected_job]
+	if(!istype(spawner))
+		return null
+
+	var/spawn_error = get_roundstart_offship_error(player, prefs)
+	if(spawn_error)
+		to_chat(player, SPAN_WARNING("Unable to spawn as [spawner.name]: [spawn_error]"))
+		return null
+
+	if(!spawner.pre_spawn(player))
+		return null
+
+	var/mob/living/carbon/human/spawned = spawner.spawn_mob_from_preferences(player)
+	if(!spawned)
+		spawner.count = max(spawner.count - 1, 0)
+		if(!spawner.max_count || spawner.count < spawner.max_count)
+			spawner.enabled = TRUE
+		return null
+
+	if(!spawner.post_spawn(spawned))
+		return null
+
+	var/datum/weakref/spawned_ref = WEAKREF(spawned)
+	LAZYADD(spawner.spawned_mobs, spawned_ref)
+	LAZYADD(spawned_ghostrole_mobs, spawned_ref)
+	SSrecords.reset_manifest()
+	log_and_message_admins("joined as selected offship GhostRole: [spawner.name]", spawned)
+	SStgui.update_uis(src)
+	return spawned
 
 /**
  * Returns a /list/mob containing all mobs that were created by ghostroles and currently exist.

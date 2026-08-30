@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/air_konyang
+	roundstart_ship_name = "Air Konyang"
 	name = "Air Konyang Crew"
 	short_name = "air_konyang"
 	desc = "Crew an Air Konyang passenger liner."

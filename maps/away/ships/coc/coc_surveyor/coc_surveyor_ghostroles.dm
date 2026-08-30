@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/coc_surveyor
+	roundstart_ship_name = "COC Survey Ship"
 	short_name = "coc_surveyor"
 	name = "Coalition Surveyor"
 	desc = "Crew a Coalition of Colonies survey vessel and survey nearby planets and objects of interest."

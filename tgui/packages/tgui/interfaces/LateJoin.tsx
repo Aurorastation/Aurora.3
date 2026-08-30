@@ -28,6 +28,7 @@ type Job = {
   head: BooleanLike;
   total_positions: number;
   current_positions: number;
+  offship_role?: string;
 };
 
 export const LateJoin = (props) => {
@@ -110,7 +111,13 @@ export const JobsList = (props) => {
                     : job.title
                 }
                 width="100%"
-                onClick={() => act('SelectedJob', { SelectedJob: job.title })}
+                onClick={() =>
+                  job.offship_role
+                    ? act('SelectedOffship', {
+                        SelectedOffship: job.offship_role,
+                      })
+                    : act('SelectedJob', { SelectedJob: job.title })
+                }
               />
             ))}
         </Section>

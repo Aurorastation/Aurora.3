@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/coc_scarab
+	roundstart_ship_name = "Scarab Salvage Ship"
 	short_name = "coc_scarab"
 	name = "Scarab Salvager"
 	desc = "Crew a salvage ship sent to gather resources for the Scarab Fleet - mine precious minerals, salvage derelict ships, siphon valuable gasses from exoplanets, and care for your crew as your family. Remember, the fleet is always in need of more resources, and you need to make your expedition worth it. (OOC Note: Characters must have names and backgrounds consistent with the Scarab Fleet. This is enforceable by admin action.)"

@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/freebooter_crew
+	roundstart_ship_name = "Freebooter Ship"
 	short_name = "freebooter_crew"
 	name = "Freebooter Crewman"
 	desc = "Crew the Freebooter ship. Listen to your captain - you follow no laws but his. You like to think of yourself as an adventurer and a businessman. Others, though, would call you a pirate, a bandit, a smuggler, a thug, a thief and a knave. It doesn't matter to you what they say: you're here to make money, by any means necessary. Just don't let the law catch up to you."

@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/ssrm_navy_crewman
+	roundstart_ship_name = "Solarian Navy Reconnaissance Corvette"
 	short_name = "ssrm_navy_crewman"
 	name = "Sol Navy Recon Crewman"
 	desc = "Crew a Solarian naval recon corvette, under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSRM. (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -35,6 +36,7 @@
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssrm_navy_officer
+	roundstart_ship_name = "Solarian Navy Reconnaissance Corvette"
 	short_name = "ssrm_navy_officer"
 	name = "Sol Navy Recon Officer"
 	desc = "Command a Solarian naval recon corvette, under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSRM. (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -72,6 +74,7 @@
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssrm_navy_chief_petty_officer
+	roundstart_ship_name = "Solarian Navy Reconnaissance Corvette"
 	short_name = "ssrm_navy_chief_petty_officer"
 	name = "Sol Navy Recon Chief Petty Officer"
 	desc = "Serve as the second-in-command of a Solarian naval recon corvette, under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate. Closely monitor and investigate pirate (especially SFA remnant) activity within the region, while serving the interests of the Solarian government, and the SSRM. (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -101,6 +104,7 @@
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssrm_marine_pilot
+	roundstart_ship_name = "Solarian Navy Reconnaissance Corvette"
 	short_name = "ssrm_marine_pilot"
 	name = "Sol Marine Recon Exosuit Pilot"
 	desc = "Protect a Solarian naval recon corvette under the commander of the Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate, and pilot the gremlin recon exosuit. Closely monitor and investigate pirate (OOC Note: Because the bulk of the SSRM's forces are people from the planet Visegrad or the rest of the Southern Solarian Reconstruction Mandate, it is recommended that your character use the Visegradi or general Solarian accent.)"
@@ -138,6 +142,7 @@
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ssrm_ipc
+	roundstart_ship_name = "Solarian Navy Reconnaissance Corvette"
 	short_name = "ssrm_ipc"
 	name = "Sol Military Recon Synthetic"
 	desc = "Assist the crew of a Solarian naval recon corvette under the command of Fleet Admiral Klaudia Szalai's Southern Solarian Reconstruction Mandate in whatever capacity necessary. Use your superior reflexes and skills to expertly pilot the ship and assist in reconnaissance operations. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government and the SSRM above all else."

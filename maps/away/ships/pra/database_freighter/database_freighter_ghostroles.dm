@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/database_freighter_crew
+	roundstart_ship_name = "Database Freighter"
 	short_name = "database_freighter_crew"
 	name = "Database Freighter Surveyor"
 	desc = "Crew the Orbital Fleet Database Freighter and survey nearby planets."

@@ -207,9 +207,21 @@
 	if(!equip_preview_mob)
 		return
 
-	// Determine what job is marked as 'High' priority, and dress them up as such.
+	var/datum/ghostspawner/human/offship_spawner = SSghostroles.roundstart_offship_catalog[selected_job]
+	if(istype(offship_spawner))
+		mannequin.job = offship_spawner.assigned_role || offship_spawner.name
+		if(equip_preview_mob & EQUIP_PREVIEW_JOB)
+			offship_spawner.equip_preview(mannequin, species, src)
+		if(!SSATOMS_IS_PROBABLY_DONE)
+			SSatoms.CreateAtoms(list(mannequin))
+			mannequin.regenerate_icons()
+		else
+			mannequin.update_icon()
+		return
+
+	// Dress the mannequin for the single selected station job.
 	var/datum/job/previewJob
-	previewJob = return_chosen_high_job()
+	previewJob = return_selected_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -239,14 +251,23 @@
 		else
 			mannequin.update_icon()
 
-/datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
+/datum/preferences/proc/return_selected_job(var/title = FALSE)
+	if(!SSjobs.initialized)
+		return
+	var/datum/job/chosen_job = SSjobs.GetJob(selected_job)
+	if(istype(chosen_job) && title)
+		return chosen_job.title
+	return chosen_job
+
+/// Reads the obsolete High priority fields while migrating an existing character.
+/datum/preferences/proc/return_legacy_high_job()
 	var/datum/job/chosenJob
 	if(!SSjobs.initialized)
 		return
 
 	if(job_civilian_low & ASSISTANT)
-		// Assistant is weird, has to be checked first because it overrides
-		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]
+		// Assistant was stored in the Low field as a special case in the old UI.
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[ASSISTANT]"]
 	else if(job_civilian_high)
 		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
 	else if(job_medsci_high)
@@ -256,9 +277,24 @@
 	else if(job_event_high)
 		chosenJob = SSjobs.bitflag_to_job["[EVENTDEPT]"]["[job_event_high]"]
 
-	if(istype(chosenJob) && title)
-		return chosenJob.title
 	return chosenJob
+
+/// Applies the shared hat, uniform, and suit visibility toggles after preview equipment is created.
+/datum/preferences/proc/filter_job_preview_equipment(mob/living/carbon/human/mannequin)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && mannequin.head)
+		var/obj/item/hidden_hat = mannequin.head
+		mannequin.drop_from_inventory(hidden_hat)
+		qdel(hidden_hat)
+
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && mannequin.w_uniform)
+		var/obj/item/hidden_uniform = mannequin.w_uniform
+		mannequin.drop_from_inventory(hidden_uniform)
+		qdel(hidden_uniform)
+
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && mannequin.wear_suit)
+		var/obj/item/hidden_suit = mannequin.wear_suit
+		mannequin.drop_from_inventory(hidden_suit)
+		qdel(hidden_suit)
 
 /datum/preferences/proc/update_mannequin()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmobs.get_mannequin(client.ckey)
@@ -272,13 +308,45 @@
 
 /datum/preferences/proc/update_preview_icon()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = update_mannequin()
-	var/mutable_appearance/MA = new /mutable_appearance(mannequin)
-	MA.appearance_flags = PIXEL_SCALE
-	if(mannequin.species?.icon_x_offset)
-		MA.pixel_x = mannequin.species.icon_x_offset
-	if(mannequin.species?.icon_y_offset)
-		MA.pixel_y = mannequin.species.icon_y_offset
-	var/matrix/M = matrix()
-	M.Scale(scale_x, scale_y)
-	MA.transform = M
-	update_character_previews(MA, (MA.pixel_x != 0 || MA.pixel_y != 0))
+	var/list/directional_appearances = list()
+	for(var/direction in GLOB.cardinals)
+		mannequin.set_dir(direction)
+		var/mutable_appearance/preview = new /mutable_appearance(mannequin)
+		filter_character_preview_planes(preview, preview.plane)
+		preview.appearance_flags |= KEEP_TOGETHER|PIXEL_SCALE|NO_CLIENT_COLOR
+		if(mannequin.species?.icon_x_offset)
+			preview.pixel_x = mannequin.species.icon_x_offset
+		if(mannequin.species?.icon_y_offset)
+			preview.pixel_y = mannequin.species.icon_y_offset
+		// Standard humans use 32px icons; species with icon offsets use wider
+		// canvases (for example, the 48px Bulwark) and need a smaller scale.
+		var/preview_scale = (mannequin.species?.icon_x_offset || mannequin.species?.icon_y_offset) ? 3 : 4
+		var/matrix/preview_transform = matrix()
+		preview_transform.Scale(preview_scale * scale_x, preview_scale * scale_y)
+		preview.transform = preview_transform
+		directional_appearances["[direction]"] = preview
+	update_character_previews(directional_appearances)
+
+/// Removes plane-specific effects which require the game world's plane masters.
+/// The remaining appearance tree can be safely composited in a TGUI map control.
+/datum/preferences/proc/filter_character_preview_planes(mutable_appearance/appearance, inherited_plane)
+	var/appearance_plane = appearance.plane == FLOAT_PLANE ? inherited_plane : appearance.plane
+	var/list/filtered_underlays = list()
+	for(var/image/underlay as anything in appearance.underlays)
+		var/underlay_plane = underlay.plane == FLOAT_PLANE ? appearance_plane : underlay.plane
+		if(underlay_plane != appearance_plane)
+			continue
+		var/mutable_appearance/underlay_copy = new /mutable_appearance(underlay)
+		filter_character_preview_planes(underlay_copy, appearance_plane)
+		filtered_underlays += underlay_copy
+	appearance.underlays = filtered_underlays
+
+	var/list/filtered_overlays = list()
+	for(var/image/overlay as anything in appearance.overlays)
+		var/overlay_plane = overlay.plane == FLOAT_PLANE ? appearance_plane : overlay.plane
+		if(overlay_plane != appearance_plane)
+			continue
+		var/mutable_appearance/overlay_copy = new /mutable_appearance(overlay)
+		filter_character_preview_planes(overlay_copy, appearance_plane)
+		filtered_overlays += overlay_copy
+	appearance.overlays = filtered_overlays

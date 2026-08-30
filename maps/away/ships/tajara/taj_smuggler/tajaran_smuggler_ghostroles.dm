@@ -1,6 +1,7 @@
 //tajaran smuggler ship
 
 /datum/ghostspawner/human/tajaran_smuggler
+	roundstart_ship_name = "Adhomian Freighter"
 	short_name = "tajaran_smuggler"
 	name = "Tajaran Smuggler"
 	desc = "Crew a Tajaran smuggling ship. Try to sell some of your illegally-acquired goods and make a profit."

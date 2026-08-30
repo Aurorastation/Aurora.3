@@ -1,5 +1,6 @@
 // SPLF Crewmen - a loose militia drawn from the system defence forces and volunteers of the Hinterlands, equipped with whatever is available.
 /datum/ghostspawner/human/splf_crewman
+	roundstart_ship_name = "SPLF Auxiliary Vessel"
 	name = "SPLF Auxiliary Crewman"
 	short_name = "splf_crewman"
 	desc = "You are an auxiliary volunteer of the Solarian People's Liberation Fleet, sent abroad from the Hinterlands on a raid to liberate supplies from corporate ownership. Prior to your volunteering you may have been a civilian of any stripe, but your assignment now is singular: take what you need from the corporate oppressors, defer to your liaison officer, and get back home alive. Remember, the corporations are the enemy, not any independents you encounter."
@@ -53,6 +54,7 @@
 
 // The IPC is an entirely seperate type to make things easier. Originally civilian synthetics, hastily repurposed.
 /datum/ghostspawner/human/splf_ipc
+	roundstart_ship_name = "SPLF Auxiliary Vessel"
 	short_name = "splf_ipc"
 	name = "SPLF Auxiliary Synthetic"
 	desc = "Plucked from prior civilian ownership in the Hinterlands, you are a synthetic that has been appropriated and hastily repurposed by the Solarian People's Liberation Fleet for its ends. You serve as non-combatant equipment, ensuring the functionality of the ship and the survival of its crew. Whatever you were in your civilian life, you now exist to forward the cause of national liberation - not that it probably means that much to you."

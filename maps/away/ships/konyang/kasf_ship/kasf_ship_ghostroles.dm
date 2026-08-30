@@ -1,5 +1,6 @@
 // kasf crewman
 /datum/ghostspawner/human/kasf_crewman
+	roundstart_ship_name = "KASF Corvette"
 	short_name = "kasf_crewman"
 	name = "KASF Crewman"
 	desc = "Crew the Konyang Aerospace Forces corvette, and assist in any ship operations as needed. Protect the Haneunim System from pirates and police the influx of refugees from the Human Wildlands in accordance to Konyang's strict immigration laws."

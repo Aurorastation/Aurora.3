@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/fsf_navy_crewman
+	roundstart_ship_name = "FSF Corvette"
 	short_name = "fsf_navy_crewman"
 	name = "FSF Navy Crewman"
 	desc = "Crew the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."
@@ -38,6 +39,7 @@
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/fsf_navy_officer
+	roundstart_ship_name = "FSF Corvette"
 	short_name = "fsf_navy_officer"
 	name = "FSF Navy Officer"
 	desc = "Command the Free Solarian Fleets patrol corvette. Look for work, or some other source of income."

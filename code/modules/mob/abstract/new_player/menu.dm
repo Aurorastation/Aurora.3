@@ -258,6 +258,12 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 		if(client.unacked_warning_count > 0)
 			tgui_alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.", "Warnings not acknowledged", list("Ok"))
 			return
+		var/datum/ghostspawner/human/offship_spawner = SSghostroles.roundstart_offship_catalog[client.prefs.selected_job]
+		if(readying && istype(offship_spawner))
+			var/offship_error = SSghostroles.get_roundstart_offship_error(src, client.prefs)
+			if(offship_error)
+				tgui_alert(src, "You cannot ready as this offship role: [offship_error]. Your selection remains saved for rounds where the role is available.", "Offship unavailable", list("Ok"))
+				return
 
 		if(SSticker.prevent_unready && !readying)
 			tgui_alert(src, "You may not unready during Odyssey setup!", "Odyssey")

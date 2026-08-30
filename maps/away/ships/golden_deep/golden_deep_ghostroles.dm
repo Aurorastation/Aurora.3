@@ -1,4 +1,5 @@
 /datum/ghostspawner/human/golden_deep
+	roundstart_ship_name = "Golden Deep Merchantile Vessel"
 	short_name = "golden_deep"
 	name = "Golden Deep Owned Synthetic"
 	desc = "You are a synthetic owned by a merchant of the Golden Deep. You occupy the lowest caste of your social hierarchy, an unfortunate on the losing end of the Great Game having found itself indebted to and owned by a more successful citizen. You may have come from anywhere, and you may have made any manner of bargain or miscalculation to find yourself in the position you now do, but you can have faith that you will one day be free again. Obey your merchant in all things, contribute to their profits, and amass your own funds until you can pay your debts and free yourself from this temporary embarassment."

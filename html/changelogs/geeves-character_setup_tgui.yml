@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: true
+
+changes:
+  - qol: "Converted the character setup window to TGUI."
