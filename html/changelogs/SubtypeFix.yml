@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed unathi subtype hairstyles, facial hair, hair gradients and bodymarkings."
