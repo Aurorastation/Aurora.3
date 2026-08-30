@@ -15309,13 +15309,6 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/wood,
 /area/horizon/service/cafeteria)
-"bYJ" = (
-/obj/effect/floor_decal/industrial/arrow/yellow,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/wall/r_wall,
-/area/horizon/medical/pharmacy)
 "bYQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -39916,9 +39909,7 @@
 /area/horizon/maintenance/deck_1/wing/starboard/far)
 "fka" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/landmark{
-	name = "Holocarp Spawn"
-	},
+/obj/effect/landmark/holodeck/holocarp_spawn_pain,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "fke" = (
@@ -41320,8 +41311,11 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/effect/floor_decal/corner_wide/orange/full,
-/obj/structure/sign/poster/medical/bay_39{
-	pixel_x = -29
+/obj/structure/machinery/ringer/west{
+	name = "Pharmacy ringer terminal";
+	department = "Pharmacy Frontdesk";
+	id = "pharmacy_ringer";
+	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
@@ -48344,6 +48338,10 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
+"gqe" = (
+/obj/effect/landmark/holodeck/penguin_spawn_random,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "gqj" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Unisex Restroom"
@@ -55613,9 +55611,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/xenobiology/xenoflora)
 "hne" = (
-/obj/effect/landmark{
-	name = "Penguin Spawn Emperor"
-	},
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
@@ -72673,6 +72668,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard)
+"jwy" = (
+/obj/effect/landmark/holodeck/penguin_spawn_emperor,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "jwz" = (
 /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 10
@@ -73796,9 +73795,7 @@
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/port)
 "jDX" = (
-/obj/effect/landmark{
-	name = "Holocarp Spawn Random"
-	},
+/obj/effect/landmark/holodeck/holocarp_spawn_random,
 /turf/simulated/floor/holofloor/space,
 /area/horizon/holodeck/source_space)
 "jDY" = (
@@ -74425,6 +74422,12 @@
 /area/horizon/medical/hallway/upper)
 "jIN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/ringer_button{
+	name = "Pharmacy ringer button";
+	id = "pharmacy_ringer";
+	pixel_x = -22;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/slate/full,
 /area/horizon/medical/reception)
 "jIO" = (
@@ -81887,6 +81890,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/gun/projectile/shotgun/pump/unloaded,
 /obj/item/gun/projectile/shotgun/pump/unloaded,
+/obj/item/gun/launcher/grenade,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "kDV" = (
@@ -91056,9 +91060,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/hallway/fore)
 "lOb" = (
-/obj/effect/landmark{
-	name = "Holocarp Spawn"
-	},
+/obj/effect/landmark/holodeck/holocarp_spawn_pain,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "lOc" = (
@@ -99654,9 +99656,7 @@
 /area/horizon/engineering/atmos/turbine)
 "mVz" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/landmark{
-	name = "Holocarp Spawn"
-	},
+/obj/effect/landmark/holodeck/holocarp_spawn_pain,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_wildlife)
 "mVD" = (
@@ -106227,6 +106227,9 @@
 /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
 	pixel_x = -11;
 	pixel_y = 14
+	},
+/obj/structure/sign/poster/medical/bay_39{
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
@@ -120937,9 +120940,7 @@
 /obj/item/toy/stressball{
 	pixel_x = -8
 	},
-/obj/effect/landmark{
-	name = "Animal Baby Spawn Random"
-	},
+/obj/effect/landmark/holodeck/animal_baby_random,
 /turf/simulated/floor/carpet/magenta,
 /area/horizon/holodeck/source_cafe)
 "pJj" = (
@@ -122232,15 +122233,6 @@
 /area/horizon/crew/fitness/changing)
 "pRU" = (
 /obj/structure/machinery/light,
-/obj/structure/machinery/ringer/south{
-	department = "Pharmacy Frontdesk";
-	id = "pharmacy_ringer";
-	req_access = list(33)
-	},
-/obj/structure/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry Lab Alpha";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
@@ -125708,6 +125700,11 @@
 /obj/structure/machinery/meter,
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/air)
+"qpQ" = (
+/obj/structure/flora/grass/brown,
+/obj/effect/landmark/holodeck/penguin_spawn_random,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "qpR" = (
 /obj/structure/disposalpipe/segment/mainline,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -145796,9 +145793,7 @@
 	pixel_x = 5;
 	pixel_y = 8
 	},
-/obj/effect/landmark{
-	name = "Animal Baby Spawn Random"
-	},
+/obj/effect/landmark/holodeck/animal_baby_random,
 /turf/simulated/floor/carpet/magenta,
 /area/horizon/holodeck/source_cafe)
 "sPC" = (
@@ -147296,6 +147291,10 @@
 	},
 /obj/structure/machinery/vending/wardrobe/chem_wardrobe,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Alpha";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
 "tau" = (
@@ -152246,7 +152245,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood/mahogany,
-/obj/item/nullrod/luceiansceptre,
+/obj/item/nullrod/luceiansceptre/holodeck,
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_luceism)
 "tGz" = (
@@ -159540,9 +159539,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/research)
 "uFc" = (
-/obj/effect/landmark{
-	name = "Penguin Spawn Random"
-	},
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
@@ -184916,9 +184912,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "xPw" = (
-/obj/effect/landmark{
-	name = "Animal Baby Spawn Random"
-	},
+/obj/effect/landmark/holodeck/animal_baby_random,
 /turf/simulated/floor/carpet/magenta,
 /area/horizon/holodeck/source_cafe)
 "xPx" = (
@@ -281020,7 +281014,7 @@ uDP
 uDP
 nQc
 pRU
-bYJ
+rft
 bac
 eUC
 pSz
@@ -429486,7 +429480,7 @@ mIl
 cPO
 mIl
 uFc
-mIl
+gqe
 cPO
 mIl
 oeZ
@@ -430001,7 +429995,7 @@ uqF
 mIl
 mIl
 hne
-mIl
+jwy
 mIl
 oeZ
 kRV
@@ -431027,7 +431021,7 @@ oeZ
 mIl
 mIl
 uFc
-hhN
+qpQ
 mIl
 mIl
 hhN
@@ -431543,7 +431537,7 @@ hhN
 mIl
 mIl
 uFc
-mIl
+gqe
 mIl
 oeZ
 lPe
