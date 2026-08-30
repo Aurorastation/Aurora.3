@@ -1452,7 +1452,9 @@
 	od_minimum_dose = 3
 	taste_description = "sugar"
 	goodmessage_species = list(
-		SPECIES_UNATHI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+		SPECIES_UNATHI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm..."),
+		SPECIES_UNATHI_URAWANI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm..."),
+		SPECIES_UNATHI_ZIRALIXI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
 		)
 
 /singleton/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
