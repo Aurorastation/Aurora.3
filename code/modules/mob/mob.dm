@@ -924,7 +924,10 @@
 	for(var/obj/item/grab/G as anything in grabbed_by)
 		if(G.wielded || G.state >= GRAB_AGGRESSIVE)
 			canmove = FALSE
-			lying = G.wielded || (G.state >= GRAB_NECK && G.force_down)
+			if(G.wielded)
+				lying = TRUE
+			else if(G.state >= GRAB_NECK)
+				lying = G.force_down
 			found_grab = TRUE
 			break
 	var/mob/living/carbon/human/H = astype(src)
