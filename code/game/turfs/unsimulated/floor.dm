@@ -78,12 +78,6 @@
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_state = "bcircuit"
 
-/turf/unsimulated/mask/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	if(!path)
-		return
-
-	new path(src)
-
 /turf/unsimulated/chasm_mask
 	name = "chasm mask"
 	icon = 'icons/turf/walls.dmi'

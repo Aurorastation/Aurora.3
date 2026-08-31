@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Probably fixed some asteroid/exoplanet rock wall light bugs."

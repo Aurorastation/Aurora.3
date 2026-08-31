@@ -87,7 +87,7 @@
 			continue
 
 		num_applied += 1
-		new new_path(T)
+		T.ChangeTurf(new_path)
 
 		CHECK_TICK
 
@@ -146,7 +146,7 @@
 			continue
 
 		num_applied += 1
-		new new_path(T)
+		T.ChangeTurf(new_path)
 
 		CHECK_TICK
 
