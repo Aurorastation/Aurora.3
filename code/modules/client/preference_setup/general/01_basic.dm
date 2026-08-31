@@ -200,7 +200,7 @@
 	fields += list(list("label" = "Floating Chat Color", "value" = pref.floating_chat_color, "color" = pref.floating_chat_color, "action" = "select_floating_chat_color"))
 	fields += list(list("label" = "Speech Bubble Type", "value" = capitalize_first_letters(pref.speech_bubble_type), "action" = "speech_bubble_type"))
 	if(istype(S, /datum/species/machine))
-		fields += list(list("label" = "Custom Model", "value" = pref.machine_custom_model, "action" = "custom_model"))
+		fields += list(list("label" = "Custom Model", "value" = pref.machine_custom_model ? pref.machine_custom_model : "Not set", "action" = "custom_model"))
 		fields += list(list(
 			"label" = "Has Tag",
 			"value" = pref.machine_tag_status ? "Yes" : "No",
@@ -353,8 +353,8 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["custom_model"]) // Same max length as tags
-		var/custom_model = tgui_input_text(user, "Enter a custom model that will display on examine. This is purely flavor.", "IPC Custom Model", max_length = 20)
-		if(CanUseTopic(user))
+		var/custom_model = tgui_input_text(user, "Enter a custom model that will display on examine. This is purely flavor.", "IPC Custom Model", default = pref.machine_custom_model, max_length = 20)
+		if(!isnull(custom_model) && CanUseTopic(user))
 			pref.machine_custom_model = sanitize(custom_model)
 			return TOPIC_REFRESH
 
