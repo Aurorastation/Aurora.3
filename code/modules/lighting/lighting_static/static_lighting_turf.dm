@@ -42,8 +42,9 @@
 	//Inherit overlay of new area
 	if(old_area.lighting_effect)
 		overlays -= old_area.lighting_effect
+		CutOverlays(old_area.lighting_effect)
 	if(new_area.lighting_effect)
-		overlays += new_area.lighting_effect
+		AddOverlays(new_area.lighting_effect)
 
 
 
@@ -61,4 +62,3 @@
 		lighting_corner_NW = new/datum/static_lighting_corner(src, NORTH|WEST)
 
 	lighting_corners_initialised = TRUE
-
