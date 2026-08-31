@@ -370,7 +370,7 @@ update_flag
 		update_icon()
 
 /obj/structure/machinery/portable_atmospherics/canister/process()
-	if (destroyed || (!air_contents.react() && !valve_open && !holding))
+	if (destroyed || (!air_contents.react() && !valve_open && !holding && !connected_port))
 		return PROCESS_KILL
 
 	if(valve_open)
