@@ -9685,6 +9685,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/auxatmos)
+"blX" = (
+/obj/structure/flora/grass/brown,
+/obj/effect/landmark/holodeck/penguin_spawn_random,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "bmc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -9851,15 +9856,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/auxiliary)
-"bmV" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/structure/machinery/button/switch/holosign{
-	id = "recovery_public"
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/primary/deck_2/starboard)
 "bmW" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform_deco{
@@ -11172,6 +11168,28 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/storage_hard/upper)
+"bvf" = (
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 4
+	},
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
+	pixel_x = -11;
+	pixel_y = 18
+	},
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
+	pixel_x = -4;
+	pixel_y = 18
+	},
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
+	pixel_x = -11;
+	pixel_y = 14
+	},
+/obj/structure/sign/poster/medical/bay_39{
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/pharmacy)
 "bvg" = (
 /obj/structure/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk{
@@ -11525,6 +11543,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/lobby)
+"bxt" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/floor_decal/corner_wide/orange/full,
+/obj/structure/machinery/ringer/west{
+	name = "Pharmacy ringer terminal";
+	department = "Pharmacy Frontdesk";
+	id = "pharmacy_ringer";
+	req_access = list(33)
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/pharmacy)
 "bxA" = (
 /obj/structure/platform_stairs/full/east_west_cap,
 /obj/structure/platform{
@@ -13485,6 +13515,12 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"bLS" = (
+/obj/structure/machinery/holosign/privacy{
+	id = "recovery"
+	},
+/turf/simulated/wall,
+/area/horizon/medical/ward)
 "bLX" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/effect/floor_decal/corner_wide/seafoam{
@@ -15318,13 +15354,6 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/wood,
 /area/horizon/service/cafeteria)
-"bYJ" = (
-/obj/effect/floor_decal/industrial/arrow/yellow,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/wall/r_wall,
-/area/horizon/medical/pharmacy)
 "bYQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -18962,12 +18991,6 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/wing/starboard)
-"cyI" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/tiled/white,
-/area/horizon/service/kitchen)
 "cyK" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -22842,10 +22865,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_luceism)
-"cYl" = (
-/obj/structure/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "cYm" = (
 /obj/structure/machinery/alarm/north,
 /obj/structure/machinery/suit_cycler/engineering/prepared,
@@ -27444,6 +27463,12 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
+"dAw" = (
+/obj/structure/machinery/firealarm/east,
+/obj/structure/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "dAz" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
@@ -35307,6 +35332,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
+"eDu" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/whiteboard/portable,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "eDw" = (
 /obj/item/ammo_magazine/mc9mm{
 	pixel_x = -3;
@@ -35941,6 +35972,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/engineering/reactor/supermatter/mainchamber)
+"eHm" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/structure/machinery/button/switch/holosign{
+	id = "recovery_public"
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/primary/deck_2/starboard)
 "eHr" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -37177,13 +37217,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/substation/hangar)
-"eRq" = (
-/obj/structure/machinery/holosign/public{
-	name = "holosign";
-	id = "recovery_public"
-	},
-/turf/simulated/wall,
-/area/horizon/medical/ward)
 "eRt" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/security/armoury)
@@ -38401,6 +38434,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/central)
+"eZA" = (
+/obj/structure/flora/tree/pine,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "eZC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -39929,13 +39966,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/wing/starboard/far)
-"fka" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/effect/landmark{
-	name = "Holocarp Spawn"
-	},
-/turf/simulated/floor/holofloor/grass,
-/area/horizon/holodeck/source_wildlife)
 "fke" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -40404,6 +40434,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/command/bridge/aibunker)
+"fnP" = (
+/obj/structure/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "fnZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -41331,15 +41366,6 @@
 /obj/random/keg,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/service/port)
-"ftx" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/effect/floor_decal/corner_wide/orange/full,
-/obj/structure/sign/poster/medical/bay_39{
-	pixel_x = -29
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/pharmacy)
 "ftF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -44243,6 +44269,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/horizon/operations/ship_supply_warehouse)
+"fOg" = (
+/obj/structure/noticeboard{
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/service/kitchen)
 "fOj" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -45171,10 +45207,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/main/port)
-"fTY" = (
-/obj/structure/machinery/chem_master/condimaster,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "fTZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -51589,15 +51621,6 @@
 	},
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
-"gLY" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/structure/machinery/button/switch/holosign{
-	id = "recovery"
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/primary/deck_2/fore)
 "gLZ" = (
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -55629,13 +55652,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/xenobiology/xenoflora)
-"hne" = (
-/obj/effect/landmark{
-	name = "Penguin Spawn Emperor"
-	},
-/obj/structure/flora/tree/pine,
-/turf/simulated/floor/holofloor/snow,
-/area/horizon/holodeck/source_snowfield)
 "hni" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -57576,11 +57592,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
-"hyV" = (
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/whiteboard/portable,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "hza" = (
 /obj/structure/machinery/power/breakerbox/activated{
 	RCon_tag = "Security Substation"
@@ -59999,6 +60010,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion/starboard)
+"hPc" = (
+/obj/item/toy/stressball{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/effect/landmark/holodeck/animal_baby_random,
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "hPl" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/structure/machinery/recharger/wallcharger{
@@ -60570,6 +60589,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/supermatter/mainchamber)
+"hTa" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/landmark/holodeck/holocarp_spawn_pain,
+/turf/simulated/floor/holofloor/grass,
+/area/horizon/holodeck/source_wildlife)
 "hTb" = (
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
@@ -68473,6 +68497,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/skipjack)
+"iUI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/ringer_button{
+	name = "Pharmacy ringer button";
+	id = "pharmacy_ringer";
+	pixel_x = -22;
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled/slate/full,
+/area/horizon/medical/reception)
 "iUK" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -70265,6 +70299,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/xenobiology/xenoflora)
+"jgD" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/chem_master/condimaster,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "jgH" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -73399,6 +73438,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/hangar/starboard)
+"jBp" = (
+/obj/effect/landmark/holodeck/holocarp_spawn_pain,
+/turf/simulated/floor/holofloor/grass,
+/area/horizon/holodeck/source_wildlife)
 "jBs" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
@@ -73817,12 +73860,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/port)
-"jDX" = (
-/obj/effect/landmark{
-	name = "Holocarp Spawn Random"
-	},
-/turf/simulated/floor/holofloor/space,
-/area/horizon/holodeck/source_space)
 "jDY" = (
 /obj/effect/floor_decal/corner/dark_green,
 /turf/simulated/floor/tiled,
@@ -74445,10 +74482,6 @@
 "jIL" = (
 /turf/simulated/wall,
 /area/horizon/medical/hallway/upper)
-"jIN" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/slate/full,
-/area/horizon/medical/reception)
 "jIO" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -74753,6 +74786,13 @@
 /obj/item/stack/material/cyborg/steel,
 /turf/unsimulated/floor,
 /area/centcom/bar)
+"jLc" = (
+/obj/item/toy/stressball{
+	pixel_x = -8
+	},
+/obj/effect/landmark/holodeck/animal_baby_random,
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "jLf" = (
 /turf/simulated/wall,
 /area/horizon/maintenance/deck_1/operations/starboard/far)
@@ -81468,6 +81508,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/operations/machinist/surgicalbay)
+"kBB" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/landmark/holodeck/holocarp_spawn_pain,
+/turf/simulated/floor/holofloor/grass,
+/area/horizon/holodeck/source_wildlife)
 "kBC" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -81898,19 +81943,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
-"kDT" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 10
-	},
-/obj/structure/weapons_rack{
-	req_one_access = list(3);
-	name = "Shotguns Rack"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/gun/projectile/shotgun/pump/unloaded,
-/obj/item/gun/projectile/shotgun/pump/unloaded,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/security/armoury)
 "kDV" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/beach/sand,
@@ -87406,6 +87438,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"lpF" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/structure/machinery/button/switch/holosign{
+	id = "recovery"
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/primary/deck_2/fore)
 "lpN" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -91077,12 +91118,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/hallway/fore)
-"lOb" = (
-/obj/effect/landmark{
-	name = "Holocarp Spawn"
-	},
-/turf/simulated/floor/holofloor/grass,
-/area/horizon/holodeck/source_wildlife)
 "lOc" = (
 /obj/structure/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -99669,13 +99704,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/turbine)
-"mVz" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/landmark{
-	name = "Holocarp Spawn"
-	},
-/turf/simulated/floor/holofloor/grass,
-/area/horizon/holodeck/source_wildlife)
 "mVD" = (
 /turf/simulated/wall,
 /area/horizon/engineering/drone_fabrication)
@@ -105049,11 +105077,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/horizon/operations/break_room)
-"nGl" = (
-/obj/structure/machinery/firealarm/east,
-/obj/structure/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "nGm" = (
 /obj/structure/machinery/alarm/north,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -106227,25 +106250,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/fore)
-"nNT" = (
-/obj/effect/floor_decal/corner_wide/orange/full{
-	dir = 4
-	},
-/obj/structure/table/rack/retail_shelf,
-/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
-	pixel_x = -11;
-	pixel_y = 18
-	},
-/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
-	pixel_x = -4;
-	pixel_y = 18
-	},
-/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap{
-	pixel_x = -11;
-	pixel_y = 14
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/pharmacy)
 "nNW" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -108254,14 +108258,6 @@
 /obj/structure/machinery/vending/hydronutrients/hydroponics,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/lower)
-"ocv" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/structure/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/service,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "ocx" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/hapt)
@@ -109488,6 +109484,19 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/hangar/auxiliary)
+"oki" = (
+/obj/structure/machinery/light,
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/chemical,
+/obj/item/modular_computer/laptop/preset/medical,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/storage/box/gloves,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/pharmacy)
 "okm" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -113437,12 +113446,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/storage_hard/aft)
-"oKB" = (
-/obj/structure/machinery/holosign/privacy{
-	id = "recovery"
-	},
-/turf/simulated/wall,
-/area/horizon/medical/ward)
 "oKD" = (
 /turf/simulated/wall,
 /area/merchant_station)
@@ -113620,6 +113623,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/substation/engineering/lower)
+"oLA" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/structure/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "oLC" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4;
@@ -120955,15 +120966,6 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/engineering/storage_hard/lower)
-"pJc" = (
-/obj/item/toy/stressball{
-	pixel_x = -8
-	},
-/obj/effect/landmark{
-	name = "Animal Baby Spawn Random"
-	},
-/turf/simulated/floor/carpet/magenta,
-/area/horizon/holodeck/source_cafe)
 "pJj" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -122252,28 +122254,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew/fitness/changing)
-"pRU" = (
-/obj/structure/machinery/light,
-/obj/structure/machinery/ringer/south{
-	department = "Pharmacy Frontdesk";
-	id = "pharmacy_ringer";
-	req_access = list(33)
-	},
-/obj/structure/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry Lab Alpha";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 10
-	},
-/obj/structure/closet/secure_closet/chemical,
-/obj/item/modular_computer/laptop/preset/medical,
-/obj/item/clothing/glasses/safety/goggles,
-/obj/item/clothing/glasses/safety/goggles,
-/obj/item/storage/box/gloves,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/pharmacy)
 "pRY" = (
 /turf/simulated/wall,
 /area/horizon/maintenance/deck_2/aft)
@@ -122843,6 +122823,20 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/ferry)
+"pWg" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/structure/weapons_rack{
+	req_one_access = list(3);
+	name = "Shotguns Rack"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/gun/projectile/shotgun/pump/unloaded,
+/obj/item/gun/projectile/shotgun/pump/unloaded,
+/obj/item/gun/launcher/grenade,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/security/armoury)
 "pWk" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 1
@@ -123539,14 +123533,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/hangar/port)
-"qbf" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/structure/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/service,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "qbh" = (
 /obj/random/maintenance_junk_or_loot,
 /obj/effect/floor_decal/industrial/warning{
@@ -127488,16 +127474,6 @@
 	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
-"qCw" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/noticeboard{
-	pixel_y = 30
-	},
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/service/kitchen)
 "qCx" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -128957,6 +128933,10 @@
 /obj/structure/machinery/power/apc/high/south,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/central)
+"qKT" = (
+/obj/effect/landmark/holodeck/animal_baby_random,
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "qKU" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -137279,6 +137259,17 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/surgery)
+"rNq" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 1
+	},
+/obj/structure/table/wood/mahogany,
+/obj/item/nullrod/luceiansceptre/holodeck,
+/turf/simulated/floor/marble/dark,
+/area/horizon/holodeck/source_luceism)
 "rNs" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -138017,6 +138008,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/command/heads/rd)
+"rRS" = (
+/obj/effect/landmark/holodeck/penguin_spawn_random,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "rRT" = (
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
@@ -145813,16 +145808,6 @@
 "sPz" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/engineering/reactor/indra/mainchamber)
-"sPA" = (
-/obj/item/toy/stressball{
-	pixel_x = 5;
-	pixel_y = 8
-	},
-/obj/effect/landmark{
-	name = "Animal Baby Spawn Random"
-	},
-/turf/simulated/floor/carpet/magenta,
-/area/horizon/holodeck/source_cafe)
 "sPC" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -147312,14 +147297,6 @@
 /obj/item/trash/match,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_tribunal)
-"tar" = (
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 10
-	},
-/obj/structure/machinery/vending/wardrobe/chem_wardrobe,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/pharmacy)
 "tau" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green{
@@ -152260,17 +152237,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion/starboard)
-"tGw" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/mauve{
-	dir = 1
-	},
-/obj/structure/table/wood/mahogany,
-/obj/item/nullrod/luceiansceptre,
-/turf/simulated/floor/marble/dark,
-/area/horizon/holodeck/source_luceism)
 "tGz" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
@@ -153077,6 +153043,13 @@
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
+"tMk" = (
+/obj/structure/machinery/holosign/public{
+	name = "holosign";
+	id = "recovery_public"
+	},
+/turf/simulated/wall,
+/area/horizon/medical/ward)
 "tMo" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -153487,6 +153460,11 @@
 /obj/effect/floor_decal/industrial/outline_corner/yellow,
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/xenobiology)
+"tPO" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/smartfridge/foodheater,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "tPS" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -159561,13 +159539,6 @@
 /obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/research)
-"uFc" = (
-/obj/effect/landmark{
-	name = "Penguin Spawn Random"
-	},
-/obj/structure/flora/tree/dead,
-/turf/simulated/floor/holofloor/snow,
-/area/horizon/holodeck/source_snowfield)
 "uFj" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -163629,6 +163600,14 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/service/port)
+"vej" = (
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/structure/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "vem" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "AI Core Foyer";
@@ -169073,6 +169052,10 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
+"vRv" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "vRy" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -174327,6 +174310,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/lounge)
+"wxn" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/obj/structure/machinery/vending/wardrobe/chem_wardrobe,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Alpha";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/pharmacy)
 "wxp" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -175681,6 +175676,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/port/deck_2)
+"wGr" = (
+/obj/effect/landmark/holodeck/penguin_spawn_emperor,
+/turf/simulated/floor/holofloor/snow,
+/area/horizon/holodeck/source_snowfield)
 "wGv" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "0,1"
@@ -184937,12 +184936,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor,
 /area/centcom/legion)
-"xPw" = (
-/obj/effect/landmark{
-	name = "Animal Baby Spawn Random"
-	},
-/turf/simulated/floor/carpet/magenta,
-/area/horizon/holodeck/source_cafe)
 "xPx" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -185381,6 +185374,10 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/control)
+"xSZ" = (
+/obj/effect/landmark/holodeck/holocarp_spawn_random,
+/turf/simulated/floor/holofloor/space,
+/area/horizon/holodeck/source_space)
 "xTa" = (
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
@@ -280527,7 +280524,7 @@ vDa
 jDH
 rnR
 edl
-ftx
+bxt
 rrr
 gEF
 dRY
@@ -281041,8 +281038,8 @@ hZD
 uDP
 uDP
 nQc
-pRU
-bYJ
+oki
+rft
 bac
 eUC
 pSz
@@ -281298,7 +281295,7 @@ xFJ
 mnl
 won
 tuo
-tar
+wxn
 rrr
 tvJ
 cQD
@@ -281555,7 +281552,7 @@ qAb
 qcW
 ssp
 gMh
-nNT
+bvf
 rrr
 gEF
 rSe
@@ -282068,7 +282065,7 @@ qOH
 aTw
 hBR
 pEt
-jIN
+iUI
 wAZ
 irH
 gEF
@@ -284383,7 +284380,7 @@ rpH
 rpH
 nNv
 pUc
-eRq
+tMk
 gEF
 tID
 lZh
@@ -284898,7 +284895,7 @@ dub
 veD
 pSZ
 etV
-bmV
+eHm
 pWr
 jmE
 jvw
@@ -285154,7 +285151,7 @@ kAw
 agx
 aFI
 jkh
-oKB
+bLS
 vam
 aju
 eiH
@@ -285412,7 +285409,7 @@ aKx
 iox
 iPZ
 etV
-gLY
+lpF
 nYL
 nzz
 qch
@@ -286207,8 +286204,8 @@ cTt
 hGX
 fId
 mCy
-cYl
-fTY
+fnP
+tPO
 xGv
 cSu
 omW
@@ -287492,9 +287489,9 @@ sem
 kSh
 hQJ
 tMa
-qbf
+vej
 pny
-qCw
+fOg
 uJY
 omD
 ava
@@ -288528,7 +288525,7 @@ cfA
 kDa
 kZI
 pVj
-ofj
+jgD
 btl
 uYQ
 eSV
@@ -288777,15 +288774,15 @@ try
 brr
 hkJ
 alt
-nGl
-fTY
+dAw
+tPO
 utM
 xFY
 uyM
 pkR
 muJ
 nYO
-hyV
+ofj
 urZ
 uYQ
 eSV
@@ -289296,10 +289293,10 @@ lQn
 bwb
 kSu
 wbt
-cyI
+eDu
 bmA
 xzx
-ocv
+oLA
 pjB
 uYQ
 eSV
@@ -293387,7 +293384,7 @@ hvi
 dSk
 iTo
 eRt
-kDT
+pWg
 biz
 mji
 gcA
@@ -423378,9 +423375,9 @@ cdt
 oeZ
 gIG
 tCs
-xPw
+qKT
 fou
-pJc
+jLc
 boO
 gev
 oeZ
@@ -424149,9 +424146,9 @@ cdt
 oeZ
 dFh
 tCs
-sPA
+hPc
 fou
-xPw
+qKT
 boO
 gev
 oeZ
@@ -425891,11 +425888,11 @@ eSV
 eSV
 oeZ
 rkx
-jDX
+xSZ
 dmP
-jDX
+xSZ
 dmP
-jDX
+xSZ
 rkx
 oeZ
 lyu
@@ -425907,11 +425904,11 @@ fvk
 htY
 oeZ
 wQb
-fka
+kBB
 pkt
-fka
+kBB
 tYT
-lOb
+jBp
 mmR
 oeZ
 oNN
@@ -426421,11 +426418,11 @@ jTp
 ssF
 oeZ
 pkt
-fka
+kBB
 pkt
 iej
 tYT
-lOb
+jBp
 wQb
 oeZ
 abl
@@ -427706,11 +427703,11 @@ bKv
 ssF
 oeZ
 mxR
-fka
+kBB
 pkt
 iej
 pkt
-fka
+kBB
 pkt
 oeZ
 abl
@@ -428204,11 +428201,11 @@ eSV
 eSV
 oeZ
 rkx
-jDX
+xSZ
 dmP
-jDX
+xSZ
 dmP
-jDX
+xSZ
 rkx
 oeZ
 lyu
@@ -428220,11 +428217,11 @@ vXb
 htY
 oeZ
 pkt
-fka
+kBB
 iej
-lOb
+jBp
 pkt
-mVz
+hTa
 pkt
 oeZ
 oNN
@@ -429507,8 +429504,8 @@ oeZ
 mIl
 cPO
 mIl
-uFc
-mIl
+vRv
+rRS
 cPO
 mIl
 oeZ
@@ -430022,8 +430019,8 @@ mIl
 uqF
 mIl
 mIl
-hne
-mIl
+eZA
+wGr
 mIl
 oeZ
 kRV
@@ -430269,7 +430266,7 @@ dNx
 oeZ
 vis
 kfF
-tGw
+rNq
 ppY
 sUo
 iHk
@@ -431048,8 +431045,8 @@ bWA
 oeZ
 mIl
 mIl
-uFc
-hhN
+vRv
+blX
 mIl
 mIl
 hhN
@@ -431564,8 +431561,8 @@ mIl
 hhN
 mIl
 mIl
-uFc
-mIl
+vRv
+rRS
 mIl
 oeZ
 lPe

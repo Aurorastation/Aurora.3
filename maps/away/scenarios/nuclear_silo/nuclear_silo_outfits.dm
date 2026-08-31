@@ -65,12 +65,16 @@
 	)
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/black_leather/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/black_leather/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/black_leather/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/black_leather/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/black_leather/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/black_leather/tajara,
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/tajara,
@@ -106,6 +110,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/winter/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/winter/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/winter/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/laceup/tajara,
@@ -154,12 +160,16 @@
 	)
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/black_leather/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/black_leather/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/black_leather/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/black_leather/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/black_leather/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/black_leather/tajara,
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/tajara,
@@ -219,6 +229,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/tajara,
@@ -273,6 +285,8 @@
 	l_pocket = /obj/item/healthanalyzer
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/nitrile/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/latex/nitrile/tajara,
@@ -313,6 +327,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/sneakers/hitops/black,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/sneakers/hitops/black,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/sneakers/hitops/black,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/laceup/tajara,
@@ -376,12 +392,16 @@
 	)
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/black_leather/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/black_leather/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/black_leather/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/black_leather/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/black_leather/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/black_leather/tajara,
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/tajara,
@@ -422,6 +442,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/laceup/tajara,
@@ -464,6 +486,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/tajara,

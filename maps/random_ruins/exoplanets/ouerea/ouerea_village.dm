@@ -32,10 +32,12 @@
 
 	extra_languages = list(LANGUAGE_UNATHI)
 	outfit = /obj/outfit/admin/unathi_village
-	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	species_outfits = list(
 		SPECIES_UNATHI = /obj/outfit/admin/unathi_village,
+		SPECIES_UNATHI_URAWANI = /obj/outfit/admin/unathi_village,
+		SPECIES_UNATHI_ZIRALIXI = /obj/outfit/admin/unathi_village,
 		SPECIES_HUMAN = /obj/outfit/admin/ouerea_human,
 		SPECIES_SKRELL = /obj/outfit/admin/ouerea_skrell,
 		SPECIES_SKRELL_AXIORI = /obj/outfit/admin/ouerea_skrell
