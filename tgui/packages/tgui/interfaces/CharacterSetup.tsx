@@ -708,16 +708,6 @@ export const CharacterSetup = () => {
               >
                 {field.value}
               </a>
-              {field.label === 'Skin Tone' && item.has_skin_preset && (
-                <Button
-                  compact
-                  icon="palette"
-                  ml={1}
-                  onClick={() => sendPreferenceAction(item, 'skin_preset')}
-                >
-                  Body Preset
-                </Button>
-              )}
             </Box>
           ))}
           <Box>
@@ -889,6 +879,18 @@ export const CharacterSetup = () => {
             </Stack>
           </Box>
         ))}
+        {!!item.has_skin_preset && (
+          <Box className="body-appearance">
+            <Box className="body-appearance__title">Body Color Presets</Box>
+            <Button
+              compact
+              icon="palette"
+              onClick={() => sendPreferenceAction(item, 'skin_preset')}
+            >
+              Choose Preset
+            </Button>
+          </Box>
+        )}
       </Box>
       <Box className="body-markings">
         <Stack align="center">
@@ -1537,7 +1539,7 @@ export const CharacterSetup = () => {
                           id={`character_setup_preview_${direction}`}
                           height="160px"
                           hidden={modalOpen || data.loading}
-                          width="160px"
+                          width="100%"
                         />
                       </Box>
                     ))}
