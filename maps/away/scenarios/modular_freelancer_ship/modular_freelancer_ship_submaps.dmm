@@ -1305,6 +1305,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/guns)
 "adD" = (
@@ -2310,6 +2311,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/guns)
 "ahg" = (
@@ -2464,6 +2466,7 @@
 	},
 /obj/effect/map_effect/marker/door_paint/fill/blue,
 /obj/effect/map_effect/marker/door_paint/stripe/dark_blue,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
 "ahX" = (
@@ -3323,6 +3326,7 @@
 /obj/structure/machinery/door/airlock/highsecurity,
 /obj/effect/map_effect/marker/door_paint/fill/blue,
 /obj/effect/map_effect/marker/door_paint/stripe/dark_blue,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
 "anu" = (
@@ -5972,6 +5976,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass_command,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "aDj" = (
@@ -6537,6 +6542,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/lounge)
 "aGG" = (
@@ -7315,6 +7321,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/highsecurity,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "aKx" = (
@@ -11201,6 +11208,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/guns)
 "cJT" = (
@@ -13083,6 +13091,9 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/atmos)
 "fok" = (
@@ -13757,6 +13768,7 @@
 	pixel_y = -19
 	},
 /obj/effect/map_effect/marker/button_control/blast_door,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
 "gvR" = (
@@ -14045,13 +14057,6 @@
 /obj/effect/map_effect/marker/door_paint/fill/dark_blue,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
-"gOq" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 1
-	},
-/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
-/turf/simulated/floor/tiled/dark,
-/area/ship/modular_freelancer_ship/fore/hallway)
 "gOE" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/structure/cable{
@@ -14073,12 +14078,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 1;
-	pixel_x = 27;
-	pixel_y = 27
-	},
-/obj/effect/map_effect/marker/button_control/blast_door,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "gPG" = (
@@ -15714,6 +15714,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/engineering)
 "iXr" = (
@@ -16160,6 +16163,9 @@
 /area/ship/modular_freelancer_ship/fore/port)
 "jxi" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/engineering)
 "jxs" = (
@@ -16951,12 +16957,6 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 4;
-	pixel_x = 20;
-	pixel_y = 31
-	},
-/obj/effect/map_effect/marker/button_control/blast_door,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
 "ksg" = (
@@ -18069,6 +18069,9 @@
 	icon_state = "0-4"
 	},
 /obj/structure/machinery/power/apc/noid/west,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/atmos)
 "lNd" = (
@@ -18525,12 +18528,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/fore/guns)
 "mvZ" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
+/obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled/dark,
-/area/ship/modular_freelancer_ship/fore/hallway)
+/area/ship/modular_freelancer_ship/aft/hallway)
 "mwi" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/machinery/light/small/emergency{
@@ -18862,6 +18862,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/engineering)
 "mQE" = (
@@ -19603,6 +19604,9 @@
 	dir = 5
 	},
 /obj/structure/machinery/alarm/noid/west,
+/obj/effect/floor_decal/corner/brown{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/atmos)
 "nLv" = (
@@ -20037,6 +20041,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/door_paint/fill/blue,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
+/obj/effect/map_effect/marker/door_paint/stripe/gold,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/crew)
 "owu" = (
@@ -20607,6 +20613,7 @@
 /obj/effect/map_effect/marker/button_control/airlock/bolts,
 /obj/structure/machinery/door/airlock,
 /obj/effect/map_effect/marker/door_paint/fill/blue,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "pvI" = (
@@ -22201,7 +22208,15 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/modular_freelancer_ship/container/c06)
 "rzI" = (
-/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
+/obj/effect/floor_decal/corner/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "rzL" = (
@@ -22301,6 +22316,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/guns)
 "rGv" = (
@@ -22372,6 +22388,7 @@
 	pixel_y = 31
 	},
 /obj/effect/map_effect/marker/button_control/blast_door,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
 "rJR" = (
@@ -22831,6 +22848,7 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4
 	},
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "stk" = (
@@ -24290,12 +24308,12 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "uzS" = (
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/machinery/light{
-	dir = 1
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/modular_freelancer_ship/fore/hallway)
+/area/ship/modular_freelancer_ship/aft/engineering)
 "uAc" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -25299,15 +25317,16 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/atmos)
 "wid" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
 	},
-/obj/structure/machinery/light{
-	dir = 4
-	},
+/obj/structure/machinery/door/firedoor/noid,
 /obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
+/obj/structure/machinery/door/airlock/glass,
+/obj/effect/map_effect/marker/door_paint/fill/dark_green,
+/obj/effect/map_effect/marker/door_paint/stripe/gold,
 /turf/simulated/floor/tiled/dark,
-/area/ship/modular_freelancer_ship/fore/hallway)
+/area/shuttle/modular_freelancer_shuttle/ferry)
 "wis" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
@@ -25717,6 +25736,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/door_paint/fill/blue,
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
+/obj/effect/map_effect/marker/door_paint/stripe/gold,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "wJV" = (
@@ -25753,12 +25774,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "wLf" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
-/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled/dark,
-/area/ship/modular_freelancer_ship/fore/hallway)
+/area/ship/modular_freelancer_ship/aft/atmos)
 "wLg" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -34125,7 +34144,7 @@ qNu
 aJo
 pPF
 kCH
-iVB
+rzI
 mak
 aDv
 wNC
@@ -34281,8 +34300,8 @@ dcU
 dcU
 aJo
 ahg
-kCH
-uzS
+afe
+xJE
 iRE
 mrs
 ktj
@@ -34439,7 +34458,7 @@ dcU
 ffU
 aiu
 kCH
-eKr
+pnb
 jvu
 mrs
 dcU
@@ -34596,7 +34615,7 @@ afe
 kCH
 kCH
 kCH
-pnb
+eKr
 lHm
 mrs
 dcU
@@ -35578,8 +35597,8 @@ vSa
 nFU
 cpW
 rnF
-mvZ
-gOq
+sse
+lFh
 uZk
 jAC
 lyZ
@@ -35735,8 +35754,8 @@ dcU
 kAl
 cpW
 nRc
-rzI
-rzI
+dcU
+dcU
 xJE
 dEQ
 bkW
@@ -35892,8 +35911,8 @@ mtH
 jLd
 cpW
 tcC
-wid
-wLf
+lOj
+mtH
 rAt
 kou
 mrs
@@ -65115,7 +65134,7 @@ asf
 dhm
 jjb
 pmV
-aDh
+wid
 iTu
 abz
 ezM
@@ -88946,7 +88965,7 @@ fzQ
 tJw
 mPJ
 jxi
-jxi
+uzS
 xGr
 hjV
 xWs
@@ -89733,7 +89752,7 @@ avi
 wFN
 sls
 lAW
-eJg
+mvZ
 dkG
 fSs
 fSs
@@ -89890,7 +89909,7 @@ sls
 sls
 sls
 muC
-eJg
+lCj
 rDO
 xrj
 fSs
@@ -93182,7 +93201,7 @@ wKi
 jZO
 etw
 aeF
-aeF
+wLf
 nLs
 lLS
 fnE
