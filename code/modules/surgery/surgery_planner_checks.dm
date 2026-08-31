@@ -1,7 +1,7 @@
 /**
  * Read-only surgery eligibility.
  *
- * FALSE by default is intentional. If Aurora gains a new surgery step and no
+ * FALSE by default is intentional. If the server gains a new surgery step and no
  * planner rule is added for it, the operation stays hidden rather than being
  * falsely advertised.
  */
@@ -251,7 +251,7 @@
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	// Aurora's live can_use() technically permits probing an empty cavity.
+	// Can_use() technically permits probing an empty cavity.
 	// The planner only advertises the procedure when something can actually
 	// be removed.
 	return affected && length(affected.implants)
@@ -447,7 +447,7 @@
 	 * Mirror the current live hierarchy exactly. /limb/connect calls its
 	 * parent /limb/can_use(), which requires the target organ to be absent,
 	 * and then requires that same organ to exist and be destroyed. Those
-	 * conditions cannot both be true, so the current Aurora implementation
+	 * conditions cannot both be true, so the current implementation
 	 * cannot offer this step.
 	 */
 	if(!..())
