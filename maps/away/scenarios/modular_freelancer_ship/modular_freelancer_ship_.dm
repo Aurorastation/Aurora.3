@@ -16,8 +16,8 @@
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	shuttles_to_initialise = list(
-		/datum/shuttle/autodock/overmap/modular_freelancer_ship/fighter,
-		/datum/shuttle/autodock/overmap/modular_freelancer_ship/ferry,
+		/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter,
+		/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry,
 	)
 
 /singleton/submap_archetype/modular_freelancer_ship
