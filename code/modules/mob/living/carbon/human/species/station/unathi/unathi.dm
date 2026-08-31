@@ -1,6 +1,6 @@
 /datum/species/unathi
 	name = SPECIES_UNATHI
-	short_name = "aza"
+	short_name = "una"
 	name_plural = "Azaziba"
 	category_name = "Unathi"
 	bodytype = BODYTYPE_UNATHI
