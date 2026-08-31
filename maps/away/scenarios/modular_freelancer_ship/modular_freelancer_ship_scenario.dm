@@ -21,7 +21,7 @@
 	)
 	default_outfit = /obj/outfit/admin/generic
 	actor_accesses = list(
-		/datum/access/modular_freelancer_ship_access,
+		/datum/access/modular_freelancer_ship,
 	)
 	radio_frequency_name = "Freelancer Ship"
 
