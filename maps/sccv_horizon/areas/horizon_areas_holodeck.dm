@@ -17,7 +17,6 @@
 	icon_state = "Holodeck"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = TRUE
-	base_lighting_alpha = 255
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_NO_GHOST_TELEPORT_ACCESS
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
@@ -26,11 +25,9 @@
 
 /area/horizon/holodeck/alphadeck
 	name = "Holodeck Alpha"
-	base_lighting_alpha = 0
 
 /area/horizon/holodeck/betadeck
 	name = "Holodeck Beta"
-	base_lighting_alpha = 0
 
 /area/horizon/holodeck/source_plating
 	name = "Holodeck - Off"
@@ -65,9 +62,6 @@
 /area/horizon/holodeck/source_courtroom
 	name = "Holodeck - Courtroom"
 	sound_environment = SOUND_ENVIRONMENT_AUDITORIUM
-
-/area/horizon/holodeck/source_burntest
-	name = "Holodeck - Atmospheric Burn Test"
 
 /area/horizon/holodeck/source_wildlife
 	name = "Holodeck - Wildlife Simulation"
@@ -104,9 +98,6 @@
 /area/horizon/holodeck/source_battlemonsters
 	name = "Holodeck - Battlemonsters Arena"
 	sound_environment = SOUND_ENVIRONMENT_ARENA
-
-/area/horizon/holodeck/source_chessboard
-	name = "Holodeck - Chessboard"
 
 /area/horizon/holodeck/source_adhomai
 	name = "Holodeck - Adhomian Campfire"

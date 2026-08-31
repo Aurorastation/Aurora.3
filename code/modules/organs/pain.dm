@@ -7,7 +7,7 @@
 // power decides how much painkillers will stop the message
 // force means it ignores anti-spam timer
 /mob/living/carbon/proc/custom_pain(var/message, var/power, var/force, var/obj/item/organ/external/affecting, var/nohalloss)
-	if(!message || stat || !can_feel_pain() || chem_effects[CE_PAINKILLER] > power)
+	if(!message || stat || !can_feel_pain() || (affecting && !ORGAN_CAN_FEEL_PAIN(affecting)) || chem_effects[CE_PAINKILLER] > power)
 		return 0
 
 	power -= chem_effects[CE_PAINKILLER]/2	//Take the edge off.

@@ -180,7 +180,8 @@
 		S.remove_from_storage(bullet, src)
 	bullet.forceMove(src)
 	ammo += bullet
-	var/image/ammo_picture = image(bullet.icon, bullet.icon_state, dir = pick(GLOB.alldirs))
+	var/image/ammo_picture = image(bullet.icon, bullet.icon_state)
+	ammo_picture.transform = turn(ammo_picture.transform, rand(360))
 	ammo_picture.pixel_x = rand(-6, 6)
 	ammo_picture.pixel_y = rand(-6, 6)
 	ammo_overlays[bullet] = ammo_picture
@@ -205,11 +206,15 @@
 	check_ammo()
 
 /obj/item/ammo_pile/proc/scatter()
+	var/turf/T = get_turf(src)
 	for(var/thing in ammo)
 		var/obj/bullet = thing
-		bullet.forceMove(get_turf(src))
+		UnregisterSignal(bullet, COMSIG_QDELETING)
+		bullet.forceMove(T)
 		bullet.throw_at_random(FALSE, 2, 7)
-		remove_ammo(bullet)
+	ammo.Cut()
+	CutOverlays()
+	qdel(src)
 
 /obj/item/ammo_pile/throw_at()
 	..()

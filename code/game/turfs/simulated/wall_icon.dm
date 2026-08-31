@@ -2,27 +2,25 @@
 	if(!material)
 		return
 
-	if(reinf_material)
-		construction_stage = 6
-	else
-		construction_stage = null
-	if(!material)
-		material = GET_SINGLETON(MATERIAL_STEEL)
-	if(material)
-		explosion_resistance = material.explosion_resistance
-		if (material.wall_icon)
-			icon = material.wall_icon
+	explosion_resistance = material.explosion_resistance
+	if(material.wall_icon)
+		icon = material.wall_icon
+
+	if(!color && material.wall_colour)
+		color = material.wall_colour
 
 	if(reinf_material && reinf_material.explosion_resistance > explosion_resistance)
 		explosion_resistance = reinf_material.explosion_resistance
 
 	if(reinf_material)
+		construction_stage = 6
 		name = "reinforced [material.display_name] wall"
 		if(material.display_name == reinf_material.display_name)
 			desc = "It seems to be a section of hull reinforced and plated with [material.display_name]."
 		else
 			desc = "It seems to be a section of hull reinforced with [reinf_material.display_name] and plated with [material.display_name]."
 	else
+		construction_stage = null
 		name = "[material.display_name] wall"
 		desc = "It seems to be a section of hull plated with [material.display_name]."
 
@@ -101,6 +99,7 @@
 			overlay = damage_overlays.len
 
 		damage_image = damage_overlays[overlay]
+		damage_image.appearance_flags |= RESET_COLOR
 		overlays_to_add += damage_image
 
 	// Remove the existing damage overlay entirely and replace it with the newly-calculated one.

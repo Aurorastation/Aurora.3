@@ -61,7 +61,7 @@
 	var/destruction_desc = "breaks apart"
 
 	// Icons
-	var/colour_blend = TRUE
+
 	/// Colour applied to products of this material.
 	var/icon_colour
 	/// Colour applied to walls specifically.
@@ -184,54 +184,18 @@
 	..()
 	if(!display_name)
 		display_name = name
+
 	if(!use_name)
 		use_name = display_name
+
 	if(!adjective_name)
 		adjective_name = display_name
+
 	if(!shard_icon)
 		shard_icon = shard_type
+
 	if(!icon_base)
 		world.log <<  "materials: [src] has unknown icon_base [icon_base]."
-/*
-	var/skip_blend = FALSE
-	switch (icon_base)
-		if ("solid")
-			wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
-		if ("stone")
-			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
-			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
-		if ("metal")
-			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
-		if ("wood")
-			wall_icon = 'icons/turf/smooth/composite_wood.dmi'
-		if ("cult")
-			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
-			skip_blend = TRUE
-		if ("arust")
-			wall_icon = 'icons/turf/smooth/rusty_wall.dmi'
-			skip_blend = TRUE
-		if ("biomass")
-			wall_icon = 'icons/turf/smooth/diona_wall.dmi'
-			skip_blend = TRUE
-		if ("vaurca")
-			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
-			skip_blend = TRUE
-		if ("shuttle")
-			skip_blend = TRUE
-		if ("skrell")
-			skip_blend = TRUE
-		if("concrete")
-			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
-			skip_blend = TRUE
-		else
-			world.log <<  "materials: [src] has unknown icon_base [icon_base]."*/
-	var/blend_colour = wall_colour ? wall_colour : icon_colour
-	if (wall_icon && blend_colour && colour_blend)
-		wall_icon = new(wall_icon)
-		wall_icon.Blend(blend_colour, ICON_MULTIPLY)
-		if (multipart_reinf_icon)
-			multipart_reinf_icon = new(multipart_reinf_icon)
-			multipart_reinf_icon.Blend(blend_colour, ICON_MULTIPLY)
 
 /singleton/material/Destroy(force)
 	stack_trace("Someone tried to delete a /material.")
@@ -498,7 +462,6 @@
 	wall_icon = 'icons/turf/smooth/diona_wall.dmi'
 	table_icon = 'icons/obj/structure/tables/diona_table.dmi'
 	icon_base = "biomass"
-	colour_blend = FALSE
 	integrity = 100
 	weight = 23
 	value = 5
@@ -949,7 +912,6 @@
 	display_name = "daemon stone"
 	icon_base = "cult"
 	wall_icon = 'icons/turf/smooth/cult_wall.dmi'
-	colour_blend = FALSE
 	icon_colour = COLOR_CULT
 	reinf_icon = "reinf_cult"
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
@@ -1198,7 +1160,6 @@
 	icon_colour = "#1C7400"
 	icon_base = "vaurca"
 	wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
-	colour_blend = FALSE
 	integrity = 400
 	melting_point = 6000
 	explosion_resistance = 25
@@ -1214,7 +1175,6 @@
 	reinf_icon = "no_sprite"//placeholder
 	icon_base = "shuttle"
 	//wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
-	colour_blend = FALSE
 	integrity = 1200
 	melting_point = 6000       // Hull plating.
 	explosion_resistance = 200 // Hull plating.
@@ -1228,7 +1188,6 @@
 	table_icon = 'icons/obj/structure/tables/skrell_table.dmi'
 	display_name = "superadvanced alloy"
 	weight = 23
-	colour_blend = FALSE
 	icon_colour = null
 	icon_base = "skrell"
 

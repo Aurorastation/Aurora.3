@@ -169,8 +169,49 @@ fn mapmanip_submap_extract_insert(
 
     // find all the insert markers
     let mut marker_insert_coords = vec![];
-    for (coord, tile) in map.grid.iter() {
-        if tile.prefabs.iter().any(|p| p.path == *marker_insert) {
+    for (mut coord, tile) in map.grid.iter() {
+        if let Some(p) = tile.prefabs.iter().find(|p| p.path == *marker_insert) {
+            let dir = p
+                .vars
+                .get("dir")
+                .and_then(Constant::to_float)
+                .and_then(|f| Dir::from_int(f as i32))
+                .unwrap_or(Dir::Northeast);
+
+            // Adjust for direction of submap insertion.
+            // Default is NORTHEAST, meaning the marker is the bottom-left corner,
+            // and the submap is inserted to the north-east starting from the marker.
+            // Directions such as NORTH means the marker is bottom-center,
+            // and the submap is inserted to the north starting from the marker.
+            match dir {
+                Dir::North => {
+                    coord.x -= submap_size.x / 2;
+                }
+                Dir::South => {
+                    coord.x -= submap_size.x / 2;
+                    coord.y -= submap_size.y - 1;
+                }
+                Dir::East => {
+                    coord.y -= submap_size.y / 2;
+                }
+                Dir::West => {
+                    coord.x -= submap_size.x - 1;
+                    coord.y -= submap_size.y / 2;
+                }
+                Dir::Northeast => {
+                    // default, no offset needed
+                }
+                Dir::Northwest => {
+                    coord.x -= submap_size.x - 1;
+                }
+                Dir::Southeast => {
+                    coord.y -= submap_size.y - 1;
+                }
+                Dir::Southwest => {
+                    coord.x -= submap_size.x - 1;
+                    coord.y -= submap_size.y - 1;
+                }
+            }
             marker_insert_coords.push(coord);
         }
     }

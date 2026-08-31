@@ -113,7 +113,7 @@
 		total_hivebots_to_spawn = total_hivebots_to_spawn + (length(GLOB.player_list) * total_hivebots_to_spawn_to_playing_players_scaling_factor)
 		maximum_linked_and_alive_hivebots = maximum_linked_and_alive_hivebots + (length(GLOB.player_list) * maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor)
 
-	if(!mapload)
+	if(!mapload && !GLOB.running_create_and_destroy)
 		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 		S.set_up(5, 0, src.loc)
 		S.start()
