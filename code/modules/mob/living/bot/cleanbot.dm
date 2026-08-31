@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	///Boolean, if it's cleaning something *right now* and waiting for the timer to say it's done
 	var/cleaning = FALSE
 
-	///The turf we got the last movement failure on, since doors have to be bumped to be opened
+	///The turf we got the last movement failure on, used to distinguish a door bump from a persistent obstruction
 	var/turf/last_movement_failure_turf
 
 /mob/living/bot/cleanbot/Cross(atom/movable/crossed)
@@ -94,14 +94,21 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 /mob/living/bot/cleanbot/proc/handle_target()
 	//Get the actual cleanable decal to target
 	var/obj/effect/decal/cleanable/cleaning_target_cache = cleaning_target?.resolve()
-	var/mob/living/bot/cleanbot/turf_targeting_cleanbot = cleaning_target_cache?.clean_marked?.resolve()
-
-	//If already marked by another borg, ignore it
-	if(turf_targeting_cleanbot != src)
+	if(!cleaning_target_cache)
 		cleaning_target = null
 		path = list()
+		return FALSE
+
+	var/mob/living/bot/cleanbot/turf_targeting_cleanbot = cleaning_target_cache?.clean_marked?.resolve()
+
+	//If already marked by another bot, ignore it. Reclaim stale marks whose bot no longer exists.
+	if(turf_targeting_cleanbot && turf_targeting_cleanbot != src)
 		ignorelist |= cleaning_target
-		return
+		cleaning_target = null
+		path = list()
+		return FALSE
+	else if(!turf_targeting_cleanbot)
+		cleaning_target_cache.clean_marked = WEAKREF(src)
 
 	//If we are over it, clean it up
 	if(get_turf(src) == get_turf(cleaning_target_cache))
@@ -123,23 +130,22 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		var/successfully_moved = step_to(src, path[1])
 
 		if(successfully_moved)
-			path -= path[1]
+			last_movement_failure_turf = null
+			path.Cut(1, 2)
 			return TRUE
 
 		//Something blocked us, look for a different target, we might come back to this in a while
-		else
-			for(var/obj/structure/machinery/door/a_door in path[1])
-				if(last_movement_failure_turf != path[1])
-					last_movement_failure_turf = path[1]
-					return
+		if(last_movement_failure_turf != path[1])
+			last_movement_failure_turf = path[1]
+			return FALSE
 
-				//This is the second failure, invalidate the target
-				else
-					ignorelist |= cleaning_target
-					cleaning_target_cache.clean_marked = null
-					cleaning_target = null
-					path = list()
-					break
+		//This is the second failure on the same turf, invalidate the target.
+		ignorelist |= cleaning_target
+		cleaning_target_cache.clean_marked = null
+		cleaning_target = null
+		path = list()
+		last_movement_failure_turf = null
+		return FALSE
 
 
 
@@ -174,8 +180,9 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	if(odd_button && prob(5)) // Make a big mess
 		visible_message(SPAN_WARNING("Some bloody gibs fall out of [src]..."))
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
-		ignorelist += gib
-		addtimer(CALLBACK(src, PROC_REF(remove_from_ignore), gib), 600)
+		var/datum/weakref/gib_ref = WEAKREF(gib)
+		ignorelist += gib_ref
+		addtimer(CALLBACK(src, PROC_REF(remove_from_ignore), gib_ref), 600)
 
 	return TRUE
 
@@ -192,77 +199,90 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		patrol_path?.Cut()
 		return
 
-	//We have a path to a target already, follow it
-	if(length(path))
+	if(cleaning)
+		return
+
+	//Keep servicing an acquired target even after consuming the final path node.
+	if(cleaning_target)
 		handle_target()
+		return
 
 	//Otherwise, look around for a target, or patrol
-	else
+	//If we could a spot to clean or not
+	var/found_spot
 
-		//If we could a spot to clean or not
-		var/found_spot
+	for(var/obj/effect/decal/cleanable/D in view(maximum_search_range, src))
+		var/datum/weakref/cleanable_weakref = WEAKREF(D)
 
-		for(var/obj/effect/decal/cleanable/D in view(maximum_search_range, src))
-			var/datum/weakref/cleanable_weakref = WEAKREF(D)
+		var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
 
-			var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
+		//Someone already wants this cleanable and it's not us, keep looking
+		if(!isnull(turf_targeting_cleanbot) && turf_targeting_cleanbot != src)
+			continue
 
-			//Someone already wants this cleanable and it's not us, keep looking
-			if(!isnull(turf_targeting_cleanbot) && turf_targeting_cleanbot != src)
-				continue
+		var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
+		if(other_bot && other_bot.cleaning && other_bot != src)
+			continue
 
-			var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
-			if(other_bot && other_bot.cleaning && other_bot != src)
-				continue
+		// If the object has been slated to be ignored we continue the loop.
+		if(cleanable_weakref in ignorelist)
+			continue
 
-			// If the object has been slated to be ignored we continue the loop.
-			if((cleanable_weakref in ignorelist))
-				continue
+		// A matching /cleanable was found, now we want to path trace to it and see if we can reach it.
+		if(D.type in target_types)
+			patrol_path = list()
+			cleaning_target = cleanable_weakref
+			D.clean_marked = WEAKREF(src)
+			found_spot = handle_target()
+			if(found_spot || cleaning_target)
+				break // If the target location is found and pathed properly, break the search loop.
 
-			// A matching /cleanable was found, now we want to path trace to it and see if we can reach it.
-			if((D.type in target_types))
-				patrol_path = list()
-				cleaning_target = cleanable_weakref
-				D.clean_marked = WEAKREF(src)
-				found_spot = handle_target()
-				if(found_spot)
-					break // If the target location is found and pathed properly, break the search loop.
+	if(found_spot || cleaning_target || !should_patrol)
+		return
+
+	if(!length(patrol_path))
+		if(!signal_sent || world.time >= signal_sent + 200) // Waited enough or didn't send yet
+			var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
+			if(!frequency)
+				return
+
+			closest_dist = 9999
+			next_dest = null
+			next_dest_loc = null
+
+			var/datum/signal/signal = new()
+			signal.source = src
+			signal.transmission_method = TRANSMISSION_RADIO
+			signal.data = list("findbeacon" = "patrol")
+			frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
+			signal_sent = world.time
+
+		if(next_dest)
+			next_dest_loc = listener.memorized[next_dest]
+			if(next_dest_loc)
+				patrol_path = get_path_to(src, next_dest_loc, 120, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
+				if(length(patrol_path))
+					signal_sent = 0
 				else
-					cleaning_target = null // Otherwise we want to try the next cleanable in view, if any.
-					D.clean_marked = null
-
-
-		if(!found_spot && !cleaning_target) // No targets in range
-			if(!patrol_path || !patrol_path.len)
-				if(!signal_sent || signal_sent > world.time + 200) // Waited enough or didn't send yet
-					var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
-					if(!frequency)
-						return
-
-					closest_dist = 9999
 					next_dest = null
-					next_dest_loc = null
+			else
+				next_dest = null
 
-					var/datum/signal/signal = new()
-					signal.source = src
-					signal.transmission_method = TRANSMISSION_RADIO
-					signal.data = list("findbeacon" = "patrol")
-					frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
-					signal_sent = world.time
-				else
-					if(next_dest)
-						next_dest_loc = listener.memorized[next_dest]
-						if(next_dest_loc)
-							patrol_path = get_path_to(loc, next_dest_loc, 120, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
-							signal_sent = 0
-			else if(should_patrol)
-				if(patrol_path[1] == loc)
-					patrol_path -= patrol_path[1]
-					return
+	if(length(patrol_path))
+		var/turf/next_step = patrol_path[1]
+		if(next_step == loc)
+			patrol_path.Cut(1, 2)
+			return
 
-				var/moved = step_towards(src, patrol_path[1])
-				if(moved)
-					patrol_path -= patrol_path[1]
+		if(step_to(src, next_step) && get_turf(src) == next_step)
+			last_movement_failure_turf = null
+			patrol_path.Cut(1, 2)
+		else if(last_movement_failure_turf == next_step)
+			patrol_path = list()
+			signal_sent = 0
+			last_movement_failure_turf = null
+		else
+			last_movement_failure_turf = next_step
 
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
@@ -285,20 +305,18 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	addtimer(CALLBACK(src, PROC_REF(do_clean), D), clean_time)
 
 /mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D)
-	if(D)
-		if(istype(D.loc, /turf/simulated))
-			var/turf/simulated/f = loc
-			f.dirt = 0
-
-		if(!D)
-			return
-
+	if(!QDELETED(D))
 		D.clean_marked = null
 		D.being_cleaned = FALSE
-		cleaning_target = null
 
-		D.clean_with_basic_cleaner()
+		if(on && Adjacent(D))
+			var/turf/simulated/f = get_turf(D)
+			if(istype(f))
+				f.dirt = 0
 
+			D.clean_with_basic_cleaner()
+
+	cleaning_target = null
 	cleaning = FALSE
 	update_icon()
 
@@ -407,6 +425,9 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 /mob/living/bot/cleanbot/turn_off()
 	. = ..()
+	var/obj/effect/decal/cleanable/current_target = cleaning_target?.resolve()
+	if(!cleaning && current_target?.clean_marked?.resolve() == src)
+		current_target.clean_marked = null
 	cleaning_target = null
 	path = list()
 	patrol_path = list()
@@ -446,6 +467,13 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		//Well now there's a point, this doesn't clean blood or oil
 		target_types = target_types.Copy()
 		target_types -= typesof(/obj/effect/decal/cleanable/blood, /obj/effect/decal/cleanable/blood/oil)
+
+	var/obj/effect/decal/cleanable/current_target = cleaning_target?.resolve()
+	if(current_target && !cleaning && !(current_target.type in target_types))
+		if(current_target.clean_marked?.resolve() == src)
+			current_target.clean_marked = null
+		cleaning_target = null
+		path = list()
 
 /* Radio object that listens to signals */
 
