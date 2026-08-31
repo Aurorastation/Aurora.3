@@ -9851,6 +9851,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/auxiliary)
+"bmV" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/structure/machinery/button/switch/holosign{
+	id = "recovery_public"
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/primary/deck_2/starboard)
 "bmW" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform_deco{
@@ -37168,6 +37177,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/substation/hangar)
+"eRq" = (
+/obj/structure/machinery/holosign/public{
+	name = "holosign";
+	id = "recovery_public"
+	},
+/turf/simulated/wall,
+/area/horizon/medical/ward)
 "eRt" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/security/armoury)
@@ -51576,6 +51592,9 @@
 "gLY" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
+	},
+/obj/structure/machinery/button/switch/holosign{
+	id = "recovery"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/fore)
@@ -113418,6 +113437,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/storage_hard/aft)
+"oKB" = (
+/obj/structure/machinery/holosign/privacy{
+	id = "recovery"
+	},
+/turf/simulated/wall,
+/area/horizon/medical/ward)
 "oKD" = (
 /turf/simulated/wall,
 /area/merchant_station)
@@ -284358,7 +284383,7 @@ rpH
 rpH
 nNv
 pUc
-pUc
+eRq
 gEF
 tID
 lZh
@@ -284873,7 +284898,7 @@ dub
 veD
 pSZ
 etV
-gEF
+bmV
 pWr
 jmE
 jvw
@@ -285129,7 +285154,7 @@ kAw
 agx
 aFI
 jkh
-pUc
+oKB
 vam
 aju
 eiH
