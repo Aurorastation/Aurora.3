@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the surgery planner. It is available on the patient monitor for organics and the robotics interface for synthetics and prosthetics."
+  - rscadd: "Added the EMSI port augment to be used with the robotics interface cable to diagnose augment issues for those without prosthetics."
+  - rscadd: "Allowed the robotics interface cable to connect to prosthetics on organics."
