@@ -55,18 +55,33 @@
 	new /obj/item/storage/box/mousetraps(src)
 
 // Journalist's Locker
-/obj/structure/closet/secure_closet/journalist
-	name = "journalist's closet"
-	desc = "It's a storage unit for a journalist's gear."
-	req_access = list(ACCESS_JOURNALIST)
-
 /obj/structure/closet/secure_closet/journalist/fill()
+	// Clothing
+	new /obj/item/radio(src)
+	new /obj/item/radio/headset/headset_service(src)
+	new /obj/item/radio/headset/wrist/service(src)
+	new /obj/item/radio/headset/wrist/clip/service(src)
+	new /obj/item/storage/backpack/satchel/leather(src)
+	new /obj/item/storage/briefcase/black(src)
+	new /obj/item/storage/secure/briefcase(src)
+	new /obj/item/clothing/head/helmet/security/press(src)
+	new /obj/item/clothing/suit/armor/carrier/press(src)
+	new /obj/item/storage/wallet/lanyard/press(src)
+	// Supply
 	new /obj/item/storage/photo_album(src)
 	new /obj/item/camera_film(src)
-	new /obj/item/camera(src)
+	new /obj/item/camera_film(src)
 	new /obj/item/paper_scanner(src)
-	new /obj/item/folder/white(src)
-	new /obj/item/storage/secure/briefcase(src)
-	new /obj/item/clipboard(src)
-	new /obj/item/folder/red(src)
+	new /obj/item/storage/slide_projector(src)
+	new /obj/item/storage/box/folders(src)
+	new /obj/item/stack/wrapping_paper(src)
+	new /obj/item/stack/packageWrap(src)
+	new /obj/item/portable_whiteboard(src)
+	new /obj/item/tape_roll(src)
+	// Tools
+	new /obj/item/radio/microphone(src)
+	new /obj/item/taperecorder(src)
 	new /obj/item/tvcamera(src)
+	new /obj/item/camera/detective/press(src)
+	new /obj/item/hand_labeler(src)
+	new /obj/item/destTagger(src)

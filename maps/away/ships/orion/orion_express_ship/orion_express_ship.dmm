@@ -1204,7 +1204,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
@@ -1486,7 +1486,7 @@
 	pixel_y = 25
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
@@ -2371,7 +2371,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
@@ -2733,7 +2733,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
@@ -2785,7 +2785,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
@@ -3106,7 +3106,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
@@ -3144,7 +3144,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
@@ -3320,7 +3320,7 @@
 /area/ship/orion/cargo)
 "lsl" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
@@ -5341,7 +5341,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
@@ -5610,7 +5610,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004;
@@ -5917,7 +5917,7 @@
 	pixel_y = 30
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;
@@ -7296,7 +7296,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
 	frequency = 1004;

@@ -4,6 +4,36 @@
 #define SMELTER_MODE_COMPRESSING BITFLAG(2)
 #define SMELTER_MODE_SMELTING BITFLAG(3)
 
+/obj/structure/machinery/mineral/proc/load_mining_point_balance(obj/item/card/id/ID)
+	var/mob/living/carbon/human/card_owner = ID?.mob_id?.resolve()
+	if(!card_owner?.character_id)
+		return FALSE
+
+	var/datum/persistent_record/saved_balance = SSpersistence.historyGetLastRecord(
+		/singleton/persistent_type/history/character/mining_point_balance,
+		card_owner.character_id
+	)
+	ID.mining_points = saved_balance ? text2num(saved_balance.value) : 0
+	return TRUE
+
+/obj/structure/machinery/mineral/proc/adjust_mining_point_balance(obj/item/card/id/ID, amount)
+	if(!amount || !load_mining_point_balance(ID))
+		return FALSE
+
+	var/adjusted_points = max(0, ID.mining_points + amount)
+	if(adjusted_points == ID.mining_points)
+		return FALSE
+
+	ID.mining_points = adjusted_points
+	var/mob/living/carbon/human/card_owner = ID.mob_id?.resolve()
+
+	SSpersistence.historyAddCharacterRecord(
+		/singleton/persistent_type/history/character/mining_point_balance,
+		card_owner.character_id,
+		"[clamp(ID.mining_points, 0, MINING_POINTS_CARRYOVER_MAX)]"
+	)
+	return TRUE
+
 /obj/structure/machinery/mineral
 	var/id //used for linking machines to consoles
 	var/is_processing_machine = FALSE //used to check for initializing machines
@@ -140,6 +170,7 @@
 	ui_interact(user)
 
 /obj/structure/machinery/mineral/processing_unit_console/ui_interact(mob/user, datum/tgui/ui)
+	load_mining_point_balance(user.GetIdCard())
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MiningProcessor", "Ore Redemption Console", ui_x=500, ui_y=575)
@@ -189,13 +220,13 @@
 		if(ID)
 			if(params["choice"] == "claim")
 				if(points >= 0)
-					ID.adjust_mining_points(points)
 					if(points != 0)
-						ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
-						var/character_id = astype(ID.mob_id.resolve(), /mob/living/carbon/human/)?.character_id
-						if(character_id)
-							SSpersistence.historyAddCharacterRecord(/singleton/persistent_type/history/character/mining_points, character_id, points)
-					points = 0
+						if(adjust_mining_point_balance(ID, points))
+							ping("<b>\The [src]</b> pings, \"Point transfer complete! Transaction total: [points] points!\"")
+							var/character_id = astype(ID.mob_id.resolve(), /mob/living/carbon/human/)?.character_id
+							if(character_id)
+								SSpersistence.historyAddCharacterRecord(/singleton/persistent_type/history/character/mining_points, character_id, points)
+							points = 0
 				else
 					ping("<b>\The [src]</b> pings, \"Transaction failed due to a negative point value. No transaction can be done until this value has returned to a positive one.\"")
 			if(params["choice"] == "print_report")

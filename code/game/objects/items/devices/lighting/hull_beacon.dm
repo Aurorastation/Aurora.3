@@ -4,7 +4,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	anchored = TRUE
 	light_system = MOVABLE_LIGHT
-	light_range = 1.6 // LEMURIAN SEA, AFTER ARC RESTORE TO 3
+	light_range = 3.0
 
 /obj/item/hullbeacon/Initialize()
 	. = ..()
