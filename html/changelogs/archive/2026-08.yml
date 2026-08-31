@@ -579,3 +579,42 @@
   TheGreyWolf:
   - bugfix: Fixed a bug preventing scanning and using a welder on an IPC in a surgical
       chair.
+2026-08-30:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  TheGreyWolf:
+  - bugfix: Fixed grabbing forcing people to stand up. Now they only stand up with
+      a neck grab, if the grabber attempts to move.
+  - bugfix: Fixed various bugs on the holodeck regarding invisible items and decals
+      not being deleted.
+  - bugfix: The holodeck null rod can no longer be reassembled and kept.
+  - bugfix: The chess and burn test simulations were removed, as they were unused.
+  Tomixcomics:
+  - balance: Adds back a couple of the removed items to the Getmore snack vending
+      machines.
+  - rscdel: Removed the mossburger from the commissary restock packs since it's not
+      supposed to be easily available outside of Konyang.
+  notagonk:
+  - bugfix: Fixed some missing TCAF accessory sprites.
+  - qol: Minor adjustments to some equipment on the TCAF Corvette.
+2026-08-31:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  FabianK3:
+  - server: Added a new subsystem called registry as new cross-round config store.
+  Lent23:
+  - rscadd: 'Added two new unathi subspecies: Urawani and Ziralixi. Renames the default
+      unathi to Azaziba'
+  TheGreyWolf:
+  - bugfix: Fixed unathi subtype hairstyles, facial hair, hair gradients and bodymarkings.
+  diggiez:
+  - rscadd: IPCs may now set a fluff Custom Model which displays on examine descriptions.
+      Shells that use it will be revealed.

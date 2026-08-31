@@ -195,6 +195,8 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/Debug2,
 	/client/proc/DebugToggle,
 	/client/proc/DebugToggleAll,
+	/client/proc/registry_get_value,
+	/client/proc/registry_set_value,
 	/client/proc/kill_air,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_debug_make_powernets,
