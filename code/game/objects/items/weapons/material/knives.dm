@@ -58,11 +58,12 @@
 		var/obj/S = thing
 		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."))
 		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
-		H.custom_pain(SPAN_DANGER("<font size=4>It burns!</font>"), 50)
+		H.custom_pain(SPAN_DANGER("<font size=4>It burns!</font>"), 50, affecting = O)
 		if(do_mob(usr, H, 100))
-			H.remove_implant(S, FALSE)
+			H.remove_implant(S, FALSE, O)
 			log_and_message_admins("has extracted [S] out of [key_name(H)]")
-		H.emote("scream")
+		if(ORGAN_CAN_FEEL_PAIN(O))
+			H.emote("scream")
 
 /obj/item/material/knife/ritual
 	name = "ritual knife"
