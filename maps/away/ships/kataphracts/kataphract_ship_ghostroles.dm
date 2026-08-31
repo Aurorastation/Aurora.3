@@ -13,7 +13,7 @@
 	mob_name_pick_message = "Pick an Unathi last name."
 
 	outfit = /obj/outfit/admin/kataphract
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kataphract-Hopeful"

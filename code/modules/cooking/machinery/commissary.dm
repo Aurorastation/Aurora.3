@@ -422,7 +422,6 @@
 		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3,
 		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3,
 		/obj/item/storage/box/fancy/packaged_burger = 3,
-		/obj/item/storage/box/fancy/packaged_mossburger = 2,
 		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
 		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
 		/obj/item/storage/box/fancy/toptarts_strawberry = 3,

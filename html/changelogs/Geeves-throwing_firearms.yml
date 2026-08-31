@@ -1,4 +1,0 @@
-author: Geeves
-delete-after: True
-changes:
-  - qol: "Firearms can no longer be thrown while on harm intent, preventing accidental throws when attempting to fire."

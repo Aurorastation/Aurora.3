@@ -69,6 +69,10 @@
 		switch(H.get_species())
 			if (SPECIES_UNATHI)
 				return 1
+			if (SPECIES_UNATHI_URAWANI)
+				return 1
+			if (SPECIES_UNATHI_ZIRALIXI)
+				return 1
 			if (SPECIES_ZOMBIE_UNATHI)
 				return 1
 	return 0
