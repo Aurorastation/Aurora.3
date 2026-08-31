@@ -532,6 +532,9 @@ SUBSYSTEM_DEF(ticker)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
 	var/list/runnable_modes = GLOB.config.get_runnable_modes(GLOB.master_mode)
+	var/datum/game_mode/extended_mode = GLOB.gamemode_cache["extended"]
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET && length(runnable_modes) == 1 && (extended_mode in runnable_modes))
+		runnable_modes.Cut()
 	if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
 			if(GLOB.master_mode == ROUNDTYPE_STR_SECRET)
@@ -573,6 +576,8 @@ SUBSYSTEM_DEF(ticker)
 		to_world("<span class='danger'>Round start pre-game setup failed! Reverting to pre-game lobby.")
 		prevent_unready = FALSE
 		return SETUP_REVOTE
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET && mode == extended_mode && !round_canon_admin_forced)
+		set_round_canon(/singleton/canonicity/limited, TRUE)
 
 	prevent_unready = FALSE
 
