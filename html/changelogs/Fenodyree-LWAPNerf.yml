@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - balance: "The LWAP no longer stuns. It weakens for a single tick, causing you to drop what you are holding, then causes a short period of confusion. Also increased the eyeblur duration to match the confusion duration."
