@@ -346,8 +346,10 @@
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
+	icon = 'icons/obj/item/clothing/accessory/suspenders.dmi'
 	icon_state = "suspenders"
 	item_state = "suspenders"
+	contained_sprite = TRUE
 	gender = PLURAL
 	slot = ACCESSORY_SLOT_GENERIC
 
