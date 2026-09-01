@@ -40,6 +40,9 @@
 	if (!window_path)
 		return INITIALIZE_HINT_QDEL
 
+	if (color && !frame_color)
+		frame_color = color
+
 	..()
 
 	activate()

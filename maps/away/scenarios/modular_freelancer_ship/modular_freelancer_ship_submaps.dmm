@@ -1002,7 +1002,6 @@
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
 "acK" = (
-/obj/structure/table/wood/maple,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart{
 	pixel_x = -3;
 	pixel_y = 10
@@ -1010,6 +1009,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/structure/table/wood/yew,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "acN" = (
@@ -1544,10 +1544,10 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/cic)
 "aeD" = (
-/obj/structure/table/wood/maple,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/structure/table/wood/ebony,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "aeE" = (
@@ -1668,12 +1668,12 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/table/wood/maple,
 /obj/random/pottedplant_small{
 	pixel_x = 5;
 	pixel_y = 4
 	},
 /obj/structure/machinery/alarm/noid/north,
+/obj/structure/table/wood/yew,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "aeZ" = (
@@ -1990,6 +1990,9 @@
 /area/ship/modular_freelancer_ship/aft/hallway)
 "afR" = (
 /obj/structure/machinery/atmospherics/unary/freezer,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "afU" = (
@@ -7107,7 +7110,6 @@
 /turf/template_noop,
 /area/template_noop)
 "aJA" = (
-/obj/structure/table/wood/maple,
 /obj/item/flashlight/lamp/green{
 	pixel_y = 11;
 	pixel_x = -2
@@ -7115,6 +7117,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/structure/table/wood/walnut,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/crew)
 "aJF" = (
@@ -9118,12 +9121,12 @@
 /turf/simulated/floor/wood/ebony,
 /area/template_noop)
 "aUL" = (
-/obj/structure/table/wood/maple,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass{
 	pixel_x = 4;
 	pixel_y = -1
 	},
+/obj/structure/table/wood/walnut,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/crew)
 "aUM" = (
@@ -10799,7 +10802,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
 "ckf" = (
-/obj/structure/table/wood/maple,
+/obj/structure/table/wood/mahogany,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt{
 	pixel_x = 7;
 	pixel_y = 8
@@ -13672,7 +13675,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "gjY" = (
-/obj/structure/table/wood/maple,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black{
 	pixel_x = 6;
 	pixel_y = -2
@@ -13687,6 +13689,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/wood/ebony,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "gkz" = (
@@ -15885,7 +15888,6 @@
 /turf/simulated/floor/tiled/cargo,
 /area/shuttle/modular_freelancer_shuttle/ferry)
 "jgz" = (
-/obj/structure/table/wood/maple,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -15893,6 +15895,7 @@
 	pixel_x = -6;
 	pixel_y = 5
 	},
+/obj/structure/table/wood/walnut,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/crew)
 "jgQ" = (
@@ -16060,7 +16063,6 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/mid/lounge)
 "jpA" = (
-/obj/structure/table/wood/maple,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
 	pixel_x = -4
 	},
@@ -16068,6 +16070,7 @@
 	pixel_x = 9;
 	pixel_y = 6
 	},
+/obj/structure/table/wood/walnut,
 /turf/simulated/floor/wood,
 /area/ship/modular_freelancer_ship/fore/crew)
 "jpC" = (
@@ -16923,6 +16926,7 @@
 "kni" = (
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/hallway)
 "kob" = (
@@ -18419,7 +18423,6 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/atmos)
 "mpo" = (
-/obj/structure/table/wood/maple,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -18427,6 +18430,7 @@
 	pixel_x = -7;
 	pixel_y = 5
 	},
+/obj/structure/table/wood/walnut,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/crew)
 "mpD" = (
@@ -19162,7 +19166,6 @@
 /turf/simulated/floor/tiled/cargo/full,
 /area/ship/modular_freelancer_ship/mid/lounge)
 "ngq" = (
-/obj/structure/table/wood/maple,
 /obj/item/flashlight/lamp/green{
 	pixel_y = 7;
 	pixel_x = 5
@@ -19182,6 +19185,7 @@
 	},
 /obj/effect/map_effect/marker/button_control/airlock/bolts,
 /obj/effect/map_effect/marker/button_control/window_tint,
+/obj/structure/table/wood/yew,
 /turf/simulated/floor/wood/mahogany,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "ngE" = (
@@ -26458,9 +26462,11 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/shuttles)
 "xDE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/cargo/full,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "xEy" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -46586,10 +46592,10 @@ kgS
 iZM
 iZM
 iZM
-xDE
+kfJ
 aYV
 rSO
-xDE
+uZZ
 iZM
 cuW
 rWJ
@@ -54638,7 +54644,7 @@ aCx
 aza
 aTZ
 aTZ
-afx
+xDE
 axT
 aRv
 alE
@@ -56365,7 +56371,7 @@ aCx
 aza
 aTZ
 aTZ
-aYy
+kIe
 aji
 aRv
 aSR
