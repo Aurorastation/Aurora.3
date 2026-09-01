@@ -585,8 +585,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
  * * display_progress - Boolean, if the progress bar is shown
  * * extra_checks - A `/datum/callback` that is invoked to perform extra checks and validate that the action can continue to be performed,
  * if it returns `FALSE` or an algebraic equivalent the action is aborted
+ * * progressbar_type - The progress bar theme to display
  */
-/proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks) //This is quite an ugly solution but i refuse to use the old request system.
+/proc/do_mob(mob/user, mob/target, delay = 30, needhand = TRUE, display_progress = TRUE, datum/callback/extra_checks, progressbar_type = /datum/progressbar/default) //This is quite an ugly solution but i refuse to use the old request system.
 	if(!user || !target)
 		stack_trace("do_mob called without either an user or a target!")
 		return FALSE
@@ -600,7 +601,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		var/atom/loc_check = target
 		for(var/i = 0; !isturf(loc_check.loc) && i < 5; i++)
 			loc_check = target.loc
-		progbar = new(user, delay, loc_check)
+		progbar = new progressbar_type(user, delay, loc_check)
 
 	var/endtime = world.time + delay
 	var/starttime = world.time
@@ -621,7 +622,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			break
 
 	if (progbar)
-		qdel(progbar)
+		progbar.end_progress()
 
 /**
  * Timed actions involving one mob user and (optionally) one target.
@@ -635,17 +636,18 @@ Turf and target are seperate in case you want to teleport some distance from a t
  * * do_flags: Flags that determine what the user and target can and cannot do, defined in [mobs.dm]. Defaults to DO_DEFAULT.
  * * incapacitation_flags: Incapacitation flags that determines if the user can be incapacitated. Defaults to INCAPACITATION_DEFAULT.
  * * extra_checks: Optional extra checks, that uses a callback. See [datum/callback].
+ * * progressbar_type: The progress bar theme to display.
  *
  */
-/proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
-	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags, extra_checks)
+/proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks, progressbar_type = /datum/progressbar/default)
+	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags, extra_checks, progressbar_type)
 
 /**
  * See [/proc/do_after]
  * Returns the exact error, defined in [mobs.dm] for custom error messages.
  * Overlaps with do_flags, with some extra error messages available.
  */
-/proc/do_after_detailed(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
+/proc/do_after_detailed(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks, progressbar_type = /datum/progressbar/default)
 	if(!delay)
 		return FALSE
 
@@ -685,7 +687,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	var/datum/progressbar/progbar
 	if ((do_flags & DO_SHOW_PROGRESS) && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
-		progbar = new(user, delay, target || user)
+		var/progbar_pos = (do_flags & DO_PLACE_PROGRESSBAR_ON_USER) ? user : (target || user)
+		progbar = new progressbar_type(user, delay, progbar_pos)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
 

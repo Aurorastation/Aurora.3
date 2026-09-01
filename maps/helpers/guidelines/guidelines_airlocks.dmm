@@ -6,7 +6,7 @@
 	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "bx" = (
@@ -35,13 +35,13 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "dk" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "du" = (
@@ -113,7 +113,7 @@
 	dir = 6
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -121,7 +121,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "gm" = (
@@ -149,7 +149,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "js" = (
@@ -168,21 +168,21 @@
 	pixel_x = 20;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "kg" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "kx" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "kZ" = (
@@ -224,7 +224,7 @@
 	pixel_y = 6;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_y = 6;
@@ -265,7 +265,7 @@
 	dir = 4;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/template_noop,
 /area/template_noop)
 "oq" = (
@@ -285,7 +285,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "oR" = (
@@ -293,12 +293,12 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "pm" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -310,7 +310,7 @@
 	pixel_x = -24
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qk" = (
@@ -361,7 +361,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qz" = (
@@ -372,7 +372,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "qS" = (
@@ -394,7 +394,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "so" = (
@@ -439,12 +439,12 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "vf" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
@@ -455,7 +455,7 @@
 	pixel_x = 24;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "vW" = (
@@ -475,7 +475,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -486,7 +486,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
 	pixel_x = -12;
@@ -518,14 +518,14 @@
 	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "zn" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "zt" = (
@@ -580,13 +580,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Bt" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "BE" = (
@@ -605,7 +605,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28;
 	pixel_x = -6
@@ -635,12 +635,12 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "EY" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -666,7 +666,7 @@
 	pixel_x = 28;
 	pixel_y = -8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "HE" = (
@@ -686,7 +686,7 @@
 	dir = 4;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Jx" = (
@@ -694,7 +694,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Jy" = (
@@ -709,14 +709,14 @@
 /area/template_noop)
 "KX" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Li" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Lt" = (
@@ -731,7 +731,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "LW" = (
@@ -742,7 +742,7 @@
 	pixel_x = -20;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Nr" = (
@@ -756,7 +756,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -769,7 +769,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "OG" = (
@@ -785,7 +785,7 @@
 /obj/structure/machinery/access_button{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "PU" = (
@@ -804,11 +804,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Qs" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
@@ -816,7 +816,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Qt" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
@@ -826,7 +826,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Qw" = (
@@ -837,7 +837,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "QX" = (
@@ -848,7 +848,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Rh" = (
@@ -858,7 +858,7 @@
 	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Ri" = (
@@ -869,7 +869,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -877,7 +877,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8
@@ -905,7 +905,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "TP" = (
@@ -919,7 +919,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "UO" = (
@@ -936,7 +936,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Vv" = (
@@ -947,7 +947,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "VJ" = (
@@ -960,7 +960,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "VO" = (
@@ -1080,11 +1080,11 @@
 /area/template_noop)
 "WC" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "WP" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "WW" = (
@@ -1096,7 +1096,7 @@
 "Xv" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -1110,7 +1110,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = 12;
@@ -1133,7 +1133,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Yo" = (
@@ -1159,14 +1159,14 @@
 	pixel_x = -20;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "YK" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "YM" = (
@@ -1182,7 +1182,7 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Ze" = (
@@ -1192,7 +1192,7 @@
 "ZE" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
 

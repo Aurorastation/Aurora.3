@@ -1414,15 +1414,23 @@
 	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
-	plane = ABOVE_LIGHTING_PLANE
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY_MINOR
+	var/mutable_appearance/inventory_emissive
 
 /obj/item/clothing/accessory/led_collar/Initialize()
 	. = ..()
 	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
+	AddOverlays(emissive_appearance(icon, icon_state))
 	set_light_range_power_color(0.5, 0.4, color)
 	set_light_on(TRUE)
+
+/obj/item/clothing/accessory/led_collar/get_inv_overlay(mob/M, force = FALSE)
+	var/image/I = ..()
+	if(!inventory_emissive)
+		inventory_emissive = emissive_appearance(I.icon, I.icon_state)
+	I.AddOverlays(inventory_emissive)
+	return I
 
 /// Update the light mode to one used by accessories when it gets attached.
 /obj/item/clothing/accessory/led_collar/on_attached(obj/item/clothing/S, mob/user)
@@ -1443,8 +1451,7 @@
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
-	I.plane = ABOVE_LIGHTING_PLANE
-	I.appearance_flags |= KEEP_APART
+	I.AddOverlays(emissive_appearance(I.icon, I.icon_state))
 	return I
 
 /obj/item/clothing/accessory/newgibson_uraniumglass_necklace

@@ -58,8 +58,13 @@
 
 	msg += "<EM>[src.name]</EM>"
 
-	if(!species.hide_name)
-		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[species.name]</font></b>"
+	var/ipcmodel
+	if(isipc(src))
+		var/obj/item/organ/internal/machine/posibrain/ipcbrain = internal_organs_by_name[BP_BRAIN]
+		var/modelmsg = ipcbrain.custom_model
+		ipcmodel = "[modelmsg]"
+	if(!species.hide_name || ipcmodel)
+		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[ipcmodel ? "[ipcmodel] ":""][species.name]</font></b>"
 	msg += "!\n"
 
 	//uniform
@@ -208,6 +213,10 @@
 	//wrists
 	if(wrists && !skipwrists)
 		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wrists)]'>\a [wrists]</a> [wrists.get_wrist_examine_text(src)].\n"
+
+	//closed eyes
+	if(!skipeyes && eyes_are_closed())
+		msg += "[get_pronoun("His")] eyes are closed.\n"
 
 	//Jitters
 	if(is_jittery)

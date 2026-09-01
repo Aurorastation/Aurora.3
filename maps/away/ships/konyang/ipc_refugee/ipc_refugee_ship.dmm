@@ -128,8 +128,8 @@
 /area/ship/ipc_refugee/dock)
 "bq" = (
 /obj/item/stack/rods,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "bs" = (
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
@@ -260,7 +260,7 @@
 /obj/item/stack/rods,
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/airless,
-/area/ship/ipc_refugee/forehall)
+/area/ship/ipc_refugee/exterior)
 "cw" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -287,12 +287,12 @@
 /turf/simulated/floor,
 /area/ship/ipc_refugee/engie)
 "cL" = (
-/obj/structure/lattice,
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "cN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1290,6 +1290,11 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/engie)
+"kG" = (
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "kK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -1327,7 +1332,7 @@
 	name = "fore, messhall"
 	},
 /turf/space,
-/area/ship/ipc_refugee/forehall)
+/area/ship/ipc_refugee/exterior)
 "kS" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/steel{
@@ -1371,10 +1376,10 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/atmos)
 "lh" = (
-/obj/structure/lattice,
 /obj/item/material/shard/shrapnel,
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "lm" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/brown/full,
@@ -1741,8 +1746,8 @@
 "nZ" = (
 /obj/structure/lattice,
 /obj/structure/grille,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "ob" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
@@ -2261,7 +2266,7 @@
 /obj/effect/decal/cleanable/floor_damage/broken2,
 /obj/effect/decal/cleanable/floor_damage/broken3,
 /turf/simulated/floor/airless,
-/area/ship/ipc_refugee/forehall)
+/area/ship/ipc_refugee/exterior)
 "rh" = (
 /obj/effect/decal/remains/robot{
 	pixel_y = -8;
@@ -2407,6 +2412,9 @@
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
+"sy" = (
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "sA" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2515,8 +2523,8 @@
 "tl" = (
 /obj/structure/lattice/catwalk,
 /obj/item/stack/rods,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "ts" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2786,7 +2794,7 @@
 /obj/effect/decal/cleanable/floor_damage/broken6,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
-/area/ship/ipc_refugee/forehall)
+/area/ship/ipc_refugee/exterior)
 "vr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage/broken7,
@@ -3318,8 +3326,8 @@
 /obj/structure/grille/broken,
 /obj/structure/lattice,
 /obj/item/material/shard/shrapnel,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "yJ" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ipc_refugee_shuttle)
@@ -3863,8 +3871,8 @@
 /area/ship/ipc_refugee/atmos)
 "CJ" = (
 /obj/structure/grille,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "CK" = (
 /obj/structure/girder,
 /turf/simulated/floor/airless,
@@ -3996,8 +4004,8 @@
 "Ds" = (
 /obj/item/material/shard,
 /obj/structure/lattice,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "Du" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -4268,8 +4276,8 @@
 /area/ship/ipc_refugee/bridge)
 "FC" = (
 /obj/structure/lattice,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "FD" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4297,7 +4305,7 @@
 "FQ" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space,
 /area/space)
 "FR" = (
 /obj/structure/cable/green{
@@ -4483,10 +4491,10 @@
 /turf/simulated/floor/tiled,
 /area/ship/ipc_refugee/atmos)
 "HD" = (
-/obj/structure/lattice,
 /obj/item/stack/rods,
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "HO" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -4594,6 +4602,10 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/forehall)
+"IJ" = (
+/obj/structure/lattice,
+/turf/space,
+/area/space)
 "IK" = (
 /obj/structure/girder,
 /obj/item/ore{
@@ -4680,6 +4692,10 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/mainhall)
+"Jq" = (
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/space)
 "Jt" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
@@ -4848,8 +4864,8 @@
 "Kr" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "Ks" = (
 /obj/structure/machinery/access_button{
 	dir = 1;
@@ -4911,6 +4927,11 @@
 	},
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
+"Lw" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/space,
+/area/space)
 "LD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/external{
@@ -5078,8 +5099,8 @@
 /area/ship/ipc_refugee/bridge)
 "MA" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "MC" = (
 /obj/structure/girder,
 /obj/item/stack/material/steel{
@@ -5695,7 +5716,7 @@
 "SK" = (
 /obj/structure/grille,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space,
 /area/space)
 "SM" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -5781,8 +5802,8 @@
 /area/ship/ipc_refugee/engie)
 "Tn" = (
 /obj/item/material/shard,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/ipc_refugee/exterior)
 "To" = (
 /obj/structure/table/standard,
 /obj/structure/machinery/light/small/emergency{
@@ -6116,7 +6137,6 @@
 	dir = 4;
 	name = "Washroom";
 	welded = 1;
-	icon_state = "door_locked";
 	locked = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -37021,7 +37041,7 @@ Ik
 Ik
 Ik
 SK
-FC
+IJ
 SK
 Ns
 Du
@@ -37029,7 +37049,7 @@ Np
 Sz
 Ns
 SK
-FC
+IJ
 SK
 Ik
 Ik
@@ -38044,7 +38064,7 @@ ya
 nc
 ky
 nS
-FC
+MA
 Ns
 QK
 Zf
@@ -38062,9 +38082,9 @@ PJ
 TR
 xW
 Ns
-FC
-FC
-FC
+MA
+MA
+MA
 BV
 CK
 BV
@@ -38328,7 +38348,7 @@ JZ
 Xb
 Yu
 tY
-Sg
+FC
 Ik
 Ik
 Ik
@@ -38558,7 +38578,7 @@ Zq
 dB
 qF
 nS
-FC
+MA
 Og
 xS
 fn
@@ -38577,7 +38597,7 @@ fk
 WM
 Og
 lh
-FC
+MA
 HD
 BV
 tw
@@ -38585,7 +38605,7 @@ Rl
 tL
 hl
 kO
-TN
+sy
 Ik
 Ik
 Ik
@@ -39583,7 +39603,7 @@ uv
 Vx
 Yl
 nS
-MA
+Jq
 Ik
 Ik
 Ik
@@ -39840,26 +39860,26 @@ fS
 nS
 nS
 nS
-Kr
+Lw
 Ik
 Ik
 Ik
 Ik
+MA
+sy
+kG
 FC
-Ik
-SK
-FC
-SK
+kG
 Ns
 kX
 cN
 Cp
 Ns
-SK
+kG
 FC
-SK
+kG
 Tn
-FC
+MA
 Ik
 Ik
 vO
@@ -40097,25 +40117,25 @@ Wn
 ei
 Yw
 xV
+Jq
+Ik
+Ik
+Ik
+Ik
 MA
-Ik
-Ik
-Ik
-Ik
+sy
+sy
 FC
-Ik
-Ik
-FC
-Ik
+sy
 Ns
 Ns
 Yx
 Ns
 Ns
-Ik
+sy
 FC
-Ik
-Ik
+sy
+sy
 cL
 Ik
 Ik
@@ -41644,21 +41664,21 @@ Ik
 Ik
 Ik
 Ik
-FC
-Ik
-Ik
+MA
+sy
+sy
 Ds
-Ik
+sy
 fC
 fC
 rX
 fC
 fC
-Ik
+sy
 FC
-Ik
-Ik
-FC
+sy
+sy
+MA
 Ik
 Ik
 Rs
@@ -41901,9 +41921,9 @@ Ik
 Ik
 Ik
 Ik
-FC
+MA
 bq
-SK
+kG
 FC
 nZ
 fC
@@ -41913,9 +41933,9 @@ Hd
 fC
 nZ
 FC
-SK
-Ik
-FC
+kG
+sy
+MA
 Ik
 Ik
 Rs
@@ -43184,7 +43204,7 @@ jP
 JJ
 EK
 JJ
-FC
+MA
 iq
 IQ
 Qf
@@ -43202,9 +43222,9 @@ kN
 Re
 Dc
 iq
-FC
-FC
-FC
+MA
+MA
+MA
 BV
 YS
 ud
@@ -43698,7 +43718,7 @@ JJ
 EK
 EK
 JJ
-FC
+MA
 fC
 gS
 wC
@@ -43716,9 +43736,9 @@ uN
 uN
 nA
 fC
-FC
-FC
-FC
+MA
+MA
+MA
 mI
 Xh
 nt
@@ -44730,16 +44750,16 @@ Ik
 Ik
 Ik
 Ik
-SK
+kG
 FC
-SK
+kG
 fC
 fb
 pK
 Vf
 fC
 SK
-FC
+IJ
 FQ
 Ik
 Ik

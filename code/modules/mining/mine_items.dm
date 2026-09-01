@@ -868,12 +868,29 @@
 	if(istype(attacking_item, /obj/item/card/id))
 		if(points)
 			var/obj/item/card/id/C = attacking_item
-			C.adjust_mining_points(points)
-			to_chat(user, SPAN_INFO("You transfer [points] points to \the [C]."))
-			points = 0
+			if(transfer_points(C))
+				to_chat(user, SPAN_INFO("You transfer [points] points to \the [C]."))
+				points = 0
 		else
 			to_chat(user, SPAN_INFO("There's no points left on \the [src]."))
 	..()
+
+/obj/item/card/mining_point_card/proc/transfer_points(obj/item/card/id/ID)
+	var/mob/living/carbon/human/card_owner = ID?.mob_id?.resolve()
+	if(!card_owner?.character_id)
+		return FALSE
+
+	var/datum/persistent_record/saved_balance = SSpersistence.historyGetLastRecord(
+		/singleton/persistent_type/history/character/mining_point_balance,
+		card_owner.character_id
+	)
+	ID.mining_points = max(0, (saved_balance ? text2num(saved_balance.value) : 0) + points)
+	SSpersistence.historyAddCharacterRecord(
+		/singleton/persistent_type/history/character/mining_point_balance,
+		card_owner.character_id,
+		"[clamp(ID.mining_points, 0, MINING_POINTS_CARRYOVER_MAX)]"
+	)
+	return TRUE
 
 /obj/item/card/mining_point_card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

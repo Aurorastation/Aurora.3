@@ -33,6 +33,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/tgui_say_light_mode = FALSE
 	var/ui_scale = TRUE
 	var/lobby_music_vol = 85
+	var/looping_sound_volume = 100
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 
@@ -91,6 +92,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/gear_modified = FALSE
 
 	// IPC Stuff
+	var/machine_custom_model
 	var/machine_tag_status = TRUE
 	var/machine_serial_number
 	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY

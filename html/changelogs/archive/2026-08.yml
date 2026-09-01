@@ -278,3 +278,343 @@
       when their original physical projectile no longer existed.
   - bugfix: Fixed several ship munitions reconstructing as the wrong projectile after
       overmap travel, ensuring explosive rounds correctly detonate on impact.
+2026-08-14:
+  Batrachophrenoboocosmomachia:
+  - balance: Extends minimum time to organ rupture due to Greimorian egg implantation
+      by 33%.
+  - balance: Adds chest and groin organ choice in Greimorian egg implantation to reroll
+      chance target, like head, to reduce effectively-end-your-round chance.
+  - balance: Removes egg spread chance from Greimorian egg implantation stage 4.
+  - balance: Minor other adjustments to Greimorian egg behavior (ensures increased
+      duration does not increase final larva count, etc.)
+  - balance: Gives Greimorian Servant (playable worker) greater venom per bite than
+      standard workers.
+  DreamySkrell:
+  - rscadd: Bapi autopipe script.
+  - rscadd: Overmap sector list `initial_generic_waypoints` is now optional.
+  - refactor: Small refactor of landmarks and docking markers on the SCC Scout Ship.
+  - rscadd: Door paint markers.
+  FabianK3:
+  - rscdel: Removed the ambience sounds from vents and scrubbers. The amount of sounds
+      degrade performance. The sound files added with it are still available.
+  Fenodyree:
+  - qol: Integrated circuit assemblies can now be recycled in autolathes. They can't
+      be recycled in the printer, because clicking the printer with the circuit is
+      required to scan it for cloning.
+  - qol: Integrated circuits can now be charged in rechargers.
+  - balance: Reduces the damage and armour penetration of shots hitting the mech pilot
+      after going through the hatch. The amount depends on the mech's cockpit design.
+      Values range between 30% and 80% of the original damage and armour penetration.
+  Geeves:
+  - rscadd: You can now close your eyes. This blinds you, but gives you protection
+      against flash effects.
+  - balance: Welding while blind takes three times as long and has an 80% chance to
+      fail, with a risk of burning yourself.
+  Mineymonkey:
+  - bugfix: Removed the matter bin requirements for the circuit imprinter, prolathe,
+      and mechfabricator research boards.
+  TheGreyWolf:
+  - rscdel: The golden slime core can no longer spawn psiren omens, beckoners or the
+      psiren matriarch.
+  - rscdel: Technomancers can no longer summon the psiren omens or beckoners. Other
+      psirens were untouched.
+  - bugfix: Fixed the inability for the himean taj modkit to modify an assembled industrial
+      rig.
+  Tomixcomics:
+  - rscadd: Adds two new adhomian cuisine dishes - the Meat Thamo and the Cheese Thamo.
+  hazelmouse:
+  - rscadd: Added the lesser hivebot boss from Silicon Nightmares to the codebase,
+      tentatively only for admin use.
+  - rscadd: Adds hivebot circuit floors.
+  - qol: Playable hivebots now spawn with the hivebot language as standard.
+  - imageadd: Added the sprites for the greater hivebot boss to the codebase, though
+      it is currently unimplemented.
+  - qol: Playable hivebots now make noises when they speak or emote.
+  - rscadd: Duffel bags can now be accessed while in your hand.
+  - rscadd: Introduced a one second delay to opening duffel bags.
+  - balance: Downgraded the standard power cell in an IPC, bringing their total capacity
+      down by 50% and closer to their values prior to a recent refactor. Recharge
+      stations also made more efficient.
+  kano:
+  - qol: Deployable kits now show the progress bar on the mob.
+  - rscadd: Ported various platform sprites from CM.
+2026-08-17:
+  ASmallCuteCat:
+  - qol: Swaps the placement of the ICU and the storage room in Medical.
+  - qol: Moves the Pharmacy and the Recovery Ward, with the lobby centered between
+      them.
+  - qol: The Medical Department's floor decals are now seafoam green, for less eye
+      strain and greater difference with Service green.
+  DreamySkrell:
+  - rscadd: Bapi mapmanip submap weight.
+  Fenodyree:
+  - bugfix: Fixes all rubber bullets dealing damage twice.
+  - bugfix: Fixes all attacks that dealt pain damage checking siemens coefficient.
+      This makes everything but hardsuits and voidsuits stronger against rubber bullets.
+      Insulated gloves are also no longer immune to rubber bullets.
+  - bugfix: Fixes pain failing to make you blurt out whatever you were typing. Now
+      getting shot will cause you to say whatever was in the typing window when you
+      were hit and close the window immediately, allowing you to move.
+  - bugfix: Fixes all attacks that had manually set armour checks, previously they
+      ignored the armour they were meant to check and decided what armour affected
+      them based only on their damage type.
+  - qol: Cloned circuit assemblies now spawn with uncharged batteries.
+  - rscadd: Lets some small integrated circuit designs be worn on the wrist, belt,
+      or clipped to a helmet for helmet cameras.
+  - bugfix: Fixes the Mend power taking 15 seconds to scan every organ, even if the
+      organ is healthy.
+  - bugfix: Fixes the Mend power not being able to fix blindness.
+  - bugfix: Fixes the Mend power not being able to fix heart attacks.
+  - bugfix: Fixes the Mend power not being able to fix brute or burn damage.
+  - bugfix: Fixes the Mend power not being able to fix tendons.
+  - bugfix: Fixes the Mend power not respecting psychic sensitivity.
+  - bugfix: Fixes the Mend power thinking every external organ is robotic.
+  Geeves:
+  - rscadd: Added the option to manually change the looping sound channel volume in
+      the SFX Preferences tab.
+  Hellfirejag:
+  - rscadd: The mechanical engineering skill now provides a situational damage bonus
+      for attacking structures such as airlocks and windows.
+  - rscadd: The mechanical engineering skill now modifies the speed and repair amount
+      when repairing a mech with a welder.
+  - rscadd: Repairing mechs is now no longer instantaneous.
+  - rscadd: Attempting to repair a mech with a welder will now automatically repeat
+      the repair action until either completed, or interrupted.
+  TheGreyWolf:
+  - bugfix: Fixed that the EMP implant was visible in the bodyscanner.
+  - rscadd: The fuel tank from the cargo ordering program is no longer access restricted.
+  Tomixcomics:
+  - rscadd: Added the 'Idris Delights' vending machine and the various treats it sells.
+  - rscadd: Added two new types of trash to go along with the new treats.
+  - rscadd: Added several new food dishes including Takoyaki, French toast, Lava cakes
+      and Tiramisu.
+  - rscadd: Added a multitude of Psiren meat based dishes.
+  - qol: Added line of code to keep the game from crashing when flavors don't get
+      listed properly in the code.
+  - qol: Adjusted Citrus Delight dish so that it doesn't take forever to finish
+  fyni:
+  - rscadd: Updates the earth accent tag. The old tag did not fit the accent tag format.
+  mineymonkey:
+  - bugfix: Actually, reduces the maximum amount of metal and phoron that can be stored
+      in a printer from 500 -> 250 and 20 -> 10 respectively. No cloned circuits can
+      hit those numbers, so this is just a safety measure to prevent accidental loss
+      of materials.
+  - qol: Added in examine hints for the electronic radio headset for clarity in how
+      to access the circuitry portions. Also makes mention that the TTS circuit can
+      only be heard by those wearing the device, it does not broadcast to the room
+      in this specific case.
+2026-08-20:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Additional LS logic fixes.
+  Hellfirejag:
+  - bugfix: Fixed a small lag spike caused by ownerless IPCs dying.
+  hazelmouse:
+  - bugfix: Resolved a few lighting bugs with holodeck spaces.
+  - bugfix: Removes the erroneous 'Chessboard' setting visible in the holodeck console's
+      menu. There was never any chessboard. You have been lied to.
+  - bugfix: Fixed versebook onmobs.
+  - bugfix: South-facing platforms no longer layer over south-facing railings.
+  kano:
+  - bugfix: Fixed the smooth icon overlays appearing under the adjacent turfs.
+2026-08-21:
+  ASmallCuteCat:
+  - bugfix: Removes some stray items around medbay, re-adds a GTR sink, fixes a broken
+      airvent, fixes pharmacy shutters, ensures proper placement and visibility of
+      items.
+  - qol: Re-adds a single bag of SBS blood to the Operating Room freezer. It was removed
+      for a previous arc but never re-added.
+  - qol: QOL adjustments to the ICU - adds additional lighting and a ringer button.
+  DreamySkrell:
+  - rscadd: Submap insert markers now support different directions.
+  - refactor: External airlock marker.
+  Fenodyree:
+  - bugfix: Fixes technomancer's apportation spell. It now grabs mobs instead of runtiming
+      and has a cooldown.
+  - rscadd: EMPs once again check energy armour. A heavy EMP can be downgraded to
+      a light EMP, and a light EMP can be negated entirely or only affect the mob's
+      contents. This chance is based on the average energy armour of the mob, weighted
+      by limb size.
+  - balance: The effect of an EMP on a power cell is now random. A light EMP can drain
+      up to half the max charge, and a heavy EMP can drain up to the full max charge.
+      Previously heavy would always drain the full max charge, and light would always
+      drain half the max charge.
+  Geeves:
+  - rscadd: Progress bars now use smooth, colour-changing fills and support visual
+      themes.
+  - qol: Gear loadout item variant selections now display item icons in a searchable
+      list.
+  - qol: Airlock controllers now display controller and door power, door and bolt
+      status, pump activity, the current cycle phase, and unresponsive equipment.
+  - balance: Welding arcs now damage the eyes of visible onlookers within two tiles
+      who are facing the welder and are not wearing eye protection.
+  - bugfix: Fixed tails layering oddly in character preview, holograms, photos, etc.
+  Hellfirejag:
+  - bugfix: Fixed a runtime error caused by a player attempting to view the statpanel
+      before its ready.
+  - bugfix: Fixed a runtime error caused by a 'machine' var being used to store non
+      machines.
+  - bugfix: Fixed a hard del caused by ccarp and psiren migrations.
+  - refactor: Refactored get_pain() to have essentially nonexistent cost.
+  - bugfix: Fixed both a runtime error and a hard delete related to ammo piles.
+  - bugfix: Fixed a spammy runtime caused by smoking cigarettes.
+  Wowzewow (Wezzy):
+  - rscadd: Adjusts the kitchen so it's more comfortable for dual-chef gameplay. Also
+      integrates them a bit better.
+  fyni:
+  - rscadd: Adds the [!] to the gravity anomoly overmap icon.
+  - rscadd: Adds a new psiren overmap icon, so they no longer share an icon with carp.
+  hazelmouse:
+  - bugfix: Resolved awkward starlight interactions in a number of offsites and offships,
+      including the Xanu Frigate and Ranger Corvette.
+  - rscadd: Added missing fore gunnery entry points to the Xanu Frigate offship, and
+      appropriately renamed starboard and portside gunnery entry points to make it
+      clear that they do impact the gunnery nacelles.
+  - qol: Shutters no longer layer underneath airlocks.
+2026-08-23:
+  DreamySkrell:
+  - rscadd: Adds a `generate_dirt` var to areas, to allow automatic generating dirt
+      on floor turfs.
+  - rscadd: Fixes plane of `/turf/space/transit`.
+  Fenodyree:
+  - balance: Reduced the genetic damage of the decloner module by 20%.
+  - balance: Genetic damage is now a chance to spawn a tumour, rather than a guaranteed
+      tumour at 10% damage.  The chance is equal to 10 + the amount of genetic damage.  This
+      means that at 100% genetic damage, you are guaranteed to spawn a tumour.
+  Geeves:
+  - bugfix: Turned LED collars into an emissive, it no longer renders above everything.
+  TheGreyWolf:
+  - bugfix: The ops head is now rad proof.
+  - rscadd: Takeout boxes now exist. They can be crafted from cardboard and found
+      in the kitchen dinnerware vending machine.
+2026-08-24:
+  Geeves:
+  - bugfix: Mining point balances are now loaded only when interacting with mining
+      machinery or transferring a mining point card, preventing unrelated ID cards
+      from querying mining point history.
+  - bugfix: Claiming zero mining points no longer creates a persistent balance record.
+  Hellfirejag:
+  - bugfix: Made showers no longer require always processing.
+  notagonk:
+  - rscadd: Remapped the journalist's office as the refurbished media office.
+  - rscadd: Created a press lanyard subtype of the regular lanyard, no difference
+      in sprite.
+  - rscadd: Added the press badges and lanyard to the loadout.
+2026-08-25:
+  FabianK3:
+  - bugfix: Fixed butazoline OD and cryotreatment not repairing cut tendons.
+  TheGreyWolf:
+  - rscadd: Unathi can now drink regular ethanol based booze.
+  - rscadd: Unathi now get half nutriment from regular nutriments, and double from
+      protein.
+  - balance: Reduced the chance of psiren spawns in the warehouse as the lemurian
+      sea arc has ended.
+  kano:
+  - code_imp: Materials no longer cache pre-coloured wall icons.
+  rattydew:
+  - bugfix: Resolved a few mapping errors introduced in recent Horizon remaps.
+2026-08-26:
+  DreamySkrell:
+  - rscadd: Ship gun loader auto connects to ship gun
+  Hellfirejag:
+  - bugfix: Fixed showers not cleaning things.
+  - rscadd: Showers now turn themselves off after 5 minutes to conserve water (and
+      CPU time)
+  TheGreyWolf:
+  - bugfix: Hopefully fixed that case dossiers sometimes self delete.
+2026-08-27:
+  Wowzewow (Wezzy):
+  - rscadd: Readds the internal kitchen smartheaters so chefs can have somewhere to
+      put their intermediate ingredients again.
+  kano:
+  - bugfix: Corrects platform icon directions in the icon file.
+2026-08-28:
+  ASmallCuteCat:
+  - bugfix: Readds the pharmacy desk ringer.
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  Geeves:
+  - bugfix: Fixed robotic and mechanically assisted organs retaining or recovering
+      from EMP surge damage incorrectly.
+  - bugfix: Fixed several prosthetic limb interactions causing inappropriate pain,
+      screams, blood, or organic surgery sounds.
+  - rscadd: Added less-than-lethal beanbag rounds for grenade launchers. These have
+      been mapped in to the armory, alongside a single grenade launcher. More ammo
+      can be ordered from cargo.
+  SimpleMaron:
+  - rscadd: 'Added new body markings for Skrell: Axiori Mecha Eyes and regular Xiialt
+      Mecha Eyes.'
+  TheGreyWolf:
+  - rscadd: Material silos can now be upgraded. Each tier is equal to 400 sheets worth
+      of storage.
+  - balance: Reduced the number of overmap psiren shoals.
+  - bugfix: Fixed the lag from the new research console TGUI.
+  - bugfix: Non-synthskin IPC can now have their faces fixed.
+  - bugfix: Using the wrong tool for an IPC surgery will no longer smack them with
+      said item.
+  - rscadd: Changed the color of the lore radio in chat and added the ability to turn
+      down the volume to hide the chat messages while keeping the overhead talking.
+  fyni, nautical:
+  - rscadd: Adds the Orion's Scar sector, an area dense with stars and rumours.
+2026-08-29:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  ElorgRHG:
+  - imageadd: Resprited ammo casings.
+  - rscadd: Individual rounds in an ammo pile now get rotated.
+  Geeves:
+  - qol: Clicking a hardsuit with an item now attempts to place it into the suit's
+      mounted storage, unless the item is used to interact with the hardsuit or one
+      of its modules.
+  - qol: Added helpful examine text to hardsuits, describing how to use them.
+  - qol: Firearms can no longer be thrown while on harm intent, preventing accidental
+      throws when attempting to fire.
+  TheGreyWolf:
+  - bugfix: Fixed a bug preventing scanning and using a welder on an IPC in a surgical
+      chair.
+2026-08-30:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  TheGreyWolf:
+  - bugfix: Fixed grabbing forcing people to stand up. Now they only stand up with
+      a neck grab, if the grabber attempts to move.
+  - bugfix: Fixed various bugs on the holodeck regarding invisible items and decals
+      not being deleted.
+  - bugfix: The holodeck null rod can no longer be reassembled and kept.
+  - bugfix: The chess and burn test simulations were removed, as they were unused.
+  Tomixcomics:
+  - balance: Adds back a couple of the removed items to the Getmore snack vending
+      machines.
+  - rscdel: Removed the mossburger from the commissary restock packs since it's not
+      supposed to be easily available outside of Konyang.
+  notagonk:
+  - bugfix: Fixed some missing TCAF accessory sprites.
+  - qol: Minor adjustments to some equipment on the TCAF Corvette.
+2026-08-31:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  FabianK3:
+  - server: Added a new subsystem called registry as new cross-round config store.
+  Lent23:
+  - rscadd: 'Added two new unathi subspecies: Urawani and Ziralixi. Renames the default
+      unathi to Azaziba'
+  TheGreyWolf:
+  - bugfix: Fixed unathi subtype hairstyles, facial hair, hair gradients and bodymarkings.
+  diggiez:
+  - rscadd: IPCs may now set a fluff Custom Model which displays on examine descriptions.
+      Shells that use it will be revealed.

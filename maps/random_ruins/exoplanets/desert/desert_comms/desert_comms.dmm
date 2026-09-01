@@ -64,7 +64,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
@@ -827,7 +827,7 @@
 	pixel_y = 7;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
@@ -894,7 +894,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/desert_comms)
@@ -1208,7 +1208,7 @@
 	pixel_y = 7;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
@@ -1304,7 +1304,7 @@
 /area/desert_comms)
 "JX" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/visible,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
@@ -1660,7 +1660,7 @@
 	dir = 4;
 	pixel_x = -25
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/desert_comms)
@@ -2026,7 +2026,7 @@
 /area/desert_comms)
 "XR" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
@@ -2052,7 +2052,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/full,
 /area/desert_comms)

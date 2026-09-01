@@ -320,11 +320,34 @@
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
-	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
+	var/welding_blind = user.is_blind()
+	if(welding_blind)
+		delay *= 3
+
+	var/image/welding_sparks = overlay_image('icons/effects/effects.dmi', welding_state, flags = RESET_COLOR)
 	welding_sparks.plane = ABOVE_LIGHTING_PLANE
 	target.AddOverlays(welding_sparks)
 	. = ..()
 	target.CutOverlays(welding_sparks)
+
+	if(. && welding_blind && prob(80))
+		to_chat(user, SPAN_WARNING("Unable to see your work, you botch the weld!"))
+		if(prob(50))
+			var/burn_zone
+			if(ishuman(user))
+				switch(get_equip_slot())
+					if(slot_l_hand)
+						burn_zone = BP_L_HAND
+					if(slot_r_hand)
+						burn_zone = BP_R_HAND
+					else
+						burn_zone = pick(BP_L_HAND, BP_R_HAND)
+			user.apply_damage(rand(5, 10), DAMAGE_BURN, burn_zone, src)
+			user.visible_message(
+				SPAN_DANGER("[user] jerks back after burning themselves with \the [src]!"),
+				SPAN_DANGER("Your blind welding slips, burning your hand!")
+			)
+		return FALSE
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
@@ -439,7 +462,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 
-	if(do_mob(user, target, 30))
+	if(use_tool(target, user, 30, volume = 15))
 		if(use(0))
 			var/static/list/repair_messages = list(
 				"patches some dents",
@@ -509,7 +532,7 @@
 /obj/item/weldingtool/proc/get_fuel()
 	return REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 
-//Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob.
+//Removes fuel from the welding tool. If a mob is passed, it will expose nearby onlookers to the welding arc.
 /obj/item/weldingtool/use(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
 	if(!welding)
 		return 0
@@ -518,12 +541,28 @@
 	if(get_fuel() >= amount)
 		reagents.remove_reagent(/singleton/reagent/fuel, amount)
 		if(M && produces_flash)
-			M.flash_act(FLASH_PROTECTION_MAJOR)
+			flash_welding_arc(M)
 		return 1
 	else
 		if(M)
 			to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 		return 0
+
+/// Damages the eyes of the welder and any visible living mobs looking towards the welding arc.
+/obj/item/weldingtool/proc/flash_welding_arc(mob/living/user)
+	var/turf/welding_turf = get_turf(src)
+	if(!welding_turf)
+		return
+
+	var/list/potential_viewers = viewers(2, welding_turf)
+	// Preserve the existing behaviour for the user if their container keeps them out of viewers().
+	if(!(user in potential_viewers))
+		potential_viewers += user
+
+	for(var/mob/living/onlooker in potential_viewers)
+		// Someone sharing the arc's turf cannot meaningfully look away from it.
+		if(get_turf(onlooker) == welding_turf || (onlooker.dir & get_dir(onlooker, welding_turf)))
+			onlooker.flash_act(FLASH_PROTECTION_MAJOR)
 
 /obj/item/weldingtool/use_resource(mob/user, var/use_amount)
 	if(get_fuel() >= use_amount)
@@ -951,4 +990,3 @@
 	var/mutable_appearance/handle = mutable_appearance('icons/obj/tools.dmi', "hammer_handle")
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 	AddOverlays(handle)
-

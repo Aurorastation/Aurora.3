@@ -17,10 +17,10 @@
 	if(!hatch_closed) //Open hatches only expose the pilot to attacks from the front and a little bit from the sides.
 		if(incoming_attack_direction)
 			if (dir & incoming_attack_direction)
-				if(prob(80)) //80% chance to hit the pilot from the front if the hatch is open. If this is 100% turrets will shoot mechs with open hatches forever.
+				if(prob(body.cockpit_hatch_size)) //80% chance to hit the pilot from the front if the hatch is open. If this is 100% turrets will shoot mechs with open hatches forever.
 					return TRUE
 			if ((turn(dir, 90) & incoming_attack_direction) || (turn(dir, -90) & incoming_attack_direction))
-				if(prob(20)) //20% chance to hit the pilot from the sides if the hatch is open.
+				if(prob(body.cockpit_hatch_size / 4)) //20% chance to hit the pilot from the sides if the hatch is open.
 					return TRUE
 
 	return FALSE
@@ -104,7 +104,7 @@
 		else
 			return body
 
-/mob/living/heavy_vehicle/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/heavy_vehicle/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE, check_armor)
 	if(!damage)
 		return 0
 
@@ -120,8 +120,9 @@
 	if(target == body && body.damage_state == MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL) //If the cockpit is destroyed, subsequent damage is applied to the pilot, modified by the mech's armour.
 		if(body && LAZYLEN(pilots))
 			var/mob/living/pilot = pick(pilots)
-			visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
-			pilot.apply_damage(damage, damagetype, def_zone, used_weapon, damage_flags, armor_pen, silent = FALSE)
+			if(prob(body.cockpit_hatch_size))
+				visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
+				pilot.apply_damage(damage * body.cockpit_pilot_damage_multiplier, damagetype, def_zone, used_weapon, damage_flags, armor_pen * body.cockpit_pilot_armour_piercing_multiplier, silent = FALSE)
 
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
