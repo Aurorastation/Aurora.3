@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Items such as bandages and health analyzers can be used on people on rollerbeds again."

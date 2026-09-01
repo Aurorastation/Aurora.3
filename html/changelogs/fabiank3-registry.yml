@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - server: "Added a new subsystem called registry as new cross-round config store."
