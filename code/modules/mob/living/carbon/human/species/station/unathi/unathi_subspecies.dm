@@ -1,6 +1,5 @@
 /datum/species/unathi/unathi_urawani
 	name = SPECIES_UNATHI_URAWANI
-	short_name = "ura"
 	name_plural = "Urawani Sinta"
 	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
 	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
@@ -101,7 +100,6 @@
 
 /datum/species/unathi/unathi_Ziralixi
 	name = SPECIES_UNATHI_ZIRALIXI
-	short_name = "zir"
 	name_plural = "Ziralixi Sinta"
 	blurb = "Sinta'unathi (Unathi by outsiders, Sinta by themselves) are a reptilian species native to \
 	Moghes, a planet in the Uueoa-Esa system in the Badlands. First contact was made with them in 2403, \
