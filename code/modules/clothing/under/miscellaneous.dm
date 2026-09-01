@@ -175,9 +175,11 @@
 /obj/item/clothing/under/suit_jacket
 	name = "black suit"
 	desc = "A black suit and red tie. Very formal."
+	icon = 'icons/obj/item/clothing/under/colored_suit_jackets.dmi'
 	icon_state = "black_suit"
 	item_state = "bl_suit"
 	worn_state = "black_suit"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/suit_jacket/really_black
 	name = "executive suit"

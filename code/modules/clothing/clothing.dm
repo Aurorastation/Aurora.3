@@ -612,7 +612,7 @@
 //Head
 /obj/item/clothing/head
 	name = "head"
-	icon = 'icons/obj/item/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/misc_hats.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
@@ -1075,7 +1075,7 @@
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
-	icon = 'icons/obj/item/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/misc_suits.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
@@ -1140,7 +1140,7 @@
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
 /obj/item/clothing/under
-	icon = 'icons/obj/item/clothing/uniforms.dmi'
+	icon = 'icons/obj/item/clothing/misc_uniforms.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'

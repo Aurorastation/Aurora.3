@@ -18,7 +18,7 @@
 /obj/item/technomancer_jumpstarter
 	name = "technomancer jumpstarter"
 	desc = "Use this to become a technomancer. This item is definitely not canon."
-	icon = 'icons/obj/item/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/misc_hats.dmi'
 	icon_state = "amp"
 	contained_sprite = FALSE
 

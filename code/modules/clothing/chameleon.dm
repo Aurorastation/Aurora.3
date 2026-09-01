@@ -171,7 +171,7 @@
 
 /obj/item/clothing/suit/armor/chameleon
 	name = "standard plate carrier"
-	icon = 'icons/obj/item/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/misc_suits.dmi'
 	contained_sprite = TRUE
 	icon_state = "plate_chameleon"
 	item_state = "plate_chameleon"
