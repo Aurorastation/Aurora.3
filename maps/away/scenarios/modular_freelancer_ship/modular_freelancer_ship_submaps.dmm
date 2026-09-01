@@ -11374,6 +11374,11 @@
 "cYN" = (
 /turf/simulated/floor/exoplanet/grass/stalk,
 /area/template_noop)
+"cZo" = (
+/obj/structure/machinery/iff_beacon,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/template_noop)
 "cZR" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -15502,6 +15507,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"iHN" = (
+/obj/structure/machinery/shipsensors,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/template_noop)
 "iHV" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -89126,7 +89136,7 @@ kmc
 dvX
 fiz
 xWs
-amg
+cZo
 aza
 aUQ
 aMv
@@ -89283,7 +89293,7 @@ iXa
 aGv
 agJ
 xxb
-amg
+aCp
 aza
 aUQ
 aMv
@@ -89440,7 +89450,7 @@ eQf
 aev
 ajM
 xWs
-amg
+iHN
 aza
 aUQ
 aMv

@@ -28,8 +28,8 @@
 
 /obj/effect/overmap/visitable/ship/modular_freelancer_ship
 	name = /datum/map_template/ruin/away_site/modular_freelancer_ship::id
-	class = "ICV"
-	desc = /datum/map_template/ruin/away_site/modular_freelancer_ship::description
+	class = "?" // set in New()
+	desc = "?" // set in New()
 
 	// visual:
 	icon_state = "freighter_large"
@@ -45,7 +45,7 @@
 
 	// fluff:
 	designer = "Unknown"
-	volume = "42 meters length, 48 meters beam/width, 23 meters vertical height"
+	volume = "114 meters length, 55 meters beam/width, 24 meters vertical height"
 	drive = "First-Gen Warp Capable, Hybrid Phoron Bluespace Drive"
 	propulsion = "Superheated Composite Gas Thrust"
 	weapons = "Present, cannot read in detail"
@@ -54,35 +54,24 @@
 
 	// defines:
 	var/list/designation_options = list(
-		"This Old Tune",
-		"June",
-		"Thou Shalt Not Kill",
-		"5 for You and 5 for Me",
-		"No Jazz",
-		"I don't Want to Be an Emperor",
-		"Nocturne",
-		"Secret Society",
-		"Leave Me Alone",
-		"In the Woods",
-		"Little Tale",
-		"No Need To Be Frightened",
-		"Black Moon",
-		"Point of No Return",
-		"Entering the Black Hole",
-		"No Meeting",
-		"Low Gravity",
-		"Out of Time",
-		"In Time",
-		"This Is Just the Beginning",
-		"Melancholia",
-		"Before Midnight Tonight",
-		"Second Sun",
-		"Sure the Sun Will Rise",
-		"One More Step",
-		"2001 Light Years From Home",
-		"Far From Home",
-		"Unknown Jungle",
-		"Come With Me",
+		// a
+		"This Old Tune", "June", "Thou Shalt Not Kill", "5 for You and 5 for Me",
+		"No Jazz", "I don't Want to Be an Emperor", "Nocturne", "Secret Society",
+		"Leave Me Alone", "In the Woods", "Little Tale", "No Need To Be Frightened",
+		"Black Moon", "Point of No Return", "Entering the Black Hole", "No Meeting",
+		"Low Gravity", "Out of Time", "In Time", "This Is Just the Beginning", "Melancholia",
+		"Before Midnight Tonight", "Second Sun", "Sure the Sun Will Rise", "One More Step",
+		"2001 Light Years From Home", "Far From Home", "Unknown Jungle", "Come With Me",
+		// b
+		"Cantilever", "Fulcrum", "Gantry", "Keystone", "Trestle",
+		"Spindle", "Trusswork", "Loadstone", "Iron Lattice",
+		// c
+		"Driftwood", "Wayfarer", "Prospector", "Dustrunner", "Scraptender",
+		"Rustbound", "Trailblazer", "Spur Strider", "Periphery",
+		// d
+		"Spare Parts", "Patchwork", "Piecework", "Low Bidder",
+		"Hard Bargain", "Make-Do", "Loose Rivet", "Working Title",
+		"Second Chance", "Margin Call", "Overtime", "Salvage Rights",
 	)
 
 /obj/effect/overmap/visitable/ship/modular_freelancer_ship/New()
@@ -92,6 +81,26 @@
 		"CCV", // Coalition Civilian Vessel
 	)
 	designation = pick(/obj/effect/overmap/visitable/ship/modular_freelancer_ship::designation_options)
+
+	desc = ""
+	desc += pick(
+		"Built around an adaptable open-truss spine, this vessel is a textbook example of a modular freelancer rig. ",
+		"Originally derived from a Hephaestus-style heavy utility chassis, this craft is assembled from a patchwork of standardized intermodal sections. ",
+		"A common sight among deep-space scavengers and frontier haulers, this ship relies on an elongated structural gantry rather than a traditional solid hull. ",
+	)
+	desc += pick(
+		"Its forward pressurized compartments appear securely bolted to the central keel, balancing compact crew quarters against cargo access shafts. ",
+		"An industrial cargo block anchors the bow, trailing a network of reinforced bulkheads and access catwalks down its centerline. ",
+	)
+	desc += pick(
+		"The exterior lattice features a selection of shipping containers attached to the frame. ",
+		"An assortment of standardised shipping containers stand attached to the frame. ",
+	)
+	desc += pick(
+		"Heavy aft propulsion blocks and decades of weld lines suggest a resilient workhorse built to survive long burns on the fringe.",
+		"Scored by micrometeorites and rewired dozens of times, it stands ready to be dismantled and reconfigured for whatever comes next.",
+	)
+
 	..()
 
 // --------------------------------------------------- shuttles
@@ -118,7 +127,7 @@
 
 	// fluff:
 	designer = "Hephaestus Industries"
-	volume = "17 meters length, 24 meters beam/width, 6 meters vertical height"
+	volume = "16 meters length, 11 meters beam/width, 9 meters vertical height"
 	sizeclass = "Dual-purpose Fighter Shuttle"
 	shiptype = "Light exploration and defensive uses"
 
@@ -151,7 +160,7 @@
 /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry
 	name = "Modular Freelancer Ship, Ferry Shuttle"
 	class = "ICV"
-	desc = "A standard-sized shuttle manufactured by Hephaestus. It is a low-end model, fairly uninteresting, found all over the spur. It has a small-caliber gun mounted on the side."
+	desc = "A standard-sized shuttle manufactured by Hephaestus. It is a low-end model, fairly uninteresting, found all over the spur."
 	shuttle = "Modular Freelancer Ship, Ferry Shuttle"
 
 	// visual:
@@ -168,9 +177,9 @@
 
 	// fluff:
 	designer = "Hephaestus Industries"
-	volume = "17 meters length, 24 meters beam/width, 6 meters vertical height"
+	volume = "12 meters length, 9 meters beam/width, 6 meters vertical height"
 	sizeclass = "Dual-purpose Ferry Shuttle"
-	shiptype = "Light exploration and defensive uses"
+	shiptype = "Light exploration and transportation uses"
 
 /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry/New()
 	designation = pick(/obj/effect/overmap/visitable/ship/modular_freelancer_ship::designation_options)
