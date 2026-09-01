@@ -37,8 +37,10 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	var/last_patrol_search = 0
 	var/closest_numbered_dist = 9999
 	var/next_dest_loc
-	///Numbered patrol beacon locations, indexed by patrol number as text
+	///Numbered patrol beacons, indexed by patrol number as text
 	var/list/numbered_patrols = list()
+	///Z-level for which numbered_patrols was populated
+	var/numbered_patrol_z = 0
 	///The closest numbered patrol beacon found by the latest radio request
 	var/nearest_patrol_number = 0
 	///The numbered patrol beacon at which the current leg began
@@ -294,6 +296,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		return FALSE
 
 	patrol_path = list()
+	invalidate_numbered_patrol_cache()
 	last_patrol_search = 0
 	last_movement_failure_turf = null
 	movement_failure_count = 0
@@ -303,24 +306,35 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 ///Rebuilds the route to the intended numbered waypoint, or selects the next waypoint when needed.
 /mob/living/bot/cleanbot/proc/refresh_numbered_patrol_path(preserve_target = FALSE)
 	patrol_route_failure = null
-	closest_numbered_dist = 9999
 	next_dest_loc = null
-	nearest_patrol_number = 0
-	numbered_patrols = list()
 	patrol_path = list()
-	find_numbered_patrol_beacons()
+	var/cache_refreshed = FALSE
+
+	if(!numbered_patrol_cache_is_valid())
+		find_numbered_patrol_beacons()
+		cache_refreshed = TRUE
 
 	if(!nearest_patrol_number || !length(numbered_patrols))
 		patrol_route_failure = "no numbered patrol beacons are registered on this frequency and Z-level"
 		return FALSE
 
 	if(preserve_target && target_patrol_number)
-		next_dest_loc = numbered_patrols["[target_patrol_number]"]
+		next_dest_loc = get_numbered_patrol_turf(target_patrol_number)
+		if(!next_dest_loc && !cache_refreshed)
+			find_numbered_patrol_beacons()
+			cache_refreshed = TRUE
+			next_dest_loc = get_numbered_patrol_turf(target_patrol_number)
 
 	if(!next_dest_loc)
 		if(!current_patrol_number || !numbered_patrols["[current_patrol_number]"])
 			current_patrol_number = nearest_patrol_number
 		next_dest_loc = get_numbered_patrol_destination()
+		if(!next_dest_loc && !cache_refreshed)
+			find_numbered_patrol_beacons()
+			cache_refreshed = TRUE
+			if(!current_patrol_number || !numbered_patrols["[current_patrol_number]"])
+				current_patrol_number = nearest_patrol_number
+			next_dest_loc = get_numbered_patrol_destination()
 
 	if(!next_dest_loc)
 		patrol_route_failure = "no following patrol number could be selected"
@@ -332,6 +346,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	patrol_path = get_path_to(src, next_dest_loc, 250, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
 	if(!length(patrol_path))
 		patrol_route_failure = "waypoint [target_patrol_number] was detected, but no traversable path reaches it"
+		invalidate_numbered_patrol_cache()
 	return length(patrol_path) > 0
 
 
@@ -352,11 +367,17 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 ///Finds numbered patrol beacons registered on our frequency and Z-level.
 /mob/living/bot/cleanbot/proc/find_numbered_patrol_beacons()
+	invalidate_numbered_patrol_cache()
+
 	var/list/beacon_devices = SSradio.get_devices(beacon_freq, RADIO_NAVBEACONS)
 	if(!length(beacon_devices))
 		return FALSE
 
 	var/turf/our_turf = get_turf(src)
+	if(!our_turf)
+		return FALSE
+	numbered_patrol_z = our_turf.z
+
 	for(var/obj/structure/machinery/navbeacon/beacon in beacon_devices)
 		if(beacon.patrol_number <= 0 || !beacon.anchored)
 			continue
@@ -365,13 +386,55 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		if(!beacon_turf || beacon_turf.z != our_turf?.z)
 			continue
 
-		numbered_patrols["[beacon.patrol_number]"] = beacon_turf
+		numbered_patrols["[beacon.patrol_number]"] = beacon
+
+	update_nearest_numbered_patrol()
+
+	return length(numbered_patrols) > 0
+
+
+///Clears the filtered beacon cache so the next patrol route performs a fresh radio registry lookup.
+/mob/living/bot/cleanbot/proc/invalidate_numbered_patrol_cache()
+	numbered_patrols = list()
+	numbered_patrol_z = 0
+	nearest_patrol_number = 0
+	closest_numbered_dist = 9999
+
+
+///Returns TRUE when the cache was populated for the bot's current Z-level.
+///Individual beacon validity is checked only when a destination is selected, avoiding a full validation pass every leg.
+/mob/living/bot/cleanbot/proc/numbered_patrol_cache_is_valid()
+	var/turf/our_turf = get_turf(src)
+	return our_turf && length(numbered_patrols) && numbered_patrol_z == our_turf.z
+
+
+///Updates the closest numbered beacon using the already-filtered cache.
+/mob/living/bot/cleanbot/proc/update_nearest_numbered_patrol()
+	nearest_patrol_number = 0
+	closest_numbered_dist = 9999
+
+	for(var/number_text in numbered_patrols)
+		var/obj/structure/machinery/navbeacon/beacon = numbered_patrols[number_text]
+		var/turf/beacon_turf = get_turf(beacon)
+		if(!beacon_turf)
+			continue
+
 		var/beacon_dist = get_dist(src, beacon_turf)
 		if(beacon_dist < closest_numbered_dist)
 			closest_numbered_dist = beacon_dist
 			nearest_patrol_number = beacon.patrol_number
 
-	return length(numbered_patrols) > 0
+
+///Returns the current turf of a cached patrol beacon.
+/mob/living/bot/cleanbot/proc/get_numbered_patrol_turf(patrol_number)
+	var/obj/structure/machinery/navbeacon/beacon = numbered_patrols["[patrol_number]"]
+	if(QDELETED(beacon) || !beacon.anchored || beacon.freq != beacon_freq || beacon.patrol_number != patrol_number)
+		return null
+
+	var/turf/beacon_turf = get_turf(beacon)
+	if(!beacon_turf || beacon_turf.z != numbered_patrol_z)
+		return null
+	return beacon_turf
 
 
 ///Returns the next numbered patrol beacon, reversing direction at either end of the route.
@@ -402,7 +465,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 					next_patrol_number = beacon_number
 
 	target_patrol_number = next_patrol_number
-	return numbered_patrols["[target_patrol_number]"]
+	return get_numbered_patrol_turf(target_patrol_number)
 
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
@@ -538,6 +601,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 			var/new_frequency = tgui_input_number(usr, "Select frequency for navigation beacons", "Frequnecy", (beacon_freq/10), round_value = FALSE)
 			if(new_frequency > 0)
 				beacon_freq = new_frequency*10
+				invalidate_numbered_patrol_cache()
 				current_patrol_number = 0
 				target_patrol_number = 0
 				patrol_path = list()
@@ -586,6 +650,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
  */
 /mob/living/bot/cleanbot/proc/set_patrol_mode(state)
 	patrol_path.Cut()
+	invalidate_numbered_patrol_cache()
 
 	if(state)
 		should_patrol = TRUE
