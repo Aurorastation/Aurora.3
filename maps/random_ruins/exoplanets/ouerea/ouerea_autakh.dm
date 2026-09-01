@@ -28,7 +28,7 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	max_count = 3
 	spawnpoints = list("ouerea_autakh")
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/autakh
 

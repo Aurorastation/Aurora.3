@@ -99,7 +99,7 @@
 
 /obj/effect/landmark/corpse/tret_industrial_sinta
 	name = "Cult Base Cultist Corpse"
-	species = list(SPECIES_UNATHI)
+	species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	outfit = list(/obj/outfit/admin/tret_industrial/sinta)
 
 /obj/effect/landmark/corpse/tret_industrial_sinta/do_extra_customization(var/mob/living/carbon/human/human)

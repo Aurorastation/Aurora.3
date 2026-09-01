@@ -430,14 +430,14 @@
 
 /datum/overmap_event/psiren
 	name = "psiren shoal"
-	count = 3
+	count = 1
 	radius = 1
 	continuous = FALSE
 	hazards = /obj/effect/overmap/event/psiren
 
 /datum/overmap_event/psiren/major
 	name = "psiren school"
-	count = 2
+	count = 1
 	radius = 2
 	opacity = 1
 	hazards = /obj/effect/overmap/event/psiren/major

@@ -63,9 +63,6 @@
 	name = "Holodeck - Courtroom"
 	sound_environment = SOUND_ENVIRONMENT_AUDITORIUM
 
-/area/horizon/holodeck/source_burntest
-	name = "Holodeck - Atmospheric Burn Test"
-
 /area/horizon/holodeck/source_wildlife
 	name = "Holodeck - Wildlife Simulation"
 
@@ -101,9 +98,6 @@
 /area/horizon/holodeck/source_battlemonsters
 	name = "Holodeck - Battlemonsters Arena"
 	sound_environment = SOUND_ENVIRONMENT_ARENA
-
-/area/horizon/holodeck/source_chessboard
-	name = "Holodeck - Chessboard"
 
 /area/horizon/holodeck/source_adhomai
 	name = "Holodeck - Adhomian Campfire"
