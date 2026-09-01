@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - qol: "Added both secure operations and tech storage locations as safe deposit location for persistent charge cards."
