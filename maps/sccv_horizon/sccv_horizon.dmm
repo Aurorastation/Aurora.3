@@ -5313,7 +5313,7 @@
 	pixel_x = 2
 	},
 /obj/item/flame/lighter/zippo{
-	pixel_x = 5;
+	pixel_x = 4;
 	pixel_y = 13
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -146471,7 +146471,7 @@
 	},
 /obj/item/storage/box/shells/beanbags{
 	pixel_x = -11;
-	pixel_y = 2
+	pixel_y = 12
 	},
 /obj/item/holomenu{
 	pixel_y = 10;
@@ -146480,6 +146480,10 @@
 /obj/item/holomenu{
 	pixel_y = 5;
 	pixel_x = 5
+	},
+/obj/item/clothing/accessory/badge/shotgun_permit{
+	pixel_x = -11;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
