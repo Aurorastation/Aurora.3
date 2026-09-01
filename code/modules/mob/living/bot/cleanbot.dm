@@ -49,7 +49,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	var/target_patrol_number = 0
 	///Whether the bot is currently moving toward higher or lower patrol numbers
 	var/patrol_direction = 1
-	///Human-readable explanation for the most recent numbered patrol routing failure
+	///Player-readable explanation for the most recent numbered patrol routing failure
 	var/patrol_route_failure
 
 	var/screw_loose = FALSE
