@@ -233,7 +233,6 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-
 /obj/item/clothing/accessory/badge/tcaf_papers
 	name = "\improper TCAF enlistment"
 	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Armed Forces. Go Biesel!"
