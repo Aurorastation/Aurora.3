@@ -9520,7 +9520,8 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/machinery/camera/network{
 	network = list("Command","Security");
-	c_tag = "Gunnery Wing - Waste Station"
+	c_tag = "Gunnery Wing - Waste Station";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/gunnery/waste_station)
@@ -14510,13 +14511,6 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/command/bridge/minibar)
-"bSq" = (
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
-	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/gunnery/weapon_systems/fire_control)
 "bSs" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -16358,16 +16352,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/horizon/operations/ship_supply_warehouse)
-"cgr" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
-	},
-/obj/structure/machinery/disposal/small/east,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/storage/primary)
 "cgu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -19010,6 +18994,13 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_1/wing/starboard)
+"cyJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/maintenance_junk_or_loot,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/maintenance/deck_1/operations/starboard/far)
 "cyK" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -19832,19 +19823,14 @@
 /turf/simulated/floor/carpet,
 /area/horizon/repoffice/consular_two)
 "cDT" = (
-/obj/effect/floor_decal/industrial/outline_corner/engineering{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline_segment/engineering,
-/obj/effect/floor_decal/industrial/outline_segment/engineering{
-	dir = 9
+/obj/structure/machinery/power/apc/north,
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/hatch_small/engineering,
-/obj/structure/machinery/vending/tool,
-/obj/structure/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "cDW" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
@@ -19866,13 +19852,6 @@
 /obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/white,
 /area/horizon/storage/eva/expedition)
-"cEo" = (
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
-	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/gunnery/weapon_systems/casemate/longbow)
 "cEs" = (
 /obj/structure/platform{
 	dir = 1
@@ -25316,13 +25295,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/syndicate_elite)
-"dof" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/obj/item/radio/intercom/north,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/gunnery/hallway)
 "doj" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/machinery/door/blast/regular{
@@ -31186,6 +31158,28 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/hapt)
+"eau" = (
+/obj/structure/table/rack{
+	dir = 8
+	},
+/obj/random/glowstick,
+/obj/random/glowstick,
+/obj/random/hardhat,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/random/technology_scanner,
+/obj/effect/floor_decal/industrial/outline_corner/engineering{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/horizon/storage/primary)
 "eaw" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -32085,15 +32079,14 @@
 /turf/simulated/floor/plating,
 /area/horizon/rnd/hallway/secondary)
 "efv" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/effect/floor_decal/industrial/hatch_tiny/emergency_closet,
-/obj/item/storage/bag/inflatable,
-/obj/structure/machinery/power/apc/east,
-/obj/structure/cable/green{
-	icon_state = "0-8"
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/full,
+/obj/structure/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "efw" = (
 /obj/structure/grille/diagonal{
@@ -34087,6 +34080,15 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/teleporter)
+"esQ" = (
+/obj/structure/machinery/vending/assist,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/structure/machinery/status_display{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/storage/primary)
 "esV" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 4
@@ -36416,6 +36418,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/media_office)
+"eJG" = (
+/obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/gunnery/weapon_systems/casemate/longbow)
 "eJM" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -36685,11 +36697,16 @@
 /turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
 "eMA" = (
-/obj/structure/closet/toolcloset,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/effect/floor_decal/industrial/hatch_tiny/engineering,
-/obj/structure/machinery/light,
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/table/standard,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/radio/intercom/south,
+/turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "eMB" = (
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -44851,6 +44868,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/upperdeck)
+"fRI" = (
+/obj/structure/machinery/lapvend,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/turf/simulated/floor/tiled/full,
+/area/horizon/storage/primary)
 "fRL" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -47639,15 +47662,10 @@
 /turf/simulated/floor/plating,
 /area/horizon/security/hallway)
 "gkx" = (
-/obj/structure/table/rack,
-/obj/item/paint_sprayer,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/item/hoist_kit{
-	pixel_y = 7
+/obj/effect/floor_decal/industrial/outline_straight/engineering{
+	dir = 4
 	},
-/obj/item/ladder_mobile,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/gunmetal,
 /area/horizon/storage/primary)
 "gkC" = (
 /obj/structure/window/borosilicate{
@@ -50085,6 +50103,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/locker_room)
+"gyU" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/item/radio/intercom/north,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/gunnery/hallway)
 "gyV" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -57489,6 +57514,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 8
 	},
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/operations/lobby)
 "huL" = (
@@ -61068,13 +61094,6 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
-"hSb" = (
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
-	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/exterior/no_shields)
 "hSe" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -65129,6 +65148,13 @@
 	},
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/checkpoint/aft)
+"itS" = (
+/obj/effect/floor_decal/industrial/outline_straight/engineering{
+	dir = 8
+	},
+/obj/item/radio/intercom/west,
+/turf/simulated/floor/tiled/gunmetal,
+/area/horizon/storage/primary)
 "itZ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -66364,14 +66390,12 @@
 /obj/random/tool,
 /obj/random/tool,
 /obj/random/tool,
-/obj/item/camera,
-/obj/item/camera,
-/obj/item/camera_film,
-/obj/item/camera_film,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/structure/extinguisher_cabinet/east,
+/obj/item/hand_labeler,
+/obj/item/hand_labeler,
+/obj/structure/machinery/newscaster/east,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "iBu" = (
@@ -68401,6 +68425,19 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/xenoarch/atrium)
+"iPz" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/floor_decal/industrial/outline_corner/engineering{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/horizon/storage/primary)
 "iPB" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/light{
@@ -70784,10 +70821,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
@@ -74381,6 +74414,15 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/horizon/maintenance/deck_2/research)
+"jCH" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/floor_decal/industrial/outline_straight/engineering,
+/obj/effect/floor_decal/industrial/outline_straight/engineering{
+	dir = 1
+	},
+/obj/structure/machinery/alarm/north,
+/turf/simulated/floor/tiled/gunmetal,
+/area/horizon/storage/primary)
 "jCJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -80218,7 +80260,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/rnd/chemistry)
 "koX" = (
-/obj/structure/machinery/lapvend,
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 8
+	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Primary Tool Storage"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "koY" = (
@@ -81270,14 +81319,12 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/obj/item/hand_labeler,
-/obj/item/hand_labeler,
 /obj/random/tool,
 /obj/random/tool,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/item/radio/intercom/south,
+/obj/structure/machinery/light/spot,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "kwg" = (
@@ -85882,10 +85929,6 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
-/obj/structure/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Primary Tool Storage";
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "kYG" = (
@@ -89620,6 +89663,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/rnd/xenoarch/atrium)
+"lxv" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/horizon/storage/primary)
 "lxw" = (
 /turf/unsimulated/mineral/asteroid,
 /area/antag/ninja)
@@ -89873,6 +89920,18 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"lzD" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/floor_decal/industrial/outline_corner/engineering{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering,
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 9
+	},
+/obj/structure/machinery/firealarm/north,
+/turf/simulated/floor/tiled/gunmetal,
+/area/horizon/storage/primary)
 "lzG" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 6
@@ -91245,6 +91304,13 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/engineering/storage_hard/lower)
+"lIt" = (
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
+	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/gunnery/weapon_systems/fire_control)
 "lIx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -93568,6 +93634,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/rnd/hallway/secondary)
+"lZf" = (
+/obj/structure/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/horizon/storage/primary)
 "lZg" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -96448,7 +96520,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/glass{
 	dir = 1;
-	name = "Tool Storage"
+	name = "Primary Tool Storage"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
@@ -97571,9 +97643,6 @@
 /area/centcom/control)
 "myV" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -108778,13 +108847,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/checkpoint2)
-"nWm" = (
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/structure/machinery/firealarm/south,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/gunnery/hallway)
 "nWo" = (
 /obj/structure/railing/mapped,
 /obj/structure/cable{
@@ -113361,7 +113423,14 @@
 	pixel_y = 6
 	},
 /obj/item/deployable_kit,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline_corner/engineering{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering,
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/horizon/storage/primary)
 "oBl" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -113800,19 +113869,13 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/primary/deck_1/central)
 "oEb" = (
-/obj/effect/floor_decal/industrial/outline_corner/engineering{
-	dir = 8
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline_segment/engineering{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/engineering{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/hatch_small/engineering,
-/obj/structure/machinery/vending/assist,
-/obj/structure/machinery/alarm/north,
-/turf/simulated/floor/tiled/full,
+/obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "oEg" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
@@ -113988,6 +114051,13 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/gunnery/hallway)
+"oEW" = (
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/gunnery/hallway)
 "oEY" = (
@@ -115337,7 +115407,19 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/starboard)
 "oNo" = (
-/turf/simulated/floor/tiled,
+/obj/structure/table/rack,
+/obj/item/paint_sprayer,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/item/hoist_kit{
+	pixel_y = 7
+	},
+/obj/item/ladder_mobile,
+/obj/effect/floor_decal/industrial/outline_straight/engineering,
+/obj/effect/floor_decal/industrial/outline_straight/engineering{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
 /area/horizon/storage/primary)
 "oNr" = (
 /obj/structure/machinery/door/airlock/centcom{
@@ -118154,6 +118236,11 @@
 	icon_state = "1,3"
 	},
 /area/shuttle/syndicate_elite)
+"pgX" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/machinery/light/spot,
+/turf/simulated/floor/plating,
+/area/horizon/storage/primary)
 "pgY" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -123028,6 +123115,7 @@
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/corner/red/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/gunnery/waste_station)
 "pOe" = (
@@ -139011,6 +139099,14 @@
 /obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/primary/deck_2/fore)
+"rPs" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/maintenance_junk_or_loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/maintenance/deck_1/operations/starboard/far)
 "rPv" = (
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
@@ -139721,9 +139817,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/wing/port/nacelle)
 "rTt" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 1
-	},
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "rTw" = (
@@ -140521,14 +140615,6 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/supermatter/waste)
-"rYU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/trash_pile,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/maintenance/deck_1/operations/starboard/far)
 "rYW" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "5,6"
@@ -141865,10 +141951,13 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	icon_state = "1-4"
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "sha" = (
@@ -144773,16 +144862,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/bar)
-"szW" = (
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/gunnery/weapon_systems/casemate/longbow)
 "szX" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible/black,
 /obj/structure/machinery/meter,
@@ -148266,17 +148345,7 @@
 /turf/unsimulated/floor,
 /area/antag/raider)
 "sXf" = (
-/obj/structure/table/rack{
-	dir = 8
-	},
-/obj/random/glowstick,
-/obj/random/glowstick,
-/obj/random/hardhat,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tech_supply,
-/obj/random/technology_scanner,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/gunmetal,
 /area/horizon/storage/primary)
 "sXh" = (
 /obj/structure/bed,
@@ -150301,20 +150370,6 @@
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/gen_treatment)
-"tlV" = (
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/horizon/gunnery/hallway)
 "tmf" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -155037,6 +155092,12 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
+"tSB" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/storage/primary)
 "tSF" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/secure_closet/gunnery_loading,
@@ -155588,6 +155649,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/trash_pile,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/operations/starboard/far)
@@ -160023,6 +160085,13 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"uzD" = (
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
+	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/gunnery/weapon_systems/casemate/longbow)
 "uzE" = (
 /obj/structure/machinery/conveyor{
 	dir = 10;
@@ -160111,6 +160180,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/gunnery/waste_station)
 "uAp" = (
@@ -163189,6 +163259,10 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/template_noop)
+"uTe" = (
+/obj/effect/floor_decal/corner/dark_green/full,
+/turf/simulated/floor/tiled,
+/area/horizon/storage/primary)
 "uTf" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
@@ -164343,7 +164417,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/fore)
 "vaw" = (
-/obj/structure/machinery/recharge_station,
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/hatch_small/yellow,
 /turf/simulated/floor/tiled/full,
@@ -167218,6 +167292,13 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/rnd/xenobiology/xenoflora)
+"vvc" = (
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
+	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/gunnery/weapon_systems/casemate/grauwolf)
 "vvr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -173065,13 +173146,6 @@
 /obj/item/flashlight/lamp/holodeck,
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
-"wio" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/random/maintenance_junk_or_loot,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/maintenance/deck_1/operations/starboard/far)
 "wir" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/rnd/xenoarch/anomaly_storage)
@@ -180522,13 +180596,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/indra/smes)
-"xaF" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/random/pottedplant,
-/turf/simulated/floor/tiled,
-/area/horizon/operations/lobby)
 "xaN" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -186667,13 +186734,12 @@
 /turf/simulated/floor/carpet/green,
 /area/horizon/medical/psych)
 "xQP" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/sign/securearea{
+	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
+	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
 	},
-/obj/random/maintenance_junk_or_loot,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/maintenance/deck_1/operations/starboard/far)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/exterior/no_shields)
 "xQQ" = (
 /obj/structure/platform/cutout{
 	dir = 8
@@ -186737,13 +186803,6 @@
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/lobby)
-"xRs" = (
-/obj/structure/sign/securearea{
-	name = "\improper WARNING: WEAPON SYSTEM FIRING PATH sign";
-	desc = "A warning sign which reads \"WARNING: WEAPON SYSTEM FIRING PATH\"."
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/gunnery/weapon_systems/casemate/grauwolf)
 "xRu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
@@ -187422,11 +187481,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos)
 "xWf" = (
-/obj/structure/closet/firecloset/full,
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/effect/floor_decal/industrial/hatch_tiny/firefighting_closet,
-/obj/structure/machinery/firealarm/east,
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/structure/machinery/alarm/east,
+/turf/simulated/floor/tiled,
 /area/horizon/storage/primary)
 "xWi" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
@@ -187992,6 +188051,13 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
+"yaj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/maintenance/deck_1/operations/starboard/far)
 "yak" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -188374,6 +188440,20 @@
 	},
 /turf/simulated/floor,
 /area/horizon/repoffice/consular_one)
+"ydu" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/horizon/gunnery/hallway)
 "ydy" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -206887,7 +206967,7 @@ swu
 ooy
 juI
 fmy
-wio
+cyJ
 tss
 eSV
 eSV
@@ -207401,7 +207481,7 @@ swu
 rSL
 tss
 wTz
-rYU
+tWV
 ooy
 swu
 eSV
@@ -207658,7 +207738,7 @@ swu
 swu
 ooy
 wTz
-tWV
+yaj
 ooy
 swu
 eSV
@@ -207915,7 +207995,7 @@ swu
 rSL
 ooy
 jDc
-xQP
+rPs
 tss
 tss
 eSV
@@ -208172,7 +208252,7 @@ swu
 rSL
 tss
 wTz
-tWV
+yaj
 ooy
 eSV
 eSV
@@ -208429,7 +208509,7 @@ swu
 swu
 tss
 dCG
-tWV
+yaj
 ooy
 eSV
 eSV
@@ -268825,7 +268905,7 @@ dCv
 gqf
 dpx
 dpx
-szW
+eJG
 myP
 dpx
 dpx
@@ -268839,7 +268919,7 @@ rsd
 mcd
 kEo
 lIg
-hSb
+xQP
 eSV
 eSV
 eSV
@@ -269609,7 +269689,7 @@ dCZ
 hCG
 gwF
 gwF
-hSb
+xQP
 rsh
 eSV
 eSV
@@ -269861,7 +269941,7 @@ xQM
 wSj
 dpx
 tEr
-cEo
+uzD
 uDA
 eMC
 uDA
@@ -272686,7 +272766,7 @@ rTX
 qcU
 ivw
 cHD
-dof
+gyU
 mFG
 fck
 eQx
@@ -273723,7 +273803,7 @@ ojs
 ojs
 fck
 loC
-bSq
+lIt
 rsh
 eSV
 eSV
@@ -274223,7 +274303,7 @@ whz
 nZn
 xee
 okG
-tlV
+ydu
 okG
 geJ
 eJn
@@ -274487,7 +274567,7 @@ wVQ
 uCj
 gJo
 tiv
-nWm
+oEW
 myl
 ntO
 qzO
@@ -274751,7 +274831,7 @@ ojX
 ggi
 vBe
 myl
-xRs
+vvc
 rsh
 eSV
 eSV
@@ -276546,10 +276626,10 @@ sEW
 xVf
 huK
 dEI
-oNo
-oNo
-oNo
-oNo
+iPz
+itS
+eau
+lZf
 lmc
 luc
 eSV
@@ -276803,10 +276883,10 @@ gms
 ciL
 kpS
 dEI
-oNo
+jCH
 sXf
 oNo
-oNo
+pgX
 dEI
 cKh
 fZx
@@ -277060,11 +277140,11 @@ mxg
 kVp
 dCx
 dEI
-oNo
+lzD
 gkx
 oBg
-oNo
-oNo
+lxv
+fRI
 lmc
 luc
 eSV
@@ -277318,10 +277398,10 @@ jHY
 gyp
 dEI
 koX
-oNo
-oNo
-oNo
-oNo
+tSB
+tSB
+uTe
+esQ
 dEI
 cKh
 fZx
@@ -277575,11 +277655,11 @@ uHG
 aaw
 dEI
 oEb
-cgr
+rTt
 rTt
 lzB
 vaw
-oNo
+dEI
 lmc
 luc
 eSV
@@ -277829,7 +277909,7 @@ nUx
 tWP
 wHF
 gcm
-xaF
+kpS
 dEI
 cDT
 myV
