@@ -1,0 +1,20 @@
+2026-09-01:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  ElorgRHG:
+  - bugfix: Fixed the stargazer system icon state name for the Orion's Scar sector.
+  - imageadd: Added a stargazer system sprite for the Orion's Scar sector.
+  Fenodyree:
+  - balance: The LWAP no longer stuns. It weakens for a single tick, causing you to
+      drop what you are holding, then causes a short period of confusion. Also increased
+      the eyeblur duration to match the confusion duration.
+  TheGreyWolf:
+  - bugfix: Probably fixed some asteroid/exoplanet rock wall light bugs.
+  - bugfix: Unathi species specific sprites now show again.
+  rattydew:
+  - bugfix: Fixes lighting in the rocky walls of the treasure trove and cursed mine
+      off-sites.
