@@ -19,7 +19,7 @@
 	min_pressure_protection = 0
 	siemens_coefficient = 0.5
 	contained_sprite = FALSE
-	icon = 'icons/obj/item/clothing/misc_hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 
 	//Species-specific stuff.
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -58,7 +58,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	contained_sprite = FALSE
-	icon = 'icons/obj/item/clothing/misc_suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	sprite_sheets_refit = list(

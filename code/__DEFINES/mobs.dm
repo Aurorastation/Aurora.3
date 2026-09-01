@@ -274,7 +274,7 @@
 #define INV_BACK_DEF_ICON			'icons/obj/item/clothing/back/back.dmi'
 #define INV_L_HAND_DEF_ICON			'icons/mob/items/lefthand.dmi'
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
-#define INV_W_UNIFORM_DEF_ICON		'icons/obj/item/clothing/under/uniform.dmi'
+#define INV_W_UNIFORM_DEF_ICON		'icons/obj/item/clothing/under/misc_uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON	'icons/obj/item/clothing/accessory/ties.dmi'
 #define INV_BELT_DEF_ICON 			'icons/obj/item/clothing/belts/belt.dmi'
 #define INV_SUIT_DEF_ICON			'icons/obj/item/clothing/suit/suit.dmi'

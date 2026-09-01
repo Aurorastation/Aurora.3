@@ -14,7 +14,7 @@
 	light_overlay = "helmet_light_dual_red"
 	light_color = COLOR_RED_LIGHT
 	contained_sprite = FALSE
-	icon = 'icons/obj/item/clothing/misc_hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 
 /obj/item/clothing/head/helmet/space/cult/cultify()
 	return
@@ -39,7 +39,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL|HIDESHOES
 	contained_sprite = FALSE
-	icon = 'icons/obj/item/clothing/misc_suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 
 /obj/item/clothing/suit/space/cult/cultify()
 	return
