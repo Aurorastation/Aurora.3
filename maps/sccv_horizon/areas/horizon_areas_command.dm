@@ -159,6 +159,11 @@
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	department = SUBLOC_WEAPON_SYSTEMS
 
+/area/horizon/gunnery/waste_station
+	name = "Gunnery Wing -  Waste Station"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
+
 /area/horizon/gunnery/hallway
 	name = "Gunnery Wing - Hallway"
 	icon_state = "hallS"
@@ -169,11 +174,12 @@
 	icon_state = "ammo"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_blurb = "Armor-piercing, bunker-busting, high-explosive... Don't sneeze!"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/gunnery/weapon_systems
 	name = "Gunnery Wing - Weapon Systems"
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
-	lightswitch = FALSE
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/gunnery/weapon_systems/fire_control
 	name = "Gunnery Wing - Fire Control Compartment"

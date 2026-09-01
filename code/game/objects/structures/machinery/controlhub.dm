@@ -295,10 +295,43 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 	icon_state = "holocontrol"
 	req_access = list(ACCESS_SHIP_WEAPONS)
 	controls = list(
-		"Compartment Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_fire_control"),
-		"Ammunition Magazine Bulkhead" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_magazine"),
-		"Starboard Hallway Bulkhead" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_starboard"),
-		"Port Hallway Bulkhead" = list("type" = "blast_door", "id" = "gunnery_wing_bulkhead_port"),
-		"Longbow Loading Shutter" = list("type" = "blast_door", "id" = "gunnery_wing_longbow_shutter"),
-		"Grauwowlf Loading Shutter" = list("type" = "blast_door", "id" = "gunnery_wing_grauwolf_shutter")
+// Magazine
+		"Ammunition Magazine Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_magazine"),
+// Fire Control
+		"Compartment Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_fc"),
+		"Compartment Viewport Shutters" = list("type" = "blast_door", "id" = "gunnery_shutter_window_fc"),
+// Longbow
+		"Longbow Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_longbow"),
+		"Longbow Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_longbow"),
+// Grauwolf
+		"Grauwolf Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_grauwolf"),
+		"Grauwolf Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_grauwolf"),
+	)
+
+/obj/structure/machinery/controlhub/weapon_systems/longbow
+	name = "longbow weapon system control hub"
+	icon_state = "holocontrol"
+	req_access = list(ACCESS_SHIP_WEAPONS)
+	controls = list(
+// Magazine
+		"Ammunition Magazine Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_magazine"),
+// Longbow
+		"Longbow Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_longbow"),
+		"Longbow Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_longbow"),
+		"Longbow Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_longbow"),
+		"Longbow Viewport Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_window_longbow"),
+	)
+
+/obj/structure/machinery/controlhub/weapon_systems/grauwolf
+	name = "grauwolf weapon system control hub"
+	icon_state = "holocontrol"
+	req_access = list(ACCESS_SHIP_WEAPONS)
+	controls = list(
+// Magazine
+		"Ammunition Magazine Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_magazine"),
+// Grauwolf
+		"Grauwolf Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_grauwolf"),
+		"Grauwolf Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_grauwolf"),
+		"Grauwolf Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_grauwolf"),
+		"Grauwolf Viewport Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_window_grauwolf"),
 	)
