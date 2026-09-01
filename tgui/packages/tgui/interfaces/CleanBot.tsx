@@ -12,6 +12,8 @@ export type CleanBotConfig = {
   screw_loose: boolean;
   odd_button: boolean;
   beacon_freq: number;
+  current_patrol_number: number;
+  target_patrol_number: number;
 };
 
 export const CleanBot = (props) => {
@@ -46,10 +48,26 @@ export const CleanBot = (props) => {
           </Stack.Item>
           <Stack.Item>
             <Section title="Patrol Routine">
-              <Button
-                content={data.should_patrol ? 'Engaged' : 'Idle'}
-                onClick={() => act('toggle_patrol_mode')}
-              />
+              <Stack>
+                <Stack.Item>
+                  <Button
+                    content={data.should_patrol ? 'Engaged' : 'Idle'}
+                    onClick={() => act('toggle_patrol_mode')}
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    content={
+                      data.target_patrol_number
+                        ? `Go to Waypoint ${data.target_patrol_number}`
+                        : 'Go to Next Waypoint'
+                    }
+                    disabled={!data.status || !data.should_patrol}
+                    onClick={() => act('go_to_patrol_waypoint')}
+                    tooltip={`Current waypoint: ${data.current_patrol_number || 'not set'}`}
+                  />
+                </Stack.Item>
+              </Stack>
             </Section>
           </Stack.Item>
           <Stack.Item>

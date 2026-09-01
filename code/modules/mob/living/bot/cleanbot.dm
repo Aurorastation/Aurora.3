@@ -30,16 +30,25 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	//A list of `/datum/weakref` that resolve to `/obj/effect/decal/cleanable`, those are the objects to ignore
 	var/list/datum/weakref/ignorelist = list()
 
-	var/obj/cleanbot_listener/listener
-
 	///Used for patrol pathing, navbeacons have this by default
 	var/beacon_freq = BEACONS_FREQ
 
-	///The time at which a "findbeacon" signal was broadcasted; it's used for us to find the list of available beacons in patrol mode, to know where to go
-	var/signal_sent = 0
-	var/closest_dist = 9999
-	var/next_dest
+	///The last time a numbered patrol scan failed, used to avoid constant pathfinding retries
+	var/last_patrol_search = 0
+	var/closest_numbered_dist = 9999
 	var/next_dest_loc
+	///Numbered patrol beacon locations, indexed by patrol number as text
+	var/list/numbered_patrols = list()
+	///The closest numbered patrol beacon found by the latest radio request
+	var/nearest_patrol_number = 0
+	///The numbered patrol beacon at which the current leg began
+	var/current_patrol_number = 0
+	///The numbered patrol beacon the bot is currently travelling toward
+	var/target_patrol_number = 0
+	///Whether the bot is currently moving toward higher or lower patrol numbers
+	var/patrol_direction = 1
+	///Human-readable explanation for the most recent numbered patrol routing failure
+	var/patrol_route_failure
 
 	var/screw_loose = FALSE
 	var/odd_button = FALSE
@@ -56,6 +65,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 	///The turf we got the last movement failure on, used to distinguish a door bump from a persistent obstruction
 	var/turf/last_movement_failure_turf
+	///Number of consecutive movement failures on the same turf
+	var/movement_failure_count = 0
 
 /mob/living/bot/cleanbot/Cross(atom/movable/crossed)
 	if(crossed)
@@ -69,13 +80,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	//Do not start to patrol until you're told to, also save processing
 	set_patrol_mode(FALSE)
 
-	listener = new /obj/cleanbot_listener(src)
-	listener.cleanbot = src
-
 	if(is_station_turf(get_turf(src)))
 		GLOB.janitorial_supplies |= src
-
-	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
 /mob/living/bot/cleanbot/Destroy()
 	path = null
@@ -83,9 +89,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	cleaning_target = null
 	ignorelist = null
 	next_dest_loc = null
-
-	QDEL_NULL(listener)
-	SSradio.remove_object(listener, beacon_freq)
+	numbered_patrols = null
 
 	if(src in GLOB.janitorial_supplies)
 		GLOB.janitorial_supplies -= src
@@ -131,12 +135,18 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 		if(successfully_moved)
 			last_movement_failure_turf = null
+			movement_failure_count = 0
 			path.Cut(1, 2)
 			return TRUE
 
 		//Something blocked us, look for a different target, we might come back to this in a while
 		if(last_movement_failure_turf != path[1])
 			last_movement_failure_turf = path[1]
+			movement_failure_count = 1
+			return FALSE
+
+		movement_failure_count++
+		if(movement_failure_count < 5)
 			return FALSE
 
 		//This is the second failure on the same turf, invalidate the target.
@@ -145,6 +155,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		cleaning_target = null
 		path = list()
 		last_movement_failure_turf = null
+		movement_failure_count = 0
 		return FALSE
 
 
@@ -212,6 +223,10 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	var/found_spot
 
 	for(var/obj/effect/decal/cleanable/D in view(maximum_search_range, src))
+		// Dirt is expected in maintenance and should not pull the bot away from its patrol route.
+		if(is_maint_area(get_area(D)))
+			continue
+
 		var/datum/weakref/cleanable_weakref = WEAKREF(D)
 
 		var/mob/living/bot/cleanbot/turf_targeting_cleanbot = D.clean_marked?.resolve()
@@ -241,48 +256,153 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		return
 
 	if(!length(patrol_path))
-		if(!signal_sent || world.time >= signal_sent + 200) // Waited enough or didn't send yet
-			var/datum/radio_frequency/frequency = SSradio.return_frequency(beacon_freq)
-			if(!frequency)
-				return
-
-			closest_dist = 9999
-			next_dest = null
-			next_dest_loc = null
-
-			var/datum/signal/signal = new()
-			signal.source = src
-			signal.transmission_method = TRANSMISSION_RADIO
-			signal.data = list("findbeacon" = "patrol")
-			frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
-			signal_sent = world.time
-
-		if(next_dest)
-			next_dest_loc = listener.memorized[next_dest]
-			if(next_dest_loc)
-				patrol_path = get_path_to(src, next_dest_loc, 120, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
-				if(length(patrol_path))
-					signal_sent = 0
-				else
-					next_dest = null
-			else
-				next_dest = null
+		if(!last_patrol_search || world.time >= last_patrol_search + 200)
+			var/found_numbered_route = refresh_numbered_patrol_path(TRUE)
+			last_patrol_search = found_numbered_route ? 0 : world.time
 
 	if(length(patrol_path))
-		var/turf/next_step = patrol_path[1]
-		if(next_step == loc)
-			patrol_path.Cut(1, 2)
-			return
+		follow_patrol_path()
 
-		if(step_to(src, next_step) && get_turf(src) == next_step)
-			last_movement_failure_turf = null
-			patrol_path.Cut(1, 2)
-		else if(last_movement_failure_turf == next_step)
-			patrol_path = list()
-			signal_sent = 0
-			last_movement_failure_turf = null
-		else
-			last_movement_failure_turf = next_step
+
+///Attempts the next patrol step without discarding a valid route during movement cooldowns or while a door opens.
+/mob/living/bot/cleanbot/proc/follow_patrol_path()
+	if(!length(patrol_path))
+		return FALSE
+
+	var/turf/next_step = patrol_path[1]
+	if(next_step == loc)
+		patrol_path.Cut(1, 2)
+		if(!length(patrol_path))
+			complete_numbered_patrol_leg()
+		return TRUE
+
+	if(step_to(src, next_step) && get_turf(src) == next_step)
+		last_movement_failure_turf = null
+		movement_failure_count = 0
+		patrol_path.Cut(1, 2)
+		if(!length(patrol_path))
+			complete_numbered_patrol_leg()
+		return TRUE
+
+	if(last_movement_failure_turf != next_step)
+		last_movement_failure_turf = next_step
+		movement_failure_count = 1
+		return FALSE
+
+	movement_failure_count++
+	if(movement_failure_count < 5)
+		return FALSE
+
+	patrol_path = list()
+	last_patrol_search = 0
+	last_movement_failure_turf = null
+	movement_failure_count = 0
+	return FALSE
+
+
+///Rebuilds the route to the intended numbered waypoint, or selects the next waypoint when needed.
+/mob/living/bot/cleanbot/proc/refresh_numbered_patrol_path(preserve_target = FALSE)
+	patrol_route_failure = null
+	closest_numbered_dist = 9999
+	next_dest_loc = null
+	nearest_patrol_number = 0
+	numbered_patrols = list()
+	patrol_path = list()
+	find_numbered_patrol_beacons()
+
+	if(!nearest_patrol_number || !length(numbered_patrols))
+		patrol_route_failure = "no numbered patrol beacons are registered on this frequency and Z-level"
+		return FALSE
+
+	if(preserve_target && target_patrol_number)
+		next_dest_loc = numbered_patrols["[target_patrol_number]"]
+
+	if(!next_dest_loc)
+		if(!current_patrol_number || !numbered_patrols["[current_patrol_number]"])
+			current_patrol_number = nearest_patrol_number
+		next_dest_loc = get_numbered_patrol_destination()
+
+	if(!next_dest_loc)
+		patrol_route_failure = "no following patrol number could be selected"
+		return FALSE
+
+	if(get_turf(src) == next_dest_loc)
+		return complete_numbered_patrol_leg()
+
+	patrol_path = get_path_to(src, next_dest_loc, 250, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
+	if(!length(patrol_path))
+		patrol_route_failure = "waypoint [target_patrol_number] was detected, but no traversable path reaches it"
+	return length(patrol_path) > 0
+
+
+///Records arrival at a numbered waypoint and immediately prepares the following patrol leg.
+/mob/living/bot/cleanbot/proc/complete_numbered_patrol_leg()
+	if(!target_patrol_number || get_turf(src) != next_dest_loc)
+		return FALSE
+
+	current_patrol_number = target_patrol_number
+	nearest_patrol_number = current_patrol_number
+	target_patrol_number = 0
+	next_dest_loc = null
+	last_patrol_search = 0
+	last_movement_failure_turf = null
+	movement_failure_count = 0
+	return refresh_numbered_patrol_path()
+
+
+///Finds numbered patrol beacons registered on our frequency and Z-level.
+/mob/living/bot/cleanbot/proc/find_numbered_patrol_beacons()
+	var/list/beacon_devices = SSradio.get_devices(beacon_freq, RADIO_NAVBEACONS)
+	if(!length(beacon_devices))
+		return FALSE
+
+	var/turf/our_turf = get_turf(src)
+	for(var/obj/structure/machinery/navbeacon/beacon in beacon_devices)
+		if(beacon.patrol_number <= 0 || !beacon.anchored)
+			continue
+
+		var/turf/beacon_turf = get_turf(beacon)
+		if(!beacon_turf || beacon_turf.z != our_turf?.z)
+			continue
+
+		numbered_patrols["[beacon.patrol_number]"] = beacon_turf
+		var/beacon_dist = get_dist(src, beacon_turf)
+		if(beacon_dist < closest_numbered_dist)
+			closest_numbered_dist = beacon_dist
+			nearest_patrol_number = beacon.patrol_number
+
+	return length(numbered_patrols) > 0
+
+
+///Returns the next numbered patrol beacon, reversing direction at either end of the route.
+/mob/living/bot/cleanbot/proc/get_numbered_patrol_destination()
+	var/patrol_anchor = current_patrol_number || nearest_patrol_number
+	if(!patrol_anchor || !length(numbered_patrols))
+		return null
+
+	var/next_patrol_number = 0
+	for(var/number_text in numbered_patrols)
+		var/beacon_number = text2num(number_text)
+		if(patrol_direction > 0 && beacon_number > patrol_anchor)
+			if(!next_patrol_number || beacon_number < next_patrol_number)
+				next_patrol_number = beacon_number
+		else if(patrol_direction < 0 && beacon_number < patrol_anchor)
+			if(!next_patrol_number || beacon_number > next_patrol_number)
+				next_patrol_number = beacon_number
+
+	if(!next_patrol_number)
+		patrol_direction *= -1
+		for(var/number_text in numbered_patrols)
+			var/beacon_number = text2num(number_text)
+			if(patrol_direction > 0 && beacon_number > patrol_anchor)
+				if(!next_patrol_number || beacon_number < next_patrol_number)
+					next_patrol_number = beacon_number
+			else if(patrol_direction < 0 && beacon_number < patrol_anchor)
+				if(!next_patrol_number || beacon_number > next_patrol_number)
+					next_patrol_number = beacon_number
+
+	target_patrol_number = next_patrol_number
+	return numbered_patrols["[target_patrol_number]"]
 
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
@@ -357,6 +477,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	data["screw_loose"] = screw_loose
 	data["odd_button"] = odd_button
 	data["beacon_freq"] = beacon_freq
+	data["current_patrol_number"] = current_patrol_number
+	data["target_patrol_number"] = target_patrol_number
 	return data
 
 /mob/living/bot/cleanbot/ui_static_data(mob/user)
@@ -392,12 +514,34 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		if("toggle_patrol_mode")
 			set_patrol_mode(!should_patrol)
 
+		if("go_to_patrol_waypoint")
+			if(on && should_patrol)
+				var/obj/effect/decal/cleanable/current_target = cleaning_target?.resolve()
+				if(!cleaning && current_target?.clean_marked?.resolve() == src)
+					current_target.clean_marked = null
+				if(!cleaning)
+					cleaning_target = null
+					path = list()
+				patrol_path = list()
+				last_patrol_search = 0
+				last_movement_failure_turf = null
+				movement_failure_count = 0
+				MOB_START_THINKING(src)
+				if(refresh_numbered_patrol_path(TRUE))
+					to_chat(usr, SPAN_NOTICE("[src] sets a route for patrol waypoint [target_patrol_number]."))
+					if(!cleaning)
+						follow_patrol_path()
+				else
+					to_chat(usr, SPAN_WARNING("[src] cannot set a patrol route: [patrol_route_failure || "unknown routing error"]."))
+
 		if("set_frequency")
 			var/new_frequency = tgui_input_number(usr, "Select frequency for navigation beacons", "Frequnecy", (beacon_freq/10), round_value = FALSE)
 			if(new_frequency > 0)
-				SSradio.remove_object(listener, beacon_freq)
 				beacon_freq = new_frequency*10
-				SSradio.add_object(listener, beacon_freq, RADIO_NAVBEACONS)
+				current_patrol_number = 0
+				target_patrol_number = 0
+				patrol_path = list()
+				last_patrol_search = 0
 
 		if("toggle_screw")
 			screw_loose = !screw_loose
@@ -441,16 +585,18 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
  * * state - A Boolean, `TRUE` to turn patrol mode on, `FALSE` to turn it off
  */
 /mob/living/bot/cleanbot/proc/set_patrol_mode(state)
-	closest_dist = initial(closest_dist)
 	patrol_path.Cut()
 
 	if(state)
 		should_patrol = TRUE
 		patrol_path = list()
-		signal_sent = 0
+		last_patrol_search = 0
 
 	else
 		should_patrol = FALSE
+		current_patrol_number = 0
+		target_patrol_number = 0
+		next_dest_loc = null
 
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
 	. = ..()
@@ -474,43 +620,6 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 			current_target.clean_marked = null
 		cleaning_target = null
 		path = list()
-
-/* Radio object that listens to signals */
-
-/obj/cleanbot_listener
-	var/mob/living/bot/cleanbot/cleanbot = null
-	var/list/memorized = list()
-
-/obj/cleanbot_listener/receive_signal(var/datum/signal/signal)
-	var/recv = signal.data["beacon"]
-	var/valid = signal.data["patrol"]
-	if(!recv || !valid || !cleanbot)
-		return
-
-	var/turf/signal_sender_turf = get_turf(signal.source)
-	var/turf/our_cleanbot_turf = get_turf(cleanbot)
-
-	//Nullspace, some other shit, either way, abort
-	if(!istype(signal_sender_turf) || !istype(our_cleanbot_turf))
-		return
-
-	//At the moment, the path system does not understand zlevels, so this only works on the same zlevel, deal with it, then you can just turn this into:
-	// if(!AreConnectedZLevels(signal.source.loc?.z, cleanbot.loc?.z))
-	if(signal_sender_turf.z != our_cleanbot_turf.z)
-		return
-
-	var/dist = get_dist(cleanbot, signal_sender_turf)
-	memorized[recv] = signal_sender_turf
-
-	if(dist < cleanbot.closest_dist) // We check all signals, choosing the closest beacon; then we move to the NEXT one after the closest one
-		cleanbot.closest_dist = dist
-		cleanbot.next_dest = signal.data["next_patrol"]
-
-/obj/cleanbot_listener/Destroy()
-	cleanbot = null
-	SSradio.remove_object_all(src)
-	return ..()
-
 /* Assembly */
 
 /obj/item/bucket_sensor
