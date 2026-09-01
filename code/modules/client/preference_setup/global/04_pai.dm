@@ -49,15 +49,23 @@
 		candidate.role = pref.pai["role"]
 		candidate.comments = pref.pai["comments"]
 
-/datum/category_item/player_setup_item/player_global/pai/content(var/mob/user)
+/datum/category_item/player_setup_item/player_global/pai/ui_data(var/mob/user)
 	if(!candidate)
 		candidate = new()
-
-	. += "<b>pAI:</b><br>"
-	. += "Name: <a href='byond://?src=[REF(src)];option=name'>[candidate.name ? candidate.name : "None Set"]</a><br>"
-	. += "Description: <a href='byond://?src=[REF(src)];option=desc'>[candidate.description ? TextPreview(candidate.description, 40) : "None Set"]</a><br>"
-	. += "Role: <a href='byond://?src=[REF(src)];option=role'>[candidate.role ? TextPreview(candidate.role, 40) : "None Set"]</a><br>"
-	. += "OOC Comments: <a href='byond://?src=[REF(src)];option=ooc'>[candidate.comments ? TextPreview(candidate.comments, 40) : "None Set"]</a><br>"
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list(
+			"title" = "pAI",
+			"fields" = list(
+				list("label" = "Name", "value" = candidate.name ? candidate.name : "None Set", "action" = "option", "action_value" = "name"),
+				list("label" = "Description", "value" = candidate.description ? html_decode(TextPreview(candidate.description, 40)) : "None Set", "action" = "option", "action_value" = "desc"),
+				list("label" = "Role", "value" = candidate.role ? html_decode(TextPreview(candidate.role, 40)) : "None Set", "action" = "option", "action_value" = "role"),
+				list("label" = "OOC Comments", "value" = candidate.comments ? html_decode(TextPreview(candidate.comments, 40)) : "None Set", "action" = "option", "action_value" = "ooc")
+			)
+		))
+	)
 
 /datum/category_item/player_setup_item/player_global/pai/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["option"])
