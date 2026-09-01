@@ -353,7 +353,7 @@
 	var/area/target_area
 	var/area/A = get_area(src)
 	if(A && (istype(A, /area/horizon/command) || istype(A, /area/horizon/storage/secure))
-		target_area = A // Command areas are deemed safe
+		target_area = A // Command and vault areas are deemed safe
 	else
 		target_area = locate(/area/horizon/command/heads/xo_office) in GLOB.areas // Non safe area - XO office as fallback
 
