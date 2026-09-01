@@ -135,7 +135,7 @@
 		"bribe_accept"      = "Sure, I'll stay a bit longer. Just for you, though."
 	)
 	species_bias = list(
-		SPECIES_UNATHI = TRADER_BIAS_DISCOUNT
+		ALL_UNATHI_SPECIES = TRADER_BIAS_DISCOUNT
 	)
 
 	possible_trading_items = list(

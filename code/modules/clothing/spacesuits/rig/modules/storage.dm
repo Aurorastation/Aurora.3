@@ -25,6 +25,9 @@
 
 	. = ..()
 
+/obj/item/rig_module/storage/accepts_item(obj/item/input_item, mob/living/user)
+	return pockets.attackby(input_item, user)
+
 /obj/item/rig/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules
 	if(storage && !storage.pockets.handle_mousedrop(user, over))
