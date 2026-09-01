@@ -24,12 +24,12 @@
 #define NINJ_FREQ 1255
 #define BURG_FREQ 1257
 #define JOCK_FREQ 1259
+#define INTR_FREQ 1265
 #define RAID_FREQ 1277
 #define DTH_FREQ 1341
 #define AI_FREQ 1343
 #define ERT_FREQ 1345
 #define COMM_FREQ 1353
-
 #define SUP_FREQ 1347
 #define SRV_FREQ 1349
 #define SCI_FREQ 1351
@@ -84,6 +84,7 @@ var/list/reverseradiochannels = list(
 	"[NINJ_FREQ]"	= "Ninja",
 	"[BLSP_FREQ]"	= "Bluespace",
 	"[BURG_FREQ]"	= "Burglar",
+	"[INTR_FREQ]"	= "Infiltrator",
 	"[JOCK_FREQ]"	= "Jockey",
 	"[RAID_FREQ]"	= "Raider",
 	"[SUP_FREQ]"	= "Operations",
@@ -115,7 +116,8 @@ var/list/ANTAG_FREQS = list(
 	NINJ_FREQ,
 	BLSP_FREQ,
 	BURG_FREQ,
-	JOCK_FREQ
+	JOCK_FREQ,
+	INTR_FREQ
 )
 
 var/list/ANTAG_FREQS_ASSOC = list(
@@ -124,7 +126,8 @@ var/list/ANTAG_FREQS_ASSOC = list(
 	"[NINJ_FREQ]" = TRUE,
 	"[BURG_FREQ]" = TRUE,
 	"[BLSP_FREQ]" = TRUE,
-	"[JOCK_FREQ]" = TRUE
+	"[JOCK_FREQ]" = TRUE,
+	"[INTR_FREQ]" = TRUE
 )
 
 /// Department channels, arranged lexically

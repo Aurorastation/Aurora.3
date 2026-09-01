@@ -47,6 +47,7 @@
 #define MODE_RAIDER_TECHNO "raider techno"
 #define MODE_RAIDER "raider"
 #define MODE_BURGLAR "burglar"
+#define MODE_INTRUDER "intruder"
 #define MODE_LONER "loner"
 #define MODE_TECHNOMANCER "technomancer"
 #define MODE_CHANGELING "changeling"
