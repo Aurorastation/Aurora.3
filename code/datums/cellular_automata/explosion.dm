@@ -71,7 +71,7 @@
 	exploded_atoms += arrived
 	arrived.ex_act(get_severity())
 	log_explosion_hit(arrived)
-	if(!QDELETED(arrived))
+	if(!QDELETED(arrived) && !arrived.anchored)
 		arrived.explosion_throw(power, null)
 
 /datum/automata_cell/explosion/merge(datum/automata_cell/explosion/other)
@@ -133,7 +133,8 @@
 		thing.ex_act(severity, direction)
 		log_explosion_hit(thing)
 		if(!QDELETED(thing))
-			thing.explosion_throw(power, direction)
+			if(!thing.anchored)
+				thing.explosion_throw(power, direction)
 			if(ismob(thing))
 				var/mob/affected_mob = thing
 				for(var/obj/item/held_item in list(affected_mob.l_hand, affected_mob.r_hand))
