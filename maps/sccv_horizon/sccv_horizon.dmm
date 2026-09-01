@@ -5309,7 +5309,13 @@
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/structure/machinery/firealarm/north,
+/obj/structure/machinery/requests_console/north{
+	department = "Bar";
+	departmentType = 1;
+	name = "Bar Requests Console";
+	pixel_y = 32;
+	pixel_x = 2
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
 "aIS" = (
@@ -107314,6 +107320,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/chem_heater,
+/obj/structure/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
 "nVe" = (
@@ -146477,11 +146484,8 @@
 /obj/item/flame/lighter/zippo{
 	pixel_x = -10
 	},
-/obj/structure/machinery/requests_console/north{
-	department = "Bar";
-	departmentType = 1;
-	name = "Bar Requests Console";
-	pixel_y = 32
+/obj/structure/weapon_rack/double{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
