@@ -14538,14 +14538,11 @@
 /area/horizon/medical/reception)
 "bSV" = (
 /obj/structure/table/wood,
-/obj/item/toy/desk/newtoncradle{
-	pixel_x = 9;
-	pixel_y = 3
-	},
 /obj/structure/machinery/recharger{
 	pixel_y = 12;
 	pixel_x = -8
 	},
+/obj/item/chessboard,
 /turf/simulated/floor/carpet/red,
 /area/horizon/service/library)
 "bTe" = (
@@ -128738,6 +128735,10 @@
 	pixel_x = -3;
 	pixel_y = 12
 	},
+/obj/item/toy/desk/newtoncradle{
+	pixel_x = 7;
+	pixel_y = 10
+	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/service/library)
 "qKg" = (
@@ -180914,6 +180915,9 @@
 /obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
+	},
+/obj/item/chessboard{
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
