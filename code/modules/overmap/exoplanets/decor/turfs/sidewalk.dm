@@ -32,11 +32,11 @@
 
 /turf/simulated/floor/exoplanet/sidewalk/flat
 	name = "flat paved tiles"
-	icon_state = "flat"
+	icon_state = "colorable-flat"
 
 /turf/simulated/floor/exoplanet/sidewalk/flat/Initialize(mapload)
 	. = ..()
-	icon_state = "flat[rand(1,3)]"
+	icon_state = "colorable-flat[rand(1,3)]"
 
 // Concrete gray
 
@@ -49,6 +49,9 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete
 	color = "#908f89"
 
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete
+	color = "#908f89"
+
 // Concrete dark gray
 
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark
@@ -58,4 +61,7 @@
 	color = "#76756f"
 
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete/dark
+	color = "#76756f"
+
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark
 	color = "#76756f"
