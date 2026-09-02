@@ -13,7 +13,6 @@
 	ship_cost = 1
 	spawn_weight = 0 // so it does not spawn as ordinary away site
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	shuttles_to_initialise = list(
 		/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter,

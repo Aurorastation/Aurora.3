@@ -141,7 +141,7 @@ ABSTRACT_TYPE(/area/shuttle/modular_freelancer_shuttle)
 	name = "Base/Parent Area"
 	icon_state = "white128a"
 	requires_power = TRUE
-	generate_dirt = 125
+	generate_dirt = 50
 
 /area/shuttle/modular_freelancer_shuttle/fighter
 	name = "Fighter Shuttle"
