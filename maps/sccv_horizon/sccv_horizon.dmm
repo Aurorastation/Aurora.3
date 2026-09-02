@@ -13515,12 +13515,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
-"bLS" = (
-/obj/structure/machinery/holosign/privacy{
-	id = "recovery"
-	},
-/turf/simulated/wall,
-/area/horizon/medical/ward)
 "bLX" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/effect/floor_decal/corner_wide/seafoam{
@@ -35972,15 +35966,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/engineering/reactor/supermatter/mainchamber)
-"eHm" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/structure/machinery/button/switch/holosign{
-	id = "recovery_public"
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/primary/deck_2/starboard)
 "eHr" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -70813,6 +70798,28 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 10
 	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/button/switch/holosign{
+	dir = 5;
+	pixel_y = 9;
+	pixel_x = -5;
+	name = "Visitors Welcome";
+	id = "recovery_public"
+	},
+/obj/structure/machinery/button/switch/holosign{
+	dir = 5;
+	pixel_y = 9;
+	pixel_x = 5;
+	name = "Privacy Please";
+	id = "recovery_private"
+	},
+/obj/structure/machinery/button/remote/airlock{
+	name = "Recovery Ward Door Bolts";
+	dir = 1;
+	pixel_y = -1;
+	id = "recovery_ward";
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/slate,
 /area/horizon/medical/ward)
 "jkm" = (
@@ -87441,9 +87448,6 @@
 "lpF" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
-	},
-/obj/structure/machinery/button/switch/holosign{
-	id = "recovery"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/fore)
@@ -106213,8 +106217,8 @@
 	},
 /obj/structure/machinery/door/airlock/medical{
 	name = "Recovery Ward";
-	req_access = list(5);
-	dir = 4
+	dir = 4;
+	id_tag = "recovery_ward"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 4
@@ -106231,6 +106235,13 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/structure/machinery/holosign/public{
+	name = "holosign";
+	id = "recovery_public"
+	},
+/obj/structure/machinery/holosign/privacy{
+	id = "recovery_private"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/ward)
@@ -153043,13 +153054,6 @@
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
-"tMk" = (
-/obj/structure/machinery/holosign/public{
-	name = "holosign";
-	id = "recovery_public"
-	},
-/turf/simulated/wall,
-/area/horizon/medical/ward)
 "tMo" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -284380,7 +284384,7 @@ rpH
 rpH
 nNv
 pUc
-tMk
+pUc
 gEF
 tID
 lZh
@@ -284895,7 +284899,7 @@ dub
 veD
 pSZ
 etV
-eHm
+gEF
 pWr
 jmE
 jvw
@@ -285151,7 +285155,7 @@ kAw
 agx
 aFI
 jkh
-bLS
+pUc
 vam
 aju
 eiH
