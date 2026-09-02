@@ -6,7 +6,6 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 	icon_state = "white128a"
 	requires_power = TRUE
 	base_turf = /turf/space
-	holomap_color = "#ff00f2"
 	color = "#ff00f2"
 	generate_dirt = 75
 
@@ -14,8 +13,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 
 // ----------- fore
 
-/area/ship/modular_freelancer_ship/fore
-	holomap_color = "#8f2d2d"
+ABSTRACT_TYPE(/area/ship/modular_freelancer_ship/fore)
 	color = "#8f2d2d"
 
 /area/ship/modular_freelancer_ship/fore/crew
@@ -23,12 +21,10 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 
 /area/ship/modular_freelancer_ship/fore/guns
 	name = "Fore, Ship Guns"
-	holomap_color = "#a31414"
 	color = "#a31414"
 
 /area/ship/modular_freelancer_ship/fore/hallway
 	name = "Fore, Hallway"
-	holomap_color = "#884e4e"
 	color = "#884e4e"
 
 /area/ship/modular_freelancer_ship/fore/port
@@ -39,8 +35,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 
 // ----------- mid
 
-/area/ship/modular_freelancer_ship/mid
-	holomap_color = "#3d8f24"
+ABSTRACT_TYPE(/area/ship/modular_freelancer_ship/mid)
 	color = "#3d8f24"
 
 /area/ship/modular_freelancer_ship/mid/hallway
@@ -52,7 +47,6 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 // ----------- shuttles
 
 /area/ship/modular_freelancer_ship/shuttles
-	holomap_color = "#92882b"
 	color = "#92882b"
 
 /area/ship/modular_freelancer_ship/shuttles/hallway
@@ -61,7 +55,6 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 // ----------- aux
 
 /area/ship/modular_freelancer_ship/aux
-	holomap_color = "#7b2794"
 	color = "#7b2794"
 
 /area/ship/modular_freelancer_ship/aux/hallway
@@ -69,18 +62,15 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 
 // ----------- aft
 
-/area/ship/modular_freelancer_ship/aft
-	holomap_color = "#2d4697"
+ABSTRACT_TYPE(/area/ship/modular_freelancer_ship/aft)
 	color = "#2d4697"
 
 /area/ship/modular_freelancer_ship/aft/hallway
 	name = "Aft, Hallway"
-	holomap_color = "#404f83"
 	color = "#404f83"
 
 /area/ship/modular_freelancer_ship/aft/cic
 	name = "Aft, CIC"
-	holomap_color = "#1134a5"
 	color = "#1134a5"
 
 /area/ship/modular_freelancer_ship/aft/engineering
@@ -91,8 +81,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 
 // ------------------------- containers
 
-/area/ship/modular_freelancer_ship/container
-	holomap_color = "#2c8f92"
+ABSTRACT_TYPE(/area/ship/modular_freelancer_ship/container)
 	color = "#2c8f92"
 
 /area/ship/modular_freelancer_ship/container/c01
@@ -121,8 +110,7 @@ ABSTRACT_TYPE(/area/ship/modular_freelancer_ship)
 
 // ------------------------- misc
 
-/area/ship/modular_freelancer_ship/misc/maint
-	holomap_color = "#353535"
+ABSTRACT_TYPE(/area/ship/modular_freelancer_ship/misc/maint)
 	color = "#353535"
 	generate_dirt = 150
 
@@ -157,12 +145,10 @@ ABSTRACT_TYPE(/area/shuttle/modular_freelancer_shuttle)
 
 /area/shuttle/modular_freelancer_shuttle/fighter
 	name = "Fighter Shuttle"
-	holomap_color = "#d81a1a"
 	color = "#d81a1a"
 
 /area/shuttle/modular_freelancer_shuttle/ferry
 	name = "Ferry Shuttle"
-	holomap_color = "#1a36d8"
 	color = "#1a36d8"
 
 // ------------------------- fin

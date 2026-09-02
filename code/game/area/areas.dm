@@ -12,6 +12,7 @@
 	/// Bitflag (Any of `AREA_FLAG_*`). See "code\__DEFINES\misc.dm".
 	var/area_flags
 	/// Color of this area on the holomap. Must be a hex color (as string) or null.
+	/// If this is null, and `color` is set, then uses that color for the holomap.
 	var/holomap_color
 
 	/// Do we have an active fire alarm?
@@ -138,6 +139,9 @@
 	if (!islist(ambience))
 		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
 #endif
+
+	if(!holomap_color && color)
+		holomap_color = color
 
 	icon_state = "white"
 	color = null
