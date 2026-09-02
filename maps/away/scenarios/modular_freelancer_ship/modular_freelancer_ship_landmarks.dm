@@ -6,7 +6,7 @@
 	base_turf = /turf/space
 	auto_register = TRUE
 
-// --------------------- shuttle a dock landmarks and airlocks
+// --------------------- shuttle fighter dock landmarks and airlocks
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock
 	name				= "Shuttle Dock, Fighter"
@@ -27,7 +27,7 @@
 	base_turf = /turf/space/transit
 	auto_register = FALSE
 
-// --------------------- shuttle b dock landmarks and airlocks
+// --------------------- shuttle ferry dock landmarks and airlocks
 
 /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock
 	name				= "Shuttle Dock, Ferry"

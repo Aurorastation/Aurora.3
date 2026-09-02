@@ -54,7 +54,6 @@
 
 	// defines:
 	var/list/designation_options = list(
-		// a
 		"This Old Tune", "June", "Thou Shalt Not Kill", "5 for You and 5 for Me",
 		"No Jazz", "I don't Want to Be an Emperor", "Nocturne", "Secret Society",
 		"Leave Me Alone", "In the Woods", "Little Tale", "No Need To Be Frightened",
@@ -62,16 +61,6 @@
 		"Low Gravity", "Out of Time", "In Time", "This Is Just the Beginning", "Melancholia",
 		"Before Midnight Tonight", "Second Sun", "Sure the Sun Will Rise", "One More Step",
 		"2001 Light Years From Home", "Far From Home", "Unknown Jungle", "Come With Me",
-		// b
-		"Cantilever", "Fulcrum", "Gantry", "Keystone", "Trestle",
-		"Spindle", "Trusswork", "Loadstone", "Iron Lattice",
-		// c
-		"Driftwood", "Wayfarer", "Prospector", "Dustrunner", "Scraptender",
-		"Rustbound", "Trailblazer", "Spur Strider", "Periphery",
-		// d
-		"Spare Parts", "Patchwork", "Piecework", "Low Bidder",
-		"Hard Bargain", "Make-Do", "Loose Rivet", "Working Title",
-		"Second Chance", "Margin Call", "Overtime", "Salvage Rights",
 	)
 
 /obj/effect/overmap/visitable/ship/modular_freelancer_ship/New()
@@ -143,17 +132,17 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/modular_freelancer_shuttle/fighter)
 	dock_target = "airlock_modular_freelancer_shuttle_fighter"
-	current_location = "nav_modular_freelancer_shuttle_fighter_dock"
-	landmark_transition = "nav_modular_freelancer_shuttle_fighter_transit"
+	current_location =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::landmark_tag
+	logging_home_tag =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::landmark_tag
+	landmark_transition =	/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_transit::landmark_tag
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_modular_freelancer_shuttle_fighter_dock"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/fighter
-	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter::shuttle
-	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter::shuttle
-	master_tag = /datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::dock_target
+	name =			/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::name
+	shuttle_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::name
+	master_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::dock_target
 
 // ----------- ferry
 
@@ -193,17 +182,17 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/modular_freelancer_shuttle/ferry)
 	dock_target = "airlock_modular_freelancer_shuttle_ferry"
-	current_location = "nav_modular_freelancer_shuttle_ferry_dock"
-	landmark_transition = "nav_modular_freelancer_shuttle_ferry_transit"
+	current_location =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::landmark_tag
+	logging_home_tag =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::landmark_tag
+	landmark_transition =	/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_transit::landmark_tag
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_modular_freelancer_shuttle_ferry_dock"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/ferry
-	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry::shuttle
-	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry::shuttle
-	master_tag = /datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::dock_target
+	name =			/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::name
+	shuttle_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::name
+	master_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::dock_target
 
 // ------------------------- misc
 
