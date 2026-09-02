@@ -4534,9 +4534,6 @@
 /area/horizon/tcommsat/chamber)
 "aDP" = (
 /obj/structure/disposalpipe/segment/blue,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -28415,6 +28412,11 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/checkpoint2)
@@ -79524,9 +79526,6 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
 /turf/simulated/floor/plating,
 /area/horizon/security/checkpoint2)
 "klO" = (
@@ -136470,8 +136469,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/hapt)
 "ryw" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/firedoor/multi_tile,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Deck 2 Starboard Docks"
@@ -136483,9 +136480,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/checkpoint2)
@@ -164436,9 +164430,6 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/operations/mail_room)
 "uYC" = (
@@ -181948,9 +181939,6 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
 /turf/simulated/floor/plating,
 /area/horizon/security/checkpoint2)
 "xgU" = (
