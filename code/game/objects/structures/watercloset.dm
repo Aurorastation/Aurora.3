@@ -143,6 +143,10 @@
 	var/is_washing = 0
 	var/list/temperature_settings = list("normal" = 310, "boiling" = T0C+100, "freezing" = T0C)
 	var/datum/looping_sound/showering/soundloop
+	/// The amount of time a shower will stay on before shutting itself off.
+	var/leave_on_time = 5 MINUTES
+	/// The REALTIMEOFDAY at which a shower will turn itself off.
+	VAR_PRIVATE/shut_off_time = 0
 
 /obj/structure/shower/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -179,7 +183,8 @@
 	on = !on
 	update_icon()
 	if(on)
-		START_PROCESSING(SSmachinery, src)
+		shut_off_time = leave_on_time + REALTIMEOFDAY
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		if (M.loc == loc)
 			wash(M)
 			process_heat(M)
@@ -272,6 +277,9 @@
 
 /obj/structure/machinery/shower/process()
 	if(!on)
+		return PROCESS_KILL
+	if (REALTIMEOFDAY > shut_off_time)
+		on = FALSE
 		return PROCESS_KILL
 	wash_floor()
 	if(!mobpresent)

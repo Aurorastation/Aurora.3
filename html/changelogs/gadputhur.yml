@@ -44,10 +44,10 @@
 #################################
 
 # Your name.
-author: rattydew
+author: ArbiterAmbrose
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
+delete-after: False
 
 # Any changes you've made.  See valid prefix list above.
 # INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Resolved a few mapping errors introduced in recent Horizon remaps."
+  - rscadd: "Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors to the doors and a paint-scheme in the form of salmon highlights on the walls."
+  - bugfix: "Fixed walls that did not abide by current standards on the Gadputhur Corvette."
+  - balance: "Slug magazines, medium power primers, one Bunker-buster, extra magazines, and thicker walls are added to the Gadputhur corvette."

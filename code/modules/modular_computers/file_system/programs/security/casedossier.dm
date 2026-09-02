@@ -25,7 +25,7 @@
 	stored_cases = GLOB.case_dossier_cases
 
 /datum/computer_file/program/case_dossier/Destroy()
-	stored_cases.Cut()
+	stored_cases = null
 	open_case = null
 	return ..()
 

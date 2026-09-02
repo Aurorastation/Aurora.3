@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Unathi can now drink regular ethanol based booze."
-  - rscadd: "Unathi now get half nutriment from regular nutriments, and double from protein."

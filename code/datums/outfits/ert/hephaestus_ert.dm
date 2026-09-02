@@ -3,7 +3,9 @@
 	uniform = /obj/item/clothing/under/ert/hephaestus
 	shoes = /obj/item/clothing/shoes/jackboots
 	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless
 	)
 	back = /obj/item/storage/backpack/satchel/heph
 	suit = /obj/item/clothing/suit/space/void/hephaestus
@@ -50,7 +52,9 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/unathi
+		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/unathi
 	)
 	backpack_contents = list(
 		/obj/item/storage/firstaid/combat = 1,
@@ -85,7 +89,9 @@
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu
+		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu
 	)
 
 	backpack_contents = list(

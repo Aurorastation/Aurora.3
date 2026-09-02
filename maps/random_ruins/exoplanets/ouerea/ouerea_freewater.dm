@@ -29,7 +29,7 @@
 	max_count = 4
 
 	spawnpoints = list("ouerea_freewater")
-	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/freewater
 
@@ -45,7 +45,7 @@
 
 	max_count = 1
 	spawnpoints = list("ouerea_freewater_boss")
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	assigned_role = "Dagamuir Freewater Commander"
 	special_role = "Dagamuir Freewater Commander"
 	uses_species_whitelist = TRUE
