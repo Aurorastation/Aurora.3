@@ -704,6 +704,12 @@
 /obj/structure/closet/crate/loot/Initialize(mapload, no_fill)
 	. = ..()
 
+	name = pick("strange", "unusual", "suspicious", "mysterious", "odd", "forgotten")
+	name += " " + pick("crate", "container", "chest", "box")
+	desc = pick("A mysterious container", "An unusual box", "A strange crate", "A weathered container")
+	desc += " of " + pick("unknown origins", "dusty secrets", "questionable contents", "unclear purpose", "dubious heritage")
+	desc += ". " + pick("What mysteries lie within?", "Who knows what's inside.", "")
+
 	spawntypes = list(
 		"1" = STOCK_RARE_PROB * rarity,
 		"2" = STOCK_UNCOMMON_PROB * rarity,
