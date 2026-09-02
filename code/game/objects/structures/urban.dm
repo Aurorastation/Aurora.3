@@ -190,6 +190,43 @@
 /obj/structure/automobile/langenfeld_hybrid_white/beat_up
 	name = "beat-up langenfeld compact"
 
+// ---------- Adhomian Cars
+/obj/structure/automobile/adhomian_car
+	name = "red urban half-track"
+	desc = "An automobile designed to traverse the icy roads with ease, carrying a rather old-fashion charm."
+	icon = 'icons/obj/structure/urban/adhomai_cars.dmi'
+	icon_state = "car_red"
+	bound_x = 64
+	bound_y = 48
+
+/obj/structure/automobile/adhomian_car/blue
+	name = "blue urban half-track"
+	icon_state = "car_blue"
+
+/obj/structure/automobile/adhomian_car/green
+	name = "green urban half-track"
+	icon_state = "car_green"
+
+/obj/structure/automobile/adhomian_car/purple
+	name = "purple urban half-track"
+	icon_state = "car_purple"
+
+/obj/structure/automobile/adhomian_car/taxi
+	name = "taxi urban half-track"
+	icon_state = "car_taxi"
+
+/obj/structure/automobile/adhomian_car/police
+	name = "police urban half-track"
+	icon_state = "car_police"
+
+/obj/structure/automobile/adhomian_car/red_van
+	name = "red urban half-track van"
+	icon_state = "soda_van"
+
+/obj/structure/automobile/adhomian_car/blue_van
+	name = "blue urban half-track van"
+	icon_state = "milk_van"
+
 /obj/structure/automobile_filler
 	name = "vehicle"
 	desc = "A piece of a larger vehicle."
