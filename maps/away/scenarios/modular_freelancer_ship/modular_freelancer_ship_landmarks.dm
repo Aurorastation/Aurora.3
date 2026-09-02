@@ -12,7 +12,7 @@
 	name				= "Shuttle Dock, Fighter"
 	landmark_tag		= "nav_modular_freelancer_ship_shuttle_fighter_dock"
 	docking_controller	= "airlock_modular_freelancer_ship_shuttle_fighter_dock"
-	dir = EAST
+	dir = WEST
 
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock
 	name			= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::name
@@ -33,7 +33,7 @@
 	name				= "Shuttle Dock, Ferry"
 	landmark_tag		= "nav_modular_freelancer_ship_shuttle_ferry_dock"
 	docking_controller	= "airlock_modular_freelancer_ship_shuttle_ferry_dock"
-	dir = WEST
+	dir = EAST
 
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock
 	name			= /obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::name
