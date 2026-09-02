@@ -70,9 +70,10 @@
 	// machine process
 	// move items to the target location
 /obj/structure/machinery/conveyor/process()
-	if(stat & (BROKEN | NOPOWER))
-		return
-	if(!operating || conveying)
+	if (!operating)
+		return PROCESS_KILL
+
+	if((stat & (BROKEN | NOPOWER)) || conveying)
 		return
 
 	if (!loc)
@@ -179,6 +180,8 @@
 	if(id != match_id)
 		return
 	operable = op
+	if (operable)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 	update()
 	var/obj/structure/machinery/conveyor/C = locate() in get_step(src, stepdir)

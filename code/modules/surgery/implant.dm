@@ -104,7 +104,6 @@
 	name = "Place Item in Cavity"
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
-	blocks_normal_attack = FALSE
 	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 

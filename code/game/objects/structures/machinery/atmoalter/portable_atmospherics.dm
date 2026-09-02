@@ -123,6 +123,7 @@
 		src.holding = T
 		update_icon()
 		SStgui.update_uis(src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		return TRUE
 
 	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
@@ -141,6 +142,7 @@
 					attacking_item.play_tool_sound(get_turf(src), 50)
 					update_icon()
 					SStgui.update_uis(src)
+					START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 					return TRUE
 				else
 					to_chat(user, SPAN_NOTICE("\The [src] failed to connect to the port."))
