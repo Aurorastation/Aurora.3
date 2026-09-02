@@ -660,7 +660,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
 "abG" = (
-/obj/structure/table/rack/folding_table,
+/obj/structure/machinery/vending/generic_clothing,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/crew)
 "abI" = (
@@ -1802,6 +1803,7 @@
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aux/hallway)
 "afm" = (
+/obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "afn" = (
@@ -3297,6 +3299,9 @@
 "ank" = (
 /obj/structure/table/rack,
 /obj/random/weapon_and_ammo/concealable,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "anm" = (
@@ -8198,6 +8203,10 @@
 "aPR" = (
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
+"aPX" = (
+/obj/structure/machinery/telecomms/allinone/ship,
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/aft/cic)
 "aPY" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/blaster,
@@ -9266,6 +9275,7 @@
 /area/ship/modular_freelancer_ship/fore/guns)
 "aVm" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/ridged,
 /area/template_noop)
 "aVu" = (
@@ -10000,6 +10010,9 @@
 	pixel_y = 7
 	},
 /obj/structure/machinery/alarm/noid/north,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/template_noop)
 "aZq" = (
@@ -12877,6 +12890,16 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/template_noop)
+"eXm" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/structure/machinery/power/apc/noid/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "eXq" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/machinery/vending/engivend/noid,
@@ -14740,6 +14763,18 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/fore)
+"hwW" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/extinguisher_refill/filled{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/extinguisher{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "hxe" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -14926,9 +14961,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 4
-	},
+/obj/structure/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/cic)
 "hId" = (
@@ -15915,6 +15948,10 @@
 /obj/structure/machinery/power/apc/noid/east,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/aux)
+"jaE" = (
+/obj/structure/machinery/vending/generic_clothing,
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "jbd" = (
 /obj/structure/table/rack,
 /obj/item/tank/oxygen/brown,
@@ -19860,6 +19897,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/modular_freelancer_shuttle/ferry)
+"nNV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "nPF" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/steel/full,
@@ -20121,6 +20174,13 @@
 /obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
+"oiK" = (
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 8
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "okR" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -20351,6 +20411,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "oCy" = (
@@ -26923,6 +26984,7 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/machinery/vending/generic_clothing,
 /turf/simulated/floor/tiled/slate,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "xQr" = (
@@ -34933,8 +34995,8 @@ afe
 kCH
 kCH
 kCH
-eKr
-lHm
+eXm
+nNV
 mrs
 dcU
 rlA
@@ -35050,7 +35112,7 @@ uFb
 ipC
 kCH
 pmT
-aCk
+jaE
 tJW
 aqs
 nUI
@@ -35120,7 +35182,7 @@ azg
 aza
 azg
 kCH
-afm
+hwW
 oCw
 giv
 afm
@@ -35759,7 +35821,7 @@ kCH
 kCH
 kCH
 jEv
-pZQ
+oiK
 vSa
 sse
 sse
@@ -90720,7 +90782,7 @@ afi
 uXW
 hbJ
 aqJ
-aqJ
+aPX
 arZ
 akv
 aaw
@@ -90876,7 +90938,7 @@ aNl
 sZH
 fbx
 hbJ
-hbJ
+aqJ
 aqJ
 aqJ
 aqJ
