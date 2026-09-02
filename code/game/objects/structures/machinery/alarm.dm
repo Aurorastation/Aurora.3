@@ -359,7 +359,7 @@ pixel_x = 10;
 	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
 
 /obj/structure/machinery/alarm/Destroy()
-	unregister_radio(src, frequency)
+	radio_connection = null
 	qdel(wires)
 	wires = null
 	return ..()
@@ -382,8 +382,7 @@ pixel_x = 10;
 		return
 
 	first_run()
-
-	set_frequency(frequency)
+	radio_connection = SSradio.return_frequency(frequency)
 
 	if(!mapload)
 		set_pixel_offsets()
@@ -597,11 +596,6 @@ pixel_x = 10;
 		if (I && I["timestamp"]+AALARM_REPORT_TIMEOUT/2 > world.time)
 			continue
 		send_signal(id_tag, list("status"))
-
-/obj/structure/machinery/alarm/proc/set_frequency(new_frequency)
-	SSradio.remove_object(src, frequency)
-	frequency = new_frequency
-	radio_connection = SSradio.add_object(src, frequency, RADIO_TO_AIRALARM)
 
 /**
  * Sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
@@ -1000,7 +994,7 @@ pixel_x = 10;
 					buildstage = 2
 					update_icon()
 					first_run()
-					set_frequency(frequency)
+					radio_connection = SSradio.return_frequency(frequency)
 				else
 					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 				return TRUE
