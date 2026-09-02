@@ -10313,9 +10313,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_fighter_dock,
-/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock{
-	dir = 8
-	},
+/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "brB" = (
@@ -21648,9 +21646,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/modular_freelancer_ship/shuttle_ferry_dock,
-/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock{
-	dir = 4
-	},
+/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/shuttles/hallway)
 "qBG" = (
