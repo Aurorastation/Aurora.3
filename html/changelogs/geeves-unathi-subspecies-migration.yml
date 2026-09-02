@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed saved Unathi characters being changed into humans by migrating them to Azaziba Unathi."
