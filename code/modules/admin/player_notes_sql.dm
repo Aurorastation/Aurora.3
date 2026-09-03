@@ -95,13 +95,13 @@
 	var/count_query
 	var/result_count = 0
 
-	if (admin_ckey == "Adminbot")
+	player_ckey = ckey(player_ckey)
+	admin_ckey = ckey(admin_ckey)
+
+	if (admin_ckey == "adminbot")
 		to_chat(usr, "Adminbot is not an actual admin. You were lied to.")
 		//The fucking size of this request would be astronomical. Please do not!
 		return
-
-	player_ckey = ckey(player_ckey)
-	admin_ckey = ckey(admin_ckey)
 
 	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: SQL connection failed while attempting to view a player's notes!")
