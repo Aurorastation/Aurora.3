@@ -38,3 +38,13 @@
       again.
   rattydew:
   - bugfix: Fixes the on-mob sprites of the Scarab passblade.
+2026-09-03:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  Geeves:
+  - bugfix: Fixed saved Unathi characters being changed into humans by migrating them
+      to Azaziba Unathi.
