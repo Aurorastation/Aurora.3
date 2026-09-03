@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - admin: "The player notes menu now features pagination, preventing massive data requests."
+  - admin: "Player notes are now listed in descending order by added date."
