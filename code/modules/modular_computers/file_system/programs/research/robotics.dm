@@ -202,7 +202,8 @@
 		if(!patient || !user.zone_sel)
 			return
 		var/new_zone = params["zone"]
-		if(!(new_zone in get_planner().target_zones))
+		var/datum/surgery_planner/planner = get_planner()
+		if(!planner.target_zones.Find(new_zone))
 			return
 		if(!isipc(patient))
 			var/list/prosthetic_zones = get_patient_prosthetic_zones(patient)
