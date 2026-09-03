@@ -1,0 +1,9 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes PsiProtect Broad Use."
+  - rscadd: "Merges the PsiProtect Personalised variants into one loadout only brand, inheriting PsiProtect Personalised Gold's mechanics."
+  - rscadd: "Adds the non-branded active ingredient behind PsiProtect, Ranixidone, which can be made in the Pharmacy (1u Mindbreaker, 2u Impederezene, 2u Wulumunusha, 5u Phoron Catalyst = 3u Ranixidone) and which inherits the standard PsiProtect Personalised mechanics."
+  - rscdel: "Removes the mapped in PsiProtect and included memo from the Pharmacy."
