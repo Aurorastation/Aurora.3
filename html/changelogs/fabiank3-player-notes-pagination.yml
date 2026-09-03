@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - admin: "The player notes menu now features pagination, preventing massive data requests."
