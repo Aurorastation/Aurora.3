@@ -79,9 +79,14 @@
 			var/DBQuery/editquery = GLOB.dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content:, lasteditor = :a_ckey:, lasteditdate = Now(), edited = 1 WHERE id = :note_id:")
 			editquery.Execute(list("new_content" = new_content, "a_ckey" = usr.client.ckey, "note_id" = note_id))
 
-/datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null)
+/datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null, var/page = 1)
 	if (!check_rights(R_ADMIN|R_MOD))
 		return
+
+	var/page_size = 20
+	page = max(text2num(page), 1)
+	var/offset = (page - 1) * page_size
+	var/result_count = 0
 
 	if (admin_ckey == "Adminbot")
 		to_chat(usr, "Adminbot is not an actual admin. You were lied to.")
@@ -115,7 +120,7 @@
 	dat += "</tr>"
 
 	if (player_ckey)
-		var/list/query_details = list("player_ckey" = player_ckey)
+		var/list/query_details = list("player_ckey" = player_ckey, "admin_ckey" = admin_ckey)
 
 		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='byond://?src=[REF(src)];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
 
@@ -125,18 +130,24 @@
 			query_details["player_address"] = init_query.item[1]
 			query_details["player_computerid"] = init_query.item[2]
 
-		var/query_content = "SELECT id, adddate, ckey, a_ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE ckey = :player_ckey: AND visible = '1'"
+		var/query_content = "SELECT id, adddate, ckey, a_ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE (ckey = :player_ckey:"
 
 		if (query_details["player_address"])
-			query_content += " OR ip = :player_address: AND visible = '1'"
+			query_content += " OR ip = :player_address:"
 		if (query_details["player_computerid"])
-			query_content += " OR computerid = :player_computerid: AND visible = '1'"
+			query_content += " OR computerid = :player_computerid:"
 
-		query_content += " ORDER BY adddate ASC"
+		query_content += ") AND visible = '1'"
+		if (admin_ckey)
+			query_content += " AND a_ckey = :admin_ckey:"
+		query_content += " ORDER BY adddate ASC LIMIT [page_size + 1] OFFSET [offset]"
 		var/DBQuery/query = GLOB.dbcon.NewQuery(query_content)
 		query.Execute(query_details)
 
 		while (query.NextRow())
+			result_count++
+			if (result_count > page_size)
+				break
 			var/id = text2num(query.item[1])
 			var/date = query.item[2]
 			var/p_ckey = query.item[3]
@@ -144,23 +155,24 @@
 			var/content = query.item[5]
 			var/edited = text2num(query.item[6])
 
-			if (admin_ckey && ckey(a_ckey) != ckey(admin_ckey))
-				continue
-			else
-				dat += "<tr bgcolor='#ffeeee'><td align='center'><b>[p_ckey]</b></td><td align='center'><b>[a_ckey]</b></td><td align='center'>[date]</td><td align='center'>[content]</td></tr>"
-				if (edited)
-					var/lasteditor = query.item[7]
-					var/editdate = query.item[8]
-					dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
-				dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=[REF(src)];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=[REF(src)];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
-				dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
+			dat += "<tr bgcolor='#ffeeee'><td align='center'><b>[p_ckey]</b></td><td align='center'><b>[a_ckey]</b></td><td align='center'>[date]</td><td align='center'>[content]</td></tr>"
+			if (edited)
+				var/lasteditor = query.item[7]
+				var/editdate = query.item[8]
+				dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
+			dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=[REF(src)];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=[REF(src)];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
+			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	else if (admin_ckey && !player_ckey)
-		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1' ORDER BY adddate ASC"
+		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1' ORDER BY adddate ASC LIMIT [page_size + 1] OFFSET [offset]"
 		var/DBQuery/admin_query = GLOB.dbcon.NewQuery(aquery_content)
 		admin_query.Execute(list("a_ckey" = admin_ckey))
 
+		result_count = 0
 		while (admin_query.NextRow())
+			result_count++
+			if (result_count > page_size)
+				break
 			var/id = text2num(admin_query.item[1])
 			var/date = admin_query.item[2]
 			var/p_ckey = admin_query.item[3]
@@ -176,6 +188,13 @@
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
+	if (page > 1 || result_count > page_size)
+		dat += "<div align='center'><b>Page [page]</b><br>"
+		if (page > 1)
+			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page - 1]'>Previous</a> "
+		if (result_count > page_size)
+			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page + 1]'>Next</a>"
+		dat += "</div>"
 	show_browser(usr, HTML_SKELETON(dat), "window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
