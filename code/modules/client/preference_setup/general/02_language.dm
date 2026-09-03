@@ -80,30 +80,38 @@
 		var/datum/category_group/player_setup_category/cat = category
 		cat.modified = TRUE
 
-/datum/category_item/player_setup_item/general/language/content(var/mob/user)
-	var/list/dat = list("<b>Languages</b><br>")
+/datum/category_item/player_setup_item/general/language/ui_data(var/mob/user)
 	var/datum/species/S = GLOB.all_species[pref.species]
+	var/list/fields = list()
 	if(S.language)
-		dat += "- [S.language]<br>"
+		fields += list(list("label" = "Language", "value" = S.language))
 	if(S.default_language && S.default_language != S.language)
-		dat += "- [S.default_language]<br>"
+		fields += list(list("label" = "Default Language", "value" = S.default_language))
 	if(S.num_alternate_languages)
 		if(pref.alternate_languages.len)
 			for(var/i = 1 to pref.alternate_languages.len)
 				var/lang = pref.alternate_languages[i]
-				dat += "- [lang] - <a href='byond://?src=[REF(src)];remove_language=[i]'>remove</a><br>"
+				fields += list(list(
+					"label" = "Additional Language",
+					"value" = lang,
+					"actions" = list(list("label" = "Remove", "action" = "remove_language", "value" = i, "color" = "bad", "icon" = "minus"))
+				))
 
 		if(pref.alternate_languages.len < S.num_alternate_languages)
-			dat += "- <a href='byond://?src=[REF(src)];add_language=1'>add</a> ([S.num_alternate_languages - pref.alternate_languages.len] remaining)<br>"
+			fields += list(list("label" = "Language Slots", "value" = "[S.num_alternate_languages - pref.alternate_languages.len] remaining", "actions" = list(list("label" = "Add", "action" = "add_language", "icon" = "plus"))))
 	else
-		dat += "- [pref.species] cannot choose secondary languages.<br>"
+		fields += list(list("label" = "Additional Languages", "value" = "[pref.species] cannot choose secondary languages."))
 
 	if(S.has_autohiss)
 		pref.autohiss_setting = clamp(pref.autohiss_setting, AUTOHISS_OFF, AUTOHISS_NUM - 1)
 		var/list/autohiss_to_word = list("Disabled", "Basic", "Full")
-		dat += "<br><a href='byond://?src=[REF(src)];autohiss=1'>Autohiss: [autohiss_to_word[pref.autohiss_setting + 1]]</a><br>"
-
-	. = dat.Join()
+		fields += list(list("label" = "Autohiss", "value" = autohiss_to_word[pref.autohiss_setting + 1], "action" = "autohiss"))
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("title" = "Languages", "fields" = fields))
+	)
 
 /datum/category_item/player_setup_item/general/language/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["remove_language"])

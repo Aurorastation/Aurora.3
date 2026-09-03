@@ -133,12 +133,16 @@
 
 	// What surgeries does our tool/target enable?
 	var/list/possible_surgeries
+	var/is_surgery_tool = FALSE
 	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/decl in all_surgeries)
 		var/singleton/surgery_step/S = all_surgeries[decl]
 		if(standing_self_surgery_only && !S.standing_self_surgery)
 			continue
-		if(S.tool_quality(tool) && S.can_use(user, M, zone, tool))
+		if(!S.tool_quality(tool))
+			continue
+		is_surgery_tool = TRUE
+		if(S.can_use(user, M, zone, tool))
 			LAZYSET(possible_surgeries, S, TRUE)
 
 	// Which surgery, if any, do we actually want to do?
@@ -153,7 +157,13 @@
 	if(!istype(S))
 		if(standing_self_surgery_only)
 			return FALSE
-		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
+		var/can_repair_externally = FALSE
+		if(user.a_intent == I_HELP && istype(tool, /obj/item/weldingtool) && ishuman(M))
+			var/mob/living/carbon/human/human_target = M
+			var/obj/item/organ/external/affected = human_target.get_organ(zone)
+			can_repair_externally = affected?.status & ORGAN_ASSISTED
+		var/normal_attack_is_harmful = tool.force && !(tool.item_flags & ITEM_FLAG_NO_BLUDGEON) && !can_repair_externally
+		if((is_surgery_tool && normal_attack_is_harmful) || (tool.item_flags & ITEM_FLAG_SURGERY)) //Is this supposed to be used for surgery?
 			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
 			return TRUE
 		return FALSE //Just do the normal use for the tool instead

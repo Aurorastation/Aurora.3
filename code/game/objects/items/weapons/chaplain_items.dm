@@ -48,6 +48,9 @@
 /obj/item/nullrod/dominia/holodeck
 	can_change_form = FALSE
 
+/obj/item/nullrod/luceiansceptre/holodeck
+	can_change_form = FALSE
+
 /obj/item/nullrod/staff
 	name = "null staff"
 	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."

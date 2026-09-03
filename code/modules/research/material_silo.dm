@@ -4,6 +4,9 @@
 	icon_state = "silo"
 
 	idle_power_usage = 30 WATTS
+	component_types = list(
+		/obj/item/stock_parts/matter_bin = 3
+	)
 
 	/// Total material capacity, measured in material units.
 	var/max_material_storage = 800000
@@ -24,11 +27,20 @@
 
 /obj/structure/machinery/r_n_d/material_silo/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	. += "- Upgraded <b>matter bins</b> will increase the shared material storage capacity."
 	. += SPAN_NOTICE("\t- The shared storage capacity is <b>[max_material_storage / SHEET_MATERIAL_AMOUNT]</b> sheets.")
 
 /obj/structure/machinery/r_n_d/material_silo/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	update_icon()
+
+/obj/structure/machinery/r_n_d/material_silo/RefreshParts()
+	..()
+	var/matter_bin_rating = 0
+	for(var/obj/item/stock_parts/matter_bin/matter_bin in component_parts)
+		matter_bin_rating += matter_bin.rating
+	max_material_storage = initial(max_material_storage) * matter_bin_rating / 3
+	update_linked_uis()
 
 /obj/structure/machinery/r_n_d/material_silo/update_icon()
 	. = ..()

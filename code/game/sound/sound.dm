@@ -41,8 +41,9 @@
  *
  * * required_preferences - What preference is required to be on on the client, for the sound to play
  * * required_asfx_toggles - What toggles are required to be on on the client, for the sound to play
+ * * volume_channel - The client preference volume channel to apply to the sound
  */
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, use_reverb = TRUE, required_preferences, required_asfx_toggles)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, use_reverb = TRUE, required_preferences, required_asfx_toggles, volume_channel)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
@@ -109,9 +110,9 @@
 		if(get_dist(listening_mob, turf_source) <= maxdistance)
 			//Aurora snowflake, if we don't ignore the walls, account for wall-like obstacles to dampen the sound
 			if(ignore_walls)
-				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb, volume_channel)
 			else
-				adjust_sound_based_on_path_obstacles(listening_mob, turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+				adjust_sound_based_on_path_obstacles(listening_mob, turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb, volume_channel)
 
 			. += listening_mob
 
@@ -122,7 +123,7 @@
  *
  * Use this to tweak what happens with the sound along the path from the emitter to the receiver of said sound
  */
-/proc/adjust_sound_based_on_path_obstacles(mob/listening_mob, turf/turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+/proc/adjust_sound_based_on_path_obstacles(mob/listening_mob, turf/turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb, volume_channel)
 	var/turf/inbetween_turf = get_turf(listening_mob)
 
 	for(var/step_counter in 1 to get_dist(listening_mob, turf_source))
@@ -141,12 +142,16 @@
 		if(vol <= 0)
 			return
 
-	listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+	listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb, volume_channel)
 
 
-/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/sound_to_use, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE)
+/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/sound_to_use, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE, volume_channel)
 	if(!client || !can_hear())
 		return
+
+	if (client.prefs)
+		switch (volume_channel)
+			if (SOUND_VOLUME_CHANNEL_LOOPING) vol *= client.prefs.looping_sound_volume / 100
 
 	if(!sound_to_use)
 		sound_to_use = sound(get_sfx(soundin))
@@ -243,4 +248,3 @@
 		return soundin
 	var/datum/sound_effect/sfx = SSsounds.sfx_datum_by_key[soundin]
 	return sfx?.return_sfx() || soundin
-

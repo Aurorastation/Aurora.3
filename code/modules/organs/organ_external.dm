@@ -789,6 +789,8 @@ This function completely restores a damaged organ to perfect condition.
 /obj/item/organ/external/proc/need_process()
 	if(BP_IS_ROBOTIC(src))
 		return surge_damage
+	if(surge_damage)
+		return TRUE
 	if(get_pain() || status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED|ORGAN_ARTERY_CUT) || brute_dam || burn_dam)
 		return TRUE
 	if(last_dam != brute_dam + burn_dam) // Process when we are fully healed up.
@@ -820,9 +822,6 @@ This function completely restores a damaged organ to perfect condition.
 	if(!(status & ORGAN_BROKEN))
 		perma_injury = 0
 
-	if(surge_damage && (status & ORGAN_ASSISTED))
-		tick_surge_damage(seconds_per_tick) //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
-
 	//Infections
 	update_germs()
 
@@ -830,7 +829,6 @@ This function completely restores a damaged organ to perfect condition.
 	check_rigsplints()
 
 /obj/item/organ/external/do_surge_effects()
-	START_PROCESSING(SSprocessing, src)
 	if(prob(surge_damage))
 		owner.custom_pain("The artificial nerves in your [name] scream out in pain!", surge_damage/6)
 
@@ -1701,7 +1699,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/last_gene_dam = genetic_degradation
 	genetic_degradation = min(100,max(0,genetic_degradation + amount))
 	if(genetic_degradation > 10)
-		owner.infest_with_parasite(owner, BP_TUMOUR_SPREADING, src)
+		owner.infest_with_parasite(owner, BP_TUMOUR_SPREADING, src, (genetic_degradation + 10)) //Guarantees at least one tumour if you reach maximum degredation.
 	if(genetic_degradation > 20)
 		if(!(status & ORGAN_MUTATED) && prob(genetic_degradation))
 			mutate()

@@ -138,6 +138,10 @@
 
 /obj/structure/machinery/vending/snack/horizon
 	products = list(
+		/obj/item/reagent_containers/food/snacks/candy = 6,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 2,
+		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 6,
 		/obj/item/reagent_containers/food/snacks/sosjerky = 6,
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
