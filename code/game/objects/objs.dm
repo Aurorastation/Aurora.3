@@ -89,7 +89,7 @@
 
 	/* START ACCESS VARS */
 	/// Required access.
-	/// All of these accesses is required at the same time.
+	/// All of these accesses are required at the same time.
 	/// Can be either numeric access ids or `/datum/access/...` paths or a mix of both.
 	var/list/req_access
 	/// Required access.
