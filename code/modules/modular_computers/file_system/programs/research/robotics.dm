@@ -294,8 +294,8 @@
 		for(var/obj/item/organ/external/limb in patient.organs)
 			data["limbs"] += list(list(
 				"name" = limb.name,
-				"brute_damage" = limb.brute_dam,
-				"burn_damage" = limb.burn_dam,
+				"brute_damage" = LIMB_GET_BRUTE_DAMAGE(limb),
+				"burn_damage" = LIMB_GET_BURN_DAMAGE(limb),
 				"max_damage" = limb.max_damage,
 				"foreign_bodies" = get_synthetic_foreign_body_findings(limb)
 			))
@@ -327,8 +327,8 @@
 		for(var/obj/item/organ/external/prosthetic as anything in patient_prosthetics)
 			data["limbs"] += list(list(
 				"name" = prosthetic.name,
-				"brute_damage" = prosthetic.brute_dam,
-				"burn_damage" = prosthetic.burn_dam,
+				"brute_damage" = LIMB_GET_BRUTE_DAMAGE(prosthetic),
+				"burn_damage" = LIMB_GET_BURN_DAMAGE(prosthetic),
 				"max_damage" = prosthetic.max_damage,
 				"foreign_bodies" = get_synthetic_foreign_body_findings(prosthetic)
 			))

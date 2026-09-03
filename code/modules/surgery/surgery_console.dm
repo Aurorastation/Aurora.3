@@ -171,12 +171,12 @@
 
 		var/list/zone_data = get_or_create_surgery_scan_zone(zones, zone)
 
-		var/brute_damage = get_wound_severity(O.brute_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/brute_damage = get_wound_severity(LIMB_GET_BRUTE_DAMAGE(O), (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		var/brute_severity = get_surgery_scan_damage_severity(brute_damage)
 		if(brute_severity)
 			add_surgery_scan_finding(zone_data, "Brute trauma: [brute_damage]", brute_severity)
 
-		var/burn_damage = get_wound_severity(O.burn_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/burn_damage = get_wound_severity(LIMB_GET_BURN_DAMAGE(O), (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		var/burn_severity = get_surgery_scan_damage_severity(burn_damage)
 		if(burn_severity)
 			add_surgery_scan_finding(zone_data, "Burn trauma: [burn_damage]", burn_severity)

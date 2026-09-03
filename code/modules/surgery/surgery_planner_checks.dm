@@ -527,7 +527,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected \
 		&& affected.open == ORGAN_ENCASED_RETRACTED \
-		&& affected.brute_dam > 0 \
+		&& LIMB_GET_BRUTE_DAMAGE(affected) > 0 \
 		&& target_zone != BP_MOUTH
 
 /singleton/surgery_step/robotics/repair_burn/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
@@ -537,7 +537,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected \
 		&& affected.open == ORGAN_ENCASED_RETRACTED \
-		&& affected.burn_dam > 0 \
+		&& LIMB_GET_BURN_DAMAGE(affected) > 0 \
 		&& target_zone != BP_MOUTH
 
 /singleton/surgery_step/robotics/detach_organ_robotic/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)

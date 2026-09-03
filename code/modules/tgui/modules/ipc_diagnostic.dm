@@ -72,8 +72,8 @@
 		for(var/obj/item/organ/external/limb in ipc.organs)
 			data["limbs"] += list(list(
 				"name" = limb.name,
-				"brute_damage" = edit_organ_status(limb.brute_dam, diagnostics),
-				"burn_damage" = edit_organ_status(limb.burn_dam, diagnostics),
+				"brute_damage" = edit_organ_status(LIMB_GET_BRUTE_DAMAGE(limb), diagnostics),
+				"burn_damage" = edit_organ_status(LIMB_GET_BURN_DAMAGE(limb), diagnostics),
 				"max_damage" = limb.max_damage,
 				"foreign_bodies" = get_synthetic_foreign_body_findings(limb)
 			))
