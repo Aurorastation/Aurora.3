@@ -140,7 +140,7 @@
 		query_content += ") AND visible = '1'"
 		if (admin_ckey)
 			query_content += " AND a_ckey = :admin_ckey:"
-		query_content += " ORDER BY adddate ASC LIMIT [page_size + 1] OFFSET [offset]"
+		query_content += " ORDER BY adddate DESC LIMIT [page_size + 1] OFFSET [offset]"
 		var/DBQuery/query = GLOB.dbcon.NewQuery(query_content)
 		query.Execute(query_details)
 
@@ -164,7 +164,7 @@
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	else if (admin_ckey && !player_ckey)
-		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1' ORDER BY adddate ASC LIMIT [page_size + 1] OFFSET [offset]"
+		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1' ORDER BY adddate DESC LIMIT [page_size + 1] OFFSET [offset]"
 		var/DBQuery/admin_query = GLOB.dbcon.NewQuery(aquery_content)
 		admin_query.Execute(list("a_ckey" = admin_ckey))
 
