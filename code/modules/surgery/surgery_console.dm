@@ -431,20 +431,24 @@
 			continue
 		var/list/effective_skill_requirements
 		if(length(allowed_skill_components))
+			var/matched_planner_skill = FALSE
 			for(var/allowed_skill_component in allowed_skill_components)
 				effective_skill_requirements = S.get_surgery_skill_requirements(user, patient, target_zone, allowed_skill_component)
-				if(length(effective_skill_requirements))
+				if(!isnull(effective_skill_requirements))
+					matched_planner_skill = TRUE
 					break
+			if(!matched_planner_skill)
+				continue
 		else
 			effective_skill_requirements = S.get_surgery_skill_requirements(user, patient, target_zone)
-		if(!length(effective_skill_requirements))
+		if(isnull(effective_skill_requirements))
 			continue
 
 		var/list/metadata = get_surgery_step_metadata(S)
 		if(!metadata)
 			continue
 
-		results += list(get_surgery_step_viewer_data(user, S, metadata, success_modifier, duration_multiplier, effective_skill_requirements))
+		results += list(get_surgery_step_viewer_data(user, patient, S, metadata, success_modifier, duration_multiplier, effective_skill_requirements))
 
 	return results
 
@@ -503,7 +507,7 @@
 	surgery_planner_step_metadata[S.type] = metadata
 	return metadata
 
-/datum/surgery_planner/proc/get_surgery_step_viewer_data(mob/user, singleton/surgery_step/S, list/metadata, success_modifier, duration_multiplier, list/effective_skill_requirements)
+/datum/surgery_planner/proc/get_surgery_step_viewer_data(mob/user, mob/living/carbon/human/patient, singleton/surgery_step/S, list/metadata, success_modifier, duration_multiplier, list/effective_skill_requirements)
 	var/list/viewer_data = metadata.Copy()
 	var/skill_modifier = success_modifier
 	var/list/skill_names = list()
@@ -521,8 +525,8 @@
 		viewer_tools += list(viewer_tool)
 
 	viewer_data["tools"] = viewer_tools
-	viewer_data["skills"] = skill_names
-	viewer_data["estimated_time"] = round((S.base_surgery_time / 10) * duration_multiplier, 0.1)
+	viewer_data["skills"] = length(skill_names) ? skill_names : list("None")
+	viewer_data["estimated_time"] = round((S.get_surgery_time(user, patient) / 10) * duration_multiplier, 0.1)
 	return viewer_data
 
 /datum/surgery_planner/proc/get_surgery_skill_name(skill_component)

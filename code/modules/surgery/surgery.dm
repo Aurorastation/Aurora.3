@@ -19,6 +19,8 @@
 	var/blood_level = 0
 
 	var/requires_surgery_compatibility = TRUE
+	/// Whether this step may be performed on oneself while standing and away from an operating surface.
+	var/standing_self_surgery = FALSE
 
 	/**
 	 * The associative list of skills and their paired requirement levels to be able to perform a given surgery.
@@ -41,6 +43,10 @@
 			return allowed_tools[T]
 	return FALSE
 
+/** Returns the skills used for this step after user- and target-specific modifiers. */
+/singleton/surgery_step/proc/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
+	return skill_requirements
+
 /**
  * Returns the skills used for this particular operation. Most steps use their
  * static requirements, but procedures that can cross organic and mechanical
@@ -50,9 +56,10 @@
  * step can be performed using their skill. Live surgery leaves it unset.
  */
 /singleton/surgery_step/proc/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
-	if(preferred_skill_component && (!skill_requirements || isnull(skill_requirements[preferred_skill_component])))
+	var/list/effective_skill_requirements = get_skill_requirements(user, target)
+	if(preferred_skill_component && (!effective_skill_requirements || isnull(effective_skill_requirements[preferred_skill_component])))
 		return null
-	return skill_requirements
+	return effective_skill_requirements
 
 /** Selects one permitted skill, preferring the surgeon's strongest skill live. */
 /singleton/surgery_step/proc/get_alternative_surgery_skill_requirements(mob/living/user, list/permitted_skills, required_level, preferred_skill_component)
@@ -79,6 +86,10 @@
 	var/list/requirements = list()
 	requirements[selected_skill] = required_level
 	return requirements
+
+/// Returns the time required to perform this step after step-specific user and target modifiers.
+/singleton/surgery_step/proc/get_surgery_time(mob/living/user, mob/living/carbon/human/target)
+	return base_surgery_time
 
 /// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
@@ -143,7 +154,7 @@
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 
-/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE)
+/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE, var/standing_self_surgery_only = FALSE)
 	// Check for the Hippocratic oath.
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
@@ -167,6 +178,8 @@
 	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/decl in all_surgeries)
 		var/singleton/surgery_step/S = all_surgeries[decl]
+		if(standing_self_surgery_only && !S.standing_self_surgery)
+			continue
 		if(!S.tool_quality(tool))
 			continue
 		is_surgery_tool = TRUE
@@ -183,6 +196,8 @@
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
+		if(standing_self_surgery_only)
+			return FALSE
 		var/can_repair_externally = FALSE
 		if(user.a_intent == I_HELP && istype(tool, /obj/item/weldingtool) && ishuman(M))
 			var/mob/living/carbon/human/human_target = M
@@ -193,9 +208,8 @@
 			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
 			return TRUE
 		return FALSE //Just do the normal use for the tool instead
-
 	// Otherwise we can make a start on surgery!
-	else if(istype(M) && !QDELETED(M) && tool)
+	if(istype(M) && !QDELETED(M) && tool)
 		// Double-check this in case it changed between initial check and now.
 		if(zone in M.op_stage.in_progress)
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
@@ -204,7 +218,7 @@
 			S.begin_step(user, M, zone, tool)
 
 			// Get the base surgery time before modifiers.
-			var/duration = S.base_surgery_time
+			var/duration = S.get_surgery_time(user, M)
 
 			// Get the base surgery success rate based on tools.
 			// This should eventually be reworked to use ToolQualityComponents when we add that.

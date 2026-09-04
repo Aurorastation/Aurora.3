@@ -413,7 +413,7 @@
 	reagents_to_add = list(/singleton/reagent/drugs/psilocybin = 5)
 
 /obj/item/reagent_containers/pill/psi_protect
-	name = "5u Psi-protect Pill"
+	name = "5u Ranixidone Pill"
 	desc = "A pill used to protect against ADPI and treat various psionic disorders"
 	icon_state = "pill10"
 	reagents_to_add = list(/singleton/reagent/drugs/psiblock = 5)
@@ -421,8 +421,5 @@
 /obj/item/reagent_containers/pill/psi_protect/yomi_genetics
 	reagents_to_add = list(/singleton/reagent/drugs/psiblock/yomi_genetics = 5)
 
-/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/cheap
-	reagents_to_add = list(/singleton/reagent/drugs/psiblock/yomi_genetics/cheap = 5)
-
 /obj/item/reagent_containers/pill/psi_protect/yomi_genetics/expensive
-	reagents_to_add = list(/singleton/reagent/drugs/psiblock/yomi_genetics/expensive = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/psiblock/yomi_genetics/expensive = 5, /singleton/reagent/gold = 1)

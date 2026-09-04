@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Made portable air pumps, scrubbers, and air connectors no longer require always-processing."
