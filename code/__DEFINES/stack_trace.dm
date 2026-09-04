@@ -11,7 +11,7 @@
 /// If not tests, does nothing.
 #define tests_stack_trace(assertion, reason) \
 	do { \
-		stack_trace("Assertion failed: " + #assertion + "; " + reason); \
+		stack_trace("Assertion failed: " + #assertion + "; " + #reason); \
 	} while (0)
 
 /// If running in unit tests, assert that an expression is true.
@@ -20,7 +20,7 @@
 #define tests_assert_or_stack_trace(assertion, reason) \
 	do { \
 		if (!(assertion)) { \
-			tests_stack_trace("Assertion failed: " + #assertion + "; " + reason); \
+			tests_stack_trace("Assertion failed: " + #assertion + "; " + #reason); \
 		} \
 	} while (0)
 
