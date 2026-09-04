@@ -278,7 +278,6 @@
 	landmark_transition = "nav_transit_orion_express"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_orion_express"
 	dock_target = "orion_shuttle"
 	defer_initialisation = TRUE
 

@@ -64,7 +64,6 @@
 	current_location = "nav_red_racer_hangar"
 	landmark_transition = "nav_red_racer_transit"
 	fuel_consumption = 2
-	logging_home_tag = "nav_red_racer_hangar"
 	range = 1
 	defer_initialisation = TRUE
 
@@ -91,7 +90,6 @@
 	current_location = "nav_blue_racer_hangar"
 	landmark_transition = "nav_blue_racer_transit"
 	fuel_consumption = 2
-	logging_home_tag = "nav_blue_racer_hangar"
 	range = 1
 	defer_initialisation = TRUE
 

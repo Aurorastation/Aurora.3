@@ -116,7 +116,6 @@
 	dock_target = "gadpathur_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_gadpathur_corvette_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/gadpathur_shuttle/dock

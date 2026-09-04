@@ -111,7 +111,6 @@
 	landmark_transition = "xanufrigate_transit_b"
 	range = 1
 	fuel_consumption = 1
-	logging_home_tag = "xanufrigate_hangar"
 	defer_initialisation = TRUE
 
 //Boarder
@@ -152,5 +151,4 @@
 	landmark_transition = "xanufrigate_transit_a"
 	range = 1
 	fuel_consumption = 1
-	logging_home_tag = "xanufrigate_aft"
 	defer_initialisation = TRUE

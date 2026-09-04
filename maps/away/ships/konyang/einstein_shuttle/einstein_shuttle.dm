@@ -94,7 +94,6 @@
 	landmark_transition = "nav_transit_einstein"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_start_einstein"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/einstein_shuttle

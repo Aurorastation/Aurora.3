@@ -90,5 +90,4 @@
 	landmark_transition = "nav_transit_tajara_mining_jack"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tajara_mining_jack"
 	defer_initialisation = TRUE

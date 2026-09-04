@@ -127,7 +127,6 @@
 	landmark_transition = "nav_kataphract_transport_transit"
 	range = 2 // It's a big boy
 	fuel_consumption = 4
-	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle

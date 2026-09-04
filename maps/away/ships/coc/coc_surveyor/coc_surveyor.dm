@@ -110,7 +110,6 @@
 	landmark_transition = "nav_transit_survey_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_survey"
 	dock_target = "surveyor_shuttle"
 	defer_initialisation = TRUE
 

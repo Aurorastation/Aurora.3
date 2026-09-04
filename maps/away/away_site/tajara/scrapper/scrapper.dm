@@ -86,7 +86,6 @@
 	landmark_transition = "nav_transit_tajara_scrapper"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tajara_scrapper"
 	defer_initialisation = TRUE
 
 

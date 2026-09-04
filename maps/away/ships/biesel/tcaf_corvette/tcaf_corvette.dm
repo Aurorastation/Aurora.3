@@ -113,7 +113,6 @@
 	dock_target = "airlock_tcaf_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tcaf"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tcaf_shuttle/hangar

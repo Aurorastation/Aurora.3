@@ -36,7 +36,6 @@
 	dock_target = "sol_light_interceptor"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_solfrig"
 	defer_initialisation = TRUE
 // --------
 

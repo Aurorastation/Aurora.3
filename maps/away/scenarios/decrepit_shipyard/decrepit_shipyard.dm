@@ -94,7 +94,6 @@
 	dock_target = "airlock_decrepit_shipyard_shuttle_docking"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_decrepit_shipyard_drydock"
 	defer_initialisation = TRUE
 
 // Shuttle starting landmark
