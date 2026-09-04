@@ -1067,6 +1067,8 @@
 
 	if(user.in_throw_mode && (isturf(target) || isturf(target.loc)) && user.throw_item(target)) //Prevents throwing items while remaining cloaked.
 		attack_disrupt_check()
+		user.throw_mode_off()
+		return COMSIG_MOB_CANCEL_CLICKON
 
 	if(ismob(target)) //This doesn't prevent guns firing at turfs, that is handled in /obj/item/gun/proc/handle_post_fire
 		if(target != user)
