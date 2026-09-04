@@ -198,17 +198,13 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/hide()
 	queue_icon_update()
 
-/obj/structure/machinery/atmospherics/unary/vent_pump/proc/can_pump()
+/obj/structure/machinery/atmospherics/unary/vent_pump/process(seconds_per_tick)
+	. = ..()
+	if (!use_power || welded)
+		return PROCESS_KILL
+
 	if(stat & (NOPOWER|BROKEN))
 		return 0
-	if(!use_power)
-		return 0
-	if(welded)
-		return 0
-	return 1
-
-/obj/structure/machinery/atmospherics/unary/vent_pump/process(seconds_per_tick)
-	..()
 
 	if (broadcast_status_next_process)
 		broadcast_status()
@@ -219,8 +215,6 @@
 
 	if (!node)
 		update_use_power(POWER_USE_OFF)
-	if(!can_pump())
-		return 0
 
 	if(!loc) return FALSE
 
@@ -390,6 +384,8 @@
 				if(!src || !WT.isOn())
 					return TRUE
 				welded = !welded
+				if (!welded)
+					START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
@@ -418,6 +414,7 @@
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
 				welded = FALSE
+				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				spark(get_turf(src), 3, GLOB.alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
@@ -459,6 +456,11 @@
 	..()
 	if(old_stat != stat)
 		update_icon()
+
+/obj/structure/machinery/atmospherics/unary/vent_pump/update_use_power(new_use_power)
+	. = ..()
+	if (use_power)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 #undef DEFAULT_PRESSURE_DELTA
 

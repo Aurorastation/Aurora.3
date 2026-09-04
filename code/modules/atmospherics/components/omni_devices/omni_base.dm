@@ -66,6 +66,8 @@
 	return
 
 /obj/structure/machinery/atmospherics/omni/process()
+	if (!use_power)
+		return PROCESS_KILL
 	last_power_draw = 0
 	last_flow_rate = 0
 	last_mole_transfer = 0
@@ -73,7 +75,7 @@
 	if(error_check())
 		update_use_power(POWER_USE_OFF)
 
-	if((stat & (NOPOWER|BROKEN)) || !use_power)
+	if((stat & (NOPOWER|BROKEN)))
 		return 0
 	return 1
 
@@ -281,3 +283,8 @@
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	Topic(src, list("power" = "1"))
+
+/obj/structure/machinery/atmospherics/omni/update_use_power(new_use_power)
+	. = ..()
+	if (use_power)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)

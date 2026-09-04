@@ -55,7 +55,9 @@
 		update_icon()
 
 /obj/structure/machinery/atmospherics/unary/outlet_injector/process()
-	..()
+	. = ..()
+	if (!use_power)
+		return PROCESS_KILL
 
 	last_power_draw = 0
 	last_flow_rate = 0
@@ -65,7 +67,7 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
-	if((stat & (NOPOWER|BROKEN)) || !use_power)
+	if((stat & (NOPOWER|BROKEN)))
 		return
 
 	var/power_draw = -1
@@ -177,3 +179,8 @@
 
 /obj/structure/machinery/atmospherics/unary/outlet_injector/aux
 	connect_types = CONNECT_TYPE_AUX
+
+/obj/structure/machinery/atmospherics/unary/outlet_injector/update_use_power(new_use_power)
+	. = ..()
+	if (use_power)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
