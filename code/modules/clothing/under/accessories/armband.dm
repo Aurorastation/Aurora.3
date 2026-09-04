@@ -120,6 +120,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is purple."
 	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
 	icon_state = "ribbon_sci"
+	item_state = "ribbon_sci"
 	flippable = FALSE
 	slot = ACCESSORY_SLOT_CAPE
 
@@ -127,8 +128,10 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 	name = "engineering exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is orange with a reflective strip."
 	icon_state = "ribbon_engi"
+	item_state = "ribbon_engi"
 
 /obj/item/clothing/accessory/armband/offworlder/medical
 	name = "medical exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is white and green."
 	icon_state = "ribbon_med"
+	item_state = "ribbon_med"
