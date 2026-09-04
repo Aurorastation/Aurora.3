@@ -10,7 +10,6 @@
 		// Check start location and transition locations exist
 		var/found_current_location = FALSE
 		var/found_transition_location = FALSE
-		var/found_logging_home_location = FALSE
 		for(var/L in subtypesof(/obj/effect/shuttle_landmark))
 			var/obj/effect/shuttle_landmark/landmark = L
 			if(initial(landmark.landmark_tag) == initial(shuttle.current_location))
