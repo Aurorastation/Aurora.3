@@ -83,6 +83,13 @@
 // Damage above this value must be repaired with surgery.
 #define ROBOLIMB_SELF_REPAIR_CAP 30
 
+// Detachable prosthetic interface states.
+#define PROSTHETIC_DETACHMENT_SECURED              0
+#define PROSTHETIC_DETACHMENT_HUB_OPEN             1
+#define PROSTHETIC_DETACHMENT_CONNECTION_DISABLED 2
+#define PROSTHETIC_DETACHMENT_SAFETIES_RELEASED   3
+#define PROSTHETIC_DETACHMENT_ANCHORS_RELEASED    4
+
 //Germs and infections.
 #define GERM_LEVEL_AMBIENT  110 // Maximum germ level you can reach by standing still.
 #define GERM_LEVEL_MOVE_CAP 200 // Maximum germ level you can reach by running around.

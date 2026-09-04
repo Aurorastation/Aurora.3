@@ -71,15 +71,29 @@ SUBSYSTEM_DEF(tgui)
  * required user mob
  * return datum/tgui_window
  */
-/datum/controller/subsystem/tgui/proc/request_pooled_window(mob/user)
+/datum/controller/subsystem/tgui/proc/request_pooled_window(mob/user, preferred_index)
 	if(!user.client)
 		return null
 	var/list/windows = user.client.tgui_windows
 	var/window_id
 	var/datum/tgui_window/window
 	var/window_found = FALSE
+	if(preferred_index)
+		if(preferred_index < 1 || preferred_index > TGUI_WINDOW_HARD_LIMIT)
+			return null
+		window_id = TGUI_WINDOW_ID(preferred_index)
+		window = windows[window_id]
+		if(!window)
+			window = new(user.client, window_id, pooled = TRUE)
+		if(window.locked)
+			return null
+		if(window.status == TGUI_WINDOW_CLOSED)
+			window.status = TGUI_WINDOW_LOADING
+		return window
 	// Find a usable window
 	for(var/i in 1 to TGUI_WINDOW_HARD_LIMIT)
+		if(i == TGUI_CHARACTER_SETUP_WINDOW_INDEX)
+			continue
 		window_id = TGUI_WINDOW_ID(i)
 		window = windows[window_id]
 		// As we are looping, create missing window datums

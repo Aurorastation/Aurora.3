@@ -68,8 +68,9 @@
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/structure/machinery/atmospherics/portables_connector/process()
-	if(network)
-		network.update = 1
+	if(!network || !connected_device)
+		return PROCESS_KILL
+	network.update = 1
 
 // Housekeeping and pipe network stuff below
 /obj/structure/machinery/atmospherics/portables_connector/network_expand(datum/pipe_network/new_network, obj/structure/machinery/atmospherics/pipe/reference)
