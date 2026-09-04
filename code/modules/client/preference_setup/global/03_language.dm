@@ -27,9 +27,21 @@
 	if (isnull(pref.language_prefixes) || !pref.language_prefixes.len)
 		pref.language_prefixes = GLOB.config.language_prefixes.Copy()
 
-/datum/category_item/player_setup_item/player_global/language/content(var/mob/user)
-	. += "<b>Language Keys</b><br>"
-	. += " [jointext(pref.language_prefixes, " ")] <a href='byond://?src=[REF(src)];change_prefix=1'>Change</a> <a href='byond://?src=[REF(src)];reset_prefix=1'>Reset</a><br>"
+/datum/category_item/player_setup_item/player_global/language/ui_data(var/mob/user)
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list(
+			"title" = "Language Keys",
+			"fields" = list(list(
+				"label" = "Prefixes",
+				"value" = jointext(pref.language_prefixes, " "),
+				"action" = "change_prefix",
+				"actions" = list(list("label" = "Reset", "action" = "reset_prefix", "icon" = "rotate"))
+			))
+		))
+	)
 
 /datum/category_item/player_setup_item/player_global/language/OnTopic(var/href, var/list/href_list, var/mob/user)
 	if(href_list["change_prefix"])

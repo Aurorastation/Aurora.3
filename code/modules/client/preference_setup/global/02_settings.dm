@@ -78,22 +78,26 @@
 	pref.lobby_music_vol = sanitize_integer(text2num(pref.lobby_music_vol), 0, BITFIELDMAX, initial(pref.lobby_music_vol))
 	pref.looping_sound_volume = sanitize_integer(text2num(pref.looping_sound_volume), 0, 100, initial(pref.looping_sound_volume))
 
-/datum/category_item/player_setup_item/player_global/settings/content(mob/user)
-	var/list/dat = list(
-		"<b>Play admin midis:</b> <a href='byond://?src=[REF(src)];toggle=[SOUND_MIDI]'><b>[(pref.toggles & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>",
-		"<b>Lobby music volume:</b> <a href='byond://?src=[REF(src)];select_volume=1'><b>[(pref.lobby_music_vol)]</b></a><br>",
-		"<b>Ghost ears:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTEARS]'><b>[(pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>",
-		"<b>Ghost sight:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
-		"<b>Ghost radio:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
-		"<b>Observer LOOC:</b> <a href='byond://?src=[REF(src)];toggle=[CHAT_GHOSTLOOC]'><b>[(pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden"]</b></a><br>",
-		"<b>Item Outlines:</b> <a href='byond://?src=[REF(src)];paratoggle=[SEE_ITEM_OUTLINES]'><b>[(pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden"]</b></a><br>",
-		"<b>Hide Item Tooltips:</b> <a href='byond://?src=[REF(src)];paratoggle=[HIDE_ITEM_TOOLTIPS]'><b>[(pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No"]</b></a><br>",
-		"<b>Progress Bars:</b> <a href='byond://?src=[REF(src)];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
-		"<b>Floating Messages:</b> <a href='byond://?src=[REF(src)];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
-		"<b>Hotkey Mode Default:</b> <a href='byond://?src=[REF(src)];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
+/datum/category_item/player_setup_item/player_global/settings/ui_data(mob/user)
+	var/list/fields = list(
+		list("label" = "Play Admin MIDIs", "value" = (pref.toggles & SOUND_MIDI) ? "Yes" : "No", "action" = "toggle", "action_value" = SOUND_MIDI),
+		list("label" = "Lobby Music Volume", "value" = pref.lobby_music_vol, "action" = "select_volume"),
+		list("label" = "Ghost Ears", "value" = (pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures", "action" = "toggle", "action_value" = CHAT_GHOSTEARS),
+		list("label" = "Ghost Sight", "value" = (pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures", "action" = "toggle", "action_value" = CHAT_GHOSTSIGHT),
+		list("label" = "Ghost Radio", "value" = (pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers", "action" = "toggle", "action_value" = CHAT_GHOSTRADIO),
+		list("label" = "Observer LOOC", "value" = (pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden", "action" = "toggle", "action_value" = CHAT_GHOSTLOOC),
+		list("label" = "Item Outlines", "value" = (pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden", "action" = "paratoggle", "action_value" = SEE_ITEM_OUTLINES),
+		list("label" = "Hide Item Tooltips", "value" = (pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No", "action" = "paratoggle", "action_value" = HIDE_ITEM_TOOLTIPS),
+		list("label" = "Progress Bars", "value" = (pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No", "action" = "paratoggle", "action_value" = PROGRESS_BARS),
+		list("label" = "Floating Messages", "value" = (pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No", "action" = "paratoggle", "action_value" = FLOATING_MESSAGES),
+		list("label" = "Hotkey Mode Default", "value" = (pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off", "action" = "paratoggle", "action_value" = HOTKEY_DEFAULT)
 	)
-
-	. = dat.Join()
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("title" = "Game Settings", "fields" = fields))
+	)
 
 /datum/category_item/player_setup_item/player_global/settings/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["toggle"])
