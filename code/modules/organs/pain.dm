@@ -69,7 +69,7 @@
 		if(maxdam > 50 && prob(maxdam / 5))
 			to_chat(src, SPAN_WARNING("A bolt of pain shoots through your body, causing your hands to spasm!"))
 			drop_item()
-		var/burning = damaged_organ.burn_dam > damaged_organ.brute_dam
+		var/burning = LIMB_GET_BURN_DAMAGE(damaged_organ) > LIMB_GET_BRUTE_DAMAGE(damaged_organ)
 		var/msg
 		switch(maxdam)
 			if(1 to 10)
