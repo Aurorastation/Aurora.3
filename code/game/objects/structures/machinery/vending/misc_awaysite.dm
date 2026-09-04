@@ -102,28 +102,66 @@
 	products = list(
 		/obj/item/key/bike/moped = 0, // filled from the key data lists
 		/obj/item/key/bike/sport = 0,
+		/obj/item/key/bike/snow = 0
 	)
 	prices = list(
 		/obj/item/key/bike/moped = 15.00,
-		/obj/item/key/bike/sport = 50.00
+		/obj/item/key/bike/sport = 50.00,
+		/obj/item/key/bike/snow = 25.00
 	)
 	restock_items = FALSE
 	random_itemcount = FALSE
 	light_color = COLOR_BABY_BLUE
+	build_inventory_later = TRUE
 
 	/// List of strings.
 	/// Vended out keys will be filled with these key data (== bike reg plates) strings.
 	/// Also based on this list is filled the products assoc list.
 	var/list/key_data_mopeds = list()
-
 	/// Same as the list for mopeds, except for sports bikes.
 	var/list/key_data_sports = list()
+	/// For snow bikes.
+	var/list/key_data_snow = list()
+
+/obj/structure/machinery/vending/rental_bikes/LateInitialize()
+	. = ..()
+	var/obj/effect/landmark/rental_bikes_helper/anchor_helper = locate(/obj/effect/landmark/rental_bikes_helper) in get_turf(src)
+	if(!istype(anchor_helper))
+		return
+
+	var/our_z_levels = GetConnectedZlevels(z)
+	for(var/obj/effect/landmark/rental_bikes_helper/helper in GLOB.landmarks_list)
+		if(!(helper.z in our_z_levels) || helper.tag != anchor_helper.tag )
+			continue
+
+		var/obj/vehicle/bike/bike = locate(/obj/vehicle/bike) in get_turf(helper)
+		if(istype(bike))
+			assign_key_data_by_key_type(bike)
+
+	build_products() // we've adjusted the key_data lists, we need to rebuild the product list
+	build_inventory()
+
+/obj/structure/machinery/vending/rental_bikes/proc/assign_key_data_by_key_type(bike)
+	var/obj/vehicle/bike/found_bike = bike
+	switch(found_bike.key_type)
+		if(/obj/item/key/bike/moped)
+			LAZYADD(key_data_mopeds, found_bike.registration_plate)
+		if(/obj/item/key/bike/sport)
+			LAZYADD(key_data_sports, found_bike.registration_plate)
+		if(/obj/item/key/bike/snow)
+			LAZYADD(key_data_snow, found_bike.registration_plate)
 
 /obj/structure/machinery/vending/rental_bikes/build_products()
+	// We clear the compile-time product list, because the asset_cache system reads from a newly created instance and not us
+	// As for why we clean it, build_inventory() defaults the product count to 1 so everything inside the list is forced to be present
+	products.Cut()
+
 	if(length(key_data_mopeds))
 		products[/obj/item/key/bike/moped] = length(key_data_mopeds)
 	if(length(key_data_sports))
 		products[/obj/item/key/bike/sport] = length(key_data_sports)
+	if(length(key_data_snow))
+		products[/obj/item/key/bike/snow] = length(key_data_snow)
 
 /obj/structure/machinery/vending/rental_bikes/vended_product_post(var/obj/vended)
 	var/obj/item/key/key = vended
@@ -136,7 +174,15 @@
 
 	if(key_data_mopeds && istype(key, /obj/item/key/bike/moped))
 		key.key_data = key_data_mopeds[1]
-		key_data_mopeds.Cut(1,2)
+		key_data_mopeds.Cut(1, 2)
 	else if(key_data_sports && istype(key, /obj/item/key/bike/sport))
 		key.key_data = key_data_sports[1]
-		key_data_sports.Cut(1,2)
+		key_data_sports.Cut(1, 2)
+	else if(key_data_snow && istype(key, /obj/item/key/bike/snow))
+		key.key_data = key_data_snow[1]
+		key_data_snow.Cut(1, 2)
+
+// Link helper for rental_bikes vending machine. Place this on both the rental_bikes machine and the bikes to link them.
+// If you want to seperate which bikes get to be linked with which rental machine, varedit the name of this landmarker.
+// See crevus.dmm for an example.
+/obj/effect/landmark/rental_bikes_helper
