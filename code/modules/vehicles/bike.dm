@@ -48,7 +48,7 @@
 	/// If FALSE, the key needs to be mapped/spawned somewhere outside of the vehicle,
 	/// otherwise it will be an unusable prop.
 	var/spawns_with_key = TRUE
-	/// If TRUE, the key will spawned elsewhere designated by `/obj/effect/landmark/bike_key_spawner`.
+	/// If TRUE, the key will be spawned elsewhere designated by `/obj/effect/landmark/bike_key_spawner`.
 	var/auto_spawn_key_elsewhere = FALSE
 
 /obj/vehicle/bike/mechanics_hints(mob/user, distance, is_adjacent)
