@@ -1946,7 +1946,7 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -13332,7 +13332,7 @@
 	pixel_y = -9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor/carpet,
 /area/antag/raider)
 "bKL" = (
@@ -22481,7 +22481,7 @@
 /obj/item/laser_pointer/red{
 	pixel_y = 3
 	},
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -34464,7 +34464,7 @@
 /obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	pixel_y = 7
 	},
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -50261,7 +50261,7 @@
 /obj/item/hand_labeler{
 	pixel_y = 2
 	},
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -71464,7 +71464,7 @@
 /obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 7
 	},
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -121860,7 +121860,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
@@ -150274,7 +150274,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -151554,7 +151554,7 @@
 "tCv" = (
 /obj/item/deck/cards,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood/reinf,
+/obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor/carpet,
 /area/antag/raider)
 "tCy" = (
