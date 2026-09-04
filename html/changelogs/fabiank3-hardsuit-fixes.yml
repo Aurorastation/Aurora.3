@@ -1,0 +1,7 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed hardsuit click handler not resetting throw mode, resulting in throw mode staying toggle on when wearing a hardsuit."
+  - bugfix: "Fixed too high passive power draw for exo-stellar suits by reducing passive cell draw rate."
