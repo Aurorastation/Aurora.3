@@ -5,22 +5,28 @@
 	var/warmup_time = 0
 	var/moving_status = SHUTTLE_IDLE
 
-	var/list/shuttle_area //can be both single area type or a list of areas
-	var/obj/effect/shuttle_landmark/current_location //This variable is type-abused initially: specify the landmark_tag, not the actual landmark.
+	/// Can be both a single area type or a list of areas.
+	var/list/shuttle_area
+	/// This variable is type-abused initially: specify the landmark_tag, not the actual landmark.
+	var/obj/effect/shuttle_landmark/current_location
 	var/list/shuttle_computers = list()
 
-	var/arrive_time = 0	//the time at which the shuttle arrives when long jumping
+	/// The time at which the shuttle arrives when long jumping
+	var/arrive_time = 0
 	var/flags = 0
-	var/process_state = IDLE_STATE //Used with SHUTTLE_FLAGS_PROCESS, as well as to store current state.
+	/// Used with SHUTTLE_FLAGS_PROCESS, as well as to store current state.
+	var/process_state = IDLE_STATE
 	var/category = /datum/shuttle
-	var/multiz = 0	//how many multiz levels, starts at 0
+	/// how many multiz levels, starts at 0
+	var/multiz = 0
 
 	var/ceiling_type = /turf/simulated/floor/airless/ceiling
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
 
-	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
+	/// Whether shuttle downs non-buckled_to people when it moves
+	var/knockdown = TRUE
 
 	/**
 	 * This shuttle will/won't be initialised automatically.
@@ -28,14 +34,11 @@
 	 * Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
 	 */
 	var/defer_initialisation = FALSE
-	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
-	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 
-	var/mothershuttle //tag of mothershuttle
-	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
-
-	var/squishes = TRUE //decides whether or not things get squished when it moves.
-	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not
+	/// Decides whether or not things get squished when it moves.
+	var/squishes = TRUE
+	/// Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not.
+	var/cargo_elevator = FALSE
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
