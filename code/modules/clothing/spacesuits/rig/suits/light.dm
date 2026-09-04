@@ -231,7 +231,7 @@
 	chest_type = /obj/item/clothing/suit/lightrig/offworlder
 	glove_type = null
 	boot_type = null
-	cell_draw_rate = CHARGE_DRAIN_DEFAULT
+	cell_draw_rate = CHARGE_DRAIN_LOW
 
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner,
