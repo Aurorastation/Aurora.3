@@ -533,11 +533,8 @@ ABSTRACT_TYPE(/obj/item/howitzer_pellet)
 		it has remained the foundation for modern Adhomian artillery due to its performance in the intense conditions of Adhomian warfare"
 
 /obj/item/ammo_casing/howitzer/high_explosive/maivazh_a42_100mm
-	name = "mai'vazh A.42 100mm light field howitzer"
-	desc = "the Mai'vazh pattern of light field howitzers has been in service across Adhomai for over 80 years. \
-		The original design arrived from master gun founders in the fortress city as an 'ultra-light' \
-		mobile support platform to compliment the larger cannons. In spite of its aged design, \
-		it has remained the foundation for modern Adhomian artillery due to its performance in the intense conditions of Adhomian warfare"
+	name = "mai'vazh A.42 100mm light field howitzer HE ammo"
+	desc = "A 100mm light field howitzer ammo, designed for use in the Mai'vazh A.42 howitzer."
 	projectile_type = /obj/projectile/howitzer/high_explosive/maivazh_a42_100mm
 
 /obj/projectile/howitzer/high_explosive/maivazh_a42_100mm
