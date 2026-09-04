@@ -51,10 +51,6 @@
 	table_mat =		/singleton/material/wood
 	color =			/singleton/material/wood::icon_colour
 
-/obj/structure/table/wood/reinf
-	icon_state = "reinf_wood_preview"
-	table_reinf = MATERIAL_WOOD
-
 /obj/structure/table/wood/birch
 	table_mat =		/singleton/material/wood/birch
 	color =			/singleton/material/wood/birch::icon_colour
