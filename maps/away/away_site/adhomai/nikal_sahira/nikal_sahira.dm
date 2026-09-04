@@ -1,21 +1,22 @@
 
 // map_template and archetype
 
-/datum/map_template/ruin/away_site/crevus
-	name = "Crevus"
-	description = "Crevus"
+/datum/map_template/ruin/away_site/nikal_sahira
+	name = "Nikal Sahira"
+	description = "placeholder"
 
-	prefix = "away_site/adhomai/crevus/"
-	suffix = "crevus.dmm"
-	id = "crevus"
+	prefix = "away_site/adhomai/nikal_sahira/"
+	suffix = "nikal_sahira.dmm"
+	id = "nikal_sahira"
 
+	// sectors = list(SECTOR_SRANDMARR)
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	// template_flags = TEMPLATE_FLAG_PORT_SPAWN
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight = 1
 	spawn_cost = 1
-	// template_flags = TEMPLATE_FLAG_PORT_SPAWN
 
-	exoplanet_atmospheres = list(/datum/gas_mixture/earth_standard)
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_standard) // don't forget to change this
 	exoplanet_lightlevel = list(1, 2, 5, 7)
 	exoplanet_lightcolor = list("#a6d8fa")
 
@@ -31,21 +32,21 @@
 
 
 
-/singleton/submap_archetype/crevus
-	map = "Crevus"
-	descriptor = "Crevus"
+/singleton/submap_archetype/nikal_sahira
+	map = "Nikal Sahira"
+	descriptor = "placeholder"
 
 // overmap visitable
 
 /obj/effect/overmap/visitable/sector/crevus
-	name = "Crevus"
-	desc = "Crevus"
+	name = "Nikal Sahira"
+	desc = "placeholder"
 
 	place_near_main = list(0,0)
 	landing_site = TRUE
-	icon_state = "poi"
+	icon_state = "poi" // don't forget to change this
 	color = "#D6D9DD"
 	scanimage = "adhomai.png"
-	alignment = "People's Republic of Adhomai"
+	alignment = "Democratic People's Republic of Adhomai"
 	requires_contact = FALSE
 	instant_contact = TRUE
