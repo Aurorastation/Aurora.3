@@ -194,11 +194,13 @@
 	if (total_pages > 1)
 		dat += "<div align='center'><b>Page [page] / [total_pages]</b> ([page_size] notes per page, [total_notes] notes found)<br>"
 		if (page > 1)
-			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=1'>First page</a> - <a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page - 1]'>Previous page</a> "
-		if(page > 1 && page < total_pages)
-			dat += "| "
+			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=1'>&lt;&lt; First page</a> <a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page - 1]'>&lt; Previous page</a> | "
+		else
+			dat += "<u>&lt;&lt; First page</u> <u>&lt; Previous page</u> | "
 		if (page < total_pages)
-			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page + 1]'>Next page</a> - <a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[total_pages]'>Last page</a>"
+			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page + 1]'>Next page &gt;</a> <a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[total_pages]'>Last page &gt;&gt;</a>"
+		else
+			dat += "<u>Next page &gt;</u> <u>Last page &gt;&gt;</u>"
 		dat += "</div>"
 	show_browser(usr, HTML_SKELETON(dat), "window=lookupnotes;size=900x500")
 
