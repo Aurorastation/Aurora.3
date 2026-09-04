@@ -714,6 +714,123 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
+ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
+
+/datum/gear/augment/tesla_accessory
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/augment/tesla_accessory/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
+	. = ..()
+	if(.)
+		return
+	if(!("tesla spine" in prefs.gear))
+		return "You cannot spawn with [display_name] without also selecting a tesla spine!"
+
+/datum/gear/augment/tesla_accessory/traction
+	display_name = "tesla traction pads"
+	description = "Integrated magnetic traction pads powered by a Tesla spine. They provide magboot-like grip with a movement penalty while active."
+	path = /obj/item/organ/internal/augment/tesla_device/traction
+	cost = 3
+
+/datum/gear/augment/tesla_accessory/pda
+	display_name = "tesla internal computer"
+	description = "A basic forearm-mounted modular computer powered and slowly recharged by a Tesla spine."
+	path = /obj/item/organ/internal/augment/tesla_device/pda
+	cost = 1
+
+/datum/gear/augment/tesla_accessory/voice
+	display_name = "tesla voice box"
+	description = "A Tesla-powered voice box which forces the Elektro'Siik accent and provides a cooldown-limited voice amplifier."
+	path = /obj/item/organ/internal/augment/synthetic_cords/voice/tesla
+	cost = 1
+
+/datum/gear/augment/tesla_accessory/welder
+	display_name = "tesla arc welder selection"
+	description = "A retractable arc welder powered by a slowly regenerating electrical capacitor. It cannot be refilled externally."
+	path = /obj/item/organ/internal/augment/tool/tesla/arc_welder
+	cost = 3
+
+/datum/gear/augment/tesla_accessory/welder/New()
+	..()
+	var/list/augs = list()
+	augs["tesla arc welder, right hand"] = /obj/item/organ/internal/augment/tool/tesla/arc_welder
+	augs["tesla arc welder, left hand"] = /obj/item/organ/internal/augment/tool/tesla/arc_welder/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/lighter
+	display_name = "tesla arc lighter selection"
+	description = "A retractable ignition electrode. Its momentary arc can light objects or give a harmless sting, but creates no persistent flame or atmospheric ignition source."
+	path = /obj/item/organ/internal/augment/tool/tesla/lighter
+	cost = 1
+
+/datum/gear/augment/tesla_accessory/lighter/New()
+	..()
+	var/list/augs = list()
+	augs["tesla arc lighter, right hand"] = /obj/item/organ/internal/augment/tool/tesla/lighter
+	augs["tesla arc lighter, left hand"] = /obj/item/organ/internal/augment/tool/tesla/lighter/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/oxygenation
+	display_name = "tesla oxygenation system selection"
+	description = "A selection of mutually-exclusive Tesla-powered respiratory and circulatory support systems."
+	path = /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/oxygenation/New()
+	..()
+	var/list/augs = list()
+	augs["tesla oxygen recycler"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
+	augs["tesla circulatory driver"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/driver
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/worklight
+	display_name = "tesla worklight selection"
+	description = "A Tesla-powered worklight mounted in a shoulder or palm."
+	path = /obj/item/organ/internal/augment/tesla_device/worklight
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/worklight/New()
+	..()
+	var/list/augs = list()
+	augs["tesla worklight, right shoulder"] = /obj/item/organ/internal/augment/tesla_device/worklight
+	augs["tesla worklight, left shoulder"] = /obj/item/organ/internal/augment/tesla_device/worklight/shoulder_left
+	augs["tesla worklight, right palm"] = /obj/item/organ/internal/augment/tesla_device/worklight/palm_right
+	augs["tesla worklight, left palm"] = /obj/item/organ/internal/augment/tesla_device/worklight/palm_left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/cardiac
+	display_name = "tesla emergency cardiac driver"
+	description = "Makes one automatic attempt to restart a stopped heart. After firing, it must consume an electrical charge absorbed by the Tesla spine to re-prime."
+	path = /obj/item/organ/internal/augment/tesla_device/cardiac
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/diagnostic
+	display_name = "tesla personal diagnostic panel"
+	description = "A self-only robotic analyzer which reports prosthetic and Tesla hardware condition and automatically announces new maintenance faults."
+	path = /obj/item/organ/internal/augment/tesla_device/diagnostic
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/charging_lead
+	display_name = "tesla low-power charging lead selection"
+	description = "A retractable charging lead compatible with modular-computer and handheld device cells, but not full-sized power cells."
+	path = /obj/item/organ/internal/augment/tool/tesla/charging_lead
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/charging_lead/New()
+	..()
+	var/list/augs = list()
+	augs["tesla low-power charging lead, right hand"] = /obj/item/organ/internal/augment/tool/tesla/charging_lead
+	augs["tesla low-power charging lead, left hand"] = /obj/item/organ/internal/augment/tool/tesla/charging_lead/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/thermal
+	display_name = "tesla thermal coils"
+	description = "Switchable warming and cooling coils with effects comparable to wearable heat and cold packs."
+	path = /obj/item/organ/internal/augment/tesla_device/thermal
+	cost = 1
+
 // Faction items
 
 /datum/gear/accessory/tajaranbookspol
@@ -830,4 +947,3 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 // All the rest
-
