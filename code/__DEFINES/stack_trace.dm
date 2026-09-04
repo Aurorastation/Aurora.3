@@ -9,25 +9,31 @@
 
 /// If running in unit tests, print the stack trace and fail tests.
 /// If not tests, does nothing.
-#define tests_stack_trace(reason) \
+#define dbg_stack_trace(reason) \
 	do { \
-		stack_trace("Failed: " + #reason); \
+		var/_dbg_reason = (reason); \
+		stack_trace("Failed: [_dbg_reason]"); \
 	} while (0)
 
 /// If running in unit tests, assert that an expression is true.
 /// If assertion fails, print the stack trace and fail tests.
 /// If not tests, does nothing.
-#define tests_assert_or_stack_trace(assertion, reason) \
+#define dbg_assert(assertion, reason...) \
 	do { \
 		if (!(assertion)) { \
-			tests_stack_trace("Assertion failed: " + #assertion + "; " + #reason); \
+			var/_dbg_reason = (__VA_ARGS__ ? ("; " + (__VA_ARGS__)) : ""); \
+			stack_trace("Assertion failed: " + #assertion + "[_dbg_reason]"); \
 		} \
 	} while (0)
 
-
 #else
 
-#define tests_stack_trace(assertion, reason)
-#define tests_assert_or_stack_trace(assertion, reason)
+/// If running in unit tests, print the stack trace and fail tests.
+/// If not tests, does nothing.
+#define dbg_stack_trace(reason)
+/// If running in unit tests, assert that an expression is true.
+/// If assertion fails, print the stack trace and fail tests.
+/// If not tests, does nothing.
+#define dbg_assert(assertion, reason...)
 
 #endif
