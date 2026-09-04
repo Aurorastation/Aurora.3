@@ -9,9 +9,9 @@
 
 /// If running in unit tests, print the stack trace and fail tests.
 /// If not tests, does nothing.
-#define tests_stack_trace(assertion, reason) \
+#define tests_stack_trace(reason) \
 	do { \
-		stack_trace("Assertion failed: " + #assertion + "; " + #reason); \
+		stack_trace("Failed: " + #reason); \
 	} while (0)
 
 /// If running in unit tests, assert that an expression is true.
