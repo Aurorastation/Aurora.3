@@ -21,6 +21,7 @@ export type DiagnosticsData = {
   machine_ui_theme: string;
   patient_name: string;
   diagnostic_mode?: 'ipc' | 'prosthetic' | null;
+  standalone_prosthetic?: BooleanLike;
   connected_zone_name?: string;
   temp?: number;
   robolimb_self_repair_cap?: number;
@@ -185,7 +186,9 @@ export const IPCDiagnostics = (props) => {
         name={data.patient_name}
         subtitle={
           isProsthetic
-            ? `Cybernetic network via ${data.connected_zone_name || 'unknown socket'}`
+            ? data.standalone_prosthetic
+              ? `Detached assembly via ${data.connected_zone_name || 'service interface'}`
+              : `Cybernetic network via ${data.connected_zone_name || 'unknown socket'}`
             : 'IPC chassis diagnostics'
         }
         metrics={[

@@ -20,6 +20,7 @@ export const RoboticsComputer = (props) => {
     data.diagnostic_mode === 'prosthetic'
       ? 'Cybernetic Diagnostics'
       : 'Synthetic Diagnostics';
+  const standaloneProsthetic = Boolean(data.standalone_prosthetic);
 
   return (
     <NtosWindow resizable width={1050} height={700} theme="hephaestus">
@@ -27,28 +28,30 @@ export const RoboticsComputer = (props) => {
         {!data.has_patient ? (
           <NoticeBox>
             Connect the access cable to an IPC access port or a targeted
-            prosthetic limb or cybernetic service jack.
+            prosthetic limb, detached prosthetic, or cybernetic service jack.
           </NoticeBox>
         ) : (
           <>
-            <Tabs fluid>
-              <Tabs.Tab
-                icon="stethoscope"
-                selected={tab === 'diagnostics'}
-                onClick={() => setTab('diagnostics')}
-              >
-                {diagnosticsLabel}
-              </Tabs.Tab>
-              <Tabs.Tab
-                icon="screwdriver-wrench"
-                selected={tab === 'planner'}
-                onClick={() => setTab('planner')}
-              >
-                Surgery Planning
-              </Tabs.Tab>
-            </Tabs>
+            {!standaloneProsthetic && (
+              <Tabs fluid>
+                <Tabs.Tab
+                  icon="stethoscope"
+                  selected={tab === 'diagnostics'}
+                  onClick={() => setTab('diagnostics')}
+                >
+                  {diagnosticsLabel}
+                </Tabs.Tab>
+                <Tabs.Tab
+                  icon="screwdriver-wrench"
+                  selected={tab === 'planner'}
+                  onClick={() => setTab('planner')}
+                >
+                  Surgery Planning
+                </Tabs.Tab>
+              </Tabs>
+            )}
 
-            {tab === 'diagnostics' ? (
+            {standaloneProsthetic || tab === 'diagnostics' ? (
               <IPCDiagnostics />
             ) : (
               <SurgeryPlanner contentOnly plannerOnly syntheticMode />

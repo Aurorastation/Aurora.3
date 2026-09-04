@@ -185,6 +185,7 @@
 	. = ..()
 	. += "Use this on an IPC to connect through its universal access port."
 	. += "For a non-IPC patient, target one of their prosthetic limbs or the body area containing a cybernetic service jack before using the cable on them."
+	. += "It can also connect directly to a detached prosthetic's service interface for component diagnostics."
 
 /**
  * When the cable is actually taken out of an object and thus is shown in world.

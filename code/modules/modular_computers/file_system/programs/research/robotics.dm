@@ -39,7 +39,7 @@
 
 /datum/computer_file/program/robotics/proc/get_connected_prosthetic()
 	var/obj/item/organ/external/prosthetic = get_access_cable_target()
-	if(istype(prosthetic) && BP_IS_ROBOTIC(prosthetic) && ishuman(prosthetic.owner))
+	if(istype(prosthetic) && BP_IS_ROBOTIC(prosthetic))
 		return prosthetic
 
 /datum/computer_file/program/robotics/proc/get_connected_service_jack()
@@ -237,6 +237,7 @@
 		"patient_name" = null,
 		"patient_species" = null,
 		"diagnostic_mode" = null,
+		"standalone_prosthetic" = FALSE,
 		"machine_ui_theme" = "ntos",
 		"organs" = list(),
 		"limbs" = list(),
@@ -248,10 +249,54 @@
 	)
 
 	var/mob/living/carbon/human/patient = get_connected_patient()
-	if(!patient)
+	var/obj/item/organ/external/connected_prosthetic = get_connected_prosthetic()
+	if(!patient && !connected_prosthetic)
 		return data
 
-	var/obj/item/organ/external/connected_prosthetic = get_connected_prosthetic()
+	if(!patient)
+		data["has_patient"] = TRUE
+		data["patient_name"] = capitalize_first_letters(connected_prosthetic.name)
+		data["patient_species"] = "Detached prosthetic"
+		data["diagnostic_mode"] = "prosthetic"
+		data["standalone_prosthetic"] = TRUE
+		data["connected_zone_name"] = connected_prosthetic.name
+		data["machine_ui_theme"] = "hephaestus"
+
+		var/list/contained_components = connected_prosthetic.get_contents_recursive()
+		var/list/prosthetic_parts = connected_prosthetic.get_external_organs_recursive()
+
+		for(var/obj/item/organ/external/diagnostic_part as anything in prosthetic_parts)
+			data["limbs"] += list(list(
+				"name" = diagnostic_part.name,
+				"brute_damage" = LIMB_GET_BRUTE_DAMAGE(diagnostic_part),
+				"burn_damage" = LIMB_GET_BURN_DAMAGE(diagnostic_part),
+				"max_damage" = diagnostic_part.max_damage,
+				"foreign_bodies" = get_synthetic_foreign_body_findings(diagnostic_part)
+			))
+
+		for(var/obj/item/organ/internal/contained_organ in contained_components)
+			var/location = connected_prosthetic.name
+			for(var/obj/item/organ/external/parent_part as anything in prosthetic_parts)
+				if(parent_part.limb_name == contained_organ.parent_organ)
+					location = parent_part.name
+					break
+			var/list/organ_data = list(
+				"name" = contained_organ.name,
+				"parent_organ" = contained_organ.parent_organ,
+				"location" = location,
+				"desc" = contained_organ.desc,
+				"damage" = contained_organ.get_damage(),
+				"max_damage" = contained_organ.max_damage
+			)
+			if(istype(contained_organ, /obj/item/organ/internal/machine))
+				var/obj/item/organ/internal/machine/machine_organ = contained_organ
+				organ_data["wiring_status"] = machine_organ.wiring.get_status()
+				organ_data["plating_status"] = machine_organ.plating.get_status()
+				organ_data["electronics_status"] = machine_organ.electronics.get_status()
+				organ_data["diagnostics_info"] = machine_organ.get_diagnostics_info()
+			data["organs"] += list(organ_data)
+		return data
+
 	var/obj/item/organ/internal/augment/service_jack/connected_service_jack = get_connected_service_jack()
 	var/is_ipc_patient = isipc(patient)
 	data["has_patient"] = TRUE

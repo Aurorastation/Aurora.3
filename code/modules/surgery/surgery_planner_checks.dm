@@ -516,6 +516,30 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
 
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_ANCHORS_RELEASED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_HUB_OPEN
+
 /singleton/surgery_step/robotics/unscrew_hatch/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
 	if(!..())
 		return FALSE
