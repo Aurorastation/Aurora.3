@@ -1197,7 +1197,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "adq" = (
 /obj/structure/table/glass,
 /obj/item/toy/desk/fan{
@@ -3685,7 +3685,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_a,
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "apr" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 8
@@ -4921,11 +4921,12 @@
 /turf/simulated/floor/tiled/light,
 /area/ship/modular_freelancer_ship/aux/hallway)
 "awc" = (
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/aux)
 "awd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/maintenance_junk_or_loot,
@@ -11077,13 +11078,18 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/modular_freelancer_ship/mid/lounge)
 "cvf" = (
-/obj/random/maintenance_junk_or_loot,
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/structure/machinery/power/terminal,
+/obj/structure/cable/yellow,
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/aux)
 "cvk" = (
@@ -11337,6 +11343,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/mid/lounge)
+"cPX" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "cPY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -13129,6 +13143,19 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/aft/hallway)
+"feF" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "feI" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/cargo,
@@ -13153,7 +13180,7 @@
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "fin" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -14905,7 +14932,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "hCV" = (
 /obj/structure/cable/pink{
 	icon_state = "0-2"
@@ -14945,7 +14972,7 @@
 /obj/structure/machinery/light/small/emergency,
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_a,
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "hGk" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19784,7 +19811,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "nHG" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -20067,7 +20094,7 @@
 /obj/random/maintenance_junk_or_loot,
 /obj/structure/machinery/alarm/noid/north,
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "nXT" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/techmaint,
@@ -21507,6 +21534,13 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/aux)
 "qhl" = (
@@ -23064,7 +23098,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "siq" = (
 /obj/structure/machinery/alarm/noid/east,
 /turf/simulated/floor/tiled,
@@ -24806,7 +24840,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/external/modular_freelancer_ship/mid_a,
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "uEN" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -25224,7 +25258,8 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aux/hallway)
 "vsC" = (
 /obj/structure/machinery/portable_atmospherics/powered/scrubber,
@@ -25597,7 +25632,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "vRL" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -25818,7 +25853,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "wlo" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
@@ -26665,7 +26700,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/ship/modular_freelancer_ship/mid/hallway)
+/area/ship/modular_freelancer_ship/misc/maint/mid)
 "xpU" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -35076,7 +35111,7 @@ ocX
 siR
 cEw
 mVP
-cEw
+ocX
 kCH
 afe
 wIM
@@ -48416,11 +48451,11 @@ aza
 aza
 aza
 aza
-myO
-myO
-myO
-myO
-myO
+pee
+pee
+pee
+pee
+pee
 jPg
 nbQ
 odo
@@ -48573,11 +48608,11 @@ aza
 aza
 aza
 aza
-myO
-vIs
-vIs
-vIs
-myO
+pee
+gWD
+gWD
+gWD
+pee
 jPg
 nbQ
 pra
@@ -48730,11 +48765,11 @@ aza
 aza
 aza
 aza
-myO
+pee
 wkF
-xSV
-xSV
-myO
+tkA
+gWD
+pee
 atr
 acq
 jHD
@@ -48887,11 +48922,11 @@ aza
 aza
 aza
 aza
-myO
-xSV
-xSV
-xSV
-myO
+pee
+tkA
+tkA
+gWD
+pee
 nHn
 myO
 abE
@@ -49044,9 +49079,9 @@ aza
 aza
 aza
 act
-aeS
-aDL
-aDL
+feF
+cPX
+cPX
 xoM
 hBZ
 adp
@@ -49201,12 +49236,12 @@ aza
 aza
 aza
 aza
-iZM
-iZM
+xjB
+xjB
 vRr
-awc
-xSV
-myO
+rUS
+tkA
+pee
 myO
 lGo
 lGo
@@ -49359,11 +49394,11 @@ aza
 aza
 aza
 aza
-iZM
+xjB
 nXi
 fhl
 shW
-myO
+pee
 wzc
 evJ
 evJ
@@ -49516,11 +49551,11 @@ aza
 aza
 aza
 aza
-iZM
-iZM
-iZM
+xjB
+xjB
+xjB
 apo
-iZM
+xjB
 sFc
 thg
 thg
@@ -49677,7 +49712,7 @@ ibD
 ibD
 uEl
 hFT
-iZM
+xjB
 boI
 thg
 thg
@@ -49832,9 +49867,9 @@ act
 ibD
 ibD
 aza
-iZM
-iZM
-iZM
+xjB
+xjB
+xjB
 wzc
 wzc
 cNO
@@ -79415,14 +79450,14 @@ aza
 aza
 aza
 tTY
-mfE
+rmW
 rVX
 cvf
-rmW
+awc
 tTY
 cpY
 jjy
-mfE
+rmW
 mfE
 mfE
 oIQ
@@ -79734,7 +79769,7 @@ lvp
 amS
 rOv
 tTY
-mfE
+rmW
 jjy
 mfE
 qCK
