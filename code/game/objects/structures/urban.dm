@@ -191,41 +191,64 @@
 	name = "beat-up langenfeld compact"
 
 // ---------- Adhomian Cars
-/obj/structure/automobile/adhomian_car
+/obj/structure/automobile/adhomai_car
 	name = "red urban half-track"
 	desc = "An automobile designed to traverse the icy roads with ease, carrying a rather old-fashion charm."
 	icon = 'icons/obj/structure/urban/adhomai_cars.dmi'
 	icon_state = "car_red"
-	bound_x = 64
-	bound_y = 48
+	bound_width = 64
 
-/obj/structure/automobile/adhomian_car/blue
+/obj/structure/automobile/adhomai_car/Initialize()
+	. = ..()
+	if(dir in list(NORTH, SOUTH))
+		bound_width = 32
+		bound_height = 64
+
+/obj/structure/automobile/adhomai_car/blue
 	name = "blue urban half-track"
 	icon_state = "car_blue"
 
-/obj/structure/automobile/adhomian_car/green
+/obj/structure/automobile/adhomai_car/green
 	name = "green urban half-track"
 	icon_state = "car_green"
 
-/obj/structure/automobile/adhomian_car/purple
+/obj/structure/automobile/adhomai_car/purple
 	name = "purple urban half-track"
 	icon_state = "car_purple"
 
-/obj/structure/automobile/adhomian_car/taxi
+/obj/structure/automobile/adhomai_car/taxi
 	name = "taxi urban half-track"
 	icon_state = "car_taxi"
 
-/obj/structure/automobile/adhomian_car/police
+/obj/structure/automobile/adhomai_car/police
 	name = "police urban half-track"
 	icon_state = "car_police"
 
-/obj/structure/automobile/adhomian_car/red_van
+/obj/structure/automobile/adhomai_car/red_van
 	name = "red urban half-track van"
 	icon_state = "soda_van"
 
-/obj/structure/automobile/adhomian_car/blue_van
+/obj/structure/automobile/adhomai_car/blue_van
 	name = "blue urban half-track van"
 	icon_state = "milk_van"
+
+/obj/random/adhomai_car
+	name = "random urban half-track"
+	icon = 'icons/obj/structure/urban/adhomai_cars.dmi'
+	icon_state = "car_random"
+	has_postspawn = TRUE
+	spawnlist = list(
+		/obj/structure/automobile/adhomai_car = 1,
+		/obj/structure/automobile/adhomai_car/blue = 1,
+		/obj/structure/automobile/adhomai_car/green = 1,
+		/obj/structure/automobile/adhomai_car/purple = 1,
+		/obj/structure/automobile/adhomai_car/taxi = 0.5,
+		/obj/structure/automobile/adhomai_car/red_van = 0.5,
+		/obj/structure/automobile/adhomai_car/blue_van = 0.5
+	)
+
+/obj/random/adhomai_car/post_spawn(obj/thing)
+	thing.dir = src.dir
 
 /obj/structure/automobile_filler
 	name = "vehicle"

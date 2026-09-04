@@ -420,6 +420,10 @@
 /obj/vehicle/bike/monowheel/no_keys
 	spawns_with_key = FALSE
 
+/obj/vehicle/bike/monowheel/auto_spawn_key
+	spawns_with_key = FALSE
+	auto_spawn_key_elsewhere = TRUE
+
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"
 	max_w_class = WEIGHT_CLASS_BULKY

@@ -7,18 +7,19 @@
 
 	prefix = "away_site/adhomai/crevus/"
 	suffix = "crevus.dmm"
+	id = "crevus"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight = 1
 	spawn_cost = 1
-	id = "crevus"
+	// template_flags = TEMPLATE_FLAG_PORT_SPAWN
 
 	exoplanet_atmospheres = list(/datum/gas_mixture/earth_standard)
 	exoplanet_lightlevel = list(1, 2, 5, 7)
 	exoplanet_lightcolor = list("#a6d8fa")
 
-	unit_test_groups = list(1)
+	unit_test_groups = list(3)
 	traits = list(
 		//Z1
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
@@ -44,3 +45,7 @@
 	landing_site = TRUE
 	icon_state = "poi"
 	color = "#D6D9DD"
+	scanimage = "adhomai.png"
+	alignment = "People's Republic of Adhomai"
+	requires_contact = FALSE
+	instant_contact = TRUE
