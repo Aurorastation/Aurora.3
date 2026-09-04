@@ -62,6 +62,10 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa/ammo)
 "bX" = (
@@ -210,6 +214,7 @@
 /obj/structure/machinery/atmospherics/binary/pump/on{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "eM" = (
@@ -344,6 +349,12 @@
 /obj/structure/curtain/open/shower/security,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/armoury)
+"gC" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, command center"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/bridge/captain)
 "hi" = (
 /obj/structure/grille,
 /turf/simulated/floor/diona/airless,
@@ -394,6 +405,10 @@
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
 /obj/structure/table/diona,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
+/obj/item/ship_ammunition/francisca,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa/ammo)
 "hT" = (
@@ -401,6 +416,8 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/ap,
 /obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa/ammo)
 "ik" = (
@@ -426,6 +443,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "iz" = (
@@ -545,6 +563,8 @@
 	icon_state = "1-8"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "kD" = (
@@ -724,6 +744,10 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/hieropatrol)
+"nk" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/diona,
+/area/hieropatrol/engineer/propulsioncargo)
 "nn" = (
 /obj/structure/machinery/vending/medical{
 	req_access = list(204)
@@ -765,6 +789,15 @@
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
+"oi" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "ov" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
@@ -1002,6 +1035,12 @@
 "td" = (
 /turf/simulated/wall/diona,
 /area/hieropatrol/weapon/grauwolf)
+"th" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, brig and ammo"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/weapon/francisa/ammo)
 "tq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1078,6 +1117,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
+"uG" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "uT" = (
 /obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/simulated/floor/diona/airless,
@@ -1213,10 +1259,31 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/shuttle/hieropatrol)
+"xq" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, grauwolf"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
+"xx" = (
+/obj/structure/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, shuttle engines"
+	},
+/turf/space/dynamic,
+/area/shuttle/hieropatrol)
 "xC" = (
 /obj/structure/diona/bulb,
 /obj/structure/sign/flag/consortium{
 	pixel_x = 32
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
+"xS" = (
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, brig and ammo"
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/external)
@@ -1227,6 +1294,17 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa)
+"yx" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, brig and ammo"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/armoury)
+"yA" = (
+/obj/structure/diona/bulb,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "yL" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
@@ -1254,6 +1332,11 @@
 /obj/structure/machinery/power/smes/buildable/cryogenic,
 /turf/simulated/floor,
 /area/shuttle/hieropatrol)
+"zR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
 "zU" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/diona/airless,
@@ -1315,6 +1398,13 @@
 /obj/structure/diona/vines,
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/space/dynamic,
+/area/hieropatrol/weapon/francisa)
+"AE" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/landmark/entry_point/port{
+	name = "port, francisa 2"
+	},
+/turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa)
 "AS" = (
 /mob/living/simple_animal/cosmozoan,
@@ -1669,6 +1759,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/hieropatrol/engineer/propulsioncargo)
+"Gh" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, francisa 1"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/weapon/francisa)
 "Go" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
@@ -1676,6 +1772,12 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa)
+"Gr" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, shuttle body"
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/hieropatrol)
 "Gw" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1714,6 +1816,12 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
+"Hj" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, medical bay"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/medical)
 "HT" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -1785,6 +1893,9 @@
 /area/hieropatrol/engineer/propulsioncargo)
 "Jd" = (
 /obj/structure/ship_weapon_dummy,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, grauwolf"
+	},
 /turf/template_noop,
 /area/hieropatrol/weapon/grauwolf)
 "Jg" = (
@@ -1808,6 +1919,12 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
+"JC" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, power"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/engineer/power)
 "JE" = (
 /obj/structure/table/diona,
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/high,
@@ -1930,6 +2047,12 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/armoury)
+"LJ" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, shuttle sensors"
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/hieropatrol)
 "LO" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -2032,6 +2155,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "MJ" = (
@@ -2207,6 +2331,13 @@
 /obj/effect/map_effect/marker/door_paint/stripe/blue,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
+"OJ" = (
+/obj/structure/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/space/dynamic,
+/area/hieropatrol/engineer/propulsioncargo)
 "OK" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/diona,
@@ -2341,6 +2472,8 @@
 /obj/structure/sign/flag/consortium{
 	pixel_y = 32
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "RP" = (
@@ -2350,6 +2483,13 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
+"Sc" = (
+/obj/structure/grille,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, command center"
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/external)
 "Sj" = (
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "hieropatrol_co2";
@@ -2370,6 +2510,12 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf)
+"Sz" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, shuttle smes"
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/hieropatrol)
 "SI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2481,6 +2627,8 @@
 /obj/structure/table/diona,
 /obj/item/ship_ammunition/francisca/frag,
 /obj/item/ship_ammunition/francisca/frag,
+/obj/item/ship_ammunition/francisca/ap,
+/obj/item/ship_ammunition/francisca/ap,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa/ammo)
 "UO" = (
@@ -2495,6 +2643,12 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
+"UT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, medical bay"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/medical)
 "UZ" = (
 /obj/structure/sign/flag/consortium{
 	pixel_x = 32
@@ -2512,6 +2666,25 @@
 "Vk" = (
 /turf/simulated/wall/diona,
 /area/hieropatrol/corridor/starboard)
+"Vx" = (
+/obj/structure/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft. starboard engines"
+	},
+/turf/space/dynamic,
+/area/hieropatrol/engineer/propulsioncargo)
+"VD" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard. eva corridor"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/corridor/starboard)
+"VH" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, sensors"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/bridge)
 "VI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2661,6 +2834,9 @@
 /obj/item/radio/intercom/hailing/north{
 	pixel_y = 15
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
 "XI" = (
@@ -2780,6 +2956,12 @@
 /obj/effect/map_effect/marker/door_paint/stripe/orange,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
+"ZN" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, command center"
+	},
+/turf/simulated/wall/diona,
+/area/hieropatrol/corridor/starboard)
 "ZP" = (
 /obj/structure/bed/padded,
 /turf/simulated/floor/diona/airless,
@@ -11529,7 +11711,7 @@ mK
 mK
 mK
 mK
-JT
+UT
 JT
 nB
 wl
@@ -11693,7 +11875,7 @@ db
 db
 db
 zU
-KH
+xq
 mK
 mK
 mK
@@ -11830,7 +12012,7 @@ mK
 mK
 mK
 mK
-JT
+Hj
 JT
 JT
 JT
@@ -12130,7 +12312,7 @@ mK
 mK
 mK
 mK
-WQ
+nk
 WQ
 WQ
 WQ
@@ -12456,7 +12638,7 @@ td
 td
 Vk
 Vk
-Vk
+VD
 mK
 mK
 mK
@@ -12768,7 +12950,7 @@ eY
 Vk
 Vk
 Vk
-Vk
+ZN
 rx
 bD
 bD
@@ -13035,7 +13217,7 @@ mK
 mK
 mK
 mK
-Cu
+Vx
 gz
 OK
 OK
@@ -13670,7 +13852,7 @@ WA
 rQ
 lO
 lO
-lO
+Gr
 lO
 Vk
 Vk
@@ -13684,7 +13866,7 @@ XI
 Ab
 DG
 YX
-hi
+Sc
 mK
 mK
 mK
@@ -13977,7 +14159,7 @@ lO
 XE
 TF
 LP
-lO
+LJ
 nc
 BY
 xp
@@ -14121,7 +14303,7 @@ fr
 fr
 fr
 wf
-QR
+xx
 nx
 Lu
 vV
@@ -14292,7 +14474,7 @@ vF
 XI
 tX
 rx
-rx
+VH
 mK
 mK
 mK
@@ -14581,7 +14763,7 @@ Lh
 Lh
 lO
 lO
-lO
+Sz
 jI
 jI
 jI
@@ -14886,9 +15068,9 @@ DP
 jI
 jI
 RB
-bG
+zR
 it
-US
+uG
 US
 US
 Jy
@@ -15010,7 +15192,7 @@ mK
 mK
 mK
 mK
-Cu
+OJ
 fJ
 WQ
 WQ
@@ -15037,7 +15219,7 @@ hv
 dy
 ci
 MG
-MG
+oi
 eF
 kB
 Am
@@ -15191,7 +15373,7 @@ jI
 Fe
 rt
 rt
-Fe
+yA
 jI
 jI
 jI
@@ -15506,7 +15688,7 @@ jI
 jI
 Ha
 Ha
-Ha
+gC
 Ha
 Ha
 Ha
@@ -15647,7 +15829,7 @@ yO
 yO
 yO
 Bi
-jK
+AE
 Az
 mK
 YV
@@ -16083,7 +16265,7 @@ mK
 mK
 mK
 Id
-Id
+JC
 Id
 Id
 Id
@@ -16100,7 +16282,7 @@ pL
 pL
 ys
 Bj
-hi
+xS
 mK
 mK
 mK
@@ -16390,7 +16572,7 @@ mK
 mK
 mK
 mK
-dg
+yx
 dg
 dg
 dg
@@ -16556,7 +16738,7 @@ Go
 yO
 yO
 yO
-yO
+Gh
 vH
 mK
 mK
@@ -16696,7 +16878,7 @@ mK
 mK
 mK
 mK
-gs
+th
 gs
 gs
 gs
