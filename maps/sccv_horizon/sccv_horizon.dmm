@@ -5296,10 +5296,6 @@
 	pixel_x = -7;
 	pixel_y = -1
 	},
-/obj/item/wrench{
-	pixel_x = 11;
-	pixel_y = 5
-	},
 /obj/random/pottedplant_small{
 	pixel_x = -6;
 	pixel_y = 10
@@ -5309,7 +5305,17 @@
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/structure/machinery/firealarm/north,
+/obj/structure/machinery/requests_console/north{
+	department = "Bar";
+	departmentType = 1;
+	name = "Bar Requests Console";
+	pixel_y = 32;
+	pixel_x = 2
+	},
+/obj/item/flame/lighter/zippo{
+	pixel_x = 4;
+	pixel_y = 13
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
 "aIS" = (
@@ -30518,36 +30524,28 @@
 /area/horizon/medical/reception)
 "dWj" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/fancy/matches{
-	pixel_x = -7;
-	pixel_y = -1
-	},
-/obj/item/storage/box/fancy/candle_box{
-	pixel_x = 9;
-	pixel_y = -2
-	},
-/obj/item/storage/box/fancy/candle_box{
-	pixel_x = 9;
-	pixel_y = -4
-	},
-/obj/item/storage/box/fancy/candle_box{
-	pixel_x = 9;
-	pixel_y = -6
-	},
-/obj/item/storage/box/fancy/candle_box{
-	pixel_x = 9;
-	pixel_y = -8
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/structure/machinery/reagentgrinder{
-	pixel_y = 21;
-	pixel_x = 7
+	pixel_y = 1;
+	pixel_x = 8
 	},
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = -7;
-	pixel_y = 13
+/obj/item/storage/box/fancy/candle_box{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/storage/box/fancy/candle_box{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/storage/box/fancy/candle_box{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/storage/box/fancy/candle_box{
+	pixel_x = -6;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
@@ -46178,8 +46176,8 @@
 "gaZ" = (
 /obj/structure/table/stone/marble,
 /obj/item/stack/packageWrap{
-	pixel_x = 3;
-	pixel_y = -3
+	pixel_x = 4;
+	pixel_y = -1
 	},
 /obj/item/reagent_containers/food/condiment/sugar{
 	pixel_x = 8;
@@ -46191,6 +46189,10 @@
 	},
 /obj/structure/noticeboard{
 	pixel_y = 30
+	},
+/obj/item/reagent_containers/glass/beaker/teapot/lidded{
+	pixel_x = -15;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
@@ -107302,6 +107304,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/chem_heater,
+/obj/structure/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
 "nVe" = (
@@ -146443,29 +146446,28 @@
 /area/horizon/maintenance/deck_2/wing/port/near)
 "sUF" = (
 /obj/structure/table/stone/marble,
-/obj/item/holomenu{
-	pixel_y = 18
-	},
-/obj/item/holomenu{
-	pixel_y = 7;
-	pixel_x = -1
-	},
 /obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_x = 10;
 	pixel_y = 13
 	},
-/obj/item/reagent_containers/glass/beaker/teapot/lidded{
-	pixel_y = -2;
-	pixel_x = 11
+/obj/structure/weapon_rack/double{
+	pixel_y = 28
 	},
-/obj/item/flame/lighter/zippo{
-	pixel_x = -10
+/obj/item/storage/box/shells/beanbags{
+	pixel_x = -11;
+	pixel_y = 12
 	},
-/obj/structure/machinery/requests_console/north{
-	department = "Bar";
-	departmentType = 1;
-	name = "Bar Requests Console";
-	pixel_y = 32
+/obj/item/holomenu{
+	pixel_y = 10;
+	pixel_x = 5
+	},
+/obj/item/holomenu{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/obj/item/clothing/accessory/badge/shotgun_permit{
+	pixel_x = -11;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
@@ -174165,7 +174167,7 @@
 	},
 /obj/item/paper/stickynotes/pad/random{
 	pixel_x = -5;
-	pixel_y = 17
+	pixel_y = 15
 	},
 /obj/item/flashlight/lamp/green{
 	pixel_x = 8;
