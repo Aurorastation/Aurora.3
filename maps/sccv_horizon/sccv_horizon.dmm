@@ -13314,6 +13314,9 @@
 	icon_state = "pipe-c-yellow";
 	dir = 1
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 2
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/primary/deck_1/central)
 "bKH" = (
@@ -14105,6 +14108,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 10
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/port)
@@ -17742,6 +17748,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 6
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/intrepid)
 "crv" = (
@@ -17775,6 +17784,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 15
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/central)
@@ -22957,6 +22969,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 2
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/operations/lobby)
@@ -30181,6 +30196,24 @@
 	},
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/bar)
+"dTG" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment/mainline{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 3
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hangar/intrepid)
 "dTK" = (
 /obj/structure/extinguisher_cabinet/east,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -37906,6 +37939,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 7
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/auxiliary)
 "eWf" = (
@@ -39443,6 +39479,9 @@
 	},
 /obj/structure/machinery/light/floor{
 	dir = 8
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
@@ -43284,6 +43323,9 @@
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 10
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/auxiliary)
@@ -56509,6 +56551,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 3
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/checkpoint2)
 "hsT" = (
@@ -57293,6 +57338,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/wing/starboard/near)
+"hxn" = (
+/obj/structure/machinery/navbeacon{
+	patrol_number = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hangar/auxiliary)
 "hxC" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -57752,6 +57803,9 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 6
+	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -58730,6 +58784,15 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
+"hHj" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 11
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hangar/auxiliary)
 "hHl" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -59051,6 +59114,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 7
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/primary/deck_2/starboard)
 "hJy" = (
@@ -60305,6 +60371,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
+"hRc" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 1
+	},
+/turf/simulated/floor/plating,
+/area/horizon/hallway/primary/deck_1/central)
 "hRd" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -67400,6 +67485,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 6
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "iNI" = (
@@ -67502,6 +67590,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/lobby)
+"iOu" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 17
+	},
+/turf/simulated/floor/plating,
+/area/horizon/engineering/hallway/fore)
 "iOv" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -67695,6 +67792,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 2
+	},
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/starboard)
 "iPF" = (
@@ -70182,6 +70282,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/starboard)
 "jgq" = (
@@ -70826,6 +70929,9 @@
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 7
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
@@ -72930,6 +73036,9 @@
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow";
 	dir = 1
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
@@ -92956,6 +93065,13 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/horizon/service/custodial)
+"mbP" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 5
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hangar/intrepid)
 "mbQ" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/carpet/rubber,
@@ -95311,6 +95427,9 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/checkpoint)
@@ -98958,6 +99077,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/lobby)
@@ -107137,6 +107259,9 @@
 	name = "Machinist Workshop";
 	sortType = "Machinist Workshop"
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 5
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/starboard)
 "nTT" = (
@@ -111163,6 +111288,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 13
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/central)
@@ -122574,6 +122702,9 @@
 	icon_state = "pipe-c-yellow";
 	dir = 1
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 8
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/primary/deck_2/starboard)
 "pUH" = (
@@ -127611,6 +127742,25 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/engineering/atmos)
+"qDw" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment/mainline{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 5
+	},
+/turf/simulated/floor,
+/area/horizon/hallway/primary/deck_3/starboard)
 "qDx" = (
 /obj/structure/table/rack/retail_shelf{
 	name = "storage shelf"
@@ -130007,6 +130157,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 16
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/central)
@@ -138736,6 +138889,9 @@
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 9
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "rWj" = (
@@ -139519,6 +139675,14 @@
 /obj/structure/table/rack,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
+"sbb" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 9
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hangar/auxiliary)
 "sbd" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -140732,6 +140896,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 4
 	},
 /turf/simulated/floor/plating,
 /area/horizon/operations/lobby)
@@ -151415,6 +151582,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion)
+"tBB" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment/mainline{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 19
+	},
+/turf/simulated/floor/plating,
+/area/horizon/engineering/hallway/fore)
 "tBI" = (
 /obj/structure/machinery/disposal/small/south,
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -159194,6 +159380,9 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 3
+	},
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/starboard)
 "uCX" = (
@@ -161834,6 +162023,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 11
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/primary/deck_2/central)
 "uTO" = (
@@ -167963,6 +168155,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/navbeacon{
+	patrol_number = 18
+	},
 /turf/simulated/floor/plating,
 /area/horizon/engineering/hallway/fore)
 "vKB" = (
@@ -167990,6 +168185,9 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 12
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/primary/deck_2/central)
@@ -173769,6 +173967,12 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/full,
 /area/horizon/service/mess_hall)
+"wud" = (
+/obj/structure/machinery/navbeacon{
+	patrol_number = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/primary/deck_3/starboard)
 "wue" = (
 /obj/structure/machinery/power/apc/super/west,
 /obj/structure/cable{
@@ -174069,6 +174273,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/lobby)
+"wwv" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 14
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/rnd/hallway)
 "wwx" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -176444,6 +176657,15 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
+"wLE" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 4
+	},
+/obj/structure/machinery/navbeacon{
+	patrol_number = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/primary/deck_3/central)
 "wLF" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -220854,7 +221076,7 @@ jOb
 xGb
 njo
 whD
-jif
+dTG
 etv
 xBM
 raM
@@ -222125,7 +222347,7 @@ rHK
 rHK
 fJN
 bQk
-qxp
+hRc
 bCv
 utJ
 iwm
@@ -223447,7 +223669,7 @@ vuU
 vuU
 vuU
 vuU
-vuU
+mbP
 guM
 pNi
 pNi
@@ -228829,7 +229051,7 @@ aXU
 cXo
 bJS
 eWc
-wkq
+sbb
 wkq
 wkq
 wkq
@@ -228841,7 +229063,7 @@ dUH
 hKu
 cZe
 cZe
-cZe
+hxn
 cZe
 cZe
 gCs
@@ -231926,7 +232148,7 @@ xth
 eTt
 lCU
 rSq
-eTt
+hHj
 eTt
 fpY
 dCN
@@ -283543,7 +283765,7 @@ pFr
 ikd
 fdD
 udq
-fWY
+tBB
 bSB
 xVm
 aSC
@@ -286375,7 +286597,7 @@ dwE
 lGs
 ujA
 hgJ
-dwE
+iOu
 upO
 fxq
 gvf
@@ -296918,7 +297140,7 @@ cfm
 tuY
 fnk
 qmR
-ovK
+wwv
 ohz
 vvU
 oLj
@@ -343199,7 +343421,7 @@ iPC
 oNm
 oNm
 mqs
-oNm
+wud
 ehC
 tnl
 sZr
@@ -345251,7 +345473,7 @@ nSX
 dRF
 ryY
 oMa
-aDc
+qDw
 ian
 bAj
 xaC
@@ -355255,7 +355477,7 @@ hhc
 ntz
 nbD
 glv
-gkf
+wLE
 lUd
 bbm
 lOt
