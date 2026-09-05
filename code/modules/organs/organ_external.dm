@@ -323,6 +323,23 @@
 			. += SPAN_DANGER("There is \a [I] sticking out of it.")
 
 /obj/item/organ/external/attackby(obj/item/attacking_item, mob/user)
+	if(!owner && BP_IS_ROBOTIC(src))
+		if(istype(attacking_item, /obj/item/access_cable))
+			var/obj/item/access_cable/access_cable = attacking_item
+			if(access_cable.target)
+				to_chat(user, SPAN_WARNING("\The [access_cable] is already connected to something."))
+				return TRUE
+			if(locate(/obj/item/access_cable) in src)
+				to_chat(user, SPAN_WARNING("\The [src] already has an access cable connected."))
+				return TRUE
+			user.visible_message(SPAN_NOTICE("[user] connects \the [access_cable] to \the [src]'s service interface."))
+			insert_cable(access_cable, user)
+			access_cable.create_cable(src)
+			return TRUE
+
+		if(repair_detached_prosthetic(attacking_item, user))
+			return TRUE
+
 	switch(stage)
 		if(0)
 			if(istype(attacking_item, /obj/item/surgery/scalpel))
@@ -356,6 +373,72 @@
 				return
 	..()
 
+/** Handles direct field repairs while a prosthetic is detached from its owner. */
+/obj/item/organ/external/proc/repair_detached_prosthetic(obj/item/repair_tool, mob/user)
+	var/list/prosthetic_parts = get_external_organs_recursive()
+	if(istype(repair_tool, /obj/item/weldingtool))
+		var/obj/item/weldingtool/welder = repair_tool
+		var/obj/item/organ/external/brute_part
+		for(var/obj/item/organ/external/brute_candidate as anything in prosthetic_parts)
+			if(LIMB_GET_BRUTE_DAMAGE(brute_candidate))
+				brute_part = brute_candidate
+				break
+		if(!brute_part)
+			to_chat(user, SPAN_NOTICE("There is no structural damage on \the [src] to repair."))
+			return TRUE
+		if(!welder.isOn() || welder.get_fuel() < 2)
+			to_chat(user, SPAN_WARNING("You need a lit welding tool with enough fuel to repair \the [src]."))
+			return TRUE
+		user.visible_message(SPAN_NOTICE("[user] begins repairing the structure of \the [src] with \the [welder]."))
+		if(!welder.use_tool(src, user, 4 SECONDS, volume = 15))
+			return TRUE
+		if(owner || !welder.isOn() || !welder.use(2, user))
+			return TRUE
+		brute_part.heal_damage(brute = 15, internal = TRUE, robo_repair = TRUE)
+		user.visible_message(SPAN_NOTICE("[user] repairs some of the structural damage on \the [brute_part]."))
+		return TRUE
+
+	if(istype(repair_tool, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/cable_coil = repair_tool
+		var/obj/item/organ/external/burn_part
+		for(var/obj/item/organ/external/burn_candidate as anything in prosthetic_parts)
+			if(LIMB_GET_BURN_DAMAGE(burn_candidate))
+				burn_part = burn_candidate
+				break
+		if(!burn_part)
+			to_chat(user, SPAN_NOTICE("There is no damaged wiring in \the [src] to replace."))
+			return TRUE
+		if(!cable_coil.can_use(2, user))
+			to_chat(user, SPAN_WARNING("You need at least two lengths of cable to repair \the [src]."))
+			return TRUE
+		user.visible_message(SPAN_NOTICE("[user] begins replacing damaged wiring in \the [src]."))
+		if(!do_after(user, 4 SECONDS, src) || owner || !cable_coil.use(2))
+			return TRUE
+		burn_part.heal_damage(burn = 15, internal = TRUE, robo_repair = TRUE)
+		user.visible_message(SPAN_NOTICE("[user] replaces some of the damaged wiring in \the [burn_part]."))
+		return TRUE
+
+	if(istype(repair_tool, /obj/item/stack/nanopaste))
+		var/obj/item/stack/nanopaste/nanopaste = repair_tool
+		var/obj/item/organ/external/nanopaste_part
+		for(var/obj/item/organ/external/nanopaste_candidate as anything in prosthetic_parts)
+			if(nanopaste_candidate.get_damage())
+				nanopaste_part = nanopaste_candidate
+				break
+		if(!nanopaste_part)
+			to_chat(user, SPAN_NOTICE("There is no damage on \the [src] for the nanopaste to repair."))
+			return TRUE
+		if(!nanopaste.can_use(1, user))
+			return TRUE
+		user.visible_message(SPAN_NOTICE("[user] begins applying \the [nanopaste] to \the [src]."))
+		if(!do_after(user, nanopaste.time_to_apply, src) || owner || !nanopaste.use(1))
+			return TRUE
+		nanopaste_part.heal_damage(brute = 15, burn = 15, robo_repair = TRUE)
+		user.visible_message(SPAN_NOTICE("[user] finishes applying \the [nanopaste] to \the [nanopaste_part]."))
+		return TRUE
+
+	return FALSE
+
 /**
  *  Get a list of contents of this organ and all the child organs
  */
@@ -369,6 +452,19 @@
 		all_items.Add(child.get_contents_recursive())
 
 	return all_items
+
+/** Returns this external organ and all child limbs attached beneath it. */
+/obj/item/organ/external/proc/get_external_organs_recursive()
+	var/list/all_organs = list(src)
+	for(var/obj/item/organ/external/child in children)
+		all_organs.Add(child.get_external_organs_recursive())
+	return all_organs
+
+/** Whether this limb has a compatible mounting point for a detached prosthetic child. */
+/obj/item/organ/external/proc/accepts_manually_attached_prosthetic(obj/item/organ/external/prosthetic)
+	if(!prosthetic || !prosthetic.robotic || !supports_children || prosthetic.parent_organ != limb_name)
+		return FALSE
+	return (prosthetic.limb_name in prosthetic_sockets) || BP_IS_ROBOTIC(src)
 
 /obj/item/organ/external/proc/dislocate(var/primary)
 	if(dislocated == -1)
@@ -660,7 +756,7 @@
 
 	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 
-	owner.updatehealth()
+	owner?.updatehealth()
 	START_PROCESSING(SSprocessing, src)
 	return update_icon()
 

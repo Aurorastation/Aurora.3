@@ -11,8 +11,10 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return FALSE
 	if(affected.encased)
-		return affected && IS_ORGAN_FULLY_OPEN
+		return IS_ORGAN_FULLY_OPEN
 	if(BP_IS_ROBOTIC(affected))
 		return affected.augment_limit && affected.open == ORGAN_ENCASED_RETRACTED
 	else
@@ -188,6 +190,9 @@
 	base_surgery_time = 9 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
+/singleton/surgery_step/internal/detach_organ/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	return get_internal_organ_removal_skill_requirements(user, target, target_zone, FALSE, preferred_skill_component)
+
 /singleton/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
@@ -252,6 +257,42 @@
 	)
 	base_surgery_time = 6 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+
+/singleton/surgery_step/internal/remove_organ/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	return get_internal_organ_removal_skill_requirements(user, target, target_zone, TRUE, preferred_skill_component)
+
+/**
+ * Organ separation and extraction follow the organ being handled rather than
+ * the organic housing around it. Assisted organs may use either skill.
+ */
+/singleton/surgery_step/internal/proc/get_internal_organ_removal_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, organ_must_be_cut_away, preferred_skill_component)
+	var/list/permitted_skills = list()
+	var/obj/item/organ/selected_organ = target.internal_organs_by_name[target.op_stage.current_organ]
+
+	if(selected_organ \
+		&& selected_organ.parent_organ == target_zone \
+		&& (organ_must_be_cut_away || !(selected_organ.status & ORGAN_ZOMBIFIED)) \
+		&& !!(selected_organ.status & ORGAN_CUT_AWAY) == !!organ_must_be_cut_away)
+		add_internal_organ_removal_skills(selected_organ, permitted_skills)
+	else
+		for(var/obj/item/organ/internal/organ in target.internal_organs)
+			if(organ.parent_organ != target_zone)
+				continue
+			if(!organ_must_be_cut_away && (organ.status & ORGAN_ZOMBIFIED))
+				continue
+			if(!!(organ.status & ORGAN_CUT_AWAY) != !!organ_must_be_cut_away)
+				continue
+			add_internal_organ_removal_skills(organ, permitted_skills)
+
+	return get_alternative_surgery_skill_requirements(user, permitted_skills, SKILL_LEVEL_TRAINED, preferred_skill_component)
+
+/singleton/surgery_step/internal/proc/add_internal_organ_removal_skills(obj/item/organ/organ, list/permitted_skills)
+	if(BP_IS_ROBOTIC(organ) || organ.robotic >= ROBOTIC_MECHANICAL)
+		permitted_skills |= ROBOTICS_SKILL_COMPONENT
+	else if((organ.status & ORGAN_ASSISTED) || organ.robotic >= ROBOTIC_ASSISTED)
+		permitted_skills |= list(SURGERY_SKILL_COMPONENT, ROBOTICS_SKILL_COMPONENT)
+	else
+		permitted_skills |= SURGERY_SKILL_COMPONENT
 
 /singleton/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
