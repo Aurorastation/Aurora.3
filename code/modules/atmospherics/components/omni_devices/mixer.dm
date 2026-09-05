@@ -104,8 +104,9 @@
 	return 0
 
 /obj/structure/machinery/atmospherics/omni/mixer/process()
-	if(!..())
-		return 0
+	. = ..()
+	if(!. || . == PROCESS_KILL)
+		return .
 
 	//Figure out the amount of moles to transfer
 	var/transfer_moles = 0

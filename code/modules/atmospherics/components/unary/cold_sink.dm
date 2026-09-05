@@ -128,9 +128,13 @@
 	add_fingerprint(usr)
 
 /obj/structure/machinery/atmospherics/unary/freezer/process(seconds_per_tick)
-	..()
+	. = ..()
+	if (!use_power)
+		cooling = 0
+		update_icon()
+		return PROCESS_KILL
 
-	if(stat & (NOPOWER|BROKEN) || !use_power)
+	if(stat & (NOPOWER|BROKEN))
 		cooling = 0
 		update_icon()
 		return
@@ -189,3 +193,8 @@
 		return TRUE
 
 	return ..()
+
+/obj/structure/machinery/atmospherics/unary/freezer/update_use_power(new_use_power)
+	. = ..()
+	if (use_power)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
