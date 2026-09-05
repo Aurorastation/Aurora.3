@@ -56,7 +56,7 @@
 		3 further scientific surveying attempts between 2264—2276 have been registered, all abandoned during the Solarian Great Depression. \
 		The planet remains unowned and uninhabited by any permanent populace. \
 		<br>Hazardous gases in notable quantity detected in atmosphere (chlorine, sulphur dioxide).\
- 		Internals are strongly advised to avoid long-term health impacts associated with SO2 and Cl exposure. However, there is minimal risk to short-term health.\
+		Internals are strongly advised to avoid long-term health impacts associated with SO2 and Cl exposure. However, there is minimal risk to short-term health.\
 		<br>The Republic of Biesel has raised a 1,000,000电 reward for the complete scientific survey of the exoplanet. \
 		<br><br>The flagged away site, Site Oscar, is at the foot of a large, mineral-rich mesa. \
 		A Republic of Biesel—chartered Einstein Engines surveying outpost is registered within the area, as of 2452.\
