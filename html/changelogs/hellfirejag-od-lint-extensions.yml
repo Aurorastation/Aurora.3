@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - code_imp: "Tweaked the OpenDream linter to perform static type analysis for proc returns (Call sites not working yet pending OD changes)."

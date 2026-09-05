@@ -258,7 +258,7 @@ jobs:
       #Run OpenDream on the DME
       - name: Run OpenDream
         run: |
-          dotnet $HOME/DMCompiler_linux-x64/DMCompiler.dll --suppress-unimplemented aurorastation.dme
+          dotnet $HOME/DMCompiler_linux-x64/DMCompiler.dll --suppress-unimplemented --skip-anything-typecheck aurorastation.dme
 
   ###########################################
   ############### TGUI LINTING ##############
