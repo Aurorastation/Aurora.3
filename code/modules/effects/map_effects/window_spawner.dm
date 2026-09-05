@@ -40,6 +40,9 @@
 	if (!window_path)
 		return INITIALIZE_HINT_QDEL
 
+	if (color && !frame_color)
+		frame_color = color
+
 	..()
 
 	activate()
@@ -237,28 +240,46 @@
 	frame_path = /obj/structure/window_frame/shuttle
 	window_path = /obj/structure/window/full/reinforced
 
+/obj/effect/map_effect/window_spawner/full/shuttle/grille
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/grille/firedoor
+	spawn_firedoor = TRUE
+
 /obj/effect/map_effect/window_spawner/full/shuttle/scc
 	icon_state = "full_rwindow_shuttle_scc"
 	frame_color = "#AAAFC7"
 
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary
 	icon_state = "full_rwindow_shuttle_merc"
-	frame_color = "#5B5B5B"
+	frame_color = /turf/simulated/wall/shuttle/space_ship/mercenary::color
+
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary/grille/firedoor
+	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/window_spawner/full/shuttle/raider
 	icon_state = "full_rwindow_shuttle"
-	frame_color = "#6C7364"
-	color = "#6C7364"
+	frame_color = /turf/simulated/wall/shuttle/raider::color
+	color = /turf/simulated/wall/shuttle/raider::color
+
+/obj/effect/map_effect/window_spawner/full/shuttle/raider/grille
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/raider/grille/firedoor
+	spawn_firedoor = TRUE
 
 /obj/effect/map_effect/window_spawner/full/shuttle/industrial
 	icon_state = "full_rwindow_shuttle"
-	frame_color = "#6E5B4A"
-	color = "#6E5B4A"
+	frame_color = /turf/simulated/wall/shuttle/space_ship/industrial::color
+	color = /turf/simulated/wall/shuttle/space_ship/industrial::color
 
 /obj/effect/map_effect/window_spawner/full/shuttle/brown
 	icon_state = "full_rwindow_shuttle"
-	frame_color = COLOR_MUTED_BROWN
-	color = COLOR_MUTED_BROWN
+	frame_color = /turf/simulated/wall/shuttle/brown::color
+	color = /turf/simulated/wall/shuttle/brown::color
 
 /obj/effect/map_effect/window_spawner/full/shuttle/brown/firedoor
 	spawn_firedoor = TRUE
@@ -283,4 +304,34 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor
 	name = "coalition reinforced window spawner with grille and firedoor"
 	icon_state = "coalition_window-gf"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple
+	frame_color = /turf/simulated/wall/shuttle/palepurple::color
+	color = /turf/simulated/wall/shuttle/palepurple::color
+
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple/grille
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple/grille/firedoor
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple
+	frame_color = /turf/simulated/wall/shuttle/palepurple::color
+	color = /turf/simulated/wall/shuttle/palepurple::color
+
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple/grille
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/palepurple/grille/firedoor
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/legion
+	frame_color = /turf/simulated/wall/shuttle/legion::color
+	color = /turf/simulated/wall/shuttle/legion::color
+
+/obj/effect/map_effect/window_spawner/full/shuttle/legion/grille
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/legion/grille/firedoor
 	spawn_firedoor = TRUE

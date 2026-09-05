@@ -140,6 +140,9 @@
 		/obj/item/storage/box/fancy/cigarettes/acmeco = 5
 	)
 
+/obj/structure/machinery/vending/cigarette/free
+	prices = list()
+
 /obj/structure/machinery/vending/cigarette/hacked
 	name = "hacked cigarette machine"
 	prices = list()

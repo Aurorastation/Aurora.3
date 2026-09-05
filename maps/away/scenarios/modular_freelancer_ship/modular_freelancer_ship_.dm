@@ -1,0 +1,201 @@
+
+// --------------------------------------------------- template
+
+/datum/map_template/ruin/away_site/modular_freelancer_ship
+	name = "Modular Freelancer Ship"
+	description = "Modular Freelancer Ship."
+	id = "modular_freelancer_ship"
+
+	prefix = "scenarios/modular_freelancer_ship/"
+	suffix = "modular_freelancer_ship.dmm"
+
+	sectors = list(ALL_POSSIBLE_SECTORS)
+	ship_cost = 1
+	spawn_weight = 0 // so it does not spawn as ordinary away site
+	unit_test_groups = list(1)
+
+	shuttles_to_initialise = list(
+		/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter,
+		/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry,
+	)
+
+/singleton/submap_archetype/modular_freelancer_ship
+	map = /datum/map_template/ruin/away_site/modular_freelancer_ship::id
+	descriptor = /datum/map_template/ruin/away_site/modular_freelancer_ship::description
+
+// --------------------------------------------------- ship
+
+/obj/effect/overmap/visitable/ship/modular_freelancer_ship
+	name = /datum/map_template/ruin/away_site/modular_freelancer_ship::id
+	class = "?" // set in New()
+	desc = "?" // set in New()
+
+	// visual:
+	icon_state = "freighter_large"
+	moving_state = "freighter_large_moving"
+	colors = list("#c3c7eb", "#a0a8ec", "#a0eccf", "#ecdea0", "#eca0a0", "#eca0d5", "#ecb8a0")
+
+	// functional:
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 5000
+	vessel_size = SHIP_SIZE_SMALL
+	fore_dir = SOUTH
+
+	// fluff:
+	designer = "Unknown"
+	volume = "114 meters length, 55 meters beam/width, 24 meters vertical height"
+	drive = "First-Gen Warp Capable, Hybrid Phoron Bluespace Drive"
+	propulsion = "Superheated Composite Gas Thrust"
+	weapons = "Present, cannot read in detail"
+	sizeclass = "Modular Freighter"
+	shiptype = "Freighter"
+
+	// defines:
+	var/list/designation_options = list(
+		"This Old Tune", "June", "Thou Shalt Not Kill", "5 for You and 5 for Me",
+		"No Jazz", "I don't Want to Be an Emperor", "Nocturne", "Secret Society",
+		"Leave Me Alone", "In the Woods", "Little Tale", "No Need To Be Frightened",
+		"Black Moon", "Point of No Return", "Entering the Black Hole", "No Meeting",
+		"Low Gravity", "Out of Time", "In Time", "This Is Just the Beginning", "Melancholia",
+		"Before Midnight Tonight", "Second Sun", "Sure the Sun Will Rise", "One More Step",
+		"2001 Light Years From Home", "Far From Home", "Unknown Jungle", "Come With Me",
+	)
+
+/obj/effect/overmap/visitable/ship/modular_freelancer_ship/New()
+	class = pick(
+		"ICV", // Independent Civilian Vessel
+		"IFR", // Independent Freighter
+		"CCV", // Coalition Civilian Vessel
+	)
+	designation = pick(/obj/effect/overmap/visitable/ship/modular_freelancer_ship::designation_options)
+
+	desc = ""
+	desc += pick(
+		"Built around an adaptable open-truss spine, this vessel is a textbook example of a modular freelancer rig. ",
+		"Originally derived from a Hephaestus-style heavy utility chassis, this craft is assembled from a patchwork of standardized intermodal sections. ",
+		"A common sight among deep-space scavengers and frontier haulers, this ship relies on an elongated structural gantry rather than a traditional solid hull. ",
+	)
+	desc += pick(
+		"Its forward pressurized compartments appear securely bolted to the central keel, balancing compact crew quarters against cargo access shafts. ",
+		"An industrial cargo block anchors the bow, trailing a network of reinforced bulkheads and access catwalks down its centerline. ",
+	)
+	desc += pick(
+		"The exterior lattice features a selection of shipping containers attached to the frame. ",
+		"An assortment of standardised shipping containers stand attached to the frame. ",
+	)
+	desc += pick(
+		"Heavy aft propulsion blocks and decades of weld lines suggest a resilient workhorse built to survive long burns on the fringe.",
+		"Scored by micrometeorites and rewired dozens of times, it stands ready to be dismantled and reconfigured for whatever comes next.",
+	)
+
+	..()
+
+// --------------------------------------------------- shuttles
+
+// ----------- fighter
+
+/obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter
+	name = "Modular Freelancer Ship, Fighter Shuttle"
+	class = "ICV"
+	desc = "A standard-sized shuttle manufactured by Hephaestus. It is a low-end model, fairly uninteresting, found all over the spur. It has a small-caliber gun mounted on the side."
+	shuttle = "Modular Freelancer Ship, Fighter Shuttle"
+
+	// visual:
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = /obj/effect/overmap/visitable/ship/modular_freelancer_ship::colors
+
+	// functional:
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 3000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_TINY
+
+	// fluff:
+	designer = "Hephaestus Industries"
+	volume = "16 meters length, 11 meters beam/width, 9 meters vertical height"
+	sizeclass = "Dual-purpose Fighter Shuttle"
+	shiptype = "Light exploration and defensive uses"
+
+/obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter/New()
+	designation = pick(/obj/effect/overmap/visitable/ship/modular_freelancer_ship::designation_options)
+	..()
+
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/modular_freelancer_shuttle_fighter
+	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter::shuttle
+
+/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter
+	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter::shuttle
+	shuttle_area = list(/area/shuttle/modular_freelancer_shuttle/fighter)
+	current_location =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::landmark_tag
+	logging_home_tag =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::landmark_tag
+	landmark_transition =	/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_transit::landmark_tag
+	dock_target = "airlock_modular_freelancer_shuttle_fighter"
+	range = 1
+	move_time = 20
+	fuel_consumption = 2
+	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/fighter
+	name =			/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::name
+	shuttle_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::name
+	master_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_fighter::dock_target
+
+// ----------- ferry
+
+/obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry
+	name = "Modular Freelancer Ship, Ferry Shuttle"
+	class = "ICV"
+	desc = "A standard-sized shuttle manufactured by Hephaestus. It is a low-end model, fairly uninteresting, found all over the spur."
+	shuttle = "Modular Freelancer Ship, Ferry Shuttle"
+
+	// visual:
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = /obj/effect/overmap/visitable/ship/modular_freelancer_ship::colors
+
+	// functional:
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 3000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_TINY
+
+	// fluff:
+	designer = "Hephaestus Industries"
+	volume = "12 meters length, 9 meters beam/width, 6 meters vertical height"
+	sizeclass = "Dual-purpose Ferry Shuttle"
+	shiptype = "Light exploration and transportation uses"
+
+/obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry/New()
+	designation = pick(/obj/effect/overmap/visitable/ship/modular_freelancer_ship::designation_options)
+	..()
+
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/modular_freelancer_shuttle_ferry
+	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry::shuttle
+
+/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry
+	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry::shuttle
+	shuttle_area = list(/area/shuttle/modular_freelancer_shuttle/ferry)
+	current_location =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::landmark_tag
+	logging_home_tag =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::landmark_tag
+	landmark_transition =	/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_transit::landmark_tag
+	dock_target = "airlock_modular_freelancer_shuttle_ferry"
+	range = 1
+	move_time = 20
+	fuel_consumption = 2
+	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/modular_freelancer_shuttle/ferry
+	name =			/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::name
+	shuttle_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::name
+	master_tag =	/datum/shuttle/autodock/overmap/modular_freelancer_shuttle_ferry::dock_target
+
+// ------------------------- misc
+
+/obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship
+	req_access = /datum/access/modular_freelancer_ship::id
+
+// ------------------------- fin
