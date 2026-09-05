@@ -232,3 +232,13 @@
 	'sound/ambience/eeriejungle2.ogg',\
 	'sound/ambience/eeriejungle1.ogg'\
 )
+
+// Space-based Ambience for diona related ships and stations or other awaysites
+#define AMBIENCE_DIONA list(\
+	'sound/ambience/otherworldly/otherworldly1.ogg',\
+	'sound/ambience/otherworldly/otherworldly2.ogg',\
+	'sound/ambience/otherworldly/otherworldly3.ogg',\
+	'sound/ambience/space/space1.ogg',\
+	'sound/ambience/space/aurora_caelus.ogg',\
+	'sound/ambience/eeriejungle2.ogg',\
+	)

@@ -927,3 +927,8 @@
 /datum/access/abandoned_casino
 	id = ACCESS_ABANDONED_CASINO_STAFF
 
+#define ACCESS_HIEROTHERIA_MILITARY 258
+/datum/access/hierotheria/military
+	id = ACCESS_HIEROTHERIA_MILITARY
+	access_type = ACCESS_TYPE_CENTCOM
+	desc = "Hierotheria Military Vessel Access"
