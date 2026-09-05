@@ -71,3 +71,35 @@
       5u Phoron Catalyst = 3u Ranixidone) and which inherits the standard PsiProtect
       Personalised mechanics.
   - rscdel: Removes the mapped in PsiProtect and included memo from the Pharmacy.
+2026-09-05:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  DreamySkrell:
+  - rscadd: Removes the redundant reinforced table type.
+  FabianK3:
+  - bugfix: Fixed hardsuit click handler not resetting throw mode, resulting in throw
+      mode staying toggle on when wearing a hardsuit.
+  - bugfix: Fixed too high passive power draw for exo-stellar suits by reducing passive
+      cell draw rate.
+  - bugfix: Fixed exo-stellar skeleton ribbon accessory not being visible.
+  Geeves:
+  - rscadd: Detachable prosthetics now use a multi-step removal procedure.
+  - rscadd: "The steps are multitool/screwdriver \u2192 multitool \u2192 screwdriver\
+      \ \u2192 wrench/crowbar \u2192 empty hand."
+  - rscadd: Owners can remove their own prosthetics while standing without any skill
+      requirement. Operating on another person requires Familiar Mechanical Engineering
+      and a suitable surgery surface.
+  - qol: Hold a detached prosthetic and use it on yourself with help intent to reattach
+      it.
+  TheGreyWolf:
+  - bugfix: Fixed the spawn-fruit command.
+  kano:
+  - rscadd: Added some mapping helpers for bike rental machine linking.
+  rattydew:
+  - qol: Significantly reduced the volume and range of the telecommunications hub
+      and gravity generator sounds.
+  - rscadd: Adds the double-barelled shotgun rack back to the bar.
