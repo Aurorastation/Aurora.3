@@ -134,7 +134,7 @@
 /obj/item/ship_ammunition/proc/cookoff(var/caused_by_heat = TRUE)
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"))
-		explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light)
+		explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light, spreading = TRUE)
 		qdel(src)
 
 /obj/item/ship_ammunition/proc/can_be_loaded()

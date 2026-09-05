@@ -76,7 +76,7 @@
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion.")
 			to_chat(user, SPAN_DANGER("That was stupid of you."))
-			explosion(get_turf(src),-1,0,2)
+			explosion(get_turf(src), -1, 0, 2, spreading = TRUE)
 			qdel(src)
 		else
 			if(T.welding)
