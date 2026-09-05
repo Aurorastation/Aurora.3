@@ -238,13 +238,15 @@
 
 	var/volume_adjustment = 1
 
-	var/obj/effect/overmap/visitable/ship/my_ship = GLOB.map_sectors["[z]"]
-	if(!my_ship)
+	var/obj/effect/overmap/visitable/ship/current_ship = GLOB.map_sectors["[z]"]
+	if(!current_ship)
 		stack_trace("No ship found for gas thruster at z-level [z].")
 	else
-		volume_adjustment = length(my_ship.engines)
+		volume_adjustment = length(current_ship.engines)
 
-	playsound(loc, 'sound/machines/thruster.ogg', ((50 * thrust_limit * power_modifier) / volume_adjustment ), FALSE, world.view * 4, 0.1)
+	for(z in current_ship.find_z_levels())
+		playsound(locate(loc.x, loc.y, z), 'sound/machines/thruster.ogg', ((50 * thrust_limit * power_modifier) / volume_adjustment ), FALSE, world.view * 4, 0.1)
+
 	if(network)
 		network.update = 1
 
