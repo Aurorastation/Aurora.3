@@ -37,6 +37,11 @@
 	var/squishes = TRUE //decides whether or not things get squished when it moves.
 	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not
 
+	/// Whether the shuttle can rotate.
+	/// If true, the shuttle can rotate, and is guaranteed to look correct in all orientations.
+	/// If false, the shuttle will not rotate and will maintain its original orientation always.
+	var/can_rotate = FALSE
+
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
 	if(_name)
@@ -165,13 +170,14 @@
 	if(current_location.cannot_depart(src))
 		return FALSE
 	testing("[src] moving to [destination]. Areas are [english_list(shuttle_area)]")
+	var/rotation = get_rotation(destination)
 	var/list/translation = list()
 	for(var/area/A in shuttle_area)
 		testing("Moving [A]")
-		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
+		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents, rotation)
 	var/old_location = current_location
 	GLOB.shuttle_pre_move_event.raise_event(src, old_location, destination)
-	shuttle_moved(destination, translation)
+	shuttle_moved(destination, translation, rotation)
 	GLOB.shuttle_moved_event.raise_event(src, old_location, destination)
 	destination.shuttle_arrived(src)
 	return TRUE
@@ -179,7 +185,7 @@
 //just moves the shuttle from A to B, if it can be moved
 //A note to anyone overriding move in a subtype. shuttle_moved() must absolutely not, under any circumstances, fail to move the shuttle.
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump(), long_jump() or attempt_move()
-/datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation)
+/datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation, rotation = 0)
 
 	if((flags & SHUTTLE_FLAGS_ZERO_G))
 		var/new_grav = 1
@@ -244,7 +250,7 @@
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
 
-	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE)
+	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE, rotation)
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air
@@ -262,7 +268,7 @@
 
 	for(var/area/sub_area in shuttle_area)
 		for(var/atom/movable/movable in sub_area)
-			movable.afterShuttleMove(destination)
+			movable.afterShuttleMove(destination, rotation)
 
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()
@@ -317,6 +323,15 @@
 
 /datum/shuttle/proc/on_move_interim()
 	return
+
+/// Returns the clockwise rotation needed to align the shuttle with destination.
+/datum/shuttle/proc/get_rotation(obj/effect/shuttle_landmark/destination)
+	if(!(current_location.dir in GLOB.cardinals) || !(destination.dir in GLOB.cardinals))
+		CRASH("Shuttle [name] attempted to move between non-cardinal landmarks: [current_location] and [destination].")
+	if(can_rotate)
+		return SIMPLIFY_DEGREES(dir2angle(destination.dir) - dir2angle(current_location.dir))
+	else
+		return 0
 
 /datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
 	UnregisterSignal(area_to_remove, COMSIG_QDELETING)
