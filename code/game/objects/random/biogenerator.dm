@@ -46,7 +46,7 @@
 
 /obj/random/biogenerator/gloves
 	name = "work gloves"
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
 	icon_state = "yellow"
 	spawnlist = list(
 		/obj/item/clothing/gloves/black,
@@ -56,7 +56,7 @@
 
 /obj/random/biogenerator/gloves/random
 	name = "random gloves"
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
 	icon_state = "yellow"
 	spawnlist = list(
 		/obj/item/clothing/gloves/black_leather,

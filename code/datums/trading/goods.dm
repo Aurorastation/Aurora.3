@@ -127,8 +127,6 @@
 		/obj/item/clothing/under/color                           = TRADER_BLACKLIST,
 		/obj/item/clothing/under/dress                           = TRADER_BLACKLIST,
 		/obj/item/clothing/under/ert                             = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/gimmick                         = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/lawyer                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/pj                              = TRADER_BLACKLIST,
 		/obj/item/clothing/under/rank                            = TRADER_BLACKLIST,
 		/obj/item/clothing/under/swimsuit                        = TRADER_BLACKLIST,

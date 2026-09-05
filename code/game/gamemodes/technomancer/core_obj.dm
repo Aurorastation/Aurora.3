@@ -2,7 +2,7 @@
 /obj/item/technomancer_core
 	name = "manipulation core"
 	desc = "A bewilderingly complex 'black box' that allows the wearer to accomplish amazing feats."
-	icon = 'icons/obj/clothing/technomancer.dmi'
+	icon = 'icons/obj/item/clothing/technomancer.dmi'
 	contained_sprite = TRUE
 	icon_state = "technomancer_core"
 	item_state = "technomancer_core"

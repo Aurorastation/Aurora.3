@@ -165,13 +165,6 @@
 	worn_state = "psysuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 
-/obj/item/clothing/under/gimmick/rank/captain/suit
-	name = "captain's suit"
-	desc = "A green suit and yellow necktie. Exemplifies authority."
-	icon_state = "green_suit"
-	item_state = "dg_suit"
-	worn_state = "green_suit"
-
 /obj/item/clothing/under/overalls
 	name = "laborer's overalls"
 	desc = "A set of durable overalls for getting the job done."
@@ -179,19 +172,14 @@
 	item_state = "lb_suit"
 	worn_state = "overalls"
 
-/obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
-	name = "head of personnel's suit"
-	desc = "A teal suit and yellow necktie. An authoritative yet tacky ensemble."
-	icon_state = "teal_suit"
-	item_state = "g_suit"
-	worn_state = "teal_suit"
-
 /obj/item/clothing/under/suit_jacket
 	name = "black suit"
 	desc = "A black suit and red tie. Very formal."
+	icon = 'icons/obj/item/clothing/under/colored_suit_jackets.dmi'
 	icon_state = "black_suit"
 	item_state = "bl_suit"
 	worn_state = "black_suit"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/suit_jacket/really_black
 	name = "executive suit"
@@ -278,14 +266,6 @@
 	item_state = "y_suit"
 	worn_state = "dress_yellow"
 
-/obj/item/clothing/under/dress/dress_hop
-	name = "head of personnel dress uniform"
-	desc = "Feminine fashion for the style concious HoP."
-	icon_state = "dress_hop"
-	item_state = "b_suit"
-	worn_state = "dress_hop"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
 /obj/item/clothing/under/sundress
 	name = "sundress"
 	desc = "Makes you want to frolic in a field of daisies."
@@ -349,20 +329,6 @@
 	worn_state = "crskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/under/hosformalmale
-	name = "head of security's formal uniform"
-	desc = "A male head of security's formal-wear, for special occasions."
-	icon_state = "hos_formal_male"
-	item_state = "r_suit"
-	worn_state = "hos_formal_male"
-
-/obj/item/clothing/under/hosformalfem
-	name = "head of security's formal uniform"
-	desc = "A female head of security's formal-wear, for special occasions."
-	icon_state = "hos_formal_fem"
-	item_state = "r_suit"
-	worn_state = "hos_formal_fem"
-
 /obj/item/clothing/under/suit_jacket/charcoal
 	name = "charcoal suit"
 	desc = "A charcoal suit and red tie. Very professional."
@@ -408,12 +374,12 @@
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon = 'icons/obj/item/clothing/under/cheongsams.dmi'
 	icon_state = "cheongsamwhite"
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/cheongsam/red
 	name = "red cheongsam"
