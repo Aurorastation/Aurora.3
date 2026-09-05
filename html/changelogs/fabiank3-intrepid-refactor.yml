@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - qol: "Refactored the Intrepid width to provide symmetry."
