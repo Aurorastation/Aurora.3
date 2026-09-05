@@ -7128,13 +7128,13 @@
 	req_access = null;
 	req_one_access = list(73,48,65)
 	},
-/obj/item/gun/energy/laser/shotgun/research,
-/obj/item/gun/energy/laser/shotgun/research,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/material/hatchet/machete/steel,
 /obj/item/material/hatchet/machete/steel,
 /obj/structure/machinery/firealarm/east,
+/obj/item/gun/energy/rifle/interloper/research,
+/obj/item/gun/energy/rifle/interloper/research,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hangar/control)
 "aVQ" = (
