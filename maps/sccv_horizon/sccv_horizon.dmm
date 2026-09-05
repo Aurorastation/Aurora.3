@@ -52385,6 +52385,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
+"gRk" = (
+/obj/effect/landmark{
+	name = "intruderspawn"
+	},
+/turf/unsimulated/floor/monotile,
+/area/antag/mercenary)
 "gRn" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,0"
@@ -118757,6 +118763,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hangar/control)
+"pvT" = (
+/obj/structure/machinery/intruder_teleporter,
+/turf/unsimulated/floor/monotile,
+/area/antag/mercenary)
 "pvV" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/map_effect/marker/airlock/external{
@@ -433959,9 +433969,9 @@ gIk
 qKW
 tAE
 ezl
+pvT
 ezl
-ezl
-ezl
+gRk
 ezl
 ezl
 gbd
