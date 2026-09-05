@@ -22,7 +22,8 @@
 /area/hieropatrol/weapon/grauwolf)
 "ay" = (
 /obj/structure/machinery/door/airlock/diona{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -39,6 +40,10 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
+"bk" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "bo" = (
 /turf/simulated/wall/shuttle/space_ship/industrial,
 /area/hieropatrol/engineer/propulsioncargo)
@@ -106,7 +111,9 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/external)
 "cA" = (
-/obj/structure/machinery/door/airlock/diona,
+/obj/structure/machinery/door/airlock/diona{
+	req_access = list(258)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -183,7 +190,8 @@
 	},
 /obj/structure/machinery/vending/engineering{
 	pixel_y = 22;
-	density = 0
+	density = 0;
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/power)
@@ -217,12 +225,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
+"eH" = (
+/obj/effect/overmap/visitable/ship/hieropatrol,
+/obj/structure/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "eM" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "eS" = (
-/obj/structure/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north{
+	req_access = list(258)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2";
 	dir = 4
@@ -250,7 +265,8 @@
 /area/hieropatrol/corridor/starboard)
 "fg" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(258)
 	},
 /obj/item/blueprints/shuttle,
 /turf/simulated/floor/tiled,
@@ -266,7 +282,9 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "fG" = (
-/obj/structure/machinery/door/airlock/diona,
+/obj/structure/machinery/door/airlock/diona{
+	req_access = list(258)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -361,7 +379,8 @@
 /area/hieropatrol/external)
 "hm" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
@@ -395,7 +414,9 @@
 /turf/space/dynamic,
 /area/hieropatrol/external)
 "hI" = (
-/obj/structure/machinery/seed_storage/garden/xenobotany,
+/obj/structure/machinery/seed_storage/garden/xenobotany{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/kitchen)
 "hK" = (
@@ -435,7 +456,8 @@
 	icon_state = "1-8"
 	},
 /obj/structure/machinery/computer/ship/engines/terminal{
-	dir = 8
+	dir = 8;
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
@@ -464,7 +486,9 @@
 	icon_state = "0-2";
 	dir = 4
 	},
-/obj/structure/machinery/power/apc/high/west,
+/obj/structure/machinery/power/apc/high/west{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "iP" = (
@@ -576,7 +600,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/critical/north,
+/obj/structure/machinery/power/apc/critical/north{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "kK" = (
@@ -596,11 +622,13 @@
 /area/hieropatrol/weapon/grauwolf)
 "kW" = (
 /obj/structure/machinery/access_button{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(258)
 	},
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -23;
-	dir = 1
+	dir = 1;
+	req_access = list(258)
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -609,8 +637,9 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/shuttle,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle{
+	req_one_access = list(258)
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/hieropatrol)
 "kX" = (
@@ -633,12 +662,16 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
 "lt" = (
-/obj/structure/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west{
+	req_access = list(258)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2";
 	dir = 4
 	},
-/obj/structure/machinery/vending/tool,
+/obj/structure/machinery/vending/tool{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/power)
 "lC" = (
@@ -648,7 +681,6 @@
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/shuttle,
 /obj/structure/bed/handrail{
 	dir = 4
 	},
@@ -657,7 +689,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle{
+	req_one_access = list(258)
+	},
 /turf/simulated/floor,
 /area/shuttle/hieropatrol)
 "lO" = (
@@ -693,7 +727,8 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	pixel_y = -6;
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -707,8 +742,14 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/shuttle,
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/machinery/access_button{
+	pixel_y = 33;
+	pixel_x = 32;
+	req_access = list(258)
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle{
+	req_one_access = list(258)
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
 "mA" = (
@@ -719,7 +760,7 @@
 /turf/template_noop,
 /area/space/rootsong)
 "mH" = (
-/obj/effect/shuttle_landmark/ranger_shuttle/transit{
+/obj/effect/shuttle_landmark/hieropatrol_shuttle/transit{
 	dir = 8
 	},
 /turf/space,
@@ -729,7 +770,8 @@
 /area/space/rootsong)
 "mS" = (
 /obj/structure/machinery/door/airlock/diona{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -750,7 +792,7 @@
 /area/hieropatrol/engineer/propulsioncargo)
 "nn" = (
 /obj/structure/machinery/vending/medical{
-	req_access = list(204)
+	req_access = list(258)
 	},
 /turf/simulated/floor/uranium,
 /area/hieropatrol/medical)
@@ -782,7 +824,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/structure/machinery/power/apc/east,
+/obj/structure/machinery/power/apc/east{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa/ammo)
 "of" = (
@@ -872,15 +916,16 @@
 /area/hieropatrol/dorm/kitchen)
 "pD" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/poncho/hieroaetherian_poncho,
-/obj/item/clothing/accessory/poncho/hieroaetherian_poncho,
-/obj/item/clothing/accessory/poncho/hieroaetherian_poncho,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/poncho/hieroaetherian_poncho,
+/obj/item/clothing/accessory/poncho/hieroaetherian_poncho/bruzh,
+/obj/item/clothing/accessory/poncho/hieroaetherian_poncho/jetan,
+/obj/item/clothing/accessory/poncho/hieroaetherian_poncho/kal,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm)
 "pK" = (
@@ -981,22 +1026,26 @@
 	pixel_y = -23;
 	pixel_x = -4;
 	name = "remote shutter-control";
-	id = "hierofranshutter"
+	id = "hierofranshutter";
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa)
 "rQ" = (
 /obj/structure/machinery/door/airlock/external{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/door_paint/stripe/black,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle{
+	req_one_access = list(258)
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/hieropatrol)
 "rU" = (
@@ -1011,6 +1060,10 @@
 /obj/structure/bed/padded,
 /obj/structure/sign/flag/ekane{
 	pixel_y = 32
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "bruzh";
+	name = "igs - bruzh"
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm)
@@ -1060,7 +1113,9 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "tz" = (
-/obj/structure/machinery/computer/ship/helm/terminal,
+/obj/structure/machinery/computer/ship/helm/terminal{
+	req_access = list(258)
+	},
 /obj/item/radio/intercom/hailing/west,
 /obj/structure/sign/flag/consortium/large/north{
 	pixel_y = 32
@@ -1069,7 +1124,9 @@
 /area/hieropatrol/bridge)
 "tB" = (
 /obj/structure/cable/green,
-/obj/structure/machinery/power/apc/east,
+/obj/structure/machinery/power/apc/east{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf)
 "tD" = (
@@ -1099,9 +1156,10 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "uk" = (
-/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external{
+	req_access = list(258)
+	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock/shuttle,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1109,6 +1167,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/door_paint/stripe/black,
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle{
+	req_one_access = list(258)
+	},
 /turf/simulated/floor,
 /area/shuttle/hieropatrol)
 "um" = (
@@ -1165,7 +1226,8 @@
 /area/hieropatrol/external)
 "vV" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -1228,6 +1290,10 @@
 "xe" = (
 /obj/structure/bed/padded,
 /obj/structure/diona/bulb,
+/obj/effect/ghostspawpoint{
+	identifier = "senior";
+	name = "igs - senior bruzh"
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
 "xf" = (
@@ -1347,7 +1413,8 @@
 	dir = 9;
 	pixel_x = -6;
 	name = "remote shutter-control";
-	id = "hierobridgeshutter"
+	id = "hierobridgeshutter";
+	req_access = list(258)
 	},
 /obj/random/spacecash{
 	pixel_y = 7;
@@ -1359,7 +1426,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/armoury)
 "Ag" = (
@@ -1390,7 +1459,8 @@
 	pixel_y = -23;
 	pixel_x = -4;
 	name = "remote shutter-control";
-	id = "hierograushutter"
+	id = "hierograushutter";
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf)
@@ -1409,7 +1479,8 @@
 "AS" = (
 /mob/living/simple_animal/cosmozoan,
 /obj/structure/machinery/door/window{
-	dir = 8
+	dir = 8;
+	req_access = list(258)
 	},
 /obj/structure/window{
 	dir = 1
@@ -1555,7 +1626,9 @@
 /turf/space/dynamic,
 /area/hieropatrol/engineer/propulsioncargo)
 "CA" = (
-/obj/structure/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north{
+	req_access = list(258)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -1590,7 +1663,9 @@
 /area/hieropatrol/external)
 "DF" = (
 /obj/structure/cable/green,
-/obj/structure/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
 "DG" = (
@@ -1615,7 +1690,9 @@
 /area/hieropatrol/engineer/propulsioncargo)
 "Er" = (
 /obj/structure/cable/green,
-/obj/structure/machinery/power/apc/east,
+/obj/structure/machinery/power/apc/east{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf/ammo)
 "Et" = (
@@ -1737,17 +1814,22 @@
 	icon_state = "2-8"
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "FC" = (
 /obj/structure/cable/green,
-/obj/structure/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm)
 "FE" = (
-/obj/structure/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west{
+	req_access = list(258)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -1768,7 +1850,7 @@
 "Go" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
 	dir = 8;
-	req_access = list(209)
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa)
@@ -1786,7 +1868,8 @@
 /area/hieropatrol/weapon/francisa/ammo)
 "GA" = (
 /obj/structure/machinery/door/airlock/diona{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1799,6 +1882,14 @@
 	icon_state = "2-4"
 	},
 /obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/port)
+"GM" = (
+/obj/structure/machinery/door/airlock/diona/external{
+	dir = 4;
+	req_access = list(258)
+	},
+/obj/effect/map_effect/marker/door_paint/stripe/black,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
 "Ha" = (
@@ -1827,14 +1918,17 @@
 	dir = 1
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_y = 24
+	pixel_y = 24;
+	req_access = list(258)
 	},
-/obj/effect/map_effect/marker/airlock/shuttle,
 /obj/structure/bed/handrail,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle{
+	req_one_access = list(258)
+	},
 /turf/simulated/floor,
 /area/shuttle/hieropatrol)
 "Id" = (
@@ -1859,7 +1953,8 @@
 /area/hieropatrol/dorm)
 "IN" = (
 /obj/structure/machinery/door/airlock/diona{
-	dir = 8
+	dir = 8;
+	req_access = list(258)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1960,6 +2055,8 @@
 /obj/random/spacecash,
 /obj/random/spacecash,
 /obj/item/blueprints/outpost,
+/obj/item/blueprints,
+/obj/item/clothing/accessory/poncho/hieroaetherian_poncho/bruzh/senior,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
 "Kn" = (
@@ -1977,7 +2074,8 @@
 	pixel_x = 22;
 	dir = 4;
 	name = "remote shutter-control";
-	id = "hieroshuttleshutter"
+	id = "hieroshuttleshutter";
+	req_access = list(258)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
@@ -2008,7 +2106,9 @@
 /area/hieropatrol/external)
 "KK" = (
 /obj/structure/cable/green,
-/obj/structure/machinery/power/apc/west,
+/obj/structure/machinery/power/apc/west{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/francisa)
 "KO" = (
@@ -2021,10 +2121,23 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north,
+/obj/structure/machinery/power/apc/north{
+	req_access = list(258)
+	},
 /obj/structure/reagent_dispensers/fertilizer,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/port)
+"KU" = (
+/obj/structure/table/diona,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge/captain)
+"Lb" = (
+/obj/structure/diona/vines,
+/obj/structure/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/bridge)
 "Lh" = (
 /turf/simulated/wall/diona,
 /area/hieropatrol/dorm/kitchen)
@@ -2058,7 +2171,8 @@
 	dir = 4
 	},
 /obj/structure/machinery/computer/general_air_control/large_tank_control/wall{
-	pixel_y = -32
+	pixel_y = -32;
+	req_access = list(258)
 	},
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "hieropatrol_co2";
@@ -2069,7 +2183,7 @@
 "LP" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
-	req_access = list(214)
+	req_access = list(258)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
@@ -2169,8 +2283,10 @@
 /area/hieropatrol/dorm/kitchen)
 "ML" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock/shuttle,
-/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle{
+	req_one_access = list(258)
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/hieropatrol)
 "MM" = (
@@ -2249,6 +2365,10 @@
 	icon_state = "2-8"
 	},
 /obj/random/dirt_75,
+/obj/structure/machinery/alarm/shuttle/east{
+	req_one_access = null;
+	req_access = list(258)
+	},
 /turf/simulated/floor,
 /area/shuttle/hieropatrol)
 "ND" = (
@@ -2324,7 +2444,9 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "OG" = (
-/obj/structure/machinery/door/airlock/diona,
+/obj/structure/machinery/door/airlock/diona{
+	req_access = list(258)
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2344,7 +2466,8 @@
 /area/hieropatrol/engineer/propulsioncargo)
 "OQ" = (
 /obj/structure/machinery/computer/cryopod{
-	pixel_y = 32
+	pixel_y = 32;
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/meeting)
@@ -2383,11 +2506,12 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf/ammo)
 "Qh" = (
-/obj/structure/machinery/computer/shuttle_control/explore/terminal{
-	dir = 8
-	},
 /obj/structure/cable{
 	icon_state = "1-8"
+	},
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/hieropatrol_shuttle{
+	dir = 8;
+	req_access = list(258)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
@@ -2526,7 +2650,9 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm)
 "SW" = (
-/obj/structure/machinery/fabricator/autolathe/hacked,
+/obj/structure/machinery/fabricator/autolathe/hacked{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "Te" = (
@@ -2549,7 +2675,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/structure/machinery/power/apc/east,
+/obj/structure/machinery/power/apc/east{
+	req_access = list(258)
+	},
 /obj/structure/reagent_dispensers/radioactive_waste,
 /turf/simulated/floor/uranium,
 /area/hieropatrol/medical)
@@ -2565,7 +2693,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/shuttle/west,
+/obj/structure/machinery/power/apc/shuttle/west{
+	req_access = list(258)
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
@@ -2581,7 +2711,8 @@
 /area/hieropatrol/engineer/propulsioncargo)
 "Ug" = (
 /obj/structure/machinery/door/airlock/diona{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2689,10 +2820,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/shuttle_landmark/ranger_shuttle/hangar{
-	dir = 8;
-	base_area = null;
-	base_turf = null
+/obj/effect/shuttle_landmark/hieropatrol_shuttle/hangar{
+	dir = 8
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/corridor/starboard)
@@ -2749,6 +2878,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/bed/padded,
+/obj/effect/ghostspawpoint{
+	identifier = "bruzh";
+	name = "igs - bruzh"
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm)
 "WG" = (
@@ -2765,6 +2898,8 @@
 /obj/structure/sign/flag/consortium{
 	pixel_x = 32
 	},
+/obj/structure/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/hieropatrol_shuttle,
 /turf/simulated/floor/tiled,
 /area/shuttle/hieropatrol)
 "WQ" = (
@@ -2786,7 +2921,9 @@
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/engineer/propulsioncargo)
 "Xj" = (
-/obj/structure/machinery/computer/ship/sensors/terminal,
+/obj/structure/machinery/computer/ship/sensors/terminal{
+	req_access = list(258)
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "Xv" = (
@@ -2810,7 +2947,8 @@
 /area/hieropatrol/dorm)
 "Xy" = (
 /obj/structure/machinery/door/airlock/diona{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2818,12 +2956,17 @@
 /obj/effect/map_effect/marker/door_paint/stripe/gold,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge/captain)
+"XB" = (
+/obj/structure/machinery/door/airlock/diona/external{
+	dir = 4;
+	req_access = list(258)
+	},
+/obj/effect/map_effect/marker/door_paint/stripe/black,
+/turf/simulated/floor/diona/airless,
+/area/hieropatrol/corridor/starboard)
 "XE" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
-	},
-/obj/structure/machinery/access_button{
-	pixel_y = 32
 	},
 /obj/structure/bed/handrail,
 /obj/structure/cable/green{
@@ -2902,7 +3045,8 @@
 /area/hieropatrol/bridge)
 "Zd" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4
+	dir = 4;
+	req_access = list(258)
 	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/weapon/grauwolf)
@@ -2949,6 +3093,16 @@
 	pixel_x = -6;
 	pixel_y = 1
 	},
+/obj/item/eftpos,
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/pen/fountain/black,
+/obj/item/pen/black{
+	pixel_y = -2;
+	pixel_x = -6
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/bridge)
 "ZM" = (
@@ -2964,6 +3118,10 @@
 /area/hieropatrol/corridor/starboard)
 "ZP" = (
 /obj/structure/bed/padded,
+/obj/effect/ghostspawpoint{
+	identifier = "bruzh";
+	name = "igs - bruzh"
+	},
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm)
 "ZT" = (
@@ -4332,7 +4490,7 @@ Rr
 qW
 qW
 qW
-mH
+qW
 qW
 qW
 qW
@@ -4637,7 +4795,7 @@ qW
 qW
 qW
 qW
-qW
+mH
 qW
 qW
 qW
@@ -13250,7 +13408,7 @@ kn
 Vk
 Vk
 Vk
-eY
+XB
 Vk
 rx
 rx
@@ -13711,7 +13869,7 @@ rx
 rx
 tq
 XI
-Oz
+Lb
 DG
 hi
 vH
@@ -13862,7 +14020,7 @@ Vk
 rx
 tz
 Ij
-XI
+bk
 Ab
 DG
 YX
@@ -14014,7 +14172,7 @@ lO
 rx
 Xj
 tq
-XI
+eH
 Zq
 DG
 YX
@@ -15378,14 +15536,14 @@ jI
 jI
 jI
 jI
-Th
+GM
 jI
 Ha
 Ha
 Ha
 Ha
 Ja
-PP
+KU
 AS
 Ha
 Ha

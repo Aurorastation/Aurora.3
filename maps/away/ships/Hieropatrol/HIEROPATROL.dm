@@ -52,7 +52,7 @@
 
 
 /obj/effect/overmap/visitable/ship/hieropatrol/New()
-	designation = pick("Valliant Explorers Enforcing A Peace", "The Wave Apon A Shore", "Shells Sailing Against Hull", "", "Moisture Deficit", "Borealis", "Surface Tension", "Precipitation", "Oscillation", "Coalescence", "Double Rainbow", "Through a Cloud, Darkly", "Relative Humidity", "Evapotranspiration", "Alluvial Plain", "Dehydration", "Hydrophobia", "The Rain Formerly Known as Purple", "Lacrimosum", "Island of Ignorance", "Intertropical", "Once in a Lullaby", "A Boat Made from a Sheet of Newspaper", "Flood Control")
+	designation = pick("Valliant Explorers Enforcing A Peace", "The Wave Apon A Shore", "Shells Sailing Against Hull", "Ekane's Eternal Tide", "In The Dark, Shining For All", "A Energetic Pulsar Dueling", "Warriors of Mede Defending Far", "The Calm Before The Storm", "Dancing Amongst The Spores Of The Sky", "Coalescence Of The New Unto Old", "Heroes Of A Frontier Yet Tamed", "The Kin of Anu Venturing Far", "Conflict Birthing Anew The World", "Establishers Of Order In Chaos", "And As The Eternal Knew", "And So The Valiant Defended", "The Grieving Song", "Strength In Their Numbers", "A Day To Be Remembered", "When Space Echoed Out In Its Pain", "The Once To Be, Now Again", "The Library Of The Valiant", "Those Who Are Never Afraid Cannot Be Felled", "Hierotheria's Children Serving Far")
 	..()
 
 // --------------------------------------------------- shuttle
@@ -95,19 +95,32 @@
 	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/hieropatrol_shuttle
 
 /datum/shuttle/autodock/overmap/hieropatrol_shuttle
-	name = /obj/effect/overmap/visitable/ship/landable/hieropatrol_shuttle
+	name = "Rotunnkc Compact Corvette Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/hieropatrol)
-	dock_target = "airlock_hieropatrol_shuttle"
-	current_location = "nav_hieropatrol_shuttle_dock"
-	landmark_transition = "nav_hieropatrol_shuttle_transit"
+	current_location = "hieropatrol_shuttle_nav_hangar"
+	landmark_transition = "hieropatrol_shuttle_nav_transit"
+	dock_target = "airlock_hieropatrol_shuttle_shuttle"
 	range = 1
-	fuel_consumption = 4
-	logging_home_tag = "nav_hieropatrol_shuttle_dock"
+	fuel_consumption = 2
 	defer_initialisation = TRUE
 
-/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol
-	name = /obj/effect/overmap/visitable/ship/landable/hieropatrol_shuttle::shuttle
-	shuttle_tag = /obj/effect/overmap/visitable/ship/landable/hieropatrol_shuttle::shuttle
-	master_tag = "airlock_hieropatrol_shuttle"
+// shuttle airlock
+/obj/effect/map_effect/marker/airlock/shuttle/hieropatrol_shuttle
+	name = "Rotunnkc Compact Corvette Shuttle"
+	shuttle_tag = "Rotunnkc Compact Corvette Shuttle"
+	master_tag = "airlock_hieropatrol_shuttle_shuttle"
 	cycle_to_external_air = TRUE
+
+/obj/effect/shuttle_landmark/hieropatrol_shuttle/hangar
+	name = "Rotunnkc Compact Corvette - Hangar"
+	landmark_tag = "hieropatrol_shuttle_nav_hangar"
+	docking_controller = "hieropatrol_shuttle_hangar"
+	base_turf = /turf/space
+	base_area = /area/space
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/hieropatrol_shuttle/transit
+	name = "In transit"
+	landmark_tag = "hieropatrol_shuttle_nav_transit"
+	base_turf = /turf/space/transit/north
