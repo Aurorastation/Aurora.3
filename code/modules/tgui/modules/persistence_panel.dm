@@ -10,6 +10,7 @@
 /datum/tgui_module/persistence_panel/ui_data(mob/user)
 	var/list/data = list()
 	data["status_initialized"] = SSpersistence.init_success
+	data["map_supported"] = SSpersistence.map_supports_persistence
 	data["saving_active"] = !SSpersistence.prevent_saving
 	data["objects_tracked"] = length(SSpersistence.object_track_register)
 	data["records_cached"] = SSpersistence.history_cache_count
