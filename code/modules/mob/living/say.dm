@@ -216,6 +216,78 @@ var/list/channel_to_radio_key = new
 		listeners -= M
 	return heard
 
+/// Returns player mobs who can hear spoken speech despite not being in the speaker's view.
+/mob/living/proc/get_offscreen_speech_listeners(datum/say_message/msg, list/listeners)
+	. = list()
+	if(msg.whisper)
+		return
+
+	var/turf/speaker_turf = get_turf(src)
+	if(!speaker_turf)
+		return
+
+	var/message = msg.to_string()
+	var/ending = copytext(message, length(message))
+	var/pre_ending = copytext(message, length(message) - 1, length(message))
+	var/is_yelling = ending == "!"
+	var/is_shouting = is_yelling && pre_ending == "!"
+
+	// Only yells and shouts extend beyond the standard view. Do not widen
+	// speech whose range was reduced by environmental conditions.
+	var/offscreen_message_range = msg.message_range
+	if(msg.message_range >= world.view)
+		if(is_shouting)
+			offscreen_message_range = world.view + 14
+		else if(is_yelling)
+			offscreen_message_range = world.view + 7
+
+	var/turf/speaker_ceiling = GET_TURF_ABOVE(speaker_turf)
+	var/speaker_has_ceiling = !speaker_ceiling || !istransparentturf(speaker_ceiling)
+
+	for(var/mob/player as anything in GLOB.player_list)
+		var/turf/listener_turf = get_turf(player)
+		if(!listener_turf || (player in listeners))
+			continue
+
+		if(listener_turf.z == speaker_turf.z)
+			if(is_yelling && get_dist(listener_turf, speaker_turf) <= offscreen_message_range)
+				. |= player
+			continue
+
+		// Ghosts using nearby-only hearing should not receive map-wide speech
+		// through the connected Z stack.
+		if(isghost(player) && !(player.client?.prefs.toggles & CHAT_GHOSTEARS))
+			if(abs(listener_turf.z - speaker_turf.z) > 1 || max(abs(listener_turf.x - speaker_turf.x), abs(listener_turf.y - speaker_turf.y)) > offscreen_message_range)
+				continue
+
+		if(!AreConnectedZLevels(speaker_turf.z, listener_turf.z))
+			continue
+
+		// A double-exclamation shout carries throughout the connected Z stack.
+		if(is_shouting)
+			. |= player
+			continue
+
+		// A single-exclamation yell carries through obstructions to adjacent levels.
+		if(is_yelling)
+			if(abs(listener_turf.z - speaker_turf.z) == 1)
+				. |= player
+			continue
+
+		// Ordinary speech needs an open vertical sightline between adjacent levels.
+		if(listener_turf.z > speaker_turf.z)
+			if(!speaker_has_ceiling && (listener_turf in view(world.view, speaker_ceiling)))
+				. |= player
+			continue
+
+		var/turf/listener_ceiling = GET_TURF_ABOVE(listener_turf)
+		var/listener_has_ceiling = !listener_ceiling || !istransparentturf(listener_ceiling)
+		if(!listener_has_ceiling && (speaker_turf in view(world.view, listener_ceiling)))
+			. |= player
+
+/mob/living/simple_animal/get_offscreen_speech_listeners()
+	return list()
+
 /// Builds and animates the speech bubble over the speaker for the given clients.
 /mob/living/proc/show_speech_bubble(datum/say_message/msg, message, list/client/show_to)
 	var/speech_bubble_state = check_speech_punctuation_state(message)
@@ -364,6 +436,9 @@ var/list/channel_to_radio_key = new
 
 		var/sensitive_listener = get_intent_listeners(src, msg.message_range + 1)
 		listening = mergelists(listening, sensitive_listener, TRUE)
+
+	msg.offscreen_listeners = get_offscreen_speech_listeners(msg, listening)
+	listening |= msg.offscreen_listeners
 
 	if(client)
 		for (var/mob/player_mob in GLOB.player_list)
