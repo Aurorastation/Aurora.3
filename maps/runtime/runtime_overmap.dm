@@ -39,7 +39,6 @@
 	dock_target = "airlock_runtime_shuttle"
 	current_location = "nav_runtime_dock"
 	landmark_transition = "nav_transit_runtime"
-	logging_home_tag = "nav_runtime_dock"
 	range = 1
 	fuel_consumption = 4
 	ceiling_type = /turf/simulated/floor/shuttle_ceiling

@@ -75,7 +75,6 @@
 	landmark_transition = "nav_transit_tajara_safehouse"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tajara_safehouse"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tajara_safehouse_shuttle/hangar

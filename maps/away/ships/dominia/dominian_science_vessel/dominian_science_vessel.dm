@@ -132,7 +132,6 @@
 	dock_target = "airlock_dominian_science_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_dominian_science_vessel"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/dominian_science_shuttle/hangar

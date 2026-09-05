@@ -246,7 +246,6 @@
 
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_iac"
 
 	defer_initialisation = TRUE
 

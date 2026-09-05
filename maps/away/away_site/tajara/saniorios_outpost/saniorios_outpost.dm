@@ -83,7 +83,6 @@
 	landmark_transition = "nav_transit_saniorios_outpost"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_saniorios_outpost"
 	dock_target = "saniorios_outpost"
 	defer_initialisation = TRUE
 

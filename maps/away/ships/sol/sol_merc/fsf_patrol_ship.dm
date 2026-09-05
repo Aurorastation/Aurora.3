@@ -134,7 +134,6 @@
 	landmark_transition = "nav_transit_fsf_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_fsf"
 	dock_target = "airlock_fsf_shuttle"
 	defer_initialisation = TRUE
 

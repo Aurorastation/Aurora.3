@@ -107,7 +107,6 @@
 	current_location = "nav_izharshan_space"
 	dock_target = "unathi_pirate_izharshan"
 	landmark_transition = "nav_izharshan_transit"
-	logging_home_tag = "nav_izharshan_space"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/unathi_pirate_izharshan
