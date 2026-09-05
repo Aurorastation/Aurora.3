@@ -31,7 +31,7 @@
 
 	extra_languages = list(LANGUAGE_UNATHI)
 	outfit = /obj/outfit/admin/moghes_diona_trader
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
 

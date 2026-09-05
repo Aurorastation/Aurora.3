@@ -73,9 +73,9 @@
 	mid_length = 1.8 SECONDS
 	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
 	ignore_walls = FALSE
-	volume = 35
-	falloff_exponent = 5
-	falloff_distance = 3
+	volume = 3
+	falloff_exponent = 8
+	falloff_distance = 2
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /datum/looping_sound/computer
@@ -104,8 +104,8 @@
 /datum/looping_sound/gravgen
 	mid_sounds = list('sound/machines/gravgen/gravgen_mid1.ogg' = 1, 'sound/machines/gravgen/gravgen_mid2.ogg' = 1, 'sound/machines/gravgen/gravgen_mid3.ogg' = 1, 'sound/machines/gravgen/gravgen_mid4.ogg' = 1)
 	mid_length = 1.8 SECONDS
-	extra_range = 10
-	volume = 70
+	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
+	volume = 20
 	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

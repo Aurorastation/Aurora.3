@@ -546,20 +546,20 @@
 			var/obj/item/organ/external/l_foot = get_organ(BP_L_FOOT)
 			var/obj/item/organ/external/r_foot = get_organ(BP_R_FOOT)
 
-			if(prob(50) && l_foot && l_foot.dislocated != -1)
+			if(prob(50) && l_foot && LIMB_GET_DISLOCATED(l_foot) != -1)
 				fall_message("left ankle", "bends unnaturally")
 				l_foot.dislocate(TRUE)
-			else if(r_foot && r_foot.dislocated != -1)
+			else if(r_foot && LIMB_GET_DISLOCATED(r_foot) != -1)
 				fall_message("right ankle", "bends unnaturally")
 				r_foot.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_leg = get_organ(BP_L_LEG)
 			var/obj/item/organ/external/r_leg = get_organ(BP_R_LEG)
 
-			if(prob(50) && l_leg && l_leg.dislocated != -1)
+			if(prob(50) && l_leg && LIMB_GET_DISLOCATED(l_leg) != -1)
 				fall_message("left knee", "caves in")
 				l_leg.dislocate(TRUE)
-			else if(r_leg && r_leg.dislocated != -1)
+			else if(r_leg && LIMB_GET_DISLOCATED(r_leg) != -1)
 				fall_message("right knee", "caves in")
 				l_leg.dislocate(TRUE)
 
@@ -589,20 +589,20 @@
 			var/obj/item/organ/external/l_hand = get_organ(BP_L_HAND)
 			var/obj/item/organ/external/r_hand = get_organ(BP_R_HAND)
 
-			if(prob(50) && l_hand && l_hand.dislocated != -1)
+			if(prob(50) && l_hand && LIMB_GET_DISLOCATED(l_hand) != -1)
 				fall_message("left wrist", "bends unnaturally")
 				l_hand.dislocate(TRUE)
-			else if(r_hand && r_hand.dislocated != -1)
+			else if(r_hand && LIMB_GET_DISLOCATED(r_hand) != -1)
 				fall_message("right wrist", "bends unnaturally")
 				r_hand.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_arm = get_organ(BP_L_ARM)
 			var/obj/item/organ/external/r_arm = get_organ(BP_R_ARM)
 
-			if(prob(50) && l_arm && l_arm.dislocated != -1)
+			if(prob(50) && l_arm && LIMB_GET_DISLOCATED(l_arm) != -1)
 				fall_message("left elbow", "caves in")
 				l_arm.dislocate(TRUE)
-			else if(r_arm && r_arm.dislocated != -1)
+			else if(r_arm && LIMB_GET_DISLOCATED(r_arm) != -1)
 				fall_message("right elbow", "caves in")
 				r_arm.dislocate(TRUE)
 
@@ -612,7 +612,7 @@
 			SPAN_DANGER("With a loud thud, you land on your head. Hard."), "You hear a thud!")
 
 		var/obj/item/organ/external/head = get_organ(BP_HEAD)
-		if(prob(20) && head && head.dislocated != -1)
+		if(prob(20) && head && LIMB_GET_DISLOCATED(head) != -1)
 			fall_message("jaw", "cracks loose")
 			head.dislocate(TRUE)
 

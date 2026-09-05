@@ -19,6 +19,8 @@
 	var/blood_level = 0
 
 	var/requires_surgery_compatibility = TRUE
+	/// Whether this step may be performed on oneself while standing and away from an operating surface.
+	var/standing_self_surgery = FALSE
 
 	/**
 	 * The associative list of skills and their paired requirement levels to be able to perform a given surgery.
@@ -40,6 +42,13 @@
 		if(istype(tool,T))
 			return allowed_tools[T]
 	return FALSE
+
+/singleton/surgery_step/proc/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
+	return skill_requirements
+
+/// Returns the time required to perform this step after step-specific user and target modifiers.
+/singleton/surgery_step/proc/get_surgery_time(mob/living/user, mob/living/carbon/human/target)
+	return base_surgery_time
 
 /// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
@@ -104,7 +113,7 @@
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 
-/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE)
+/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE, var/standing_self_surgery_only = FALSE)
 	// Check for the Hippocratic oath.
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
@@ -124,10 +133,16 @@
 
 	// What surgeries does our tool/target enable?
 	var/list/possible_surgeries
+	var/is_surgery_tool = FALSE
 	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/decl in all_surgeries)
 		var/singleton/surgery_step/S = all_surgeries[decl]
-		if(S.tool_quality(tool) && S.can_use(user, M, zone, tool))
+		if(standing_self_surgery_only && !S.standing_self_surgery)
+			continue
+		if(!S.tool_quality(tool))
+			continue
+		is_surgery_tool = TRUE
+		if(S.can_use(user, M, zone, tool))
 			LAZYSET(possible_surgeries, S, TRUE)
 
 	// Which surgery, if any, do we actually want to do?
@@ -140,13 +155,20 @@
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
-		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
+		if(standing_self_surgery_only)
+			return FALSE
+		var/can_repair_externally = FALSE
+		if(user.a_intent == I_HELP && istype(tool, /obj/item/weldingtool) && ishuman(M))
+			var/mob/living/carbon/human/human_target = M
+			var/obj/item/organ/external/affected = human_target.get_organ(zone)
+			can_repair_externally = affected?.status & ORGAN_ASSISTED
+		var/normal_attack_is_harmful = tool.force && !(tool.item_flags & ITEM_FLAG_NO_BLUDGEON) && !can_repair_externally
+		if((is_surgery_tool && normal_attack_is_harmful) || (tool.item_flags & ITEM_FLAG_SURGERY)) //Is this supposed to be used for surgery?
 			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
 			return TRUE
 		return FALSE //Just do the normal use for the tool instead
-
 	// Otherwise we can make a start on surgery!
-	else if(istype(M) && !QDELETED(M) && tool)
+	if(istype(M) && !QDELETED(M) && tool)
 		// Double-check this in case it changed between initial check and now.
 		if(zone in M.op_stage.in_progress)
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
@@ -155,7 +177,7 @@
 			S.begin_step(user, M, zone, tool)
 
 			// Get the base surgery time before modifiers.
-			var/duration = S.base_surgery_time
+			var/duration = S.get_surgery_time(user, M)
 
 			// Get the base surgery success rate based on tools.
 			// This should eventually be reworked to use ToolQualityComponents when we add that.
@@ -165,7 +187,7 @@
 			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
 
 			// Skill modifier checks
-			for (var/skill_comp, required_level in S.skill_requirements)
+			for (var/skill_comp, required_level in S.get_skill_requirements(user, M))
 				var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
 				// Null condition handles NPCs and Antags that won't have the skill setup.
 				if (!isnull(skill_level))

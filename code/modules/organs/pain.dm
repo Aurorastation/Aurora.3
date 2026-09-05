@@ -7,7 +7,7 @@
 // power decides how much painkillers will stop the message
 // force means it ignores anti-spam timer
 /mob/living/carbon/proc/custom_pain(var/message, var/power, var/force, var/obj/item/organ/external/affecting, var/nohalloss)
-	if(!message || stat || !can_feel_pain() || chem_effects[CE_PAINKILLER] > power)
+	if(!message || stat || !can_feel_pain() || (affecting && !ORGAN_CAN_FEEL_PAIN(affecting)) || chem_effects[CE_PAINKILLER] > power)
 		return 0
 
 	power -= chem_effects[CE_PAINKILLER]/2	//Take the edge off.
@@ -69,7 +69,7 @@
 		if(maxdam > 50 && prob(maxdam / 5))
 			to_chat(src, SPAN_WARNING("A bolt of pain shoots through your body, causing your hands to spasm!"))
 			drop_item()
-		var/burning = damaged_organ.burn_dam > damaged_organ.brute_dam
+		var/burning = LIMB_GET_BURN_DAMAGE(damaged_organ) > LIMB_GET_BRUTE_DAMAGE(damaged_organ)
 		var/msg
 		switch(maxdam)
 			if(1 to 10)
