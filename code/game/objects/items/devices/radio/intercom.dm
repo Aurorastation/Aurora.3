@@ -537,3 +537,34 @@ pixel_x = 8;
 #undef PRESET_SOUTH
 #undef PRESET_WEST
 #undef PRESET_EAST
+
+// Used solely for the Gunnery Wing. They should be replaced by communicators if they ever get ported
+/obj/item/radio/intercom/phone
+	name = "red phone"
+	desc = "A secure radio communications link housed within a red telephone frame."
+	desc_extended = "Has a button panel for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \
+		Otherwise, you would likely just use a handheld shortwave radio instead."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "red_phone"
+
+/obj/item/radio/intercom/phone/Initialize()
+	. = ..()
+	set_broadcasting(FALSE)
+	set_listening(TRUE)
+
+/obj/item/radio/intercom/phone/update_icon()
+	ClearOverlays()
+
+/obj/item/radio/intercom/phone/fire_control // Used by Command/Bridge Crew to communicate with loaders from the Fire Control Compartment
+	name = "Fire Control red phone"
+
+/obj/item/radio/intercom/phone/fire_control/Initialize()
+	. = ..()
+	set_frequency(SUP_FREQ)
+	internal_channels = list(
+		num2text(PUB_FREQ) = list(),
+		num2text(ENT_FREQ) = list(),
+		num2text(COMM_FREQ) = list(),
+		num2text(ENG_FREQ) = list(),
+		num2text(SUP_FREQ) = list()
+	)
