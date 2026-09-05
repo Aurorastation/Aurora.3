@@ -74,6 +74,7 @@
 
 	if(error_check())
 		update_use_power(POWER_USE_OFF)
+		return 0
 
 	if((stat & (NOPOWER|BROKEN)))
 		return 0
