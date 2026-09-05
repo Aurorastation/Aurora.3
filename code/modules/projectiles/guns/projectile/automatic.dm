@@ -820,6 +820,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	set src in usr
 
 	if(wielded)
+		var/cancelled = FALSE
+		SEND_SIGNAL(usr, COMSIG_GUN_SCOPE, src, &cancelled, COMSIG_GUN_SCOPE)
+		if(cancelled)
+			return
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
