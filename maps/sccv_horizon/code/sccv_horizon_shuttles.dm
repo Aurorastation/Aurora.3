@@ -113,6 +113,7 @@
 	range = 2
 	fuel_consumption = 4
 	logging_home_tag = "nav_hangar_intrepid"
+	can_rotate = TRUE
 
 /obj/effect/shuttle_landmark/intrepid/hangar
 	name = "First Deck Intrepid Hangar Bay"
@@ -161,6 +162,7 @@
 	range = 1
 	fuel_consumption = 3
 	logging_home_tag = "nav_hangar_quark"
+	can_rotate = TRUE
 
 /obj/effect/shuttle_landmark/quark/hangar
 	name = "First Deck Quark Hangar Bay"

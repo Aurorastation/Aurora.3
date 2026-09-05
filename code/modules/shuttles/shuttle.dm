@@ -37,6 +37,11 @@
 	var/squishes = TRUE //decides whether or not things get squished when it moves.
 	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not
 
+	/// Whether the shuttle can rotate.
+	/// If true, the shuttle can rotate, and is guaranteed to look correct in all orientations.
+	/// If false, the shuttle will not rotate and will maintain its original orientation always.
+	var/can_rotate = FALSE
+
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
 	if(_name)
@@ -323,7 +328,10 @@
 /datum/shuttle/proc/get_rotation(obj/effect/shuttle_landmark/destination)
 	if(!(current_location.dir in GLOB.cardinals) || !(destination.dir in GLOB.cardinals))
 		CRASH("Shuttle [name] attempted to move between non-cardinal landmarks: [current_location] and [destination].")
-	return SIMPLIFY_DEGREES(dir2angle(destination.dir) - dir2angle(current_location.dir))
+	if(can_rotate)
+		return SIMPLIFY_DEGREES(dir2angle(destination.dir) - dir2angle(current_location.dir))
+	else
+		return 0
 
 /datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
 	UnregisterSignal(area_to_remove, COMSIG_QDELETING)

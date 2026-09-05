@@ -621,7 +621,6 @@
 /obj/structure/machinery/shipsensors/strong/scc_shuttle //Exclusively for the Horizon scout shuttle.
 	icon_state = "sensors"
 	icon = 'icons/obj/spaceship/scc/shuttle_sensors.dmi'
-	rotate_icon_with_shuttle = TRUE
 	component_types = list(
 		/obj/item/circuitboard/shipsensors/strong/scc,
 		/obj/item/stock_parts/subspace/ansible,
