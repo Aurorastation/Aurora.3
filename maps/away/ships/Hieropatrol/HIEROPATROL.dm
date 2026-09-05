@@ -50,10 +50,12 @@
 	sizeclass = "Starbident Patrol Ship"
 	shiptype = "Patrol Ship"
 
+	var/list/designations = list("Valiant Explorers Enforcing A Peace", "The Wave Apon A Shore", "Shells Sailing Against Hull", "Ekane's Eternal Tide", "In The Dark, Shining For All", "A Energetic Pulsar Dueling", "Warriors of Mede Defending Far", "The Calm Before The Storm", "Dancing Amongst The Spores Of The Sky", "Coalescence Of The New Unto Old", "Heroes Of A Frontier Yet Tamed", "The Kin of Anu Venturing Far", "Conflict Birthing Anew The World", "Establishers Of Order In Chaos", "And As The Eternal Knew", "And So The Valiant Defended", "The Grieving Song", "Strength In Their Numbers", "A Day To Be Remembered", "When Space Echoed Out In Its Pain", "The Once To Be, Now Again", "The Library Of The Valiant", "Those Who Are Never Afraid Cannot Be Felled", "Hierotheria's Children Serving Far")
 
 /obj/effect/overmap/visitable/ship/hieropatrol/New()
-	designation = pick("Valliant Explorers Enforcing A Peace", "The Wave Apon A Shore", "Shells Sailing Against Hull", "Ekane's Eternal Tide", "In The Dark, Shining For All", "A Energetic Pulsar Dueling", "Warriors of Mede Defending Far", "The Calm Before The Storm", "Dancing Amongst The Spores Of The Sky", "Coalescence Of The New Unto Old", "Heroes Of A Frontier Yet Tamed", "The Kin of Anu Venturing Far", "Conflict Birthing Anew The World", "Establishers Of Order In Chaos", "And As The Eternal Knew", "And So The Valiant Defended", "The Grieving Song", "Strength In Their Numbers", "A Day To Be Remembered", "When Space Echoed Out In Its Pain", "The Once To Be, Now Again", "The Library Of The Valiant", "Those Who Are Never Afraid Cannot Be Felled", "Hierotheria's Children Serving Far")
+	designation = pick(designations)
 	..()
+
 
 // --------------------------------------------------- shuttle
 
