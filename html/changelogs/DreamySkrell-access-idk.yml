@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Allows access datums to be used in `req_access` and `req_one_access` vars."
