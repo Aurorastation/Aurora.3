@@ -24237,10 +24237,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "dhq" = (
 /obj/structure/machinery/power/sensor{
@@ -57431,15 +57428,12 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
 /obj/structure/disposalpipe/sortjunction/flipped{
 	dir = 8;
 	name = "Chemistry";
 	sortType = "Chemistry"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "hyz" = (
 /obj/structure/machinery/atmospherics/binary/pump/fuel{
@@ -67131,10 +67125,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "iLJ" = (
 /obj/item/modular_computer/console/preset/command,
@@ -80013,10 +80004,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "kue" = (
 /obj/structure/machinery/door/airlock/hatch{
@@ -84475,10 +84463,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "kWb" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -105896,10 +105881,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "nMh" = (
 /obj/structure/disposalpipe/segment/mainline{
@@ -151231,10 +151213,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "tAf" = (
 /obj/structure/machinery/door/airlock/centcom{
@@ -152792,10 +152771,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "tKz" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -162828,10 +162804,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
 "uZF" = (
 /obj/effect/floor_decal/industrial/warning{
