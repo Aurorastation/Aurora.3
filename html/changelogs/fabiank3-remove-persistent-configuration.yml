@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - server: "Replaced the persistent_configuration (not related to gameplay persistence) subsystem with newly added registry subsystem."

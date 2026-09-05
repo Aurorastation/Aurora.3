@@ -77,9 +77,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	var/static/current_ticklimit = TICK_LIMIT_RUNNING
 
 /datum/controller/master/New()
-	// if(!GLOB.config)
-	// 	SSpersistent_configuration = new
-	// Highlander-style: there can only be one! Kill off the old and replace it with the new.
 
 	if(!random_seed)
 		#ifdef UNIT_TEST

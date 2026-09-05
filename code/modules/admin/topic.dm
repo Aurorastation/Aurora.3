@@ -444,7 +444,7 @@
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the mode as [GLOB.master_mode]."), 1)
 		to_world(SPAN_NOTICE("<b>The mode is now: [GLOB.master_mode]</b>"))
 		Game() // updates the main game menu
-		SSpersistent_configuration.last_gamemode = GLOB.master_mode
+		SSregistry.setValue("last_gamemode", GLOB.master_mode)
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
