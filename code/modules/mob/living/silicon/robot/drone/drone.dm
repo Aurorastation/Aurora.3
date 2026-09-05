@@ -466,7 +466,7 @@
 //Easiest to check this here, then check again in the robot proc.
 //Standard robots use config for crit, which is somewhat excessive for these guys.
 //Drones killed by damage will gib.
-/mob/living/silicon/robot/drone/handle_regular_status_updates()
+/mob/living/silicon/robot/drone/handle_regular_status_updates(seconds_per_tick)
 	if(health <= -maxhealth && src.stat != DEAD)
 		gib()
 		return
