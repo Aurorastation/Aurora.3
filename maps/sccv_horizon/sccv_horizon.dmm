@@ -84726,15 +84726,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/weapons/longbow)
 "kXL" = (
-/obj/structure/machinery/shipsensors/weak/scc_shuttle{
-	pixel_y = -15
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/machinery/shipsensors/weak,
 /turf/simulated/floor/reinforced,
 /area/horizon/shuttle/quark/cockpit)
 "kXM" = (
@@ -107104,12 +107102,10 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/teleporter)
 "nTN" = (
-/obj/structure/machinery/iff_beacon/horizon/shuttle{
-	pixel_y = -15
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/structure/machinery/iff_beacon/horizon,
 /turf/simulated/floor/reinforced,
 /area/horizon/shuttle/quark/cockpit)
 "nTO" = (
