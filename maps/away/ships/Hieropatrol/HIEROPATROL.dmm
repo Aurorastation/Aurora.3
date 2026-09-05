@@ -1094,6 +1094,10 @@
 	},
 /turf/simulated/wall/diona,
 /area/hieropatrol/weapon/francisa/ammo)
+"tn" = (
+/obj/effect/shuttle_landmark/hieropatrol/aft,
+/turf/template_noop,
+/area/space/rootsong)
 "tq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1913,6 +1917,10 @@
 	},
 /turf/simulated/wall/diona,
 /area/hieropatrol/medical)
+"HS" = (
+/obj/effect/shuttle_landmark/hieropatrol/fore,
+/turf/template_noop,
+/area/space/rootsong)
 "HT" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -1931,6 +1939,10 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/hieropatrol)
+"HX" = (
+/obj/effect/shuttle_landmark/hieropatrol/port,
+/turf/template_noop,
+/area/space/rootsong)
 "Id" = (
 /turf/simulated/wall/diona,
 /area/hieropatrol/engineer/power)
@@ -2433,6 +2445,10 @@
 /obj/effect/map_effect/marker/door_paint/stripe/green,
 /turf/simulated/floor/diona/airless,
 /area/hieropatrol/dorm/kitchen)
+"Ol" = (
+/obj/effect/shuttle_landmark/hieropatrol/starboard,
+/turf/template_noop,
+/area/space/rootsong)
 "Oq" = (
 /obj/structure/sign/flag/consortium{
 	pixel_x = 32
@@ -6708,7 +6724,7 @@ mK
 mK
 mK
 mK
-mK
+Ol
 mK
 mK
 mK
@@ -12549,7 +12565,7 @@ mK
 mK
 mK
 mK
-mK
+HS
 mK
 mK
 mK
@@ -15922,7 +15938,7 @@ mK
 mK
 mK
 mK
-mK
+tn
 mK
 mK
 mK
@@ -22076,7 +22092,7 @@ mK
 mK
 mK
 mK
-mK
+HX
 mK
 mK
 mK

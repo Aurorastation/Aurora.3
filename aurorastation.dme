@@ -4311,6 +4311,7 @@
 #include "maps\away\ships\hieropatrol\HIEROPATROL.dm"
 #include "maps\away\ships\hieropatrol\HIEROPATROL_areas.dm"
 #include "maps\away\ships\hieropatrol\HIEROPATROL_ghostroles.dm"
+#include "maps\away\ships\hieropatrol\HIEROPATROL_landmarks.dm"
 #include "maps\away\ships\hieropatrol\HIEROPATROL.dmm"
 #include "maps\away\ships\himeo\himeo_patrol_ship.dm"
 #include "maps\away\ships\himeo\himeo_patrol_ship_areas.dm"
