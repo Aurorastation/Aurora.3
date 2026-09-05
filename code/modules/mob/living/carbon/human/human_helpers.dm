@@ -343,6 +343,7 @@
 	return max(EAR_PROTECTION_REDUCED, . - (get_hearing_sensitivity() / 2))
 
 /mob/living/carbon/human/noise_act(intensity = EAR_PROTECTION_MODERATE, stun_pwr = 0, damage_pwr = 0, deafen_pwr = 0)
+	var/hearing_protected = HAS_TRAIT(src, TRAIT_DEAFNESS_IMMUNITY)
 	intensity -= get_hearing_protection()
 
 	if(intensity <= 0)
@@ -355,7 +356,8 @@
 		var/ear_damage = damage_pwr * intensity
 		var/deaf = deafen_pwr * intensity
 		adjustEarDamage(rand(1, ear_damage), deaf, TRUE)
-		sound_to(src, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
+		if(!hearing_protected)
+			sound_to(src, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
 
 	return intensity
 

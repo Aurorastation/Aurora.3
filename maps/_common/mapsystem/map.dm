@@ -299,6 +299,9 @@
 	log_admin("Unit testing, so not loading away sites")
 	return // don't build away sites during unit testing
 #else
+	if(SSticker?.mode && !SSticker.mode.allow_away_sites)
+		log_admin("Not loading away sites because the current game mode disables them")
+		return
 	if(!GLOB.config.awaysites["enable_loading"])
 		log_admin("Not loading away sites because the config specifies not to")
 		return

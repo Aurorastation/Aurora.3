@@ -5,7 +5,38 @@
 #define GUARDIAN 8
 #define HARVESTER 16
 
+/datum/ai_holder/simple_animal/hivebot/beacon
+	stand_ground = TRUE
+	pointblank = TRUE
+	conserve_ammo = TRUE
+	wander = FALSE
+	var/activation_started = FALSE
+
+/datum/ai_holder/simple_animal/hivebot/beacon/handle_special_tactic()
+	var/mob/living/simple_animal/hostile/hivebotbeacon/beacon = holder
+	if(beacon.activated != 0)
+		activation_started = FALSE
+	if(target && beacon.activated == 0)
+		activate()
+
+/datum/ai_holder/simple_animal/hivebot/beacon/handle_special_strategical()
+	var/mob/living/simple_animal/hostile/hivebotbeacon/beacon = holder
+	if(beacon.activated == 1 && beacon.icon_state != "hivebotbeacon_active")
+		beacon.icon_state = "hivebotbeacon_active"
+	if(beacon.AIMaximumHivebotsReached() && beacon.activated == 1 && length(beacon.linked_bots) < beacon.maximum_linked_and_alive_hivebots)
+		beacon.AIClearMaximumHivebotsReached()
+		beacon.calc_spawn_delay()
+		addtimer(CALLBACK(beacon, TYPE_PROC_REF(/mob/living/simple_animal/hostile/hivebotbeacon, warpbots)), beacon.AIGetSpawnDelay())
+
+/datum/ai_holder/simple_animal/hivebot/beacon/proc/activate()
+	var/mob/living/simple_animal/hostile/hivebotbeacon/beacon = holder
+	if(activation_started || beacon.activated != 0)
+		return
+	activation_started = TRUE
+	INVOKE_ASYNC(beacon, TYPE_PROC_REF(/mob/living/simple_animal/hostile/hivebotbeacon, activate_beacon))
+
 /mob/living/simple_animal/hostile/hivebotbeacon
+	ai_holder_type = /datum/ai_holder/simple_animal/hivebot/beacon
 	name = "Hivebot beacon"
 	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
@@ -105,6 +136,15 @@
 	var/list/close_destinations = list()
 	var/area/latest_area
 
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/AIMaximumHivebotsReached()
+	return maximum_linked_and_alive_hivebots_reached
+
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/AIClearMaximumHivebotsReached()
+	maximum_linked_and_alive_hivebots_reached = FALSE
+
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/AIGetSpawnDelay()
+	return spawn_delay
+
 /mob/living/simple_animal/hostile/hivebotbeacon/Initialize(mapload)
 	. = ..()
 
@@ -119,7 +159,7 @@
 		S.start()
 		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
-		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
+		addtimer(CALLBACK(src, PROC_REF(request_ai_activation)), 450)
 
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
@@ -173,22 +213,9 @@
 	QDEL_IN(src, 0)
 	return
 
-/mob/living/simple_animal/hostile/hivebotbeacon/think()
-	. =..()
-	if(stance != HOSTILE_STANCE_IDLE && activated == 0)
-		activate_beacon()
-	else if(activated == 1 && icon_state != "hivebotbeacon_active")
-		icon_state = "hivebotbeacon_active"
-
-/mob/living/simple_animal/hostile/hivebotbeacon/MoveToTarget()
-	if(!stop_automated_movement)
-		stop_automated_movement = 1
-	if(last_found_target && (QDELETED(last_found_target) || SA_attackable(last_found_target) || !see_target(last_found_target)))
-		LoseTarget()
-	if(last_found_target in targets)
-		if(get_dist(src, last_found_target) <= 6)
-			GLOB.move_manager.stop_looping(src)
-			OpenFire(last_found_target)
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/request_ai_activation()
+	var/datum/ai_holder/simple_animal/hivebot/beacon/beacon_ai = ai_holder
+	beacon_ai?.activate()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/activate_beacon()
 	if(activated != 1)
@@ -216,8 +243,8 @@
 	. = ..()
 
 	if(activated != -1)
-		LoseTarget()
-		change_stance(HOSTILE_STANCE_TIRED)
+		ai_holder.clear_target()
+		ai_holder.set_stance(AI_STANCE_SPECIAL)
 		icon_state = "hivebotbeacon_off"
 		activated = -1
 		addtimer(CALLBACK(src, PROC_REF(wakeup)), 900)
@@ -237,9 +264,9 @@
 	if(QDELETED(src))
 		return
 
-	change_stance(HOSTILE_STANCE_IDLE)
+	ai_holder?.set_stance(AI_STANCE_IDLE)
 	activated = 0
-	activate_beacon()
+	request_ai_activation()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!total_hivebots_to_spawn)
@@ -325,16 +352,6 @@
 		spawn_delay = min(80, spawn_delay - (length(GLOB.player_list) * spawn_delay_to_playing_players_scaling_factor))
 
 	return
-
-/mob/living/simple_animal/hostile/hivebotbeacon/Life(seconds_per_tick, times_fired)
-	..()
-	if(wander)
-		wander = 0
-		stop_automated_movement = 1
-	if(maximum_linked_and_alive_hivebots_reached && activated == 1 && linked_bots.len < maximum_linked_and_alive_hivebots)
-		maximum_linked_and_alive_hivebots_reached = 0
-		calc_spawn_delay()
-		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
 
 /*################
 	SUBTYPES

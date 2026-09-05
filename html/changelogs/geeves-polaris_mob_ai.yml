@@ -1,0 +1,6 @@
+author: Geeves
+delete-after: True
+changes:
+  - rscadd: "Ported Polaris-style AI holders to simple animals and slimes, improving their movement, targeting, combat, retaliation, social behavior, and specialized abilities."
+  - rscadd: "Added Mob Onslaught, a non-canon 30-minute survival mode where escalating waves of hostile fauna converge on the Horizon's central ring. Weapons spawn in your lockers, you have a five minute grace period to get to the ring."
+

@@ -1,6 +1,31 @@
 
 
+/datum/ai_holder/simple_animal/hostile/carp
+
+/datum/ai_holder/simple_animal/hostile/carp/post_melee_attack(atom/the_target)
+	. = ..()
+	if(istype(the_target, /obj/effect/energy_field))
+		var/obj/effect/energy_field/field = the_target
+		field.damage_field(rand(1, 2))
+		holder.visible_message(SPAN_DANGER("\the [holder] bites \the [field]!"))
+		holder.do_attack_animation(field)
+
+/datum/ai_holder/simple_animal/hostile/carp/russian
+
+/datum/ai_holder/simple_animal/hostile/carp/russian/on_target_acquired(atom/new_target, atom/old_target)
+	holder.AIVisualEmote("spots a filthy capitalist!")
+
+/datum/ai_holder/simple_animal/hostile/carp/bloater
+
+/datum/ai_holder/simple_animal/hostile/carp/bloater/post_melee_attack(atom/the_target)
+	. = ..()
+	var/mob/living/simple_animal/hostile/carp/bloater/bloater = holder
+	bloater.AIPrimeExplosion()
+	remove_target(FALSE)
+	set_stance(AI_STANCE_SPECIAL)
+
 /mob/living/simple_animal/hostile/carp
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/carp
 	name = "space carp"
 	desc = "A ferocious, fang-bearing creature that resembles a fish."
 	desc_extended = "This specimen is a native to the Romanovich Cloud, and possesses a shimmering appearance to its scales. Much like other Cloud-faring creatures, this primarily thrives off of a \
@@ -73,40 +98,14 @@
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
 
-/mob/living/simple_animal/hostile/carp/MoveToTarget()
-	stop_automated_movement = 1
-	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (last_found_target in targets))
-		change_stance(HOSTILE_STANCE_ATTACKING)
-		GLOB.move_manager.move_to(src, last_found_target, 1, speed)
-		return 1
-	..()
-
-/mob/living/simple_animal/hostile/carp/AttackTarget()
-	stop_automated_movement = 1
-	if(istype(last_found_target, /obj/effect/energy_field) && !QDELETED(last_found_target) && (get_dist(src, last_found_target) <= 1))
-		AttackingTarget()
-		attacked_times += 1
-		return 1
-	return ..()
-
-/mob/living/simple_animal/hostile/carp/AttackingTarget()
-	. = ..()
-	if(.)
-		return
-	if(istype(last_found_target, /obj/effect/energy_field))
-		var/obj/effect/energy_field/e = last_found_target
-		e.damage_field(rand(1,2))
-		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
-		src.do_attack_animation(e)
-		return e
-
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
-	if(stance != HOSTILE_STANCE_ATTACKING || ON_ATTACK_COOLDOWN(src))
+	if(!(stance in list(HOSTILE_STANCE_ATTACK, HOSTILE_STANCE_ATTACKING)) || ON_ATTACK_COOLDOWN(src))
 		return FALSE
 
 	return ..()
 
 /mob/living/simple_animal/hostile/carp/russian
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"
 	desc = "A feared space carp, nicknamed as Ivan by the old spacemen of Tau Ceti."
 	icon_state = "carp_russian"
@@ -114,11 +113,6 @@
 	icon_dead = "carp_russian_dead"
 	maxhealth = 50 //stronk
 	health = 50
-
-/mob/living/simple_animal/hostile/carp/russian/FindTarget()
-	. = ..()
-	if(.)
-		custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
 
 /mob/living/simple_animal/hostile/carp/asteroid
 	icon_state = "carp_asteroid"
@@ -208,6 +202,7 @@
 	set_light(0)
 
 /mob/living/simple_animal/hostile/carp/bloater
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/carp/bloater
 	name = "bloater"
 	desc = "A fat, mineral-devouring creature frequently herded for mining expeditions. Its actual ability to dig is less valuable than its volatile nature, however."
 	icon = 'icons/mob/npc/large_space_xenofauna.dmi'
@@ -227,10 +222,7 @@
 
 	var/has_exploded = FALSE
 
-/mob/living/simple_animal/hostile/carp/bloater/AttackingTarget()
-	..()
-	LoseTarget()
-	change_stance(HOSTILE_STANCE_TIRED)
+/mob/living/simple_animal/hostile/carp/bloater/proc/AIPrimeExplosion()
 	stop_automated_movement = 1
 	wander = 0
 	if(has_exploded)

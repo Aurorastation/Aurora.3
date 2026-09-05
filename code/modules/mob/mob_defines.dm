@@ -337,3 +337,9 @@
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
 
 	var/thinking_enabled = FALSE
+	/// Polaris-style detachable AI mind. Null while this mob is player controlled or has no configured AI.
+	var/datum/ai_holder/ai_holder
+	/// Type instantiated into ai_holder during simple mob initialization.
+	var/ai_holder_type
+	/// Whether this mob currently belongs to the combat-speed mob AI subsystem.
+	var/is_fast_processing = FALSE

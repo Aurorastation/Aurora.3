@@ -1,4 +1,19 @@
+/datum/ai_holder/simple_animal/commanded
+
+/datum/ai_holder/simple_animal/commanded/handle_special_tactic()
+	var/mob/living/simple_animal/hostile/commanded/commanded = holder
+	while(length(commanded.command_buffer) >= 2)
+		var/mob/speaker = commanded.command_buffer[1]
+		var/text = commanded.command_buffer[2]
+		var/filtered_name = lowertext(html_decode(commanded.name))
+		var/filtered_short = lowertext(html_decode(commanded.short_name))
+		var/substring = commanded.get_command(text, list(filtered_name, filtered_short))
+		if(substring)
+			commanded.listen(speaker, substring)
+		commanded.command_buffer.Cut(1, 3)
+
 ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
+	ai_holder_type = /datum/ai_holder/simple_animal/commanded
 	name = "commanded"
 	var/short_name = null
 	stance = COMMANDED_STOP
@@ -23,6 +38,17 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 	. = ..()
 	if(!short_name)
 		short_name = name
+	if(has_AI() && stance == COMMANDED_STOP)
+		ai_holder.set_stance(AI_STANCE_SPECIAL)
+
+/mob/living/simple_animal/hostile/commanded/AISetLegacyStance(new_stance)
+	switch(new_stance)
+		if(AI_STANCE_FOLLOW)
+			stance = COMMANDED_FOLLOW
+		if(AI_STANCE_SPECIAL)
+			stance = COMMANDED_STOP
+		else
+			return ..()
 
 /mob/living/simple_animal/hostile/commanded/react_to_message(datum/say_message/msg)
 	if(thinking_enabled && !stat && ((msg.speaker in friends) || msg.speaker == master))
@@ -47,30 +73,23 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 		if(dd_hasprefix(cmdtext, name))
 			return copytext(cmdtext, length(name) + 1)
 
-/mob/living/simple_animal/hostile/commanded/think()
-	while(command_buffer.len > 0)
-		var/mob/speaker = command_buffer[1]
-		var/text = command_buffer[2]
-		var/filtered_name = lowertext(html_decode(name))
-		var/filtered_short = lowertext(html_decode(short_name))
-		var/substring = get_command(text, list(filtered_name, filtered_short))
-
-		if(substring)
-			listen(speaker, substring)
-
-		command_buffer.Remove(command_buffer[1],command_buffer[2])
-	..()
-	switch(stance)
-		if(COMMANDED_FOLLOW)
-			follow_target()
-		if(COMMANDED_STOP)
-			commanded_stop()
-
 /mob/living/simple_animal/hostile/commanded/change_stance(var/new_stance)
 	if(following_mob_ref)
 		var/mob/mob_to_follow = following_mob_ref.resolve()
 		UnregisterSignal(mob_to_follow, COMSIG_MOB_POINT)
 		following_mob_ref = null
+
+	if(has_AI())
+		switch(new_stance)
+			if(COMMANDED_STOP, COMMANDED_MISC)
+				ai_holder.set_leader(null)
+				ai_holder.set_stance(AI_STANCE_SPECIAL)
+				stance = new_stance
+			if(COMMANDED_FOLLOW)
+				ai_holder.set_stance(AI_STANCE_FOLLOW)
+			else
+				return ..()
+		return TRUE
 
 	. = ..()
 	if(!.)
@@ -88,37 +107,19 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 	..()
 	command_buffer.Cut()
 
-/mob/living/simple_animal/hostile/commanded/FindTarget(var/new_stance = HOSTILE_STANCE_ATTACK)
-	if(!allowed_targets.len)
-		return null
-	var/mode = "specific"
-	if(allowed_targets[1] == "everyone") //we have been given the golden gift of murdering everything. Except our master, of course. And our friends. So just mostly everyone.
-		mode = "everyone"
-	for(var/atom/A in targets)
-		var/mob/M = null
-		if(A == src)
-			continue
-		if(isliving(A))
-			M = A
-		if(M && M.stat)
-			continue
-		if(mode == "specific")
-			if(!(A in allowed_targets))
-				continue
-			change_stance(new_stance)
-			return A
-		else
-			if(M == master || (M in friends))
-				continue
-			change_stance(new_stance)
-			return A
+/mob/living/simple_animal/hostile/commanded/AIPickTarget(list/candidates, atom/current_target, atom/preferred_target)
+	if(!length(allowed_targets))
+		return
+	var/attack_everyone = allowed_targets[1] == "everyone"
+	var/list/commanded_targets = list()
+	for(var/atom/candidate as anything in candidates)
+		if(attack_everyone)
+			if(candidate != master && !(candidate in friends))
+				commanded_targets += candidate
+		else if(candidate in allowed_targets)
+			commanded_targets += candidate
+	return ..(commanded_targets, current_target, preferred_target)
 
-
-/mob/living/simple_animal/hostile/commanded/proc/follow_target()
-	stop_automated_movement = 1
-	var/mob/mob_to_follow = following_mob_ref?.resolve()
-	if(mob_to_follow && get_dist(src, mob_to_follow) <= 10)
-		walk_to(src, mob_to_follow, 1, speed)
 
 /mob/living/simple_animal/hostile/commanded/proc/commanded_stop() //basically a proc that runs whenever we are asked to stay put. Probably going to remain unused.
 	return
@@ -186,6 +187,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 /mob/living/simple_animal/hostile/commanded/proc/stay_command(var/mob/speaker,var/text)
 	unset_last_found_target()
 	change_stance(COMMANDED_STOP)
+	ai_holder?.set_leader(null)
 	stop_automated_movement = 1
 	walk_to(src, 0)
 	if(emote_hear && emote_hear.len)
@@ -195,6 +197,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 /mob/living/simple_animal/hostile/commanded/proc/stop_command(var/mob/speaker,var/text)
 	allowed_targets = list()
 	walk_to(src, 0)
+	ai_holder?.set_leader(null)
 	change_stance(HOSTILE_STANCE_IDLE)
 	stop_automated_movement = 0
 	if(emote_hear && emote_hear.len)
@@ -221,6 +224,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 	following_mob_ref = WEAKREF(mob_target)
 	friends |= mob_target
 	RegisterSignal(mob_target, COMSIG_MOB_POINT, PROC_REF(point_command))
+	ai_holder?.set_leader(mob_target)
 
 	return 1
 
@@ -311,15 +315,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 		unset_last_found_target()
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
-
-/mob/living/simple_animal/hostile/commanded/handle_attack_by(var/obj/item/O, var/mob/user)
-	..()
-	// We forgive our master
-	if(user == master)
-		unset_last_found_target()
-		change_stance(HOSTILE_STANCE_IDLE)
-		if(!istype(O, brush)) //we don't get sad if we're brushed!
-			audible_emote("[pick(sad_emote)].",0)
 
 /mob/living/simple_animal/hostile/commanded/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()

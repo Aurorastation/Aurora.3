@@ -1,6 +1,113 @@
 //Bees are spawned from an apiary, and will slowly die if it is destroyed.
 
+/datum/ai_holder/simple_animal/passive/bee
+	can_flee = FALSE
+	stand_ground = TRUE
+
+/datum/ai_holder/simple_animal/passive/bee/should_flee(force = FALSE)
+	return FALSE
+
+/datum/ai_holder/simple_animal/passive/bee/handle_special_tactic()
+	var/mob/living/simple_animal/bee/bees = holder
+	if(!target)
+		return
+	var/mob/living/carbon/human/sting_target = target
+	if(bees.feral <= 0 || !istype(sting_target) || !bees.verify_stingable(sting_target) || !(sting_target in view(5, bees)))
+		remove_target(FALSE)
+		return
+	bees.do_sting(sting_target)
+	if(!bees.Adjacent(sting_target) && world.time >= next_movement)
+		var/turf/target_turf = get_step(bees, get_dir(bees, sting_target))
+		if(target_turf && !DirBlocked(target_turf, get_dir(bees, sting_target)) && bees.AIMove(target_turf) == AI_MOVEMENT_SUCCESS)
+			next_movement = world.time + bees.AIMovementDelay()
+			if(prob(10))
+				bees.visible_message(SPAN_NOTICE("The bees swarm after [sting_target]!"))
+	if(prob(5))
+		bees.feral++
+
+/datum/ai_holder/simple_animal/passive/bee/handle_special_strategical()
+	var/mob/living/simple_animal/bee/bees = holder
+	if(bees.feral > 0 && !target && prob(bees.feral * 20))
+		bees.feral--
+	else if(bees.feral < 0)
+		bees.feral++
+
+	if(prob(2))
+		bees.audible_message("[SPAN_BOLD("\The [bees]")] [pick("buzz", "hum")].")
+		playsound(bees, pick('sound/effects/Buzz1.ogg', 'sound/effects/Buzz2.ogg'), 10, TRUE, -4)
+
+	if(bees.feral && isturf(bees.loc))
+		var/static/list/calmers = typecacheof(list(
+			/obj/effect/smoke,
+			/obj/effect/effect/water,
+			/obj/effect/effect/foam,
+			/obj/effect/effect/steam,
+			/obj/effect/mist
+		))
+		if(range_in_typecache(bees, 2, calmers))
+			if(bees.feral > 0)
+				bees.visible_message(SPAN_NOTICE("The bees calm down!"))
+			bees.feral = -15
+			remove_target(FALSE)
+
+	for(var/mob/living/simple_animal/bee/other_swarm in bees.loc)
+		if(other_swarm == bees)
+			continue
+		if(bees.feral > 0 && prob(50))
+			if(other_swarm.strength > bees.strength)
+				bees.mut = other_swarm.mut
+				bees.toxic = other_swarm.toxic
+			bees.strength += other_swarm.strength
+			other_swarm.strength = 0
+			qdel(other_swarm)
+			bees.update_icon()
+		else if(prob(10))
+			var/total_bees = other_swarm.strength + bees.strength
+			if(total_bees < 10)
+				other_swarm.strength = min(5, total_bees)
+				bees.strength = total_bees - other_swarm.strength
+				bees.update_icon()
+				other_swarm.update_icon()
+				if(bees.strength <= 0)
+					qdel(bees)
+					return
+				var/turf/separation_turf = get_step(bees, pick(GLOB.cardinals))
+				if(istype(separation_turf, /turf/simulated/floor))
+					bees.AIMove(separation_turf)
+		break
+
+	if(bees.feral > 0 && !target)
+		for(var/mob/living/carbon/human/new_target in view(bees, 7))
+			if(bees.verify_stingable(new_target))
+				give_target(new_target, TRUE)
+				break
+
+	if(bees.feral <= 0 && target)
+		remove_target(FALSE)
+
+	if(bees.feral <= 0 && !target && bees.strength > 5)
+		var/mob/living/simple_animal/bee/new_swarm = new(get_turf(bees), bees.parent)
+		new_swarm.strength = rand(1, 5)
+		bees.strength -= new_swarm.strength
+		bees.update_icon()
+		new_swarm.update_icon()
+		bees.parent?.owned_bee_swarms |= new_swarm
+
+	if(bees.feral > 0)
+		bees.turns_per_move = rand(1, 3)
+	else if(bees.feral < 0)
+		bees.turns_since_move = 0
+	else if(!bees.my_hydrotray || bees.my_hydrotray.loc != bees.loc || bees.my_hydrotray.dead || !bees.my_hydrotray.seed)
+		bees.my_hydrotray = locate() in bees.loc
+		if(bees.my_hydrotray && !bees.my_hydrotray.dead && bees.my_hydrotray.seed)
+			bees.turns_per_move = rand(20, 50)
+		else
+			bees.my_hydrotray = null
+
+	animate(bees, pixel_x = rand(-12, 12), pixel_y = rand(-12, 12), time = 0.5)
+
 /mob/living/simple_animal/bee
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/bee
 	name = "bees"
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "bees1"
@@ -13,8 +120,6 @@
 	var/feral = 0
 	var/mut = 0
 	var/toxic = 0
-	var/turf/target_turf
-	var/mob/target_mob
 	var/obj/structure/machinery/beehive/parent
 	var/loner = 0
 	pass_flags = PASSTABLE | PASSRAILING
@@ -31,8 +136,6 @@
 		parent.owned_bee_swarms.Remove(src)
 	my_hydrotray = null
 	parent = null
-	target_turf = null
-	target_mob = null
 	return ..()
 
 /mob/living/simple_animal/bee/can_name(var/mob/living/M)
@@ -75,11 +178,9 @@
 		return FALSE
 	return TRUE
 
-/mob/living/simple_animal/bee/proc/do_sting()
+/mob/living/simple_animal/bee/proc/do_sting(mob/living/carbon/human/M)
 	//if we're strong enough, sting some people
-	var/mob/living/carbon/human/M = target_mob
 	if(!verify_stingable(M)) //If we can't sting this, why is it our target?
-		target_mob = null
 		return FALSE
 	var/sting_prob = 40 // Bees will always try to sting.
 	var/prob_mult = 1
@@ -105,137 +206,7 @@
 			update_icon()
 			to_chat(M, SPAN_WARNING("You have been stung!"))
 			M.flash_pain(5)
-	else
-		step_to(src, target_mob)
 
-/mob/living/simple_animal/bee/think()
-	..()
-	if (stat != CONSCIOUS)
-		return
-
-	if(target_mob)
-		do_sting()
-
-	//calm down a little bit
-	if(feral > 0 && !target_mob)
-		if(prob(feral * 20))
-			feral -= 1
-	else
-		//if feral is less than 0, we're becalmed by smoke or steam
-		if(feral < 0)
-			feral += 1
-
-		if(target_mob)
-			target_mob = null
-			target_turf = null
-		if(strength > 5)
-			//calm down and spread out a little
-			var/mob/living/simple_animal/bee/B = new(get_turf(src))
-			B.strength = rand(1,5)
-			strength -= B.strength
-			update_icon()
-			B.update_icon()
-			if(parent)
-				B.parent = parent
-				parent.owned_bee_swarms.Add(B)
-
-	//make some noise
-	if(prob(2))
-		src.audible_message("[SPAN_BOLD("\The [src]")] [pick("buzz", "hum")].")
-		playsound(src, pick('sound/effects/Buzz1.ogg', 'sound/effects/Buzz2.ogg'), 10, TRUE, -4)
-
-	if (feral && isturf(loc))
-		//smoke, water and steam calms us down
-		var/static/list/calmers = typecacheof(list(
-			/obj/effect/smoke,
-			/obj/effect/effect/water,
-			/obj/effect/effect/foam,
-			/obj/effect/effect/steam,
-			/obj/effect/mist
-		))
-
-		if(range_in_typecache(src, 2, calmers))
-			if(feral > 0)
-				src.visible_message(SPAN_NOTICE("The bees calm down!"))
-			feral = -15
-			target_mob = null
-			target_turf = null
-			wander = TRUE
-
-	for(var/mob/living/simple_animal/bee/B in src.loc)
-		if(B == src)
-			continue
-
-		if(feral > 0 && prob(50)) //We'll combine into a stronger swarm if this passes
-			if(B.strength > strength) //This is so that we'll take the toxic and mut values of the larger swarm, as that will be the majority of bees. If B is smaller, we keep ours.
-				mut = B.mut
-				toxic = B.toxic
-			strength += B.strength
-			B.strength = 0
-			qdel(B) //We've absorbed the other bees, they're gone. Qdel here to avoid spamming disipate messages
-			update_icon()
-
-		else if(prob(10))
-			//make the other swarm of bees stronger, then move away
-			var/total_bees = B.strength + src.strength
-			if(total_bees < 10)
-				B.strength = min(5, total_bees)
-				strength = total_bees - B.strength
-
-				update_icon()
-				B.update_icon()
-				if(strength <= 0)
-					qdel(src)
-					return
-				var/turf/simulated/floor/T = get_step(src, pick(GLOB.cardinals))
-				if(istype(T))
-					Move(T)
-			break
-
-	if(target_mob)//If we have a target
-		if(target_mob in view(5, src))//Check that we can still see them
-			target_turf = get_turf(target_mob)//If so, update the location
-			wander = FALSE
-		else//Otherwise, if our target is out of view, we clear them so we can pick a new one in the next step
-			target_mob = null
-			target_turf = null
-			wander = TRUE
-
-	//If we're angry but have no target, lets search for one
-	if (!target_mob && feral)
-		for(var/mob/living/carbon/G in view(src,7))
-			if(verify_stingable(G))
-				target_mob = G
-				break
-
-	//if we're chasing someone, get a little bit angry
-	if(target_mob && prob(5))
-		feral++
-
-	if(target_turf)
-		if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
-			Move(get_step(src, get_dir(src,target_turf)))
-			if(prob(10))
-				visible_message(SPAN_NOTICE("The bees swarm after [target_mob]!"))
-		if(get_turf(src) == target_turf)
-			target_turf = null
-			wander = TRUE
-	else
-		//find some flowers, harvest
-		//angry bee swarms don't hang around
-		if(feral > 0)
-			turns_per_move = rand(1,3)
-		else if(feral < 0)
-			turns_since_move = 0
-		else if(!my_hydrotray || my_hydrotray.loc != src.loc || my_hydrotray.dead || !my_hydrotray.seed)
-			var/obj/structure/machinery/portable_atmospherics/hydroponics/my_hydrotray = locate() in src.loc
-			if(my_hydrotray)
-				if(!my_hydrotray.dead && my_hydrotray.seed)
-					turns_per_move = rand(20,50)
-				else
-					my_hydrotray = null
-
-	animate(src, pixel_x = rand(-12, 12), pixel_y = rand(-12, 12), time = 0.5)
 
 
 /mob/living/simple_animal/bee/update_icon()
