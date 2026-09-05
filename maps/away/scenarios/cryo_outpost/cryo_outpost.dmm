@@ -887,7 +887,7 @@
 "aQA" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/random/dirt_75,
-/turf/simulated/wall,
+/turf/simulated/floor/plating,
 /area/cryo_outpost/outside/surface)
 "aRz" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -9293,7 +9293,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/wall,
+/turf/simulated/floor/plating,
 /area/cryo_outpost/outside/surface)
 "jfc" = (
 /obj/structure/trash_pile,
@@ -18682,9 +18682,6 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
 "sxQ" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
