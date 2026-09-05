@@ -59880,6 +59880,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 9
 	},
+/obj/structure/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "hOB" = (
@@ -80635,10 +80638,7 @@
 	req_one_access = list(24,11,67,73);
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "kxM" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -91232,6 +91232,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 6
 	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "lPt" = (
@@ -95752,9 +95755,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
 "muF" = (
-/obj/structure/machinery/light{
-	dir = 4
-	},
 /obj/item/storage/box/unique/sharps,
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/seafoam{
@@ -159122,10 +159122,11 @@
 	req_one_access = list(24,11,67,73);
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
+/obj/effect/floor_decal/corner_wide/seafoam{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
+/obj/structure/machinery/light/floor,
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "uCC" = (
 /obj/structure/toilet{
@@ -182797,10 +182798,13 @@
 	req_one_access = list(24,11,67,73);
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate{
-	color = "#FFFFFF"
+/obj/effect/floor_decal/corner_wide/seafoam{
+	dir = 5
 	},
-/turf/simulated/floor/plating,
+/obj/structure/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "xzS" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
