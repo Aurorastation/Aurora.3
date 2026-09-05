@@ -18256,6 +18256,34 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/lobby)
+"cur" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 6
+	},
+/obj/item/quikpay{
+	destinationact = "Medical";
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 10;
+	id = "CHE2shutters";
+	name = "Window Shutter Control";
+	pixel_x = 6;
+	pixel_y = 9;
+	req_access = list(33)
+	},
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 10;
+	id = "CHE3shutters";
+	name = "Desk Shutter Control";
+	pixel_x = 6;
+	pixel_y = -1;
+	req_access = list(33)
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/pharmacy)
 "cus" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -46446,6 +46474,48 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/wing/port/far)
+"gdl" = (
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
+/obj/structure/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "Medical Lockdown Shutters";
+	opacity = 0
+	},
+/obj/structure/machinery/door/airlock/medical{
+	name = "Recovery Ward";
+	dir = 4;
+	id_tag = "recovery_ward"
+	},
+/obj/structure/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/holosign/public{
+	name = "holosign";
+	id = "recovery_public"
+	},
+/obj/structure/machinery/holosign/privacy{
+	id = "recovery_private"
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/medical/ward)
 "gdv" = (
 /turf/simulated/open,
 /area/horizon/engineering/storage_hard/upper)
@@ -70744,13 +70814,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/break_room)
-"jkh" = (
-/obj/structure/machinery/light,
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/slate,
-/area/horizon/medical/ward)
 "jkm" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/machinery/door/blast/regular/open{
@@ -76511,6 +76574,35 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/storage/eva)
+"jWP" = (
+/obj/structure/machinery/light,
+/obj/effect/floor_decal/corner_wide/seafoam{
+	dir = 10
+	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/button/switch/holosign{
+	dir = 5;
+	pixel_y = 9;
+	pixel_x = -5;
+	name = "Visitors Welcome";
+	id = "recovery_public"
+	},
+/obj/structure/machinery/button/switch/holosign{
+	dir = 5;
+	pixel_y = 9;
+	pixel_x = 5;
+	name = "Privacy Please";
+	id = "recovery_private"
+	},
+/obj/structure/machinery/button/remote/airlock{
+	name = "Recovery Ward Door Bolts";
+	dir = 1;
+	pixel_y = -1;
+	id = "recovery_ward";
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/horizon/medical/ward)
 "jWQ" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/fancy/donut{
@@ -106162,41 +106254,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"nNv" = (
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
-/obj/structure/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "Medical Lockdown Shutters";
-	opacity = 0
-	},
-/obj/structure/machinery/door/airlock/medical{
-	name = "Recovery Ward";
-	req_access = list(5);
-	dir = 4
-	},
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/medical/ward)
 "nNG" = (
 /obj/structure/platform,
 /obj/random/dirt_75,
@@ -106213,16 +106270,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_2/fore)
-"nNT" = (
-/obj/effect/floor_decal/corner_wide/orange/full{
-	dir = 4
-	},
-/obj/structure/table/rack/retail_shelf,
-/obj/structure/sign/poster/medical/bay_39{
-	pixel_x = 28
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/pharmacy)
 "nNW" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -142214,34 +142261,6 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
-"ssp" = (
-/obj/structure/table/standard,
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 6
-	},
-/obj/item/quikpay{
-	destinationact = "Medical";
-	pixel_y = 7;
-	pixel_x = -5
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 10;
-	id = "CHE2shutters";
-	name = "Window Shutter Control";
-	pixel_x = 6;
-	pixel_y = 9;
-	req_access = list(33)
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 10;
-	id = "CHE3shutters";
-	name = "Desk Shutter Control";
-	pixel_x = 6;
-	pixel_y = -1;
-	req_access = list(33)
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/pharmacy)
 "ssr" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -144581,6 +144600,16 @@
 "sHz" = (
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/gravity_gen)
+"sHJ" = (
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 4
+	},
+/obj/structure/table/rack/retail_shelf,
+/obj/structure/sign/poster/medical/bay_39{
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/pharmacy)
 "sHM" = (
 /obj/structure/bed/stool/bar/padded,
 /turf/simulated/floor/carpet/rubber,
@@ -281511,9 +281540,9 @@ lRi
 iHV
 qAb
 qcW
-ssp
+cur
 gMh
-nNT
+sHJ
 rrr
 gEF
 rSe
@@ -284339,7 +284368,7 @@ pUc
 rpH
 rpH
 rpH
-nNv
+gdl
 pUc
 pUc
 gEF
@@ -285111,7 +285140,7 @@ kAw
 kAw
 agx
 aFI
-jkh
+jWP
 pUc
 vam
 aju
