@@ -375,6 +375,10 @@
 		to_chat(user, SPAN_NOTICE("You retie \the [src] as \an [alt]."))
 	return ..()
 
+/obj/item/clothing/accessory/scarf/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
 	build_from_parts = TRUE

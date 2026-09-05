@@ -120,3 +120,7 @@
 /turf/simulated/floor/marble/dark
 	initial_flooring = /singleton/flooring/marble/dark
 	color = COLOR_DARK_GRAY
+
+/turf/simulated/floor/marble/red
+	initial_flooring = /singleton/flooring/marble/red
+	color = "#9e6a64"

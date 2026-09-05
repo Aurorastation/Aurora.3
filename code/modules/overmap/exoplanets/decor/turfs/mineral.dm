@@ -15,3 +15,14 @@
 /turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
 	. = ..()
 	icon_state = "icy_rock[rand(1,19)]"
+
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai
+	name = "icy cave rock"
+	desc = "Some cold rock."
+	icon = 'icons/turf/flooring/cave_floor.dmi'
+	icon_state = "cave"
+	color = "#97A7AA"
+
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai/Initialize()
+	. = ..()
+	icon_state = "cave_[rand(1,7)]"

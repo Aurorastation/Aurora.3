@@ -231,6 +231,14 @@
 	frame_path = /obj/structure/window_frame/wood
 	window_path = /obj/structure/window/full/reinforced
 
+/obj/effect/map_effect/window_spawner/full/concrete
+	name = "full wooden window spawner"
+	icon_state = "full_rwindow"
+	frame_path = /obj/structure/window_frame/concrete
+	window_path = /obj/structure/window/full/reinforced
+
+// ---------- Shuttle windows
+
 /obj/effect/map_effect/window_spawner/full/shuttle
 	name = "full reinforced window spawner"
 	icon_state = "full_rwindow_shuttle"

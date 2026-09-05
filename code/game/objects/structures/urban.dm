@@ -190,6 +190,66 @@
 /obj/structure/automobile/langenfeld_hybrid_white/beat_up
 	name = "beat-up langenfeld compact"
 
+// ---------- Adhomian Cars
+/obj/structure/automobile/adhomai_car
+	name = "red urban half-track"
+	desc = "An automobile designed to traverse the icy roads with ease, carrying a rather old-fashion charm."
+	icon = 'icons/obj/structure/urban/adhomai_cars.dmi'
+	icon_state = "car_red"
+	bound_width = 64
+
+/obj/structure/automobile/adhomai_car/Initialize()
+	. = ..()
+	if(dir in list(NORTH, SOUTH))
+		bound_width = 32
+		bound_height = 64
+
+/obj/structure/automobile/adhomai_car/blue
+	name = "blue urban half-track"
+	icon_state = "car_blue"
+
+/obj/structure/automobile/adhomai_car/green
+	name = "green urban half-track"
+	icon_state = "car_green"
+
+/obj/structure/automobile/adhomai_car/purple
+	name = "purple urban half-track"
+	icon_state = "car_purple"
+
+/obj/structure/automobile/adhomai_car/taxi
+	name = "taxi urban half-track"
+	icon_state = "car_taxi"
+
+/obj/structure/automobile/adhomai_car/police
+	name = "police urban half-track"
+	icon_state = "car_police"
+
+/obj/structure/automobile/adhomai_car/red_van
+	name = "red urban half-track van"
+	icon_state = "soda_van"
+
+/obj/structure/automobile/adhomai_car/blue_van
+	name = "blue urban half-track van"
+	icon_state = "milk_van"
+
+/obj/random/adhomai_car
+	name = "random urban half-track"
+	icon = 'icons/obj/structure/urban/adhomai_cars.dmi'
+	icon_state = "car_random"
+	has_postspawn = TRUE
+	spawnlist = list(
+		/obj/structure/automobile/adhomai_car = 1,
+		/obj/structure/automobile/adhomai_car/blue = 1,
+		/obj/structure/automobile/adhomai_car/green = 1,
+		/obj/structure/automobile/adhomai_car/purple = 1,
+		/obj/structure/automobile/adhomai_car/taxi = 0.5,
+		/obj/structure/automobile/adhomai_car/red_van = 0.5,
+		/obj/structure/automobile/adhomai_car/blue_van = 0.5
+	)
+
+/obj/random/adhomai_car/post_spawn(obj/thing)
+	thing.dir = src.dir
+
 /obj/structure/automobile_filler
 	name = "vehicle"
 	desc = "A piece of a larger vehicle."
@@ -236,6 +296,12 @@
 	. = ..()
 	name = "[street_name]"
 	desc = "This sign indicates this crossing street is called [street_name]."
+
+/obj/structure/road_sign/notice
+	name = "notice sign"
+	desc = "A sign which warns of about something."
+	icon_state = "notice"
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 
 ABSTRACT_TYPE(/obj/structure/stairs/urban)
 	icon = 'icons/obj/structure/urban/ledges.dmi'
@@ -528,6 +594,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	anchored = TRUE
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
+
+/obj/structure/rod_railing/Initialize()
+	. = ..()
+	if(dir != NORTH)
+		layer = ABOVE_ABOVE_HUMAN_LAYER
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -1248,3 +1319,28 @@ ABSTRACT_TYPE(/obj/structure/arch)
 	icon_state = "gothic_arch_end"
 	dir = 1
 
+// ---------- Quay walls
+/obj/structure/quay_wall
+	name = "quay wall"
+	icon = 'icons/obj/structure/urban/rampart.dmi'
+	icon_state = "center"
+	anchored = TRUE
+	density = TRUE
+	bound_height = 64
+
+/obj/structure/quay_wall/center_side
+	icon_state = "center-side"
+
+/obj/structure/quay_wall/corner
+	icon_state = "corner"
+
+/obj/structure/quay_wall/inner_corner
+	icon_state = "inner-corner"
+
+/obj/structure/quay_wall/side
+	icon_state = "side"
+	bound_height = 32
+
+/obj/structure/quay_wall/edge
+	icon_state = "edge"
+	bound_height = 32
