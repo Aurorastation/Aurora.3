@@ -43,7 +43,7 @@
 		H.w_uniform.accent_color = uniform_colour
 
 /obj/outfit/admin/kazhkz_privateer/get_id_access()
-	return list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/imperial_fleet_voidsman_ship::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/kazhkz_privateer/captain
 	short_name = "kazhkz_privateer_captain"

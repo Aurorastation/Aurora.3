@@ -25,7 +25,7 @@
 	/// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
 	var/codes_txt = ""
 
-	req_one_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
+	req_one_access = list(/datum/access/engine::id, /datum/access/robotics::id)
 
 /obj/structure/machinery/navbeacon/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

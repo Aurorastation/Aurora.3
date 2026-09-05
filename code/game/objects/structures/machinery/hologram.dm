@@ -143,7 +143,7 @@ Possible to do for anyone motivated enough:
 
 /obj/structure/machinery/hologram/holopad/proc/has_command_auth(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(I && (ACCESS_HEADS in I.access) || I && (ACCESS_LAWYER in I.access))
+	if(I && (/datum/access/heads::id in I.access) || I && (/datum/access/lawyer::id in I.access))
 		return TRUE
 	return FALSE
 

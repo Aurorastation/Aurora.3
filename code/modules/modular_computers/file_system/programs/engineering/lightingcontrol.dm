@@ -4,8 +4,8 @@
 	program_icon_state = "power_monitor"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
-	required_access_run = ACCESS_HEADS
-	required_access_download = ACCESS_CE
+	required_access_run = /datum/access/heads::id
+	required_access_download = /datum/access/ce::id
 	requires_ntnet = TRUE
 	network_destination = "APC Coordinator"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL

@@ -88,7 +88,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/ref_for_ui
 
 	//Data and setting manipulation requires scientist access.
-	req_access = list(ACCESS_TOX)
+	req_access = list(/datum/access/tox::id)
 
 /datum/research_fabrication_job
 	/// Design being produced.
@@ -1121,7 +1121,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/structure/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"
 	id = 1
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 	allow_analyzer = FALSE
 	manufacturer = "hephaestus"
 	circuit = /obj/item/circuitboard/robotics_console

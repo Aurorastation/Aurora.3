@@ -21,7 +21,7 @@
 	corpseshoes = /obj/item/clothing/shoes/laceup
 	corpseid = TRUE
 	corpseidjob = "Casino Bodyguard"
-	corpseidaccess = ACCESS_ABANDONED_CASINO_STAFF
+	corpseidaccess = /datum/access/abandoned_casino::id
 	corpseidicon = "dark"
 
 /obj/effect/landmark/corpse/abandoned_casino/agent/do_extra_customization(mob/living/carbon/human/M)

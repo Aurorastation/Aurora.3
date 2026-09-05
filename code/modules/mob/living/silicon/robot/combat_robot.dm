@@ -24,7 +24,7 @@
 	braintype = "Robot"
 
 	// ID and Access
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 	id_card_type = /obj/item/card/id/syndicate
 	key_type = /obj/item/encryptionkey/syndicate
 	var/datum/antagonist/assigned_antagonist

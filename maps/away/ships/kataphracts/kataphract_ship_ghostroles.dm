@@ -91,7 +91,7 @@
 		H.w_uniform.accent_color = H.w_uniform.color
 
 /obj/outfit/admin/kataphract/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/kataphract/klax
 
@@ -129,7 +129,7 @@
 
 
 /obj/outfit/admin/kataphract/knight/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/kataphract/knight::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/kataphract/specialist
 	name = "Kataphract Specialist"
@@ -137,4 +137,4 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 /obj/outfit/admin/kataphract/quartermaster/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/kataphract/knight::id, /datum/access/external_airlocks::id)

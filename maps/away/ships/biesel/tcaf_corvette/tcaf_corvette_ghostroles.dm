@@ -61,7 +61,7 @@
 			tag.modify_tag_data()
 
 /obj/outfit/admin/tcaf_crewman/get_id_access()
-	return list(ACCESS_TCAF, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/tcaf::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/tcaf_crewman/espatier
 	name = "TCAF Republic Astroforce Espatier"

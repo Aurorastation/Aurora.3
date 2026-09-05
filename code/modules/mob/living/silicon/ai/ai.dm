@@ -335,7 +335,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		id_card.registered_name = pickedName
 		id_card.assignment = "AI"
 		id_card.access = get_all_station_access()
-		id_card.access += ACCESS_EQUIPMENT
+		id_card.access += /datum/access/equipment::id
 		id_card.update_name()
 
 	if(client)

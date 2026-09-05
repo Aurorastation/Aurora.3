@@ -57,7 +57,7 @@
 			tag.modify_tag_data(TRUE) //Shady smugglers might well have untagged IPCs
 
 /obj/outfit/admin/freighter_crew/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TRAMP_FREIGHTER)
+	return list(/datum/access/external_airlocks::id, /datum/access/tramp_freighter_access::id)
 
 /datum/ghostspawner/human/freighter_crew/captain
 	short_name = "freighter_crew_captain"
@@ -92,4 +92,4 @@
 
 /obj/item/card/id/freighter_crew_ship
 	name = "freight ship id"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TRAMP_FREIGHTER)
+	access = list(/datum/access/external_airlocks::id, /datum/access/tramp_freighter_access::id)

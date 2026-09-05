@@ -9,12 +9,12 @@
 
 /obj/outfit/admin/generic/nuclear_silo_crew/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_NUCLEAR_MISSILE_SILO,
+		/datum/access/external_airlocks::id, /datum/access/nuclear_missile_silo_access::id,
 	)
 
 /obj/outfit/admin/generic/nuclear_silo_crew/lower/high_sec/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_NUCLEAR_MISSILE_SILO, ACCESS_NUCLEAR_MISSILE_SILO_HIGH,
+		/datum/access/external_airlocks::id, /datum/access/nuclear_missile_silo_access::id, /datum/access/nuclear_missile_silo_access_high::id,
 	)
 // --- Village
 /obj/outfit/admin/generic/nuclear_silo_crew/upper/villager

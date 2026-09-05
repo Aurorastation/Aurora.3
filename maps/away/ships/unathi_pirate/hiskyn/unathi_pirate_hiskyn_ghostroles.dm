@@ -48,7 +48,7 @@
 	)
 
 /obj/outfit/admin/hiskyn_pirate/get_id_access()
-	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/unathi_pirate::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/hiskyn_pirate/captain
 	gloves = /obj/item/clothing/gloves/black_leather/unathi

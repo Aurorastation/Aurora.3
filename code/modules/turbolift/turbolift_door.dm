@@ -4,7 +4,7 @@
 	airlock_type = "Lift"
 	door_color = COLOR_GRAY20
 	door_frame_color = COLOR_GRAY20
-	req_access = list(ACCESS_MAINT_TUNNELS)
+	req_access = list(/datum/access/maint_tunnels::id)
 	glass = TRUE
 	opacity = FALSE
 	autoclose = FALSE
