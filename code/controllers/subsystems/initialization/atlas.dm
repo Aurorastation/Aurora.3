@@ -270,14 +270,14 @@ SUBSYSTEM_DEF(atlas)
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (GLOB.config.override_map)
 		if (known_maps[GLOB.config.override_map])
-			. = GLOB.config.override_map
+			. = "event/port_volturno" // = GLOB.config.override_map
 			log_subsystem_atlas("Using configured map.")
 		else
 			log_config("-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
 			log_subsystem_atlas("-- WARNING: CONFIGURED MAP DOES NOT EXIST, IGNORING! --")
-			. = "sccv_horizon"
+			. = "event/port_volturno"
 	else
-		. = "sccv_horizon"
+		. = "event/port_volturno"
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
 	SHOULD_NOT_SLEEP(TRUE)
