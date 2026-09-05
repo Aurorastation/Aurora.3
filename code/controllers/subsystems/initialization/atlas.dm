@@ -210,7 +210,10 @@ SUBSYSTEM_DEF(atlas)
 	var/using_sector_config = FALSE
 
 	if(GLOB.config.current_space_sector)
-		chosen_sector = GLOB.config.current_space_sector
+		// #####
+		// chosen_sector = GLOB.config.current_space_sector
+		chosen_sector = "Orion's Scar" // HARD CODED FOR TEST-MERGE. BYPASSES MANUAL SERVER CONFIG CHANGE.
+		// #####
 		using_sector_config = TRUE
 	else
 		chosen_sector = current_map.default_sector
