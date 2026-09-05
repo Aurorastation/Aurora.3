@@ -122440,6 +122440,18 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/horizon/command/heads/hos)
+"pSO" = (
+/obj/structure/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "hangarlockdown";
+	name = "Hangar Lockdown"
+	},
+/turf/simulated/floor/tiled/full,
+/area/horizon/hangar/intrepid)
 "pSY" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
@@ -131560,18 +131572,17 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/lab)
 "raM" = (
-/obj/structure/machinery/door/airlock/glass{
-	dir = 1;
+/obj/structure/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Hangar"
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "hangarlockdown";
 	name = "Hangar Lockdown"
-	},
-/obj/structure/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch_door/yellow{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hangar/intrepid)
@@ -221280,7 +221291,7 @@ igy
 dXf
 etv
 xBM
-raM
+pSO
 ryp
 dvM
 dvM
