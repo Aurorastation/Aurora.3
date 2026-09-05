@@ -2,7 +2,7 @@
 	name = "random energy weapon"
 	desc = "This is a random energy weapon."
 	icon_state = "energy_gun"
-	problist = list(
+	spawnlist = list(
 		/obj/item/gun/energy/rifle/laser = 2,
 		/obj/item/gun/energy/gun = 2,
 		/obj/item/gun/energy/stunrevolver = 1
@@ -12,7 +12,7 @@
 	name = "random projectile weapon"
 	desc = "This is a random projectile weapon."
 	icon_state = "rifle"
-	problist = list(
+	spawnlist = list(
 		/obj/item/gun/projectile/shotgun/pump = 3,
 		/obj/item/gun/projectile/automatic/wt550 = 2,
 		/obj/item/gun/projectile/shotgun/pump/combat = 1
@@ -22,7 +22,7 @@
 	name = "random handgun"
 	desc = "This is a random handgun."
 	icon_state = "pistol"
-	problist = list(
+	spawnlist = list(
 		/obj/item/gun/projectile/sec = 3,
 		/obj/item/gun/projectile/sec/wood = 1
 	)
@@ -31,7 +31,7 @@
 	name = "random ammunition"
 	desc = "This is some random ammunition."
 	icon_state = "need-sprite"
-	problist = list(
+	spawnlist = list(
 		/obj/item/storage/box/shells/beanbags = 6,
 		/obj/item/storage/box/shells/slugs = 2,
 		/obj/item/storage/box/shells/buckshot = 4,
