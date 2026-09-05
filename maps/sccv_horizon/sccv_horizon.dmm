@@ -17576,9 +17576,6 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
 /obj/item/radio/intercom/expedition/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/flight_deck)
@@ -19217,6 +19214,9 @@
 /obj/structure/extinguisher_cabinet/south,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/junction_compartment)
@@ -23262,6 +23262,9 @@
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
+	},
+/obj/structure/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/main_compartment)
@@ -38970,6 +38973,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/junction_compartment)
 "fdx" = (
@@ -45331,6 +45337,9 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/junction_compartment)
@@ -82198,6 +82207,9 @@
 /area/horizon/hallway/primary/deck_1/central)
 "kFt" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/machinery/light/floor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/flight_deck)
 "kFv" = (
@@ -83606,6 +83618,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/xenobiology/xenoflora)
+"kPF" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/shuttle/intrepid/flight_deck)
 "kPL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/railing/mapped{
@@ -88305,6 +88324,9 @@
 /obj/structure/platform_stairs/full{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/junction_compartment)
 "luR" = (
@@ -90461,9 +90483,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/structure/machinery/light/small{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/main_compartment)
@@ -165239,9 +165258,6 @@
 /area/horizon/medical/paramedic)
 "vps" = (
 /obj/structure/table/reinforced/steel,
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
 /obj/structure/machinery/button/remote/airlock{
 	dir = 1;
 	id = "intrepid_flightdeck";
@@ -176098,9 +176114,6 @@
 "wHP" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -187046,6 +187059,9 @@
 /obj/structure/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
+	},
+/obj/structure/machinery/light/floor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/main_compartment)
@@ -220807,7 +220823,7 @@ eHa
 cAb
 asT
 jZV
-kFt
+kPF
 cMu
 iCY
 lFJ
