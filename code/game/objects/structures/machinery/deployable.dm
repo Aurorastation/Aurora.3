@@ -299,6 +299,8 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 	circuit_type = new_circuit_type
 	if(ispath(circuit_type, /obj/item/circuitboard))
 		var/obj/item/circuitboard/board = circuit_type
+		required_skill = initial(board.flatpak_required_skill)
+		required_level = initial(board.flatpak_required_level)
 		machine_type = initial(board.build_path)
 		if(istext(machine_type))
 			machine_type = text2path(machine_type)

@@ -638,7 +638,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
  * * extra_checks: Optional extra checks, that uses a callback. See [datum/callback].
  * * progressbar_type: The progress bar theme to display.
  * * looping_sound_type: Optional `/datum/looping_sound` type to play for the duration of the action.
- * * looping_sound_source: Optional atom for the looping sound to originate from. Defaults to the target or user.
+ * * looping_sound_source: Atom for the looping sound to originate from. Required to play a looping sound.
  *
  */
 /proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks, progressbar_type = /datum/progressbar/default, looping_sound_type, atom/looping_sound_source)
@@ -693,8 +693,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		progbar = new progressbar_type(user, delay, progbar_pos)
 
 	var/datum/looping_sound/action_sound
-	if(ispath(looping_sound_type, /datum/looping_sound))
-		action_sound = new looping_sound_type(looping_sound_source || target || user, TRUE)
+	if(ispath(looping_sound_type, /datum/looping_sound) && looping_sound_source)
+		action_sound = new looping_sound_type(looping_sound_source, TRUE)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
 
