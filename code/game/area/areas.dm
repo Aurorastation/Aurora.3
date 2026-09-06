@@ -114,6 +114,13 @@
 	/// defaults to TRUE, false disables hostile events (like drone uprising).
 	var/hostile_events = TRUE
 
+	/// Amount and probability of dirt to spawn.
+	/// `null` or `<= 0`: No dirt generated.
+	/// `1` to `99`: Percentage chance to generate 1 dirt.
+	/// `100`: Exactly 1 guaranteed dirt.
+	/// `> 100`: 1 guaranteed dirt per 100, plus the remainder as a chance for an extra (150 = 1 guaranteed + 50% chance for a 2nd).
+	var/generate_dirt = null
+
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
  */

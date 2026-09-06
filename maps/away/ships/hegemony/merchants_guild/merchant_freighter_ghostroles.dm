@@ -9,7 +9,7 @@
 	welcome_message = "As an apprentice, you are seeking to prove yourself by working under a full guildsman - in this case, your captain. Follow their orders, and work hard to prove that you have what it takes to make it in the Merchants' Guild."
 
 	outfit = /obj/outfit/admin/merchant_guild
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	respawn_flag = null
 

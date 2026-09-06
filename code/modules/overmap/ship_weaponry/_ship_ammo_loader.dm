@@ -1,4 +1,4 @@
-/obj/structure/machinery/ammunition_loader
+ABSTRACT_TYPE(/obj/structure/machinery/ammunition_loader)
 	name = "ammunition loader"
 	desc = "An ammunition loader for ship weapons systems. All hands to battlestations!"
 	icon = 'icons/obj/machinery/ship_guns/ship_weapon_attachments.dmi'
@@ -7,7 +7,9 @@
 	anchored = TRUE
 	maxhealth = 1000
 	var/obj/structure/machinery/ship_weapon/weapon
-	var/weapon_id //Used to connect weapon systems to the relevant ammunition loader.
+	/// Used to connect weapon systems to the relevant ammunition loader.
+	/// If empty, it will try to find the closest ship gun, and connect to it.
+	var/weapon_id = ""
 
 /obj/structure/machinery/ammunition_loader/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -22,14 +24,33 @@
 
 /obj/structure/machinery/ammunition_loader/LateInitialize()
 	. = ..()
-	for(var/obj/structure/machinery/ship_weapon/SW in SSmachinery.machinery)
-		if(SW.weapon_id == weapon_id)
-			if(get_area(SW) == get_area(src))
-				weapon = SW
-			else
-				crash_with("[src] is set to [weapon_id] of [SW] at [x] [y] [z], but areas mismatch!")
+
+	if(weapon_id)
+		// explicit weapon id match
+		for(var/obj/structure/machinery/ship_weapon/sw in SSmachinery.machinery)
+			if(sw.weapon_id != weapon_id)
+				continue
+			if(get_area(sw) != get_area(src))
+				crash_with("[src] is set to [weapon_id] of [sw] at ([x], [y], [z]), but areas mismatch!")
+				continue
+			weapon = sw
+			break
+	else
+		// automatic fallback to try to find the closest ship weapon within the same area
+		var/area/our_area = get_area(src)
+		var/obj/structure/machinery/ship_weapon/closest_gun
+		var/closest_dist = null
+		for(var/obj/structure/machinery/ship_weapon/sw in SSmachinery.machinery)
+			if(get_area(sw) != our_area)
+				continue
+			var/dist = get_dist(src, sw)
+			if(isnull(closest_dist) || dist < closest_dist)
+				closest_dist = dist
+				closest_gun = sw
+		weapon = closest_gun
+
 	if(!weapon)
-		crash_with("[src] at [x] [y] [z] has no weapon attached!")
+		crash_with("[src] at ([x], [y], [z]) has no weapon attached!")
 
 /obj/structure/machinery/ammunition_loader/ex_act(severity)
 	switch(severity)

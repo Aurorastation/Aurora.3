@@ -258,6 +258,18 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 		"window tint" = list("type" = "windowtint", "id" = "bar_tint")
 	)
 
+/obj/structure/machinery/controlhub/media_office
+	name = "media office control hub"
+	icon_state = "holocontrol"
+	req_access = list(ACCESS_JOURNALIST)
+	controls = list(
+		"door control" = list("type" = "airlock", "id" = "media_office_door", "functions" = 1),
+		"door bolts" = list("type" = "airlock", "id" = "media_office_door", "functions" = 4),
+		"window shutters" = list("type" = "blast_door", "id" = "media_office_window_shutter"),
+		"office window tint" = list("type" = "windowtint", "id" = "media_office_public_tint"),
+		"dividing window tint" = list("type" = "windowtint", "id" = "media_office_private_tint")
+	)
+
 /obj/structure/machinery/controlhub/xo_office/private
 	name = "executive officers office control hub"
 	icon_state = "holocontrol"

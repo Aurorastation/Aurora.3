@@ -13,6 +13,7 @@
 
 	power_rating = 7500 //7500 W ~ 10 HP
 	power_losses = 150
+	connect_automatically = FALSE
 
 	var/minrate = 0
 	var/maxrate = PRESSURE_ONE_THOUSAND
@@ -57,7 +58,17 @@
 	return
 
 /obj/structure/machinery/portable_atmospherics/powered/scrubber/process()
-	..()
+	. = ..()
+	// A majority of all scrubbers are completely idle for an overwhelming majority of the round.
+	// If a scrubber falls down in a forest and nobody is around to hear it, does it make a sound?
+	if (!connected_port && !holding && (!on || !cell || !cell.charge))
+		last_flow_rate = 0
+		last_power_draw = 0
+		last_mole_transfer = 0
+		update_icon()
+		src.updateDialog()
+		SStgui.update_uis(src)
+		return PROCESS_KILL
 
 	var/power_draw = -1
 
@@ -142,6 +153,8 @@
 		on = !on
 		update_icon()
 		. = TRUE
+		if (on)
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	if(action=="removeTank")
 		if(holding)
 			holding.forceMove(loc)

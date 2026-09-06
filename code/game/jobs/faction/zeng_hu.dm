@@ -30,6 +30,8 @@
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,

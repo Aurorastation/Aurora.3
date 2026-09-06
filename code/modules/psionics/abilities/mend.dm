@@ -108,7 +108,7 @@
 		to_chat(user, SPAN_NOTICE("You flow your regenerative psionic energy through the flesh of their [external_organ.name]..."))
 		if(!do_mob(user, H, 10 SECONDS / effect_multiplier) || !pay_energy(20))
 			return
-		external_organ.heal_damage(external_organ.get_brute_damage(), external_organ.get_burn_damage(), internal = FALSE, robo_repair = FALSE)
+		external_organ.heal_damage(LIMB_GET_BRUTE_DAMAGE(external_organ), LIMB_GET_BURN_DAMAGE(external_organ), internal = FALSE, robo_repair = FALSE)
 		to_chat(user, SPAN_NOTICE("You mend their [external_organ.name]'s flesh."))
 		for(var/datum/wound/W as anything in external_organ.wounds)
 			if(LAZYLEN(W.embedded_objects))

@@ -4,6 +4,7 @@
 /area/ship/scc_scout_ship
 	name = "SCC Scout Ship (abstract/base)"
 	requires_power = TRUE
+	generate_dirt = 75
 
 /area/ship/scc_scout_ship/bridge
 	name = "Bridge"
@@ -32,22 +33,27 @@
 /area/ship/scc_scout_ship/engineering_cargo
 	name = "Engineering/Cargo"
 	icon_state = "engineering"
+	generate_dirt = 125
 
 /area/ship/scc_scout_ship/maint_power
 	name = "Maint, Power Generation"
 	icon_state = "engine_smes"
+	generate_dirt = 175
 
 /area/ship/scc_scout_ship/maint_atmos
 	name = "Maint, Atmos"
 	icon_state = "atmos"
+	generate_dirt = 175
 
 /area/ship/scc_scout_ship/maint_propulsion_starboard
 	name = "Maint, Propulsion Starboard"
 	icon_state = "engine"
+	generate_dirt = 175
 
 /area/ship/scc_scout_ship/maint_propulsion_port
 	name = "Maint, Propulsion Port"
 	icon_state = "engine"
+	generate_dirt = 175
 
 /area/ship/scc_scout_ship/exterior
 	name = "Exterior Catwalks/Lattices"
@@ -59,6 +65,7 @@
 /area/shuttle/scc_scout_ship_shuttle
 	name = "SCC Scout Ship Shuttle (abstract/base)"
 	requires_power = TRUE
+	generate_dirt = 75
 
 /area/shuttle/scc_scout_ship_shuttle/cockpit
 	name = "Cockpit"
@@ -79,7 +86,9 @@
 /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard
 	name = "Propulsion Starboard"
 	icon_state = "engine"
+	generate_dirt = 175
 
 /area/shuttle/scc_scout_ship_shuttle/propulsion_port
 	name = "Propulsion Port"
 	icon_state = "engine"
+	generate_dirt = 175
