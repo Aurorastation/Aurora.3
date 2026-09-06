@@ -224,6 +224,7 @@
 #define INIT_ORDER_GARBAGE 99
 #define INIT_ORDER_DBCORE 95
 #define INIT_ORDER_AUTH 94 //Admin permissions should be loaded early on
+#define INIT_ORDER_REGISTRY 90 // Registry subsystem, requires dbcore
 #define INIT_ORDER_SOUNDS 83
 #define INIT_ORDER_SENTRY 79
 #define INIT_ORDER_DISCORD 78

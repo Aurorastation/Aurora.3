@@ -216,7 +216,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"
@@ -979,7 +979,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"
@@ -1135,7 +1135,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"
@@ -3113,7 +3113,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"
@@ -4142,7 +4142,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "iWI" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"
@@ -5100,7 +5100,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"
@@ -6195,7 +6195,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/thrustp)
 "snz" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"
@@ -6644,7 +6644,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1969;
 	master_tag = "airlock_hiskyn_1";
 	name = "airlock_hiskyn_1"

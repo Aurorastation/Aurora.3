@@ -210,6 +210,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/grenade_launcher_beanbags_box
+	category = "security"
+	name = "box of beanbag rounds"
+	supplier = "zavodskoi"
+	description = "A box containing 7 less-lethal beanbag rounds. These rounds can only be fired from a grenade launcher."
+	price = 400
+	items = list(
+		/obj/item/storage/box/tactical/beanbags
+	)
+	access = ACCESS_SECURITY
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/empgrenades_box
 	category = "security"
 	name = "box of EMP grenades"
@@ -220,20 +234,6 @@
 		/obj/item/storage/box/tactical/emps
 	)
 	access = ACCESS_SECURITY
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/fraggrenades_box
-	category = "security"
-	name = "box of frag grenades"
-	supplier = "zavodskoi"
-	description = "A box containing 5 military grade fragmentation grenades. WARNING: Live explosives. Misuse may result in serious injury or death."
-	price = 1500
-	items = list(
-		/obj/item/storage/box/tactical/frags
-	)
-	access = ACCESS_ARMORY
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

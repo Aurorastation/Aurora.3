@@ -153,6 +153,14 @@
 	coating = /singleton/reagent/nutriment/coating/batter
 	result = /obj/item/reagent_containers/food/snacks/fishfingers
 
+/singleton/recipe/psiren_chips
+	appliance = FRYER
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/psiren_leather
+	)
+	result = /obj/item/reagent_containers/food/snacks/bowl/psiren_chips
+
 //Sweet Recipes.
 //==================
 /singleton/recipe/jellydonut

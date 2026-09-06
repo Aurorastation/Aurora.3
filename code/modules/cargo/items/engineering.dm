@@ -448,12 +448,12 @@
 	category = "engineering"
 	name = "welding backpack"
 	supplier = "hephaestus"
-	description = "A heavy-duty backpack containing 350 units of welding fuel."
+	description = "An empty heavy-duty backpack with a capacity of 350 units of welding fuel."
 	price = 120
 	items = list(
-		/obj/item/reagent_containers/weldpack
+		/obj/item/reagent_containers/weldpack/empty
 	)
-	access = ACCESS_ENGINE
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -467,7 +467,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/fueltank
 	)
-	access = ACCESS_ENGINE
+	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -505,7 +505,7 @@
 	name = "combination dosimeter"
 	supplier = "hephaestus"
 	description = "A wrist-worn radiation monitor that measures both the current dose rate and accumulated exposure."
-	price = 150
+	price = 350
 	items = list(
 		/obj/item/geiger/dosimeter
 	)
@@ -916,20 +916,6 @@
 	price = 100
 	items = list(
 		/obj/structure/cart/storage/engineeringcart
-	)
-	access = ACCESS_ENGINE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/plasticexplosives
-	category = "engineering"
-	name = "plastic explosives"
-	supplier = "zavodskoi"
-	description = "A timed plastic explosive charge designed to breach walls and other hardened targets."
-	price = 500
-	items = list(
-		/obj/item/plastique
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"

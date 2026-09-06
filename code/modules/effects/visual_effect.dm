@@ -30,4 +30,6 @@
 
 /obj/effect/visual/Destroy()
 	STOP_VISUAL(src)
+	// BYOND animations retain their target until the sequence is explicitly stopped.
+	animate(src)
 	return ..()

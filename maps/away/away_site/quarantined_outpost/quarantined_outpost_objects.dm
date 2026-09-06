@@ -261,7 +261,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	if(mob_in_disguise && isliving(hit_mob)) // we hit a mob? Disguise is gone
 		disregard_the_disguise()
 
-/mob/living/simple_animal/hostile/revivable/abomination/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/simple_animal/hostile/revivable/abomination/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE, check_armor)
 	. = ..()
 	if(mob_in_disguise && damage) // we were hit? Disguise is gone
 		disregard_the_disguise()

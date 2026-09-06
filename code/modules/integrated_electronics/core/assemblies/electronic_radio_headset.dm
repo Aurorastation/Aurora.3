@@ -70,6 +70,11 @@
 /obj/item/radio/headset/circuitry/proc/get_clone_host_type()
 	return type
 
+/obj/item/radio/headset/circuitry/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "Any <b>text-to-speech circuits</b> installed in this device can only be heard by the wearer."
+	. += "Right-click the headset to access the integrated circuit panel and view or modify the installed circuits."
+
 /obj/item/radio/headset/circuitry/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
 

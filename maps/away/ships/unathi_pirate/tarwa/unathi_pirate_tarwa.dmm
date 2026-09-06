@@ -626,7 +626,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},
@@ -890,7 +890,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_stbd";
 	name = "airlock_tarwa_stbd"
 	},
@@ -1726,7 +1726,7 @@
 /area/tarwa_ship)
 "qt" = (
 /obj/structure/diona/bulb,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_stbd";
 	name = "airlock_tarwa_stbd"
 	},
@@ -2085,7 +2085,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},
@@ -2256,7 +2256,7 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},
@@ -2857,7 +2857,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_stbd";
 	name = "airlock_tarwa_stbd"
 	},
@@ -3417,7 +3417,7 @@
 	pixel_x = 20;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},
@@ -3693,7 +3693,7 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "Il" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},
@@ -4494,7 +4494,7 @@
 	name = "aft, airlock"
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},
@@ -4573,7 +4573,7 @@
 /area/tarwa_ship/oldhangar)
 "PM" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},
@@ -4584,7 +4584,7 @@
 /turf/space/transit/north,
 /area/space)
 "PP" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_stbd";
 	name = "airlock_tarwa_stbd"
 	},
@@ -4719,7 +4719,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tarwa_aft";
 	name = "airlock_tarwa_aft"
 	},

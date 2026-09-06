@@ -14,7 +14,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/projectile/bullet/on_hit(atom/target, blocked, def_zone)
-	if(isliving(target) && (..(target, blocked, def_zone) == BULLET_ACT_HIT))
+	if(isliving(target) && blocked < 100)
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 	return ..()
@@ -112,6 +112,7 @@
 	name = "rubber ball"
 	icon_state = "pellets"
 	damage = 2
+	check_armor = MELEE
 	agony = 50
 	embed = FALSE
 	var/balls = 4

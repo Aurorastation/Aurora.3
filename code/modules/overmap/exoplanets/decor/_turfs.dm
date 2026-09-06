@@ -91,6 +91,9 @@
 			if(away_site.exoplanet_lightlevel && is_outside())
 				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
+/turf/simulated/floor/exoplanet/is_plating()
+	return FALSE
+
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
 	if(initial_flooring)
 		. = ..()

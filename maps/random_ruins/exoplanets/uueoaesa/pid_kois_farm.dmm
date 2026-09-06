@@ -97,7 +97,7 @@
 /turf/simulated/floor/tiled/white,
 /area/pid_kois_farm)
 "gR" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1889;
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
@@ -194,7 +194,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "kv" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1889;
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
@@ -237,7 +237,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "mU" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1889;
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
@@ -407,7 +407,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "tu" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1889;
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
@@ -592,7 +592,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "Bn" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1889;
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
@@ -867,7 +867,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "Pf" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1889;
 	master_tag = "airlock_klax";
 	name = "airlock_klax"
@@ -887,7 +887,7 @@
 /turf/simulated/floor/tiled,
 /area/pid_kois_farm)
 "Qh" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1889;
 	master_tag = "airlock_klax";
 	name = "airlock_klax"

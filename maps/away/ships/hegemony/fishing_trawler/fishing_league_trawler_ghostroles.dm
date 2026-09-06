@@ -9,7 +9,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/fishing_trawler_crewman
-	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_ATTENDANT)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_ATTENDANT)
 	uses_species_whitelist = FALSE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -37,6 +37,8 @@
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/workboots/toeless

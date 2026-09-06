@@ -136,16 +136,56 @@
 	bitesize = 6
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/hyperzine = 15, /singleton/reagent/acid/polyacid = 6)
 
-/obj/item/reagent_containers/food/snacks/squidmeat/psiren_tentacle_meat
-	name = "raw psiren tentacle"
-	desc = "A long smooth tentacle. It's an off putting blue colour."
+/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat
+	name = "Psiren tentacle"
+	desc = "A long, smooth tentacle. It's an off putting blue colour. WAIT, DID IT JUST MOVE??? No... That was a trick of the light... Probably."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "psiren_tentacle_meat"
 	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 3)
-	filling_color = "#1S7399"
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("fizzy chicken" = 5))
+	filling_color = "#206a88"
 
-/obj/item/reagent_containers/food/snacks/squidmeat/psiren_body_meat
-	name = "raw psiren ring"
-	desc = "A ring of blue flesh."
+/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat/attackby(obj/item/attacking_item, mob/user)
+	if(has_edge(attacking_item)) //this checks if the item you click the meat with is a knife/has an edge
+		user.visible_message(SPAN_NOTICE("[user] slices [src]!"))
+		var/psiren_cutlet = new /obj/item/reagent_containers/food/snacks/raw_psiren_cutlet(loc)
+		reagents.trans_to_obj(psiren_cutlet, reagents.total_volume / 2)
+		var/psiren_leather = new /obj/item/reagent_containers/food/snacks/psiren_leather(loc)
+		reagents.trans_to_obj(psiren_leather, reagents.total_volume / 2)
+		qdel_self()
+
+/obj/item/reagent_containers/food/snacks/psiren_body_meat
+	name = "psiren meat"
+	desc = "A slab of amber-colored meat with a bit of blueish skin attached. The slightest motion makes it look like something is shifting inside."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "psiren_body_meat"
-	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 3)
-	filling_color = "#1S7399"
+	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 2, /singleton/reagent/nutriment/protein/seafood = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("fizzy chicken" = 5))
+	filling_color = "#f5c235"
+
+/obj/item/reagent_containers/food/snacks/psiren_body_meat/attackby(obj/item/attacking_item, mob/user)
+	if(has_edge(attacking_item)) //this checks if the item you click the meat with is a knife/has an edge
+		user.visible_message(SPAN_NOTICE("[user] slices [src]!"))
+		for(var/i = 1 to 3)
+			var/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet/psiren_cutlet = new (loc)
+			reagents.trans_to_obj(psiren_cutlet, reagents.total_volume / 4)
+		var/psiren_leather = new /obj/item/reagent_containers/food/snacks/psiren_leather(loc)
+		reagents.trans_to_obj(psiren_leather, reagents.total_volume / 4)
+		qdel_self()
+
+/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet
+	name = "raw psiren cutlet"
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	desc = "Small slices of Psiren meat. Not so tough now, are you, squid?"
+	icon_state = "psiren_cutlet"
+	filling_color = "#f5c235"
+
+/obj/item/reagent_containers/food/snacks/psiren_leather
+	name = "psiren leather"
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	desc = "The blueish skin of a Psiren. It's very glossy and kind of pretty when it's not attached to a vicious monster trying to kill you."
+	icon_state = "psiren_leather"
+	filling_color = "#247892"
+	bitesize = 0.2 //it's rubbery
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 1)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("chewy, bitter fish leather" = 8))

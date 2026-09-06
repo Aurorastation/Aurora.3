@@ -1,5 +1,4 @@
 /turf/space/transit
-	plane = 0
 	use_space_appearance = TRUE
 	var/pushdirection
 

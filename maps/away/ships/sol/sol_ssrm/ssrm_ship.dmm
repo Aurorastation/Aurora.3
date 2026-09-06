@@ -830,7 +830,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/ssrm_ship/fore,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/fore,
 /turf/simulated/floor,
 /area/ship/ssrm_corvette/crew_lounge)
 "bPw" = (
@@ -1167,7 +1167,7 @@
 	req_access = list(203)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/ssrm_ship/fore,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/fore,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/crew_lounge)
 "cGw" = (
@@ -1525,7 +1525,7 @@
 	pixel_y = -6
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/ssrm_ship/fore,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/fore,
 /turf/simulated/floor,
 /area/ship/ssrm_corvette/crew_lounge)
 "doU" = (
@@ -2590,7 +2590,7 @@
 	req_access = list(203)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/ssrm_ship/aft,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/aft,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette)
 "fmU" = (
@@ -2601,7 +2601,7 @@
 	req_access = list(203)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/ssrm_ship/fore,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/fore,
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "ssrm_airlocks"
@@ -4856,7 +4856,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock/ssrm_ship/fore,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/fore,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/crew_lounge)
 "kzm" = (
@@ -5610,7 +5610,7 @@
 	req_access = list(203)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/ssrm_ship/aft,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/aft,
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "ssrm_airlocks"
@@ -6567,7 +6567,7 @@
 	pixel_y = -6
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/ssrm_ship/aft,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/aft,
 /turf/simulated/floor,
 /area/ship/ssrm_corvette)
 "oed" = (
@@ -6866,7 +6866,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/ssrm_ship/aft,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/aft,
 /turf/simulated/floor,
 /area/ship/ssrm_corvette)
 "oSr" = (
@@ -8566,7 +8566,7 @@
 	pixel_y = 6;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/ssrm_ship/aft,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/aft,
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "ssrm_airlocks"
@@ -10333,7 +10333,7 @@
 /obj/structure/machinery/access_button{
 	pixel_x = -27
 	},
-/obj/effect/map_effect/marker/airlock/ssrm_ship/aft,
+/obj/effect/map_effect/marker/airlock/external/ssrm_ship/aft,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette)
 "xCY" = (

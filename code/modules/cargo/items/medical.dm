@@ -817,20 +817,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/advancedhealthanalyzer
-	category = "medical"
-	name = "advanced health analyzer"
-	supplier = "zeng_hu"
-	description = "An advanced handheld medical scanner capable of producing detailed full-body scans."
-	price = 1500
-	items = list(
-		/obj/item/advanced_healthanalyzer
-	)
-	access = ACCESS_MEDICAL
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/organcooler/mind_blanker
 	name = "mind blanker cooler"
 	description = "An organ cooler containing a single Zeng-Hu Mind Blanker. Their cost has been subsidized by ZH for Operation Deep Dive."

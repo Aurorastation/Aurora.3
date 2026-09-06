@@ -8,7 +8,7 @@
 	var/damage_this_tick = getToxLoss()
 	var/arterial_check = 0
 	for(var/obj/item/organ/external/O in organs)
-		damage_this_tick += O.burn_dam + O.brute_dam
+		damage_this_tick += LIMB_GET_BURN_DAMAGE(O) + LIMB_GET_BRUTE_DAMAGE(O)
 		if(O.status & ORGAN_ARTERY_CUT)
 			arterial_check = 1
 

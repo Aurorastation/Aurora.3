@@ -13,7 +13,7 @@
 	max_count = 2
 
 	outfit = /obj/outfit/admin/tcaf_crewman
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "TCAF Republic Astroforce Enlisted Crew"
@@ -30,10 +30,12 @@
 	id = /obj/item/card/id/tcaf
 	accessory = /obj/item/clothing/accessory/holster/hip
 	l_ear = /obj/item/radio/headset/ship
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service = 1)
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
@@ -67,7 +69,7 @@
 	max_count = 2
 	outfit = /obj/outfit/admin/tcaf_crewman/espatier
 	// Excludes vaurca workers, as it's a combatant role.
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	mob_name_prefix = "LgnI. "
 	desc = "You are an espatier aboard a Republic Astroforce patrol vessel. \
 	It's been month since you've felt firm ground beneath your feet or enjoyed good food, \
@@ -89,10 +91,10 @@
 	max_count = 1
 	outfit = /obj/outfit/admin/tcaf_crewman/nco
 	// Excludes vaurca workers, as it's a combatant role.
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	mob_name_prefix = "Pfct. "
 	desc = "You are a Prefect of either the Republic Espatiers or Republic Astroforce. \
-	Supervises your subordinate espatiers or enlisted rates and ensure the commanding officer's orders are carried out. \
+	Supervise your subordinate espatiers or enlisted rates and ensure the commanding officer's orders are carried out. \
 	With exceptional work, you could see yourself assigned to a more comfortable vessel..."
 	assigned_role = "TCAF Republic Astroforce Prefect"
 	special_role = "TCAF Republic Astroforce Prefect"
@@ -103,7 +105,7 @@
 	uniform = /obj/item/clothing/under/tcaf/crew
 	accessory = /obj/item/clothing/accessory/holster/hip
 	gloves = /obj/item/clothing/gloves/tcaf
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/shield/energy/tcaf = 1, /obj/item/clothing/accessory/tcaf_prefect_pauldron = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service = 1, /obj/item/clothing/accessory/tcaf/pauldron/prefect = 1)
 
 /datum/ghostspawner/human/tcaf_crewman/officer
 	name = "TCAF Republic Astroforce Astrarch"
@@ -124,5 +126,5 @@
 	uniform = /obj/item/clothing/under/tcaf_officer
 	suit = /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat
 	gloves = /obj/item/clothing/gloves/white
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/shield/energy/tcaf = 1, /obj/item/clothing/accessory/tcaf/astrarch = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/badge/tcaf_papers/service = 1, /obj/item/clothing/accessory/tcaf/medallion/astrarch = 1, /obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe = 1)
 	accessory = /obj/item/clothing/accessory/holster/hip

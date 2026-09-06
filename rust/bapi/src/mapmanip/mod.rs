@@ -12,8 +12,7 @@ use eyre::eyre;
 use eyre::Context;
 use eyre::ContextCompat;
 use itertools::Itertools;
-use procgen::{MazegenHauberkSettings, mapmanip_mazegen_hauberk};
-use rand::prelude::IteratorRandom;
+use procgen::{mapmanip_mazegen_hauberk, MazegenHauberkSettings};
 use rand::seq::SliceRandom;
 use serde::{Deserialize, Serialize};
 use tools::extract_submap;
@@ -170,29 +169,99 @@ fn mapmanip_submap_extract_insert(
 
     // find all the insert markers
     let mut marker_insert_coords = vec![];
-    for (coord, tile) in map.grid.iter() {
-        if tile.prefabs.iter().any(|p| p.path == *marker_insert) {
+    for (mut coord, tile) in map.grid.iter() {
+        if let Some(p) = tile.prefabs.iter().find(|p| p.path == *marker_insert) {
+            let dir = p
+                .vars
+                .get("dir")
+                .and_then(Constant::to_float)
+                .and_then(|f| Dir::from_int(f as i32))
+                .unwrap_or(Dir::Northeast);
+
+            // Adjust for direction of submap insertion.
+            // Default is NORTHEAST, meaning the marker is the bottom-left corner,
+            // and the submap is inserted to the north-east starting from the marker.
+            // Directions such as NORTH means the marker is bottom-center,
+            // and the submap is inserted to the north starting from the marker.
+            match dir {
+                Dir::North => {
+                    coord.x -= submap_size.x / 2;
+                }
+                Dir::South => {
+                    coord.x -= submap_size.x / 2;
+                    coord.y -= submap_size.y - 1;
+                }
+                Dir::East => {
+                    coord.y -= submap_size.y / 2;
+                }
+                Dir::West => {
+                    coord.x -= submap_size.x - 1;
+                    coord.y -= submap_size.y / 2;
+                }
+                Dir::Northeast => {
+                    // default, no offset needed
+                }
+                Dir::Northwest => {
+                    coord.x -= submap_size.x - 1;
+                }
+                Dir::Southeast => {
+                    coord.y -= submap_size.y - 1;
+                }
+                Dir::Southwest => {
+                    coord.x -= submap_size.x - 1;
+                    coord.y -= submap_size.y - 1;
+                }
+            }
             marker_insert_coords.push(coord);
         }
     }
 
+    // shuffle the list
+    // avoids always giving a high weight submap to the first insert marker
+    marker_insert_coords.shuffle(&mut rand::thread_rng());
+
     // do all the extracts-inserts
     for insert_coord in marker_insert_coords {
-        // pick a submap
-        let (&extract_coord, &extract_prefab) = marker_lookup
+        // collect candidate submaps
+        let candidates: Vec<(Coord3, &Prefab)> = marker_lookup
             .iter()
             .filter(|(_, &prefab)| {
                 !singleton_tags
                     .contains(prefab.vars.get("singleton_id").unwrap_or(Constant::null()))
             })
-            .choose(&mut rand::thread_rng())
-            .wrap_err(format!(
-                "no extractions found for marker {marker_extract}, singletons={singleton_tags:?}"
-            ))?;
+            .map(|(&coord, &prefab)| (coord, prefab))
+            .collect();
+
+        // try weighted selection; fall back to uniform selection if all weights are 0
+        let (extract_coord, extract_prefab) = candidates
+            .choose_weighted(&mut rand::thread_rng(), |(_, prefab)| {
+                let weight = prefab
+                    .vars
+                    .get("weight")
+                    .unwrap_or(&Constant::from(1))
+                    .to_int()
+                    .unwrap_or(1);
+                weight.max(0)
+            })
+            .ok()
+            .copied()
+            .or_else(|| candidates.choose(&mut rand::thread_rng()).copied())
+            .wrap_err_with(|| {
+                format!("no extractions found for marker {marker_extract}, singletons={singleton_tags:?}")
+            })?;
 
         // if submaps should not be repeating, remove this one
         if !submaps_can_repeat {
             marker_lookup.remove(&extract_coord);
+        }
+
+        // if singleton_id is present, add it to the list so it cannot be picked again
+        let singleton_id = extract_prefab
+            .vars
+            .get("singleton_id")
+            .unwrap_or(Constant::null());
+        if !singleton_id.is_null() {
+            singleton_tags.push(singleton_id.clone());
         }
 
         // extract that submap from the submap dmm
@@ -202,14 +271,6 @@ fn mapmanip_submap_extract_insert(
         // and insert the submap into the manipulated map
         insert_submap(&extracted, insert_coord, map)
             .wrap_err(format!("submap insertion failed; at {insert_coord}"))?;
-
-        let singleton_id = extract_prefab
-            .vars
-            .get("singleton_id")
-            .unwrap_or(Constant::null());
-        if !singleton_id.is_null() {
-            singleton_tags.push(singleton_id.clone());
-        }
     }
 
     Ok(())

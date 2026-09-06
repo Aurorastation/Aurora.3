@@ -79,6 +79,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	/// Message displayed while a delayed console action is processing.
 	var/busy_message = "Processing request. Please wait."
 
+	/// Cached static fabrication catalogue data, keyed by build type.
+	var/list/fabricator_catalogue_cache = list()
+
 	var/protolathe_category = "All"
 	var/imprinter_category = "All"
 
@@ -112,6 +115,106 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	reserved_materials = null
 	return ..()
 
+/datum/research_console_device_tgui_data
+	/// Number of linked destructive analyzers.
+	var/analyzer = 0
+	/// Number of linked protolathes.
+	var/protolathe = 0
+	/// Number of linked circuit imprinters.
+	var/imprinter = 0
+	/// Number of linked synthetic fabricators.
+	var/mechfab = 0
+	/// Number of linked material silos.
+	var/silo = 0
+
+/datum/research_console_device_tgui_data/proc/to_list()
+	return list(
+		"analyzer" = analyzer,
+		"protolathe" = protolathe,
+		"imprinter" = imprinter,
+		"mechfab" = mechfab,
+		"silo" = silo
+	)
+
+/datum/research_console_disk_tgui_data
+	/// Disk type exposed to TGUI. Either "technology" or "design".
+	var/design_type
+	/// Display name of the inserted disk.
+	var/name
+	/// Display name of the datum currently stored on the disk.
+	var/stored_name
+	/// Description of the datum currently stored on the disk.
+	var/stored_description
+	/// Stored technology level, when this is a technology disk.
+	var/stored_level
+
+/datum/research_console_disk_tgui_data/proc/to_list()
+	return list(
+		"type" = type,
+		"name" = name,
+		"stored_name" = stored_name,
+		"stored_description" = stored_description,
+		"stored_level" = stored_level
+	)
+
+/datum/research_console_tgui_data
+	/// Manufacturer theme used by the ResearchConsole TGUI.
+	var/manufacturer
+	/// Name of the screen currently being displayed.
+	var/screen
+	/// Whether the current user can perform restricted console actions.
+	var/authorized = FALSE
+	/// Whether the console's access restrictions have been emagged.
+	var/emagged = FALSE
+	/// Whether this console participates in research network synchronization.
+	var/network_sync = FALSE
+	/// Text displayed while a delayed console operation is running.
+	var/busy_message
+	/// Information about the disk currently inserted into the console.
+	var/datum/research_console_disk_tgui_data/loaded_disk
+	/// Number of copies added by a fabrication queue action.
+	var/queue_amount = 1
+	/// Counts of machinery currently linked to the console.
+	var/datum/research_console_device_tgui_data/devices
+	/// Technology rows displayed by technology-related screens.
+	var/list/technologies
+	/// Design rows displayed by design-related screens.
+	var/list/designs
+	/// Live destructive-analyzer payload.
+	var/list/analyzer
+	/// Live payload for the fabricator screen currently being displayed.
+	var/list/fabricator
+
+/datum/research_console_tgui_data/New()
+	. = ..()
+	devices = new
+
+/datum/research_console_tgui_data/Destroy()
+	QDEL_NULL(loaded_disk)
+	QDEL_NULL(devices)
+	technologies = null
+	designs = null
+	analyzer = null
+	fabricator = null
+	return ..()
+
+/datum/research_console_tgui_data/proc/to_list()
+	return list(
+		"manufacturer" = manufacturer,
+		"screen" = screen,
+		"authorized" = authorized,
+		"emagged" = emagged,
+		"network_sync" = network_sync,
+		"busy_message" = busy_message,
+		"loaded_disk" = loaded_disk?.to_list(),
+		"queue_amount" = queue_amount,
+		"devices" = devices.to_list(),
+		"technologies" = technologies,
+		"designs" = designs,
+		"analyzer" = analyzer,
+		"fabricator" = fabricator
+	)
+
 /obj/structure/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	return SSmaterials.material_display_name(ID)
 
@@ -144,6 +247,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			linked_fabricators |= fabricator
 
 	cleanup_fabricators()
+	invalidate_fabricator_catalogues()
 	dispatch_fabrication_jobs()
 	return
 
@@ -165,6 +269,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	if(!fabricator)
 		return
 	linked_fabricators -= fabricator
+	invalidate_fabricator_catalogues()
 	if(fabricator.assigned_job)
 		fabricator.assigned_job.assigned_machine = null
 		fabricator.assigned_job = null
@@ -189,6 +294,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	for(var/obj/structure/machinery/r_n_d/fabricator/fabricator as anything in linked_fabricators.Copy())
 		if(fabricator.build_type & build_flag)
 			fabricator.disconnect_console()
+	invalidate_fabricator_catalogues()
 
 /obj/structure/machinery/computer/rdconsole/proc/SyncTechs()
 	var/turf/turf = get_turf(src)
@@ -206,6 +312,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		files.known_tech = S.files.known_tech.Copy()
 		if(!istype(S, /obj/structure/machinery/r_n_d/server/centcom) && server_processed)
 			S.produce_heat()
+	files.RefreshResearch()
+	invalidate_fabricator_catalogues()
 	screen = 1.6
 	updateUsrDialog()
 
@@ -316,6 +424,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	for(var/obj/structure/machinery/r_n_d/fabricator/fabricator as anything in linked_fabricators.Copy())
 		fabricator.linked_console = null
 	linked_fabricators.Cut()
+	fabricator_catalogue_cache = null
 	return ..()
 
 /obj/structure/machinery/computer/rdconsole/attackby(obj/item/attacking_item, mob/user)
@@ -529,33 +638,111 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	return 0
 
-/obj/structure/machinery/computer/rdconsole/proc/get_research_fabricator_data(build_flag)
+/obj/structure/machinery/computer/rdconsole/proc/invalidate_fabricator_catalogues()
+	fabricator_catalogue_cache = list()
+
+/obj/structure/machinery/computer/rdconsole/proc/get_research_fabricator_catalogue(build_flag)
+	var/cache_key = "[build_flag]"
+	var/list/cached = fabricator_catalogue_cache[cache_key]
+	if(cached)
+		return cached
+
 	var/list/fabricators = get_fabricators(build_flag)
 	if(!length(fabricators))
 		return null
 
 	var/obj/structure/machinery/r_n_d/fabricator/primary = fabricators[1]
+	var/list/catalogue = list(
+		"recipes" = list(),
+		"categories" = list("All"),
+		"supports_manufacturers" = !!(build_flag & MECHFAB),
+		"manufacturers" = list(),
+		"supports_reagents" = FALSE
+	)
+
+	if(build_flag & MECHFAB)
+		for(var/manufacturer_id in GLOB.fabricator_robolimbs)
+			var/datum/robolimb/robolimb = GLOB.fabricator_robolimbs[manufacturer_id]
+			catalogue["manufacturers"] += list(list("id" = manufacturer_id, "name" = robolimb.company))
+
+	for(var/path in files.known_designs)
+		var/datum/design/design = files.known_designs[path]
+		if(!design.build_path || !(design.build_type & build_flag))
+			continue
+
+		var/category = get_design_category(design, build_flag)
+		catalogue["categories"] |= category
+		var/list/resources = list()
+		var/list/requirements = list()
+
+		for(var/material_id in design.materials)
+			var/material_path = SSmaterials.material_to_path(material_id, FALSE)
+			if(!material_path)
+				material_path = material_id
+			var/required_material = primary.get_required_material_amount(design, material_id)
+			var/material_name = CallMaterialName(material_id)
+			resources += "[required_material] [material_name]"
+			requirements += list(list("id" = "[material_path]", "name" = material_name, "required" = required_material, "type" = "material"))
+
+		if(primary.uses_reagents && length(design.chemicals))
+			catalogue["supports_reagents"] = TRUE
+			for(var/reagent_id in design.chemicals)
+				var/required_reagent = primary.get_required_reagent_amount(design, reagent_id)
+				var/reagent_name = CallReagentName(reagent_id)
+				resources += "[required_reagent] [reagent_name]"
+				requirements += list(list("id" = "[reagent_id]", "name" = reagent_name, "required" = required_reagent, "type" = "reagent"))
+
+		var/fastest_time = null
+		for(var/obj/structure/machinery/r_n_d/fabricator/fabricator as anything in fabricators)
+			var/machine_time = round(design.time / fabricator.production_speed)
+			if(isnull(fastest_time) || machine_time < fastest_time)
+				fastest_time = machine_time
+
+		catalogue["recipes"] += list(list(
+			"name" = design.name,
+			"description" = design.desc,
+			"design" = "[path]",
+			"category" = category,
+			"resources" = english_list(resources),
+			"requirements" = requirements,
+			"build_time" = fastest_time || design.time
+		))
+
+	fabricator_catalogue_cache[cache_key] = catalogue
+	return catalogue
+
+/obj/structure/machinery/computer/rdconsole/proc/get_research_fabricator_live_data(build_flag)
+	var/list/fabricators = get_fabricators(build_flag)
+	if(!length(fabricators))
+		return null
+
+	var/list/catalogue = get_research_fabricator_catalogue(build_flag)
+	if(!catalogue)
+		return null
+
+	var/obj/structure/machinery/r_n_d/fabricator/primary = fabricators[1]
 	var/list/job_queue = get_job_queue(build_flag)
 	var/list/stored_materials = linked_silo?.materials || list()
+	SSmaterials.normalize_material_amounts(stored_materials)
 	var/datum/reagents/reagent_holder = primary.uses_reagents ? primary.reagents : null
 	var/list/data = list(
 		"linked" = TRUE,
 		"materials" = list(),
 		"reagents" = list(),
-		"recipes" = list(),
-		"categories" = list("All"),
+		"reagent_stores" = list(),
+		"recipes" = catalogue["recipes"],
+		"categories" = catalogue["categories"],
 		"queue" = list(),
 		"sheet_material_amount" = SHEET_MATERIAL_AMOUNT,
 		"maximum_material_storage" = linked_silo?.max_material_storage || 0,
 		"maximum_reagent_volume" = reagent_holder?.maximum_volume || 0,
 		"reagent_volume" = reagent_holder?.total_volume || 0,
-		"supports_manufacturers" = build_flag & MECHFAB,
-		"manufacturers" = list(),
+		"supports_manufacturers" = catalogue["supports_manufacturers"],
+		"manufacturers" = catalogue["manufacturers"],
 		"selected_manufacturer" = selected_mech_manufacturer,
-		"supports_reagents" = FALSE
+		"supports_reagents" = catalogue["supports_reagents"]
 	)
 
-	SSmaterials.normalize_material_amounts(stored_materials)
 	for(var/material in stored_materials)
 		data["materials"] += list(list(
 			"id" = "[material]",
@@ -572,58 +759,16 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				"amount" = reagent_holder.reagent_volumes[reagent_type]
 			))
 
-	if(build_flag & MECHFAB)
-		for(var/manufacturer_id in GLOB.fabricator_robolimbs)
-			var/datum/robolimb/robolimb = GLOB.fabricator_robolimbs[manufacturer_id]
-			data["manufacturers"] += list(list("id" = manufacturer_id, "name" = robolimb.company))
-
-	for(var/path in files.known_designs)
-		var/datum/design/design = files.known_designs[path]
-		if(!design.build_path || !(design.build_type & build_flag))
+	for(var/obj/structure/machinery/r_n_d/fabricator/fabricator as anything in fabricators)
+		if(!fabricator.uses_reagents || !fabricator.reagents)
 			continue
-
-		var/category = get_design_category(design, build_flag)
-		data["categories"] |= category
-		var/list/resources = list()
-		var/list/requirements = list()
-
-		for(var/material_id in design.materials)
-			var/material_path = SSmaterials.material_to_path(material_id, FALSE)
-			if(!material_path)
-				material_path = material_id
-			var/required_material = primary.get_required_material_amount(design, material_id)
-			var/stored_material = stored_materials[material_path] || 0
-			var/material_name = CallMaterialName(material_id)
-			resources += "[required_material] [material_name]"
-			requirements += list(list("name" = material_name, "required" = required_material, "stored" = stored_material, "missing" = stored_material < required_material, "type" = "material"))
-
-		if(primary.uses_reagents && length(design.chemicals))
-			data["supports_reagents"] = TRUE
-			for(var/reagent_id in design.chemicals)
-				var/required_reagent = primary.get_required_reagent_amount(design, reagent_id)
-				var/stored_reagent = get_stored_reagent_amount(reagent_holder, reagent_id)
-				var/reagent_name = CallReagentName(reagent_id)
-				resources += "[required_reagent] [reagent_name]"
-				requirements += list(list("name" = reagent_name, "required" = required_reagent, "stored" = stored_reagent, "missing" = stored_reagent < required_reagent, "type" = "reagent"))
-
-		var/can_build_anywhere = FALSE
-		var/fastest_time = null
-		for(var/obj/structure/machinery/r_n_d/fabricator/fabricator as anything in fabricators)
-			can_build_anywhere ||= fabricator.can_build(design)
-			var/machine_time = round(design.time / fabricator.production_speed)
-			if(isnull(fastest_time) || machine_time < fastest_time)
-				fastest_time = machine_time
-
-		data["recipes"] += list(list(
-			"name" = design.name,
-			"description" = design.desc,
-			"design" = "[path]",
-			"category" = category,
-			"resources" = english_list(resources),
-			"requirements" = requirements,
-			"can_build" = can_build_anywhere,
-			"build_time" = fastest_time || design.time
-		))
+		var/list/store = list("reagents" = list())
+		for(var/reagent_type in fabricator.reagents.reagent_volumes)
+			store["reagents"] += list(list(
+				"id" = "[reagent_type]",
+				"amount" = fabricator.reagents.reagent_volumes[reagent_type]
+			))
+		data["reagent_stores"] += list(store)
 
 	var/index = 1
 	for(var/datum/research_fabrication_job/job as anything in job_queue)
@@ -657,46 +802,57 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/structure/machinery/computer/rdconsole/ui_data(mob/user)
 	validate_fabricator_screen()
-	files.RefreshResearch()
-	var/list/data = list(
-		"manufacturer" = manufacturer,
-		"screen" = tgui_screen_name(),
-		"authorized" = allowed(user) || emagged,
-		"emagged" = emagged,
-		"network_sync" = sync,
-		"busy_message" = busy_message,
-		"loaded_disk" = null,
-		"queue_amount" = queue_amount,
-		"devices" = list(
-			"analyzer" = linked_destroy ? 1 : 0,
-			"protolathe" = length(get_fabricators(PROTOLATHE)),
-			"imprinter" = length(get_fabricators(IMPRINTER)),
-			"mechfab" = length(get_fabricators(MECHFAB)),
-			"silo" = linked_silo ? 1 : 0
-		)
-	)
+
+	var/datum/research_console_tgui_data/data = new
+	data.manufacturer = manufacturer
+	data.screen = tgui_screen_name()
+	data.authorized = allowed(user) || emagged
+	data.emagged = emagged
+	data.network_sync = sync
+	data.busy_message = busy_message
+	data.queue_amount = queue_amount
+
+	data.devices.analyzer = linked_destroy ? 1 : 0
+	data.devices.protolathe = length(get_fabricators(PROTOLATHE))
+	data.devices.imprinter = length(get_fabricators(IMPRINTER))
+	data.devices.mechfab = length(get_fabricators(MECHFAB))
+	data.devices.silo = linked_silo ? 1 : 0
+
 	if(t_disk)
-		data["loaded_disk"] = list("type" = "technology", "name" = t_disk.name, "stored_name" = t_disk.stored?.name, "stored_description" = t_disk.stored?.desc, "stored_level" = t_disk.stored?.level)
+		data.loaded_disk = new
+		data.loaded_disk.design_type = "technology"
+		data.loaded_disk.name = t_disk.name
+		data.loaded_disk.stored_name = t_disk.stored?.name
+		data.loaded_disk.stored_description = t_disk.stored?.desc
+		data.loaded_disk.stored_level = t_disk.stored?.level
 	else if(d_disk)
-		data["loaded_disk"] = list("type" = "design", "name" = d_disk.name, "stored_name" = d_disk.blueprint?.name, "stored_description" = d_disk.blueprint?.desc)
-	switch(data["screen"])
+		data.loaded_disk = new
+		data.loaded_disk.design_type = "design"
+		data.loaded_disk.name = d_disk.name
+		data.loaded_disk.stored_name = d_disk.blueprint?.name
+		data.loaded_disk.stored_description = d_disk.blueprint?.desc
+
+	switch(data.screen)
 		if("levels")
-			data["technologies"] = get_technology_tgui_data()
+			data.technologies = get_technology_tgui_data()
 		if("designs")
-			data["designs"] = get_design_tgui_data()
+			data.designs = get_design_tgui_data()
 		if("tech_disk")
-			data["technologies"] = get_technology_tgui_data()
+			data.technologies = get_technology_tgui_data()
 		if("design_disk")
-			data["designs"] = get_design_tgui_data()
+			data.designs = get_design_tgui_data()
 		if("analyzer")
-			data["analyzer"] = get_analyzer_tgui_data()
+			data.analyzer = get_analyzer_tgui_data()
 		if("protolathe")
-			data["fabricator"] = get_research_fabricator_data(PROTOLATHE)
+			data.fabricator = get_research_fabricator_live_data(PROTOLATHE)
 		if("imprinter")
-			data["fabricator"] = get_research_fabricator_data(IMPRINTER)
+			data.fabricator = get_research_fabricator_live_data(IMPRINTER)
 		if("mechfab")
-			data["fabricator"] = get_research_fabricator_data(MECHFAB)
-	return data
+			data.fabricator = get_research_fabricator_live_data(MECHFAB)
+
+	var/list/result = data.to_list()
+	qdel(data)
+	return result
 
 /obj/structure/machinery/computer/rdconsole/proc/eject_fabricator_material(obj/structure/machinery/r_n_d/machine, material_id, requested_sheets)
 	return linked_silo?.eject_material(material_id, requested_sheets)
@@ -721,10 +877,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if("upload_disk")
 			if(t_disk?.stored)
 				files.AddTech2Known(t_disk.stored)
+				files.RefreshResearch()
+				invalidate_fabricator_catalogues()
 				griefProtection()
 				. = TRUE
 			else if(d_disk?.blueprint)
 				files.AddDesign2Known(d_disk.blueprint)
+				invalidate_fabricator_catalogues()
 				griefProtection()
 				. = TRUE
 		if("clear_disk")
@@ -896,6 +1055,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				griefProtection()
 				qdel(files)
 				files = new /datum/research(src)
+				files.RefreshResearch()
+				invalidate_fabricator_catalogues()
 				. = TRUE
 		if("print_research")
 			var/detailed = !!params["detailed"]
@@ -932,6 +1093,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		return
 	for(var/T in linked_destroy.loaded_item.origin_tech)
 		files.UpdateTech(T, linked_destroy.loaded_item.origin_tech[T])
+	files.RefreshResearch()
+	invalidate_fabricator_catalogues()
 	if(linked_silo && linked_destroy.loaded_item.matter)
 		for(var/t in linked_destroy.loaded_item.matter)
 			linked_silo.add_material(t, linked_destroy.loaded_item.matter[t] * linked_destroy.decon_mod)

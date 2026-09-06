@@ -6,7 +6,7 @@
 	outfit = /obj/outfit/admin/ert/kataphract
 	mob_name_prefix = "Zosaa "
 	uses_species_whitelist = FALSE // Anyone should be able to play a Kataphract Unathi
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 
 /datum/ghostspawner/human/ert/kataphract/New()

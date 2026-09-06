@@ -15,18 +15,21 @@
 	var/icon_base
 	var/color
 
-	var/has_base_range // basically if you want your turf to have variants, e.g. snow and grass. this number sets upper bound, starts at 0.
+	/// Basically if you want your turf to have variants, e.g. snow and grass. this number sets upper bound, starts at 0.
+	var/has_base_range
 	var/has_damage_range = 7
-	var/has_damage_state // if you've got unique damage sprites, hard-baked, not overlays. if you use overlays use the range system.
+	/// If you've got unique damage sprites, hard-baked, not overlays. if you use overlays use the range system.
+	var/has_damage_state
 	var/has_burn_range = 4
-	var/has_burn_state // same as damage state for burn.
+	/// Ssame as damage state for burn.
+	var/has_burn_state
 	var/damage_uses_color = FALSE // see wood.
 	var/damage_temperature
 	var/apply_thermal_conductivity
 	var/apply_heat_capacity
 
-	///The type of floor that can make this, if it's not set (`null`), this flooring is unbuildable
-	var/obj/item/stack/build_type      // Unbuildable if not set. Must be /obj/item/stack.
+	/// The type of floor that can make this, if it's not set (`null`), this flooring is unbuildable.
+	var/obj/item/stack/build_type
 	var/build_cost = 1  // Stack units.
 	var/build_time = 0  // BYOND ticks.
 
@@ -38,14 +41,16 @@
 	//How we smooth with other flooring
 	var/decal_layer = DECAL_LAYER
 	var/floor_smooth = SMOOTH_ALL
-	var/list/flooring_whitelist = list() //Smooth with nothing except the contents of this list
-	var/list/flooring_blacklist = list() //Smooth with everything except the contents of this list
+	/// Smooth with nothing except the contents of this list.
+	var/list/flooring_whitelist = list()
+	/// Smooth with everything except the contents of this list.
+	var/list/flooring_blacklist = list()
 
-	//How we smooth with walls
+	/// How we smooth with walls.
 	var/wall_smooth = SMOOTH_ALL
 	//There are no lists for walls at this time
 
-	//How we smooth with space and openspace tiles
+	/// How we smooth with space and openspace tiles.
 	var/space_smooth = SMOOTH_ALL
 	//There are no lists for spaces
 

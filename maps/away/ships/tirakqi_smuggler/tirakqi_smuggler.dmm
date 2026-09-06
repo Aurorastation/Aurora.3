@@ -553,7 +553,7 @@
 	dir = 8;
 	pixel_y = -10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_starboard";
 	name = "airlock_tirakqi_smuggler_aft_starboard"
 	},
@@ -921,7 +921,7 @@
 	dir = 1;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -1451,7 +1451,7 @@
 "jY" = (
 /obj/structure/lattice/catwalk,
 /turf/space,
-/area/space)
+/area/ship/tirakqi_smuggler/exterior)
 "jZ" = (
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -1481,6 +1481,11 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/tirakqi_smuggler_shuttle)
+"kd" = (
+/obj/item/hullbeacon/red,
+/obj/structure/lattice,
+/turf/simulated/floor/airless,
+/area/ship/tirakqi_smuggler/exterior)
 "kh" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#695391"
@@ -2748,7 +2753,7 @@
 "rJ" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
-/area/ship/tirakqi_smuggler/engi)
+/area/ship/tirakqi_smuggler/exterior)
 "rK" = (
 /mob/living/simple_animal/cosmozoan{
 	name = "Qu'qip";
@@ -2848,7 +2853,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},
@@ -3376,7 +3381,7 @@
 	pixel_y = 6;
 	pixel_x = -18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -4207,7 +4212,7 @@
 	pixel_y = 6;
 	pixel_x = 18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},
@@ -4441,7 +4446,7 @@
 	pixel_x = 26;
 	pixel_y = -2
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -4880,7 +4885,7 @@
 	dir = 4;
 	pixel_y = 11
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_port";
 	name = "airlock_tirakqi_smuggler_aft_port"
 	},
@@ -5678,7 +5683,7 @@
 	pixel_y = -6;
 	pixel_x = 18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_starboard";
 	name = "airlock_tirakqi_smuggler_aft_starboard"
 	},
@@ -5853,7 +5858,7 @@
 	dir = 8;
 	pixel_y = 10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_starboard";
 	name = "airlock_tirakqi_smuggler_aft_starboard"
 	},
@@ -6146,7 +6151,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/tirakqi_smuggler/exterior)
 "LG" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
@@ -6724,7 +6729,7 @@
 	pixel_y = -6;
 	pixel_x = -18
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_port";
 	name = "airlock_tirakqi_smuggler_aft_port"
 	},
@@ -6988,7 +6993,7 @@
 	dir = 4;
 	pixel_y = -11
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_aft_port";
 	name = "airlock_tirakqi_smuggler_aft_port"
 	},
@@ -7317,7 +7322,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_starboard";
 	name = "airlock_tirakqi_smuggler_fore_starboard"
 	},
@@ -7630,7 +7635,7 @@
 	dir = 1;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},
@@ -7881,7 +7886,7 @@
 	pixel_x = -26;
 	pixel_y = -2
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tirakqi_smuggler_fore_port";
 	name = "airlock_tirakqi_smuggler_fore_port"
 	},
@@ -8278,7 +8283,7 @@
 "Zw" = (
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/ship/tirakqi_smuggler/exterior)
 "Zx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -35200,7 +35205,7 @@ sY
 sY
 sY
 sY
-Dp
+jY
 ZW
 ZW
 ZW
@@ -37255,7 +37260,7 @@ sY
 sY
 sY
 sY
-Dp
+jY
 JB
 JC
 IH
@@ -38040,7 +38045,7 @@ fN
 mr
 nd
 nd
-Dp
+jY
 sY
 sY
 sY
@@ -38297,8 +38302,8 @@ ab
 NV
 MR
 nd
-Cx
-Dp
+kd
+jY
 sY
 sY
 sY
@@ -38555,7 +38560,7 @@ XD
 Yf
 nd
 nd
-Dp
+jY
 sY
 sY
 sY
@@ -39809,12 +39814,12 @@ sY
 sY
 sY
 sY
-Cx
+kd
 oL
 bJ
 eq
 oL
-Cx
+kd
 MU
 MU
 VH
@@ -42893,12 +42898,12 @@ sY
 sY
 sY
 sY
-Cx
+kd
 Zw
 jY
 jY
 Zw
-Cx
+kd
 MU
 MU
 fe
@@ -44209,7 +44214,7 @@ mC
 yD
 nd
 nd
-Dp
+jY
 sY
 sY
 sY
@@ -44465,8 +44470,8 @@ mJ
 NV
 Rj
 nd
-Cx
-Dp
+kd
+jY
 sY
 sY
 sY
@@ -44722,7 +44727,7 @@ xj
 mr
 nd
 nd
-Dp
+jY
 sY
 sY
 sY
@@ -45479,7 +45484,7 @@ sY
 sY
 sY
 sY
-Dp
+jY
 rJ
 Dy
 OS
@@ -47536,7 +47541,7 @@ sY
 sY
 sY
 sY
-Dp
+jY
 dH
 dH
 dH

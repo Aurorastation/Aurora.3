@@ -159,7 +159,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
@@ -189,7 +189,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -386,7 +386,7 @@
 /area/scrapper_base/quarters)
 "en" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{
@@ -608,7 +608,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
@@ -709,7 +709,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
@@ -791,7 +791,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
@@ -808,7 +808,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
@@ -971,7 +971,7 @@
 "lE" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
@@ -1128,7 +1128,7 @@
 "ni" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
@@ -1463,7 +1463,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{
@@ -1483,7 +1483,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{
@@ -1539,7 +1539,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
@@ -1653,7 +1653,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
@@ -1676,7 +1676,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -1743,7 +1743,7 @@
 "uC" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
@@ -1871,7 +1871,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
@@ -2123,7 +2123,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_3"
 	},
 /turf/simulated/floor/plating{
@@ -2171,7 +2171,7 @@
 /area/shuttle/scrapper_ship/bridge)
 "zx" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{
@@ -2212,7 +2212,7 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_3"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -2508,7 +2508,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
@@ -2871,7 +2871,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
@@ -2889,7 +2889,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
@@ -3154,7 +3154,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{
@@ -3179,7 +3179,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
@@ -3351,7 +3351,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
@@ -3361,7 +3361,7 @@
 "OW" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
@@ -3394,7 +3394,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -3424,7 +3424,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_3"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -3450,7 +3450,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -3474,7 +3474,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_2"
 	},
 /turf/simulated/floor/plating{
@@ -3488,7 +3488,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_2"
 	},
 /turf/simulated/floor/plating{
@@ -3520,7 +3520,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
@@ -3547,7 +3547,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_1"
 	},
 /turf/simulated/floor/plating{
@@ -3836,7 +3836,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{
@@ -4159,7 +4159,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "scrapper_ship_1"
 	},
 /turf/simulated/floor/plating{

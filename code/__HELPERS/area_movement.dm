@@ -114,3 +114,7 @@
 			. += copy
 
 		SSair.mark_for_update(TT)
+
+	for (var/atom/movable/copied_atom as anything in .)
+		if (!QDELETED(copied_atom))
+			copied_atom.update_icon()

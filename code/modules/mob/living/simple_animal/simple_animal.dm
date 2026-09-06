@@ -718,7 +718,7 @@
 	if(ismob(hitting_projectile.firer))
 		handle_attack_by(hitting_projectile.firer)
 
-/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE, check_armor)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()

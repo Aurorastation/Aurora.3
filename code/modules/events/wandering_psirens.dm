@@ -72,7 +72,7 @@
 		var/mob/living/simple_animal/hostile/psiren/psiren = psiren_weakref.resolve()
 		if (psiren && prob(50) && is_type_in_typecache(psiren.loc, despawn_turfs))
 			spawned_psirens -= psiren_weakref
-			qdel(psiren_weakref)
+			qdel(psiren)
 	spawned_psirens?.Cut()
 
 /datum/event/wandering_psirens/overmap

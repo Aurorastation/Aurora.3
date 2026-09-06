@@ -724,7 +724,7 @@
 	pixel_x = -10
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "peoples_station_solars";
 	name = "peoples_station_solars";
@@ -3880,7 +3880,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 32
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "peoples_station_solars";
 	name = "peoples_station_solars";
@@ -4450,7 +4450,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1004;
 	master_tag = "peoples_station_solars";
 	name = "peoples_station_solars";

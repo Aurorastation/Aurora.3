@@ -95,7 +95,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/brain/handle_regular_status_updates()	//TODO: comment out the unused bits >_>
+/mob/living/carbon/brain/handle_regular_status_updates(seconds_per_tick)	//TODO: comment out the unused bits >_>
 	updatehealth()
 
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP

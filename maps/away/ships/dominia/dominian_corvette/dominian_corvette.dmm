@@ -699,7 +699,7 @@
 	dir = 1;
 	req_access = list(212)
 	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_starboard,
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
 	dir = 4
@@ -1566,7 +1566,7 @@
 "cRo" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_starboard,
 /obj/structure/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = 6;
 	pixel_x = 25;
@@ -3454,7 +3454,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_hangar,
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
 	dir = 4
@@ -3948,7 +3948,7 @@
 	req_access = list(212)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_hangar,
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
 	dir = 4
@@ -4644,7 +4644,7 @@
 	pixel_y = -6;
 	req_access = list(212)
 	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_hangar,
 /turf/simulated/floor,
 /area/dominian_corvette/hangar)
 "inN" = (
@@ -5985,7 +5985,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_hangar,
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
 	dir = 4
@@ -6572,7 +6572,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_starboard,
 /obj/structure/machinery/access_button{
 	pixel_x = -26;
 	pixel_y = -28;
@@ -10723,7 +10723,7 @@
 	dir = 1;
 	req_access = list(212)
 	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_port,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_port,
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
 	dir = 4
@@ -11101,7 +11101,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_port,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_port,
 /obj/structure/machinery/access_button{
 	pixel_x = 26;
 	pixel_y = -28;
@@ -11681,7 +11681,7 @@
 	req_access = list(212)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_hangar,
 /obj/structure/machinery/door/blast/regular/open{
 	id = "dominia_airlock";
 	dir = 4
@@ -12436,7 +12436,7 @@
 "xpB" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_hangar,
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
@@ -12465,7 +12465,7 @@
 "xvb" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_port,
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_port,
 /obj/structure/machinery/light/small{
 	dir = 4
 	},

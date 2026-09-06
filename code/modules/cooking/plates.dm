@@ -15,6 +15,10 @@ Plates that can hold your cooking stuff
 	can_be_placed_into = list()
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/grease = FALSE
+	/// What utensil, if any, can't take food from the object
+	var/useless_utensil = /obj/item/material/kitchen/utensil/fork
+	/// Is the content liquid?
+	var/is_liquid_content = TRUE
 
 /obj/item/reagent_containers/bowl/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -30,9 +34,7 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/kitchen/utensil))
 		var/obj/item/material/kitchen/utensil/U = attacking_item
-		if(istype(attacking_item,/obj/item/material/kitchen/utensil/fork))
-			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]'s contents."))
-			playsound(user.loc, SFX_POUR, 50, 1)
+		if(!can_scoop_with_utensil(U, user))
 			return
 		else
 			if(U.scoop_food)
@@ -40,7 +42,7 @@ Plates that can hold your cooking stuff
 					U.create_reagents(5)
 
 				if(U.reagents.total_volume > 0)
-					to_chat(user, SPAN_WARNING("You already have liquid on \the [U]."))
+					to_chat(user, SPAN_WARNING("You already have food on \the [U]."))
 					return
 
 				user.visible_message(
@@ -54,8 +56,17 @@ Plates that can hold your cooking stuff
 				I.color = reagents.get_color()
 				U.AddOverlays(I)
 				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
-				U.is_liquid = TRUE
+				U.is_liquid = is_liquid_content
 				return
+
+/// Does the utensil work with this object?
+/obj/item/reagent_containers/bowl/proc/can_scoop_with_utensil(obj/item/material/kitchen/utensil/U, mob/user)
+	if(useless_utensil && istype(U, useless_utensil))
+		to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]'s contents."))
+		playsound(user.loc, SFX_POUR, 50, 1)
+		return FALSE
+	else
+		return TRUE
 
 /obj/item/reagent_containers/bowl/on_reagent_change()
 	if(!reagents.total_volume && !grease)
@@ -109,6 +120,8 @@ Plates that can hold your cooking stuff
 	desc = "A plate for dishing up the finest of cuisine."
 	atom_flags = 0
 	icon_state = "plate"
+	useless_utensil = null
+	is_liquid_content = FALSE
 	var/obj/item/holding
 
 /obj/item/reagent_containers/bowl/plate/feedback_hints(mob/user, distance, is_adjacent)
@@ -228,3 +241,144 @@ Plates that can hold your cooking stuff
 	var/image/over = image(icon, "gravy_over")
 	over.color = reagents.get_color()
 	AddOverlays(over)
+
+/*
+ * Takeout boxes
+ * Food is converted into reagents when put into them.
+ * This avoids needing to track the individual food and lets it mix easier with other reagents.
+*/
+/obj/item/reagent_containers/bowl/takeout_box
+	name = "takeout box"
+	desc = "A disposable takeout box for packing away a meal."
+	icon_state = "takeout_box"
+	item_state = "takeout_box"
+	fragile = 0
+	shatter_material = MATERIAL_CARDBOARD
+	// A bit overkill but it lets the chefs have plenty of space for creativity
+	volume = 60
+	useless_utensil = null
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/cardboard_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/cardboard_sheet.ogg'
+	is_liquid_content = FALSE
+	/// Has it been filled with food
+	var/has_been_used = FALSE
+	/// Is the box currently closed
+	var/closed = FALSE
+	/// Can it be folded? If so, into what?
+	var/foldable = /obj/item/stack/material/cardboard
+
+/obj/item/reagent_containers/bowl/takeout_box/mechanics_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "Click with food to put food into it."
+	. += "If it has food on it, click with cutlery to scoop some food up."
+	. += "Use the box in-hand or alt-click it to open or close it."
+
+/obj/item/reagent_containers/bowl/takeout_box/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(reagents && reagents.total_volume)
+		. += SPAN_INFO("It contains [reagents.total_volume] units of food.")
+
+/obj/item/reagent_containers/bowl/takeout_box/attackby(obj/item/attacking_item, mob/user)
+	if(closed)
+		to_chat(user, SPAN_WARNING("\The [src] is closed."))
+		return
+
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/food = attacking_item
+
+		if(!food.reagents || !food.reagents.total_volume)
+			to_chat(user, SPAN_WARNING("There is nothing edible left in \the [food]."))
+			return
+
+		if(food.reagents.total_volume > REAGENTS_FREE_SPACE(reagents))
+			to_chat(user, SPAN_WARNING("There isn't enough room in \the [src] for \the [food]."))
+			return
+
+		user.visible_message("\The [user] puts \the [food] into \the [src].", SPAN_NOTICE("You put \the [food] into \the [src]."))
+
+		has_been_used = TRUE
+		food.reagents.trans_to(src, food.reagents.total_volume)
+		user.unEquip(food)
+		qdel(food)
+		update_icon()
+		return
+
+	..()
+
+/obj/item/reagent_containers/bowl/takeout_box/attack_self(mob/user)
+	close_box(user)
+
+/obj/item/reagent_containers/bowl/takeout_box/AltClick(mob/user)
+	. = ..()
+	close_box(user)
+
+/obj/item/reagent_containers/bowl/takeout_box/proc/close_box(mob/user)
+	closed = !closed
+
+	if(closed)
+		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
+		to_chat(user, SPAN_NOTICE("You close \the [src]."))
+	else
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+		to_chat(user, SPAN_NOTICE("You open \the [src]."))
+
+	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
+	update_icon()
+
+/obj/item/reagent_containers/bowl/takeout_box/on_reagent_change()
+	if(reagents && reagents.total_volume)
+		has_been_used = TRUE
+		update_icon()
+	else if(has_been_used)
+		turn_into_trash()
+
+/obj/item/reagent_containers/bowl/takeout_box/update_icon()
+	if(closed)
+		icon_state = "takeout_box_closed"
+	else if(reagents && reagents.total_volume)
+		icon_state = "takeout_box_full"
+	else
+		icon_state = "takeout_box"
+
+/obj/item/reagent_containers/bowl/takeout_box/proc/turn_into_trash()
+	var/mob/holder
+	if(ismob(loc))
+		holder = loc
+
+	var/obj/item/trash/takeout_box/dirty_box = new(loc)
+	if(holder)
+		holder.drop_from_inventory(src)
+		holder.put_in_hands(dirty_box)
+	else
+		dirty_box.pixel_x = src.pixel_x
+		dirty_box.pixel_y = src.pixel_y
+	qdel(src)
+
+/obj/item/reagent_containers/bowl/takeout_box/verb/fold_box()
+	set name = "Fold takeout box"
+	set category = "Object.Held"
+	set src in usr
+
+	if(has_been_used)
+		to_chat(usr, SPAN_NOTICE("\The [src] is too dirty to be folded."))
+		return
+
+	if(ispath(src.foldable))
+		if(contents.len)
+			return
+		to_chat(usr, SPAN_NOTICE("You fold \the [src] flat."))
+		playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
+		var/obj/item/foldable = new src.foldable()
+		usr.put_in_hands(foldable)
+		qdel(src)
+
+/obj/item/trash/takeout_box
+	name = "dirty takeout box"
+	desc = "A greasy, empty takeout box. It should probably be thrown away."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "takeout_box_dirty"
+	item_state = "takeout_box"
+	drop_sound = 'sound/items/drop/cardboard_sheet.ogg'
+	pickup_sound = 'sound/items/pickup/cardboard_sheet.ogg'
+	w_class = WEIGHT_CLASS_SMALL
