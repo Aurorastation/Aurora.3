@@ -124,7 +124,7 @@
 	pixel_y = 32;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"
@@ -309,7 +309,7 @@
 /obj/structure/machinery/light/colored/dying{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"
@@ -341,7 +341,7 @@
 	pixel_x = -20;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"
@@ -422,7 +422,7 @@
 /turf/simulated/floor/plating,
 /area/heph_survey_post)
 "sc" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"
@@ -454,7 +454,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"
@@ -856,7 +856,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"
@@ -1072,7 +1072,7 @@
 	pixel_y = -6;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"
@@ -1152,7 +1152,7 @@
 	pixel_x = 28;
 	pixel_y = -8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_ruin";
 	name = "airlock_heph_ruin"

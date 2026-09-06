@@ -30,7 +30,7 @@
 	max_count = 3
 
 	outfit = /obj/outfit/admin/miners_guild
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Guild Miner"

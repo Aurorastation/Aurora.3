@@ -36,32 +36,38 @@
 		if (!(role in valid_special_roles()))
 			pref.be_special_role -= role
 
-/datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
-	var/list/dat = list(
-		"<b>Special Role Availability:</b><br>",
-		"<table>"
-	)
+/datum/category_item/player_setup_item/antagonism/candidacy/ui_data(var/mob/user)
+	var/list/fields = list()
 	var/is_global_banned = jobban_isbanned(preference_mob(), "Antagonist")
 	for(var/antag_type in GLOB.all_antag_types)
 		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if(antag.flags & ANTAG_NO_ROUNDSTART_SPAWN)
 			continue
-		dat += "<tr><td>[antag.role_text]: </td><td>"
+		var/list/field = list("label" = antag.role_text)
 		var/ban_reason = jobban_isbanned(preference_mob(), antag.bantype)
 		if(ban_reason == "AGE WHITELISTED")
-			dat += SPAN_DANGER("\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]<br>")
+			field["value"] = "Available in [player_old_enough_for_role(preference_mob(), antag.bantype)] days"
+			field["note"] = "Age restricted"
 		else if(is_global_banned || ban_reason)
-			dat += SPAN_DANGER("\[<a href='byond://?src=[REF(user.client)];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]<br>")
+			field["value"] = "Banned"
+			field["href"] = "byond://?src=[REF(user.client)];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"]"
 		else if(establish_db_connection(GLOB.dbcon) && antag.required_age && antag.required_age > user.client?.player_age)
-			dat += "<span class='notice'>ACC TOO YOUNG</span><br>"
+			field["value"] = "Account too young"
 		else if(antag.role_type in pref.be_special_role)
-			dat += "<b>Yes</b> / <a href='byond://?src=[REF(src)];del_special=[antag.role_type]'>No</a></br>"
+			field["value"] = "Enabled"
+			field["action"] = "del_special"
+			field["action_value"] = antag.role_type
 		else
-			dat += "<a href='byond://?src=[REF(src)];add_special=[antag.role_type]'>Yes</a> / <b>No</b></br>"
-		dat += "</td></tr>"
-	dat += "</table>"
-
-	. = dat.Join()
+			field["value"] = "Disabled"
+			field["action"] = "add_special"
+			field["action_value"] = antag.role_type
+		fields += list(field)
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("title" = "Special Role Availability", "description" = "Select a role to toggle round-start candidacy.", "fields" = fields))
+	)
 
 /datum/category_item/player_setup_item/antagonism/candidacy/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["add_special"])

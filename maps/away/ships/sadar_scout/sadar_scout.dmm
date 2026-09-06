@@ -104,7 +104,7 @@
 /area/shuttle/sadar_shuttle)
 "aQ" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -366,7 +366,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4525;
 	master_tag = "airlock_sadar_scout_starboard_3";
 	name = "airlock_sadar_scout_starboard_3"
@@ -461,13 +461,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/hydro)
 "cK" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/biogenerator,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/hydro)
 "cM" = (
@@ -1156,7 +1154,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4526;
 	master_tag = "airlock_sadar_scout_port_3";
 	name = "airlock_sadar_scout_port_3"
@@ -1334,7 +1332,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -1594,7 +1592,7 @@
 	pixel_y = -6
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4527;
 	master_tag = "airlock_sadar_scout_cic";
 	name = "airlock_sadar_scout_cic"
@@ -1686,7 +1684,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4521;
 	master_tag = "airlock_sadar_scout_starboard_1";
 	name = "airlock_sadar_scout_starboard_1"
@@ -1831,7 +1829,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -1967,7 +1965,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -1986,7 +1984,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4522;
 	master_tag = "airlock_sadar_scout_port_1";
 	name = "airlock_sadar_scout_port_1"
@@ -2444,7 +2442,7 @@
 /area/ship/sadar_scout/mainhall)
 "rS" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -2481,7 +2479,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -2506,7 +2504,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -2556,7 +2554,7 @@
 /area/shuttle/sadar_shuttle)
 "sE" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -2716,7 +2714,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -3057,7 +3055,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -3299,7 +3297,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -3885,7 +3883,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4522;
 	master_tag = "airlock_sadar_scout_port_1";
 	name = "airlock_sadar_scout_port_1"
@@ -4026,7 +4024,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4525;
 	master_tag = "airlock_sadar_scout_starboard_3";
 	name = "airlock_sadar_scout_starboard_3"
@@ -4070,7 +4068,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4522;
 	master_tag = "airlock_sadar_scout_port_1";
 	name = "airlock_sadar_scout_port_1"
@@ -4672,7 +4670,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4526;
 	master_tag = "airlock_sadar_scout_port_3";
 	name = "airlock_sadar_scout_port_3"
@@ -4738,7 +4736,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -4830,7 +4828,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4527;
 	master_tag = "airlock_sadar_scout_cic";
 	name = "airlock_sadar_scout_cic"
@@ -5142,7 +5140,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -5221,7 +5219,7 @@
 	pixel_y = 12
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4527;
 	master_tag = "airlock_sadar_scout_cic";
 	name = "airlock_sadar_scout_cic"
@@ -5282,7 +5280,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4521;
 	master_tag = "airlock_sadar_scout_starboard_1";
 	name = "airlock_sadar_scout_starboard_1"
@@ -5542,7 +5540,7 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4526;
 	master_tag = "airlock_sadar_scout_port_3";
 	name = "airlock_sadar_scout_port_3"
@@ -5559,7 +5557,7 @@
 /area/shuttle/sadar_shuttle)
 "PT" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"
@@ -5803,7 +5801,7 @@
 /area/ship/sadar_scout/eva)
 "RA" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
 	name = "airlock_sadar_scout_port_2"
@@ -6055,7 +6053,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4525;
 	master_tag = "airlock_sadar_scout_starboard_3";
 	name = "airlock_sadar_scout_starboard_3"
@@ -6079,7 +6077,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4521;
 	master_tag = "airlock_sadar_scout_starboard_1";
 	name = "airlock_sadar_scout_starboard_1"
@@ -6947,7 +6945,7 @@
 /area/ship/sadar_scout/med)
 "ZC" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
 	name = "airlock_sadar_scout_starboard_2"

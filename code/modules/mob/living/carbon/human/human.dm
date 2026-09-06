@@ -1116,15 +1116,16 @@
 	timevomit = clamp(timevomit, 1, 10)
 	level = clamp(level, 1, 3)
 
+	var/delay = rand(100,175)
 	lastpuke = TRUE
 	to_chat(src, SPAN_WARNING("You feel nauseous..."))
 	if(level > 1)
-		sleep(150 / timevomit)	//15 seconds until second warning
+		sleep(delay / timevomit)
 		to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 		if(level > 2)
-			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
+			sleep(delay / timevomit)
 			empty_stomach()
-	sleep(350)	//wait 35 seconds before next volley
+	sleep(delay * 2)
 	lastpuke = FALSE
 
 /// A damaged stomach can put blood in your vomit.
@@ -1881,7 +1882,7 @@
 	var/list/limbs = list()
 	for(var/limb in organs_by_name)
 		var/obj/item/organ/external/current_limb = organs_by_name[limb]
-		if(current_limb && current_limb.dislocated == 2)
+		if(current_limb && LIMB_GET_DISLOCATED(current_limb) == 2)
 			limbs |= limb
 	var/choice = tgui_input_list(usr, "Which joint do you wish to relocate?", "Relocate Joint", limbs)
 

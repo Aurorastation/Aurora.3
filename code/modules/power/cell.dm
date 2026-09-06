@@ -192,6 +192,7 @@
 	if (prob(10))
 		rigged = 1 //broken batterys are dangerous
 
+///A cell loses a random amount of charge, up to it's maxcharge, when it takes a heavy EMP, up to half it's maxcharge if hit by a light EMP.
 /obj/item/cell/emp_act(severity)
 	. = ..()
 
@@ -200,7 +201,8 @@
 		var/mob/living/silicon/robot/R = loc
 		severity *= R.cell_emp_mult
 
-	charge -= maxcharge / severity
+	if(severity)
+		charge -= rand(0, (maxcharge / severity))
 	if (charge < 0)
 		charge = 0
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)

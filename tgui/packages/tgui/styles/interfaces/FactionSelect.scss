@@ -1,16 +1,5 @@
 @use 'tgui-core/styles/components/Divider.scss';
-
-// Colours based on the companies' 'Official Colours' sections on the wiki.
-$company-colors: (
-  'SCC': #1966b3,
-  'NT': #14498f,
-  'Hepht': #aa6d18,
-  'Idris': #369fa1,
-  'Orion': #aa6818,
-  'PMCG': #1a1a1a,
-  'Zavod': #8a1414,
-  'Zeng': #b56cea, // 'Independent' doesn't get a colour :(
-);
+@use './FactionColors.scss' as faction;
 
 .theme-faction_select {
   .Divider {
@@ -28,7 +17,7 @@ $company-colors: (
     background-image: none;
   }
 
-  @each $name, $color in $company-colors {
+  @each $name, $color in faction.$company-colors {
     .faction_entry--#{$name}:not(.Button--selected) {
       background-image: linear-gradient(to right, transparent 65%, $color);
     }

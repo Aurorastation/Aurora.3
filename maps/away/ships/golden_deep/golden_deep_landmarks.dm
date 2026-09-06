@@ -75,23 +75,23 @@
 	landmark_tag = "gd_dock5"
 
 // Non-docking airlocks.
-/obj/effect/map_effect/marker/airlock/golden_deep/bridge
+/obj/effect/map_effect/marker/airlock/external/golden_deep/bridge
 	name = "Bridge Airlock"
 	master_tag = "airlock_gd_bridge"
 
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_port
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_port
 	name = "Fore Port Airlock"
 	master_tag = "airlock_gd_fore_port"
 
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_starboard
 	name = "Fore Starboard Airlock"
 	master_tag = "airlock_gd_fore_starboard"
 
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_aft_starboard
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_aft_starboard
 	name = "Deck Two Aft Starboard Airlock"
 	master_tag = "airlock_gd_aft_starboard_d2"
 
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_port_starboard
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_port_starboard
 	name = "Deck Two Port Starboard Airlock"
 	master_tag = "airlock_gd_aft_port_d2"
 

@@ -107,10 +107,13 @@
 /area/cult_base/asteroid
 	name = "Asteroid"
 	icon_state = "exterior"
+	needs_starlight = TRUE
+	has_gravity = FALSE
+	requires_power = FALSE
 
 /area/cult_base/asteroid_inside
 	name = "Asteroid"
-	icon_state = "exterior"
+	icon_state = "purple"
 
 // ---- shuttle
 

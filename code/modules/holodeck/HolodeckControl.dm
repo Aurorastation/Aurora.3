@@ -59,6 +59,12 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/structure/machinery/computer/hol
 	linkedholodeck = locate(linkedholodeck_area)
 	GLOB.holodeck_controls += src
 
+/obj/structure/machinery/computer/holodeck_control/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+		to_chat(user, SPAN_WARNING("The holodeck control console's casing is secured and cannot be unscrewed."))
+		return TRUE
+	return ..()
+
 /obj/structure/machinery/computer/holodeck_control/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
@@ -317,15 +323,19 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/structure/machinery/computer/hol
 
 	QDEL_LIST(holodeck_landmarks)
 
-	for(var/item in holographic_objs)
-		derez(item)
+	while(length(holographic_objs))
+		var/obj/projected_object = holographic_objs[1]
+		holographic_objs.Cut(1, 2)
+		derez(projected_object)
 
-	for(var/mob/living/simple_animal/holo_animal in holographic_mobs)
-		holographic_mobs -= holo_animal
-		holo_animal.derez()
+	while(length(holographic_mobs))
+		var/mob/living/simple_animal/holo_animal = holographic_mobs[1]
+		holographic_mobs.Cut(1, 2)
+		if(!QDELETED(holo_animal))
+			holo_animal.derez()
 
-	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
-		qdel(B)
+	for(var/obj/effect/decal/cleanable/decal in linkedholodeck)
+		qdel(decal)
 
 	holographic_objs = A.copy_contents_to(linkedholodeck , 1)
 

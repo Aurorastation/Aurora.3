@@ -413,6 +413,9 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	var/atom/movable/item = src.get_active_hand()
 	if(!item)
 		return FALSE
+	if(a_intent == I_HURT && !item.can_throw_on_harm)
+		balloon_alert(src, item.throw_on_harm_alert)
+		return TRUE
 
 	var/throw_range = item.throw_range
 	var/itemsize

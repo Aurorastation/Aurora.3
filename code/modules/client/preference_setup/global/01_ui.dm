@@ -102,29 +102,34 @@
 	pref.tgui_say_light_mode = sanitize_bool(pref.tgui_say_light_mode, FALSE)
 	pref.ooccolor = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
 
-/datum/category_item/player_setup_item/player_global/ui/content(mob/user)
-	var/list/dat = list()
-	dat += "<b>UI Settings</b><br>"
-	dat += "<b>UI Style:</b> <a href='byond://?src=[REF(src)];select_style=1'><b>[pref.UI_style]</b></a><br>"
-	dat += "<b>Custom UI</b> (recommended for White UI):<br>"
-	dat += "-Color: <a href='byond://?src=[REF(src)];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='byond://?src=[REF(src)];reset=ui'>reset</a><br>"
-	dat += "-Alpha(transparency): <a href='byond://?src=[REF(src)];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='byond://?src=[REF(src)];reset=alpha'>reset</a><br>"
-	dat += "<b>Tooltip Style:</b> <a href='byond://?src=[REF(src)];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
-	dat += "<b>TGUI Lock:</b> <a href='byond://?src=[REF(src)];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Inputs:</b> <a href='byond://?src=[REF(src)];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Input Large Buttons:</b> <a href='byond://?src=[REF(src)];tgui_inputs_large=1'><b>[pref.tgui_buttons_large ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Input Swapped Buttons:</b> <a href='byond://?src=[REF(src)];tgui_inputs_swapped=1'><b>[pref.tgui_inputs_swapped ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>TGUI Say Light Mode:</b> <a href='byond://?src=[REF(src)];tgui_say_light_mode=1'><b>[pref.tgui_say_light_mode ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>UI Scaling:</b> <a href='byond://?src=[REF(src)];ui_scale=1'><b>[pref.ui_scale ? "ON" : "OFF"]</b></a><br>"
-	dat += "<b>FPS:</b> <a href='byond://?src=[REF(src)];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='byond://?src=[REF(src)];reset=fps'>reset</a><br>"
+/datum/category_item/player_setup_item/player_global/ui/ui_data(mob/user)
+	var/list/fields = list(
+		list("label" = "UI Style", "value" = pref.UI_style, "action" = "select_style"),
+		list("label" = "Custom UI Color", "value" = pref.UI_style_color, "color" = pref.UI_style_color, "action" = "select_color", "actions" = list(list("label" = "Reset", "action" = "reset", "value" = "ui", "icon" = "rotate"))),
+		list("label" = "Alpha (Transparency)", "value" = pref.UI_style_alpha, "action" = "select_alpha", "actions" = list(list("label" = "Reset", "action" = "reset", "value" = "alpha", "icon" = "rotate"))),
+		list("label" = "Tooltip Style", "value" = pref.tooltip_style, "action" = "select_tooltip_style"),
+		list("label" = "TGUI Lock", "value" = pref.tgui_lock ? "On" : "Off", "action" = "select_tguil"),
+		list("label" = "TGUI Inputs", "value" = pref.tgui_inputs ? "On" : "Off", "action" = "tgui_inputs"),
+		list("label" = "Large Input Buttons", "value" = pref.tgui_buttons_large ? "On" : "Off", "action" = "tgui_inputs_large"),
+		list("label" = "Swapped Input Buttons", "value" = pref.tgui_inputs_swapped ? "On" : "Off", "action" = "tgui_inputs_swapped"),
+		list("label" = "TGUI Say Light Mode", "value" = pref.tgui_say_light_mode ? "On" : "Off", "action" = "tgui_say_light_mode"),
+		list("label" = "UI Scaling", "value" = pref.ui_scale ? "On" : "Off", "action" = "ui_scale"),
+		list("label" = "FPS", "value" = pref.clientfps, "action" = "select_fps", "actions" = list(list("label" = "Reset", "action" = "reset", "value" = "fps", "icon" = "rotate")))
+	)
 	if(can_select_ooc_color(user))
-		dat += "<b>OOC Color:</b> "
-		if(pref.ooccolor == initial(pref.ooccolor))
-			dat += "<a href='byond://?src=[REF(src)];select_ooc_color=1'><b>Using Default</b></a><br>"
-		else
-			dat += "<a href='byond://?src=[REF(src)];select_ooc_color=1'><b>[pref.ooccolor]</b></a> [HTML_RECT(pref.ooccolor)] - <a href='byond://?src=[REF(src)];reset=ooc'>reset</a><br>"
-
-	. = dat.Join()
+		fields += list(list(
+			"label" = "OOC Color",
+			"value" = pref.ooccolor == initial(pref.ooccolor) ? "Using Default" : pref.ooccolor,
+			"color" = pref.ooccolor,
+			"action" = "select_ooc_color",
+			"actions" = list(list("label" = "Reset", "action" = "reset", "value" = "ooc", "icon" = "rotate"))
+		))
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("title" = "UI Settings", "description" = "Custom colors are recommended for the White UI style.", "fields" = fields))
+	)
 
 /datum/category_item/player_setup_item/player_global/ui/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["select_style"])

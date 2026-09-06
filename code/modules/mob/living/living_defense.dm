@@ -1,5 +1,5 @@
-/mob/living/proc/modify_damage_by_armor(def_zone, damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE)
-	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/modify_damage_by_armor(def_zone, damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE, check_armor)
+	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = args.Copy(2)
 	for(var/armor in armors)
 		var/datum/component/armor/armor_datum = armor
@@ -8,18 +8,18 @@
 /mob/living/check_projectile_armor(def_zone, obj/projectile/impacting_projectile, is_silent)
 	if(impacting_projectile.damage > 0) // Run the block computation if we did damage or if we only use armor for effects (nodamage)
 		//Since we get a ratio from this and we need a percentage, we multiply by 100 to get the percentage
-		return (get_blocked_ratio(def_zone, impacting_projectile.damage_type, impacting_projectile.damage_flags(), impacting_projectile.armor_penetration, impacting_projectile.damage) * 100)
+		return (get_blocked_ratio(def_zone, impacting_projectile.damage_type, impacting_projectile.damage_flags(), impacting_projectile.armor_penetration, impacting_projectile.damage, impacting_projectile.check_armor) * 100)
 	return 0
 
-/mob/living/proc/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
-	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage, check_armor)
+	var/list/armors = get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = 0
 	for(var/armor in armors)
 		var/datum/component/armor/armor_datum = armor
-		. = 1 - (1 - .) * (1 - armor_datum.get_blocked(damage_type, damage_flags, armor_pen, damage)) // multiply the amount we let through
+		. = 1 - (1 - .) * (1 - armor_datum.get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)) // multiply the amount we let through
 	. = min(1, .)
 
-/mob/living/proc/get_armors_by_zone(def_zone, damage_type, damage_flags)
+/mob/living/proc/get_armors_by_zone(def_zone, damage_type, damage_flags, check_armor)
 	. = list()
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
@@ -185,7 +185,7 @@
 	return BULLET_IMPACT_MEAT
 
 //Handles the effects of "stun" weapons
-/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
+/mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/damage_type, var/def_zone, var/used_weapon, var/damage_flags, var/check_armor)
 	flash_pain(stun_amount)
 
 	if(stun_amount)
@@ -202,8 +202,33 @@
 /mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	return 0 //only carbon liveforms have this proc
 
+/**
+ * Called a living mob is hit with an EMP effect. Returns the blocked result.
+ * Energy armor can downgrade or negate the effects of an EMP, and is checked here.
+ * The chance to reduce the effect is based on the average energy armor of the mob.
+ * A heavy EMP can only be downgraded to a light EMP.
+ * A light EMP can either be negated entirely, or only affect the mob's contents.
+ * Each step down is another chance equal to the average energy armor.
+ */
 /mob/living/emp_act(severity)
 	. = ..()
+	var/total_energy_armor = 0
+	var/limb_size_weight = 0
+
+	for (var/def_zone in BP_ALL_LIMBS)
+		var/list/armors = get_armors_by_zone(def_zone, DAMAGE_BURN, null)
+		for(var/datum/component/armor/armor_datum in armors)
+			total_energy_armor += armor_datum.get_value(ENERGY) * GLOB.organ_rel_size[def_zone]
+		limb_size_weight += GLOB.organ_rel_size[def_zone]
+
+	var/average_energy_armor = total_energy_armor / limb_size_weight
+
+	if(severity == EMP_LIGHT && prob(average_energy_armor))
+		if(prob(average_energy_armor))
+			return EMP_PROTECT_ALL
+		return EMP_PROTECT_CONTENTS
+	if(severity == EMP_HEAVY && prob(average_energy_armor))
+		severity = EMP_LIGHT
 
 	//If no protection of the contents, apply the EMP effect to the contents
 	if(!(. & EMP_PROTECT_CONTENTS))

@@ -1053,7 +1053,7 @@
 "nR" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
@@ -1530,7 +1530,7 @@
 	pixel_y = -8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
@@ -1862,7 +1862,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
@@ -3205,7 +3205,7 @@
 "RM" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
@@ -3452,7 +3452,7 @@
 /area/abandoned_prison/exterior)
 "WL" = (
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
@@ -3542,7 +3542,7 @@
 	pixel_x = 20
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
@@ -3673,7 +3673,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},
@@ -3683,7 +3683,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_prison_base";
 	master_tag = "airlock_prison_base"
 	},

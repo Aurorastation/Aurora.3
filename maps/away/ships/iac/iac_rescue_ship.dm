@@ -268,11 +268,11 @@
 
 // airlocks
 
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port
 	name = "Port Airlock"
 	master_tag = "airlock_iac_rescue_port"
 
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard
 	name = "Starboard Airlock"
 	master_tag = "airlock_iac_rescue_stbd"
 

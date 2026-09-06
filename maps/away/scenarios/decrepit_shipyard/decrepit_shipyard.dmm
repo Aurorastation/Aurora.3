@@ -162,7 +162,7 @@
 	},
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "agK" = (
@@ -618,7 +618,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/west,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/north_west_maintenance)
 "avU" = (
@@ -1270,7 +1270,7 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/structure/machinery/meter,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "aXL" = (
@@ -2357,7 +2357,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "bHJ" = (
@@ -3012,7 +3012,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor,
 /area/decrepit_shipyard/main_workshop)
 "cgf" = (
@@ -3163,7 +3163,7 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "clB" = (
@@ -3203,7 +3203,7 @@
 	},
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "cmg" = (
@@ -3963,7 +3963,7 @@
 	},
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "cGj" = (
@@ -4683,7 +4683,7 @@
 	},
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "dju" = (
@@ -5038,7 +5038,7 @@
 	dir = 4;
 	pixel_y = 7
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "dwH" = (
@@ -5659,7 +5659,7 @@
 	pixel_y = 30;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/north_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/north_east,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_north_maintenance)
 "dSq" = (
@@ -6215,7 +6215,7 @@
 /obj/effect/decal/curb,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "eoQ" = (
@@ -6389,7 +6389,7 @@
 	},
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "exJ" = (
@@ -7212,7 +7212,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/light/small/emergency,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/south,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/south,
 /turf/simulated/floor,
 /area/decrepit_shipyard/transport_tunnels_south)
 "fbp" = (
@@ -8065,7 +8065,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/south,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/south,
 /turf/simulated/floor,
 /area/decrepit_shipyard/transport_tunnels_south)
 "fDA" = (
@@ -9259,7 +9259,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/west,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/west,
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
@@ -9916,7 +9916,7 @@
 	},
 /obj/structure/lattice/ceiling,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "gNT" = (
@@ -9998,7 +9998,7 @@
 	dir = 1;
 	pixel_y = 11
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "gQc" = (
@@ -11788,7 +11788,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor,
 /area/decrepit_shipyard/main_workshop)
 "hZM" = (
@@ -12808,7 +12808,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "iJf" = (
@@ -12960,7 +12960,7 @@
 /obj/structure/lattice/ceiling,
 /obj/structure/railing/mapped/no_density/low,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "iOW" = (
@@ -13246,7 +13246,7 @@
 	pixel_x = -7;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/north_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/north_east,
 /turf/simulated/floor,
 /area/decrepit_shipyard/engineering_north_maintenance)
 "iXZ" = (
@@ -14993,7 +14993,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/south,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/transport_tunnels_south)
 "kbM" = (
@@ -15541,7 +15541,7 @@
 	pixel_x = -22;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "kwF" = (
@@ -16260,7 +16260,7 @@
 	pixel_x = -30;
 	pixel_y = -2
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "ldK" = (
@@ -16384,7 +16384,7 @@
 	pixel_x = -30;
 	pixel_y = -3
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "lgd" = (
@@ -18140,7 +18140,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "mqg" = (
@@ -18750,7 +18750,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/north_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/north_east,
 /turf/simulated/floor,
 /area/decrepit_shipyard/engineering_north_maintenance)
 "mKc" = (
@@ -19127,7 +19127,7 @@
 	pixel_x = 7
 	},
 /obj/structure/machinery/light/small/emergency,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/south_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/south_east,
 /turf/simulated/floor,
 /area/decrepit_shipyard/engineering_south_maintenance)
 "mYe" = (
@@ -19146,7 +19146,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "mYx" = (
@@ -19190,7 +19190,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/south_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/south_east,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_south_maintenance)
 "mZD" = (
@@ -20016,7 +20016,7 @@
 	pixel_y = 28;
 	pixel_x = -7
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/south_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/south_east,
 /turf/simulated/floor,
 /area/decrepit_shipyard/engineering_south_maintenance)
 "nzo" = (
@@ -21438,7 +21438,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "otC" = (
@@ -21469,7 +21469,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "ovc" = (
@@ -22845,7 +22845,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "poI" = (
@@ -23274,7 +23274,7 @@
 	pixel_x = 30;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "pGw" = (
@@ -23564,7 +23564,7 @@
 	dir = 4;
 	pixel_y = 7
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor,
 /area/decrepit_shipyard/main_workshop)
 "pRK" = (
@@ -24667,7 +24667,7 @@
 	dir = 4;
 	pixel_y = 30
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/secondary,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/secondary,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/west_dry_dock_west_maintenance)
 "qKK" = (
@@ -25259,7 +25259,7 @@
 /obj/effect/decal/curb,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/lattice/ceiling,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "rhh" = (
@@ -25694,7 +25694,7 @@
 	pixel_x = -22;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor,
 /area/decrepit_shipyard/main_workshop)
 "rvx" = (
@@ -26298,7 +26298,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_small/grey,
 /obj/structure/railing/mapped/no_density/low,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "rSg" = (
@@ -27190,7 +27190,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "sxe" = (
@@ -28467,7 +28467,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/north_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/north_east,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_north_maintenance)
 "tzT" = (
@@ -28930,7 +28930,7 @@
 /obj/effect/floor_decal/industrial/hatch_small/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "tUX" = (
@@ -29641,7 +29641,7 @@
 	pixel_y = 30;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/south_east,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/south_east,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_south_maintenance)
 "uzI" = (
@@ -30507,7 +30507,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/west,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/west,
 /turf/simulated/floor,
 /area/decrepit_shipyard/north_west_maintenance)
 "viP" = (
@@ -30780,7 +30780,7 @@
 /obj/effect/floor_decal/industrial/hatch_small/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "vsq" = (
@@ -30798,7 +30798,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "vsS" = (
@@ -31083,7 +31083,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "vDi" = (
@@ -32100,7 +32100,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "wvr" = (
@@ -32492,7 +32492,7 @@
 	pixel_y = 10;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/workshop,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/workshop,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "wII" = (
@@ -32547,7 +32547,7 @@
 /obj/structure/machinery/light/small/emergency,
 /obj/structure/railing/mapped/no_density/low,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "wLH" = (
@@ -32802,7 +32802,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/upper/west,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/upper/west,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/north_west_maintenance)
@@ -33003,7 +33003,7 @@
 /obj/structure/lattice/ceiling,
 /obj/structure/railing/mapped/no_density/low,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
 "xaF" = (
@@ -34085,7 +34085,7 @@
 	pixel_y = 30;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/main,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/main,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "xRE" = (
@@ -34350,7 +34350,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard/lower/south,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard/lower/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/transport_tunnels_south)
 "ydc" = (

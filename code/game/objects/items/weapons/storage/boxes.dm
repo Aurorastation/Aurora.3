@@ -416,6 +416,12 @@
 	illustration = "stinger"
 	starts_with = list(/obj/item/grenade/stinger = 7)
 
+/obj/item/storage/box/tactical/beanbags
+	name = "box of beanbag rounds"
+	desc = "A box containing 7 less-lethal beanbag rounds for grenade launchers."
+	illustration = "stinger"
+	starts_with = list(/obj/item/grenade/beanbag = 7)
+
 /obj/item/storage/box/tactical/teargas
 	name = "box of pepperspray grenades"
 	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."

@@ -3386,7 +3386,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_idriscruiser_eng_port";
 	master_tag = "airlock_idriscruiser_eng_port"
 	},
@@ -6085,7 +6085,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "vL" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_idriscruiser_eng_port";
 	master_tag = "airlock_idriscruiser_eng_port"
 	},
@@ -10569,7 +10569,7 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/great_room)
 "Mp" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_idriscruiser_eng_port";
 	master_tag = "airlock_idriscruiser_eng_port"
 	},

@@ -25,7 +25,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
 	req_one_access = list(216);
@@ -42,7 +42,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -120,7 +120,7 @@
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
 "aaw" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -132,7 +132,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aax" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -340,7 +340,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -580,7 +580,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_1";
 	name = "airlock_tret_industrial_outpost_east_1";
 	req_one_access = null;
@@ -656,7 +656,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -2177,7 +2177,7 @@
 /area/tret_industrial/inside/hallway_botany)
 "ajo" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -2927,7 +2927,7 @@
 "aqV" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -3375,7 +3375,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -3971,7 +3971,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -4165,7 +4165,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
 	req_one_access = list(216);
@@ -4252,7 +4252,7 @@
 /area/tret_industrial/inside/crew)
 "aCQ" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -4423,7 +4423,7 @@
 "aDE" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -4500,7 +4500,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_1";
 	name = "airlock_tret_industrial_outpost_east_1";
 	req_one_access = null;
@@ -4535,7 +4535,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_1";
 	name = "airlock_tret_industrial_outpost_east_1";
 	req_one_access = null;
@@ -4830,7 +4830,7 @@
 	pixel_y = 28;
 	pixel_x = 5
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_shuttle_side";
 	name = "airlock_tret_industrial_outpost_shuttle_side";
 	req_one_access = null;
@@ -4868,7 +4868,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
 	req_one_access = list(216);
@@ -4985,7 +4985,7 @@
 /area/tret_industrial/inside/hallway_smelting)
 "aIb" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -5159,7 +5159,7 @@
 /area/tret_industrial/inside/botany)
 "aJq" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
 	req_one_access = list(216);
@@ -5327,7 +5327,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_shuttle_side";
 	name = "airlock_tret_industrial_outpost_shuttle_side";
 	req_one_access = null;
@@ -6292,7 +6292,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
 	req_one_access = list(216);
@@ -6420,7 +6420,7 @@
 /area/tret_industrial/inside/storage_smelting)
 "aUP" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -6457,7 +6457,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
 "aVp" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -7058,7 +7058,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -7143,7 +7143,7 @@
 /area/tret_industrial/inside/smelting_west)
 "bHQ" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_1";
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
@@ -7169,7 +7169,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "bJS" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_2";
 	name = "airlock_tret_industrial_outpost_west_2";
 	req_one_access = null;
@@ -7238,7 +7238,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_1";
 	name = "airlock_tret_industrial_outpost_east_1";
 	req_one_access = null;
@@ -7258,7 +7258,7 @@
 /area/tret_industrial/inside/canteen)
 "cgU" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_1";
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
@@ -7490,7 +7490,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
 "cZg" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -7574,7 +7574,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -7620,7 +7620,7 @@
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
 "dJB" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -7651,7 +7651,7 @@
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_shuttle_side";
 	name = "airlock_tret_industrial_outpost_shuttle_side";
 	req_one_access = null;
@@ -7721,7 +7721,7 @@
 "ecL" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_4";
 	name = "airlock_tret_industrial_outpost_east_4";
 	req_one_access = null;
@@ -7760,7 +7760,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
 "eiK" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -8011,7 +8011,7 @@
 /area/shuttle/tret_industrial/main)
 "flS" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -8105,7 +8105,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -8130,7 +8130,7 @@
 /area/tret_industrial/inside/maint_center)
 "fRP" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -8235,7 +8235,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
 "gdY" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -8284,7 +8284,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_1";
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
@@ -8314,7 +8314,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_4";
 	name = "airlock_tret_industrial_outpost_east_4";
 	req_one_access = null;
@@ -8323,7 +8323,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "gqH" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_4";
 	name = "airlock_tret_industrial_outpost_east_4";
 	req_one_access = null;
@@ -8776,7 +8776,7 @@
 "hZW" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_2";
 	name = "airlock_tret_industrial_outpost_west_2";
 	req_one_access = null;
@@ -8898,7 +8898,7 @@
 /turf/simulated/lava/tret,
 /area/tret_industrial/outside/surface)
 "iCP" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -8989,7 +8989,7 @@
 /area/tret_industrial/inside/crew)
 "iZQ" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -9196,7 +9196,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -9318,7 +9318,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_4";
 	name = "airlock_tret_industrial_outpost_east_4";
 	req_one_access = null;
@@ -9372,7 +9372,7 @@
 /area/tret_industrial/inside/storage_smelting)
 "jRW" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -9413,7 +9413,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
 "jUr" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -9548,7 +9548,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "kAW" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -9673,7 +9673,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_1";
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
@@ -10157,7 +10157,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
 "nmL" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -10225,7 +10225,7 @@
 /area/tret_industrial/outside/surface)
 "nDQ" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -10320,7 +10320,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -10397,7 +10397,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "odS" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -10514,7 +10514,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_shuttle_side";
 	name = "airlock_tret_industrial_outpost_shuttle_side";
 	req_one_access = null;
@@ -10790,7 +10790,7 @@
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
 "pUL" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -10817,7 +10817,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_2";
 	name = "airlock_tret_industrial_outpost_west_2";
 	req_one_access = null;
@@ -10851,7 +10851,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "qhF" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_1";
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
@@ -10961,7 +10961,7 @@
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
 "quT" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_2";
 	name = "airlock_tret_industrial_outpost_west_2";
 	req_one_access = null;
@@ -11000,7 +11000,7 @@
 /area/tret_industrial/inside/crew)
 "qyX" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_2";
 	name = "airlock_tret_industrial_outpost_west_2";
 	req_one_access = null;
@@ -11054,7 +11054,7 @@
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
 "qNt" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_1";
 	name = "airlock_tret_industrial_outpost_east_1";
 	req_one_access = null;
@@ -11082,7 +11082,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
 "qPU" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -11443,7 +11443,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -11569,7 +11569,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -11584,7 +11584,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
 	name = "airlock_tret_industrial_outpost_west_4";
 	req_one_access = null;
@@ -11652,7 +11652,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/green,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_shuttle_side";
 	name = "airlock_tret_industrial_outpost_shuttle_side";
 	req_one_access = null;
@@ -11725,7 +11725,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -11821,7 +11821,7 @@
 /area/tret_industrial/inside/storage_engineering)
 "sSg" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -11912,7 +11912,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "sYN" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -11995,7 +11995,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_1";
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
@@ -12296,7 +12296,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -12427,7 +12427,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_1";
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
@@ -12473,7 +12473,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_medical)
 "vGD" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_4";
 	name = "airlock_tret_industrial_outpost_east_4";
 	req_one_access = null;
@@ -12560,7 +12560,7 @@
 /area/tret_industrial/outside/surface)
 "vUX" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -12667,7 +12667,7 @@
 	},
 /area/shuttle/tret_industrial/main)
 "wny" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_1";
 	name = "airlock_tret_industrial_outpost_east_1";
 	req_one_access = null;
@@ -12807,7 +12807,7 @@
 /area/shuttle/tret_industrial/main)
 "wKu" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
 	name = "airlock_tret_industrial_outpost_east_2";
 	req_one_access = null;
@@ -12902,7 +12902,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
@@ -12952,7 +12952,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "xnV" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
 	name = "airlock_tret_industrial_outpost_west_3";
 	req_one_access = null;
@@ -12963,7 +12963,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "xoH" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
 	req_one_access = list(216);

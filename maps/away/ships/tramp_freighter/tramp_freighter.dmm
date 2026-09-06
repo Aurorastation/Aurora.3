@@ -2061,7 +2061,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/port_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/port_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "kW" = (
@@ -3243,7 +3243,7 @@
 	dir = 8
 	},
 /turf/space/dynamic,
-/area/tramp_freighter/bridge)
+/area/tramp_freighter/exterior)
 "ra" = (
 /obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -4474,7 +4474,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock/tramp_freighter/port_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/port_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "wB" = (
@@ -4962,7 +4962,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/port_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/port_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "yS" = (
@@ -5460,7 +5460,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/space/dynamic,
-/area/space)
+/area/tramp_freighter/exterior)
 "AM" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -5486,7 +5486,7 @@
 "AN" = (
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
-/area/tramp_freighter/bridge)
+/area/tramp_freighter/exterior)
 "AV" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -5801,7 +5801,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/space/dynamic,
-/area/space)
+/area/tramp_freighter/exterior)
 "Dr" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -6787,7 +6787,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/space/dynamic,
-/area/space)
+/area/tramp_freighter/exterior)
 "Jn" = (
 /turf/simulated/floor/carpet/brown,
 /area/tramp_freighter/captain_bed)
@@ -7112,10 +7112,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/crew_quarters)
-"Lo" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/space)
 "Lp" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -7633,7 +7629,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/tramp_freighter/bridge)
+/area/tramp_freighter/exterior)
 "NK" = (
 /obj/structure/table/stone/marble,
 /obj/item/trash/tray,
@@ -8580,7 +8576,7 @@
 	pixel_x = -2
 	},
 /turf/space/dynamic,
-/area/space)
+/area/tramp_freighter/exterior)
 "Sp" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
@@ -8623,7 +8619,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/starboard_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/starboard_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/equipment)
 "SH" = (
@@ -9267,7 +9263,7 @@
 	pixel_x = 2
 	},
 /turf/space/dynamic,
-/area/space)
+/area/tramp_freighter/exterior)
 "VQ" = (
 /obj/structure/machinery/light/small{
 	dir = 8;
@@ -9541,7 +9537,7 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/tramp_freighter/starboard_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/starboard_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/equipment)
 "Xa" = (
@@ -9775,7 +9771,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock/tramp_freighter/starboard_small,
+/obj/effect/map_effect/marker/airlock/external/tramp_freighter/starboard_small,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/equipment)
 "Yp" = (
@@ -39738,7 +39734,7 @@ jU
 xz
 Sn
 Sn
-Lo
+AN
 Sn
 Dp
 hX
@@ -45649,7 +45645,7 @@ az
 YV
 VN
 VN
-Lo
+AN
 VN
 Jm
 hX

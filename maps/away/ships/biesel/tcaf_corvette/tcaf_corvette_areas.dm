@@ -121,6 +121,7 @@
 	name = "Republic Astroforce Patrol Vessel - Exterior"
 	requires_power = FALSE
 	icon_state = "exterior"
+	needs_starlight = TRUE
 	has_gravity = FALSE
 
 // Shuttle area.

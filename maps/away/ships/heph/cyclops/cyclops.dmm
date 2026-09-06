@@ -32,7 +32,7 @@
 	dir = 1;
 	pixel_y = -20
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -201,7 +201,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -299,7 +299,7 @@
 	dir = 6
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -331,7 +331,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -632,7 +632,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -716,7 +716,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -826,7 +826,7 @@
 /obj/structure/machinery/light/small,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -1167,7 +1167,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -1382,7 +1382,7 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -1504,7 +1504,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -2736,7 +2736,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -2988,7 +2988,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -3399,7 +3399,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -3428,7 +3428,7 @@
 	pixel_y = -20
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -3485,7 +3485,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -3533,7 +3533,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -4303,7 +4303,7 @@
 "KP" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
@@ -5619,7 +5619,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port{
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port{
 	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
