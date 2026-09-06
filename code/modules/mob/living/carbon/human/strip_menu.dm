@@ -175,7 +175,8 @@
 	for(var/action in available_actions)
 		species_actions += list(list("id" = action, "label" = available_actions[action]))
 	data["species_actions"] = species_actions
-	data["held"] = user.get_active_hand()?.name
+	var/obj/item/held_item = user.get_active_hand()
+	data["held"] = held_item?.name
 	return data
 
 /datum/strip_menu/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
