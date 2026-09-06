@@ -51,8 +51,6 @@ var/global/list/default_interrogation_channels = list(
 	matter = list(MATERIAL_ALUMINIUM = 75, MATERIAL_GLASS = 25)
 	suffix = "\[3\]"
 	var/radio_desc = ""
-	/// Strip-menu viewers are bound to the original wearer and equipment slot.
-	var/list/strip_viewers
 	var/const/FREQ_LISTENING = TRUE
 	/// Automatically set on initialize, only update if bypass_default_internal is set to TRUE
 	var/list/internal_channels
@@ -152,7 +150,6 @@ var/global/list/default_interrogation_channels = list(
 	set_on(on)
 
 /obj/item/radio/Destroy()
-	strip_viewers = null
 	SSradio.remove_object_all(src)
 	QDEL_NULL(announcer)
 	QDEL_NULL(wires)
@@ -270,9 +267,6 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/radio/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TRUE
-	if(LAZYACCESS(strip_viewers, ui.user) && !can_use_strip_radio(ui.user))
-		ui.close()
 		return TRUE
 
 	if(action == "start_track")
@@ -396,21 +390,10 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/ui_status(mob/user, datum/ui_state/state)
 	if(!on)
 		return UI_CLOSE
-	if(LAZYACCESS(strip_viewers, user))
-		return can_use_strip_radio(user) ? UI_INTERACTIVE : UI_CLOSE
+	// An adjacent user can operate an open radio menu even when somebody else carries it.
+	if(isliving(user) && !issilicon(user) && Adjacent(user))
+		return user.shared_ui_interaction(src)
 	return ..()
-
-/obj/item/radio/ui_close(mob/user)
-	LAZYREMOVE(strip_viewers, user)
-	return ..()
-
-/obj/item/radio/proc/can_use_strip_radio(mob/user)
-	var/list/access = LAZYACCESS(strip_viewers, user)
-	if(!access || !is_on())
-		return FALSE
-	var/mob/living/carbon/human/wearer = access["wearer"]
-	var/slot = access["slot"]
-	return !QDELETED(wearer) && wearer.can_strip(user) && wearer.get_strip_item(slot) == src && !wearer.is_strip_slot_obscured(slot)
 
 /obj/item/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null

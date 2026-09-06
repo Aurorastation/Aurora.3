@@ -261,10 +261,8 @@
 	// Use open(), not show_to(), to preserve subtype restrictions, sounds and access delays.
 	storage.open(user)
 	// Some storage types yield while opening. Do not leave their HUD open after losing access.
-	if(!QDELETED(storage) && user.s_active == storage && (QDELETED(src) || !target.can_strip(user) || target.get_strip_item(slot) != src || target.is_strip_slot_obscured(slot) || !(storage in get_strip_storages()) || !storage.can_open_from_strip(user)))
+	if(!QDELETED(storage) && user.s_active == storage && !storage.Adjacent(user))
 		storage.close(user)
-	if(!QDELETED(storage) && user.s_active == storage)
-		LAZYSET(storage.strip_viewers, user, list("wearer" = target, "item" = src, "slot" = slot))
 	return TRUE
 
 /// Explicit storage providers avoid exposing arbitrary nested or concealed containers.
@@ -309,25 +307,6 @@
 /obj/item/storage/proc/can_open_from_strip(mob/user)
 	return TRUE
 
-/obj/item/storage
-	/// Access granted by a completed strip-menu search, scoped to this storage HUD.
-	var/list/strip_viewers
-
-/obj/item/storage/proc/can_use_strip_storage(mob/user)
-	var/list/access = LAZYACCESS(strip_viewers, user)
-	if(!access || user.s_active != src || !can_open_from_strip(user))
-		return FALSE
-	var/mob/living/carbon/human/wearer = access["wearer"]
-	if(QDELETED(wearer) || !wearer.can_strip(user))
-		return FALSE
-	var/obj/item/provider = access["item"]
-	if(QDELETED(provider))
-		return FALSE
-	if(access["headtail"])
-		return istype(wearer.species, /datum/species/skrell) && wearer.organs_by_name[BP_HEAD] == provider && loc == provider
-	var/slot = access["slot"]
-	return wearer.get_strip_item(slot) == provider && !wearer.is_strip_slot_obscured(slot) && (src in provider.get_strip_storages())
-
 // Secure containers otherwise enforce their locks in click/drag handlers, not open().
 /obj/item/storage/secure/can_open_from_strip(mob/user)
 	return !locked
@@ -357,7 +336,6 @@
 		actions = get_strip_actions(target, user)
 		if(!actions[action] || !target.get_strip_slots(target.strip_menu?.pockets_revealed(user))[slot])
 			return FALSE
-		LAZYSET(strip_viewers, user, list("wearer" = target, "slot" = text2num(slot)))
 		add_fingerprint(user)
 		ui_interact(user)
 		return TRUE

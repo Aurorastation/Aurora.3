@@ -141,7 +141,6 @@
 				if(!H.can_strip(user) || H.species != src || QDELETED(S) || H.organs_by_name[BP_HEAD] != head || S.loc != head)
 					return
 				S.open(user)
-				LAZYSET(S.strip_viewers, user, list("wearer" = H, "item" = head, "headtail" = TRUE))
 				return
 
 /datum/species/skrell/get_strip_actions()
