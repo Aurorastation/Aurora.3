@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - admin: "Fixed missing chat log for the Ping Storyteller verb."
