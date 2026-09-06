@@ -145,6 +145,9 @@ GLOBAL_LIST(global_huds)
 	var/atom/movable/screen/hurt_intent
 	var/atom/movable/screen/disarm_intent
 	var/atom/movable/screen/help_intent
+	var/atom/movable/screen/fov/fov
+	var/atom/movable/screen/fov_blocker/fov_blocker
+	var/list/image/fov_visible_images = list()
 
 	var/list/adding
 	var/list/other
@@ -180,6 +183,10 @@ GLOBAL_LIST(global_huds)
 	..()
 
 /datum/hud/Destroy()
+	if(mymob?.client)
+		mymob.client.screen -= fov
+		mymob.client.screen -= fov_blocker
+		mymob.client.images -= fov_visible_images
 	mymob = null
 	QDEL_NULL(blobpwrdisplay)
 	QDEL_NULL(blobhealthdisplay)
@@ -191,6 +198,9 @@ GLOBAL_LIST(global_huds)
 	QDEL_NULL(hurt_intent)
 	QDEL_NULL(disarm_intent)
 	QDEL_NULL(help_intent)
+	QDEL_NULL(fov)
+	QDEL_NULL(fov_blocker)
+	QDEL_LIST(fov_visible_images)
 
 	adding?.Cut()
 	other?.Cut()

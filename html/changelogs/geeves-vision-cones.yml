@@ -1,0 +1,6 @@
+author: Geeves
+delete-after: True
+changes:
+  - rscadd: "Added vision cones for human characters, ported from Azure-Peak. Your default field of view is 270 degrees; mobs behind you are hidden and the terrain is dimmed."
+  - balance: "Wearing an armored helmet narrows your field of view to 180 degrees."
+  - qol: "Typing indicators remain visible even when the person typing is hidden by your vision cone."

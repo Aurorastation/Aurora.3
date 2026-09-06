@@ -63,6 +63,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		SPACE_PLANE,
 		SKYBOX_PLANE,
 		GAME_PLANE,
+		GAME_PLANE_FOV_HIDDEN,
 		LIGHTING_PLANE
 	)
 

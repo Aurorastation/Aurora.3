@@ -122,6 +122,7 @@
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(!lying)
+	update_vision_cone()
 
 /mob/living/carbon/human/Move()
 	. = ..()

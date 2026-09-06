@@ -127,6 +127,7 @@
 
 /mob/living/handle_vision()
 	update_sight()
+	update_vision_cone()
 
 	if(stat == DEAD)
 		return

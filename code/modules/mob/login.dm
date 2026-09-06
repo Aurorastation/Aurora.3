@@ -118,3 +118,4 @@
 			client.screen -= spell_master
 
 	SEND_SIGNAL(src, COMSIG_MOB_AFTER_LOGIN)
+	update_vision_cone()

@@ -19,6 +19,16 @@
 /// NEVER HAVE ANYTHING BELOW THIS PLANE ADJUST IF YOU NEED MORE SPACE
 #define LOWEST_EVER_PLANE -200
 
+#define FIELD_OF_VISION_BLOCKER_PLANE -199
+#define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "*fovblock"
+#define GAME_PLANE_FOV_HIDDEN -6
+#define FOV_OVERLAY_PLANE 800
+
+// Equipment may block the rear half or either side of the default vision cone.
+#define FOV_RESTRICT_BEHIND (1<<0)
+#define FOV_RESTRICT_LEFT (1<<1)
+#define FOV_RESTRICT_RIGHT (1<<2)
+
 #define CLICKCATCHER_PLANE -92
 
 #define SPACE_PLANE -91
@@ -47,7 +57,7 @@
 #define WARP_EFFECT_PLATE_RENDER_TARGET "*WARP_EFFECT_PLATE_RENDER_TARGET"
 
 /// Game Plane, where most of the game objects reside
-#define GAME_PLANE -6
+#define GAME_PLANE -7
 	#define PLATING_LAYER 1
 	//ABOVE PLATING
 	#define ABOVE_PLATING_LAYER 1.01
