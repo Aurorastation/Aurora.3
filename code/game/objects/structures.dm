@@ -54,9 +54,11 @@
 /obj/structure/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	if(user?.a_intent == I_HURT && maxhealth)
+		var/damage = attacking_item.force
+		SEND_SIGNAL(user, COMSIG_ATTACK_STRUCTURE, src, &damage)
 		user.do_attack_animation(src)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		add_damage(damage, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		if(hitsound)
 			playsound(user, hitsound, attacking_item.get_clamped_volume())
 

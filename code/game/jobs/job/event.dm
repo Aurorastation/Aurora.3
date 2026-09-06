@@ -74,6 +74,8 @@
 	r_ear = /obj/item/flashlight/pen
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/nitrile/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/latex/nitrile/tajara,
@@ -111,6 +113,8 @@
 	gloves = /obj/item/clothing/gloves/yellow
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,

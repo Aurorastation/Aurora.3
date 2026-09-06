@@ -425,7 +425,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/fueltank
 	)
-	access = ACCESS_ENGINE
+	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1

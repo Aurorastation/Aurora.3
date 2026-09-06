@@ -2324,7 +2324,7 @@
 	pixel_x = -7;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_port,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_port,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "jP" = (
@@ -3902,7 +3902,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_port_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_port_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
@@ -5176,7 +5176,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "vo" = (
@@ -6375,7 +6375,7 @@
 	pixel_x = -7;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_starboard,
 /turf/simulated/floor/plating,
 /area/golden_deep/owned_lounge)
 "AL" = (
@@ -6647,7 +6647,7 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_port_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_port_starboard,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	pixel_x = 24;
@@ -6765,7 +6765,7 @@
 	pixel_x = -32;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_port,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -7737,7 +7737,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/owned_lounge)
 "FX" = (
@@ -8024,7 +8024,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_aft_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardmaints)
@@ -8911,7 +8911,7 @@
 	pixel_x = 6;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/bridge,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/bridge,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -9245,7 +9245,7 @@
 	dir = 4;
 	must_start_working = 1
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_aft_starboard,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
 	pixel_x = -24;
@@ -10225,7 +10225,7 @@
 	pixel_x = 6;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/fore_port,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/fore_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -10388,7 +10388,7 @@
 	pixel_x = -32;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/bridge,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/bridge,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -10428,7 +10428,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_aft_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/starboardmaints)
@@ -11856,7 +11856,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/golden_deep/d2_port_starboard,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/d2_port_starboard,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
@@ -12249,7 +12249,7 @@
 	pixel_x = -7;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/golden_deep/bridge,
+/obj/effect/map_effect/marker/airlock/external/golden_deep/bridge,
 /turf/simulated/floor/plating,
 /area/golden_deep/accounting)
 "Yi" = (

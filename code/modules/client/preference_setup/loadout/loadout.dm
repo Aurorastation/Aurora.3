@@ -174,77 +174,29 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			else
 				total_cost += G.cost
 
-/datum/category_item/player_setup_item/loadout/content(var/mob/user)
+/datum/category_item/player_setup_item/loadout/ui_data(var/mob/user)
 	var/total_cost = 0
 	if(pref.gear && pref.gear.len)
 		for(var/i = 1; i <= pref.gear.len; i++)
 			var/datum/gear/G = GLOB.gear_datums[pref.gear[i]]
 			if(G)
 				total_cost += G.cost
-
-	var/fcolor =  "#3366CC"
-	if(total_cost < GLOB.config.loadout_cost)
-		fcolor = "#E67300"
-	. = list()
-	. += "<table align = 'center' width = 100%>"
-	if (gear_reset)
-		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
-	. += "<tr><td colspan=3><center><a href='byond://?src=[REF(src)];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='byond://?src=[REF(src)];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[GLOB.config.loadout_cost]</font> loadout points spent.</b> \[<a href='byond://?src=[REF(src)];clear_loadout=1'>Clear Loadout</a>\]"
-	if(GLOB.config.loadout_slots > 1)
-		. += " \[<a href='byond://?src=[REF(src)];duplicate_loadout=1'>Duplicate Loadout</a>\]"
-	. += "</center></td></tr>"
-
-	. += "<tr><td colspan=3><center><b>"
-	var/firstcat = 1
+	var/list/categories = list()
 	for(var/category in GLOB.loadout_categories)
-
-		if(firstcat)
-			firstcat = 0
-		else
-			. += " |"
-		if(category == current_tab)
-			. += " [category] "
-		else
-			var/datum/loadout_category/LC = GLOB.loadout_categories[category]
-			var/style = ""
-			for(var/thing in LC.gear)
-				if(thing in pref.gear)
-					style = "style='color: #FF8000;'"
-					break
-			. += " <a href='byond://?src=[REF(src)];select_category=[category]'><font [style]>[category]</font></a> "
-	. += "</b></center></td></tr>"
-
+		var/datum/loadout_category/category_data = GLOB.loadout_categories[category]
+		var/has_selected = FALSE
+		for(var/thing in category_data.gear)
+			if(thing in pref.gear)
+				has_selected = TRUE
+				break
+		categories += list(list("name" = category, "selected" = category == current_tab, "has_selected" = has_selected))
 	var/datum/loadout_category/LC = GLOB.loadout_categories[current_tab]
-
-	. += "<tr><td colspan=3><hr></td></tr>"
-	. += "<tr><td colspan=3>"
-	. += "<div style='left:0;position:absolute;width:10%;margin-left:45%;white-space: nowrap;'><b><center>[LC.category]</center></b></div>"
-	. += "<span style='float:left;'>"
-	. += "<script>function search_onchange() { \
-		var val = document.getElementById('search_input').value; \
-		document.getElementById('search_refresh_link').href='byond://?src=[REF(src)];search_input_refresh=' + encodeURIComponent(val) + ''; \
-		document.getElementById('search_refresh_link').click(); \
-		}</script>"
-	. += "Search: "
-	. += "<input type='text' id='search_input' name='search_input' \
-			onchange='search_onchange()' value='[search_input_value]'> "
-	. += "<a href='#' onclick='search_onchange()'>Refresh</a> "
-	. += "<a href='byond://?src=[REF(src)];search_input_refresh=' id='search_refresh_link'>Clear</a> "
-	. += "</span>"
-	. += "</td></tr>"
-	. += "<tr><td colspan=3><hr></td></tr>"
-
-	var/ticked_items_html = "" // to be added to the top/beginning of the list
-	var/available_items_html = "" // to be added to the middle of the list
-	var/unavailable_items_html = "" // to be added to the end/bottom of the list
-
+	var/list/items = list()
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in LC.gear)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
-
-		var/temp_html = ""
 		var/datum/job/job = pref.return_chosen_high_job()
 		var/available = (G.check_faction(pref.faction) \
 			&& (job && G.check_role(job.title)) \
@@ -253,8 +205,6 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			&& G.check_religion(pref.religion)) \
 			&& G.check_citizenship(pref.citizenship)
 		var/ticked = (G.display_name in pref.gear)
-		var/style = ""
-
 		var/found_searched_text = FALSE
 		if(findtext(G.display_name, search_input_value))
 			found_searched_text = TRUE
@@ -264,83 +214,56 @@ GLOBAL_LIST_INIT(gear_datums, list())
 				for(var/x in path.valid_paths)
 					if(findtext(x, search_input_value))
 						found_searched_text = TRUE
-		available = available && found_searched_text
-
-		if(!available)
-			style = "style='color: #B1B1B1;'"
-		if(ticked)
-			style = "style='color: #FF8000;'"
-		temp_html += "<tr style='vertical-align:top'><td width=25%><a href=\"byond://?src=[REF(src)];toggle_gear=[G.display_name]\"><font [style]>[G.display_name]</font></a></td>"
-		temp_html += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		temp_html += "<td><font size=2><i>[G.description]</i><br>"
-
+		if(!found_searched_text)
+			continue
+		var/list/restrictions = list()
 		if(G.allowed_roles)
-			temp_html += "</font><font size = 1>(Role: "
-			var/role_count = 0
-			for(var/role in G.allowed_roles)
-				temp_html += "[role]"
-				role_count++
-				if(role_count == G.allowed_roles.len)
-					temp_html += ") "
-					break
-				else
-					temp_html += ", "
+			restrictions += "Role: [english_list(G.allowed_roles)]"
 		if(G.culture_restriction)
-			temp_html += "</font><font size = 1>(Culture: "
-			var/culture_count = 0
+			var/list/cultures = list()
 			for(var/culture in G.culture_restriction)
 				var/singleton/origin_item/C = GET_SINGLETON(culture)
-				temp_html += "[C.name]"
-				culture_count++
-				if(culture_count == G.culture_restriction.len)
-					temp_html += ") "
-					break
-				else
-					temp_html += ", "
+				cultures += C.name
+			restrictions += "Culture: [english_list(cultures)]"
 		if(G.origin_restriction)
-			temp_html += "</font><font size = 1>(Origin: "
-			var/origin_count = 0
+			var/list/origins = list()
 			for(var/origin in G.origin_restriction)
 				var/singleton/origin_item/O = GET_SINGLETON(origin)
-				temp_html += "[O.name]"
-				origin_count++
-				if(origin_count == G.origin_restriction.len)
-					temp_html += ") "
-					break
-				else
-					temp_html += ", "
-
+				origins += O.name
+			restrictions += "Origin: [english_list(origins)]"
 		if(G.whitelisted)
-			temp_html += "</font><font size = 1>(Valid species: "
-			var/species_count = 0
-			for(var/valid_species in G.whitelisted)
-				temp_html += "[valid_species]"
-				species_count++
-				if(species_count == G.whitelisted.len)
-					temp_html += ") "
-					break
-				else
-					temp_html += ", "
-		temp_html += "</font></td></tr>"
-
+			restrictions += "Valid species: [english_list(G.whitelisted)]"
+		var/list/tweaks = list()
 		if(ticked)
-			temp_html += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
-				temp_html += " <a href='byond://?src=[REF(src)];gear=[G.display_name];tweak=[REF(tweak)]'>[tweak.get_contents(get_tweak_metadata(G, tweak))]</a>"
-			temp_html += "</td></tr>"
-
-		if(ticked)
-			ticked_items_html += temp_html
-		else if(!available)
-			available_items_html += temp_html
-		else
-			unavailable_items_html += temp_html
-
-	. += ticked_items_html
-	. += unavailable_items_html
-	. += available_items_html
-	. += "</table>"
-	. = jointext(.,null)
+				var/tweak_metadata = get_tweak_metadata(G, tweak)
+				tweaks += list(list(
+					"label" = html_decode(strip_html(html_decode(tweak.get_contents(tweak_metadata)))) || "Customize",
+					"preview_color" = istype(tweak, /datum/gear_tweak/color) ? tweak_metadata : null,
+					"topic" = list("gear" = G.display_name, "tweak" = REF(tweak))
+				))
+		var/list/item_data = list(
+			"name" = G.display_name,
+			"cost" = G.cost,
+			"description" = G.description,
+			"available" = available,
+			"selected" = ticked,
+			"restrictions" = restrictions,
+			"tweaks" = tweaks
+		)
+		items += list(item_data)
+	return list(
+		"kind" = "loadout",
+		"name" = name,
+		"ref" = REF(src),
+		"slot" = pref.gear_slot,
+		"cost" = total_cost,
+		"cost_limit" = GLOB.config.loadout_cost,
+		"gear_reset" = gear_reset,
+		"search" = search_input_value,
+		"categories" = categories,
+		"items" = items
+	)
 
 /datum/category_item/player_setup_item/loadout/proc/get_gear_metadata(var/datum/gear/G)
 	. = pref.gear[G.display_name]

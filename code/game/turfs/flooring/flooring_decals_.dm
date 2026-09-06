@@ -528,6 +528,18 @@
 	icon_state = "preview_wide_threethirds"
 	blend_state = "wide_threethirds"
 
+/obj/effect/floor_decal/corner_wide/seafoam
+	name = "seafoam corner"
+	color = COLOR_SEAFOAM
+
+/obj/effect/floor_decal/corner_wide/seafoam/diagonal
+	icon_state = "preview_wide_diagonal"
+	blend_state = "wide_diagonal"
+
+/obj/effect/floor_decal/corner_wide/seafoam/full
+	icon_state = "preview_wide_threethirds"
+	blend_state = "wide_threethirds"
+
 // Full corners. // If you ever need just a little more reach. Maybe for linoleum. I'm not your dad. -Wezzy
 
 /obj/effect/floor_decal/corner_full

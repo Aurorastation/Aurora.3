@@ -10,7 +10,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/heph_security
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -31,11 +31,15 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/sandals/caligae/socks,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
 		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)
 	species_suit = list(
-		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	)
 
 /obj/outfit/admin/heph_security/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -67,7 +71,7 @@
 
 	outfit = /obj/outfit/admin/heph_security/captain
 	max_count = 1
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	assigned_role = "Hephaestus Asset Protection Squad Leader"
 	special_role = "Hephaestus Asset Protection Squad Leader"
 

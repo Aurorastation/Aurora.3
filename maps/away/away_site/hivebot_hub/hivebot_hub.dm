@@ -84,6 +84,7 @@
 
 /area/hivebothub/exterior
 	name = "Independent Supply Hub - Exterior"
+	needs_starlight = TRUE
 	icon_state = "exterior"
 
 // Docks

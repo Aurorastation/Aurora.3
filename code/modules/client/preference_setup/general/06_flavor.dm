@@ -118,48 +118,103 @@
 	if (!pref.signfont)
 		pref.signfont = "Verdana"
 
-/datum/category_item/player_setup_item/general/flavor/content(var/mob/user)
-	var/list/dat = list(
-		"<b>Flavor:</b><br>",
-		"<a href='byond://?src=[REF(src)];flavor_text=open'>Set Flavor Text</a><br/>",
-		"<a href='byond://?src=[REF(src)];flavour_text_robot=open'>Set Robot Flavor Text</a><br/>",
-		"<br>",
-		"Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[html_decode(pref.signature)]</font><br/>",
-		"<a href='byond://?src=[REF(src)];edit_signature=text'>Edit Text</a> | ",
-		"<a href='byond://?src=[REF(src)];edit_signature=font'>Edit Font</a> | ",
-		"<a href='byond://?src=[REF(src)];edit_signature=help'>Help</a> | ",
-		"<a href='byond://?src=[REF(src)];edit_signature=reset'>Reset</a><br/>"
+/datum/category_item/player_setup_item/general/flavor/ui_data(var/mob/user)
+	var/list/character_fields = list()
+	var/list/flavor_labels = list(
+		"general" = "General",
+		"head" = "Head",
+		"face" = "Face",
+		"eyes" = "Eyes",
+		"torso" = "Body",
+		"arms" = "Arms",
+		"hands" = "Hands",
+		"legs" = "Legs",
+		"feet" = "Feet"
 	)
-	. = dat.Join()
+	for(var/region in flavor_labels)
+		character_fields += list(list(
+			"label" = flavor_labels[region],
+			"value" = html_decode(TextPreview(pref.flavor_texts[region], 60)),
+			"action" = "flavor_text",
+			"action_value" = region
+		))
+	var/list/robot_fields = list(list(
+		"label" = "Default",
+		"value" = html_decode(TextPreview(pref.flavour_texts_robot["Default"], 60)),
+		"action" = "flavour_text_robot",
+		"action_value" = "Default"
+	))
+	for(var/module in GLOB.robot_module_types)
+		robot_fields += list(list(
+			"label" = module,
+			"value" = html_decode(TextPreview(pref.flavour_texts_robot[module], 60)),
+			"action" = "flavour_text_robot",
+			"action_value" = module
+		))
+	var/signature_pencode = html2pencode(html_decode(pref.signature))
+	signature_pencode = replacetext(signature_pencode, "<b>", "\[b\]")
+	signature_pencode = replacetext(signature_pencode, "</b>", "\[/b\]")
+	signature_pencode = replacetext(signature_pencode, "<i>", "\[i\]")
+	signature_pencode = replacetext(signature_pencode, "</i>", "\[/i\]")
+	signature_pencode = replacetext(signature_pencode, "<u>", "\[u\]")
+	signature_pencode = replacetext(signature_pencode, "</u>", "\[/u\]")
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(
+			list(
+				"title" = "Character Flavor Text",
+				"fields" = character_fields
+			),
+			list(
+				"title" = "Robot Flavor Text",
+				"fields" = robot_fields
+			),
+			list(
+				"title" = "Signature",
+				"fields" = list(list(
+					"label" = "Preview",
+					"value" = signature_pencode,
+					"pencode" = TRUE,
+					"font" = pref.signfont ? pref.signfont : "Verdana",
+					"note" = pref.signfont ? pref.signfont : "Verdana",
+					"actions_below" = TRUE,
+					"actions" = list(
+						list("label" = "Edit Text", "action" = "edit_signature", "value" = "text"),
+						list("label" = "Font", "action" = "edit_signature", "value" = "font"),
+						list("label" = "Help", "action" = "edit_signature", "value" = "help", "icon" = "question"),
+						list("label" = "Reset", "action" = "edit_signature", "value" = "reset", "icon" = "rotate")
+					)
+				))
+			)
+		)
+	)
 
 /datum/category_item/player_setup_item/general/flavor/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["flavor_text"])
-		if(href_list["flavor_text"] != "open")
-			switch(href_list["flavor_text"])
-				if("general")
-					var/msg = sanitize(input(usr,"Give a general description of your character. This will be shown regardless of clothing.","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
-					if(CanUseTopic(user))
-						pref.flavor_texts[href_list["flavor_text"]] = msg
-				else
-					var/msg = sanitize(input(usr,"Set the flavor text for your [href_list["flavor_text"]].","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
-					if(CanUseTopic(user))
-						pref.flavor_texts[href_list["flavor_text"]] = msg
-		SetFlavorText(user)
-		return TOPIC_HANDLED
+		switch(href_list["flavor_text"])
+			if("general")
+				var/msg = sanitize(input(usr,"Give a general description of your character. This will be shown regardless of clothing.","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+				if(CanUseTopic(user))
+					pref.flavor_texts[href_list["flavor_text"]] = msg
+			else
+				var/msg = sanitize(input(usr,"Set the flavor text for your [href_list["flavor_text"]].","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+				if(CanUseTopic(user))
+					pref.flavor_texts[href_list["flavor_text"]] = msg
+		return TOPIC_REFRESH
 
 	else if(href_list["flavour_text_robot"])
-		if(href_list["flavour_text_robot"] != "open")
-			switch(href_list["flavour_text_robot"])
-				if("Default")
-					var/msg = sanitize(input(usr,"Set the default flavour text for your robot. It will be used for any module without individual setting.","Flavour Text",html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
-					if(CanUseTopic(user))
-						pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
-				else
-					var/msg = sanitize(input(usr,"Set the flavour text for your robot with [href_list["flavour_text_robot"]] module. If you leave this empty, default flavour text will be used for this module.","Flavour Text",html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
-					if(CanUseTopic(user))
-						pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
-		SetFlavourTextRobot(user)
-		return TOPIC_HANDLED
+		switch(href_list["flavour_text_robot"])
+			if("Default")
+				var/msg = sanitize(input(usr,"Set the default flavour text for your robot. It will be used for any module without individual setting.","Flavour Text",html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
+				if(CanUseTopic(user))
+					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
+			else
+				var/msg = sanitize(input(usr,"Set the flavour text for your robot with [href_list["flavour_text_robot"]] module. If you leave this empty, default flavour text will be used for this module.","Flavour Text",html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
+				if(CanUseTopic(user))
+					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
+		return TOPIC_REFRESH
 
 	else if (href_list["edit_signature"])
 		switch (href_list["edit_signature"])
@@ -190,18 +245,8 @@
 
 				return TOPIC_REFRESH
 			if ("help")
-				var/html = ""
-				html += "A character's signature can be augmented with the following tags:<br>"
-				html += "<ul><li><i>Italics</i> - \[i\]text\[/i\]</li>"
-				html += "<li><b>Bold</b> - \[b\]text\[/b\]</li>"
-				html += "<li><u>Underline</u> - \[u\]text\[/u\]</li>"
-				html += "<li><font size='4'>Large text</font> - \[large\]text\[/large\]</li>"
-				html += "<li><font size='1'>Small text</font> - \[small\]text\[/small\]</li></ul>"
-				html += "<br><br>Beyond that, a maximum of 100 symbols are allowed for the signature text."
-				html += " Note that this includes mark-up symbols."
-
-				show_browser(usr, html, "window=signaturehelp;size=350x300")
-				return TOPIC_HANDLED
+				tgui_alert(usr, "Signature tags:\n\nItalics: \[i\]text\[/i\]\nBold: \[b\]text\[/b\]\nUnderline: \[u\]text\[/u\]\nLarge: \[large\]text\[/large\]\nSmall: \[small\]text\[/small\]\n\nA maximum of 100 symbols is allowed, including markup.", "Signature Help", list("OK"))
+				return TOPIC_NOACTION
 			if ("reset")
 				to_chat(usr, SPAN_NOTICE("Signature reset."))
 				pref.signfont = "Verdana"
@@ -209,57 +254,3 @@
 				return TOPIC_REFRESH
 
 	return ..()
-
-/datum/category_item/player_setup_item/general/flavor/proc/SetFlavorText(mob/user)
-	var/HTML = "<body>"
-	HTML += "<tt><center>"
-	HTML += "<b>Set Flavour Text</b> <hr />"
-	HTML += "<br></center>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=general'>General:</a> "
-	HTML += TextPreview(pref.flavor_texts["general"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=head'>Head:</a> "
-	HTML += TextPreview(pref.flavor_texts["head"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=face'>Face:</a> "
-	HTML += TextPreview(pref.flavor_texts["face"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=eyes'>Eyes:</a> "
-	HTML += TextPreview(pref.flavor_texts["eyes"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=torso'>Body:</a> "
-	HTML += TextPreview(pref.flavor_texts["torso"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=arms'>Arms:</a> "
-	HTML += TextPreview(pref.flavor_texts["arms"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=hands'>Hands:</a> "
-	HTML += TextPreview(pref.flavor_texts["hands"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=legs'>Legs:</a> "
-	HTML += TextPreview(pref.flavor_texts["legs"])
-	HTML += "<br>"
-	HTML += "<a href='byond://?src=[REF(src)];flavor_text=feet'>Feet:</a> "
-	HTML += TextPreview(pref.flavor_texts["feet"])
-	HTML += "<br>"
-	HTML += "<hr />"
-	HTML += "<tt>"
-	user << browse(HTML_SKELETON(HTML), "window=flavor_text;size=430x300")
-	return
-
-/datum/category_item/player_setup_item/general/flavor/proc/SetFlavourTextRobot(mob/user)
-	var/HTML = "<body>"
-	HTML += "<tt><center>"
-	HTML += "<b>Set Robot Flavour Text</b> <hr />"
-	HTML += "<br></center>"
-	HTML += "<a href='byond://?src=[REF(src)];flavour_text_robot=Default'>Default:</a> "
-	HTML += TextPreview(pref.flavour_texts_robot["Default"])
-	HTML += "<hr />"
-	for(var/module in GLOB.robot_module_types)
-		HTML += "<a href='byond://?src=[REF(src)];flavour_text_robot=[module]'>[module]:</a> "
-		HTML += TextPreview(pref.flavour_texts_robot[module])
-		HTML += "<br>"
-	HTML += "<hr />"
-	HTML += "<tt>"
-	user << browse(HTML_SKELETON(HTML), "window=flavour_text_robot;size=430x300")
-	return

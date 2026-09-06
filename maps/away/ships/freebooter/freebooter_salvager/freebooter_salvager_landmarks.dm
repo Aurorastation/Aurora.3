@@ -40,19 +40,19 @@
 
 // Non-docking airlocks
 
-/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore_upper_deck
+/obj/effect/map_effect/marker/airlock/external/freebooter_salvager/fore_upper_deck
 	name = "Upper Deck Fore"
 	master_tag = "airlock_freebooter_salvager_upfore"
 
-/obj/effect/map_effect/marker/airlock/freebooter_salvager/fore
+/obj/effect/map_effect/marker/airlock/external/freebooter_salvager/fore
 	name = "Fore Airlock"
 	master_tag = "airlock_freebooter_salvager_fore"
 
-/obj/effect/map_effect/marker/airlock/freebooter_salvager/port
+/obj/effect/map_effect/marker/airlock/external/freebooter_salvager/port
 	name = "Port Airlock"
 	master_tag = "airlock_freebooter_salvager_port"
 
-/obj/effect/map_effect/marker/airlock/freebooter_salvager/starboard
+/obj/effect/map_effect/marker/airlock/external/freebooter_salvager/starboard
 	name = "Starboard Airlock"
 	master_tag = "airlock_freebooter_salvager_starboard"
 

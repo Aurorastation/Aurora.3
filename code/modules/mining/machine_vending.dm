@@ -112,6 +112,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	ui_interact(user)
 
 /obj/structure/machinery/mineral/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
+	load_mining_point_balance(user.GetIdCard())
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "MiningVendor", "Mining Equipment Vendor", ui_x=500, ui_y=500)
@@ -139,7 +140,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 
 	if(action == "purchase")
 		var/obj/item/card/id/ID = usr.GetIdCard()
-		if(ID)
+		if(load_mining_point_balance(ID))
 			var/datum/data/mining_equipment/prize = locate(params["purchase"])
 			if(!prize || !(prize in GLOB.minevendor_list))
 				return
@@ -148,16 +149,16 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 			if(prize.cost <= ID.mining_points)
 				if(prize.shuttle)
 					if(SScargo.order_mining(prize.equipment_path))
-						ID.adjust_mining_points(-prize.cost)
-						to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
+						if(adjust_mining_point_balance(ID, -prize.cost))
+							to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
 					else
 						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 				else
-					ID.adjust_mining_points(-prize.cost)
-					if(prize.amount != -1)
-						prize.amount--
-					new prize.equipment_path(get_turf(src))
-					intent_message(MACHINE_SOUND)
+					if(adjust_mining_point_balance(ID, -prize.cost))
+						if(prize.amount != -1)
+							prize.amount--
+						new prize.equipment_path(get_turf(src))
+						intent_message(MACHINE_SOUND)
 		return TRUE
 
 /obj/structure/machinery/mineral/equipment_vendor/attackby(obj/item/attacking_item, mob/user, params)

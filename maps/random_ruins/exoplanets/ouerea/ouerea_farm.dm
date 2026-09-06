@@ -30,7 +30,7 @@
 	spawnpoints = list("ouerea_fisher")
 	extra_languages = list(LANGUAGE_UNATHI)
 	outfit = /obj/outfit/admin/unathi_fisher
-	possible_species = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hephaestus Aquacultural Guildsman"
@@ -57,6 +57,8 @@
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/sandals/caligae,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/sandals/caligae,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/sandals/caligae,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/vaurca
 	)
 

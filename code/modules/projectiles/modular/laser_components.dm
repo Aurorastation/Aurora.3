@@ -472,7 +472,7 @@
 	name = "decloner modulator"
 	desc = "Modulates the beam into firing highly radioactive particulates."
 	projectile = /obj/projectile/energy/declone
-	damage = 0.5
+	damage = 0.4
 	icon_state = "decloner"
 	firing_sound = 'sound/weapons/pulse3.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4, TECH_POWER = 3)

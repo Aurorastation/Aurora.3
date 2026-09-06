@@ -17,6 +17,7 @@
 
 	power_rating = 7500 //7500 W ~ 10 HP
 	power_losses = 150
+	connect_automatically = FALSE
 
 /obj/structure/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -68,7 +69,18 @@
 	SStgui.update_uis(src)
 
 /obj/structure/machinery/portable_atmospherics/powered/pump/process()
-	..()
+	. = ..()
+	// A majority of all pumps are completely idle for an overwhelming majority of the round.
+	// If a pump falls down in a forest and nobody is around to hear it, does it make a sound?
+	if (!connected_port && !holding && (!on || !cell || !cell.charge))
+		last_flow_rate = 0
+		last_power_draw = 0
+		last_mole_transfer = 0
+		update_icon()
+		src.updateDialog()
+		SStgui.update_uis(src)
+		return PROCESS_KILL
+
 	var/power_draw = -1
 
 	if(on && cell && cell.charge)
@@ -167,6 +179,8 @@
 		if("power")
 			on = !on
 			. = TRUE
+			if (on)
+				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		if("direction")
 			direction_out = !direction_out
 			. = TRUE

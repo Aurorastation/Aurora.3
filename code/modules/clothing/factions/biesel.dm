@@ -38,54 +38,56 @@
 	item_state = "tcaf_raf_foreign_legion"
 	worn_state = "tcaf_raf_foreign_legion"
 
-// For specialist legionnaires
-/obj/item/clothing/accessory/tcaf/immunis
+// Medallions
+/obj/item/clothing/accessory/tcaf/medallion
+	icon = 'icons/obj/clothing/ties.dmi'
+	slot = ACCESSORY_SLOT_CAPE
+	flippable = TRUE
+
+// For Specialist Legionnaires.
+/obj/item/clothing/accessory/tcaf/medallion/immunis
 	name = "legionnaire immuni medallions"
 	desc = "Two small gold medallions, one worn on the shoulder and the other worn on the chest. They denote the rank of Legionnaire Imminus, a specialist enlisted member immune from menial taskings."
 	icon_state = "tcaf_immuni_medallions"
 	item_state = "tcaf_immuni_medallions"
 	overlay_state = "tcaf_immuni_medallions"
 
-// For astrachs
-/obj/item/clothing/accessory/tcaf/astrarch
+// For Astrachs/Planarchs.
+/obj/item/clothing/accessory/tcaf/medallion/astrarch
 	name = "arch medallions"
 	desc = "A gold ribbon meant to attach to the chest and sling around the shoulder accompanied by two platinum medallions. They denote the rank of Astrarch or Planarch depending on service branch, roughly equivalent to a Captain."
 	icon_state = "tcaf_astrarch_medallions"
 	item_state = "tcaf_astrarch_medallions"
 	overlay_state = "tcaf_astrarch_medallions"
-	slot = ACCESSORY_SLOT_CAPE
-	flippable = TRUE
 
-/obj/item/clothing/accessory/tcaf/legate
+// For Legates.
+/obj/item/clothing/accessory/tcaf/medallion/legate
 	name = "legate medallions"
 	desc = "A gold ribbon meant to attach to the chest and sling around the shoulder accompanied by two enamelled phoron medallions. They denote the rank of Legate, roughly equivalent to a General or Admiral."
 	icon_state = "tcaf_legate_medallions"
 	item_state = "tcaf_legate_medallions"
 	overlay_state = "tcaf_legate_medallions"
-	slot = ACCESSORY_SLOT_CAPE
-	flippable = TRUE
 
-// Specifically for Prefects.
-/obj/item/clothing/accessory/tcaf_prefect_pauldron
-	name = "\improper TCAF prefect pauldron"
-	desc = "A bright red hard pauldron with three gold medallions attached to it. They denote the rank of Principal Prefect during combat situations."
+// Pauldrons
+/obj/item/clothing/accessory/tcaf/pauldron
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_GENERIC
+	flippable = FALSE
+
+// For Prefects.
+/obj/item/clothing/accessory/tcaf/pauldron/prefect
+	name = "\improper TCAF prefect pauldron"
+	desc = "A bright red hard pauldron with three gold medallions attached to it. They denote the rank of Prefect during combat situations."
 	icon_state = "tcaf_prefect_pauldron"
 	item_state = "tcaf_prefect_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE
 
-// Specifically for Principal Prefects.
-/obj/item/clothing/accessory/tcaf_principal_prefect_pauldron
+// For Principal Prefects.
+/obj/item/clothing/accessory/tcaf/pauldron/principal_prefect
 	name = "\improper TCAF principal prefect pauldron"
 	desc = "A blue hard pauldron with a platinum medallion attached to it. They denote the rank of Principal Prefect during combat situations."
-	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	icon_state = "tcaf_principal_prefect_pauldron"
 	item_state = "tcaf_principal_prefect_pauldron"
-	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE
 
 // For officers that want to look like a One Piece villain.
 /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat

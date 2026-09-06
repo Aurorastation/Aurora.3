@@ -72,7 +72,7 @@
 /mob/living/carbon/human/getHalLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
-		amount += E.get_pain()
+		amount += LIMB_GET_PAIN(E)
 	return amount
 
 ///These procs fetch a cumulative total damage from all organs
@@ -81,7 +81,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
 			continue //robot limbs don't count towards shock and crit
-		amount += O.brute_dam
+		amount += LIMB_GET_BRUTE_DAMAGE(O)
 	return amount
 
 /mob/living/carbon/human/getFireLoss()
@@ -89,7 +89,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
 			continue //robot limbs don't count towards shock and crit
-		amount += O.burn_dam
+		amount += LIMB_GET_BURN_DAMAGE(O)
 	return amount
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
@@ -133,7 +133,7 @@
 /mob/living/carbon/human/getCloneLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
-		amount += E.get_genetic_damage()
+		amount += LIMB_GET_GENETIC_DAMAGE(E)
 	return amount
 
 /mob/living/carbon/human/setCloneLoss(var/amount)
@@ -286,7 +286,7 @@
 			continue
 
 		if(heal)
-			if(E.get_pain() > 0)
+			if(LIMB_GET_PAIN(E) > 0)
 				amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
@@ -309,7 +309,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(!prosthetic && BP_IS_ROBOTIC(O))
 			continue
-		if((brute && O.brute_dam) || (burn && O.burn_dam))
+		if((brute && LIMB_GET_BRUTE_DAMAGE(O)) || (burn && LIMB_GET_BURN_DAMAGE(O)))
 			parts += O
 	return parts
 
@@ -360,13 +360,13 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	while(parts.len && (brute>0 || burn>0) )
 		var/obj/item/organ/external/picked = pick(parts)
 
-		var/brute_was = picked.brute_dam
-		var/burn_was = picked.burn_dam
+		var/brute_was = LIMB_GET_BRUTE_DAMAGE(picked)
+		var/burn_was = LIMB_GET_BURN_DAMAGE(picked)
 
 		update |= picked.heal_damage(brute,burn)
 
-		brute -= (brute_was-picked.brute_dam)
-		burn -= (burn_was-picked.burn_dam)
+		brute -= (brute_was - LIMB_GET_BRUTE_DAMAGE(picked))
+		burn -= (burn_was - LIMB_GET_BURN_DAMAGE(picked))
 
 		parts -= picked
 	updatehealth()
@@ -383,12 +383,12 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	while(parts.len && (brute>0 || burn>0) )
 		var/obj/item/organ/external/picked = pick(parts)
 
-		var/brute_was = picked.brute_dam
-		var/burn_was = picked.burn_dam
+		var/brute_was = LIMB_GET_BRUTE_DAMAGE(picked)
+		var/burn_was = LIMB_GET_BURN_DAMAGE(picked)
 
 		update = picked.take_damage(brute, burn, damage_flags, used_weapon) ? TRUE : FALSE
-		brute	-= (picked.brute_dam - brute_was)
-		burn	-= (picked.burn_dam - burn_was)
+		brute	-= (LIMB_GET_BRUTE_DAMAGE(picked) - brute_was)
+		burn	-= (LIMB_GET_BURN_DAMAGE(picked) - burn_was)
 
 		parts -= picked
 	updatehealth()
@@ -453,7 +453,7 @@ This function restores all organs.
 	if(zone_to_get in organs_by_name)
 		return organs_by_name[zone_to_get]
 
-/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE, check_armor)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, SPAN_DANGER("You are now visible."))
@@ -492,12 +492,13 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
-		if(!stat && damagetype == DAMAGE_PAIN)
-			if((damage > 25) || (damage > 50))
-				force_say()
-				if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
-					emote("scream")
 		return ..()
+
+	if(!stat && damagetype == DAMAGE_PAIN)
+		if((damage > 25))
+			force_say()
+		if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
+			emote("scream")
 
 	if(!organ)
 		return FALSE

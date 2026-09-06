@@ -51,7 +51,7 @@
 /turf/simulated/floor/airless,
 /area/haneunim_mining)
 "da" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131
@@ -144,7 +144,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131
@@ -202,7 +202,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131
@@ -427,7 +427,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131
@@ -463,7 +463,7 @@
 /area/haneunim_mining)
 "Ck" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131
@@ -500,7 +500,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131
@@ -584,7 +584,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131
@@ -800,7 +800,7 @@
 /obj/structure/machinery/light/colored/dying{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_haneunim_mining";
 	name = "airlock_haneunim_mining";
 	frequency = 1131

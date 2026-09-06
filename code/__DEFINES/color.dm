@@ -24,6 +24,7 @@
 #define COLOR_LIME             "#00ff00"
 #define COLOR_CYAN             "#00ffff"
 #define COLOR_TEAL             "#33cccc"
+#define COLOR_SEAFOAM          "#629c87"
 #define COLOR_RED              "#ff0000"
 #define COLOR_PINK             "#ff00ff"
 #define COLOR_PALE_PINK        "#bf89ba"

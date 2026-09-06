@@ -12,7 +12,7 @@
 	welcome_message = "As an Unathi warrior, abide by the Warrior's Code - act with righteousness, mercy, integrity, courage and loyalty. Defend the life and honor of Hegemony citizens, and ensure that enemies of the Izweski cannot threaten your vessel."
 
 	outfit = /obj/outfit/admin/izweski
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Izweski Navy Crewman"
 	special_role = "Izweski Navy Crewman"

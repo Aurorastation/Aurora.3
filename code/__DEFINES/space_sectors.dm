@@ -19,6 +19,10 @@
 #define SECTOR_UUEOAESA				"Uueoa-Esa"		//Uueoa-Esa and its gravity well, Moghes and Ouerea are found here.
 #define ALL_BADLAND_SECTORS		list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
+//Orion's Scar sector. Making this it's own category, there may be future expansion.
+#define SECTOR_ORIONS_SCAR		"Orion's Scar"	//Generic sector
+#define ALL_ORIONS_SCAR_SECTORS	list(SECTOR_ORIONS_SCAR)
+
 //Coalition-aligned sectors
 #define SECTOR_COALITION			"Coalition of Colonies"	//For if we want to specify coalition assets, but not focused on a particular planet
 #define SECTOR_WEEPING_STARS		"Weeping Stars"		//Generic sector
@@ -49,19 +53,19 @@
 #define ALL_GENERIC_SECTORS		list(SECTOR_STAR_NURSERY, SECTOR_GENERIC)
 
 //For sectors where corporate entities can or should appear. Corporate ships having this tag can be seen more reliably
-#define ALL_CORPORATE_SECTORS	list(ALL_TAU_CETI_SECTORS, SECTOR_SRANDMARR, SECTOR_UUEOAESA, ALL_COALITION_SECTORS, ALL_GENERIC_SECTORS, SECTOR_NRRAHRAHUL, SECTOR_BADLANDS)//Currently excludes Elyran sectors and Light's Edge
+#define ALL_CORPORATE_SECTORS	list(ALL_TAU_CETI_SECTORS, SECTOR_SRANDMARR, SECTOR_UUEOAESA, ALL_COALITION_SECTORS, ALL_GENERIC_SECTORS, SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, ALL_ORIONS_SCAR_SECTORS)//Currently excludes Elyran sectors and Light's Edge
 
 /// For remote/uncharted regions distant from the civilised Spur. Some surveyors/independents only.
 #define ALL_UNCHARTED_SECTORS list(SECTOR_CRESCENT_EXPANSE_FAR, SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
 
 //For highly dangerous sectors with high piracy. Civilian and leisure ships should be less common or not found here.
-#define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS, ALL_UNCHARTED_SECTORS)
+#define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS, ALL_UNCHARTED_SECTORS, ALL_ORIONS_SCAR_SECTORS)
 
 /// all non-generic, named and specific sectors, where generic planets or the like should not spawn
 #define ALL_SPECIFIC_SECTORS	list(SECTOR_TAU_CETI, SECTOR_SRANDMARR, SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_UUEOAESA, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_AL_MAQDISI)
 
 /// Everything!
-#define ALL_POSSIBLE_SECTORS list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, ALL_GENERIC_SECTORS, ALL_CORPORATE_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
+#define ALL_POSSIBLE_SECTORS list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, ALL_GENERIC_SECTORS, ALL_CORPORATE_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS, ALL_ORIONS_SCAR_SECTORS)
 
 /// Sectors that block canon odysseys for reasons. Usually an ongoing remote/exclusive event arc area that shouldn't have canon odysseys muddling up (EG. the Horizon finds itself isolated and on its own). Very narrow use case. Not to be applied liberally.
 #define ALL_EVENT_ONLY_SECTORS list(SECTOR_CRESCENT_EXPANSE_FAR) //SECTOR_CRESCENT_EXPANSE_FAR for duration of horizon's first visit there. feel free to remove if still here after that

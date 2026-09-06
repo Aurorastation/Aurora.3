@@ -14,7 +14,8 @@ GLOBAL_LIST_INIT(sfx_toggles, list(
 	/client/proc/toggle_dropsounds,
 	/client/proc/toggle_arcadesounds,
 	/client/proc/toggle_radiosounds,
-	/client/proc/toggle_instrumentsounds
+	/client/proc/toggle_instrumentsounds,
+	/client/proc/toggle_looping_sounds
 ))
 
 /client/var/has_sfx_verbs = FALSE
@@ -147,3 +148,15 @@ GLOBAL_LIST_INIT(sfx_toggles, list(
 	prefs.sfx_toggles ^= ASFX_INSTRUMENT
 	prefs.save_preferences()
 	to_chat(src, SPAN_INFO("You will [(prefs.sfx_toggles & ASFX_INSTRUMENT) ? "now" : "no longer"] hear instrument sounds."))
+
+/client/proc/toggle_looping_sounds()
+	set name = "Set Looping SFX Volume"
+	set category = "SFX Preferences"
+	set desc = "Sets the volume of looping sound effects"
+
+	var/new_volume = tgui_input_number(src, "Choose looping sound effect volume, 0 to mute", "Looping SFX Volume", prefs.looping_sound_volume, 100, 0, 0, TRUE)
+	if(isnull(new_volume))
+		return
+	prefs.looping_sound_volume = new_volume
+	prefs.save_preferences()
+	to_chat(src, SPAN_INFO("Looping sound effect volume set to [new_volume]%."))

@@ -5,18 +5,55 @@ import {
   ProgressBar,
   Section,
 } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type AdvancedAirlockConsoleData = {
   chamber_pressure: number;
+  controller_powered: BooleanLike;
+  cycle_status: string;
+  exterior_door_lock: string;
+  exterior_door_power?: BooleanLike;
+  exterior_door_state: string;
   has_exterior_sensor: boolean;
   external_pressure: number;
+  interior_door_lock: string;
+  interior_door_power?: BooleanLike;
+  interior_door_state: string;
   has_interior_sensor: boolean;
   internal_pressure: number;
+  pump_status: 'off' | 'release' | 'siphon' | 'unknown';
   processing: boolean;
   purge: boolean;
   secure: boolean;
+};
+
+const doorStatus = (state: string, lock: string, power?: BooleanLike) => {
+  if (power === undefined || power === null) {
+    return 'No Response';
+  }
+  return `${state === 'open' ? 'Open' : 'Closed'} / ${lock === 'locked' ? 'Bolted' : 'Unbolted'} (${power ? 'Online' : 'No Power'})`;
+};
+
+const doorColor = (state: string, power?: BooleanLike) => {
+  if (power === undefined || power === null) {
+    return 'yellow';
+  }
+  return !power ? 'red' : state === 'open' ? 'yellow' : 'green';
+};
+
+const pumpStatus = (status: AdvancedAirlockConsoleData['pump_status']) => {
+  switch (status) {
+    case 'release':
+      return 'Pressurizing';
+    case 'siphon':
+      return 'Depressurizing';
+    case 'off':
+      return 'Off';
+    default:
+      return 'No Response';
+  }
 };
 
 export const AirlockConsoleAdvanced = (props) => {
@@ -28,6 +65,47 @@ export const AirlockConsoleAdvanced = (props) => {
         <Section title="Status">
           <Box>
             <LabeledList>
+              <LabeledList.Item
+                label="Controller Power"
+                color={data.controller_powered ? 'green' : 'red'}
+              >
+                {data.controller_powered ? 'Online' : 'No Power'}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Cycle"
+                color={data.processing ? 'yellow' : 'green'}
+              >
+                {data.cycle_status}
+              </LabeledList.Item>
+              <LabeledList.Item label="Pump">
+                {pumpStatus(data.pump_status)}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Exterior Door"
+                color={doorColor(
+                  data.exterior_door_state,
+                  data.exterior_door_power,
+                )}
+              >
+                {doorStatus(
+                  data.exterior_door_state,
+                  data.exterior_door_lock,
+                  data.exterior_door_power,
+                )}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Interior Door"
+                color={doorColor(
+                  data.interior_door_state,
+                  data.interior_door_power,
+                )}
+              >
+                {doorStatus(
+                  data.interior_door_state,
+                  data.interior_door_lock,
+                  data.interior_door_power,
+                )}
+              </LabeledList.Item>
               <LabeledList.Item label="External Pressure">
                 {data.has_exterior_sensor ? (
                   <ProgressBar

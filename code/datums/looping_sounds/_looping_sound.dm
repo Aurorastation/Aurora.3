@@ -165,7 +165,8 @@
 			pressure_affected = pressure_affected,
 			ignore_walls = ignore_walls,
 			falloff_distance = falloff_distance,
-			use_reverb = use_reverb
+			use_reverb = use_reverb,
+			volume_channel = SOUND_VOLUME_CHANNEL_LOOPING
 		)
 
 /// Returns the sound we should now be playing.

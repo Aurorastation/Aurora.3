@@ -364,7 +364,6 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	dir = NORTH
 
-	GLOB.clients += src
 	GLOB.directory[ckey] = src
 	connection_time = world.time
 	connection_realtime = world.realtime
@@ -382,6 +381,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	// Instantiate stat panel
 	stat_panel = new(src, "statbrowser")
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
+	GLOB.clients += src
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
 	tgui_say = new(src, "tgui_say")
@@ -451,6 +451,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		inline_js = file("html/statbrowser.js"),
 		inline_css = file("html/statbrowser.css"),
 	)
+	addtimer(CALLBACK(src, PROC_REF(preload_character_setup_tgui)), 1)
 	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 /client/proc/InitClient()

@@ -35,7 +35,7 @@
  * Applies state changes to self, holder, and whatever else caused by damage mitigation
  * Returns modified damage, a list to allow for flag modification or damage conversion, in the same format as the arguments.
  */
-/datum/component/armor/proc/apply_damage_modifications(damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE)
+/datum/component/armor/proc/apply_damage_modifications(damage, damage_type, damage_flags, mob/living/victim, armor_pen, silent = FALSE, check_armor)
 	if(armor_flags & ARMOR_TYPE_EXOSUIT)
 		if(prob(get_blocked(damage_type, damage_flags, armor_pen) * 100)) //extra removal of sharp and edge on account of us being big robots
 			damage_flags &= ~(DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE)
@@ -43,7 +43,8 @@
 	if(damage <= 0)
 		return args.Copy()
 
-	var/blocked = get_blocked(damage_type, damage_flags, armor_pen, damage)
+
+	var/blocked = get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)
 	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
 
 	// Blocking values that mean the damage was under armor, so all dangerous flags are removed (edge/sharp)
@@ -74,8 +75,10 @@
  * under_armor_mult is used to determine how much damage is mitigated when the incoming damage is less than or equal to the armor value
  * over_armor_mult is used to determine how much damage is mitigated when the incoming damage is greater than the armor value
  */
-/datum/component/armor/proc/get_blocked(damage_type, damage_flags, armor_pen = 0, damage = 5)
-	var/key = get_armor_key(damage_type, damage_flags)
+/datum/component/armor/proc/get_blocked(damage_type, damage_flags, armor_pen = 0, damage = 5, check_armor)
+	var/key = check_armor
+	if(!key)
+		key = get_armor_key(damage_type, damage_flags)
 	if(!key)
 		return 0
 

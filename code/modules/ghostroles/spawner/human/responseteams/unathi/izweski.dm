@@ -5,7 +5,7 @@
 	max_count = 2
 	outfit = /obj/outfit/admin/ert/izweski
 	uses_species_whitelist = FALSE // Anyone should be able to play an ERT Unathi
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	extra_languages = list(LANGUAGE_UNATHI)
 	welcome_message = "You are a soldier of the Izweski Hegemony Navy, responding to a distress call. Obey the orders of your commander, and uphold the Warrior's Code."
 	assigned_role = "Izweski Navy Crewman"

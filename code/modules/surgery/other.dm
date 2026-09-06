@@ -302,7 +302,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_DANGER("[user] is beginning to amputate [target]'s [affected.name] with \the [tool].") , \
 		SPAN_DANGER("You begin to cut through [target]'s [affected.amputation_point] with \the [tool]."))
-	target.custom_pain("Your [affected.amputation_point] is being ripped apart!", 75)
+	target.custom_pain("Your [affected.amputation_point] is being ripped apart!", 75, affecting = affected)
 	..()
 
 /singleton/surgery_step/amputate/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
