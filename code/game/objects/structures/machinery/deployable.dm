@@ -340,7 +340,12 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 	if(!isnull(largest_skill_shortfall))
 		deployment_duration = max(0, deployment_duration + (largest_skill_shortfall * deployment_time_per_skill_level))
 
-	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE("You begin setting up \the [src]."))
+	var/assembly_message = "You lay out the parts in \the [src] and begin working through the assembly instructions."
+	if(deployment_duration > deployment_time)
+		assembly_message = "The parts in \the [src] look rather complicated. You study the instructions carefully; this might take a moment."
+	else if(deployment_duration < deployment_time)
+		assembly_message = "You recognize the parts in \the [src] and quickly start fitting them together."
+	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE(assembly_message))
 	if(!do_after(user, deployment_duration, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_USER, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
 		return
 	if(!user || QDELETED(user))
