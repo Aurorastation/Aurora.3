@@ -80,7 +80,7 @@
 	if(throwing_datum?.target_turf)
 		ricochet(90 - get_angle(moving_atom, throwing_datum.target_turf))
 
-/datum/component/movable_physics/proc/bounce_off_floor(atom/movable/moving_atom)
+/datum/component/movable_physics/proc/bounce_off_floor(atom/movable/moving_atom, seconds_per_tick)
 	var/new_angle = normalize_angle(angle_of_movement + rand(-3000, 3000) / 100)
 	horizontal_velocity.Turn(angle_of_movement - new_angle)
 	angle_of_movement = new_angle
@@ -88,8 +88,12 @@
 		playsound(moving_atom, bounce_sound, 50, TRUE)
 	moving_atom.SpinAnimation(speed = 0.5 SECONDS, loops = 1)
 	moving_atom.pixel_z = z_floor
-	horizontal_velocity.size = max(0, horizontal_velocity.size - (vertical_velocity * 0.8))
+	// Downward velocity is negative, but an impact must remove horizontal speed.
+	horizontal_velocity.size = max(0, horizontal_velocity.size - (abs(vertical_velocity) * 0.8))
 	vertical_velocity = max(0, ((vertical_velocity * -0.8) - 4))
+	// Settle rebounds too small to rise during the next processing tick.
+	if(vertical_velocity <= z_gravity * seconds_per_tick)
+		vertical_velocity = 0
 
 /datum/component/movable_physics/proc/ricochet(bounce_angle)
 	var/new_angle = normalize_angle((180 - bounce_angle) - angle_of_movement)
@@ -112,11 +116,12 @@
 	moving_atom.pixel_y += horizontal_velocity.y * seconds_per_tick
 	horizontal_velocity.size = max(0, horizontal_velocity.size - (horizontal_friction * seconds_per_tick))
 
-	moving_atom.pixel_z = max(z_floor, moving_atom.pixel_z + (vertical_velocity * seconds_per_tick))
-	if(moving_atom.pixel_z > z_floor)
+	if(moving_atom.pixel_z > z_floor || vertical_velocity > 0)
+		// Apply gravity before displacement so discrete bounces do not gain energy.
 		vertical_velocity -= z_gravity * seconds_per_tick
-	else if(vertical_velocity < 0)
-		bounce_off_floor(moving_atom)
+		moving_atom.pixel_z = max(z_floor, moving_atom.pixel_z + (vertical_velocity * seconds_per_tick))
+	if(moving_atom.pixel_z <= z_floor && vertical_velocity < 0)
+		bounce_off_floor(moving_atom, seconds_per_tick)
 
 	if(moving_atom.pixel_x > 16)
 		if(moving_atom.Move(get_step(moving_atom, EAST)))
