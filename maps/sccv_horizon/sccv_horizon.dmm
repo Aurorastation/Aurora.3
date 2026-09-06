@@ -9248,15 +9248,7 @@
 	name = "Storage";
 	req_one_access = list(20,30,56)
 	},
-/obj/item/grenade/napalm{
-	pixel_y = 4;
-	pixel_x = -8
-	},
-/obj/item/grenade/napalm{
-	pixel_x = 8;
-	pixel_y = 4
-	},
-/obj/item/grenade/napalm,
+/obj/item/fuel_assembly/supermatter,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/storage/secure/tech_vault)
 "biH" = (
@@ -64246,7 +64238,6 @@
 /obj/random/finances{
 	pixel_y = 11
 	},
-/obj/item/fuel_assembly/supermatter,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/storage/secure/tech_vault)
 "isn" = (
