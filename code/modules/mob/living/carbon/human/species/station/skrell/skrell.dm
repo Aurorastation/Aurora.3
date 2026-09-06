@@ -127,21 +127,25 @@
 /datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
 	switch(action)
 		if("headtail")
-			if(!H.organs_by_name[BP_HEAD] || istype(H.organs_by_name[BP_HEAD], /obj/item/organ/external/stump))
+			if(!H.can_strip(user) || H.species != src)
+				return
+			var/obj/item/organ/external/head = H.organs_by_name[BP_HEAD]
+			if(!head || istype(head, /obj/item/organ/external/stump))
 				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
 				return
-			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
-			if(do_after(user, HUMAN_STRIP_DELAY, do_flags = DO_EQUIP))
-				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
-				var/obj/item/I = locate() in S
-				if(!I)
-					to_chat(user, SPAN_WARNING("\The [H] had nothing in their headtail storage."))
+			var/obj/item/storage/internal/skrell/S = locate() in head
+			if(!S)
+				return
+			user.visible_message(SPAN_WARNING("\The [user] is trying to search \the [H]'s headtails!"))
+			if(do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
+				if(!H.can_strip(user) || H.species != src || QDELETED(S) || H.organs_by_name[BP_HEAD] != head || S.loc != head)
 					return
-				S.remove_from_storage(I, get_turf(H))
+				S.open(user)
+				LAZYSET(S.strip_viewers, user, list("wearer" = H, "item" = head, "headtail" = TRUE))
 				return
 
-/datum/species/skrell/get_strip_info(var/reference)
-	return "<BR><A href='byond://?src=[reference];species=headtail'>Empty Headtail Storage</A>"
+/datum/species/skrell/get_strip_actions()
+	return list("headtail" = "Search headtail storage")
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

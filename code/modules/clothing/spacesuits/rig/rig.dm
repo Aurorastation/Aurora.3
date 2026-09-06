@@ -295,6 +295,12 @@
 			piece.item_flags &= ~ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
+/// Once started, the suit operates its own motors; neither person needs to keep acting.
+/obj/item/rig/proc/wait_for_adjustment(delay)
+	var/mob/living/carbon/human/target = wearer
+	sleep(delay)
+	return !QDELETED(src) && !QDELETED(target) && wearer == target && loc == target && target.back == src && cell && cell.charge > 0
+
 /obj/item/rig/proc/toggle_seals(var/mob/initiator,var/instant)
 
 	if(sealing) return
@@ -304,10 +310,15 @@
 		to_chat(initiator, SPAN_DANGER("Cannot toggle suit: The suit is currently not being worn by anyone."))
 		return 0
 
-	if(!check_power_cost(wearer))
-		return 0
+	if(initiator == wearer && wearer.incapacitated())
+		to_chat(initiator, SPAN_WARNING("You are in no fit state to start adjusting the suit."))
+		return FALSE
+	if(!cell || cell.charge <= 0)
+		to_chat(initiator, SPAN_WARNING("The suit needs a charged cell to adjust its components."))
+		return FALSE
 
-	deploy(wearer,instant)
+	if(!deploy(wearer, instant))
+		return FALSE
 
 	var/seal_target = !canremove
 	var/failed_to_seal
@@ -323,7 +334,7 @@
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
 
-	var/is_in_cycler = istype(initiator.loc, /obj/structure/machinery/suit_cycler)
+	var/is_in_cycler = istype(initiator?.loc, /obj/structure/machinery/suit_cycler)
 	seal_delay = is_in_cycler ? 1 : initial(seal_delay)
 
 	var/jumpsuit_was_hidden = FALSE
@@ -338,8 +349,8 @@
 			wearer.visible_message(SPAN_NOTICE("[wearer]'s suit emits a quiet hum as it begins to adjust its seals."),
 									SPAN_NOTICE("With a quiet hum, the suit begins running checks and adjusting components."))
 
-			if(seal_delay && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
-				if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
+			if(seal_delay && !wait_for_adjustment(seal_delay))
+				if(wearer) to_chat(wearer, SPAN_WARNING("The suit can no longer adjust its components."))
 				playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 				failed_to_seal = 1
 
@@ -361,15 +372,16 @@
 					continue
 
 				if(!istype(wearer) || !istype(piece) || !istype(compare_piece) || !msg_type)
-					if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
+					if(wearer) to_chat(wearer, SPAN_WARNING("The suit can no longer adjust its components."))
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 					failed_to_seal = 1
 					break
 
 				if(!failed_to_seal && wearer.back == src && piece == compare_piece)
 
-					if(seal_delay && !instant && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
+					if(seal_delay && !instant && !wait_for_adjustment(seal_delay))
 						failed_to_seal = 1
+						break
 
 					update_sealed_piece_icon(piece, seal_target)
 					switch(msg_type)
@@ -415,7 +427,7 @@
 		canremove = !seal_target
 		if(airtight)
 			update_component_sealed()
-		if(jumpsuit_was_hidden && wearer.wear_suit == chest && has_hidden_jumpsuit)
+		if(jumpsuit_was_hidden && wearer && wearer.wear_suit == chest && has_hidden_jumpsuit)
 			wearer.wear_suit.flags_inv |= HIDEJUMPSUIT
 		update_icon(1)
 		return 0
@@ -440,9 +452,10 @@
 	if(airtight)
 		update_component_sealed()
 	update_icon(1)
-	if(is_in_cycler)
+	if(is_in_cycler && initiator?.loc)
 		initiator.loc.update_icon()
-	SSstatpanels.set_action_tabs(initiator.client, initiator)
+	if(initiator)
+		SSstatpanels.set_action_tabs(initiator.client, initiator)
 
 /// Sets the piece's icon and item state based on the seal target, can be overriden for custom functionality
 /obj/item/rig/proc/update_sealed_piece_icon(var/obj/item/clothing/piece, var/seal_target)
@@ -880,17 +893,17 @@
 		return TRUE
 	return TRUE
 
-/obj/item/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
+/obj/item/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode, automatic = FALSE)
 	if(piece_being_deployed)
 		return
 
-	if(!usr || sealing || !cell || !cell.charge)
+	if((!automatic && !initiator) || sealing || !cell || !cell.charge)
 		return
 
 	if(!istype(wearer) || !wearer.back == src)
 		return
 
-	if(initiator == wearer && (usr.stat||usr.paralysis||usr.stunned)) // If the initiator isn't wearing the suit it's probably an AI.
+	if(!automatic && initiator == wearer && initiator.incapacitated())
 		return
 
 	var/obj/item/check_slot
@@ -939,11 +952,11 @@
 			if(check_slot && check_slot == use_obj)
 				piece_being_deployed = FALSE
 				return TRUE
-			if(!do_after(wearer, 8))
+			if(!wait_for_adjustment(8))
 				if(wearer)
-					to_chat(wearer, SPAN_WARNING("You must remain still while the suit deploys its parts."))
-					piece_being_deployed = FALSE
-					return FALSE
+					to_chat(wearer, SPAN_WARNING("The suit can no longer deploy its parts."))
+				piece_being_deployed = FALSE
+				return FALSE
 			if(!wearer || wearer.back != src) ///Prevents an edge case where a suit with a storage module can be removed while deploying, causing a runtime.
 				piece_being_deployed = FALSE
 				return FALSE
@@ -1000,7 +1013,9 @@
 			qdel(garbage)
 
 	for(var/piece in list("helmet","gauntlets","boots",BP_CHEST))
-		toggle_piece(piece, H, ONLY_DEPLOY)
+		if(!toggle_piece(piece, H, ONLY_DEPLOY, automatic = TRUE))
+			return FALSE
+	return TRUE
 
 /obj/item/rig/proc/retract(mob/M,var/sealed)
 	var/mob/living/carbon/human/H = M

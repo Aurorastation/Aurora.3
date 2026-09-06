@@ -2872,6 +2872,7 @@
 #include "code\modules\mob\living\carbon\human\npcs.dm"
 #include "code\modules\mob\living\carbon\human\say.dm"
 #include "code\modules\mob\living\carbon\human\stripping.dm"
+#include "code\modules\mob\living\carbon\human\strip_menu.dm"
 #include "code\modules\mob\living\carbon\human\unarmed_attack.dm"
 #include "code\modules\mob\living\carbon\human\update_icons.dm"
 #include "code\modules\mob\living\carbon\human\virtual_reality_mob.dm"

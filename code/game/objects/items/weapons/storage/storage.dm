@@ -95,6 +95,7 @@
 		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/Destroy()
+	strip_viewers = null
 	close_all()
 	for(var/mob/M in is_seeing)
 		if(M.s_active == src)
@@ -316,6 +317,7 @@
 	show_to(user)
 
 /obj/item/storage/proc/close(mob/user as mob)
+	LAZYREMOVE(strip_viewers, user)
 	hide_from(user)
 	user.s_active = null
 	if(!length(can_see_contents()))

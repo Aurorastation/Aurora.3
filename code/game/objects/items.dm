@@ -402,6 +402,12 @@
 	var/storage_depth_matters = TRUE
 	if(istype(src.loc, /obj/item/storage))
 		S = src.loc
+		if(LAZYACCESS(S.strip_viewers, user))
+			if(!S.can_use_strip_storage(user))
+				S.close(user)
+				return
+			// Internal compartments can be deeper than ordinary item adjacency permits.
+			storage_depth_matters = FALSE
 		if(!S.care_about_storage_depth)
 			storage_depth_matters = FALSE
 	if(storage_depth_matters && !src.Adjacent(user))
