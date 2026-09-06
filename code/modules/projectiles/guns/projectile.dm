@@ -154,7 +154,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 				chambered.pixel_y = rand(-4, 4)
 				chambered.pixel_z = 8
 				var/ejection_angle = SIMPLIFY_DEGREES(dir2degree(ejection_direction) + rand(-30, 30))
-				chambered.AddComponent(/datum/component/movable_physics, rand(700, 850) / 5, rand(400, 450) / 5, rand(30, 36) * 4, 196.133, 0, ejection_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, chambered.drop_sound)
+				// Vary horizontal speed from 60 to 140 pixels per second for a closer, broader landing spread.
+				chambered.AddComponent(/datum/component/movable_physics, rand(60, 140), rand(400, 450) / 5, rand(30, 36) * 4, 196.133, 0, ejection_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, chambered.drop_sound)
 			else
 				chambered.pixel_z = 0
 				chambered.throw_at(get_edge_target_turf(chambered, ejection_direction), 1, 1, shooter)
@@ -257,7 +258,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 					var/unload_direction = turn(user.dir, 180)
 					if(casing_has_gravity(C))
 						var/unload_angle = SIMPLIFY_DEGREES(dir2degree(unload_direction) + rand(-30, 30))
-						C.AddComponent(/datum/component/movable_physics, rand(700, 850) / 5, rand(400, 450) / 5, rand(30, 36) * 4, 196.133, 0, unload_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, C.drop_sound)
+						C.AddComponent(/datum/component/movable_physics, rand(60, 140), rand(400, 450) / 5, rand(30, 36) * 4, 196.133, 0, unload_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, C.drop_sound)
 					else
 						C.throw_at(get_edge_target_turf(C, unload_direction), 1, 1, user)
 					count++
