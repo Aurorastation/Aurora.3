@@ -1,8 +1,8 @@
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = "A bullet casing."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "s-casing"
+	icon = 'icons/obj/ammunition/ammo_bullets.dmi'
+	icon_state = "pistol_casing"
 	randpixel = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
@@ -14,7 +14,7 @@
 	var/max_stack = 5					// how many of us can fit in a pile
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
-	var/spent_icon = "s-casing-spent"
+	var/spent_icon = "pistol_casing_spent"
 
 	drop_sound = SFX_CASING_DROP
 	pickup_sound = 'sound/items/pickup/ring.ogg'
@@ -93,7 +93,7 @@
 	name = "magazine"
 	desc = "A magazine for some kind of gun."
 	icon_state = "357"
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/ammunition/ammo.dmi'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	item_state = "box"

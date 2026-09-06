@@ -313,6 +313,16 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	badge["badge, electronic"] = /obj/item/clothing/accessory/badge/idbadge/intel
 	gear_tweaks += new /datum/gear_tweak/path(badge)
 
+/datum/gear/accessory/pressbadge
+	display_name = "press badge, corporate"
+	path = /obj/item/clothing/accessory/badge/press
+	allowed_roles = list("Corporate Reporter")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/pressbadge/independent
+	display_name = "press badge, independent"
+	path = /obj/item/clothing/accessory/badge/press/independent
+
 /datum/gear/accessory/namepin
 	display_name = "pins selection"
 	path = /obj/item/clothing/accessory/badge/namepin

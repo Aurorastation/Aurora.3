@@ -24,6 +24,10 @@
 	var/datum/thrownthing/throwing = null
 	var/throw_speed = 2
 	var/throw_range = 7
+	/// Whether this movable can be thrown while its holder is on harm intent.
+	var/can_throw_on_harm = TRUE
+	/// The alert shown when attempting to throw this movable on harm intent while can_throw_on_harm is FALSE.
+	var/throw_on_harm_alert = "can't throw this on harm intent!"
 	var/moved_recently = 0
 	var/atom/movable/pulledby = null
 

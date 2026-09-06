@@ -61,3 +61,15 @@
 	name = "police bike key"
 	desc = "Used to start a police bike."
 	icon_state = "key_tag_police"
+
+/obj/item/key/bike/snow
+	name = "snow bike key"
+	desc = "Used to start a snow bike, how cool!"
+
+/obj/item/key/bike/monowheel
+	name = "monowheel key"
+	desc = "Used to start a monowheel."
+
+/obj/item/key/bike/monowheel/Initialize()
+	. = ..()
+	icon_state = pick("key_tag_red", "key_tag_green", "key_tag_purple")

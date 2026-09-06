@@ -33,7 +33,7 @@
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	outfit = /obj/outfit/admin/moghes_skakh
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
 
@@ -64,7 +64,7 @@
 	welcome_message = "You are a faithful Unathi follower of the Sk'akh faith, visiting a nearby temple to hear the priest's words."
 
 	max_count = 3
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	spawnpoints = list("moghes_skakh_faithful")
 	outfit = /obj/outfit/admin/moghes_bar_patron
 	uses_species_whitelist = FALSE

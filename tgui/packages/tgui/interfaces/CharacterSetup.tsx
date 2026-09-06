@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -13,6 +13,7 @@ import {
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 import { CharacterPreview } from './common/CharacterPreview';
+import { LoadingScreen } from './common/LoadingScreen';
 
 type Category = {
   name: string;
@@ -248,6 +249,7 @@ type CharacterSetupData = {
   character_name: string;
   faction_name: string;
   faction_suffix: string;
+  loading: boolean;
   sql_saves: boolean;
   slot_dialog?: {
     can_create: boolean;
@@ -344,6 +346,54 @@ const renderPencode = (text: string) => {
 
 export const CharacterSetup = () => {
   const { act, data } = useBackend<CharacterSetupData>();
+
+  useEffect(() => {
+    if (!data.loading) {
+      return;
+    }
+    // The server deliberately withholds the expensive preference payload until
+    // React has mounted. Retrying makes recovery automatic if BYOND drops the
+    // first message while its embedded browser is finishing initialization.
+    act('character_setup_ready');
+    const timer = setInterval(() => act('character_setup_ready'), 2000);
+    return () => clearInterval(timer);
+  }, [act, data.loading]);
+
+  useEffect(() => {
+    if (data.loading) {
+      return;
+    }
+    const loader = document.getElementById('tgui-bootstrap-loader');
+    let removalFrame: number | undefined;
+    const waitForStyles = () => {
+      const layout = document.querySelector('.Layout');
+      const stylesReady =
+        layout &&
+        getComputedStyle(layout).getPropertyValue('--color-base').trim();
+      if (!stylesReady) {
+        removalFrame = requestAnimationFrame(waitForStyles);
+        return;
+      }
+      removalFrame = requestAnimationFrame(() => loader?.remove());
+    };
+    removalFrame = requestAnimationFrame(waitForStyles);
+    return () => {
+      if (removalFrame !== undefined) {
+        cancelAnimationFrame(removalFrame);
+      }
+    };
+  }, [data.loading]);
+
+  useEffect(() => {
+    if (data.loading) {
+      return;
+    }
+    // Native map controls mount after the TGUI window becomes visible. Wait for
+    // the full React tree before asking BYOND to attach the preview objects.
+    const timer = setTimeout(() => act('preview_ready'), 0);
+    return () => clearTimeout(timer);
+  }, [act, data.loading]);
+
   const selectedCategory = data.categories.find(
     (category) => category.selected,
   );
@@ -746,16 +796,6 @@ export const CharacterSetup = () => {
               >
                 {field.value}
               </a>
-              {field.label === 'Skin Tone' && item.has_skin_preset && (
-                <Button
-                  compact
-                  icon="palette"
-                  ml={1}
-                  onClick={() => sendPreferenceAction(item, 'skin_preset')}
-                >
-                  Body Preset
-                </Button>
-              )}
             </Box>
           ))}
           <Box>
@@ -927,6 +967,18 @@ export const CharacterSetup = () => {
             </Stack>
           </Box>
         ))}
+        {!!item.has_skin_preset && (
+          <Box className="body-appearance">
+            <Box className="body-appearance__title">Body Color Presets</Box>
+            <Button
+              compact
+              icon="palette"
+              onClick={() => sendPreferenceAction(item, 'skin_preset')}
+            >
+              Choose Preset
+            </Button>
+          </Box>
+        )}
       </Box>
       <Box className="body-markings">
         <Stack align="center">
@@ -1428,7 +1480,7 @@ export const CharacterSetup = () => {
     );
 
   return (
-    <Window theme="character-setup" width={1280} height={900}>
+    <Window height={900} theme="character-setup" width={1280}>
       <Window.Content
         className={`CharacterSetup CharacterSetup--${data.faction_suffix}`}
         fitted
@@ -1536,20 +1588,24 @@ export const CharacterSetup = () => {
                   scrollable
                   title={`${selectedCategory?.name ?? 'Character'} Preferences`}
                 >
-                  <Box className="CharacterSetup__content">
-                    {useWideLayout ? (
-                      data.items.map(renderItem)
-                    ) : (
-                      <Box className="preference-columns">
-                        <Box className="preference-column">
-                          {data.items.slice(0, itemSplit).map(renderItem)}
+                  {data.loading ? (
+                    <LoadingScreen label="Loading character preferences... (Please press F5 if this gets stuck!)" />
+                  ) : (
+                    <Box className="CharacterSetup__content">
+                      {useWideLayout ? (
+                        data.items.map(renderItem)
+                      ) : (
+                        <Box className="preference-columns">
+                          <Box className="preference-column">
+                            {data.items.slice(0, itemSplit).map(renderItem)}
+                          </Box>
+                          <Box className="preference-column">
+                            {data.items.slice(itemSplit).map(renderItem)}
+                          </Box>
                         </Box>
-                        <Box className="preference-column">
-                          {data.items.slice(itemSplit).map(renderItem)}
-                        </Box>
-                      </Box>
-                    )}
-                  </Box>
+                      )}
+                    </Box>
+                  )}
                 </Section>
               </Stack.Item>
               <Stack.Item>
@@ -1575,8 +1631,8 @@ export const CharacterSetup = () => {
                         <CharacterPreview
                           id={`character_setup_preview_${direction}`}
                           height="160px"
-                          hidden={modalOpen}
-                          width="160px"
+                          hidden={modalOpen || data.loading}
+                          width="100%"
                         />
                       </Box>
                     ))}

@@ -455,7 +455,7 @@
 #define ACCESS_JOURNALIST 70
 /datum/access/journalist
 	id = ACCESS_JOURNALIST
-	desc = "Journalist Office"
+	desc = "Media Office"
 	region = ACCESS_REGION_GENERAL
 
 /// Allows some unique interactions with devices

@@ -42,7 +42,7 @@
 /datum/martial_art/karak_virul/proc/dislocating_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
-	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
+	if(!organ || ORGAN_IS_DISLOCATED(organ) || LIMB_GET_DISLOCATED(organ) == -1)
 		return 0
 	organ.dislocate(1)
 	A.visible_message(SPAN_WARNING("[A] strikes [D]'s [organ.name] with their closed fist!"))

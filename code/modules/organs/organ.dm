@@ -181,7 +181,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if (is_immune)
 		germ_level = 0
 
-	if((BP_IS_ROBOTIC(src) || robotic >= ROBOTIC_MECHANICAL) && surge_damage)
+	if(surge_damage)
 		tick_surge_damage(seconds_per_tick)
 
 	if(!owner)
@@ -231,6 +231,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	do_surge_effects()
 	surge_damage = max(0, surge_damage - (surge_recovery_per_second * seconds_per_tick))
+	if(!surge_damage)
+		clear_surge_effects()
 	return surge_damage
 
 /obj/item/organ/proc/do_surge_effects()
@@ -294,6 +296,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/rejuvenate()
 	damage = 0
+	surge_damage = 0
+	clear_surge_effects()
 
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
@@ -447,9 +451,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 #define MAXIMUM_SURGE_DAMAGE 100
 /obj/item/organ/proc/take_surge_damage(var/surge)
-	if(!BP_IS_ROBOTIC(src))
+	if(!(status & ORGAN_ASSISTED))
 		return //We check earlier, but just to make sure.
 
+	START_PROCESSING(SSprocessing, src)
 	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
 
 /**

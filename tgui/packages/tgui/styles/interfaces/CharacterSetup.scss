@@ -8,9 +8,7 @@
 
 .CharacterSetup {
   --character-accent: #777777;
-  --character-link: hsl(
-    from var(--character-accent) h s calc(l + 30)
-  );
+  --character-link: hsl(from var(--character-accent) h s calc(l + 30));
 
   @each $name, $color in faction.$company-colors {
     &--#{$name} {
@@ -438,16 +436,14 @@
     .occupation-faction {
       margin-bottom: var(--space-m);
       padding: var(--space-m);
-      border-bottom: var(--border-thickness-small) solid
-        hsla(0, 0%, 100%, 0.12);
+      border-bottom: var(--border-thickness-small) solid hsla(0, 0%, 100%, 0.12);
       line-height: 1.45;
     }
 
     .occupation-heading {
       margin-bottom: var(--space-m);
       padding: var(--space-m);
-      border-block: var(--border-thickness-small) solid
-        hsla(0, 0%, 100%, 0.12);
+      border-block: var(--border-thickness-small) solid hsla(0, 0%, 100%, 0.12);
       line-height: 1.45;
       background: linear-gradient(
         90deg,
@@ -607,9 +603,7 @@
     a {
       color: var(--character-link);
       cursor: var(--cursor-pointer);
-      text-decoration-color: hsl(
-        from var(--character-accent) h s l / 0.45
-      );
+      text-decoration-color: hsl(from var(--character-accent) h s l / 0.45);
       text-underline-offset: 0.15em;
 
       &:hover {
@@ -706,7 +700,6 @@
         border-bottom: var(--border-thickness-small) solid
           hsla(0, 0%, 100%, 0.12);
       }
-
     }
   }
 

@@ -19,6 +19,10 @@
 	var/window_key
 	/// Deprecated: Window size.
 	var/window_size
+	/// Optional HTML shown before the React interface mounts.
+	var/initial_html
+	/// Optional reserved pooled window index for interfaces which are preloaded.
+	var/preferred_window_index
 	/// The interface (template) to be used for this UI.
 	var/interface
 	/// Update the UI every MC tick.
@@ -55,7 +59,7 @@
  *
  * return datum/tgui The requested UI.
  */
-/datum/tgui/New(mob/user, datum/src_object, interface, title, ui_x, ui_y)
+/datum/tgui/New(mob/user, datum/src_object, interface, title, ui_x, ui_y, initial_html, preferred_window_index)
 	src.user = user
 	src.src_object = src_object
 	src.window_key = "[REF(src_object)]-main"
@@ -66,6 +70,8 @@
 	// Deprecated
 	if(ui_x && ui_y)
 		src.window_size = list(ui_x, ui_y)
+	src.initial_html = initial_html
+	src.preferred_window_index = preferred_window_index
 
 /datum/tgui/Destroy()
 	user = null
@@ -87,19 +93,25 @@
 	process_status()
 	if(status < UI_UPDATE)
 		return FALSE
-	window = SStgui.request_pooled_window(user)
+	window = SStgui.request_pooled_window(user, preferred_window_index)
 	if(!window)
 		return FALSE
 	opened_at = world.time
 	window.acquire_lock(src)
-	if(!window.is_ready())
+	if(preferred_window_index)
+		// The skin-defined Character Setup window guards against browse() making
+		// its background preload visible. The real open action removes that guard.
+		winset(user.client, window.id, "on-show=")
+	if(!window.is_ready() && !window.preloaded_hidden)
 		window.initialize(
 			strict_mode = TRUE,
 			assets = list(
 				get_asset_datum(/datum/asset/simple/tgui),
-			))
+			),
+			inline_html = initial_html)
 	else
 		window.send_message("ping")
+	window.preloaded_hidden = FALSE
 	send_assets()
 	window.send_message("update", get_payload(
 		with_data = TRUE,
