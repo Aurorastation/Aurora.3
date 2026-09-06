@@ -289,18 +289,16 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 	/// Additional deployment time per skill level below the requirement, or reduction per level above it.
 	var/deployment_time_per_skill_level = 5 SECONDS
 	var/deployment_looping_sound = /datum/looping_sound/construction
-	/// Skill component used to adjust deployment time. Null skill components bypass the adjustment.
-	var/required_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
-	/// Skill level that deploys the flatpak in the base deployment time.
-	var/required_level = SKILL_LEVEL_TRAINED
+	/// Skill component-to-level requirements copied from the circuit board. Missing skill components are ignored.
+	var/list/required_skills
 
 /obj/item/flatpak/Initialize(mapload, new_circuit_type, list/material_cost)
 	. = ..()
 	circuit_type = new_circuit_type
 	if(ispath(circuit_type, /obj/item/circuitboard))
 		var/obj/item/circuitboard/board = circuit_type
-		required_skill = initial(board.flatpak_required_skill)
-		required_level = initial(board.flatpak_required_level)
+		var/list/board_skills = initial(board.flatpak_required_skills)
+		required_skills = board_skills?.Copy()
 		machine_type = initial(board.build_path)
 		if(istext(machine_type))
 			machine_type = text2path(machine_type)
@@ -331,9 +329,16 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 		return
 
 	var/deployment_duration = deployment_time
-	var/skill_level = required_skill ? GET_SKILL_LEVEL(user, required_skill) : null
-	if(!isnull(skill_level))
-		deployment_duration = max(0, deployment_duration + ((required_level - skill_level) * deployment_time_per_skill_level))
+	var/largest_skill_shortfall
+	for(var/required_skill in required_skills)
+		var/skill_level = GET_SKILL_LEVEL(user, required_skill)
+		if(isnull(skill_level))
+			continue
+		var/skill_shortfall = required_skills[required_skill] - skill_level
+		if(isnull(largest_skill_shortfall) || skill_shortfall > largest_skill_shortfall)
+			largest_skill_shortfall = skill_shortfall
+	if(!isnull(largest_skill_shortfall))
+		deployment_duration = max(0, deployment_duration + (largest_skill_shortfall * deployment_time_per_skill_level))
 
 	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE("You begin setting up \the [src]."))
 	if(!do_after(user, deployment_duration, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_USER, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))

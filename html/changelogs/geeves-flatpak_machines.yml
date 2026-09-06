@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Adds machine flatpaks, printable by machinists using exosuit fabricators after researching the corresponding circuit board."
-  - balance: "Flatpak deployment time scales with a skill defined by its circuit board, defaulting to 15 seconds at trained mechanical engineering. Lower skill makes deployment slower, while higher skill makes it faster."
+  - balance: "Flatpak deployment time scales with skills defined by its circuit board, defaulting to 15 seconds at trained mechanical engineering. The largest skill shortfall makes deployment slower; exceeding every checked skill level makes it faster."
