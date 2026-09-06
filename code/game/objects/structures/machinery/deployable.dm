@@ -272,7 +272,7 @@ Deployable Kits
 /**
  * A single-use, fabricator-produced package that deploys a complete machine.
  */
-/obj/item/flatpak
+ABSTRACT_TYPE(/obj/item/flatpak)
 	name = "flatpak"
 	desc = "A compact package that unfolds into a complete machine when used on an unobstructed floor."
 	icon = 'icons/obj/storage/briefcase.dmi'
@@ -284,7 +284,6 @@ Deployable Kits
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	var/circuit_type
 	var/machine_type
-	var/deploying = FALSE
 	/// Base time required to deploy the flatpak at the required skill level.
 	var/deployment_time = 15 SECONDS
 	/// Additional deployment time per skill level below the requirement, or reduction per level above it.
@@ -316,7 +315,7 @@ Deployable Kits
 	. += "Relevant technical skill affects how quickly the flatpak can be deployed."
 
 /obj/item/flatpak/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if(deploying || !proximity_flag || use_check(user) || !isturf(target))
+	if(!proximity_flag || use_check(user) || !isturf(target))
 		return
 	var/turf/deployment_turf = target
 	if(!isfloor(deployment_turf))
@@ -334,12 +333,9 @@ Deployable Kits
 	if(!isnull(skill_level))
 		deployment_duration = max(0, deployment_duration + ((required_level - skill_level) * deployment_time_per_skill_level))
 
-	deploying = TRUE
 	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE("You begin setting up \the [src]."))
-	if(!do_after(user, deployment_duration, user, DO_DEFAULT | DO_USER_UNIQUE_ACT, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
-		deploying = FALSE
+	if(!do_after(user, deployment_duration, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_USER, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
 		return
-	deploying = FALSE
 	if(!user || QDELETED(user))
 		return
 	if(!user.Adjacent(deployment_turf) || !isfloor(deployment_turf) || !turf_clear(deployment_turf))
