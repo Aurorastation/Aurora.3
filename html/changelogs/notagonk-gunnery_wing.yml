@@ -1,0 +1,5 @@
+author: notagonk
+delete-after: True
+changes:
+  - rscadd: "A Gunnery Wing has been created in place of the Grauwolf and Secure Ammunition Storage, with the Longbow joining them in a new, dedicated area."
+  - rscadd: "The Longbow's old location by the Port Docking Arm has been slightly updated."
