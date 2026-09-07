@@ -91,7 +91,7 @@
 		return
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
-		return
+		return ..()
 	START_PROCESSING(SSprocessing, src)
 	if(isobj(AM))
 		numobjects += 1

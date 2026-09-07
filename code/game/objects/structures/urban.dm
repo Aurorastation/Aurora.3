@@ -609,14 +609,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
-	if(get_dir(loc, target) == dir)
+	if(get_dir(loc, target) & dir) // since these are bitflags, we can do bitwise &
 		return !density
 	return TRUE
 
 /obj/structure/rod_railing/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
 		return TRUE
-	if(get_dir(O.loc, target) == dir)
+	if(get_dir(O.loc, target) & dir)
 		if(!density)
 			return TRUE
 		return FALSE
@@ -625,6 +625,63 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 /obj/structure/rod_railing/bar
 	layer = ABOVE_ABOVE_HUMAN_LAYER
 
+// ---------- Jail bars & doors
+
+/obj/structure/rod_railing/jailbar
+	name = "bars"
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	icon = 'icons/obj/structure/urban/jail_bars.dmi'
+	icon_state = "bars"
+	pass_flags_self = PASSGRILLE
+	climbable = FALSE
+
+/obj/structure/rod_railing/jailbar/bars_slot
+	icon_state = "barsslot"
+
+/obj/structure/machinery/door/urban/jail_door
+	name = "barred door"
+	icon = 'icons/obj/structure/urban/jail_bars.dmi'
+	icon_state = "door_closed"
+	base_icon = "door"
+	opacity = FALSE
+	glass = TRUE
+	pass_flags = PASSGRILLE
+	pixel_x = 0
+	pixel_y = 0
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	open_sound = 'sound/machines/barred_door_openclose.ogg'
+	close_sound = 'sound/machines/barred_door_openclose.ogg'
+	locked_sound = null
+
+/obj/structure/machinery/door/urban/jail_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	var/movingdir = get_dir(loc,target)
+	if(movingdir == 0)
+		movingdir = get_dir(loc,mover)
+	if(movingdir & dir)
+		if(air_group)
+			return FALSE
+		return !density
+	else
+		return TRUE
+
+/obj/structure/machinery/door/urban/jail_door/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
+	if(istype(mover) && mover.pass_flags & PASSGRILLE)
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return !density
+	else
+		return TRUE
+
+// rusted variant
+/obj/structure/rod_railing/jailbar/rusted
+	name = "rusted bars"
+	maxhealth = OBJECT_HEALTH_HIGH
+	icon_state = "bars_rust"
+
+/obj/structure/rod_railing/jailbar/rusted/bars_slot
+	icon_state = "barsslot_rust"
 
 /obj/structure/dam
 	name = "concrete dam"
@@ -1131,14 +1188,20 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 	var/base_icon = "wood"
 
-	///Boolean, if the door also supports normal ID openings (read the ID access), or it's key only
+	/// Boolean, if the door also supports normal ID openings (read the ID access), or it's key only
 	var/support_ids = FALSE
-
-	///Stores the previous list of req_one_access, that gets readded when the door is locked with the key
+	/// Stores the previous list of req_one_access, that gets readded when the door is locked with the key
 	var/list/previous_req_one_access = list()
-
-	///Stores the previous list of req_access, that gets readded when the door is locked with the key
+	/// Stores the previous list of req_access, that gets readded when the door is locked with the key
 	var/list/previous_req_access = list()
+	/// Whether the door has an animated sprite or not.
+	var/has_open_close_animation = TRUE
+	/// Sound to play when the door is opened.
+	var/open_sound = 'sound/machines/simple_door_opening.ogg'
+	/// Sound to play when the door is closed
+	var/close_sound = 'sound/machines/simple_door_closing.ogg'
+	/// Sound to play when the door is locked and couldn't be opened.
+	var/locked_sound = 'sound/machines/simple_door_stuck.ogg'
 
 /obj/structure/machinery/door/urban/update_icon()
 	if(density)
@@ -1155,10 +1218,15 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 			if(!src.density)
 				return
 
-			if(p_open)
-				flick("[base_icon]c0", src)
-			else
-				flick("[base_icon]c0", src)
+			update_icon()
+			if(has_open_close_animation)
+				if(p_open)
+					flick("[base_icon]c0", src)
+				else
+					flick("[base_icon]c0", src)
+
+			if(open_sound)
+				playsound(src.loc, open_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 		if("closing")
 
@@ -1166,10 +1234,21 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 			if(src.density)
 				return
 
-			if(p_open)
-				flick("[base_icon]c1", src)
-			else
-				flick("[base_icon]c1", src)
+			if(has_open_close_animation)
+				if(p_open)
+					flick("[base_icon]c1", src)
+				else
+					flick("[base_icon]c1", src)
+
+			if(close_sound)
+				playsound(src.loc, close_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+
+		if("deny")
+			if(locked_sound)
+				playsound(src.loc, locked_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+			balloon_alert_to_viewers("*rattles*")
+			shake_animation(1)
+
 	return
 
 /obj/structure/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
@@ -1217,6 +1296,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 		else
 			balloon_alert_to_viewers("*rattles*")
+			if(locked_sound)
+				playsound(src.loc, locked_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	//Check with our parent, in case it's not a key
 	else
@@ -1232,6 +1313,50 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	else
 		return FALSE //Keys only
 
+/obj/structure/machinery/door/urban/metal
+	name = "metal door"
+	desc = ""
+	icon_state = "metal_closed"
+	base_icon = "metal"
+	pixel_y = -8
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_alt
+	name = "metal door"
+	desc = ""
+	icon_state = "metal_alt_closed"
+	base_icon = "metal_alt"
+	pixel_y = -8
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_red
+	name = "metal door"
+	desc = ""
+	icon_state = "metal_red_closed"
+	base_icon = "metal_red"
+	pixel_y = -8
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_bar
+	name = "metal door"
+	desc = ""
+	icon_state = "metal_bar_closed"
+	base_icon = "metal_bar"
+	pixel_y = -8
+	glass = TRUE
+	opacity = FALSE
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_grate
+	name = "metal door"
+	desc = ""
+	icon_state = "metal_grate_closed"
+	base_icon = "metal_grate"
+	pixel_y = -8
+	glass = TRUE
+	opacity = FALSE
+	has_open_close_animation = FALSE
+
 /obj/structure/machinery/door/urban/glass_sliding
 	name = "sliding glass door"
 	desc = "An electronic sliding glass door, often seen in cities."
@@ -1241,6 +1366,9 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	support_ids = TRUE
 	glass = TRUE
 	opacity = FALSE //otherwise it is opaque until opened/closed for the first time.
+	open_sound = null
+	close_sound = null
+	locked_sound = null
 
 /obj/structure/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
 	icon_state = "double_glass_sliding_closed"
@@ -1344,3 +1472,73 @@ ABSTRACT_TYPE(/obj/structure/arch)
 /obj/structure/quay_wall/edge
 	icon_state = "edge"
 	bound_height = 32
+
+// ---------- Trashbin
+/obj/structure/trashbin
+	name = "trashbin"
+	desc = "It's a trashbin, where the trash goes."
+	icon = 'icons/obj/structure/urban/urban_props.dmi'
+	icon_state = "trashbin"
+	anchored = TRUE
+
+/obj/structure/trashbin/trashed
+	name = "damaged trashbin"
+	desc = "It's a trashed trashbin, poetic irony."
+	icon_state = "trashbin-1"
+
+/obj/structure/trashbin/trashed/Initialize()
+	. = ..()
+	icon_state = "trashbin-[rand(1, 3)]"
+
+// ---------- Trashbags
+/obj/structure/trashbags
+	name = "pile of trash"
+	icon = 'icons/obj/structure/urban/urban_props.dmi'
+	icon_state = "trashbags_1"
+	anchored = TRUE
+
+/obj/structure/trashbags/Initialize()
+	. = ..()
+	icon_state = "trashbags_[rand(1, 6)]"
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/trashbags/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living))
+		var/mob/living/L = arrived
+		to_chat(L, SPAN_NOTICE("You stumble through \the [src] really quite loudly."))
+		playsound(loc, 'sound/effects/plantshake.ogg', 20, TRUE)
+		shake_animation(4)
+
+// ---------- Pile of papers
+/obj/structure/paper_pile
+	name = "pile of papers"
+	icon = 'icons/obj/structure/urban/urban_props.dmi'
+	icon_state = "scattered_papers"
+	anchored = TRUE
+	layer = ABOVE_CATWALK_LAYER
+
+/obj/structure/paper_pile/random
+	icon_state = "papers_1"
+
+/obj/structure/paper_pile/random/Initialize()
+	. = ..()
+	icon_state = "papers_[rand(1, 3)]"
+	dir = pick(GLOB.cardinals)
+
+// ---------- Fire barrel
+/obj/structure/fire_barrel
+	name = "fire barrel"
+	desc = "A barrel tucked with firewood, primary sign of poverty."
+	icon = 'icons/obj/structure/urban/fires.dmi'
+	icon_state = "fire_barrel"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/fire_barrel/lit
+	icon_state = "fire_barrel_lit"

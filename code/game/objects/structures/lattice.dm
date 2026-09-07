@@ -92,7 +92,8 @@
 		/turf/simulated/mineral,
 		/turf/unsimulated/wall,
 		/obj/structure/grille,
-		/turf/unsimulated/mineral/asteroid
+		/turf/unsimulated/mineral/,
+		/obj/structure/quay_wall
 	)
 
 /obj/structure/lattice/ceiling/Initialize()

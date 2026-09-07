@@ -1,6 +1,3 @@
-
-// map_template and archetype
-
 /datum/map_template/ruin/away_site/nikal_sahira
 	name = "Nikal Sahira"
 	description = "placeholder"
@@ -16,9 +13,9 @@
 	spawn_weight = 1
 	spawn_cost = 1
 
-	exoplanet_atmospheres = list(/datum/gas_mixture/earth_standard) // don't forget to change this
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_chill) // don't forget to change this
 	exoplanet_lightlevel = list(1, 2, 5, 7)
-	exoplanet_lightcolor = list("#a6d8fa")
+	exoplanet_lightcolor = list("#8499c8")
 
 	unit_test_groups = list(3)
 	traits = list(
@@ -30,15 +27,11 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
-
-
 /singleton/submap_archetype/nikal_sahira
 	map = "Nikal Sahira"
 	descriptor = "placeholder"
 
-// overmap visitable
-
-/obj/effect/overmap/visitable/sector/crevus
+/obj/effect/overmap/visitable/sector/nikal_sahira
 	name = "Nikal Sahira"
 	desc = "placeholder"
 

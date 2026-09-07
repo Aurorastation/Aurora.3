@@ -512,7 +512,6 @@
 	intent_message(MACHINE_SOUND)
 
 	do_animate("opening")
-	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
 	set_density(FALSE)
