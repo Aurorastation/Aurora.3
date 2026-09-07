@@ -65,6 +65,18 @@ other types of metals and chemistry for reagents).
 		var/atom/currently_printing = build_path
 		desc = initial(currently_printing.desc)
 
+/// Returns the display name to use for this design on a particular fabricator.
+/datum/design/proc/GetFabricationName(var/fabricator)
+	return name
+
+/// Returns the description to use for this design on a particular fabricator.
+/datum/design/proc/GetFabricationDesc(var/fabricator)
+	return desc
+
+/// Returns the material cost to use on a particular fabricator.
+/datum/design/proc/GetFabricationMaterials(var/fabricator)
+	return materials
+
 //Returns a new instance of the item for this design
 //This is to allow additional initialization to be performed, including possibly additional contructor arguments.
 /datum/design/proc/Fabricate(var/newloc, var/fabricator)
