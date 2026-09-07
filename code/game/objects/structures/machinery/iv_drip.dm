@@ -117,13 +117,17 @@
 		for(var/obj/item/reagent_containers/container in src.loc.contents)
 			if(is_type_in_list(container, accepted_containers))
 				beaker = container
+				QDEL_NULL(container)
 				break
 	if(!breath_mask)
-		breath_mask = locate(/obj/item/clothing/mask/breath, src.loc.contents)
+		var/obj/item/clothing/mask/breath_mask = locate(/obj/item/clothing/mask/breath, src.loc.contents)
+		src.breath_mask = breath_mask
+		QDEL_NULL(breath_mask)
 	if(!tank)
 		for(var/obj/item/tank/tank in src.loc.contents)
 			if(!is_type_in_list(tank, tank_blacklist))
 				src.tank = tank
+				QDEL_NULL(tank)
 				break
 	update_icon()
 
