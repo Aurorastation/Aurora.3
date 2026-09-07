@@ -23247,6 +23247,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/structure/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/airlock)
 "daB" = (
@@ -23413,7 +23414,6 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/structure/machinery/alarm/shuttle/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/airlock)
 "dbK" = (
@@ -47962,7 +47962,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/structure/machinery/firealarm/east,
+/obj/structure/machinery/alarm/shuttle/east,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/intrepid/airlock)
 "gmn" = (
