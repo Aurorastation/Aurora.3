@@ -113,3 +113,21 @@
   FabianK3:
   - qol: Added both secure operations and tech storage locations as safe deposit location
       for persistent charge cards.
+2026-09-07:
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  Geeves:
+  - rscadd: Ejected bullet casings now bounce and spin with simulated physics, while
+      drifting naturally in zero gravity.
+  - rscadd: Adds machine flatpaks, printable by machinists using exosuit fabricators
+      after researching the corresponding circuit board.
+  - balance: Flatpak deployment time scales with skills defined by its circuit board,
+      defaulting to 15 seconds at trained mechanical engineering. The largest skill
+      shortfall makes deployment slower; exceeding every checked skill level makes
+      it faster.
+  kano:
+  - bugfix: Fixed not being able to snort powders with cash money.
