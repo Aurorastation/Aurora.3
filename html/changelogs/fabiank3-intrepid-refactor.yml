@@ -3,4 +3,5 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - qol: "Refactored the Intrepid width to provide symmetry."
+  - rscadd: "Redesigned the Intrepid shuttle."
+  - qol: "Add auto-attach for mapped-in turf contents for IV drips."
