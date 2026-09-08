@@ -45,3 +45,4 @@
 	name = "snow"
 	icon = 'icons/turf/overlays.dmi'
 	icon_state = "snowfloor_transparent"
+	anchored = TRUE

@@ -13,7 +13,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 
-	exoplanet_atmospheres = list(/datum/gas_mixture/earth_chill) // don't forget to change this
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_chill)
 	exoplanet_lightlevel = list(1, 2, 5, 7)
 	exoplanet_lightcolor = list("#8499c8")
 
@@ -43,3 +43,5 @@
 	alignment = "Democratic People's Republic of Adhomai"
 	requires_contact = FALSE
 	instant_contact = TRUE
+	landing_site = TRUE
+	comms_support = TRUE

@@ -1072,6 +1072,12 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	desc = "A sign labeling the structure as a Zeng-Hu pharmaceutical distributor and medical clinic."
 	icon_state = "pharmacy_sign"
 
+/obj/structure/sign/urban/nanotrasen_pharmacy
+	name = "pharmacy sign"
+	desc = "A sign labeling the structure as a NanoTrasen medicine distributor."
+	icon = 'icons/obj/structure/urban/assunzione_signs.dmi'
+	icon_state = "nt_pharmacy_sign"
+
 /obj/structure/window/urban
 	icon = 'icons/obj/structure/urban/windows_tall.dmi'
 	icon_state = "wood"
@@ -1218,7 +1224,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 			if(!src.density)
 				return
 
-			update_icon()
 			if(has_open_close_animation)
 				if(p_open)
 					flick("[base_icon]c0", src)
@@ -1313,12 +1318,15 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	else
 		return FALSE //Keys only
 
+// ---------- Urban door subtypes
+
 /obj/structure/machinery/door/urban/metal
 	name = "metal door"
 	desc = ""
 	icon_state = "metal_closed"
 	base_icon = "metal"
 	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
 	has_open_close_animation = FALSE
 
 /obj/structure/machinery/door/urban/metal_alt
@@ -1327,6 +1335,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	icon_state = "metal_alt_closed"
 	base_icon = "metal_alt"
 	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
 	has_open_close_animation = FALSE
 
 /obj/structure/machinery/door/urban/metal_red
@@ -1335,6 +1344,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	icon_state = "metal_red_closed"
 	base_icon = "metal_red"
 	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
 	has_open_close_animation = FALSE
 
 /obj/structure/machinery/door/urban/metal_bar
@@ -1343,6 +1353,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	icon_state = "metal_bar_closed"
 	base_icon = "metal_bar"
 	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
 	glass = TRUE
 	opacity = FALSE
 	has_open_close_animation = FALSE
@@ -1353,9 +1364,12 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	icon_state = "metal_grate_closed"
 	base_icon = "metal_grate"
 	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
 	glass = TRUE
 	opacity = FALSE
 	has_open_close_animation = FALSE
+
+// ---------- Sliding door
 
 /obj/structure/machinery/door/urban/glass_sliding
 	name = "sliding glass door"
@@ -1366,8 +1380,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	support_ids = TRUE
 	glass = TRUE
 	opacity = FALSE //otherwise it is opaque until opened/closed for the first time.
-	open_sound = null
-	close_sound = null
+	open_sound = 'sound/machines/windowdoor.ogg'
+	close_sound = 'sound/machines/windowdoor.ogg'
 	locked_sound = null
 
 /obj/structure/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
