@@ -27570,7 +27570,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/seafoam/full,
-/obj/structure/machinery/power/apc/shuttle/south,
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
 "dAT" = (
@@ -88496,15 +88495,18 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	name = "Medical";
-	dir = 2;
-	door_color = "#4b765c"
-	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,73);
 	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/multi_tile/glass{
+	name = "Medical";
+	dir = 2;
+	door_color = "#4b765c"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/medical)
@@ -118236,13 +118238,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/storage/eva)
 "pqW" = (
-/obj/item/radio/intercom/expedition/east,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
 /obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 4
 	},
+/obj/item/radio/intercom/expedition/south,
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
 "prd" = (
@@ -127497,7 +127499,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/flight_deck)
 "qBV" = (
 /obj/structure/punching_bag,
@@ -143489,9 +143491,6 @@
 /obj/structure/bed/stool/chair/shuttle/double{
 	pixel_x = -8
 	},
-/obj/structure/machinery/camera/network/intrepid{
-	c_tag = "Intrepid - Main Compartment Aft"
-	},
 /obj/structure/machinery/alarm/shuttle/north,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -148183,7 +148182,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/flight_deck)
 "tgw" = (
 /obj/structure/machinery/drone_fabricator,
@@ -172870,7 +172869,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/flight_deck)
 "woP" = (
 /obj/structure/ladder/up{
@@ -176644,7 +176643,6 @@
 	dir = 1;
 	c_tag = "Intrepid - Infirmary"
 	},
-/obj/item/radio/intercom/expedition/south,
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
 "wMA" = (
@@ -181205,7 +181203,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, flight deck"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/flight_deck)
 "xpk" = (
 /obj/structure/sign/flag/scc{
@@ -186794,6 +186792,9 @@
 	pixel_x = -8
 	},
 /obj/effect/floor_decal/spline/plain/black,
+/obj/structure/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Main Compartment Aft"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/main_compartment)
 "ycW" = (
