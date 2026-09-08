@@ -82633,7 +82633,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/airlock)
 "kIl" = (
 /obj/structure/disposalpipe/segment{
@@ -176365,7 +176365,7 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/main_compartment)
 "wKl" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
