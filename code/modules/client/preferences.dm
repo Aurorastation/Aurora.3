@@ -180,6 +180,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/list/disabilities = list()
 
 	var/economic_status = ECONOMICALLY_AVERAGE
+	var/starting_funds = STARTING_FUNDS_BANK_ACCOUNT
 
 	var/uplinklocation = "PDA"
 
@@ -811,6 +812,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
+		starting_funds = STARTING_FUNDS_BANK_ACCOUNT
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)

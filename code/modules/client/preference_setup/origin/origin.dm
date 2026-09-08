@@ -9,6 +9,7 @@
 	S["religion"]			>> pref.religion
 	S["accent"]				>> pref.accent
 	S["economic_status"] 	>> pref.economic_status
+	S["starting_funds"] 	>> pref.starting_funds
 
 /datum/category_item/player_setup_item/origin/save_character(var/savefile/S)
 	S["culture"]			<< pref.culture
@@ -17,6 +18,7 @@
 	S["religion"]			<< pref.religion
 	S["accent"]				<< pref.accent
 	S["economic_status"]	<< pref.economic_status
+	S["starting_funds"]	<< pref.starting_funds
 
 /datum/category_item/player_setup_item/origin/gather_load_query()
 	return list(
@@ -25,6 +27,7 @@
 				"culture",
 				"origin",
 				"economic_status",
+				"starting_funds",
 				"citizenship",
 				"religion",
 				"accent"
@@ -42,6 +45,7 @@
 			"culture",
 			"origin",
 			"economic_status",
+			"starting_funds",
 			"citizenship",
 			"religion",
 			"accent",
@@ -55,6 +59,7 @@
 		"culture" = pref.culture,
 		"origin" = pref.origin,
 		"economic_status" = pref.economic_status,
+		"starting_funds" = pref.starting_funds,
 		"citizenship" = pref.citizenship,
 		"religion" = pref.religion,
 		"accent" = pref.accent,
@@ -93,6 +98,7 @@
 		pref.accent	= our_origin.possible_accents[1]
 
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
+	pref.starting_funds = sanitize_inlist(pref.starting_funds, STARTING_FUNDS_OPTIONS, initial(pref.starting_funds))
 
 /datum/category_item/player_setup_item/origin/ui_data(var/mob/user)
 	if(!SSrecords.initialized)
@@ -135,6 +141,7 @@
 				"title" = "Identity",
 				"fields" = list(
 					list("label" = "Economic Status", "value" = pref.economic_status, "action" = "economic_status"),
+					list("label" = "Starting Funds", "value" = pref.starting_funds, "action" = "starting_funds"),
 					list("label" = "Citizenship", "value" = pref.citizenship, "action" = "citizenship"),
 					list("label" = "Religion", "value" = pref.religion, "action" = "religion"),
 					list("label" = "Accent", "value" = pref.accent, "action" = "accent")
@@ -188,6 +195,12 @@
 		var/new_status = tgui_input_list(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", ECONOMIC_POSITIONS, pref.economic_status)
 		if(new_status && CanUseTopic(user))
 			pref.economic_status = new_status
+			return TOPIC_REFRESH
+
+	if(href_list["starting_funds"])
+		var/new_starting_funds = tgui_input_list(user, "Choose where your character's starting funds are deposited. Physical funds will be placed in your bag.", "Character Preference", STARTING_FUNDS_OPTIONS, pref.starting_funds)
+		if(new_starting_funds && CanUseTopic(user))
+			pref.starting_funds = new_starting_funds
 			return TOPIC_REFRESH
 
 	if(href_list["citizenship"])
