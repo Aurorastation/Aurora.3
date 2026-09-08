@@ -137,7 +137,7 @@
 	if(seed.harvest(user))
 		qdel(src)
 
-/obj/structure/flora/harvestable/examine(mob/user)
+/obj/structure/flora/harvestable/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(seed)
 		. += SPAN_NOTICE("You could harvest this plant.")
