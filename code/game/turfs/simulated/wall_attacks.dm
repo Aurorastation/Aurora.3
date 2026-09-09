@@ -58,7 +58,7 @@
 				H.climb(UP, src)
 				return
 
-	if(user.a_intent != I_HELP)
+	if(user.a_intent != I_HELP || rotting)
 		try_touch(user, rotting)
 
 /turf/simulated/wall/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
