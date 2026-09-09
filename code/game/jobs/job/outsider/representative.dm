@@ -350,6 +350,7 @@
 	job_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+	check_citizenship_in_preferences = FALSE
 
 /datum/job/diplomatic_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -396,6 +397,7 @@
 	job_access = list(ACCESS_CONSULAR)
 	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+	check_citizenship_in_preferences = FALSE
 
 /datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -425,7 +427,7 @@
 	title = "Corporate Aide"
 	flag = GLOB.DIPLOMAT_AIDE
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
-	department_flag = ENGSEC
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 0 //manually opened by representative
 	spawn_positions = 0

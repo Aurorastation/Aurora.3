@@ -123,18 +123,18 @@
 					log_debug(e.desc)
 
 	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
-	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
-	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
-	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
-	pref.job_medsci_high   = sanitize_integer(text2num(pref.job_medsci_high), 0, 65535, initial(pref.job_medsci_high))
-	pref.job_medsci_med    = sanitize_integer(text2num(pref.job_medsci_med), 0, 65535, initial(pref.job_medsci_med))
-	pref.job_medsci_low    = sanitize_integer(text2num(pref.job_medsci_low), 0, 65535, initial(pref.job_medsci_low))
-	pref.job_engsec_high   = sanitize_integer(text2num(pref.job_engsec_high), 0, 65535, initial(pref.job_engsec_high))
-	pref.job_engsec_med    = sanitize_integer(text2num(pref.job_engsec_med), 0, 65535, initial(pref.job_engsec_med))
-	pref.job_engsec_low    = sanitize_integer(text2num(pref.job_engsec_low), 0, 65535, initial(pref.job_engsec_low))
-	pref.job_event_high   = sanitize_integer(text2num(pref.job_event_high), 0, 65535, initial(pref.job_event_high))
-	pref.job_event_med    = sanitize_integer(text2num(pref.job_event_med), 0, 65535, initial(pref.job_event_med))
-	pref.job_event_low    = sanitize_integer(text2num(pref.job_event_low), 0, 65535, initial(pref.job_event_low))
+	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, BITFIELDMAX, initial(pref.job_civilian_high))
+	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, BITFIELDMAX, initial(pref.job_civilian_med))
+	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, BITFIELDMAX, initial(pref.job_civilian_low))
+	pref.job_medsci_high   = sanitize_integer(text2num(pref.job_medsci_high), 0, BITFIELDMAX, initial(pref.job_medsci_high))
+	pref.job_medsci_med    = sanitize_integer(text2num(pref.job_medsci_med), 0, BITFIELDMAX, initial(pref.job_medsci_med))
+	pref.job_medsci_low    = sanitize_integer(text2num(pref.job_medsci_low), 0, BITFIELDMAX, initial(pref.job_medsci_low))
+	pref.job_engsec_high   = sanitize_integer(text2num(pref.job_engsec_high), 0, BITFIELDMAX, initial(pref.job_engsec_high))
+	pref.job_engsec_med    = sanitize_integer(text2num(pref.job_engsec_med), 0, BITFIELDMAX, initial(pref.job_engsec_med))
+	pref.job_engsec_low    = sanitize_integer(text2num(pref.job_engsec_low), 0, BITFIELDMAX, initial(pref.job_engsec_low))
+	pref.job_event_high   = sanitize_integer(text2num(pref.job_event_high), 0, BITFIELDMAX, initial(pref.job_event_high))
+	pref.job_event_med    = sanitize_integer(text2num(pref.job_event_med), 0, BITFIELDMAX, initial(pref.job_event_med))
+	pref.job_event_low    = sanitize_integer(text2num(pref.job_event_low), 0, BITFIELDMAX, initial(pref.job_event_low))
 
 
 	if (!pref.player_alt_titles)
@@ -222,7 +222,7 @@
 
 		if(species_restricted)
 			status = "SPECIES RESTRICTED"
-		else if(job.blacklisted_citizenship && (C.name in job.blacklisted_citizenship))
+		else if(job.check_citizenship_in_preferences && job.blacklisted_citizenship && (C.name in job.blacklisted_citizenship))
 			status = "BACKGROUND RESTRICTED"
 		else
 			var/list/missing_skills = list()
