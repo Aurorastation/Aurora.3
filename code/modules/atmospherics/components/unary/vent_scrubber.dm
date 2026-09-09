@@ -182,7 +182,9 @@
 	return 1
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/process()
-	..()
+	. = ..()
+	if (!use_power || welded)
+		return PROCESS_KILL
 
 	if (hibernate > world.time)
 		return 1
@@ -194,7 +196,7 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
-	if((!use_power || (stat & (NOPOWER|BROKEN)) || !loc) || welded)
+	if((stat & (NOPOWER|BROKEN)) || !loc)
 		return 0
 
 	var/datum/gas_mixture/environment = loc.return_air()
@@ -399,6 +401,8 @@
 			return
 
 		welded = !welded
+		if (!welded)
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
 								SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
@@ -421,9 +425,15 @@
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
 				welded = FALSE
+				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				spark(get_turf(src), 3, GLOB.alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
 		return TRUE
 
 	return ..()
+
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/update_use_power(new_use_power)
+	. = ..()
+	if (use_power)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)

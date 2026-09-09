@@ -124,7 +124,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/tirakqi_smuggler_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ti'Rakqi Shuttle"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
 /datum/shuttle/autodock/overmap/tirakqi_smuggler_shuttle
 	name = "Ti'Rakqi Shuttle"
@@ -135,7 +135,6 @@
 	landmark_transition = "nav_transit_tirakqi_smuggler_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tirakqi_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler_shuttle/hangar
@@ -168,21 +167,21 @@
 /obj/structure/machinery/door/airlock/hatch/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
 /obj/structure/machinery/door/airlock/glass/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
 /obj/structure/machinery/door/airlock/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
 /obj/structure/machinery/door/airlock/multi_tile/glass/tirakqi
 	door_color = "#704470"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
 // walls for shuttle
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/cockpit

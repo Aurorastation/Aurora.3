@@ -982,7 +982,7 @@ var/global/enabled_spooking = 0
 	if(!seedtype || !SSplants.seeds[seedtype])
 		return
 	var/datum/seed/S = SSplants.seeds[seedtype]
-	S.harvest(usr,0,0,1)
+	S.spawn_seed(get_turf(usr))
 	log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
 
 /datum/admins/proc/spawn_custom_item()
