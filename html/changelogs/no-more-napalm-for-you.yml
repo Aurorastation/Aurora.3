@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes the napalm grenades from Secure Tech Storage."
