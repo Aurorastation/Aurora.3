@@ -346,7 +346,6 @@
 	//Appearance
 	new /obj/item/clothing/head/powdered_wig (src)
 	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/suit/judgerobe (src)
 	//Tools
 	new /obj/item/paper/Court (src)
 	new /obj/item/paper/Court (src)

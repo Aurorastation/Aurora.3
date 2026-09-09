@@ -11,7 +11,7 @@
 /obj/item/clothing/ears/earphones
 	name = "earphones"
 	desc = "A pair of wireless earphones. Includes a little slot for a music cartridge."
-	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
+	icon = 'icons/obj/item/clothing/ears/earmuffs.dmi'
 	icon_state = "earphones"
 	item_state = "earphones"
 	slot_flags = SLOT_EARS

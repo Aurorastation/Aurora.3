@@ -8,17 +8,6 @@
 		)
 	body_parts_covered = 0
 
-/obj/item/clothing/head/wizard/red
-	name = "red wizard hat"
-	desc = "Strange-looking, red, hat-wear that most certainly belongs to a real magic user."
-	icon_state = "redwizard"
-
-/obj/item/clothing/head/wizard/fake
-	name = "wizard hat"
-	desc = "It has WIZZARD written across it in sequins. Comes with a cool beard."
-	icon_state = "wizard-fake"
-	body_parts_covered = HEAD|FACE
-
 /obj/item/clothing/head/wizard/magus
 	name = "magus Helm"
 	desc = "A mysterious helmet that hums with an unearthly power"
@@ -52,13 +41,6 @@
 	desc = "A magnificant, red, gem-lined robe that seems to radiate power."
 	icon_state = "redwizard"
 	item_state = "redwizrobe"
-
-/obj/item/clothing/suit/wizrobe/magusblue
-	name = "magus robe"
-	desc = "A set of armored robes that seem to radiate a dark power"
-	icon_state = "magusblue"
-	item_state = "magusblue"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/wizrobe/magusred
 	name = "magus robe"

@@ -78,28 +78,6 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 
-/obj/item/clothing/suit/storage/toggle/armor/hos
-	name = "armored trenchcoat"
-	desc = "A trenchcoat lined with a protective alloy and some slick leather."
-	icon_state = "jensencoat"
-	item_state = "jensencoat"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(
-		MELEE = ARMOR_MELEE_KNIVES,
-		BULLET = ARMOR_BALLISTIC_SMALL,
-		LASER = ARMOR_LASER_SMALL,
-		ENERGY = ARMOR_ENERGY_MINOR,
-		BOMB = ARMOR_BOMB_PADDED
-	)
-	allowed = list(/obj/item/gun/energy, /obj/item/reagent_containers/spray/pepper, /obj/item/gun/projectile, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/flashlight)
-
-/obj/item/clothing/suit/storage/toggle/armor/hos/Initialize()
-	. = ..()
-	pockets = new /obj/item/storage/internal(src)
-	pockets.storage_slots = 4
-	pockets.max_w_class = WEIGHT_CLASS_SMALL
-	pockets.max_storage_space = 8
-
 /obj/item/clothing/suit/armor/swat
 	name = "swat suit"
 	desc = "A heavily armored suit that protects against moderate damage. Used in special operations."
@@ -313,38 +291,6 @@
 	. = ..()
 	pockets.storage_slots = 2	//two slots
 
-/obj/item/clothing/suit/storage/vest/officer
-	name = "officer armor vest"
-	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a security holobadge clipped to the chest."
-	icon_state = "officervest_nobadge"
-	item_state = "officervest_nobadge"
-	icon_badge = "officervest_badge"
-	icon_nobadge = "officervest_nobadge"
-
-/obj/item/clothing/suit/storage/vest/warden
-	name = "warden armor vest"
-	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a silver badge clipped to the chest."
-	icon_state = "wardenvest_nobadge"
-	item_state = "wardenvest_nobadge"
-	icon_badge = "wardenvest_badge"
-	icon_nobadge = "wardenvest_nobadge"
-
-/obj/item/clothing/suit/storage/vest/hos
-	name = "commander armor vest"
-	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a gold badge clipped to the chest."
-	icon_state = "hosvest_nobadge"
-	item_state = "hosvest_nobadge"
-	icon_badge = "hosvest_badge"
-	icon_nobadge = "hosvest_nobadge"
-
-/obj/item/clothing/suit/storage/vest/detective
-	name = "detective armor vest"
-	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a detective's badge clipped to the chest."
-	icon_state = "detectivevest_nobadge"
-	item_state = "detectivevest_nobadge"
-	icon_badge = "detectivevest_badge"
-	icon_nobadge = "detectivevest_nobadge"
-
 /obj/item/clothing/suit/storage/vest/ft
 	name = "forensic technician armor vest"
 	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a forensic technician's badge clipped to the chest."
@@ -405,56 +351,6 @@
 		ENERGY = ARMOR_ENERGY_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-
-//ert related armor
-
-/obj/item/clothing/suit/storage/vest/heavy/ert
-	name = "ERT trooper's plate carrier"
-	desc = "A plate carrier worn by troopers of the emergency response team. Has crimson highlights."
-	icon_state = "ert_soldier"
-	item_state = "ert_soldier"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	armor = list(
-		MELEE = ARMOR_MELEE_RESISTANT,
-		BULLET = ARMOR_BALLISTIC_RIFLE,
-		LASER = ARMOR_LASER_RIFLE,
-		ENERGY = ARMOR_ENERGY_RESISTANT,
-		BOMB = ARMOR_BOMB_PADDED
-	)
-	siemens_coefficient = 0.35
-	slowdown = 0
-
-/obj/item/clothing/suit/storage/vest/heavy/ert/commander
-	name = "ERT commander's plate carrier"
-	desc = "A plate carrier worn by the elite emergency response team commander. Has gold highlights. This one has a Medal of Valor pinned to the breastplate."
-	icon_state = "ert_commander"
-	item_state = "ert_commander"
-
-/obj/item/clothing/suit/storage/vest/heavy/ert/lead
-	name = "leading trooper's plate carrier"
-	desc = "A plate carrier worn by veteran troopers of the emergency response team qualified to lead small squads. Has blue highlights."
-	icon_state = "ert_lead"
-	item_state = "ert_lead"
-
-/obj/item/clothing/suit/storage/vest/heavy/ert/medic
-	name = "ERT medic's plate carrier"
-	desc = "A plate carrier worn by combat medics of the emergency response team. Has white highlights. This one has a medic patch sewn to the breastplate."
-	icon_state = "ert_medic"
-	item_state = "ert_medic"
-
-/obj/item/clothing/suit/storage/vest/heavy/ert/sapper
-	name = "ERT sapper's plate carrier"
-	desc = "A plate carrier worn by sappers of the emergency response team. Has green highlights."
-	icon_state = "ert_sapper"
-	item_state = "ert_sapper"
-
-/obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
-	name = "ERT civil protection plate carrier"
-	desc = "A plate carrier worn by troopers serving civil protection details. Commonly seen on high-profile escorts and SCC administration centers."
-	icon_state = "civilprotection_nobadge"
-	item_state = "civilprotection_nobadge"
-	icon_badge = "civilprotection_badge"
-	icon_nobadge = "civilprotection_nobadge"
 
 //unathi armor
 
@@ -573,32 +469,6 @@
 	contained_sprite = TRUE
 
 //All of the armor below is mostly unused
-
-/obj/item/clothing/suit/armor/centcomm
-	name = "Cent. Com. armor"
-	desc = "A suit that protects against some damage."
-	icon_state = "centcom"
-	item_state = "centcom"
-	w_class = WEIGHT_CLASS_BULKY//bulky item
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/gun/energy,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0
-
-/obj/item/clothing/suit/armor/heavy
-	name = "heavy armor"
-	desc = "A heavily armored suit that protects against moderate damage."
-	icon_state = "heavy"
-	item_state = "swat_suit"
-	w_class = WEIGHT_CLASS_BULKY//bulky item
-	gas_transfer_coefficient = 0.90
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	slowdown = 1.5
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 0.1
-	pocket_slots = 3
 
 /obj/item/clothing/suit/armor/tdome
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS

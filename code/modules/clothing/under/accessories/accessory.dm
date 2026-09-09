@@ -170,58 +170,73 @@
 		var/mob/mob = src.loc
 		mob.update_inv_wear_suit()
 
-/obj/item/clothing/accessory/red
+/obj/item/clothing/accessory/tie
 	name = "red tie"
+	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
 	icon_state = "redtie"
+	item_state = "redtie"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/red_clip
 	name = "red tie with a clip"
 	icon_state = "redcliptie"
+	item_state = "redcliptie"
 
 /obj/item/clothing/accessory/tie/orange
 	name = "orange tie"
+	icon_state = "orangetie"
 	icon_state = "orangetie"
 
 /obj/item/clothing/accessory/tie/yellow
 	name = "yellow tie"
 	icon_state = "yellowtie"
+	item_state = "yellowtie"
 
-/obj/item/clothing/accessory/horrible
+/obj/item/clothing/accessory/tie/horrible
 	name = "horrible tie"
 	desc = "A neosilk clip-on tie. This one is disgusting."
 	icon_state = "horribletie"
+	item_state = "horribletie"
 
 /obj/item/clothing/accessory/tie/green
 	name = "green tie"
 	icon_state = "greentie"
+	item_state = "greentie"
 
 /obj/item/clothing/accessory/tie/darkgreen
 	name = "dark green tie"
 	icon_state = "dgreentie"
+	item_state = "dgreentie"
 
-/obj/item/clothing/accessory/blue
+/obj/item/clothing/accessory/tie/blue
 	name = "blue tie"
 	icon_state = "bluetie"
+	item_state = "bluetie"
 
 /obj/item/clothing/accessory/tie/blue_clip
 	name = "blue tie with a clip"
 	icon_state = "bluecliptie"
+	item_state = "bluecliptie"
 
 /obj/item/clothing/accessory/tie/navy
 	name = "navy tie"
 	icon_state = "navytie"
+	item_state = "navytie"
 
 /obj/item/clothing/accessory/tie/purple
 	name = "purple tie"
 	icon_state = "purpletie"
+	item_state = "purpletie"
 
 /obj/item/clothing/accessory/tie/black
 	name = "black tie"
 	icon_state = "blacktie"
+	item_state = "blacktie"
 
 /obj/item/clothing/accessory/tie/white
 	name = "white tie"
 	icon_state = "whitetie"
+	item_state = "whitetie"
 
 /obj/item/clothing/accessory/tie/colourable
 	name = "tie"
@@ -331,8 +346,10 @@
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
+	icon = 'icons/obj/item/clothing/accessory/suspenders.dmi'
 	icon_state = "suspenders"
 	item_state = "suspenders"
+	contained_sprite = TRUE
 	gender = PLURAL
 	slot = ACCESSORY_SLOT_GENERIC
 

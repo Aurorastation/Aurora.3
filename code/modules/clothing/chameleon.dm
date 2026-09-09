@@ -57,7 +57,7 @@
 /obj/item/clothing/under/chameleon/Initialize()
 	. = ..()
 	if(!clothing_choices)
-		var/blocked = list(src.type, /obj/item/clothing/under/gimmick, /obj/item/clothing/under/rank/centcom_officer/bst)//Prevent infinite loops and bad jumpsuits.
+		var/blocked = list(src.type, /obj/item/clothing/under/rank/centcom_officer/bst)//Prevent infinite loops and bad jumpsuits.
 		clothing_choices = generate_chameleon_choices(/obj/item/clothing/under, blocked)
 
 /obj/item/clothing/under/chameleon/emp_act(severity)
@@ -90,7 +90,7 @@
 /obj/item/clothing/head/chameleon
 	name = "grey cap"
 	desc = "It looks like a softcap in a tasteless color, but upon closer inspection there's an advanced holographic array installed inside. It seems to have a small dial inside."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	icon = 'icons/obj/item/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	item_state = "softcap"
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -171,7 +171,7 @@
 
 /obj/item/clothing/suit/armor/chameleon
 	name = "standard plate carrier"
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	contained_sprite = TRUE
 	icon_state = "plate_chameleon"
 	item_state = "plate_chameleon"
