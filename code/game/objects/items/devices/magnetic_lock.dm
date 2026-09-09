@@ -11,7 +11,7 @@
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
 	w_class = WEIGHT_CLASS_NORMAL
-	req_access = list(ACCESS_CENT_SPECOPS)
+	req_access = list(/datum/access/cent_specops::id)
 	health = 150
 
 	var/department = "CENTCOM"
@@ -49,18 +49,18 @@
 /obj/item/magnetic_lock/security
 	department = "Security"
 	icon_state = "inactive_Security"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 
 /obj/item/magnetic_lock/engineering
 	department = "Engineering"
 	icon_state = "inactive_Engineering"
 	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
+	req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id)
 
 /obj/item/magnetic_lock/security/tcaf
 	name = "tcaf magnetic door lock"
 	req_access = null
-	req_one_access = list(ACCESS_TCAF)
+	req_one_access = list(/datum/access/tcaf::id)
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/magnetic_lock/security/tcaf/Initialize()
@@ -457,7 +457,7 @@
 	name = "magnetic door lock"
 	desc = "A large, passcode locked device used for completely locking down airlocks."
 
-	req_access = list(ACCESS_NONE)
+	req_access = list(/datum/access/none::id)
 
 	var/passcode = "open"
 	var/configurable = TRUE
