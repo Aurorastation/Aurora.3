@@ -307,7 +307,16 @@
 
 		var/obj/item/organ/external/E = organs_by_name[organ_tag]
 		if(!E)
-			wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("is")] missing [get_pronoun("his")] [organ_descriptor].</b>\n")
+			var/has_prosthetic_socket = FALSE
+			for(var/obj/item/organ/external/possible_receiver in organs)
+				if(organ_tag in possible_receiver.prosthetic_sockets)
+					has_prosthetic_socket = TRUE
+					break
+
+			if(has_prosthetic_socket)
+				wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("has")] an exposed prosthetic socket where [get_pronoun("his")] [organ_descriptor] should be.</b>\n")
+			else
+				wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("is")] missing [get_pronoun("his")] [organ_descriptor].</b>\n")
 		else if(E.is_stump())
 			wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("has")] a stump where [get_pronoun("his")] [organ_descriptor] should be.</b>\n")
 		else

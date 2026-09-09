@@ -102,7 +102,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/tcaf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCAF Armed Transport Shuttle"
-	req_access = list(ACCESS_TCAF)
+	req_access = list(/datum/access/tcaf::id)
 
 /datum/shuttle/autodock/overmap/tcaf_shuttle
 	name = "TCAF Armed Transport Shuttle"

@@ -23,7 +23,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/splf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SPLF Shuttle"
-	req_access = list(ACCESS_SPLF)
+	req_access = list(/datum/access/splf_access::id)
 // --------
 
 // Controls docking behaviour

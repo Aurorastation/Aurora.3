@@ -11,12 +11,12 @@
 /obj/structure/machinery/computer/shuttle_control/research
 	name = "research shuttle control console"
 	shuttle_tag = "Research Shuttle"
-	req_access = list(ACCESS_RESEARCH)
+	req_access = list(/datum/access/research::id)
 
 /obj/structure/machinery/computer/shuttle_control/multi/research
 	name = "research shuttle control computer"
 	shuttle_tag = "Research Shuttle"
-	req_access = list(ACCESS_RESEARCH)
+	req_access = list(/datum/access/research::id)
 	circuit = /obj/item/circuitboard/research_shuttle
 
 /datum/shuttle/autodock/multi/research_aurora
@@ -33,6 +33,6 @@
 
 /obj/structure/machinery/computer/shuttle_control/merchant
 	name = "merchant shuttle control console"
-	req_access = list(ACCESS_MERCHANT)
+	req_access = list(/datum/access/merchant::id)
 	shuttle_tag = "ICV Enterprise"
 	can_rename_ship = TRUE

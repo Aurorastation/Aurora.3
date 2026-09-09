@@ -105,7 +105,9 @@
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/binary/passive_gate/process()
-	..()
+	. = ..()
+	if (!unlocked)
+		return PROCESS_KILL
 
 	if (broadcast_status_next_process)
 		broadcast_status()
@@ -113,9 +115,6 @@
 
 	last_flow_rate = 0
 	last_mole_transfer = 0
-
-	if(!unlocked)
-		return 0
 
 	var/output_starting_pressure = XGM_PRESSURE(air2)
 	var/input_starting_pressure = XGM_PRESSURE(air1)
@@ -199,9 +198,13 @@
 
 	if("power" in signal.data)
 		unlocked = text2num(signal.data["power"])
+		if (unlocked)
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 	if("power_toggle" in signal.data)
 		unlocked = !unlocked
+		if (unlocked)
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 	if("set_target_pressure" in signal.data)
 		var/set_pressure = text2num(signal.data["set_target_pressure"])
@@ -256,6 +259,8 @@
 	switch(action)
 		if("toggle_valve")
 			unlocked = !unlocked
+			if (unlocked)
+				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 			. = TRUE
 		if("pressure")
 			var/pressure = params["pressure"]

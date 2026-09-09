@@ -13,7 +13,7 @@
 	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
-	req_access = list(ACCESS_RD) //Only the R&D can change server settings.
+	req_access = list(/datum/access/rd::id) //Only the R&D can change server settings.
 
 	var/list/linked_processors
 

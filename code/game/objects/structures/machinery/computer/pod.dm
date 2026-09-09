@@ -152,7 +152,7 @@
 	name = "ProComp Executive IIc"
 	desc = "Criminals often operate on a tight budget. Operates external airlocks."
 	title = "External Airlock Controls"
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 /obj/structure/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user as mob)
 	if(!allowed(user))
