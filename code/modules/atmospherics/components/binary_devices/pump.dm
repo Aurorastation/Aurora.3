@@ -116,11 +116,14 @@ Thus, the two variables affect pump operation are set in New():
 	update_underlays()
 
 /obj/structure/machinery/atmospherics/binary/pump/process()
+	if (!use_power)
+		return PROCESS_KILL
+
 	last_power_draw = 0
 	last_flow_rate = 0
 	last_mole_transfer = 0
 
-	if((stat & (NOPOWER|BROKEN)) || !use_power)
+	if((stat & (NOPOWER|BROKEN)))
 		return
 
 	if (broadcast_status_next_process)
@@ -295,3 +298,8 @@ Thus, the two variables affect pump operation are set in New():
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 		return TRUE
+
+/obj/structure/machinery/atmospherics/binary/pump/update_use_power(new_use_power)
+	. = ..()
+	if (use_power)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
