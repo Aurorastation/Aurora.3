@@ -1,10 +1,4 @@
 2026-09-01:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   ElorgRHG:
   - bugfix: Fixed the stargazer system icon state name for the Orion's Scar sector.
   - imageadd: Added a stargazer system sprite for the Orion's Scar sector.
@@ -19,12 +13,6 @@
   - bugfix: Fixes lighting in the rocky walls of the treasure trove and cursed mine
       off-sites.
 2026-09-02:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   DreamySkrell:
   - rscadd: 'Small cult base update: fixes wall colors, moves thermals and binocs
       from map to outfit'
@@ -39,22 +27,10 @@
   rattydew:
   - bugfix: Fixes the on-mob sprites of the Scarab passblade.
 2026-09-03:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   Geeves:
   - bugfix: Fixed saved Unathi characters being changed into humans by migrating them
       to Azaziba Unathi.
 2026-09-04:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   FabianK3:
   - bugfix: Fix admin GET of buckled mobs.
   Hellfirejag:
@@ -72,12 +48,6 @@
       Personalised mechanics.
   - rscdel: Removes the mapped in PsiProtect and included memo from the Pharmacy.
 2026-09-05:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   DreamySkrell:
   - rscadd: Removes the redundant reinforced table type.
   FabianK3:
@@ -104,22 +74,10 @@
       and gravity generator sounds.
   - rscadd: Adds the double-barelled shotgun rack back to the bar.
 2026-09-06:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   FabianK3:
   - qol: Added both secure operations and tech storage locations as safe deposit location
       for persistent charge cards.
 2026-09-07:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   Geeves:
   - rscadd: Ejected bullet casings now bounce and spin with simulated physics, while
       drifting naturally in zero gravity.
@@ -132,24 +90,12 @@
   kano:
   - bugfix: Fixed not being able to snort powders with cash money.
 2026-09-08:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   ElorgRHG:
   - rscadd: Improves industrial frame IPC movespeed, reducing G2 slowdown from 2 to
       1, and G1 and Xion slowdown from 3 to 2.
   FabianK3:
   - rscadd: Added new Mai'vazh A.42 100mm howitzer variant.
 2026-09-09:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   FabianK3:
   - rscadd: Added a guest pass terminal to the medical cube.
   TheGreyWolf:
