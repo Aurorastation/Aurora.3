@@ -202,7 +202,7 @@
 	atmos_canpass = CANPASS_DENSITY
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED|OBJ_FLAG_NOFALL
 
-/obj/structure/shuttle_part/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+/obj/structure/shuttle_part/afterShuttleMove(obj/effect/shuttle_landmark/destination, rotation)
 	. = ..()
 	if(outside_part)
 		var/turf/target_turf = get_turf(src)
@@ -221,7 +221,7 @@
 	can_be_unanchored = FALSE
 	var/outside_window = FALSE
 
-/obj/structure/window/shuttle/unique/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+/obj/structure/window/shuttle/unique/afterShuttleMove(obj/effect/shuttle_landmark/destination, rotation)
 	. = ..()
 	if(outside_window)
 		var/turf/target_turf = get_turf(src)

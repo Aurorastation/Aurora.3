@@ -35,3 +35,29 @@
 	else
 		TEST_PASS("All shuttle transition and start location landmarks were found.")
 	return TRUE
+
+/datum/unit_test/shuttle_rotation
+	name = "SHUTTLE: Landmark-relative offsets rotate clockwise."
+	groups = list("generic")
+
+/datum/unit_test/shuttle_rotation/start_test()
+	var/list/north = rotate_shuttle_offset(2, 1, 0)
+	var/list/east = rotate_shuttle_offset(2, 1, 90)
+	var/list/south = rotate_shuttle_offset(2, 1, 180)
+	var/list/west = rotate_shuttle_offset(2, 1, 270)
+
+	if(!((north[1] == 2) && (north[2] == 1)))
+		TEST_FAIL("Zero-degree shuttle offset was [english_list(north)], expected 2, 1.")
+		return TRUE
+	if(!((east[1] == 1) && (east[2] == -2)))
+		TEST_FAIL("90-degree shuttle offset was [english_list(east)], expected 1, -2.")
+		return TRUE
+	if(!((south[1] == -2) && (south[2] == -1)))
+		TEST_FAIL("180-degree shuttle offset was [english_list(south)], expected -2, -1.")
+		return TRUE
+	if(!((west[1] == -1) && (west[2] == 2)))
+		TEST_FAIL("270-degree shuttle offset was [english_list(west)], expected -1, 2.")
+		return TRUE
+
+	TEST_PASS("Shuttle offsets rotated correctly for every cardinal orientation.")
+	return TRUE

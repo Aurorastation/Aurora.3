@@ -37,26 +37,70 @@
 	move_time = 90
 	shuttle_area = list(/area/shuttle/runtime)
 	dock_target = "airlock_runtime_shuttle"
-	current_location = "nav_runtime_dock"
+	current_location = "nav_runtime_dock_north"
 	landmark_transition = "nav_transit_runtime"
-	logging_home_tag = "nav_runtime_dock"
+	logging_home_tag = "nav_runtime_dock_north"
 	range = 1
 	fuel_consumption = 4
 	ceiling_type = /turf/simulated/floor/shuttle_ceiling
 
-/obj/effect/shuttle_landmark/runtime/dock
-	name = "Runtime Dock"
-	landmark_tag = "nav_runtime_dock"
-	docking_controller = "nav_runtime_dock"
+ABSTRACT_TYPE(/obj/effect/shuttle_landmark/runtime/dock)
 	base_area = /area/space
 	base_turf = /turf/simulated/floor/airless
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+	auto_register = TRUE
+	shuttle_restricted = "WhileTrue"
+
+/obj/effect/shuttle_landmark/runtime/dock/north
+	name = "Runtime Dock - North Facing"
+	dir = NORTH
+	landmark_tag = "nav_runtime_dock_north"
+	docking_controller = "nav_runtime_dock_north"
+
+/obj/effect/shuttle_landmark/runtime/dock/east
+	name = "Runtime Dock - East Facing"
+	dir = EAST
+	landmark_tag = "nav_runtime_dock_east"
+	docking_controller = "nav_runtime_dock_east"
+
+/obj/effect/shuttle_landmark/runtime/dock/south
+	name = "Runtime Dock - South Facing"
+	dir = SOUTH
+	landmark_tag = "nav_runtime_dock_south"
+	docking_controller = "nav_runtime_dock_south"
+
+/obj/effect/shuttle_landmark/runtime/dock/west
+	name = "Runtime Dock - West Facing"
+	dir = WEST
+	landmark_tag = "nav_runtime_dock_west"
+	docking_controller = "nav_runtime_dock_west"
 
 // runtime dock airlocks
-/obj/effect/map_effect/marker/airlock/docking/runtime/dock
-	name = "Shuttle Dock"
-	landmark_tag = "nav_runtime_dock"
-	master_tag = "nav_runtime_dock"
+ABSTRACT_TYPE(/obj/effect/map_effect/marker/airlock/docking/runtime/dock)
+
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/north
+	name = "Shuttle Dock - North Facing"
+	dir = NORTH
+	landmark_tag = "nav_runtime_dock_north"
+	master_tag = "nav_runtime_dock_north"
+
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/east
+	name = "Shuttle Dock - East Facing"
+	dir = EAST
+	landmark_tag = "nav_runtime_dock_east"
+	master_tag = "nav_runtime_dock_east"
+
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/south
+	name = "Shuttle Dock - South Facing"
+	dir = SOUTH
+	landmark_tag = "nav_runtime_dock_south"
+	master_tag = "nav_runtime_dock_south"
+
+/obj/effect/map_effect/marker/airlock/docking/runtime/dock/west
+	name = "Shuttle Dock - West Facing"
+	dir = WEST
+	landmark_tag = "nav_runtime_dock_west"
+	master_tag = "nav_runtime_dock_west"
 
 // runtime shuttle airlocks
 /obj/effect/map_effect/marker/airlock/shuttle/runtime
