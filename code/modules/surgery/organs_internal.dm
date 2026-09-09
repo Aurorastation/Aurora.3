@@ -263,7 +263,8 @@
 
 /**
  * Organ separation and extraction follow the organ being handled rather than
- * the organic housing around it. Assisted organs may use either skill.
+ * the organic housing around it. Assisted organs may use either skill, as may
+ * organic brains due to the overlap in medical and roboticist responsibilities.
  */
 /singleton/surgery_step/internal/proc/get_internal_organ_removal_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, organ_must_be_cut_away, preferred_skill_component)
 	var/list/permitted_skills = list()
@@ -289,7 +290,9 @@
 /singleton/surgery_step/internal/proc/add_internal_organ_removal_skills(obj/item/organ/organ, list/permitted_skills)
 	if(BP_IS_ROBOTIC(organ) || organ.robotic >= ROBOTIC_MECHANICAL)
 		permitted_skills |= ROBOTICS_SKILL_COMPONENT
-	else if((organ.status & ORGAN_ASSISTED) || organ.robotic >= ROBOTIC_ASSISTED)
+	else if(organ.organ_tag == BP_BRAIN \
+		|| (organ.status & ORGAN_ASSISTED) \
+		|| organ.robotic >= ROBOTIC_ASSISTED)
 		permitted_skills |= list(SURGERY_SKILL_COMPONENT, ROBOTICS_SKILL_COMPONENT)
 	else
 		permitted_skills |= SURGERY_SKILL_COMPONENT
