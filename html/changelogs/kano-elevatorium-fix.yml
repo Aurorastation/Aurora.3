@@ -1,4 +1,0 @@
-author: kano
-delete-after: True
-changes:
-  - bugfix: "Fixed elevator walls appearing with greyscale sprites."

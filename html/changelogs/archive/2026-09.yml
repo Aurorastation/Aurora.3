@@ -96,8 +96,37 @@
   FabianK3:
   - rscadd: Added new Mai'vazh A.42 100mm howitzer variant.
 2026-09-09:
+  ASmallCuteCat:
+  - rscadd: Removed med-only access from the Recovery Ward.
+  - rscadd: Added indicators to the Recovery Ward to denote if visitors are welcome
+      or not, as well as a button to bolt the door.
+  - imageadd: Added two new holosign sprites, one to indicate an area is public, the
+      other to indicate the area is private.
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  DreamySkrell:
+  - refactor: Removes unused shuttle vars.
+  - refactor: Access defines are gone. No more.
+  - rscadd: Fail tests if a map has invalid atom path.
   FabianK3:
   - rscadd: Added a guest pass terminal to the medical cube.
+  - admin: Fixed missing chat log for the Ping Storyteller verb.
+  FabianK3, NiennaB:
+  - rscadd: Added new tajaran lobby art, by NiennaB.
+  - rscadd: Updated Badlands sector lobby art.
+  Hellfirejag:
+  - rscadd: Made voidsuit cyclers no longer require always-processing.
+  - bugfix: Made most atmos devices no longer require always-processing.
+  TGW:
+  - rscadd: Added Yasir Kra'jun's Aut'akh right arm custom item.
   TheGreyWolf:
   - rscadd: Added the Nav'korr armored snowsuit. It is currently not available on
       the Horizon.
+  kano:
+  - bugfix: Fixed elevator walls appearing with greyscale sprites.
+  kermit:
+  - rscdel: Removes the napalm grenades from Secure Tech Storage.
