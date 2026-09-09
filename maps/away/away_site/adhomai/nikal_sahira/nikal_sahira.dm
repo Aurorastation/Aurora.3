@@ -32,16 +32,15 @@
 	descriptor = "placeholder"
 
 /obj/effect/overmap/visitable/sector/nikal_sahira
-	name = "Nikal Sahira"
+	name = "Adhomai - Crevus, Nikal Sahira"
 	desc = "placeholder"
 
 	place_near_main = list(0,0)
 	landing_site = TRUE
-	icon_state = "poi" // don't forget to change this
+	icon_state = "globe2"
 	color = "#D6D9DD"
 	scanimage = "adhomai.png"
 	alignment = "Democratic People's Republic of Adhomai"
 	requires_contact = FALSE
 	instant_contact = TRUE
 	landing_site = TRUE
-	comms_support = TRUE

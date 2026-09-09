@@ -16,6 +16,7 @@
 	. = ..()
 	icon_state = "colorable-sidewalk"
 	var/image/detail = new(icon, "colorable-sidewalk-detail-center")
+	detail.appearance_flags |= RESET_COLOR
 	detail.color = detail_color
 	AddOverlays(detail.appearance)
 
@@ -43,14 +44,15 @@
 /turf/simulated/floor/exoplanet/sidewalk/concrete
 	color = "#908f89"
 
-/turf/simulated/floor/exoplanet/sidewalk/detail/concrete
-	color = "#908f89"
-
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete
 	color = "#908f89"
 
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete
 	color = "#908f89"
+
+/turf/simulated/floor/exoplanet/sidewalk/detail/concrete
+	color = "#908f89"
+	detail_color = "#696863"
 
 // Concrete dark gray
 
