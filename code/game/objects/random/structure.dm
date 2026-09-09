@@ -133,7 +133,7 @@ ABSTRACT_TYPE(/obj/random/table)
 		/obj/structure/table/wood/ebony,
 		/obj/structure/table/wood/mahogany,
 		/obj/structure/table/wood/maple,
-		/obj/structure/table/wood/reinf,
 		/obj/structure/table/wood/walnut,
 		/obj/structure/table/wood/yew,
+		/obj/structure/table/reinforced/wood,
 	)
