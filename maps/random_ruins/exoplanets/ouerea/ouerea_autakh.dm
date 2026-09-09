@@ -28,7 +28,7 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	max_count = 3
 	spawnpoints = list("ouerea_autakh")
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/autakh
 
@@ -57,7 +57,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/autakh/get_id_access()
-	return list(ACCESS_AUTAKH)
+	return list(/datum/access/autakh::id)
 
 /obj/outfit/admin/autakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/organ/A = new /obj/item/organ/internal/anchor(H)

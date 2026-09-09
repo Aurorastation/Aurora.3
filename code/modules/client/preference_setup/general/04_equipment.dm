@@ -144,31 +144,37 @@
 		pref.primary_radio_slot = GLOB.primary_radio_slot_choice[1]
 	pref.sensor_setting = sanitize_inlist(pref.sensor_setting, SUIT_SENSOR_MODES, get_key_by_index(SUIT_SENSOR_MODES, 0))
 
-/datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
-	. = list()
-	. += "<b>Equipment:</b><br>"
+/datum/category_item/player_setup_item/general/equipment/ui_data(var/mob/user)
+	var/list/fields = list()
 	for(var/datum/category_group/underwear/UWC in GLOB.global_underwear.categories)
 		var/item_name = pref.all_underwear[UWC.name] ? pref.all_underwear[UWC.name] : "None"
-		. += "[UWC.name]: <a href='byond://?src=[REF(src)];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
-
+		var/list/tweak_actions = list()
 		var/datum/category_item/underwear/UWI = UWC.items_by_name[item_name]
 		if(UWI)
 			for(var/datum/gear_tweak/gt in UWI.tweaks)
-				. += " <a href='byond://?src=[REF(src)];underwear=[UWC.name];tweak=[REF(gt)]'>[gt.get_contents(get_metadata(UWC.name, gt))]</a>"
+				var/tweak_metadata = get_metadata(UWC.name, gt)
+				tweak_actions += list(list(
+					"label" = html_decode(strip_html(html_decode(gt.get_contents(tweak_metadata)))) || "Customize",
+					"preview_color" = istype(gt, /datum/gear_tweak/color) ? tweak_metadata : null,
+					"topic" = list("underwear" = UWC.name, "tweak" = REF(gt))
+				))
+		fields += list(list("label" = UWC.name, "value" = item_name, "action" = "change_underwear", "action_value" = UWC.name, "actions" = tweak_actions, "inline_actions" = length(tweak_actions)))
 
-		. += "<br>"
-
-	. += "Backpack Type: <a href='byond://?src=[REF(src)];change_backpack=1'><b>[GLOB.backbaglist[pref.backbag]]</b></a><br>"
-	. += "Backpack Style: <a href='byond://?src=[REF(src)];change_backpack_style=1'><b>[GLOB.backbagstyles[pref.backbag_style]]</b></a><br>"
+	fields += list(list("label" = "Backpack Type", "value" = GLOB.backbaglist[pref.backbag], "action" = "change_backpack"))
+	fields += list(list("label" = "Backpack Style", "value" = GLOB.backbagstyles[pref.backbag_style], "action" = "change_backpack_style"))
 	if(pref.backbag == OUTFIT_SATCHEL_ALT || pref.backbag == OUTFIT_RUCKSACK || pref.backbag == OUTFIT_POCKETBOOK) // Hardcoded. Sucks, I know.
-		. += "Backpack Color: <a href='byond://?src=[REF(src)];change_backpack_color=1'><b>[GLOB.backbagcolors[pref.backbag_color]]</b></a><br>"
-	. += "Backpack Strap: <a href='byond://?src=[REF(src)];change_backbag_strap=1'><b>[GLOB.backbagstrap[pref.backbag_strap]]</b></a><br>"
-	. += "PDA Type: <a href='byond://?src=[REF(src)];change_pda=1'><b>[GLOB.pdalist[pref.pda_choice]]</b></a><br>"
-	. += "Headset Type: <a href='byond://?src=[REF(src)];change_headset=1'><b>[GLOB.headsetlist[pref.headset_choice]]</b></a><br>"
-	. += "Primary Radio Slot: <a href='byond://?src=[REF(src)];change_radio_slot=1'><b>[pref.primary_radio_slot]</b></a><br>"
-	. += "Suit Sensor Setting: <a href='byond://?src=[REF(src)];change_sensor_setting=1'><b>[pref.sensor_setting]</b></a><br/>"
-
-	return jointext(., null)
+		fields += list(list("label" = "Backpack Color", "value" = GLOB.backbagcolors[pref.backbag_color], "action" = "change_backpack_color"))
+	fields += list(list("label" = "Backpack Strap", "value" = GLOB.backbagstrap[pref.backbag_strap], "action" = "change_backbag_strap"))
+	fields += list(list("label" = "PDA Type", "value" = GLOB.pdalist[pref.pda_choice], "action" = "change_pda"))
+	fields += list(list("label" = "Headset Type", "value" = GLOB.headsetlist[pref.headset_choice], "action" = "change_headset"))
+	fields += list(list("label" = "Primary Radio Slot", "value" = pref.primary_radio_slot, "action" = "change_radio_slot"))
+	fields += list(list("label" = "Suit Sensor Setting", "value" = pref.sensor_setting, "action" = "change_sensor_setting"))
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("title" = "Equipment", "fields" = fields))
+	)
 
 /datum/category_item/player_setup_item/general/equipment/proc/get_metadata(var/underwear_category, var/datum/gear_tweak/gt)
 	var/metadata = pref.all_underwear_metadata[underwear_category]

@@ -133,6 +133,10 @@
 
 	var/ui_configure_ref
 
+/obj/item/rig/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "<ul><li><b>Using:</b> Place the hardsuit on your back, open the Hardsuit tab, then click Engage/Disengage Hardsuit.</li><li><b>Removing:</b> Click Engage/Disengage Hardsuit again, then remove the hardsuit from your back once it disengages.</li><li><b>Storage:</b> If the suit has storage and an item fits, clicking the hardsuit with that item will place it inside. To open the storage, hold the hardsuit and click it with an empty hand, or middle-click it while standing nearby.</li><li><b>Maintenance:</b> Use a crowbar to open or close the maintenance panel. When the panel is open, a screwdriver removes the battery or upgrades, a wrench removes the air tank, and wirecutters or a multitool provide access to the wires.</li></ul>"
+
 /obj/item/rig/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(wearer)
@@ -1063,6 +1067,8 @@
 
 	if(user.in_throw_mode && (isturf(target) || isturf(target.loc)) && user.throw_item(target)) //Prevents throwing items while remaining cloaked.
 		attack_disrupt_check()
+		user.throw_mode_off()
+		return COMSIG_MOB_CANCEL_CLICKON
 
 	if(ismob(target)) //This doesn't prevent guns firing at turfs, that is handled in /obj/item/gun/proc/handle_post_fire
 		if(target != user)

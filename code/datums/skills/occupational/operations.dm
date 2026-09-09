@@ -30,7 +30,7 @@
 			+ " - Cutting someone out of a hardsuit." \
 			+ " - Fully opening or closing mechanical parts to access internal systems, allowing repairs to any amount of damage.<br>" \
 			+ " - Repairing, removing, or adding mechanical organs.<br>" \
-			+ " - Facial Reconstructions performed on Shell IPCs.<br>" \
+			+ " - Facial reconstructions performed on IPCs.<br>" \
 			+ " - Attaching mechanical limbs (including to organics).<br>" \
 			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
 			+ " - Perform all forms of internal repairs to IPCs.<br>" \
@@ -44,7 +44,7 @@
 			+ " - Cutting someone out of a hardsuit." \
 			+ " - Fully opening or closing mechanical parts to access internal systems, allowing repairs to any amount of damage.<br>" \
 			+ " - Repairing, removing, or adding mechanical organs.<br>" \
-			+ " - Facial Reconstructions performed on Shell IPCs.<br>" \
+			+ " - Facial reconstructions performed on IPCs.<br>" \
 			+ " - Attaching mechanical limbs (including to organics).<br>" \
 			+ " - Re-attach (organic) limbs. Robotic limbs require the Robotics skill instead.<br>" \
 			+ " - Perform all forms of internal repairs to IPCs.<br>" \

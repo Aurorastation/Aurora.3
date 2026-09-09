@@ -9,7 +9,7 @@
 	uses_species_whitelist = FALSE
 
 	outfit = /obj/outfit/admin/tarwa
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tarwa Conglomerate Crewman"
@@ -59,7 +59,7 @@
 	)
 
 /obj/outfit/admin/tarwa/get_id_access()
-	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/unathi_pirate::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/tarwa/diona
 	name = "Tarwa Conglomerate Diona"

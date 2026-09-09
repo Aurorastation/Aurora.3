@@ -6,8 +6,8 @@
 	extended_desc = "A program made to interface with positronics."
 	size = 14
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(ACCESS_RESEARCH, ACCESS_ROBOTICS)
-	required_access_download = list(ACCESS_RESEARCH, ACCESS_ROBOTICS)
+	required_access_run = list(/datum/access/research::id, /datum/access/robotics::id)
+	required_access_download = list(/datum/access/research::id, /datum/access/robotics::id)
 	available_on_ntnet = FALSE
 	tgui_id = "RoboticsComputer"
 	/// The diagnostics module associated with this program.
@@ -87,8 +87,8 @@
 		data["robolimb_self_repair_cap"] = ROBOLIMB_SELF_REPAIR_CAP
 		data["limbs"] = list()
 		for(var/obj/item/organ/external/limb in ipc.organs)
-			if(limb.brute_dam || limb.burn_dam)
-				data["limbs"] += list(list("name" = limb.name, "brute_damage" = limb.brute_dam, "burn_damage" = limb.burn_dam, "max_damage" = limb.max_damage))
+			if(LIMB_GET_BRUTE_DAMAGE(limb) || LIMB_GET_BURN_DAMAGE(limb))
+				data["limbs"] += list(list("name" = limb.name, "brute_damage" = LIMB_GET_BRUTE_DAMAGE(limb), "burn_damage" = LIMB_GET_BURN_DAMAGE(limb), "max_damage" = limb.max_damage))
 
 		var/obj/item/organ/internal/machine/power_core/C = ipc.internal_organs_by_name[BP_CELL]
 		if(C)

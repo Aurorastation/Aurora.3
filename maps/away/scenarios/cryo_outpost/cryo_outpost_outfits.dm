@@ -9,7 +9,7 @@
 
 /obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CRYO_OUTPOST,
+		/datum/access/external_airlocks::id, /datum/access/cryo_outpost_access::id,
 	)
 
 // ------------------ merc
@@ -226,6 +226,8 @@
 	)
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,

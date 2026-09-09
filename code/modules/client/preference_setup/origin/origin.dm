@@ -94,33 +94,54 @@
 
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
-/datum/category_item/player_setup_item/origin/content(var/mob/user)
+/datum/category_item/player_setup_item/origin/ui_data(var/mob/user)
 	if(!SSrecords.initialized)
-		return "<center><large>Records controller not initialized yet. Please wait a bit and reload this section.</large></center>"
-	var/list/dat = list()
+		return list(
+			"kind" = "notice",
+			"name" = name,
+			"ref" = REF(src),
+			"message" = "Records controller not initialized yet. Please wait a bit and reload this section."
+		)
 	var/singleton/origin_item/culture/CL = GET_SINGLETON(text2path(pref.culture))
 	var/singleton/origin_item/origin/OR = GET_SINGLETON(text2path(pref.origin))
-	dat += "<b>Culture: </b><a href='byond://?src=[REF(src)];open_culture_menu=1'>[CL.name]</a><br>"
-	dat += "<i>- [CL.desc]</i><br><br>"
+	var/culture_description = CL.desc
 	if(length(CL.origin_traits_descriptions))
-		dat += "- Characters from this culture "
-		dat += "<b>[english_list(CL.origin_traits_descriptions)]</b>."
-	if(CL.important_information)
-		dat += "<br><i>- <font color=red>[CL.important_information]</font></i>"
-	dat += "<hr><b>Origin: </b><a href='byond://?src=[REF(src)];open_origin_menu=1'>[OR.name]</a><br>"
-	dat += "<i>- [OR.desc]</i><br>"
+		culture_description += " Characters from this culture [english_list(CL.origin_traits_descriptions)]."
+	var/origin_description = OR.desc
 	if(length(OR.origin_traits_descriptions))
-		dat += "- Characters from this origin "
-		dat += "<b>[english_list(OR.origin_traits_descriptions)]</b>."
-	if(OR.important_information)
-		dat += "<br><i>- <font color=red>[OR.important_information]</font></i>"
-	dat += "<hr>"
-
-	dat += "<b>Economic Status:</b> <a href='?src=[REF(src)];economic_status=1'>[pref.economic_status]</a><br/>"
-	dat += "<b>Citizenship:</b> <a href='?src=[REF(src)];citizenship=1'>[pref.citizenship]</a><br/>"
-	dat += "<b>Religion:</b> <a href='?src=[REF(src)];religion=1'>[pref.religion]</a><br/>"
-	dat += "<b>Accent:</b> <a href='?src=[REF(src)];accent=1'>[pref.accent]</a><br/>"
-	. = dat.Join()
+		origin_description += " Characters from this origin [english_list(OR.origin_traits_descriptions)]."
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(
+			list(
+				"title" = "Culture",
+				"description" = culture_description,
+				"description_html" = TRUE,
+				"warning" = CL.important_information,
+				"warning_html" = TRUE,
+				"fields" = list(list("label" = "Selected Culture", "value" = CL.name, "action" = "open_culture_menu"))
+			),
+			list(
+				"title" = "Origin",
+				"description" = origin_description,
+				"description_html" = TRUE,
+				"warning" = OR.important_information,
+				"warning_html" = TRUE,
+				"fields" = list(list("label" = "Selected Origin", "value" = OR.name, "action" = "open_origin_menu"))
+			),
+			list(
+				"title" = "Identity",
+				"fields" = list(
+					list("label" = "Economic Status", "value" = pref.economic_status, "action" = "economic_status"),
+					list("label" = "Citizenship", "value" = pref.citizenship, "action" = "citizenship"),
+					list("label" = "Religion", "value" = pref.religion, "action" = "religion"),
+					list("label" = "Accent", "value" = pref.accent, "action" = "accent")
+				)
+			)
+		)
+	)
 
 /datum/category_item/player_setup_item/origin/OnTopic(href, href_list, user)
 	var/datum/species/S = GLOB.all_species[pref.species]
@@ -133,8 +154,15 @@
 		var/result = tgui_input_list(user, "Choose your character's culture.", "Culture", options)
 		var/singleton/origin_item/culture/chosen_culture = options[result]
 		if(chosen_culture)
-			show_origin_window(chosen_culture, "set_culture_data", user)
-		return TOPIC_HANDLED
+			var/culture_summary = html_decode(strip_html(chosen_culture.desc))
+			if(chosen_culture.important_information)
+				culture_summary += "\n\nImportant: [html_decode(strip_html(chosen_culture.important_information))]"
+			if(tgui_alert(user, culture_summary, chosen_culture.name, list("Select", "Cancel")) != "Select")
+				return TOPIC_NOACTION
+			pref.culture = "[chosen_culture.type]"
+			sanitize_character()
+			return TOPIC_REFRESH
+		return TOPIC_NOACTION
 
 	if(href_list["open_origin_menu"])
 		var/list/options = list()
@@ -146,20 +174,15 @@
 		var/result = tgui_input_list(user, "Choose your character's origin.", "Origins", options)
 		var/singleton/origin_item/origin/chosen_origin = options[result]
 		if(chosen_origin)
-			show_origin_window(chosen_origin, "set_origin_data", user)
-		return TOPIC_HANDLED
-
-	if(href_list["set_culture_data"])
-		user << browse(null, "window=set_culture_data")
-		pref.culture = html_decode(href_list["set_culture_data"])
-		sanitize_character()
-		return TOPIC_REFRESH
-
-	if(href_list["set_origin_data"])
-		user << browse(null, "window=set_origin_data")
-		pref.origin = html_decode(href_list["set_origin_data"])
-		sanitize_character()
-		return TOPIC_REFRESH
+			var/origin_summary = html_decode(strip_html(chosen_origin.desc))
+			if(chosen_origin.important_information)
+				origin_summary += "\n\nImportant: [html_decode(strip_html(chosen_origin.important_information))]"
+			if(tgui_alert(user, origin_summary, chosen_origin.name, list("Select", "Cancel")) != "Select")
+				return TOPIC_NOACTION
+			pref.origin = "[chosen_origin.type]"
+			sanitize_character()
+			return TOPIC_REFRESH
+		return TOPIC_NOACTION
 
 	if(href_list["economic_status"])
 		var/new_status = tgui_input_list(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", ECONOMIC_POSITIONS, pref.economic_status)
@@ -172,12 +195,10 @@
 		var/choice = tgui_input_list(user, "Please choose your current citizenship.", "Character Preference", our_origin.possible_citizenships, pref.citizenship)
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
-		show_citizenship_menu(user, choice)
-		return TOPIC_HANDLED
-
-	if(href_list["set_citizenship"])
-		user << browse(null, "window=citizen_win")
-		pref.citizenship = (html_decode(href_list["set_citizenship"]))
+		var/datum/citizenship/citizenship_data = SSrecords.citizenships[choice]
+		if(citizenship_data && tgui_alert(user, html_decode(strip_html(citizenship_data.description)), citizenship_data.name, list("Select", "Cancel")) != "Select")
+			return TOPIC_NOACTION
+		pref.citizenship = choice
 		sanitize_character()
 		return TOPIC_REFRESH
 
@@ -186,12 +207,10 @@
 		var/choice = tgui_input_list(user, "Please choose a religion.", "Character Preference", our_origin.possible_religions, pref.religion)
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
-		show_religion_menu(user, choice)
-		return TOPIC_HANDLED
-
-	if(href_list["set_religion"])
-		user << browse(null, "window=rel_win")
-		pref.religion = (html_decode(href_list["set_religion"]))
+		var/datum/religion/religion_data = SSrecords.religions[choice]
+		if(religion_data && tgui_alert(user, html_decode(strip_html(religion_data.description)), religion_data.name, list("Select", "Cancel")) != "Select")
+			return TOPIC_NOACTION
+		pref.religion = choice
 		sanitize_character()
 		return TOPIC_REFRESH
 
@@ -200,56 +219,9 @@
 		var/choice = tgui_input_list(user, "Please choose an accent.", "Character Preference", our_origin.possible_accents, pref.accent)
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
-		show_accent_menu(user, choice)
-		return TOPIC_HANDLED
-
-	if(href_list["set_accent"])
-		user << browse(null, "window=acc_win")
-		pref.accent = (html_decode(href_list["set_accent"]))
+		var/datum/accent/accent_data = SSrecords.accents[choice]
+		if(accent_data && tgui_alert(user, html_decode(strip_html(accent_data.description)), accent_data.name, list("Select", "Cancel")) != "Select")
+			return TOPIC_NOACTION
+		pref.accent = choice
 		sanitize_character()
 		return TOPIC_REFRESH
-
-/datum/category_item/player_setup_item/origin/proc/show_origin_window(var/singleton/origin_item/OI, var/topic_data, var/mob/user)
-	var/datum/browser/origin_win = new(user, topic_data, "Origins Selection")
-	var/dat = "<html><center><b>[OI.name]</center></b>"
-	dat += "<hr>[OI.desc]<br>"
-	if(OI.important_information)
-		dat += "<font color=red><i>[OI.important_information]</i></font>"
-	dat += "<br><center>\[<a href='byond://?src=[REF(src)];[topic_data]=[html_encode(OI.type)]'>Select</a>\]</center>"
-	dat += "</html>"
-	origin_win.set_content(dat)
-	origin_win.open()
-
-/datum/category_item/player_setup_item/origin/proc/show_citizenship_menu(mob/user, selected_citizenship)
-	var/datum/citizenship/citizenship = SSrecords.citizenships[selected_citizenship]
-	if(citizenship)
-		var/datum/browser/citizen_win = new(user, "citizen_win", "Citizenship")
-		var/dat = "<html><center><b>[citizenship.name]</center></b>"
-		dat += "<br><br><center><a href='byond://?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(citizenship.name, " ", "_")]'>Read the Wiki</a></center>"
-		dat += "<br>[citizenship.description]"
-		dat += "<br><center>\[<a href='byond://?src=[REF(src)];set_citizenship=[html_encode(citizenship.name)]'>Select</a>\]</center>"
-		dat += "</html>"
-		citizen_win.set_content(dat)
-		citizen_win.open()
-
-/datum/category_item/player_setup_item/origin/proc/show_religion_menu(mob/user, selected_religion)
-	var/datum/religion/religion = SSrecords.religions[selected_religion]
-	if(religion)
-		var/datum/browser/rel_win = new(user, "rel_win", "Religion")
-		var/dat = "<center><b>[religion.name]</center></b>"
-		dat += "<br>[religion.description]"
-		dat += "<br><center>\[<a href='byond://?src=[REF(src)];set_religion=[html_encode(religion.name)]'>Select</a>\]</center>"
-		dat += "</html>"
-		rel_win.set_content(dat)
-		rel_win.open()
-
-/datum/category_item/player_setup_item/origin/proc/show_accent_menu(mob/user, selected_accent)
-	var/datum/accent/accent = SSrecords.accents[selected_accent]
-	if(accent)
-		var/datum/browser/acc_win = new(user, "acc_win", "Accent")
-		var/dat = "<html><center><b>[accent.name]</center></b>"
-		dat += "<br>[accent.description]"
-		dat += "<br><center>\[<a href='byond://?src=[REF(src)];set_accent=[html_encode(accent.name)]'>Select</a>\]</center>"
-		dat += "</html>"
-		acc_win.set_content(dat)
-		acc_win.open()

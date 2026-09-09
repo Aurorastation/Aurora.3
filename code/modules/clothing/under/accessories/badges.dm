@@ -154,7 +154,7 @@
 		if(!istype(id_card))
 			return
 
-		if((ACCESS_SECURITY in id_card.access) || emagged)
+		if((/datum/access/security::id in id_card.access) || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else
@@ -214,6 +214,21 @@
 	overlay_state = "sol-visa"
 	slot_flags = SLOT_TIE
 	badge_string = "Priority ASSN Visa Applicant"
+
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
+
+/obj/item/clothing/accessory/badge/shotgun_permit
+	name = "\improper bar shotgun permit"
+	desc = "This is a condensed piece of paperwork cast in the green colors of the service \
+	department, instructing the reader that the bartender is permitted to possess and use \
+	their provided firearm within, and exclusively within, the boundaries of the bar. Failure \
+	to adhere to these limitations, it reads, will result in the confiscation of the weapon. \
+	It's been signed by some high-up corporate executive whose signature is so incomprehensible \
+	that you can't make out a single letter of their name."
+	icon_state = "shotgunpermit"
+	overlay_state = "shotgunpermit"
+	badge_string = "Licensed Bartender"
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'

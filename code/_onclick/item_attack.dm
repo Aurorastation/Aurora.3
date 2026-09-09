@@ -110,6 +110,14 @@ This calls [atom/proc/tool_act], among others.
 
 /// Handles DEVOURING THINGS! Used when on Grab intent and targeting your own mouth!
 /mob/living/carbon/human/attackby(obj/item/attacking_item, mob/user, params)
+	if(user == src && !lying && do_surgery(src, user, attacking_item, standing_self_surgery_only = TRUE))
+		return TRUE
+
+	if(user == src && user.a_intent == I_HELP && istype(attacking_item, /obj/item/organ/external))
+		var/obj/item/organ/external/prosthetic = attacking_item
+		if(prosthetic.robotic)
+			return manually_attach_prosthetic(prosthetic)
+
 	if(user == src && user.a_intent == I_GRAB && zone_sel?.selecting == BP_MOUTH && can_devour(attacking_item, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)

@@ -107,7 +107,7 @@ pixel_x = 10;
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = AREA_USAGE_ENVIRON
-	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(/datum/access/atmospherics::id, /datum/access/engine_equip::id)
 	clicksound = SFX_BUTTON
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -214,7 +214,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/structure/machinery/alarm/server
-	req_one_access = list(ACCESS_RD, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(/datum/access/rd::id, /datum/access/atmospherics::id, /datum/access/engine_equip::id)
 	target_temperature = 80
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server compartments."
 	highpower = 1
@@ -233,7 +233,7 @@ pixel_x = 10;
 
 /obj/structure/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
-	req_access = list(ACCESS_TCOMSAT)
+	req_access = list(/datum/access/tcomsat::id)
 	highpower = 1
 
 /obj/structure/machinery/alarm/tcom/north
@@ -249,7 +249,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/structure/machinery/alarm/freezer
-	req_one_access = list(ACCESS_GALLEY, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(/datum/access/galley::id, /datum/access/atmospherics::id, /datum/access/engine_equip::id)
 	highpower = 1
 	target_temperature = T0C - 20
 
@@ -319,13 +319,13 @@ pixel_x = 10;
 	var/area = get_area(src)
 
 	if(istype(area, /area/horizon/shuttle/intrepid))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_INTREPID)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/intrepid::id)
 	if(istype(area, /area/horizon/shuttle/quark))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_QUARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/quark::id)
 	if(istype(area, /area/horizon/shuttle/mining))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_SPARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/spark::id)
 	if(istype(area, /area/horizon/shuttle/canary))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_CANARY)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/canary::id)
 
 
 /obj/structure/machinery/alarm/server/Initialize()
@@ -359,7 +359,7 @@ pixel_x = 10;
 	TLV["temperature"] =	list(247, 273, 288, T0C+40) // Shouldn't go below 0
 
 /obj/structure/machinery/alarm/Destroy()
-	unregister_radio(src, frequency)
+	radio_connection = null
 	qdel(wires)
 	wires = null
 	return ..()
@@ -382,8 +382,7 @@ pixel_x = 10;
 		return
 
 	first_run()
-
-	set_frequency(frequency)
+	radio_connection = SSradio.return_frequency(frequency)
 
 	if(!mapload)
 		set_pixel_offsets()
@@ -597,11 +596,6 @@ pixel_x = 10;
 		if (I && I["timestamp"]+AALARM_REPORT_TIMEOUT/2 > world.time)
 			continue
 		send_signal(id_tag, list("status"))
-
-/obj/structure/machinery/alarm/proc/set_frequency(new_frequency)
-	SSradio.remove_object(src, frequency)
-	frequency = new_frequency
-	radio_connection = SSradio.add_object(src, frequency, RADIO_TO_AIRALARM)
 
 /**
  * Sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
@@ -1000,7 +994,7 @@ pixel_x = 10;
 					buildstage = 2
 					update_icon()
 					first_run()
-					set_frequency(frequency)
+					radio_connection = SSradio.return_frequency(frequency)
 				else
 					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 				return TRUE

@@ -23,7 +23,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/solfrig_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Solarian Frigate Shuttle"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 // --------
 
 // Controls docking behaviour

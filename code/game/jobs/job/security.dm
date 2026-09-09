@@ -18,10 +18,10 @@
 	)
 
 	job_access = list(
-		ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE,
-		ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS, ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_MINING,
-		ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING, ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH,
-		ACCESS_GATEWAY, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_TELEPORTER
+		/datum/access/security::id, /datum/access/eva::id, /datum/access/sec_doors::id, /datum/access/holding::id, /datum/access/armory::id, /datum/access/forensics_lockers::id, /datum/access/morgue::id,
+		/datum/access/maint_tunnels::id, /datum/access/all_personal_lockers::id, /datum/access/research::id, /datum/access/engine::id, /datum/access/ship_weapons::id, /datum/access/mining::id,
+		/datum/access/medical::id, /datum/access/construction::id, /datum/access/mailsorting::id, /datum/access/heads::id, /datum/access/hos::id, /datum/access/RC_announce::id, /datum/access/keycard_auth::id,
+		/datum/access/gateway::id, /datum/access/external_airlocks::id, /datum/access/weapons::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/teleporter::id
 	)
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/hos
@@ -87,7 +87,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS)
+	job_access = list(/datum/access/security::id, /datum/access/eva::id, /datum/access/sec_doors::id, /datum/access/holding::id, /datum/access/armory::id, /datum/access/external_airlocks::id, /datum/access/weapons::id)
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/warden
 
@@ -148,7 +148,7 @@
 	)
 
 	job_access = list(
-		ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_WEAPONS
+		/datum/access/security::id, /datum/access/sec_doors::id, /datum/access/forensics_lockers::id, /datum/access/morgue::id, /datum/access/weapons::id
 	)
 	minimal_player_age = 3
 	outfit = /obj/outfit/job/forensics
@@ -206,7 +206,7 @@
 	)
 
 	job_access = list(
-		ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS
+		/datum/access/security::id, /datum/access/eva::id, /datum/access/sec_doors::id, /datum/access/holding::id, /datum/access/external_airlocks::id, /datum/access/weapons::id
 	)
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/officer
@@ -270,7 +270,7 @@
 	supervisors = "the Head of Security"
 	selection_color = "#991818"
 
-	job_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS)
+	job_access = list(/datum/access/security::id, /datum/access/sec_doors::id)
 	outfit = /obj/outfit/job/intern_sec/officer
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,

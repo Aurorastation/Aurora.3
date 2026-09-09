@@ -188,7 +188,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SFA Shuttle"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 
 /datum/shuttle/autodock/overmap/sfa_shuttle
 	name = "SFA Shuttle"

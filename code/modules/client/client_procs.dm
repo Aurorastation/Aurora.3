@@ -451,6 +451,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		inline_js = file("html/statbrowser.js"),
 		inline_css = file("html/statbrowser.css"),
 	)
+	addtimer(CALLBACK(src, PROC_REF(preload_character_setup_tgui)), 1)
 	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 /client/proc/InitClient()

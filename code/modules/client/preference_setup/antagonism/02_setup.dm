@@ -53,18 +53,18 @@ GLOBAL_LIST_INIT(uplink_locations, list("PDA", "Headset", "None"))
 /datum/category_item/player_setup_item/antagonism/basic/sanitize_character()
 	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, GLOB.uplink_locations, initial(pref.uplinklocation))
 
-/datum/category_item/player_setup_item/antagonism/basic/content(var/mob/user)
-	var/list/dat = list(
-		"<b>Antag Setup:</b><br>",
-		"Uplink Type: <a href='byond://?src=[REF(src)];antagtask=1'>[pref.uplinklocation]</a><br>",
-		"Exploitable information:<br>"
-	)
+/datum/category_item/player_setup_item/antagonism/basic/ui_data(var/mob/user)
+	var/list/fields = list(list("label" = "Uplink Type", "value" = pref.uplinklocation, "action" = "antagtask"))
 	if(jobban_isbanned(user, "Records"))
-		dat += "<b>You are banned from using character records.</b><br>"
+		fields += list(list("label" = "Exploitable Information", "value" = "Unavailable", "note" = "You are banned from using character records."))
 	else
-		dat +="<a href='byond://?src=[REF(src)];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
-
-	. = dat.Join()
+		fields += list(list("label" = "Exploitable Information", "value" = html_decode(TextPreview(pref.exploit_record, 40)), "action" = "exploitable_record"))
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("title" = "Antagonist Setup", "fields" = fields))
+	)
 
 /datum/category_item/player_setup_item/antagonism/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if (href_list["antagtask"])

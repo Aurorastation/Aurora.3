@@ -164,7 +164,7 @@
 	name = "\improper Slime Extract Storage"
 	desc = "A refrigerated storage unit for slime extracts"
 	contents_path = "-slime"
-	req_access = list(ACCESS_RESEARCH)
+	req_access = list(/datum/access/research::id)
 	accepted_items = list(/obj/item/slime_extract)
 
 /obj/structure/machinery/smartfridge/secure/extract/Initialize()
@@ -175,7 +175,7 @@
 	name = "\improper Refrigerated Chemical Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	contents_path = "-chem"
-	req_one_access = list(ACCESS_MEDICAL,ACCESS_PHARMACY)
+	req_one_access = list(/datum/access/medical::id,/datum/access/pharmacy::id)
 	accepted_items = list(/obj/item/reagent_containers/glass,
 						/obj/item/storage/pill_bottle,
 						/obj/item/reagent_containers/pill,
@@ -194,7 +194,7 @@
 	name = "\improper Refrigerated Virus Storage"
 	desc = "A refrigerated storage unit for storing viral material."
 	contents_path = "-viro"
-	req_access = list(ACCESS_VIROLOGY)
+	req_access = list(/datum/access/virology::id)
 	accepted_items = list(/obj/item/reagent_containers/glass/beaker/vial)
 
 /obj/structure/machinery/smartfridge/chemistry

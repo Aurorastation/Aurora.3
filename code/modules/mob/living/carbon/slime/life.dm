@@ -90,7 +90,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/slime/handle_regular_status_updates()
+/mob/living/carbon/slime/handle_regular_status_updates(seconds_per_tick)
 
 	src.blinded = null
 

@@ -47,7 +47,7 @@
 	name = "Primary Airlock"
 	master_tag = "airlock_burzsia_mining_primary"
 	cycle_to_external_air = TRUE
-	req_one_access = list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	req_one_access = list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 //ghost roles
 
@@ -61,7 +61,7 @@
 	max_count = 3
 
 	outfit = /obj/outfit/admin/burzsia_miner
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hephaestus Burzsia Miner"
@@ -83,7 +83,7 @@
 	accessory = /obj/item/clothing/accessory/badge/passcard/burzsia
 
 /obj/outfit/admin/burzsia_miner/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/burzsia_miner/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
@@ -101,7 +101,7 @@
 	max_count = 1
 
 	outfit = /obj/outfit/admin/burzsia_miner/foreman
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 
 	assigned_role = "Hephaestus Burzsia Foreman"
 	special_role = "Hephaestus Burzsia Foreman"

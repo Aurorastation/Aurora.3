@@ -17,8 +17,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	name = "Cleanbot"
 	desc = "A little cleaning robot, consisting of a bucket, a proximity sensor, and a prosthetic arm. It looks excited to clean!"
 	icon_state = "cleanbot0"
-	req_one_access = list(ACCESS_JANITOR, ACCESS_ROBOTICS)
-	botcard_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS)
+	req_one_access = list(/datum/access/janitor::id, /datum/access/robotics::id)
+	botcard_access = list(/datum/access/janitor::id, /datum/access/maint_tunnels::id)
 
 	locked = FALSE // Start unlocked so roboticist can set them to patrol.
 
