@@ -30,6 +30,7 @@
 	desc = "An industrial machine for painting and refitting voidsuits."
 	anchored = TRUE
 	density = TRUE
+	init_flags = FALSE
 
 	icon = 'icons/obj/suit_cycler.dmi'
 	icon_state = "base"
@@ -187,6 +188,7 @@
 		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
 		M.forceMove(src)
 		occupant = M
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 		add_fingerprint(user)
 		SStgui.update_uis(src)
@@ -236,6 +238,7 @@
 			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
 			M.forceMove(src)
 			occupant = M
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 			add_fingerprint(user)
 			qdel(G)
@@ -401,6 +404,7 @@
 			return
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		addtimer(CALLBACK(src, PROC_REF(repair_suit)), 10 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
@@ -422,6 +426,7 @@
 
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		addtimer(CALLBACK(src, PROC_REF(apply_paintjob)), 10 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
@@ -443,6 +448,7 @@
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		irradiating = 10
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		SStgui.update_uis(src)
 
@@ -474,13 +480,11 @@
 	SStgui.update_uis(src)
 	return
 
-/obj/structure/machinery/suit_cycler/process()
-	if(electrified > 0)
-		electrified = max(electrified - 1, 0)
+/obj/structure/machinery/suit_cycler/process(seconds_per_tick)
+	if(!electrified && !active && !irradiating && !occupant)
+		return PROCESS_KILL
 
-	if(!active)
-		return
-
+	electrified = max(electrified - seconds_per_tick, 0)
 	if(active && stat & (BROKEN|NOPOWER))
 		active = FALSE
 		irradiating = 0
@@ -488,13 +492,13 @@
 		update_icon()
 		return
 
-	if(irradiating == 1)
+	if(irradiating <= 0)
 		finished_job()
 		irradiating = 0
 		update_icon()
 		return
 
-	irradiating = max(irradiating - 1, 0)
+	irradiating = max(irradiating - seconds_per_tick, 0)
 
 	if(occupant)
 		if(prob(radiation_level * 2))
