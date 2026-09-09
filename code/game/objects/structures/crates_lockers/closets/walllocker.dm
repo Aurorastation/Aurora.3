@@ -103,7 +103,7 @@
 	icon_door_override = TRUE
 	locked = TRUE
 	secure = TRUE
-	req_access = list(ACCESS_MEDICAL_EQUIP)
+	req_access = list(/datum/access/medical_equip::id)
 
 /obj/structure/closet/walllocker/medical/secure/donor_blood
 	name = "O- Blood Locker"

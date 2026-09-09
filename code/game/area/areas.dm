@@ -135,10 +135,8 @@
 	. = ..()
 
 /area/Initialize(mapload)
-#ifdef UNIT_TEST
-	if (!islist(ambience))
-		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
-#endif
+	if(ambience && !islist(ambience))
+		ambience = list(ambience)
 
 	if(!holomap_color && color)
 		holomap_color = color

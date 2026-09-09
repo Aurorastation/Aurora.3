@@ -309,7 +309,7 @@ pixel_x = 8;
 	set_frequency(SEC_I_FREQ)
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
-		num2text(SEC_I_FREQ) = list(ACCESS_SECURITY)
+		num2text(SEC_I_FREQ) = list(/datum/access/security::id)
 	)
 
 /obj/item/radio/intercom/entertainment
@@ -362,7 +362,7 @@ pixel_x = 8;
 /obj/item/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(SYND_FREQ)
-	internal_channels[num2text(SYND_FREQ)] = list(ACCESS_SYNDICATE)
+	internal_channels[num2text(SYND_FREQ)] = list(/datum/access/syndicate::id)
 
 /obj/item/radio/intercom/raider
 	name = "illegally modified intercom"

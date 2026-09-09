@@ -31,7 +31,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/database_freighter_crew/get_id_access()
-	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/pra::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/database_freighter_crew/captain
 	short_name = "database_freighter_captain"

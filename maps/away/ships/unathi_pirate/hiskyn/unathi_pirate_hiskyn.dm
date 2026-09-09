@@ -109,7 +109,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/hiskyn_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Hiskyn's Revanchist Shuttle"
-	req_access = list(ACCESS_UNATHI_PIRATE)
+	req_access = list(/datum/access/unathi_pirate::id)
 
 /datum/shuttle/autodock/overmap/hiskyn_shuttle
 	name = "Hiskyn's Revanchist Shuttle"

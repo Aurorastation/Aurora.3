@@ -63,7 +63,7 @@
 		H.equip_or_collect(new /obj/item/gun/energy/fedpistol/nopsi(src), slot_in_backpack)
 
 /obj/outfit/admin/ert/qukala/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SKRELL)
+	return list(/datum/access/distress::id, /datum/access/external_airlocks::id, /datum/access/skrell::id)
 
 /obj/outfit/admin/ert/qukala/medic
 	name = "Qukala Medic"

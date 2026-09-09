@@ -18,7 +18,7 @@
 	var/obj/access_scanner
 	var/list/req_access = list()
 	var/list/req_one_access = list()
-	var/master_access = ACCESS_ROBOTICS
+	var/master_access = /datum/access/robotics::id
 
 	var/last_emote = 0 // timer for emotes
 

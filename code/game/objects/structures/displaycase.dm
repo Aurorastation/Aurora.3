@@ -6,7 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 	unacidable = TRUE
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 	maxhealth = OBJECT_HEALTH_VERY_LOW
 	var/obj/held_obj
 	var/open = FALSE

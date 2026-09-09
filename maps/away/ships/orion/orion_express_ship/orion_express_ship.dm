@@ -268,7 +268,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/orion_express_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orion Express Shuttle"
-	req_access = list(ACCESS_ORION_EXPRESS_SHIP)
+	req_access = list(/datum/access/exress_ship::id)
 
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
