@@ -100,7 +100,6 @@
 	landmark_transition = "nav_transit_ee_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_ee"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ee_shuttle/hangar

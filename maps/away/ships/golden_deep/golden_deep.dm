@@ -92,7 +92,6 @@
 	dock_target = "airlock_golden_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "gd_nav_hangar"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/golden_deep

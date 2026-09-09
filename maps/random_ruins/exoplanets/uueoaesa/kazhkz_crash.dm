@@ -45,7 +45,6 @@
 	landmark_transition = "nav_transit_kazhkz_crash"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_start_kazhkz_crash"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/kazhkz_crash

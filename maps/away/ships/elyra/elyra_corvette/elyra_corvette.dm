@@ -142,7 +142,6 @@
 	landmark_transition = "nav_transit_elyran_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_elyra"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/elyran_shuttle/hangar

@@ -105,7 +105,6 @@
 	dock_target = "airlock_kazhkz_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_kazhkz"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar
