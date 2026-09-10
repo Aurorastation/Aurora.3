@@ -61,6 +61,8 @@
 				target_slot = slot_l_hand
 		if(!target_slot)
 			return 0
+		if(user.get_equipped_item(target_slot))
+			return 0
 
 		if (!( user.restrained() ) && !( user.stat ))
 			if(!user.prepare_for_slotmove(real_master_item)) //Prevents removing hardsuits when they have storage modules in them.
