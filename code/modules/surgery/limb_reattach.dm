@@ -15,7 +15,7 @@
 	if(affected)
 		return FALSE
 	var/list/organ_data = target.species.has_limbs["[target_zone]"]
-	var/obj/item/organ/external/E = tool
+	var/obj/item/organ/external/E = astype(tool)
 	if(E?.parent_organ)
 		var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
 		if(!P || P.is_stump() || !P.supports_children || (BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
