@@ -7,7 +7,6 @@
 	id = "nikal_sahira"
 
 	sectors = list(SECTOR_SRANDMARR)
-	//sectors = list(ALL_POSSIBLE_SECTORS)
 	template_flags = TEMPLATE_FLAG_PORT_SPAWN
 	//template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight = 1
@@ -35,7 +34,7 @@
 	name = "Adhomai - Crevus, Nikal Sahira"
 	desc = "placeholder"
 
-	place_near_main = list(0,0)
+	place_near_main = 1 // one tile near the main map
 	landing_site = TRUE
 	icon_state = "globe2"
 	color = "#D6D9DD"

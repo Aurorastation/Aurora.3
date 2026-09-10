@@ -12223,6 +12223,14 @@
 /obj/structure/machinery/space_heater,
 /turf/simulated/floor/exoplanet/plating,
 /area/crevus)
+"Cf" = (
+/obj/structure/curtain/black{
+	pixel_x = 32
+	},
+/obj/structure/curtain/black,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus)
 "Cg" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate,
@@ -12531,6 +12539,7 @@
 	pixel_x = 32
 	},
 /obj/random/dirt_75,
+/obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus)
 "CS" = (
@@ -17063,6 +17072,9 @@
 "Ny" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/curtain/black{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus)
 "Nz" = (
@@ -101748,7 +101760,7 @@ yV
 ha
 mD
 mD
-CR
+Cf
 CR
 mD
 CR
@@ -104097,7 +104109,7 @@ ij
 rZ
 MZ
 JW
-Ny
+sQ
 Ha
 Ha
 Ha

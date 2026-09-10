@@ -496,7 +496,6 @@
 	color = COLOR_DARK_GRAY
 	build_type = /obj/item/stack/tile/marble/dark
 
-
 /singleton/flooring/marble/red
 	color = "#9e6a64"
 	build_type = /obj/item/stack/tile/marble/red
