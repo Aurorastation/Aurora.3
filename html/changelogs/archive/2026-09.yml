@@ -130,3 +130,6 @@
   - bugfix: Fixed elevator walls appearing with greyscale sprites.
   kermit:
   - rscdel: Removes the napalm grenades from Secure Tech Storage.
+2026-09-10:
+  TheGreyWolf:
+  - bugfix: Fixes some pathfinding issues with cleanbots, medical bots and farmbots.
