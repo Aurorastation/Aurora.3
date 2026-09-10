@@ -90,14 +90,10 @@
 	if (QDELING(src))
 		return 0
 
-	if (amount <= 0)
-		return 0
-
 	if(rigged && amount > 0)
 		explode()
 		return 0
 	var/used = min(charge, amount)
-	update_icon()
 	charge -= used
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 	if (used > 0 && self_charge_percentage && charge < maxcharge)
@@ -114,11 +110,6 @@
 /obj/item/cell/proc/give(var/amount)
 	if (QDELING(src))
 		return 0
-
-	if (amount <= 0)
-		return 0
-
-	update_icon()
 
 	if(rigged && amount > 0)
 		explode()
