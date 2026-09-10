@@ -16,7 +16,7 @@
 	exoplanet_lightlevel = list(1, 2, 5, 7)
 	exoplanet_lightcolor = list("#8499c8")
 
-	unit_test_groups = list(3)
+	unit_test_groups = list(2)
 	traits = list(
 		//Z1
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),

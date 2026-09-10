@@ -118,3 +118,9 @@
 
 /obj/structure/machinery/door/airlock/multi_tile/glass/brown
 	door_color = "#574b3d"
+
+/obj/structure/machinery/door/airlock/multi_tile/black
+	door_color = COLOR_GRAY20
+
+/obj/structure/machinery/door/airlock/multi_tile/glass/black
+	door_color = COLOR_GRAY20
