@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "It is now possible to preview bodyguards and diplomatic aides in char setup even if no slot is open."
