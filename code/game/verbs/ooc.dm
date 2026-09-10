@@ -310,4 +310,4 @@
 
 	COOLDOWN_START(src, storyteller_ping_cooldown, 1 MINUTES)
 	to_chat(src, SPAN_NOTICE("Your ping has been sent to the storyteller."))
-	log_admin("(STORYTELLER PING) [mob.name]/[key] : [message]")
+	log_and_message_admins("(STORYTELLER PING) [mob.name]/[key] : [message]")

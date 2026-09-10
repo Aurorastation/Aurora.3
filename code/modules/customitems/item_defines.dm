@@ -1504,3 +1504,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(has_suit)
 		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/sophonisa_cape/verb/change_hood
 	..()
+
+/obj/item/organ/external/arm/right/fluff/yasir_autakh // Prosthetic Aut'akh Right Arm - Yasir Kra'jun
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/unathi/r_autakh.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/arm/right/fluff/yasir_autakh/Initialize(mapload)
+	. = ..()
+	LAZYADD(children, new /obj/item/organ/external/hand/right/fluff/yasir_autakh(src))
+
+/obj/item/organ/external/hand/right/fluff/yasir_autakh // Prosthetic Aut'akh Right Hand - Yasir Kra'jun
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/unathi/r_autakh.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE

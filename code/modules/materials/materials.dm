@@ -762,6 +762,7 @@
 	display_name = "elevator paneling"
 	stack_type = null
 	icon_colour = "#666666"
+	wall_colour = "#666666"
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	integrity = 1200
 	melting_point = 6000
