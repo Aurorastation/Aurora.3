@@ -292,7 +292,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/platform/metal_alt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "aqx" = (
 /obj/structure/machinery/door/blast/shutters/open{
@@ -452,7 +452,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "aAB" = (
 /obj/structure/machinery/vending/minimart{
@@ -659,7 +659,7 @@
 /obj/structure/platform/ledge{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "aLk" = (
 /obj/effect/decal/curb{
@@ -791,7 +791,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "aQT" = (
 /obj/structure/utility_pole/street/classic/on{
@@ -878,7 +878,7 @@
 /area/crevus)
 "aXc" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "aXr" = (
 /obj/effect/map_effect/window_spawner/full/concrete,
@@ -992,7 +992,7 @@
 /obj/structure/ladder{
 	pixel_y = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "bgH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1045,7 +1045,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "biq" = (
 /obj/random/dirt_75,
@@ -1397,7 +1397,7 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "bBL" = (
 /obj/structure/flora/tree/adhomai{
@@ -1647,7 +1647,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "bMw" = (
 /obj/structure/arch/gothic/eastwest/middle,
@@ -1841,7 +1841,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "bSH" = (
 /obj/structure/table/rack/retail_shelf,
@@ -2242,7 +2242,7 @@
 	dir = 8
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "clz" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -2394,7 +2394,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "csJ" = (
 /obj/structure/chainlink_fence{
@@ -2658,7 +2658,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "cDD" = (
 /obj/effect/floor_decal/spline/plain/corner/grey,
@@ -2725,7 +2725,7 @@
 /obj/structure/ladder{
 	pixel_y = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "cKT" = (
 /obj/random/dirt_75,
@@ -2763,7 +2763,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "cNG" = (
 /obj/effect/map_effect/window_spawner/full/concrete,
@@ -2828,7 +2828,7 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/platform/metal_alt,
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "cSs" = (
 /obj/effect/floor_decal/industrial/warning/dust,
@@ -2911,7 +2911,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "cZg" = (
 /obj/effect/floor_decal/concrete/gutter/corner,
@@ -3063,7 +3063,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "dhm" = (
 /obj/structure/railing/mapped/no_density/low,
@@ -3091,7 +3091,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "djp" = (
 /obj/structure/platform_deco/metal_alt{
@@ -3101,7 +3101,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "djO" = (
 /obj/structure/bed/stool/chair{
@@ -3148,7 +3148,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "dlB" = (
 /obj/effect/decal/exterior_stairs/half/right{
@@ -3399,7 +3399,7 @@
 	dir = 8
 	},
 /obj/structure/platform_deco/metal_alt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "dyv" = (
 /obj/structure/table/rack/folding_table,
@@ -3414,7 +3414,7 @@
 /obj/structure/platform_deco/engineer{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "dza" = (
 /obj/structure/machinery/light{
@@ -3885,14 +3885,14 @@
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "eeO" = (
 /obj/structure/platform_deco/rock/icy{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "eff" = (
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -3977,7 +3977,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "ekh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -4147,7 +4147,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "eqX" = (
 /obj/structure/machinery/light/small/floor,
@@ -4310,7 +4310,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "ezn" = (
 /obj/structure/table/glass,
@@ -4542,7 +4542,7 @@
 	dir = 4
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "eIZ" = (
 /obj/structure/bed/stool/chair/sofa/bench/left{
@@ -4665,7 +4665,7 @@
 	dir = 8
 	},
 /obj/structure/platform/metal_alt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "eQe" = (
 /obj/effect/decal/curb{
@@ -4694,7 +4694,7 @@
 /obj/structure/road_barrier{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "eQD" = (
 /obj/structure/machinery/light,
@@ -4836,7 +4836,7 @@
 	dir = 4
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "eVU" = (
 /obj/effect/decal/curb,
@@ -5122,7 +5122,7 @@
 /obj/structure/sign/emergency/evacuation{
 	pixel_x = -32
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "fjM" = (
 /obj/structure/shipping_container/refrigerated/getmore,
@@ -5514,7 +5514,7 @@
 	dir = 1
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "fGQ" = (
 /obj/effect/decal/curb/corner{
@@ -5645,7 +5645,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "fOR" = (
 /obj/effect/floor_decal/spline/plain/grey{
@@ -5732,7 +5732,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "fSK" = (
 /obj/random/dirt_75,
@@ -5842,7 +5842,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gaq" = (
 /obj/structure/platform/metal_alt,
@@ -5850,7 +5850,7 @@
 	dir = 1;
 	pixel_y = 12
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gaC" = (
 /obj/structure/closet/crate/large,
@@ -5914,12 +5914,12 @@
 /obj/structure/platform/metal_alt{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "ghp" = (
 /obj/structure/machinery/atmospherics/pipe/zpipe/down/black,
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "ghE" = (
 /obj/effect/decal/curb,
@@ -5940,7 +5940,7 @@
 /obj/structure/platform_deco/ledge{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gip" = (
 /obj/structure/platform/metal_alt{
@@ -5954,7 +5954,7 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "giU" = (
 /obj/effect/decal/cleanable/snow,
@@ -6025,7 +6025,7 @@
 /area/crevus)
 "gkw" = (
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gkz" = (
 /obj/structure/machinery/light{
@@ -6187,7 +6187,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gqH" = (
 /obj/structure/platform/column,
@@ -6346,7 +6346,7 @@
 	dir = 4
 	},
 /obj/structure/chainlink_fence,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gzQ" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
@@ -6652,7 +6652,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gPe" = (
 /obj/structure/bed/stool/chair/folding{
@@ -6725,7 +6725,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gTt" = (
 /obj/structure/utility_pole/street/on{
@@ -6742,7 +6742,7 @@
 "gTP" = (
 /obj/structure/platform/metal_alt,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gUK" = (
 /obj/effect/floor_decal/snowdrift/random,
@@ -6785,7 +6785,7 @@
 	dir = 1;
 	pixel_x = 23
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gVs" = (
 /obj/structure/table/steel,
@@ -6849,7 +6849,7 @@
 	dir = 8
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "gYH" = (
 /obj/structure/platform/metal_alt{
@@ -6962,7 +6962,7 @@
 "haV" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/machinery/door/urban/metal_bar,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hbC" = (
 /obj/effect/decal/curb,
@@ -6974,7 +6974,7 @@
 	},
 /obj/structure/road_barrier,
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hbH" = (
 /obj/random/dirt_75,
@@ -7053,7 +7053,7 @@
 	dir = 1
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "hfu" = (
 /obj/structure/lattice/ceiling,
@@ -7137,7 +7137,7 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hmT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -7412,7 +7412,7 @@
 	dir = 1
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hBN" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -7424,7 +7424,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hCF" = (
 /obj/structure/platform_deco/rock/icy,
@@ -7452,7 +7452,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/crevus)
 "hDh" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "hDN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -7552,7 +7552,7 @@
 /area/crevus)
 "hJq" = (
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hKu" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -7656,7 +7656,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hRe" = (
 /obj/effect/floor_decal/spline/plain/grey,
@@ -7726,7 +7726,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "hUb" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -7909,7 +7909,7 @@
 	dir = 1
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "idm" = (
 /obj/structure/platform/metal_alt{
@@ -8305,7 +8305,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "iwH" = (
 /obj/structure/utility_pole/street/traffic/inverted{
@@ -8354,7 +8354,7 @@
 	},
 /obj/structure/rod_railing,
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "izr" = (
 /obj/structure/barricade/wooden/road{
@@ -8525,7 +8525,7 @@
 /area/crevus)
 "iGS" = (
 /obj/effect/decal/curb,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "iGZ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -8653,7 +8653,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "iPl" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -8671,7 +8671,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "iPM" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -8686,7 +8686,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "iQv" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -9043,7 +9043,7 @@
 	},
 /obj/structure/lattice,
 /obj/structure/chainlink_fence,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jlP" = (
 /obj/structure/arch/gothic/eastwest/middle,
@@ -9204,7 +9204,7 @@
 /obj/structure/ladder{
 	pixel_y = 14
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jqI" = (
 /obj/structure/curtain/black{
@@ -9638,7 +9638,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jLR" = (
 /obj/effect/decal/curb{
@@ -9695,7 +9695,7 @@
 /obj/structure/road_barrier/bot_in{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jPp" = (
 /obj/structure/platform/engineer,
@@ -9705,7 +9705,7 @@
 /obj/structure/road_barrier/bot_in{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jQk" = (
 /obj/structure/stairs_railing{
@@ -9756,7 +9756,7 @@
 "jRR" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jSc" = (
 /obj/structure/platform/rock/icy{
@@ -9766,7 +9766,7 @@
 	dir = 1
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jSk" = (
 /obj/structure/machinery/door/blast/shutters{
@@ -9815,7 +9815,7 @@
 	dir = 6
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "jVW" = (
 /obj/effect/decal/curb{
@@ -9960,7 +9960,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "kcR" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -10028,7 +10028,7 @@
 /obj/structure/sign/flag/dpra{
 	pixel_x = 32
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "kgR" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -10070,7 +10070,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "kja" = (
 /obj/structure/table/glass,
@@ -10658,7 +10658,7 @@
 "kSt" = (
 /obj/structure/platform_deco/metal_alt,
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "kSF" = (
 /obj/structure/machinery/door/urban{
@@ -10679,7 +10679,7 @@
 /area/crevus)
 "kTu" = (
 /obj/structure/platform_deco/ledge/dark,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "kTK" = (
 /obj/structure/machinery/space_heater,
@@ -10931,7 +10931,7 @@
 /obj/structure/platform_deco/metal_alt{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "lhj" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -10982,7 +10982,7 @@
 /area/crevus)
 "liA" = (
 /obj/structure/platform/ledge/dark,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "liS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -11000,7 +11000,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "ljk" = (
 /obj/effect/landmark/rental_bikes_helper{
@@ -11605,7 +11605,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/table/rack/folding_table,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "lOb" = (
 /obj/structure/machinery/light/floor,
@@ -12457,7 +12457,7 @@
 /area/crevus)
 "mOK" = (
 /obj/structure/platform/engineer,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "mQm" = (
 /obj/structure/trash_pile,
@@ -12794,7 +12794,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "nml" = (
 /obj/structure/platform_deco/column,
@@ -13239,14 +13239,14 @@
 	dir = 1;
 	pixel_y = -15
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "nOh" = (
 /obj/structure/platform/engineer{
 	dir = 1
 	},
 /obj/structure/road_barrier,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "nOZ" = (
 /obj/structure/platform/metal_alt{
@@ -13339,7 +13339,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "nWM" = (
 /obj/structure/sign/urban/staff{
@@ -13546,7 +13546,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "oeN" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -14055,7 +14055,7 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "ozG" = (
 /obj/structure/curtain/black{
@@ -14122,7 +14122,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 5
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "oEn" = (
 /obj/effect/decal/exterior_stairs/half/left{
@@ -14400,7 +14400,7 @@
 /area/crevus)
 "oWO" = (
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "oXI" = (
 /obj/structure/table/steel,
@@ -14505,7 +14505,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pax" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -14670,7 +14670,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pjT" = (
 /obj/random/dirt_75,
@@ -14687,7 +14687,7 @@
 	dir = 1;
 	pixel_y = 7
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pmh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -14822,7 +14822,7 @@
 	dir = 10
 	},
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pse" = (
 /obj/structure/platform/metal_alt,
@@ -14890,7 +14890,7 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pvJ" = (
 /obj/structure/flora/grass/both,
@@ -15080,7 +15080,7 @@
 /obj/structure/road_barrier{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pEn" = (
 /obj/structure/platform_deco/rock/icy{
@@ -15105,7 +15105,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pGh" = (
 /obj/random/dirt_75,
@@ -15211,7 +15211,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "pQe" = (
 /obj/structure/arch/gothic/eastwest/middle,
@@ -15672,7 +15672,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "qpU" = (
 /obj/effect/decal/curb{
@@ -15735,7 +15735,7 @@
 /obj/structure/platform_deco/metal_alt{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "qvK" = (
 /obj/structure/platform/column{
@@ -16043,7 +16043,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 9
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "qJM" = (
 /obj/structure/platform/column,
@@ -16105,7 +16105,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "qOk" = (
 /obj/structure/platform/column{
@@ -16419,7 +16419,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "riP" = (
 /obj/structure/platform/metal_alt{
@@ -16428,7 +16428,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "rkG" = (
 /obj/random/dirt_75,
@@ -16529,7 +16529,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "rpK" = (
 /obj/structure/machinery/door/urban/jail_door,
@@ -16660,7 +16660,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "rxd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -16840,7 +16840,7 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/folding,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "rGP" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
@@ -16949,7 +16949,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "rLN" = (
 /obj/structure/platform/engineer{
@@ -16959,11 +16959,11 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "rMd" = (
 /obj/structure/platform_deco/metal_alt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "rMT" = (
 /obj/structure/table/reinforced/glass,
@@ -17275,13 +17275,13 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "sbS" = (
 /obj/structure/platform_deco/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "scj" = (
 /obj/structure/machinery/appliance/cooker/oven,
@@ -17368,7 +17368,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "shi" = (
 /obj/structure/platform/column{
@@ -17547,7 +17547,7 @@
 /obj/structure/platform/ledge{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "sqc" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -17572,7 +17572,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "srm" = (
 /obj/structure/chainlink_fence{
@@ -17810,7 +17810,7 @@
 /obj/structure/platform_deco/metal_alt{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "sFb" = (
 /obj/structure/table/steel,
@@ -18018,7 +18018,7 @@
 	dir = 4
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "sNZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -18099,7 +18099,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "sSy" = (
 /obj/effect/decal/road_marking{
@@ -18113,7 +18113,7 @@
 "sSL" = (
 /obj/structure/platform/metal_alt,
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "sTa" = (
 /obj/structure/flora/pottedplant/whitetulip,
@@ -18553,7 +18553,7 @@
 	dir = 4
 	},
 /obj/structure/platform/metal_alt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "tmM" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -18617,7 +18617,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "tqw" = (
 /obj/structure/bed/stool/padded/brown{
@@ -18649,7 +18649,7 @@
 	},
 /obj/structure/road_barrier,
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "trI" = (
 /obj/random/dirt_75,
@@ -18718,7 +18718,7 @@
 /obj/structure/rod_railing{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "tuv" = (
 /obj/structure/arch/gothic/eastwest/middle,
@@ -18764,11 +18764,11 @@
 	dir = 8
 	},
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "tyf" = (
 /obj/structure/platform/metal_alt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "tyK" = (
 /obj/effect/floor_decal/spline/plain/grey{
@@ -19122,7 +19122,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "tTd" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -19253,7 +19253,7 @@
 /obj/structure/platform_deco/rock/icy{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "tYm" = (
 /obj/structure/table/reinforced/wood,
@@ -19359,7 +19359,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crevus)
 "ucI" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "ucU" = (
 /obj/effect/floor_decal/spline/plain/brown{
@@ -19471,7 +19471,7 @@
 /obj/structure/platform_deco/rock/icy{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "uiM" = (
 /obj/structure/machinery/space_heater,
@@ -19755,7 +19755,7 @@
 /obj/structure/platform_deco/ledge/dark{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "uCF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -19818,7 +19818,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "uFb" = (
 /obj/structure/machinery/atm{
@@ -19973,7 +19973,7 @@
 /obj/structure/stairs_railing{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "uMv" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -20526,7 +20526,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "vrD" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
@@ -20897,7 +20897,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "vSW" = (
 /obj/structure/trashbags{
@@ -21025,7 +21025,7 @@
 /area/crevus)
 "wcA" = (
 /obj/structure/rod_railing,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "wdb" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -21074,7 +21074,7 @@
 /area/crevus)
 "wdg" = (
 /obj/structure/platform/ledge,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "wdw" = (
 /obj/structure/platform_deco/rock/icy,
@@ -21517,7 +21517,7 @@
 /obj/structure/platform/metal_alt{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "wyS" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -21671,7 +21671,7 @@
 /obj/structure/platform_deco/metal_alt{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "wHk" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -21884,7 +21884,7 @@
 /obj/structure/road_barrier{
 	pixel_y = -6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "wRZ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -22357,7 +22357,7 @@
 /obj/structure/platform_deco/ledge{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "xtI" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -22521,7 +22521,7 @@
 /obj/structure/platform/ledge/dark{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "xzM" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -22546,7 +22546,7 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "xAQ" = (
 /obj/structure/platform/ledge/dark{
@@ -22602,7 +22602,7 @@
 /area/crevus)
 "xEN" = (
 /obj/structure/platform/metal_alt,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "xFb" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -22634,7 +22634,7 @@
 /obj/structure/rod_railing{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus/restaurant/table_area)
 "xGu" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -22916,7 +22916,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 "xTD" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -23277,7 +23277,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/turf/simulated/open,
 /area/crevus)
 
 (1,1,1) = {"
