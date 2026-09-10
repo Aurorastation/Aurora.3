@@ -226,6 +226,10 @@
 		if(knockdown)
 			for(var/mob/living/carbon/M in A)
 				spawn(0)
+					var/obj/structure/bed/handrail/nearby_handrail = locate() in range(1, M)
+					var/catch_chance = (M.get_conditioning_skill_level() - SKILL_LEVEL_UNFAMILIAR) * 20
+					if(nearby_handrail)
+						catch_chance *= 1.5
 					if(M.buckled_to)
 						to_chat(M, SPAN_WARNING("Sudden acceleration presses you into your chair!"))
 						shake_camera(M, 3, 1)
@@ -234,7 +238,7 @@
 						M.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
 						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
 						shake_camera(M, 5, 1)
-					else if(!M.incapacitated() && M.Check_Dense_Object(FALSE) && prob((M.get_conditioning_skill_level() - SKILL_LEVEL_UNFAMILIAR) * 20))
+					else if(!M.incapacitated() && (nearby_handrail || M.Check_Dense_Object(FALSE)) && prob(catch_chance))
 						M.visible_message(
 							SPAN_NOTICE("[M.name] catches hold of something as the shuttle accelerates!"),
 							SPAN_WARNING("The floor lurches beneath you, but you catch hold of something within reach!")

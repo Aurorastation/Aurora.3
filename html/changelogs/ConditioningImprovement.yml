@@ -7,4 +7,4 @@ changes:
   - rscadd: "Updated conditioning to handle the weight of many items for lifting and dragging."
   - rscadd: "Affected conditioning items include: Weight machines, lifting crates, lifting ship ammo, dumbbels and barbells, climbing over various barriers, picking up mech components and ship ammo, picking up delivery packages, speed of ladders and squeezing through airlock assemblies."
   - rscadd: "Conditioning now allows a chance to catch yourself during shuttle launches if not buckled in."
-  - rscadd: "The robotics, mechatronics, military training and paramedic educations now include conditioning."
+  - rscadd: "The robotics, mechatronics, military training, police academy graduate, corpsman training, fleet and paramedic educations now include conditioning."

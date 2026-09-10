@@ -1398,7 +1398,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		playsound(get_turf(src), 'sound/weapons/bladeparry.ogg', 25, 1, -1)
 
 /obj/item/gym_dumbbell
-	name = "dumbbell"
+	name = "10 kg dumbbell"
 	desc = "A heavy piece of metal used for weight training."
 	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "dumbbell"
@@ -1413,7 +1413,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	var/being_lifted = FALSE
 
 /obj/item/gym_dumbbell/twenty
-	name = "heavy dumbbell"
+	name = "20 kg dumbbell"
 	desc = "A particularly heavy piece of metal used for weight training."
 	mass = 20
 
