@@ -56,7 +56,6 @@
 	landmark_transition = "nav_transit_konyang_pirate"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_start_konyang_pirate"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/konyang_pirate/start

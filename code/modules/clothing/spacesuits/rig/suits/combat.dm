@@ -203,7 +203,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/retro/equipped
-	req_one_access = list(ACCESS_TCAF)
+	req_one_access = list(/datum/access/tcaf::id)
 	initial_modules = list(
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/device/drill,
@@ -244,7 +244,7 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
 
 /obj/item/rig/gunslinger/equipped
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/vision/thermal,
@@ -253,7 +253,7 @@
 		)
 
 /obj/item/rig/gunslinger/equipped/ert
-	req_access = list(ACCESS_DISTRESS)
+	req_access = list(/datum/access/distress::id)
 
 /obj/item/rig/gunslinger/ninja
 
@@ -297,7 +297,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 
 /obj/item/rig/strike/equipped
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/fabricator/energy_net,
@@ -310,7 +310,7 @@
 		)
 
 /obj/item/rig/strike/distress
-	req_access = list(ACCESS_DISTRESS)
+	req_access = list(/datum/access/distress::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/fabricator/energy_net,
@@ -369,7 +369,7 @@
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
 
 /obj/item/rig/elyran/equipped
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -377,7 +377,7 @@
 		)
 
 /obj/item/rig/elyran/ninja
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,

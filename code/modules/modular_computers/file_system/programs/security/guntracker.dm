@@ -8,8 +8,8 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = ACCESS_HOS
-	required_access_run = ACCESS_ARMORY
+	required_access_download = /datum/access/hos::id
+	required_access_run = /datum/access/armory::id
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	tgui_id = "GunTracker"
 	var/list/wireless_firing_pins_data
