@@ -109,7 +109,6 @@
 	range = 1
 	fuel_consumption = 2
 	dock_target = "peoples_station_fang"
-	logging_home_tag = "nav_hangar_peoples_station_fang"
 	defer_initialisation = TRUE
 
 //transport shuttle
@@ -142,7 +141,6 @@
 	dock_target = "peoples_station_transport"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_peoples_station_transport"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/peoples_station_transport/hangar

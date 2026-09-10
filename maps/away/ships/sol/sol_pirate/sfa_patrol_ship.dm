@@ -188,7 +188,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SFA Shuttle"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 
 /datum/shuttle/autodock/overmap/sfa_shuttle
 	name = "SFA Shuttle"
@@ -199,7 +199,6 @@
 	landmark_transition = "nav_transit_sfa_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_sfa"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/sfa_shuttle/hangar

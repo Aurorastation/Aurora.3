@@ -97,7 +97,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/merchants_guild
 	name = "shuttle control console"
 	shuttle_tag = "Merchants' Guild Shuttle"
-	req_access = list(ACCESS_MERCHANTS_GUILD)
+	req_access = list(/datum/access/merchants_guild::id)
 
 /datum/shuttle/autodock/overmap/merchants_guild
 	name = "Merchants' Guild Shuttle"
@@ -108,7 +108,6 @@
 	dock_target = "merchant_guild_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "merchantsguild_nav_hangar"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/merchants_guild_shuttle/hangar
