@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a functional chess set that allows you to play with others or against a computer. It's mapped into the service areas and available in the loadout."
