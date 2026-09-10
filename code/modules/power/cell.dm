@@ -40,6 +40,8 @@
 		var/recharge_for_this_process = round(recharge_amount_per_second * (seconds_per_tick / 10)) // divides seconds_per_tick by 10 to turn deciseconds into seconds
 		// finally, charge the cell
 		give(recharge_for_this_process)
+	else
+		return PROCESS_KILL //Cells that don't self charge don't need to process.
 	if (charge >= maxcharge)
 		return PROCESS_KILL // No need to constantly process self-charging cells that are full.
 
@@ -57,7 +59,6 @@
 
 	if(charge <= 0)
 		return 0
-	START_PROCESSING(SSprocessing, src) // Always attempt at least one process if the battery level is ever reduced.
 	var/cell_amt = power * CELLRATE
 
 	return use(cell_amt) / CELLRATE
@@ -89,12 +90,18 @@
 	if (QDELING(src))
 		return 0
 
+	if (amount <= 0)
+		return 0
+
 	if(rigged && amount > 0)
 		explode()
 		return 0
 	var/used = min(charge, amount)
+	update_icon()
 	charge -= used
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
+	if (used > 0 && self_charge_percentage && charge < maxcharge)
+		START_PROCESSING(SSprocessing, src) // Always attempt at least one process if the battery level is ever reduced.
 	return used
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
@@ -107,6 +114,11 @@
 /obj/item/cell/proc/give(var/amount)
 	if (QDELING(src))
 		return 0
+
+	if (amount <= 0)
+		return 0
+
+	update_icon()
 
 	if(rigged && amount > 0)
 		explode()
@@ -200,9 +212,9 @@
 	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
 		severity *= R.cell_emp_mult
-
 	if(severity)
-		charge -= rand(0, (maxcharge / severity))
+		var/used = rand(0, (maxcharge / severity))
+		use(used)
 	if (charge < 0)
 		charge = 0
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
@@ -222,6 +234,8 @@
 	charge -= maxcharge / divisor
 	if (charge < 0)
 		charge = 0
+	if(self_charge_percentage && charge < maxcharge)
+		START_PROCESSING(SSprocessing, src) // Always attempt at least one process if the battery level is ever reduced.
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 
 /obj/item/cell/ex_act(severity)
