@@ -13,7 +13,8 @@
 	src.language = language
 
 /// Returns the segment as the given listener perceives it.
-/datum/say_segment/proc/plain_text_for(mob/listener, mob/speaker)
+/// decipher_over_time should only be enabled for HTML chat output.
+/datum/say_segment/proc/plain_text_for(mob/listener, mob/speaker, decipher_over_time = FALSE)
 	if(language && (language.flags & KNOWONLYHEAR) && !listener.say_understands(speaker, language))
 		return ""
 	var/rendered = text
@@ -21,5 +22,5 @@
 		if((!speaker || (listener.sdisabilities & BLIND) || listener.blinded || !(speaker in view(listener))) && !isghost(listener))
 			rendered = stars(rendered)
 	if(!(language && (language.flags & INNATE)) && !listener.say_understands(speaker, language))
-		rendered = language ? language.scramble(rendered, listener.languages) : stars(rendered)
+		rendered = language ? language.scramble(rendered, listener.languages, decipher_over_time) : stars(rendered)
 	return rendered

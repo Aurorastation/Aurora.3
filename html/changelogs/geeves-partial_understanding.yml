@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Partial understanding now allows you to fully comprehend messages, it just takes a few seconds to decipher. The odd spacing between larger and smaller scrambles is to prevent your lines from jumping in a fast moving chat."
+  - bugfix: "Stuff like spans and classes will no longer appear in overhead chat messages."
