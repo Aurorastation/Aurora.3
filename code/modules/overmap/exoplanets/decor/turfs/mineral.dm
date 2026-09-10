@@ -26,3 +26,15 @@
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai/Initialize()
 	. = ..()
 	icon_state = "cave_[rand(1,7)]"
+
+/turf/simulated/floor/cave/adhomai
+	name = "icy cave rock"
+	desc = "Some cold rock."
+	icon = 'icons/turf/flooring/cave_floor.dmi'
+	icon_state = "cave"
+	color = "#97A7AA"
+	footstep_sound = SFX_FOOTSTEP_SAND
+
+/turf/simulated/floor/cave/adhomai/Initialize()
+	. = ..()
+	icon_state = "cave_[rand(1,7)]"

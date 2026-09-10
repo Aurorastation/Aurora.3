@@ -11,7 +11,7 @@
 "abE" = (
 /obj/structure/platform/column,
 /obj/effect/decal/cleanable/draftingchalk,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "abQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -640,7 +640,7 @@
 /area/crevus)
 "aKV" = (
 /obj/structure/target_stake,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "aLc" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -964,12 +964,6 @@
 /obj/structure/quay_wall/side,
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus)
-"bcl" = (
-/obj/effect/decal/road_marking/incline{
-	pixel_y = -5
-	},
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus)
 "bcL" = (
 /obj/structure/chainlink_fence,
 /obj/random/dirt_75,
@@ -1063,7 +1057,7 @@
 	dir = 4
 	},
 /obj/structure/flora/rock/stalagmite/icy,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "bjN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1205,7 +1199,7 @@
 /area/crevus)
 "bsM" = (
 /obj/structure/structural_support,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "bsQ" = (
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -1784,7 +1778,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "bQF" = (
 /obj/structure/filler,
@@ -3313,7 +3307,7 @@
 /area/crevus)
 "due" = (
 /obj/effect/decal/cleanable/draftingchalk,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "dul" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -3828,7 +3822,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "eaT" = (
 /obj/structure/flora/ausbushes/leafybush,
@@ -3874,7 +3868,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "eda" = (
 /obj/structure/rod_railing,
@@ -3886,10 +3880,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/crevus)
-"edG" = (
-/obj/structure/stairs/urban/road_ramp/left,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus)
 "eeh" = (
 /obj/structure/platform/ledge/dark{
@@ -6145,6 +6135,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crevus)
+"gnT" = (
+/obj/structure/platform/rock/icy{
+	dir = 8
+	},
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "gnX" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/machinery/light/small/floor{
@@ -6459,7 +6455,7 @@
 /obj/structure/platform_deco/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "gEs" = (
 /obj/effect/step_trigger/thrower{
@@ -6476,6 +6472,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/structure/blocker,
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus)
+"gFm" = (
+/obj/structure/platform_deco/rock/icy{
+	dir = 8
+	},
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "gFP" = (
 /obj/random/dirt_75,
@@ -6725,15 +6727,6 @@
 /obj/structure/chainlink_fence,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/crevus)
-"gRQ" = (
-/obj/structure/stairs/urban/road_ramp/left{
-	icon_state = "road-ramp-left"
-	},
-/obj/effect/decal/road_marking/incline{
-	pixel_y = 13
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus)
 "gTt" = (
 /obj/structure/utility_pole/street/on{
 	dir = 8
@@ -6905,7 +6898,7 @@
 	dir = 1
 	},
 /obj/structure/platform_deco/rock/icy,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "gZX" = (
 /obj/structure/flora/pottedplant/minitree,
@@ -6992,7 +6985,7 @@
 	dir = 8
 	},
 /obj/structure/structural_support,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "hbX" = (
 /obj/random/dirt_75,
@@ -7405,6 +7398,12 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus)
+"hzK" = (
+/obj/structure/platform/rock/icy{
+	dir = 1
+	},
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "hAl" = (
 /obj/structure/platform/metal_alt{
 	dir = 8
@@ -7536,7 +7535,7 @@
 /obj/structure/platform/column{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "hIu" = (
 /obj/structure/stairs/north,
@@ -8027,7 +8026,7 @@
 /obj/structure/platform_deco/rock/icy{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "ijh" = (
 /obj/structure/bed/stool/chair/padded/brown,
@@ -8296,7 +8295,7 @@
 /area/crevus)
 "ivT" = (
 /obj/structure/platform/column,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "ivZ" = (
 /obj/structure/platform/metal_alt{
@@ -8561,13 +8560,6 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus)
-"iIv" = (
-/obj/structure/stairs/urban/road_ramp/left{
-	icon_state = "road-ramp-left-top";
-	pixel_y = 29
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus)
 "iJg" = (
 /obj/structure/flora/grass/brown,
@@ -8901,13 +8893,17 @@
 /obj/structure/platform_deco/rock/icy{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "jbS" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/lino/diamond,
+/area/crevus)
+"jbZ" = (
+/obj/structure/platform_deco/rock/icy,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "jcj" = (
 /obj/structure/machinery/light/small{
@@ -9014,7 +9010,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "jhX" = (
 /obj/structure/trashbin/trashed,
@@ -9067,7 +9063,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "jmq" = (
 /obj/item/reagent_containers/food/drinks/dry_pasta{
@@ -9739,6 +9735,14 @@
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/private_dining_room)
+"jRd" = (
+/obj/structure/platform/rock/icy,
+/obj/structure/flora/rock/stalagmite/icy,
+/obj/structure/platform/rock/icy{
+	dir = 4
+	},
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "jRG" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/exoplanet/water/alt,
@@ -9770,6 +9774,10 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/full,
+/area/crevus)
+"jTc" = (
+/obj/structure/flora/rock/stalagmite/icy,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "jTm" = (
 /obj/effect/floor_decal/spline/plain/grey{
@@ -10509,7 +10517,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "kHy" = (
 /obj/structure/flora/rock/snow,
@@ -11283,6 +11291,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus)
+"lwg" = (
+/obj/structure/platform_deco/rock/icy{
+	dir = 1
+	},
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "lwi" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -11411,7 +11425,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "lED" = (
 /obj/structure/rod_railing{
@@ -11525,7 +11539,7 @@
 	dir = 4
 	},
 /obj/structure/structural_support,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "lMk" = (
 /obj/structure/rod_railing,
@@ -11881,6 +11895,10 @@
 /obj/structure/machinery/computer/terminal/inactive,
 /turf/simulated/floor/tiled,
 /area/crevus)
+"mcv" = (
+/obj/structure/platform/rock/icy,
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "mcT" = (
 /turf/simulated/floor/lino/diamond,
 /area/crevus/restaurant/private_dining_room)
@@ -11901,7 +11919,7 @@
 	dir = 4
 	},
 /obj/structure/structural_support,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "mga" = (
 /obj/structure/platform/metal_alt{
@@ -12184,6 +12202,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asphalt,
+/area/crevus)
+"msR" = (
+/obj/structure/platform/rock/icy,
+/obj/structure/flora/rock/stalagmite/icy,
+/obj/structure/platform/rock/icy{
+	dir = 8
+	},
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "mtg" = (
 /obj/structure/table/reinforced/wood,
@@ -12919,7 +12945,7 @@
 /obj/structure/platform_deco/rock/icy{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "nuz" = (
 /turf/simulated/wall,
@@ -13733,7 +13759,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "omV" = (
 /obj/structure/arch/gothic/eastwest/middle,
@@ -14180,7 +14206,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "oIP" = (
 /obj/structure/machinery/light{
@@ -14257,7 +14283,7 @@
 /obj/structure/platform_deco/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "oQY" = (
 /obj/structure/bed/stool/chair/sofa/bench/left{
@@ -14513,6 +14539,15 @@
 	},
 /turf/simulated/floor/lino,
 /area/crevus)
+"pbG" = (
+/obj/structure/platform/rock/icy{
+	dir = 4
+	},
+/obj/structure/platform/rock/icy{
+	dir = 1
+	},
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "pbR" = (
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
@@ -14543,10 +14578,17 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus)
+"pdl" = (
+/obj/structure/flora/rock/stalagmite/icy,
+/obj/structure/platform/rock/icy{
+	dir = 1
+	},
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "pft" = (
 /obj/effect/decal/cleanable/draftingchalk,
 /obj/structure/platform_deco/rock/icy,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "pfA" = (
 /obj/effect/decal/curb/corner,
@@ -15613,13 +15655,6 @@
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/carpet/darkblue,
 /area/crevus)
-"qnN" = (
-/obj/structure/stairs/urban/road_ramp/left,
-/obj/effect/decal/road_marking/incline/center{
-	pixel_y = -17
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus)
 "qoR" = (
 /obj/structure/chainlink_fence{
 	dir = 8
@@ -15901,7 +15936,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "qFr" = (
 /obj/random/dirt_75,
@@ -16167,6 +16202,12 @@
 /area/crevus)
 "qTV" = (
 /turf/simulated/wall/brick,
+/area/crevus)
+"qUC" = (
+/obj/structure/platform/rock/icy{
+	dir = 4
+	},
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "qVg" = (
 /obj/structure/table,
@@ -16931,6 +16972,13 @@
 	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus)
+"rNE" = (
+/obj/structure/platform/rock/icy,
+/obj/structure/platform/rock/icy{
+	dir = 8
+	},
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "rQp" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -18449,7 +18497,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "tit" = (
 /obj/random/dirt_75,
@@ -18610,6 +18658,16 @@
 	},
 /obj/effect/floor_decal/snowdrift/random,
 /turf/simulated/floor/exoplanet/tiled/full,
+/area/crevus)
+"trJ" = (
+/obj/structure/flora/rock/stalagmite/icy,
+/obj/structure/platform/rock/icy{
+	dir = 8
+	},
+/obj/structure/platform/rock/icy{
+	dir = 1
+	},
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "trR" = (
 /obj/effect/floor_decal/spline/plain/corner/grey{
@@ -18968,7 +19026,7 @@
 	dir = 4;
 	name = "Storage Room"
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "tND" = (
 /obj/structure/machinery/door/urban{
@@ -19539,7 +19597,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "uta" = (
 /obj/structure/trashbin,
@@ -19909,7 +19967,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "uLL" = (
 /obj/structure/stairs_railing{
@@ -20394,6 +20452,9 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/balcony_1)
+"vos" = (
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "vow" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/desk/eastright,
@@ -21172,6 +21233,12 @@
 	},
 /turf/simulated/floor/lino,
 /area/crevus)
+"wme" = (
+/obj/structure/platform_deco/rock/icy{
+	dir = 4
+	},
+/turf/simulated/floor/cave/adhomai,
+/area/crevus)
 "wmh" = (
 /obj/structure/platform/column,
 /obj/random/dirt_75,
@@ -21539,7 +21606,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "wDx" = (
 /obj/effect/decal/curb{
@@ -21630,7 +21697,7 @@
 /obj/structure/platform/rock/icy{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "wHW" = (
 /obj/effect/decal/curb,
@@ -21676,7 +21743,7 @@
 /obj/structure/platform/column{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "wLu" = (
 /obj/structure/barricade/wooden/road{
@@ -22100,7 +22167,7 @@
 /obj/structure/platform/column{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/floor/cave/adhomai,
 /area/crevus)
 "xjk" = (
 /obj/effect/decal/curb{
@@ -41399,7 +41466,7 @@ iJp
 tnt
 jpg
 lKW
-lFh
+qUC
 lEg
 jpg
 jpg
@@ -41661,7 +41728,7 @@ nuq
 qFh
 usU
 jaz
-lFh
+qUC
 gEl
 kGv
 jpg
@@ -41912,15 +41979,15 @@ bmy
 lOb
 prz
 ivT
-sgA
+vos
 aKV
 bsM
 due
-sgA
-sgA
-orF
-sgA
-dKZ
+vos
+vos
+jTc
+vos
+lwg
 wHL
 jpg
 jpg
@@ -42176,9 +42243,9 @@ due
 due
 due
 due
-sgA
-sgA
-ycn
+vos
+vos
+hzK
 jpg
 jpg
 jpg
@@ -42426,16 +42493,16 @@ lCU
 joX
 caR
 ivT
-sgA
-sgA
-sgA
+vos
+vos
+vos
 aKV
 bsM
 due
-sgA
-sgA
-sgA
-dKZ
+vos
+vos
+vos
+lwg
 bQu
 jpg
 jpg
@@ -42690,10 +42757,10 @@ due
 due
 due
 due
-sgA
+vos
 aKV
 bsM
-sky
+pdl
 jpg
 jpg
 jpg
@@ -42940,18 +43007,18 @@ uGr
 ydA
 oRE
 ivT
-sgA
-sgA
+vos
+vos
 aKV
 bsM
 due
-sgA
-sgA
-sgA
-sgA
-sgA
-dKZ
-jFA
+vos
+vos
+vos
+vos
+vos
+lwg
+pbG
 jpg
 jpg
 vBo
@@ -43203,12 +43270,12 @@ oIh
 tif
 iiQ
 due
-sgA
-sgA
-orF
-sgA
-hCF
-qHb
+vos
+vos
+jTc
+vos
+jbZ
+trJ
 jpg
 jpg
 jpg
@@ -43454,17 +43521,17 @@ xjh
 jpg
 tnt
 jpg
-glc
+msR
 wDd
 jpg
 jpg
-glc
-pEn
-sgA
-hCF
-viU
-pEn
-ycn
+msR
+gFm
+vos
+jbZ
+gnT
+gFm
+hzK
 jpg
 jpg
 jpg
@@ -43705,7 +43772,7 @@ mOH
 wVa
 jpg
 bjH
-sgA
+vos
 jpg
 jpg
 jpg
@@ -43716,12 +43783,12 @@ jpg
 jpg
 jpg
 jpg
-rkY
+rNE
 uKZ
-qHb
+trJ
 jpg
-spi
-ycn
+mcv
+hzK
 jpg
 jpg
 jpg
@@ -43977,7 +44044,7 @@ jpg
 jpg
 jpg
 jpg
-spi
+mcv
 gZH
 omT
 jpg
@@ -44233,9 +44300,9 @@ wVa
 jpg
 jpg
 jpg
-dGn
-pSA
-ycn
+jRd
+wme
+hzK
 jpg
 jpg
 jpg
@@ -96851,12 +96918,12 @@ jpg
 jpg
 jpg
 jpg
-bcl
-iIv
-qnN
-edG
-edG
-gRQ
+jpg
+jpg
+jpg
+jpg
+jpg
+jpg
 jpg
 jpg
 jpg
@@ -97108,12 +97175,12 @@ jpg
 jpg
 jpg
 jpg
-wbx
-mFt
-olK
-nnp
-olK
-lGi
+jpg
+jpg
+jpg
+jpg
+jpg
+jpg
 jpg
 jpg
 jpg
