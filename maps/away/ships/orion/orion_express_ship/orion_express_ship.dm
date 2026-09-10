@@ -268,7 +268,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/orion_express_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orion Express Shuttle"
-	req_access = list(ACCESS_ORION_EXPRESS_SHIP)
+	req_access = list(/datum/access/exress_ship::id)
 
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
@@ -278,7 +278,6 @@
 	landmark_transition = "nav_transit_orion_express"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_orion_express"
 	dock_target = "orion_shuttle"
 	defer_initialisation = TRUE
 

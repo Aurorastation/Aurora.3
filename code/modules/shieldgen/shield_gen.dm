@@ -12,7 +12,7 @@
 	icon_state = "generator0"
 	density = TRUE
 	use_power = POWER_USE_OFF	//doesn't use APC power
-	req_one_access = list(ACCESS_CAPTAIN, ACCESS_SECURITY, ACCESS_ENGINE)
+	req_one_access = list(/datum/access/captain::id, /datum/access/security::id, /datum/access/engine::id)
 	/// Our owned energy field.
 	var/datum/energy_field/energy_field
 	/// If the machine is powered or not.

@@ -234,7 +234,9 @@
 	return !density
 
 /obj/structure/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
-	return (check_access_list(pass_info.access) && can_open())
+	// An already-open door is traversable. can_open() intentionally returns FALSE when density is FALSE,
+	// so calling it unconditionally caused pathfinding to treat open doors and shutters as walls.
+	return !density || (check_access_list(pass_info.access) && can_open())
 
 
 /obj/structure/machinery/door/proc/bumpopen(mob/user as mob)

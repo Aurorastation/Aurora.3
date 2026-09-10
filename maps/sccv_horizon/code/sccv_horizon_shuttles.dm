@@ -118,7 +118,6 @@
 	landmark_transition = "nav_transit_intrepid"
 	range = 2
 	fuel_consumption = 4
-	logging_home_tag = "nav_hangar_intrepid"
 
 /obj/effect/shuttle_landmark/intrepid/hangar
 	name = "First Deck Intrepid Hangar Bay"
@@ -142,7 +141,6 @@
 	landmark_transition = "nav_transit_canary"
 	range = 2
 	fuel_consumption = 4
-	logging_home_tag = "nav_hangar_canary"
 
 /obj/effect/shuttle_landmark/canary/hangar
 	name = "First Deck Canary Hangar Bay"
@@ -166,7 +164,6 @@
 	landmark_transition = "nav_transit_quark"
 	range = 1
 	fuel_consumption = 3
-	logging_home_tag = "nav_hangar_quark"
 
 /obj/effect/shuttle_landmark/quark/hangar
 	name = "First Deck Quark Hangar Bay"
@@ -190,7 +187,6 @@
 	landmark_transition = "nav_transit_mining"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_mining"
 
 /obj/effect/shuttle_landmark/mining/hangar
 	name = "First Deck Spark Hangar Bay"

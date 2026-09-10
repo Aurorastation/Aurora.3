@@ -108,10 +108,10 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	outfit = /obj/outfit/job/xo
 
 	job_access = list(
-		ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_SHIP_WEAPONS, ACCESS_ENGINE, ACCESS_CHANGE_IDS, ACCESS_EVA, ACCESS_HEADS, ACCESS_ALL_PERSONAL_LOCKERS,
-		ACCESS_MAINT_TUNNELS, ACCESS_BAR, ACCESS_JANITOR, ACCESS_CONSTRUCTION, ACCESS_CREMATORIUM, ACCESS_GALLEY, ACCESS_HYDROPONICS, ACCESS_CHAPEL_OFFICE,
-		ACCESS_LIBRARY, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_JANITOR, ACCESS_HOP, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY,
-		ACCESS_WEAPONS, ACCESS_JOURNALIST, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_TELEPORTER
+		/datum/access/sec_doors::id, /datum/access/medical::id, /datum/access/ship_weapons::id, /datum/access/engine::id, /datum/access/change_ids::id, /datum/access/eva::id, /datum/access/heads::id, /datum/access/all_personal_lockers::id,
+		/datum/access/maint_tunnels::id, /datum/access/bar::id, /datum/access/janitor::id, /datum/access/construction::id, /datum/access/crematorium::id, /datum/access/galley::id, /datum/access/hydroponics::id, /datum/access/chapel_office::id,
+		/datum/access/library::id, /datum/access/research::id, /datum/access/mining::id, /datum/access/mailsorting::id, /datum/access/janitor::id, /datum/access/hop::id, /datum/access/RC_announce::id, /datum/access/keycard_auth::id, /datum/access/gateway::id,
+		/datum/access/weapons::id, /datum/access/journalist::id, /datum/access/bridge_crew::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/teleporter::id
 	)
 
 	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -168,8 +168,8 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	outfit = /obj/outfit/job/bridge_crew
 
 	job_access = list(
-		ACCESS_HEADS, ACCESS_EVA, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY,
-		ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS
+		/datum/access/heads::id, /datum/access/eva::id, /datum/access/gateway::id, /datum/access/weapons::id, /datum/access/bridge_crew::id, /datum/access/intrepid::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id,
+		/datum/access/teleporter::id, /datum/access/external_airlocks::id
 	)
 
 	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)

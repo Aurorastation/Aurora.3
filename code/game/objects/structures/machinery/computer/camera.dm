@@ -77,7 +77,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
+	return (check_camera_access(user, /datum/access/security::id) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
 /obj/structure/machinery/computer/security/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
