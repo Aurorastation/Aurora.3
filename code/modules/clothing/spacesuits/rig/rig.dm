@@ -1062,7 +1062,7 @@
 /obj/item/rig/proc/modify_wearer_effective_mass(atom/movable/source, effective_mass)
 	SIGNAL_HANDLER
 	if(!offline && suit_is_deployed())
-		*effective_mass *= lift_capacity_multiplier
+		*effective_mass = *effective_mass * lift_capacity_multiplier
 
 /obj/item/rig/proc/handle_wearer_click(mob/user, atom/target, modifiers)
 	SIGNAL_HANDLER
