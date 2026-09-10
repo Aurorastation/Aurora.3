@@ -200,15 +200,16 @@
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/process(seconds_per_tick)
 	. = ..()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if (!use_power || welded)
 		return PROCESS_KILL
 
 	if(stat & (NOPOWER|BROKEN))
 		return 0
-
-	if (broadcast_status_next_process)
-		broadcast_status()
-		broadcast_status_next_process = FALSE
 
 	if (hibernate > world.time)
 		return 1

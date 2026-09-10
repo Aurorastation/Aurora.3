@@ -183,6 +183,11 @@
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/process()
 	. = ..()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if (!use_power || welded)
 		return PROCESS_KILL
 
@@ -191,10 +196,6 @@
 
 	if (!node)
 		update_use_power(POWER_USE_OFF)
-
-	if (broadcast_status_next_process)
-		broadcast_status()
-		broadcast_status_next_process = FALSE
 
 	if((stat & (NOPOWER|BROKEN)) || !loc)
 		return 0
