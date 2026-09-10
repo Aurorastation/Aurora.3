@@ -126,6 +126,8 @@
 /obj/item/modular_computer/handheld/pda/tesla_internal
 	name = "tesla internal computer"
 	desc = "A basic internal computer drawing its power from a Tesla spine."
+	enrolled = DEVICE_UNSET
+	_app_preset_type = null
 
 /obj/item/modular_computer/handheld/pda/tesla_internal/GetID()
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
@@ -209,9 +211,9 @@
 /obj/item/organ/internal/augment/tool/tesla/arc_welder
 	name = "tesla arc welder"
 	desc = "A retractable electrical arc welder with a Tesla-powered capacitor patterned after an experimental self-replenishing welder."
-	icon_state = "robotanalyzer"
+	icon_state = "lighter-aug"
 	action_button_name = "Deploy Arc Welder"
-	action_button_icon = "augment-tool"
+	action_button_icon = "lighter-aug"
 	organ_tag = BP_AUG_TESLA_WELDER
 	parent_organ = BP_R_HAND
 	augment_type = /obj/item/weldingtool/experimental/tesla_augment
@@ -250,8 +252,9 @@
 /obj/item/weldingtool/experimental/tesla_augment
 	name = "tesla arc welder"
 	desc = "An electrical arc welder powered by a slowly regenerating internal capacitor. Its charge cannot be replenished from an external fuel source."
-	icon_state = "expwelder"
-	item_state = "expwelder"
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "lighter-aug"
+	item_state = "lighter-aug"
 	change_icons = FALSE
 	var/obj/item/organ/internal/augment/tool/tesla/arc_welder/source_augment
 
@@ -379,8 +382,8 @@
 	name = "tesla arc lighter"
 	desc = "A pair of retractable electrodes producing a momentary ignition arc. It has no persistent flame and does not radiate enough heat to ignite the surrounding atmosphere."
 	icon = 'icons/obj/cigs_lighters.dmi'
-	icon_state = "zippo"
-	item_state = "zippo"
+	icon_state = "lighter-aug"
+	item_state = "lighter-aug"
 	w_class = WEIGHT_CLASS_TINY
 	force = 0
 	damtype = DAMAGE_PAIN
@@ -641,14 +644,33 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	prosthetics_scan(owner, owner)
 	var/obj/item/organ/internal/augment/tesla/spine = get_spine()
-	to_chat(owner, SPAN_NOTICE("Tesla spine: [spine.is_broken() ? "NONFUNCTIONAL" : (spine.is_bruised() ? "DAMAGED" : "operational")]."))
-	to_chat(owner, SPAN_NOTICE("Absorbed electrical charge: [spine.actual_charges]/[spine.max_charges]."))
-	to_chat(owner, SPAN_NOTICE("Connected Tesla augments:"))
+	var/list/report = list(
+		SPAN_NOTICE("<b>Tesla Personal Diagnostic</b>"),
+		"<b>Power system</b>",
+		"Tesla spine: [spine.is_broken() ? SPAN_DANGER("nonfunctional") : (spine.is_bruised() ? SPAN_WARNING("damaged") : SPAN_GOOD("operational"))]",
+		"Absorbed charge: [spine.actual_charges]/[spine.max_charges]",
+		"<hr><b>Tesla prosthetics</b>"
+	)
+	var/found_prosthetic = FALSE
+	for(var/obj/item/organ/external/E in owner.organs)
+		var/datum/robolimb/R = GLOB.all_robolimbs[E.model]
+		if(!R?.is_tesla)
+			continue
+		found_prosthetic = TRUE
+		report += "[capitalize(E.name)]: <span class='warning'>[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(E))] wiring</span>, <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(E))] electronics</font>"
+	if(!found_prosthetic)
+		report += SPAN_NOTICE("No Tesla prosthetics detected.")
+	report += "<hr><b>Connected Tesla augments</b>"
+	var/found_augment = FALSE
 	for(var/obj/item/organ/internal/augment/A in owner.internal_organs)
-		if(A == spine || hascall(A, "tesla_power_changed"))
-			to_chat(owner, "[A.name]: [A.is_broken() ? SPAN_DANGER("nonfunctional") : (A.is_bruised() ? SPAN_WARNING("damaged") : SPAN_GOOD("operational"))]")
+		if(A == spine || !hascall(A, "tesla_power_changed"))
+			continue
+		found_augment = TRUE
+		report += "[capitalize(A.name)]: [A.is_broken() ? SPAN_DANGER("nonfunctional") : (A.is_bruised() ? SPAN_WARNING("damaged") : SPAN_GOOD("operational"))]"
+	if(!found_augment)
+		report += SPAN_NOTICE("No additional Tesla augments detected.")
+	to_chat(owner, report.Join("<br>"))
 	return TRUE
 
 /obj/item/organ/internal/augment/tesla_device/diagnostic/process()
@@ -669,56 +691,94 @@
 		playsound(get_turf(owner), 'sound/machines/twobeep.ogg', 30, TRUE)
 	last_announced_severity = severity
 
-// Low-power device-cell charging lead
+// Low-power in-hand device-cell charger
 
-/obj/item/organ/internal/augment/tool/tesla/charging_lead
+/obj/item/organ/internal/augment/tesla_device/charging_lead
 	name = "tesla low-power charging lead"
-	desc = "A retractable charging lead compatible only with modular-computer and handheld device cells."
+	desc = "An integrated low-current lead which charges a compatible device held in its hand. Its controller refuses to charge full-sized power cells."
 	icon_state = "robotanalyzer"
-	action_button_name = "Deploy Charging Lead"
+	action_button_name = "Toggle Charging Lead"
 	action_button_icon = "augment-tool"
 	organ_tag = BP_AUG_TESLA_CHARGER
 	parent_organ = BP_R_HAND
-	augment_type = /obj/item/tesla_charging_lead
+	activable = TRUE
+	cooldown = 10
+	var/hand_slot = slot_r_hand
+	/// Matches a basic power outlet's 2500 mW cable rate plus its 200 mW charging bonus.
+	var/charging_load = 2700
+	var/obj/item/charging_target
+	var/obj/item/cell/device/charging_cell
 
-/obj/item/organ/internal/augment/tool/tesla/charging_lead/left
+/obj/item/organ/internal/augment/tesla_device/charging_lead/left
 	parent_organ = BP_L_HAND
-	aug_slot = slot_l_hand
+	hand_slot = slot_l_hand
 
-/obj/item/tesla_charging_lead
-	name = "tesla low-power charging lead"
-	desc = "A retractable low-current lead. Its controller refuses to charge anything larger than a handheld device cell."
-	icon = 'icons/obj/item/multitool.dmi'
-	icon_state = "multitool"
-	item_state = "multitool"
-	w_class = WEIGHT_CLASS_TINY
-	force = 0
-	var/charge_per_use = 50
+/obj/item/organ/internal/augment/tesla_device/charging_lead/Destroy()
+	stop_charging()
+	return ..()
 
-/obj/item/tesla_charging_lead/afterattack(atom/target, mob/living/user, proximity)
-	if(!proximity || !isobj(target))
-		return
-	var/obj/O = target
-	var/obj/item/cell/device/cell = O.get_cell()
+/obj/item/organ/internal/augment/tesla_device/charging_lead/removed()
+	stop_charging()
+	return ..()
+
+/obj/item/organ/internal/augment/tesla_device/charging_lead/attack_self(var/mob/user)
+	if(charging_target)
+		stop_charging("You disconnect your charging lead from [charging_target].")
+		return TRUE
+	if(!owner)
+		return FALSE
+	var/obj/item/target = owner.get_equipped_item(hand_slot)
+	if(!target)
+		to_chat(owner, SPAN_WARNING("You need to hold a compatible device in the charger's hand."))
+		return FALSE
+	var/obj/item/cell/device/cell = target.get_cell()
 	if(!istype(cell))
-		to_chat(user, SPAN_WARNING("The charging lead rejects [target]; it only supports modular-computer and device cells."))
-		return
-	if(cell.charge >= cell.maxcharge)
-		to_chat(user, SPAN_NOTICE("[target]'s device cell is already fully charged."))
-		return
-	var/obj/item/organ/internal/augment/tesla/spine = get_tesla_spine(user)
-	if(!spine || spine.is_broken())
-		to_chat(user, SPAN_WARNING("The charging lead cannot draw power from a functioning Tesla spine."))
-		return
-	cell.give(min(charge_per_use, cell.maxcharge - cell.charge))
-	to_chat(user, SPAN_NOTICE("You trickle-charge [target] to [round(cell.percent())]%."))
-	playsound(get_turf(user), 'sound/machines/click.ogg', 20, TRUE)
-	user.setClickCooldown(1 SECOND)
-
-/obj/item/tesla_charging_lead/dropped()
+		to_chat(owner, SPAN_WARNING("Your charging lead rejects [target]; it only supports modular-computer and device cells."))
+		return FALSE
+	if(cell.fully_charged())
+		to_chat(owner, SPAN_NOTICE("[target]'s device cell is already fully charged."))
+		return FALSE
 	. = ..()
-	loc = null
-	qdel(src)
+	if(!.)
+		return FALSE
+	charging_target = target
+	charging_cell = cell
+	START_PROCESSING(SSprocessing, src)
+	to_chat(owner, SPAN_NOTICE("You connect your charging lead to [charging_target]."))
+	playsound(get_turf(owner), 'sound/machines/click.ogg', 20, TRUE)
+	return TRUE
+
+/obj/item/organ/internal/augment/tesla_device/charging_lead/process()
+	if(!owner || QDELETED(charging_target) || QDELETED(charging_cell) || owner.get_equipped_item(hand_slot) != charging_target || charging_target.get_cell() != charging_cell || !has_tesla_power() || is_broken())
+		stop_charging(owner ? "Your charging lead disconnects." : null)
+		return PROCESS_KILL
+	if(charging_cell.fully_charged())
+		stop_charging("[charging_target] finishes charging and your charging lead disconnects.")
+		return PROCESS_KILL
+	charging_cell.give(charging_load * CELLRATE)
+	if(charging_cell.fully_charged())
+		playsound(get_turf(owner), 'sound/machines/twobeep.ogg', 20, TRUE)
+		stop_charging("[charging_target] finishes charging and your charging lead disconnects.")
+		return PROCESS_KILL
+
+/obj/item/organ/internal/augment/tesla_device/charging_lead/proc/stop_charging(var/message)
+	STOP_PROCESSING(SSprocessing, src)
+	if(message && owner)
+		to_chat(owner, SPAN_NOTICE(message))
+	charging_target = null
+	charging_cell = null
+
+/obj/item/organ/internal/augment/tesla_device/charging_lead/tesla_power_changed(var/powered)
+	if(!powered && charging_target)
+		stop_charging("Your charging lead loses power and disconnects.")
+
+/obj/item/organ/internal/augment/tesla_device/charging_lead/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if(charging_target && charging_cell)
+			. += "It is charging [charging_target] at [charging_load] mW. The device cell is at [round(charging_cell.percent())]%."
+		else
+			. += "It charges compatible device cells at [charging_load] mW while their device is held in this hand."
 
 // Switchable thermal coils
 

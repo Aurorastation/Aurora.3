@@ -736,7 +736,7 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 
 /datum/gear/augment/tesla_accessory/pda
 	display_name = "tesla internal computer"
-	description = "A basic forearm-mounted modular computer powered and slowly recharged by a Tesla spine."
+	description = "A basic forearm-mounted modular computer powered and slowly recharged by a Tesla spine. It starts unenrolled so its owner can choose a software pack and whether to make it private."
 	path = /obj/item/organ/internal/augment/tesla_device/pda
 	cost = 1
 
@@ -808,21 +808,21 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 
 /datum/gear/augment/tesla_accessory/diagnostic
 	display_name = "tesla personal diagnostic panel"
-	description = "A self-only robotic analyzer which reports prosthetic and Tesla hardware condition and automatically announces new maintenance faults."
+	description = "A Tesla-only status panel which reports spine power, Tesla prosthetic damage, and connected augment condition, and automatically announces new maintenance faults."
 	path = /obj/item/organ/internal/augment/tesla_device/diagnostic
 	cost = 2
 
 /datum/gear/augment/tesla_accessory/charging_lead
 	display_name = "tesla low-power charging lead selection"
-	description = "A retractable charging lead compatible with modular-computer and handheld device cells, but not full-sized power cells."
-	path = /obj/item/organ/internal/augment/tool/tesla/charging_lead
+	description = "An integrated lead which charges a compatible item held in its selected hand at roughly power-outlet speed. It supports modular-computer and handheld device cells, but not full-sized power cells."
+	path = /obj/item/organ/internal/augment/tesla_device/charging_lead
 	cost = 2
 
 /datum/gear/augment/tesla_accessory/charging_lead/New()
 	..()
 	var/list/augs = list()
-	augs["tesla low-power charging lead, right hand"] = /obj/item/organ/internal/augment/tool/tesla/charging_lead
-	augs["tesla low-power charging lead, left hand"] = /obj/item/organ/internal/augment/tool/tesla/charging_lead/left
+	augs["tesla low-power charging lead, right hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead
+	augs["tesla low-power charging lead, left hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/tesla_accessory/thermal
