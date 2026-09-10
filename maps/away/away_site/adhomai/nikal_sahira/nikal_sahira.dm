@@ -6,10 +6,10 @@
 	suffix = "nikal_sahira.dmm"
 	id = "nikal_sahira"
 
-	// sectors = list(SECTOR_SRANDMARR)
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	// template_flags = TEMPLATE_FLAG_PORT_SPAWN
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(SECTOR_SRANDMARR)
+	//sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_PORT_SPAWN
+	//template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight = 1
 	spawn_cost = 1
 
