@@ -26,10 +26,6 @@
 	if(tow)
 		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
 
-/obj/vehicle/train/cargo/engine/antagonist_hints(mob/user, distance, is_adjacent)
-	. = ..()
-	. += "When emagged, it can be used to run people over with."
-
 //-------------------------------------------
 // Standard procs
 //-------------------------------------------
@@ -81,17 +77,23 @@
 		if(isturf(T))
 			A.Move(T)	//bump things away when hit
 
-	if(emagged)
+	var/mob/living/driver = get_driver()
+	if(driver?.m_intent == M_RUN)
 		if(isliving(A))
 			var/mob/living/M = A
 			visible_message(SPAN_WARNING("[src] knocks over [M]!"))
 			var/def_zone = ran_zone()
 			M.apply_effects(5, 5)				//knock people down if you hit them
 			M.apply_damage(22 / move_delay, DAMAGE_BRUTE, def_zone,)	// and do damage according to how fast the train is going
-			if(isliving(load))
-				var/mob/living/D = load
-				to_chat(D, SPAN_WARNING("You hit [M]!"))
-				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
+			to_chat(driver, SPAN_WARNING("You hit [M]!"))
+			msg_admin_attack("[driver.name] ([driver.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(driver),ckey_target=key_name(M))
+
+/obj/vehicle/train/proc/get_driver()
+	var/obj/vehicle/train/train_head = src
+	while(train_head.lead)
+		train_head = train_head.lead
+	if(isliving(train_head.load))
+		return train_head.load
 
 
 //-------------------------------------------

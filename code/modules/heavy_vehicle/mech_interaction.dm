@@ -417,7 +417,9 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
+		trample_on_move = (user.a_intent == I_HURT && user.m_intent == M_RUN)
 		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/strafe_move(mob/user, direction)
 	if (!legs)
@@ -441,7 +443,9 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
+		trample_on_move = (user.a_intent == I_HURT && user.m_intent == M_RUN)
 		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction, delay_modifier)
 	if (!legs || !can_turn(user, delay_modifier))
@@ -491,6 +495,18 @@
 		for (var/mob/pilot in pilots)
 			to_chat(pilot, SPAN_WARNING("Your exosuit's legs spark as you attempt to control them!"))
 		spark(src, 3, GLOB.alldirs)
+
+/mob/living/heavy_vehicle/Collide(atom/movable/target_movable_atom)
+	if(trample_on_move && isliving(target_movable_atom))
+		var/mob/living/target_mob = target_movable_atom
+		target_mob.apply_effect(2, WEAKEN)
+		trample(target_mob)
+	return ..()
+
+/mob/living/heavy_vehicle/can_move_mob(mob/living/swapped, swapping = FALSE, passive = FALSE)
+	if(swapping)
+		return FALSE
+	return ..()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
 	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))

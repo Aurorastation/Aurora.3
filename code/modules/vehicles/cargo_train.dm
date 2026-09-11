@@ -279,6 +279,7 @@
 			if(!(locate(/obj/vehicle/train) in get_step(src, direction)))
 				set_dir(direction)
 			return 0
+		update_car(train_length, active_engines)
 		if(Move(get_step(src, direction)))
 			return 1
 		return 0
@@ -412,7 +413,8 @@
 		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
 		move_delay += GLOB.config.walk_speed 													//base reference speed
 		move_delay *= GLOB.config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
-		move_delay -= 1
+		var/mob/living/driver = get_driver()
+		move_delay -= (driver?.m_intent == M_RUN ? 2 : 1)
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length

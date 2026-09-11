@@ -41,6 +41,8 @@
 
 	// Mob currently piloting the mech.
 	var/list/pilots
+	/// Whether the pilot commanding the current movement is trying to trample mobs.
+	var/trample_on_move = FALSE
 	var/list/pilot_overlays
 
 	// Remote control stuff
