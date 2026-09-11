@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - rscadd: "Redesigned the Intrepid shuttle."
-  - qol: "Add auto-attach for mapped-in turf contents for IV drips."
