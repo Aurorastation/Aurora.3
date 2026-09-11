@@ -32,7 +32,6 @@
 // ---------- General Store
 
 /area/crevus/general_store
-
 	name = "General Store"
 
 /area/crevus/general_store/storage
