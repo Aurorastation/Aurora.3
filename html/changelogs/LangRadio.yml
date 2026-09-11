@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Lore radios can now use languages, defined on a per line basis."
-  - rscadd: "The six tajaran radio stations for the lore radio have been updated."

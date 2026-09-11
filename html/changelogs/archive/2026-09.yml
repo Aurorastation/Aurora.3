@@ -133,3 +133,18 @@
 2026-09-10:
   TheGreyWolf:
   - bugfix: Fixes some pathfinding issues with cleanbots, medical bots and farmbots.
+2026-09-11:
+  DreamySkrell:
+  - rscadd: Adds `pick_consistent` procs.
+  - refactor: Refactors `/obj/random` a bit.
+  Fenodyree:
+  - bugfix: Fixes self charging cells (slime cores) not recharging themselves in hardsuits.
+  Geeves:
+  - rscadd: Added a functional chess set that allows you to play with others or against
+      a computer. It's mapped into the service areas and available in the loadout.
+  TheGreyWolf:
+  - rscadd: Turned the examine hints into a collapsible foldout in chat.
+  - rscadd: Lore radios can now use languages, defined on a per line basis.
+  - rscadd: The six tajaran radio stations for the lore radio have been updated.
+  - bugfix: Fixed the inability to attach certain prosthetics to people.
+  - bugfix: Suits should no longer disappear into bluespace.
