@@ -93,7 +93,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Shuttle"
-	req_access = list(ACCESS_PRA)
+	req_access = list(/datum/access/pra::id)
 
 // Controls docking behaviour
 /datum/shuttle/autodock/overmap/headmaster_shuttle
@@ -105,7 +105,6 @@
 	dock_target = "headmaster_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_headmaster"
 	defer_initialisation = TRUE
 
 // Hangar marker

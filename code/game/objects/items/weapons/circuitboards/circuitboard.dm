@@ -16,6 +16,9 @@
 	var/board_type = BOARD_COMPUTER
 	var/list/req_components
 	var/contain_parts = 1
+	/// Skill component-to-level requirements for flatpak deployment. Null or empty disables skill scaling.
+	/// The largest shortfall determines the time penalty; faster deployment requires exceeding every checked level.
+	var/list/flatpak_required_skills = list(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 	recyclable = TRUE
 	matter = list(MATERIAL_GLASS = 500, MATERIAL_PHORON = 10)

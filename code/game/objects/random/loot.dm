@@ -2,7 +2,7 @@
 	name = "random maintenance loot"
 	desc = "Stuff for the maint-dwellers."
 	icon_state = "gasmask"
-	problist = list(
+	spawnlist = list(
 		/obj/item/bluespace_crystal/artificial = 0.1,
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
@@ -174,7 +174,7 @@
 	name = "random high value item"
 	desc = "This is a random high value item."
 	icon_state = "coin"
-	problist = list(
+	spawnlist = list(
 		/obj/random/telecrystals = 0.1,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.1,
 		/obj/random/melee = 0.3,
@@ -187,7 +187,7 @@
 	)
 
 /obj/random/highvalue/no_crystal
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
@@ -204,7 +204,7 @@
 
 //Can be good loot for away sites as well as a guaranteed valuable for a merchant.
 /obj/random/highvalue/no_weapon
-	problist = list(
+	spawnlist = list(
 		/obj/item/bluespace_crystal = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/vintage_wine = 0.1,
 		/obj/item/clothing/glasses/thermal = 0.5,
@@ -223,7 +223,7 @@
 		)
 
 /obj/random/highvalue/cash
-	problist = list(
+	spawnlist = list(
 	/obj/item/storage/secure/briefcase/money = 1,
 	/obj/item/stack/material/phoron/full = 0.1
 	)
@@ -232,7 +232,7 @@
 	name = "random corporate safe high value item"
 	desc = "This is a random corporate safe high value item."
 	icon_state = "coin"
-	problist = list(
+	spawnlist = list(
 		/obj/item/personal_shield = 0.4,
 		/obj/random/safe_rig = 0.4,
 		/obj/item/clothing/glasses/thermal = 0.3,
@@ -327,7 +327,7 @@
 	name = "random contraband"
 	desc = "This is some random contraband."
 	icon_state = "coin"
-	problist = list(
+	spawnlist = list(
 		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
@@ -370,7 +370,7 @@
 /obj/random/contraband/pill
 	name = "random contraband pill"
 	desc = "This is a random pill of illegal drugs."
-	problist = list(
+	spawnlist = list(
 		/obj/item/reagent_containers/pill/cocaine = 3,
 		/obj/item/reagent_containers/pill/contemplus = 3,
 		/obj/item/reagent_containers/pill/sparkle = 3,
@@ -382,7 +382,7 @@
 /obj/random/contraband/pillbottle
 	name = "random contraband pill bottle"
 	desc = "This is a random bottle of illegal pills."
-	problist = list(
+	spawnlist = list(
 		/obj/item/storage/pill_bottle/cocaine = 1,
 		/obj/item/storage/pill_bottle/contemplus = 1,
 		/obj/item/storage/pill_bottle/sparkle = 1,
@@ -394,7 +394,7 @@
 	name = "random coin"
 	desc = "This is a random coin."
 	icon_state = "coin"
-	problist = list(
+	spawnlist = list(
 		/obj/item/coin/iron = 5,
 		/obj/item/coin/silver = 3,
 		/obj/item/coin/gold = 0.7,
@@ -407,7 +407,7 @@
 /obj/random/spacecash
 	name = "random credit chips"
 	desc = "This is a random credit chip."
-	problist = list(
+	spawnlist = list(
 		/obj/item/spacecash/c1 = 6,
 		/obj/item/spacecash/c10 = 3,
 		/obj/item/spacecash/c20 = 2,
@@ -477,7 +477,7 @@
 /obj/random/survival_weapon
 	name = "survival weapon"
 	icon_state = "melee"
-	problist = list(
+	spawnlist = list(
 		/obj/item/crowbar = 1,
 		/obj/item/shovel = 1,
 		/obj/item/pickaxe = 0.5,
@@ -499,7 +499,7 @@
 /obj/random/high_grade_weapon
 	name = "high grade weapon"
 	icon_state = "melee"
-	problist = list(
+	spawnlist = list(
 		/obj/item/material/sword/axe = 0.5,
 		/obj/item/material/sword/longsword = 0.25,
 		/obj/item/material/sword/rapier = 0.5,
@@ -512,7 +512,7 @@
 /obj/random/light
 	name = "random light"
 	icon_state = "flashlight"
-	problist = list(
+	spawnlist = list(
 		/obj/item/flashlight = 1,
 		/obj/item/flashlight/flare = 2,
 		/obj/item/flashlight/lamp = 0.5,
@@ -526,7 +526,7 @@
 /obj/random/med_stack
 	name = "medical supplies"
 	icon_state = "med"
-	problist = list(
+	spawnlist = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 0.05,
@@ -542,7 +542,7 @@
 /obj/random/splints
 	name = "splints"
 	icon_state = "med"
-	problist = list(
+	spawnlist = list(
 		/obj/item/stack/medical/splint = 1
 	)
 	has_postspawn = TRUE
@@ -575,7 +575,7 @@
 
 /obj/random/gun_with_ammo/pistols
 	name = "pistols"
-	problist = list(
+	spawnlist = list(
 		/obj/item/gun/projectile/pistol = 1,
 		/obj/item/gun/projectile/pistol/detective = 1,
 		/obj/item/gun/projectile/colt = 1,
@@ -592,7 +592,7 @@
 
 /obj/random/gun_with_ammo/automatic
 	name = "automatics"
-	problist = list(
+	spawnlist = list(
 		/obj/item/gun/projectile/automatic/mini_uzi = 1,
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/gun/projectile/automatic/xanusmg = 1,
@@ -608,7 +608,7 @@
 /obj/random/shotgun
 	name = "shotgun"
 	icon_state = "shotgun"
-	problist = list(
+	spawnlist = list(
 		/obj/item/gun/projectile/shotgun/foldable = 1,
 		/obj/item/gun/projectile/shotgun/doublebarrel = 1,
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
@@ -630,7 +630,7 @@
 /obj/random/semiautos
 	name = "semiautos"
 	icon_state = "shotgun"
-	problist = list(
+	spawnlist = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle/scope = 0.05,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 0.5,
@@ -647,7 +647,7 @@
 /obj/random/barricade_kit
 	name = "barricade kits"
 	icon_state = "barricade"
-	problist = list(
+	spawnlist = list(
 		/obj/item/stack/barricade/random = 1,
 		/obj/item/stack/barricade/wood/random = 0.5,
 		/obj/item/stack/barricade/plasteel/random = 0.25
@@ -657,7 +657,7 @@
 	name = "random grenade"
 	desc = "This is a random grenade."
 	icon_state = "syrup"
-	problist = list(
+	spawnlist = list(
 		/obj/item/grenade/frag = 5,
 		/obj/item/grenade/stinger = 4,
 		/obj/item/grenade/napalm = 2,

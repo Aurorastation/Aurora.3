@@ -505,6 +505,8 @@ ABSTRACT_TYPE(/obj/item/howitzer_pellet)
 		ACTUAL HOWITZERS TO USE
 #####################################*/
 
+// # Gadpathur 105mm light field howitzer
+
 /obj/structure/machinery/howitzer/gadpathur_105mm
 	name = "gadpathur 105mm light field howitzer"
 	desc = "A 105mm light field howitzer, in service with the Gadpathur Planetary Defense Council."
@@ -516,6 +518,27 @@ ABSTRACT_TYPE(/obj/item/howitzer_pellet)
 
 /obj/projectile/howitzer/high_explosive/gadpathur_105mm
 	name = "gadpathur 105mm light field howitzer HE projectile"
+	fragment_minimum = 30
+	fragment_maximum = 50
+	light_impact_damage_range = 3
+	flash_damage_range = 5
+
+// # Mai'vazh A.42 100mm light field howitzer
+
+/obj/structure/machinery/howitzer/maivazh_a42_100mm
+	name = "mai'vazh A.42 100mm light field howitzer"
+	desc = "the Mai'vazh pattern of light field howitzers has been in service across Adhomai for over 80 years. \
+		The original design arrived from master gun founders in the fortress city as an 'ultra-light' \
+		mobile support platform to compliment the larger cannons. In spite of its aged design, \
+		it has remained the foundation for modern Adhomian artillery due to its performance in the intense conditions of Adhomian warfare"
+
+/obj/item/ammo_casing/howitzer/high_explosive/maivazh_a42_100mm
+	name = "mai'vazh A.42 100mm light field howitzer HE ammo"
+	desc = "A 100mm light field howitzer ammo, designed for use in the Mai'vazh A.42 howitzer."
+	projectile_type = /obj/projectile/howitzer/high_explosive/maivazh_a42_100mm
+
+/obj/projectile/howitzer/high_explosive/maivazh_a42_100mm
+	name = "mai'vazh A.42 100mm light field howitzer HE projectile"
 	fragment_minimum = 30
 	fragment_maximum = 50
 	light_impact_damage_range = 3

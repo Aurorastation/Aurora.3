@@ -19693,9 +19693,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "rYv" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall{
-	color = "#2e2e2e";
-	can_open = 1
+	color = "#2e2e2e"
 	},
 /area/crevus/outside)
 "rZt" = (
@@ -26553,9 +26553,9 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/crevus/outside)
 "ykC" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall{
-	color = "#2e2e2e";
-	can_open = 1
+	color = "#2e2e2e"
 	},
 /area/crevus/general_store/storage)
 "ykQ" = (
