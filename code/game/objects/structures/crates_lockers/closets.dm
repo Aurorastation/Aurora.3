@@ -87,7 +87,7 @@
 	/// Combined effective mass of the movable contents.
 	var/mass_contents = 0
 	/// Set when contents change outside the usual open and close operations.
-	var/content_mass_dirty = TRUE
+	var/content_mass_changed = TRUE
 
 /**
  * Closed storage is moved as a single load, so its effective mass includes
@@ -96,7 +96,7 @@
  */
 /obj/structure/closet/get_effective_mass()
 	. = ..()
-	if(content_mass_dirty)
+	if(content_mass_changed)
 		update_content_mass()
 	. += mass_contents
 
@@ -105,15 +105,15 @@
 	for(var/atom/movable/stored_thing in contents)
 		if(!stored_thing.anchored)
 			mass_contents += stored_thing.get_effective_mass()
-	content_mass_dirty = FALSE
+	content_mass_changed = FALSE
 
 /obj/structure/closet/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
-	content_mass_dirty = TRUE
+	content_mass_changed = TRUE
 
 /obj/structure/closet/Exited(atom/movable/gone, direction)
 	. = ..()
-	content_mass_dirty = TRUE
+	content_mass_changed = TRUE
 
 /obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
