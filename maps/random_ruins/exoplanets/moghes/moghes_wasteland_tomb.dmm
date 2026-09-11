@@ -465,9 +465,8 @@
 	},
 /area/moghes_wasteland_tomb)
 "UO" = (
-/turf/simulated/wall/sandstone{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/sandstone,
 /area/moghes_wasteland_tomb)
 "Ve" = (
 /obj/item/material/twohanded/spear/steel,

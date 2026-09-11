@@ -775,6 +775,7 @@
 	name = "wood"
 	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
 	icon_colour = WOOD_COLOR_GENERIC
+	wall_colour = WOOD_COLOR_GENERIC
 	integrity = 50
 	icon_base = "wood"
 	wall_icon = 'icons/turf/smooth/composite_wood.dmi'

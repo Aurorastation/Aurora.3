@@ -1007,8 +1007,6 @@
 /obj/item/storage/backpack/satchel/idris,
 /obj/item/storage/backpack/satchel/idris,
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat/white,
-/obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat/teal,
-/obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat,
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris/longcoat,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
@@ -1413,9 +1411,8 @@
 /turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "oy" = (
-/turf/simulated/wall/shuttle/idris{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/captain)
 "oA" = (
 /obj/structure/bed/stool/chair/padded/teal{

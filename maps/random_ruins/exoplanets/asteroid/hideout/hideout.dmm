@@ -233,9 +233,8 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "xT" = (
-/turf/simulated/wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall,
 /area/template_noop)
 "yg" = (
 /mob/living/simple_animal/hostile/viscerator,

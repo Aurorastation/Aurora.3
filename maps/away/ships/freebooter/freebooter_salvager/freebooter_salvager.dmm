@@ -3756,9 +3756,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/crew_quarters)
 "rk" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/toilets)
 "rl" = (
 /obj/effect/floor_decal/corner/dark_blue,

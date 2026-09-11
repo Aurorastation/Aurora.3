@@ -7024,12 +7024,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
-"vIY" = (
-/turf/simulated/wall/shuttle/space_ship{
-	can_open = 1;
-	color = "#aba59f"
-	},
-/area/hiskyn_ship/armory)
 "vKv" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
@@ -37686,8 +37680,8 @@ lKU
 kbm
 mSr
 gdc
-vIY
-vIY
+gdc
+gdc
 acL
 tYI
 abl
@@ -37944,7 +37938,7 @@ abw
 mSr
 gdc
 dQn
-vIY
+gdc
 acL
 acL
 aHf

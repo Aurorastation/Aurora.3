@@ -1372,6 +1372,7 @@
 #include "code\game\objects\structures\door_assembly.dm"
 #include "code\game\objects\structures\ECD.dm"
 #include "code\game\objects\structures\extinguisher.dm"
+#include "code\game\objects\structures\fake_walls.dm"
 #include "code\game\objects\structures\fireaxe_cabinet.dm"
 #include "code\game\objects\structures\flags_banners.dm"
 #include "code\game\objects\structures\full_window_frame.dm"
