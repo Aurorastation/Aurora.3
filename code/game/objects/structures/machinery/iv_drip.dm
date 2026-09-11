@@ -112,6 +112,31 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+	// Mapping helper - Auto attach things when spawned on the same turf
+	var/turf/T = get_turf(src)
+	if(!beaker)
+		for(var/obj/item/reagent_containers/container in T)
+			if(is_type_in_list(container, accepted_containers))
+				beaker = container
+				container.forceMove(src)
+				break
+
+	if(!breath_mask)
+		var/obj/item/clothing/mask/found_breath_mask = locate(/obj/item/clothing/mask/breath) in T
+		breath_mask = found_breath_mask
+		found_breath_mask?.forceMove(src)
+
+	if(!tank)
+		for(var/obj/item/tank/found_tank in T)
+			if(is_type_in_list(found_tank, tank_blacklist))
+				continue
+
+			tank = found_tank
+			found_tank.forceMove(src)
+			break
+
+	update_icon()
+
 /obj/structure/machinery/iv_drip/Destroy()
 	if(attached)
 		clear_attached()
