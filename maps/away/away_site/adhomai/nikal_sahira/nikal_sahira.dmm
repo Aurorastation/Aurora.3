@@ -27,6 +27,13 @@
 	},
 /turf/simulated/floor/marble/red,
 /area/crevus/outside)
+"ace" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_gang1_boss";
+	identifier = "crevus_gang1_boss"
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
 "acg" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -172,6 +179,10 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_casino_personnel";
+	identifier = "crevus_casino_personnel"
+	},
 /turf/simulated/floor/tiled,
 /area/crevus/outside)
 "aiu" = (
@@ -276,6 +287,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"anm" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "anx" = (
 /obj/item/hullbeacon/red,
@@ -441,6 +459,18 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
+"avY" = (
+/obj/structure/table/wood/walnut,
+/obj/random/pottedplant_small{
+	pixel_x = 8;
+	pixel_y = -15
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 8;
+	pixel_y = 16
+	},
+/turf/simulated/floor/lino/diamond,
+/area/crevus/outside)
 "aws" = (
 /obj/effect/floor_decal/spline/plain/corner/brown{
 	dir = 1
@@ -525,6 +555,14 @@
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/wood,
 /area/crevus/outside)
+"aBA" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "aBB" = (
 /obj/structure/bed/stool/chair/plastic{
 	dir = 8
@@ -546,16 +584,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"aDK" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/road_marking/thin{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "aEe" = (
 /obj/effect/floor_decal/spline/plain/corner/grey{
@@ -608,6 +636,15 @@
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"aHs" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/effect/step_trigger/thrower{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "aHI" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -675,19 +712,11 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
-"aKp" = (
-/obj/effect/decal/road_marking{
-	dir = 4
+"aKA" = (
+/obj/structure/urban_grate{
+	pixel_y = 16
 	},
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/trashbags{
-	pixel_y = -7;
-	pixel_x = -8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "aKC" = (
 /obj/structure/machinery/space_heater,
@@ -766,16 +795,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
 /area/crevus/outside)
-"aNm" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/step_trigger/thrower{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "aNn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/rack/retail_shelf,
@@ -851,15 +870,6 @@
 /obj/effect/decal/cleanable/blood/dry,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/crevus/outside)
-"aPf" = (
-/obj/effect/floor_decal/spline/plain/grey,
-/obj/structure/table/steel,
-/obj/random/dirt_75,
-/obj/item/clothes_dyer{
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "aPQ" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/random/dirt_75,
@@ -881,13 +891,6 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/open,
 /area/crevus/outside)
-"aQO" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/road_marking/thin,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "aQT" = (
 /obj/structure/utility_pole/street/classic/on{
 	pixel_x = -10;
@@ -905,6 +908,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow,
+/area/crevus/outside)
+"aRC" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/thin{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "aSY" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
@@ -1006,6 +1019,28 @@
 	dir = 1
 	},
 /obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
+	pixel_y = 20
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
+	pixel_y = 20;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
+	pixel_y = 20;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
+	pixel_y = 5;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
+	pixel_y = 5;
+	pixel_x = -10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "aYu" = (
@@ -1134,7 +1169,16 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Guns"
+	},
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/revolver/adhomian,
+/obj/item/gun/projectile/revolver/adhomian,
+/obj/item/gun/projectile/shotgun/pump/rifle/blank,
+/obj/item/gun/projectile/shotgun/pump/rifle/blank,
 /turf/simulated/floor/tiled/gunmetal,
 /area/crevus/outside)
 "bhU" = (
@@ -1160,10 +1204,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete,
 /area/crevus/outside)
-"bju" = (
-/obj/random/dirt_75,
-/obj/structure/paper_pile/random,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+"bjq" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/obj/structure/machinery/light/small/maybe_broken{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "bjH" = (
 /obj/structure/machinery/light{
@@ -1217,6 +1266,13 @@
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
+"bkC" = (
+/obj/structure/platform/metal_alt{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/simulated/floor/exoplanet/water/alt,
+/area/crevus/outside)
 "bkE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/light{
@@ -1473,14 +1529,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
-"bwL" = (
-/obj/random/dirt_75,
-/obj/structure/trashbags{
-	pixel_y = 8
-	},
-/obj/effect/decal/cleanable/blood/dry,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "bxg" = (
 /obj/random/dirt_75,
 /obj/structure/utility_pole/street/classic/on{
@@ -1504,6 +1552,14 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/exoplanet/wood,
+/area/crevus/outside)
+"bzz" = (
+/obj/effect/floor_decal/spline/plain/corner/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "bAa" = (
 /obj/structure/platform/metal_alt{
@@ -1599,6 +1655,32 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crevus/outside)
+"bES" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_y = 19;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_y = 19;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_y = 5;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/messa_mead{
+	pixel_y = 5;
+	pixel_x = 10
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/crevus/outside)
 "bEV" = (
 /obj/structure/road_barrier{
 	dir = 4
@@ -1650,6 +1732,16 @@
 /obj/random/junk,
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/tiled/full,
+/area/crevus/outside)
+"bHt" = (
+/obj/effect/floor_decal/spline/plain/grey,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "bHv" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -1866,6 +1958,12 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
+"bOk" = (
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/plating/snow,
+/area/crevus/outside)
 "bOL" = (
 /obj/structure/table/wood/walnut,
 /obj/structure/machinery/light{
@@ -1978,6 +2076,13 @@
 	dir = 4
 	},
 /turf/simulated/open,
+/area/crevus/outside)
+"bSm" = (
+/obj/structure/platform/column{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black,
+/turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
 "bSH" = (
 /obj/structure/table/rack/retail_shelf,
@@ -2276,6 +2381,28 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/balcony_2)
+"cdp" = (
+/obj/structure/platform/column,
+/obj/random/dirt_75,
+/obj/structure/closet,
+/turf/simulated/floor/tiled/full,
+/area/crevus/general_store/storage)
+"cep" = (
+/obj/effect/floor_decal/spline/plain/grey,
+/obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/item/clothes_dyer{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"ceF" = (
+/obj/effect/decal/road_marking,
+/obj/structure/trashbags{
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "ceO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2290,10 +2417,6 @@
 	},
 /obj/structure/platform_deco/column,
 /turf/simulated/floor/marble/red,
-/area/crevus/outside)
-"cgf" = (
-/obj/structure/urban_grate,
-/turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
 "cgm" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -2444,50 +2567,40 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "cnh" = (
-/obj/structure/table/glass,
-/obj/item/clothing/shoes/laceup{
-	pixel_x = 16;
-	pixel_y = 10
+/obj/structure/table/rack/clothing{
+	dir = 4
 	},
-/obj/item/clothing/shoes/laceup{
-	pixel_x = 16;
-	pixel_y = 7
+/obj/item/clothing/accessory/poncho/tajarancloak/winter{
+	pixel_x = 7
 	},
-/obj/item/clothing/shoes/laceup{
-	pixel_x = 16;
-	pixel_y = 4
+/obj/item/clothing/accessory/poncho/tajarancloak/winter{
+	pixel_x = 7
 	},
-/obj/item/clothing/shoes/laceup{
-	pixel_x = 16;
-	pixel_y = 1
+/obj/item/clothing/accessory/poncho/tajarancloak/winter{
+	pixel_x = 7
 	},
-/obj/item/clothing/shoes/laceup{
-	pixel_x = 16;
-	pixel_y = -2
+/obj/item/clothing/accessory/poncho/tajarancloak/winter{
+	pixel_x = 7
 	},
-/obj/item/clothing/shoes/aerostatic{
-	pixel_x = -4;
-	pixel_y = 11
+/obj/item/clothing/accessory/poncho/tajarancloak/winter{
+	pixel_x = 7
 	},
-/obj/item/clothing/shoes/aerostatic{
-	pixel_x = -4;
-	pixel_y = 8
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
+	pixel_x = -7
 	},
-/obj/item/clothing/shoes/aerostatic{
-	pixel_x = -4;
-	pixel_y = 5
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
+	pixel_x = -7
 	},
-/obj/item/clothing/shoes/aerostatic{
-	pixel_x = -4;
-	pixel_y = 2
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
+	pixel_x = -7
 	},
 /turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
-"cnN" = (
-/obj/structure/sign/staff_only{
-	pixel_x = 32
-	},
-/turf/simulated/open,
 /area/crevus/outside)
 "coq" = (
 /obj/effect/floor_decal/spline/plain/brown{
@@ -2681,14 +2794,6 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/gridded,
-/area/crevus/outside)
-"cwA" = (
-/obj/effect/decal/road_marking,
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "cwH" = (
 /obj/structure/bed/sleeping_bag{
@@ -2930,6 +3035,16 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/crevus/general_store)
+"cIA" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_clothing_vendor";
+	identifier = "crevus_clothing_vendor"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "cJw" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/random/dirt_75,
@@ -3006,6 +3121,12 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/table_area)
+"cOC" = (
+/obj/effect/decal/road_marking/turn_left{
+	pixel_x = 16
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "cOK" = (
 /obj/structure/rod_railing{
 	dir = 8
@@ -3130,6 +3251,13 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
+"cWL" = (
+/obj/effect/floor_decal/spline/plain/corner/grey,
+/obj/structure/bed/stool/padded{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "cXQ" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/structure/structural_support,
@@ -3247,12 +3375,6 @@
 	},
 /turf/simulated/floor/exoplanet/grass/no_edge,
 /area/crevus/outside)
-"dbU" = (
-/obj/structure/automobile/adhomai_car/green{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "dcA" = (
 /obj/structure/utility_pole/street/traffic/base{
 	pixel_y = 18;
@@ -3272,6 +3394,16 @@
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/snowdrift/large/random,
 /turf/simulated/floor/exoplanet/snow,
+/area/crevus/outside)
+"ddC" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/step_trigger/thrower{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "ddI" = (
 /obj/random/dirt_75,
@@ -3299,6 +3431,73 @@
 	dir = 8
 	},
 /obj/structure/table/rack/retail_shelf,
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/c9mm{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/mc9mm/empty,
+/obj/item/ammo_magazine/mc9mm/empty,
+/obj/item/ammo_magazine/mc9mm/empty,
+/obj/item/ammo_magazine/mc9mm/empty,
+/obj/item/ammo_magazine/a50{
+	pixel_y = 12;
+	pixel_x = -8
+	},
+/obj/item/ammo_magazine/a50{
+	pixel_y = 12;
+	pixel_x = -8
+	},
+/obj/item/ammo_magazine/a50{
+	pixel_y = 12;
+	pixel_x = -8
+	},
+/obj/item/ammo_magazine/a50{
+	pixel_y = 12;
+	pixel_x = -8
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"dgl" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant/floorleaf,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "dhh" = (
@@ -3617,6 +3816,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/crevus/outside)
+"dvm" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_gang1_member";
+	identifier = "crevus_gang1_member"
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
 "dvw" = (
 /obj/structure/sink/kitchen{
 	dir = 4;
@@ -3654,6 +3860,18 @@
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
+"dwO" = (
+/obj/structure/table/wood/walnut,
+/obj/item/newspaper{
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/newspaper{
+	pixel_y = 5;
+	pixel_x = -3
+	},
+/turf/simulated/floor/lino/diamond,
+/area/crevus/outside)
 "dwQ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -3680,13 +3898,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crevus/outside)
-"dxu" = (
-/obj/effect/decal/road_marking,
-/obj/structure/trashbags{
-	pixel_y = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "dxH" = (
 /obj/structure/utility_pole/power/central{
 	pixel_y = 14;
@@ -3701,6 +3912,21 @@
 	},
 /obj/structure/platform_deco/metal_alt,
 /turf/simulated/open,
+/area/crevus/outside)
+"dya" = (
+/obj/structure/table/glass,
+/obj/item/clothing/shoes/laceup/lizardskin{
+	pixel_y = 10;
+	pixel_x = 4
+	},
+/obj/item/clothing/shoes/laceup/lizardskin{
+	pixel_y = 5;
+	pixel_x = 4
+	},
+/obj/item/clothing/shoes/laceup/lizardskin{
+	pixel_x = 4
+	},
+/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "dyv" = (
 /obj/structure/table/rack/folding_table,
@@ -3730,26 +3956,6 @@
 /obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
-"dzW" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
-"dAd" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/rod_railing{
-	dir = 8
-	},
-/obj/structure/machinery/light/small/maybe_broken{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/water/alt,
-/area/crevus/outside)
 "dAp" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -3871,14 +4077,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside)
-"dFR" = (
-/obj/structure/table/wood/walnut,
-/obj/random/pottedplant_small{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/crevus/restaurant/private_dining_room)
 "dFY" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/plain/black,
@@ -3894,6 +4092,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/crevus/outside)
+"dHd" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "dHr" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4007,32 +4213,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
-"dPj" = (
-/obj/structure/table/glass,
-/obj/item/clothing/shoes/flats{
-	pixel_x = -5;
-	pixel_y = 13
-	},
-/obj/item/clothing/shoes/flats{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/clothing/shoes/flats{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/clothing/shoes/flats{
-	pixel_x = -5
-	},
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
-"dPE" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/road_marking,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "dPL" = (
 /obj/structure/utility_pole/street/traffic/inverted{
 	dir = 4;
@@ -4088,21 +4268,6 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
-/area/crevus/outside)
-"dTm" = (
-/obj/random/dirt_75,
-/obj/effect/step_trigger/thrower{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/sidewalk/concrete,
-/area/crevus/outside)
-"dTw" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/trash_pile,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "dTH" = (
 /obj/structure/flora/pottedplant/fern,
@@ -4305,6 +4470,13 @@
 	},
 /turf/simulated/open,
 /area/crevus/outside)
+"eeJ" = (
+/obj/structure/machinery/vending/generic_clothing,
+/obj/effect/floor_decal/spline/plain/corner/grey,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "eeO" = (
 /obj/structure/platform_deco/rock/icy{
 	dir = 1
@@ -4338,6 +4510,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crevus/outside)
+"efX" = (
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/crevus/outside)
 "efY" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
@@ -4367,13 +4542,6 @@
 "egV" = (
 /turf/simulated/wall/concrete,
 /area/crevus/general_store)
-"ehd" = (
-/obj/random/dirt_75,
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "ehR" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
 /obj/structure/machinery/light/small{
@@ -4479,6 +4647,10 @@
 "emw" = (
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/lino/diamond,
+/area/crevus/outside)
+"emD" = (
+/obj/structure/paper_pile/random,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "emJ" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -4599,12 +4771,6 @@
 /obj/structure/flora/pottedplant/fortune_flower,
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
-"esg" = (
-/obj/structure/chainlink_fence,
-/obj/random/dirt_75,
-/obj/structure/trash_pile,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "esJ" = (
 /obj/structure/platform/column{
 	dir = 8
@@ -4664,6 +4830,18 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
+"euJ" = (
+/obj/structure/table/wood/walnut,
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/lino/diamond,
+/area/crevus/outside)
 "euV" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
@@ -4718,6 +4896,43 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/crevus/outside)
+"evM" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/toggle/greatcoat{
+	pixel_x = 7
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "evX" = (
 /obj/structure/quay_wall/side{
 	dir = 8
@@ -4765,16 +4980,6 @@
 	dir = 4
 	},
 /turf/simulated/open,
-/area/crevus/outside)
-"eyQ" = (
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/structure/machinery/light/spot{
-	dir = 8
-	},
-/obj/structure/trash_pile,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "ezn" = (
 /obj/structure/table/glass,
@@ -4898,6 +5103,16 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/crevus/general_store)
+"eEl" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/snow,
+/obj/structure/rod_railing{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
+/area/crevus/outside)
 "eEm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -4909,6 +5124,12 @@
 /obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/marble/red,
 /area/crevus/outside)
+"eED" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "eEL" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -4916,11 +5137,6 @@
 /obj/structure/table/steel,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/crevus/outside)
-"eFg" = (
-/obj/structure/machinery/door/urban/metal_bar,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "eFU" = (
 /obj/effect/decal/curb{
@@ -5261,6 +5477,10 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
+"eTe" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "eTo" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/decal/curb{
@@ -5315,6 +5535,13 @@
 	},
 /obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"eUi" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking/thin{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "eUy" = (
 /obj/random/dirt_75,
@@ -5404,13 +5631,6 @@
 /turf/unsimulated/wall/fakepdoor{
 	dir = 1
 	},
-/area/crevus/outside)
-"eYI" = (
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/obj/structure/lattice,
-/turf/simulated/open,
 /area/crevus/outside)
 "eYT" = (
 /obj/structure/flora/grass/brown,
@@ -5530,6 +5750,14 @@
 /obj/structure/flora/grass/both,
 /turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside)
+"ffr" = (
+/obj/structure/table/wood/walnut,
+/obj/random/pottedplant_small{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/crevus/restaurant/private_dining_room)
 "fft" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -5551,12 +5779,6 @@
 	},
 /obj/structure/flora/pottedplant/fern,
 /turf/simulated/floor/wood,
-/area/crevus/outside)
-"fgq" = (
-/obj/structure/automobile/adhomai_car/taxi{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "fgG" = (
 /obj/structure/flora/tree/adhomai{
@@ -5708,6 +5930,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/crevus/outside)
+"fnk" = (
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "fnP" = (
 /obj/effect/decal/cleanable/snow,
 /obj/structure/platform/column{
@@ -5735,13 +5964,6 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/molten_item,
 /turf/simulated/floor/exoplanet/plating,
-/area/crevus/outside)
-"foR" = (
-/obj/structure/lattice/ceiling,
-/obj/effect/decal/exterior_stairs/half/center{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "fpj" = (
 /obj/structure/platform/ledge/dark,
@@ -5833,14 +6055,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/crevus/outside)
-"fsD" = (
-/obj/structure/table/wood/walnut,
-/obj/random/pottedplant_small{
-	pixel_x = 17;
-	pixel_y = 4
-	},
-/turf/simulated/floor/lino/diamond,
-/area/crevus/outside)
 "fsI" = (
 /obj/structure/fire_barrel,
 /turf/simulated/floor/exoplanet/wood,
@@ -5875,11 +6089,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/crevus/outside)
-"ftz" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "ftD" = (
 /obj/structure/bed/stool/chair/sofa/bench/right{
@@ -5941,6 +6150,19 @@
 	},
 /turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
+"fvk" = (
+/obj/structure/machinery/door/urban/glass_sliding{
+	name = "Clothing Store"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/grey{
+	dir = 8
+	},
+/obj/structure/machinery/door/blast/shutters{
+	dir = 2;
+	id = "crevus_clothing_shop"
+	},
+/turf/simulated/floor/tiled/full,
+/area/crevus/outside)
 "fvp" = (
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -5992,13 +6214,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/restaurant/table_area)
-"fyN" = (
-/obj/effect/decal/road_marking/thin,
-/obj/structure/automobile/adhomai_car{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "fzh" = (
 /obj/structure/sign/emergency/evacuation/stairs{
 	dir = 1
@@ -6016,6 +6231,10 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"fBb" = (
+/obj/structure/paper_pile/random,
+/turf/unsimulated/mineral/adhomai,
 /area/crevus/outside)
 "fBp" = (
 /obj/structure/utility_pole/street/on{
@@ -6120,6 +6339,32 @@
 /obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
+"fHs" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine{
+	pixel_x = -10;
+	pixel_y = 20
+	},
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine{
+	pixel_y = 20
+	},
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine{
+	pixel_y = 20;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine{
+	pixel_x = -10;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine{
+	pixel_y = 5;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "fHz" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -6142,21 +6387,14 @@
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/private_dining_room)
 "fIk" = (
-/obj/structure/table/wood/walnut,
-/obj/item/paper_bin{
-	pixel_x = -5;
-	pixel_y = 6
+/obj/effect/decal/road_marking{
+	dir = 1
 	},
-/obj/item/pen{
-	pixel_x = -6;
-	pixel_y = 5
+/obj/effect/decal/road_marking/thin{
+	dir = 4
 	},
-/obj/random/pottedplant_small{
-	pixel_x = 17;
-	pixel_y = 4
-	},
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/crevus/restaurant/private_dining_room)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "fIp" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/ashtray{
@@ -6171,6 +6409,10 @@
 	},
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_attendant";
+	identifier = "crevus_attendant"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
@@ -6227,12 +6469,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
-"fLO" = (
-/obj/structure/automobile/adhomai_car/purple{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "fLV" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -6285,12 +6521,18 @@
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
-"fPg" = (
+"fPb" = (
+/obj/effect/floor_decal/spline/plain/grey,
+/obj/structure/table/steel,
 /obj/random/dirt_75,
-/obj/effect/step_trigger/thrower{
-	dir = 8
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
+	pixel_x = 7
 	},
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/obj/item/clothing/under/dressshirt/puffyblouse{
+	pixel_x = -8;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "fPE" = (
 /obj/random/dirt_75,
@@ -6517,6 +6759,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
+"gcb" = (
+/obj/effect/decal/road_marking/thin,
+/obj/vehicle/bike/snow/no_key{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "gco" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil,
@@ -6541,20 +6790,11 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/grass/no_edge,
 /area/crevus/restaurant/balcony_2)
-"gdL" = (
-/obj/structure/machinery/door/urban/metal_bar{
-	dir = 4
+"gen" = (
+/obj/structure/urban_grate{
+	pixel_x = 16
 	},
-/turf/simulated/floor/exoplanet/tiled/dark/full,
-/area/crevus/outside)
-"ges" = (
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/structure/rod_railing{
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "gev" = (
 /obj/effect/decal/curb/corner{
@@ -6938,6 +7178,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_casino_personnel";
+	identifier = "crevus_casino_personnel"
+	},
 /turf/simulated/floor/tiled,
 /area/crevus/outside)
 "gsl" = (
@@ -6979,18 +7223,6 @@
 	},
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
-	},
-/turf/simulated/floor/lino/diamond,
-/area/crevus/outside)
-"gud" = (
-/obj/structure/table/wood/walnut,
-/obj/random/pottedplant_small{
-	pixel_x = 8;
-	pixel_y = -15
-	},
-/obj/random/pottedplant_small{
-	pixel_x = 8;
-	pixel_y = 16
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
@@ -7052,6 +7284,13 @@
 	dir = 4
 	},
 /obj/structure/utility_pole/power,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
+"gxY" = (
+/obj/structure/trashbags{
+	pixel_y = -9;
+	pixel_x = 15
+	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "gzz" = (
@@ -7133,6 +7372,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
+/area/crevus/outside)
+"gBP" = (
+/obj/effect/step_trigger/thrower{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside)
 "gCx" = (
 /obj/structure/machinery/light/small{
@@ -7362,13 +7607,6 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/balcony_2)
-"gNi" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "gOM" = (
 /obj/structure/platform/ledge/dark{
 	dir = 4
@@ -7381,6 +7619,10 @@
 "gPe" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_attendant";
+	identifier = "crevus_attendant"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
@@ -7501,15 +7743,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
-"gUZ" = (
-/obj/effect/floor_decal/spline/plain/grey,
-/obj/structure/table/steel,
-/obj/item/clothing/shoes/heels{
-	pixel_x = -5;
-	pixel_y = -1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "gVo" = (
 /obj/structure/platform/engineer{
 	dir = 8
@@ -7575,13 +7808,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/crevus/outside)
-"gYq" = (
-/obj/effect/floor_decal/spline/plain/corner/grey,
-/obj/structure/bed/stool/padded{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "gYv" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/lattice/ceiling,
@@ -7605,12 +7831,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/water/alt,
-/area/crevus/outside)
-"gYU" = (
-/obj/structure/bed/stool/chair/folding{
-	dir = 8
-	},
-/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "gYW" = (
 /obj/effect/decal/road_marking/thin,
@@ -7671,16 +7891,6 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
-"hak" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "han" = (
 /obj/structure/table/rack,
 /obj/item/clothing/accessory/tajaran/cinnamon{
@@ -7735,6 +7945,13 @@
 /obj/structure/machinery/door/urban/metal_bar,
 /turf/simulated/open,
 /area/crevus/outside)
+"hbi" = (
+/obj/effect/decal/road_marking/thin,
+/obj/structure/automobile/adhomai_car/green{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "hbC" = (
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
@@ -7770,6 +7987,28 @@
 	dir = 8
 	},
 /obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice{
+	pixel_y = 20
+	},
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice{
+	pixel_y = 20;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice{
+	pixel_y = 20;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice{
+	pixel_y = 5;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/veterans_choice{
+	pixel_y = 5;
+	pixel_x = -10
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/crevus/outside)
 "hcq" = (
@@ -7854,14 +8093,6 @@
 	},
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/concrete,
-/area/crevus/outside)
-"hfG" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "hgB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -7956,15 +8187,6 @@
 	},
 /obj/effect/floor_decal/snowdrift/random,
 /turf/simulated/floor/exoplanet/snow,
-/area/crevus/outside)
-"hpg" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/effect/decal/road_marking/thin{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "hpG" = (
 /obj/effect/decal/curb{
@@ -8084,6 +8306,11 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/concrete,
+/area/crevus/outside)
+"hvY" = (
+/obj/structure/flora/grass/both,
+/obj/structure/rod_railing,
+/turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside)
 "hww" = (
 /obj/structure/chainlink_fence,
@@ -8206,6 +8433,16 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
+"hzw" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "hzI" = (
 /obj/random/dirt_75,
 /obj/structure/rod_railing,
@@ -8226,12 +8463,6 @@
 	},
 /obj/structure/rod_railing,
 /turf/simulated/open,
-/area/crevus/outside)
-"hBt" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "hBN" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -8327,12 +8558,18 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
-"hGg" = (
-/obj/effect/decal/road_marking{
-	dir = 4
+"hGV" = (
+/obj/effect/floor_decal/spline/plain/grey,
+/obj/structure/table/steel,
+/obj/item/clothing/shoes/heels{
+	pixel_x = -5;
+	pixel_y = -1
 	},
-/obj/effect/decal/road_marking/no_park,
-/turf/simulated/floor/exoplanet/asphalt,
+/obj/item/hand_labeler{
+	pixel_y = 12;
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "hHq" = (
 /obj/effect/decal/cleanable/snow,
@@ -8521,13 +8758,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
-"hRi" = (
-/obj/effect/decal/road_marking/thin,
-/obj/structure/automobile/adhomai_car/green{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "hRk" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/grass/brown,
@@ -8542,13 +8772,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
-/area/crevus/outside)
-"hSa" = (
-/obj/random/dirt_75,
-/obj/effect/step_trigger/thrower{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "hSn" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -8579,12 +8802,22 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
+"hTC" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/rod_railing,
+/turf/simulated/floor/exoplanet/water/alt,
+/area/crevus/outside)
 "hTD" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/crevus/outside)
+"hTG" = (
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/no_park,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "hTM" = (
 /obj/structure/bed/stool/chair/sofa/bench/right{
@@ -8611,16 +8844,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/turbolift/crevus/general_store)
-"hUi" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/step_trigger/thrower{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "hUG" = (
 /obj/structure/table/stone/marble,
 /obj/structure/machinery/chemical_dispenser/bar_alc/full{
@@ -8663,17 +8886,6 @@
 /obj/random/dirt_75,
 /obj/structure/paper_pile/random,
 /turf/simulated/floor/tiled/gridded,
-/area/crevus/outside)
-"hWb" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/trashbags{
-	pixel_y = -7;
-	pixel_x = 3
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "hXM" = (
 /obj/effect/decal/curb,
@@ -8816,13 +9028,6 @@
 /obj/structure/rod_railing,
 /turf/simulated/open,
 /area/crevus/outside)
-"icy" = (
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "idm" = (
 /obj/structure/platform/metal_alt{
 	dir = 8
@@ -8885,16 +9090,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood,
-/area/crevus/outside)
-"ihS" = (
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/snow,
-/obj/structure/rod_railing{
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/crevus/outside)
 "iid" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -8965,6 +9160,20 @@
 	pixel_x = 15
 	},
 /turf/simulated/floor/exoplanet/tiled/full,
+/area/crevus/outside)
+"ijY" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/step_trigger/thrower{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
+"ikq" = (
+/obj/effect/decal/road_marking/no_park,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "ikt" = (
 /obj/effect/decal/road_marking/thin,
@@ -9149,15 +9358,6 @@
 /obj/structure/machinery/door/urban/metal_bar,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
-"irx" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/effect/step_trigger/thrower{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "iry" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/platform/column{
@@ -9179,12 +9379,6 @@
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/private_dining_room)
-"isL" = (
-/obj/effect/decal/road_marking/turn_left{
-	pixel_x = 16
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "isN" = (
 /obj/structure/platform/column,
 /turf/simulated/floor/tiled/full,
@@ -9290,6 +9484,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"ixU" = (
+/obj/structure/platform/metal_alt,
+/obj/structure/platform/metal_alt{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "iym" = (
 /obj/structure/platform/metal_alt{
@@ -9523,12 +9724,6 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside)
-"iJn" = (
-/obj/effect/decal/exterior_stairs/half/center{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/water/alt,
-/area/crevus/outside)
 "iJp" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/closet/crate,
@@ -9551,11 +9746,6 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/table_area)
-"iJv" = (
-/obj/structure/structural_support,
-/obj/effect/decal/road_marking/no_park,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "iJz" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -9851,6 +10041,7 @@
 /obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/operations,
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/crevus/outside)
 "iZI" = (
@@ -9902,6 +10093,10 @@
 	},
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_firearm_salesperson";
+	identifier = "crevus_firearm_salesperson"
 	},
 /turf/simulated/floor/wood,
 /area/crevus/outside)
@@ -10060,43 +10255,6 @@
 	},
 /turf/simulated/floor/cave/adhomai,
 /area/crevus/outside)
-"jmg" = (
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/obj/structure/table/glass,
-/obj/item/clothing/shoes/heels/tajara{
-	pixel_x = 5;
-	pixel_y = 13
-	},
-/obj/item/clothing/shoes/heels/tajara{
-	pixel_x = 5;
-	pixel_y = 8
-	},
-/obj/item/clothing/shoes/heels/tajara/red{
-	pixel_x = -16;
-	pixel_y = 13
-	},
-/obj/item/clothing/shoes/heels/tajara/red{
-	pixel_x = -16;
-	pixel_y = 8
-	},
-/obj/item/clothing/shoes/heels/tajara/red{
-	pixel_x = -16;
-	pixel_y = 3
-	},
-/obj/item/clothing/shoes/heels/tajara/red{
-	pixel_x = -16;
-	pixel_y = -1
-	},
-/obj/item/clothing/shoes/heels{
-	pixel_x = 4;
-	pixel_y = 3
-	},
-/obj/item/clothing/shoes/heels{
-	pixel_x = 4;
-	pixel_y = -1
-	},
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "jmq" = (
 /obj/item/reagent_containers/food/drinks/dry_pasta{
 	pixel_y = 13
@@ -10134,51 +10292,6 @@
 	pixel_x = -13
 	},
 /turf/simulated/floor/tiled/white,
-/area/crevus/outside)
-"jnf" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/machinery/space_heater,
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"jni" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat/brown{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/toggle/greatcoat{
-	pixel_x = 7
-	},
-/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "jnp" = (
 /obj/structure/flora/tree/adhomai{
@@ -10675,10 +10788,11 @@
 "jGC" = (
 /obj/random/dirt_75,
 /obj/structure/urban_grate,
-/obj/random/canister/empty,
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/effect/floor_decal/industrial/hatch_small/operations,
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/crevus/outside)
 "jHF" = (
@@ -10699,16 +10813,6 @@
 /obj/structure/table/stone/marble,
 /obj/structure/machinery/light{
 	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"jIP" = (
-/obj/effect/floor_decal/spline/plain/grey,
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/machinery/light/small{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
@@ -10762,6 +10866,46 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/operations,
 /turf/simulated/floor/exoplanet/plating/snow,
+/area/crevus/outside)
+"jLl" = (
+/obj/structure/table/glass,
+/obj/item/clothing/shoes/laceup{
+	pixel_x = 16;
+	pixel_y = 10
+	},
+/obj/item/clothing/shoes/laceup{
+	pixel_x = 16;
+	pixel_y = 7
+	},
+/obj/item/clothing/shoes/laceup{
+	pixel_x = 16;
+	pixel_y = 4
+	},
+/obj/item/clothing/shoes/laceup{
+	pixel_x = 16;
+	pixel_y = 1
+	},
+/obj/item/clothing/shoes/laceup{
+	pixel_x = 16;
+	pixel_y = -2
+	},
+/obj/item/clothing/shoes/aerostatic{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/obj/item/clothing/shoes/aerostatic{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/clothing/shoes/aerostatic{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/clothing/shoes/aerostatic{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "jLJ" = (
 /obj/structure/platform/metal_alt{
@@ -10950,6 +11094,16 @@
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
+"jUt" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_artisan_shop_vendor";
+	identifier = "crevus_artisan_shop_vendor"
+	},
+/turf/simulated/floor/wood,
+/area/crevus/outside)
 "jUQ" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -11031,13 +11185,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
-"jXY" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/rod_railing{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/water/alt,
-/area/crevus/outside)
 "jYf" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/extinguisher_cabinet/north,
@@ -11053,6 +11200,11 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/exoplanet/snow,
+/area/crevus/outside)
+"jZN" = (
+/obj/effect/decal/road_marking,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "kae" = (
 /obj/structure/machinery/door/urban{
@@ -11511,6 +11663,15 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/restaurant/private_dining_room)
+"kuE" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/obj/structure/machinery/light,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "kuI" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -11703,13 +11864,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/crevus/outside)
-"kGj" = (
-/obj/structure/platform/metal_alt{
-	dir = 8
-	},
-/obj/structure/lattice,
-/turf/simulated/floor/exoplanet/water/alt,
-/area/crevus/outside)
 "kGv" = (
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
@@ -11840,11 +11994,6 @@
 /obj/structure/platform/column,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/snow,
-/area/crevus/outside)
-"kOS" = (
-/obj/structure/platform/metal_alt,
-/obj/structure/lattice,
-/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "kPc" = (
 /obj/structure/machinery/light,
@@ -11979,7 +12128,109 @@
 /obj/effect/floor_decal/industrial/hatch_door/grey{
 	dir = 8
 	},
+/obj/structure/machinery/door/blast/shutters{
+	dir = 2;
+	id = "crevus_gallery"
+	},
 /turf/simulated/floor/tiled/full,
+/area/crevus/outside)
+"kVT" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_casing/a68{
+	pixel_x = -11;
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_y = -6;
+	pixel_x = 10
+	},
+/obj/item/ammo_magazine/a68/ap{
+	pixel_y = -6
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_y = -6;
+	pixel_x = 10
+	},
+/obj/item/ammo_magazine/a68/ap{
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "kVY" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -11989,12 +12240,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crevus/outside)
-"kWh" = (
-/obj/structure/urban_grate{
-	pixel_y = 16
-	},
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "kXV" = (
 /obj/random/dirt_75,
 /obj/structure/crate_shelf,
@@ -12002,10 +12247,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
+"kYy" = (
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "kYG" = (
 /obj/structure/chainlink_fence,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
+/area/crevus/outside)
+"kYS" = (
+/obj/effect/map_effect/window_spawner/full/concrete,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 2;
+	id = "crevus_artisan_shop"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "kYX" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -12024,12 +12282,6 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
-"lal" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "laz" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer,
@@ -12081,6 +12333,16 @@
 /obj/structure/bookcase/libraryspawn/religion,
 /turf/simulated/floor/wood,
 /area/crevus/outside)
+"lbG" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "lbJ" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/power/outlet{
@@ -12091,6 +12353,12 @@
 	pixel_y = 24;
 	pixel_x = 9;
 	id = "crevus_car_gallery_tint"
+	},
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 9;
+	pixel_x = -1;
+	pixel_y = 21;
+	id = "crevus_gallery"
 	},
 /turf/simulated/floor/wood,
 /area/crevus/outside)
@@ -12317,11 +12585,6 @@
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/crevus/outside)
-"llU" = (
-/obj/random/dirt_75,
-/obj/structure/trash_pile,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "llZ" = (
 /obj/effect/floor_decal/snowdrift/large/random,
 /obj/effect/floor_decal/snowdrift/large/random,
@@ -12334,6 +12597,11 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
+"lmX" = (
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
 "lmZ" = (
 /obj/structure/road_sign/notice{
 	name = "warning sign - 'DO NOT LEAN'";
@@ -12343,13 +12611,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
-"lnb" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/structure/automobile/adhomai_car/purple,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "loC" = (
 /obj/structure/table/stone/marble,
@@ -12376,6 +12637,14 @@
 /obj/item/material/stool/chair/folding,
 /obj/effect/floor_decal/snowdrift/large/random,
 /turf/simulated/floor/exoplanet/snow,
+/area/crevus/outside)
+"lpN" = (
+/obj/random/dirt_75,
+/obj/structure/trashbags{
+	pixel_y = 8
+	},
+/obj/effect/decal/cleanable/blood/dry,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "lpU" = (
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -12441,6 +12710,12 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"lrD" = (
+/obj/effect/decal/road_marking,
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "lsq" = (
 /obj/structure/platform/metal_alt,
@@ -12712,6 +12987,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/full,
+/area/crevus/outside)
+"lEK" = (
+/obj/random/dirt_75,
+/obj/effect/step_trigger/thrower{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "lFd" = (
 /obj/structure/platform/rock/icy{
@@ -13003,6 +13285,10 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_clerk";
+	identifier = "crevus_clerk"
+	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
 "lRH" = (
@@ -13018,6 +13304,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/plating/snow,
+/area/crevus/outside)
+"lSe" = (
+/obj/structure/machinery/door/urban/metal_bar,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "lSi" = (
 /obj/random/dirt_75,
@@ -13179,6 +13470,10 @@
 	},
 /obj/structure/machinery/light,
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_casino_personnel";
+	identifier = "crevus_casino_personnel"
+	},
 /turf/simulated/floor/tiled,
 /area/crevus/outside)
 "maI" = (
@@ -13280,6 +13575,13 @@
 	},
 /turf/simulated/floor/exoplanet/grass/no_edge,
 /area/crevus/restaurant/balcony_2)
+"mgP" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/alt,
+/area/crevus/outside)
 "mhX" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/exoplanet/lino,
@@ -13293,10 +13595,6 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/grass/no_edge,
 /area/crevus/restaurant/balcony_1)
-"mjy" = (
-/obj/structure/paper_pile/random,
-/turf/unsimulated/mineral/adhomai,
-/area/crevus/outside)
 "mjF" = (
 /obj/effect/step_trigger/thrower{
 	dir = 8
@@ -13336,12 +13634,22 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_nt_pharmacist";
+	identifier = "crevus_nt_pharmacist"
+	},
 /turf/simulated/floor/tiled/light/full,
 /area/crevus/outside)
 "mkZ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/balcony_2)
+"mld" = (
+/obj/structure/machinery/light/spot{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "mle" = (
 /obj/structure/platform_deco/column,
 /obj/effect/floor_decal/snowdrift/random,
@@ -13364,50 +13672,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/concrete,
-/area/crevus/outside)
-"mlG" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/jacket/puffer{
-	pixel_x = -7;
-	pixel_y = -3
-	},
-/obj/item/clothing/suit/jacket/puffer{
-	pixel_x = -7;
-	pixel_y = -3
-	},
-/obj/item/clothing/suit/jacket/puffer{
-	pixel_x = -7;
-	pixel_y = -3
-	},
-/obj/item/clothing/suit/jacket/puffer{
-	pixel_x = -7;
-	pixel_y = -3
-	},
-/obj/item/clothing/suit/jacket/puffer{
-	pixel_x = -7;
-	pixel_y = -3
-	},
-/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "mmG" = (
 /obj/random/dirt_75,
@@ -13463,42 +13727,6 @@
 "mpg" = (
 /turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside)
-"mpt" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/winter{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/winter{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/winter{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/winter{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/winter{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/poncho/tajarancloak/maroon{
-	pixel_x = -7
-	},
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "mpG" = (
 /obj/structure/sign/urban/staff{
 	pixel_y = 22;
@@ -13527,12 +13755,16 @@
 /obj/structure/closet/crate/drop,
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
-"mqF" = (
-/obj/random/dirt_75,
-/obj/effect/decal/road_marking{
+"mqa" = (
+/obj/structure/platform/metal_alt{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/asphalt,
+/obj/structure/chainlink_fence,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "mqJ" = (
 /turf/simulated/wall,
@@ -13705,6 +13937,14 @@
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
+"myi" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/thin,
+/obj/effect/decal/cleanable/blood/dry,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "myx" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/dry,
@@ -13883,25 +14123,49 @@
 	},
 /turf/simulated/floor/wood,
 /area/crevus/outside)
-"mOt" = (
-/obj/effect/floor_decal/spline/plain/grey,
-/obj/structure/table/steel,
-/obj/random/dirt_75,
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/dressshirt/puffyblouse{
-	pixel_x = -8;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "mOH" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ammunition Storage"
+	},
 /obj/structure/machinery/light/small,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/item/ammo_magazine/a68/ap,
+/obj/item/ammo_magazine/a68/ap,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_casing/a68,
+/obj/item/ammo_magazine/c9mm,
+/obj/item/ammo_magazine/c9mm,
+/obj/item/ammo_magazine/c9mm,
+/obj/item/ammo_magazine/c9mm,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "mOK" = (
@@ -13986,24 +14250,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
-"mSI" = (
-/obj/structure/stairs/urban/road_ramp/south,
-/obj/effect/decal/road_marking/center{
-	dir = 1;
-	pixel_x = 16
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "mTr" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"mTZ" = (
-/obj/random/dirt_75,
-/obj/structure/trash_pile,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "mUi" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -14037,21 +14288,6 @@
 "mXk" = (
 /turf/simulated/wall/shuttle/brown,
 /area/crevus/outside)
-"mXE" = (
-/obj/structure/table/glass,
-/obj/item/clothing/shoes/laceup/lizardskin{
-	pixel_y = 10;
-	pixel_x = 4
-	},
-/obj/item/clothing/shoes/laceup/lizardskin{
-	pixel_y = 5;
-	pixel_x = 4
-	},
-/obj/item/clothing/shoes/laceup/lizardskin{
-	pixel_x = 4
-	},
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "mYo" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -14079,6 +14315,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/water/alt,
+/area/crevus/outside)
+"naI" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/structure/machinery/light/spot{
+	dir = 8
+	},
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "naJ" = (
 /obj/structure/platform/metal_alt,
@@ -14277,11 +14523,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/barricade/wooden/road,
 /turf/simulated/floor/exoplanet/water/alt,
-/area/crevus/outside)
-"njD" = (
-/obj/random/dirt_75,
-/obj/structure/urban_grate,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "njL" = (
 /obj/effect/floor_decal/spline/plain{
@@ -14501,13 +14742,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
-"nvv" = (
-/obj/effect/decal/road_marking,
-/obj/effect/decal/road_marking/thin{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "nvV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -14530,15 +14764,46 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/crevus/outside)
-"nxF" = (
-/obj/effect/step_trigger/thrower{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/snow,
-/area/crevus/outside)
 "nxH" = (
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/exoplanet/snow,
+/area/crevus/outside)
+"nxR" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/table/glass,
+/obj/item/clothing/shoes/heels/tajara{
+	pixel_x = 5;
+	pixel_y = 13
+	},
+/obj/item/clothing/shoes/heels/tajara{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/clothing/shoes/heels/tajara/red{
+	pixel_x = -16;
+	pixel_y = 13
+	},
+/obj/item/clothing/shoes/heels/tajara/red{
+	pixel_x = -16;
+	pixel_y = 8
+	},
+/obj/item/clothing/shoes/heels/tajara/red{
+	pixel_x = -16;
+	pixel_y = 3
+	},
+/obj/item/clothing/shoes/heels/tajara/red{
+	pixel_x = -16;
+	pixel_y = -1
+	},
+/obj/item/clothing/shoes/heels{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/clothing/shoes/heels{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "nys" = (
 /obj/structure/platform/column{
@@ -14580,16 +14845,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
-"nzP" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "nzZ" = (
 /obj/random/dirt_75,
 /obj/structure/machinery/vending/snack,
@@ -14622,17 +14877,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/crevus/general_store/storage)
-"nDg" = (
-/obj/structure/platform/metal_alt{
-	dir = 8
-	},
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/structure/chainlink_fence,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
 "nDU" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 5
@@ -14797,12 +15041,6 @@
 /obj/effect/floor_decal/snowdrift/random,
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete,
 /area/crevus/outside)
-"nMn" = (
-/obj/structure/machinery/light/spot{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "nMo" = (
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
@@ -14918,11 +15156,25 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/crevus/outside)
+"nSN" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "nTi" = (
 /obj/effect/decal/curb{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
+/area/crevus/outside)
+"nUw" = (
+/obj/structure/table/wood/walnut,
+/obj/random/pottedplant_small{
+	pixel_x = 17;
+	pixel_y = 4
+	},
+/turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
 "nUz" = (
 /obj/effect/floor_decal/industrial/outline/operations,
@@ -15216,6 +15468,14 @@
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
+"ogv" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 2;
+	id = "crevus_clothing_shop"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "ogF" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -15236,6 +15496,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass/no_edge,
+/area/crevus/outside)
+"ohg" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/no_park,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "ohh" = (
 /obj/structure/machinery/power/smes/buildable/third_party_shuttle,
@@ -15273,12 +15540,32 @@
 /obj/effect/floor_decal/industrial/hatch_door/grey{
 	dir = 8
 	},
+/obj/structure/machinery/door/blast/shutters{
+	dir = 2;
+	id = "crevus_artisan_shop"
+	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
 "oiM" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
+"ojm" = (
+/obj/structure/table/wood/walnut,
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/random/pottedplant_small{
+	pixel_x = 17;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/crevus/restaurant/private_dining_room)
 "oju" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 8
@@ -15306,11 +15593,6 @@
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
-"oky" = (
-/obj/structure/flora/grass/both,
-/obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/snow,
-/area/crevus/outside)
 "okZ" = (
 /obj/structure/machinery/door/urban/glass_sliding/double{
 	name = "General Store"
@@ -15324,6 +15606,50 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/general_store)
+"olh" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/no_park,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
+"olj" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/item/clothing/suit/storage/tajaran/archeologist{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/tajaran/archeologist{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/tajaran/archeologist{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/tajaran/archeologist{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/tajaran/archeologist{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/tajaran/hunting{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/tajaran/hunting{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/tajaran/hunting{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/tajaran/hunting{
+	pixel_x = -7
+	},
+/obj/item/clothing/suit/storage/tajaran/hunting{
+	pixel_x = -7
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "olx" = (
 /obj/structure/platform/rock/icy,
 /obj/structure/platform/rock/icy{
@@ -15373,15 +15699,6 @@
 	},
 /obj/structure/utility_pole/street/crosswalk,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
-"omR" = (
-/obj/random/dirt_75,
-/obj/structure/machinery/atm{
-	dir = 4;
-	pixel_x = 16;
-	pixel_y = 4
-	},
-/turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
 "omT" = (
 /obj/structure/flora/rock/stalagmite/icy,
@@ -15466,6 +15783,13 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
+"oqa" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "oqj" = (
 /obj/structure/paper_pile/random,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
@@ -15691,6 +16015,10 @@
 /obj/effect/floor_decal/industrial/hatch_door/grey{
 	dir = 8
 	},
+/obj/structure/machinery/door/blast/shutters{
+	dir = 2;
+	id = "crevus_artisan_shop"
+	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
 "oyp" = (
@@ -15752,14 +16080,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
-"oBc" = (
-/obj/structure/machinery/door/urban/metal,
-/obj/structure/sign/urban/staff{
-	pixel_y = 22;
-	pixel_x = -1
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "oBr" = (
 /obj/structure/platform/rock/icy{
@@ -15877,18 +16197,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
-"oGC" = (
-/obj/structure/table/wood/walnut,
-/obj/item/paper_bin{
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/item/pen{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/turf/simulated/floor/lino/diamond,
-/area/crevus/outside)
 "oGS" = (
 /obj/effect/step_trigger/thrower{
 	dir = 4
@@ -15951,13 +16259,6 @@
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
-"oNu" = (
-/obj/effect/decal/road_marking/thin,
-/obj/vehicle/bike/snow/no_key{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "oNA" = (
 /obj/effect/floor_decal/spline/plain/brown{
 	dir = 4
@@ -15966,6 +16267,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"oNM" = (
+/obj/structure/platform_deco/metal_alt{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "oNQ" = (
 /obj/structure/machinery/light/small{
@@ -16022,6 +16329,11 @@
 	pixel_x = -2
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"oRF" = (
+/obj/structure/platform/metal_alt,
+/obj/structure/lattice,
+/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "oRX" = (
 /obj/structure/platform_deco/column,
@@ -16135,16 +16447,6 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/outside)
-"oYE" = (
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "oYI" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -16216,6 +16518,10 @@
 	},
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_general_store_vendor";
+	identifier = "crevus_general_store_vendor"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/crevus/general_store/storage)
@@ -16335,13 +16641,24 @@
 	},
 /turf/simulated/floor/cave/adhomai,
 /area/crevus/outside)
-"pfb" = (
-/obj/effect/floor_decal/spline/plain/corner/grey{
-	dir = 1
+"peu" = (
+/obj/structure/table/glass,
+/obj/item/clothing/shoes/flats{
+	pixel_x = -5;
+	pixel_y = 13
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet,
-/turf/simulated/floor/tiled/dark/full,
+/obj/item/clothing/shoes/flats{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/clothing/shoes/flats{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/clothing/shoes/flats{
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "pft" = (
 /obj/effect/decal/cleanable/draftingchalk,
@@ -16352,6 +16669,12 @@
 /obj/effect/decal/curb/corner,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete,
+/area/crevus/outside)
+"pgf" = (
+/obj/structure/automobile/adhomai_car/blue{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "pgw" = (
 /obj/structure/curtain/black{
@@ -16401,6 +16724,27 @@
 /obj/structure/flora/pottedplant/whitetulip,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/private_dining_room)
+"pjj" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/dry,
+/obj/structure/trashbags{
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
+"pjk" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/structure/machinery/light/spot{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "pjm" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -16522,10 +16866,12 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
-"pqx" = (
-/obj/random/dirt_75,
-/obj/structure/lattice/ceiling,
-/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+"pqs" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "prl" = (
 /obj/structure/platform/column,
@@ -16663,6 +17009,12 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside)
+"pvK" = (
+/obj/structure/automobile/adhomai_car/taxi{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "pvR" = (
 /obj/structure/arch/gothic/eastwest/left,
 /obj/structure/machinery/door/blast/shutters/open,
@@ -16772,6 +17124,12 @@
 /obj/structure/table/wood/walnut,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/outside)
+"pBm" = (
+/obj/structure/automobile/adhomai_car/purple{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "pBq" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -16808,6 +17166,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
+"pCq" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 4;
+	id = "crevus_clothing_shop"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "pCu" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -16833,7 +17199,9 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
 "pDU" = (
-/turf/simulated/floor/exoplanet/tiled/dark,
+/obj/structure/structural_support,
+/obj/effect/decal/road_marking/no_park,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "pEc" = (
 /obj/effect/map_effect/perma_light/exoplanet,
@@ -16881,13 +17249,6 @@
 	},
 /obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"pGn" = (
-/obj/structure/platform/metal_alt,
-/obj/structure/platform/metal_alt{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "pGZ" = (
 /obj/effect/decal/curb/corner{
@@ -17120,15 +17481,20 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/item/quikpay{
-	req_one_access = null;
-	pixel_x = 7;
-	pixel_y = 8
-	},
 /obj/structure/table/wood,
+/obj/item/hand_labeler{
+	pixel_y = 12;
+	pixel_x = -5
+	},
 /obj/item/lore_radio{
-	pixel_x = -5;
-	pixel_y = -1
+	pixel_x = -8;
+	pixel_y = 1
+	},
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 9;
+	pixel_x = 8;
+	pixel_y = -1;
+	id = "crevus_artisan_shop"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
@@ -17145,10 +17511,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"pUf" = (
-/obj/effect/decal/road_marking/no_park,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "pVq" = (
 /obj/structure/table/wood/walnut,
@@ -17168,51 +17530,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/marble/red,
-/area/crevus/outside)
-"pVR" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/item/clothing/accessory/tajaran{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/tajaran{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/tajaran{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/tajaran{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/tajaran{
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/tajaran/blue{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/tajaran/blue{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/tajaran/blue{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/tajaran/blue{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/tajaran/blue{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/tajaran/blue{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/tajaran/black,
-/obj/item/clothing/accessory/tajaran/black,
-/obj/item/clothing/accessory/tajaran/black,
-/obj/item/clothing/accessory/tajaran/black,
-/obj/item/clothing/accessory/tajaran/black,
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "pWf" = (
 /obj/structure/utility_pole/street/classic/on{
@@ -17301,12 +17618,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow,
-/area/crevus/outside)
-"qcq" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "qcy" = (
 /obj/structure/machinery/light/small/maybe_broken{
@@ -17435,6 +17746,12 @@
 /obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
+"qhd" = (
+/obj/structure/machinery/light/small/floor{
+	pixel_x = -16
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "qiI" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 8
@@ -17507,6 +17824,43 @@
 	},
 /turf/simulated/floor/marble/red,
 /area/crevus/outside)
+"qlQ" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/item/clothing/under/tajaran/dpra{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/tajaran/dpra/alt{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/tajaran/dpra{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/tajaran/dpra{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/tajaran/dpra{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/tajaran/dpra{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/tajaran/dpra/alt{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/tajaran/dpra/alt{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/tajaran/dpra/alt{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/tajaran/dpra/alt{
+	pixel_x = 7
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "qlV" = (
 /obj/structure/table/wood/walnut,
 /obj/structure/cash_register{
@@ -17545,6 +17899,17 @@
 /area/crevus/general_store/storage)
 "qnK" = (
 /obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew{
+	pixel_y = 18;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew{
+	pixel_y = 18;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew{
+	pixel_y = 18
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/crevus/outside)
 "qoR" = (
@@ -17552,47 +17917,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
-/area/crevus/outside)
-"qoT" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
-	pixel_x = 7
-	},
-/obj/item/clothing/accessory/scarf/random{
-	pixel_y = -2;
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/scarf/random{
-	pixel_y = -2;
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/scarf/random{
-	pixel_y = -2;
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/scarf/random{
-	pixel_y = -2;
-	pixel_x = -7
-	},
-/obj/item/clothing/accessory/scarf/random{
-	pixel_y = -2;
-	pixel_x = -7
-	},
-/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "qoX" = (
 /obj/structure/automobile/adhomai_car/green{
@@ -17848,6 +18172,10 @@
 /obj/structure/machinery/media/jukebox/audioconsole/wall{
 	pixel_y = 32
 	},
+/obj/item/hand_labeler{
+	pixel_y = 12;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/general_store)
 "qDT" = (
@@ -17926,42 +18254,6 @@
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
-"qGF" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/item/clothing/suit/storage/tajaran/archeologist{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/tajaran/archeologist{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/tajaran/archeologist{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/tajaran/archeologist{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/tajaran/archeologist{
-	pixel_x = 7
-	},
-/obj/item/clothing/suit/storage/tajaran/hunting{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/tajaran/hunting{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/tajaran/hunting{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/tajaran/hunting{
-	pixel_x = -7
-	},
-/obj/item/clothing/suit/storage/tajaran/hunting{
-	pixel_x = -7
-	},
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "qHb" = (
 /obj/structure/flora/rock/stalagmite/icy,
 /obj/structure/platform/rock/icy{
@@ -17979,8 +18271,37 @@
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/crevus/outside)
 "qHl" = (
-/obj/structure/table/rack,
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_y = 20
+	},
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_y = 20;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_y = 20;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_y = 5;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_y = 5;
+	pixel_x = -10
+	},
 /turf/simulated/floor/carpet/darkblue,
+/area/crevus/outside)
+"qHG" = (
+/obj/structure/lattice/ceiling,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "qHQ" = (
 /obj/structure/rod_railing{
@@ -18304,18 +18625,6 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/crevus/outside)
-"qZU" = (
-/obj/structure/table/wood/walnut,
-/obj/item/paper_bin{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/pen{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/crevus/restaurant/private_dining_room)
 "raf" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -18494,6 +18803,20 @@
 	},
 /turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
+"rmq" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
+"rng" = (
+/obj/effect/decal/road_marking/thin,
+/obj/structure/automobile/adhomai_car{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "rnt" = (
 /obj/structure/machinery/light/small{
 	dir = 8
@@ -18641,12 +18964,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/crevus/outside)
-"rtW" = (
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "rua" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/concrete,
@@ -18668,14 +18985,6 @@
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/balcony_2)
-"rwa" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/automobile/adhomai_car/blue,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "rwe" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/platform/column{
@@ -18708,6 +19017,51 @@
 	dir = 8
 	},
 /turf/simulated/floor/marble/red,
+/area/crevus/outside)
+"rxn" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/item/clothing/accessory/tajaran{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/tajaran{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/tajaran{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/tajaran{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/tajaran{
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/tajaran/blue{
+	pixel_x = 7
+	},
+/obj/item/clothing/accessory/tajaran/blue{
+	pixel_x = 7
+	},
+/obj/item/clothing/accessory/tajaran/blue{
+	pixel_x = 7
+	},
+/obj/item/clothing/accessory/tajaran/blue{
+	pixel_x = 7
+	},
+/obj/item/clothing/accessory/tajaran/blue{
+	pixel_x = 7
+	},
+/obj/item/clothing/accessory/tajaran/blue{
+	pixel_x = 7
+	},
+/obj/item/clothing/accessory/tajaran/black,
+/obj/item/clothing/accessory/tajaran/black,
+/obj/item/clothing/accessory/tajaran/black,
+/obj/item/clothing/accessory/tajaran/black,
+/obj/item/clothing/accessory/tajaran/black,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "rxr" = (
 /obj/effect/decal/curb{
@@ -18768,6 +19122,12 @@
 /obj/structure/table/wood/walnut,
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
+"rBc" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "rBj" = (
 /obj/structure/table/wood/walnut,
 /obj/random/pottedplant_small{
@@ -18792,6 +19152,13 @@
 /obj/structure/closet/crate/bin/urban,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
+"rCL" = (
+/obj/effect/floor_decal/spline/plain/corner/grey{
+	dir = 8
+	},
+/obj/structure/flora/pottedplant/stoutbush,
+/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "rCU" = (
 /obj/structure/platform/column{
@@ -19035,18 +19402,48 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
+"rNv" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/item/clothing/under/dressshirt/puffyblouse{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/dressshirt/puffyblouse{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/dressshirt/puffyblouse{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/dressshirt/puffyblouse{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/dressshirt/puffyblouse{
+	pixel_x = 7
+	},
+/obj/item/clothing/under/dressshirt/longblouse{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/dressshirt/longblouse{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/dressshirt/longblouse{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/dressshirt/longblouse{
+	pixel_x = -7
+	},
+/obj/item/clothing/under/dressshirt/longblouse{
+	pixel_x = -7
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "rNE" = (
 /obj/structure/platform/rock/icy,
 /obj/structure/platform/rock/icy{
 	dir = 8
 	},
 /turf/simulated/floor/cave/adhomai,
-/area/crevus/outside)
-"rPN" = (
-/obj/structure/machinery/light/small/floor{
-	pixel_x = -16
-	},
-/turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "rQp" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -19117,6 +19514,14 @@
 	pixel_y = 14
 	},
 /turf/simulated/floor/exoplanet/tiled/full,
+/area/crevus/outside)
+"rRV" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "rSD" = (
 /obj/structure/rod_railing{
@@ -19336,6 +19741,12 @@
 	},
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
+"saP" = (
+/obj/structure/machinery/door/urban/metal_bar{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/crevus/outside)
 "saT" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
@@ -19385,19 +19796,17 @@
 /obj/item/towel_flat/doormat,
 /turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
+"sdU" = (
+/obj/structure/sign/staff_only{
+	pixel_x = 32
+	},
+/turf/simulated/open,
+/area/crevus/outside)
 "sex" = (
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
-/area/crevus/outside)
-"seK" = (
-/obj/effect/floor_decal/spline/plain/corner/grey{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "seW" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -19477,6 +19886,13 @@
 /obj/structure/lattice/ceiling,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
+/area/crevus/outside)
+"siB" = (
+/obj/effect/decal/road_marking/thin,
+/obj/structure/automobile/adhomai_car{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "siD" = (
 /obj/effect/decal/cleanable/snow,
@@ -19608,14 +20024,6 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/crevus/outside)
-"snj" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/road_marking/no_park,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "sod" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/light/small/floor,
@@ -19709,6 +20117,14 @@
 /obj/structure/closet/crate/drop,
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
+"stc" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking/thin{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "stB" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -19749,9 +20165,6 @@
 "suk" = (
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
-	},
-/obj/structure/bed/stool/chair/folding{
-	dir = 8
 	},
 /obj/structure/machinery/light{
 	dir = 4
@@ -19809,6 +20222,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
+"swf" = (
+/obj/structure/table/wood/walnut,
+/obj/item/paper_bin{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/pen{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/crevus/restaurant/private_dining_room)
 "swr" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -19843,12 +20268,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crevus/outside)
-"sxB" = (
-/obj/structure/automobile/adhomai_car/blue{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "sxT" = (
 /turf/simulated/floor/plating,
 /area/crevus/outside)
@@ -19868,43 +20287,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/restaurant/private_dining_room)
-"sAh" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/item/clothing/under/tajaran/dpra{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/tajaran/dpra/alt{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/tajaran/dpra{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/tajaran/dpra{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/tajaran/dpra{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/tajaran/dpra{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/tajaran/dpra/alt{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/tajaran/dpra/alt{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/tajaran/dpra/alt{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/tajaran/dpra/alt{
-	pixel_x = 7
-	},
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "sAp" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -19935,6 +20317,12 @@
 /obj/effect/floor_decal/spline/plain/corner/black,
 /obj/structure/flora/pottedplant/floorleaf,
 /turf/simulated/floor/lino/diamond,
+/area/crevus/outside)
+"sBG" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "sBU" = (
 /obj/structure/table/steel,
@@ -20094,9 +20482,6 @@
 /obj/structure/table/wood/walnut,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/private_dining_room)
-"sKR" = (
-/turf/space,
-/area/crevus/outside)
 "sKV" = (
 /obj/structure/bed/stool/chair/sofa/bench{
 	dir = 4
@@ -20120,6 +20505,12 @@
 	},
 /obj/effect/landmark/rental_bikes_helper{
 	name = "rental_right"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
+"sMO" = (
+/obj/structure/automobile/adhomai_car/green{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
@@ -20429,6 +20820,15 @@
 /obj/structure/table/wood/walnut,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/private_dining_room)
+"sZU" = (
+/obj/random/dirt_75,
+/obj/structure/machinery/atm{
+	dir = 4;
+	pixel_x = 16;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/concrete,
+/area/crevus/outside)
 "sZW" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -20728,6 +21128,13 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/grass/no_edge,
 /area/crevus/outside)
+"tjJ" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
+/area/crevus/outside)
 "tkK" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -20747,6 +21154,13 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/grass/no_edge,
 /area/crevus/restaurant/balcony_1)
+"tlo" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "tlu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -20851,11 +21265,24 @@
 	},
 /turf/simulated/open,
 /area/crevus/outside)
+"toD" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_the_lock_attendant";
+	identifier = "crevus_the_lock_attendant"
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
 "tph" = (
 /obj/structure/table/reinforced/glass,
 /obj/random/pottedplant_small{
 	pixel_x = -6;
 	pixel_y = -1
+	},
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 9;
+	pixel_x = 8;
+	pixel_y = -1;
+	id = "crevus_clothing_shop"
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
@@ -20868,14 +21295,6 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
-"tqD" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/road_marking/thin,
-/obj/effect/decal/cleanable/blood/dry,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "tqO" = (
 /obj/effect/decal/cleanable/snow,
 /obj/random/dirt_75,
@@ -20886,6 +21305,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
+"trg" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/simulated/open,
 /area/crevus/outside)
 "tri" = (
 /obj/effect/decal/road_marking,
@@ -20968,17 +21394,12 @@
 	},
 /turf/simulated/open,
 /area/crevus/outside)
-"tug" = (
-/obj/structure/table/wood/walnut,
-/obj/item/newspaper{
-	pixel_x = -3;
-	pixel_y = 3
+"ttQ" = (
+/obj/effect/decal/road_marking{
+	dir = 1
 	},
-/obj/item/newspaper{
-	pixel_y = 5;
-	pixel_x = -3
-	},
-/turf/simulated/floor/lino/diamond,
+/obj/structure/automobile/adhomai_car/purple,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "tuv" = (
 /obj/structure/arch/gothic/eastwest/middle,
@@ -21408,21 +21829,9 @@
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/crevus/outside)
-"tTh" = (
-/obj/effect/floor_decal/spline/plain/corner/grey{
-	dir = 8
-	},
-/obj/structure/flora/pottedplant/stoutbush,
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "tTl" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
-"tTV" = (
-/obj/structure/stairs/urban/road_ramp/south,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "tUa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -21534,6 +21943,15 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/tiled/full,
+/area/crevus/outside)
+"tXl" = (
+/obj/structure/platform/column{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
 "tXF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -21671,6 +22089,47 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
+"udj" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie{
+	pixel_x = 7
+	},
+/obj/item/clothing/accessory/scarf/random{
+	pixel_y = -2;
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/scarf/random{
+	pixel_y = -2;
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/scarf/random{
+	pixel_y = -2;
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/scarf/random{
+	pixel_y = -2;
+	pixel_x = -7
+	},
+/obj/item/clothing/accessory/scarf/random{
+	pixel_y = -2;
+	pixel_x = -7
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "udk" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/random/dirt_75,
@@ -21721,6 +22180,12 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/crevus/outside)
+"ufj" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "ufz" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -21732,6 +22197,11 @@
 /obj/structure/chainlink_fence,
 /obj/effect/floor_decal/snowdrift/large/random,
 /turf/simulated/floor/exoplanet/snow,
+/area/crevus/outside)
+"ufN" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/ceiling,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "ugp" = (
 /obj/structure/quay_wall/inner_corner{
@@ -21808,13 +22278,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/crevus/general_store/storage)
-"uln" = (
-/obj/effect/decal/road_marking{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "ulq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/plain/black,
@@ -21882,6 +22345,14 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"upD" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "uqJ" = (
@@ -21976,7 +22447,13 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 9
 	},
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ammunition"
+	},
+/obj/item/ammo_magazine/c9mm,
+/obj/item/ammo_magazine/c9mm,
+/obj/item/ammo_magazine/c9mm,
+/obj/item/ammo_magazine/c9mm,
 /turf/simulated/floor/tiled/gunmetal,
 /area/crevus/outside)
 "uxq" = (
@@ -22056,6 +22533,13 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/table_area)
+"uAo" = (
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "uAA" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -22064,10 +22548,6 @@
 /obj/random/dirt_75,
 /obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/wood,
-/area/crevus/outside)
-"uBy" = (
-/obj/structure/paper_pile/random,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "uBF" = (
 /obj/effect/decal/road_marking/thin,
@@ -22238,6 +22718,16 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete,
 /area/crevus/outside)
+"uHl" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "uHJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -22274,6 +22764,10 @@
 "uJP" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_car_salesperson";
+	identifier = "crevus_car_salesperson"
 	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
@@ -22367,42 +22861,6 @@
 /obj/effect/step_trigger/thrower,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
-"uNk" = (
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
-/obj/item/clothing/under/dressshirt/puffyblouse{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/dressshirt/puffyblouse{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/dressshirt/puffyblouse{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/dressshirt/puffyblouse{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/dressshirt/puffyblouse{
-	pixel_x = 7
-	},
-/obj/item/clothing/under/dressshirt/longblouse{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/dressshirt/longblouse{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/dressshirt/longblouse{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/dressshirt/longblouse{
-	pixel_x = -7
-	},
-/obj/item/clothing/under/dressshirt/longblouse{
-	pixel_x = -7
-	},
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "uOe" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/arrow/operations,
@@ -22415,10 +22873,16 @@
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
 "uOC" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Guns"
+	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/item/gun/projectile/automatic/rifle/dpra,
+/obj/item/gun/projectile/dragunov,
+/obj/item/gun/projectile/shotgun/pump/lever_action,
+/obj/item/gun/projectile/shotgun/pump/lever_action,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "uOK" = (
@@ -22434,11 +22898,6 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white,
-/area/crevus/outside)
-"uPc" = (
-/obj/random/dirt_75,
-/obj/effect/decal/road_marking/no_park,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "uPf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -22513,6 +22972,14 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/exoplanet/wood,
 /area/crevus/outside)
+"uQR" = (
+/obj/effect/floor_decal/spline/plain/corner/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet,
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "uQU" = (
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -22541,6 +23008,11 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/grass/no_edge,
 /area/crevus/restaurant/balcony_2)
+"uRS" = (
+/obj/structure/stairs/urban/road_ramp/south,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "uSy" = (
 /obj/structure/platform/column,
 /turf/simulated/floor/exoplanet/plating/snow,
@@ -22591,6 +23063,28 @@
 /area/crevus/restaurant/private_dining_room)
 "uXy" = (
 /obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz{
+	pixel_x = 10;
+	pixel_y = 20
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz{
+	pixel_y = 20
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz{
+	pixel_y = 20;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz{
+	pixel_y = 5;
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz{
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz{
+	pixel_y = 5;
+	pixel_x = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "uYx" = (
@@ -22628,6 +23122,14 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
+"vaW" = (
+/obj/effect/map_effect/window_spawner/full/concrete,
+/obj/structure/machinery/door/blast/shutters{
+	dir = 4;
+	id = "crevus_artisan_shop"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "vbd" = (
 /obj/structure/platform_deco/column{
 	dir = 1
@@ -22639,13 +23141,6 @@
 /obj/random/dirt_75,
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
-/area/crevus/outside)
-"vbt" = (
-/obj/structure/trashbags{
-	pixel_y = -9;
-	pixel_x = 15
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "vbJ" = (
 /obj/structure/platform_deco/column{
@@ -22660,12 +23155,6 @@
 	},
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/plating/snow,
-/area/crevus/outside)
-"vcj" = (
-/obj/effect/decal/road_marking,
-/obj/random/dirt_75,
-/obj/structure/trash_pile,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "vcC" = (
 /obj/structure/arch/gothic/eastwest/right{
@@ -22738,15 +23227,6 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/gridded,
 /area/crevus/outside)
-"vgm" = (
-/obj/structure/machinery/door/urban/glass_sliding{
-	name = "Clothing Store"
-	},
-/obj/effect/floor_decal/industrial/hatch_door/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/full,
-/area/crevus/outside)
 "vgR" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -22782,18 +23262,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"viF" = (
-/obj/effect/decal/road_marking,
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/dry,
-/obj/structure/trashbags{
-	pixel_y = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "viJ" = (
 /obj/random/dirt_75,
@@ -22974,12 +23442,6 @@
 /obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/table_area)
-"vqH" = (
-/obj/structure/urban_grate{
-	pixel_x = 16
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "vqX" = (
 /obj/structure/bed/stool/chair/sofa/bench{
 	dir = 8
@@ -23019,6 +23481,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/plating/snow,
+/area/crevus/outside)
+"vsI" = (
+/obj/random/dirt_75,
+/obj/effect/step_trigger/thrower{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "vsO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -23065,13 +23534,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline_corner/operations,
 /turf/simulated/floor/lino/diamond,
-/area/crevus/outside)
-"vvG" = (
-/obj/effect/decal/road_marking/thin,
-/obj/structure/automobile/adhomai_car{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "vwZ" = (
 /obj/structure/utility_pole/street/classic/on,
@@ -23136,13 +23598,6 @@
 /obj/effect/decal/cleanable/snow,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
-"vBP" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
-/obj/structure/flora/pottedplant/floorleaf,
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "vCv" = (
 /obj/structure/rod_railing/jailbar,
 /obj/effect/floor_decal/corner/dark_green{
@@ -23164,6 +23619,10 @@
 "vDV" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - crevus_clerk";
+	identifier = "crevus_clerk"
 	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
@@ -23303,6 +23762,14 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/general_store)
+"vMn" = (
+/obj/structure/stairs/urban/road_ramp/south,
+/obj/effect/decal/road_marking/center{
+	dir = 1;
+	pixel_x = 16
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "vMt" = (
 /obj/structure/platform/rock/icy,
 /obj/structure/platform/rock/icy{
@@ -23463,6 +23930,15 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
+"vWa" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/rod_railing{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
+/area/crevus/outside)
 "vWh" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
@@ -23508,14 +23984,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/crevus/general_store)
-"vZy" = (
-/obj/effect/decal/road_marking,
-/obj/effect/decal/road_marking/thin{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "wam" = (
 /obj/structure/platform/rock/icy{
 	dir = 4
@@ -23547,10 +24015,14 @@
 /turf/simulated/floor/exoplanet/ice/dark,
 /area/crevus/outside)
 "waY" = (
-/obj/structure/bed/stool/chair/folding{
-	dir = 8
+/obj/random/dirt_75,
+/obj/structure/chainlink_fence{
+	dir = 4
 	},
-/turf/simulated/floor/lino/diamond,
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
 "wbx" = (
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
@@ -23562,6 +24034,13 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/operations,
 /turf/simulated/floor/exoplanet/plating/snow,
+/area/crevus/outside)
+"wbX" = (
+/obj/random/dirt_75,
+/obj/effect/step_trigger/thrower{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
 "wce" = (
 /obj/effect/decal/curb{
@@ -23638,6 +24117,11 @@
 /obj/structure/flora/pottedplant/bluefern,
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
+"wdD" = (
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/exoplanet/plating/snow,
+/area/crevus/outside)
 "wey" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack/folding_table,
@@ -23681,6 +24165,20 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
+/area/crevus/outside)
+"wgR" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/trashbags{
+	pixel_y = -7;
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "whn" = (
 /obj/effect/decal/road_marking/fork{
@@ -23735,13 +24233,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
-"wii" = (
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/crevus/outside)
 "wiI" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -23773,11 +24264,6 @@
 /obj/structure/table/reinforced/glass,
 /obj/structure/machinery/door/window/desk/westright,
 /turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"wkl" = (
-/obj/effect/decal/road_marking,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "wkp" = (
 /obj/structure/flora/pottedplant/whitetulip,
@@ -23920,6 +24406,50 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
+"wrt" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat{
+	pixel_x = 7
+	},
+/obj/item/clothing/suit/jacket/puffer{
+	pixel_x = -7;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/jacket/puffer{
+	pixel_x = -7;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/jacket/puffer{
+	pixel_x = -7;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/jacket/puffer{
+	pixel_x = -7;
+	pixel_y = -3
+	},
+/obj/item/clothing/suit/jacket/puffer{
+	pixel_x = -7;
+	pixel_y = -3
+	},
+/turf/simulated/floor/wood/walnut,
+/area/crevus/outside)
 "wrx" = (
 /obj/structure/machinery/light/small/floor{
 	pixel_x = -16;
@@ -23981,12 +24511,6 @@
 	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
-"wtt" = (
-/obj/structure/platform_deco/metal_alt{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/outside)
 "wuA" = (
 /obj/structure/table/wood,
@@ -24179,6 +24703,11 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/outside)
+"wBj" = (
+/obj/random/dirt_75,
+/obj/structure/paper_pile/random,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
 "wBQ" = (
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 4
@@ -24297,6 +24826,10 @@
 	},
 /turf/simulated/floor/cave/adhomai,
 /area/crevus/outside)
+"wHT" = (
+/obj/structure/urban_grate,
+/turf/simulated/floor/exoplanet/sidewalk/concrete,
+/area/crevus/outside)
 "wHW" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/cleanable/snow,
@@ -24347,6 +24880,7 @@
 /obj/structure/barricade/wooden/road{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "wLV" = (
@@ -24603,6 +25137,14 @@
 /obj/structure/closet/crate/extinguisher_cartridges,
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
+"wXJ" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/automobile/adhomai_car/blue,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "wZi" = (
 /obj/effect/decal/curb{
 	dir = 9
@@ -24611,15 +25153,6 @@
 /obj/structure/structural_support,
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
-"wZk" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
-/obj/structure/machinery/light,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/turf/simulated/floor/tiled/dark/full,
 /area/crevus/outside)
 "wZt" = (
 /obj/structure/table/rack/retail_shelf,
@@ -24664,6 +25197,15 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/snowdrift/random,
 /turf/simulated/floor/exoplanet/tiled/full,
+/area/crevus/outside)
+"xaS" = (
+/obj/structure/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/effect/floor_decal/industrial/hatch_small/operations,
+/obj/effect/floor_decal/industrial/hatch_small/operations,
+/turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
 "xbd" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -24825,15 +25367,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete,
 /area/crevus/outside)
-"xjs" = (
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/structure/machinery/light/spot{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/crevus/outside)
 "xkb" = (
 /obj/structure/platform/rock/icy{
 	dir = 1
@@ -24859,6 +25392,18 @@
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/full,
 /area/crevus/outside)
+"xkt" = (
+/obj/structure/chainlink_fence,
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
+"xkL" = (
+/obj/structure/platform/column,
+/obj/random/dirt_75,
+/obj/structure/machinery/vending/generic_clothing,
+/turf/simulated/floor/tiled/full,
+/area/crevus/general_store/storage)
 "xln" = (
 /obj/random/dirt_75,
 /obj/structure/decor/ac_unit,
@@ -25226,13 +25771,6 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/crevus/restaurant/private_dining_room)
-"xAt" = (
-/obj/structure/machinery/vending/generic_clothing,
-/obj/effect/floor_decal/spline/plain/corner/grey,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
-/area/crevus/outside)
 "xAu" = (
 /obj/structure/platform_deco/metal_alt{
 	dir = 8
@@ -25449,6 +25987,14 @@
 	},
 /turf/simulated/floor/lino,
 /area/crevus/outside)
+"xLC" = (
+/obj/structure/machinery/door/urban/metal,
+/obj/structure/sign/urban/staff{
+	pixel_y = 22;
+	pixel_x = -1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "xLM" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -25551,10 +26097,6 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/marble/red,
 /area/crevus/outside)
-"xPF" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/crevus/outside)
 "xPG" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -25597,6 +26139,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"xSn" = (
+/obj/random/dirt_75,
+/obj/structure/urban_grate,
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "xSx" = (
 /obj/structure/bed/stool/chair{
@@ -25850,6 +26397,16 @@
 	},
 /turf/simulated/floor/lino,
 /area/crevus/outside)
+"ydb" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
 "ydp" = (
 /obj/structure/platform/metal_alt{
 	dir = 4
@@ -25923,6 +26480,17 @@
 	id = "crevus_pharmacy"
 	},
 /turf/simulated/floor/tiled/light/full,
+/area/crevus/outside)
+"yio" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/trashbags{
+	pixel_y = -7;
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "yji" = (
 /obj/effect/decal/exterior_stairs/half/right{
@@ -40041,7 +40609,7 @@ koR
 paM
 paM
 paM
-koR
+cXQ
 paM
 paM
 paM
@@ -40050,8 +40618,8 @@ paM
 paM
 paM
 koR
-wbx
-wbx
+umQ
+umQ
 koR
 paM
 wbx
@@ -40292,92 +40860,92 @@ hPR
 uYx
 stO
 wVa
+umQ
+umQ
+umQ
+umQ
 wbx
+umQ
+umQ
+umQ
+umQ
 wbx
+umQ
+umQ
+umQ
+umQ
+umQ
 wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
+tJu
+umQ
 paM
 paM
 paM
+umQ
+umQ
+umQ
+umQ
 wbx
 wbx
 wbx
+umQ
+umQ
+umQ
+umQ
+umQ
 wbx
 wbx
+umQ
+umQ
+tJu
+umQ
 wbx
 wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
+umQ
+umQ
+umQ
+umQ
+umQ
+tJu
+umQ
+umQ
 wLu
+umQ
+umQ
+umQ
+umQ
+umQ
 wbx
+umQ
+umQ
+umQ
+umQ
+umQ
 wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
+umQ
+umQ
+umQ
+umQ
+umQ
+tJu
+tJu
+umQ
+umQ
+umQ
+umQ
+umQ
+umQ
+umQ
+tJu
+umQ
+umQ
+umQ
+umQ
+tJu
+tJu
+umQ
+umQ
+umQ
 qQo
 qQo
 qQo
@@ -42606,91 +43174,91 @@ uYx
 ohZ
 wVa
 wbx
+umQ
+umQ
 wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
+umQ
+umQ
+tJu
+umQ
+umQ
+umQ
+umQ
+umQ
+tJu
+umQ
+umQ
+umQ
+umQ
 wbx
 paM
 paM
 paM
+umQ
+umQ
+umQ
+umQ
 wbx
+umQ
+umQ
+tJu
+umQ
+umQ
+umQ
+umQ
+umQ
+umQ
+umQ
 wbx
+umQ
+umQ
+umQ
+umQ
+umQ
+umQ
 wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
+umQ
+umQ
+umQ
+umQ
 wbx
 wLu
+umQ
+umQ
+umQ
+umQ
+umQ
+wbx
+umQ
+tJu
+umQ
+umQ
 wbx
 wbx
+umQ
+umQ
+tJu
+wbx
+umQ
+umQ
+umQ
 wbx
 wbx
+umQ
+tJu
+umQ
+umQ
+umQ
 wbx
 wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
-wbx
+umQ
+umQ
+umQ
+tJu
+umQ
+umQ
+umQ
+umQ
 qQo
 qQo
 qQo
@@ -42881,7 +43449,7 @@ paM
 paM
 koR
 paM
-wbx
+umQ
 paM
 koR
 paM
@@ -42943,7 +43511,7 @@ koR
 paM
 paM
 paM
-koR
+cXQ
 paM
 paM
 paM
@@ -43391,9 +43959,9 @@ bbS
 bbS
 sFN
 vdL
-wbx
-wbx
-wbx
+umQ
+umQ
+umQ
 wVa
 paM
 paM
@@ -43648,9 +44216,9 @@ wVa
 wVa
 sFN
 isw
-foR
-foR
-foR
+qHG
+qHG
+qHG
 wVa
 wVa
 wVa
@@ -43928,7 +44496,7 @@ kIV
 vhD
 dIU
 dIU
-nCT
+xkL
 pJD
 ujA
 bIp
@@ -44185,7 +44753,7 @@ kIV
 dIU
 dIU
 dIU
-nCT
+cdp
 pJD
 lqX
 pJD
@@ -53396,8 +53964,8 @@ jpg
 wVa
 sFN
 cqi
-iJn
-wtt
+sBG
+oNM
 uYx
 uYx
 uYx
@@ -53653,8 +54221,8 @@ wVa
 wVa
 sFN
 hPR
-ftz
-kOS
+hTC
+oRF
 wVa
 bbS
 bbS
@@ -53903,14 +54471,14 @@ jpg
 jpg
 jpg
 wVa
-bwL
+lpN
 umQ
-llU
-esg
+lmX
+xkt
 paM
 paM
 paM
-ftz
+hTC
 naJ
 wVa
 wVa
@@ -54160,18 +54728,18 @@ jpg
 jpg
 jpg
 wVa
-llU
+lmX
 rXq
 umQ
-eFg
+lSe
 paM
 paM
 paM
-ftz
-pGn
+hTC
+ixU
 mga
 mga
-kGj
+bkC
 mga
 mga
 mga
@@ -54212,10 +54780,10 @@ jpg
 jpg
 jpg
 wVa
-xAt
-nzP
+eeJ
+hzw
 gUR
-pfb
+uQR
 wVa
 jpg
 jpg
@@ -54417,22 +54985,22 @@ jpg
 jpg
 jpg
 wVa
-bju
+wBj
 rXq
 wbx
-nDg
+mqa
 paM
 qDF
 paM
 paM
-jXY
-dAd
-jXY
-jXY
-jXY
-jXY
-dAd
-jXY
+mgP
+bjq
+mgP
+mgP
+mgP
+mgP
+bjq
+mgP
 jpg
 jpg
 jpg
@@ -54469,7 +55037,7 @@ jpg
 jpg
 jpg
 wVa
-gUZ
+hGV
 lOn
 fxA
 hCC
@@ -54674,7 +55242,7 @@ wVa
 wVa
 wVa
 wVa
-pqx
+ufN
 wHY
 wHY
 wVa
@@ -54685,7 +55253,7 @@ wVa
 wVa
 wVa
 wVa
-gdL
+saP
 wVa
 wVa
 wVa
@@ -54726,10 +55294,10 @@ wVa
 jpg
 jpg
 wVa
-mOt
-lal
+fPb
+cIA
 fxA
-jnf
+upD
 wVa
 jpg
 jpg
@@ -54925,20 +55493,20 @@ jpg
 jpg
 jpg
 wVa
-cwA
-ehd
-icy
-icy
-eyQ
-rtW
-rtW
-rtW
-rtW
-rtW
-xjs
-icy
-icy
-oYE
+rRV
+fnk
+anm
+anm
+naI
+eED
+eED
+eED
+eED
+eED
+pjk
+anm
+anm
+uHl
 wVa
 mrQ
 mrQ
@@ -54983,10 +55551,10 @@ wVa
 wVa
 wVa
 wVa
-aPf
+cep
 lOn
 lOn
-wZk
+kuE
 wVa
 jpg
 jpg
@@ -55182,27 +55750,27 @@ jpg
 jpg
 jpg
 wVa
-viF
-mqF
-iJv
-hBt
-hBt
-hBt
+pjj
+uAo
+pDU
+rBc
+rBc
+rBc
 rcV
 rcV
 rcV
-hBt
-iJv
-hBt
-gNi
-dzW
+rBc
+pDU
+rBc
+oqa
+lbG
 wVa
 mrQ
-pDU
-pDU
-pDU
-pDU
-pDU
+efX
+efX
+efX
+efX
+efX
 mrQ
 wVa
 jpg
@@ -55238,12 +55806,12 @@ uYx
 wVa
 wVa
 vBo
-sKR
-oBc
+joX
+xLC
 bJy
 fxA
-xPF
-hfG
+eTe
+aBA
 wVa
 jpg
 jpg
@@ -55439,27 +56007,27 @@ jpg
 jpg
 jpg
 wVa
-wkl
-uPc
-mTZ
+jZN
+hTG
+kYy
 jMb
-fLO
+pBm
 jMb
 rcV
 rcV
 rcV
-fyN
-sxB
+siB
+pgf
 jMb
-pUf
-dTw
+ikq
+dHd
 wVa
 mrQ
-pDU
-pDU
-pDU
-pDU
-pDU
+efX
+efX
+efX
+efX
+efX
 mrQ
 wVa
 jpg
@@ -55497,10 +56065,10 @@ wVa
 wVa
 wVa
 wVa
-tTh
-hak
+rCL
+ydb
 vGT
-seK
+bzz
 wVa
 jpg
 jpg
@@ -55696,8 +56264,8 @@ jpg
 jpg
 jpg
 wVa
-wkl
-uPc
+jZN
+hTG
 rcV
 jMb
 rcV
@@ -55708,15 +56276,15 @@ rcV
 jMb
 rcV
 jMb
-pUf
-uln
+ikq
+rmq
 wVa
 mrQ
-pDU
-pDU
-pDU
-pDU
-pDU
+efX
+efX
+efX
+efX
+efX
 mrQ
 wVa
 jpg
@@ -55953,7 +56521,7 @@ jpg
 jpg
 jpg
 wVa
-vZy
+stc
 rcV
 rcV
 rcV
@@ -55966,7 +56534,7 @@ rcV
 rcV
 rcV
 rcV
-hpg
+fIk
 wVa
 mrQ
 mrQ
@@ -56211,19 +56779,19 @@ jpg
 jpg
 wVa
 tri
-dbU
-vqH
+sMO
+gen
 rcV
 rcV
 rcV
 rcV
-vqH
+gen
 rcV
 rcV
-uBy
+emD
 rcV
-vqH
-lnb
+gen
+ttQ
 wVa
 wVa
 wVa
@@ -56468,7 +57036,7 @@ jpg
 jpg
 wVa
 tri
-fgq
+pvK
 rcV
 rcV
 rcV
@@ -56480,7 +57048,7 @@ rcV
 rcV
 rcV
 rcV
-rwa
+wXJ
 wVa
 jpg
 jpg
@@ -56724,7 +57292,7 @@ jpg
 jpg
 jpg
 wVa
-nvv
+eUi
 rcV
 rcV
 rcV
@@ -56737,7 +57305,7 @@ rcV
 rcV
 rcV
 uVz
-aDK
+aRC
 wVa
 jpg
 jpg
@@ -56982,19 +57550,19 @@ jpg
 jpg
 wVa
 tri
-pUf
-vbt
+ikq
+gxY
 jMb
 rcV
-vvG
+rng
 rcV
 rcV
 rcV
 jMb
 wiI
-hRi
-uPc
-hWb
+hbi
+hTG
+yio
 wVa
 jpg
 jpg
@@ -57238,20 +57806,20 @@ jpg
 jpg
 jpg
 wVa
-dPE
-hGg
-iJv
-tqD
-hBt
-aQO
+pqs
+ohg
+pDU
+myi
+rBc
+tlo
 rcV
 rcV
 rcV
-aQO
-iJv
-aQO
-snj
-aKp
+tlo
+pDU
+tlo
+olh
+wgR
 wVa
 jpg
 jpg
@@ -57495,7 +58063,7 @@ jpg
 jpg
 jpg
 wVa
-vcj
+lrD
 rcV
 rcV
 jMb
@@ -57508,7 +58076,7 @@ rcV
 rcV
 rcV
 rcV
-tTV
+uRS
 wVa
 jpg
 jpg
@@ -57752,20 +58320,20 @@ jpg
 jpg
 jpg
 wVa
-vcj
-uBy
+lrD
+emD
 rcV
 jMb
 rcV
-oNu
+gcb
 rcV
-vqH
+gen
 rcV
 bXU
 bXU
 bXU
 bXU
-mSI
+vMn
 wVa
 jpg
 jpg
@@ -58009,7 +58577,7 @@ jpg
 jpg
 jpg
 wVa
-wkl
+jZN
 rcV
 uVz
 rcV
@@ -58017,7 +58585,7 @@ rcV
 rcV
 rcV
 rcV
-isL
+cOC
 rcV
 rcV
 rcV
@@ -58266,11 +58834,11 @@ jpg
 jpg
 jpg
 wVa
-dxu
+ceF
 rcV
 uVz
 uVz
-nMn
+mld
 rcV
 rcV
 rcV
@@ -61370,7 +61938,7 @@ jpg
 jpg
 jpg
 jpg
-mjy
+fBb
 jpg
 jpg
 jpg
@@ -105384,13 +105952,13 @@ jpg
 jpg
 jpg
 qQo
-njD
+xSn
 mFt
 rcV
 nnp
 rcV
 lGi
-njD
+xSn
 kCp
 qQo
 jpg
@@ -107449,7 +108017,7 @@ lGi
 eRO
 umQ
 umQ
-njD
+xSn
 wbx
 umQ
 umQ
@@ -108482,7 +109050,7 @@ rcV
 cmB
 rcV
 lGi
-njD
+xSn
 oAg
 qQo
 qQo
@@ -108959,7 +109527,7 @@ umQ
 umQ
 gPg
 wbx
-kWh
+aKA
 umQ
 umQ
 umQ
@@ -109236,12 +109804,12 @@ wVa
 wVa
 wVa
 wVa
-xBW
-xBW
-xBW
-xBW
-xBW
-xBW
+vaW
+vaW
+vaW
+vaW
+vaW
+vaW
 wVa
 wVa
 wVa
@@ -109475,7 +110043,7 @@ egV
 loG
 iEj
 wVa
-uXy
+kVT
 luf
 oIP
 pve
@@ -109491,7 +110059,7 @@ eWJ
 grV
 uHY
 wVa
-uXy
+fHs
 uoB
 hcg
 qHl
@@ -109747,7 +110315,7 @@ wVa
 ojI
 grV
 umQ
-xBW
+kYS
 aXY
 bnv
 bnv
@@ -109758,7 +110326,7 @@ emw
 bnv
 jBO
 uMx
-xBW
+kYS
 ctW
 rXq
 wbx
@@ -110004,18 +110572,18 @@ wVa
 mzS
 grV
 umQ
-xBW
+kYS
 uXy
 uoB
 qnK
-qHl
+bES
 nqA
 jow
 uKs
 hIc
 nqA
 coI
-xBW
+kYS
 uci
 kCp
 wbx
@@ -110267,7 +110835,7 @@ eAs
 eAs
 eAs
 afp
-eAs
+jUt
 eAs
 eAs
 fBO
@@ -110302,9 +110870,9 @@ umQ
 umQ
 umQ
 umQ
-hSa
-hSa
-hSa
+lEK
+lEK
+lEK
 umQ
 umQ
 umQ
@@ -110775,7 +111343,7 @@ wVa
 poK
 pcG
 umQ
-xBW
+kYS
 rTK
 han
 owZ
@@ -110786,7 +111354,7 @@ jXy
 pTm
 ins
 aLc
-xBW
+kYS
 ctW
 rpU
 wbx
@@ -111032,7 +111600,7 @@ wVa
 dbh
 pcG
 umQ
-xBW
+kYS
 fHz
 bnv
 bnv
@@ -111043,7 +111611,7 @@ bjX
 uoB
 nqA
 gtG
-xBW
+kYS
 eAo
 fxQ
 umQ
@@ -111549,9 +112117,9 @@ wVa
 wVa
 wVa
 wVa
-xBW
-xBW
-xBW
+vaW
+vaW
+vaW
 wVa
 ixC
 wVa
@@ -111844,8 +112412,8 @@ fxQ
 umQ
 umQ
 umQ
-fPg
-fPg
+vsI
+vsI
 jpg
 jpg
 jpg
@@ -112083,9 +112651,9 @@ mIi
 umQ
 kCp
 gPn
-nxF
-nxF
-dTm
+gBP
+gBP
+wbX
 kCp
 kCp
 kCp
@@ -112340,9 +112908,9 @@ lGi
 umQ
 kCp
 wVa
-irx
-hUi
-aNm
+aHs
+ijY
+ddC
 urE
 urE
 urE
@@ -113108,7 +113676,7 @@ rcV
 nnp
 rcV
 lGi
-njD
+xSn
 kCp
 oiM
 btq
@@ -114142,7 +114710,7 @@ wVa
 mRQ
 nxH
 tmk
-ihS
+eEl
 byp
 cZc
 wpD
@@ -114399,7 +114967,7 @@ oiM
 eQN
 cPQ
 grV
-oky
+hvY
 byp
 mpg
 bhq
@@ -115684,7 +116252,7 @@ wVa
 bbG
 rFv
 ueb
-ges
+vWa
 byp
 gPn
 mpg
@@ -118457,9 +119025,9 @@ kCp
 qTV
 qTV
 qTV
-hke
-hke
-hke
+pCq
+pCq
+pCq
 qTV
 qTV
 qTV
@@ -118707,16 +119275,16 @@ wVa
 lDi
 oAg
 oAg
-cgf
+wHT
 oAg
 kCp
 kCp
-hke
-qoT
+ogv
+udj
 oxq
-sAh
-vBP
-gYq
+qlQ
+dgl
+cWL
 arc
 fHK
 qTV
@@ -118968,14 +119536,14 @@ rXq
 oAg
 rXq
 kCp
-vgm
+fvk
 svO
 svO
 svO
 aEe
 sup
 lOn
-uNk
+rNv
 qTV
 sex
 grV
@@ -119019,7 +119587,7 @@ rcV
 nnp
 rcV
 lGi
-njD
+xSn
 oAg
 wVa
 cZc
@@ -119232,7 +119800,7 @@ gUR
 gUR
 kMA
 lOn
-dPj
+peu
 qTV
 xCt
 pcG
@@ -119445,9 +120013,9 @@ pWf
 wbx
 wbx
 wbx
-wbx
-wbx
-wbx
+toD
+dvm
+ace
 wbx
 mFt
 rcV
@@ -119483,13 +120051,13 @@ wVa
 wVa
 qTV
 qTV
-jIP
-pVR
+bHt
+rxn
 lOn
-jni
+evM
 eOz
 lOn
-jmg
+nxR
 qTV
 poK
 pcG
@@ -119718,8 +120286,8 @@ gPn
 rpU
 kCp
 kCp
-omR
-omR
+sZU
+sZU
 kCp
 oAg
 oAg
@@ -119741,9 +120309,9 @@ wVa
 wpL
 gfT
 sup
-mpt
-rPN
-qGF
+cnh
+qhd
+olj
 oFU
 eNL
 nnd
@@ -120003,7 +120571,7 @@ svO
 svO
 gaQ
 fxA
-cnh
+jLl
 qTV
 hRk
 pcG
@@ -120260,7 +120828,7 @@ gUR
 gUR
 kMA
 lOn
-mXE
+dya
 qTV
 poK
 pcG
@@ -120516,8 +121084,8 @@ lSL
 pMz
 tph
 eOz
-qcq
-mlG
+nSN
+wrt
 qTV
 poK
 jpc
@@ -120770,10 +121338,10 @@ sfY
 pcu
 sup
 bhh
-gYU
+ufj
 bhh
 sDx
-cnN
+sdU
 ucI
 qTV
 hYo
@@ -123040,7 +123608,7 @@ kbO
 wnD
 ozs
 bif
-wii
+tjJ
 bif
 bif
 bif
@@ -123811,7 +124379,7 @@ kNH
 fXN
 hmS
 nVD
-eYI
+trg
 nVD
 nVD
 nVD
@@ -133865,8 +134433,8 @@ hbH
 weR
 mzS
 pcG
-nMo
-qvK
+wdD
+tXl
 bRL
 bRL
 qQo
@@ -134122,8 +134690,8 @@ jBv
 jBv
 vED
 pcG
-nMo
-qvK
+wdD
+bSm
 bRL
 bRL
 qQo
@@ -134379,8 +134947,8 @@ bpK
 pnD
 bpK
 dpJ
-nMo
-qvK
+bOk
+bSm
 bRL
 bRL
 qQo
@@ -134636,7 +135204,7 @@ bpK
 bpK
 dWM
 pcG
-nMo
+jKD
 bDo
 bRL
 bRL
@@ -134893,7 +135461,7 @@ ryl
 bpK
 bpK
 pcG
-nMo
+xaS
 qvK
 bRL
 bRL
@@ -137470,7 +138038,7 @@ viJ
 viJ
 viJ
 viJ
-viJ
+waY
 viJ
 egl
 egl
@@ -184990,12 +185558,12 @@ ucI
 ucI
 ayq
 sza
-fIk
+ojm
 wRZ
 oEL
 rqC
 hiO
-dFR
+ffr
 jhq
 oTN
 bXK
@@ -185011,7 +185579,7 @@ wRZ
 oEL
 oEL
 hiO
-qZU
+swf
 jhq
 tuQ
 tnt
@@ -186793,7 +187361,7 @@ ucI
 fGu
 suh
 tnt
-fsD
+nUw
 dIj
 cbS
 xSN
@@ -187316,7 +187884,7 @@ cbS
 aMv
 wXe
 qlV
-gud
+avY
 qlV
 caV
 dIj
@@ -187571,7 +188139,7 @@ pro
 eJw
 cbS
 aMv
-oGC
+euJ
 bnv
 bnv
 bnv
@@ -187824,7 +188392,7 @@ tnt
 tnt
 dMP
 fhV
-tug
+dwO
 tBj
 auD
 wFE
@@ -189114,7 +189682,7 @@ bWC
 tnt
 xtT
 suk
-waY
+bnv
 foa
 xbN
 nXO
