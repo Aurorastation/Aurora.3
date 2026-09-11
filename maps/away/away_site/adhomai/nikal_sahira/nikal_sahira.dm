@@ -25,6 +25,9 @@
 		//Z3
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
+	shuttles_to_initialise = list(
+		/datum/shuttle/autodock/multi/lift/crevus_general_store
+	)
 
 /singleton/submap_archetype/nikal_sahira
 	map = "Nikal Sahira"

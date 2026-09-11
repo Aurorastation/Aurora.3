@@ -223,7 +223,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	warm_person()
 	if(prob(2))
 		ambient_message()
-	playsound(get_turf(src), 'sound/effects/fireplace.ogg', 30, 1, -3)
+	playsound(get_turf(src), 'sound/effects/fireplace.ogg', 10, 1, -3)
 
 /obj/structure/bonfire/proc/extinguish()
 	on_fire = FALSE

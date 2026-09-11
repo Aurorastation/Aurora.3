@@ -93,6 +93,7 @@
 		/turf/unsimulated/wall,
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/,
+		/obj/structure/window_frame,
 		/obj/structure/quay_wall
 	)
 

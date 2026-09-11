@@ -20,7 +20,7 @@
 	..()
 	adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, FALSE)
 	adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, FALSE)
-	temperature = 278 // around 5C
+	temperature = 281 // around 8C
 	update_values()
 
 /datum/gas_mixture/earth_hot/New()

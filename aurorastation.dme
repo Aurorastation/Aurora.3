@@ -4143,6 +4143,7 @@
 #include "maps\away\away_site\adhomai\nikal_sahira\nikal_sahira.dm"
 #include "maps\away\away_site\adhomai\nikal_sahira\nikal_sahira_areas.dm"
 #include "maps\away\away_site\adhomai\nikal_sahira\nikal_sahira_ghostroles.dm"
+#include "maps\away\away_site\adhomai\nikal_sahira\nikal_sahira_landmarks.dm"
 #include "maps\away\away_site\adhomai\nikal_sahira\nikal_sahira_objects.dm"
 #include "maps\away\away_site\assunzione\port_volturno\port_volturno.dm"
 #include "maps\away\away_site\assunzione\port_volturno\port_volturno_areas.dm"
