@@ -14,6 +14,8 @@ pixel_x = -8;
 dir = EAST; \
 pixel_x = 8;
 
+GLOBAL_LIST_EMPTY_TYPED(all_ringers, /obj/structure/machinery/ringer)
+
 /obj/structure/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
@@ -41,17 +43,114 @@ pixel_x = 8;
 /obj/structure/machinery/ringer/north
 	PRESET_NORTH
 
+/obj/structure/machinery/ringer/north/medical
+	department = "Medbay"
+	id = "medbay_ringer"
+	req_access = list(ACCESS_MEDICAL)
+
+/obj/structure/machinery/ringer/north/engineering
+	department = "Engineering"
+	id = "engie_ringer"
+	pixel_y = 30
+	req_access = null
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS)
+
 /obj/structure/machinery/ringer/south
 	PRESET_SOUTH
+
+/obj/structure/machinery/ringer/south/custodial
+	department = "Custodial"
+	id = "ringers_custodial"
+	name = "\improper Custodial Ringer Terminal"
+	req_access = list(ACCESS_JANITOR)
+
+/obj/structure/machinery/ringer/south/investigations
+	department = "Security"
+	id = "investigation_ringer"
+	req_access = list(ACCESS_SECURITY)
+
+/obj/structure/machinery/ringer/south/pharmacy
+	department = "Pharmacy Frontdesk"
+	id = "pharmacy_ringer"
+	req_access = list(ACCESS_PHARMACY)
 
 /obj/structure/machinery/ringer/west
 	PRESET_WEST
 
+/obj/structure/machinery/ringer/west/custodial
+	department = "Custodial"
+	id = "ringers_custodial"
+	name = "\improper Custodial Ringer Terminal"
+	pixel_y = 5
+	req_access = list(ACCESS_JANITOR)
+
+/obj/structure/machinery/ringer/west/custodial_auxiliary
+	department = "Auxiliary Custodial"
+	id = "ringers_custodialaux"
+	name = "\improper Auxiliary Custodial Ringer Terminal"
+	pixel_y = 5
+	req_access = list(ACCESS_JANITOR)
+
+/obj/structure/machinery/ringer/west/consular_a
+	department = "Consular A"
+	id = "consular_a_ringer"
+	pixel_x = -10
+	req_access = null
+	req_one_access = list(ACCESS_CONSULAR)
+
+/obj/structure/machinery/ringer/west/investigations
+	department = "Security"
+	id = "investigation_ringer"
+	req_access = list(ACCESS_SECURITY)
+
+/obj/structure/machinery/ringer/west/hydroponics
+	department = "Hydroponics"
+	id = "ringer_hydroponics"
+	pixel_x = -10
+	pixel_y = -31
+	req_access = list(ACCESS_HYDROPONICS)
+
 /obj/structure/machinery/ringer/east
 	PRESET_EAST
 
+/obj/structure/machinery/ringer/east/operations_office
+	department = "Cargo"
+	id = "cargo_ringer"
+	pixel_y = 17
+	req_access = list(ACCESS_CARGO)
+
+/obj/structure/machinery/ringer/east/security_lobby
+	department = "Security"
+	id = "security_ringer"
+	pixel_x = 10
+	req_access = null
+	req_one_access = list(ACCESS_SECURITY)
+
+/obj/structure/machinery/ringer/east/consular_b
+	department = "Consular B"
+	id = "consular_b_ringer"
+	pixel_x = 10
+	req_access = null
+	req_one_access = list(ACCESS_CONSULAR)
+
+/obj/structure/machinery/ringer/east/investigations
+	department = "Security"
+	id = "investigation_ringer"
+	req_access = list(ACCESS_SECURITY)
+
+/obj/structure/machinery/ringer/east/hydroponics
+	department = "Hydroponics"
+	id = "ringer_hydroponics"
+	req_access = list(ACCESS_HYDROPONICS)
+
+/obj/structure/machinery/ringer/east/machinist
+	department = "Operations"
+	id = "workshop_ringer"
+	req_access = list(ACCESS_ROBOTICS)
+
 /obj/structure/machinery/ringer/Initialize(mapload)
 	. = ..()
+	GLOB.all_ringers += src
 	if(id)
 		ringers = new(id, src)
 
@@ -71,6 +170,7 @@ pixel_x = 8;
 	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/structure/machinery/ringer/Destroy()
+	GLOB.all_ringers -= src
 	QDEL_NULL(ringers)
 	return ..()
 
@@ -125,9 +225,7 @@ pixel_x = 8;
 			remove_pda(attacking_item)
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src]."))
-		rings_pdas += attacking_item
-		UnregisterSignal(attacking_item, COMSIG_QDELETING)
-		update_icon()
+		add_pda(attacking_item)
 		return TRUE
 	else
 		return ..()
@@ -174,6 +272,14 @@ pixel_x = 8;
 /obj/structure/machinery/ringer/proc/remove_pda(obj/item/modular_computer/P)
 	if (istype(P))
 		rings_pdas -= P
+		update_icon()
+
+/// Links a PDA if it is not already receiving this ringer's notifications.
+/obj/structure/machinery/ringer/proc/add_pda(obj/item/modular_computer/P)
+	if(!istype(P) || (P in rings_pdas))
+		return
+	rings_pdas += P
+	update_icon()
 
 /obj/structure/machinery/ringer_button
 	name = "ringer button"
