@@ -94,5 +94,4 @@
 	landmark_transition = "fishing_trawler_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "fishing_trawler_shuttle"
 	defer_initialisation = TRUE

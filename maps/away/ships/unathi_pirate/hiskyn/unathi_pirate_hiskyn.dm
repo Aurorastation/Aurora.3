@@ -120,7 +120,6 @@
 	dock_target = "airlock_hiskyn_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_dock_hiskyn"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/hiskyn_shuttle/dock

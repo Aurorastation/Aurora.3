@@ -127,6 +127,9 @@
 /mob/living/bot/farmbot/turn_off()
 	MOB_STOP_THINKING(src)
 	. = ..()
+	target = null
+	path = list()
+	frustration = 0
 
 /mob/living/bot/farmbot/update_icon()
 	if(on && action)
@@ -140,11 +143,20 @@
 		flick("farmbot_broke", src)
 
 /mob/living/bot/farmbot/think()
+	if(pAI) // no AI if we have a pAI installed
+		return
+
 	..()
 	if(!on)
 		return
+	if(attacking || pulledby)
+		return
 
 	if(target)
+		if(QDELETED(target))
+			target = null
+			path = list()
+			return
 		if(Adjacent(target))
 			UnarmedAttack(target)
 			path = list()
@@ -152,12 +164,13 @@
 		else
 			if(length(path) && frustration < 5)
 				if(path[1] == loc)
-					path -= path[1]
+					path.Cut(1, 2)
 
 				if(length(path))
-					var/t = step_towards(src, path[1])
-					if(t)
-						path -= path[1]
+					var/turf/next_step = path[1]
+					if(step_to(src, next_step) && get_turf(src) == next_step)
+						path.Cut(1, 2)
+						frustration = 0
 					else
 						++frustration
 			else
@@ -166,8 +179,10 @@
 	else
 		if(emagged)
 			for(var/mob/living/carbon/human/H in view(7, src))
-				target = H
-				break
+				if(Adjacent(H) || pathfind(get_turf(H)))
+					target = H
+					frustration = 0
+					break
 		else
 			if(check_tank())
 				for(var/obj/structure/sink/S in view(7, src))
@@ -175,16 +190,18 @@
 						target = S
 						frustration = 0
 						break
-			else
-				for(var/obj/structure/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
-					if(!tray.seed) //No seed? We don't care.
-						continue
-					if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
-						continue
-					if(pathfind(get_turf(tray))) //If we can get there, we can accept it as a target.
-						target = tray
-						frustration = 0
-						break
+				if(target)
+					return
+
+			for(var/obj/structure/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
+				if(!tray.seed) //No seed? We don't care.
+					continue
+				if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
+					continue
+				if(pathfind(get_turf(tray))) //If we can get there, we can accept it as a target.
+					target = tray
+					frustration = 0
+					break
 
 
 /mob/living/bot/farmbot/proc/pathfind(var/turf/targetloc)
@@ -196,13 +213,20 @@
 	if(!length(freespaces))
 		return FALSE
 
-	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.
-	var/turf/location_goal = pick(freespaces)
-	path = get_path_to(src, location_goal, 30, 0, botcard.GetAccess())
-	if(!length(path))
+	//Already standing in an interaction position; the next think will operate on the target.
+	if(get_turf(src) in freespaces)
 		path = list()
-		return FALSE
-	return path
+		return TRUE
+
+	//Try every valid interaction position instead of failing because one random tile is unreachable.
+	var/list/best_path = list()
+	for(var/turf/location_goal as anything in freespaces)
+		var/list/candidate_path = get_path_to(src, location_goal, 30, 0, botcard.GetAccess(), diagonal_handling=DIAGONAL_REMOVE_ALL)
+		if(length(candidate_path) && (!length(best_path) || length(candidate_path) < length(best_path)))
+			best_path = candidate_path
+
+	path = best_path
+	return length(path) > 0
 
 /mob/living/bot/farmbot/UnarmedAttack(var/atom/A, var/proximity)
 	. = ..()
@@ -253,11 +277,14 @@
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_NUTRIMENT, T), 3 SECONDS)
 
 	else if(istype(A, /obj/structure/sink))
+		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
+			return
+		var/obj/structure/sink/S = A
 		action = "water"
 		update_icon()
 		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
 		attacking = TRUE
-		addtimer(CALLBACK(src, PROC_REF(refill_water)), 3 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(refill_water), S), 3 SECONDS)
 
 	else if(emagged && ishuman(A))
 		var/action = pick("weed", "water")
@@ -282,15 +309,16 @@
  * Remember to set `attacking = TRUE` before doing so, so multiple actions won't be queued at the same time
  */
 /mob/living/bot/farmbot/proc/do_action_on_tray(action_to_take, obj/structure/machinery/portable_atmospherics/hydroponics/T)
-	if(!QDELETED(T))
+	if(on && !QDELETED(T) && Adjacent(T) && process_tray(T) == action_to_take)
 		switch(action_to_take)
 			if(FARMBOT_COLLECT)
 				visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [T]."))
 				T.attack_hand(src)
 			if(FARMBOT_WATER)
-				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
-				visible_message(SPAN_NOTICE("[src] waters \the [T]."))
-				tank.reagents.trans_to(T, 100 - T.waterlevel)
+				if(tank && tank.reagents.total_volume)
+					playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
+					visible_message(SPAN_NOTICE("[src] waters \the [T]."))
+					tank.reagents.trans_to(T, 100 - T.waterlevel)
 			if(FARMBOT_UPROOT)
 				visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [T]."))
 				T.weedlevel = 0
@@ -304,7 +332,8 @@
 
 	action = ""
 	update_icon()
-	T.update_icon()
+	if(!QDELETED(T))
+		T.update_icon()
 	attacking = FALSE
 
 /**
@@ -314,9 +343,10 @@
 /mob/living/bot/farmbot/proc/rearm_attacking()
 	attacking = FALSE
 
-/mob/living/bot/farmbot/proc/refill_water()
-	tank.reagents.add_reagent(/singleton/reagent/water, (tank.reagents.maximum_volume - tank.reagents.total_volume))
-	playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
+/mob/living/bot/farmbot/proc/refill_water(obj/structure/sink/S)
+	if(on && !QDELETED(S) && Adjacent(S) && tank)
+		tank.reagents.add_reagent(/singleton/reagent/water, (tank.reagents.maximum_volume - tank.reagents.total_volume))
+		playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
 	action = ""
 	update_icon()
 	attacking = FALSE
@@ -345,7 +375,7 @@
 		return FALSE
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
-	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/singleton/reagent/water))
+	else if(waters_trays && tank && tank.reagents.total_volume > 0 && tray.waterlevel < 10 && !tray.reagents.has_reagent(/singleton/reagent/water))
 		return FARMBOT_WATER
 	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT

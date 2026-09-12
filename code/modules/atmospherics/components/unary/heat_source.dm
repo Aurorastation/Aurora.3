@@ -74,13 +74,9 @@
 
 
 /obj/structure/machinery/atmospherics/unary/heater/process()
-	. = ..()
-	if (!use_power)
-		heating = 0
-		update_icon()
-		return PROCESS_KILL
+	..()
 
-	if(stat & (NOPOWER|BROKEN))
+	if(stat & (NOPOWER|BROKEN) || !use_power)
 		heating = 0
 		update_icon()
 		return
@@ -178,8 +174,3 @@
 		return TRUE
 
 	return ..()
-
-/obj/structure/machinery/atmospherics/unary/heater/update_use_power(new_use_power)
-	. = ..()
-	if (use_power)
-		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)

@@ -1,0 +1,8 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - balance: "Increases the detonation time of mech launched grenades to 2 seconds, from 1 second."
+  - balance: "Decreased the magazine size of mech frag grenade launchers from 5 to 3. Also reduced their reload speed by 20%."
+  - balance: "Reduced the light explosion radius of frag grenades from 3 to 2."

@@ -135,7 +135,6 @@
 	landmark_transition = "nav_transit_tirakqi_smuggler_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tirakqi_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler_shuttle/hangar
@@ -190,10 +189,6 @@
 
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main
 	color = "#4e4378"
-
-/turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main/fake
-	can_open = TRUE
-	color = "#5e4e9c"
 
 // floor for cosmozoan cage
 /turf/simulated/floor/holofloor/tirakqi_cosmocage

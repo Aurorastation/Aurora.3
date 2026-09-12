@@ -43,6 +43,9 @@
 	return ..()
 
 /mob/living/bot/medbot/think()
+	if(pAI) // no AI if we have a pAI installed
+		return
+
 	..()
 	if(!on)
 		return
@@ -63,9 +66,12 @@
 					path = list()
 			if(path.len)
 				icon_state = "medibots"
-				step_to(src, path[1])
-				path -= path[1]
-				++frustration
+				var/turf/next_step = path[1]
+				if(step_to(src, next_step) && get_turf(src) == next_step)
+					path.Cut(1, 2)
+					frustration = 0
+				else
+					++frustration
 			if(get_dist(src, patient) > 7 || frustration > 8)
 				patient = null
 				icon_state = "medibot[on]"
@@ -307,7 +313,7 @@
 		return treatment_emag
 
 	// If they're injured, we're using a beaker, and they don't have on of the chems in the beaker
-	if(reagent_glass && use_beaker && ((H.getBruteLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getOxyLoss() >= (heal_threshold + 15))))
+	if(reagent_glass && use_beaker && ((H.getBruteLoss() >= heal_threshold) || (H.getFireLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getOxyLoss() >= (heal_threshold + 15))))
 		for(var/_R in reagent_glass.reagents.reagent_volumes)
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(!H.reagents.has_reagent(R))

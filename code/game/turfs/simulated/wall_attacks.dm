@@ -1,28 +1,4 @@
 //Interactions
-/turf/simulated/wall/proc/toggle_open(var/mob/user)
-
-	if(can_open == WALL_OPENING)
-		return
-
-	if(density)
-		can_open = WALL_OPENING
-		//flick("[material.icon_base]fwall_opening", src)
-		sleep(15)
-		density = 0
-		set_opacity(0)
-		update_icon()
-		set_light(0)
-	else
-		can_open = WALL_OPENING
-		//flick("[material.icon_base]fwall_closing", src)
-		density = 1
-		set_opacity(1)
-		update_icon()
-		sleep(15)
-		set_light(1)
-
-	can_open = WALL_CAN_OPEN
-	update_icon()
 
 /turf/simulated/wall/proc/fail_smash(var/mob/user, var/multiplier = 1)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2.5)
@@ -48,14 +24,13 @@
 			return TRUE
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
-	if(!do_after(user, 30, src))
+
+	if(!do_after(user, 30, src, DO_DEPLOY))
 		return
 
-	if(!can_open)
-		to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
-		playsound(src, hitsound, 25, TRUE)
-	else
-		toggle_open(user)
+	// fake wall interaction is handled by /obj/structure/fake_wall, so the only thing players are getting from here is a fail message
+	to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
+	playsound(src, hitsound, 25, TRUE)
 	return FALSE
 
 
@@ -83,7 +58,8 @@
 				H.climb(UP, src)
 				return
 
-	try_touch(user, rotting)
+	if(user.a_intent != I_HELP || rotting)
+		try_touch(user, rotting)
 
 /turf/simulated/wall/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 

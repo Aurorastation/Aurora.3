@@ -661,9 +661,8 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "hf" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/lone_spacer/fore_hall)
 "hh" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2212,9 +2211,9 @@
 /turf/simulated/floor/marble,
 /area/shuttle/lone_spacer/washroom)
 "IA" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/shuttle/space_ship/mercenary{
-	color = "#565454";
-	can_open = 1
+	color = "#565454"
 	},
 /area/shuttle/lone_spacer/fore_hall)
 "IB" = (
