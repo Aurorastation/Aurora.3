@@ -28,6 +28,41 @@
 	info["access_type"] = access_type
 	return info
 
+/// Converts any `/datum/access` typepaths in a list into their numeric `::id` values.
+/// Takes a mixed list like `list(1, 2, 3, ACCESS_SECURITY, /datum/access/armory)`.
+/// Returns a list with only numeric IDs.
+/proc/resolve_access_list(list/access_list)
+	// if null or empty, do nothing
+	if(!access_list)
+		return access_list
+
+	// copy prevents mutating lists shared across instances
+	var/list/resolved = access_list.Copy()
+
+	for(var/i in 1 to length(resolved))
+		var/entry = resolved[i]
+
+		// valid raw numeric ID
+		if(isnum(entry))
+			continue
+
+		// valid access datum path
+		if(ispath(entry, /datum/access))
+			var/datum/access/acc_type = entry
+
+			// abstract types should not be used
+			if(is_abstract(acc_type))
+				stack_trace("resolve_access_list(): access path '[entry]' is abstract")
+
+			var/resolved_id = acc_type::id
+			resolved[i] = resolved_id
+			continue
+
+		// neither a number nor a valid access typepath
+		stack_trace("resolve_access_list(): item '[entry]' is neither number nor /datum/access path")
+
+	return resolved
+
 /*****************
 * Station access *
 *****************/
