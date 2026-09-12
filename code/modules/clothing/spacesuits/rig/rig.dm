@@ -74,6 +74,8 @@
 	var/obj/item/rig_module/voice/speech
 	/// The person currently wearing the rig.
 	var/mob/living/carbon/human/wearer
+	/// Powered servos multiply the wearer's effective mass for lifting calculations while the full suit is deployed.
+	var/lift_capacity_multiplier = 2.25
 	/// Holder for on-mob icon.
 	var/image/mob_icon
 	/// Power consumption/use bookkeeping.
@@ -135,7 +137,8 @@
 
 /obj/item/rig/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "<ul><li><b>Using:</b> Place the hardsuit on your back, open the Hardsuit tab, then click Engage/Disengage Hardsuit.</li><li><b>Removing:</b> Click Engage/Disengage Hardsuit again, then remove the hardsuit from your back once it disengages.</li><li><b>Storage:</b> If the suit has storage and an item fits, clicking the hardsuit with that item will place it inside. To open the storage, hold the hardsuit and click it with an empty hand, or middle-click it while standing nearby.</li><li><b>Maintenance:</b> Use a crowbar to open or close the maintenance panel. When the panel is open, a screwdriver removes the battery or upgrades, a wrench removes the air tank, and wirecutters or a multitool provide access to the wires.</li></ul>"
+	var/lift_capacity_hint = lift_capacity_multiplier > 1 ? "<li><b>Powered servos:</b> A fully deployed and powered hardsuit multiplies your lift capacity by [lift_capacity_multiplier].</li>" : ""
+	. += "<ul><li><b>Using:</b> Place the hardsuit on your back, open the Hardsuit tab, then click Engage/Disengage Hardsuit.</li>[lift_capacity_hint]<li><b>Removing:</b> Click Engage/Disengage Hardsuit again, then remove the hardsuit from your back once it disengages.</li><li><b>Storage:</b> If the suit has storage and an item fits, clicking the hardsuit with that item will place it inside. To open the storage, hold the hardsuit and click it with an empty hand, or middle-click it while standing nearby.</li><li><b>Maintenance:</b> Use a crowbar to open or close the maintenance panel. When the panel is open, a screwdriver removes the battery or upgrades, a wrench removes the air tank, and wirecutters or a multitool provide access to the wires.</li></ul>"
 
 /obj/item/rig/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -1047,12 +1050,19 @@
 		return
 
 	RegisterSignal(new_wearer, COMSIG_MOB_CLICKON, PROC_REF(handle_wearer_click))
+	RegisterSignal(new_wearer, COMSIG_GET_EFFECTIVE_MASS, PROC_REF(modify_wearer_effective_mass))
 
 /obj/item/rig/proc/unregister_wearer_signals(mob/living/carbon/human/old_wearer)
 	if(!old_wearer)
 		return
 
 	UnregisterSignal(old_wearer, COMSIG_MOB_CLICKON)
+	UnregisterSignal(old_wearer, COMSIG_GET_EFFECTIVE_MASS)
+
+/obj/item/rig/proc/modify_wearer_effective_mass(atom/movable/source, effective_mass)
+	SIGNAL_HANDLER
+	if(!offline && suit_is_deployed())
+		*effective_mass = *effective_mass * lift_capacity_multiplier
 
 /obj/item/rig/proc/handle_wearer_click(mob/user, atom/target, modifiers)
 	SIGNAL_HANDLER

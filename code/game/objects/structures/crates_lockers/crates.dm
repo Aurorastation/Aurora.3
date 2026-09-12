@@ -5,6 +5,7 @@
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
+	mass = 50
 	icon = 'icons/obj/containers/crate.dmi'
 	icon_state = "crate"
 	climbable = TRUE
@@ -31,6 +32,7 @@
 /obj/structure/closet/crate/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
+	. += "A closed crate can be lifted by clicking and dragging it onto yourself, provided both of your hands are free and you have enough lift capacity for the crate and its contents."
 
 /obj/structure/closet/crate/antagonist_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -140,6 +142,12 @@
 	else
 		return ..()
 
+/obj/structure/closet/crate/attack_hand(mob/user)
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		return shelf.lift_to_hands(src, user)
+	return ..()
+
 /obj/structure/closet/crate/proc/set_tablestatus(var/target)
 	if (tablestatus != target)
 		tablestatus = target
@@ -167,8 +175,98 @@
 	if(istype(loc, /obj/structure/crate_shelf) && isturf(over) && !is_blocked_turf(over))
 		take_off_shelf(loc, user, over)
 		return TRUE
+	else if(over == user)
+		lift_crate(user)
+		return TRUE
 	else
 		return ..()
+
+/obj/structure/closet/crate/proc/lift_crate(mob/living/carbon/human/user)
+	if(!ishuman(user) || !user.Adjacent(src) || !isturf(loc))
+		return FALSE
+	if(opened)
+		to_chat(user, SPAN_WARNING("You need to close \the [src] before lifting it."))
+		return FALSE
+	if(anchored)
+		to_chat(user, SPAN_WARNING("\The [src] is secured in place."))
+		return FALSE
+	if(user.get_active_hand() || user.get_inactive_hand())
+		to_chat(user, SPAN_WARNING("You need both hands free to lift \the [src]."))
+		return FALSE
+
+	var/effective_mass = get_effective_mass()
+	if(user.get_lift_capacity() < effective_mass)
+		to_chat(user, SPAN_WARNING("\The [src] is too heavy for you to lift."))
+		return FALSE
+
+	user.visible_message(SPAN_NOTICE("\The [user] braces and starts lifting \the [src]..."), SPAN_NOTICE("You brace and start lifting \the [src]..."))
+	if(!do_after(user, 1 SECOND, src, DO_UNIQUE))
+		return FALSE
+	if(!user.Adjacent(src) || !isturf(loc) || opened || anchored || user.get_active_hand() || user.get_inactive_hand())
+		return FALSE
+	if(user.get_lift_capacity() < get_effective_mass())
+		to_chat(user, SPAN_WARNING("\The [src] is now too heavy for you to lift."))
+		return FALSE
+
+	var/obj/item/package/carried_crate/carrier = new(get_turf(src))
+	carrier.store_crate(src)
+	if(!user.put_in_active_hand(carrier))
+		qdel(carrier)
+		return FALSE
+	carrier.wield(user)
+	user.visible_message(SPAN_NOTICE("\The [user] lifts \the [src]."), SPAN_NOTICE("You lift \the [src]."))
+	return TRUE
+
+/// Temporary item representation used while an existing crate is carried in both hands.
+/obj/item/package/carried_crate
+	name = "carried crate"
+	desc = "A crate being carried with both hands."
+	icon = 'icons/obj/containers/crate.dmi'
+	icon_state = "crate"
+	icon_override = 'icons/obj/package.dmi'
+	item_state = "supply_package"
+	mass_based_slowdown = TRUE
+	slowdown = 0
+	var/obj/structure/closet/crate/stored_crate
+
+/obj/item/package/carried_crate/proc/store_crate(obj/structure/closet/crate/crate)
+	stored_crate = crate
+	name = crate.name
+	desc = crate.desc
+	icon = crate.icon
+	icon_state = crate.icon_state
+	color = crate.color
+	crate.set_tablestatus(FALSE)
+	crate.forceMove(src)
+
+/obj/item/package/carried_crate/get_effective_mass()
+	if(stored_crate && !QDELETED(stored_crate))
+		return stored_crate.get_effective_mass()
+	return ..()
+
+/obj/item/package/carried_crate/dropped(mob/user)
+	. = ..()
+	// Let throw-mode placement move the carrier to its target turf before restoring the crate.
+	addtimer(CALLBACK(src, PROC_REF(deploy_after_drop)), 0)
+
+/obj/item/package/carried_crate/proc/deploy_after_drop()
+	if(!ismob(loc))
+		deploy_crate(get_turf(src))
+
+/obj/item/package/carried_crate/proc/deploy_crate(turf/destination)
+	if(!destination || !stored_crate || QDELETED(stored_crate))
+		return FALSE
+	var/obj/structure/closet/crate/crate = stored_crate
+	stored_crate = null
+	crate.forceMove(destination)
+	qdel(src)
+	return TRUE
+
+/obj/item/package/carried_crate/Destroy()
+	if(stored_crate && !QDELETED(stored_crate))
+		stored_crate.forceMove(get_turf(src))
+	stored_crate = null
+	return ..()
 
 /obj/structure/closet/crate/proc/put_on_shelf(var/obj/structure/crate_shelf/shelf, var/mob/user)
 	shelf.load(src, user)
@@ -201,22 +299,15 @@
 			to_chat(user, SPAN_WARNING("There's already a crate on this table!"))
 			return
 
-	//Crates are heavy, hauling them onto tables is hard.
-	//The more stuff thats in it, the longer it takes
-	//Good place to factor in Strength in future
-	var/timeneeded = 2 SECONDS
+	// Crates are heavy, and their contents are already included recursively in
+	// effective mass. Loads beyond the user's comfortable capacity remain
+	// possible to hoist, but take proportionally longer.
+	var/timeneeded = clamp(2 SECONDS * max(1, get_effective_mass() / user.get_lift_capacity()), 2 SECONDS, 15 SECONDS)
 
 	if (tablestatus == ABOVE_TABLE && Adjacent(table))
 		//Sliding along a tabletop we're already on. Instant and silent
 		timeneeded = 0
 		return TRUE
-	else
-		//Add time based on mass of contents
-		for (var/obj/O in contents)
-			timeneeded += 1.5* O.w_class
-		for (var/mob/M in contents)
-			timeneeded += 1.5* M.mob_size
-
 	if (timeneeded > 0)
 		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
 		user.face_atom(src)
@@ -252,6 +343,7 @@
 	)
 
 /obj/structure/closet/crate/plastic
+	mass = 25
 	name = "plastic crate"
 	desc = "A rectangular plastic crate."
 	icon_state = "plastic_crate"

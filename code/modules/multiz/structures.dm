@@ -97,7 +97,8 @@
 
 	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"))
 
-	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
+	var/adjusted_climb_time = M.get_conditioning_action_delay(climb_time)
+	if(do_after(M, istype(G) ? (adjusted_climb_time * 2) : adjusted_climb_time))
 		climbLadder(M, target_ladder)
 
 /obj/structure/ladder/attack_ghost(var/mob/M)
@@ -477,7 +478,7 @@
 			LAZYADD(climbers, user)
 			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), SPAN_NOTICE("You start climbing [climb_text] \the [src]..."))
 
-			if(!do_after(user, 1 SECOND) || !can_climb(user, TRUE))
+			if(!do_after(user, user.get_conditioning_action_delay(1 SECOND)) || !can_climb(user, TRUE))
 				LAZYREMOVE(climbers, user) // Prevents early-cancellation not clearing the climber off the list
 				return
 

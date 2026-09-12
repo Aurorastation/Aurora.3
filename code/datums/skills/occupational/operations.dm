@@ -124,7 +124,7 @@
 
 /singleton/skill/conditioning
 	name = "Conditioning"
-	description = "Governs a character's ability to pick up, drag, and throw heavy objects, particularly crates and people. " \
+	description = "Governs a character's ability to pick up, drag, and throw heavy objects, particularly crates, people, ammunition, and machinery components. " \
 		+ "By default, most characters can comfortably lift or drag 1.25x their body weight without penalty. " \
 		+ "This includes determining how heavy a character you can fireman carry, and with how much slowdown. "
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
@@ -133,8 +133,8 @@
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from your Conditioning.",
-		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%",
-		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%",
-		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%"
+		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%, you climb 15% faster, and you have a 20% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%, you climb 30% faster, and you have a 40% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%, you climb 45% faster, and you have a 60% chance to catch yourself during sudden shuttle acceleration when something is within reach."
 	)
 	component_type = CONDITIONING_SKILL_COMPONENT
