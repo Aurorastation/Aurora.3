@@ -390,6 +390,9 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/ui_status(mob/user, datum/ui_state/state)
 	if(!on)
 		return UI_CLOSE
+	// An adjacent user can operate an open radio menu even when somebody else carries it.
+	if(isliving(user) && !issilicon(user) && Adjacent(user))
+		return user.shared_ui_interaction(src)
 	return ..()
 
 /obj/item/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
