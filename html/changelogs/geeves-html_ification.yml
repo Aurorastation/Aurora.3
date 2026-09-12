@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Replaced the lobby and Escape (hit escape ingame!) menus with a new full-screen HTML interface."
