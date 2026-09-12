@@ -154,6 +154,11 @@
 
 /obj/structure/machinery/door/CollidedWith(atom/bumped_atom)
 	. = ..()
+	if(density && istype(bumped_atom, /mob/living))
+		var/mob/living/door_breaker = bumped_atom
+		if(door_breaker.ai_holder?.instant_door_destruction)
+			door_breaker.ai_holder.destroy_door(src)
+			return
 	if(p_open || operating) return
 	if (!bumped_atom.simulated) return
 	if(ismob(bumped_atom))

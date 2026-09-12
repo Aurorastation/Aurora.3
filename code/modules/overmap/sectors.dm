@@ -106,6 +106,9 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 		detarget(targeting)
 
 /obj/effect/overmap/visitable/Destroy()
+	for(var/zlevel in map_z)
+		if(GLOB.map_sectors["[zlevel]"] == src)
+			GLOB.map_sectors -= "[zlevel]"
 	for(var/obj/structure/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads)
 		if(H.linked == src)
 			H.linked = null

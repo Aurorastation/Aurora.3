@@ -1,4 +1,25 @@
+/datum/ai_holder/simple_animal/ranged/kiting/threatening/icarus_drone
+
+/datum/ai_holder/simple_animal/ranged/kiting/threatening/icarus_drone/attune_to_holder()
+	. = ..()
+	var/mob/living/simple_animal/hostile/icarus_drone/drone = holder
+	hostile = !drone.malfunctioning || drone.hostile_drone
+
+/datum/ai_holder/simple_animal/ranged/kiting/threatening/icarus_drone/handle_special_strategical()
+	var/mob/living/simple_animal/hostile/icarus_drone/drone = holder
+	if(drone.malfunctioning && !drone.disabled && prob(1))
+		drone.hostile_drone = !drone.hostile_drone
+		if(drone.hostile_drone)
+			drone.visible_message(SPAN_ALERT("\The [drone] suddenly lights up, and additional targetting vanes slide into place."))
+		else
+			drone.visible_message(SPAN_NOTICE("\The [drone] retracts several targetting vanes, and dulls its running lights."))
+			remove_target(FALSE)
+	hostile = !drone.malfunctioning || drone.hostile_drone
+	if(!drone.exploding && !drone.disabled && prob(drone.explode_chance))
+		drone.AIStartExplosionCountdown()
+
 /mob/living/simple_animal/hostile/icarus_drone
+	ai_holder_type = /datum/ai_holder/simple_animal/ranged/kiting/threatening/icarus_drone
 	name = "combat drone"
 	desc = "An automated combat drone armed with state of the art weaponry and shielding. This one has the markings of a drone carrier on the side."
 	desc_extended = "Produced by NanoTrasen, these combat drones are often carried and deployed by NDV Drone Carriers to protect local assets."
@@ -177,15 +198,6 @@
 	if(malfunctioning && prob(5))
 		spark(src, 3, GLOB.alldirs)
 
-	//sometimes our targetting sensors malfunction, and we attack anyone nearby
-	if(malfunctioning && prob(disabled ? 0 : 1))
-		if(hostile_drone)
-			src.visible_message(SPAN_NOTICE("\The [src] retracts several targetting vanes, and dulls its running lights."))
-			hostile_drone = FALSE
-		else
-			src.visible_message(SPAN_ALERT("\The [src] suddenly lights up, and additional targetting vanes slide into place."))
-			hostile_drone = TRUE
-
 	if(health / maxhealth > 0.9)
 		icon_state = "drone3"
 		explode_chance = 0
@@ -217,15 +229,18 @@
 			visible_message(SPAN_ALERT("\The [src] sparks and shakes like it's about to explode!"))
 		spark(src, 3, GLOB.alldirs)
 
-	if(!exploding && !disabled && prob(explode_chance))
-		exploding = TRUE
-		set_stat(UNCONSCIOUS)
-		wander = 1
-		GLOB.move_manager.stop_looping(src)
-		spawn(rand(50, 150))
-			if(!disabled && exploding)
-				explosion(get_turf(src), 0, 1, 4, 7)
 	..()
+
+/mob/living/simple_animal/hostile/icarus_drone/proc/AIStartExplosionCountdown()
+	exploding = TRUE
+	set_stat(UNCONSCIOUS)
+	wander = TRUE
+	GLOB.move_manager.stop_looping(src)
+	addtimer(CALLBACK(src, PROC_REF(AIFinishExplosionCountdown)), rand(50, 150))
+
+/mob/living/simple_animal/hostile/icarus_drone/proc/AIFinishExplosionCountdown()
+	if(!disabled && exploding)
+		explosion(get_turf(src), 0, 1, 4, 7)
 
 //ion rifle!
 /mob/living/simple_animal/hostile/icarus_drone/emp_act(severity)

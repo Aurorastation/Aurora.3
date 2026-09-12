@@ -1,4 +1,12 @@
+/datum/ai_holder/simple_animal/passive/ice_tunneler
+
+/datum/ai_holder/simple_animal/passive/ice_tunneler/handle_special_strategical()
+	var/mob/living/simple_animal/ice_tunneler/tunneler = holder
+	if(tunneler.eggsleft > 0 && tunneler.gender == FEMALE && prob(3))
+		tunneler.AILayEgg()
+
 /mob/living/simple_animal/ice_tunneler
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/ice_tunneler
 	name = "ice tunneler"
 	desc = "An egg producing beast from Adhomai. It is known for burrowing in ice and snow."
 	icon = 'icons/mob/npc/adhomai.dmi'
@@ -40,17 +48,13 @@
 	else
 		..()
 
-/mob/living/simple_animal/ice_tunneler/Life(seconds_per_tick, times_fired)
-	. =..()
-	if(!.)
-		return
-	if(!stat && prob(3) && eggsleft > 0 && (gender = FEMALE))
-		visible_message("[src] lays an egg.")
-		eggsleft--
-		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/egg = new /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers(get_turf(src))
-		egg.fertilize()
-		egg.pixel_x = rand(-6,6)
-		egg.pixel_y = rand(-6,6)
+/mob/living/simple_animal/ice_tunneler/proc/AILayEgg()
+	visible_message("[src] lays an egg.")
+	eggsleft--
+	var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/egg = new(get_turf(src))
+	egg.fertilize()
+	egg.pixel_x = rand(-6, 6)
+	egg.pixel_y = rand(-6, 6)
 
 /mob/living/simple_animal/ice_tunneler/male
 	icon_state = "tunneler_m"

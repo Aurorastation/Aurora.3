@@ -70,7 +70,7 @@
 		if(0)
 			user.visible_message(SPAN_WARNING("\The [user] swings at some angry bees, they don't seem to like it."), SPAN_WARNING("You swing at some angry bees, and just manage to make them madder."))
 			target.feral = 5
-			target.target_mob = user
+			target.ai_holder?.give_target(user, TRUE)
 		else
 			var/delta = round((target.strength * success), 1)
 			delta = min(max(delta, 1), target.strength)
@@ -120,7 +120,7 @@
 				//Theyre only angry when they come out if any of them were angry when they went in
 				//Anger is contagious though
 				B.feral = 5
-				B.target_mob = M
+				B.ai_holder?.give_target(M, TRUE)
 			B.strength = 6
 			B.update_icon()
 			caught_bees -= 6
@@ -131,7 +131,7 @@
 		B.feral = 0
 		if(feralbees)
 			B.feral = 5
-			B.target_mob = M
+			B.ai_holder?.give_target(M, TRUE)
 		B.update_icon()
 		caught_bees = 0
 

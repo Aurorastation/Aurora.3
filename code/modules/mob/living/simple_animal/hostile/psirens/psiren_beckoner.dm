@@ -3,7 +3,21 @@
  * They share their attack and defense pattern with the Omen.
  * But also gain a periodic psychic damage aura.
  */
+/datum/ai_holder/simple_animal/hostile/psiren_beckoner
+	var/next_aura_pulse
+
+/datum/ai_holder/simple_animal/hostile/psiren_beckoner/proc/start_aura()
+	var/mob/living/simple_animal/hostile/psiren/omen/beckoner/beckoner = holder
+	next_aura_pulse = REALTIMEOFDAY + rand(beckoner.min_pulse_time, beckoner.max_pulse_time)
+	beckoner.hunting_pulse()
+
+/datum/ai_holder/simple_animal/hostile/psiren_beckoner/handle_special_strategical()
+	if(next_aura_pulse > REALTIMEOFDAY)
+		return
+	start_aura()
+
 /mob/living/simple_animal/hostile/psiren/omen/beckoner
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/psiren_beckoner
 	name = "psiren beckoner"
 	icon = 'icons/mob/npc/psiren_beckoner.dmi'
 	icon_state = "psiren_beckoner"
@@ -49,16 +63,8 @@
 
 /mob/living/simple_animal/hostile/psiren/omen/beckoner/Initialize()
 	. = ..()
-	next_aura_pulse = REALTIMEOFDAY + rand(min_pulse_time, max_pulse_time)
-	hunting_pulse()
-
-/mob/living/simple_animal/hostile/psiren/omen/beckoner/Life(seconds_per_tick, times_fired)
-	. = ..()
-	if (stat == DEAD || next_aura_pulse > REALTIMEOFDAY)
-		return
-
-	next_aura_pulse = REALTIMEOFDAY + rand(min_pulse_time, max_pulse_time)
-	hunting_pulse()
+	var/datum/ai_holder/simple_animal/hostile/psiren_beckoner/beckoner_ai = ai_holder
+	beckoner_ai?.start_aura()
 
 /mob/living/simple_animal/hostile/psiren/omen/beckoner/proc/hunting_pulse()
 	// TODO: Really should port tg's handling of per-z-level mob lists.

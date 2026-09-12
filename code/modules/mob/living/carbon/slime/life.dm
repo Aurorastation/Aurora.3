@@ -10,10 +10,6 @@
 
 /mob/living/carbon/slime/think()
 	..()
-	handle_targets()
-	if(!AIproc || last_AI > world.time + 1 MINUTE)
-		handle_AI()
-	handle_speech_and_mood()
 
 /mob/living/carbon/slime/handle_environment(datum/gas_mixture/environment)
 	..()
@@ -159,6 +155,11 @@
 	return TRUE
 
 /mob/living/carbon/slime/proc/handle_nutrition()
+	if(attacked > 0)
+		attacked = max(0, attacked - 1)
+		if(!attacked)
+			AIUpdateSlimeMood()
+
 	if(prob(15))
 		adjustNutritionLoss(1 + is_adult)
 
@@ -567,7 +568,7 @@
 		return TRUE
 	if(nutrition > get_grow_nutrition())
 		return FALSE
-	if(leader)
+	if(ai_holder?.leader || leader)
 		return FALSE
 	if(holding_still)
 		return FALSE

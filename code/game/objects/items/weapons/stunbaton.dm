@@ -187,10 +187,9 @@
 			else
 				target_mob.visible_message(SPAN_DANGER("[S] has been prodded with \the [src] by [user]!"))
 
-			S.discipline++
+			S.adjust_slime_discipline(1)
 			if(prob(1))
-				S.discipline = 0
-				S.rabid = TRUE // heres that "or piss them off part"
+				S.set_slime_rabid(TRUE) // heres that "or piss them off part"
 
 		else
 			if(!status)

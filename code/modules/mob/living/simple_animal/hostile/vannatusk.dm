@@ -1,4 +1,13 @@
+/datum/ai_holder/simple_animal/hostile/vannatusk
+
+/datum/ai_holder/simple_animal/hostile/vannatusk/on_target_acquired(atom/new_target, atom/old_target)
+	var/mob/living/simple_animal/hostile/vannatusk/vannatusk = holder
+	vannatusk.custom_emote(VISIBLE_MESSAGE, "stares alertly at [new_target]")
+	if(!vannatusk.Adjacent(new_target))
+		vannatusk.fire_spike(new_target)
+
 /mob/living/simple_animal/hostile/vannatusk
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/vannatusk
 	name = "vannatusk"
 	desc = "A monstrous interdimensional invader. Its body is protected by a chitin carapace."
 	icon = 'icons/mob/npc/vannatusk.dmi'
@@ -53,12 +62,6 @@
 /mob/living/simple_animal/hostile/vannatusk/death()
 	..(null, "collapses!")
 	flick("vannatusk_death_animation", src)
-
-/mob/living/simple_animal/hostile/vannatusk/FoundTarget()
-	if(last_found_target)
-		custom_emote(VISIBLE_MESSAGE,"stares alertly at [last_found_target]")
-		if(!Adjacent(last_found_target))
-			fire_spike(last_found_target)
 
 /mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/atom/target)
 	visible_message(SPAN_DANGER("\The [src] fires a spike at [target]!"))

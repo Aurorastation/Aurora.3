@@ -600,6 +600,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(feedback)
 			to_chat(src, SPAN_WARNING("antagHUD restrictions prevent you from respawning."))
 		return 0
+	if(respawn_type == CREW && SSticker.mode?.instant_respawn)
+		return TRUE
 
 	if (respawn_type)
 		var/timedifference = world.time- get_death_time(respawn_type)

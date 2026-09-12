@@ -1,4 +1,5 @@
 /mob/living/simple_animal/hostile/syndicate
+	ai_holder_type = /datum/ai_holder/simple_animal/humanoid/mercenary/hostile
 	name = "\improper Syndicate operative"
 	desc = "Death to the Company."
 	icon = 'icons/mob/npc/human.dmi'

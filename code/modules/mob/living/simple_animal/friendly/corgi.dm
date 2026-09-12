@@ -1,4 +1,37 @@
 //Corgi
+/datum/ai_holder/simple_animal/passive/corgi
+	base_wander_delay = 4
+
+/datum/ai_holder/simple_animal/passive/corgi/proc/dance()
+	var/mob/living/simple_animal/corgi/corgi = holder
+	corgi.visible_emote(pick("dances around.", "chases their tail."), 0)
+	INVOKE_ASYNC(corgi, TYPE_PROC_REF(/mob/living/simple_animal/corgi, do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+
+/datum/ai_holder/simple_animal/passive/corgi/handle_special_strategical()
+	if(stance == AI_STANCE_IDLE && prob(1))
+		dance()
+
+/datum/ai_holder/simple_animal/passive/corgi/lisa/handle_special_strategical()
+	. = ..()
+	var/mob/living/simple_animal/corgi/Lisa/lisa = holder
+	if(lisa.resting || lisa.buckled_to)
+		return
+	lisa.turns_since_scan++
+	if(lisa.turns_since_scan <= 15)
+		return
+	lisa.turns_since_scan = 0
+	var/alone = TRUE
+	var/mob/living/simple_animal/corgi/Ian/ian
+	for(var/mob/nearby_mob in oviewers(7, lisa))
+		if(istype(nearby_mob, /mob/living/simple_animal/corgi/Ian) && !nearby_mob.client)
+			ian = nearby_mob
+			continue
+		alone = FALSE
+		break
+	if(alone && ian && lisa.puppies < 4 && !lisa.near_camera() && !ian.near_camera())
+		new /mob/living/simple_animal/corgi/puppy(lisa.loc)
+		lisa.puppies++
+
 /mob/living/simple_animal/corgi
 	name = "corgi"
 	real_name = "corgi"
@@ -39,6 +72,7 @@
 
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Ian
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/corgi
 	name = "Ian"
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
@@ -53,14 +87,6 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 	holder_type = /obj/item/holder/ian
-
-/mob/living/simple_animal/corgi/Ian/think()
-	..()
-
-	if(!stat && !resting && !buckled_to)
-		if(prob(1))
-			visible_emote(pick("dances around.","chases their tail."),0)
-			INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
 
 /mob/living/simple_animal/corgi/proc/do_dance(list/directions = list())
 	for(var/i in directions)
@@ -79,7 +105,7 @@
 				SPAN_ALERT("[user] baps you on the nose with the rolled up [attacking_item.name]!")
 			)
 			scan_interval = max_scan_interval
-			lostMovementTarget()
+			ai_holder?.give_up_movement()
 			stop_automated_movement = 0
 			turns_since_scan = 0
 
@@ -129,6 +155,7 @@
 
 //LISA! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Lisa
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/corgi/lisa
 	name = "Lisa"
 	real_name = "Lisa"
 	gender = FEMALE
@@ -149,31 +176,3 @@
 		to_chat(usr, SPAN_WARNING("[src] already has a cute bow!"))
 		return
 	..()
-
-/mob/living/simple_animal/corgi/Lisa/think()
-	..()
-	if(!stat && !resting && !buckled_to)
-		turns_since_scan++
-		if(turns_since_scan > 15)
-			turns_since_scan = 0
-			var/alone = 1
-			var/ian = 0
-			for(var/mob/M in oviewers(7, src))
-				if(istype(M, /mob/living/simple_animal/corgi/Ian))
-					if(M.client)
-						alone = 0
-						break
-					else
-						ian = M
-				else
-					alone = 0
-					break
-			if(alone && ian && puppies < 4)
-				if(near_camera(src) || near_camera(ian))
-					return
-				new /mob/living/simple_animal/corgi/puppy(loc)
-				puppies++
-
-	if (!stat && !resting && !buckled_to && prob(1))
-		visible_emote(pick("dances around","chases her tail"),0)
-		INVOKE_ASYNC(src, PROC_REF(do_dance), list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))

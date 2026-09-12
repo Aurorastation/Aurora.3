@@ -136,8 +136,8 @@
 
 
 // -- SSmob_ai --
-#define MOB_START_THINKING(mob) if (!mob.thinking_enabled) { SSmob_ai.processing += mob; mob.on_think_enabled(); mob.thinking_enabled = TRUE; }
-#define MOB_STOP_THINKING(mob) SSmob_ai.processing -= mob; mob.on_think_disabled(); mob.thinking_enabled = FALSE;
+#define MOB_START_THINKING(mob) if (!mob.thinking_enabled) { SSmob_fast_ai.processing -= mob; mob.is_fast_processing = FALSE; SSmob_ai.processing += mob; mob.on_think_enabled(); mob.thinking_enabled = TRUE; }
+#define MOB_STOP_THINKING(mob) SSmob_ai.processing -= mob; SSmob_fast_ai.processing -= mob; mob.is_fast_processing = FALSE; mob.on_think_disabled(); mob.thinking_enabled = FALSE;
 
 #define MOB_SHIFT_TO_FAST_THINKING(mob) if(!mob.is_fast_processing) { SSmob_ai.processing -= mob; SSmob_fast_ai.processing += mob; mob.is_fast_processing = TRUE; }
 #define MOB_SHIFT_TO_NORMAL_THINKING(mob) if(mob.is_fast_processing) { SSmob_fast_ai.processing -= mob; SSmob_ai.processing += mob; mob.is_fast_processing = FALSE; }

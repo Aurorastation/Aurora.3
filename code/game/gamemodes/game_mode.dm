@@ -14,6 +14,8 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	var/newscaster_announcements = null
 	var/ert_disabled = 0                     // ERT cannot be called.
 	var/deny_respawn = 0	                 // Disable respawn during this round.
+	/// Allows dead crew to return to character selection without the configured delay.
+	var/instant_respawn = FALSE
 
 	var/list/disabled_jobs = list()           // Mostly used for Malf.  This check is performed in job_controller so it doesn't spawn a regular AI.
 
@@ -31,6 +33,15 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
+
+	/// Whether this mode permits overmap hazard fields to be generated.
+	var/allow_overmap_hazards = TRUE
+	/// Whether this mode permits dynamically loaded away sites and offships.
+	var/allow_away_sites = TRUE
+	/// Whether map-specific roundstart sensor reports should make a priority announcement.
+	var/announce_roundstart_sensor_report = TRUE
+	/// Traits granted to player-controlled living mobs for the duration of this mode.
+	var/list/player_traits = list()
 
 	/// The canon type of this gamemode. THIS SHOULD ALWAYS BE SET.
 	var/canon_type = /singleton/canonicity/limited
@@ -298,6 +309,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 		feedback_set_details("GLOB.master_mode","[GLOB.master_mode]")
 		feedback_set_details("game_mode","[SSticker.mode]")
 	feedback_set_details("server_ip","[world.internet_address]:[world.port]")
+	apply_player_traits_to_current_players()
 	return 1
 
 /datum/game_mode/proc/fail_setup()
@@ -343,7 +355,27 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /datum/game_mode/proc/check_finished()
 	return GLOB.evacuation_controller.round_over() || station_was_nuked
 
+/// Mode hook providing a destination for an AI actor with no nearby target.
+/datum/game_mode/proc/get_ai_idle_destination(mob/living/ai_actor, high_priority = FALSE)
+	return
+
+/datum/game_mode/proc/apply_player_traits(mob/living/player)
+	if(!player?.client)
+		return
+	for(var/player_trait in player_traits)
+		ADD_TRAIT(player, player_trait, TRAIT_SOURCE_GAME_MODE)
+
+/datum/game_mode/proc/apply_player_traits_to_current_players()
+	if(!length(player_traits))
+		return
+	for(var/mob/living/player as anything in GLOB.player_list)
+		apply_player_traits(player)
+
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
+	if(length(player_traits))
+		for(var/mob/living/player as anything in GLOB.player_list)
+			for(var/player_trait in player_traits)
+				REMOVE_TRAIT(player, player_trait, TRAIT_SOURCE_GAME_MODE)
 	return
 
 /datum/game_mode/proc/declare_completion()
@@ -424,6 +456,14 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /datum/game_mode/proc/check_win() //universal trigger to be called at mob death, nuke explosion, etc. To be called from everywhere.
 	return 0
+
+/// Called once by the base mob death path after the mob has been marked dead.
+/datum/game_mode/proc/handle_mob_death(mob/dead_mob)
+	return
+
+/// Mode-specific validation immediately before a latejoin character is spawned.
+/datum/game_mode/proc/can_spawn_character(mob/abstract/new_player/player, feedback = TRUE)
+	return TRUE
 
 /datum/game_mode/proc/get_players_for_role(var/role, var/antag_id)
 	var/list/players = list()

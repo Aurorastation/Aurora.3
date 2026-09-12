@@ -1,6 +1,7 @@
 /mob/living/carbon/slime
 	name = "baby slime"
 	desc = "A slime."
+	ai_holder_type = /datum/ai_holder/simple_animal/xenobio_slime
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey baby slime"
 	pass_flags = PASSTABLE
@@ -33,6 +34,7 @@
 	var/number = 0 // Used to understand when someone is talking to it
 
 	var/mob/living/victim = null // the person the slime is currently feeding on
+	var/feeding_timer
 	var/mob/living/target = null // AI variable - tells the slime to hunt this down
 	var/mob/living/leader = null // AI variable - tells the slime to follow this person
 
@@ -84,10 +86,23 @@
 	mutation_chance = rand(25, 35)
 	var/sanitizedcolour = replacetext(colour, " ", "")
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
+	switch(colour)
+		if("red")
+			ai_holder_type = /datum/ai_holder/simple_animal/xenobio_slime/red
+		if("light pink")
+			discipline = 10
+			ai_holder_type = /datum/ai_holder/simple_animal/xenobio_slime/light_pink
+		if("sapphire")
+			ai_holder_type = /datum/ai_holder/simple_animal/xenobio_slime/sapphire
+	if(ai_holder_type)
+		ai_holder = new ai_holder_type(src)
 	last_AI = world.time
 	regenerate_icons()
 
 /mob/living/carbon/slime/Destroy()
+	if(feeding_timer)
+		deltimer(feeding_timer)
+		feeding_timer = null
 	victim = null
 	target = null
 	leader = null
@@ -96,6 +111,7 @@
 	friends.Cut()
 	speech_buffer.Cut()
 	QDEL_NULL(ingested)
+	QDEL_NULL(ai_holder)
 	return ..()
 
 /mob/living/carbon/slime/get_ingested_reagents()
@@ -260,6 +276,8 @@
 /mob/living/carbon/slime/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	attacked += 10
 	. = ..()
+	if(. == BULLET_ACT_HIT && ismob(hitting_projectile.firer))
+		ai_holder?.react_to_attack(hitting_projectile.firer)
 
 /mob/living/carbon/slime/emp_act(severity)
 	. = ..()
@@ -307,14 +325,13 @@
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(90) && !client)
-					discipline++
+					adjust_slime_discipline(1)
 
 				SStun = TRUE
 				spawn(rand(45,60))
 					SStun = FALSE
 
-				victim = null
-				anchored = FALSE
+				Feedstop()
 				step_away(src,M)
 
 			return
@@ -328,7 +345,7 @@
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(80) && !client)
-					discipline++
+					adjust_slime_discipline(1)
 
 					if(!is_adult)
 						if(discipline)
@@ -338,8 +355,7 @@
 				spawn(rand(55,65))
 					SStun = FALSE
 
-				victim = null
-				anchored = FALSE
+				Feedstop()
 				step_away(src,M)
 
 			return
@@ -367,15 +383,15 @@
 			var/damage = rand(1, 9)
 
 			attacked += 10
+			ai_holder?.react_to_attack(M)
 			if(prob(90))
 				if((M.mutations & HULK))
 					damage += 5
 					if(victim || target)
-						victim = null
-						target = null
-						anchored = 0
+						Feedstop()
+						ai_holder?.remove_target(FALSE)
 						if(prob(80) && !client)
-							discipline++
+							adjust_slime_discipline(1)
 					spawn(0)
 						step_away(src,M,15)
 						sleep(3)
@@ -395,18 +411,18 @@
 /mob/living/carbon/slime/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.force > 0)
 		attacked += 10
+		ai_holder?.react_to_attack(user)
 		if(discipline && prob(50)) // wow, buddy, why am I getting attacked??
-			discipline = FALSE
+			adjust_slime_discipline(-discipline, TRUE)
 	if(attacking_item.force >= 3)
 		if(is_adult)
 			if(prob(5 + round(attacking_item.force/2)))
 				if(victim || target)
 					if(prob(80) && !client)
-						discipline++
+						adjust_slime_discipline(1)
 
-					victim = null
-					target = null
-					anchored = FALSE
+					Feedstop()
+					ai_holder?.remove_target(FALSE)
 
 					SStun = TRUE
 					spawn(rand(5,20))
@@ -426,16 +442,15 @@
 			if(prob(10 + attacking_item.force*2))
 				if(victim || target)
 					if(prob(80) && !client)
-						discipline++
+						adjust_slime_discipline(1)
 					if(discipline)
 						attacked = FALSE
 					SStun = TRUE
 					spawn(rand(5,20))
 						SStun = FALSE
 
-					victim = null
-					target = null
-					anchored = FALSE
+					Feedstop()
+					ai_holder?.remove_target(FALSE)
 
 					spawn(0)
 						if(user)
