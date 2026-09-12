@@ -1,4 +1,4 @@
 author: kano
 delete-after: True
 changes:
-  - rscadd: "Added the ability for ghostroles to recognize their group in the examine test, if such group defined in the ghostrole spawner."
+  - rscadd: "Added the ability for ghostroles to recognize their group in the examine text, if such group defined in the ghostrole spawner."
