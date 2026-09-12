@@ -52,3 +52,9 @@ ABSTRACT_TYPE(/obj/structure/decor)
 	icon = 'icons/obj/machinery/ship_guns/francisca_compact.dmi'
 	icon_state = "weapon_base"
 	density = TRUE
+
+/obj/structure/decor/ac_unit
+	name = "AC unit"
+	icon = 'icons/effects/city.dmi'
+	icon_state = "ac"
+	density = TRUE

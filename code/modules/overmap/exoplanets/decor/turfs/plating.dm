@@ -13,3 +13,6 @@
 
 /turf/simulated/floor/exoplanet/plating/asteroid/crystal
 	color = "#95c2d9"
+
+/turf/simulated/floor/exoplanet/plating/snow
+	icon_state = "plating_snowy"

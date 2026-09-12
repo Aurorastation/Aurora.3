@@ -35,6 +35,14 @@
 	. = ..()
 	icon_state = "stalagmite[rand(1,6)]"
 
+/obj/structure/flora/rock/stalagmite/icy
+	icon = 'icons/obj/flora/rocks_recolorable.dmi'
+	color = "#849899"
+
+/obj/structure/flora/rock/stalagmite/icy/Initialize()
+	. = ..()
+	icon_state = "stalagmite[rand(1,4)]"
+
 /obj/structure/flora/rock/ice
 	name = "ice"
 	desc = "A large formation made of ice."

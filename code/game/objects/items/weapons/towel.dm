@@ -66,3 +66,8 @@
 	T.desc = src.desc
 	user.put_in_hands(T)
 	qdel(src)
+
+/obj/item/towel_flat/doormat
+	name = "doormat"
+	desc = "A simple, red doormat. Wipe your shoes on it, or else!"
+	color = "#593737"

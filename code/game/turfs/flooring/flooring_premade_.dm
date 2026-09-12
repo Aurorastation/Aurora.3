@@ -158,6 +158,9 @@
 	initial_flooring = /singleton/flooring/tiling/freezer
 	color = null
 
+/turf/simulated/floor/tiled/freezer/cold
+	temperature = 268.15 // -5C
+
 /turf/simulated/floor/tiled/ramp
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -235,6 +238,11 @@
 /turf/simulated/floor/tiled/dark/full/airless
 	name = "airless full plasteel tile"
 	initial_gas = null
+
+/turf/simulated/floor/tiled/dark/full/cold
+	name = "cold full plasteel tile"
+	temperature = 268.15 // -5C
+
 
 // ------------------------------- tiled/light
 
