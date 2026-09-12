@@ -417,7 +417,7 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		trample_on_move = (user.a_intent == I_HURT && user.m_intent == M_RUN)
+		trample_on_move = (user.m_intent == M_RUN)
 		Move(target_loc, direction, 0, FALSE)
 		trample_on_move = FALSE
 
@@ -443,7 +443,7 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		trample_on_move = (user.a_intent == I_HURT && user.m_intent == M_RUN)
+		trample_on_move = (user.m_intent == M_RUN)
 		Move(target_loc, direction, 0, FALSE)
 		trample_on_move = FALSE
 
@@ -473,7 +473,13 @@
 	// They shouldn't get to this proc without legs in the first place, but its okay to guard here.
 	if (!legs || !legs.motivator)
 		return
+	trample_retry = FALSE
 	. = ..()
+	if(!. && trample_retry && loc != newloc)
+		// Retry normal movement after the collision made the target passable.
+		trample_retry = FALSE
+		. = ..()
+	trample_retry = FALSE
 	set_glide_size(DELAY_TO_GLIDE_SIZE(next_mecha_move - world.time))
 	if(. && !istype(loc, /turf/space))
 		if(legs.mech_step_sound)
@@ -499,8 +505,15 @@
 /mob/living/heavy_vehicle/Collide(atom/movable/target_movable_atom)
 	if(trample_on_move && isliving(target_movable_atom))
 		var/mob/living/target_mob = target_movable_atom
-		target_mob.apply_effect(2, WEAKEN)
-		trample(target_mob)
+		if(target_mob.mob_size <= max_trample_size)
+			var/was_lying = target_mob.lying
+			target_mob.apply_effect(2, WEAKEN)
+			if(target_mob.lying)
+				if(!was_lying)
+					visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"))
+					trample_retry = TRUE
+				// Leave them here; entering their tile applies the existing trample damage.
+				return
 	return ..()
 
 /mob/living/heavy_vehicle/can_move_mob(mob/living/swapped, swapping = FALSE, passive = FALSE)
@@ -764,6 +777,8 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	if(!isliving(H))
 		return
 	if(src == H)
+		return
+	if(H.mob_size > max_trample_size)
 		return
 
 	if(legs?.trample_damage)
