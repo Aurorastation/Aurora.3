@@ -166,6 +166,8 @@
 	eject_item()
 
 /obj/item/modular_computer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(active_program?.event_afterattack(target_mob, user, TRUE, null))
+		return
 	if(scan_mode == SCANNER_MEDICAL)
 		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 		if(!h_analyzer)
@@ -174,6 +176,8 @@
 
 /obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
 	. = ..()
+	if(active_program?.event_afterattack(A, user, proximity_flag, click_parameters))
+		return
 	if(!proximity_flag)
 		return
 	if(scan_mode == SCANNER_REAGENT)

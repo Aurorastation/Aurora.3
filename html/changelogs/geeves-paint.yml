@@ -1,0 +1,5 @@
+author: Geeves
+delete-after: true
+changes:
+  - rscadd: "Adds a Camera app to the PDA, which can take 3x3 photos, and save them to the internal files."
+  - rscadd: "Adds a Nanopaint app, which can open and edit photos taken with the Camera app, as well as other PNGs."
