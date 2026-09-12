@@ -171,6 +171,8 @@
 
 	/// Same flags as glasses.
 	var/vision_flags = DEFAULT_SIGHT
+	/// Retain all-around vision even when wearing restrictive equipment.
+	var/omni_vision = FALSE
 	/// If set, this species has this level of inherent eye protection.
 	var/inherent_eye_protection
 	/// If TRUE, this species' eyes are not damaged by phoron.

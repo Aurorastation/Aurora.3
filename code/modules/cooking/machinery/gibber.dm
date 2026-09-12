@@ -84,8 +84,7 @@
 	else
 		return FALSE
 	if(victim_human.client)
-		victim_human.client.perspective = EYE_PERSPECTIVE
-		victim_human.client.eye = src
+		victim_human.client.set_eye(src, EYE_PERSPECTIVE)
 	victim_mob.forceMove(src)
 	occupant = victim_mob
 	startgibbing(victim_mob)
@@ -183,8 +182,7 @@
 	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
 
 	if(victim.client)
-		victim.client.perspective = EYE_PERSPECTIVE
-		victim.client.eye = src
+		victim.client.set_eye(src, EYE_PERSPECTIVE)
 	victim.forceMove(src)
 	occupant = victim
 	update_icon()
@@ -206,8 +204,7 @@
 	for(var/obj/O in src)
 		O.forceMove(loc)
 	if (occupant.client)
-		occupant.client.eye = occupant.client.mob
-		occupant.client.perspective = MOB_PERSPECTIVE
+		occupant.client.set_eye(occupant.client.mob, MOB_PERSPECTIVE)
 	occupant.forceMove(loc)
 	occupant = null
 	update_icon()

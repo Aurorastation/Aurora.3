@@ -71,8 +71,7 @@
 		to_chat(usr, SPAN_WARNING("The subject cannot have abiotic items on."))
 		return
 	usr.stop_pulling()
-	usr.client.perspective = EYE_PERSPECTIVE
-	usr.client.eye = src
+	usr.client.set_eye(src, EYE_PERSPECTIVE)
 	usr.forceMove(src)
 	src.occupant = usr
 	src.icon_state = "scanner_1"
@@ -139,8 +138,7 @@
 
 /obj/structure/machinery/dna_scannernew/proc/put_in(var/mob/M)
 	if(M.client)
-		M.client.perspective = EYE_PERSPECTIVE
-		M.client.eye = src
+		M.client.set_eye(src, EYE_PERSPECTIVE)
 	M.forceMove(src)
 	src.occupant = M
 	src.icon_state = "scanner_1"
@@ -163,8 +161,7 @@
 	if ((!( src.occupant ) || src.locked))
 		return
 	if (src.occupant.client)
-		src.occupant.client.eye = src.occupant.client.mob
-		src.occupant.client.perspective = MOB_PERSPECTIVE
+		src.occupant.client.set_eye(src.occupant.client.mob, MOB_PERSPECTIVE)
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	src.icon_state = "scanner_0"

@@ -203,8 +203,7 @@
 	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
-			M.client.eye = M.client.mob
-			M.client.perspective = MOB_PERSPECTIVE
+			M.client.set_eye(M.client.mob, MOB_PERSPECTIVE)
 			M.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 
 /obj/structure/closet/proc/open()
@@ -291,8 +290,7 @@
 		if(stored_units + added_units + M.mob_size > storage_capacity)
 			break
 		if(M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src, EYE_PERSPECTIVE)
 			M.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		M.forceMove(src)
 		added_units += M.mob_size

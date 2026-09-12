@@ -213,13 +213,13 @@
 		affecting.set_dir(set_dir)
 		if(wielded)
 			if(assailant.dir != NORTH)
-				affecting.layer = assailant.layer - 0.1
+				affecting.set_layer(assailant.layer - 0.1)
 			else
-				affecting.layer = assailant.layer + 0.1
+				affecting.set_layer(assailant.layer + 0.1)
 		return
 	var/shift = 0
 	var/adir = get_dir(assailant, affecting)
-	affecting.layer = 4
+	affecting.set_layer(MOB_LAYER)
 	switch(state)
 		if(GRAB_PASSIVE)
 			shift = 8
@@ -244,7 +244,7 @@
 	switch(adir)
 		if(NORTH)
 			animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y =-shift, 5, 1, LINEAR_EASING)
-			affecting.layer = 3.9
+			affecting.set_layer(3.9)
 		if(SOUTH)
 			animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = shift, 5, 1, LINEAR_EASING)
 		if(WEST)
@@ -421,7 +421,7 @@
 	var/buckled_to_bed = affecting.buckled_to ? istype(affecting.buckled_to, /obj/structure/bed/roller) : FALSE
 	if(!buckled_to_bed)
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
-		affecting.layer = initial(affecting.layer)
+		affecting.set_layer(initial(affecting.layer))
 	if(affecting)
 		ADD_FALLING_ATOM(affecting) // Makes the grabbee check if they can fall.
 		affecting.grabbed_by -= src

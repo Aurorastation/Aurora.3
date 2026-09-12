@@ -814,7 +814,7 @@ default behaviour is:
 /mob/living/proc/under_door()
 	//This function puts a silicon on a layer that makes it draw under doors, then periodically checks if its still standing on a door
 	if(layer > UNDERDOOR)//Don't toggle it if we're hiding
-		layer = UNDERDOOR
+		set_layer(UNDERDOOR)
 		underdoor = 1
 
 /mob/living/touch_map_edge()
@@ -917,11 +917,15 @@ default behaviour is:
 	register_init_signals()
 
 	AddElement(/datum/element/connect_loc, loc_connections)
+	update_vision_cone_plane()
 	load_footstep_component()
 	if(footstep_sound)
 		SEND_SIGNAL(src, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, footstep_sound)
 
 /mob/living/Destroy()
+	if(vision_cone_layer)
+		vision_cone_layer.release()
+		vision_cone_layer = null
 	cameraFollow = null
 	if(camera_view_cancel_action)
 		camera_view_cancel_action.Remove(src)

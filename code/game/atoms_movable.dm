@@ -872,7 +872,7 @@
 		return
 
 	var/image/attack_image = image(icon = 'icons/effects/effects.dmi', icon_state = visual_effect_icon)
-	attack_image.plane = attacked_atom.plane + 1
+	attack_image.plane = attacked_atom.get_render_plane() + 1
 	// Scale the icon.
 	attack_image.transform *= 0.4
 	// The icon should not rotate.
@@ -911,7 +911,7 @@
 	if (length(angle_override))
 		used_icon_angle = angle_override[1]
 
-	attack_image.plane = attacked_atom.plane + 1
+	attack_image.plane = attacked_atom.get_render_plane() + 1
 	attack_image.pixel_w = attacker.get_standard_pixel_x() + attacker.pixel_w - attacked_atom.get_standard_pixel_x() - attacked_atom.pixel_w
 	attack_image.pixel_z = attacker.get_standard_pixel_y() + attacker.pixel_z - attacked_atom.get_standard_pixel_y() - attacked_atom.pixel_z
 	// Scale the icon.

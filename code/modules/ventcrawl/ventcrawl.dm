@@ -238,6 +238,6 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 	if(client)
 		for(var/image/current_image in pipes_shown)
 			client.images -= current_image
-		client.eye = src
+		client.set_eye(src)
 
 	pipes_shown.len = 0

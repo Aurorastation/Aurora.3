@@ -995,7 +995,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(!zoom && !cannotzoom)
 		if(M.hud_used.hud_shown)
 			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
-		M.client.view = viewsize
+		M.client.set_view_size(viewsize)
 		zoom = 1
 
 		var/tilesize = 32
@@ -1003,29 +1003,24 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		switch(M.dir)
 			if (NORTH)
-				M.client.pixel_x = 0
-				M.client.pixel_y = viewoffset
+				M.client.set_view_offset(0, viewoffset)
 			if (SOUTH)
-				M.client.pixel_x = 0
-				M.client.pixel_y = -viewoffset
+				M.client.set_view_offset(0, -viewoffset)
 			if (EAST)
-				M.client.pixel_x = viewoffset
-				M.client.pixel_y = 0
+				M.client.set_view_offset(viewoffset, 0)
 			if (WEST)
-				M.client.pixel_x = -viewoffset
-				M.client.pixel_y = 0
+				M.client.set_view_offset(-viewoffset, 0)
 
 		if(show_zoom_message)
 			M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
 
 	else
-		M.client.view = world.view
+		M.client.set_view_size(world.view)
 		if(!M.hud_used.hud_shown)
 			M.toggle_zoom_hud()
 		zoom = 0
 
-		M.client.pixel_x = 0
-		M.client.pixel_y = 0
+		M.client.set_view_offset(0, 0)
 
 		if(!cannotzoom && show_zoom_message)
 			if(!zoom_out_message)

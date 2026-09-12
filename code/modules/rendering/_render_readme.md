@@ -55,3 +55,16 @@ The rendering system uses two objects to unify planes: render_relay and render_p
 
 Goodluck and godspeed with coding
 	- Just another contributor
+
+
+## Vision-cone mob passes
+
+Living mobs share an off-screen plane for each occupied drawing layer. The cone blocker masks each pass, then a client image returns its output to `GAME_PLANE` at that layer. This lets tables, railings and camera concealment cover mobs in their normal order. A screen relay cannot do this: HUD subplanes draw above world objects before their layers are compared.
+
+The images attach to a client-specific world anchor which follows the camera eye and its containers, including gliding. It must not inherit sprite offsets from the eye: leaning, floating or attack animations would otherwise displace every relayed mob. The anchor needs `MOUSE_OPACITY_ICON` so `PASS_MOUSE` can forward hits through its images to the source mobs.
+
+Use `set_layer()` for runtime layer changes and `copy_visual_appearance()` for living mob disguises. Empty passes are released. Use `client.set_eye()`, `client.set_view_size()` and `client.set_view_offset()` when changing the camera; these also refresh its anchor and cone. None of these operations scans nearby mobs or decides their visibility on the server.
+
+Self and pulled-mob exceptions use live render targets as silhouettes to clear the blocker. Body, equipment, transform and alpha changes therefore render without copying appearances. The terrain shading and typing-indicator planes remain separate.
+
+Objects that need to interleave with mobs should use distinct drawing layers. Equal-layer ties between a flattened mob pass and ordinary world atoms cannot preserve each original atom's creation-order tie-breaker. Explicit non-game planes, including existing openspace mimics, remain in their own rendering paths.

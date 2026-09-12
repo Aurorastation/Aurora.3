@@ -50,7 +50,7 @@
 			user.forceMove(target_move)
 			if(!user || !user.client)
 				return
-			user.client.eye = target_move //if we don't do this, Byond only updates the eye every tick - required for smooth movement
+			user.client.set_eye(target_move) //if we don't do this, Byond only updates the eye every tick - required for smooth movement
 			if(world.time > user.next_play_vent)
 				user.next_play_vent = world.time+30
 				playsound(src, 'sound/machines/ventcrawl.ogg', 50, 1, -3)

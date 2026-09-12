@@ -317,7 +317,7 @@
 
 	load = thing_to_load
 
-	thing_to_load.layer = VEHICLE_LOAD_LAYER
+	thing_to_load.set_layer(VEHICLE_LOAD_LAYER)
 	if(load_item_visible)
 		thing_to_load.pixel_x += load_offset_x
 		if(ismob(thing_to_load))
@@ -387,7 +387,7 @@
 	load.anchored = 0		//we can only load non-anchored items, so it makes sense to set this to false
 	load.pixel_x = initial(load.pixel_x)
 	load.pixel_y = initial(load.pixel_y)
-	load.layer = initial(load.layer)
+	load.set_layer(initial(load.layer))
 
 	if(ismob(load))
 		unbuckle(user)

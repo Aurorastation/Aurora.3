@@ -402,18 +402,16 @@
 	if (client)
 		A = A ? A : eyeobj
 		if (istype(A, /atom/movable))
-			client.perspective = EYE_PERSPECTIVE
-			client.eye = A
+			client.set_eye(A, EYE_PERSPECTIVE)
 		else
 			if (isturf(loc))
-				client.eye = client.mob
-				client.perspective = MOB_PERSPECTIVE
+				client.set_eye(client.mob, MOB_PERSPECTIVE)
 			else
-				client.perspective = EYE_PERSPECTIVE
-				client.eye = loc
+				client.set_eye(loc, EYE_PERSPECTIVE)
 	if(istype(src, /mob/living))
 		var/mob/living/living_mob = src
 		living_mob.update_camera_view_action()
+	update_vision_cone()
 	return
 
 /mob/proc/is_viewing_camera()
@@ -718,7 +716,7 @@
 	var/mob/mob_eye = creatures[eye_name]
 
 	if(client && mob_eye)
-		client.eye = mob_eye
+		client.set_eye(mob_eye)
 		if (is_admin)
 			client.adminobs = 1
 			if(mob_eye == client.mob || client.eye == client.mob)
@@ -801,6 +799,7 @@
 		pulling = null
 	if(pullin)
 		pullin.icon_state = "pull0"
+	update_vision_cone()
 
 /mob/proc/start_pulling(var/atom/movable/AM)
 
@@ -862,6 +861,7 @@
 
 	src.pulling = AM
 	AM.pulledby = src
+	update_vision_cone()
 	GLOB.move_manager.stop_looping(AM)
 
 	if(pullin)
@@ -979,6 +979,7 @@
 		if(lying)
 			SEND_SIGNAL(src, COMSIG_MOB_LYING_DOWN)
 
+	update_vision_cone()
 	return canmove
 
 /mob/proc/facedir(var/ndir, var/force_change = FALSE)
