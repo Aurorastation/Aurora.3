@@ -188,12 +188,107 @@
 	"
 	tags = list("External")
 	spawnpoints = list("crevus_the_lock_attendant")
-	max_count = 3
+	max_count = 2
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "The Lock Attendant"
 	special_role = "The Lock Attendant"
 	respawn_flag = null
+
+// ---------- Rhan-Cresh Highway Patrolman
+
+/datum/ghostspawner/human/crevus_rhan_cresh_patrol
+	short_name = "crevus_rhan_cresh_patrol"
+	name = "Rhan-Cresh Highway Patrolman"
+	desc = "\
+	You are an enforcer of the Rhan-Cresh Charities' Highway Patrol. Walk the streets and look tough. Make sure none of those pesky gangers disrupt the spaceport. \
+	Make sure the gun shop is paying its donation to the Charity. Get into a scuffle with Azaula goons to keep these streets yours. \
+	"
+	tags = list("External")
+	spawnpoints = list("crevus_rhan_cresh_patrol")
+	recognition_group = "crevus_rhan_cresh_patrol"
+	recognition_message = "You recognize this person as a fellow enforcer of Rhan-Cresh Charities' Highway Patrol."
+	max_count = 2
+	outfit = /obj/outfit/admin/crevus/rhan_cresh_patrol
+	possible_species = CREVUS_GENERIC_SPECIES
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Rhan-Cresh Highway Patrolman"
+	special_role = "Rhan-Cresh Highway Patrolman"
+	respawn_flag = null
+
+/obj/outfit/admin/crevus/rhan_cresh_patrol
+	name = "Rhan-Cresh Highway Patrolman"
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
+	suit = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor
+	glasses = /obj/item/clothing/glasses/sunglasses/visor
+	shoes = /obj/item/clothing/shoes/laceup
+	id = /obj/item/card/id
+	l_pocket = /obj/item/storage/wallet/random
+	r_pocket = /obj/item/handcuffs/ziptie
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/flashlight/maglight,
+		/obj/item/clothing/accessory/holster/armpit,
+		/obj/item/gun/projectile/pistol/adhomai,
+		/obj/item/crowbar/red,
+		/obj/item/ammo_magazine/mc9mm = 3
+	)
+
+/obj/outfit/admin/crevus/rhan_cresh_patrol/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.wear_suit?.color = "#736258"
+	H.wear_suit?.accent_color = "#C0C0C0"
+	H.wear_suit?.update_worn_icon()
+
+// ---------- Azaula Entertainment Enforcers
+
+/datum/ghostspawner/human/crevus_azaula_enforcer
+	short_name = "crevus_azaula_enforcer"
+	name = "Azaula Entertainment Enforcer"
+	desc = "\
+	You are an enforcer for Azaula Entertainment. Look for up and coming gangers in the local rabble. \
+	Ensure the local restaurant and casino are loyal to (and paying) Twin-Gun Granny, Mazula Azaula. \
+	Make sure those Rhan-Cresh posers don't gain the upper hand on the streets. Invite the off-worlders to have the best experience Crevus can offer. \
+	"
+	tags = list("External")
+	spawnpoints = list("crevus_azaula_enforcer")
+	recognition_group = "crevus_azaula_enforcer"
+	recognition_message = "You recognize this person as a fellow enforcer of Azaula Entertainment."
+	max_count = 2
+	outfit = /obj/outfit/admin/crevus/crevus_azaula_enforcer
+	possible_species = CREVUS_GENERIC_SPECIES
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Azaula Entertainment Enforcer"
+	special_role = "Azaula Entertainment Enforcer"
+	respawn_flag = null
+
+/obj/outfit/admin/crevus/crevus_azaula_enforcer
+	name = "Azaula Entertainment Enforcer"
+	uniform = /obj/item/clothing/under/tajaran/dpra/alt
+	suit = list(
+		/obj/item/clothing/suit/storage/toggle/suitjacket,
+		/obj/item/clothing/suit/storage/toggle/suitjacket/blazer
+	)
+	accessory = /obj/item/clothing/accessory/wcoat
+	glasses = /obj/item/clothing/glasses/sunglasses/visor
+	shoes = /obj/item/clothing/shoes/laceup
+	id = /obj/item/card/id
+	l_pocket = /obj/item/storage/wallet/random
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/flashlight/maglight,
+		/obj/item/clothing/accessory/holster/armpit,
+		/obj/item/gun/projectile/pistol/adhomai,
+		/obj/item/crowbar/red,
+		/obj/item/ammo_magazine/mc9mm = 3
+	)
+
+/obj/outfit/admin/crevus/crevus_azaula_enforcer/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	var/list/possible_colors = list("#333333", "#433946", "#46393b")
+	H.wear_suit?.color = pick(possible_colors)
+	H.wear_suit?.accent_color = "#C0C0C0"
+	H.wear_suit?.update_worn_icon()
 
 // ---------- Gangs
 
@@ -265,6 +360,7 @@
 	H.w_uniform?.color = get_random_colour(lower = 150)
 	H.w_uniform?.update_worn_icon()
 	H.wear_suit?.color = get_random_colour(lower = 150)
+	H.wear_suit?.accent_color = "#C0C0C0"
 	H.wear_suit?.update_worn_icon()
 	H.pants?.color = get_random_colour(lower = 150)
 	H.pants?.update_worn_icon()
