@@ -4,6 +4,8 @@
 	icon_state = "sparks"
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	var/spread_direction
+	var/ticks_until_step
 
 /obj/effect/visual/sparks/Initialize(mapload)
 	. = ..(mapload)
@@ -11,6 +13,10 @@
 
 /obj/effect/visual/sparks/tick()
 	. = ..()
+	ticks_until_step = ticks_until_step ? ticks_until_step - 1 : 0
+	if (!ticks_until_step && spread_direction)
+		step(src, spread_direction)
+		spread_direction = null
 
 	var/turf/T = get_turf(src)
 	if(T)
@@ -21,7 +27,5 @@
 
 /obj/effect/visual/sparks/start(var/direction)
 	if (direction)
-		addtimer(CALLBACK(src, PROC_REF(do_step), direction), 5, TIMER_STOPPABLE | TIMER_DELETE_ME)
-
-/obj/effect/visual/sparks/proc/do_step(direction)
-	step(src, direction)
+		spread_direction = direction
+		ticks_until_step = 5
