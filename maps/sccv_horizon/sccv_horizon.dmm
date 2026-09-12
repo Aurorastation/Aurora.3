@@ -38700,9 +38700,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/machinery/shipsensors/weak/scc_shuttle{
-	pixel_y = -21
-	},
+/obj/structure/machinery/shipsensors/weak,
 /turf/simulated/floor/reinforced,
 /area/horizon/shuttle/intrepid/flight_deck)
 "fbS" = (
@@ -42258,12 +42256,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "fAX" = (
-/obj/structure/machinery/iff_beacon/horizon/shuttle{
-	pixel_y = -21
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/structure/machinery/iff_beacon/horizon,
 /turf/simulated/floor/reinforced,
 /area/horizon/shuttle/intrepid/flight_deck)
 "fBb" = (
@@ -54364,15 +54360,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/primary/deck_3/port)
 "hdS" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/structure/machinery/shipsensors/weak,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/machinery/alarm/shuttle/north,
 /obj/structure/bed/handrail,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -164971,15 +164958,7 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard)
 "vkP" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
 /obj/structure/machinery/iff_beacon/horizon,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
