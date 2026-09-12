@@ -208,6 +208,11 @@
 	icon_state = "full_ip_rwindow"
 	window_path = /obj/structure/window/full/reinforced/polarized/indestructible
 
+// Concrete Polarized Window
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/concrete
+	name = "polarized reinforced concrete window grille spawner"
+	frame_path = /obj/structure/window_frame/concrete
+
 // Borosilicate Window
 /obj/effect/map_effect/window_spawner/full/borosilicate // Unused.
 	name = "unused"
@@ -232,7 +237,7 @@
 	window_path = /obj/structure/window/full/reinforced
 
 /obj/effect/map_effect/window_spawner/full/concrete
-	name = "full wooden window spawner"
+	name = "full concrete window spawner"
 	icon_state = "full_rwindow"
 	frame_path = /obj/structure/window_frame/concrete
 	window_path = /obj/structure/window/full/reinforced

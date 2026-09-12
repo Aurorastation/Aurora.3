@@ -218,7 +218,10 @@
 
 /obj/outfit/admin/crevus/rhan_cresh_patrol
 	name = "Rhan-Cresh Highway Patrolman"
-	uniform = /obj/item/clothing/under/suit_jacket/charcoal
+	uniform = list(
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/tajaran/fancy/alt2
+	)
 	suit = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor
 	glasses = /obj/item/clothing/glasses/sunglasses/visor
 	shoes = /obj/item/clothing/shoes/laceup
