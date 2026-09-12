@@ -166,3 +166,8 @@
 	description = "The logistics branch of the Zo'ra hive, one of the main Vaurca hive societies."
 	tag_line = "The Unstoppable."
 
+/singleton/cargo_supplier/meng
+	short_name = "meng"
+	name = "Meng Logistics Incorporated"
+	description = "An Orion logistics subsidiary delivering freight and commercial products for the Conglomerate corporations in both the Solarian Alliance and Nralakk Federation."
+	tag_line = "Right to your doorstep."

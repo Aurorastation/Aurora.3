@@ -1,0 +1,4 @@
+author: notagonk
+delete-after: True
+changes:
+  - rscadd: "Adds Meng Logistics Incorporated as one of the cargo ordering suppliers, alongside some skrell hover-furniture to the catalogue."
