@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - balance: "Changed some fire balance to make temp increase slower."
