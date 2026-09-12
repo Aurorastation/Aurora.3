@@ -9,19 +9,19 @@
 
 /datum/ghostspawner/human/crevus_chef
 	short_name = "crevus_chef"
-	name = "Placeholder Chef"
-	desc = "Run placeholder's kitchen, cook whatever your guests request. Complain when your guests know all about pacojet."
+	name = "Nikal'n Marr Diner Chef"
+	desc = "Run Nikal'n Marr Diner's kitchen, cook whatever your guests request. Complain when your guests know all about pacojet."
 	tags = list("External")
 	spawnpoints = list("crevus_chef")
 	max_count = 2
-	outfit = /obj/outfit/admin/crevus_chef
+	outfit = /obj/outfit/admin/crevus/chef
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Placeholder Chef"
 	special_role = "Placeholder Chef"
 	respawn_flag = null
 
-/obj/outfit/admin/crevus_chef
+/obj/outfit/admin/crevus/chef
 	name = "Crevus Chef"
 	uniform = /obj/item/clothing/under/rank/chef
 	shoes = /obj/item/clothing/shoes/laceup
@@ -34,31 +34,31 @@
 
 /datum/ghostspawner/human/crevus_attendant
 	short_name = "crevus_attendant"
-	name = "Placeholder Attendant"
-	desc = "Serve the guests of Placeholder, either run the bar or serve the orders - or do both. Give dead eye to the non-tippers."
+	name = "Nikal'n Marr Diner Attendant"
+	desc = "Serve the guests of Nikal'n Marr Diner, either run the bar or serve the orders - or do both. Give dead eye to the non-tippers."
 	tags = list("External")
 	spawnpoints = list("crevus_attendant")
 	max_count = 2
 	outfit = /obj/outfit/admin/konyang/zh
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Placeholder Attendant"
-	special_role = "Placeholder Attendant"
+	assigned_role = "Nikal'n Marr Diner Attendant"
+	special_role = "Nikal'n Marr Diner Attendant"
 	respawn_flag = null
 
 // ---------- General Store Vendor
 
 /datum/ghostspawner/human/crevus_general_store_vendor
 	short_name = "crevus_general_store_vendor"
-	name = "General Store Vendor"
+	name = "Ane-Mart Vendor"
 	desc = "Run the general store, maybe stock the shelves, hope that shoplifting will be the worst thing you'll have to deal with today."
 	tags = list("External")
 	spawnpoints = list("crevus_general_store_vendor")
 	max_count = 1
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "General Store Vendor"
-	special_role = "General Store Vendor"
+	assigned_role = "Ane-Mart Vendor"
+	special_role = "Ane-Mart Vendor"
 	respawn_flag = null
 
 // ---------- Automobile Salesperson
@@ -101,7 +101,7 @@
 /datum/ghostspawner/human/crevus_clothing_vendor
 	short_name = "crevus_clothing_vendor"
 	name = "Clothing Store Vendor"
-	desc = "Display fashion, sell fashion and make fashion. Customize (recolour) your stock, don't let your customers see how you do it"
+	desc = "Display fashion, sell fashion and make fashion. Customize (recolour) your stock, don't let your customers see how you do it."
 	tags = list("External")
 	spawnpoints = list("crevus_clothing_vendor")
 	max_count = 1
@@ -166,15 +166,15 @@
 
 /datum/ghostspawner/human/crevus_casino_personnel
 	short_name = "crevus_casino_personnel"
-	name = "Placeholder Casino Personnel"
+	name = "Keltra Zav Nikal Casino Personnel"
 	desc = "Oversee the games, deal hands, take bets. Remember, the house always wins."
 	tags = list("External")
 	spawnpoints = list("crevus_casino_personnel")
 	max_count = 2
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Placeholder Casino Personnel"
-	special_role = "Placeholder Casino Personnel"
+	assigned_role = "Keltra Zav Nikal Personnel"
+	special_role = "Keltra Zav Nikal Personnel"
 	respawn_flag = null
 
 // ---------- The Lock Attendant
@@ -207,12 +207,70 @@
 	"
 	tags = list("External")
 	spawnpoints = list("crevus_gang1_member")
-	max_count = 2
+	max_count = 20
+	outfit = /obj/outfit/admin/crevus/gang_member
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Placeholder Gang Member"
 	special_role = "Placeholder Gang Member"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/gang_member
+	name = "Gang Member"
+	uniform = list(
+		/obj/item/clothing/under/dressshirt/tanktop,
+		/obj/item/clothing/under/dressshirt/longsleeve_s,
+		/obj/item/clothing/under/dressshirt/deepv
+	)
+
+	suit = list(
+		/obj/item/clothing/suit/storage/toggle/greatcoat/recolor,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
+	)
+
+	pants = list(
+		/obj/item/clothing/pants/cargo,
+		/obj/item/clothing/pants/mustang/colourable
+	)
+
+	gloves = /obj/item/clothing/gloves/fingerless
+
+	shoes = list(
+		/obj/item/clothing/shoes/sneakers/black,
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/shoes/workboots,
+		/obj/item/clothing/shoes/workboots/dark
+	)
+
+	species_shoes = list(
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
+	)
+
+	id = null
+	l_pocket = /obj/item/storage/wallet/random
+	r_pocket = /obj/item/material/knife/butterfly/switchblade
+	back = /obj/item/storage/backpack/satchel
+
+/obj/outfit/admin/crevus/gang_member/post_equip(mob/living/carbon/human/H)
+	. = ..()
+
+	// color the colorable stuff
+	H.w_uniform?.color = get_random_colour(lower = 150)
+	H.w_uniform?.update_worn_icon()
+	H.wear_suit?.color = get_random_colour(lower = 150)
+	H.wear_suit?.update_worn_icon()
+	H.pants?.color = get_random_colour(lower = 150)
+	H.pants?.update_worn_icon()
+
+	// random equipment
+	if(prob(50))
+		H.equip_or_collect(new /obj/random/medical, slot_in_backpack)
+	if(prob(50))
+		H.equip_or_collect(new /obj/random/loot, slot_in_backpack)
+	if(prob(55))
+		H.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack)
 
 /datum/ghostspawner/human/crevus_gang1_boss
 	short_name = "crevus_gang1_boss"
@@ -229,6 +287,9 @@
 	assigned_role = "Placeholder Gang Leader"
 	special_role = "Placeholder Gang Leader"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/gang_member/boss
+	name = "Gang Leader"
 
 
 #undef CREVUS_GENERIC_SPECIES

@@ -1073,6 +1073,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.update_inv_wear_suit()
 		if (slot_w_uniform)
 			M.update_inv_w_uniform()
+		if (slot_pants)
+			M.update_inv_pants()
 		if (slot_l_store)
 			M.update_inv_pockets()
 		if (slot_r_store)

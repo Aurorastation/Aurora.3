@@ -452,6 +452,8 @@
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
+	if(mover.throwing)
+		return TRUE
 	if(get_dir(mover, target) == REVERSE_DIR(dir))
 		return FALSE
 	if(height && (mover.dir == dir))

@@ -1068,6 +1068,14 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
+"aZU" = (
+/obj/effect/decal/road_marking,
+/obj/random/dirt_75,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "bak" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/light/small/floor,
@@ -9368,6 +9376,13 @@
 	},
 /turf/simulated/floor/marble/red,
 /area/crevus/outside)
+"iso" = (
+/obj/random/dirt_75,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
 "isw" = (
 /obj/structure/quay_wall/center_side,
 /turf/simulated/floor/exoplanet/concrete,
@@ -10183,6 +10198,12 @@
 "jhq" = (
 /turf/simulated/wall,
 /area/crevus/restaurant/private_dining_room)
+"jhw" = (
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "jhJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -11085,6 +11106,15 @@
 /obj/structure/table/steel,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
+/area/crevus/outside)
+"jTO" = (
+/obj/effect/decal/road_marking,
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "jUb" = (
 /obj/structure/curtain/black{
@@ -13645,8 +13675,8 @@
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/balcony_2)
 "mld" = (
-/obj/structure/machinery/light/spot{
-	dir = 4
+/obj/structure/machinery/light/floor{
+	pixel_x = -16
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
@@ -14318,9 +14348,6 @@
 /area/crevus/outside)
 "naI" = (
 /obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/structure/machinery/light/spot{
 	dir = 8
 	},
 /obj/structure/trash_pile,
@@ -16740,7 +16767,7 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
-/obj/structure/machinery/light/spot{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -17812,6 +17839,13 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/trashbags,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
+"qjZ" = (
+/obj/structure/machinery/light/floor{
+	pixel_x = -16;
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "qlF" = (
@@ -19436,6 +19470,11 @@
 /obj/item/clothing/under/dressshirt/longblouse{
 	pixel_x = -7
 	},
+/obj/item/clothing/under/dress/colorable/sleeveless,
+/obj/item/clothing/under/dress/colorable/sleeveless,
+/obj/item/clothing/under/dress/colorable/sleeveless,
+/obj/item/clothing/under/dress/colorable/sleeveless,
+/obj/item/clothing/under/dress/colorable/sleeveless,
 /turf/simulated/floor/wood/walnut,
 /area/crevus/outside)
 "rNE" = (
@@ -20049,6 +20088,16 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
+/area/crevus/outside)
+"spE" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "spU" = (
 /obj/structure/platform/ledge{
@@ -21370,6 +21419,13 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
+"tsN" = (
+/obj/random/dirt_75,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "ttf" = (
 /obj/effect/floor_decal/industrial/arrow/operations{
 	dir = 8
@@ -21399,6 +21455,7 @@
 	dir = 1
 	},
 /obj/structure/automobile/adhomai_car/purple,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "tuv" = (
@@ -21806,6 +21863,13 @@
 	},
 /turf/simulated/floor/exoplanet/lino,
 /area/crevus/restaurant/table_area)
+"tSp" = (
+/obj/effect/decal/road_marking,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/crevus/outside)
 "tSs" = (
 /obj/random/dirt_75,
 /obj/random/junk,
@@ -24178,6 +24242,7 @@
 	pixel_y = -7;
 	pixel_x = -8
 	},
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "whn" = (
@@ -54472,7 +54537,7 @@ jpg
 jpg
 wVa
 lpN
-umQ
+iso
 lmX
 xkt
 paM
@@ -55495,17 +55560,17 @@ jpg
 wVa
 rRV
 fnk
-anm
+spE
 anm
 naI
-eED
-eED
+pjk
 eED
 eED
 eED
 pjk
+eED
 anm
-anm
+spE
 uHl
 wVa
 mrQ
@@ -56007,7 +56072,7 @@ jpg
 jpg
 jpg
 wVa
-jZN
+aZU
 hTG
 kYy
 jMb
@@ -57035,9 +57100,10 @@ jpg
 jpg
 jpg
 wVa
-tri
+tSp
 pvK
 rcV
+qjZ
 rcV
 rcV
 rcV
@@ -57045,8 +57111,7 @@ rcV
 rcV
 rcV
 rcV
-rcV
-rcV
+mld
 rcV
 wXJ
 wVa
@@ -58320,7 +58385,7 @@ jpg
 jpg
 jpg
 wVa
-lrD
+jTO
 emD
 rcV
 jMb
@@ -58836,17 +58901,17 @@ jpg
 wVa
 ceF
 rcV
+tsN
 uVz
-uVz
-mld
+rcV
+jhw
 rcV
 rcV
 rcV
+jhw
 rcV
 rcV
-rcV
-rcV
-rcV
+jhw
 vYu
 wVa
 wVa
