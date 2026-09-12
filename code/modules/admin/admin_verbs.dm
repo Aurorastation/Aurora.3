@@ -1343,7 +1343,9 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		return
 
 	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
-	SSpersistent_configuration.forced_awaymission = mission_name
+	if(!SSregistry.setValue("forced_awaymission", mission_name))
+		to_chat(usr, SPAN_WARNING("Failed to persist forced away mission to registry."))
+		return
 
 	if(!mission_name)
 		log_and_message_admins("reset the forced away mission.")

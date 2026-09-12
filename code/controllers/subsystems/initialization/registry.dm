@@ -38,6 +38,8 @@ SUBSYSTEM_DEF(registry)
 		to_world(SPAN_INFO("Configuration registry unreachable, only local configs are available.")) // Even if the prod instance relies on the DB, we still need to support non-DB local instances.
 		return SS_INIT_SUCCESS // If the database is unavailable, local configs may be used.
 
+	GLOB.master_mode = getValue("last_gamemode", "extended")
+
 	return SS_INIT_SUCCESS
 
 /**
