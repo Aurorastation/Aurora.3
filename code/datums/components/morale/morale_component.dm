@@ -215,7 +215,9 @@
 	// Behold my wall of RegisterSignal()
 	RegisterSignal(parent, COMSIG_APPLY_HIT_EFFECT, PROC_REF(modify_hit_effect), override = TRUE)
 	RegisterSignal(parent, COMSIG_BEFORE_GUN_FIRE, PROC_REF(handle_accuracy), override = TRUE)
-	RegisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE, PROC_REF(safety_fumble), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE, PROC_REF(gun_fumble), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_TOGGLE_SAFETY, PROC_REF(gun_fumble), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_SCOPE, PROC_REF(gun_fumble), override = TRUE)
 	RegisterSignal(parent, COMSIG_UNARMED_HARM_ATTACKER, PROC_REF(handle_harm_attack), override = TRUE)
 	RegisterSignal(parent, COMSIG_UNARMED_HARM_DEFENDER, PROC_REF(handle_harm_defend), override = TRUE)
 	RegisterSignal(parent, COMSIG_UNARMED_DISARM_ATTACKER, PROC_REF(handle_disarm_attack), override = TRUE)
@@ -241,6 +243,8 @@
 	UnregisterSignal(parent, COMSIG_APPLY_HIT_EFFECT)
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE)
+	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_SAFETY)
+	UnregisterSignal(parent, COMSIG_GUN_SCOPE)
 	UnregisterSignal(parent, COMSIG_UNARMED_HARM_ATTACKER)
 	UnregisterSignal(parent, COMSIG_UNARMED_HARM_DEFENDER)
 	UnregisterSignal(parent, COMSIG_UNARMED_DISARM_ATTACKER)
@@ -304,7 +308,7 @@
 	*power = *power * (1 + (melee_damage_contribution * morale_ratio))
 
 /// Increases gun accuracy with positive morale. Psi-panic from negative morale makes it much worse.
-/datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
+/datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase, obj/item/gun/bang)
 	SIGNAL_HANDLER
 	var/effective_morale = morale_ratio
 	if (effective_morale < 0)
@@ -316,16 +320,16 @@
 	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * effective_morale
 
 /// Psi-panic from negative morale can cause a shooter to fail to disengage a gun's safety. This includes the automatic disengage when firing on harm intent.
-/datum/component/morale/proc/safety_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
+/datum/component/morale/proc/gun_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
-	// Up to 50% chance to fumble a safety when in a psionically-induced panic.
-	if (cancelled || morale_points >= 0 || !prob(floor(5 * panic_chance_ceiling * -morale_ratio)))
+	// Up to 50% chance to fumble a safety or firing mode when in a psionically-induced panic.
+	if (morale_points >= 0 || !prob(floor(5 * panic_chance_ceiling * -morale_ratio)))
 		return
 
 	*cancelled = TRUE
 	shooter.visible_message(
-		SPAN_DANGER("\The [shooter] fumbles with \the [shoota]'s safety in a blind panic!"),
-		SPAN_DANGER("You fumble with \the [shoota]'s safety in a blind panic!"))
+		SPAN_DANGER("\The [shooter] fumbles with \the [shoota] in a blind panic!"),
+		SPAN_DANGER("You fumble with \the [shoota] in a blind panic!"))
 
 /// Positive morale slightly improves unarmed hit/block chances. Psi-panic from negative morale reduces it instead.
 /datum/component/morale/proc/handle_harm_attack(mob/attacker, mob/defender, attacker_skill_level, miss_chance, rand_damage, block_chance)
