@@ -45,6 +45,23 @@
 	augs["synthetic vocal cords, advanced"] = /obj/item/organ/internal/augment/synthetic_cords
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
+/datum/gear/augment/service_jack
+	display_name = "EMSI jack selection"
+	description = "A passive diagnostic port which allows a Robotics Interface to inspect the wearer's installed augments, synthetic organs, and prosthetics. It may be installed at the neck, upper back, or either wrist.\nThe most common variant is the EMSI, the Einstein Mechatronic Service Interface port which is considered the standard connection port for prosthetics.\nA user who has a prosthetic limb does not require one."
+	path = /obj/item/organ/internal/augment/service_jack
+	cost = 1
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/service_jack/New()
+	..()
+	var/list/jacks = list()
+	jacks["EMSI jack, neck"] = /obj/item/organ/internal/augment/service_jack
+	jacks["EMSI jack jack, upper back"] = /obj/item/organ/internal/augment/service_jack/torso
+	jacks["EMSI jack jack, right wrist"] = /obj/item/organ/internal/augment/service_jack/right_wrist
+	jacks["EMSI jack jack, left wrist"] = /obj/item/organ/internal/augment/service_jack/left_wrist
+	gear_tweaks += new /datum/gear_tweak/path(jacks)
+
 /datum/gear/augment/combitool
 	display_name = "retractable combitool"
 	description = "An augment that allows the user to deploy a robotic combitool."

@@ -10,6 +10,11 @@ import {
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+import {
+  getStandardSeverity,
+  MedicalSummary,
+  standardizeSeverityLabel,
+} from './common/MedicalSummary';
 
 export type ScannerData = {
   // Booleans for errors.
@@ -99,7 +104,7 @@ export const InvalidWindow = (props) => {
           <Section>
             <BlockQuote>
               {data.nocons
-                ? 'No scanner bed detected. TEST EDIT'
+                ? 'No scanner bed detected.'
                 : !data.occupied
                   ? 'No occupant detected.'
                   : data.ipc
@@ -119,103 +124,57 @@ export const ScannerWindow = (props) => {
   const { act, data } = useBackend<ScannerData>();
 
   return (
-    <Flex fontSize="1.2rem" wrap="wrap">
-      <Flex.Item>
-        <Section
-          title="Patient Status"
-          width={data.has_detailed_view ? '46vw' : '100vw'}
-          minWidth="300px"
-          fill
-          buttons={
-            data.has_print_and_eject ? (
-              <>
-                <Button
-                  content="Print"
-                  icon="print"
-                  onClick={() => act('print')}
-                />
-                <Button
-                  content="Eject"
-                  color="red"
-                  icon="arrow-right-from-bracket"
-                  onClick={() => act('eject')}
-                />
-              </>
-            ) : null
-          }
-        >
-          <LabeledList>
-            <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
-            {data.has_detailed_view ? (
-              <LabeledList.Item label="Species">
-                {data.species}
-              </LabeledList.Item>
-            ) : null}
-            {data.has_detailed_view ? (
-              <LabeledList.Item
-                label="Status"
-                color={consciousnessLabel(data.stat)}
-              >
-                {consciousnessText(data.stat)}
-              </LabeledList.Item>
-            ) : null}
-            <LabeledList.Item
-              label="Brain Activity"
-              color={progressClass(data.brain_activity)}
-            >
-              {brainText(data.brain_activity)}
-            </LabeledList.Item>
-            <LabeledList.Item
-              label="Pulse"
-              color={progressClass(data.brain_activity)}
-            >
-              {data.pulse} BPM
-            </LabeledList.Item>
-            {data.has_detailed_view ? (
-              <LabeledList.Item label="Body Temperature">
-                {data.bodytemp}°C
-              </LabeledList.Item>
-            ) : null}
-            {data.has_detailed_view ? null : (
-              <LabeledList.Item
-                label="Blood Oxygenation"
-                color={progressClass(data.blood_o2)}
-              >
-                {Math.round(data.blood_o2)}%
-              </LabeledList.Item>
-            )}
-            {data.has_detailed_view ? null : (
-              <LabeledList.Item
-                label="Blood Volume"
-                color={progressClass(data.brain_activity)}
-              >
-                {Math.round(data.blood_volume)}%
-              </LabeledList.Item>
-            )}
-          </LabeledList>
-        </Section>
-      </Flex.Item>
+    <>
+      <MedicalSummary
+        name={data.name}
+        subtitle={`${data.species || 'Patient'} · ${consciousnessText(data.stat)}`}
+        metrics={[
+          {
+            label: 'Brain Activity',
+            value: brainText(data.brain_activity),
+            severity:
+              data.brain_activity < 0
+                ? 'moderate'
+                : getStandardSeverity(100 - data.brain_activity),
+          },
+          { label: 'Pulse', value: `${data.pulse} BPM` },
+          {
+            label: 'Blood Oxygenation',
+            value: `${Math.round(data.blood_o2)}%`,
+            severity: getStandardSeverity(100 - data.blood_o2),
+          },
+          {
+            label: 'Blood Volume',
+            value: `${Math.round(data.blood_volume)}%`,
+            severity: getStandardSeverity(100 - data.blood_volume),
+          },
+        ]}
+      />
+      {!!data.has_print_and_eject && (
+        <Box mb={1} textAlign="right">
+          <Button
+            content="Print"
+            icon="print"
+            onClick={() => act('print')}
+          />
+          <Button
+            content="Eject"
+            color="red"
+            icon="arrow-right-from-bracket"
+            onClick={() => act('eject')}
+          />
+        </Box>
+      )}
+      <Flex fontSize="1.2rem" wrap="wrap">
       {data.has_detailed_view ? (
-        <Flex.Item>
-          <Section title="Blood Status" width="50vw" minWidth="300px" fill>
+        <Flex.Item style={{ flex: '1 1 360px' }}>
+          <Section title="Blood Status" width="100%" minWidth="300px" fill>
             <LabeledList>
               <LabeledList.Item
                 label="Blood Pressure"
                 color={getPressureClass(data.blood_pressure_level)}
               >
                 {data.blood_pressure}
-              </LabeledList.Item>
-              <LabeledList.Item
-                label="Blood Oxygenation"
-                color={progressClass(data.blood_o2)}
-              >
-                {Math.round(data.blood_o2)}%
-              </LabeledList.Item>
-              <LabeledList.Item
-                label="Blood Volume"
-                color={progressClass(data.brain_activity)}
-              >
-                {Math.round(data.blood_volume)}%
               </LabeledList.Item>
               <LabeledList.Item label="Blood Type">
                 {data.blood_type}
@@ -274,8 +233,8 @@ export const ScannerWindow = (props) => {
         </Flex.Item>
       ) : null}
       {data.has_detailed_view ? (
-        <Flex.Item>
-          <Section title="Symptom Status" width="46vw" minWidth="300px" fill>
+        <Flex.Item style={{ flex: '1 1 360px' }}>
+          <Section title="Symptom Status" width="100%" minWidth="300px" fill>
             <LabeledList>
               <LabeledList.Item
                 label="Radiation Level"
@@ -294,44 +253,47 @@ export const ScannerWindow = (props) => {
                   ? `${Math.round(data.paralysis / 4)} Seconds Left`
                   : 'None'}
               </LabeledList.Item>
+              <LabeledList.Item label="Body Temperature">
+                {data.bodytemp}°C
+              </LabeledList.Item>
             </LabeledList>
           </Section>
         </Flex.Item>
       ) : null}
       {data.has_detailed_view ? (
-        <Flex.Item>
-          <Section title="Damage Status" width="50vw" minWidth="300px" fill>
+        <Flex.Item style={{ flex: '1 1 360px' }}>
+          <Section title="Damage Status" width="100%" minWidth="300px" fill>
             <LabeledList>
               <LabeledList.Item
                 label="Brute Trauma"
                 color={damageLabel(data.bruteLoss)}
               >
-                {data.bruteLoss}
+                {standardizeSeverityLabel(data.bruteLoss)}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Burn Severity"
                 color={damageLabel(data.fireLoss)}
               >
-                {data.fireLoss}
+                {standardizeSeverityLabel(data.fireLoss)}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Oxygen Deprivation"
                 color={damageLabel(data.oxyLoss)}
               >
-                {data.oxyLoss}
+                {standardizeSeverityLabel(data.oxyLoss)}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Toxin Exposure"
                 color={damageLabel(data.toxLoss)}
               >
-                {data.toxLoss}
+                {standardizeSeverityLabel(data.toxLoss)}
               </LabeledList.Item>
             </LabeledList>
           </Section>
         </Flex.Item>
       ) : null}
-      <Flex.Item>
-        <Section title="Body Status" width="100vw" fill>
+      <Flex.Item style={{ flex: '0 0 100%' }}>
+        <Section title="External Injuries" width="100%" fill>
           {data.has_external_injuries ? (
             <ExternalOrganWindow />
           ) : (
@@ -341,40 +303,28 @@ export const ScannerWindow = (props) => {
           )}
         </Section>
       </Flex.Item>
-      <Flex.Item>
-        <Section title="Missing Extremities" width="100vw" fill>
-          {data.missing_limbs === 'Nothing' ? (
-            <BlockQuote color="green">
-              No missing extremities detected.
-            </BlockQuote>
-          ) : (
-            <MissingLimbs />
-          )}
-        </Section>
-      </Flex.Item>
-      <Flex.Item>
-        <Section title="Internal Organ Status" width="100vw" fill>
+      <Flex.Item style={{ flex: '0 0 100%' }}>
+        <Section title="Internal Organ Injuries" width="100%" fill>
           {data.has_internal_injuries ? (
             <OrganWindow />
           ) : (
             <BlockQuote color="green">
-              No internal injuries detected.
+              No internal organ injuries detected.
             </BlockQuote>
           )}
         </Section>
       </Flex.Item>
-      <Flex.Item>
-        <Section title="Missing Organs" width="100vw" fill>
-          {data.missing_organs === 'Nothing' ? (
-            <BlockQuote color="green">
-              No missing internal organs detected.
-            </BlockQuote>
-          ) : (
-            <MissingOrgans />
-          )}
-        </Section>
-      </Flex.Item>
-    </Flex>
+      {(data.missing_limbs !== 'Nothing' ||
+        data.missing_organs !== 'Nothing') && (
+        <Flex.Item style={{ flex: '1 1 100%' }}>
+          <Section title="Missing Anatomy" width="100%" fill>
+            {data.missing_limbs !== 'Nothing' && <MissingLimbs />}
+            {data.missing_organs !== 'Nothing' && <MissingOrgans />}
+          </Section>
+        </Flex.Item>
+      )}
+      </Flex>
+    </>
   );
 };
 
@@ -393,7 +343,7 @@ export const OrganWindow = (props) => {
         <Table.Row key={organ.name}>
           <Table.Cell>{organ.name}</Table.Cell>
           <Table.Cell color={damageLabel(organ.damage)}>
-            {organ.damage}
+            {standardizeSeverityLabel(organ.damage)}
           </Table.Cell>
           <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
             {organ.wounds}
@@ -425,10 +375,10 @@ export const ExternalOrganWindow = (props) => {
         <Table.Row key={organ.name}>
           <Table.Cell>{organ.name}</Table.Cell>
           <Table.Cell color={damageLabel(organ.brute_damage)}>
-            {organ.brute_damage}
+            {standardizeSeverityLabel(organ.brute_damage)}
           </Table.Cell>
           <Table.Cell color={damageLabel(organ.burn_damage)}>
-            {organ.burn_damage}
+            {standardizeSeverityLabel(organ.burn_damage)}
           </Table.Cell>
           <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
             {organ.amputation ? (
@@ -474,16 +424,6 @@ export const MissingLimbs = (props) => {
   );
 };
 
-const consciousnessLabel = (value) => {
-  switch (value) {
-    case 0:
-      return 'green';
-    case 1:
-      return 'average';
-    case 2:
-      return 'bad';
-  }
-};
 const consciousnessText = (value) => {
   switch (value) {
     case 0:
@@ -492,16 +432,6 @@ const consciousnessText = (value) => {
       return 'Unconscious';
     case 2:
       return 'DEAD';
-  }
-};
-
-const progressClass = (value) => {
-  if (value <= 50) {
-    return 'bad';
-  } else if (value <= 90) {
-    return 'average';
-  } else {
-    return 'green';
   }
 };
 

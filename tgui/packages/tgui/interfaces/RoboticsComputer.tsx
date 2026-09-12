@@ -1,60 +1,62 @@
-import { NoticeBox } from 'tgui-core/components';
-import { useBackend } from '../backend';
+import { NoticeBox, Tabs } from 'tgui-core/components';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
-import { IPCDiagnostics } from './IPCDiagnostics';
+import { type DiagnosticsData, IPCDiagnostics } from './IPCDiagnostics';
+import { SurgeryPlanner, type SurgeryPlannerData } from './SurgeryPlanner';
 
-export type DiagnosticsData = {
-  integrity: number;
-  machine_ui_theme: string;
-  patient_name: string;
-
-  temp: number;
-  robolimb_self_repair_cap: number;
-  charge_percent: number;
-
-  organs: Organ[];
-  limbs: Limb[];
-
-  armor_data: ArmorDamage[];
-
-  endoskeleton_damage: number;
-  endoskeleton_max_damage: number;
-};
-
-type ArmorDamage = {
-  key: string;
-  status: string;
-};
-
-type Organ = {
-  name: string;
-  desc: string;
-  damage: number;
-  max_damage: number;
-
-  wiring_status: number;
-  plating_status: number;
-  electronics_status: number;
-  diagnostics_info: string;
-};
-
-type Limb = {
-  name: string;
-  brute_damage: number;
-  burn_damage: number;
-  max_damage: number;
-};
+type RoboticsData = DiagnosticsData &
+  SurgeryPlannerData & {
+    diagnostic_mode: 'ipc' | 'prosthetic' | null;
+  };
 
 export const RoboticsComputer = (props) => {
-  const { act, data } = useBackend<DiagnosticsData>();
+  const { data } = useBackend<RoboticsData>();
+  const [tab, setTab] = useLocalState<'diagnostics' | 'planner'>(
+    'roboticsComputerTab',
+    'diagnostics',
+  );
+
+  const diagnosticsLabel =
+    data.diagnostic_mode === 'prosthetic'
+      ? 'Cybernetic Diagnostics'
+      : 'Synthetic Diagnostics';
+  const standaloneProsthetic = Boolean(data.standalone_prosthetic);
 
   return (
-    <NtosWindow resizable>
-      <NtosWindow.Content scrollable theme={data.machine_ui_theme}>
-        {!data.patient_name ? (
-          <NoticeBox>You must run a diagnostic first.</NoticeBox>
+    <NtosWindow resizable width={1050} height={700} theme="hephaestus">
+      <NtosWindow.Content scrollable>
+        {!data.has_patient ? (
+          <NoticeBox>
+            Connect the access cable to an IPC access port or a targeted
+            prosthetic limb, detached prosthetic, or cybernetic service jack.
+          </NoticeBox>
         ) : (
-          <IPCDiagnostics />
+          <>
+            {!standaloneProsthetic && (
+              <Tabs fluid>
+                <Tabs.Tab
+                  icon="stethoscope"
+                  selected={tab === 'diagnostics'}
+                  onClick={() => setTab('diagnostics')}
+                >
+                  {diagnosticsLabel}
+                </Tabs.Tab>
+                <Tabs.Tab
+                  icon="screwdriver-wrench"
+                  selected={tab === 'planner'}
+                  onClick={() => setTab('planner')}
+                >
+                  Surgery Planning
+                </Tabs.Tab>
+              </Tabs>
+            )}
+
+            {standaloneProsthetic || tab === 'diagnostics' ? (
+              <IPCDiagnostics />
+            ) : (
+              <SurgeryPlanner contentOnly plannerOnly syntheticMode />
+            )}
+          </>
         )}
       </NtosWindow.Content>
     </NtosWindow>
