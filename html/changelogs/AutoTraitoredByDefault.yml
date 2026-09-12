@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The gamemode now defaults to autotraitor if no antags are found."
+  - rscadd: "Instead of saying it is reattempting when failing a gamemode, it gives one of a series of lines."
+  - rscadd: "The possible gamemodes when starting a round are no longer displayed to players."
