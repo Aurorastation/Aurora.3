@@ -43,6 +43,9 @@
 
 	var/assigned_role
 	var/special_role
+	/// Used in ghostroles to help them recognize their group upon examine.
+	var/recognition_group
+	var/recognition_message
 
 	var/role_alt_title
 
@@ -501,6 +504,8 @@
 /datum/mind/proc/reset()
 	assigned_role =   null
 	special_role =    null
+	recognition_group = null
+	recognition_message = null
 	role_alt_title =  null
 	assigned_job =    null
 	//faction =       null //Uncommenting this causes a compile error due to 'undefined type', fucked if I know.

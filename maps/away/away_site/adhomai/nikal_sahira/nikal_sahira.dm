@@ -7,8 +7,8 @@
 	id = "nikal_sahira"
 
 	sectors = list(SECTOR_SRANDMARR)
-	template_flags = TEMPLATE_FLAG_PORT_SPAWN
-	//template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	//template_flags = TEMPLATE_FLAG_PORT_SPAWN
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	spawn_weight = 1
 	spawn_cost = 1
 

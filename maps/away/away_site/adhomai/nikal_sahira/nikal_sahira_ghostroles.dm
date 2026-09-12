@@ -207,7 +207,9 @@
 	"
 	tags = list("External")
 	spawnpoints = list("crevus_gang1_member")
-	max_count = 20
+	recognition_group = "crevus_gang1"
+	recognition_message = "You recognize this person as a fellow member of your gang."
+	max_count = 2
 	outfit = /obj/outfit/admin/crevus/gang_member
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -252,6 +254,9 @@
 	l_pocket = /obj/item/storage/wallet/random
 	r_pocket = /obj/item/material/knife/butterfly/switchblade
 	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/flashlight/maglight
+	)
 
 /obj/outfit/admin/crevus/gang_member/post_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -281,15 +286,59 @@
 	"
 	tags = list("External")
 	spawnpoints = list("crevus_gang1_boss")
+	recognition_group = "crevus_gang1"
+	recognition_message = "You recognize this person as the leader of your gang."
 	max_count = 1
+	outfit = /obj/outfit/admin/crevus/gang_boss
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Placeholder Gang Leader"
 	special_role = "Placeholder Gang Leader"
 	respawn_flag = null
 
-/obj/outfit/admin/crevus/gang_member/boss
+/obj/outfit/admin/crevus/gang_boss
 	name = "Gang Leader"
+	uniform = list(
+		/obj/item/clothing/under/dressshirt/tanktop,
+		/obj/item/clothing/under/dressshirt/longsleeve_s,
+		/obj/item/clothing/under/dressshirt/deepv
+	)
+
+	suit = list(
+		/obj/item/clothing/suit/storage/toggle/greatcoat/recolor,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
+	)
+
+	pants = /obj/item/clothing/pants/tacticool
+	gloves = /obj/item/clothing/gloves/fingerless
+	glasses = /obj/item/clothing/glasses/sunglasses/visor
+	shoes = /obj/item/clothing/shoes/laceup
+	id = null
+	l_pocket = /obj/item/storage/wallet/random
+	r_pocket = /obj/item/material/knife/butterfly/switchblade
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/flashlight/maglight,
+		/obj/item/clothing/accessory/holster/utility/machete,
+		/obj/item/material/hatchet/machete/steel
+	)
+
+/obj/outfit/admin/crevus/gang_boss/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+
+	// color the colorable stuff
+	H.w_uniform?.color = get_random_colour(lower = 150)
+	H.w_uniform?.update_worn_icon()
+	H.wear_suit?.color = get_random_colour(lower = 150)
+	H.wear_suit?.update_worn_icon()
+
+	// random equipment
+	if(prob(50))
+		H.equip_or_collect(new /obj/random/medical, slot_in_backpack)
+	if(prob(50))
+		H.equip_or_collect(new /obj/random/loot, slot_in_backpack)
+	if(prob(55))
+		H.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack)
 
 
 #undef CREVUS_GENERIC_SPECIES
