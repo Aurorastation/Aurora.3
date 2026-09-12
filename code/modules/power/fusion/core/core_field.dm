@@ -414,7 +414,7 @@
 
 /obj/effect/fusion_em_field/proc/RuptureExplosion()
 	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
-	explosion(get_turf(owned_core), 6, 8)
+	explosion(get_turf(owned_core), 6, 8, spreading = TRUE)
 
 /**
  * Sets field strength in Tesla, and corresponding field size.

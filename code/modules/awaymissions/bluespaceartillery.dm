@@ -50,7 +50,7 @@
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
 			sound_to(world, ('sound/effects/yamato_fire.ogg'))
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
-			explosion(t,2,5,11)
+			explosion(t, 2, 5, 11, spreading = TRUE)
 			reload = 0
 
 /obj/structure/artilleryplaceholder

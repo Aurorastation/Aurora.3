@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported CM cellular automata explosions. Explosions now have a travel time shockwave that propagates through the environment, throwing objects and mobs around."
