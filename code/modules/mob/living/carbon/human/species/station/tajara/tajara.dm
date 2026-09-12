@@ -22,7 +22,8 @@
 		/datum/unarmed_attack/bite/sharp
 	)
 	maneuvers = list(
-		/singleton/maneuver/leap/tajara
+		/singleton/maneuver/leap/tajara,
+		/singleton/maneuver/kick
 	)
 	slowdown = -0.4
 
