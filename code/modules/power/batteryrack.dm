@@ -11,6 +11,7 @@
 	icon_state = "gsmes"
 	var/cells_amount = 0
 	var/capacitors_amount = 0
+	var/self_charge_rate = 0
 
 	component_types = list(
 		/obj/item/circuitboard/batteryrack,
@@ -23,6 +24,7 @@
 	..()
 	capacitors_amount = 0
 	cells_amount = 0
+	self_charge_rate = 0
 
 	var/max_level = 0 //for both input and output
 	for(var/obj/item/stock_parts/capacitor/CP in component_parts)
@@ -35,11 +37,16 @@
 	for(var/obj/item/cell/PC in component_parts)
 		C += PC.maxcharge
 		cells_amount++
+		self_charge_rate += (PC.self_charge_percentage * PC.maxcharge) / 100
 	capacity = C * 40   //Basic cells are such crap. Hyper cells needed to get on normal SMES levels.
+
+/obj/structure/machinery/power/smes/batteryrack/process()
+	..()
+	if (input_attempt)
+		charge = min(capacity, charge + self_charge_rate)
 
 /obj/structure/machinery/power/smes/batteryrack/chargedisplay()
 	return round(4 * charge/(capacity ? capacity : 5e6))
-
 
 /obj/structure/machinery/power/smes/batteryrack/attackby(obj/item/attacking_item, mob/user) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
@@ -145,6 +152,7 @@
 
 #define SMESRATE 0.05			// rate of internal charge to external power
 /obj/structure/machinery/power/smes/batteryrack/makeshift/process()
+	.=..()
 	if(stat & BROKEN)	return
 
 	//store machine state to see if we need to update the icon overlays

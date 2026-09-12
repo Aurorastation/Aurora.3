@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes self charging powercells (slime cells) not charging the PSU."
