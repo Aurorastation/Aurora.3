@@ -416,6 +416,48 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/fireextinguisher
+	category = "engineering"
+	name = "fire extinguisher"
+	supplier = "hephaestus"
+	description = "A handheld fire extinguisher for controlling fires and cooling overheated equipment."
+	price = 50
+	items = list(
+		/obj/item/extinguisher
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/extinguisherrefill
+	category = "engineering"
+	name = "extinguisher refill"
+	supplier = "hephaestus"
+	description = "A single-use extinguisher refill containing monoammonium phosphate."
+	price = 40
+	items = list(
+		/obj/item/reagent_containers/extinguisher_refill/filled
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/weldingbackpack
+	category = "engineering"
+	name = "welding backpack"
+	supplier = "hephaestus"
+	description = "An empty heavy-duty backpack with a capacity of 350 units of welding fuel."
+	price = 120
+	items = list(
+		/obj/item/reagent_containers/weldpack/empty
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/fueltank
 	category = "engineering"
 	name = "fuel tank"
@@ -458,6 +500,18 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/dosimeter
+	category = "engineering"
+	name = "combination dosimeter"
+	supplier = "hephaestus"
+	description = "A wrist-worn radiation monitor that measures both the current dose rate and accumulated exposure."
+	price = 350
+	items = list(
+		/obj/item/geiger/dosimeter
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = TRUE
 	spawn_amount = 1
 
 /singleton/cargo_item/hardhat
