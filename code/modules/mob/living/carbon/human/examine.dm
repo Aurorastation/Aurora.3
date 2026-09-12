@@ -432,6 +432,10 @@
 		var/obj/item/grab/G = get_active_hand()
 		msg += SPAN_ALERT(FONT_LARGE("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!"))
 
+	// recognition message for ghostroles, so they can recongize one another
+	if(isliving(user) && user != src && mind?.recognition_group && mind.recognition_group == user.mind?.recognition_group && mind.recognition_message)
+		msg += SPAN_GOOD("[mind.recognition_message]\n")
+
 	if(pose)
 		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0)
 			pose = addtext(pose, ".") // Makes sure all emotes end with punctuation.
