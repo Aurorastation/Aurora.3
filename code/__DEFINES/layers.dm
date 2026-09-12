@@ -19,9 +19,13 @@
 /// NEVER HAVE ANYTHING BELOW THIS PLANE ADJUST IF YOU NEED MORE SPACE
 #define LOWEST_EVER_PLANE -200
 
-#define FIELD_OF_VISION_BLOCKER_PLANE -199
+#define FOV_EXEMPT_PLANE -199
+#define FOV_EXEMPT_RENDER_TARGET "*fov_exempt"
+#define FIELD_OF_VISION_BLOCKER_PLANE -198
 #define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "*fovblock"
-#define GAME_PLANE_FOV_HIDDEN -6
+// Reserved off-screen passes, allocated only while a mob uses a drawing layer.
+#define FOV_MOB_PLANE_START -197
+#define FOV_MOB_PLANE_END -100
 #define FOV_OVERLAY_PLANE 800
 
 // Equipment may block the rear half or either side of the default vision cone.
@@ -273,4 +277,4 @@
 
 /atom/proc/reset_plane_and_layer()
 	plane = initial(plane)
-	layer = initial(layer)
+	set_layer(initial(layer))

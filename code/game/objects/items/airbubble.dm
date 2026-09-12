@@ -121,8 +121,7 @@
 	for(var/mob/M in contents)
 		M.forceMove(loc)
 		if(M.client)
-			M.client.eye = M.client.mob
-			M.client.perspective = MOB_PERSPECTIVE
+			M.client.set_eye(M.client.mob, MOB_PERSPECTIVE)
 			M.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 
 /obj/structure/closet/airbubble/Initialize()

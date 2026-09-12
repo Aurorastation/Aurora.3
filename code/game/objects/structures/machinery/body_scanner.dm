@@ -120,8 +120,7 @@
 		to_chat(usr, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	usr.pulling = null
-	usr.client.perspective = EYE_PERSPECTIVE
-	usr.client.eye = src
+	usr.client.set_eye(src, EYE_PERSPECTIVE)
 	usr.forceMove(src)
 	occupant = usr
 	update_use_power(POWER_USE_ACTIVE)
@@ -138,8 +137,7 @@
 
 	last_occupant_name = occupant.name
 	if (occupant.client)
-		occupant.client.eye = occupant.client.mob
-		occupant.client.perspective = MOB_PERSPECTIVE
+		occupant.client.set_eye(occupant.client.mob, MOB_PERSPECTIVE)
 	occupant.forceMove(loc)
 	occupant = null
 	update_use_power(POWER_USE_IDLE)
@@ -162,8 +160,7 @@
 	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		if (M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
+			M.client.set_eye(src, EYE_PERSPECTIVE)
 
 		M.forceMove(src)
 		occupant = M
@@ -199,8 +196,7 @@
 			var/obj/structure/LB = L.buckled_to
 			LB.user_unbuckle(user)
 		if (L.client)
-			L.client.perspective = EYE_PERSPECTIVE
-			L.client.eye = src
+			L.client.set_eye(src, EYE_PERSPECTIVE)
 		L.forceMove(src)
 		occupant = L
 		update_use_power(POWER_USE_ACTIVE)

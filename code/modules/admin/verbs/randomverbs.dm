@@ -933,6 +933,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	else
 		view = world.view
 
+	mob?.update_vision_cone()
 	log_admin("[key_name(usr)] changed their view range to [view].")
 	//message_admins("\blue [key_name_admin(usr)] changed their view range to [view].", 1)	//why? removed by order of XSI
 

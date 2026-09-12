@@ -504,7 +504,7 @@
 			break
 	if (user.stat == 2) return
 
-	user.client.eye = target
+	user.client.set_eye(target)
 
 /obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."

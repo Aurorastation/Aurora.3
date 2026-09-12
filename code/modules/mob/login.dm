@@ -78,11 +78,9 @@
 	player_age = client.player_age
 
 	if(loc && !isturf(loc))
-		client.eye = loc
-		client.perspective = EYE_PERSPECTIVE
+		client.set_eye(loc, EYE_PERSPECTIVE)
 	else
-		client.eye = src
-		client.perspective = MOB_PERSPECTIVE
+		client.set_eye(src, MOB_PERSPECTIVE)
 
 	if(eyeobj)
 		eyeobj.possess(src)
