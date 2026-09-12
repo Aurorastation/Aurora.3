@@ -72,14 +72,14 @@
 			user.visible_message("<b>[user]</b> flicks \the [src] off.", SPAN_NOTICE("You flick \the [src] off."), range = 3)
 		UnregisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_BROADCAST, PROC_REF(relay_weather_broadcast))
 
-/obj/item/lore_radio/proc/relay_lore_radio(var/datum/source, var/radio_station, var/radio_message)
+/obj/item/lore_radio/proc/relay_lore_radio(var/datum/source, var/radio_station, var/radio_message, var/datum/language/language)
 	SIGNAL_HANDLER
 
 	if(!receiving || radio_station != current_station)
 		return
 
 	if(radio_message)
-		output_spoken_message(radio_message, display_chat = !low_volume)
+		output_spoken_message(radio_message, display_chat = !low_volume, language = language)
 	else
 		if(!low_volume)
 			audible_message(SPAN_LORE_RADIO("The [SPAN_BOLD("[name]")] only emits white noise...")) // using name instead of src so it doesn't add a bolded The or whatever, better control of what displays

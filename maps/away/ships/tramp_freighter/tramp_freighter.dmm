@@ -83,8 +83,8 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "ax" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/shuttle/space_ship{
-	can_open = 1;
 	color = "#ABA49D"
 	},
 /area/tramp_freighter/cargo)

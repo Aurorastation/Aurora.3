@@ -1,10 +1,4 @@
 2026-09-01:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   ElorgRHG:
   - bugfix: Fixed the stargazer system icon state name for the Orion's Scar sector.
   - imageadd: Added a stargazer system sprite for the Orion's Scar sector.
@@ -19,12 +13,6 @@
   - bugfix: Fixes lighting in the rocky walls of the treasure trove and cursed mine
       off-sites.
 2026-09-02:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   DreamySkrell:
   - rscadd: 'Small cult base update: fixes wall colors, moves thermals and binocs
       from map to outfit'
@@ -39,22 +27,10 @@
   rattydew:
   - bugfix: Fixes the on-mob sprites of the Scarab passblade.
 2026-09-03:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   Geeves:
   - bugfix: Fixed saved Unathi characters being changed into humans by migrating them
       to Azaziba Unathi.
 2026-09-04:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   FabianK3:
   - bugfix: Fix admin GET of buckled mobs.
   Hellfirejag:
@@ -72,12 +48,6 @@
       Personalised mechanics.
   - rscdel: Removes the mapped in PsiProtect and included memo from the Pharmacy.
 2026-09-05:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   DreamySkrell:
   - rscadd: Removes the redundant reinforced table type.
   FabianK3:
@@ -104,12 +74,87 @@
       and gravity generator sounds.
   - rscadd: Adds the double-barelled shotgun rack back to the bar.
 2026-09-06:
+  FabianK3:
+  - qol: Added both secure operations and tech storage locations as safe deposit location
+      for persistent charge cards.
+2026-09-07:
+  Geeves:
+  - rscadd: Ejected bullet casings now bounce and spin with simulated physics, while
+      drifting naturally in zero gravity.
+  - rscadd: Adds machine flatpaks, printable by machinists using exosuit fabricators
+      after researching the corresponding circuit board.
+  - balance: Flatpak deployment time scales with skills defined by its circuit board,
+      defaulting to 15 seconds at trained mechanical engineering. The largest skill
+      shortfall makes deployment slower; exceeding every checked skill level makes
+      it faster.
+  kano:
+  - bugfix: Fixed not being able to snort powders with cash money.
+2026-09-08:
+  ElorgRHG:
+  - rscadd: Improves industrial frame IPC movespeed, reducing G2 slowdown from 2 to
+      1, and G1 and Xion slowdown from 3 to 2.
+  FabianK3:
+  - rscadd: Added new Mai'vazh A.42 100mm howitzer variant.
+2026-09-09:
+  ASmallCuteCat:
+  - rscadd: Removed med-only access from the Recovery Ward.
+  - rscadd: Added indicators to the Recovery Ward to denote if visitors are welcome
+      or not, as well as a button to bolt the door.
+  - imageadd: Added two new holosign sprites, one to indicate an area is public, the
+      other to indicate the area is private.
   ArbiterAmbrose:
   - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
       to the doors and a paint-scheme in the form of salmon highlights on the walls.
   - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
   - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
       and thicker walls are added to the Gadputhur corvette.
+  DreamySkrell:
+  - refactor: Removes unused shuttle vars.
+  - refactor: Access defines are gone. No more.
+  - rscadd: Fail tests if a map has invalid atom path.
   FabianK3:
-  - qol: Added both secure operations and tech storage locations as safe deposit location
-      for persistent charge cards.
+  - rscadd: Added a guest pass terminal to the medical cube.
+  - admin: Fixed missing chat log for the Ping Storyteller verb.
+  FabianK3, NiennaB:
+  - rscadd: Added new tajaran lobby art, by NiennaB.
+  - rscadd: Updated Badlands sector lobby art.
+  Hellfirejag:
+  - rscadd: Made voidsuit cyclers no longer require always-processing.
+  - bugfix: Made most atmos devices no longer require always-processing.
+  TGW:
+  - rscadd: Added Yasir Kra'jun's Aut'akh right arm custom item.
+  TheGreyWolf:
+  - rscadd: Added the Nav'korr armored snowsuit. It is currently not available on
+      the Horizon.
+  kano:
+  - bugfix: Fixed elevator walls appearing with greyscale sprites.
+  kermit:
+  - rscdel: Removes the napalm grenades from Secure Tech Storage.
+2026-09-10:
+  TheGreyWolf:
+  - bugfix: Fixes some pathfinding issues with cleanbots, medical bots and farmbots.
+2026-09-11:
+  DreamySkrell:
+  - rscadd: Adds `pick_consistent` procs.
+  - refactor: Refactors `/obj/random` a bit.
+  FabianK3:
+  - rscadd: Redesigned the Intrepid shuttle.
+  - qol: Add auto-attach for mapped-in turf contents for IV drips.
+  Fenodyree:
+  - bugfix: Fixes self charging cells (slime cores) not recharging themselves in hardsuits.
+  Geeves:
+  - rscadd: Added a functional chess set that allows you to play with others or against
+      a computer. It's mapped into the service areas and available in the loadout.
+  Hellfirejag:
+  - bugfix: Fixed exoplanet xenoflora requiring extremely expensive processing.
+  TheGreyWolf:
+  - rscadd: Turned the examine hints into a collapsible foldout in chat.
+  - rscadd: Lore radios can now use languages, defined on a per line basis.
+  - rscadd: The six tajaran radio stations for the lore radio have been updated.
+  - bugfix: Fixed the inability to attach certain prosthetics to people.
+  - bugfix: Suits should no longer disappear into bluespace.
+  kano:
+  - refactor: Refactored fake wall logic.
+  - bugfix: Fixed wooden walls appearing in greyscale sprites.
+  - rscadd: Checking for false walls can no longer be done in help intent, instead
+      it requires any other intents now.

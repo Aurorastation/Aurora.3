@@ -249,7 +249,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/bar
 	name = "bar control hub"
 	icon_state = "holocontrol"
-	req_access = list(ACCESS_BAR)
+	req_access = list(/datum/access/bar::id)
 	controls = list(
 		"counter shutters" = list("type" = "blast_door", "id" = "bar_counter_shutter"),
 		"holosign" = list("type" = "holosign", "id" = "bar"),
@@ -261,7 +261,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/media_office
 	name = "media office control hub"
 	icon_state = "holocontrol"
-	req_access = list(ACCESS_JOURNALIST)
+	req_access = list(/datum/access/journalist::id)
 	controls = list(
 		"door control" = list("type" = "airlock", "id" = "media_office_door", "functions" = 1),
 		"door bolts" = list("type" = "airlock", "id" = "media_office_door", "functions" = 4),
@@ -273,7 +273,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/xo_office/private
 	name = "executive officers office control hub"
 	icon_state = "holocontrol"
-	req_access = list(ACCESS_HOP)
+	req_access = list(/datum/access/hop::id)
 	controls = list(
 		"interior window tint" = list("type" = "windowtint", "id" = "xo_office_tint"),
 		"conference room window tint" = list("type" = "windowtint", "id" = "xo_conference_tint"),
@@ -283,7 +283,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/xo_office/desk
 	name = "executive officers desk control hub"
 	icon_state = "holocontrol"
-	req_access = list(ACCESS_HOP)
+	req_access = list(/datum/access/hop::id)
 	controls = list(
 		"interior window tint" = list("type" = "windowtint", "id" = "xo_office_tint"),
 		"privacy window tint" = list("type" = "windowtint", "id" = "xo_privacy_tint"),

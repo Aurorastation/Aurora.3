@@ -109,7 +109,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/hiskyn_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Hiskyn's Revanchist Shuttle"
-	req_access = list(ACCESS_UNATHI_PIRATE)
+	req_access = list(/datum/access/unathi_pirate::id)
 
 /datum/shuttle/autodock/overmap/hiskyn_shuttle
 	name = "Hiskyn's Revanchist Shuttle"
@@ -120,7 +120,6 @@
 	dock_target = "airlock_hiskyn_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_dock_hiskyn"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/hiskyn_shuttle/dock

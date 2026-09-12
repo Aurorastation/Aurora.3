@@ -3756,9 +3756,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_salvager/crew_quarters)
 "rk" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_salvager/toilets)
 "rl" = (
 /obj/effect/floor_decal/corner/dark_blue,
@@ -8812,9 +8811,9 @@
 /obj/item/clothing/head/sol/marine/grey,
 /obj/item/clothing/head/sol/marine,
 /obj/item/clothing/head/ushanka/dominia,
-/obj/item/clothing/head/softcap/tcfl,
-/obj/item/clothing/head/beret/legion/field,
-/obj/item/clothing/suit/storage/legion,
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field,
+/obj/item/clothing/head/beret/tcaf/foreign_legion/field,
+/obj/item/clothing/suit/storage/tcaf/legion,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black,
 /obj/item/clothing/head/softcap,
 /obj/item/clothing/head/turban,

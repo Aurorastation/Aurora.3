@@ -41,32 +41,32 @@
 /obj/structure/machinery/door/airlock/gadpathur/quarters/crew
 	name = "General Quarters"
 	stripe_color = COLOR_GADPATHUR_RED
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY, ACCESS_COALITION_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id, /datum/access/coalition_navy::id)
 
 /obj/structure/machinery/door/airlock/gadpathur/quarters/officer
 	name = "Officer Quarters"
 	stripe_color = COLOR_GADPATHUR_GOLD
-	req_access = list(ACCESS_GADPATHUR_NAVY_OFFICER)
+	req_access = list(/datum/access/gadpathur_navy_officer::id)
 
 /obj/structure/machinery/door/airlock/highsecurity/gadpathur/cic
 	name = "Command Information Center"
 	door_color = COLOR_GADPATHUR_BROWN
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY, ACCESS_COALITION_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id, /datum/access/coalition_navy::id)
 
 /obj/structure/machinery/door/airlock/glass/gadpathur/situation
 	name = "Situation Room"
 	door_color = COLOR_GADPATHUR_BROWN
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY, ACCESS_COALITION_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id, /datum/access/coalition_navy::id)
 
 /obj/structure/machinery/door/airlock/highsecurity/gadpathur/armory
 	name = "Armory"
 	door_color = "#2b4b68"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id)
 
 /obj/structure/machinery/door/airlock/freezer/gadpathur/morgue
 	door_frame_color = COLOR_GADPATHUR_BLACK
 	name = "Morgue"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY, ACCESS_COALITION_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id, /datum/access/coalition_navy::id)
 
 /obj/structure/machinery/door/airlock/gadpathur/medical
 	name = "Medical Bay"
@@ -80,19 +80,19 @@
 
 /obj/structure/machinery/door/airlock/glass/gadpathur/cell
 	name = "Cell"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY, ACCESS_COALITION_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id, /datum/access/coalition_navy::id)
 	door_color = "#2b4b68"
 	stripe_color = "#ff4343"
 
 /obj/structure/machinery/door/airlock/gadpathur/atmos
 	name = "Atmospherics"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id)
 	door_color = "#caa638"
 	stripe_color = "#62ff43"
 
 /obj/structure/machinery/door/airlock/gadpathur/engi
 	name = "Engineering"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id)
 	door_color = "#caa638"
 	stripe_color = "#ff7f43"
 
@@ -114,7 +114,7 @@
 /obj/structure/machinery/door/airlock/hatch/gadpathur/armanent
 	door_color = COLOR_GADPATHUR_BLACK
 	stripe_color = COLOR_GADPATHUR_RED
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY, ACCESS_COALITION_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id, /datum/access/coalition_navy::id)
 
 /obj/structure/machinery/door/airlock/hatch/gadpathur/armanent/light
 	name = "Light Armanent"
@@ -124,7 +124,7 @@
 
 /obj/structure/machinery/door/airlock/glass/gadpathur/engi
 	name = "Engineering"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id)
 	door_color = "#caa638"
 	stripe_color = "#ff7f43"
 
@@ -134,13 +134,13 @@
 
 /obj/structure/machinery/door/airlock/gadpathur/interrogation
 	name = "Interrogation"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id)
 	door_color = "#2b4b68"
 	stripe_color = COLOR_GADPATHUR_BROWN
 
 /obj/structure/machinery/door/airlock/gadpathur/crew_prep
 	name = "Crew Preparation"
-	req_one_access = list(ACCESS_GADPATHUR_NAVY_OFFICER, ACCESS_GADPATHUR_NAVY)
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id, /datum/access/gadpathur_navy::id)
 	door_color = "#2b4b68"
 	stripe_color = COLOR_GADPATHUR_GOLD
 
