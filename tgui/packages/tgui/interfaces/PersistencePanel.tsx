@@ -14,6 +14,7 @@ import { SearchBar } from './common/SearchBar';
 
 type PersistencePanelData = {
   status_initialized: boolean;
+  map_supported: boolean;
   saving_active: boolean;
   objects_tracked: number;
   records_cached: number;
@@ -267,8 +268,16 @@ export const PersistencePanel = (props) => {
   const [recordsSearch, setRecordsSearch] = useLocalState('recordsSearch', '');
   const [genericsSearch, setGenericsSearch] = useLocalState('genericsSearch', '');
 
-  const statusText = data.status_initialized ? 'Initialized' : 'Error';
-  const statusColor = data.status_initialized ? 'good' : 'bad';
+  const statusText = !data.status_initialized
+    ? 'Error'
+    : data.map_supported
+      ? 'Initialized'
+      : 'Initialized (Map is not supported)';
+  const statusColor = !data.status_initialized
+    ? 'bad'
+    : data.map_supported
+      ? 'good'
+      : 'yellow';
   const savingText = data.saving_active ? 'Active' : 'Disabled';
   const savingColor = data.saving_active ? 'good' : 'bad';
   const savingButtonText = data.saving_active ? 'Disable saving' : 'Re-enable saving';
