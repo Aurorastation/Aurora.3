@@ -1547,8 +1547,9 @@
 	else if(href_list["notessearchckey"] || href_list["notessearchadmin"])
 		var/adminckey = href_list["notessearchadmin"]
 		var/playerckey = href_list["notessearchckey"]
+		var/page = text2num(href_list["notespage"])
 
-		show_notes_sql(playerckey, adminckey)
+		show_notes_sql(playerckey, adminckey, page)
 		return
 
 	else if(href_list["admin_wind_player"])
