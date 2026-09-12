@@ -1,0 +1,4 @@
+author: kano
+delete-after: True
+changes:
+  - rscadd: "Reduced fog forming temperature from 5C to -30C."
