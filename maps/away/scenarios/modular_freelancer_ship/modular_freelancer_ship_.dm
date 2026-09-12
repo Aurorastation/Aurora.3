@@ -130,7 +130,6 @@
 	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_fighter::shuttle
 	shuttle_area = list(/area/shuttle/modular_freelancer_shuttle/fighter)
 	current_location =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::landmark_tag
-	logging_home_tag =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_dock::landmark_tag
 	landmark_transition =	/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_fighter_transit::landmark_tag
 	dock_target = "airlock_modular_freelancer_shuttle_fighter"
 	range = 1
@@ -180,7 +179,6 @@
 	name = /obj/effect/overmap/visitable/ship/landable/modular_freelancer_shuttle_ferry::shuttle
 	shuttle_area = list(/area/shuttle/modular_freelancer_shuttle/ferry)
 	current_location =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::landmark_tag
-	logging_home_tag =		/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_dock::landmark_tag
 	landmark_transition =	/obj/effect/shuttle_landmark/modular_freelancer_ship/shuttle_ferry_transit::landmark_tag
 	dock_target = "airlock_modular_freelancer_shuttle_ferry"
 	range = 1
