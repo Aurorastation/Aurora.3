@@ -1,0 +1,4 @@
+author: Geeves
+delete-after: True
+changes:
+  - qol: "Holding a human shield now keeps you and the shield facing the direction you move, or your locked direction when direction lock is enabled."
