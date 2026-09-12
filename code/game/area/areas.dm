@@ -103,6 +103,8 @@
 
 	/// A text-based description of the area, can be used for sounds, notable things in the room, etc.
 	var/area_blurb
+	/// If TRUE, airlocks in this area include their surrounding area names in their descriptions.
+	var/describe_airlocks = FALSE
 
 	var/tmp/is_outside = OUTSIDE_NO
 
