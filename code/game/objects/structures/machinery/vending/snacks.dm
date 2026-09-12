@@ -97,6 +97,9 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
 
+/obj/structure/machinery/vending/snack/free
+	prices = list()
+
 /obj/structure/machinery/vending/snack/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 4,

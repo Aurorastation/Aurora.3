@@ -275,6 +275,16 @@
 	desc = "A internals crate."
 	icon_state = "o2_crate"
 
+/obj/structure/closet/crate/internals/filled/fill()
+	var/i_max = rand(3, 6)
+	for(var/i in 1 to i_max)
+		new /obj/item/oxycandle(src)
+		new /obj/item/tank/emergency_oxygen(src)
+		new /obj/item/tank/emergency_oxygen/engi(src)
+		new /obj/item/clothing/mask/breath(src)
+		new /obj/item/clothing/mask/breath(src)
+	new /obj/item/storage/bag/inflatable(src)
+
 /obj/structure/closet/crate/trashcart
 	name = "trash cart"
 	desc = "A heavy, metal trashcart with wheels."
@@ -398,6 +408,14 @@
 	for(var/i=1,i<=6,i++)
 		new /obj/random/mre(src)
 		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
+
+/obj/structure/closet/crate/freezer/pizza
+	name = "pizza freezer"
+	desc = "A crate of assorted pizza boxes."
+
+/obj/structure/closet/crate/freezer/pizza/fill()
+	for(var/i=1,i<=6,i++)
+		new /obj/random/pizzabox(src)
 
 /obj/structure/closet/crate/freezer/kois
 	name = "freezer"
@@ -685,6 +703,12 @@
 
 /obj/structure/closet/crate/loot/Initialize(mapload, no_fill)
 	. = ..()
+
+	name = pick("strange", "unusual", "suspicious", "mysterious", "odd", "forgotten")
+	name += " " + pick("crate", "container", "chest", "box")
+	desc = pick("A mysterious container", "An unusual box", "A strange crate", "A weathered container")
+	desc += " of " + pick("unknown origins", "dusty secrets", "questionable contents", "unclear purpose", "dubious heritage")
+	desc += ". " + pick("What mysteries lie within?", "Who knows what's inside.", "")
 
 	spawntypes = list(
 		"1" = STOCK_RARE_PROB * rarity,
