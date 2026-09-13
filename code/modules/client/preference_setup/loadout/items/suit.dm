@@ -345,6 +345,12 @@
 	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	wintercoat["winter coat, operations"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
+	wintercoat["parka, green"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka
+	wintercoat["parka, yellow"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/yellow
+	wintercoat["parka, red"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/red
+	wintercoat["parka, purple"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/purple
+	wintercoat["parka, blue"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/blue
+	wintercoat["parka, vintage"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage
 	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
 
 /datum/gear/suit/winter_colorable

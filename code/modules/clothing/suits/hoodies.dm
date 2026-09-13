@@ -401,3 +401,70 @@
 /obj/item/clothing/head/winterhood/patterned_ponczo/blue
 	name = "blue visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka
+	name = "green parka"
+	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions."
+	icon_state = "greenpark"
+	item_state = "greenpark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka
+
+/obj/item/clothing/head/winterhood/parka
+	name = "green parka hood"
+	desc = "A fur-lined hood attached to a parka."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/yellow
+	name = "yellow parka"
+	icon_state = "yellowpark"
+	item_state = "yellowpark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka/yellow
+
+/obj/item/clothing/head/winterhood/parka/yellow
+	name = "yellow parka hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/red
+	name = "red parka"
+	icon_state = "redpark"
+	item_state = "redpark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka/red
+
+/obj/item/clothing/head/winterhood/parka/red
+	name = "red parka hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/purple
+	name = "purple parka"
+	icon_state = "purplepark"
+	item_state = "purplepark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka/purple
+
+/obj/item/clothing/head/winterhood/parka/purple
+	name = "purple parka hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/blue
+	name = "blue parka"
+	icon_state = "bluepark"
+	item_state = "bluepark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka/blue
+
+/obj/item/clothing/head/winterhood/parka/blue
+	name = "blue parka hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/nt
+	name = "nanotrasen parka"
+	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions. This one has the NanoTrasen logo on it."
+	icon_state = "ntpark"
+	item_state = "ntpark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka/nt
+
+/obj/item/clothing/head/winterhood/parka/nt
+	name = "nanotrasen parka hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage
+	name = "vintage parka"
+	desc = "An old-fashioned fur-lined jacket made to keep you nice and toasty on cold winter days. Or at least alive."
+	icon_state = "vintagepark"
+	item_state = "vintagepark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka/vintage
+
+/obj/item/clothing/head/winterhood/parka/vintage
+	name = "vintage parka hood"
