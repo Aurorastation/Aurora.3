@@ -233,8 +233,10 @@
 		/obj/item/flashlight/maglight,
 		/obj/item/clothing/accessory/holster/armpit,
 		/obj/item/gun/projectile/pistol/adhomai,
+		/obj/item/ammo_magazine/mc9mm = 3,
 		/obj/item/crowbar/red,
-		/obj/item/ammo_magazine/mc9mm = 3
+		/obj/item/journal/notepad/filled,
+		/obj/item/key/door_key/crevus_rhan_cresh_patrol
 	)
 
 /obj/outfit/admin/crevus/rhan_cresh_patrol/post_equip(mob/living/carbon/human/H)
@@ -282,8 +284,10 @@
 		/obj/item/flashlight/maglight,
 		/obj/item/clothing/accessory/holster/armpit,
 		/obj/item/gun/projectile/pistol/adhomai,
+		/obj/item/ammo_magazine/mc9mm = 3,
 		/obj/item/crowbar/red,
-		/obj/item/ammo_magazine/mc9mm = 3
+		/obj/item/journal/notepad/filled,
+		/obj/item/key/door_key/crevus_azaula_enforcer
 	)
 
 /obj/outfit/admin/crevus/crevus_azaula_enforcer/post_equip(mob/living/carbon/human/H)

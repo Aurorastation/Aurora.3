@@ -783,3 +783,10 @@
 /datum/access/abandoned_casino
 	id = 257
 
+/datum/access/crevus_rhan_cresh
+	id = 258
+	desc = "Rhan-Cresh Charities', Highway Patrol Office Access"
+
+/datum/access/crevus_azaula_enforcer
+	id = 259
+	desc = "Azaula Entertainment, Enforcer Office Access"

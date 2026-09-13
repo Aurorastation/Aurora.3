@@ -629,17 +629,24 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/rod_railing/jailbar
 	name = "bars"
+	desc = "Sturdy bars of steel. One can hope not to end up at the wrong side of it."
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	icon = 'icons/obj/structure/urban/jail_bars.dmi'
 	icon_state = "bars"
 	pass_flags_self = PASSGRILLE
 	climbable = FALSE
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_PISTOL
+	)
 
 /obj/structure/rod_railing/jailbar/bars_slot
 	icon_state = "barsslot"
 
 /obj/structure/machinery/door/urban/jail_door
 	name = "barred door"
+	desc = "A barred steel door, commonly known as a jail door."
 	icon = 'icons/obj/structure/urban/jail_bars.dmi'
 	icon_state = "door_closed"
 	base_icon = "door"
@@ -651,7 +658,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	open_sound = 'sound/machines/barred_door_openclose.ogg'
 	close_sound = 'sound/machines/barred_door_openclose.ogg'
-	locked_sound = null
 
 /obj/structure/machinery/door/urban/jail_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -1207,7 +1213,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	/// Sound to play when the door is closed
 	var/close_sound = 'sound/machines/simple_door_closing.ogg'
 	/// Sound to play when the door is locked and couldn't be opened.
-	var/locked_sound = 'sound/machines/simple_door_stuck.ogg'
+	var/rattle_sound = 'sound/machines/simple_door_stuck.ogg'
+	var/unlocking_sound = 'sound/machines/simple_door_lock_unlock.ogg'
 
 /obj/structure/machinery/door/urban/update_icon()
 	if(density)
@@ -1249,8 +1256,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 				playsound(src.loc, close_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 		if("deny")
-			if(locked_sound)
-				playsound(src.loc, locked_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+			if(rattle_sound)
+				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			balloon_alert_to_viewers("*rattles*")
 			shake_animation(1)
 
@@ -1260,16 +1267,19 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 	if(istype(attacking_item, /obj/item/key/door_key))
 
+		if(!density) // door needs to be closed before it can be locked
+			close()
+			return
+
 		if(check_access(attacking_item))
-			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
+			if(!(length(previous_req_one_access) || length(previous_req_access)))
 
 				//Only say that it's unlocked if there actually was an access list that did the locking
 				if(length(src.req_one_access) || length(src.req_access))
 					balloon_alert_to_viewers("*unlocks*")
 					to_chat(user, SPAN_NOTICE("You unlock \the [src]."))
 
-				playsound(src.loc, hatch_open_sound, 40, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
-				open()
+				playsound(src.loc, unlocking_sound, 40, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 				//Save the list of accesses and empty them up
 				if(length(src.req_one_access))
@@ -1287,8 +1297,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 					balloon_alert_to_viewers("*locks*")
 					to_chat(user, SPAN_NOTICE("You lock \the [src]."))
 
-				playsound(src.loc, hatch_close_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
-				close()
+				playsound(src.loc, unlocking_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 				//Readd the list of accesses, and empty up the previous access lists
 				if(length(previous_req_one_access))
@@ -1301,8 +1310,8 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 		else
 			balloon_alert_to_viewers("*rattles*")
-			if(locked_sound)
-				playsound(src.loc, locked_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+			if(rattle_sound)
+				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	//Check with our parent, in case it's not a key
 	else
@@ -1322,7 +1331,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/machinery/door/urban/metal
 	name = "metal door"
-	desc = ""
+	desc = "A metal, blue door. Keeps the street away."
 	icon_state = "metal_closed"
 	base_icon = "metal"
 	pixel_y = -8
@@ -1331,7 +1340,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/machinery/door/urban/metal_alt
 	name = "metal door"
-	desc = ""
+	desc = "A metal, blue door. Keeps the street away."
 	icon_state = "metal_alt_closed"
 	base_icon = "metal_alt"
 	pixel_y = -8
@@ -1340,7 +1349,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/machinery/door/urban/metal_red
 	name = "metal door"
-	desc = ""
+	desc = "A metal, red door. Keeps the street away."
 	icon_state = "metal_red_closed"
 	base_icon = "metal_red"
 	pixel_y = -8
@@ -1349,7 +1358,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/machinery/door/urban/metal_bar
 	name = "metal door"
-	desc = ""
+	desc = "A metal barred door."
 	icon_state = "metal_bar_closed"
 	base_icon = "metal_bar"
 	pixel_y = -8
@@ -1360,7 +1369,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 
 /obj/structure/machinery/door/urban/metal_grate
 	name = "metal door"
-	desc = ""
+	desc = "A metal door with grate."
 	icon_state = "metal_grate_closed"
 	base_icon = "metal_grate"
 	pixel_y = -8
@@ -1382,7 +1391,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	opacity = FALSE //otherwise it is opaque until opened/closed for the first time.
 	open_sound = 'sound/machines/windowdoor.ogg'
 	close_sound = 'sound/machines/windowdoor.ogg'
-	locked_sound = null
+	rattle_sound = null
 
 /obj/structure/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
 	icon_state = "double_glass_sliding_closed"
@@ -1400,7 +1409,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
  */
 /obj/item/key/door_key
 	name = "Door key"
-	desc = "A key that unlocks a door"
+	desc = "A key that unlocks a door."
 
 	///A list of IDs that the key can lock/unlock
 	var/list/access_list = list()

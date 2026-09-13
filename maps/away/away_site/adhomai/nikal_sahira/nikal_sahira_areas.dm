@@ -29,6 +29,26 @@
 /area/crevus/restaurant/private_dining_room
 	name = "Restaurant - Private Dining Room"
 
+/area/crevus/restaurant/lobby
+	name = "Restaurant - Lobby"
+
+/area/crevus/restaurant/kitchen
+	name = "Restaurant - Kitchen"
+
+/area/crevus/restaurant/azaula_enforcers
+	name = "Azaula Entertainment Enforcement Office"
+
+// ---------- Transit Centre
+/area/crevus/transit_centre
+	name = "Transit Centre"
+
+// ---------- Clothing Store
+/area/crevus/clothing_store
+	name = "Clothing Store"
+
+/area/crevus/clothing_store/basement
+	name = "Clothing Store - Basement"
+
 // ---------- General Store
 
 /area/crevus/general_store
