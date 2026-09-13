@@ -288,6 +288,20 @@
 	groupable = FALSE
 	spawn_amount = 1
 
+/singleton/cargo_item/snowmobile
+	category = "operations"
+	name = "snowmobile"
+	supplier = "zharkov"
+	description = "A vehicle adapted to travel on snow."
+	price = 800
+	items = list(
+		/obj/vehicle/bike/snow
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
 /singleton/cargo_item/webbing
 	category = "operations"
 	name = "webbing"
