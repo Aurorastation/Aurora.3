@@ -126,5 +126,6 @@
 		/* Can perform only the most basic surgeries up to arterial bleeds. */
 		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
