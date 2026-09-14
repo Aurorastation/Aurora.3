@@ -184,10 +184,6 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/security = 2,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/parka = 4,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/parka/yellow = 4,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/parka/red = 4,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/parka/purple = 4,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/parka/blue = 4,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage = 3
 	)
 

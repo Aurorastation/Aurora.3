@@ -403,61 +403,15 @@
 	desc = "A hood for a Visegradi ponczo."
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/parka
-	name = "green parka"
-	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions."
-	icon_state = "greenpark"
-	item_state = "greenpark"
-	hoodtype = /obj/item/clothing/head/winterhood/parka
-
-/obj/item/clothing/head/winterhood/parka
-	name = "green parka hood"
-	desc = "A fur-lined hood attached to a parka."
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/parka/yellow
-	name = "yellow parka"
-	icon_state = "yellowpark"
-	item_state = "yellowpark"
-	hoodtype = /obj/item/clothing/head/winterhood/parka/yellow
-
-/obj/item/clothing/head/winterhood/parka/yellow
-	name = "yellow parka hood"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/parka/red
-	name = "red parka"
-	icon_state = "redpark"
-	item_state = "redpark"
-	hoodtype = /obj/item/clothing/head/winterhood/parka/red
-
-/obj/item/clothing/head/winterhood/parka/red
-	name = "red parka hood"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/parka/purple
-	name = "purple parka"
-	icon_state = "purplepark"
-	item_state = "purplepark"
-	hoodtype = /obj/item/clothing/head/winterhood/parka/purple
-
-/obj/item/clothing/head/winterhood/parka/purple
-	name = "purple parka hood"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/parka/blue
-	name = "blue parka"
-	icon_state = "bluepark"
-	item_state = "bluepark"
-	hoodtype = /obj/item/clothing/head/winterhood/parka/blue
-
-/obj/item/clothing/head/winterhood/parka/blue
-	name = "blue parka hood"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/parka/nt
 	name = "nanotrasen parka"
 	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions. This one has the NanoTrasen logo on it."
 	icon_state = "ntpark"
 	item_state = "ntpark"
-	hoodtype = /obj/item/clothing/head/winterhood/parka/nt
+	hoodtype = /obj/item/clothing/head/winterhood/parka
 
-/obj/item/clothing/head/winterhood/parka/nt
+/obj/item/clothing/head/winterhood/parka
 	name = "nanotrasen parka hood"
+	desc = "A fur-lined hood attached to a parka."
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage
 	name = "vintage parka"
@@ -468,3 +422,21 @@
 
 /obj/item/clothing/head/winterhood/parka/vintage
 	name = "vintage parka hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/colorable
+	name = "parka"
+	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions."
+	icon_state = "parka_colorable"
+	item_state = "parka_colorable"
+	build_from_parts = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/parka/colorable
+	worn_overlay = "acc"
+
+/obj/item/clothing/head/winterhood/parka/colorable
+	name = "parka hood"
+	icon_state = "parka_colorable_hood"
+	build_from_parts = TRUE
+	worn_overlay = "acc"
+
+/obj/item/clothing/head/winterhood/colorable/parka/update_icon(mob/user)
+	. = ..()
