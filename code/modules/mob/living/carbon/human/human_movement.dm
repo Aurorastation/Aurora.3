@@ -248,14 +248,21 @@
 		return
 
 	clear_table_search_silhouettes()
+	var/static/icon/search_shadow
+	if(!search_shadow)
+		search_shadow = icon('icons/mob/npc/spider_queen.dmi', "spider_queen_shadow")
+		search_shadow.Scale(32, 32)
 	for(var/mob/living/carbon/human/hidden in view(5, src))
 		if(hidden == src || !hidden.crawling_under_table)
 			continue
 		// Images dispatch clicks to their loc, so this generic spot remains a
 		// private, clickable stand-in for the concealed mob.
-		var/image/search_spot = image('icons/effects/effects.dmi', loc = hidden, icon_state = "dirt")
+		var/image/search_spot = image(search_shadow, loc = hidden)
+		// Do not inherit the crawler's prone rotation, tint, or transparency.
+		search_spot.appearance_flags |= KEEP_APART | RESET_TRANSFORM | RESET_COLOR | RESET_ALPHA
+		search_spot.dir = SOUTH
 		search_spot.layer = ABOVE_TABLE_LAYER
-		search_spot.color = "#242424"
+		search_spot.pixel_y = 8
 		search_spot.alpha = 190
 		search_spot.mouse_opacity = MOUSE_OPACITY_ICON
 		LAZYADD(table_search_silhouettes, search_spot)

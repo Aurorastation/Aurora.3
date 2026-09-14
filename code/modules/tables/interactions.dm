@@ -87,10 +87,16 @@
 /obj/structure/table/proc/rustle_from_crawler()
 	visible_message(SPAN_NOTICE("\The [src] rustles slightly as the objects on it shift."), blind_message = SPAN_NOTICE("You hear a faint rustling."))
 	playsound(src, SFX_RUSTLE, 15, TRUE, -5)
-	Shake(1, 1, 0.3 SECOND, 0.1 SECOND)
+	var/list/rustling_atoms = list(src)
 	for(var/obj/item/item in get_turf(src))
 		if(!item.anchored && item.layer > BELOW_TABLE_LAYER)
-			item.Shake(1, 1, 0.3 SECOND, 0.1 SECOND)
+			rustling_atoms += item
+	for(var/atom/rustling_atom in rustling_atoms)
+		var/original_pixel_x = rustling_atom.pixel_x
+		// A slight side-to-side rustle, without changing the vertical offset.
+		animate(rustling_atom, pixel_x = original_pixel_x + 1, time = 0.1 SECOND, flags = ANIMATION_PARALLEL)
+		animate(pixel_x = original_pixel_x - 1, time = 0.1 SECOND)
+		animate(pixel_x = original_pixel_x, time = 0.1 SECOND)
 
 /obj/structure/table/proc/pull_crawler_out(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(!istype(user) || !istype(target) || !target.crawling_under_table || get_turf(target) != get_turf(src))
