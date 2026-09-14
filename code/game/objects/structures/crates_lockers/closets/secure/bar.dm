@@ -9,7 +9,7 @@
 
 /obj/structure/closet/secure_closet/cabinet/bar
 	name = "booze closet"
-	req_access = list(ACCESS_BAR)
+	req_access = list(/datum/access/bar::id)
 	storage_capacity = 45 //such a big closet deserves a little more capacity
 
 /obj/structure/closet/secure_closet/cabinet/bar/fill()
@@ -40,4 +40,4 @@
 	new /obj/item/storage/box/fancy/yoke/threetowns(src)
 
 /obj/structure/closet/secure_closet/cabinet/beer/horizon
-	req_access = list(ACCESS_BAR)
+	req_access = list(/datum/access/bar::id)

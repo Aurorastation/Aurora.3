@@ -157,134 +157,159 @@
 
 	sanitize_faction()
 
-/datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
-	if (!SSjobs.initialized || !SSrecords.initialized)
-		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
+/datum/category_item/player_setup_item/occupation/proc/get_display_department(datum/job/job)
+	if(istype(job, /datum/job/captain) || istype(job, /datum/job/xo))
+		return DEPARTMENT_COMMAND
 
-	var/list/dat = list(
-		"<style>span.none{color: black} span.low{color: #DDD} span.med{color: yellow} span.high{color: lime} a:hover span{color: #40628a !important}</style>",
-		"<center><b>Character Faction</b><br>",
-		"<small>This will influence the jobs you can select from, and the starting equipment.</small><br>",
-		"<b><a href='byond://?src=[REF(src)];faction_select=1;'>[pref.faction]</a></b></center><br><hr>"
+	for(var/department in job.departments)
+		if(department != DEPARTMENT_COMMAND)
+			return department
+
+	if(DEPARTMENT_COMMAND in job.departments)
+		return DEPARTMENT_COMMAND
+
+	return DEPARTMENT_MISCELLANEOUS
+
+/datum/category_item/player_setup_item/occupation/proc/get_department_order()
+	return list(
+		DEPARTMENT_COMMAND,
+		DEPARTMENT_ENGINEERING,
+		DEPARTMENT_MEDICAL,
+		DEPARTMENT_SCIENCE,
+		DEPARTMENT_SECURITY,
+		DEPARTMENT_CARGO,
+		DEPARTMENT_SERVICE,
+		DEPARTMENT_CIVILIAN,
+		DEPARTMENT_EQUIPMENT,
+		DEPARTMENT_COMMAND_SUPPORT,
+		DEPARTMENT_MISCELLANEOUS,
+		DEPARTMENT_OFFSHIP
 	)
 
-	dat += list(
-		"<tt><center>",
-		"<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>",
-		"<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>", // Table within a table for alignment, also allows you to easily add more colomns.
-		"<table width='100%' cellpadding='1' cellspacing='0'>"
-	)
-	var/index = -1
+/datum/category_item/player_setup_item/occupation/proc/get_job_ui_data(datum/job/job, mob/user, datum/faction/faction)
+	var/rank = job.title
+	var/head = (rank in command_positions) || (rank == "AI")
+	var/list/available = pref.GetValidTitles(job)
+	var/display_title = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
+	var/status
+	var/status_tone = "unavailable"
+	var/unavailable = TRUE
+	var/selectable = FALSE
+	var/alt_title_ref
+	var/status_href
+	var/ban_reason = jobban_isbanned(user, rank)
 
-	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
-	for(var/datum/job/job in SSjobs.occupations)
-		index += 1
-		if((index >= limit) || (job.title in splitJobs))
-			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
-			index = 0
-
-		var/rank = job.title
-		var/head = (rank in command_positions) || (rank == "AI")
-		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, head ? 1 : 0.5)];'><td width='60%' align='right'>"
-
-		var/list/available = pref.GetValidTitles(job)
-		var/dispRank = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
-		var/ban_reason = jobban_isbanned(user, rank)
-		if(ban_reason == "WHITELISTED")
-			dat += "<del>[dispRank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
-			continue
-		else if (ban_reason == "AGE WHITELISTED")
-			var/available_in_days = player_old_enough_for_role(user.client, rank)
-			dat += "<del>[dispRank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
-			continue
-		else if(!LAZYLEN(pref.GetValidTitles(job))) // we have no available jobs the character is old enough for
-			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.get_alt_character_age(), job.get_minimum_character_age(user.get_species())) : job.get_minimum_character_age(user.get_species())]]</td></tr>"
-			continue
-		if(!(job in faction.get_occupations()))
-			dat += "<del>[dispRank]</del></td><td><b> \[FACTION RESTRICTED]</b></td></tr>"
-			continue
-		else if (ban_reason)
-			dat += "<del>[dispRank]</del></td><td><b> \[<a href='byond://?src=[REF(user.client)];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
-			continue
-		if(job.blacklisted_species) // check for restricted species
+	if(ban_reason == "WHITELISTED")
+		status = "WHITELISTED"
+	else if(ban_reason == "AGE WHITELISTED")
+		status = "IN [player_old_enough_for_role(user.client, rank)] DAYS"
+	else if(!LAZYLEN(available))
+		status = "MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.get_alt_character_age(), job.get_minimum_character_age(user.get_species())) : job.get_minimum_character_age(user.get_species())]"
+	else if(!(job in faction.get_occupations()))
+		status = "FACTION RESTRICTED"
+	else if(ban_reason)
+		status = "BANNED"
+		status_href = "byond://?src=[REF(user.client)];view_jobban=[rank]"
+	else
+		var/species_restricted = FALSE
+		if(job.blacklisted_species)
 			var/datum/species/S = GLOB.all_species[pref.species]
-			if(S.name in job.blacklisted_species)
-				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
-				continue
+			species_restricted = (S.name in job.blacklisted_species)
+
 		var/datum/citizenship/C = SSrecords.citizenships[pref.citizenship]
-		if(C.job_species_blacklist[job.title] && (pref.species in C.job_species_blacklist[job.title]))
-			dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
-			continue
-		if(job.blacklisted_citizenship)
-			if(C.name in job.blacklisted_citizenship)
-				dat += "<del>[dispRank]</del></td><td><b> \[BACKGROUND RESTRICTED]</b></td></tr>"
-				continue
+		if(!species_restricted && C.job_species_blacklist[job.title] && (pref.species in C.job_species_blacklist[job.title]))
+			species_restricted = TRUE
 
-		// Skill requirement handling.
-		var/skills_length = length(job.skill_requirements)
-		var/skill_index = 0
-		var/missing_skills = ""
-		for (var/key,value in job.skill_requirements)
-			skill_index++
-			if (!key || pref.skills[key] >= value)
-				continue
-
-			var/singleton/skill/skill = GET_SINGLETON(key)
-			missing_skills += "[skill.name] [value]"
-			if (skill_index != skills_length)
-				missing_skills += "\n"
-
-		if (missing_skills != "")
-			dat += "<del>[dispRank]</del></td><td> MISSING SKILLS: [missing_skills]</td></tr>"
-			continue
-		// End of skill requirement handling.
-
-		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dispRank = "<span width='60%' align='center'>&nbsp<a href='byond://?src=[REF(src)];select_alt_title=[REF(job)]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
-		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
-			dat += "<span class='none'>[dispRank]</span></td><td></td></tr>"
-			continue
-		if(head)//Bold head jobs
-			dat += "<b>[dispRank]</b>"
+		if(species_restricted)
+			status = "SPECIES RESTRICTED"
+		else if(job.blacklisted_citizenship && (C.name in job.blacklisted_citizenship))
+			status = "BACKGROUND RESTRICTED"
 		else
-			dat += "[dispRank]"
+			var/list/missing_skills = list()
+			for(var/key, value in job.skill_requirements)
+				if(!key || pref.skills[key] >= value)
+					continue
+				var/singleton/skill/skill = GET_SINGLETON(key)
+				missing_skills += "[skill.name] [value]"
 
-		dat += "</td><td width='40%'>"
-
-		dat += "<a href='byond://?src=[REF(src)];set_job=[rank]'>"
-
-		if(rank == "Assistant")//Assistant is special
-			if(pref.job_civilian_low & ASSISTANT)
-				dat += " <span class='high'>\[Yes]</span>"
+			if(length(missing_skills))
+				status = "MISSING SKILLS: [jointext(missing_skills, "\n")]"
 			else
-				dat += " <span class='none'>\[No]</span>"
-			dat += "</a></td></tr>"
-			continue
+				unavailable = FALSE
+				if(job.alt_titles && (LAZYLEN(available) > 1))
+					display_title = "\[[pref.GetPlayerAltTitle(job)]\]"
+					alt_title_ref = REF(job)
 
-		if(pref.GetJobDepartment(job, 1) & job.flag)
-			dat += " <span class='high'>\[High]</span>"
-		else if(pref.GetJobDepartment(job, 2) & job.flag)
-			dat += " <span class='med'>\[Medium]</span>"
-		else if(pref.GetJobDepartment(job, 3) & job.flag)
-			dat += " <span class='low'>\[Low]</span>"
-		else
-			dat += " <span class='none'>\[NEVER]</span>"
-		dat += "</a></td></tr>"
+				if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
+					status = null
+					status_tone = "never"
+				else
+					selectable = TRUE
+					if(rank == "Assistant")
+						if(pref.job_civilian_low & ASSISTANT)
+							status = "Yes"
+							status_tone = "high"
+						else
+							status = "No"
+							status_tone = "never"
+					else if(pref.GetJobDepartment(job, 1) & job.flag)
+						status = "High"
+						status_tone = "high"
+					else if(pref.GetJobDepartment(job, 2) & job.flag)
+						status = "Medium"
+						status_tone = "medium"
+					else if(pref.GetJobDepartment(job, 3) & job.flag)
+						status = "Low"
+						status_tone = "low"
+					else
+						status = "NEVER"
+						status_tone = "never"
 
-	dat += "</td'></tr></table>"
+	return list(
+		"title" = display_title,
+		"rank" = rank,
+		"color" = hex2cssrgba(job.selection_color, head ? 1 : 0.5),
+		"bold" = head,
+		"unavailable" = unavailable,
+		"selectable" = selectable,
+		"status" = status,
+		"status_tone" = status_tone,
+		"status_href" = status_href,
+		"alt_title_ref" = alt_title_ref
+	)
 
-	dat += "</center></table>"
+/datum/category_item/player_setup_item/occupation/ui_data(mob/user)
+	if(!SSjobs.initialized || !SSrecords.initialized)
+		return list(
+			"kind" = "notice",
+			"name" = name,
+			"ref" = REF(src),
+			"message" = "Jobs controller not initialized yet. Please wait a bit and reload this section."
+		)
 
-	switch(pref.alternate_option)
-		if(BE_ASSISTANT)
-			dat += "<center><br><u><a href='byond://?src=[REF(src)];job_alternative=1'>Be assistant if preference unavailable</a></u></center><br>"
-		if(RETURN_TO_LOBBY)
-			dat += "<center><br><u><a href='byond://?src=[REF(src)];job_alternative=1'><span class='high'>Return to lobby if preference unavailable</span></a></u></center><br>"
+	var/list/departments = list()
+	var/list/department_order = get_department_order()
+	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
+	for(var/department in department_order)
+		var/list/jobs = list()
+		for(var/datum/job/job in SSjobs.occupations)
+			if(get_display_department(job) == department)
+				jobs += list(get_job_ui_data(job, user, faction))
+		if(length(jobs))
+			departments += list(list(
+				"name" = department,
+				"jobs" = jobs
+			))
 
-	dat += "<center><a href='byond://?src=[REF(src)];reset_jobs=1'>\[Reset\]</a></center>"
-	dat += "</tt>"
-
-	. = dat.Join()
+	var/alternative = pref.alternate_option == BE_ASSISTANT ? "Be assistant if preference unavailable" : "Return to lobby if preference unavailable"
+	return list(
+		"kind" = "occupation",
+		"name" = name,
+		"ref" = REF(src),
+		"faction" = pref.faction,
+		"departments" = departments,
+		"alternative" = alternative
+	)
 
 /datum/category_item/player_setup_item/occupation/OnTopic(href, href_list, mob/user)
 	if(href_list["reset_jobs"])

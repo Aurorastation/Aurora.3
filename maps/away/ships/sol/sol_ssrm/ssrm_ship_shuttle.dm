@@ -16,7 +16,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/ssrm_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SSRM Shuttle"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 
 // Controls docking behaviour
 /datum/shuttle/autodock/overmap/ssrm_shuttle
@@ -28,7 +28,6 @@
 	dock_target = "airlock_ssrm_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_ssrm_dock"
 	defer_initialisation = TRUE
 
 // Docking Port marker

@@ -33,7 +33,7 @@
 	adjustToxLoss(-(rads))
 	return
 
-/mob/living/carbon/alien/handle_regular_status_updates()
+/mob/living/carbon/alien/handle_regular_status_updates(seconds_per_tick)
 
 	if(status_flags & GODMODE)	return 0
 
@@ -55,10 +55,10 @@
 			blinded = 1
 			set_stat(UNCONSCIOUS)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-3)
+				adjustHalLoss(-0.3 * seconds_per_tick)
 
 		if(sleeping)
-			adjustHalLoss(-3)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 			if (mind)
 				if(mind.active && client != null)
 					sleeping = max(sleeping-1, 0)
@@ -66,12 +66,12 @@
 			set_stat(UNCONSCIOUS)
 		else if(resting)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-3)
+				adjustHalLoss(-0.3 * seconds_per_tick)
 
 		else
 			set_stat(CONSCIOUS)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-1)
+				adjustHalLoss(-0.1 * seconds_per_tick)
 
 		// Eyes and blindness.
 		if(!has_eyes())

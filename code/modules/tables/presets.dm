@@ -50,9 +50,6 @@
 	icon_state = "wood_preview"
 	table_mat = MATERIAL_WOOD
 
-/obj/structure/table/wood/reinf
-	table_reinf = MATERIAL_WOOD
-
 /obj/structure/table/wood/birch
 	table_mat = MATERIAL_BIRCH
 

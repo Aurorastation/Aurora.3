@@ -34,7 +34,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/house_volvalaad_voidsman/get_id_access()
-	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/house_volvalaad_ship::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/house_volvalaad_officer
 	short_name = "house_volvalaad_officer"
@@ -65,7 +65,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/house_volvalaad_officer/get_id_access()
-	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/house_volvalaad_ship::id, /datum/access/external_airlocks::id)
 
 
 /datum/ghostspawner/human/house_volvalaad_armsman
@@ -99,7 +99,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/house_volvalaad_armsman/get_id_access()
-	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/house_volvalaad_ship::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/house_volvalaad_scientist
 	short_name = "house_volvalaad_scientist"
@@ -131,10 +131,10 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/house_volvalaad_scientist/get_id_access()
-	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/house_volvalaad_ship::id, /datum/access/external_airlocks::id)
 
 //items
 
 /obj/item/card/id/house_volvalaad
 	name = "house volvalaad id"
-	access = list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/house_volvalaad_ship::id, /datum/access/external_airlocks::id)

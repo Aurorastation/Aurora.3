@@ -675,9 +675,8 @@
 /turf/template_noop,
 /area/water_barge/helm)
 "gs" = (
-/turf/simulated/wall/shuttle/space_ship{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/bathroom)
 "gt" = (
 /obj/structure/machinery/light,
@@ -1785,10 +1784,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/cryo)
 "qe" = (
-/turf/simulated/wall/shuttle/space_ship{
-	can_open = 1;
-	color = "#DDDDD"
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/space_ship,
 /area/water_barge/breakroom)
 "qi" = (
 /obj/structure/reagent_dispensers/extinguisher,

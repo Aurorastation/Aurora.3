@@ -195,6 +195,28 @@
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
 
+// Journalist's Lanyard
+/obj/item/storage/wallet/lanyard/press
+	name = "press lanyard"
+	desc = "A large, blue lanyard with \"PRESS\" prominently displayed along the cord in white."
+	color = "#46698c"
+	storage_slots = 5
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
+	can_hold = list(
+		/obj/item/card,
+		/obj/item/clothing/accessory/badge,
+		/obj/item/disk,
+		/obj/item/paper,
+		/obj/item/paper_bundle,
+		/obj/item/pen,
+		/obj/item/photo,
+		/obj/item/paicard,
+		/obj/item/encryptionkey,
+		/obj/item/storage/business_card_holder,
+		/obj/item/key,
+	)
+
 // wallet subtypes
 
 /obj/item/storage/wallet/random/fill()

@@ -8,7 +8,7 @@
 
 	//Status updates, death etc.
 	clamp_values()
-	handle_regular_status_updates()
+	handle_regular_status_updates(seconds_per_tick)
 	handle_actions()
 
 	if(client)
@@ -73,7 +73,7 @@
 			lights_on = 0
 			set_light(0)
 
-/mob/living/silicon/robot/handle_regular_status_updates()
+/mob/living/silicon/robot/handle_regular_status_updates(seconds_per_tick)
 	if(camera && !scrambled_codes)
 		if(stat == DEAD || wires.is_cut(WIRE_CAMERA))
 			camera.set_status(0)

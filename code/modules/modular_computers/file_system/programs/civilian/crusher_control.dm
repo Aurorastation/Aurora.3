@@ -7,8 +7,8 @@
 	size = 8
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
-	required_access_run = list(ACCESS_JANITOR, ACCESS_PARAMEDIC)
-	required_access_download = ACCESS_HOP
+	required_access_run = list(/datum/access/janitor::id, /datum/access/paramedic::id)
+	required_access_download = /datum/access/hop::id
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_TELESCREEN
 	tgui_id = "CrusherControl"

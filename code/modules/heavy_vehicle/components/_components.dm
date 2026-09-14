@@ -1,6 +1,8 @@
 /obj/item/mech_component
 	icon = 'icons/mecha/mech_parts.dmi'
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 100
+	mass_based_slowdown = TRUE
 	pixel_x = -8
 	gender = PLURAL
 	var/on_mech_icon = 'icons/mecha/mech_parts.dmi'
@@ -30,9 +32,18 @@
 		. += get_missing_parts_text(user)
 
 /obj/item/mech_component/pickup(mob/user)
+	. = ..()
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
-	return
+
+/obj/item/mech_component/do_additional_pickup_checks(mob/user)
+	return do_mass_based_pickup_delay(user)
+
+/obj/item/mech_component/get_effective_mass()
+	. = ..()
+	for(var/atom/movable/installed_part in contents)
+		if(!installed_part.anchored)
+			. += installed_part.get_effective_mass()
 
 /obj/item/mech_component/proc/set_colour(new_colour)
 	var/last_colour = color

@@ -7,7 +7,7 @@
 	size = 6
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = ACCESS_CARGO
+	required_access_download = /datum/access/cargo::id
 	usage_flags = PROGRAM_ALL
 	tgui_id = "CargoDelivery"
 
@@ -200,7 +200,7 @@
 
 // Cargo access check
 /datum/computer_file/program/civilian/cargodelivery/proc/access_check(var/obj/item/card/id/I)
-	if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
+	if(!istype(I) || !I.registered_name || !(/datum/access/cargo::id in I.access) || issilicon(usr))
 		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return FALSE
 	return TRUE

@@ -175,7 +175,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 /obj/item/rfd_ammo
 	name = "compressed matter cartridge"
 	desc = "Highly compressed matter for the RFD."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/ammunition/ammo.dmi'
 	icon_state = "rfd"
 	item_state = "rfdammo"
 	w_class = WEIGHT_CLASS_SMALL

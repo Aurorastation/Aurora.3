@@ -105,7 +105,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
 	)
-	access = ACCESS_GALLEY
+	access = /datum/access/galley::id
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5

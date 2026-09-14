@@ -95,10 +95,14 @@
 
 	/// ID of slot containing a gas tank.
 	var/internals_slot = null
-	/// In the list(path=count,otherpath=count) format.
+	/// In the `list(path=count,path=count,path, path)` format.
+	/// If count is not provided, defaults to 1.
 	var/list/backpack_contents = list()
+	/// In the `list(path=count,path=count,path, path)` format.
+	/// If count is not provided, defaults to 1.
 	var/list/accessory_contents = list()
-	/// In the list(path=count,otherpath=count) format.
+	/// In the `list(path=count,path=count,path, path)` format.
+	/// If count is not provided, defaults to 1.
 	var/list/belt_contents = list()
 	/// A list of implants that should be implanted.
 	var/list/implants = null
@@ -107,6 +111,9 @@
 
 /obj/outfit/Initialize(mapload, ...)
 	. = ..()
+	backpack_contents = counted_list(backpack_contents)
+	accessory_contents = counted_list(accessory_contents)
+	belt_contents = counted_list(belt_contents)
 	// if loc is not null, means the outfit was mapped in or spawned manually
 	if(loc!=null)
 		spill()

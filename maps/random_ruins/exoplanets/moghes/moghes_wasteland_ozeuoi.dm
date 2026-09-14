@@ -34,7 +34,7 @@
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	outfit = /obj/outfit/admin/moghes_ozeuoi
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Ozeuoi Clan Member"
@@ -64,4 +64,4 @@
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 
 /obj/outfit/admin/moghes_ozeuoi/get_id_access()
-	return list(ACCESS_OZEUOI)
+	return list(/datum/access/moghes_wasteland_ozeuoi::id)

@@ -244,36 +244,6 @@
 	id_card.citizenship			= SSrecords.get_citizenship_record_name(citizenship)
 	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
-	INVOKE_ASYNC(id_card, TYPE_PROC_REF(/obj/item/card/id, load_mining_points))
-
-/obj/item/card/id/proc/load_mining_points()
-	var/mob/living/carbon/human/card_owner = mob_id?.resolve()
-	if(!card_owner?.character_id)
-		return
-
-	var/datum/persistent_record/saved_balance = SSpersistence.historyGetLastRecord(
-		/singleton/persistent_type/history/character/mining_point_balance,
-		card_owner.character_id
-	)
-	if(!saved_balance)
-		return
-
-	mining_points = clamp(text2num(saved_balance.value), 0, MINING_POINTS_CARRYOVER_MAX)
-
-/obj/item/card/id/proc/save_mining_points()
-	var/mob/living/carbon/human/card_owner = mob_id?.resolve()
-	if(!card_owner?.character_id)
-		return
-
-	SSpersistence.historyAddCharacterRecord(
-		/singleton/persistent_type/history/character/mining_point_balance,
-		card_owner.character_id,
-		"[clamp(mining_points, 0, MINING_POINTS_CARRYOVER_MAX)]"
-	)
-
-/obj/item/card/id/proc/adjust_mining_points(amount)
-	mining_points = max(0, mining_points + amount)
-	save_mining_points()
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
@@ -462,7 +432,7 @@
 	icon_state = "dark"
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
-	access = list(ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/syndicate::id, /datum/access/external_airlocks::id)
 
 /obj/item/card/id/syndicate/ert
 	name = "illicit commando identification card"
@@ -528,7 +498,7 @@
 	desc = "An identification card issued to SCC-sanctioned merchants, indicating their right to sell and buy goods."
 	icon_state = "centcom"
 	overlay_state = "centcom"
-	access = list(ACCESS_MERCHANT)
+	access = list(/datum/access/merchant::id)
 	vertical_card = TRUE
 
 /obj/item/card/id/synthetic
@@ -539,7 +509,7 @@
 	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + ACCESS_EQUIPMENT
+	access = get_all_station_access() + /datum/access/equipment::id
 	..()
 
 /obj/item/card/id/synthetic/cyborg
@@ -551,7 +521,7 @@
 
 /obj/item/card/id/synthetic/cyborg/New()
 	..()
-	access = list(ACCESS_EQUIPMENT, ACCESS_AI_UPLOAD, ACCESS_EXTERNAL_AIRLOCKS) // barebones cyborg access. Job special added in different place
+	access = list(/datum/access/equipment::id, /datum/access/ai_upload::id, /datum/access/external_airlocks::id) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "mine drone identification card"
@@ -561,7 +531,7 @@
 	assignment = "Minedrone"
 
 /obj/item/card/id/minedrone/New()
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/maint_tunnels::id, /datum/access/mailsorting::id, /datum/access/cargo::id, /datum/access/cargo_bot::id, /datum/access/qm::id, /datum/access/mining::id, /datum/access/mining_station::id, /datum/access/external_airlocks::id)
 	..()
 
 /obj/item/card/id/centcom
@@ -631,7 +601,7 @@
 	assignment = "Freelancer Mercenary"
 
 /obj/item/card/id/distress/New()
-	access = list(ACCESS_DISTRESS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/distress::id, /datum/access/maint_tunnels::id, /datum/access/external_airlocks::id)
 	..()
 
 /obj/item/card/id/distress/fsf
@@ -652,7 +622,7 @@
 	vertical_card = TRUE
 
 /obj/item/card/id/distress/tcaf/New()
-	access = list(ACCESS_TCAF, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
+	access = list(/datum/access/tcaf::id, /datum/access/maint_tunnels::id, /datum/access/external_airlocks::id, /datum/access/security::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/medical::id, /datum/access/research::id, /datum/access/atmospherics::id, /datum/access/medical_equip::id)
 	..()
 
 /obj/item/card/id/distress/ap_eridani
@@ -815,7 +785,7 @@
 		..()
 
 /obj/item/card/id/away_site
-	access = list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /obj/item/card/id/mecha
 	name = "exosuit access card"

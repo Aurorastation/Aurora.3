@@ -57,8 +57,11 @@
 
 	if(open)
 
-		// Hacking.
-		wires.interact(user)
+		// Wirecutters and multitools should always interact with the wiring while
+		// the maintenance panel is open.
+		if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.tool_behaviour == TOOL_MULTITOOL)
+			wires.interact(user)
+			return
 
 		// Air tank.
 		if(istype(attacking_item,/obj/item/tank)) //Todo, some kind of check for suits without integrated air supplies.
@@ -190,6 +193,7 @@
 					removed.removed()
 					installed_modules -= removed
 					update_icon()
+			return
 
 		else if(istype(attacking_item,/obj/item/stack/nanopaste)) //EMP repair
 			var/obj/item/stack/S = attacking_item
@@ -200,15 +204,15 @@
 					malfunction_delay = 0
 				else
 					to_chat(user, SPAN_WARNING("\The [S] is empty!"))
-
-		return
+			return
 
 	// If we've gotten this far, all we have left to do before we pass off to root procs
 	// is check if any of the loaded modules want to use the item we've been given.
 	for(var/obj/item/rig_module/module in installed_modules)
 		if(module.accepts_item(attacking_item, user)) //Item is handled in this proc
 			return
-	..()
+
+	return ..()
 
 
 /obj/item/rig/attack_hand(var/mob/user)
