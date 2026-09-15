@@ -511,6 +511,12 @@
 	icon_state = "keg_kvass"
 	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
 
+/obj/structure/reagent_dispensers/keg/wine
+	name = "wine barrel"
+	desc = "A wooden wine barrel."
+	icon_state = "woodkeg"
+	reagents_to_add = list(/singleton/reagent/alcohol/wine = 1000)
+
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
 	name = "cooking oil tank"

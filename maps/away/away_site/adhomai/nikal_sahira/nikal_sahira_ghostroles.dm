@@ -17,18 +17,21 @@
 	outfit = /obj/outfit/admin/crevus/chef
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Placeholder Chef"
-	special_role = "Placeholder Chef"
+	assigned_role = "Nikal'n Marr Diner Chef"
+	special_role = "Nikal'n Marr Diner Chef"
 	respawn_flag = null
 
 /obj/outfit/admin/crevus/chef
 	name = "Crevus Chef"
 	uniform = /obj/item/clothing/under/rank/chef
+	suit = /obj/item/clothing/suit/chef_jacket/nt
 	shoes = /obj/item/clothing/shoes/laceup
+	r_pocket = /obj/item/storage/wallet/random
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
-	suit = /obj/item/clothing/suit/chef_jacket/nt
-	r_pocket = /obj/item/storage/wallet/random
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm
+	)
 
 // ---------- Attendant
 
@@ -39,12 +42,35 @@
 	tags = list("External")
 	spawnpoints = list("crevus_attendant")
 	max_count = 2
-	outfit = /obj/outfit/admin/konyang/zh
+	outfit = /obj/outfit/admin/crevus/attendant
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Nikal'n Marr Diner Attendant"
 	special_role = "Nikal'n Marr Diner Attendant"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/attendant
+	name = "Crevus Attendant"
+	uniform = /obj/item/clothing/under/tajaran/fancy
+	gloves = /obj/item/clothing/gloves/white
+	shoes = /obj/item/clothing/shoes/laceup
+	back = /obj/item/storage/backpack/satchel
+	r_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
+	backpack_contents = list(
+		/obj/item/storage/box/fancy/candle_box,
+		/obj/item/flame/lighter/zippo,
+		/obj/item/journal/notepad/filled,
+		/obj/item/pen/black,
+		/obj/item/clothing/accessory/temperature/warm
+	)
+
+	species_gloves = list(
+		SPECIES_TAJARA = /obj/item/clothing/gloves/white/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/white/tajara,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/white/tajara,
+	)
+
 
 // ---------- General Store Vendor
 
@@ -55,11 +81,42 @@
 	tags = list("External")
 	spawnpoints = list("crevus_general_store_vendor")
 	max_count = 1
+	outfit = /obj/outfit/admin/crevus/generic_vendor
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Ane-Mart Vendor"
 	special_role = "Ane-Mart Vendor"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/generic_vendor
+	name = "Ane-Marte Vendor"
+	uniform = /obj/item/clothing/under/dressshirt
+	pants = /obj/item/clothing/pants/jeans
+	suit = /obj/item/clothing/suit/jacket/puffer
+	shoes = list(
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/shoes/workboots,
+		/obj/item/clothing/shoes/workboots/dark
+	)
+
+	species_shoes = list(
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless/dark,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/dark,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/dark,
+	)
+	r_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm
+	)
+
+/obj/outfit/admin/crevus/generic_vendor/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.w_uniform?.color = get_random_colour(lower = 150)
+	H.w_uniform?.update_worn_icon()
+	H.wear_suit?.color = get_random_colour(lower = 150)
+	H.wear_suit?.update_worn_icon()
 
 // ---------- Automobile Salesperson
 /datum/ghostspawner/human/crevus_car_salesperson
@@ -72,11 +129,23 @@
 	tags = list("External")
 	spawnpoints = list("crevus_car_salesperson")
 	max_count = 1
+	outfit = /obj/outfit/admin/crevus/car_salesperson
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Automobile Salesperson"
 	special_role = "Automobile Salesperson"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/car_salesperson
+	name = "Automobile Salesperson"
+	uniform = /obj/item/clothing/under/tajaran/high_waisted/business
+	shoes = /obj/item/clothing/shoes/laceup
+	r_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm
+	)
 
 // ---------- Transit Centre Clerk
 
@@ -90,11 +159,25 @@
 	tags = list("External")
 	spawnpoints = list("crevus_clerk")
 	max_count = 2
+	outfit = /obj/outfit/admin/crevus/clerk
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Transit Centre Clerk"
 	special_role = "Transit Centre Clerk"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/clerk
+	name = "Transit Centre Clerk"
+	uniform = /obj/item/clothing/under/dressshirt
+	pants = /obj/item/clothing/pants/black
+	shoes = /obj/item/clothing/shoes/laceup
+	r_pocket = /obj/item/storage/wallet/random
+	accessory = /obj/item/clothing/accessory/tie/black
+	id = /obj/item/card/id
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm
+	)
 
 // ---------- Clothing Store Vendor
 
@@ -105,6 +188,7 @@
 	tags = list("External")
 	spawnpoints = list("crevus_clothing_vendor")
 	max_count = 1
+	outfit = /obj/outfit/admin/crevus/generic_vendor
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Clothing Store Vendor"
@@ -123,6 +207,7 @@
 	tags = list("External")
 	spawnpoints = list("crevus_firearm_salesperson")
 	max_count = 1
+	outfit = /obj/outfit/admin/crevus/generic_vendor
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Firearm Salesperson"
@@ -138,6 +223,7 @@
 	tags = list("External")
 	spawnpoints = list("crevus_artisan_shop_vendor")
 	max_count = 1
+	outfit = /obj/outfit/admin/crevus/generic_vendor
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Artisan Shop Vendor"
@@ -150,19 +236,43 @@
 	short_name = "crevus_nt_pharmacist"
 	name = "NanoTrasen Pharmacist"
 	desc = "\
-	Sell medicine out of the pharmacy, be convinced to forget checking prescripts for the right sum. \
+	Sell medicine out of the pharmacy, be convinced to forget checking prescriptions for the right sum. \
 	Produce drugs for any and every needs. Hope that the numbers at the end-of-month inventory report won't look too suspicious. \
 	"
 	tags = list("External")
 	spawnpoints = list("crevus_nt_pharmacist")
 	max_count = 1
+	outfit = /obj/outfit/admin/crevus/nt_pharmacist
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "NanoTrasen Pharmacist"
 	special_role = "NanoTrasen Pharmacist"
 	respawn_flag = null
 
-// ---------- Placeholder Casino Personnel
+/obj/outfit/admin/crevus/nt_pharmacist
+	name = "NanoTrasen Pharmacist"
+	uniform = /obj/item/clothing/under/dressshirt
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
+	pants = /obj/item/clothing/pants/black
+	shoes = list(
+		/obj/item/clothing/shoes/jackboots,
+		/obj/item/clothing/shoes/workboots,
+		/obj/item/clothing/shoes/workboots/dark
+	)
+
+	species_shoes = list(
+		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless/dark,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/dark,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/dark,
+	)
+	r_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm
+	)
+
+// ---------- Keltra Zav Nikal Casino Personnel
 
 /datum/ghostspawner/human/crevus_casino_personnel
 	short_name = "crevus_casino_personnel"
@@ -171,11 +281,23 @@
 	tags = list("External")
 	spawnpoints = list("crevus_casino_personnel")
 	max_count = 2
+	outfit = /obj/outfit/admin/crevus/casino
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Keltra Zav Nikal Personnel"
 	special_role = "Keltra Zav Nikal Personnel"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/casino
+	name = "Keltra Zav Nikal Casino Personnel"
+	uniform = /obj/item/clothing/under/tajaran/fancy/evening_suit
+	shoes = /obj/item/clothing/shoes/laceup
+	r_pocket = /obj/item/storage/wallet/random
+	id = /obj/item/card/id
+	back = /obj/item/storage/backpack/satchel
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm
+	)
 
 // ---------- The Lock Attendant
 
@@ -236,6 +358,8 @@
 		/obj/item/ammo_magazine/mc9mm = 3,
 		/obj/item/crowbar/red,
 		/obj/item/journal/notepad/filled,
+		/obj/item/pen/black,
+		/obj/item/clothing/accessory/temperature/warm,
 		/obj/item/key/door_key/crevus_rhan_cresh_patrol
 	)
 
@@ -287,6 +411,8 @@
 		/obj/item/ammo_magazine/mc9mm = 3,
 		/obj/item/crowbar/red,
 		/obj/item/journal/notepad/filled,
+		/obj/item/pen/black,
+		/obj/item/clothing/accessory/temperature/warm,
 		/obj/item/key/door_key/crevus_azaula_enforcer
 	)
 
@@ -340,7 +466,6 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 
 	shoes = list(
-		/obj/item/clothing/shoes/sneakers/black,
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/shoes/workboots,
 		/obj/item/clothing/shoes/workboots/dark
@@ -373,8 +498,8 @@
 	H.pants?.update_worn_icon()
 
 	// random equipment
-	if(prob(50))
-		H.equip_or_collect(new /obj/random/medical, slot_in_backpack)
+	//if(prob(50))
+	H.equip_or_collect(new /obj/random/medical, slot_in_backpack)
 	if(prob(50))
 		H.equip_or_collect(new /obj/random/loot, slot_in_backpack)
 	if(prob(55))

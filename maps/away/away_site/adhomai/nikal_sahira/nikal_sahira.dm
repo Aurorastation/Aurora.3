@@ -12,7 +12,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 
-	exoplanet_atmospheres = list(/datum/gas_mixture/earth_cold)
+	exoplanet_atmospheres = list(/datum/gas_mixture/earth_chill)
 	exoplanet_lightlevel = list(1, 2, 5, 7)
 	exoplanet_lightcolor = list("#8499c8")
 

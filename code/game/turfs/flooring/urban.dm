@@ -25,6 +25,7 @@
 	. = ..()
 	icon_state = "colorable-sidewalk"
 	var/image/detail = new(icon, "colorable-sidewalk-detail-center")
+	detail.appearance_flags |= RESET_COLOR
 	detail.color = detail_color
 	AddOverlays(detail.appearance)
 
@@ -56,6 +57,35 @@
 
 /turf/simulated/floor/sidewalk/dark/grid
 	icon_state = "sidewalk_alt_grid"
+
+// Concrete gray
+
+/turf/simulated/floor/sidewalk/concrete
+	color = "#908f89"
+
+/turf/simulated/floor/sidewalk/paved/concrete
+	color = "#908f89"
+
+/turf/simulated/floor/sidewalk/flat/concrete
+	color = "#908f89"
+
+/turf/simulated/floor/sidewalk/detail/concrete
+	color = "#908f89"
+	detail_color = "#696863"
+
+// Concrete dark gray
+
+/turf/simulated/floor/sidewalk/concrete/dark
+	color = "#76756f"
+
+/turf/simulated/floor/sidewalk/detail/concrete/dark
+	color = "#76756f"
+
+/turf/simulated/floor/sidewalk/paved/concrete/dark
+	color = "#76756f"
+
+/turf/simulated/floor/sidewalk/flat/concrete/dark
+	color = "#76756f"
 
 // ---------- Sidewalk end
 

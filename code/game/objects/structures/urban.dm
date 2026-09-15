@@ -689,6 +689,12 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 /obj/structure/rod_railing/jailbar/rusted/bars_slot
 	icon_state = "barsslot_rust"
 
+/obj/structure/machinery/door/urban/jail_door/rusted
+	name = "rusted barred door"
+	icon_state = "door_rust_closed"
+	base_icon = "door_rust"
+	maxhealth = OBJECT_HEALTH_HIGH
+
 /obj/structure/dam
 	name = "concrete dam"
 	desc = "A hulking mass of concrete meant to hold in a large reservoir of water from passing downwards."
@@ -1279,7 +1285,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 					balloon_alert_to_viewers("*unlocks*")
 					to_chat(user, SPAN_NOTICE("You unlock \the [src]."))
 
-				playsound(src.loc, unlocking_sound, 40, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
+				playsound(src.loc, unlocking_sound, 60, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 				//Save the list of accesses and empty them up
 				if(length(src.req_one_access))

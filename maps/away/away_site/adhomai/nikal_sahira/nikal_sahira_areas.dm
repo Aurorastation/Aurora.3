@@ -61,7 +61,12 @@
 	name = "General Store - Lift"
 	station_area = FALSE
 
-// ---------- Landing Zone Lift
-/area/turbolift/crevus/lz
-	name = "Landing Zone - Lift"
-	station_area = FALSE
+// ---------- The Lock
+
+/area/crevus/the_lock
+	name = "Sewers" // it's not "The Lock" incase a GPS makes its way here
+	lights_start_intact = TRUE
+
+/area/crevus/the_lock/restroom
+
+/area/crevus/the_lock/backroom
