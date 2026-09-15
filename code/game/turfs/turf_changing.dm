@@ -25,11 +25,11 @@
 
 	if (SSatlas.current_map.use_overmap)
 		// exoplanet
-		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = get_map_sector(z)
 		if (istype(exoplanet) && istype(exoplanet.theme))
 			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area, exoplanet)
 		// away site
-		var/datum/map_template/ruin/away_site/away_site = GLOB.map_templates["[z]"]
+		var/datum/map_template/ruin/away_site/away_site = get_map_template(z)
 		if (istype(away_site) && istype(away_site.exoplanet_theme_base))
 			away_site.exoplanet_theme_base.on_turf_generation(src, null, away_site)
 

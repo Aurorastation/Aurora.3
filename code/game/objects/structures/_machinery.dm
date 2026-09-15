@@ -638,7 +638,7 @@ Class Procs:
 	return FALSE
 
 /obj/structure/machinery/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = get_map_sector(z)
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)
