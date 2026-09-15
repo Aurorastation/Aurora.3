@@ -3,13 +3,18 @@
 /singleton/overmap_event_handler
 	var/list/hazard_by_turf
 	var/list/datum/event/ship_events
+	/// All initialized overmap hazards, used instead of scanning world contents.
+	var/list/obj/effect/overmap/event/hazards
 
 /singleton/overmap_event_handler/New()
 	..()
 	hazard_by_turf = list()
 	ship_events = list()
+	hazards = list()
 
 /singleton/overmap_event_handler/proc/create_events(var/z_level, var/overmap_size, var/number_of_events)
+	if(SSticker?.mode && !SSticker.mode.allow_overmap_hazards)
+		return
 	// Acquire the list of not-yet utilized overmap turfs on this Z-level
 	var/list/candidate_turfs = block(locate(OVERMAP_EDGE, OVERMAP_EDGE, z_level),locate(overmap_size - OVERMAP_EDGE, overmap_size - OVERMAP_EDGE,z_level))
 	candidate_turfs = where(candidate_turfs, /proc/can_not_locate, /obj/effect/overmap/visitable)
@@ -223,6 +228,9 @@
 
 /obj/effect/overmap/event/Initialize()
 	. = ..()
+	if(SSticker?.mode && !SSticker.mode.allow_overmap_hazards)
+		return INITIALIZE_HINT_QDEL
+	overmap_event_handler.hazards += src
 	icon_state = pick(event_icon_states)
 	overmap_event_handler.update_hazards(loc)
 	if(movable_event)
@@ -279,6 +287,7 @@
 		overmap_event_handler.update_hazards(loc)
 
 /obj/effect/overmap/event/Destroy()//takes a look at this one as well, make sure everything is A-OK
+	overmap_event_handler.hazards -= src
 	if(movable_event)
 		STOP_PROCESSING(SSprocessing, src)
 	var/turf/T = loc

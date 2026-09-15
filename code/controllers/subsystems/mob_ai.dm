@@ -73,7 +73,7 @@ SUBSYSTEM_DEF(mob_ai)
  * it will mess things up!
  */
 /mob/proc/think()
-	return
+	ai_holder?.think()
 
 /mob/proc/on_think_disabled()
 	walk_to(src, 0)

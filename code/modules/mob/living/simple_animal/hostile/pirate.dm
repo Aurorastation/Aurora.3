@@ -1,4 +1,5 @@
 /mob/living/simple_animal/hostile/pirate
+	ai_holder_type = /datum/ai_holder/simple_animal/humanoid/pirate/hostile
 	name = "Pirate"
 	desc = "Does what he wants cause a pirate is free."
 	icon = 'icons/mob/npc/human.dmi'

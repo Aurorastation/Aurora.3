@@ -152,32 +152,43 @@
 	for(var/d in GLOB.cardinals)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
-			if(!LinkBlockedWithAccess(src, T, ID))
+			if(!LegacyLinkBlockedWithAccess(src, T, ID))
 				L.Add(T)
 	return L
+
+// Returns cardinal simulated turfs while treating machinery doors and railings
+// as traversable. Onslaught AI uses this to deliberately route through barriers
+// it can destroy, including a railing sharing its current turf.
+/turf/proc/CardinalTurfsWithDestructibleBarriers(var/unused)
+	var/list/available_turfs = list()
+	for(var/direction in GLOB.cardinals)
+		var/turf/simulated/candidate = get_step(src, direction)
+		if(istype(candidate) && !candidate.density && !LegacyLinkBlockedWithAccess(src, candidate, null, TRUE))
+			available_turfs += candidate
+	return available_turfs
 
 
 // Returns true if a link between A and B is blocked
 // Movement through doors allowed if ID has access
-/proc/LinkBlockedWithAccess(turf/A, turf/B, obj/item/card/id/ID)
+/proc/LegacyLinkBlockedWithAccess(turf/A, turf/B, obj/item/card/id/ID, ignore_destructible_barriers = FALSE)
 
 	if(A == null || B == null) return 1
 	var/adir = get_dir(A,B)
 	var/rdir = get_dir(B,A)
 	if((adir & (NORTH|SOUTH)) && (adir & (EAST|WEST)))	//	diagonal
 		var/iStep = get_step(A,adir&(NORTH|SOUTH))
-		if(!LinkBlockedWithAccess(A,iStep, ID) && !LinkBlockedWithAccess(iStep,B,ID))
+		if(!LegacyLinkBlockedWithAccess(A,iStep, ID, ignore_destructible_barriers) && !LegacyLinkBlockedWithAccess(iStep,B,ID, ignore_destructible_barriers))
 			return 0
 
 		var/pStep = get_step(A,adir&(EAST|WEST))
-		if(!LinkBlockedWithAccess(A,pStep,ID) && !LinkBlockedWithAccess(pStep,B,ID))
+		if(!LegacyLinkBlockedWithAccess(A,pStep,ID,ignore_destructible_barriers) && !LegacyLinkBlockedWithAccess(pStep,B,ID,ignore_destructible_barriers))
 			return 0
 		return 1
 
-	if(DirBlockedWithAccess(A,adir, ID))
+	if(DirBlockedWithAccess(A,adir, ID, ignore_destructible_barriers))
 		return 1
 
-	if(DirBlockedWithAccess(B,rdir, ID))
+	if(DirBlockedWithAccess(B,rdir, ID, ignore_destructible_barriers))
 		return 1
 
 	for(var/obj/O in B)
@@ -188,7 +199,7 @@
 
 // Returns true if direction is blocked from loc
 // Checks doors against access with given ID
-/proc/DirBlockedWithAccess(turf/loc,var/dir,var/obj/item/card/id/ID)
+/proc/DirBlockedWithAccess(turf/loc,var/dir,var/obj/item/card/id/ID, ignore_destructible_barriers = FALSE)
 	for(var/obj/structure/window/D in loc)
 		if(!D.density)			continue
 		if(D.dir == SOUTHWEST)	return 1
@@ -196,10 +207,17 @@
 
 	for(var/obj/structure/machinery/door/D in loc)
 		if(!D.density)			continue
+		if(ignore_destructible_barriers)	continue
 		if(istype(D, /obj/structure/machinery/door/window))
 			if( dir & D.dir )	return !D.check_access(ID)
 
 			//if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return !D.check_access(ID)
 			//if((dir & EAST ) && (D.dir & (NORTH|SOUTH)))	return !D.check_access(ID)
 		else return !D.check_access(ID)	// it's a real, air blocking door
+
+	for(var/obj/structure/railing/railing in loc)
+		if(!railing.density || ignore_destructible_barriers)
+			continue
+		if(railing.dir == dir)
+			return TRUE
 	return 0

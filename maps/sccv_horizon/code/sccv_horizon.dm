@@ -265,8 +265,9 @@
 		welcome_text += "<hr>"
 
 	post_comm_message("SCCV Horizon Sensor Report", welcome_text)
-	var/report = "The long-range sensor readings have been printed out at all communication consoles."
-	priority_announcement.Announce(message = report)
+	if(!SSticker?.mode || SSticker.mode.announce_roundstart_sensor_report)
+		var/report = "The long-range sensor readings have been printed out at all communication consoles."
+		priority_announcement.Announce(message = report)
 
 	// #### Mining yield report for operations
 

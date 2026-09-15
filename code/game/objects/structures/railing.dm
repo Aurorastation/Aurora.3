@@ -123,6 +123,13 @@
 		return !density
 	return TRUE
 
+/obj/structure/railing/CollidedWith(atom/bumped_atom)
+	. = ..()
+	if(density && istype(bumped_atom, /mob/living))
+		var/mob/living/barrier_breaker = bumped_atom
+		if(barrier_breaker.ai_holder?.instant_door_destruction)
+			barrier_breaker.ai_holder.destroy_barrier(src)
+
 /obj/structure/railing/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	visible_message(SPAN_WARNING("\The [src] [material.destruction_desc]!"))
 	playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)

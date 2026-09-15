@@ -154,6 +154,9 @@
 		reset_view(null)
 
 /mob/living/proc/handle_hearing()
+	if(HAS_TRAIT(src, TRAIT_DEAFNESS_IMMUNITY))
+		ear_deaf = 0
+		return
 	// deafness heals slowly over time, unless ear_damage is over HEARING_DAMAGE_LIMIT
 	if(ear_damage < HEARING_DAMAGE_LIMIT)
 		adjustEarDamage(-0.05, -1)
@@ -246,4 +249,3 @@
 		sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.sound_channels.weather_channel))
 		if(send_sound)
 			sound_to(src, sound(send_sound, repeat = TRUE, wait = 0, volume = 30, channel = GLOB.sound_channels.weather_channel))
-
