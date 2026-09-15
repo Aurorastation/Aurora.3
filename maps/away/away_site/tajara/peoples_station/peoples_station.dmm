@@ -3223,8 +3223,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Fang";
-	name = "peoples_station_fang";
-	req_access = "peoples_station_fang"
+	name = "peoples_station_fang"
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = 28;
@@ -5650,8 +5649,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Fang";
-	name = "peoples_station_fang";
-	req_access = "peoples_station_fang"
+	name = "peoples_station_fang"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
@@ -12809,8 +12807,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Fang";
-	name = "peoples_station_fang";
-	req_access = "peoples_station_fang"
+	name = "peoples_station_fang"
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = -28
