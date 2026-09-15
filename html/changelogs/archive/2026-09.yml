@@ -158,3 +158,29 @@
   - bugfix: Fixed wooden walls appearing in greyscale sprites.
   - rscadd: Checking for false walls can no longer be done in help intent, instead
       it requires any other intents now.
+2026-09-13:
+  Fenodyree:
+  - balance: Increases the detonation time of mech launched grenades to 2 seconds,
+      from 1 second.
+  - balance: Decreased the magazine size of mech frag grenade launchers from 5 to
+      3. Also reduced their reload speed by 20%.
+  - balance: Reduced the light explosion radius of frag grenades from 3 to 2.
+2026-09-14:
+  FabianK3:
+  - bugfix: Fixed misc. issues on Intrepid.
+  - bugfix: Fixed weather damage not healing.
+  TheGreyWolf:
+  - rscadd: Updated the weight machine.
+  - rscadd: Updated conditioning to handle the weight of many items for lifting and
+      dragging.
+  - rscadd: 'Affected conditioning items include: Weight machines, lifting crates,
+      lifting ship ammo, dumbbels and barbells, climbing over various barriers, picking
+      up mech components and ship ammo, picking up delivery packages, speed of ladders
+      and squeezing through airlock assemblies.'
+  - rscadd: Conditioning now allows a chance to catch yourself during shuttle launches
+      if not buckled in.
+  - rscadd: The robotics, mechatronics, military training, police academy graduate,
+      corpsman training, fleet and paramedic educations now include conditioning.
+2026-09-15:
+  Fenodyree:
+  - bugfix: Fixes slime cells not charging the PSU when used to build a battery rack.

@@ -119,6 +119,8 @@
 	var/slowdown = 0
 	/// Updated on accessory add/remove. This is how much the current accessories slow you down.
 	var/slowdown_accessory = 0
+	/// If TRUE, carrying or equipping this item adds slowdown based on its effective mass and the holder's lift capacity.
+	var/mass_based_slowdown = FALSE
 
 	/// Boolean, mostly for Ninja code at this point but basically will not allow the item to be removed if set to `FALSE`
 	var/canremove = TRUE
@@ -424,6 +426,17 @@
 
 /obj/item/proc/do_additional_pickup_checks(var/mob/user)
 	return TRUE
+
+/**
+ * Performs a strength-scaled pickup delay without preventing the user from
+ * lifting the item. The delay is bounded to keep very heavy parts usable.
+ */
+/obj/item/proc/do_mass_based_pickup_delay(mob/user)
+	if(!user)
+		return FALSE
+	var/pickup_delay = clamp((get_effective_mass() / user.get_lift_capacity()) * 1 SECOND, 0.5 SECONDS, 5 SECONDS)
+	user.visible_message(SPAN_NOTICE("\The [user] starts lifting \the [src]..."), SPAN_NOTICE("You start lifting \the [src]..."))
+	return do_after(user, pickup_delay, src, DO_UNIQUE)
 
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/robot_module))

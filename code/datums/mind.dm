@@ -47,6 +47,10 @@
 	var/recognition_group
 	var/recognition_message
 
+	/// Used in ghostroles to help them recognize their group upon examine.
+	var/recognition_group
+	var/recognition_message
+
 	var/role_alt_title
 
 	var/datum/job/assigned_job
