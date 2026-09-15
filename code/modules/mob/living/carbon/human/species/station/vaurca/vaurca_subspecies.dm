@@ -356,7 +356,8 @@
 
 	unarmed_types = list(/datum/unarmed_attack/vaurca_bulwark)
 	maneuvers = list(
-		/singleton/maneuver/leap/bulwark
+		/singleton/maneuver/leap/bulwark,
+		/singleton/maneuver/kick
 	)
 
 	natural_armor = list(
