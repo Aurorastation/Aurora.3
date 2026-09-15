@@ -79,25 +79,35 @@
 			var/DBQuery/editquery = GLOB.dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content:, lasteditor = :a_ckey:, lasteditdate = Now(), edited = 1 WHERE id = :note_id:")
 			editquery.Execute(list("new_content" = new_content, "a_ckey" = usr.client.ckey, "note_id" = note_id))
 
-/datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null)
+/datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null, var/page = 1)
 	if (!check_rights(R_ADMIN|R_MOD))
 		return
 
-	if (admin_ckey == "Adminbot")
-		to_chat(usr, "Adminbot is not an actual admin. You were lied to.")
-		//The fucking size of this request would be astronomical. Please do not!
-		return
+	var/list/query_details
+	var/content_query
+
+	var/page_size = 20
+	page = max(text2num(page), 1)
+	var/offset = (page - 1) * page_size
+	var/total_notes = 0
+	var/total_pages = 1
+
+	var/count_query
+	var/result_count = 0
 
 	player_ckey = ckey(player_ckey)
 	admin_ckey = ckey(admin_ckey)
+
+	if (admin_ckey == "adminbot")
+		to_chat(usr, "Adminbot is not an actual admin. You were lied to.")
+		//The fucking size of this request would be astronomical. Please do not!
+		return
 
 	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: SQL connection failed while attempting to view a player's notes!")
 		return
 
 	var/dat = "<div align='center'><h3>Notes Look-up Panel</h3><br>"
-
-	//Totally not stealing code from the DB_ban_panel
 
 	dat += "<form method='GET' action='?src=[REF(src)]'><b>Search:</b> "
 	dat += "<input type='hidden' name='src' value='[REF(src)]'>"
@@ -115,7 +125,7 @@
 	dat += "</tr>"
 
 	if (player_ckey)
-		var/list/query_details = list("player_ckey" = player_ckey)
+		query_details = list("player_ckey" = player_ckey, "admin_ckey" = admin_ckey)
 
 		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='byond://?src=[REF(src)];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
 
@@ -125,18 +135,46 @@
 			query_details["player_address"] = init_query.item[1]
 			query_details["player_computerid"] = init_query.item[2]
 
-		var/query_content = "SELECT id, adddate, ckey, a_ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE ckey = :player_ckey: AND visible = '1'"
-
+		content_query = "SELECT id, adddate, ckey, a_ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE (ckey = :player_ckey:"
 		if (query_details["player_address"])
-			query_content += " OR ip = :player_address: AND visible = '1'"
+			content_query += " OR ip = :player_address:"
 		if (query_details["player_computerid"])
-			query_content += " OR computerid = :player_computerid: AND visible = '1'"
+			content_query += " OR computerid = :player_computerid:"
+		content_query += ") AND visible = '1'"
+		if (admin_ckey)
+			content_query += " AND a_ckey = :admin_ckey:"
 
-		query_content += " ORDER BY adddate ASC"
-		var/DBQuery/query = GLOB.dbcon.NewQuery(query_content)
+		count_query = "SELECT COUNT(*) FROM ss13_notes WHERE (ckey = :player_ckey:"
+		if (query_details["player_address"])
+			count_query += " OR ip = :player_address:"
+		if (query_details["player_computerid"])
+			count_query += " OR computerid = :player_computerid:"
+		count_query += ") AND visible = '1'"
+		if (admin_ckey)
+			count_query += " AND a_ckey = :admin_ckey:"
+
+	else if (admin_ckey && !player_ckey)
+		query_details = list("a_ckey" = admin_ckey)
+
+		content_query = "SELECT id, adddate, ckey, a_ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1'"
+		count_query = "SELECT COUNT(*) FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1'"
+
+	if (content_query)
+		var/DBQuery/count_query_obj = GLOB.dbcon.NewQuery(count_query)
+		count_query_obj.Execute(query_details)
+		if (count_query_obj.NextRow())
+			total_notes = text2num(count_query_obj.item[1])
+		total_pages = max(1, CEILING(total_notes, page_size) / page_size)
+		page = min(page, total_pages)
+		offset = (page - 1) * page_size
+
+		content_query += " ORDER BY adddate DESC LIMIT [page_size + 1] OFFSET [offset]"
+		var/DBQuery/query = GLOB.dbcon.NewQuery(content_query)
 		query.Execute(query_details)
-
 		while (query.NextRow())
+			result_count++
+			if (result_count > page_size)
+				break
 			var/id = text2num(query.item[1])
 			var/date = query.item[2]
 			var/p_ckey = query.item[3]
@@ -144,38 +182,26 @@
 			var/content = query.item[5]
 			var/edited = text2num(query.item[6])
 
-			if (admin_ckey && ckey(a_ckey) != ckey(admin_ckey))
-				continue
-			else
-				dat += "<tr bgcolor='#ffeeee'><td align='center'><b>[p_ckey]</b></td><td align='center'><b>[a_ckey]</b></td><td align='center'>[date]</td><td align='center'>[content]</td></tr>"
-				if (edited)
-					var/lasteditor = query.item[7]
-					var/editdate = query.item[8]
-					dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
-				dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=[REF(src)];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=[REF(src)];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
-				dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
-
-	else if (admin_ckey && !player_ckey)
-		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1' ORDER BY adddate ASC"
-		var/DBQuery/admin_query = GLOB.dbcon.NewQuery(aquery_content)
-		admin_query.Execute(list("a_ckey" = admin_ckey))
-
-		while (admin_query.NextRow())
-			var/id = text2num(admin_query.item[1])
-			var/date = admin_query.item[2]
-			var/p_ckey = admin_query.item[3]
-			var/content = admin_query.item[4]
-			var/edited = text2num(admin_query.item[5])
-
-			dat += "<tr bgcolor='#ffeeee'><td align='center'><b>[p_ckey]</b></td><td align='center'><b>[admin_ckey]</b></td><td align='center'>[date]</td><td align='center'>[content]</td></tr>"
+			dat += "<tr bgcolor='#ffeeee'><td align='center'><b>[p_ckey]</b></td><td align='center'><b>[a_ckey]</b></td><td align='center'>[date]</td><td align='center'>[content]</td></tr>"
 			if (edited)
-				var/lasteditor = admin_query.item[6]
-				var/editdate = admin_query.item[7]
+				var/lasteditor = query.item[7]
+				var/editdate = query.item[8]
 				dat += "<tr><td align='center' colspan='4'><b>Note last edited: [editdate], by: [lasteditor].</b></td></tr>"
 			dat += "<tr><td align='center' colspan='4'><b>(<a href=\"byond://?src=[REF(src)];dbnoteedit=delete;dbnoteid=[id]\">Delete</a>) (<a href=\"byond://?src=[REF(src)];dbnoteedit=content;dbnoteid=[id]\">Edit</a>)</b></td></tr>"
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
+	if (total_pages > 1)
+		dat += "<div align='center'><b>Page [page] / [total_pages]</b> ([page_size] notes per page, [total_notes] notes found)<br>"
+		if (page > 1)
+			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=1'>&lt;&lt; First page</a> <a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page - 1]'>&lt; Previous page</a> | "
+		else
+			dat += "<u>&lt;&lt; First page</u> <u>&lt; Previous page</u> | "
+		if (page < total_pages)
+			dat += "<a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[page + 1]'>Next page &gt;</a> <a href='byond://?src=[REF(src)];notessearchckey=[player_ckey];notessearchadmin=[admin_ckey];notespage=[total_pages]'>Last page &gt;&gt;</a>"
+		else
+			dat += "<u>Next page &gt;</u> <u>Last page &gt;&gt;</u>"
+		dat += "</div>"
 	show_browser(usr, HTML_SKELETON(dat), "window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
