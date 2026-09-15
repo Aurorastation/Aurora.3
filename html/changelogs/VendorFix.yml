@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "The candy missing prices in the getmore vendor now cost credits again."
+  - bugfix: "Fixed a couple of items not fitting in the commissary food and drinks shelf."
