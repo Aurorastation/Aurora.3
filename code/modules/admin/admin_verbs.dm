@@ -88,6 +88,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
+	/client/proc/arc_management_panel,
 	/client/proc/persistence_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
