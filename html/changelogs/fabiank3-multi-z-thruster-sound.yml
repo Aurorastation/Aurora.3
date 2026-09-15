@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Gas thrusters will now be hearable on all connected Z levels of a ship. The location, volume and range of the thruster remains unchanged."
