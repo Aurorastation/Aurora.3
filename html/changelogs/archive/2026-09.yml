@@ -181,3 +181,6 @@
       if not buckled in.
   - rscadd: The robotics, mechatronics, military training, police academy graduate,
       corpsman training, fleet and paramedic educations now include conditioning.
+2026-09-15:
+  Fenodyree:
+  - bugfix: Fixes slime cells not charging the PSU when used to build a battery rack.
