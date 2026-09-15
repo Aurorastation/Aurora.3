@@ -4952,6 +4952,29 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/wood,
 /area/horizon/maintenance/deck_2/wing/starboard)
+"aGT" = (
+/obj/structure/machinery/vending/wallmed1{
+	pixel_y = 32;
+	req_access = null
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/inhaler/pneumalin{
+	pixel_x = -1;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/inhaler/pneumalin{
+	pixel_x = 7;
+	pixel_y = -1
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner_wide/seafoam{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/shuttle/intrepid/medical)
 "aGV" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -6995,6 +7018,26 @@
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /turf/unsimulated/floor,
 /area/centcom/bar)
+"aUp" = (
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/bluespace_beacon,
+/turf/simulated/floor/plating,
+/area/horizon/shuttle/intrepid/main_compartment)
 "aUr" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -9150,6 +9193,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
+"bie" = (
+/obj/structure/machinery/iff_beacon/horizon,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/item/radio/intercom/expedition/west,
+/obj/structure/machinery/alarm/shuttle/north,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/shuttle/intrepid/flight_deck)
 "bif" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -16680,27 +16735,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/auxiliary)
-"cio" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,73);
-	dir = 4
-	},
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	name = "Medical";
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/shuttle/intrepid/medical)
 "cip" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -27763,6 +27797,13 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_gym)
+"dBt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/machinery/iff_beacon/horizon,
+/turf/simulated/floor/reinforced,
+/area/horizon/shuttle/quark/cockpit)
 "dBx" = (
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -36912,16 +36953,6 @@
 	dir = 1
 	},
 /area/antag/raider)
-"eNw" = (
-/obj/structure/bed/handrail,
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 5
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/shuttle/intrepid/medical)
 "eNz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/machinery/turretid{
@@ -42528,15 +42559,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hangar/auxiliary)
-"fAX" = (
-/obj/structure/machinery/iff_beacon/horizon/shuttle{
-	pixel_y = -21
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced,
-/area/horizon/shuttle/intrepid/flight_deck)
 "fBb" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -56218,29 +56240,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/weapons/longbow)
-"hpi" = (
-/obj/structure/machinery/vending/wallmed1{
-	pixel_y = 32;
-	req_access = null
-	},
-/obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/inhaler/pneumalin{
-	pixel_x = -1;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/inhaler/pneumalin{
-	pixel_x = 7;
-	pixel_y = -1
-	},
-/obj/item/clothing/glasses/hud/health{
-	pixel_x = 7;
-	pixel_y = 4
-	},
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/shuttle/intrepid/medical)
 "hpj" = (
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
@@ -61385,15 +61384,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
-"hYf" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/structure/machinery/shipsensors/weak/scc_shuttle{
-	pixel_y = -21
-	},
-/turf/simulated/floor/reinforced,
-/area/horizon/shuttle/intrepid/flight_deck)
 "hYi" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
@@ -67123,6 +67113,14 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
+"iJx" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/seafoam/full,
+/obj/structure/machinery/alarm/shuttle/west,
+/turf/simulated/floor/tiled/white,
+/area/horizon/shuttle/intrepid/medical)
 "iJC" = (
 /obj/effect/floor_decal/industrial/loading/research{
 	dir = 4
@@ -74554,13 +74552,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor/monotile,
 /area/antag/jockey)
-"jHI" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/shuttle/intrepid/starboard_nacelle)
 "jHN" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
@@ -82858,30 +82849,6 @@
 /obj/structure/bed/stool/chair/padded/purple,
 /turf/simulated/floor/wood,
 /area/horizon/command/heads/rd)
-"kIj" = (
-/obj/effect/floor_decal/corner_wide/seafoam{
-	dir = 5
-	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/roller_rack/three,
-/obj/item/storage/box/gloves{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/storage/box/bodybags{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -7;
-	pixel_y = 15
-	},
-/obj/item/storage/box/masks{
-	pixel_y = 4;
-	pixel_x = 7
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/shuttle/intrepid/medical)
 "kIl" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -85053,18 +85020,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/weapons/longbow)
-"kXL" = (
-/obj/structure/machinery/shipsensors/weak/scc_shuttle{
-	pixel_y = -15
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced,
-/area/horizon/shuttle/quark/cockpit)
 "kXM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -87493,6 +87448,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hangar/auxiliary)
+"lnS" = (
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/shuttle/intrepid/starboard_nacelle)
 "lnV" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -99645,6 +99607,30 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/engineering/atmos/turbine)
+"mSz" = (
+/obj/effect/floor_decal/corner_wide/seafoam{
+	dir = 5
+	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/roller_rack/three,
+/obj/item/storage/box/gloves{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/storage/box/bodybags{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 15
+	},
+/obj/item/storage/box/masks{
+	pixel_y = 4;
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/shuttle/intrepid/medical)
 "mSB" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
@@ -105934,14 +105920,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
-"nJF" = (
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/seafoam/full,
-/obj/structure/machinery/alarm/shuttle/west,
-/turf/simulated/floor/tiled/white,
-/area/horizon/shuttle/intrepid/medical)
 "nJK" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -107452,15 +107430,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/teleporter)
-"nTN" = (
-/obj/structure/machinery/iff_beacon/horizon/shuttle{
-	pixel_y = -15
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/horizon/shuttle/quark/cockpit)
 "nTO" = (
 /obj/structure/platform{
 	dir = 4
@@ -112236,17 +112205,6 @@
 "oAJ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/engineering/bluespace_drive)
-"oAV" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/item/radio/intercom/expedition/west,
-/obj/structure/machinery/alarm/shuttle/north,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/shuttle/intrepid/flight_deck)
 "oBb" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -118413,6 +118371,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/storage/eva)
+"pqU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/machinery/iff_beacon/horizon,
+/turf/simulated/floor/reinforced,
+/area/horizon/shuttle/intrepid/flight_deck)
 "prd" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -124480,6 +124445,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/main/port/shortcut)
+"qfm" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/machinery/shipsensors/weak,
+/turf/simulated/floor/reinforced,
+/area/horizon/shuttle/quark/cockpit)
 "qfo" = (
 /turf/simulated/open/airless,
 /area/horizon/exterior)
@@ -167054,6 +167029,13 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion/starboard)
+"vBk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/structure/machinery/shipsensors/weak,
+/turf/simulated/floor/reinforced,
+/area/horizon/shuttle/intrepid/flight_deck)
 "vBq" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Commander's Office";
@@ -178149,26 +178131,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/horizon/operations/warehouse)
-"wSM" = (
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/machinery/bluespace_beacon,
-/turf/simulated/floor/plating,
-/area/horizon/shuttle/intrepid/main_compartment)
 "wSO" = (
 /obj/structure/kitchenspike,
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -182248,6 +182210,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/rnd/hallway)
+"xsV" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/horizon/shuttle/intrepid/starboard_nacelle)
 "xsX" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
@@ -185666,6 +185644,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/firing_range)
+"xRJ" = (
+/obj/structure/bed/handrail,
+/obj/effect/floor_decal/corner_wide/seafoam{
+	dir = 5
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/shuttle/intrepid/medical)
 "xRM" = (
 /obj/item/crowbar,
 /obj/structure/table/rack,
@@ -186759,6 +186747,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/starboard)
+"yac" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/multi_tile/glass{
+	name = "Medical";
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/shuttle/intrepid/medical)
 "yad" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -188434,22 +188443,6 @@
 /obj/structure/shuttle/engine/propulsion/burst/left,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/burglar)
-"ylu" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/horizon/shuttle/intrepid/starboard_nacelle)
 "ylF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -219515,7 +219508,7 @@ qwA
 jFe
 aEU
 qwA
-fAX
+pqU
 faV
 faV
 faV
@@ -220287,7 +220280,7 @@ hSV
 qNK
 tqh
 asT
-oAV
+bie
 lWA
 lWA
 vWD
@@ -220791,7 +220784,7 @@ aeO
 bsk
 qaa
 nsY
-cio
+yac
 qaa
 aLe
 aoR
@@ -221053,7 +221046,7 @@ qaa
 qaa
 qaa
 cgl
-wSM
+aUp
 fDF
 qae
 rRa
@@ -221304,10 +221297,10 @@ vbm
 ceA
 gAh
 qaa
-eNw
+xRJ
 sNc
 xzc
-nJF
+iJx
 qaa
 sWO
 lpW
@@ -221818,7 +221811,7 @@ evI
 iZJ
 xCE
 qaa
-kIj
+mSz
 cct
 aWA
 vRM
@@ -222332,7 +222325,7 @@ vHM
 bLJ
 vCu
 qaa
-hpi
+aGT
 nce
 aWA
 aZR
@@ -222581,12 +222574,12 @@ ckP
 faV
 fHf
 cXV
-jHI
+lnS
 ckc
 lja
 xUE
 hhS
-ylu
+xsV
 iVk
 qaa
 wye
@@ -223370,7 +223363,7 @@ qwA
 rXh
 lsq
 qwA
-hYf
+vBk
 faV
 faV
 faV
@@ -226960,7 +226953,7 @@ xQE
 dgt
 vGP
 dgt
-nTN
+dBt
 wVY
 suN
 hAo
@@ -228502,7 +228495,7 @@ nDk
 dgt
 nPT
 dgt
-kXL
+qfm
 gkO
 suN
 hAo
