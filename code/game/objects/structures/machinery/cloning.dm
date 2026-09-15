@@ -312,8 +312,7 @@
 		return
 
 	if(occupant.client)
-		occupant.client.eye = occupant.client.mob
-		occupant.client.perspective = MOB_PERSPECTIVE
+		occupant.client.set_eye(occupant.client.mob, MOB_PERSPECTIVE)
 	occupant.forceMove(loc)
 	eject_wait = 0 //If it's still set somehow.
 	domutcheck(occupant) //Waiting until they're out before possible transforming.

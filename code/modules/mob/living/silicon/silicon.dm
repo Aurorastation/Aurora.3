@@ -387,7 +387,7 @@
 					underdoor = TRUE
 					break
 			if(!underdoor)
-				layer = initial(layer)
+				set_layer(initial(layer))
 
 /mob/living/silicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
