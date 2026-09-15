@@ -58,6 +58,52 @@
 	. = ..()
 	AddComponent(/datum/component/nymph_limb, src)
 
+// Global constants used by nymph-limb logic outside of the component (e.g. character setup, diona attach verbs).
+GLOBAL_LIST_INIT(nymph_limb_types_by_name_global, list(
+	BP_L_ARM  = /obj/item/organ/external/arm/nymph,
+	BP_R_ARM  = /obj/item/organ/external/arm/right/nymph,
+	BP_L_LEG  = /obj/item/organ/external/leg/nymph,
+	BP_R_LEG  = /obj/item/organ/external/leg/right/nymph,
+	BP_L_HAND = /obj/item/organ/external/hand/nymph,
+	BP_R_HAND = /obj/item/organ/external/hand/right/nymph,
+	BP_L_FOOT = /obj/item/organ/external/foot/nymph,
+	BP_R_FOOT = /obj/item/organ/external/foot/right/nymph
+))
+GLOBAL_LIST_INIT(valid_nymph_species_global, list(SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI))
+GLOBAL_LIST_INIT(valid_nymph_organs_to_replace_global, list(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND, BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT))
+
+/**
+ * Standalone version of nymphize for use during character setup.
+ * Creates and attaches a nymph-type limb to H at the given organ slot.
+ * Avoids attaching /datum/component/nymph_limb to a non-nymph organ.
+ */
+/proc/nymphize_limb(var/mob/living/carbon/human/H, var/organ_name, var/forced = FALSE)
+	if(!H.should_have_limb(organ_name))
+		return
+
+	var/list/organ_names_to_create = list(organ_name)
+
+	if(H.organs_by_name[organ_name])
+		if(forced)
+			var/obj/item/organ/external/O = H.get_organ(organ_name)
+
+			for(var/obj/item/organ/external/children in O?.children)
+				if(H.should_have_limb(children?.limb_name))
+					organ_names_to_create |= children.limb_name
+
+			qdel(O)
+			H.organs_by_name[organ_name] = null
+		else
+			return
+
+	for(var/organ_to_create in organ_names_to_create)
+		var/nymph_limb_type = GLOB.nymph_limb_types_by_name_global[organ_to_create]
+		var/obj/item/organ/external/E = new nymph_limb_type
+		E.replaced(H)
+		for(var/obj/item/organ/external/child in E.children)
+			nymphize_limb(H, child.organ_tag, TRUE)
+		add_verb(H, /mob/living/carbon/human/proc/detach_nymph_limb)
+
 /datum/component/nymph_limb
 	var/list/valid_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	var/list/valid_organs_to_replace = list(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND, BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
@@ -213,13 +259,11 @@
 	if(!can_attach)
 		to_chat(src, span("warning", "You do not have the strength to attach to another host so soon."))
 
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
 	var/list/mob/living/carbon/human/mob_list = list()
 
 	// Find a new host
 	for(var/mob/living/carbon/human/H in view(1))
-		if(ishuman(H) && (H.species?.name in N.valid_species) && \
+		if(ishuman(H) && (H.species?.name in GLOB.valid_nymph_species_global) && \
 		H.client && H.stat == CONSCIOUS)
 			mob_list += H
 
@@ -235,7 +279,7 @@
 	// Find a location to bond to, on the host
 	var/list/valid_locations = list()
 	for(var/O in target.organs_by_name)
-		if(!target.organs_by_name[O] && (O in N.valid_organs_to_replace))
+		if(!target.organs_by_name[O] && (O in GLOB.valid_nymph_organs_to_replace_global))
 			valid_locations += O
 
 	var/limb_choice
@@ -251,7 +295,7 @@
 		return
 
 	// Make new limb and put it on the host
-	limb_choice = N.nymph_limb_types_by_name[limb_choice]
+	limb_choice = GLOB.nymph_limb_types_by_name_global[limb_choice]
 	var/obj/item/organ/external/new_nymph_limb = new limb_choice
 	if(!istype(new_nymph_limb))
 		return
@@ -263,7 +307,9 @@
 
 	target.regenerate_icons()
 
-	N.nymph_in(new_nymph_limb, src)
+	var/datum/component/nymph_limb/C = new_nymph_limb.GetComponent(/datum/component/nymph_limb)
+	if(C)
+		C.nymph_in(new_nymph_limb, src)
 
 /mob/living/carbon/alien/diona/verb/snatch_limb()
 	set category = "IC"
@@ -286,16 +332,13 @@
 	if(!Adjacent(target) || target.stat || !target.client)
 		return
 
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-
-	if(!(target.species?.name in N.valid_species))
+	if(!(target.species?.name in GLOB.valid_nymph_species_global))
 		to_chat(target, SPAN_WARNING("\The [src] refuses to attach to your limb."))
 		return
 
 	var/list/valid_locations = list()
 	for(var/O in target.organs_by_name)
-		if(!target.organs_by_name[O] && (O in N.valid_organs_to_replace))
+		if(!target.organs_by_name[O] && (O in GLOB.valid_nymph_organs_to_replace_global))
 			valid_locations += O
 
 	var/limb_choice
@@ -311,7 +354,7 @@
 		return
 
 	// Make new limb and put it on the host
-	limb_choice = N.nymph_limb_types_by_name[limb_choice]
+	limb_choice = GLOB.nymph_limb_types_by_name_global[limb_choice]
 	var/obj/item/organ/external/new_nymph_limb = new limb_choice
 	if(!istype(new_nymph_limb))
 		return
@@ -328,7 +371,9 @@
 
 	target.regenerate_icons()
 
-	N.nymph_in(new_nymph_limb, src)
+	var/datum/component/nymph_limb/C = new_nymph_limb.GetComponent(/datum/component/nymph_limb)
+	if(C)
+		C.nymph_in(new_nymph_limb, src)
 	target.visible_message(SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to \the [target]'s body!"), SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to your body!"))
 
 /datum/component/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
