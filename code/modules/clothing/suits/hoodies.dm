@@ -438,5 +438,5 @@
 	build_from_parts = TRUE
 	worn_overlay = "acc"
 
-/obj/item/clothing/head/winterhood/colorable/parka/update_icon(mob/user)
+/obj/item/clothing/head/winterhood/parka/colorable/update_icon(mob/user)
 	. = ..()
