@@ -7,6 +7,8 @@
  */
 /datum/firemode
 	var/name = "default"
+	/// Optional HUD sprite for modes that do not describe a standard firing pattern.
+	var/button_icon_state
 	var/list/settings = list()
 	var/list/original_settings
 
@@ -19,6 +21,8 @@
 
 		if(propname == "mode_name")
 			name = propvalue
+		else if(propname == "button_icon_state")
+			button_icon_state = propvalue
 		else if(isnull(propvalue))
 			settings[propname] = gun.vars[propname] //better than initial() as it handles list vars like burst_accuracy
 		else
@@ -175,6 +179,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	/// Whether or not the gun has a safety.
 	var/has_safety = TRUE
+	/// Whether this gun implements a unique action, such as pumping or opening its bolt.
+	var/has_unique_gun_action = FALSE
 	/// Whether the gun's safety is currently engaged.
 	var/safety_state = TRUE
 	var/image/safety_overlay
@@ -257,6 +263,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 /obj/item/gun/update_icon()
 	..()
+	update_gun_actions()
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
@@ -761,6 +768,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	..()
 	if(!zoom)
 		update_firing_delays()
+	update_gun_actions()
 
 ///Handles removing the suppressor from the gun
 /obj/item/gun/proc/clear_suppressor()
@@ -783,6 +791,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 
+	update_gun_actions()
 	return new_mode
 
 /obj/item/gun/attack_self(mob/user)
