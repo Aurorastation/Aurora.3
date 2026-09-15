@@ -81,7 +81,7 @@
 	tags = list("External")
 	spawnpoints = list("crevus_general_store_vendor")
 	max_count = 1
-	outfit = /obj/outfit/admin/crevus/generic_vendor
+	outfit = /obj/outfit/admin/crevus/generic_vendor/general_store
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Ane-Mart Vendor"
@@ -89,9 +89,15 @@
 	respawn_flag = null
 
 /obj/outfit/admin/crevus/generic_vendor
-	name = "Ane-Marte Vendor"
+	name = "Generic Vendor"
 	uniform = /obj/item/clothing/under/dressshirt
-	pants = /obj/item/clothing/pants/jeans
+	pants = list(
+		/obj/item/clothing/pants/jeans,
+		/obj/item/clothing/pants/jeansblack,
+		/obj/item/clothing/pants/mustang,
+		/obj/item/clothing/pants/black,
+		/obj/item/clothing/pants/designer
+	)
 	suit = /obj/item/clothing/suit/jacket/puffer
 	shoes = list(
 		/obj/item/clothing/shoes/jackboots,
@@ -109,6 +115,13 @@
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/clothing/accessory/temperature/warm
+	)
+
+/obj/outfit/admin/crevus/generic_vendor/general_store
+	name = "Ane-Mart Vendor"
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm,
+		/obj/item/key/door_key/crevus/general_store
 	)
 
 /obj/outfit/admin/crevus/generic_vendor/post_equip(mob/living/carbon/human/H)
@@ -188,12 +201,19 @@
 	tags = list("External")
 	spawnpoints = list("crevus_clothing_vendor")
 	max_count = 1
-	outfit = /obj/outfit/admin/crevus/generic_vendor
+	outfit = /obj/outfit/admin/crevus/generic_vendor/clothing_store
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Clothing Store Vendor"
 	special_role = "Clothing Store Vendor"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/generic_vendor/clothing_store
+	name = "Clothing Store Vendor"
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm,
+		/obj/item/key/door_key/crevus/clothing_store
+	)
 
 // ---------- Firearm Salesperson
 
@@ -207,12 +227,22 @@
 	tags = list("External")
 	spawnpoints = list("crevus_firearm_salesperson")
 	max_count = 1
-	outfit = /obj/outfit/admin/crevus/generic_vendor
+	outfit = /obj/outfit/admin/crevus/generic_vendor/firearm_salesperson
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Firearm Salesperson"
 	special_role = "Firearm Salesperson"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/generic_vendor/firearm_salesperson
+	name = "Firearm Salesperson"
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm,
+		/obj/item/key/door_key/crevus/firearm_store
+	)
+
+/obj/outfit/admin/crevus/generic_vendor/firearm_salesperson/get_id_access()
+	return list(/datum/access/crevus_firearm_store)
 
 // ---------- Artisan Shop Vendor
 
@@ -223,12 +253,20 @@
 	tags = list("External")
 	spawnpoints = list("crevus_artisan_shop_vendor")
 	max_count = 1
-	outfit = /obj/outfit/admin/crevus/generic_vendor
+	outfit = /obj/outfit/admin/crevus/generic_vendor/artisan_shop
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Artisan Shop Vendor"
 	special_role = "Artisan Shop Vendor"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/generic_vendor/artisan_shop
+	name = "Artisan Shop Vendor"
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm,
+		/obj/item/key/door_key/crevus/artisan_shop
+	)
+
 
 // ---------- NanoTrasen Pharmacist
 
@@ -269,7 +307,8 @@
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
-		/obj/item/clothing/accessory/temperature/warm
+		/obj/item/clothing/accessory/temperature/warm,
+		/obj/item/key/door_key/crevus/nt_pharmacy
 	)
 
 // ---------- Keltra Zav Nikal Casino Personnel
@@ -296,7 +335,8 @@
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
-		/obj/item/clothing/accessory/temperature/warm
+		/obj/item/clothing/accessory/temperature/warm,
+		/obj/item/key/door_key/crevus/casino
 	)
 
 // ---------- The Lock Attendant
@@ -310,12 +350,21 @@
 	"
 	tags = list("External")
 	spawnpoints = list("crevus_the_lock_attendant")
+	recognition_group = "crevus_the_lock"
+	recognition_message = "You recognize this person as a fellow member of the Cult of Raskara, an attendant of The Lock like you."
 	max_count = 2
+	outfit = /obj/outfit/admin/crevus/generic_vendor/the_lock
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "The Lock Attendant"
 	special_role = "The Lock Attendant"
 	respawn_flag = null
+
+/obj/outfit/admin/crevus/generic_vendor/the_lock
+	backpack_contents = list(
+		/obj/item/clothing/accessory/temperature/warm,
+		/obj/item/key/door_key/crevus/the_lock
+	)
 
 // ---------- Rhan-Cresh Highway Patrolman
 
@@ -360,7 +409,7 @@
 		/obj/item/journal/notepad/filled,
 		/obj/item/pen/black,
 		/obj/item/clothing/accessory/temperature/warm,
-		/obj/item/key/door_key/crevus_rhan_cresh_patrol
+		/obj/item/key/door_key/crevus/rhan_cresh_patrol
 	)
 
 /obj/outfit/admin/crevus/rhan_cresh_patrol/post_equip(mob/living/carbon/human/H)
@@ -413,7 +462,7 @@
 		/obj/item/journal/notepad/filled,
 		/obj/item/pen/black,
 		/obj/item/clothing/accessory/temperature/warm,
-		/obj/item/key/door_key/crevus_azaula_enforcer
+		/obj/item/key/door_key/crevus/azaula_enforcer
 	)
 
 /obj/outfit/admin/crevus/crevus_azaula_enforcer/post_equip(mob/living/carbon/human/H)
@@ -425,11 +474,13 @@
 
 // ---------- Gangs
 
+// ----- Gang 1
+
 /datum/ghostspawner/human/crevus_gang1_member
 	short_name = "crevus_gang1_member"
-	name = "Placeholder Gang Member"
+	name = "The Violet Knuckles, Gang Member"
 	desc = "\
-	You are a small-time punk, there are many like you in the streets. Expand your network, sell drugs, mug people, do business - but above all, do your best to be \
+	You are a member of a small-time gang, there are many like you in the streets. Expand your network, sell drugs, mug people, do business - but above all, do your best to be \
 	noticed by the city's eyes. And who knows, maybe you can one day join a crime family proper. \
 	Try not to bother much with where you stand on the moral compass. Despite your best efforts to avoid it, end up dying an untimely death. \
 	"
@@ -441,8 +492,8 @@
 	outfit = /obj/outfit/admin/crevus/gang_member
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Placeholder Gang Member"
-	special_role = "Placeholder Gang Member"
+	assigned_role = "Gang Member"
+	special_role = "Gang Member"
 	respawn_flag = null
 
 /obj/outfit/admin/crevus/gang_member
@@ -507,7 +558,7 @@
 
 /datum/ghostspawner/human/crevus_gang1_boss
 	short_name = "crevus_gang1_boss"
-	name = "Placeholder Gang Leader"
+	name = "The Violet Knuckles, Gang Leader"
 	desc = "\
 	You are a leader of a small-time gang, or at least you were when you last checked. Look after your people, do whatever it takes to make you (and maybe your men) rich. \
 	Never compromise your authority, end up seeing your men die an untimely death because of your hubris. \
@@ -520,8 +571,8 @@
 	outfit = /obj/outfit/admin/crevus/gang_boss
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	assigned_role = "Placeholder Gang Leader"
-	special_role = "Placeholder Gang Leader"
+	assigned_role = "Gang Leader"
+	special_role = "Gang Leader"
 	respawn_flag = null
 
 /obj/outfit/admin/crevus/gang_boss
@@ -568,5 +619,45 @@
 	if(prob(55))
 		H.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack)
 
+// ----- Gang 2
+
+/datum/ghostspawner/human/crevus_gang2_member
+	short_name = "crevus_gang2_member"
+	name = "The Lions, Gang Member"
+	desc = "\
+	You are a member of a small-time gang, there are many like you in the streets. Expand your network, sell drugs, mug people, do business - but above all, do your best to be \
+	noticed by the city's eyes. And who knows, maybe you can one day join a crime family proper. \
+	Try not to bother much with where you stand on the moral compass. Despite your best efforts to avoid it, end up dying an untimely death. \
+	"
+	tags = list("External")
+	spawnpoints = list("crevus_gang2_member")
+	recognition_group = "crevus_gang2"
+	recognition_message = "You recognize this person as a fellow member of your gang."
+	max_count = 2
+	outfit = /obj/outfit/admin/crevus/gang_member
+	possible_species = CREVUS_GENERIC_SPECIES
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Gang Member"
+	special_role = "Gang Member"
+	respawn_flag = null
+
+/datum/ghostspawner/human/crevus_gang2_boss
+	short_name = "crevus_gang2_boss"
+	name = "The Lions, Gang Leader"
+	desc = "\
+	You are a leader of a small-time gang, or at least you were when you last checked. Look after your people, do whatever it takes to make you (and maybe your men) rich. \
+	Never compromise your authority, end up seeing your men die an untimely death because of your hubris. \
+	"
+	tags = list("External")
+	spawnpoints = list("crevus_gang2_boss")
+	recognition_group = "crevus_gang2"
+	recognition_message = "You recognize this person as the leader of your gang."
+	max_count = 1
+	outfit = /obj/outfit/admin/crevus/gang_boss
+	possible_species = CREVUS_GENERIC_SPECIES
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Gang Leader"
+	special_role = "Gang Leader"
+	respawn_flag = null
 
 #undef CREVUS_GENERIC_SPECIES

@@ -1333,6 +1333,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 	else
 		return FALSE //Keys only
 
+/obj/structure/machinery/door/urban/on_death()
+	visible_message(SPAN_WARNING("[src] breaks!"))
+	qdel(src)
+
 // ---------- Urban door subtypes
 
 /obj/structure/machinery/door/urban/metal

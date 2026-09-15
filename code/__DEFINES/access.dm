@@ -790,3 +790,31 @@
 /datum/access/crevus_azaula_enforcer
 	id = 259
 	desc = "Azaula Entertainment, Enforcer Office Access"
+
+/datum/access/crevus_the_lock
+	id = 260
+	desc = "The Lock Hideout Access"
+
+/datum/access/crevus_casino
+	id = 261
+	desc = "Keltra Zav Nikal, Casino Access"
+
+/datum/access/crevus_general_store
+	id = 262
+	desc = "Ane-Mart Staff Access"
+
+/datum/access/crevus_firearm_store
+	id = 263
+	desc = "Firearm Store Access"
+
+/datum/access/crevus_nt_pharmacy
+	id = 264
+	desc = "NanoTrasen Pharmacy Access"
+
+/datum/access/crevus_artisan_shop
+	id = 265
+	desc = "Artisan Shop Access"
+
+/datum/access/crevus_clothing_store
+	id = 266
+	desc = "Clothing Store Access"
