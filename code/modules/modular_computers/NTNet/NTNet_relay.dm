@@ -62,7 +62,7 @@
 	var/obj/effect/overmap/visitable/sector = ensure_linked()
 	if(istype(sector))
 		return sector.base
-	var/obj/effect/overmap/visitable/known_sector = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/known_sector = get_map_sector(z)
 	if(istype(known_sector))
 		return FALSE
 	return is_station_level(z)

@@ -114,7 +114,7 @@
 /obj/structure/machinery/bluespacedrive/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(z)
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
@@ -503,7 +503,7 @@
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(z)
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
@@ -602,7 +602,7 @@
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(z)
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 

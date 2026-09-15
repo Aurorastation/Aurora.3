@@ -13,5 +13,3 @@
 #define OVERMAP_WEAKNESS_EXPLOSIVE 8
 
 #define SENSOR_COEFFICENT 1000
-
-#define waypoint_sector(waypoint) GLOB.map_sectors["[waypoint.z]"]

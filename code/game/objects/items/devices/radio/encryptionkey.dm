@@ -29,7 +29,7 @@
 	flags_1 |= INITIALIZED_1
 
 	var/sector_z = get_sector_z()
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
+	var/obj/effect/overmap/visitable/V = get_map_sector(sector_z)
 	if(istype(V) && V.comms_support)
 		var/freq_name = V.name
 		if(V.freq_name)
