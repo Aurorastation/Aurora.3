@@ -325,4 +325,3 @@
 #undef FUEL_PORT_UNSECURED
 #undef FUEL_PORT_BOLTED
 #undef FUEL_PORT_WELDED
-#undef waypoint_sector
