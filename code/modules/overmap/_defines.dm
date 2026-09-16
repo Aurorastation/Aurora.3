@@ -103,9 +103,9 @@ GLOBAL_LIST_EMPTY(moving_levels)
 	var/resolved_z = z_or_atom
 
 	if(isatom(z_or_atom))
-		var/atom/A = z_or_atom
-		dbg_assert(A.z > 0, "Atom [A] ([A.type]) is in nullspace or unplaced (z = [A.z])")
-		resolved_z = A.z
+		var/turf/T = get_turf(z_or_atom)
+		dbg_assert(isturf(T) && T.z > 0, "Atom [z_or_atom] is in nullspace or unplaced")
+		resolved_z = T ? T.z : null
 
 	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
 	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
@@ -122,9 +122,9 @@ GLOBAL_LIST_EMPTY(moving_levels)
 	var/resolved_z = z_or_atom
 
 	if(isatom(z_or_atom))
-		var/atom/A = z_or_atom
-		dbg_assert(A.z > 0, "Atom [A] ([A.type]) is in nullspace or unplaced (z = [A.z])")
-		resolved_z = A.z
+		var/turf/T = get_turf(z_or_atom)
+		dbg_assert(isturf(T) && T.z > 0, "Atom [z_or_atom] is in nullspace or unplaced")
+		resolved_z = T ? T.z : null
 
 	dbg_assert(isnum(resolved_z) && resolved_z > 0 && resolved_z <= world.maxz, "Target z-level [resolved_z] out of bounds (1..[world.maxz])")
 	dbg_assert(round(resolved_z) == resolved_z, "Z-level must be an integer, got [resolved_z]")
