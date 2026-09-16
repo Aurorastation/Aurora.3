@@ -1,0 +1,4 @@
+author: effyank
+delete-after: True
+changes:
+  - imageadd: "Added a spotted body marking option for Tajara."
