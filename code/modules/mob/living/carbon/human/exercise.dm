@@ -2,6 +2,19 @@
 Exercise Verbs
 */
 
+/mob/living/carbon/human/verb/bench_press_person()
+	set name = "Bench Press Carried Person"
+	set desc = "Bench press someone you are carrying over your shoulders."
+	set category = "IC.Maneuver"
+
+	for(var/obj/item/grab/grab in list(l_hand, r_hand))
+		if(istype(grab, /obj/item/grab/offhand))
+			continue
+		if(grab.wielded && grab.affecting?.buckled_to == src)
+			grab.bench_press_carried_person(src)
+			return
+	to_chat(src, SPAN_WARNING("You need to be fireman carrying someone before you can bench press them."))
+
 /mob/living/carbon/human/verb/pushup()
 	set name = "Do Pushup"
 	set desc = "Makes you do a pushup."
@@ -101,4 +114,5 @@ Exercise Verbs
 		stamina_loss -= 2
 	if(health <= ((maxhealth / 10) * 9))
 		stamina_loss += 2
-	return max(stamina_loss, 1)
+	var/conditioning_multiplier = 1 + (0.25 * (get_conditioning_skill_level() - SKILL_LEVEL_UNFAMILIAR))
+	return max(stamina_loss / conditioning_multiplier, 1)

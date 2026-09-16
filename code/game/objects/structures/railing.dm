@@ -345,7 +345,7 @@
 	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 2 SECONDS))
+	if(!do_after(user, user.get_conditioning_action_delay(2 SECONDS)))
 		LAZYREMOVE(climbers, user)
 		return
 
