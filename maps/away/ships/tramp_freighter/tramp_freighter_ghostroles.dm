@@ -8,7 +8,7 @@
 	max_count = 3
 
 	outfit = /obj/outfit/admin/freighter_crew
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Freighter Crewman"
@@ -30,6 +30,8 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
@@ -55,7 +57,7 @@
 			tag.modify_tag_data(TRUE) //Shady smugglers might well have untagged IPCs
 
 /obj/outfit/admin/freighter_crew/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TRAMP_FREIGHTER)
+	return list(/datum/access/external_airlocks::id, /datum/access/tramp_freighter_access::id)
 
 /datum/ghostspawner/human/freighter_crew/captain
 	short_name = "freighter_crew_captain"
@@ -66,7 +68,7 @@
 	max_count = 1
 
 	outfit = /obj/outfit/admin/freighter_crew/captain
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Freighter Captain"
@@ -81,6 +83,8 @@
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless/grey,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless/grey,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless/grey,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless/grey,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/grey,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/grey
@@ -88,4 +92,4 @@
 
 /obj/item/card/id/freighter_crew_ship
 	name = "freight ship id"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TRAMP_FREIGHTER)
+	access = list(/datum/access/external_airlocks::id, /datum/access/tramp_freighter_access::id)

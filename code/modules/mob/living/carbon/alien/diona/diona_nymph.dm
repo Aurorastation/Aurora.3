@@ -292,7 +292,7 @@
 		. += "You have enough biomass to grow!"
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
-/mob/living/carbon/alien/diona/handle_regular_status_updates()
+/mob/living/carbon/alien/diona/handle_regular_status_updates(seconds_per_tick)
 	if(status_flags & GODMODE)
 		return FALSE
 

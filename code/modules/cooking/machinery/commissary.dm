@@ -137,7 +137,7 @@
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
 	storage_type = null
-	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
 	var/destination = "Operations"
 
 /obj/structure/cash_register/commissary/mechanics_hints(mob/user, distance, is_adjacent)
@@ -180,7 +180,7 @@
 	idle_power_usage = 10
 	anchored = TRUE
 	var/turned_on = FALSE
-	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
 	var/destination = "Operations"
 
 /obj/structure/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)
@@ -422,7 +422,6 @@
 		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3,
 		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3,
 		/obj/item/storage/box/fancy/packaged_burger = 3,
-		/obj/item/storage/box/fancy/packaged_mossburger = 2,
 		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
 		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
 		/obj/item/storage/box/fancy/toptarts_strawberry = 3,

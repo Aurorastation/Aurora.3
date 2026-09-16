@@ -7213,9 +7213,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/captain_cabin)
 "pTu" = (
-/turf/simulated/wall/shuttle/raider{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/raider,
 /area/ship/ssrm_corvette/safe_room)
 "pUt" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,

@@ -324,7 +324,7 @@
 	if(welding_blind)
 		delay *= 3
 
-	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
+	var/image/welding_sparks = overlay_image('icons/effects/effects.dmi', welding_state, flags = RESET_COLOR)
 	welding_sparks.plane = ABOVE_LIGHTING_PLANE
 	target.AddOverlays(welding_sparks)
 	. = ..()
@@ -445,8 +445,8 @@
 			to_chat(user, SPAN_WARNING("You need to light the welding tool first!"))
 			return
 
-		if(S.brute_dam)
-			if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
+		if(LIMB_GET_BRUTE_DAMAGE(S))
+			if(LIMB_GET_BRUTE_DAMAGE(S) > ROBOLIMB_SELF_REPAIR_CAP)
 				to_chat(user, SPAN_WARNING("The damage is far too severe to patch over externally!"))
 				return
 			else
@@ -458,7 +458,7 @@
 		return ..()
 
 /obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
-	if(!affecting.brute_dam)
+	if(!LIMB_GET_BRUTE_DAMAGE(affecting))
 		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 

@@ -272,13 +272,45 @@
 
 /datum/preferences/proc/update_preview_icon()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = update_mannequin()
-	var/mutable_appearance/MA = new /mutable_appearance(mannequin)
-	MA.appearance_flags = PIXEL_SCALE
-	if(mannequin.species?.icon_x_offset)
-		MA.pixel_x = mannequin.species.icon_x_offset
-	if(mannequin.species?.icon_y_offset)
-		MA.pixel_y = mannequin.species.icon_y_offset
-	var/matrix/M = matrix()
-	M.Scale(scale_x, scale_y)
-	MA.transform = M
-	update_character_previews(MA, (MA.pixel_x != 0 || MA.pixel_y != 0))
+	var/list/directional_appearances = list()
+	for(var/direction in GLOB.cardinals)
+		mannequin.set_dir(direction)
+		var/mutable_appearance/preview = new /mutable_appearance(mannequin)
+		filter_character_preview_planes(preview, preview.plane)
+		preview.appearance_flags |= KEEP_TOGETHER|PIXEL_SCALE|NO_CLIENT_COLOR
+		if(mannequin.species?.icon_x_offset)
+			preview.pixel_x = mannequin.species.icon_x_offset
+		if(mannequin.species?.icon_y_offset)
+			preview.pixel_y = mannequin.species.icon_y_offset
+		// Standard humans use 32px icons; species with icon offsets use wider
+		// canvases (for example, the 48px Bulwark) and need a smaller scale.
+		var/preview_scale = (mannequin.species?.icon_x_offset || mannequin.species?.icon_y_offset) ? 3 : 4
+		var/matrix/preview_transform = matrix()
+		preview_transform.Scale(preview_scale * scale_x, preview_scale * scale_y)
+		preview.transform = preview_transform
+		directional_appearances["[direction]"] = preview
+	update_character_previews(directional_appearances)
+
+/// Removes plane-specific effects which require the game world's plane masters.
+/// The remaining appearance tree can be safely composited in a TGUI map control.
+/datum/preferences/proc/filter_character_preview_planes(mutable_appearance/appearance, inherited_plane)
+	var/appearance_plane = appearance.plane == FLOAT_PLANE ? inherited_plane : appearance.plane
+	var/list/filtered_underlays = list()
+	for(var/image/underlay as anything in appearance.underlays)
+		var/underlay_plane = underlay.plane == FLOAT_PLANE ? appearance_plane : underlay.plane
+		if(underlay_plane != appearance_plane)
+			continue
+		var/mutable_appearance/underlay_copy = new /mutable_appearance(underlay)
+		filter_character_preview_planes(underlay_copy, appearance_plane)
+		filtered_underlays += underlay_copy
+	appearance.underlays = filtered_underlays
+
+	var/list/filtered_overlays = list()
+	for(var/image/overlay as anything in appearance.overlays)
+		var/overlay_plane = overlay.plane == FLOAT_PLANE ? appearance_plane : overlay.plane
+		if(overlay_plane != appearance_plane)
+			continue
+		var/mutable_appearance/overlay_copy = new /mutable_appearance(overlay)
+		filter_character_preview_planes(overlay_copy, appearance_plane)
+		filtered_overlays += overlay_copy
+	appearance.overlays = filtered_overlays

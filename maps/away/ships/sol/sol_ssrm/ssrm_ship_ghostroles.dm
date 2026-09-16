@@ -32,7 +32,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/ssrm_navy_crewman/get_id_access()
-	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/ssrm_navy_officer
 	short_name = "ssrm_navy_officer"
@@ -69,7 +69,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/ssrm_navy_officer/get_id_access()
-	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/ssrm_navy_chief_petty_officer
 	short_name = "ssrm_navy_chief_petty_officer"
@@ -98,7 +98,7 @@
 	id = /obj/item/card/id/ssrm_ship
 
 /obj/outfit/admin/ssrm_navy_chief_petty_officer/get_id_access()
-	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/ssrm_marine_pilot
 	short_name = "ssrm_marine_pilot"
@@ -135,7 +135,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/ssrm_marine_pilot/get_id_access()
-	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/ssrm_ipc
 	short_name = "ssrm_ipc"
@@ -178,10 +178,10 @@
 		tag.citizenship_info = CITIZENSHIP_NONE
 
 /obj/outfit/admin/ssrm_ipc/get_id_access()
-	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
 
 //items
 
 /obj/item/card/id/ssrm_ship
 	name = "\improper Sol Navy Recon identification card"
-	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)

@@ -13,7 +13,7 @@
 	throw_range = 2
 	w_class = WEIGHT_CLASS_SMALL
 	var/access = list()
-	access = ACCESS_CRATE_CASH
+	access = /datum/access/crate_cash::id
 	var/worth = 0
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
@@ -352,8 +352,8 @@
 	// While the item features a persistent location, we want to return it to a safe spot if it is not in acceptable areas
 	var/area/target_area
 	var/area/A = get_area(src)
-	if(A && istype(A, /area/horizon/command))
-		target_area = A // Command areas are deemed safe
+	if(A && (istype(A, /area/horizon/command) || istype(A, /area/horizon/storage/secure)))
+		target_area = A // Command and vault areas are deemed safe
 	else
 		target_area = locate(/area/horizon/command/heads/xo_office) in GLOB.areas // Non safe area - XO office as fallback
 

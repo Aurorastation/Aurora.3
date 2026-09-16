@@ -9,6 +9,8 @@
 		SPECIES_TAJARA_MSAI = 25,
 		SPECIES_TAJARA_ZHAN = 25,
 		SPECIES_UNATHI = 25,
+		SPECIES_UNATHI_URAWANI = 25,
+		SPECIES_UNATHI_ZIRALIXI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -29,13 +31,16 @@
 		SPECIES_TAJARA_MSAI = 18,
 		SPECIES_TAJARA_ZHAN = 18,
 		SPECIES_UNATHI = 18,
+		SPECIES_UNATHI_URAWANI = 18,
+		SPECIES_UNATHI_ZIRALIXI = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
 		/singleton/skill/unarmed_combat = SKILL_LEVEL_TRAINED,
 		/singleton/skill/armed_combat = SKILL_LEVEL_TRAINED,
-		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/military_corpsman
@@ -49,6 +54,8 @@
 		SPECIES_TAJARA_MSAI = 18,
 		SPECIES_TAJARA_ZHAN = 18,
 		SPECIES_UNATHI = 18,
+		SPECIES_UNATHI_URAWANI = 18,
+		SPECIES_UNATHI_ZIRALIXI = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -58,7 +65,8 @@
 		/singleton/skill/armed_combat = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
 		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR, /* Only enough to repair an artery. */
-		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR
+		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/police_academy
@@ -71,6 +79,8 @@
 		SPECIES_TAJARA_MSAI = 18,
 		SPECIES_TAJARA_ZHAN = 18,
 		SPECIES_UNATHI = 18,
+		SPECIES_UNATHI_URAWANI = 18,
+		SPECIES_UNATHI_ZIRALIXI = 18,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -78,6 +88,6 @@
 		/singleton/skill/unarmed_combat = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
 		/singleton/skill/forensics = SKILL_LEVEL_FAMILIAR, /* Very basic crime investigation skills. */
-		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR /* Police are also trained in basic first aid. */
+		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR, /* Police are also trained in basic first aid. */
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
-

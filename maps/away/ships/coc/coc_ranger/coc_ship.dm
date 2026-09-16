@@ -218,7 +218,6 @@
 	dock_target = "ranger_shuttle_dock2"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_ranger"
 	// defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ranger_shuttle/hangar

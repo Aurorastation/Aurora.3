@@ -363,8 +363,14 @@
 /// Average mass of a Diona Coeus (in Kg)
 #define REFERENCE_MASS_DIONA_COEUS 100
 
-/// Average mass of an Unathi (in Kg)
+/// Average mass of an Azaziba Unathi (in Kg)
 #define REFERENCE_MASS_UNATHI 120
+
+/// Average mass of an Urawani Unathi (in Kg)
+#define REFERENCE_MASS_UNATHI_URAWANI 100
+
+/// Average mass of a Ziralixi Unathi (in Kg)
+#define REFERENCE_MASS_UNATHI_ZIRALIXI 110
 
 /// Average mass of an IPC (in Kg)
 #define REFERENCE_MASS_IPC 125

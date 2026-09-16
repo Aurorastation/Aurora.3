@@ -84,7 +84,7 @@
 			if(!(E.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 				continue
 			organ_found = TRUE
-			to_chat(user, "[E.name]: <span class='warning'>[get_robot_severity(E.brute_dam)]</span> <font color='#FFA500'>[get_robot_severity(E.burn_dam)]</font>")
+			to_chat(user, "[E.name]: <span class='warning'>[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(E))]</span> <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(E))]</font>")
 	if(!organ_found)
 		to_chat(user, SPAN_NOTICE("No prosthetics located."))
 	to_chat(user, "<hr>")

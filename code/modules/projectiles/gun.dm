@@ -55,6 +55,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
+	can_throw_on_harm = FALSE
+	throw_on_harm_alert = "can't throw firearms on harm intent!"
 	force = 11
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("struck", "hit", "bashed")

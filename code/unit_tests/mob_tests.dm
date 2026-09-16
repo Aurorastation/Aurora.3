@@ -385,6 +385,7 @@
 /datum/unit_test/mob_damage/unathi/halloss
 	name = "MOB: Unathi Halloss Damage Check"
 	damagetype = DAMAGE_PAIN
+	expected_vulnerability = ARMORED
 
 // =================================================================
 // SpessKahjit aka Tajaran
