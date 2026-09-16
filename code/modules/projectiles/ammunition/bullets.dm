@@ -34,7 +34,8 @@
 	name = ".38 haywire round"
 	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/projectile/ion/small
-	icon_state = "emp_casing"
+	icon_state = "emp_pistol_casing"
+	spent_icon = "emp_pistol_casing_spent"
 	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)
 
 /obj/item/ammo_casing/c38/spent/Initialize()
