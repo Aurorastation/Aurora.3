@@ -96,15 +96,19 @@
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting credit chips!"))
 		return TRUE
-	else if(istype(attacking_item, /obj/item/spacecash))
+	else if(istype(attacking_item, /obj/item/currency))
 		if(paymode == CREDITCHIP)
 			if(istype(attacking_item, /obj/item/spacecash/ewallet/persistent_charge_card))
 				to_chat(user, SPAN_WARNING("This machine does not accept this kind of card!"))
 				return TRUE
-			var/obj/item/spacecash/H = attacking_item
-			to_chat(user, SPAN_NOTICE("You insert [H.worth]电 into [src]'s slot!"))
+			var/obj/item/currency/H = attacking_item
+			if(!accepts_currency(H))
+				to_chat(user, SPAN_WARNING("This machine does not accept [H.name]."))
+				return TRUE
+			var/credit_value = H.get_credit_value()
+			to_chat(user, SPAN_NOTICE("You insert [H] (worth [credit_value] credits) into [src]'s slot!"))
 			playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
-			balance += H.worth
+			balance += credit_value
 			updateUsrDialog()
 			qdel(H)
 		else
