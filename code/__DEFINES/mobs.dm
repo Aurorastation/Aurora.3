@@ -216,7 +216,7 @@
 #define BP_AUG_TASTE_BOOSTER      "taste booster"
 #define BP_AUG_TESLA              "tesla spine"
 #define BP_AUG_TESLA_CARDIAC      "tesla cardiac driver"
-#define BP_AUG_TESLA_CHARGER      "tesla charging lead"
+#define BP_AUG_TESLA_CHARGER      "tesla mobile power system"
 #define BP_AUG_TESLA_DIAGNOSTIC   "tesla diagnostic panel"
 #define BP_AUG_TESLA_LIGHT        "tesla worklight"
 #define BP_AUG_TESLA_OXYGEN       "tesla oxygenation system"

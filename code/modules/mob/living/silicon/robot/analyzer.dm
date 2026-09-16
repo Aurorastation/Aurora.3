@@ -141,7 +141,7 @@
 /datum/component/robotics_analyzer/proc/robot_scan(mob/living/silicon/robot/robot)
 	scan_title = "Analysis results for [robot]"
 	status_results += "Overall status: [robot.stat > 1 ? SPAN_DANGER("fully disabled") : "[robot.health - robot.getHalLoss()]% functional"]"
-	status_results += "Damage: <font color='#FFA500'>[get_robot_severity(robot.getFireLoss())] electronics</font>, [SPAN_WARNING("[get_robot_severity(robot.getBruteLoss())] physical damage")]"
+	status_results += "Damage: <b>Physical damage:</b> <span class='warning'>[get_robot_severity(robot.getBruteLoss())]</span>; <b>Burn damage:</b> <font color='#FFA500'>[get_robot_severity(robot.getFireLoss())]</font>"
 	if(robot.tod && robot.stat == DEAD)
 		status_results += "Time of disable: [robot.tod]"
 	status_results += "Operating temperature: [round(robot.bodytemperature - T0C, 0.1)]&deg;C ([round(robot.bodytemperature * 1.8 - 459.67, 0.1)]&deg;F)"
@@ -152,7 +152,7 @@
 	if(length(damaged))
 		for(var/datum/robot_component/component in damaged)
 			var/component_state = component.installed == -1 ? SPAN_DANGER("<b>DESTROYED</b>") : "[component.toggled ? "Toggled ON" : SPAN_WARNING("Toggled OFF")]; [component.powered ? "Power ON" : SPAN_WARNING("Power OFF")]"
-			var/damage = "<font color='#FFA500'>[component.electronics_damage] electronics</font>, [SPAN_WARNING("[component.brute_damage] physical")]; [component_state]"
+			var/damage = "<b>Physical damage:</b> <span class='warning'>[component.brute_damage]</span>; <b>Burn damage:</b> <font color='#FFA500'>[component.electronics_damage]</font>; [component_state]"
 			external_results += list(list("label" = capitalize(component.name), "value" = damage))
 	else
 		external_results += list(list("label" = "Components", "value" = SPAN_GOOD("No localized damage detected.")))
@@ -167,7 +167,7 @@
 	for(var/obj/item/organ/external/external_organ in human.organs)
 		if(!(external_organ.status & (ORGAN_ROBOT | ORGAN_ASSISTED)))
 			continue
-		var/damage = "[SPAN_WARNING("[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(external_organ))] wiring")], <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(external_organ))] electronics</font>"
+		var/damage = "<b>Physical damage:</b> <span class='warning'>[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(external_organ))]</span>; <b>Burn damage:</b> <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(external_organ))]</font>"
 		external_results += list(list("label" = capitalize(external_organ.name), "value" = damage))
 	if(!length(external_results))
 		external_results += list(list("label" = "External prosthetics", "value" = "None detected."))
@@ -231,8 +231,8 @@
 
 	to_chat(user, SPAN_NOTICE("Analyzing Results for [M]:"))
 	to_chat(user, SPAN_NOTICE("Overall Status: [M.stat > 1 ? "fully disabled" : "[M.health - M.getHalLoss()]% functional"]"))
-	to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Physical Damage</span>")
-	to_chat(user, "Damage Specifics: <font color='#FFA500'>[BU]</font> - <span class='warning'>[BR]</span>")
+	to_chat(user, "Key: <span class='warning'>Physical Damage</span>/<font color='#FFA500'>Burn Damage</font>")
+	to_chat(user, "Damage Specifics: <span class='warning'>[BR]</span> - <font color='#FFA500'>[BU]</font>")
 	if(M.tod && M.stat == DEAD)
 		to_chat(user, SPAN_NOTICE("Time of Disable: [M.tod]"))
 	var/mob/living/silicon/robot/H = M
@@ -241,7 +241,7 @@
 	if(length(damaged) > 0)
 		for(var/datum/robot_component/org in damaged)
 			user.show_message(SPAN_NOTICE("\t [capitalize(org.name)]: [(org.installed == -1)	?	SPAN_WARNING("<b>DESTROYED</b>") :""]\
-			[(org.electronics_damage > 0)	?	"<font color='#FFA500'>[org.electronics_damage]</font>"	: 0] - [(org.brute_damage > 0)	?	SPAN_WARNING("[org.brute_damage]") :0] - \
+			Physical Damage: [(org.brute_damage > 0)	?	SPAN_WARNING("[org.brute_damage]") :0] - Burn Damage: [(org.electronics_damage > 0)	?	"<font color='#FFA500'>[org.electronics_damage]</font>"	: 0] - \
 			[(org.toggled) ?	"Toggled ON" : SPAN_WARNING("Toggled OFF")] - \
 			[(org.powered) ? "Power ON" : SPAN_WARNING("Power OFF")]"),1)
 
@@ -255,7 +255,7 @@
 	to_chat(user, SPAN_NOTICE("Analyzing Results for \the [H]:"))
 	if(H.stat == DEAD)
 		to_chat(user, SPAN_DANGER("No neural coherence detected."))
-	to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Wiring</span>")
+	to_chat(user, "Key: <span class='warning'>Physical Damage</span>/<font color='#FFA500'>Burn Damage</font>")
 	var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
 	if(IC)
 		to_chat(user, SPAN_NOTICE("Cell charge: [IC.percent()] %"))
@@ -268,7 +268,7 @@
 			if(!(E.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 				continue
 			organ_found = TRUE
-			to_chat(user, "[E.name]: <span class='warning'>[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(E))]</span> <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(E))]</font>")
+			to_chat(user, "[E.name]: <b>Physical damage:</b> <span class='warning'>[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(E))]</span>; <b>Burn damage:</b> <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(E))]</font>")
 	if(!organ_found)
 		to_chat(user, SPAN_NOTICE("No prosthetics located."))
 	to_chat(user, "<hr>")

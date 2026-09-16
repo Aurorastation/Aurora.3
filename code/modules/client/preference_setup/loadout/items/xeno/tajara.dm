@@ -712,12 +712,14 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/organ/internal/augment/tesla
 	cost = 2
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	citizenship = CITIZENSHIP_PRA
 	sort_category = "Xenowear - Tajara"
 
 ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 
 /datum/gear/augment/tesla_accessory
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	citizenship = CITIZENSHIP_PRA
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_NO_SELECTION
 
@@ -746,12 +748,6 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	augs["transdermal computer, right arm"] = /obj/item/organ/internal/augment/tesla_device/pda
 	augs["transdermal computer, left arm"] = /obj/item/organ/internal/augment/tesla_device/pda/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
-
-/datum/gear/augment/tesla_accessory/voice
-	display_name = "tesla voice box"
-	description = "An implanted arc-discharge voice box which produces the Elektro'Siik accent and can temporarily overdrive its volume."
-	path = /obj/item/organ/internal/augment/synthetic_cords/voice/tesla
-	cost = 1
 
 /datum/gear/augment/tesla_accessory/welder
 	display_name = "tesla arc welder selection"
@@ -811,16 +807,16 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	cost = 2
 
 /datum/gear/augment/tesla_accessory/charging_lead
-	display_name = "tesla low-power charging lead selection"
-	description = "An integrated lead which charges a compatible item held in its selected hand at roughly power-outlet speed. It supports modular-computer and handheld device cells, but not full-sized power cells."
+	display_name = "tesla mobile power system selection"
+	description = "An integrated induction charger which powers a compatible item held in its selected hand at roughly power-outlet speed. It supports modular-computer and handheld device cells, but not full-sized power cells."
 	path = /obj/item/organ/internal/augment/tesla_device/charging_lead
 	cost = 2
 
 /datum/gear/augment/tesla_accessory/charging_lead/New()
 	..()
 	var/list/augs = list()
-	augs["tesla low-power charging lead, right hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead
-	augs["tesla low-power charging lead, left hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead/left
+	augs["tesla mobile power system, right hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead
+	augs["tesla mobile power system, left hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/tesla_accessory/thermal

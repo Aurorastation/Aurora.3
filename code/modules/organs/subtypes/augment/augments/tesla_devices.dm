@@ -139,11 +139,6 @@
 	if(istype(pda_cell) && pda_cell.charge < pda_cell.maxcharge)
 		pda_cell.give(max(1, pda_cell.maxcharge * 0.02))
 
-/obj/item/organ/internal/augment/tesla_device/pda/feedback_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(distance <= 1)
-		. += "The skin around its screen is noticeably warmer than the surrounding arm."
-
 /obj/item/modular_computer/handheld/pda/tesla_internal
 	name = "transdermal computer"
 	desc = "A configurable implanted computer whose buffer cell is kept charged by its user's Tesla spine."
@@ -297,8 +292,6 @@
 
 /obj/item/weldingtool/experimental/tesla_augment/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance <= 0)
-		. -= "It contains [get_fuel()]/[max_fuel] units of fuel."
 	if(distance <= 1)
 		. += "Its capacitor holds [round(get_fuel(), 0.1)]/[max_fuel] units of charge."
 
@@ -838,14 +831,13 @@
 	It operates via an induction charger implanted into the palm of the hand \
 	using power from the Tesla Spine. It is known to cause a tingling sensation in the hand during use."
 	icon_state = "robotanalyzer"
-	action_button_name = "Toggle Charging Lead"
+	action_button_name = "Toggle Mobile Power System"
 	action_button_icon = "augment-tool"
 	organ_tag = BP_AUG_TESLA_CHARGER
 	parent_organ = BP_R_HAND
 	activable = TRUE
 	cooldown = 10
 	var/hand_slot = slot_r_hand
-	/// Matches a basic power outlet's 2500 mW cable rate plus its 200 mW charging bonus.
 	var/charging_load = 2700
 	var/obj/item/charging_target
 	var/obj/item/cell/device/charging_cell
@@ -864,7 +856,7 @@
 
 /obj/item/organ/internal/augment/tesla_device/charging_lead/attack_self(var/mob/user)
 	if(charging_target)
-		stop_charging("You disconnect your charging lead from [charging_target].")
+		stop_charging("You stop charging [charging_target] with your mobile power system.")
 		return TRUE
 	if(!owner)
 		return FALSE
@@ -874,7 +866,7 @@
 		return FALSE
 	var/obj/item/cell/device/cell = target.get_cell()
 	if(!istype(cell))
-		to_chat(owner, SPAN_WARNING("Your charging lead rejects [target]; it only supports modular-computer and device cells."))
+		to_chat(owner, SPAN_WARNING("Your mobile power system rejects [target]; it only supports modular-computer and device cells."))
 		return FALSE
 	if(cell.fully_charged())
 		to_chat(owner, SPAN_NOTICE("[target]'s device cell is already fully charged."))
@@ -885,21 +877,21 @@
 	charging_target = target
 	charging_cell = cell
 	START_PROCESSING(SSprocessing, src)
-	to_chat(owner, SPAN_NOTICE("You connect your charging lead to [charging_target]."))
+	to_chat(owner, SPAN_NOTICE("Your mobile power system begins charging [charging_target]."))
 	playsound(get_turf(owner), 'sound/machines/click.ogg', 20, TRUE)
 	return TRUE
 
 /obj/item/organ/internal/augment/tesla_device/charging_lead/process()
 	if(!owner || QDELETED(charging_target) || QDELETED(charging_cell) || owner.get_equipped_item(hand_slot) != charging_target || charging_target.get_cell() != charging_cell || !has_tesla_power() || is_broken())
-		stop_charging(owner ? "Your charging lead disconnects." : null)
+		stop_charging(owner ? "Your mobile power system stops charging." : null)
 		return PROCESS_KILL
 	if(charging_cell.fully_charged())
-		stop_charging("[charging_target] finishes charging and your charging lead disconnects.")
+		stop_charging("[charging_target] finishes charging and your mobile power system shuts off.")
 		return PROCESS_KILL
 	charging_cell.give(charging_load * CELLRATE)
 	if(charging_cell.fully_charged())
 		playsound(get_turf(owner), 'sound/machines/twobeep.ogg', 20, TRUE)
-		stop_charging("[charging_target] finishes charging and your charging lead disconnects.")
+		stop_charging("[charging_target] finishes charging and your mobile power system shuts off.")
 		return PROCESS_KILL
 
 /obj/item/organ/internal/augment/tesla_device/charging_lead/proc/stop_charging(var/message)
@@ -911,7 +903,7 @@
 
 /obj/item/organ/internal/augment/tesla_device/charging_lead/tesla_power_changed(var/powered)
 	if(!powered && charging_target)
-		stop_charging("Your charging lead loses power and disconnects.")
+		stop_charging("Your mobile power system loses power and shuts off.")
 
 /obj/item/organ/internal/augment/tesla_device/charging_lead/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
