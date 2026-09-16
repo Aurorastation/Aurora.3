@@ -146,8 +146,14 @@
 	//this try to ensure noone is stupid enough to instantiate an abstract type
 	if(is_abstract(src))
 		var/datum/space_level/L = SSmapping.get_level(z)
-		stack_trace("Atom [src] ([type]) \[ X:[x] Y:[y] Z:[z] (Space level: [L ? L.name : "NOT FOUND"]) \] is abstract, but is trying to initialize!")
+		dbg_stack_trace("Atom [src] ([type]) \[ X:[x] Y:[y] Z:[z] (Space level: [L ? L.name : "NOT FOUND"]) \] is abstract, but is trying to initialize!")
 		return INITIALIZE_HINT_QDEL
+
+	// Ensure the atom has an icon file assigned
+	dbg_assert(icon, "[type] has no icon file set.")
+	// Ensure icon_state exists within that icon file
+	dbg_assert(!icon || ((isnull(icon_state) ? "" : icon_state) in icon_states(icon)), \
+		"[type] has invalid icon_state '[icon_state]' in icon '[icon]'.")
 
 	return INITIALIZE_HINT_NORMAL
 
