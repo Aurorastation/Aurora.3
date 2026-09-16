@@ -43,7 +43,6 @@
 
 	var/assigned_role
 	var/special_role
-
 	/// Used in ghostroles to help them recognize their group upon examine.
 	var/recognition_group
 	var/recognition_message
