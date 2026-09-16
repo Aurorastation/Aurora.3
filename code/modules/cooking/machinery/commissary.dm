@@ -82,7 +82,9 @@
 	/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter,
 	/obj/item/storage/box/fancy/toptarts_blueberry,
 	/obj/item/storage/box/unique/donkpockets,
-	/obj/item/storage/box/fancy/yoke
+	/obj/item/storage/box/fancy/yoke,
+	/obj/item/storage/box/fancy/foysnack,
+	/obj/item/storage/box/fancy/readies
 	)
 	display_tiers = 4
 	display_tier_amt = 5
