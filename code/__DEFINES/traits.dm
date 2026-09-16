@@ -180,7 +180,10 @@
 /// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
 #define TRAIT_SHOE_GRIP "shoe_grip"
 
-/// Active Tesla circulatory drivers modestly reduce stamina expenditure.
+/// Tesla traction assistance prevents ordinary slips with less slowdown than magnetic anchoring.
+#define TRAIT_TESLA_TRACTION_ASSIST "tesla_traction_assist"
+
+/// Active Tesla circulatory pumps modestly reduce stamina expenditure.
 #define TRAIT_TESLA_CIRCULATORY_DRIVER "tesla_circulatory_driver"
 
 /// Trait is added from a species verb.

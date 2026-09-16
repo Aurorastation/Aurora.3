@@ -40,63 +40,79 @@
 // Integrated traction pads
 
 /obj/item/organ/internal/augment/tesla_device/traction
-	name = "tesla traction pads"
-	desc = "Electromagnetic pads fitted beneath the feet. When active, they provide the grip of magnetic boots at the cost of slower movement."
+	name = "transdermal magnetic pads"
+	desc = "A Tesla augment developed for Kosmostrelki and other void-based workers who require safety while performing \
+	extravehicular activities. A set of pads are grafted onto the foot or attached to the base of a prosthetic. \
+	These pads, when energized, are capable of increasing traction or magnetizing. The pads are controlled from a \
+	Tesla spine which provides the control logic necessary for walking and other maneuvers."
 	icon_state = "suspension"
-	action_button_name = "Toggle Traction Pads"
+	action_button_name = "Cycle Magnetic Pads"
 	action_button_icon = "magclaws"
 	organ_tag = BP_AUG_TESLA_TRACTION
 	parent_organ = BP_R_FOOT
 	activable = TRUE
 	cooldown = 10
-	var/active = FALSE
+	var/mode = 0 // 0 off, 1 assisted traction, 2 magnetic anchoring
 
 /obj/item/organ/internal/augment/tesla_device/traction/attack_self(var/mob/user)
 	. = ..()
 	if(!.)
 		return FALSE
-	set_active(!active)
+	set_mode((mode + 1) % 3)
 
-/obj/item/organ/internal/augment/tesla_device/traction/proc/set_active(var/new_active)
+/obj/item/organ/internal/augment/tesla_device/traction/proc/set_mode(var/new_mode)
 	if(!owner)
-		active = FALSE
+		mode = 0
 		return
-	active = new_active && has_tesla_power()
-	if(active)
-		ADD_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
-		to_chat(owner, SPAN_NOTICE("You activate your Tesla traction pads."))
-		playsound(get_turf(owner), 'sound/effects/magnetclamp.ogg', 20)
-	else
-		REMOVE_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
-		to_chat(owner, SPAN_NOTICE("You deactivate your Tesla traction pads."))
+	REMOVE_TRAIT(owner, TRAIT_TESLA_TRACTION_ASSIST, TRAIT_SOURCE_AUGMENT)
+	REMOVE_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
+	mode = has_tesla_power() ? new_mode : 0
+	switch(mode)
+		if(1)
+			ADD_TRAIT(owner, TRAIT_TESLA_TRACTION_ASSIST, TRAIT_SOURCE_AUGMENT)
+			to_chat(owner, SPAN_NOTICE("You set your transdermal magnetic pads to assisted traction."))
+			playsound(get_turf(owner), 'sound/effects/magnetclamp.ogg', 15)
+		if(2)
+			ADD_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
+			to_chat(owner, SPAN_NOTICE("You fully magnetize your transdermal magnetic pads."))
+			playsound(get_turf(owner), 'sound/effects/magnetclamp.ogg', 20)
+		else
+			to_chat(owner, SPAN_NOTICE("You switch off your transdermal magnetic pads."))
 
 /obj/item/organ/internal/augment/tesla_device/traction/tesla_power_changed(var/powered)
-	if(!powered && active)
-		set_active(FALSE)
+	if(!powered && mode)
+		set_mode(0)
 
 /obj/item/organ/internal/augment/tesla_device/traction/removed()
 	if(owner)
+		REMOVE_TRAIT(owner, TRAIT_TESLA_TRACTION_ASSIST, TRAIT_SOURCE_AUGMENT)
 		REMOVE_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
 	return ..()
 
 /obj/item/organ/internal/augment/tesla_device/traction/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
-		. += "Its magnetic traction system is [active ? "active" : "inactive"]."
+		. += "Its magnetic traction system is [mode == 2 ? "fully magnetized" : (mode == 1 ? "providing assisted traction" : "inactive")]."
 
 // Spine-powered internal computer
 
 /obj/item/organ/internal/augment/tesla_device/pda
-	name = "tesla internal computer"
-	desc = "A basic modular computer integrated into the forearm and powered by a Tesla spine."
+	name = "transdermal computer"
+	desc = "A prototype Tesla augment developed for use in mobile jobs where reliable access to a computational device is needed. \
+	A computer screen is grafted onto the arm, either on top of or within the skin, or onto a designated location on a prosthetic. \
+	Most of the processing occurs in the Tesla spine. The screen is a configurable touchscreen. \
+	The transdermal computer has mediocre thermal dissipation, causing the arm to remain warmer than the rest of the body."
 	icon_state = "augment-pda"
-	action_button_name = "Access Internal Computer"
+	action_button_name = "Access Transdermal Computer"
 	action_button_icon = "augment-pda"
 	organ_tag = BP_AUG_TESLA_PDA
 	parent_organ = BP_R_ARM
 	activable = TRUE
 	cooldown = 10
 	var/obj/item/modular_computer/handheld/pda/tesla_internal/internal_pda
+
+/obj/item/organ/internal/augment/tesla_device/pda/left
+	parent_organ = BP_L_ARM
 
 /obj/item/organ/internal/augment/tesla_device/pda/Initialize()
 	. = ..()
@@ -123,9 +139,14 @@
 	if(istype(pda_cell) && pda_cell.charge < pda_cell.maxcharge)
 		pda_cell.give(max(1, pda_cell.maxcharge * 0.02))
 
+/obj/item/organ/internal/augment/tesla_device/pda/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "The skin around its screen is noticeably warmer than the surrounding arm."
+
 /obj/item/modular_computer/handheld/pda/tesla_internal
-	name = "tesla internal computer"
-	desc = "A basic internal computer drawing its power from a Tesla spine."
+	name = "transdermal computer"
+	desc = "A configurable implanted computer whose buffer cell is kept charged by its user's Tesla spine."
 	enrolled = DEVICE_UNSET
 	_app_preset_type = null
 
@@ -137,14 +158,18 @@
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
 	if(istype(access_point) && access_point.owner == user && !access_point.is_broken() && access_point.has_tesla_power())
 		return UI_INTERACTIVE
-	to_chat(user, SPAN_WARNING("Your internal computer is not receiving power from your Tesla spine."))
+	to_chat(user, SPAN_WARNING("Your transdermal computer is not receiving power from your Tesla spine."))
 	return UI_CLOSE
 
 // Tesla voice box
 
 /obj/item/organ/internal/augment/synthetic_cords/voice/tesla
 	name = "tesla voice box"
-	desc = "An Elektroika voice box powered by a Tesla spine. It produces the flat Elektro'Siik accent and can briefly amplify its user's voice."
+	desc = "A Tesla augment initially developed for use in new Hadiist robotics. \
+	The design uses arc discharges within a contained, sterile device implanted into the throat. \
+	By modulating the incoming Tesla power, the device produces speech. \
+	The voice produced by the box can be unsettling and is capable of great volume. \
+	Following the loss of a notable party member's voice, the augment was adapted for medical applications."
 	accent = ACCENT_ELEKTRO_SIIK
 	action_button_name = "Use Voice Amplifier"
 	action_button_icon = "augment"
@@ -158,7 +183,7 @@
 		return FALSE
 	var/obj/item/organ/internal/augment/tesla/spine = get_tesla_spine(owner)
 	if(!spine || spine.is_broken())
-		to_chat(owner, SPAN_WARNING("Your voice amplifier cannot draw power from a functioning Tesla spine!"))
+		to_chat(owner, SPAN_WARNING("Your voice box cannot draw power from a functioning Tesla spine!"))
 		return FALSE
 	if(spine.is_bruised() && prob(50))
 		to_chat(owner, SPAN_WARNING("Your damaged Tesla spine produces only a burst of static!"))
@@ -210,7 +235,11 @@
 
 /obj/item/organ/internal/augment/tool/tesla/arc_welder
 	name = "tesla arc welder"
-	desc = "A retractable electrical arc welder with a Tesla-powered capacitor patterned after an experimental self-replenishing welder."
+	desc = "Developed and provided primarily to engineers and technicians, \
+	the Tesla Arc Welder leverages the capabilities of the Tesla Spine to generate the power needed for stick welding. \
+	The welding tip is typically installed into the prosthetic finger, \
+	or implanted into an organic finger alongside subdermal sheets for heat and spatter protection. \
+	This tip requires frequent replacement as the material is used during welding."
 	icon_state = "lighter-aug"
 	action_button_name = "Deploy Arc Welder"
 	action_button_icon = "lighter-aug"
@@ -251,7 +280,11 @@
 
 /obj/item/weldingtool/experimental/tesla_augment
 	name = "tesla arc welder"
-	desc = "An electrical arc welder powered by a slowly regenerating internal capacitor. Its charge cannot be replenished from an external fuel source."
+	desc = "Developed and provided primarily to engineers and technicians, \
+	the Tesla Arc Welder leverages the capabilities of the Tesla Spine to generate the power needed for stick welding. \
+	The welding tip is typically installed into the prosthetic finger, \
+	or implanted into an organic finger alongside subdermal sheets for heat and spatter protection. \
+	This tip requires frequent replacement as the material is used during welding."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "lighter-aug"
 	item_state = "lighter-aug"
@@ -366,7 +399,8 @@
 
 /obj/item/organ/internal/augment/tool/tesla/lighter
 	name = "tesla arc lighter"
-	desc = "A retractable electrode which produces a small ignition arc without maintaining an open flame."
+	desc = "Originally a Party-exclusive augment, the Tesla arc lighter is a relatively simple augment implanted into the finger. \
+	When activated, it produces an arc across the tip of the finger."
 	icon_state = "lighter-aug"
 	action_button_name = "Deploy Arc Lighter"
 	action_button_icon = "lighter-aug"
@@ -380,7 +414,8 @@
 
 /obj/item/tesla_arc_lighter
 	name = "tesla arc lighter"
-	desc = "A pair of retractable electrodes producing a momentary ignition arc. It has no persistent flame and does not radiate enough heat to ignite the surrounding atmosphere."
+	desc = "Originally a Party-exclusive augment, the Tesla arc lighter is a relatively simple augment implanted into the finger. \
+	When activated, it produces an arc across the tip of the finger."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "lighter-aug"
 	item_state = "lighter-aug"
@@ -405,15 +440,27 @@
 // Mutually-exclusive oxygenation systems
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation
-	name = "tesla oxygenation system"
-	desc = "An Elektroika system which assists the wearer's respiratory or circulatory system."
+	name = "tesla subdermal rebreather"
+	desc = "Embodying the cutting edge of Tesla research, the subdermal rebreather is an augment implanted within the upper chest. \
+	During an exhale, it filters the breath and redirects oxygen back into the lungs. \
+	It features an internal mechanism to speed this process up utilizing Tesla power. \
+	Additionally, it stores a small amount of concentrated oxygen for emergency release during extended periods of physical exertion or life-critical moments. \
+	Those implanted with the rebreather report feeling and hearing a humming while breathing."
 	icon_state = "boosted_heart"
 	organ_tag = BP_AUG_TESLA_OXYGEN
 	parent_organ = BP_CHEST
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
-	name = "tesla oxygen recycler"
-	desc = "A low-power blood oxygenation system which partially counters mild oxygen deprivation. It cannot compensate for severe blood loss."
+	name = "tesla subdermal rebreather"
+	desc = "Embodying the cutting edge of Tesla research, the subdermal rebreather is an augment implanted within the upper chest. \
+	During an exhale, it filters the breath and redirects oxygen back into the lungs. \
+	It features an internal mechanism to speed this process up utilizing Tesla power. \
+	Additionally, it stores a small amount of concentrated oxygen for emergency release during extended periods of physical exertion or life-critical moments. \
+	Those implanted with the rebreather report feeling and hearing a humming while breathing."
+	var/reserve_seconds = 30
+	var/max_reserve_seconds = 30
+	var/reserve_active = FALSE
+	var/reserve_refill_rate = 0.25
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/Initialize()
 	. = ..()
@@ -429,15 +476,50 @@
 		UnregisterSignal(owner, COMSIG_BLOOD_OXYGENATION_EVENT)
 	return ..()
 
+/obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/process_initialize()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/process(seconds_per_tick)
+	if(!owner || !has_tesla_power())
+		reserve_active = FALSE
+		return
+	var/seconds_elapsed = seconds_per_tick / 10
+	var/needs_reserve = owner.failed_last_breath || owner.getOxyLoss() >= 20
+	if(needs_reserve && reserve_seconds > 0)
+		if(!reserve_active)
+			reserve_active = TRUE
+			to_chat(owner, SPAN_NOTICE("Your subdermal rebreather releases its emergency oxygen reserve."))
+		reserve_seconds = max(0, reserve_seconds - seconds_elapsed)
+		if(!reserve_seconds)
+			reserve_active = FALSE
+			to_chat(owner, SPAN_WARNING("Your subdermal rebreather's emergency oxygen reserve is exhausted."))
+	else
+		reserve_active = FALSE
+		if(!owner.failed_last_breath && owner.losebreath <= 0 && owner.getOxyLoss() < 20)
+			reserve_seconds = min(max_reserve_seconds, reserve_seconds + (reserve_refill_rate * seconds_elapsed))
+
 /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/proc/assist_oxygenation(implantee, blood_volume, blood_volume_mod, oxygenated_add)
 	SIGNAL_HANDLER
-	if(has_tesla_power() && *blood_volume >= BLOOD_VOLUME_BAD)
-		*oxygenated_add += 0.25
+	if(!has_tesla_power() || *blood_volume < BLOOD_VOLUME_BAD)
+		return
+	*oxygenated_add += reserve_active ? 0.5 : 0.25
+
+/obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "Its emergency oxygen reserve is at [round((reserve_seconds / max_reserve_seconds) * 100)]%."
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver
-	name = "tesla circulatory driver"
-	desc = "An activated circulatory stimulator which briefly reduces stamina expenditure before entering a long safety cooldown."
-	action_button_name = "Activate Circulatory Driver"
+	name = "tesla circulatory enhancement pump"
+	desc = "Created in lieu with the subdermal rebreather, the circulatory enhancement pump is an augment implanted within the chest. \
+	During long periods of physical exertion, it boosts blood circulation. \
+	Those new to having the augment often report feelings of nausea after the pump shuts off, \
+	however this typically stops occurring after a few months."
+	action_button_name = "Activate Circulatory Pump"
 	action_button_icon = "augment"
 	activable = TRUE
 	cooldown = 10
@@ -446,7 +528,7 @@
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/attack_self(var/mob/user)
 	if(world.time < next_activation)
-		to_chat(owner, SPAN_WARNING("Your circulatory driver's safety cycle has [round((next_activation - world.time) / 10)] seconds remaining."))
+		to_chat(owner, SPAN_WARNING("Your circulatory pump's safety cycle has [round((next_activation - world.time) / 10)] seconds remaining."))
 		return FALSE
 	. = ..()
 	if(!.)
@@ -454,13 +536,13 @@
 	active = TRUE
 	next_activation = world.time + 5 MINUTES
 	ADD_TRAIT(owner, TRAIT_TESLA_CIRCULATORY_DRIVER, TRAIT_SOURCE_AUGMENT)
-	to_chat(owner, SPAN_NOTICE("Your circulatory driver begins assisting your heart and lungs."))
+	to_chat(owner, SPAN_NOTICE("Your circulatory pump begins boosting your blood flow."))
 	addtimer(CALLBACK(src, PROC_REF(deactivate)), 30 SECONDS)
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/proc/deactivate()
 	if(owner && active)
 		REMOVE_TRAIT(owner, TRAIT_TESLA_CIRCULATORY_DRIVER, TRAIT_SOURCE_AUGMENT)
-		to_chat(owner, SPAN_NOTICE("Your circulatory driver winds down."))
+		to_chat(owner, SPAN_NOTICE("Your circulatory pump winds down, leaving you briefly nauseated and light-headed."))
 	active = FALSE
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/tesla_power_changed(var/powered)
@@ -471,35 +553,29 @@
 	deactivate()
 	return ..()
 
-// Arm- and palm-mounted worklights
+// Ocular worklight
 
 /obj/item/organ/internal/augment/tesla_device/worklight
-	name = "tesla worklight"
-	desc = "A compact worklight mounted in a Tesla prosthesis and powered by its spine."
+	name = "ocular arc-light worklight"
+	desc = "Developed to assist electrical workers, paramedics, \
+	and other trades where visibility in low-light environments is required \
+	alongside the complete color vision lost when using natural Tajaran dark vision. \
+	By utilizing a controlled electric arc within devices implanted next to the eye, \
+	light can be cast in whichever direction the user is looking. \
+	The implant is known to cause the sensation of heat behind the eyes, \
+	and may be painful for other individuals to look at directly."
 	icon_state = "sightlights"
 	light_system = DIRECTIONAL_LIGHT
-	action_button_name = "Toggle Tesla Worklight"
+	action_button_name = "Toggle Ocular Arc-Light"
 	action_button_icon = "sightlights"
 	organ_tag = BP_AUG_TESLA_LIGHT
-	parent_organ = BP_R_ARM
+	parent_organ = BP_HEAD
 	activable = TRUE
 	cooldown = 10
 	var/lights_on = FALSE
 	var/lights_color = LIGHT_COLOR_TUNGSTEN
 	var/lights_range = 3
 	var/lights_intensity = 0.6
-
-/obj/item/organ/internal/augment/tesla_device/worklight/shoulder_left
-	name = "left shoulder tesla worklight"
-	parent_organ = BP_L_ARM
-
-/obj/item/organ/internal/augment/tesla_device/worklight/palm_right
-	name = "right palm tesla worklight"
-	parent_organ = BP_R_HAND
-
-/obj/item/organ/internal/augment/tesla_device/worklight/palm_left
-	name = "left palm tesla worklight"
-	parent_organ = BP_L_HAND
 
 /obj/item/organ/internal/augment/tesla_device/worklight/attack_self(var/mob/user)
 	. = ..()
@@ -515,7 +591,7 @@
 	else
 		set_light_on(FALSE)
 	if(owner)
-		to_chat(owner, SPAN_NOTICE("You switch your Tesla worklight [lights_on ? "on" : "off"]."))
+		to_chat(owner, SPAN_NOTICE("You switch your ocular arc-light [lights_on ? "on" : "off"]."))
 	return lights_on
 
 /obj/item/organ/internal/augment/tesla_device/worklight/tesla_power_changed(var/powered)
@@ -542,11 +618,15 @@
 	if(lights_on)
 		set_worklight(FALSE)
 
-// One-shot cardiac restart system, re-primed by an absorbed spine charge
+// Automatic cardiac restart system with a passive recharge cycle
 
 /obj/item/organ/internal/augment/tesla_device/cardiac
-	name = "tesla emergency cardiac driver"
-	desc = "An automatic cardiac driver which makes one attempt to restart a stopped heart. Once fired, it must consume an electrical charge absorbed by the Tesla spine before it can work again."
+	name = "tesla emergency resuscitation apparatus"
+	desc = "An integral automatic defibrillator attached to the heart. \
+	Sensors within the Tesla spine and augment monitor vital signs for life-threatening events. \
+	When the heart is about to stop, or has stopped, the augment applies a shock. \
+	Due to the constant power provided by the spine regardless of individual health, \
+	the augment can continue working briefly after clinical death. Once discharged, it takes ten minutes to rearm."
 	icon_state = "boosted_heart"
 	organ_tag = BP_AUG_TESLA_CARDIAC
 	parent_organ = BP_CHEST
@@ -554,6 +634,7 @@
 	var/restart_pending = FALSE
 	var/restart_delay = 5 SECONDS
 	var/restart_generation = 0
+	var/rearm_at = 0
 
 /obj/item/organ/internal/augment/tesla_device/cardiac/Initialize()
 	. = ..()
@@ -579,53 +660,77 @@
 	return ..()
 
 /obj/item/organ/internal/augment/tesla_device/cardiac/process()
-	if(primed || !owner || !has_tesla_power())
+	if(!owner || !has_tesla_power())
 		return
-	var/obj/item/organ/internal/augment/tesla/spine = get_spine()
-	if(spine.actual_charges > 0)
-		spine.actual_charges--
+	if(!primed && rearm_at && world.time >= rearm_at)
 		primed = TRUE
-		to_chat(owner, SPAN_NOTICE("Your cardiac driver's capacitor draws an absorbed charge from your Tesla spine and re-primes."))
+		rearm_at = 0
+		to_chat(owner, SPAN_NOTICE("Your emergency resuscitation apparatus finishes rearming."))
+	if(!primed || restart_pending)
+		return
+	var/obj/item/organ/internal/heart/heart = owner.internal_organs_by_name[BP_HEART]
+	if(owner.stat != DEAD && istype(heart) && heart.pulse == PULSE_NONE)
+		begin_restart(heart)
 
 /obj/item/organ/internal/augment/tesla_device/cardiac/proc/handle_cardiac_event(implantee, obj/item/organ/internal/heart/heart, blood_volume, recent_pump, pulse_mod, min_efficiency)
 	SIGNAL_HANDLER
-	if(!primed || restart_pending || is_broken() || !has_tesla_power() || !heart || heart.pulse != PULSE_NONE || owner.stat == DEAD)
+	if(!primed || restart_pending || is_broken() || !has_tesla_power() || !heart || heart.pulse != PULSE_NONE)
 		return
+	begin_restart(heart)
+
+/obj/item/organ/internal/augment/tesla_device/cardiac/proc/begin_restart(var/obj/item/organ/internal/heart/heart)
+	if(!primed || restart_pending || !owner || !heart || heart.pulse != PULSE_NONE)
+		return FALSE
 	restart_pending = TRUE
 	restart_generation++
-	to_chat(owner, SPAN_DANGER("Your emergency cardiac driver detects asystole and begins charging!"))
+	to_chat(owner, SPAN_DANGER("Your emergency resuscitation apparatus detects asystole and begins charging!"))
 	playsound(get_turf(owner), 'sound/machines/defib_charge.ogg', 35, FALSE)
 	addtimer(CALLBACK(src, PROC_REF(attempt_restart), restart_generation), restart_delay)
+	return TRUE
 
 /obj/item/organ/internal/augment/tesla_device/cardiac/proc/attempt_restart(var/expected_generation)
 	if(expected_generation != restart_generation)
 		return FALSE
 	restart_pending = FALSE
-	if(!primed || !owner || owner.stat == DEAD || is_broken() || !has_tesla_power() || !owner.should_have_organ(BP_HEART))
+	if(!primed || !owner || is_broken() || !has_tesla_power() || !owner.should_have_organ(BP_HEART))
 		return FALSE
 	var/obj/item/organ/internal/heart/heart = owner.internal_organs_by_name[BP_HEART]
 	if(!istype(heart) || (heart.status & ORGAN_DEAD) || !owner.is_asystole())
 		return FALSE
+	if(owner.should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain = owner.internal_organs_by_name[BP_BRAIN]
+		if(!brain || (brain.status & ORGAN_DEAD) || owner.nervous_system_failure())
+			return FALSE
 	primed = FALSE
-	owner.visible_message(SPAN_DANGER("[owner]'s Tesla spine discharges with a sharp crack!"), SPAN_DANGER("Your emergency cardiac driver shocks your stopped heart!"))
+	rearm_at = world.time + 10 MINUTES
+	owner.visible_message(SPAN_DANGER("[owner]'s Tesla spine discharges with a sharp crack!"), SPAN_DANGER("Your emergency resuscitation apparatus shocks your stopped heart!"))
 	playsound(get_turf(owner), 'sound/machines/defib_zap.ogg', 60, TRUE)
+	var/was_dead = owner.stat == DEAD
+	if(was_dead)
+		owner.basic_revival(FALSE)
 	if(!owner.resuscitate())
-		primed = TRUE
 		return FALSE
+	if(was_dead)
+		owner.reload_fullscreen()
+	to_chat(owner, SPAN_DANGER("Agonizing pain tears through your chest as the apparatus discharges."))
 	return TRUE
 
 /obj/item/organ/internal/augment/tesla_device/cardiac/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
-		. += "Its restart capacitor is [restart_pending ? "charging for a restart" : (primed ? "primed" : "spent and awaiting an absorbed spine charge")]."
+		. += "Its restart capacitor is [restart_pending ? "charging for a restart" : (primed ? "primed" : "spent and rearming; [max(0, round((rearm_at - world.time) / 10))] seconds remain")]."
 
 // Personal prosthetic diagnostic panel and maintenance annunciator
 
 /obj/item/organ/internal/augment/tesla_device/diagnostic
-	name = "tesla personal diagnostic panel"
-	desc = "A self-diagnostic panel based on a robotic analyzer. It reports prosthetic condition, Tesla spine status, and warns its user when connected Tesla hardware deteriorates."
+	name = "transdermal tesla diagnostic panel"
+	desc = "A Tesla augment similar to the transdermal computer. \
+	A small screen is grafted into the skin or replacing a prosthetic panel alongside a probe and connector. \
+	This probe may be used to scan prosthetics and augments to ascertain their current state. \
+	Despite originally being developed for Tesla prosthetics, collaboration with \
+	Hephaestus Industries has allowed the augment to scan most prosthetics used across the Spur."
 	icon_state = "robotanalyzer"
-	action_button_name = "Run Tesla Diagnostics"
+	action_button_name = "Deploy Diagnostic Probe"
 	action_button_icon = "augment-tool"
 	organ_tag = BP_AUG_TESLA_DIAGNOSTIC
 	parent_organ = BP_CHEST
@@ -638,40 +743,72 @@
 
 /obj/item/organ/internal/augment/tesla_device/diagnostic/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	retract_probe()
 	return ..()
+
+/obj/item/organ/internal/augment/tesla_device/diagnostic/removed()
+	retract_probe()
+	return ..()
+
+/obj/item/organ/internal/augment/tesla_device/diagnostic/proc/retract_probe()
+	if(!owner)
+		return
+	var/obj/item/robotanalyzer/augment/tesla/probe = locate() in owner
+	if(probe?.source_augment == src)
+		owner.drop_from_inventory(probe)
 
 /obj/item/organ/internal/augment/tesla_device/diagnostic/attack_self(var/mob/user)
 	. = ..()
 	if(!.)
 		return FALSE
-	var/obj/item/organ/internal/augment/tesla/spine = get_spine()
-	var/list/report = list(
-		SPAN_NOTICE("<b>Tesla Personal Diagnostic</b>"),
-		"<b>Power system</b>",
-		"Tesla spine: [spine.is_broken() ? SPAN_DANGER("nonfunctional") : (spine.is_bruised() ? SPAN_WARNING("damaged") : SPAN_GOOD("operational"))]",
-		"Absorbed charge: [spine.actual_charges]/[spine.max_charges]",
-		"<hr><b>Tesla prosthetics</b>"
+	var/obj/item/robotanalyzer/augment/tesla/deployed = locate() in owner
+	if(deployed?.source_augment == src)
+		owner.drop_from_inventory(deployed)
+		owner.visible_message(
+			SPAN_NOTICE("The diagnostic probe retracts into [owner]'s [src]."),
+			SPAN_NOTICE("You retract your diagnostic probe.")
+		)
+		return TRUE
+
+	var/obj/item/robotanalyzer/augment/tesla/probe = new(owner)
+	probe.source_augment = src
+	probe.canremove = FALSE
+	if(!owner.put_in_hands(probe))
+		to_chat(owner, SPAN_WARNING("You need an empty hand to deploy your diagnostic probe."))
+		return FALSE
+	probe.item_flags |= ITEM_FLAG_NO_MOVE
+	owner.visible_message(
+		SPAN_NOTICE("A diagnostic probe extends from [owner]'s [src]."),
+		SPAN_NOTICE("You deploy your diagnostic probe.")
 	)
-	var/found_prosthetic = FALSE
-	for(var/obj/item/organ/external/E in owner.organs)
-		var/datum/robolimb/R = GLOB.all_robolimbs[E.model]
-		if(!R?.is_tesla)
-			continue
-		found_prosthetic = TRUE
-		report += "[capitalize(E.name)]: <span class='warning'>[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(E))] wiring</span>, <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(E))] electronics</font>"
-	if(!found_prosthetic)
-		report += SPAN_NOTICE("No Tesla prosthetics detected.")
-	report += "<hr><b>Connected Tesla augments</b>"
-	var/found_augment = FALSE
-	for(var/obj/item/organ/internal/augment/A in owner.internal_organs)
-		if(A == spine || !hascall(A, "tesla_power_changed"))
-			continue
-		found_augment = TRUE
-		report += "[capitalize(A.name)]: [A.is_broken() ? SPAN_DANGER("nonfunctional") : (A.is_bruised() ? SPAN_WARNING("damaged") : SPAN_GOOD("operational"))]"
-	if(!found_augment)
-		report += SPAN_NOTICE("No additional Tesla augments detected.")
-	to_chat(owner, report.Join("<br>"))
 	return TRUE
+
+/obj/item/organ/internal/augment/tesla_device/diagnostic/tesla_power_changed(var/powered)
+	if(powered || !owner)
+		return
+	retract_probe()
+
+/obj/item/robotanalyzer/augment/tesla
+	name = "Tesla diagnostic probe"
+	desc = "A retractable probe connected to a transdermal Tesla diagnostic panel. It can diagnose robots, prosthetics, and Tesla systems."
+	analyzer_component_type = /datum/component/robotics_analyzer/tesla
+	var/obj/item/organ/internal/augment/tesla_device/diagnostic/source_augment
+
+/obj/item/robotanalyzer/augment/tesla/proc/has_tesla_power(mob/living/user)
+	if(!source_augment || QDELETED(source_augment) || source_augment.owner != user || !source_augment.has_tesla_power())
+		to_chat(user, SPAN_WARNING("Your diagnostic probe cannot draw power from a functioning Tesla spine!"))
+		return FALSE
+	return TRUE
+
+/obj/item/robotanalyzer/augment/tesla/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(!has_tesla_power(user))
+		return
+	return ..()
+
+/obj/item/robotanalyzer/augment/tesla/attack_self(mob/user)
+	if(!has_tesla_power(user))
+		return
+	return ..()
 
 /obj/item/organ/internal/augment/tesla_device/diagnostic/process()
 	if(!owner || !has_tesla_power())
@@ -694,8 +831,12 @@
 // Low-power in-hand device-cell charger
 
 /obj/item/organ/internal/augment/tesla_device/charging_lead
-	name = "tesla low-power charging lead"
-	desc = "An integrated low-current lead which charges a compatible device held in its hand. Its controller refuses to charge full-sized power cells."
+	name = "tesla mobile power system"
+	desc = "The Tesla Mobile Power System (TeMPS) was originally developed for field technicians \
+	as a theoretical method to power hand tools without the need for batteries. \
+	Despite not being powerful enough for all but small tools, the augment is popular among technicians. \
+	It operates via an induction charger implanted into the palm of the hand \
+	using power from the Tesla Spine. It is known to cause a tingling sensation in the hand during use."
 	icon_state = "robotanalyzer"
 	action_button_name = "Toggle Charging Lead"
 	action_button_icon = "augment-tool"
@@ -784,7 +925,10 @@
 
 /obj/item/organ/internal/augment/tesla_device/thermal
 	name = "tesla thermal coils"
-	desc = "Switchable heating and cooling coils comparable to a wearable heat or cold pack. They provide comfort rather than environmental protection."
+	desc = "A Tesla augment consisting of a series of coils implanted across the body and linked to the Tesla spine. \
+	This attachment is capable of enhancing body temperature regulation, \
+	or actively cooling or heating the body internally. \
+	Originally developed for Hadiist troopers, the augment became popular with offworld Hadiist citizens for its cooling function."
 	icon_state = "augment"
 	action_button_name = "Switch Thermal Coils"
 	action_button_icon = "augment"

@@ -729,26 +729,33 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 		return "You cannot spawn with [display_name] without also selecting a tesla spine!"
 
 /datum/gear/augment/tesla_accessory/traction
-	display_name = "tesla traction pads"
-	description = "Integrated magnetic traction pads powered by a Tesla spine. They provide magboot-like grip with a movement penalty while active."
+	display_name = "transdermal magnetic pads"
+	description = "Tesla-powered foot pads with assisted-traction and fully magnetized modes. Assisted traction prevents slipping with half the movement penalty of full magnetic anchoring."
 	path = /obj/item/organ/internal/augment/tesla_device/traction
 	cost = 3
 
 /datum/gear/augment/tesla_accessory/pda
-	display_name = "tesla internal computer"
-	description = "A basic forearm-mounted modular computer powered and slowly recharged by a Tesla spine. It starts unenrolled so its owner can choose a software pack and whether to make it private."
+	display_name = "transdermal computer selection"
+	description = "A configurable arm-mounted computer primarily processed and powered by a Tesla spine. Its screen runs warm and starts unenrolled."
 	path = /obj/item/organ/internal/augment/tesla_device/pda
 	cost = 1
 
+/datum/gear/augment/tesla_accessory/pda/New()
+	..()
+	var/list/augs = list()
+	augs["transdermal computer, right arm"] = /obj/item/organ/internal/augment/tesla_device/pda
+	augs["transdermal computer, left arm"] = /obj/item/organ/internal/augment/tesla_device/pda/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
 /datum/gear/augment/tesla_accessory/voice
 	display_name = "tesla voice box"
-	description = "A Tesla-powered voice box which forces the Elektro'Siik accent and provides a cooldown-limited voice amplifier."
+	description = "An implanted arc-discharge voice box which produces the Elektro'Siik accent and can temporarily overdrive its volume."
 	path = /obj/item/organ/internal/augment/synthetic_cords/voice/tesla
 	cost = 1
 
 /datum/gear/augment/tesla_accessory/welder
 	display_name = "tesla arc welder selection"
-	description = "A retractable arc welder powered by a slowly regenerating electrical capacitor. It cannot be refilled externally."
+	description = "A finger-mounted stick welder powered by a slowly regenerating Tesla capacitor. Its electrode tip requires regular maintenance."
 	path = /obj/item/organ/internal/augment/tool/tesla/arc_welder
 	cost = 3
 
@@ -761,7 +768,7 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 
 /datum/gear/augment/tesla_accessory/lighter
 	display_name = "tesla arc lighter selection"
-	description = "A retractable ignition electrode. Its momentary arc can light objects or give a harmless sting, but creates no persistent flame or atmospheric ignition source."
+	description = "A finger-mounted electrode which produces a momentary ignition arc or harmless electrical sting without maintaining an open flame."
 	path = /obj/item/organ/internal/augment/tool/tesla/lighter
 	cost = 1
 
@@ -773,42 +780,33 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/tesla_accessory/oxygenation
-	display_name = "tesla oxygenation system selection"
-	description = "A selection of mutually-exclusive Tesla-powered respiratory and circulatory support systems."
+	display_name = "tesla cardiopulmonary augment selection"
+	description = "A choice between a subdermal oxygen-recycling system with a limited emergency reserve and a short-duration circulatory enhancement pump."
 	path = /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
 	cost = 2
 
 /datum/gear/augment/tesla_accessory/oxygenation/New()
 	..()
 	var/list/augs = list()
-	augs["tesla oxygen recycler"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
-	augs["tesla circulatory driver"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/driver
+	augs["tesla subdermal rebreather"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
+	augs["tesla circulatory enhancement pump"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/driver
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/tesla_accessory/worklight
-	display_name = "tesla worklight selection"
-	description = "A Tesla-powered worklight mounted in a shoulder or palm."
+	display_name = "ocular arc-light worklight"
+	description = "A weak, forward-facing worklight produced by a controlled electrical arc implanted beside the eye."
 	path = /obj/item/organ/internal/augment/tesla_device/worklight
 	cost = 2
 
-/datum/gear/augment/tesla_accessory/worklight/New()
-	..()
-	var/list/augs = list()
-	augs["tesla worklight, right shoulder"] = /obj/item/organ/internal/augment/tesla_device/worklight
-	augs["tesla worklight, left shoulder"] = /obj/item/organ/internal/augment/tesla_device/worklight/shoulder_left
-	augs["tesla worklight, right palm"] = /obj/item/organ/internal/augment/tesla_device/worklight/palm_right
-	augs["tesla worklight, left palm"] = /obj/item/organ/internal/augment/tesla_device/worklight/palm_left
-	gear_tweaks += new /datum/gear_tweak/path(augs)
-
 /datum/gear/augment/tesla_accessory/cardiac
-	display_name = "tesla emergency cardiac driver"
-	description = "Makes one automatic attempt to restart a stopped heart. After firing, it must consume an electrical charge absorbed by the Tesla spine to re-prime."
+	display_name = "tesla emergency resuscitation apparatus"
+	description = "An automatic internal defibrillator which can restart an intact stopped heart, including briefly after clinical death. It takes ten minutes to rearm after discharging."
 	path = /obj/item/organ/internal/augment/tesla_device/cardiac
 	cost = 2
 
 /datum/gear/augment/tesla_accessory/diagnostic
-	display_name = "tesla personal diagnostic panel"
-	description = "A Tesla-only status panel which reports spine power, Tesla prosthetic damage, and connected augment condition, and automatically announces new maintenance faults."
+	display_name = "transdermal tesla diagnostic panel"
+	description = "An implanted diagnostic panel with a retractable hand-held probe. It displays scans of robots, prosthetics, and Tesla hardware through an integrated interface and includes an automatic maintenance annunciator."
 	path = /obj/item/organ/internal/augment/tesla_device/diagnostic
 	cost = 2
 
@@ -827,7 +825,7 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 
 /datum/gear/augment/tesla_accessory/thermal
 	display_name = "tesla thermal coils"
-	description = "Switchable warming and cooling coils with effects comparable to wearable heat and cold packs."
+	description = "Tesla-powered coils implanted across the body which can be switched between warming, cooling, and inactive modes."
 	path = /obj/item/organ/internal/augment/tesla_device/thermal
 	cost = 1
 
