@@ -71,8 +71,8 @@
 /obj/item/ammo_casing/c9mm/rubber
 	desc = "A 9mm rubber bullet casing."
 	projectile_type = /obj/projectile/bullet/pistol/rubber
-	icon_state = "r-casing"
-	spent_icon = "r-casing-spent"
+	icon_state = "rubber_pistol_casing"
+	spent_icon = "rubber_pistol_casing_spent"
 
 /obj/item/ammo_casing/c9mm/practice
 	desc = "A 9mm practice bullet casing."
@@ -295,7 +295,7 @@
 	projectile_type = /obj/projectile/bullet/rifle/a145
 	matter = list(MATERIAL_STEEL = 1250)
 	icon_state = "heavy_rifle_casing"
-	spent_icon = "lcasing-heavy_rifle_casing_spent"
+	spent_icon = "heavy_rifle_casing_spent"
 	max_stack = 2
 
 /obj/item/ammo_casing/a556
@@ -332,7 +332,7 @@
 	caliber = "a65"
 	projectile_type = /obj/projectile/bullet/rifle/a65
 	icon_state = "intermediate_rifle_casing"
-	spent_icon = "intermediate_rifle_casing"
+	spent_icon = "intermediate_rifle_casing_spent"
 	max_stack = 7
 
 /obj/item/ammo_casing/rocket
@@ -388,14 +388,14 @@
 	desc = "A .45-70 Government bullet casing."
 	caliber = "45-70 govt"
 	icon_state = "government_casing"
-	spent_icon = "government_casing"
+	spent_icon = "government_casing_spent"
 	max_stack = 4
 
 /obj/item/ammo_casing/slugger
 	projectile_type = /obj/projectile/bullet/rifle/slugger
 	caliber = "slugger"
-	icon_state = "slugger-sharp"
-	spent_icon = "slugger-spent"
+	icon_state = "slugger_sharp"
+	spent_icon = "slugger_spent"
 	max_stack = 2
 
 /obj/item/ammo_casing/gauss
@@ -403,7 +403,7 @@
 	desc = "A heavy tungsten gauss slug."
 	caliber = "gauss"
 	icon_state = "tungstenslug"
-	spent_icon = "tungstenslug-spent"
+	spent_icon = "tungstenslug_spent"
 	projectile_type = /obj/projectile/bullet/gauss
 	max_stack = 2
 
@@ -491,7 +491,7 @@
 /obj/item/ammo_casing/peac
 	name = "anti-materiel AP cannon cartridge"
 	icon_state = "peac"
-	spent_icon = "peac-spent"
+	spent_icon = "peac_spent"
 	caliber = "peac"
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
