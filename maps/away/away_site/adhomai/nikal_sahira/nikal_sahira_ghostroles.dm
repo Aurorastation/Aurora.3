@@ -2,7 +2,6 @@
 	SPECIES_TAJARA, \
 	SPECIES_TAJARA_ZHAN, \
 	SPECIES_TAJARA_MSAI, \
-	SPECIES_HUMAN \
 )
 
 // ---------- Chef
@@ -623,7 +622,7 @@
 
 /datum/ghostspawner/human/crevus_gang2_member
 	short_name = "crevus_gang2_member"
-	name = "The Lions, Gang Member"
+	name = "The Sham'tyrs, Gang Member"
 	desc = "\
 	You are a member of a small-time gang, there are many like you in the streets. Expand your network, sell drugs, mug people, do business - but above all, do your best to be \
 	noticed by the city's eyes. And who knows, maybe you can one day join a crime family proper. \
@@ -643,7 +642,7 @@
 
 /datum/ghostspawner/human/crevus_gang2_boss
 	short_name = "crevus_gang2_boss"
-	name = "The Lions, Gang Leader"
+	name = "The Sham'tyrs, Gang Leader"
 	desc = "\
 	You are a leader of a small-time gang, or at least you were when you last checked. Look after your people, do whatever it takes to make you (and maybe your men) rich. \
 	Never compromise your authority, end up seeing your men die an untimely death because of your hubris. \
