@@ -11,6 +11,7 @@ import { Window } from '../layouts';
 
 export type ArmorValuesData = {
   armor_values: string[];
+  cold_protection?: string;
 };
 
 export const ArmorValues = (props) => {
@@ -21,9 +22,9 @@ export const ArmorValues = (props) => {
       <Window.Content scrollable>
         <Section>
           <NoticeBox>
-            The statistics below are out of character info, you can use this to
-            reference armor values, but do not state the percentages in
-            character.
+            The protection information below is out of character. You can use
+            it as a mechanical reference, but do not state exact armor
+            percentages in character.
           </NoticeBox>
           <Divider />
           {Object.keys(data.armor_values).map((line) =>
@@ -43,6 +44,12 @@ export const ArmorValues = (props) => {
                 <Divider />
               </Box>
             ) : null,
+          )}
+          {!!data.cold_protection && (
+            <Box>
+              <Box bold>Cold protection</Box>
+              <Box>{data.cold_protection}</Box>
+            </Box>
           )}
         </Section>
       </Window.Content>

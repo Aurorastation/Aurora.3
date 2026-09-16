@@ -5,6 +5,8 @@
 	icon_state = "hat"
 	item_state = "hat"
 	contained_sprite = TRUE
+	cold_protection = HEAD
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/wool/colorable
 	icon_state = "hat_colorable"

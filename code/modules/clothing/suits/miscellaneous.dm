@@ -141,7 +141,8 @@
 	icon_state = "leathercoat_alt"
 	item_state = "leathercoat_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
-	min_cold_protection_temperature = T0C - 20
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/golden_tailcoat
@@ -159,7 +160,7 @@
 	item_state = "bomber"
 	body_parts_covered = UPPER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|ARMS
-	min_cold_protection_temperature = T0C - 20
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket
@@ -168,6 +169,8 @@
 	icon_state = "leather_jacket"
 	item_state = "leather_jacket"
 	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	desc = "A black leather coat. A corporate logo is proudly displayed on the back."
@@ -482,6 +485,8 @@
 	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/storage/toggle/trench/grey
@@ -602,21 +607,28 @@
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"
-	desc = "A thick jacket with a rubbery, water-resistant shell. Oddly enough, you don't feel any heat."
+	desc = "A thick, insulated jacket with a rubbery, water-resistant shell."
 	icon_state = "pufferjacket"
 	item_state = "pufferjacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/jacket/puffer/vest
 	name = "puffer vest"
 	desc = "A thick vest with a rubbery, water-resistant shell."
 	icon_state = "puffervest"
 	item_state = "puffervest"
+	body_parts_covered = UPPER_TORSO
+	cold_protection = UPPER_TORSO
 
 /obj/item/clothing/suit/storage/toggle/peacoat
 	name = "peacoat"
 	desc = "A well-tailored, stylish peacoat."
 	icon_state = "peacoat"
 	item_state = "peacoat"
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/asymmetriccoat
 	name = "asymmetric coat"
@@ -636,7 +648,7 @@
 	build_from_parts = TRUE
 	body_parts_covered = UPPER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|ARMS
-	min_cold_protection_temperature = T0C - 20
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.75
 
 /*
@@ -719,6 +731,8 @@
 	desc_extended = "Only slightly worse than a blanket."
 	icon_state = "cardigan"
 	item_state = "cardigan"
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/cardigan/sweater
 	name = "sweater cardigan"

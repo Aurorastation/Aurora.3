@@ -1,11 +1,13 @@
 /datum/tgui_module/armor_values
 	var/armor_name = ""
 	var/list/armor_values = list()
+	var/cold_protection
 
-/datum/tgui_module/armor_values/New(mob/user, var/set_armor_name, var/list/set_armor_values)
+/datum/tgui_module/armor_values/New(mob/user, var/set_armor_name, var/list/set_armor_values, var/set_cold_protection)
 	..()
 	armor_name = set_armor_name
 	armor_values = set_armor_values
+	cold_protection = set_cold_protection
 
 /datum/tgui_module/armor_values/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -17,4 +19,5 @@
 /datum/tgui_module/armor_values/ui_data(mob/user)
 	var/list/data = list()
 	data["armor_values"] = armor_values
+	data["cold_protection"] = cold_protection
 	return data
