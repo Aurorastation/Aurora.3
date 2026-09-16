@@ -194,7 +194,7 @@
 	owner.say(message, owner.get_default_language(), "broadcasts")
 	playsound(owner, 'sound/items/megaphone.ogg', 75, FALSE, 1)
 	for(var/mob/living/carbon/human/H in range(owner, 2) - owner)
-		H.earpain(H in range(owner, 1) ? 3 : 2, TRUE, 2)
+		H.earpain((H in range(owner, 1)) ? 3 : 2, TRUE, 2)
 	return TRUE
 
 /obj/item/organ/internal/augment/synthetic_cords/voice/tesla/proc/tesla_power_changed(var/powered)
