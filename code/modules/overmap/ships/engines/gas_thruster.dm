@@ -238,7 +238,7 @@
 
 	var/volume_adjustment = 1
 
-	var/obj/effect/overmap/visitable/ship/my_ship = get_map_sector(z)
+	var/obj/effect/overmap/visitable/ship/my_ship = get_map_sector(src)
 	if(!my_ship)
 		stack_trace("No ship found for gas thruster at z-level [z].")
 	else

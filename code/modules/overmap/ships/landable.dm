@@ -117,7 +117,7 @@
 	. = ..()
 
 /obj/effect/shuttle_landmark/ship/Destroy()
-	var/obj/effect/overmap/visitable/ship/landable/ship = get_map_sector(z)
+	var/obj/effect/overmap/visitable/ship/landable/ship = get_map_sector(src)
 	if(istype(ship) && ship.landmark == src)
 		ship.landmark = null
 	. = ..()

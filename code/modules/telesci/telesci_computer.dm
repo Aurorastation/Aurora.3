@@ -118,7 +118,7 @@
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = get_map_sector(z)
+		var/my_sector = get_map_sector(src)
 		if(istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 

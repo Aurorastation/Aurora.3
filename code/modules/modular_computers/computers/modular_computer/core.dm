@@ -624,7 +624,7 @@
 	return FALSE
 
 /obj/item/modular_computer/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = get_map_sector(z)
+	var/obj/effect/overmap/visitable/sector = get_map_sector(src)
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

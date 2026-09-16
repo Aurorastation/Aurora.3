@@ -81,7 +81,7 @@
 		if (AreConnectedZLevels(z, T.z))
 			return TRUE
 		else if(SSatlas.current_map.use_overmap)
-			var/my_sector = get_map_sector(z)
+			var/my_sector = get_map_sector(src)
 			var/target_sector = get_map_sector(T.z)
 			if (istype(my_sector, /obj/effect/overmap/visitable) && istype(target_sector, /obj/effect/overmap/visitable))
 				if(get_dist(my_sector, target_sector) < max_teleport_range)
