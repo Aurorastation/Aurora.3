@@ -149,11 +149,12 @@
 		dbg_stack_trace("Atom [src] ([type]) \[ X:[x] Y:[y] Z:[z] (Space level: [L ? L.name : "NOT FOUND"]) \] is abstract, but is trying to initialize!")
 		return INITIALIZE_HINT_QDEL
 
-	// Ensure the atom has an icon file assigned
-	dbg_assert(icon, "[type] has no icon file set.")
-	// Ensure icon_state exists within that icon file
-	dbg_assert(!icon || ((isnull(icon_state) ? "" : icon_state) in icon_states(icon)), \
-		"[type] has invalid icon_state '[icon_state]' in icon '[icon]'.")
+	// Ensure the atom has a valid icon and icon_state
+	if(!is_abstract(src))
+		dbg_assert(icon, "[type] has no icon file set.")
+		dbg_assert(icon_state, "[type] has no icon_state set.")
+		// Ensure the icon_state actually exists inside the DMI
+		dbg_assert(!icon || (icon_state in icon_states(icon)), "[type] has invalid icon_state '[icon_state]' in icon '[icon]'.")
 
 	return INITIALIZE_HINT_NORMAL
 
