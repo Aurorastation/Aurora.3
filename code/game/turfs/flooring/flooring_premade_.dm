@@ -159,7 +159,7 @@
 	color = null
 
 /turf/simulated/floor/tiled/freezer/cold
-	temperature = 268.15 // -5C
+	temperature = T0C - 5
 
 /turf/simulated/floor/tiled/ramp
 	name = "foot ramp"
@@ -241,7 +241,7 @@
 
 /turf/simulated/floor/tiled/dark/full/cold
 	name = "cold full plasteel tile"
-	temperature = 268.15 // -5C
+	temperature = T0C - 5
 
 
 // ------------------------------- tiled/light

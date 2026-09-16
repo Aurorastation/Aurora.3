@@ -27,5 +27,5 @@
 	..()
 	adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, FALSE)
 	adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, FALSE)
-	temperature = 305 // around 32C
+	temperature = T0C + 32
 	update_values()
