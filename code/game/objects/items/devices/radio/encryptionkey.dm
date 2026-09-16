@@ -29,19 +29,20 @@
 	flags_1 |= INITIALIZED_1
 
 	var/sector_z = get_sector_z()
-	var/obj/effect/overmap/visitable/V = get_map_sector(sector_z)
-	if(istype(V) && V.comms_support)
-		var/freq_name = V.name
-		if(V.freq_name)
-			freq_name = V.freq_name
-			name = "[V.freq_name] encryption key"
-		else if(V.comms_name)
-			name = "[V.comms_name] encryption key"
+	if(sector_z)
+		var/obj/effect/overmap/visitable/V = get_map_sector(sector_z)
+		if(istype(V) && V.comms_support)
+			var/freq_name = V.name
+			if(V.freq_name)
+				freq_name = V.freq_name
+				name = "[V.freq_name] encryption key"
+			else if(V.comms_name)
+				name = "[V.comms_name] encryption key"
 
-		channels += list(
-			"[freq_name]" = TRUE,
-			CHANNEL_HAILING = TRUE
-		)
+			channels += list(
+				"[freq_name]" = TRUE,
+				CHANNEL_HAILING = TRUE
+			)
 
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
