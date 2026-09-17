@@ -826,10 +826,10 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	cost = 1
 
 /datum/gear/augment/tesla_accessory/voice
-    display_name = "tesla voice box"
-    description = "An implanted arc-discharge voice box which produces the Elektro'Siik accent and can temporarily overdrive its volume."
-    path = /obj/item/organ/internal/augment/synthetic_cords/voice/tesla
-    cost = 1
+	display_name = "tesla voice box"
+	description = "An implanted arc-discharge voice box which produces the Elektro'Siik accent and can temporarily overdrive its volume."
+	path = /obj/item/organ/internal/augment/synthetic_cords/voice/tesla
+	cost = 1
 
 // Faction items
 
