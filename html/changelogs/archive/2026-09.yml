@@ -181,3 +181,25 @@
       if not buckled in.
   - rscadd: The robotics, mechatronics, military training, police academy graduate,
       corpsman training, fleet and paramedic educations now include conditioning.
+2026-09-15:
+  Fenodyree:
+  - bugfix: Fixes slime cells not charging the PSU when used to build a battery rack.
+2026-09-16:
+  Greenjoe:
+  - rscadd: Adhomai's surface is now colder. -20 C for normal areas and -80 C for
+      the North Pole.
+  TheGreyWolf:
+  - bugfix: Fixed the spark test unit fail.
+  kano:
+  - rscadd: Added the ability for ghostroles to recognize their group in the examine
+      text, if such group defined in the ghostrole spawner.
+2026-09-17:
+  ElorgRHG:
+  - bugfix: Fixed some ammunition casings either lacking or having incorrect spent
+      sprites.
+  TheGreyWolf:
+  - bugfix: The candy missing prices in the getmore vendor now cost credits again.
+  - bugfix: Fixed a couple of items not fitting in the commissary food and drinks
+      shelf.
+  kano:
+  - rscadd: Reduced fog forming temperature from 5C to -30C.
