@@ -36,8 +36,6 @@
 	QDEL_NULL(radio_use_icon)
 	QDEL_NULL(gun_move_icon)
 	QDEL_NULL(gun_setting_icon)
-	QDEL_NULL(unique_action_icon)
-	QDEL_NULL(toggle_firing_mode)
 	QDEL_NULL(energy_display)
 	QDEL_NULL(instability_display)
 	QDEL_NULL(up_hint)

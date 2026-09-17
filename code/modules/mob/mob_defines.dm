@@ -49,8 +49,6 @@
 	var/atom/movable/screen/gun/radio/radio_use_icon = null
 	var/atom/movable/screen/gun/move/gun_move_icon = null
 	var/atom/movable/screen/gun/mode/gun_setting_icon = null
-	var/atom/movable/screen/gun/unique_action_icon = null
-	var/atom/movable/screen/gun/toggle_firing_mode = null
 	var/atom/movable/screen/energy/energy_display = null
 	var/atom/movable/screen/instability/instability_display = null
 	var/atom/movable/screen/up_hint = null
