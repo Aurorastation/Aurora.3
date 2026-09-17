@@ -85,7 +85,7 @@
 		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
 
 /obj/structure/table/proc/rustle_from_crawler()
-	visible_message(SPAN_NOTICE("\The [src] rustles slightly as the objects on it shift."), blind_message = SPAN_NOTICE("You hear a faint rustling."))
+	visible_message(SPAN_NOTICE("\The [src] rustles slightly."), blind_message = SPAN_NOTICE("You hear a faint rustling."))
 	playsound(src, SFX_RUSTLE, 15, TRUE, -5)
 	var/list/rustling_atoms = list(src)
 	for(var/obj/item/item in get_turf(src))
@@ -123,8 +123,8 @@
 			return TRUE
 
 	user.visible_message(
-		SPAN_WARNING("[user] rapidly reaches beneath \the [src] and pulls [target] out from under it!"),
-		SPAN_WARNING("You rapidly reach beneath \the [src] and pull [target] out from under it!")
+		SPAN_WARNING("[user] reaches beneath \the [src] and pulls [target] out from under it!"),
+		SPAN_WARNING("You reach beneath \the [src] and pull [target] out from under it!")
 	)
 	target.forceMove(get_turf(user))
 	var/obj/item/grab/grab = new /obj/item/grab(user, user, target)

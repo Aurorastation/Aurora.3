@@ -255,10 +255,9 @@
 	for(var/mob/living/carbon/human/hidden in view(5, src))
 		if(hidden == src || !hidden.crawling_under_table)
 			continue
-		// Images dispatch clicks to their loc, so this generic spot remains a
-		// private, clickable stand-in for the concealed mob.
+
 		var/image/search_spot = image(search_shadow, loc = hidden)
-		// Do not inherit the crawler's prone rotation, tint, or transparency.
+
 		search_spot.appearance_flags |= KEEP_APART | RESET_TRANSFORM | RESET_COLOR | RESET_ALPHA
 		search_spot.dir = SOUTH
 		search_spot.layer = ABOVE_TABLE_LAYER

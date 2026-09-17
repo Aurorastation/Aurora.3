@@ -33,8 +33,7 @@
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
 /obj/structure/table/proc/can_crawl_under()
-	// Plasteel reinforcement uses a skirt which reaches all the way to the floor.
-	return !flipped && (pass_flags_self & PASSTABLE) && reinforced?.type != MATERIAL_PLASTEEL
+	return !flipped && (pass_flags_self & PASSTABLE) && !reinforced
 
 /obj/structure/table/proc/clear_table_crawlers()
 	for(var/mob/living/carbon/human/human in get_turf(src))
@@ -270,7 +269,6 @@
 	if(manipulating)
 		return
 	manipulating = TRUE
-	// In case of deconstruction by damage or other scenarios, this would be null
 	if(W && user)
 		user.visible_message("<b>[user]</b> begins dismantling \the [src].",
 							SPAN_NOTICE("You begin dismantling \the [src]."))
