@@ -102,7 +102,7 @@
 	// each device level and anatomy rank reduces the time by half a second. Get that skill up
 	var/time = max(5 - (0.5 * (device_level + (anatomy ? anatomy : 1))), 1)
 
-	if(do_after(user, time SECONDS, target_mob, DO_UNIQUE))
+	if(do_after(user, time SECONDS, target_mob)) //This can't be DO_UNIQUE because prevents two people from scanning the same patient.
 		flick("[owner.icon_state]-scan", owner)
 
 		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)
@@ -282,10 +282,10 @@
 			for(var/obj/item/organ/external/org in damaged)
 				var/limb_name = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]"
 				var/limb_result = ""
-				if(org.brute_dam > 0)
-					limb_result = " [SPAN_SCAN_DANGER("[get_wound_severity(org.brute_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma")]"
-				if(org.burn_dam > 0)
-					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_ORANGE_DANGER("[get_wound_severity(org.burn_dam, (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns")]"
+				if(LIMB_GET_BRUTE_DAMAGE(org) > 0)
+					limb_result = " [SPAN_SCAN_DANGER("[get_wound_severity(LIMB_GET_BRUTE_DAMAGE(org), (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma")]"
+				if(LIMB_GET_BURN_DAMAGE(org) > 0)
+					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_ORANGE_DANGER("[get_wound_severity(LIMB_GET_BURN_DAMAGE(org), (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns")]"
 				if(org.status & ORGAN_BLEEDING)
 					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_DANGER("bleeding")]"
 				var/is_bandaged = org.is_bandaged()
@@ -330,7 +330,7 @@
 		var/found_disloc
 		for(var/obj/item/organ/external/e in H.organs)
 			if(e)
-				if(!found_disloc && e.dislocated == 2)
+				if(!found_disloc && LIMB_GET_DISLOCATED(e) == 2)
 					dat += SPAN_SCAN_WARNING("Dislocation detected. Advanced scanner required for location.")
 					found_disloc = TRUE
 				if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))

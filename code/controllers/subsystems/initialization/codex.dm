@@ -9,6 +9,7 @@ SUBSYSTEM_DEF(codex)
 
 	/// List of chemistry/reagent reactions and associated data.
 	var/list/chemistry_codex_data = list()
+	var/list/bartending_codex_data = list()
 	var/list/chemistry_codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
 	var/list/chemistry_codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
 
@@ -24,7 +25,7 @@ SUBSYSTEM_DEF(codex)
 		generate_cooking_codex()
 		generate_chemistry_codex()
 		generate_fusion_codex()
-		log_subsystem_codex("SScodex: [length(cooking_codex_data)] cooking recipes; [length(chemistry_codex_data)] chemistry recipes; [length(fusion_codex_data)] fusion recipes;")
+		log_subsystem_codex("SScodex: [length(cooking_codex_data)] cooking recipes; [length(bartending_codex_data)] bartending recipes; [length(chemistry_codex_data)] chemistry recipes; [length(fusion_codex_data)] fusion recipes;")
 
 	return SS_INIT_SUCCESS
 
@@ -33,6 +34,9 @@ SUBSYSTEM_DEF(codex)
 	for (var/reaction_path in available_recipes)
 		var/singleton/recipe/recipe = GET_SINGLETON(reaction_path)
 		var/list/cookingRecipeData = list()
+
+		// ID for TGUI to use
+		cookingRecipeData["id"] = "[reaction_path]"
 
 		// result
 		var/obj/item/recipe_result = recipe.result
@@ -74,6 +78,8 @@ SUBSYSTEM_DEF(codex)
 			cookingRecipeData["ingredients"] += "[reagent.name] coating"
 
 		// kitchen appliance
+		cookingRecipeData["appliances"] = ""
+
 		if(recipe.appliance)
 			cookingRecipeData["appliances"] = recipe.get_appliance_names()
 
@@ -89,10 +95,8 @@ SUBSYSTEM_DEF(codex)
 		var/datum/chemical_reaction/CR = new chem_path
 		if(!CR.result)
 			continue
-		if(chemistry_codex_ignored_result_path && is_path_in_list(CR.result, chemistry_codex_ignored_result_path))
-			continue
 		var/singleton/reagent/R = GET_SINGLETON(CR.result)
-		var/chemistryReactionData = list(id = CR.id)
+		var/chemistryReactionData = list(id = "[chem_path]")
 		chemistryReactionData["result"] = list(
 			name = R.name,
 			description = R.description,
@@ -128,7 +132,10 @@ SUBSYSTEM_DEF(codex)
 
 		chemistryReactionData["temp_max"] = CR.required_temperature_max
 
-		chemistry_codex_data += list(chemistryReactionData)
+		if(chemistry_codex_ignored_result_path && is_path_in_list(CR.result, chemistry_codex_ignored_result_path))
+			bartending_codex_data += list(chemistryReactionData) // What is bartending, but a dimunitive form of chemistry?
+		else
+			chemistry_codex_data += list(chemistryReactionData)
 
 /// Generate a list of all fusion reaction fusion_reactions, then populate the codex from that list.
 /datum/controller/subsystem/codex/proc/generate_fusion_codex()

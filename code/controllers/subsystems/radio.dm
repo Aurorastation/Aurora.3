@@ -156,7 +156,7 @@ SUBSYSTEM_DEF(radio)
 
 	return frequency
 
-// Used to test connectivity to the telecomms network.
+/// Used to test connectivity to the telecomms network.
 /datum/controller/subsystem/radio/proc/telecomms_ping(obj/O, test_freq = PUB_FREQ)
 	SHOULD_NOT_SLEEP(TRUE)
 
@@ -167,7 +167,7 @@ SUBSYSTEM_DEF(radio)
 
 // Some misc procs not technically part of the subsystem, but are related.
 
-//callback used by objects to react to incoming radio signals
+/// Callback used by objects to react to incoming radio signals
 /obj/proc/receive_signal(datum/signal/signal, receive_method, receive_param)
 	SHOULD_NOT_SLEEP(TRUE)
 

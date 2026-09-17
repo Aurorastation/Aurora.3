@@ -241,7 +241,8 @@ var/list/channel_to_radio_key = new
 		to_chat(src, SPAN_WARNING("You try to speak, but nothing comes out!"))
 		return
 
-	var/message_mode = parse_message_mode(text, "headset")
+	var/is_broadcast = verb == "broadcasts"
+	var/message_mode = is_broadcast ? null : parse_message_mode(text, "headset")
 
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
@@ -325,7 +326,7 @@ var/list/channel_to_radio_key = new
 	msg.speech_sound = handle_v[1]
 	msg.sound_vol = handle_v[2]
 	msg.italics = handle_v[3]
-	msg.font_size = get_font_size_modifier()
+	msg.font_size = is_broadcast ? FONT_SIZE_HUGE : get_font_size_modifier()
 
 	//speaking into radios
 	if(length(used_radios))
@@ -384,6 +385,8 @@ var/list/channel_to_radio_key = new
 		langchat_styles = list("langchat_italic")
 	if(is_shouting)
 		langchat_styles = list("langchat_yell")
+	if(is_broadcast)
+		langchat_styles += "radio"
 
 	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src), additional_styles = langchat_styles)
 

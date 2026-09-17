@@ -4,8 +4,8 @@
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
-	required_access_run = ACCESS_HEADS
-	required_access_download = ACCESS_HEADS
+	required_access_run = /datum/access/heads::id
+	required_access_download = /datum/access/heads::id
 	requires_ntnet = TRUE
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_SILICON_AI
@@ -138,7 +138,7 @@
 					if(centcomm_message_cooldown)
 						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
 						return TRUE
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via bluespace.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return FALSE
 					Syndicate_announce(input, usr)
@@ -154,7 +154,7 @@
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
 						return
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via quantum entanglement.", "Emergency Message", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via bluespace.", "Emergency Message", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return
 					Centcomm_announce(input, usr)

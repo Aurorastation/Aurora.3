@@ -102,6 +102,12 @@
 	path = 	/obj/item/storage/wallet/lanyard
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/utility/press_lanyard
+	display_name = "press lanyard"
+	path = /obj/item/storage/wallet/lanyard/press
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Corporate Reporter")
+
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
 	path = /obj/item/taperecorder
@@ -115,6 +121,12 @@
 	path = /obj/item/voidsuit_modkit/himeo
 	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
+
+/datum/gear/utility/newgibson_voidsuit_kit
+	display_name = "new gibsonite voidsuit kit"
+	path = /obj/item/voidsuit_modkit/newgibson
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel) //A New Gibsonite tajara origin will also need to be added here if/when one is made.
 
 // See the IPC-exclusive tab for the human variant.
 /datum/gear/utility/assunzione_kit

@@ -120,21 +120,20 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/submit_single_vote(mob/voter, their_vote)
 	if(!current_vote)
 		return
-	if(!voter?.ckey)
-		return
-	if(FALSE && voter.stat == DEAD && !voter.client?.holder) //Used to be "CONFIG_GET(flag/no_dead_vote)"
+	var/vote_power = current_vote.get_voting_power(voter)
+	if(vote_power <= 0)
 		return
 
 	// If user has already voted, remove their specific vote
 	if(voter.ckey in current_vote.choices_by_ckey)
-		var/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
-		current_vote.choices[their_old_vote]--
+		var/list/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
+		current_vote.choices[their_old_vote["choice"]] -= their_old_vote["power"]
 
 	else
 		voted += voter.ckey
 
-	current_vote.choices_by_ckey[voter.ckey] = their_vote
-	current_vote.choices[their_vote]++
+	current_vote.choices_by_ckey[voter.ckey] = list("choice" = their_vote, "power" = vote_power)
+	current_vote.choices[their_vote] += vote_power
 
 	return TRUE
 

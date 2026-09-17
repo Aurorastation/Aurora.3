@@ -9,6 +9,7 @@
 	desc = "A line without compare, the Venator-series consists of one vessel so far: the SCCV Horizon, the lead ship of its class. Designed to be an entirely self-sufficient general-purpose surveying ship and to carry multiple replacement crews simultaneously, the Venator is equipped with both a bluespace and a warp drive and two different engines. Defying typical cruiser dimensions, the Venator is home to a sizable residential deck below the operations deck of the ship, where the crew is housed. It also features weapon hardpoints in its prominent wing nacelles. This one's transponder identifies it, obviously, as the SCCV Horizon."
 	icon_state = "venator"
 	moving_state = "venator_moving"
+	pilot_class = PILOTING_CLASS_MAX
 	colors = list("#cfd4ff", "#78adf8")
 	fore_dir = SOUTH
 	vessel_mass = 70000
@@ -92,7 +93,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/intrepid
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
-	req_access = list(ACCESS_INTREPID)
+	req_access = list(/datum/access/intrepid::id)
 	icon_state = "computer"
 	icon_screen = "helm"
 	icon_keyboard = null
@@ -131,7 +132,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/mining_shuttle
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
-	req_access = list(ACCESS_MINING)
+	req_access = list(/datum/access/mining::id)
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"
@@ -173,7 +174,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/canary
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
-	req_access = list(ACCESS_INTREPID)
+	req_access = list(/datum/access/intrepid::id)
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "right"
@@ -184,7 +185,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/canary/left
 	name = "\improper Canary control console"
 	shuttle_tag = "Canary"
-	req_access = list(ACCESS_INTREPID)
+	req_access = list(/datum/access/intrepid::id)
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
 	icon_state = "left"
@@ -229,4 +230,4 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/quark
 	name = "\improper Quark control console"
 	shuttle_tag = "Quark"
-	req_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH)
+	req_access = list(/datum/access/xenoarch::id, /datum/access/research::id)

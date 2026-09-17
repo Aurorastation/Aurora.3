@@ -502,7 +502,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 			SStgui.update_uis(src)
 		if(screen == RCS_ANNOUNCE)
 			var/obj/item/card/id/auth_card = attacking_item
-			if(ACCESS_RC_ANNOUNCE in auth_card.GetAccess())
+			if(/datum/access/RC_announce::id in auth_card.GetAccess())
 				announceAuth = 1
 				announcement.announcer = auth_card.assignment ? "[auth_card.assignment] [auth_card.registered_name]" : auth_card.registered_name
 			else

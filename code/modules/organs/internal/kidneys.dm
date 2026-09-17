@@ -43,9 +43,9 @@
 	var/dead_toxin_accumulation_per_second = 0.66
 
 /obj/item/organ/internal/kidneys/process(seconds_per_tick)
-	..()
-	if(!owner)
-		return
+	. = ..()
+	if(. == PROCESS_KILL || !owner)
+		return PROCESS_KILL
 
 	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
 		seconds_per_tick /= owner.stasis_value
@@ -72,3 +72,6 @@
 			owner.adjustToxLoss(broken_toxin_accumulation_per_second * seconds_per_tick)
 		if(status & ORGAN_DEAD)
 			owner.adjustToxLoss(dead_toxin_accumulation_per_second * seconds_per_tick)
+
+	if (!owner.getToxLoss() && !damage) // None of the conditions triggered, therefore we have healthy kidneys that we don't care about.
+		return PROCESS_KILL

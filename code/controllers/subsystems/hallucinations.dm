@@ -15,10 +15,6 @@ SUBSYSTEM_DEF(hallucinations)
 	var/list/adpi_jobs = list()
 	var/list/adpi_next_message = list()
 	var/tmp/list/current_adpi_targets = list()
-	var/static/list/adpi_sounds = list(
-		'sound/ambience/ghostly/ghostly1.ogg',
-		'sound/ambience/ghostly/ghostly2.ogg'
-	)
 	var/static/list/adpi_department_files = list(
 		DEPARTMENT_COMMAND = "adpi_dept_command.txt",
 		DEPARTMENT_ENGINEERING = "adpi_dept_engineering.txt",
@@ -134,7 +130,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return is_lemurian_sea_sector()
 
 /datum/controller/subsystem/hallucinations/proc/read_adpi_file(var/file_name)
-	var/list/loaded_file = file2list("config/hallucinations/lemurian_sea/[file_name]")
+	var/list/loaded_file = file2list("config/hallucinations/[file_name]")
 	if(!loaded_file)
 		loaded_file = list()
 	return loaded_file
@@ -180,7 +176,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return !target || target.is_psi_blocked(null, FALSE)
 
 /datum/controller/subsystem/hallucinations/proc/can_receive_adpi(var/mob/living/target)
-	return is_lemurian_sea() && target && target.client && target.mind && target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
+	return is_lemurian_sea() && target && target.client && target.mind && !target.stat && (target.has_zona_bovinae() || target.has_psi_aug())
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_job(var/mob/living/carbon/human/H)
 	if(!H)
@@ -263,6 +259,9 @@ SUBSYSTEM_DEF(hallucinations)
 		adpi_next_message -= target
 		return
 
+	if(world.time < adpi_next_message[target])
+		return
+
 	if(is_adpi_blocked(target))
 		// ping their blocker an schedule another ping later.
 		schedule_next_adpi_message(target)
@@ -270,9 +269,6 @@ SUBSYSTEM_DEF(hallucinations)
 
 	if(!adpi_next_message[target])
 		schedule_next_adpi_message(target, TRUE)
-		return
-
-	if(world.time < adpi_next_message[target])
 		return
 
 	if(send_adpi_message(target))
@@ -285,7 +281,7 @@ SUBSYSTEM_DEF(hallucinations)
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_delay(var/mob/living/target, var/initial = FALSE)
 	var/base_delay = initial ? rand(8 MINUTES, 18 MINUTES) : rand(25 MINUTES, 40 MINUTES)
-	return base_delay - (base_delay * ftanh(target.check_psi_sensitivity() / 3))
+	return base_delay * (1 - (0.75 * ftanh(target.check_psi_sensitivity() / 3)))
 
 /datum/controller/subsystem/hallucinations/proc/get_adpi_pool_weight(var/pool_name)
 	if(pool_name == "general")
@@ -328,7 +324,7 @@ SUBSYSTEM_DEF(hallucinations)
 	return TRUE
 
 /datum/controller/subsystem/hallucinations/proc/send_admin_adpi_message(var/mob/living/target, var/custom_message = null)
-	if(!target || !target.client || !target.mind || target.stat == DEAD || !target.is_psi_blocked(null, FALSE))
+	if(!target || !target.client || !target.mind || target.stat == DEAD || is_adpi_excluded(target) || is_adpi_blocked(target))
 		return FALSE
 
 	ensure_adpi_lists_loaded()
@@ -346,19 +342,48 @@ SUBSYSTEM_DEF(hallucinations)
 
 	return TRUE
 
-/datum/controller/subsystem/hallucinations/proc/deliver_adpi_message(var/mob/living/target, var/message)
+/datum/controller/subsystem/hallucinations/proc/deliver_adpi_message(mob/living/target, message, message_type = /atom/movable/screen/text/screen_text/mental_message)
 	/// % chance to pick one of the general thematic ADPI messages. Enjoy, code peekers; this is all you get!
 	if(prob(15))
 		message = pick("The water is dripping dripping dripping all around you.","Water flowing over stone, but there is no stone.","The waterfall roars o'er the cliff's edge.","Water, water, water. You are drowning.","Water, water, water. You will be awake for it.","Drums, drums, drums, unrelenting.","The drumbeat draws e'er closer.","Tap, ta-tap, ta-tap, tap, ta-tap, ta-tap.","Tap, tap tap, ta-tap, tap-tap, ta-tap.","Ta-ta-tap, tap, ta-tap, tap, tap ta-tap.")
-	target.play_screen_text("[message]", /atom/movable/screen/text/screen_text/adpi_message, COLOR_PURPLE)
+	target.play_screen_text("[message]", message_type, COLOR_PURPLE)
 	to_chat(target, SPAN_CULT(FONT_LARGE("[message]")))
-
-	if(prob(33))
-		sound_to(target, pick(adpi_sounds))
-
+	var/datum/weakref/target_ref = WEAKREF(target)
+	if(prob(25))
+		addtimer(CALLBACK(src, PROC_REF(apply_delayed_adpi_response), target_ref), rand(5,25))
+		if(prob(25))
+			addtimer(CALLBACK(src, PROC_REF(apply_delayed_adpi_response), target_ref), rand(30,60))
+			if(prob(25))
+				addtimer(CALLBACK(src, PROC_REF(apply_delayed_adpi_response), target_ref), rand(65,120))
+	if(prob(2))
+		addtimer(CALLBACK(src, PROC_REF(radio_alarm), target_ref), 120)
+		addtimer(CALLBACK(src, PROC_REF(radio_alarm), target_ref), 135)
+		addtimer(CALLBACK(src, PROC_REF(radio_alarm), target_ref), 140)
+	if(prob(1))
+		target.hallucination += rand(1,120)
 	if(isskrell(target))
 		var/mob/living/carbon/human/H = target
 		apply_skrell_adpi_pain(H)
+
+//straight up cloned delam_call, fuck it
+/datum/controller/subsystem/hallucinations/proc/radio_alarm(var/datum/weakref/target_ref)
+	var/mob/living/target = target_ref?.resolve()
+	if(!istype(target) || QDELETED(target))
+		return
+
+	var/list/people = list()
+	for(var/mob/living/carbon/human/M in GLOB.living_mob_list)
+		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE) && is_station_level(M.z))
+			people += M
+
+	people -= target
+	if(!length(people))
+		return
+
+	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>", "Shots, shots!", "HELP!", "MEDICAL!")
+	var/mob/living/carbon/human/requester = pick(people)
+
+	to_chat(target, "[requester.get_accent_icon(null, target)] <span class='radio'><b>[requester]</b> says, \"[radio_exclaim]\"</span>")
 
 /datum/controller/subsystem/hallucinations/proc/apply_skrell_adpi_pain(var/mob/living/carbon/human/H)
 	H.adjustHalLoss(rand(5, 12))
@@ -366,3 +391,14 @@ SUBSYSTEM_DEF(hallucinations)
 		to_chat(H, SPAN_WARNING("A sharp ache lances through your head as the thought passes."))
 	if(prob(15))
 		H.emote("shiver")
+
+/datum/controller/subsystem/hallucinations/proc/apply_delayed_adpi_response(var/mob/living/carbon/human/H)
+	if(!H.stat)
+		var/chosen_emote = pick(SShallucinations.hal_emote)
+		// You are aware of it in this instance
+		if(prob(10))
+			H.visible_message("<B>[H]</B> [chosen_emote]")
+		// Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
+		else
+			for(var/mob/M in oviewers(world.view, H))
+				to_chat(M, "<B>[H]</B> [chosen_emote]")

@@ -21,6 +21,8 @@
 
 	var/obj/item/radio/exosuit/radio
 	var/obj/structure/machinery/camera/camera
+	/// Whether pilots want the external camera to broadcast while its hardware is functional
+	var/camera_enabled = TRUE
 
 	var/wreckage_path = /obj/structure/mech_wreckage
 
@@ -66,7 +68,7 @@
 	var/loudening = FALSE // whether we're increasing the speech volume of our pilot
 
 	// Material
-	var/material/material
+	var/singleton/material/material
 
 	// Cockpit access vars.
 	var/hatch_closed = FALSE
@@ -95,6 +97,11 @@
 	//POWER
 	var/power = MECH_POWER_OFF
 
+	/// Sound effect used for mech ambience.
+	var/datum/looping_sound/mech_power/soundloop
+	/// Separate tracking of current sound looping so we aren't hammering the sound loop system on every tick.
+	var/sound_looping = FALSE
+
 /mob/living/heavy_vehicle/Destroy()
 	unassign_leader()
 	unassign_following()
@@ -113,7 +120,10 @@
 		if(pilot.client)
 			pilot.client.screen -= hud_elements
 			pilot.client.images -= hud_elements
-		pilot.forceMove(get_turf(src))
+		if (!QDELETED(pilot)) // Forcemove doesn't accept QDELETED inputs.
+			remove_verb(pilot, /mob/proc/toggle_exosuit_camera)
+			remove_verb(pilot, /mob/proc/change_exosuit_camera_network)
+			pilot.forceMove(get_turf(src))
 	pilots = null
 
 	QDEL_LIST(hud_elements)
@@ -136,7 +146,7 @@
 
 	QDEL_NULL(camera)
 	QDEL_NULL(radio)
-
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
@@ -245,7 +255,7 @@
 
 	add_language(LANGUAGE_TCB)
 	default_language = GLOB.all_languages[LANGUAGE_TCB]
-
+	soundloop = new(src)
 	. = INITIALIZE_HINT_LATELOAD
 
 /mob/living/heavy_vehicle/LateInitialize()
@@ -255,6 +265,12 @@
 
 /mob/living/heavy_vehicle/return_air()
 	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc?.return_air()
+
+/mob/living/heavy_vehicle/proc/update_emp_protection()
+	RemoveElement(/datum/element/empprotection, EMP_PROTECT_ALL)
+	if(power == MECH_POWER_ON && body.mech_armor && body.mech_armor.emp_protection)
+		if(get_cell().charge > 500)
+			AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
@@ -277,19 +293,23 @@
 	if(power == MECH_POWER_TRANSITION)
 		to_chat(reciever, SPAN_NOTICE("Power transition in progress. Please wait."))
 	else if(power == MECH_POWER_ON) //Turning it off is instant
-		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
 		power = MECH_POWER_OFF
-	else if(get_cell(TRUE))
+		update_emp_protection()
+	else if(get_cell(TRUE).check_charge(1000)) //Check if we have enough charge to power on
 		//Start power up sequence
 		power = MECH_POWER_TRANSITION
 		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
 		if(do_after(reciever, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
-			playsound(src, 'sound/mecha/nominal.ogg', 50, 0)
 			power = MECH_POWER_ON
+			update_emp_protection()
+			sound_looping = TRUE
+			soundloop.start()
 		else
 			to_chat(reciever, SPAN_WARNING("You abort the powerup sequence."))
 			power = MECH_POWER_OFF
-		hud_power_control?.queue_icon_update()
+			update_emp_protection()
+		if(hud_power_control)
+			SSicon_update.add_to_queue(hud_power_control)
 	else
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
@@ -331,6 +351,9 @@
 
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
+	if(camera)
+		camera.c_tag = name
+		invalidateCameraCache()
 	if(!remote_network)
 		remote_network = REMOTE_GENERIC_MECH
 	SSvirtualreality.add_mech(src, remote_network)

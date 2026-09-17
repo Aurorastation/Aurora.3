@@ -5,7 +5,7 @@
 	icon_keyboard = "yellow_key"
 	icon_keyboard_emis = "yellow_key_mask"
 	light_color = LIGHT_COLOR_YELLOW
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	circuit = /obj/item/circuitboard/drone_control
 
 	//Used when pinging drones.

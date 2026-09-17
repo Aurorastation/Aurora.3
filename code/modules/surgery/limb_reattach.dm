@@ -15,7 +15,7 @@
 	if(affected)
 		return FALSE
 	var/list/organ_data = target.species.has_limbs["[target_zone]"]
-	var/obj/item/organ/external/E = tool
+	var/obj/item/organ/external/E = astype(tool)
 	if(E?.parent_organ)
 		var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
 		if(!P || P.is_stump() || !P.supports_children || (BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
@@ -25,9 +25,7 @@
 /singleton/surgery_step/limb/attach
 	name = "Replace Limb"
 	allowed_tools = list(/obj/item/organ/external = 100)
-
-	min_duration = 40
-	max_duration = 60
+	base_surgery_time = 6 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/limb/attach/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -59,9 +57,7 @@
 	/obj/item/assembly/mousetrap = 20
 	)
 	can_infect = TRUE
-
-	min_duration = 80
-	max_duration = 100
+	base_surgery_time = 10 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/limb/connect/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -98,9 +94,7 @@
 /singleton/surgery_step/limb/mechanize
 	name = "Attach Prosthetic Limb"
 	allowed_tools = list(/obj/item/robot_parts = 100)
-
-	min_duration = 60
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/limb/mechanize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

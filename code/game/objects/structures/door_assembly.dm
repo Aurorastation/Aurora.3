@@ -261,13 +261,13 @@
 		if(glass)
 			to_chat(user, SPAN_WARNING("\The [src] already has glass installed."))
 			return
-		var/obj/item/stack/S = attacking_item
-		var/material_name = S.get_material_name()
+		var/obj/item/stack/material/S = attacking_item
+		var/singleton/material/glass_material = S.get_material()
 		if(S.get_amount() >= 2)
-			if(material_name != MATERIAL_GLASS_REINFORCED)
+			if(glass_material?.type != MATERIAL_GLASS_REINFORCED)
 				to_chat(user, SPAN_WARNING("You can only use reinforced glass to install a window into an airlock assembly."))
 				return
-			if(material_name == MATERIAL_GLASS_REINFORCED)
+			if(glass_material.type == MATERIAL_GLASS_REINFORCED)
 				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
 				if(attacking_item.use_tool(src, user, 40, volume = 50) && !glass)
 					if(S.use(2))
@@ -373,15 +373,15 @@
 	src.add_fingerprint(user)
 
 	user.resting = TRUE
-	if(do_after(user, (3 * speed_multiplier) SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY))) // Squeeze in
+	if(do_after(user, user.get_conditioning_action_delay((3 * speed_multiplier) SECONDS), src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY))) // Squeeze in
 		user.forceMove(src.loc) // Ignore density check
-		sleep((2 * speed_multiplier) SECOND) // Crawl delay
+		sleep(user.get_conditioning_action_delay((2 * speed_multiplier) SECOND)) // Crawl delay
 		if(src.loc != user.loc) // Check if user was moved out of the assembly during the process, if so, abort
 			user.resting = FALSE
 			return ..()
 		if(prob(10 * speed_multiplier)) // Climb out
 			visible_message(SPAN_WARNING("[user] gets tangled in the \the [src] for a moment while squeezing through it..."))
-			if(!do_after(user, (5 * speed_multiplier) SECONDS, src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY)))
+			if(!do_after(user, user.get_conditioning_action_delay((5 * speed_multiplier) SECONDS), src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY)))
 				user.forceMove(old_loc)
 				user.resting = FALSE
 				return ..()

@@ -37,12 +37,6 @@ STOCK_ITEM_LARGE(bubbleshield, 0.5)
 			break
 	new /obj/structure/machinery/shield_capacitor(T)
 
-STOCK_ITEM_LARGE(watertank, 2)
-	new /obj/structure/reagent_dispensers/watertank(L)
-
-STOCK_ITEM_LARGE(fueltank, 2)
-	new /obj/structure/reagent_dispensers/fueltank(L)
-
 STOCK_ITEM_LARGE(lubetank, 2)
 	new /obj/structure/reagent_dispensers/lube(L)
 
@@ -148,3 +142,15 @@ STOCK_ITEM_LARGE(exosuit, 1.2) //A randomly generated exosuit in a very variable
 
 STOCK_ITEM_LARGE(unusualcrate, 0.3) //Like from the unknown object random event
 	new /obj/structure/closet/crate/loot(L)
+
+STOCK_ITEM_LARGE(fieldgen, 1)
+	new /obj/structure/machinery/field_generator(L)
+
+STOCK_ITEM_LARGE(shieldgenv1, 0.5)
+	new /obj/structure/machinery/shieldwallgen(L)
+
+STOCK_ITEM_LARGE(shieldgenv2, 0.5)
+	new /obj/structure/machinery/shieldgen(L)
+
+STOCK_ITEM_LARGE(heating, 1)
+	new /obj/structure/machinery/chem_heater(L)

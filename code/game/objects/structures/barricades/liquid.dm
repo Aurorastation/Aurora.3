@@ -55,8 +55,8 @@
 		maxhealth += 50
 
 /obj/structure/barricade/liquid/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/crowbar) && user.a_intent != I_HURT)
-		var/obj/item/crowbar/ET = attacking_item
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent != I_HURT)
+		var/obj/item/ET = attacking_item
 		user.visible_message(SPAN_NOTICE("[user] starts disassembling [src]."), \
 		SPAN_NOTICE("You start disassembling [src]."))
 		if(ET.use_tool(src, user, 4 SECONDS))

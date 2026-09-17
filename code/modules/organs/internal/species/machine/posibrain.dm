@@ -46,6 +46,8 @@
 	var/self_preservation_activated = FALSE
 	/// The looping sound played when an IPC is sizzling from burn damage.
 	var/datum/looping_sound/ipc_sizzling/sizzle
+	/// An IPC's custom model. Flavor, but gets cleared when a posibrain is removed as they could swap chassis to a new model
+	var/custom_model
 
 /obj/item/organ/internal/machine/posibrain/Initialize(mapload)
 	stored_mmi = new robotic_brain_type(src)
@@ -100,7 +102,7 @@
 	. = ..()
 	to_chat(owner, SPAN_MACHINE_DANGER(FONT_LARGE("Your damage failsafes activate; your thought processes grind to a halt as your consciousness is cut off from the exterior world. No sensation or external input reaches you anymore.")))
 	to_chat(owner, SPAN_DANGER(FONT_LARGE("You are now in an emergency low power mode, so that your posibrain can still survive despite your chassis being destroyed.")))
-	owner.mind.transfer_to(stored_mmi.brainmob)
+	owner?.mind?.transfer_to(stored_mmi.brainmob)
 
 /**
  * Helper proc to add fragmentation.
@@ -145,12 +147,12 @@
 	icon_state = stored_mmi.icon_state
 
 /obj/item/organ/internal/machine/posibrain/removed(var/mob/living/user)
+	custom_model = null
 	if(stored_mmi)
 		stored_mmi.forceMove(get_turf(src))
 		if(owner.mind)
 			owner.mind.transfer_to(stored_mmi.brainmob)
 		stored_mmi = null
-
 	. = ..()
 
 	var/mob/living/holder_mob = loc

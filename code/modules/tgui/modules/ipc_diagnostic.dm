@@ -52,7 +52,7 @@
 
 			organ_data["name"] = organ.name
 			organ_data["desc"] = organ.desc
-			organ_data["damage"] = edit_organ_status(organ.damage, diagnostics)
+			organ_data["damage"] = edit_organ_status(organ.get_damage(), diagnostics)
 			organ_data["max_damage"] = organ.max_damage
 
 			data["organs"] += list(organ_data)
@@ -60,8 +60,8 @@
 		data["robolimb_self_repair_cap"] = ROBOLIMB_SELF_REPAIR_CAP
 		data["limbs"] = list()
 		for(var/obj/item/organ/external/limb in ipc.organs)
-			if(limb.brute_dam || limb.burn_dam)
-				data["limbs"] += list(list("name" = limb.name, "brute_damage" = edit_organ_status(limb.brute_dam, diagnostics), "burn_damage" = edit_organ_status(limb.burn_dam, diagnostics), "max_damage" = limb.max_damage))
+			if(LIMB_GET_BRUTE_DAMAGE(limb) || LIMB_GET_BRUTE_DAMAGE(limb))
+				data["limbs"] += list(list("name" = limb.name, "brute_damage" = edit_organ_status(LIMB_GET_BRUTE_DAMAGE(limb), diagnostics), "burn_damage" = edit_organ_status(LIMB_GET_BURN_DAMAGE(limb), diagnostics), "max_damage" = limb.max_damage))
 
 		var/obj/item/organ/internal/machine/power_core/C = ipc.internal_organs_by_name[BP_CELL]
 		if(C)

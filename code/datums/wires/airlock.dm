@@ -3,6 +3,7 @@
 /datum/wires/airlock
 	proper_name = "Airlock"
 	holder_type = /obj/structure/machinery/door/airlock
+	associated_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
 
 /datum/wires/airlock/New(atom/holder)
 	wires = list(
@@ -200,6 +201,6 @@
 			continue
 		dat += "<font color='[color]'>[capitalize(color)]</font>: [get_wire(color)]<br>"
 
-	var/datum/browser/wire_win = new(user, "airlockwires", "Airlock Wires", 450, 500)
+	var/datum/browser/wire_win = new(user, "airlockwires", "Airlock Wires", 450, 720)
 	wire_win.set_content(dat)
 	wire_win.open()

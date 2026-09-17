@@ -22,7 +22,8 @@
 		/obj/structure/window_frame/empty,
 		/obj/structure/machinery/door,
 		/obj/structure/machinery/door/airlock,
-		/obj/structure/arch
+		/obj/structure/arch,
+		/obj/structure/fake_wall
 	)
 	hitsound = 'sound/weapons/Genhit.ogg'
 	explosion_resistance = 10
@@ -30,9 +31,8 @@
 	var/damage_overlay = 0
 	var/global/damage_overlays[16]
 	var/active
-	var/can_open = 0
-	var/material/material
-	var/material/reinf_material
+	var/singleton/material/material
+	var/singleton/material/reinf_material
 	var/last_state
 	var/construction_stage
 	var/use_set_icon_state
@@ -41,7 +41,6 @@
 
 	var/tmp/list/image/reinforcement_images
 	var/tmp/image/damage_image
-	var/tmp/image/fake_wall_image
 	var/tmp/cached_adjacency
 
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
@@ -67,6 +66,7 @@
 
 /turf/simulated/wall/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	. += "You can check for the false walls by <b>Left-Click</b>ing in any action intents but help."
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		. += "Wall rot fungus makes walls highly susceptible to damage- pushing on it now might make it break apart."
 		. += "It can be removed cleanly with a welding tool, or scraped off for processing with a bladed item like wirecutters."
@@ -100,10 +100,10 @@
 	if(!use_set_icon_state)
 		icon_state = "blank"
 	if(!materialtype)
-		materialtype = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(materialtype)
+		materialtype = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(materialtype)
 	if(!isnull(rmaterialtype))
-		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
+		reinf_material = SSmaterials.get_material_by_id(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
 	set_maxhealth(material.integrity + (reinf_material ? reinf_material.integrity : 0), TRUE)
@@ -233,7 +233,7 @@
 
 	INVOKE_ASYNC(src, PROC_REF(clear_plants))
 	clear_bulletholes()
-	material = SSmaterials.get_material_by_name("placeholder")
+	material = GET_SINGLETON(MATERIAL_STEEL)
 	reinf_material = null
 
 	if (!no_change)

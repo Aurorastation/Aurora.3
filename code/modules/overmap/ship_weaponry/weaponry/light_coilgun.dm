@@ -16,11 +16,12 @@
 	name = "light tungsten rod pack"
 	name_override = "light tungsten rod"
 	desc = "A pack of rods used as ammunition for a light coilgun."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/ammunition/ammo.dmi'
 	icon_state = "trodpack-2"
 	caliber = SHIP_CALIBER_COILGUN
 	overmap_icon_state = "light_pulse"
 	impact_type = SHIP_AMMO_IMPACT_AP
+	projectile_type_override = /obj/projectile/ship_ammo/coilgun/light
 
 /obj/projectile/ship_ammo/coilgun/light
 	name = "low-power tungsten rod"

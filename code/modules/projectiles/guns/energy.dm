@@ -151,6 +151,12 @@ ABSTRACT_TYPE(/obj/item/gun/energy)
 
 	addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
+/obj/item/gun/energy/handle_reliability_fail(var/mob/user)
+	if(power_supply && power_supply.charge < charge_cost)
+		handle_click_empty(user)
+		return
+	..()
+
 /obj/item/gun/energy/consume_next_projectile()
 	if(!power_supply)
 		return null

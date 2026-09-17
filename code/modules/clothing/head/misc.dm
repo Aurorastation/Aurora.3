@@ -38,7 +38,7 @@
 	name = "magnetic 'pin'"
 	desc = "Finally, a hair pin even a robot chassis can use."
 	slot_flags = SLOT_HEAD
-	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	matter = list(MATERIAL_STEEL = 10)
 
 /obj/item/clothing/head/pin/flower
 	name = "red flower pin"
@@ -424,14 +424,6 @@
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
-
-//Tau Ceti Foreign Legion
-
-/obj/item/clothing/head/legion/legate
-	name = "TCFL peaked cap"
-	desc = "A stark red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."
-	icon_state = "legion_cap"
-	item_state = "legion_cap"
 
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"

@@ -13,6 +13,9 @@ import { NtosWindow } from '../layouts';
 export type MonitorData = {
   ntnetstatus: BooleanLike;
   ntnetrelays: number;
+  ntnetcores: number;
+  ntnetfieldrelays: number;
+  ntnetroutedrelays: number;
   idsstatus: BooleanLike;
   idsalarm: BooleanLike;
   config_softwaredownload: BooleanLike;
@@ -35,6 +38,15 @@ export const NTMonitor = (props) => {
           <LabeledList>
             <LabeledList.Item label="Active NTNet Relays">
               {data.ntnetrelays}
+            </LabeledList.Item>
+            <LabeledList.Item label="Core Relays">
+              {data.ntnetcores}
+            </LabeledList.Item>
+            <LabeledList.Item label="Field Relays">
+              {data.ntnetfieldrelays}
+            </LabeledList.Item>
+            <LabeledList.Item label="Routed Relays">
+              {data.ntnetroutedrelays}
             </LabeledList.Item>
             <LabeledList.Item label="System Status">
               {data.ntnetstatus ? 'Enabled' : 'Disabled'}

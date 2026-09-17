@@ -40,6 +40,8 @@
 	hatch_descriptor = "hatch"
 	desc = "A cramped compartment and a senseless amount of armor is all this steel coffin contains."
 	pilot_coverage = 100
+	cockpit_hatch_size = 60
+	cockpit_pilot_damage_multiplier = 0.2
 	exosuit_desc_string = "a heavily armored chassis"
 	icon_state = "strider_body"
 	max_damage = 750

@@ -103,7 +103,7 @@
 	if(client) //Should work based on "change_view" but we lack the infrastructure behind to make it useful, for now
 		client.attempt_auto_fit_viewport()
 
-	if(machine)
+	if(isobj(machine))
 		machine.on_user_login(src)
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition

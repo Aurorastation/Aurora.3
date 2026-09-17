@@ -19,7 +19,10 @@ Deployable Kits
 	density = TRUE
 	layer = ABOVE_DOOR_LAYER // above door layer so it can appear on the airlocks like a proper barricade
 	maxhealth = OBJECT_HEALTH_LOW
-
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL
+	)
 	var/force_material
 
 /obj/structure/blocker/Initialize(mapload, var/material_name)
@@ -31,7 +34,7 @@ Deployable Kits
 /obj/structure/blocker/proc/set_material(var/material_name)
 	if(force_material)
 		material_name = force_material
-	material = SSmaterials.get_material_by_name(material_name)
+	material = SSmaterials.get_material_by_id(material_name)
 	if(!material)
 		qdel(src)
 		return
@@ -46,13 +49,6 @@ Deployable Kits
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	var/damage_modifier = 0.4
-	switch(hitting_projectile.damage_type)
-		if(DAMAGE_BURN)
-			damage_modifier = 1
-		if(DAMAGE_BRUTE)
-			damage_modifier = 0.75
-	health -= hitting_projectile.damage * damage_modifier
 	if(!check_dismantle())
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
 
@@ -61,7 +57,7 @@ Deployable Kits
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return ..()
 			if(health < maxhealth)
@@ -76,11 +72,6 @@ Deployable Kits
 			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(attacking_item.damtype)
-			if(DAMAGE_BURN)
-				src.health -= attacking_item.force * 1
-			if(DAMAGE_BRUTE)
-				src.health -= attacking_item.force * 0.75
 		shake_animation()
 		playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
 		if(check_dismantle())
@@ -137,7 +128,7 @@ Deployable Kits
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
-	req_access = list(ACCESS_SECURITY)//I'm changing this until these are properly tested./N
+	req_access = list(/datum/access/security::id)//I'm changing this until these are properly tested./N
 
 /obj/structure/machinery/deployable/barrier
 	name = "deployable barrier"
@@ -148,7 +139,7 @@ Deployable Kits
 	icon_state = "barrier"
 	maxhealth = OBJECT_HEALTH_LOW
 	var/locked = 0.0
-//	req_access = list(ACCESS_MAINT_TUNNELS)
+//	req_access = list(/datum/access/maint_tunnels::id)
 
 /obj/structure/machinery/deployable/barrier/New()
 	..()
@@ -178,13 +169,13 @@ Deployable Kits
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth
 			src.emagged = 0
-			src.req_access = list(ACCESS_SECURITY)
+			src.req_access = list(/datum/access/security::id)
 			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
-			src.req_access = list(ACCESS_SECURITY)
+			src.req_access = list(/datum/access/security::id)
 			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		return
@@ -263,7 +254,7 @@ Deployable Kits
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
-	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
+	req_one_access = list(/datum/access/tcaf::id)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
@@ -278,9 +269,137 @@ Deployable Kits
 	var/kit_product = /obj/structure/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 
+/**
+ * A single-use, fabricator-produced package that deploys a complete machine.
+ */
+ABSTRACT_TYPE(/obj/item/flatpak)
+	name = "flatpak"
+	desc = "A compact package that unfolds into a complete machine when used on an unobstructed floor."
+	icon = 'icons/obj/storage/briefcase.dmi'
+	icon_state = "inf_box"
+	item_state = "inf_box"
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_BULKY
+	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
+	var/circuit_type
+	var/machine_type
+	/// Base time required to deploy the flatpak at the required skill level.
+	var/deployment_time = 15 SECONDS
+	/// Additional deployment time per skill level below the requirement, or reduction per level above it.
+	var/deployment_time_per_skill_level = 5 SECONDS
+	var/deployment_looping_sound = /datum/looping_sound/construction
+	/// Skill component-to-level requirements copied from the circuit board. Missing skill components are ignored.
+	var/list/required_skills
+
+/obj/item/flatpak/Initialize(mapload, new_circuit_type, list/material_cost)
+	. = ..()
+	circuit_type = new_circuit_type
+	if(ispath(circuit_type, /obj/item/circuitboard))
+		var/obj/item/circuitboard/board = circuit_type
+		var/list/board_skills = initial(board.flatpak_required_skills)
+		required_skills = board_skills?.Copy()
+		machine_type = initial(board.build_path)
+		if(istext(machine_type))
+			machine_type = text2path(machine_type)
+	if(material_cost)
+		matter = material_cost.Copy()
+	if(machine_type)
+		var/obj/structure/machinery/machine = machine_type
+		name = "[initial(machine.name)] flatpak"
+		desc = "A compact package that unfolds into \a [initial(machine.name)] when used on an unobstructed floor."
+
+/obj/item/flatpak/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use \the [src] on an adjacent, unobstructed floor to deploy its machine."
+	. += "Relevant technical skill affects how quickly the flatpak can be deployed."
+
+/obj/item/flatpak/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(!proximity_flag || use_check(user) || !isturf(target))
+		return
+	var/turf/deployment_turf = target
+	if(!isfloor(deployment_turf))
+		to_chat(user, SPAN_WARNING("\The [src] can only be deployed on a floor."))
+		return
+	if(!turf_clear(deployment_turf))
+		to_chat(user, SPAN_WARNING("There is not enough room to deploy \the [src] there."))
+		return
+	if(!ispath(circuit_type, /obj/item/circuitboard) || !ispath(machine_type, /obj))
+		to_chat(user, SPAN_WARNING("\The [src] has no valid machine data."))
+		return
+
+	var/deployment_duration = deployment_time
+	var/largest_skill_shortfall
+	for(var/required_skill in required_skills)
+		var/skill_level = GET_SKILL_LEVEL(user, required_skill)
+		if(isnull(skill_level))
+			continue
+		var/skill_shortfall = required_skills[required_skill] - skill_level
+		if(isnull(largest_skill_shortfall) || skill_shortfall > largest_skill_shortfall)
+			largest_skill_shortfall = skill_shortfall
+	if(!isnull(largest_skill_shortfall))
+		deployment_duration = max(0, deployment_duration + (largest_skill_shortfall * deployment_time_per_skill_level))
+
+	var/assembly_message = "You lay out the parts in \the [src] and begin working through the assembly instructions."
+	if(deployment_duration > deployment_time)
+		assembly_message = "The parts in \the [src] look rather complicated. You study the instructions carefully; this might take a moment."
+	else if(deployment_duration < deployment_time)
+		assembly_message = "You recognize the parts in \the [src] and quickly start fitting them together."
+	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE(assembly_message))
+	if(!do_after(user, deployment_duration, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_USER, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
+		return
+	if(!user || QDELETED(user))
+		return
+	if(!user.Adjacent(deployment_turf) || !isfloor(deployment_turf) || !turf_clear(deployment_turf))
+		to_chat(user, SPAN_WARNING("There is no longer enough room to deploy \the [src] there."))
+		return
+
+	var/obj/deployed_machine
+	if(ispath(machine_type, /obj/structure/machinery))
+		var/obj/item/circuitboard/board = new circuit_type
+		var/obj/structure/machinery/machine = new machine_type(deployment_turf, user.dir, FALSE)
+		machine.component_parts = list()
+
+		if(istype(board, /obj/item/circuitboard/unary_atmos))
+			var/obj/item/circuitboard/unary_atmos/atmos_board = board
+			atmos_board.init_dirs = user.dir
+			atmos_board.machine_dir = user.dir
+
+		for(var/component_type in board.req_components)
+			var/component_path = component_type
+			if(istext(component_path))
+				component_path = text2path(component_path)
+			if(!ispath(component_path, /obj/item))
+				continue
+			var/component_count = board.req_components[component_type]
+			if(ispath(component_path, /obj/item/stack))
+				machine.component_parts += new component_path(machine, component_count)
+			else
+				for(var/i in 1 to component_count)
+					machine.component_parts += new component_path(machine)
+
+		board.construct(machine)
+		if(board.contain_parts)
+			board.forceMove(machine)
+			machine.component_parts += board
+		else
+			qdel(board)
+		machine.RefreshParts()
+		machine.anchored = TRUE
+		deployed_machine = machine
+	else
+		// Some machine circuit boards build non-machinery objects, such as cargo train trolleys.
+		deployed_machine = new machine_type(deployment_turf)
+		deployed_machine.set_dir(user.dir)
+
+	user.visible_message(SPAN_NOTICE("[user] deploys \a [deployed_machine] from \the [src]."), SPAN_NOTICE("You deploy \a [deployed_machine] from \the [src]."))
+	playsound(deployment_turf, 'sound/items/Deconstruct.ogg', 50, TRUE)
+	deployed_machine.add_fingerprint(user)
+	qdel(src)
+
 /obj/item/deployable_kit/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
-	if(do_after(user, assembly_time, src, DO_REPAIR_CONSTRUCT))
+	if(do_after(user, assembly_time, src, DO_DEPLOY))
 		assemble_kit(user)
 		qdel(src)
 
@@ -324,8 +443,8 @@ Deployable Kits
 	new /obj/structure/curtain/open/medical(free_spot, src)
 
 /obj/item/deployable_kit/legion_turret
-	name = "legion blaster turret assembly kit"
-	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCFL id card to configure it once assembled."
+	name = "TCAF blaster turret assembly kit"
+	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCAF  id card to configure it once assembled."
 	icon = 'icons/obj/turrets.dmi'
 	icon_state = "blaster_turret_kit"
 	item_state = "table_parts"

@@ -44,7 +44,11 @@
 	var/frequency = 1457
 	var/code = 30.0
 	var/last_transmission
+	var/listening = TRUE
 	var/datum/radio_frequency/radio_connection
+
+/obj/item/integrated_signaler/signal/network_card
+	listening = FALSE
 
 /obj/item/integrated_signaler/signal/Initialize()
 	. = ..()
@@ -57,26 +61,83 @@
 	set_frequency(frequency)
 
 /obj/item/integrated_signaler/signal/proc/set_frequency(new_frequency)
-	SSradio.remove_object(src, frequency)
-	frequency = new_frequency
-	radio_connection = SSradio.add_object(src, frequency)
+	if(!SSradio || !new_frequency)
+		return FALSE
+	var/sanitized_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
+	if(sanitized_frequency > RADIO_HIGH_FREQ)
+		sanitized_frequency = RADIO_HIGH_FREQ - 1
+	if(radio_connection && frequency == sanitized_frequency)
+		return TRUE
+	if(radio_connection)
+		SSradio.remove_object(src, frequency)
+	frequency = sanitized_frequency
+	if(listening)
+		radio_connection = SSradio.add_object(src, frequency)
+	else
+		radio_connection = null
+	return TRUE
 
-/obj/item/integrated_signaler/signal/proc/send_signal(message="ACTIVATE")
+/obj/item/integrated_signaler/signal/proc/set_listening(var/new_listening)
+	new_listening = !!new_listening
+	if(listening == new_listening)
+		return TRUE
+
+	listening = new_listening
+	if(listening)
+		return set_frequency(frequency)
+
+	if(radio_connection)
+		SSradio.remove_object(src, frequency)
+	radio_connection = null
+	return TRUE
+
+/obj/item/integrated_signaler/signal/proc/send_signal(message="ACTIVATE", var/mob/user)
+	if(!SSradio)
+		return FALSE
+	var/datum/radio_frequency/transmit_connection = radio_connection
+	if(!transmit_connection)
+		transmit_connection = SSradio.return_frequency(frequency)
+	if(!transmit_connection)
+		return FALSE
+	if(within_jamming_range(src))
+		return FALSE
 	if(last_transmission && world.time < (last_transmission + 5))
-		return
+		return FALSE
 	last_transmission = world.time
 
 	var/time = time2text(world.realtime,"hh:mm:ss")
 	var/turf/T = get_turf(src)
-	GLOB.lastsignalers.Add("[time] <B>:</B> [usr.key] used [src] @ location ([T.x],[T.y],[T.z]) <B>:</B> [format_frequency(frequency)]/[code]")
+	var/user_key = user ? user.key : usr?.key
+	GLOB.lastsignalers.Add("[time] <B>:</B> [user_key ? user_key : "userless"] used [src] @ location ([T ? T.x : 0],[T ? T.y : 0],[T ? T.z : 0]) <B>:</B> [format_frequency(frequency)]/[code]")
 
 	var/datum/signal/signal = new
 	signal.source = src
 	signal.encryption = code
 	signal.data["message"] = message
+	if(user)
+		signal.data["user"] = WEAKREF(user)
 
-	radio_connection.post_signal(src, signal)
+	transmit_connection.post_signal(src, signal)
+	return TRUE
+
+/obj/item/integrated_signaler/signal/receive_signal(var/datum/signal/signal)
+	if(!signal)
+		return FALSE
+	if(signal.source == src)
+		return FALSE
+	if(signal.data["message"] != "ACTIVATE")
+		return FALSE
+	if(isnull(signal.encryption))
+		return FALSE
+	if(within_jamming_range(src))
+		return FALSE
+
+	var/obj/item/computer_hardware/network_card/network_card = loc
+	if(istype(network_card))
+		return network_card.receive_signaler_signal(src, signal)
+	return FALSE
 
 /obj/item/integrated_signaler/signal/Destroy()
-	SSradio.remove_object(src, frequency)
+	if(SSradio)
+		SSradio.remove_object(src, frequency)
 	return ..()

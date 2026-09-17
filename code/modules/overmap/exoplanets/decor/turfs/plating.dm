@@ -5,6 +5,9 @@
 	footstep_sound = SFX_FOOTSTEP_PLATING
 	has_resources = FALSE
 
+/turf/simulated/floor/exoplanet/plating/is_plating()
+	return TRUE
+
 /turf/simulated/floor/exoplanet/plating/asteroid
 	icon_state = "asteroidplating"
 

@@ -517,7 +517,7 @@
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	make_exact_fit = TRUE
 	storage_slots = 6
-	req_access = list(ACCESS_VIROLOGY)
+	req_access = list(/datum/access/virology::id)
 
 /obj/item/storage/lockbox/vials/Initialize()
 	. = ..()
@@ -543,7 +543,7 @@
 	icon_state = "vialbox6"
 	locked = FALSE
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	req_access = list(ACCESS_FORENSICS_LOCKERS)
+	req_access = list(/datum/access/forensics_lockers::id)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"
@@ -574,7 +574,7 @@
 
 	var/open = 0 // Is the box open?
 	var/ismessy = 0 // Fancy mess on the lid
-	var/obj/item/reagent_containers/food/snacks/sliceable/pizza/pizza // Content pizza
+	var/obj/item/reagent_containers/food/snacks/pizza // Content pizza
 	var/pizza_type
 	var/list/boxes = list() // If the boxes are stacked, they come here
 	var/boxtag = ""
@@ -699,7 +699,7 @@
 
 		return
 
-	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sliceable/pizza/)) // Long ass fucking object name
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sliceable/pizza/) || istype(attacking_item, /obj/item/reagent_containers/food/snacks/variable/pizza)) // Long ass fucking object name
 
 		if(src.open)
 			user.drop_from_inventory(attacking_item, src)

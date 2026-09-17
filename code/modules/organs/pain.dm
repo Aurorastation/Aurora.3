@@ -7,7 +7,7 @@
 // power decides how much painkillers will stop the message
 // force means it ignores anti-spam timer
 /mob/living/carbon/proc/custom_pain(var/message, var/power, var/force, var/obj/item/organ/external/affecting, var/nohalloss)
-	if(!message || stat || !can_feel_pain() || chem_effects[CE_PAINKILLER] > power)
+	if(!message || stat || !can_feel_pain() || (affecting && !ORGAN_CAN_FEEL_PAIN(affecting)) || chem_effects[CE_PAINKILLER] > power)
 		return 0
 
 	power -= chem_effects[CE_PAINKILLER]/2	//Take the edge off.
@@ -26,11 +26,11 @@
 		last_pain_message = message
 		if(power >= 110)
 			flash_strong_pain()
-			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_HUGE("[message]")))
 		else if(power >= 70)
-			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_LARGE("[message]")))
 		else if(power >= 40)
-			to_chat(src, SPAN_DANGER("<font size=2>[message]</font>"))
+			to_chat(src, SPAN_DANGER(FONT_LARGE("[message]")))
 		else if(power >= 10)
 			to_chat(src, SPAN_DANGER("[message]"))
 		else
@@ -69,7 +69,7 @@
 		if(maxdam > 50 && prob(maxdam / 5))
 			to_chat(src, SPAN_WARNING("A bolt of pain shoots through your body, causing your hands to spasm!"))
 			drop_item()
-		var/burning = damaged_organ.burn_dam > damaged_organ.brute_dam
+		var/burning = LIMB_GET_BURN_DAMAGE(damaged_organ) > LIMB_GET_BRUTE_DAMAGE(damaged_organ)
 		var/msg
 		switch(maxdam)
 			if(1 to 10)
@@ -83,7 +83,7 @@
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/internal/I in internal_organs)
-		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5 && I.parent_organ)
+		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.get_damage() > 5 && I.parent_organ)
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
 			if (!parent) continue
 			var/pain = 10

@@ -194,9 +194,7 @@
 		broadcast_status()
 		broadcast_status_next_process = FALSE
 
-	if(!use_power || (stat & (NOPOWER|BROKEN)) || !loc)
-		return 0
-	if(welded)
+	if((!use_power || (stat & (NOPOWER|BROKEN)) || !loc) || welded)
 		return 0
 
 	var/datum/gas_mixture/environment = loc.return_air()

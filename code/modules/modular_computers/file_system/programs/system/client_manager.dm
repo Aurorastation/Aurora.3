@@ -26,7 +26,7 @@
 
 /datum/computer_file/program/clientmanager/ui_data(mob/user)
 	var/list/data = list()
-	data["ntnet_status"] = GLOB.ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD)
+	data["ntnet_status"] = computer.get_ntnet_status(NTNET_SOFTWAREDOWNLOAD)
 	return data
 
 /datum/computer_file/program/clientmanager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -35,7 +35,7 @@
 
 	if(action == "enroll")
 		. = TRUE
-		if(!GLOB.ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD))
+		if(!computer.get_ntnet_status(NTNET_SOFTWAREDOWNLOAD))
 			to_chat(ui.user, SPAN_WARNING("Cannot connect to NTNet download servers. Please try again later."))
 			return
 		if(params["enroll_type"] & DEVICE_COMPANY)

@@ -3,9 +3,9 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
+	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
 
-	req_access = list(ACCESS_ENGINE)
+	req_access = list(/datum/access/engine::id)
 	/// If set, then wires will be randomized and bolts will drop if the door is broken
 	var/secure = FALSE
 	var/list/conf_access

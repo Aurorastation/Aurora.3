@@ -6,6 +6,7 @@
 	density = TRUE
 	light_system = MOVABLE_LIGHT
 	maxhealth = OBJECT_HEALTH_LOW
+	should_use_health = FALSE
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_HUGE
 
@@ -369,10 +370,8 @@ update_flag
 		update_icon()
 
 /obj/structure/machinery/portable_atmospherics/canister/process()
-	if (destroyed)
+	if (destroyed || (!air_contents.react() && !valve_open && !holding && !connected_port))
 		return PROCESS_KILL
-
-	..()
 
 	if(valve_open)
 		var/datum/gas_mixture/environment
@@ -392,14 +391,13 @@ update_flag
 			var/returnval = pump_gas_passive(src, air_contents, environment, transfer_moles)
 			if(returnval >= 0)
 				src.update_icon()
+				SStgui.update_uis(src)
 
 	if(XGM_PRESSURE(air_contents) < 1)
 		can_label = 1
 	else
 		can_label = 0
 
-	// Cooking up air cans - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
-	air_contents.react()
 
 /obj/structure/machinery/portable_atmospherics/canister/return_air()
 	return air_contents
@@ -433,6 +431,7 @@ update_flag
 					release_log += "Valve was <b>opened</b> by [key_name(admin)] (aghost), starting the transfer into the <span class='warning'><b>air</b></span><br>"
 					log_open(admin)
 			valve_open = !valve_open
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/structure/machinery/portable_atmospherics/canister/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
@@ -460,6 +459,7 @@ update_flag
 			var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 			thejetpack.merge(removed)
 			to_chat(user, "You pulse-pressurize your jetpack from the tank.")
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		return TRUE
 
 	..()
@@ -517,6 +517,7 @@ update_flag
 					release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <span class='warning'><b>air</b></span><br>"
 					log_open()
 			valve_open = !valve_open
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 			. = TRUE
 
 		if("remove_tank")
@@ -567,7 +568,24 @@ update_flag
 /obj/structure/machinery/portable_atmospherics/canister/do_signaler()
 	valve_open = !valve_open
 	if(valve_open)
+		if(holding)
+			release_log += "Valve was <b>opened</b> by a signaler, starting the transfer into [holding]<br>"
+		else
+			release_log += "Valve was <b>opened</b> by a signaler, starting the transfer into the <span class='warning'><b>air</b></span><br>"
 		log_open_userless("a signaler")
+		if(!(processing_flags & MACHINERY_PROCESS_SELF))
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		process()
+	else
+		if(holding)
+			release_log += "Valve was <b>closed</b> by a signaler, stopping the transfer into [holding]<br>"
+		else
+			release_log += "Valve was <b>closed</b> by a signaler, stopping the transfer into the <span class='warning'><b>air</b></span><br>"
+
+	update_connected_network()
+	update_icon()
+	SStgui.update_uis(src)
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /**
  * Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0

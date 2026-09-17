@@ -138,6 +138,10 @@
 
 /obj/structure/machinery/vending/snack/horizon
 	products = list(
+		/obj/item/reagent_containers/food/snacks/candy = 6,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 2,
+		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 6,
 		/obj/item/reagent_containers/food/snacks/sosjerky = 6,
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
@@ -186,6 +190,10 @@
 		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 1.75,
 		/obj/item/reagent_containers/food/snacks/syndicake = 3.50,
 		/obj/item/reagent_containers/food/snacks/koisbar = 12.00,
+		/obj/item/reagent_containers/food/snacks/candy = 1.50,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 2.00,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 3.00,
+		/obj/item/clothing/mask/chewable/candy/lolli = 1.00,
 
 		/obj/item/reagent_containers/food/drinks/cans/cola = 1.50,
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1.50,

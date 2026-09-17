@@ -699,7 +699,7 @@
 	must_start_working = 1
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_portside,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
@@ -1463,7 +1463,7 @@
 	pixel_y = -25;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_portside,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -2093,7 +2093,7 @@
 	pixel_y = -25;
 	pixel_x = 5
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_portside,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
@@ -2334,7 +2334,7 @@
 	pixel_y = -28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_portside,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
@@ -2555,7 +2555,7 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_portside,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -2756,7 +2756,7 @@
 	dir = 8;
 	pixel_x = 25
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/gunnery,
 /turf/simulated/floor/plating,
 /area/splf_raider/gunnery)
 "qx" = (
@@ -3718,7 +3718,7 @@
 	must_start_working = 1
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_starboard,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
@@ -3788,7 +3788,7 @@
 	dir = 4;
 	pixel_x = -25
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_portside,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "vO" = (
@@ -4623,7 +4623,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -4741,7 +4741,7 @@
 	pixel_x = -27;
 	pixel_y = -8
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/gunnery,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
@@ -5681,7 +5681,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_starboard,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
@@ -5873,7 +5873,7 @@
 	dir = 8;
 	pixel_x = 25
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_starboard,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "HU" = (
@@ -5954,7 +5954,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
@@ -5970,7 +5970,7 @@
 	pixel_y = 8;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/gunnery,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/gunnery)
@@ -6377,7 +6377,7 @@
 	must_start_working = 1
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_starboard,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "KL" = (
@@ -6815,7 +6815,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_portside,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
@@ -7691,7 +7691,7 @@
 	pixel_y = -25;
 	pixel_x = -7
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_starboard,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
@@ -7820,7 +7820,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/splf_raider/gunnery,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/gunnery,
 /turf/simulated/floor/plating,
 /area/splf_raider/gunnery)
 "Th" = (
@@ -8386,7 +8386,7 @@
 	must_start_working = 1
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_portside,
 /turf/simulated/floor/plating,
 /area/splf_raider/central)
 "WE" = (
@@ -8623,7 +8623,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_portside,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
@@ -8798,7 +8798,7 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
 "YM" = (
@@ -8845,7 +8845,7 @@
 	pixel_y = -25;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,

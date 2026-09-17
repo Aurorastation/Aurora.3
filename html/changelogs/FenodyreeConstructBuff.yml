@@ -1,7 +1,0 @@
-author: Fenodyree
-
-delete-after: True
-
-changes:
-  - balance: "Makes constructs immune to pain damage. It used to deal damage at 1/2 value."
-

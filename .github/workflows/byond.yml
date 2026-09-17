@@ -15,7 +15,7 @@ on:
 env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 178
+  TO_WORLD_COUNT: 179
 
   #These variables are filled from dependencies.sh inside the steps, DO NOT SET THEM HERE
   BYOND_MAJOR: ""
@@ -342,6 +342,45 @@ jobs:
         run: |
           tools/bootstrap/python -m mapmerge2.dmm_test
           tools/bootstrap/python -m tools.maplint.source
+
+  ##################################################
+  ############### Forbidden map types ##############
+  ##################################################
+  lint-forbidden-map-types:
+    name: Lint Forbidden map types
+    runs-on: ubuntu-24.04
+    needs: validate-structure
+    if: needs.validate-structure.outputs.skipci != 'true'
+
+    concurrency:
+      group: lint-forbidden-map-types-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    steps:
+      #Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #Initialize the environment variables
+      - name: Set ENV variables
+        run: bash dependencies.sh
+
+      #Restores python cache
+      - name: Restore Python Cache
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+
+      #Install python packages and tools
+      - name: Install Python Packages
+        run: |
+          pip install -r tools/requirements.txt
+          pip3 install setuptools
+
+      - name: Check forbidden map types
+        run: |
+          tools/bootstrap/python tools/findForbiddenMapTypes.py
 
   ###########################################
   ############## GENERIC TESTS ##############

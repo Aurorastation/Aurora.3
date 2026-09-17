@@ -1147,7 +1147,7 @@
 /area/overgrown_mining_station)
 "yw" = (
 /obj/structure/platform,
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "yy" = (
@@ -1770,6 +1770,10 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"Mc" = (
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
 "Mh" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/trash/can,
@@ -2089,6 +2093,7 @@
 /area/overgrown_mining_station)
 "Uu" = (
 /obj/structure/platform,
+/obj/structure/machinery/computer/rdconsole/robotics,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "UA" = (
@@ -42777,7 +42782,7 @@ eK
 Xe
 Fg
 oj
-oj
+Mc
 qK
 Uj
 jm

@@ -43,3 +43,6 @@
 #define DEFAULT_MAP_TRAITS list(\
 	DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),\
 )
+
+//Reserved/Transit turf type
+#define RESERVED_TURF_TYPE /turf/space //What the turf is when not being used

@@ -50,6 +50,8 @@
 		/singleton/origin_item/culture/offworld_tajara/zhan
 	)
 
+	mass_modifier = REFERENCE_MASS_TAJARA_ZHAN / REFERENCE_MASS_HUMAN
+
 /datum/species/tajaran/m_sai
 	name = SPECIES_TAJARA_MSAI
 	name_plural = "M'sai Tajara"
@@ -99,6 +101,8 @@
 		/singleton/origin_item/culture/adhomian/msai,
 		/singleton/origin_item/culture/offworld_tajara/msai
 	)
+
+	mass_modifier = REFERENCE_MASS_TAJARA_MSAI / REFERENCE_MASS_HUMAN
 
 /datum/species/tajaran/tesla_body
 	name = SPECIES_TAJARA_TESLA_BODY
@@ -199,6 +203,7 @@
 	push_flags = (~HEAVY) ^ ROBOT
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any alternate limbs for Tesla suits
 	valid_prosthetics = null
+	mass_modifier = REFERENCE_MASS_TAJARA_TESLA / REFERENCE_MASS_HUMAN
 
 /datum/species/tajaran/tesla_body/New()
 	..()

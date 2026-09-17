@@ -1,7 +1,7 @@
 /obj/random/belt
 	name = "random belt"
 	icon_state = "toolbelt"
-	problist = list(
+	spawnlist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
 		/obj/item/storage/belt/medical/paramedic = 0.4,
@@ -16,7 +16,7 @@
 /obj/random/backpack
 	name = "random backpack"
 	icon_state = "backpack"
-	problist = list(
+	spawnlist = list(
 		/obj/item/storage/backpack = 3,
 		/obj/item/storage/backpack/cultpack = 2,
 		/obj/item/storage/backpack/medic = 3,
@@ -110,7 +110,7 @@
 	name = "random possible chameleon item"
 	desc = "A random possible chameleon item. What could possibly go wrong?"
 	icon_state = "uniform"
-	problist = list(
+	spawnlist = list(
 
 		/obj/item/clothing/gloves/chameleon = 1,
 		/obj/item/clothing/gloves/black = 10,
@@ -143,7 +143,7 @@
 	name = "random gloves"
 	desc = "Random gloves, assorted usefulness."
 	icon_state = "gloves"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/gloves/black = 1,
 		/obj/item/clothing/gloves/black_leather = 0.5,
 		/obj/item/clothing/gloves/botanic_leather = 0.7,
@@ -161,7 +161,7 @@
 	name = "random watches"
 	desc = "Random watches, probably able to tell the time."
 	icon_state = "watch"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/wrists/watch = 1,
 		/obj/item/clothing/wrists/watch/silver = 0.7,
 		/obj/item/clothing/wrists/watch/gold = 0.5,
@@ -172,7 +172,7 @@
 	name = "random winter coat"
 	desc = "This is a random winter coat."
 	icon_state = "wintercoat"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/storage/hooded/wintercoat = 5,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos = 3,
@@ -189,7 +189,7 @@
 	name = "random bandana"
 	desc = "This is a random bandana."
 	icon_state = "bandana"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/head/bandana/colorable/random = 5,
 		/obj/item/clothing/head/bandana/engineering = 3,
 		/obj/item/clothing/head/bandana/atmos = 3,
@@ -206,7 +206,7 @@
 	name = "random softcap"
 	desc = "This is a random softcap."
 	icon_state = "softcap"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/head/softcap/colorable/random = 5,
 		/obj/item/clothing/head/softcap/engineering = 3,
 		/obj/item/clothing/head/softcap/atmos = 3,
@@ -223,7 +223,7 @@
 	name = "random beret"
 	desc = "This is a random beret."
 	icon_state = "beret"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/head/beret/colorable/random = 5,
 		/obj/item/clothing/head/beret/engineering = 3,
 		/obj/item/clothing/head/beret/atmos = 3,
@@ -240,7 +240,7 @@
 	name = "random hardhat"
 	desc = "This is a random hardhat."
 	icon_state = "hardhat"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/head/hardhat = 1,
 		/obj/item/clothing/head/hardhat/orange = 1,
 		/obj/item/clothing/head/hardhat/red = 1,
@@ -270,7 +270,7 @@
 	name = "random medical gown"
 	desc = "A random color of medical patient's gown."
 	icon_state = "uniform"
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/under/medical_gown = 1,
 		/obj/item/clothing/under/medical_gown/blue = 1,
 		/obj/item/clothing/under/medical_gown/green = 1,

@@ -119,6 +119,8 @@
 	var/slowdown = 0
 	/// Updated on accessory add/remove. This is how much the current accessories slow you down.
 	var/slowdown_accessory = 0
+	/// If TRUE, carrying or equipping this item adds slowdown based on its effective mass and the holder's lift capacity.
+	var/mass_based_slowdown = FALSE
 
 	/// Boolean, mostly for Ninja code at this point but basically will not allow the item to be removed if set to `FALSE`
 	var/canremove = TRUE
@@ -150,6 +152,11 @@
 	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = SFX_DROP
+	/// Sound played on movement. This is a list. If the list has ONE item, then it's treated as ONE sound. If the list has more than one item, then it's treated as a list where
+	/// the system will randomly play one of these sounds.
+	var/list/movement_sounds = null
+	/// The volume we want movement sounds to happen at for this object. Remember that on run intent, it's raised by 30.
+	var/movement_sound_volume = 40
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -420,6 +427,17 @@
 /obj/item/proc/do_additional_pickup_checks(var/mob/user)
 	return TRUE
 
+/**
+ * Performs a strength-scaled pickup delay without preventing the user from
+ * lifting the item. The delay is bounded to keep very heavy parts usable.
+ */
+/obj/item/proc/do_mass_based_pickup_delay(mob/user)
+	if(!user)
+		return FALSE
+	var/pickup_delay = clamp((get_effective_mass() / user.get_lift_capacity()) * 1 SECOND, 0.5 SECONDS, 5 SECONDS)
+	user.visible_message(SPAN_NOTICE("\The [user] starts lifting \the [src]..."), SPAN_NOTICE("You start lifting \the [src]..."))
+	return do_after(user, pickup_delay, src, DO_UNIQUE)
+
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/robot_module))
 		//If the item is part of a cyborg module, equip it
@@ -508,6 +526,8 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	in_inventory = FALSE
 
+	SEND_SIGNAL(user, COMSIG_MOB_REMOVE_FOOTSTEP_SOUND, src, movement_sounds)
+
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
 
@@ -531,7 +551,7 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistant_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			persistent_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
 			SSpersistence.objectsRegisterTrack(src, usr == null ? null : ckey(usr.key))
 			return
 
@@ -601,8 +621,8 @@
 	equipped(user, slot, initial)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_POST_EQUIPPED, user, slot) && COMPONENT_EQUIPPED_FAILED)
 		return FALSE
+	SEND_SIGNAL(user, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, movement_sounds, movement_sound_volume)
 	return TRUE
-
 
 /**
  * Called by on_equipped. Don't call this directly, we want the ITEM_POST_EQUIPPED signal to be sent after everything else.
@@ -640,9 +660,6 @@
 			LAZYDISTINCTADD(user.item_verbs["[v]"], src)
 	else
 		remove_item_verbs(user)
-
-	//Ěent for observable
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 	user.update_equipment_speed_mods()
 
@@ -853,7 +870,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 			)
 
 		eyes.take_damage(rand(3,4))
-		if(eyes.damage >= eyes.min_bruised_damage)
+		if(eyes.get_damage() >= eyes.min_bruised_damage)
 			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
 					to_chat(H, SPAN_DANGER("Your eyes start to bleed profusely!"))
@@ -864,7 +881,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				H.eye_blurry += 10
 				H.Paralyse(1)
 				H.Weaken(4)
-			if (eyes.damage >= eyes.min_broken_damage)
+			if (eyes.get_damage() >= eyes.min_broken_damage)
 				if(H.stat != DEAD)
 					to_chat(H, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)

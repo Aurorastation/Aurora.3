@@ -19,12 +19,14 @@
 	drop_sound = 'sound/items/drop/multitool.ogg'
 	pickup_sound = 'sound/items/pickup/multitool.ogg'
 
-	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20, DEFAULT_WALL_MATERIAL = 5)
+	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20, MATERIAL_STEEL = 5)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
-	var/obj/structure/machinery/buffer // simple machine buffer for device linkage
-	var/obj/structure/machinery/clonepod/connecting //same for cryopod linkage
+	/// simple machine buffer for device linkage
+	var/obj/structure/machinery/buffer
+	/// same for cryopod linkage. legacy as fuck.
+	var/obj/structure/machinery/clonepod/connecting
 	var/buffer_name
 	var/atom/buffer_object
 

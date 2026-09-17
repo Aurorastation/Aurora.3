@@ -128,6 +128,7 @@
 	caliber = SHIP_CALIBER_ZAT
 	impact_type = SHIP_AMMO_IMPACT_ZAT
 	overmap_icon_state = "heavy_pulse"
+	projectile_type_override = /obj/projectile/ship_ammo/leviathan
 
 /obj/item/ship_ammunition/leviathan/Initialize()
 	. = ..()

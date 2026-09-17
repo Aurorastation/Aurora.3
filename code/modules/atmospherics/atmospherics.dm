@@ -29,7 +29,6 @@ Pipelines + Other Objects -> Pipe network
 	var/obj/structure/machinery/atmospherics/node1
 	var/obj/structure/machinery/atmospherics/node2
 	var/atmos_initialised = FALSE
-	gfi_layer_rotation = GFI_ROTATION_OVERDIR
 
 /obj/structure/machinery/atmospherics/Initialize(mapload)
 	. = ..()

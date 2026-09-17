@@ -212,9 +212,8 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/template_noop)
 "U" = (
-/turf/simulated/wall/wood{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/wood,
 /area/template_noop)
 "V" = (
 /obj/structure/lattice/catwalk/indoor/planks{

@@ -470,7 +470,7 @@
 			for(var/obj/item/organ/external/O in organs)
 				if(QDELETED(O))
 					continue
-				if((O.damage + LOW_PRESSURE_DAMAGE) < O.max_damage)
+				if((O.get_damage() + LOW_PRESSURE_DAMAGE) < O.max_damage)
 					O.take_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
 			if(getOxyLoss() < 55)
 				adjustOxyLoss(4)
@@ -706,12 +706,6 @@
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 
-		if(CE_ADRENALINE in chem_effects)
-			sprint_speed_factor += 0.1*chem_effects[CE_ADRENALINE]
-			max_stamina *= 1 + chem_effects[CE_ADRENALINE]
-			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
-			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
-
 		var/obj/item/clothing/suit = wear_suit
 		var/protected = FALSE
 		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))
@@ -805,7 +799,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/human/handle_regular_status_updates()
+/mob/living/carbon/human/handle_regular_status_updates(seconds_per_tick)
 	if(!handle_some_updates())
 		return 0
 
@@ -849,7 +843,7 @@
 					sleeping_msg_debounce = TRUE
 					to_chat(src, EXAMINE_BLOCK_BLUE(SPAN_NOTICE(FONT_LARGE("You are now unconscious. You will not remember anything you see, hear, or feel happening around you until you regain consciousness."))))
 
-			adjustHalLoss(-3)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -889,11 +883,11 @@
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
 			drowsiness = max(0, drowsiness - 5)
-			adjustHalLoss(-3)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-1)
+			adjustHalLoss(-0.1 * seconds_per_tick)
 
 		//Other
 		handle_statuses()
@@ -1019,7 +1013,7 @@
 				// Collect and apply the images all at once to avoid appearance churn.
 				var/list/health_images = list()
 				for(var/obj/item/organ/external/E in organs)
-					if(no_damage && (E.brute_dam || E.burn_dam))
+					if(no_damage && (LIMB_GET_BRUTE_DAMAGE(E) || LIMB_GET_BURN_DAMAGE(E)))
 						no_damage = 0
 					health_images += E.get_damage_hud_image()
 
@@ -1358,6 +1352,26 @@
 
 	if(shock_stage >= 150)
 		Weaken(20)
+
+/mob/living/carbon/human/proc/trigger_heart_attack()
+	if(status_flags & GODMODE)
+		return FALSE
+	if(stat == DEAD || !should_have_organ(BP_HEART))
+		return FALSE
+
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(!istype(heart) || BP_IS_ROBOTIC(heart) || (heart.status & ORGAN_DEAD))
+		return FALSE
+
+	shock_stage = max(shock_stage, 120)
+	heart.pulse = PULSE_NONE
+	heart.handle_pulse()
+	BITSET(hud_updateflag, HEALTH_HUD)
+
+	to_chat(src, SPAN_DANGER("Your heart has stopped!"))
+	visible_message("<b>[src]</b> suddenly collapses, clutching at [get_pronoun("his")] chest!")
+	Paralyse(15)
+	return TRUE
 
 
 /*

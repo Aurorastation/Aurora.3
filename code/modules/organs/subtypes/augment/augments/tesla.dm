@@ -42,6 +42,64 @@
 		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
 		tesla_zap(owner, 7, 1500)
 
+/// Toggles all of an owner's tesla augs.
+/obj/item/organ/internal/augment/tesla/proc/toggle_tesla_augs(toggle)
+	if (!owner)
+		return
+
+	if (is_broken()) // Broken tesla spines will ALWAYS toggle the overlays off when this proc is called.
+		toggle = FALSE
+
+	for (var/obj/item/organ/external/organ in owner.organs)
+		if (!model)
+			continue
+
+		var/datum/robolimb/R = GLOB.all_robolimbs[model]
+		if (!R || !R.is_tesla)
+			continue
+
+		organ.is_emissive = toggle
+		organ.is_overlay = toggle
+
+/**
+ * Tesla spines power all tesla augs, and if they break, the lights go out.
+ */
+/obj/item/organ/internal/augment/tesla/take_damage(amount, silent)
+	. = ..()
+	toggle_tesla_augs(FALSE)
+
+/obj/item/organ/internal/augment/tesla/Initialize()
+	. = ..()
+	toggle_tesla_augs(TRUE)
+
+/obj/item/organ/internal/augment/tesla/Destroy()
+	toggle_tesla_augs(FALSE)
+	return ..()
+
+/obj/item/organ/internal/augment/tesla/take_surge_damage(surge)
+	. = ..()
+	toggle_tesla_augs(FALSE)
+
+/obj/item/organ/internal/augment/tesla/clear_surge_effects()
+	. = ..()
+	toggle_tesla_augs(TRUE)
+
+/obj/item/organ/internal/augment/tesla/rejuvenate()
+	. = ..()
+	toggle_tesla_augs(TRUE)
+
+/obj/item/organ/internal/augment/tesla/heal_damage()
+	. = ..()
+	toggle_tesla_augs(TRUE)
+
+/obj/item/organ/internal/augment/tesla/removed(mob/living/carbon/human/target, mob/living/user, drop_organ = TRUE, detach = TRUE)
+	toggle_tesla_augs(FALSE) // Toggle the owner's augs before letting the base organ proc trigger
+	return ..()
+
+/obj/item/organ/internal/augment/tesla/replaced()
+	. = ..()
+	toggle_tesla_augs(TRUE)
+
 /obj/item/organ/internal/augment/tesla/advanced
 	name = "advanced tesla spine"
 	max_charges = 15

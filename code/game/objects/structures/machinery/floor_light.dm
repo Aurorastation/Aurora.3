@@ -9,7 +9,7 @@
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = AREA_USAGE_LIGHT
-	matter = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2750)
+	matter = list(MATERIAL_STEEL = 2500, MATERIAL_GLASS = 2750)
 	recyclable = TRUE
 
 	var/on

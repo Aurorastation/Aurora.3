@@ -34,7 +34,8 @@ import './styles/themes/hephaestus.scss';
 import './styles/themes/sol.scss';
 import './styles/themes/vaurca.scss';
 import './styles/themes/amberpos.scss';
-
+import './styles/themes/dossier.scss';
+import './styles/themes/orion.scss';
 import { setupGlobalEvents } from 'tgui-core/events';
 import { setupHotKeys } from 'tgui-core/hotkeys';
 import { captureExternalLinks } from 'tgui-core/links';

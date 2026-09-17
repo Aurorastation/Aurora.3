@@ -497,3 +497,99 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#68451c"
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/psitenders
+	name = "psitenders"
+	desc = "Cuts of psiren meat coated in a mix of spices, breaded, fried, and served on a bed of sauerkraut with a dipping sauce such as spicy mayo or soy sauce. Sauerkraut and Psiren meat make for a popular combination, for whatever reason."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "psitenders"
+	trash = /obj/item/trash/plate
+	filling_color = "#b18a37"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("crunchy coating" = 5, "sauerkraut" = 5), /singleton/reagent/nutriment/protein/seafood = list("carbonated chicken" = 5, "spices" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/psitenders/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_psitenders = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_psitenders)
+		if(-INFINITY to 40)
+			icon_state = "psitenders_half"
+		if(41 to INFINITY)
+			icon_state = "psitenders"
+
+/obj/item/reagent_containers/food/snacks/psychoyaki
+	name = "psychoyaki"
+	desc = "D E F I N I T E L Y   N O R M A L  F O O D ." //U N B L O C K S  Y O U R  T H I R D  E Y E  A N D  Y O U R  C O L O N.
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "psychoyaki"
+	trash = /obj/item/trash/chipbasket
+	filling_color = "#ee9471"
+	center_of_mass = list("x"=17, "y"=9)
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/seafood = 4, /singleton/reagent/drugs/mindbreaker = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried batter" = 4), /singleton/reagent/nutriment/protein/seafood = list("the great and ever-yawning cosmos" = 5, "fizzy chicken" = 2))
+
+/obj/item/reagent_containers/food/snacks/psirensteak
+	name = "psiren steak"
+	desc = "A yellowish steak made of psiren meat. It makes a noise like pop rocks candy as it sizzles, slowly dying down as it cools."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "psirensteak"
+	trash = /obj/item/trash/plate/steak
+	filling_color = "#c79f1a"
+	center_of_mass = list("x"=16, "y"=13)
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 2, /singleton/reagent/nutriment/triglyceride = 2)
+
+/obj/item/reagent_containers/food/snacks/psirensteak/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_psirensteak = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_psirensteak)
+		if(-INFINITY to 50)
+			icon_state = "psirensteak_half"
+		if(51 to INFINITY)
+			icon_state = "psirensteak"
+
+/obj/item/reagent_containers/food/snacks/cornucopia
+	name = "cornucopia roast"
+	desc = "'Cornucopia Roast' sure sounds better than 'Stuffed tentacle', doesn't it? Well, that's still what it is."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "cornucopia"
+	filling_color = "#d8cdaa"
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("risotto" = 5, "nutmeg" = 5, "crunchy seafood" = 3))
+
+/obj/item/reagent_containers/food/snacks/cornucopia/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_cornucopia = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_cornucopia)
+		if(-INFINITY to 50)
+			icon_state = "cornucopia_half"
+		if(51 to INFINITY)
+			icon_state = "cornucopia"
+
+/obj/item/reagent_containers/food/snacks/grilled_tentacle
+	name = "grilled tentacle"
+	desc = "A real deal grilled tendril."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "grilled_tentacle"
+	trash = /obj/item/trash/plate/steak
+	filling_color = "#503413"
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 2, /singleton/reagent/nutriment/triglyceride = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("salted, crunchy seafood" = 5, "fizzy chicken" = 5))
+
+/obj/item/reagent_containers/food/snacks/grilled_tentacle/update_icon()
+	var/percent_grilled_tentacle = round((reagents.total_volume / 6) * 100)
+	switch(percent_grilled_tentacle)
+		if(0 to 50)
+			icon_state = "grilled_tentacle_half"
+		if(51 to INFINITY)
+			icon_state = "grilled_tentacle"

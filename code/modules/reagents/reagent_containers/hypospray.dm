@@ -21,7 +21,7 @@
 	var/armorcheck = 1
 	var/time = 3 SECONDS
 	var/image/filling //holds a reference to the current filling overlay
-	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_GLASS = 400, MATERIAL_STEEL = 200)
 
 /obj/item/reagent_containers/hypospray/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

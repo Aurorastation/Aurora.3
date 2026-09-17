@@ -11,7 +11,7 @@
 	flags = NO_SCAN | NO_SLIP | NO_BREATHE | NO_EMBED
 	spawn_flags = IS_RESTRICTED
 	siemens_coefficient = 3 //conductive
-	darksight = 3
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 	rarity_value = 5
 	fall_mod = 0
 	grab_mod = 1.5

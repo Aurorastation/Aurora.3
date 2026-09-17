@@ -26,6 +26,13 @@
 	var/door_open_overlay = "ovenopen_on"
 	var/door_closed_overlay = "ovenclosed_on"
 
+	component_types = list(
+		/obj/item/circuitboard/oven,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/matter_bin = 2)
+
+
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/oven,
 		/obj/item/reagent_containers/cooking_container/oven,

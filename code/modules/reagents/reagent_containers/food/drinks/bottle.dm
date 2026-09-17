@@ -390,12 +390,13 @@
 			src.reagents.remove_any(reagents.total_volume / 5)
 		return
 
-	///The bonus to success chance that the user gets for being a command role
-	var/command_bonus = (user.mind?.assigned_role in command_positions) ? 20 : 0
+	var/skill_bonus = 0
 
-	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
+	var/datum/component/skill/bartending/bar_skill = user.GetComponent(BARTENDING_SKILL_COMPONENT)
+	if(bar_skill)
+		skill_bonus = 6.25 * bar_skill.skill_level
 
-	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + command_bonus + job_bonus
+	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + skill_bonus
 
 	if(prob(sabrage_chance))
 		///Severity of the resulting froth to pass to make_froth()
@@ -439,6 +440,28 @@
 		user.visible_message(SPAN_DANGER("[user] cleanly slices off the cork of [src], causing it to fly off the bottle with great force."), \
 								SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
 								"You can hear a pop.")
+
+		var/moodlet_value = 5
+		if (!moodlet_value)
+			return
+
+		var/list/listening = get_hearers_in_view(world.view, user)
+		if (!listening)
+			return
+		listening -= user
+
+		for (var/mob/player_mob in listening)
+			var/datum/component/morale/receiver_morale = player_mob.GetComponent(MORALE_COMPONENT)
+			if (!receiver_morale)
+				continue
+
+			if (astype(receiver_morale.moodlets[/datum/moodlet/bartender_sabrage], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+				receiver_morale.load_moodlet(/datum/moodlet/bartender_sabrage)?.refresh_moodlet()
+				continue // Don't overwrite stronger moodlets.
+
+			var/datum/moodlet/sabraged = receiver_morale.load_moodlet(/datum/moodlet/bartender_sabrage, moodlet_value)
+			sabraged.refresh_moodlet()
+			sabraged.moodlet_descriptor += " from [user.name]."
 	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()

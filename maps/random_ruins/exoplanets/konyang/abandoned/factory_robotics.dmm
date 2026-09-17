@@ -149,6 +149,11 @@
 /obj/structure/machinery/smartfridge,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
+"jl" = (
+/obj/random/dirt_75,
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/sidewalk/dark,
+/area/konyang/robotics_factory)
 "jm" = (
 /obj/structure/machinery/light_switch{
 	dir = 4;
@@ -219,6 +224,7 @@
 "lN" = (
 /obj/random/dirt_75,
 /obj/random/tech_supply,
+/mob/living/simple_animal/thinbug,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "lT" = (
@@ -343,8 +349,10 @@
 /area/konyang/robotics_factory)
 "rq" = (
 /obj/random/dirt_75,
-/mob/living/simple_animal/thinbug,
 /obj/structure/machinery/light/broken,
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "rT" = (
@@ -723,7 +731,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "Ku" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/foundation,
 /area/konyang/robotics_factory)
 "KC" = (
@@ -939,7 +947,7 @@
 /area/konyang/robotics_factory)
 "XD" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/robotics_factory)
 "XI" = (
@@ -1899,8 +1907,8 @@ eM
 SY
 tf
 BH
-Us
 CF
+jl
 SY
 cP
 se

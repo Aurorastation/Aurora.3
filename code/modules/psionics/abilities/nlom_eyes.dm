@@ -55,7 +55,7 @@
 /obj/item/spell/track/process()
 	if(!tracking)
 		icon_state = "track"
-		return
+		return PROCESS_KILL
 
 	if(!tracked)
 		icon_state = "track_unknown"

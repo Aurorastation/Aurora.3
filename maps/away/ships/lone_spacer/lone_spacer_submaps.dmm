@@ -89,20 +89,8 @@
 	pixel_y = -1;
 	req_access = list(243)
 	},
-/obj/structure/table/rack/folding_table,
-/obj/item/storage/box/masks{
-	pixel_x = -6;
-	pixel_y = 12
-	},
-/obj/item/storage/box/gloves{
-	pixel_x = -6;
-	pixel_y = 1
-	},
-/obj/item/stack/nanopaste{
-	pixel_y = 4;
-	pixel_x = 8
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "k" = (
@@ -110,8 +98,10 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "l" = (
@@ -180,6 +170,18 @@
 /obj/item/robot_parts/r_arm,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paint_sprayer,
+/obj/item/storage/box/masks{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/stack/nanopaste{
+	pixel_y = 4;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "t" = (
@@ -384,7 +386,7 @@
 /area/shuttle/lone_spacer/storage)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = null;
 	dir = 1
 	},
@@ -433,6 +435,13 @@
 	req_access = list()
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/lone_spacer/storage)
+"U" = (
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "W" = (
@@ -727,7 +736,7 @@ a
 a
 r
 W
-B
+U
 k
 a
 a

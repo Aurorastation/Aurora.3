@@ -38,6 +38,14 @@
 	icon_state = "blue"
 	horizon_deck = 2
 
+/area/horizon/operations/restroom
+	name = "Head"
+	icon_state = "washroom"
+	horizon_deck = 2
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
+
 /area/horizon/operations/office
 	name = "Office"
 	icon_state = "quartoffice"
@@ -122,6 +130,7 @@
 	icon_state = "machinist_workshop"
 	area_blurb = "Back in the workshop's surgical bay, the sharp-edged odor of sterilized equipment predominates."
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /// OPERATIONS_AREAS - MINING_AREAS
 /area/horizon/operations/mining_main
@@ -188,14 +197,12 @@
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 	department = LOC_SCIENCE
 
+/// THE VAAAAAAUULLT
 /area/horizon/storage/secure/ops_vault
 	icon_state = "storage"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	department = LOC_COMMAND
 	area_lighting = LIGHT_HIGHSEC_COLORS
-
-/// THE VAAAAAAUULLT
-/area/horizon/storage/secure/ops_vault
 	name = "Secure Operational Storage"
 	horizon_deck = 2
 	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."

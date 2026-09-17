@@ -57,12 +57,12 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	Dionae survive primarily on off of the electromagnetic spectrum and biological matter."
 
 	organ_low_pain_message = "<b>The nymph making up our %PARTNAME% feels injured.</b>"
-	organ_med_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
-	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
+	organ_med_pain_message = "<b><font size=4>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
+	organ_high_pain_message = "<b><font size=5>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
 
 	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
-	organ_med_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% burns terribly!</font>")
-	organ_high_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
+	organ_med_burn_message = SPAN_DANGER("<font size=4>The nymph making up our %PARTNAME% burns terribly!</font>")
+	organ_high_burn_message = SPAN_DANGER("<font size=5>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
 
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
@@ -147,6 +147,8 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	tail = "No Tail"
 	tail_animation = 'icons/mob/species/diona/tail.dmi'
 	selectable_tails = list("No Tail", "Unathi Tail")
+
+	mass_modifier = REFERENCE_MASS_DIONA / REFERENCE_MASS_HUMAN
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other

@@ -12,7 +12,7 @@ GLOBAL_VAR(last_transfer_vote)
 	. = ..()
 	//Transfer already in progress, noone can call another vote
 	if(SSatlas.current_map.shuttle_call_restart_timer || (GLOB.evacuation_controller.state != EVAC_IDLE))
-		to_chat(by_who, SPAN_NOTICE("Transfer or evacuation are already in progress."))
+		to_chat(by_who, SPAN_NOTICE("A crew transfer or evacuation is already in progress."))
 		return FALSE
 
 	//If in lobby, roundend, setup or whatever else
@@ -24,7 +24,7 @@ GLOBAL_VAR(last_transfer_vote)
 	if(forced)
 		return TRUE
 
-	if(GLOB.security_level >= SEC_LEVEL_RED)
+	if(GLOB.security_level >= SEC_LEVEL_DELTA)
 		to_chat(by_who, "The current alert status is too high to call for a crew transfer!")
 		return FALSE
 
@@ -36,10 +36,20 @@ GLOBAL_VAR(last_transfer_vote)
 		next_allowed_time = GLOB.config.transfer_timeout
 
 	if(next_allowed_time > get_round_duration()) //Sorry, not the time yet
-		to_chat(by_who, SPAN_NOTICE("Time left until the crew transfer can be voted: [next_allowed_time - get_round_duration()]"))
+		to_chat(by_who, SPAN_NOTICE("Time left until a crew transfer can be voted for: [next_allowed_time - get_round_duration()]"))
 		return FALSE
 	else
 		return TRUE //We did it bro, we can vote the transfer now!
+
+
+// Crew transfer during red alert gives less voting power to lobby-sitters and observers.
+/datum/vote/crewtransfer/get_voting_power(mob/voter)
+	var/vote_weight = ..()
+	if(vote_weight != 0 && GLOB.security_level == SEC_LEVEL_RED)
+		vote_weight = 0.5
+		if(!isobserver(voter) && !isnewplayer(voter) && !((world.time - voter.mind.time_joined) < GLOB.config.minimum_participation_time))
+			vote_weight = 1
+	return vote_weight
 
 
 /datum/vote/crewtransfer/get_vote_result(list/non_voters)

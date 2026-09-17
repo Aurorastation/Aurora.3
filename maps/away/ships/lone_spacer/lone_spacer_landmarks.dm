@@ -6,7 +6,7 @@
 	cycle_to_external_air = TRUE
 
 // Secondary airlock
-/obj/effect/map_effect/marker/airlock/lone_spacer
+/obj/effect/map_effect/marker/airlock/external/lone_spacer
 	name = "Secondary Airlock"
 	master_tag = "airlock_lone_spacer"
 

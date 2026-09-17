@@ -94,7 +94,7 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/grove_sdf_outpost)
 "hD" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -455,7 +455,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 38
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/decal/cleanable/dirt,
@@ -650,7 +650,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -836,7 +836,7 @@
 /turf/simulated/floor/tiled,
 /area/grove_sdf_outpost)
 "SE" = (
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -849,7 +849,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
 /area/grove_sdf_outpost)

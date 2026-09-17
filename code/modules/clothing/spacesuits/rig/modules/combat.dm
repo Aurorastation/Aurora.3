@@ -23,6 +23,7 @@
 	module_type = MODULETYPE_USABLE_ACTIVE
 	icon_state = "grenade"
 
+	suit_overlay_active = "mounted-gun"
 	interface_name = "integrated grenade launcher"
 	interface_desc = "Discharges loaded grenades against the wearer's location."
 
@@ -117,6 +118,8 @@
 	module_cooldown = 0
 	icon_state = "lcannon"
 
+	suit_overlay_active = "mounted-lascannon"
+
 	engage_string = "Configure"
 
 	category = MODULE_HEAVY_COMBAT
@@ -137,6 +140,24 @@
 	QDEL_NULL(gun)
 	. = ..()
 
+/obj/item/rig_module/mounted/proc/get_firemode_name()
+	if(!gun || !length(gun.firemodes))
+		return "No firemodes"
+
+	var/datum/firemode/current_mode = gun.firemodes[gun.sel_mode]
+	return current_mode ? current_mode.name : "Unknown"
+
+/obj/item/rig_module/mounted/get_configuration()
+	. = ..()
+	if(gun && length(gun.firemodes) > 1)
+		.["firemode"] = add_ui_configuration("Fire mode", "button", get_firemode_name())
+
+/obj/item/rig_module/mounted/configure_edit(key, value, mob/user)
+	switch(key)
+		if("firemode")
+			if(gun)
+				gun.toggle_firing_mode(user)
+
 /obj/item/rig_module/mounted/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE
@@ -155,10 +176,10 @@
 	name = "mounted energy gun"
 	desc = "A forearm-mounted energy projector."
 	icon_state = "egun"
-	construction_cost= list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
+	construction_cost= list(MATERIAL_STEEL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
 	construction_time = 300
 
-	suit_overlay_active = "mounted-lascannon"
+	suit_overlay_active = "mounted-wrist"
 
 	interface_name = "mounted energy gun"
 	interface_desc = "A forearm-mounted suit-powered energy gun."
@@ -171,7 +192,7 @@
 	name = "mounted taser"
 	desc = "A palm-mounted nonlethal energy projector."
 	icon_state = "taser"
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 5250)
+	construction_cost = list(MATERIAL_STEEL = 7000, MATERIAL_GLASS = 5250)
 	construction_time = 300
 
 	suit_overlay_active = "mounted-taser"
@@ -211,7 +232,7 @@
 	desc = "A forearm-mounted suit-powered ballistic submachine gun."
 	icon_state = "smg"
 
-	suit_overlay_active = "mounted-ion"
+	suit_overlay_active = "mounted-wrist"
 
 	interface_name = "mounted submachine gun"
 	interface_desc = "A forearm-mounted suit-powered ballistic submachine gun."
@@ -223,7 +244,7 @@
 	desc = "A forearm-mounted suit-powered xray laser gun."
 	icon_state = "xray"
 
-	suit_overlay_active = "mounted-ion"
+	suit_overlay_active = "mounted-wrist"
 
 	interface_name = "mounted xray laser gun"
 	interface_desc = "A forearm-mounted suit-powered xray laser gun."
@@ -261,7 +282,7 @@
 	interface_name = "plasma cutter"
 	interface_desc = "A self-sustaining plasma arc capable of cutting through walls."
 	suit_overlay_active = "mounted-plasmacutter"
-	construction_cost = list(MATERIAL_GLASS = 5250, DEFAULT_WALL_MATERIAL = 30000, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
+	construction_cost = list(MATERIAL_GLASS = 5250, MATERIAL_STEEL = 30000, MATERIAL_SILVER = 5250, MATERIAL_PHORON = 7250)
 	activates_on_touch = TRUE
 	construction_time = 300
 	use_power_cost = 15
@@ -293,6 +314,7 @@
 	icon_state = "thermaldrill"
 	interface_name = "thermal drill"
 	interface_desc = "A potent drill that can pierce rock walls over long distances."
+	suit_overlay_active = "mounted-wrist"
 	use_power_cost = 20
 
 	gun_type = /obj/item/gun/energy/vaurca/thermaldrill/mounted
@@ -448,6 +470,7 @@
 	name = "mounted tqi-qop carbine"
 	desc = "A shoulder-mounted cell-powered tqi-qop carbine."
 	icon_state = "pulse"
+	suit_overlay_active = "mounted-gun"
 	interface_name = "mounted tqi-qop carbine"
 	interface_desc = "A shoulder-mounted cell-powered tqi-qop carbine."
 	gun_type = /obj/item/gun/energy/gun/qukala/mounted

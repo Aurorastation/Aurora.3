@@ -48,6 +48,8 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
 /obj/item/clothing/head/helmet/space/void/merc/unathi
 	refit_initialize = BODYTYPE_UNATHI
 

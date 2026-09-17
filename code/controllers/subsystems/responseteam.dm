@@ -87,11 +87,7 @@ SUBSYSTEM_DEF(distress)
 	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/ai/announcements/security_level_old.ogg', zlevels = requester.map_z)
 
 	log_and_message_admins("has launched a distress beacon from the [requester.name] with message: [distress_message].", user)
-	var/datum/distress_beacon/beacon = new()
-	beacon.requester = requester
-	beacon.distress_message = distress_message
-	beacon.user = user
-	beacon.user_name = user.name //It is possible that the mob's name may change after the distress beacon is launched, so we keep this var to avoid stuff like that.
+	var/datum/distress_beacon/beacon = new(requester, distress_message, user)
 
 	active_distress_beacons[requester.name] = beacon
 
@@ -173,8 +169,14 @@ SUBSYSTEM_DEF(distress)
 /datum/distress_beacon
 	var/distress_message
 	var/obj/effect/overmap/visitable/requester
-	var/mob/living/carbon/human/user
+	var/datum/weakref/user
 	var/user_name
+
+/datum/distress_beacon/New(new_requester, new_message, mob/new_user)
+	requester = requester
+	distress_message = distress_message
+	user = WEAKREF(new_user)
+	user_name = new_user.name //It is possible that the mob's name may change after the distress beacon is launched, so we keep this var to avoid stuff like that.
 
 /datum/distress_beacon/Destroy()
 	requester = null

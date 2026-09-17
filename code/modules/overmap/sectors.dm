@@ -112,6 +112,10 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 		if(T.linked == src)
 			T.linked = null
+	if(GLOB.ntnet_global)
+		for(var/obj/structure/machinery/ntnet_relay/R as anything in GLOB.ntnet_global.relays)
+			if(R.linked == src)
+				R.linked = null
 	if(entry_points)
 		entry_points.Cut()
 	for(var/obj/structure/machinery/ship_weapon/SW in ship_weapons)
@@ -150,6 +154,9 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 		H.attempt_hook_up(src)
 	for(var/obj/structure/machinery/telecomms/T in SSmachinery.all_telecomms)
 		T.attempt_hook_up(src)
+	if(GLOB.ntnet_global)
+		for(var/obj/structure/machinery/ntnet_relay/R as anything in GLOB.ntnet_global.relays)
+			R.attempt_hook_up(src)
 
 /obj/effect/overmap/visitable/proc/get_areas()
 	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))
@@ -178,16 +185,16 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 /obj/effect/overmap/visitable/proc/add_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	landmark.sector_set(src, shuttle_name)
 	if(shuttle_name)
-		LAZYADD(restricted_waypoints[shuttle_name], landmark)
+		LAZYDISTINCTADD(restricted_waypoints[shuttle_name], landmark)
 	else
-		generic_waypoints += landmark
+		LAZYDISTINCTADD(generic_waypoints, landmark)
 
 /obj/effect/overmap/visitable/proc/remove_landmark(obj/effect/shuttle_landmark/landmark, shuttle_name)
 	if(shuttle_name)
 		var/list/shuttles = restricted_waypoints[shuttle_name]
 		LAZYREMOVE(shuttles, landmark)
 	else
-		generic_waypoints -= landmark
+		LAZYREMOVE(generic_waypoints, landmark)
 
 /obj/effect/overmap/visitable/proc/get_waypoints(var/shuttle_name)
 	. = list()

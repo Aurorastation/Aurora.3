@@ -53,6 +53,8 @@
 /obj/item/mech_component/chassis/light
 	name = "light exosuit chassis"
 	pilot_coverage = 100
+	cockpit_hatch_size = 50
+	cockpit_pilot_damage_multiplier = 0.8
 	transparent_cabin = TRUE
 	hatch_descriptor = "canopy"
 	exosuit_desc_string = "an open and light chassis"
@@ -88,7 +90,7 @@
 	desc = "A light and agile exosuit painted in the colours of the Tau Ceti Foreign Legion."
 	icon_state = "odysseus"
 
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 	e_body = /obj/item/mech_component/chassis/light/nuclear
 
 	h_head = /obj/item/mecha_equipment/light

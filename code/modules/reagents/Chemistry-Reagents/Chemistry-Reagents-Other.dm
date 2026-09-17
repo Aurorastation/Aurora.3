@@ -161,7 +161,7 @@
 	affect_ingest(M, alien, removed, holder)
 
 /singleton/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_damage(5 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	M.apply_damage(5 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED, armor_pen = 100) //Radiation in the blood shouldn't check your radsuit.
 
 /singleton/reagent/uranium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
@@ -186,7 +186,7 @@
 
 /singleton/reagent/radioactive_waste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/rad_damage = min(75, 40 * removed)
-	M.apply_effect(rad_damage, DAMAGE_RADIATION, blocked = 0)
+	M.apply_damage(rad_damage, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED, armor_pen = 100)
 
 /singleton/reagent/radioactive_waste/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
@@ -404,9 +404,24 @@
 	description = "This compound is very specifically designed to react with and break up common combustible fuels."
 	taste_description = "varnish"
 
+/singleton/reagent/antifuel/proc/neutralize_fuel_spill(var/obj/O)
+	if(istype(O, /obj/effect/decal/cleanable/liquid_fuel) || istype(O, /obj/effect/decal/cleanable/napalm))
+		qdel(O)
+		return TRUE
+	return FALSE
+
+/singleton/reagent/antifuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(!istype(T))
+		return
+
+	for(var/obj/effect/decal/cleanable/liquid_fuel/fuel in T)
+		neutralize_fuel_spill(fuel)
+
+	for(var/obj/effect/decal/cleanable/napalm/napalm in T)
+		neutralize_fuel_spill(napalm)
+
 /singleton/reagent/antifuel/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
-	if (istype(O, /obj/effect/decal/cleanable/liquid_fuel))
-		O.clean_blood()
+	neutralize_fuel_spill(O)
 
 /singleton/reagent/antifuel/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)

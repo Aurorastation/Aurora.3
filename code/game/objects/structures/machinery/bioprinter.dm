@@ -74,8 +74,10 @@
 		qdel(attacking_item)
 		return TRUE
 	// Steel for matter.
-	if(prints_prosthetics && istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
-		var/obj/item/stack/S = attacking_item
+	var/obj/item/stack/material/metal_stack = attacking_item
+	var/singleton/material/metal_material = metal_stack?.get_material()
+	if(prints_prosthetics && istype(metal_stack) && metal_material?.type == MATERIAL_STEEL)
+		var/obj/item/stack/S = metal_stack
 		stored_matter += S.amount * 10
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "<span class='info'>\The [src] processes \the [attacking_item]. Levels of stored matter now: [stored_matter]</span>")

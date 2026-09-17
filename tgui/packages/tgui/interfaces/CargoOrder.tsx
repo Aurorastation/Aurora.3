@@ -95,7 +95,7 @@ export const CargoOrder = (props) => {
   const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable width={800} height={800}>
+    <NtosWindow resizable width={800} height={800} theme="orion">
       <NtosWindow.Content scrollable>
         <Tabs fluid>
           <Tabs.Tab
@@ -152,12 +152,13 @@ export const MainPage = (props) => {
             />
             <Button
               content="Clear"
-              color="red"
+              color="reject"
               icon="stop"
               onClick={() => act('clear_order')}
             />
             <Button
               content="Submit Order"
+              color="approve"
               icon="check"
               onClick={() => act('submit_order')}
             />
@@ -206,7 +207,7 @@ export const MainPage = (props) => {
             .map((item) => (
               <Section
                 title={item.name}
-                key={item.name}
+                key={item.id}
                 buttons={
                   <Button
                     content={`${item.price_adjusted.toFixed(2)}电`}
@@ -269,7 +270,7 @@ export const ShowDetails = (props) => {
           <Table.Cell>{data.crate_fee.toFixed(2)}电</Table.Cell>
         </Table.Row>
         {data.order_items.map((item) => (
-          <Table.Row key={item.name}>
+          <Table.Row key={item.id}>
             <Table.Cell>{item.name}</Table.Cell>
             <Table.Cell>{item.price.toFixed(2)}电</Table.Cell>
           </Table.Row>

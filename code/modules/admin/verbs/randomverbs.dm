@@ -1157,3 +1157,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("[key_name_admin(usr)] used the ADPI Panel")
 	log_admin("[key_name(usr)] used the ADPI Panel")
 	feedback_add_details("admin_verb", "ADPI")
+
+/client/proc/persistence_panel()
+	set category = "Admin"
+	set name = "Persistence Panel"
+	set desc = "Open the persistence subsystem admin panel"
+
+	if(!check_rights(R_ADMIN|R_MOD|R_DEV, TRUE))
+		return
+
+	var/datum/tgui_module/persistence_panel/panel = new
+	panel.ui_interact(usr)
+
+	feedback_add_details("admin_verb", "PERSIST")

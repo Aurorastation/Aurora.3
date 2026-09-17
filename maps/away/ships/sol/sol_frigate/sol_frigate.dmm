@@ -279,7 +279,7 @@
 	pixel_y = 25
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock/sol_frigate/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/sol_frigate/mid_starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sol_frigate/Port_docking_port)
@@ -1500,6 +1500,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/structure/machinery/computer/rdconsole/robotics,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "gD" = (
@@ -1651,6 +1652,9 @@
 	},
 /obj/structure/cable/blue{
 	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
@@ -2379,7 +2383,7 @@
 	pixel_x = -7
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock/sol_frigate/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/sol_frigate/mid_starboard,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
@@ -4019,7 +4023,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "rT" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
@@ -6453,7 +6457,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/sol_frigate/mid_starboard,
+/obj/effect/map_effect/marker/airlock/external/sol_frigate/mid_starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sol_frigate/Port_docking_port)
 "Dj" = (
@@ -6478,12 +6482,10 @@
 /area/ship/sol_frigate/sickbay)
 "Dn" = (
 /obj/structure/extinguisher_cabinet/east,
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "Dr" = (
@@ -11012,11 +11014,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
 /obj/structure/cable/blue{
 	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)

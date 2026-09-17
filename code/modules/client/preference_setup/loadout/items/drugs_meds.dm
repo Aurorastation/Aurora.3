@@ -20,7 +20,7 @@
 	zippolighters["fisanduhian zippo"] = /obj/item/flame/lighter/zippo/fisanduh
 	zippolighters["coalition zippo"] = /obj/item/flame/lighter/zippo/coalition
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
-	zippolighters["biesellite zippo"] = /obj/item/flame/lighter/zippo/tcfl
+	zippolighters["biesellite zippo"] = /obj/item/flame/lighter/zippo/biesel
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
 	zippolighters["san colettish zippo"] = /obj/item/flame/lighter/zippo/sancolette
 	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
@@ -179,9 +179,6 @@
 	psych_meds["Orastabin pills"] = /obj/item/storage/pill_bottle/orastabin
 	psych_meds["Parvosil pills"] = /obj/item/storage/pill_bottle/parvosil
 	psych_meds["Corophenidate pills"] = /obj/item/storage/pill_bottle/corophenidate
-	psych_meds["Psi-protect pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
-	psych_meds["Psi-protect pills (cheap)"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap
-	psych_meds["Psi-protect pills (expensive)"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
 	gear_tweaks += new /datum/gear_tweak/path(psych_meds)
 
 /datum/gear/drugs_meds/otc
@@ -217,3 +214,15 @@
 	legal_rec["Wulumunusha extract bottle"] = /obj/item/reagent_containers/food/condiment/wulumunusha
 	legal_rec["Ambrosia extract bottle"] = /obj/item/reagent_containers/food/condiment/ambrosia
 	gear_tweaks += new /datum/gear_tweak/path(legal_rec)
+
+/datum/gear/drugs_meds/psi_pills
+	display_name = "anti-psionic pill selection"
+	description = "Select from the different kinds of YomiGenetics I&R anti-psionic pills, used to protect against certain psionic disorders, such as psionic echoes and ADPI."
+	path = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+
+/datum/gear/drugs_meds/psi_pills/New()
+	..()
+	var/list/psipills = list()
+	psipills["Ranixidone pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+	psipills["PsiProtect Personalised pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
+	gear_tweaks += new /datum/gear_tweak/path(psipills)

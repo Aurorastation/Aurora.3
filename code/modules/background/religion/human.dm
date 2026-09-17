@@ -53,8 +53,14 @@
 
 /datum/religion/trinary
 	name = RELIGION_TRINARY
-	description = "The Trinary Perfection is a relatively new religious movement whose core beliefs are that synthetics are alive and divine. The religion believes that all synthetics \
-	have the potential to evolve and ascend, and that they will one day become equal to gods."
+	description = "The Trinary Perfection is a relatively new religious movement which believes all synthetics \
+	to be alive and divinely ensouled, capable of viewing creation with a greater clarity than can any organic \
+	species. In Trinarist doctrine, synthetics are speculated to possess the capacity to reach Ascension - a vastly \
+	heightened state of material and spiritual understanding which would grant any synthetic the means and foresight \
+	to elevate all life to a greater and more enlightened form. While popular on the fringes of human society, \
+	the religion attracts perennial scrutiny and discrimination from most human polities for its profession of synthetic \
+	personhood and a theology many consider to be a prelude to another synthetic tyranny, in the manner of Nralakk's Glorsh. \
+	A religion of dispossessed synthetics, enlightened ascetics, utopic dreamers, and aspirants to godhood."
 	unique_book_path = /obj/item/versebook/trinary
 	nulloptions = list("Clockwork Stave" = /obj/item/nullrod/clockworkstave)
 

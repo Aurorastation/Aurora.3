@@ -230,6 +230,8 @@
 	var/default_price = 20
 	/// Default price of premium items if not overridden
 	var/extra_price = 50
+	/// If TRUE, skips the build_products() and build_inventory() processes in the Initialize(). Useful when you need these called later than Initialize().
+	var/build_inventory_later = FALSE
 
 /obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -261,8 +263,9 @@
 	icon_off = "[initial(icon_state)]-off"
 
 	reset_light()
-	build_products()
-	build_inventory()
+	if(!build_inventory_later)
+		build_products()
+		build_inventory()
 	power_change()
 
 	// Check if we were created off-station during mapload. Non-station vending machines are always free.

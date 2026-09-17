@@ -19,7 +19,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/dominian_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Shuttle"
-	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 
 // Controls docking behaviour
 /datum/shuttle/autodock/overmap/dominian_shuttle
@@ -31,7 +31,6 @@
 	dock_target = "dominian_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_dominia"
 	defer_initialisation = TRUE
 
 // Hangar marker

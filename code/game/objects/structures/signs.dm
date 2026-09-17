@@ -73,6 +73,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
+		S.icon = icon
 		S.sign_type = src.type
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
@@ -353,6 +354,11 @@
 	name = "\improper RADIATION HAZARD sign"
 	desc = "A hazard sign which reads \"RADIATION HAZARD\"."
 	icon_state = "radiation"
+
+/obj/structure/sign/radshield
+	name = "\improper RADIATION SHELTER sign"
+	desc = "A sign that gives directions towards radiation-shielded areas."
+	icon_state = "radshield_arrow"
 
 /obj/structure/sign/drop
 	name = "\improper DANGER: DROP HAZARD sign"

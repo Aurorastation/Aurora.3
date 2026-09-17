@@ -12,6 +12,7 @@ export type HarvesterData = {
 };
 
 type Material = {
+  id: string;
   material: string;
   rawamount: number;
   amount: number;
@@ -59,14 +60,14 @@ export const HarvestWindow = (props) => {
                 material.rawamount +
                 ' cubic units)'
               }
-              key={material.material}
+              key={material.id}
               buttons={
                 <Button
                   content={material.harvest ? 'Stop Harvesting' : 'Harvest'}
                   icon="arrow-circle-up"
                   color={material.harvest ? 'good' : 'bad'}
                   onClick={() =>
-                    act('toggle_harvest', { toggle_harvest: material.material })
+                    act('toggle_harvest', { toggle_harvest: material.id })
                   }
                 />
               }
@@ -83,7 +84,7 @@ export const HarvestWindow = (props) => {
                       content="Extract"
                       icon="compress-arrows-alt"
                       onClick={() =>
-                        act('remove_mat', { remove_mat: material.material })
+                        act('remove_mat', { remove_mat: material.id })
                       }
                     />
                   </>

@@ -94,8 +94,10 @@
 				A.amount = 5
 				return TRUE
 
-			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "glass")
-				var/obj/item/stack/G = attacking_item
+			var/obj/item/stack/material/glass_stack = attacking_item
+			var/singleton/material/glass_material = glass_stack?.get_material()
+			if(istype(glass_stack) && glass_material?.type == MATERIAL_GLASS)
+				var/obj/item/stack/G = glass_stack
 				if (G.get_amount() < 2)
 					to_chat(user, SPAN_WARNING("You need two sheets of glass to put in the glass panel."))
 					return TRUE

@@ -141,7 +141,7 @@
 	icon_state = "energy"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	check_armor = ENERGY
+	check_armor = RAD
 
 /obj/projectile/energy/floramut/gene
 	name = "gamma somatoray"
@@ -172,7 +172,8 @@
 				M.adjustFireLoss(rand(5,15))
 				M.show_message(SPAN_WARNING("The radiation beam singes you!"))
 	else if(iscarbon(target))
-		M.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
+		if(damage <= 5)
+			M.show_message(SPAN_NOTICE("The radiation beam mostly dissipates harmlessly through your body."))
 	else
 		return 1
 
@@ -181,7 +182,7 @@
 	icon_state = "energy2"
 	damage = 0
 	damage_type = DAMAGE_TOXIN
-	check_armor = ENERGY
+	check_armor = RAD
 
 /obj/projectile/energy/florayield/on_hit(atom/target, blocked, def_zone)
 	. = ..()
@@ -191,10 +192,10 @@
 		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 			M.adjustNutritionLoss(-30)
 	else if (istype(target, /mob/living/carbon/))
-		M.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
+		if(damage <= 5)
+			M.show_message(SPAN_NOTICE("The radiation beam mostly dissipates harmlessly through your body."))
 	else
 		return 1
-
 
 /obj/projectile/beam/mindflayer
 	name = "flayer ray"

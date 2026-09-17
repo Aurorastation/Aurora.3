@@ -5,7 +5,7 @@
 		SCCV Horizon, the closest ship in this sector, was sent by CC to investigate. \
 		"
 
-	possible_scenario_types = list(SCENARIO_TYPE_NONCANON, SCENARIO_TYPE_CANON)
+	possible_scenario_canonicity_types = list(/singleton/canonicity/odyssey, /singleton/canonicity/limited)
 
 	scenario_site_id = "ruined_propellant_depot"
 

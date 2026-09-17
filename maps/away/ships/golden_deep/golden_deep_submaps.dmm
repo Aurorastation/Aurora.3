@@ -684,21 +684,9 @@
 /obj/item/versebook/biesel,
 /obj/item/storage/stickersheet/biesel,
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel,
-/obj/item/clothing/suit/storage/legion/tcaf{
-	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces. It looks a little knocked about."
-	},
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/tcaf{
-	desc = "A cheap pilot's jacket. An immense stock of exactly this design has been grandfathered into the Tau Ceti Armed Forces via its predecessor, the Tau Ceti Foreign Legion, to the point of a near-complete ubiquity. This one looks a little worn, as if it were well loved by its previous owner."
-	},
-/obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
-/obj/item/clothing/head/beret/legion/tcaf,
 /obj/item/clothing/head/softcap/tcaf_cap,
-/obj/structure/closet/crate/secure/legion{
-	name = "tau ceti armed forces supply crate";
-	req_access = null;
-	req_one_access = list(229, 217)
-	},
 /obj/random/dirt_75,
+/obj/structure/whiteboard/portable,
 /turf/template_noop,
 /area/template_noop)
 "Tw" = (

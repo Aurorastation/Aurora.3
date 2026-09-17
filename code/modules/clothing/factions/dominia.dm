@@ -685,6 +685,15 @@
 	icon_state = "lyodii_amulet"
 	item_state = "lyodii_amulet"
 
+/obj/item/clothing/accessory/dominia/caria
+	name = "carian tribunal necklace"
+	desc = "An silver amulet depicting a cresent moon framing a circle, a common icon in Carian Tribunalism."
+	desc_extended = "This amulet depicting the unusual syncretic beliefs of Carian Tribunalism. The crescent moon symbolizes Lixus and the Aderlai (or Great Mother) as an aspect of the Goddess, represented by \
+	the Eye. These were first created by Morozian missionaries in an effort to better integrate Caria into the Empire and remain popular today"
+	icon = 'icons/obj/item/clothing/accessory/caria_amulet.dmi'
+	icon_state = "caria_amulet"
+	item_state = "caria_amulet"
+
 /obj/item/clothing/accessory/dominia/tic
 	name = "tribunal investigator card"
 	desc = "A gold-gilded card given to those who are active investigators within the Tribunal Investigations Constabulary, otherwise known as TIC. \

@@ -30,7 +30,8 @@
 		/obj/item/clothing/mask/smokable/ecig,
 		/obj/item/inductive_charger/handheld,
 		/obj/item/auto_cpr,
-		/obj/item/personal_shield
+		/obj/item/personal_shield,
+		/obj/item/electronic_assembly
 	)
 	var/icon_state_charged = "recharger100"
 	var/icon_state_charging = "recharger"

@@ -79,7 +79,7 @@
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_yacht_civ_mid";
 	name = "airlock_yacht_civ_mid";
 	req_one_access = null
@@ -741,7 +741,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_yacht_civ_hangar";
 	name = "airlock_yacht_civ_hangar";
 	req_one_access = null
@@ -1638,7 +1638,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_yacht_civ_hangar";
 	name = "airlock_yacht_civ_hangar";
 	req_one_access = null
@@ -2277,7 +2277,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_yacht_civ_mid";
 	name = "airlock_yacht_civ_mid";
 	req_one_access = null
@@ -2938,7 +2938,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_yacht_civ_mid";
 	name = "airlock_yacht_civ_mid";
 	req_one_access = null
@@ -3588,7 +3588,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_yacht_civ_hangar";
 	name = "airlock_yacht_civ_hangar";
 	req_one_access = null

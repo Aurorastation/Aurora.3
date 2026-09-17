@@ -12,7 +12,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	can_turret = TRUE
 	zoomdevicename = null
 	max_shots = 0
@@ -78,23 +78,36 @@
 		if(target_mob.stat != DEAD) //No improvement from shooting at dead things. Bring a doctor in to keep your target dummy alive. This also makes it harder to improve more powerful weapons, as you kill your target faster.
 			if(ishuman(target_mob))
 				var/mob/living/carbon/human/human_target = target
+
 				if (istype(modulator, /obj/item/laser_components/modulator/taser))
 					if (human_target.incapacitated()) //No benefit from tasing someone who's already incapacitated. Get the phramacist to make you oxycomorphine.
 						return
+
 				if(human_target.get_species() == SPECIES_MONKEY)
 					improvement_potential += (2  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Monkeys die easily, research only gets two boxes of monkey cubes without xenobiology.
 					return
+
 				if(human_target.client)
 					improvement_potential += (10  * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //10 seems like a lot, but this is a 20% improvement to 1 variable on 1 component. A 5 mod gun (8 total components), with an average of 3 improvable variables would need 120 shots on a player to max out.
 					return
 
-			if(isslime(target_mob))
+			if (istype(modulator, /obj/item/laser_components/modulator/ion))
+				if ((ismech(target_mob)) || (isbot(target_mob)) || (issilicon(target_mob))) //Shooting mechs or bots with ions.
+					improvement_potential += (5 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+				if(!isturf(target)) //From shooting targets on the range.
+					improvement_potential += (1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+				return
+
+			if(isslime(target_mob)) //Slimes only give improvement if shot with freeze rays.
 				if (istype(modulator, /obj/item/laser_components/modulator/freeze))
 					improvement_potential += (2 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
-					return
+				if(!isturf(target)) //From shooting targets on the range.
+					improvement_potential += (1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
+				return
 
 			improvement_potential += (5 * IMPROVEMENT_MULTIPLIER) / (max(1, burst)) //Mechs, protohumans, and any other human mobs without a player.
-	else if(!isturf(target))
+
+	else if(!isturf(target)) //From shooting targets on the range.
 		improvement_potential += (1 * IMPROVEMENT_MULTIPLIER) / (max(1, burst))
 
 /obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -269,6 +282,7 @@
 
 	fire_delay = capacitor.fire_delay
 	max_shots = round(capacitor.shots)
+	max_shots *= modulator.shots
 	dispersion = focusing_lens.dispersion
 	accuracy = focusing_lens.accuracy
 	burst += round(focusing_lens.burst)

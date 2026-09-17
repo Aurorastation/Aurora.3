@@ -6,8 +6,8 @@
 	extended_desc = "This program monitors stationwide NTNet network, provides access to logging systems, and allows for configuration changes"
 	size = 12
 	requires_ntnet = TRUE
-	required_access_run = ACCESS_NETWORK
-	required_access_download = ACCESS_HEADS
+	required_access_run = /datum/access/network::id
+	required_access_download = /datum/access/heads::id
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_GREEN
 
@@ -21,6 +21,16 @@
 
 	data["ntnetstatus"] = GLOB.ntnet_global.check_function()
 	data["ntnetrelays"] = GLOB.ntnet_global.relays.len
+	data["ntnetcores"] = 0
+	data["ntnetfieldrelays"] = 0
+	data["ntnetroutedrelays"] = 0
+	for(var/obj/structure/machinery/ntnet_relay/R in GLOB.ntnet_global.relays)
+		if(R.core_service)
+			data["ntnetcores"]++
+		else
+			data["ntnetfieldrelays"]++
+		if(R.can_route_to_core())
+			data["ntnetroutedrelays"]++
 	data["idsstatus"] = GLOB.ntnet_global.intrusion_detection_enabled
 	data["idsalarm"] = GLOB.ntnet_global.intrusion_detection_alarm
 

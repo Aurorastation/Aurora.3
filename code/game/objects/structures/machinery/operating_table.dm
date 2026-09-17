@@ -43,8 +43,11 @@
 	LAZYADD(can_buckle, /mob/living)
 	buckle_delay = 30
 
-	RegisterSignal(loc, COMSIG_ATOM_ENTERED, PROC_REF(mark_patient))
-	RegisterSignal(loc, COMSIG_ATOM_EXITED, PROC_REF(unmark_patient))
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(mark_patient),
+		COMSIG_ATOM_EXITED = PROC_REF(unmark_patient),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -58,8 +61,6 @@
 
 /obj/structure/machinery/optable/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-	UnregisterSignal(loc, COMSIG_ATOM_ENTERED)
-	UnregisterSignal(loc, COMSIG_ATOM_EXITED)
 
 	//If we have a computer, ask it to unhook us, clear the reference anyways just to be sure
 	if(computer)
@@ -67,10 +68,8 @@
 	computer = null
 
 	//If there's an occupant, ensure to release the view before dropping the weakref
-	var/occupant_resolved = occupant?.resolve()
-	if(occupant_resolved)
-		release_view(occupant_resolved)
-	occupant = null
+	var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
+	clear_occupant(occupant_resolved)
 
 	. = ..()
 
@@ -89,15 +88,13 @@
 		return
 
 	//Stop processing only if it's not the occupant, or the occupant doesn't exist
-	var/occupant_resolved = occupant?.resolve()
+	var/mob/living/carbon/human/occupant_resolved = get_valid_occupant()
 	if(isnull(occupant_resolved) || potential_patient == occupant_resolved)
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 		//If it was the occupant, clear the var and give him back the view, and turn off the suppressor
 		if(potential_patient == occupant_resolved)
-			suppressing = FALSE
-			occupant = null //Null the weakref
-			release_view(potential_patient)
+			clear_occupant(occupant_resolved)
 
 		//Reprocess the icon state at the end
 		refresh_icon_state()
@@ -128,6 +125,28 @@
 
 	patient.reset_view(null)
 
+/**
+ * Clears the current occupant state and releases their view.
+ */
+/obj/structure/machinery/optable/proc/clear_occupant(mob/living/carbon/human/occupant_resolved)
+	suppressing = FALSE
+	occupant = null
+	if(occupant_resolved)
+		release_view(occupant_resolved)
+
+/**
+ * Resolves the occupant weakref and clears it if the patient is no longer valid for this table.
+ */
+/obj/structure/machinery/optable/proc/get_valid_occupant()
+	var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
+	if(occupant_resolved && occupant_resolved.loc == loc && (!occupant_must_be_lying || occupant_resolved.lying))
+		return occupant_resolved
+
+	if(occupant || suppressing)
+		clear_occupant(occupant_resolved)
+
+	return null
+
 /obj/structure/machinery/optable/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -149,7 +168,7 @@
 		qdel(src)
 		return
 
-	var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
+	var/mob/living/carbon/human/occupant_resolved = get_valid_occupant()
 	if(!occupant_resolved)
 		to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 		return TRUE
@@ -162,8 +181,10 @@
 		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
 		if(!do_after(user, 3 SECONDS, src, DO_UNIQUE))
 			return
+		occupant_resolved = get_valid_occupant()
 		if(!occupant_resolved)
 			to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
+			return TRUE
 
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
@@ -175,7 +196,7 @@
 /obj/structure/machinery/optable/proc/refresh_icon_state()
 	SHOULD_NOT_SLEEP(TRUE)
 
-	var/mob/living/carbon/human/human_occupant = occupant?.resolve()
+	var/mob/living/carbon/human/human_occupant = get_valid_occupant()
 
 	if(istype(human_occupant) && human_occupant.lying && !(human_occupant.isSynthetic()))
 		//If there's a bad condition, set the critical table icon
@@ -193,8 +214,8 @@
 /obj/structure/machinery/optable/proc/check_occupant(seconds_per_tick)
 	SHOULD_NOT_SLEEP(TRUE)
 
+	var/mob/living/carbon/human/occupant_resolved = get_valid_occupant()
 	refresh_icon_state()
-	var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
 
 	//If the occupant is not set
 	if(!occupant_resolved)
@@ -247,7 +268,7 @@
 		return FALSE
 
 	//Someone is already on the table
-	var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
+	var/mob/living/carbon/human/occupant_resolved = get_valid_occupant()
 	if(occupant_resolved)
 		return FALSE
 
@@ -291,7 +312,7 @@
 		return
 
 	//It's already occupied, spessbro
-	var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
+	var/mob/living/carbon/human/occupant_resolved = get_valid_occupant()
 	if(occupant_resolved)
 		to_chat(usr, SPAN_NOTICE(SPAN_BOLD("\The [src] is already occupied!")))
 		return
@@ -320,7 +341,7 @@
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 
-		var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
+		var/mob/living/carbon/human/occupant_resolved = get_valid_occupant()
 		if(occupant_resolved)
 			to_chat(usr, SPAN_NOTICE(SPAN_BOLD("\The [src] is already occupied!")))
 			return TRUE

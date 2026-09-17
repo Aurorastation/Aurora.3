@@ -393,7 +393,17 @@ SUBSYSTEM_DEF(garbage)
 	var/start_time = world.time
 	var/start_tick = world.tick_usage
 	SEND_SIGNAL(to_delete, COMSIG_QDELETING, force) // Let the (remaining) components know about the result of Destroy
-	var/hint = to_delete.Destroy(force) // Let our friend know they're about to get fucked up.
+
+	var/hint = QDEL_HINT_QUEUE
+	try
+		hint = to_delete.Destroy(force) // Let our friend know they're about to get fucked up.
+	catch(var/exception/e)
+		// Log any poisoned destroy() calls to Sentry for ease of tracking.
+		// Any runtime error during a Destroy() proc is all but guaranteed to cause a hard delete,
+		// because a large majority of hanging refs further down the parent hierarchy are at risk of having their cleanup skipped.
+		// Making them their own special case for harddel() causes separate from the standard hanging refs.
+		e.name = "Incomplete Destroy() Of Type [to_delete.type]"
+		log_exception(e)
 
 	if(world.time != start_time)
 		trash.slept_destroy++

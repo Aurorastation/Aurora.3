@@ -49,12 +49,44 @@
 	desc = "Small wall-mounted holographic projector. This one reads SURGERY."
 	on_icon = "surgery"
 
+/obj/structure/machinery/holosign/privacy
+	name = "privacy holosign"
+	desc = "A small wall-mounted holographic projector. This one reads PRIVATE."
+	on_icon = "private"
+
+/obj/structure/machinery/holosign/public
+	name = "privacy holosign"
+	desc = "A small wall-mounted holographic projector. This one reads PUBLIC."
+	on_icon = "public"
+
 /obj/structure/machinery/holosign/service
 	name = "service holosign"
 	on_icon = "serviceopen"
 	desc = "A small wall-mounted holographic projector. This one reads OPEN."
 
 /obj/structure/machinery/holosign/service/update_icon()
+	if(!lit)
+		icon_state = "serviceclosed"
+	else
+		icon_state = on_icon
+
+/obj/structure/machinery/holosign/service/bar
+	name = "bar holosign"
+	on_icon = "bar_open"
+	desc = "A small, wall-mounted holographic projector which indicates that the bar is open."
+
+/obj/structure/machinery/holosign/service/bar/update_icon()
+	if(!lit)
+		icon_state = "serviceclosed"
+	else
+		icon_state = on_icon
+
+/obj/structure/machinery/holosign/service/kitchen
+	name = "kitchen holosign"
+	on_icon = "kitchen_open"
+	desc = "A small, wall-mounted holographic projector which indicates that the kitchen is open."
+
+/obj/structure/machinery/holosign/service/kitchen/update_icon()
 	if(!lit)
 		icon_state = "serviceclosed"
 	else

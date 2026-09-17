@@ -217,7 +217,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "kp" = (
-/obj/structure/closet/crate/loot,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "kE" = (
@@ -319,7 +319,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "py" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = null;
 	dir = 1
 	},
@@ -332,7 +332,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "qm" = (
-/obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /obj/structure/machinery/alarm/south{
 	req_access = list(253);
@@ -341,6 +340,9 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
+	},
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
@@ -532,8 +534,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Ab" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/random/dirt_75,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Ae" = (
@@ -920,12 +922,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Vn" = (
-/obj/structure/closet/crate/drop,
 /obj/item/paint_sprayer,
 /obj/item/mmi/digital/posibrain,
 /obj/item/stack/nanopaste,
 /obj/item/stack/nanopaste,
 /obj/item/stack/nanopaste,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Wv" = (

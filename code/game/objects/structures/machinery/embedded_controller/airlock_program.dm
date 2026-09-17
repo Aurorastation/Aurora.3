@@ -35,9 +35,10 @@
 	memory["chamber_sensor_pressure"] = ONE_ATMOSPHERE
 	memory["external_sensor_pressure"] = 0					//assume vacuum for simple airlock controller
 	memory["internal_sensor_pressure"] = ONE_ATMOSPHERE
-	memory["exterior_status"] = list(state = "closed", lock = "locked")		//assume closed and locked in case the doors dont report in
-	memory["interior_status"] = list(state = "closed", lock = "locked")
+	memory["exterior_status"] = list(state = "closed", lock = "locked", power = null)		//assume closed and locked in case the doors dont report in
+	memory["interior_status"] = list(state = "closed", lock = "locked", power = null)
 	memory["pump_status"] = "unknown"
+	memory["cycle_status"] = "Idle"
 	memory["target_pressure"] = ONE_ATMOSPHERE
 	memory["purge"] = 0
 	memory["secure"] = 0
@@ -59,6 +60,7 @@
 		memory["secure"] = controller.tag_secure
 		addtimer(CALLBACK(src, PROC_REF(signalDoor), tag_exterior_door, "update"), 1 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(signalDoor), tag_interior_door, "update"), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(requestPumpStatus), tag_airpump), 1 SECONDS)
 
 /datum/computer/file/embedded_program/airlock/receive_signal(datum/signal/signal, receive_method, receive_param)
 	var/receive_tag = signal.data["tag"]
@@ -77,10 +79,14 @@
 	else if(receive_tag==tag_exterior_door)
 		memory["exterior_status"]["state"] = signal.data["door_status"]
 		memory["exterior_status"]["lock"] = signal.data["lock_status"]
+		if("power" in signal.data)
+			memory["exterior_status"]["power"] = signal.data["power"]
 
 	else if(receive_tag==tag_interior_door)
 		memory["interior_status"]["state"] = signal.data["door_status"]
 		memory["interior_status"]["lock"] = signal.data["lock_status"]
+		if("power" in signal.data)
+			memory["interior_status"]["power"] = signal.data["power"]
 
 	else if(receive_tag==tag_airpump || receive_tag==tag_pump_out_internal)
 		if(signal.data["power"])
@@ -262,6 +268,21 @@
 
 	memory["processing"] = (state != target_state)
 
+	switch(state)
+		if(STATE_PREPARE)
+			memory["cycle_status"] = "Securing Doors"
+		if(STATE_DEPRESSURIZE)
+			memory["cycle_status"] = memory["purge"] ? "Purging" : "Depressurizing"
+		if(STATE_PRESSURIZE)
+			memory["cycle_status"] = "Pressurizing"
+		else
+			if(target_state == TARGET_INOPEN)
+				memory["cycle_status"] = "Cycling to Interior"
+			else if(target_state == TARGET_OUTOPEN)
+				memory["cycle_status"] = "Cycling to Exterior"
+			else
+				memory["cycle_status"] = "Idle"
+
 	return 1
 
 //these are here so that other types don't have to make so many assumptions about our implementation
@@ -317,6 +338,15 @@
 		"power" = power,
 		"direction" = direction,
 		"set_external_pressure" = pressure
+	)
+	post_signal(signal)
+
+/datum/computer/file/embedded_program/airlock/proc/requestPumpStatus(tag)
+	var/datum/signal/signal = new
+	signal.data = list(
+		"tag" = tag,
+		"sigtype" = "command",
+		"status" = 1
 	)
 	post_signal(signal)
 

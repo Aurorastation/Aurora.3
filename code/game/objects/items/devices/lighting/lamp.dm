@@ -50,7 +50,7 @@
 	icon_state = "lavalamp"
 	light_range = 3
 	flashlight_power = 0.5
-	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 200)
+	matter = list(MATERIAL_STEEL = 250, MATERIAL_GLASS = 200)
 
 /obj/item/flashlight/lamp/lava/update_icon()
 	if(on)

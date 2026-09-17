@@ -14,7 +14,7 @@
 	throw_speed = 2
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 500)
+	matter = list(MATERIAL_STEEL = 500)
 	recyclable = TRUE
 	var/legcuff = FALSE
 	var/elastic = FALSE

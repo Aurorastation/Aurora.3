@@ -4,7 +4,7 @@
 
 /turf/simulated/wall/diona/Initialize(mapload)
 	canSmoothWith = list(src.type)
-	. = ..(mapload, "biomass")
+	. = ..(mapload, MATERIAL_DIONA)
 	canSmoothWith = list(src.type)
 
 /obj/structure/diona

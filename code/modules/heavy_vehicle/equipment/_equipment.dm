@@ -2,10 +2,12 @@
 // Used by the mecha HUD to get a 1-10 value representing charge, ammo, etc.
 /obj/item/mecha_equipment
 	name = "exosuit hardpoint system"
+	mass = 60
+	mass_based_slowdown = TRUE
 	icon = 'icons/mecha/mech_equipment.dmi'
 	icon_state = ""
 	var/on_mech_icon_state
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
+	matter = list(MATERIAL_STEEL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
 	force = 15
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner
@@ -17,6 +19,15 @@
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
 	var/list/module_hints = list()
+
+/obj/item/mecha_equipment/do_additional_pickup_checks(mob/user)
+	return do_mass_based_pickup_delay(user)
+
+/obj/item/mecha_equipment/get_effective_mass()
+	. = ..()
+	for(var/atom/movable/installed_part in contents)
+		if(!installed_part.anchored)
+			. += installed_part.get_effective_mass()
 
 /obj/item/mecha_equipment/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -77,11 +88,13 @@
 	return
 
 /obj/item/mecha_equipment/proc/installed(var/mob/living/heavy_vehicle/_owner)
+	SHOULD_CALL_PARENT(TRUE)
 	owner = _owner
 	//generally attached. Nothing should be able to grab it
 	canremove = FALSE
 
 /obj/item/mecha_equipment/proc/uninstalled()
+	SHOULD_CALL_PARENT(TRUE)
 	if(active)
 		deactivate()
 	owner = null
@@ -89,7 +102,7 @@
 
 /obj/item/mecha_equipment/Destroy()
 	owner = null
-	. = ..()
+	return ..()
 
 /obj/item/mecha_equipment/mob_can_unequip(mob/M, slot, disable_warning)
 	. = ..()

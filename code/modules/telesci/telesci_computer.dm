@@ -263,6 +263,39 @@
 	visible_message(SPAN_WARNING("The telepad weakly fizzles."))
 	return
 
+/obj/structure/machinery/computer/telescience/proc/check_bluespace_inhibitors(atom/target)
+	var/turf/target_turf = get_turf(target)
+	if(!target_turf)
+		return null
+
+	var/list/turf/good_turfs = list()
+	var/list/turf/bad_turfs = list()
+	var/list/invalid_inhibitors
+	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
+		if(!istype(found_inhibitor, /obj/structure/machinery/anti_bluespace))
+			LAZYADD(invalid_inhibitors, found_inhibitor)
+			continue
+		var/obj/structure/machinery/anti_bluespace/AB = found_inhibitor
+		if(QDELETED(AB))
+			LAZYADD(invalid_inhibitors, found_inhibitor)
+			continue
+		if(target_turf.z != AB.z || get_dist(target_turf, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
+			continue
+		AB.use_power_oneoff(AB.active_power_usage)
+		bad_turfs += RANGE_TURFS(9, get_turf(AB))
+		good_turfs += RANGE_TURFS(10, get_turf(AB)) //One extra tile away, so stepping off the portal in the direction of the inhibitor doesn't break the portal.
+
+	if(invalid_inhibitors)
+		GLOB.bluespace_inhibitors -= invalid_inhibitors
+
+	if(length(good_turfs) && length(bad_turfs))
+		good_turfs -= bad_turfs
+		if(length(good_turfs))
+			temp_msg = "ERROR!<BR>Interference detected. Portal off target."
+			return pick(good_turfs)
+
+	return target_turf
+
 /obj/structure/machinery/computer/telescience/proc/doteleport(mob/user)
 	SHOULD_NOT_SLEEP(TRUE)
 
@@ -288,6 +321,7 @@
 		var/spawn_time = round(proj_data.time)
 
 		var/turf/target = locate(trueX, trueY, target_zlevel)
+		target = check_bluespace_inhibitors(target)
 		last_target = target
 		flick("pad-beam", telepad)
 

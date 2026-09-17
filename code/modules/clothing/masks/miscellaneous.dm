@@ -101,6 +101,10 @@
 /obj/item/clothing/mask/trinary_mask
 	name = "trinary perfection mask"
 	desc = "A simple lace mask worn by IPCs and organics alike while within the churches of the Trinary Perfection."
+	desc_extended = "Thought to help dissolve the divisions between organic and synthetic followers, it has been \
+		traditional for a mask to be worn within a holy space among Trinarists since the earliest days of the religion. \
+		Supposedly, masks were mandated among the early followers of Patricia Corkfell as they developed and maintained \
+		Temple, the artificial intelligence doomed to a young death, hence beginning a tradition that lasts to this day."
 	icon_state = "trinary_mask"
 	item_state = "trinary_mask"
 	w_class = WEIGHT_CLASS_SMALL

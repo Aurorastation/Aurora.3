@@ -19,7 +19,6 @@
 	/// Lights are calculated via area so they don't need to be in the machine list.
 	power_channel = AREA_USAGE_LIGHT
 	always_area_sensitive = TRUE
-	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	/// Luminosity when on, also used in power calculation.
 	var/brightness_range = 7
@@ -241,7 +240,7 @@
 				message_admins("LOG: Rigged light explosion, last touched by [fingerprintslast]")
 				explode()
 
-		else if(prob(min(60,(switchcount**2) * 0.05))) // LEMURIAN SEA, REDUCE 0.05 -> 0.01 AFTER ARC
+		else if(prob(min(60,(switchcount**2) * 0.01)))
 			if(status == LIGHT_OK && trigger)
 				status = LIGHT_BURNED
 				stat |= BROKEN

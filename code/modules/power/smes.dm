@@ -45,6 +45,14 @@
 	var/charge = 1e6 /// actual charge
 	var/max_coils = 0
 
+	/// Coils that this SMES accepts.
+	var/list/compatible_coils = list(
+		/obj/item/smes_coil,
+		/obj/item/smes_coil/weak,
+		/obj/item/smes_coil/super_capacity,
+		/obj/item/smes_coil/super_io
+	)
+
 	/// 1 = attempting to charge, 0 = not attempting to charge
 	var/input_attempt = 0
 	/// 1 = actually inputting, 0 = not inputting
@@ -95,6 +103,7 @@
 	var/should_be_mapped = 0
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
+	var/datum/looping_sound/electrical_humming/electrical_humming
 
 	var/time = 0
 	var/charge_mode = 0
@@ -102,7 +111,7 @@
 
 /obj/structure/machinery/power/smes/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(health < initial(health))
+	if(health < maxhealth)
 		. += "It can be repaired with a <b>welding tool</b>."
 
 /obj/structure/machinery/power/smes/feedback_hints(mob/user, distance, is_adjacent)
@@ -143,6 +152,7 @@
 	SSmachinery.smes_units += src
 	big_spark = bind_spark(src, 5, GLOB.alldirs)
 	small_spark = bind_spark(src, 3)
+	electrical_humming = new(src)
 	if(!powernet)
 		connect_to_network()
 
@@ -172,7 +182,7 @@
 	return TRUE
 
 /obj/structure/machinery/power/smes/proc/is_badly_damaged()
-	if(health < initial(health) / 5)
+	if(health < maxhealth / 5)
 		return TRUE
 	return FALSE
 
@@ -260,7 +270,12 @@
 
 /obj/structure/machinery/power/smes/process()
 	if(!can_function())
+		if(electrical_humming && electrical_humming.loop_started)
+			electrical_humming.stop()
 		return
+	else
+		if(electrical_humming && !electrical_humming.loop_started)
+			electrical_humming.start()
 	if(failure_timer)	// Disabled by gridcheck.
 		failure_timer--
 		return
@@ -552,8 +567,8 @@
 
 
 /obj/structure/machinery/power/smes/magical
-	name = "quantum power storage unit"
-	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Gains energy from quantum entanglement link."
+	name = "bluespace power storage unit"
+	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit. Siphons energy out of bluespace... somehow."
 	capacity = 5000000
 	output_level = 250000
 	should_be_mapped = 1
@@ -564,11 +579,48 @@
 
 /obj/structure/machinery/power/smes/buildable/superconducting
 	name = "superconducting cryogenic capacitor"
-	desc = "An experimental, extremely high-capacity type of SMES. It uses integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
+	desc = "An experimental, extremely high-capacity type of SMES. It uses both integrated cryogenic cooling and superconducting cables to break conventional limits on power transfer."
 	icon_state = "cannon_smes"
 	charge = 0
 	max_coils = 12
 	cur_coils = 12
+	compatible_coils = list(
+		/obj/item/smes_coil,
+		/obj/item/smes_coil/weak,
+		/obj/item/smes_coil/super_capacity,
+		/obj/item/smes_coil/super_io,
+		/obj/item/smes_coil/cryo
+	)
+
+// EE's phoron-free alternative
+/obj/structure/machinery/power/smes/buildable/cryogenic
+	name = "cryogenic power storage unit"
+	desc = "A superconducting magnetic energy storage (SMES) unit fitted with cryogenic coolant arrays to induce superconductivity in installed coils. \
+	The Einstein Engines alternative to phoron-based power systems in the growing Phoron Scarcity crisis; inferior, more hassle, but a phoron-free marvel of engineering!"
+	icon_state = "smes_cryo"
+	charge = 0
+	max_coils = 4
+	cur_coils = 0
+	compatible_coils = list(
+		/obj/item/smes_coil/cryo
+	)
+
+/obj/structure/machinery/power/smes/buildable/cryogenic/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/cryo(src)
+	component_parts += new /obj/item/smes_coil/cryo(src)
+	component_parts += new /obj/item/smes_coil/cryo(src)
+	cur_coils = 3 // this is set here to stop non-cryo coils being added on /smes/buildable/Initialise()
+
+/// Intended for phoron-free third party outposts (eg. Einstien Engines, independents avoiding phoron).
+/obj/structure/machinery/power/smes/buildable/cryogenic/outpost/Initialize()
+	. = ..()
+
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 200000
+	output_level = 200000
+	charge = 5000000
 
 #undef SMES_CLEVEL_1
 #undef SMES_CLEVEL_2

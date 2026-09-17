@@ -31,6 +31,8 @@
 	//Name of the shuttle, null for generic waypoint
 	var/shuttle_restricted
 	var/landmark_flags = 0
+	/// Automatically registers the landmark with the shuttle/sectors system if true.
+	var/auto_register = FALSE
 
 	/// Effects that show where the shuttle will land, to prevent unfair squishing
 	var/list/landing_indicators
@@ -68,13 +70,16 @@
 	else
 		base_area = locate(base_area || world.area)
 
-	if(!docking_controller)
-		return
-	var/docking_tag = docking_controller
-	if(!istype(docking_controller))
-		docking_controller = SSshuttle.docking_registry[docking_tag]
+	if(docking_controller)
+		var/docking_tag = docking_controller
 		if(!istype(docking_controller))
-			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
+			docking_controller = SSshuttle.docking_registry[docking_tag]
+			if(!istype(docking_controller))
+				LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
+
+	if(auto_register)
+		var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
+		map_origin.add_landmark(src, shuttle_restricted)
 
 /obj/effect/shuttle_landmark/forceMove(atom/destination)
 	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]

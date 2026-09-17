@@ -114,6 +114,13 @@
 	/// defaults to TRUE, false disables hostile events (like drone uprising).
 	var/hostile_events = TRUE
 
+	/// Amount and probability of dirt to spawn.
+	/// `null` or `<= 0`: No dirt generated.
+	/// `1` to `99`: Percentage chance to generate 1 dirt.
+	/// `100`: Exactly 1 guaranteed dirt.
+	/// `> 100`: 1 guaranteed dirt per 100, plus the remainder as a chance for an extra (150 = 1 guaranteed + 50% chance for a 2nd).
+	var/generate_dirt = null
+
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
  */
@@ -127,10 +134,8 @@
 	. = ..()
 
 /area/Initialize(mapload)
-#ifdef UNIT_TEST
-	if (!islist(ambience))
-		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
-#endif
+	if(ambience && !islist(ambience))
+		ambience = list(ambience)
 
 	icon_state = "white"
 	color = null
@@ -206,13 +211,23 @@
 
 /area/proc/get_cameras()
 	. = list()
+	var/list/invalid_cameras
 	for (var/thing in SSmachinery.all_cameras)
+		if(!istype(thing, /obj/structure/machinery/camera))
+			LAZYADD(invalid_cameras, thing)
+			continue
 		var/obj/structure/machinery/camera/C = thing
+		if(QDELETED(C))
+			LAZYADD(invalid_cameras, thing)
+			continue
 		if (!isturf(C.loc))
 			continue
 
 		if (C.loc.loc == src) // What the fuck is this?
 			. += C
+
+	if(invalid_cameras)
+		SSmachinery.all_cameras -= invalid_cameras
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)
@@ -540,7 +555,7 @@
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
-		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+		if (LAZYLEN(A.turret_controls))
 			continue
 
 		if(!A.hostile_events)

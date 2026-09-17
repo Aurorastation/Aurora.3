@@ -256,16 +256,16 @@ and some alternative things that are toxic to other life, such as radium and mut
 	if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 		if (bad_internal_organs.len)
 			for (var/obj/item/organ/O in bad_internal_organs)
-				var/CL = O.damage
+				var/CL = O.get_damage()
 				var/value
 				if(total_radiation > 0)
 					value = min(CL, total_radiation, 2 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-					O.damage += value/-1.5
+					O.add_damage(value/-1.5)
 					total_radiation -= value
 					CL = getCloneLoss()
 
 				value = min(CL, DS.stored_energy, 1 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-				O.damage += value/-3
+				O.add_damage(value/-3)
 				DS.stored_energy -= value
 
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
@@ -636,7 +636,8 @@ Most of these values are calculated from information configured at authortime in
 	last_location = null
 	regen_limb = null
 	regen_extra = null
-	. = ..()
+	nym = null
+	return ..()
 
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))

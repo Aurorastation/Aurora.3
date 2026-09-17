@@ -525,7 +525,7 @@
 	return TRUE
 
 
-/mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
+/mob/proc/Check_Dense_Object(include_gravity = TRUE) //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
 	var/shoegrip = Check_Shoegrip()
 
 	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //we only care for non-space turfs
@@ -533,7 +533,7 @@
 			return TRUE
 		else
 			var/area/A = T.loc
-			if(A.has_gravity() || shoegrip)
+			if((include_gravity && A.has_gravity()) || shoegrip)
 				return TRUE
 
 	for(var/obj/O in orange(1, src))

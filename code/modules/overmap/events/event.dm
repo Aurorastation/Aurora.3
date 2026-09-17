@@ -142,19 +142,30 @@
 		GLOB.exited_event.register(T, src, PROC_REF(on_turf_exited))
 
 	for(var/obj/effect/overmap/visitable/ship/ship in T)
-		var/list/active_ship_events = ship_events[ship]
-		for(var/datum/event/E as anything in active_ship_events)
-			if(is_event_in_turf(E,T))
-				continue
-			E.kill()
-			LAZYREMOVE(ship_events[ship], E)
+		update_ship_hazards(ship, T)
 
-		for(var/obj/effect/overmap/event/E in active_hazards)
-			start_hazard(ship,E)
+/singleton/overmap_event_handler/proc/update_ship_hazards(var/obj/effect/overmap/visitable/ship/ship, var/turf/T)
+	if(!istype(ship))
+		return
+	if(!istype(T))
+		T = get_turf(ship)
+
+	var/list/active_ship_events = ship_events[ship]
+	for(var/datum/event/E as anything in active_ship_events)
+		if(istype(T) && is_event_in_turf(E, T))
+			continue
+		E.kill()
+		LAZYREMOVE(ship_events[ship], E)
+
+	if(!istype(T))
+		return
+
+	for(var/obj/effect/overmap/event/E in hazard_by_turf[T])
+		start_hazard(ship, E)
 
 /singleton/overmap_event_handler/proc/is_event_in_turf(var/datum/event/E, var/turf/T)
 	for(var/obj/effect/overmap/event/hazard in hazard_by_turf[T])
-		if((E in hazard.events) && E.severity == hazard.difficulty)
+		if((E.type in hazard.events) && E.severity == hazard.difficulty)
 			return TRUE
 
 /singleton/overmap_event_handler/proc/is_event_included(var/list/hazards, var/obj/effect/overmap/event/E, var/equal_or_better)//this proc is only used so it can break out of 2 loops cleanly
@@ -328,6 +339,20 @@
 	can_be_destroyed = FALSE
 	tooltip_text = "Unstable gravitic shear effects detected; wide-field artificial gravity should be powered down before transit."
 
+/obj/effect/overmap/event/psiren
+	name = "psiren shoal"
+	events = list(/datum/event/wandering_psirens/overmap)
+	difficulty = EVENT_LEVEL_MODERATE
+	event_icon_states = list("psiren")
+	movable_event_chance = 30
+	tooltip_text = "Xenofauna: usually hostile."
+
+/obj/effect/overmap/event/psiren/major
+	name = "psiren school"
+	opacity = 1
+	difficulty = EVENT_LEVEL_MAJOR
+	movable_event_chance = 15
+
 /obj/effect/overmap/event/MouseEntered(location, control, params)
 	. = ..()
 	openToolTip(usr, src, params, tooltip_text)
@@ -402,3 +427,17 @@
 	radius = 12
 	hazards = /obj/effect/overmap/event/gravity_anomaly
 	sectors = list(SECTOR_LEMURIAN_SEA, SECTOR_LEMURIAN_SEA_FAR)
+
+/datum/overmap_event/psiren
+	name = "psiren shoal"
+	count = 1
+	radius = 1
+	continuous = FALSE
+	hazards = /obj/effect/overmap/event/psiren
+
+/datum/overmap_event/psiren/major
+	name = "psiren school"
+	count = 1
+	radius = 2
+	opacity = 1
+	hazards = /obj/effect/overmap/event/psiren/major

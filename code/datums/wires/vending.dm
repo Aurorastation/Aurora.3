@@ -1,6 +1,7 @@
 /datum/wires/vending
 	proper_name = "Vending Machine"
 	holder_type = /obj/structure/machinery/vending
+	associated_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
 
 /datum/wires/vending/New()
 	wires = list(
@@ -78,6 +79,6 @@
 			continue
 		dat += "<font color='[color]'>[capitalize(color)]</font>: [get_wire(color)]<br>"
 
-	var/datum/browser/wire_win = new(user, "vendingwires", "Vending Wires", 450, 500)
+	var/datum/browser/wire_win = new(user, "vendingwires", "Vending Wires", 450, 720)
 	wire_win.set_content(dat)
 	wire_win.open()

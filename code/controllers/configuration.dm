@@ -63,6 +63,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
 	"log_subsystems_persistence" = TRUE, // Persistence
+	"log_subsystems_registry" = TRUE, // Registry
 	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
@@ -123,6 +124,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_law_log" = "subsystems/law.log",
 	"world_subsystems_cargo_log" = "subsystems/cargo.log",
 	"world_subsystems_persistence_log" = "subsystems/persistence.log",
+	"world_subsystems_registry_log" = "subsystems/registry.log",
 	"world_subsystems_documents_log" = "subsystems/documents.log",
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
@@ -247,6 +249,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/allow_extra_antags = 0
 	var/guests_allowed = 1
 	var/debugparanoid = 0
+	var/minimum_participation_time = 15 //Minimum time, in minutes, that a player must be active in round to count as an active participant.
 
 	var/server
 	var/banappeals
@@ -531,6 +534,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 		if(type == "config")
 			switch (name)
+				if ("minimum_participation_time")
+					GLOB.config.minimum_participation_time = text2num(value) MINUTES
+
 				if ("auto_local_admin")
 					GLOB.config.auto_local_admin = TRUE
 

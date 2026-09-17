@@ -1,6 +1,7 @@
 /datum/wires/suit_storage_unit
 	proper_name = "Suit Storage Unit"
 	holder_type = /obj/structure/machinery/suit_cycler
+	associated_skill = ROBOTICS_SKILL_COMPONENT
 
 /datum/wires/suit_storage_unit/New()
 	wires = list(

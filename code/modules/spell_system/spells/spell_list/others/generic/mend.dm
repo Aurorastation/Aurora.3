@@ -73,9 +73,9 @@
 			return 1
 
 		for(var/obj/item/organ/I in E.internal_organs)
-			if(I.robotic < ORGAN_ROBOT && I.damage > 0)
+			if(I.robotic < ORGAN_ROBOT && I.get_damage() > 0)
 				to_chat(user, SPAN_NOTICE("You encourage the damaged tissue of \the [I] to repair itself."))
-				I.damage = max(0, I.damage - rand(3,5))
+				I.set_damage(max(0, I.get_damage() - rand(3,5)))
 				return 1
 
 		to_chat(user, SPAN_NOTICE("You can find nothing within \the [target]'s [E.name] to mend."))

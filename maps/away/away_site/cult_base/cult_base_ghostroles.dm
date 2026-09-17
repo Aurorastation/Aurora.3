@@ -182,10 +182,12 @@
 		/obj/item/material/knife/butterfly,
 	)
 	backpack_contents = list(
-		/obj/item/storage/box/survival = 1,
-		/obj/item/flashlight/flare/glowstick/random = 1,
-		/obj/random/junk = 1,
-		/obj/item/material/knife/ritual = 1,
+		/obj/item/storage/box/survival,
+		/obj/item/flashlight/flare/glowstick/random,
+		/obj/random/junk,
+		/obj/item/material/knife/ritual,
+		/obj/item/binoculars,
+		/obj/item/clothing/glasses/thermal,
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,

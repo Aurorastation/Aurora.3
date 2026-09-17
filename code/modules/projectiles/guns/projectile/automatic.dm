@@ -431,8 +431,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "\improper Jingya A-1 burst rifle"
-	desc = "The Jingya A-1 is the first of a new line of NanoTrasen rifles, developed in cooperation with Zavodskoi Interstellar's Kumar Arms subsidiary. Primarily made of high strength polymers, the rifle is designed to be cheap to mass produce while remaining reliable."
-	desc_extended = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling: this rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is slated to be deployed for trial usage by a select few special TCFL regiments in Mictlan."
+	desc = "The Jingya A-1 is an advanced NanoTrasen Corporation-designed ballistic rifle and a departure from their usual energy weapons. \
+	The weapon minimisese mechanical components, featuring electrical firing and priming mechanisms, a canted holographic sightsand rail for \
+	conventional sights, and other holographic user assistance systems. Expensive, perhaps over-engineered."
+	desc_extended = "The Jingya A-1 won a hard-fought victory in the ballistic side of the SCC Future Firearms contest hosted in 2463, which was also its first unveiling. This rifle is made to function where laser weaponry may be either too risky or not functional for the engagement at hand. It is the go-to ballistic armament of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/burst_rifle.dmi'
 	icon_state = "arx"
 	item_state = "arx"

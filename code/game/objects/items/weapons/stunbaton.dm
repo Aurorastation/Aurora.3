@@ -200,7 +200,7 @@
 				target_mob.visible_message(SPAN_DANGER("[target_mob] has been prodded with \the [src] by [user]!"))
 
 	//stun effects
-	target_mob.stun_effect_act(stun, agony, target_zone, src)
+	target_mob.stun_effect_act(stun, agony, DAMAGE_PAIN, target_zone, src)
 
 	playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 

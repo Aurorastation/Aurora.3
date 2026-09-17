@@ -3,15 +3,15 @@
 	desc = "A wall that had a hole burnt into it. Nasty."
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "wall_thermite"
-	var/material/material
-	var/material/reinf_material
+	var/singleton/material/material
+	var/singleton/material/reinf_material
 
 /obj/effect/overlay/burnt_wall/Initialize(mapload, new_name, new_mat, new_reinf_mat)
 	. = ..()
 	name = "burnt [new_name]"
-	material = SSmaterials.get_material_by_name(new_mat)
+	material = SSmaterials.get_material_by_id(new_mat)
 	if(new_reinf_mat)
-		reinf_material = SSmaterials.get_material_by_name(new_reinf_mat)
+		reinf_material = SSmaterials.get_material_by_id(new_reinf_mat)
 	color = material.icon_colour
 	if(material.opacity < 0.5)
 		alpha = 125

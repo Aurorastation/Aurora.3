@@ -1,5 +1,5 @@
 // Midships port airlock
-/obj/effect/map_effect/marker/airlock/sol_frigate/mid_starboard
+/obj/effect/map_effect/marker/airlock/external/sol_frigate/mid_starboard
 	name = "Midships port airlock"
 	master_tag = "solfrig_airlock"
 // --------

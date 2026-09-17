@@ -11,7 +11,8 @@
 /// MAGNETIC COILS - These things actually store and transmit power within the SMES. Different types have different properties
 /obj/item/smes_coil
 	name = "superconductive magnetic coil"
-	desc = "Standard superconductive magnetic coil with balanced capacity and I/O rating."
+	desc = "A standard superconductive magnetic coil with balanced capacity and I/O rating."
+	desc_extended = "One of the primary uses of phoron, these coils rely on phoron as a room-temperature superconductor to store or transmit energy with near zero loss."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
 	/// It's LARGE (backpack sized)
@@ -30,6 +31,8 @@
 /obj/item/smes_coil/weak
 	name = "basic superconductive magnetic coil"
 	desc = "Cheaper model of the standard superconductive magnetic coil. Its capacity and I/O rating are considerably lower."
+	desc_extended = "One of the primary uses of phoron, these coils rely on phoron as a room-temperature superconductor to store or transmit energy with near zero loss. \
+	The phoron in this coil is low-grade and in small quantity."
 	icon_state = "smes_coil_weak"
 	ChargeCapacity = 500000
 	IOCapacity = 300000
@@ -49,6 +52,14 @@
 	icon_state = "smes_coil_transmission"
 	ChargeCapacity = 250000
 	IOCapacity = 2000000
+
+// 75% Charge Capacity, 50% I/O Capacity.
+/obj/item/smes_coil/cryo
+	name = "cryogenic superconductive transmission coil"
+	desc = "A non-phoronic superconductive coil instead reliant on a proprietary Einstein Engines superhydride compound. It can only be installed in cryogenic SMES units."
+	icon_state = "smes_coil_cryo"
+	ChargeCapacity = 1875000
+	IOCapacity = 250000
 
 // SMES SUBTYPES - THESE ARE MAPPED IN AND CONTAIN DIFFERENT TYPES OF COILS
 
@@ -171,7 +182,7 @@
 		return .
 
 	visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
-	health_check(hitting_projectile.damage)
+	health_check()
 
 /obj/structure/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
 	health -= health_reduction
@@ -418,7 +429,7 @@
 	// - No action was taken in parent function (terminal de/construction atm).
 	if (..())
 		if(attacking_item.tool_behaviour == TOOL_WELDER)
-			if(health == initial(health))
+			if(health == maxhealth)
 				to_chat(user, SPAN_WARNING("\The [src] is already repaired."))
 				return
 			var/obj/item/weldingtool/WT = attacking_item
@@ -429,9 +440,9 @@
 				to_chat(user, SPAN_WARNING("You don't have enough fuel to repair \the [src]."))
 				return
 			if(WT.use_tool(src, user, 50, volume = 50) && WT.use(2, user))
-				health = min(health + 100, initial(health))
-				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / initial(health)) * 100)]% repaired."))
-				if(health == initial(health))
+				health = min(health + 100, maxhealth)
+				to_chat(user, SPAN_NOTICE("You repair \the [src], it is now [round((health / maxhealth) * 100)]% repaired."))
+				if(health == maxhealth)
 					busted = FALSE
 				return
 		// Multitool - change RCON tag
@@ -486,6 +497,10 @@
 		// Superconducting Magnetic Coil - Upgrade the SMES
 		else if(istype(attacking_item, /obj/item/smes_coil))
 			if (cur_coils < max_coils)
+
+				if(!(attacking_item.type in compatible_coils)) // hi
+					to_chat(usr, "This coil isn't compatible with this SMES unit.")
+					return
 
 				if (failure_probability && prob(failure_probability))
 					total_system_failure(failure_probability, user)

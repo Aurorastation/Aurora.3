@@ -15,14 +15,21 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
-	alt_titles = list("Freelance Journalist")
+	job_access = list(/datum/access/journalist::id, /datum/access/maint_tunnels::id)
+	alt_titles = list("Independent Reporter", "Corporate Journalist", "Independent Journalist", "Media Broadcaster")
 	alt_factions = list(
 		"Corporate Reporter" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
-		"Freelance Journalist" = list("Independent")
+		"Corporate Journalist" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
+		"Independent Reporter" = list("Independent"),
+		"Independent Journalist" = list("Independent"),
+		"Media Broadcaster" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate", "Independent")
 	)
-	alt_outfits = list("Freelance Journalist" = /obj/outfit/job/journalistf)
-	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
+
+	title_accesses = list(
+		"Corporate Reporter" = list(/datum/access/medical::id, /datum/access/sec_doors::id, /datum/access/research::id, /datum/access/engine::id),
+		"Corporate Journalist" = list(/datum/access/medical::id, /datum/access/sec_doors::id, /datum/access/research::id, /datum/access/engine::id)
+	)
+
 	outfit = /obj/outfit/job/journalist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -30,8 +37,8 @@
 	name = "Corporate Reporter"
 	jobtype = /datum/job/journalist
 
-	uniform = /obj/item/clothing/under/suit_jacket/red
-	shoes = /obj/item/clothing/shoes/sneakers/black
+	uniform = /obj/item/clothing/under/librarian
+	shoes = /obj/item/clothing/shoes/laceup/brown
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
@@ -54,11 +61,11 @@
 	)
 
 /obj/outfit/job/journalistf
-	name = "Freelance Journalist"
+	name = "Independent Journalist"
 	jobtype = /datum/job/journalist
 
 	uniform = /obj/item/clothing/under/suit_jacket/red
-	shoes = /obj/item/clothing/shoes/sneakers/black
+	shoes = /obj/item/clothing/shoes/laceup/brown
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
@@ -87,7 +94,7 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	job_access = list(ACCESS_LAWYER)
+	job_access = list(/datum/access/lawyer::id)
 	alt_titles = list(
 		"Workplace Liaison",
 		"Corporate Representative",
@@ -218,20 +225,21 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
-	alt_titles = list("Foreign Service Officer", "Party Representative")
+	alt_titles = list("Foreign Service Officer", "Party Representative", "Kreshwan")
 	alt_citizenships = list(
-		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Izweski Hegemony", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiarchy of Orepit"),
+		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
 		"Foreign Service Officer" = list("Sol Alliance"),
-		"Party Representative" = list("People's Republic of Adhomai")
+		"Party Representative" = list("People's Republic of Adhomai"),
+		"Kreshwan" = list("Karszekani Moghes")
 	)
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 150,
-		SPECIES_SKRELL_AXIORI = 150
+		SPECIES_SKRELL = 100,
+		SPECIES_SKRELL_AXIORI = 100
 	)
 
-	job_access = list(ACCESS_CONSULAR)
+	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 	blacklisted_citizenship = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
@@ -339,7 +347,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_CONSULAR)
+	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
@@ -385,7 +393,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_CONSULAR)
+	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
@@ -431,7 +439,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_LAWYER)
+	job_access = list(/datum/access/lawyer::id)
 	outfit = /obj/outfit/job/corporate_aide
 
 /obj/outfit/job/corporate_aide

@@ -84,6 +84,8 @@
 
 	/// Camera networks that will show up on the console.
 	var/list/station_networks = list()
+	/// Z-levels with local, always-on NTNet and camera connectivity, independent of station relays.
+	var/list/always_available_network_levels = list()
 
 	/// map of string ids to /datum/holodeck_program instances
 	var/list/holodeck_programs = list()
@@ -189,6 +191,9 @@
 /datum/map/proc/get_network_access(var/network)
 	return 0
 
+/datum/map/proc/is_always_available_network_level(var/z_level)
+	return z_level && (z_level in always_available_network_levels)
+
 // By default transition randomly to another zlevel
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
 	var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
@@ -283,7 +288,7 @@
 
 	return list(spawn_cost, player_cost, ship_cost)
 
-/datum/map/proc/send_welcome()
+/datum/map/proc/post_gamemode_setup()
 	return
 
 /datum/map/proc/load_holodeck_programs()

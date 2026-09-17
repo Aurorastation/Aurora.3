@@ -437,3 +437,25 @@
 	result_quantity = 2
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/cheese_twig
+
+/singleton/recipe/meaty_breadbake
+	appliance = OVEN
+	fruit = list("mtear" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 2, /singleton/reagent/nutriment/protein = 6)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread,
+	)
+	result = /obj/item/reagent_containers/food/snacks/breadbake_meat
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/cheesy_breadbake
+	appliance = OVEN
+	fruit = list("mtear" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/tajaran_bread,
+		/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge,
+		/obj/item/reagent_containers/food/snacks/adhomian_cheese_wedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/breadbake_cheese
+	reagent_mix = RECIPE_REAGENT_REPLACE

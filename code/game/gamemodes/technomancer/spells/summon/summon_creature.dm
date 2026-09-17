@@ -34,7 +34,9 @@
 		"GREIMORIAN BOMBARDIER"	=	/mob/living/simple_animal/hostile/giant_spider/bombardier,
 		"GREIMORIAN NURSE"		=	/mob/living/simple_animal/hostile/giant_spider/nurse,
 		"CARP"					=	/mob/living/simple_animal/hostile/carp,
-		"BEAR"					=	/mob/living/simple_animal/hostile/bear
+		"BEAR"					=	/mob/living/simple_animal/hostile/bear,
+		"PSIREN LASHER" 		=	/mob/living/simple_animal/hostile/psiren,
+		"PSIREN DARTER"			= 	/mob/living/simple_animal/hostile/psiren/ranged
 		)
 	cooldown = 30
 	instability_cost = 10

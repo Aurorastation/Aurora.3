@@ -134,7 +134,7 @@
 				if(BP_IS_ROBOTIC(O))
 					continue
 				if(SPT_PROB(stage*stage, seconds_per_tick))
-					O.damage = min(O.damage+stage, O.max_damage)
+					O.set_damage(min(O.get_damage() + stage, O.max_damage))
 
 	if(stage >= 4) //after 15 minutes
 		if(SPT_PROB(3, seconds_per_tick))

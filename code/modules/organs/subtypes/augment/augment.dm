@@ -24,6 +24,8 @@
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_TAJARA,
 		SPECIES_UNATHI,
+		SPECIES_UNATHI_URAWANI,
+		SPECIES_UNATHI_ZIRALIXI,
 	)
 
 	robotic_sprite = FALSE
@@ -34,6 +36,9 @@
 	var/bypass_implant = FALSE
 	/// If true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
 	var/supports_limb = FALSE
+
+/obj/item/organ/internal/augment/process_initialize()
+	return
 
 /obj/item/organ/internal/augment/Initialize()
 	if(robotic == ROBOTIC_MECHANICAL)

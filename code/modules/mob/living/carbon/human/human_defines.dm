@@ -171,3 +171,16 @@
 	var/obj/item/rig/wearing_rig
 	/// Pref holder for the speech bubble style.
 	var/speech_bubble_type
+
+	// Some player characters are of type human and some are of type ../carbon
+	// Confusingly human includes most (but not all) aliens.
+	// For redundancy I'm stating this here as well as in /carbon
+	mass = REFERENCE_MASS_HUMAN
+
+	var/med_record = ""
+	var/sec_record = ""
+	var/list/incidents = list()
+	var/gen_record = ""
+	var/ccia_record = ""
+	var/list/ccia_actions = list()
+	var/exploit_record = ""

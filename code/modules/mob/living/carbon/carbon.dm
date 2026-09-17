@@ -43,14 +43,24 @@
 	QDEL_NULL(handcuffed)
 	QDEL_NULL(legcuffed)
 	QDEL_NULL(op_stage)
-	chem_doses?.Cut()
+
+	if (length(chem_doses))
+		chem_doses.Cut()
+	// For whatever baffling reason this can potentially be a single reference instead of an alist.
+	else chem_doses = null
+
 	QDEL_NULL(bloodstr)
 	QDEL_NULL(touching)
 	QDEL_NULL(breathing)
 	// Delete and null a direct list of references to our internal organs (such as brain, lungs, heart, etc).
 	QDEL_LIST(internal_organs)
+
 	// Null an Associative list of String = Reference to the same organs.
-	internal_organs_by_name?.Cut()
+	if (length(internal_organs_by_name))
+		internal_organs_by_name.Cut()
+	// For whatever baffling reason this can potentially be a single reference instead of an alist.
+	else internal_organs_by_name = null
+
 	QDEL_LIST(hallucinations)
 	return ..()
 
@@ -234,8 +244,8 @@
 			var/painful_check = FALSE
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
-				var/brutedamage = org.brute_dam
-				var/burndamage = org.burn_dam
+				var/brutedamage = LIMB_GET_BRUTE_DAMAGE(org)
+				var/burndamage = LIMB_GET_BURN_DAMAGE(org)
 
 				// Basic Anatomy 1: All the obvious stuff
 				// Damaged and missing limbs
@@ -280,7 +290,7 @@
 				// Broken limbs
 				// Regular and arterial bleeding are vague
 				// Necrotic is vague
-				if(org.dislocated == 2)
+				if(LIMB_GET_DISLOCATED(org) == 2)
 					status += (anatomy >= 2 ? "dislocated" : "hanging oddly")
 				if(org.status & ORGAN_BROKEN)
 					status += (anatomy < 3 ? "hurts when touched" : "broken")
@@ -570,7 +580,7 @@
 		return FALSE
 	if ((mutations & HULK))
 		return FALSE
-	if (analgesic > 100)
+	if (analgesic > 200)
 		return FALSE
 	if(pain_immune)
 		return FALSE

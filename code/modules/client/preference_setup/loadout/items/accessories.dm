@@ -313,6 +313,16 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	badge["badge, electronic"] = /obj/item/clothing/accessory/badge/idbadge/intel
 	gear_tweaks += new /datum/gear_tweak/path(badge)
 
+/datum/gear/accessory/pressbadge
+	display_name = "press badge, corporate"
+	path = /obj/item/clothing/accessory/badge/press
+	allowed_roles = list("Corporate Reporter")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/pressbadge/independent
+	display_name = "press badge, independent"
+	path = /obj/item/clothing/accessory/badge/press/independent
+
 /datum/gear/accessory/namepin
 	display_name = "pins selection"
 	path = /obj/item/clothing/accessory/badge/namepin
@@ -644,6 +654,12 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	necklace_uncolored["large golden pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/fat
 	necklace_uncolored["large silver pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver/fat
 	gear_tweaks += new /datum/gear_tweak/path(necklace_uncolored)
+
+/datum/gear/accessory/newgibson_uraniumglass_necklace
+	display_name = "new gibsonite uranium glass necklace"
+	path = /obj/item/clothing/accessory/newgibson_uraniumglass_necklace
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/ipc_tau_ceti)
 
 /datum/gear/accessory/visegradi_sweater
 	display_name = "visegradi patterned sweater"

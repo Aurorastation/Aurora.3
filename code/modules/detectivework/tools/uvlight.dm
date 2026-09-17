@@ -6,7 +6,7 @@
 	item_state = "electronic"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_STEEL = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/list/scanned = list()
 	var/list/stored_alpha = list()

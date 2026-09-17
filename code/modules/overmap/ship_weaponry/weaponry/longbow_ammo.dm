@@ -6,6 +6,7 @@
 	item_state = "generic_casing_obj"
 	caliber = SHIP_CALIBER_406MM
 	ammunition_behaviour = SHIP_AMMO_BEHAVIOUR_DUMBFIRE
+	projectile_type_override = /obj/projectile/ship_ammo/longbow
 	var/obj/item/primer/primer
 	var/obj/item/warhead/longbow/warhead
 

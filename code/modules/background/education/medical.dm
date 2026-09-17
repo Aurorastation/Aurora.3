@@ -25,6 +25,8 @@
 		SPECIES_TAJARA_MSAI = 30,
 		SPECIES_TAJARA_ZHAN = 30,
 		SPECIES_UNATHI = 30,
+		SPECIES_UNATHI_URAWANI = 30,
+		SPECIES_UNATHI_ZIRALIXI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -45,6 +47,8 @@
 		SPECIES_TAJARA_MSAI = 25,
 		SPECIES_TAJARA_ZHAN = 25,
 		SPECIES_UNATHI = 25,
+		SPECIES_UNATHI_URAWANI = 25,
+		SPECIES_UNATHI_ZIRALIXI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -67,13 +71,13 @@
 		SPECIES_TAJARA_MSAI = 30,
 		SPECIES_TAJARA_ZHAN = 30,
 		SPECIES_UNATHI = 30,
+		SPECIES_UNATHI_URAWANI = 30,
+		SPECIES_UNATHI_ZIRALIXI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/* Uncomment this block after finishing the Leadership skill. Psychologists should be able to give people morale bonuses as a mechanic.
 		/singleton/skill/leadership = SKILL_LEVEL_TRAINED,
-		*/
 		/singleton/skill/pharmacology = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,
@@ -91,6 +95,8 @@
 		SPECIES_TAJARA_MSAI = 30,
 		SPECIES_TAJARA_ZHAN = 30,
 		SPECIES_UNATHI = 30,
+		SPECIES_UNATHI_URAWANI = 30,
+		SPECIES_UNATHI_ZIRALIXI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -111,6 +117,8 @@
 		SPECIES_TAJARA_MSAI = 18,
 		SPECIES_TAJARA_ZHAN = 18,
 		SPECIES_UNATHI = 18,
+		SPECIES_UNATHI_URAWANI = 18,
+		SPECIES_UNATHI_ZIRALIXI = 18,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)
@@ -118,5 +126,6 @@
 		/* Can perform only the most basic surgeries up to arterial bleeds. */
 		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)

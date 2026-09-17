@@ -6,21 +6,26 @@
 	power_usage = 50
 	enabled = FALSE
 	critical = FALSE
-	var/range = 2
-	var/power = 1
-	var/flashlight_color = LIGHT_COLOR_HALOGEN
+
+	light_range = 1.2
+	light_power = 0.5
+	light_color = LIGHT_COLOR_HALOGEN
+	light_system = MOVABLE_LIGHT
+
+	light_on = FALSE
 
 /obj/item/computer_hardware/flashlight/enable()
 	. = ..()
 	if(parent_computer)
-		parent_computer.set_light(range, power, flashlight_color)
+		parent_computer.set_light_range_power_color(light_range, light_power, light_color)
+		parent_computer.set_light_on(enabled)
 
 /obj/item/computer_hardware/flashlight/disable()
 	. = ..()
 	if(parent_computer)
-		parent_computer.set_light(initial(parent_computer.light_range), initial(parent_computer.light_power), flashlight_color)
+		parent_computer.set_light_on(enabled)
 
 /obj/item/computer_hardware/flashlight/proc/tweak_brightness(var/new_power)
-	. = power = clamp(0, new_power, 1)
+	set_light_power(clamp(0, new_power, 1))
 	if(parent_computer && enabled)
-		parent_computer.set_light(range, power, flashlight_color)
+		parent_computer.set_light_power(light_power)

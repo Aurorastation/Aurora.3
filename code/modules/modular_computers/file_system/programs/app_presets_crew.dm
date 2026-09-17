@@ -125,7 +125,12 @@
 
 /datum/modular_computer_app_presets/command/hop/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/records/security)
+	program_list += list(/datum/computer_file/program/civilian/cargocontrol,
+						/datum/computer_file/program/records/security,
+						/datum/computer_file/program/digitalwarrant,
+						/datum/computer_file/program/camera_monitor,
+						/datum/computer_file/program/alarm_monitor/all,
+						)
 
 
 /datum/modular_computer_app_presets/command/captain
@@ -204,8 +209,25 @@
 /datum/modular_computer_app_presets/civilian/New()
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN
-	program_list += list(/datum/computer_file/program/game/arcade, /datum/computer_file/program/cooking_codex)
+	program_list += /datum/computer_file/program/game/arcade
 
+/datum/modular_computer_app_presets/civilian/bartender
+	name = "bartender"
+	display_name = "Bartender"
+	description = "Contains programs for bartenders."
+
+/datum/modular_computer_app_presets/civilian/bartender/New()
+	. = ..()
+	program_list += /datum/computer_file/program/bartending_codex
+
+/datum/modular_computer_app_presets/civilian/chef
+	name = "chef"
+	display_name = "Chef"
+	description = "Contains programs for chefs."
+
+/datum/modular_computer_app_presets/civilian/chef/New()
+	. = ..()
+	program_list += /datum/computer_file/program/cooking_codex
 
 /datum/modular_computer_app_presets/civilian/janitor
 	name = "janitor"
@@ -272,7 +294,7 @@
 
 /datum/modular_computer_app_presets/supply/machinist/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/records/medical, /datum/computer_file/program/scanner/science, /datum/computer_file/program/robotics)
+	program_list += list(/datum/computer_file/program/records/medical, /datum/computer_file/program/scanner/science, /datum/computer_file/program/robotics, /datum/computer_file/program/signaler)
 	//Machinist is the bastard child of supply/operation, it doesn't have access to shit essentially
 	program_list -= list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/civilian/cargodelivery, /datum/computer_file/program/away_manifest)
 

@@ -57,8 +57,8 @@
 	desc = "Kinetic blasts explode in a massively increased AoE radius at significantly increased power drain per shot, leveraging the exosuit's internal power core to sustain itself."
 	icon_state = "upgrade_chip"
 	cost_increase = 10
-	aoe_increase = 4
-	range_increase = 2
+	aoe_increase = 2
+	range_increase = 3
 
 /obj/item/custom_ka_upgrade/upgrade_chips/illegal
 	name = "illegal custom KA upgrade chip"

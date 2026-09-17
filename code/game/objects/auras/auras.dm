@@ -15,6 +15,15 @@ They should also be used for when you want to effect the ENTIRE mob, like having
 
 	return COMPONENT_BULLET_BLOCKED
 
+/obj/aura/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	var/result = ..()
+	if(result == BULLET_ACT_BLOCK) //The bullet was blocked, don't check the remaining auras.
+		return AURA_FALSE|AURA_CANCEL
+	else if(result == BULLET_ACT_FORCE_PIERCE) //The bullet was forced to pierce, check the remaining auras to see if they block.
+		return AURA_FALSE
+	else
+		return
+
 /obj/aura/Destroy()
 	if(user)
 		user.remove_aura(src)

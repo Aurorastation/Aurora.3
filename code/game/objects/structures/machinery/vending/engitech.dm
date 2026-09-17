@@ -15,19 +15,22 @@
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
 	icon_vend = "robotics-vend"
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/stack/cable_coil = 4,
-		/obj/item/flash/synthetic = 4,
+		/obj/item/flash/synthetic = 10,
 		/obj/item/cell/high = 12,
 		/obj/item/assembly/prox_sensor = 8,
-		/obj/item/assembly/signaler = 8,
+		/obj/item/assembly/signaler = 20,
 		/obj/item/healthanalyzer = 3,
 		/obj/item/surgery/scalpel = 2,
+		/obj/item/surgery/hemostat = 2,
+		/obj/item/storage/firstaid/empty = 2,
 		/obj/item/surgery/circular_saw = 2,
 		/obj/item/screwdriver = 5,
-		/obj/item/crowbar = 5
+		/obj/item/crowbar = 5,
+		/obj/item/mmi = 2
 	)
 	contraband = list(
 		/obj/item/flash = 2
@@ -56,19 +59,21 @@
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
-	req_access = list(ACCESS_ENGINE)
+	req_access = list(/datum/access/engine::id)
 	vend_id = "tools"
 	products = list(
 		/obj/item/multitool = 4,
 		/obj/item/taperoll/engineering = 4,
 		/obj/item/clothing/glasses/safety/goggles = 4,
+		/obj/item/assembly/signaler = 20,
 		/obj/item/airlock_electronics = 20,
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
 		/obj/item/cell/high = 10,
 		/obj/item/grenade/chem_grenade/antifuel = 5,
-		/obj/item/geiger = 5
+		/obj/item/geiger = 5,
+		/obj/item/reagent_containers/spray/cleaner/glass_glue = 8
 	)
 	contraband = list(
 		/obj/item/cell/potato = 3
@@ -101,7 +106,7 @@
 	icon_state = "tool"
 	icon_vend = "tool-vend"
 	vend_id = "tools"
-	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
+	//req_access = list(/datum/access/maint_tunnels::id) //Maintenance access
 	products = list(
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/crowbar = 5,
@@ -151,7 +156,7 @@
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
 	icon_vend = "engi-vend"
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/head/hardhat = 4,
@@ -202,7 +207,7 @@
 	product_ads = "Stop walkin, get talkin!;Get them keys!;Psst, got a minute?"
 	icon_state = "wallencrypt"
 	density = 0 //It is wall-mounted.
-	req_access = list(ACCESS_HOP)
+	req_access = list(/datum/access/hop::id)
 	vend_id = "encryption"
 	products = list(
 		/obj/item/encryptionkey/heads/captain = 1,

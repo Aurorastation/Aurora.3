@@ -30,11 +30,12 @@
 	desc = "An industrial machine for painting and refitting voidsuits."
 	anchored = TRUE
 	density = TRUE
+	init_flags = FALSE
 
 	icon = 'icons/obj/suit_cycler.dmi'
 	icon_state = "base"
 
-	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
+	req_access = list(/datum/access/captain::id, /datum/access/heads::id)
 	/// PLEASE HOLD.
 	var/active = FALSE
 	/// The cycler won't start with a living thing inside it unless safeties are off.
@@ -54,7 +55,7 @@
 	/// Will it change the suit name to "refitted [x]" on refit
 	var/rename_on_refit = TRUE
 	/// Departments that the cycler can paint suits to look like.
-	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
+	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "Operations")
 	/// Species that the suits can be configured to fit.
 	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 
@@ -187,6 +188,7 @@
 		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
 		M.forceMove(src)
 		occupant = M
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 		add_fingerprint(user)
 		SStgui.update_uis(src)
@@ -236,6 +238,7 @@
 			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
 			M.forceMove(src)
 			occupant = M
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 			add_fingerprint(user)
 			qdel(G)
@@ -285,7 +288,7 @@
 
 	//Clear the access reqs, disable the safeties, and open up all paintjobs.
 	to_chat(user, SPAN_WARNING("You run the sequencer across the interface, corrupting the operating protocols."))
-	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "^%###^%$", "Unchanged")
+	departments = list("Engineering", "Mining", "Medical", "Security", "Atmos", "Operations", "^%###^%$", "Unchanged")
 	emagged = TRUE
 	safeties = FALSE
 	req_access = list()
@@ -401,6 +404,7 @@
 			return
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		addtimer(CALLBACK(src, PROC_REF(repair_suit)), 10 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
@@ -422,6 +426,7 @@
 
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		addtimer(CALLBACK(src, PROC_REF(apply_paintjob)), 10 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
@@ -443,6 +448,7 @@
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		irradiating = 10
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		SStgui.update_uis(src)
 
@@ -474,13 +480,11 @@
 	SStgui.update_uis(src)
 	return
 
-/obj/structure/machinery/suit_cycler/process()
-	if(electrified > 0)
-		electrified = max(electrified - 1, 0)
+/obj/structure/machinery/suit_cycler/process(seconds_per_tick)
+	if(!electrified && !active && !irradiating && !occupant)
+		return PROCESS_KILL
 
-	if(!active)
-		return
-
+	electrified = max(electrified - seconds_per_tick, 0)
 	if(active && stat & (BROKEN|NOPOWER))
 		active = FALSE
 		irradiating = 0
@@ -488,13 +492,13 @@
 		update_icon()
 		return
 
-	if(irradiating == 1)
+	if(irradiating <= 0)
 		finished_job()
 		irradiating = 0
 		update_icon()
 		return
 
-	irradiating = max(irradiating - 1, 0)
+	irradiating = max(irradiating - seconds_per_tick, 0)
 
 	if(occupant)
 		if(prob(radiation_level * 2))
@@ -619,6 +623,17 @@
 				suit.name = "atmospherics voidsuit"
 				suit.icon_state = "atmos"
 				suit.item_state = "atmos"
+		if("Operations")
+			if(helmet)
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				helmet.name = "operations voidsuit helmet"
+				helmet.icon_state = "hangartech_helm"
+				helmet.item_state = "hangartech_helm"
+			if(suit)
+				suit.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				suit.name = "operations voidsuit"
+				suit.icon_state = "hangartech"
+				suit.item_state = "hangartech"
 		if("Captain")
 			if(helmet)
 				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'

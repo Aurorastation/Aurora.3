@@ -26,6 +26,8 @@
 
 	//add the new taste data
 	var/list/data = ..()
+	if(!data)
+		data = list()
 	for(var/taste in newdata)
 		if(taste in data)
 			data[taste] += newdata[taste]
@@ -52,8 +54,10 @@
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(1.5 * removed)
-	else if(alien != IS_UNATHI)
-		digest(M,removed, holder = holder)
+	var/efficiency = 1
+	if(alien == IS_UNATHI)
+		efficiency = 0.5
+	digest(M, removed * efficiency, holder = holder)
 
 /singleton/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	M.heal_organ_damage(regen_factor * removed, 0)
@@ -100,7 +104,7 @@
 
 /singleton/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien && alien == IS_UNATHI)
-		digest(M,removed, holder = holder)
+		digest(M, removed * 2, holder = holder)
 		return
 	if(HAS_TRAIT(M, TRAIT_ORIGIN_NO_ANIMAL_PROTEIN) && !vegan)
 		if(prob(2))

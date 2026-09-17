@@ -66,7 +66,7 @@
 /obj/structure/railing/mapped/no_density/low
 	icon_state = "railing0-0"
 
-/obj/structure/railing/New(var/newloc, var/material_key = DEFAULT_WALL_MATERIAL)
+/obj/structure/railing/New(var/newloc, var/material_key = MATERIAL_STEEL)
 	material = material_key // Converted to datum in initialize().
 	..(newloc)
 
@@ -81,7 +81,7 @@
 
 	if(!non_material_object)
 		if(!isnull(material) && !istype(material))
-			material = SSmaterials.get_material_by_name(material)
+			material = SSmaterials.get_material_by_id(material)
 		if(!istype(material))
 			return INITIALIZE_HINT_QDEL
 
@@ -167,8 +167,8 @@
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	CutOverlays()
-	if(dir == SOUTH)
-		layer = ABOVE_HUMAN_LAYER
+	if(dir != NORTH)
+		layer = ABOVE_ABOVE_HUMAN_LAYER
 	else
 		layer = initial(layer)
 	if(!neighbor_status || !anchored)
@@ -345,7 +345,7 @@
 	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 2 SECONDS))
+	if(!do_after(user, user.get_conditioning_action_delay(2 SECONDS)))
 		LAZYREMOVE(climbers, user)
 		return
 

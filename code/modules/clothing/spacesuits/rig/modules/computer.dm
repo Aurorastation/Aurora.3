@@ -25,6 +25,36 @@
 
 	module.holder.ui_interact(usr)
 
+/obj/item/ai_verbs/verb/toggle_hardsuit_camera()
+	set category = "Hardsuit"
+	set name = "Helmet Camera - Toggle On/Off"
+	set src in usr
+
+	var/obj/item/rig/rig = usr.get_rig()
+	if(!istype(rig) || !rig.is_integrated_rig_ai(usr))
+		to_chat(usr, SPAN_WARNING("You are not loaded into a hardsuit."))
+		return
+	if(!rig.helmet?.camera)
+		to_chat(usr, SPAN_WARNING("\The [rig] has no helmet camera."))
+		return
+
+	rig.helmet.toggle_camera_for(usr)
+
+/obj/item/ai_verbs/verb/toggle_hardsuit_expedition_camera_network()
+	set category = "Hardsuit"
+	set name = "Helmet Camera - Toggle Expedition Network"
+	set src in usr
+
+	var/obj/item/rig/rig = usr.get_rig()
+	if(!istype(rig) || !rig.is_integrated_rig_ai(usr))
+		to_chat(usr, SPAN_WARNING("You are not loaded into a hardsuit."))
+		return
+	if(!rig.helmet?.camera)
+		to_chat(usr, SPAN_WARNING("\The [rig] has no helmet camera."))
+		return
+
+	rig.helmet.toggle_expedition_camera_network_for(usr)
+
 /obj/item/rig_module/ai_container
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
@@ -33,7 +63,7 @@
 	activates_on_touch = TRUE
 	confined_use = TRUE
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 7500)
+	construction_cost = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 7500)
 	construction_time = 300
 
 	engage_string = "Eject AI"
@@ -56,21 +86,20 @@
 	qdel(verb_holder)
 	return ..()
 
-/obj/item/rig_module/ai_container/process()
-	if(integrated_ai)
-		var/obj/item/rig/rig = get_rig()
-		if(rig && rig.ai_override_enabled)
-			integrated_ai.get_rig_stats = 1
-		else
-			integrated_ai.get_rig_stats = 0
-
 /obj/item/rig_module/ai_container/proc/update_verb_holder()
 	if(!verb_holder)
 		verb_holder = new(src)
+	var/mob/previous_user
+	if(ismob(verb_holder.loc))
+		previous_user = verb_holder.loc
 	if(integrated_ai)
 		verb_holder.forceMove(integrated_ai)
 	else
 		verb_holder.forceMove(src)
+	if(previous_user?.client)
+		previous_user.client.init_verbs()
+	if(integrated_ai?.client && integrated_ai != previous_user)
+		integrated_ai.client.init_verbs()
 
 /obj/item/rig_module/ai_container/accepts_item(var/obj/item/input_device, var/mob/living/user)
 	// Check if there's actually an AI to deal with.
@@ -286,9 +315,9 @@
 		else if(istype(input_device,/obj/structure/machinery/r_n_d/server))
 			var/obj/structure/machinery/r_n_d/server/input_machine = input_device
 			incoming_files = input_machine.files
-		else if(istype(input_device,/obj/structure/machinery/mecha_part_fabricator))
-			var/obj/structure/machinery/mecha_part_fabricator/input_machine = input_device
-			incoming_files = input_machine.files
+		else if(istype(input_device, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+			var/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/input_mechfab = input_device
+			incoming_files = input_mechfab.linked_console?.files
 
 		if(!incoming_files || !incoming_files.known_tech || !incoming_files.known_tech.len)
 			to_chat(user, SPAN_WARNING("Memory failure. There is nothing accessible stored on this terminal."))
@@ -364,7 +393,7 @@
 	activates_on_touch = TRUE
 	disruptive = FALSE
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GOLD =2000, MATERIAL_SILVER =3000, MATERIAL_GLASS =2000)
+	construction_cost = list(MATERIAL_STEEL=10000, MATERIAL_GOLD =2000, MATERIAL_SILVER =3000, MATERIAL_GLASS =2000)
 	construction_time = 500
 
 	activate_string = "Enable Power Sink"

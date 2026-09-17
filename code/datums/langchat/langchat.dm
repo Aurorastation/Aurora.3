@@ -46,9 +46,13 @@
 /// Drops all active bubbles for this atom.
 /atom/proc/langchat_drop_images()
 	for(var/datum/langchat_bubble/entry as anything in langchat_images)
+		if (!entry || !entry.bubble)
+			continue
+
 		for(var/mob/listener as anything in entry.listeners)
-			if(listener.client)
-				listener.client.images -= entry.bubble
+			if (!listener || !listener.client)
+				continue
+			listener.client.images -= entry.bubble
 	langchat_images = null
 
 /atom/proc/get_maptext_x_offset(image/maptext_image)
@@ -150,10 +154,15 @@
 
 	if(length(text_to_display) > LANGCHAT_LONGEST_TEXT)
 		text_to_display = copytext_char(text_to_display, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."
-	if(styles.Find("emote"))
+	if("emote" in styles)
 		styles.Remove("emote")
 		use_mob_style = FALSE
 		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "emote")
+		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
+	if("radio" in styles)
+		styles.Remove("radio")
+		use_mob_style = FALSE
+		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "radio")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
 	return "<span class='center [styles.Join(" ")] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"

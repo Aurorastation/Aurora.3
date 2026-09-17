@@ -81,7 +81,7 @@
 		equipment_prescription = equipment_prescription || G.prescription
 		if(G.overlay)
 			equipment_overlays |= G.overlay
-		if(G.lighting_alpha != lighting_alpha)
+		if(lighting_alpha > G.lighting_alpha) //only change the lighting alpha if what we have is worse
 			lighting_alpha = G.lighting_alpha
 		if(G.see_invisible)
 			if(equipment_see_invis)
@@ -204,6 +204,14 @@
 		return null
 
 	return eyes
+
+/// Returns TRUE when this mob's vision organ has been voluntarily closed.
+/mob/living/carbon/human/proc/eyes_are_closed()
+	var/obj/item/organ/internal/eyes/eyes = get_eyes()
+	return eyes?.eyes_closed
+
+/mob/living/carbon/human/is_blind()
+	return ..() || eyes_are_closed()
 
 /mob/living/carbon/human/proc/awaken_psi_basic(var/source)
 	var/static/list/psi_operancy_messages = list(

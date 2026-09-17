@@ -54,8 +54,6 @@
 	var/obj/structure/machinery/door/airlock/close_other
 	/// The ID of the connected door to close.
 	var/close_other_id
-	/// String (One of `MATERIAL_*`). The material the door is made from. If not set, defaults to steel.
-	var/mineral
 	/// Boolean. Whether or not the door's safeties are enabled. Tied to the safety wire.
 	var/safe = TRUE
 	/// Airlock electronics.
@@ -120,14 +118,12 @@
 	var/door_frame_color = COLOR_GRAY20
 	/// Color. The color of the stripe detail.
 	var/stripe_color = null
-	/// Color. The color of the symbol detail.
-	var/symbol_color = null
 	/// Color. The color of the window.
 	var/window_color = null
 	/// String (One of `MATERIAL_*`). The material used for the door's window if `glass` is set. Used to set `window_material` during init.
 	var/init_material_window = MATERIAL_GLASS
 	/// The material of the door's window.
-	var/material/window_material
+	var/singleton/material/window_material
 
 	hashatch = TRUE
 
@@ -243,7 +239,7 @@
 
 	if (glass)
 		paintable |= AIRLOCK_PAINTABLE_WINDOW
-		window_material = SSmaterials.get_material_by_name(init_material_window)
+		window_material = SSmaterials.get_material_by_id(init_material_window)
 		opacity = FALSE
 	update_icon()
 
@@ -284,9 +280,9 @@
 	..()
 
 /obj/structure/machinery/door/airlock/get_material()
-	if(mineral)
-		return SSmaterials.get_material_by_name(mineral)
-	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
+	if(material)
+		return SSmaterials.get_material_by_id(material)
+	return SSmaterials.get_material_by_id(MATERIAL_STEEL)
 
 /obj/structure/machinery/door/airlock/external//External airlocks start here
 	name = "external airlock"
@@ -525,6 +521,12 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	destroy_hits = 30
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_MEDIUM
+	)
 	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5
@@ -718,23 +720,23 @@
 /obj/structure/machinery/door/airlock/gold
 	name = "Gold Airlock"
 	door_color = COLOR_GOLD
-	mineral = "gold"
+	material = MATERIAL_GOLD
 
 /obj/structure/machinery/door/airlock/silver
 	name = "Silver Airlock"
 	door_color = COLOR_SILVER
-	mineral = "silver"
+	material = MATERIAL_SILVER
 
 /obj/structure/machinery/door/airlock/diamond
 	name = "Diamond Airlock"
 	door_color = COLOR_DIAMOND
-	mineral = "diamond"
+	material = MATERIAL_DIAMOND
 	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 
 /obj/structure/machinery/door/airlock/sandstone
 	name = "Sandstone Airlock"
 	door_color = COLOR_BEIGE
-	mineral = "sandstone"
+	material = MATERIAL_SANDSTONE
 
 /obj/structure/machinery/door/airlock/palepurple
 	door_color = COLOR_PURPLE
@@ -784,6 +786,7 @@
 		MELEE = ARMOR_MELEE_MINOR,
 		BULLET = ARMOR_BALLISTIC_MINOR
 	)
+	material = MATERIAL_DIONA
 
 /// Placeholder object until it gets new sprites.
 /obj/structure/machinery/door/airlock/diona/external
@@ -794,7 +797,7 @@
 	name = "Uranium Airlock"
 	desc = "And they said I was crazy."
 	door_color = COLOR_GREEN
-	mineral = "uranium"
+	material = MATERIAL_URANIUM
 	var/last_event = 0
 
 /obj/structure/machinery/door/airlock/uranium/process()
@@ -809,7 +812,7 @@
 	name = "Phoron Airlock"
 	desc = "No way this can end badly."
 	door_color = COLOR_VIOLET
-	mineral = MATERIAL_PHORON
+	material = MATERIAL_PHORON
 
 /obj/structure/machinery/door/airlock/phoron/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
@@ -915,6 +918,7 @@ About the new airlock wires panel:
 		ai_action_timer = null
 	if(isAllPowerLoss() && electrified_until) // Disable electricity if required
 		electrify(0)
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/loseBackupPower()
 	backup_power_lost_until = backupPowerCablesCut() ? -1 : world.time + SecondsToTicks(60)
@@ -927,6 +931,7 @@ About the new airlock wires panel:
 		ai_action_timer = null
 	if(isAllPowerLoss() && electrified_until) // Disable electricity if required
 		electrify(0)
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/regainMainPower()
 	if(!mainPowerCablesCut())
@@ -935,12 +940,14 @@ About the new airlock wires panel:
 		if(!backup_power_lost_until)
 			backup_power_lost_until = -1
 		update_icon()
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/regainBackupPower()
 	if(!backupPowerCablesCut())
 		// Restore backup power only if main power is offline, otherwise permanently disable
 		backup_power_lost_until = main_power_lost_until == 0 ? -1 : 0
 		update_icon()
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/electrify(var/duration, var/feedback = 0)
 	var/message = ""
@@ -1387,7 +1394,7 @@ About the new airlock wires panel:
 	if (src.isElectrified())
 		if (istype(mover, /obj/item))
 			var/obj/item/i = mover
-			if (i.matter && (DEFAULT_WALL_MATERIAL in i.matter) && i.matter[DEFAULT_WALL_MATERIAL] > 0)
+			if(i.matter && SSmaterials.get_material_amount(i.matter, MATERIAL_STEEL) > 0)
 				spark(src, 5, GLOB.alldirs)
 	return ..()
 
@@ -1719,8 +1726,8 @@ About the new airlock wires panel:
 	da.set_dir(src.dir)
 
 	da.anchored = 1
-	if(mineral)
-		da.glass = mineral
+	if(material)
+		da.glass = material
 	else if(glass && !da.glass)
 		da.glass = 1
 	da.state = 1
@@ -2153,6 +2160,7 @@ About the new airlock wires panel:
 		revert_powerloss_manual_override = FALSE
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/machinery/door, close), 1)
 	update_icon()
+	send_status()
 
 /obj/structure/machinery/door/airlock/proc/prison_open()
 	if(bracer)

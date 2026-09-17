@@ -56,8 +56,11 @@
 	flying = TRUE
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
-	smart_melee = FALSE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
+
+/mob/living/simple_animal/hostile/carp/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)
 
 /mob/living/simple_animal/hostile/carp/update_icon()
 	..()
@@ -319,3 +322,7 @@
 	flying = TRUE
 	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
+
+/mob/living/simple_animal/hostile/gnat/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_SPACE_FAUNA, TRAIT_SOURCE_MOB_CATEGORY)

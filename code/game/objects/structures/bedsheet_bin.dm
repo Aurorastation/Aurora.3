@@ -114,7 +114,7 @@ LINEN BINS
 		if(M.loc == src.loc)
 			return
 	else
-		reset_plane_and_layer()
+		layer = initial(layer)
 
 /obj/item/bedsheet/verb/fold_verb()
 	set name = "Fold Bedsheet"
@@ -144,7 +144,7 @@ LINEN BINS
 			fold = TRUE
 			slot_flags = null
 			w_class = WEIGHT_CLASS_SMALL
-			layer = reset_plane_and_layer()
+			layer = initial(layer)
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
@@ -178,8 +178,8 @@ LINEN BINS
 			roll = TRUE
 			slot_flags = null
 			w_class = WEIGHT_CLASS_NORMAL
-			layer = reset_plane_and_layer()
-			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
+			layer = initial(layer)
+			if(user.resting && get_turf(src) == get_turf(user)) // Make them get up
 				user.lay_down()
 		else
 			roll = FALSE
@@ -187,7 +187,9 @@ LINEN BINS
 			w_class = WEIGHT_CLASS_BULKY
 			if(layer == initial(layer))
 				layer = ABOVE_HUMAN_LAYER
-			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
+			if(!user.resting && get_turf(src) == get_turf(user)) // Make them rest
+				user.set_dir(SOUTH)
+				user.facing_dir = null
 				user.lay_down()
 		update_icon()
 		inuse = FALSE

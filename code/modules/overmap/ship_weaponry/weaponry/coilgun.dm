@@ -15,11 +15,12 @@
 	name = "tungsten rod pack"
 	name_override = "tungsten rod"
 	desc = "A pack of rods used as ammunition for the M55A2 intermediate coilgun, if the obvious labelling and handling instructions didn't already give it away."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/ammunition/ammo.dmi'
 	icon_state = "trodpack-2"
 	caliber = SHIP_CALIBER_COILGUN
 	overmap_icon_state = "cannon"
 	impact_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
+	projectile_type_override = /obj/projectile/ship_ammo/coilgun
 
 /obj/projectile/ship_ammo/coilgun
 	name = "high-power tungsten rod"

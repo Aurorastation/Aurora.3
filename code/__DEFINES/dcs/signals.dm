@@ -52,7 +52,7 @@
 ///Mob is trying to open the wires of a target [/atom], from /datum/wires/interactable(): (atom/target)
 #define COMSIG_TRY_WIRES_INTERACT "try_wires_interact"
 	#define COMPONENT_CANT_INTERACT_WIRES (1<<0)
-
+#define COMSIG_GET_EFFECTIVE_MASS "get_effective_mass"
 
 /// Sent from /proc/do_after if someone starts a do_after action bar.
 #define COMSIG_DO_AFTER_BEGAN "mob_do_after_began"
@@ -124,6 +124,8 @@
 
 // Armed Combat Signals
 #define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"
+/// Signal raised against a mob attempting to attack a structure, used to query components for structure damage modifiers.
+#define COMSIG_ATTACK_STRUCTURE "attack_structure"
 
 // Various computer signals for interrupting via skill or other effects.
 #define COMSIG_USE_REACTOR_COMPUTER "use_reactor_computer"
@@ -140,3 +142,12 @@
 
 /// Signal raised against a character attempting to deliver a speech.
 #define COMSIG_GET_LEADERSHIP_MODIFIERS "get_leadership_modifiers"
+
+/// Signal raised against a character attempting to butcher a mob, to check for butchering bonuses from skills.
+#define COMSIG_GET_BUTCHERING_MODIFIERS "get_butchering_modifiers"
+
+// Crafting Signals
+#define COMSIG_GET_CRAFTING_MODIFIERS "get_crafting_modifiers"
+
+/// Signal raised on a person attempting to repair a mech.
+#define COMSIG_GET_MECH_WELD_MODIFIERS "mech_weld_modifiers"

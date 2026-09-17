@@ -607,7 +607,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_1";
 	name = "airlock_ruined_propellant_depot_1";
 	req_one_access = null
@@ -1554,7 +1554,7 @@
 	dir = 4;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_5";
 	name = "airlock_ruined_propellant_depot_5";
 	req_one_access = null
@@ -2048,7 +2048,7 @@
 	dir = 4;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_4";
 	name = "airlock_ruined_propellant_depot_4";
 	req_one_access = null
@@ -2130,7 +2130,7 @@
 /area/ruined_propellant_depot/atmos_propellant)
 "gq" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_3";
 	name = "airlock_ruined_propellant_depot_3";
 	req_one_access = null
@@ -2520,7 +2520,7 @@
 	icon_state = "2-8"
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_5";
 	name = "airlock_ruined_propellant_depot_5";
 	req_one_access = null
@@ -2871,7 +2871,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/structure/sign/flag/old_xanu{
+/obj/structure/sign/flag/xanu_old{
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
@@ -3448,7 +3448,7 @@
 /area/ruined_propellant_depot/maint_storage)
 "kF" = (
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_6";
 	name = "airlock_ruined_propellant_depot_6";
 	req_one_access = null
@@ -3802,9 +3802,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/maint_storage)
 "lX" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/item/flashlight/lamp/off{
 	pixel_x = -3;
 	pixel_y = 4
@@ -3874,7 +3872,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_5";
 	name = "airlock_ruined_propellant_depot_5";
 	req_one_access = null
@@ -5617,7 +5615,7 @@
 	pixel_y = -6;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_2";
 	name = "airlock_ruined_propellant_depot_2";
 	req_one_access = null
@@ -5699,7 +5697,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_4";
 	name = "airlock_ruined_propellant_depot_4";
 	req_one_access = null
@@ -6262,7 +6260,7 @@
 	pixel_x = 28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_3";
 	name = "airlock_ruined_propellant_depot_3";
 	req_one_access = null
@@ -6731,7 +6729,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_6";
 	name = "airlock_ruined_propellant_depot_6";
 	req_one_access = null
@@ -7009,7 +7007,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_2";
 	name = "airlock_ruined_propellant_depot_2";
 	req_one_access = null
@@ -7741,7 +7739,7 @@
 	pixel_y = -6;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_5";
 	name = "airlock_ruined_propellant_depot_5";
 	req_one_access = null
@@ -8165,7 +8163,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_4";
 	name = "airlock_ruined_propellant_depot_4";
 	req_one_access = null
@@ -8321,7 +8319,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_2";
 	name = "airlock_ruined_propellant_depot_2";
 	req_one_access = null
@@ -8704,7 +8702,7 @@
 	pixel_y = 6;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_6";
 	name = "airlock_ruined_propellant_depot_6";
 	req_one_access = null
@@ -8736,7 +8734,7 @@
 	dir = 4;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_3";
 	name = "airlock_ruined_propellant_depot_3";
 	req_one_access = null
@@ -9967,7 +9965,7 @@
 	pixel_y = -6;
 	pixel_x = 20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_1";
 	name = "airlock_ruined_propellant_depot_1";
 	req_one_access = null
@@ -10312,9 +10310,7 @@
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "GW" = (
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
+/obj/structure/table/glass/reinf,
 /obj/random/medical{
 	pixel_y = 4
 	},
@@ -10596,7 +10592,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_6";
 	name = "airlock_ruined_propellant_depot_6";
 	req_one_access = null
@@ -11430,7 +11426,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_4";
 	name = "airlock_ruined_propellant_depot_4";
 	req_one_access = null
@@ -11509,7 +11505,7 @@
 	pixel_x = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_5";
 	name = "airlock_ruined_propellant_depot_5";
 	req_one_access = null
@@ -11674,7 +11670,7 @@
 	dir = 4;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_6";
 	name = "airlock_ruined_propellant_depot_6";
 	req_one_access = null
@@ -12083,7 +12079,7 @@
 	dir = 8;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_1";
 	name = "airlock_ruined_propellant_depot_1";
 	req_one_access = null
@@ -12255,7 +12251,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_1";
 	name = "airlock_ruined_propellant_depot_1";
 	req_one_access = null
@@ -12283,7 +12279,7 @@
 	dir = 8;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_2";
 	name = "airlock_ruined_propellant_depot_2";
 	req_one_access = null
@@ -12430,7 +12426,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_4";
 	name = "airlock_ruined_propellant_depot_4";
 	req_one_access = null
@@ -13398,7 +13394,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_4";
 	name = "airlock_ruined_propellant_depot_4";
 	req_one_access = null
@@ -15528,7 +15524,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_3";
 	name = "airlock_ruined_propellant_depot_3";
 	req_one_access = null
@@ -15848,7 +15844,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_5";
 	name = "airlock_ruined_propellant_depot_5";
 	req_one_access = null
@@ -16214,7 +16210,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_3";
 	name = "airlock_ruined_propellant_depot_3";
 	req_one_access = null
@@ -16405,7 +16401,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_1";
 	name = "airlock_ruined_propellant_depot_1";
 	req_one_access = null
@@ -16439,7 +16435,7 @@
 	pixel_y = -6;
 	pixel_x = -20
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_ruined_propellant_depot_3";
 	name = "airlock_ruined_propellant_depot_3";
 	req_one_access = null

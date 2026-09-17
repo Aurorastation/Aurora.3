@@ -25,9 +25,10 @@
 	id = /obj/item/card/id/voidtamer
 	l_ear = /obj/item/radio/headset/ship
 	backpack_contents = list(/obj/item/flashlight/survival = 1)
+	belt = /obj/item/flashlight/lantern/voidtamer
 
 /obj/outfit/admin/voidtamer_crew/get_id_access()
-	return list(ACCESS_VOIDTAMER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/voidtamer_ship::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/voidtamer_crew/captain
 	short_name = "voidtamer_captain"
@@ -50,8 +51,9 @@
 	id = /obj/item/card/id/voidtamer
 	l_ear = /obj/item/radio/headset/ship
 	backpack_contents = list(/obj/item/flashlight/survival = 1)
+	belt = /obj/item/flashlight/lantern/voidtamer
 
 //items
 /obj/item/card/id/voidtamer
 	name = "voidtamer ship id"
-	access = list(ACCESS_VOIDTAMER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/voidtamer_ship::id, /datum/access/external_airlocks::id)

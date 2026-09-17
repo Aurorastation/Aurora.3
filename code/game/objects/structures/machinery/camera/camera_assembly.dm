@@ -98,6 +98,7 @@
 
 				state = 4
 				var/obj/structure/machinery/camera/C = new(src.loc)
+				QDEL_NULL(C.assembly)
 				src.forceMove(C)
 				C.assembly = src
 
@@ -106,6 +107,10 @@
 				C.replace_networks(uniquelist(tempnetwork))
 
 				C.c_tag = input
+				C.setPowerUsage()
+				if(C.isMotion() && !(SSmachinery.processing[C]))
+					START_PROCESSING_MACHINE(C, MACHINERY_PROCESS_SELF)
+				C.update_coverage()
 
 				for(var/i = 5; i >= 0; i -= 1)
 					var/direct = tgui_input_list(user, "Direction?", "Assembling Camera", list("Confirm", "NORTH", "EAST", "SOUTH", "WEST"))
@@ -127,20 +132,35 @@
 				return TRUE
 
 	// Upgrades!
-	if(is_type_in_list(attacking_item, possible_upgrades) && !is_type_in_list(attacking_item, upgrades)) // Is a possible upgrade and isn't in the camera already.
+	var/upgrade_type
+	for(var/possible_upgrade in possible_upgrades)
+		if(istype(attacking_item, possible_upgrade))
+			upgrade_type = possible_upgrade
+			break
+
+	if(upgrade_type)
+		if(state != 3)
+			to_chat(user, SPAN_WARNING("You need to wire the assembly before installing upgrades."))
+			return TRUE
+		if(locate(upgrade_type) in upgrades)
+			to_chat(user, SPAN_WARNING("\The [src] already has that upgrade installed."))
+			return TRUE
 		if(istype(attacking_item, /obj/item/stock_parts/scanning_module))
 			var/obj/item/stock_parts/scanning_module/SM = attacking_item
 			if(SM.rating < 2)
 				to_chat(user, SPAN_WARNING("That scanning module doesn't seem advanced enough."))
-				return
+				return TRUE
 		to_chat(user, "You attach \the [attacking_item] into the assembly inner circuits.")
 		upgrades += attacking_item
 		user.remove_from_mob(attacking_item)
 		attacking_item.forceMove(src)
-		return
+		return TRUE
 
 	// Taking out upgrades
 	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && upgrades.len)
+		if(state != 3)
+			to_chat(user, SPAN_WARNING("You need access to the wired circuits before removing upgrades."))
+			return TRUE
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			to_chat(user, "You unattach an upgrade from the assembly.")

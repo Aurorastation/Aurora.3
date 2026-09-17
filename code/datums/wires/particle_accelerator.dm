@@ -1,6 +1,7 @@
 /datum/wires/particle_acc/control_box
 	proper_name = "Particle Accelerator"
 	holder_type = /obj/structure/machinery/particle_accelerator/control_box
+	associated_skill = REACTOR_SYSTEMS_SKILL_COMPONENT
 
 /datum/wires/particle_acc/control_box/New()
 	wires = list(

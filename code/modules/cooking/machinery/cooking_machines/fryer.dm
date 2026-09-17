@@ -22,8 +22,14 @@
 		/obj/item/reagent_containers/cooking_container/fryer
 	)
 
+	component_types = list(
+		/obj/item/circuitboard/fryer,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/matter_bin = 2)
+
 	var/datum/reagents/oil
-	var/optimal_oil = 9000//90 litres of cooking oil
+	var/optimal_oil = 100 // 1/10 of a cooking oil tank
 
 /obj/structure/machinery/appliance/cooker/fryer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

@@ -11,7 +11,7 @@
 
 /obj/structure/target_stake/Initialize(mapload)
 	. = ..()
-	material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
+	material = GET_SINGLETON(MATERIAL_STEEL)
 
 /obj/structure/target_stake/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/target))

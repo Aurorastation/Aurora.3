@@ -4,6 +4,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "nuke"
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 200
 	slowdown = 1
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
@@ -22,10 +23,10 @@
 	var/obj/effect/overmap/origin
 	var/atom/overmap_target
 	var/obj/entry_point
-	var/obj/projectile/original_projectile
+	/// The exact physical projectile type to reconstruct when this ammunition leaves the overmap.
+	var/fired_projectile_type
 	var/heading = SOUTH
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
-	var/mob_carry_size = 12 //How large a mob has to be to carry the shell
 	//Cookoff variables.
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2
@@ -61,7 +62,8 @@
 	origin = null
 	overmap_target = null
 	entry_point = null
-	original_projectile = null
+	// The typepath is runtime metadata for one fired round and must not outlive it.
+	fired_projectile_type = null
 	return ..()
 
 /obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
@@ -86,24 +88,14 @@
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			var/datum/species/S = H.species
-			if(S.mob_size >= mob_carry_size || S.resist_mod >= 10 || user.status_flags & GODMODE)
+			if(H.get_lift_capacity() >= mass || user.status_flags & GODMODE)
 				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
 				if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
 					wield(user)
 					return TRUE
 				else return FALSE
-			if(istype(H.back, /obj/item/rig))
-				var/obj/item/rig/R = H.back
-				if(R.suit_is_deployed())
-					visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving with some difficulty..."))
-					if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
-						visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
-						wield(user)
-						return TRUE
-					else return FALSE
-		to_chat(user, SPAN_WARNING("\The [src] is way too heavy for you to pick up without some assistance!"))
+		to_chat(user, SPAN_WARNING("\The [src] is too heavy for you to pick up without assistance!"))
 		return FALSE
 	return TRUE
 
@@ -273,7 +265,7 @@
 			P = new /obj/projectile/bullet/pellet/fragment/spall/metalrod(O)
 		else if(istype(thing_pierced, /obj/structure/machinery/door/airlock))
 			var/obj/structure/machinery/door/airlock/D = thing_pierced
-			if(D.window_material && D.window_material == SSmaterials.get_material_by_name(MATERIAL_GLASS))
+			if(D.window_material && D.window_material == GET_SINGLETON(MATERIAL_GLASS))
 				P = new /obj/projectile/bullet/pellet/fragment/spall/glass(O)
 			else
 				P = new /obj/projectile/bullet/pellet/fragment/spall(O)
@@ -322,9 +314,11 @@
 				H.playsound_local(null, 'sound/effects/explosionfar.ogg', 25)
 				shake_camera(H, 2, 2)
 		..()
+	// Preserve only the concrete type needed at the destination. The ammunition
+	// has already moved into the overmap carrier, so this physical shell is spent.
+	ammo.fired_projectile_type = type
 	if(ammo.touch_map_edge(z))
-		ammo.original_projectile = src
-		forceMove(ammo)
+		qdel(src)
 
 /obj/projectile/ship_ammo/on_hit(atom/target, blocked, def_zone, var/is_landmark_hit = FALSE) //is_landmark_hit is TRUE when we hit a landmark on a visitable non-ship overmap object.
 	if(target && !hit_target)

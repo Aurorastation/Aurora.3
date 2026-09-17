@@ -16,7 +16,7 @@
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
+	matter = list(MATERIAL_STEEL = 500, MATERIAL_GLASS = 200)
 
 /obj/item/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	robotic_analyze_mob(target_mob, user)
@@ -84,7 +84,7 @@
 			if(!(E.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 				continue
 			organ_found = TRUE
-			to_chat(user, "[E.name]: <span class='warning'>[get_robot_severity(E.brute_dam)]</span> <font color='#FFA500'>[get_robot_severity(E.burn_dam)]</font>")
+			to_chat(user, "[E.name]: <span class='warning'>[get_robot_severity(LIMB_GET_BRUTE_DAMAGE(E))]</span> <font color='#FFA500'>[get_robot_severity(LIMB_GET_BURN_DAMAGE(E))]</font>")
 	if(!organ_found)
 		to_chat(user, SPAN_NOTICE("No prosthetics located."))
 	to_chat(user, "<hr>")
@@ -107,7 +107,7 @@
 				if(machine_organ.get_integrity() < 100)
 					to_chat(user, "<font color='#FFA500'><b>[machine_organ.name]:</b> Integrity damage detected.</font>")
 					found_damage = TRUE
-			else if(O.damage)
+			else if(O.get_damage())
 				to_chat(user, SPAN_WARNING("<b>[O.name]:</b> Core damage detected."))
 				found_damage = TRUE
 			if(!found_damage)

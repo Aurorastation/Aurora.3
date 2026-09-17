@@ -71,6 +71,13 @@
 	M.add_chemical_effect(CE_ITCH, M.chem_doses[type])
 	M.adjustHydrationLoss(1*removed)
 
+	if(((M.chem_doses[type] > 30) && prob(2)) || ((M.bodytemperature < 189) && prob(10))) //Butazoline treats torn tendons when dose is greater than 30u. Alternatively, if the drug is used in a cryotube.
+		var/mob/living/carbon/human/H = M
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.tendon && (E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
+				E.tendon.rejuvenate()
+				M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain in your [E.name]!"))
+
 /singleton/reagent/kelotane
 	name = "Kelotane"
 	description = "Kelotane is a complex medication which specifically targets tissues which have been lost to severe burning by encouraging the rate at which these damaged tissues are regenerated."
@@ -249,7 +256,7 @@
 			for(var/obj/item/organ/internal/I in H.internal_organs)
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
-						var/brain_activity = 100 - ((I.damage / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
+						var/brain_activity = 100 - ((I.get_damage() / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
 						if(brain_activity >= 61) //will only treat brain activity below 61% brain activity
 							continue
 					I.heal_damage(4*removed)
@@ -283,7 +290,7 @@
 			for(var/obj/item/organ/internal/I in H.internal_organs)
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
-						var/brain_activity = 100 - ((I.damage / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
+						var/brain_activity = 100 - ((I.get_damage() / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
 						if(brain_activity >= 61) //will only treat brain activity below 61% brain activity
 							continue
 					I.heal_damage(4*removed)
@@ -316,11 +323,13 @@
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 35)
 		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+		M.adjustHalLoss(-1)
 
 /singleton/reagent/perconol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+		M.adjustHalLoss(-1)
 
 /singleton/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -347,7 +356,8 @@
 	M.notify_message(SPAN_GOOD(pick(joy_messages)), rand(20 SECONDS, 40 SECONDS), key = "morta_affect_blood")
 
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 50)
+		M.add_chemical_effect(CE_PAINKILLER, 70)
+		M.adjustHalLoss(-2)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -412,6 +422,7 @@
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 120)
+		M.adjustHalLoss(-3)
 		M.add_chemical_effect(CE_SLOWDOWN, 1)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
@@ -462,6 +473,7 @@
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 90)
+		M.adjustHalLoss(-2)
 		M.add_chemical_effect(CE_SLOWDOWN, 2)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
@@ -527,7 +539,8 @@
 		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
 
 	if(check_min_dose(M))
-		M.add_chemical_effect(CE_PAINKILLER, 200)
+		M.add_chemical_effect(CE_PAINKILLER, 210)
+		M.adjustHalLoss(-4)
 		M.add_chemical_effect(CE_SLOWDOWN, 2)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
@@ -587,9 +600,8 @@
 	if(.)
 		M.add_chemical_effect(CE_CLEARSIGHT)
 		M.add_chemical_effect(CE_STRAIGHTWALK)
-		M.add_chemical_effect(CE_PAINKILLER, 30)
+		M.add_chemical_effect(CE_PAINKILLER, 10)
 		M.add_chemical_effect(CE_HALLUCINATE, -1)
-		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 		M.add_chemical_effect(CE_BLOODTHIN, 25)
 
 /singleton/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -659,10 +671,10 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
-			if(E.damage > 0)
-				E.damage = max(E.damage - 5 * removed, 0)
+			if(E.get_damage() > 0)
+				E.set_damage(max(E.get_damage() - 5 * removed, 0))
 		if(isvaurca(H))
-			if(E.damage < E.min_broken_damage && H.sdisabilities & BLIND)
+			if(E.get_damage() < E.min_broken_damage && H.sdisabilities & BLIND)
 				H.sdisabilities -= BLIND
 
 /singleton/reagent/oculine/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -692,17 +704,17 @@
 
 		for(var/obj/item/organ/internal/I in H.internal_organs)
 			if(I.organ_tag == BP_BRAIN)
-				if(I.damage >= I.min_bruised_damage)
+				if(I.get_damage() >= I.min_bruised_damage)
 					continue
-			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
+			if((I.get_damage() > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
 				var/damage_healed = ((M.bodytemperature < 186) && M.chem_effects[CE_CRYO]) ? 2 : 1 //2x effective if administered in cryogenic conditions
-				I.damage = max(I.damage - damage_healed*removed, 0)
+				I.set_damage(max(I.get_damage() - damage_healed*removed, 0))
 
 		if((M.bodytemperature < 153) && M.chem_effects[CE_ANTIBIOTIC]) //peridaxon in extracool cryogenic conditions alongside antibiotics will have a chance to de-nercotise liver and kidneys, though will incur overdose symptoms
 			H.infest_with_parasite(H, BP_TUMOUR_NONSPREADING, pick(H.organs), 10)
 			for(var/obj/item/organ/internal/O in H.internal_organs)
 				if((O.organ_tag == BP_LIVER) || (O.organ_tag == BP_KIDNEYS))
-					if(O.damage && prob(5))
+					if(O.get_damage() && prob(5))
 						if((O.status & ORGAN_DEAD) && !BP_IS_ROBOTIC(O))
 							if(O.can_recover())
 								O.status &= ~ORGAN_DEAD
@@ -1273,6 +1285,8 @@
 	messagedelay = MEDICATION_MESSAGE_DELAY * 0.75
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
 	value = 2
+	alchohol_affected = FALSE
+	fallback_specific_heat = 1.67 // Approximate specific heat of liquid nicotine (J/g·K)
 
 /singleton/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale, var/datum/reagents/holder)
 	..()
@@ -1444,7 +1458,9 @@
 	od_minimum_dose = 3
 	taste_description = "sugar"
 	goodmessage_species = list(
-		SPECIES_UNATHI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+		SPECIES_UNATHI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm..."),
+		SPECIES_UNATHI_URAWANI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm..."),
+		SPECIES_UNATHI_ZIRALIXI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
 		)
 
 /singleton/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -1485,12 +1501,14 @@
 	var/obj/item/organ/internal/brain = M.internal_organs_by_name[BP_BRAIN]
 	if((M.bodytemperature < 179) && (M.chem_effects[CE_CRYO])) //best use in cryogenics, experiment with Balanced or Prioritising Metabolisation settings, aiming for a gas cooler temperature target that minimises the cryostasis multiplier. remember the cryotube heats slowly when someone is inside.
 		if(brain)
-			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC])) //skips the oxygenation check under brain.dm
-				brain.damage = max(brain.damage - 16*removed, 0) //high number, as cryo slows metabolism. also needs to slightly outpace rough injuries to actually make it worthwhile to use.
+			var/brain_damage = brain.get_damage()
+			if(brain_damage && brain_damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC])) //skips the oxygenation check under brain.dm
+				brain.set_damage(max(brain_damage - 16*removed, 0)) //high number, as cryo slows metabolism. also needs to slightly outpace rough injuries to actually make it worthwhile to use.
 	else //without cryogenics. skips the oxygen check, however has large downsides if not pushed thorugh an IV to moderate volume in blood.
 		if(brain)
-			if(brain.damage && brain.damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC]) && prob(75))
-				brain.damage = max(brain.damage - 8*removed, 0) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2.5% brain activity per tick. only really useful during apocalyptic scenarios.
+			var/brain_damage = brain.get_damage()
+			if(brain_damage && brain_damage < brain.max_damage && !(M.chem_effects[CE_NEUROTOXIC]) && prob(75))
+				brain.set_damage(max(brain_damage - 8*removed, 0)) //pretty slow, non-guaranteed brain healing - 75% chance of restoring 2.5% brain activity per tick. only really useful during apocalyptic scenarios.
 		M.dizziness = max(200, M.dizziness + 15)
 		M.hallucination = max(M.hallucination, 100)
 		M.add_chemical_effect(CE_BLOODTHIN, 40) //treat (arterial) bleeding first
@@ -1780,7 +1798,7 @@
 	M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
 	var/obj/item/organ/internal/heart/H = M.internal_organs_by_name[BP_HEART]
 	if(istype(H) && !BP_IS_ROBOTIC(H))
-		H.damage = max(H.damage - (removed * 2), 0)
+		H.set_damage(max(H.get_damage() - (removed * 2), 0))
 	..()
 
 /singleton/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien, var/datum/reagents/holder)
@@ -1972,7 +1990,6 @@
 		M.add_chemical_effect(CE_STRAIGHTWALK)
 		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_chemical_effect(CE_HALLUCINATE, -1)
-		M.add_up_to_chemical_effect(CE_ADRENALINE, 1)
 
 /singleton/reagent/kilosemine/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
 	if(!ishuman(M))

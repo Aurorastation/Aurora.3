@@ -10,6 +10,7 @@
 	mob_swap_flags = ~HEAVY
 	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_NONE
+	footstep_component_type = /datum/component/mob_footsteps/human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -101,7 +102,6 @@
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null
 	srom_pulling = null
-	bg = null //Just to be sure.
 
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
@@ -271,6 +271,13 @@
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
 
+		if(mind.special_role) //we are an antag
+			. += "Current Antagonists:"
+			for(var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/validhunted = GLOB.all_antag_types[antag_type]
+				if(length(validhunted.current_antagonists))
+					. += "- [validhunted.role_text]: [length(validhunted.current_antagonists)]"
+
 	if(. && istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
 		if(R && !R.canremove && R.installed_modules.len)
@@ -371,7 +378,7 @@
 		suit = w_uniform
 
 	user.set_machine(src)
-	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
+	var/dat = "<B><HR><FONT size=5>[name]</FONT></B><BR><HR>"
 
 	if(internals)
 		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"
@@ -477,7 +484,7 @@
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
 		return get_id_name("Unknown")		//Likewise for hats
-	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent Shaper helmet which obscures Hive affiliation
+	if(istype(wear_suit, /obj/item/clothing/suit/vaurca/shaper)) //Check for Preimminent robes which obscures Hive affiliation
 		var/list/hiveless_name = splittext(real_name, " ") //then remove Hive surname, ignore ID for obvious reason.
 		return hiveless_name[1]
 	var/face_name = get_face_name()
@@ -918,6 +925,9 @@
 	return base_flash_protection
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(eyes_are_closed())
+		return FALSE
+
 	if(..())
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
@@ -1106,15 +1116,16 @@
 	timevomit = clamp(timevomit, 1, 10)
 	level = clamp(level, 1, 3)
 
+	var/delay = rand(100,175)
 	lastpuke = TRUE
 	to_chat(src, SPAN_WARNING("You feel nauseous..."))
 	if(level > 1)
-		sleep(150 / timevomit)	//15 seconds until second warning
+		sleep(delay / timevomit)
 		to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 		if(level > 2)
-			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
+			sleep(delay / timevomit)
 			empty_stomach()
-	sleep(350)	//wait 35 seconds before next volley
+	sleep(delay * 2)
 	lastpuke = FALSE
 
 /// A damaged stomach can put blood in your vomit.
@@ -1122,7 +1133,7 @@
 	..()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
-		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.damage)))
+		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.get_damage())))
 			if(should_have_organ(BP_HEART))
 				vessel.trans_to_obj(vomit, 5)
 			else
@@ -1502,7 +1513,7 @@
 	else
 		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
+/mob/living/carbon/human/proc/set_species(new_species, default_colour, kpg = 0, change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
@@ -1629,6 +1640,7 @@
 		client.init_verbs()
 
 	update_emotes()
+	mass = initial(mass) * species.mass_modifier
 
 	if(species)
 		return TRUE
@@ -1870,7 +1882,7 @@
 	var/list/limbs = list()
 	for(var/limb in organs_by_name)
 		var/obj/item/organ/external/current_limb = organs_by_name[limb]
-		if(current_limb && current_limb.dislocated == 2)
+		if(current_limb && LIMB_GET_DISLOCATED(current_limb) == 2)
 			limbs |= limb
 	var/choice = tgui_input_list(usr, "Which joint do you wish to relocate?", "Relocate Joint", limbs)
 
@@ -2317,9 +2329,7 @@
 
 /mob/living/proc/look_up_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
@@ -2340,9 +2350,7 @@
 
 /mob/living/proc/look_down_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(T, src, T)

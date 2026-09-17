@@ -1025,3 +1025,37 @@
 	filling_color = "#6e0202"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/reagent_containers/food/snacks/lava_cake
+	name = "lava cake"
+	desc = "A dense chocolate cake, and inside... SURPRISE! More chocolate. Bet you weren't expecting that, were you?"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "lavacake"
+	filling_color = "#3f2204"
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("dense chocolate" = 5, "molten chocolate" = 5))
+
+/obj/item/reagent_containers/food/snacks/lava_cake/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_lavacake = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_lavacake)
+		if(0 to 95)
+			icon_state = "lavacake_half"
+		if(96 to INFINITY)
+			icon_state = "lavacake"
+
+/obj/item/reagent_containers/food/snacks/lava_cake/white //only the taste and bitten icon are different because you can't tell which kind of lava cake it is until you  bite into it.
+	reagent_data = list(/singleton/reagent/nutriment = list("dense chocolate" = 5, "molten white chocolate" = 5))
+
+/obj/item/reagent_containers/food/snacks/lava_cake/white/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_lavacake_white = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_lavacake_white)
+		if(0 to 95)
+			icon_state = "lavacake_white_half"
+		if(96 to INFINITY)
+			icon_state = "lavacake"

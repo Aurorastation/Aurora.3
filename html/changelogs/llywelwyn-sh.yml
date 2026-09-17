@@ -1,5 +1,0 @@
-author: Llywelwyn
-delete-after: True
-changes:
-  - code_imp: "Shellcheck shell scripts in CI/CD."
-  - code_imp: "Fixes shellcheck warns in existing scripts."

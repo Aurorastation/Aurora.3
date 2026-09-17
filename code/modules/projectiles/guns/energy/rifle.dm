@@ -26,7 +26,7 @@
 	sel_mode = 1
 
 	projectile_type = /obj/projectile/beam/stun
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
 	modifystate = "eriflestun"
 

@@ -181,12 +181,23 @@
 
 /datum/modifier/cloaking_device/deactivate()
 	..()
+	var/list/invalid_cloaking_devices
 	for (var/a in GLOB.cloaking_devices)//Check for any other cloaks
 		if (a != source)
+			if(!istype(a, /obj/item/cloaking_device))
+				LAZYADD(invalid_cloaking_devices, a)
+				continue
 			var/obj/item/cloaking_device/CD = a
+			if(QDELETED(CD))
+				LAZYADD(invalid_cloaking_devices, a)
+				continue
 			if (CD.get_holding_mob() == target)
 				if (CD.active)//If target is holding another active cloak then we wont remove their stealth
+					if(invalid_cloaking_devices)
+						GLOB.cloaking_devices -= invalid_cloaking_devices
 					return
+	if(invalid_cloaking_devices)
+		GLOB.cloaking_devices -= invalid_cloaking_devices
 	var/mob/living/L = target
 	L.cloaked = 0
 	L.mouse_opacity = MOUSE_OPACITY_ICON

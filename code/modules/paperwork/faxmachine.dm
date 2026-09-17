@@ -14,7 +14,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(ACCESS_LAWYER, ACCESS_HEADS)
+	req_one_access = list(/datum/access/lawyer::id, /datum/access/heads::id)
 	density = 0
 	idle_power_usage = 30
 	active_power_usage = 200

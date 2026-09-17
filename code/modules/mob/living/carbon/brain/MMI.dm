@@ -12,7 +12,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 
@@ -87,7 +87,7 @@
 				if(!B.can_prepare)
 					to_chat(user, SPAN_WARNING("\The [B] is incompatible with [src]!"))
 					return
-				if(B.damage >= B.max_damage)
+				if(B.get_damage() >= B.max_damage)
 					to_chat(user, SPAN_WARNING("That brain is well and truly dead."))
 					return
 				else if(!B.brainmob)

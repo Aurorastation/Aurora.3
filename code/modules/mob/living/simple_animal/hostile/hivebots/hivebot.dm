@@ -30,7 +30,6 @@
 	speed = 4
 	tameable = FALSE
 	flying = TRUE
-	smart_melee = FALSE
 	pass_flags = PASSTABLE|PASSRAILING
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
@@ -213,12 +212,17 @@
 	projectiletype = /obj/projectile/bullet/pistol/hivebotspike/needle
 	rapid = 1
 
-/mob/living/simple_animal/hostile/hivebot/playable/
+/mob/living/simple_animal/hostile/hivebot/playable
 	name = "Hivebot destroyer"
 	desc = "A primitive-yet-sturdy hovering robot, with some menacing looking blades jutting out from it. This one seems unusually aware of its surroundings."
 	icon_state = "hivebotdestroyer"
 	health = 350
 	maxhealth = 350
+	emote_sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	armor_penetration = 20
@@ -235,6 +239,7 @@
 	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("hivebotdestroyer", src)
+	default_language = GLOB.all_languages[LANGUAGE_HIVEBOT]
 
 /mob/living/simple_animal/hostile/hivebot/playable/Destroy()
 	SSghostroles.remove_spawn_atom("hivebotdestroyer", src)
@@ -262,6 +267,7 @@
 	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("hivebotmarksman", src)
+	default_language = GLOB.all_languages[LANGUAGE_HIVEBOT]
 
 /mob/living/simple_animal/hostile/hivebot/playable/ranged/Destroy()
 	SSghostroles.remove_spawn_atom("hivebotmarksman", src)
@@ -288,6 +294,7 @@
 	real_name = name
 	if(playable && !ckey && !client)
 		SSghostroles.add_spawn_atom("hivebotoverseer", src)
+	default_language = GLOB.all_languages[LANGUAGE_HIVEBOT]
 
 /mob/living/simple_animal/hostile/hivebot/playable/overseer/Destroy()
 	SSghostroles.remove_spawn_atom("hivebotoverseer", src)

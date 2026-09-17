@@ -11,6 +11,7 @@
 
 	var/start_pressure = ONE_ATMOSPHERE
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
+	var/connect_automatically = TRUE
 
 /obj/structure/machinery/portable_atmospherics/Destroy()
 	disconnect()
@@ -24,9 +25,10 @@
 	air_contents.volume = volume
 	air_contents.temperature = T20C
 
-	var/obj/structure/machinery/atmospherics/portables_connector/port = locate() in loc
-	if(port)
-		connect(port)
+	if (connect_automatically)
+		var/obj/structure/machinery/atmospherics/portables_connector/port = locate() in loc
+		if(port)
+			connect(port)
 
 /obj/structure/machinery/portable_atmospherics/canister/Initialize()
 	..()
@@ -69,6 +71,7 @@
 	connected_port = new_port
 	connected_port.connected_device = src
 	connected_port.toggle_process()
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 	anchored = 1 //Prevent movement
 
@@ -105,6 +108,15 @@
 	if (network)
 		network.update = 1
 
+// This exists because for stupid reasons these machines touch air directly instead of respecting an air tank's procs.
+/obj/structure/machinery/portable_atmospherics/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(gone == holding)
+		if(istype(gone, /obj/item/tank))
+			var/obj/item/tank/T = gone
+			T.update_icon()
+		holding = null
+
 /obj/structure/machinery/portable_atmospherics/attackby(obj/item/attacking_item, mob/user)
 	if ((istype(attacking_item, /obj/item/tank) && !( src.destroyed )))
 		if (src.holding)
@@ -114,6 +126,7 @@
 		src.holding = T
 		update_icon()
 		SStgui.update_uis(src)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		return TRUE
 
 	else if (attacking_item.tool_behaviour == TOOL_WRENCH)

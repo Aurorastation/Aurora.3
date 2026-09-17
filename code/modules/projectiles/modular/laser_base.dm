@@ -326,6 +326,7 @@
 	icon_state = "lens"
 	var/list/dispersion = list(2, 4, 6, 8, 10)
 	accuracy = 1
+	reliability = 45
 	repair_item = /obj/item/stack/material/glass
 	increasable_stats = list("reliability", "accuracy")
 	decreaseable_stats = list()
@@ -381,8 +382,6 @@
 
 /obj/item/laser_assembly/examine_tags(mob/user)
 	. = ..()
-	if(stage == 1)
-		.["thick"] = "Stops or slows minor piercing effects, such as from injectors."
 
 /obj/item/laser_assembly/mechanics_hints(mob/user)
 	. = ..()

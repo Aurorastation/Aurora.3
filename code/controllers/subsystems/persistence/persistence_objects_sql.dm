@@ -21,8 +21,8 @@
 	qdel(cleanup_query)
 
 /**
- * Retrieve persistent data entries that haven't expired.
- * RETURN: List of JSON, with ID, author_ckey, type, content, x, y, z
+ * Retrieve active persistent object entries that have not expired.
+ * RETURN: List of associative lists, each containing ID, author_ckey, type, content, x, y, z, created_at, and expires_at.
  */
 /datum/controller/subsystem/persistence/proc/objectsDatabaseGetActiveEntries()
 	PRIVATE_PROC(TRUE)
@@ -30,7 +30,7 @@
 		return
 
 	var/datum/db_query/get_query = SSdbcore.NewQuery(
-		"SELECT id, author_ckey, type, content, x, y, z FROM ss13_persistent_objects WHERE NOW() < expires_at"
+		"SELECT id, author_ckey, type, content, x, y, z, created_at, expires_at FROM ss13_persistent_objects WHERE NOW() < expires_at"
 	)
 	get_query.Execute()
 
@@ -47,7 +47,9 @@
 				"content" = get_query.item[4],
 				"x" = get_query.item[5],
 				"y" = get_query.item[6],
-				"z" = get_query.item[7]
+				"z" = get_query.item[7],
+				"created_at" = get_query.item[8],
+				"expires_at" = get_query.item[9]
 			)
 			results += list(entry)
 	qdel(get_query)
@@ -71,7 +73,7 @@
 		list(
 			"author_ckey" = track.persistent_objects_author_ckey,
 			"type" = "[track.type]",
-			"expire_in_days" = track.persistant_objects_expiration_time_days,
+			"expire_in_days" = track.persistent_objects_expiration_time_days,
 			"content" = objectsGetTrackContent(track),
 			"x" = T.x,
 			"y" = T.y,
@@ -99,7 +101,7 @@
 		"UPDATE ss13_persistent_objects SET author_ckey=:author_ckey, expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 		list(
 			"author_ckey" = track.persistent_objects_author_ckey,
-			"expire_in_days" = track.persistant_objects_expiration_time_days,
+			"expire_in_days" = track.persistent_objects_expiration_time_days,
 			"content" = objectsGetTrackContent(track),
 			"x" = T.x,
 			"y" = T.y,

@@ -74,6 +74,8 @@
 		BODYTYPE_IPC= 'icons/obj/clothing/species/machine/suits.dmi'
 	)
 
+	movement_sounds = SFX_VOIDSUIT_FOOTSTEPS
+
 	action_button_name = "Toggle Helmet"
 	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
 	var/helmet_retract_sound = 'sound/items/helmet_open.ogg'

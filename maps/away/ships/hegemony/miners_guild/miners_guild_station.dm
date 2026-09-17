@@ -121,7 +121,6 @@
 	dock_target = "airlock_guild_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "miners_guild_navhangar"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/miners_guild/hangar

@@ -534,19 +534,6 @@
 		BOMB = ARMOR_BOMB_RESISTANT
 	)
 
-/obj/item/clothing/suit/storage/vest/legion/legate
-	name = "foreign legion legate coat"
-	desc = "A luxurious coat made out of sturdy synthetic fabrics and reinforced with lightweight alloys. Only worn by some of the highest decorated officers of the TCFL."
-	icon_state = "legion_coat"
-	item_state = "legion_coat"
-
-/obj/item/clothing/suit/storage/vest/legion/legate/Initialize()
-	. = ..()
-	pockets = new/obj/item/storage/internal(src)
-	pockets.storage_slots = 4
-	pockets.max_w_class = WEIGHT_CLASS_SMALL
-	pockets.max_storage_space = 8
-
 /obj/item/clothing/suit/storage/vest/sol
 	name = "sol heavy armor vest"
 	desc = "A high-quality armor vest in a deep green. It is surprisingly flexible and light, even with the added webbing and armor plating."

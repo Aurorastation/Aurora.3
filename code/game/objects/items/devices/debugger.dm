@@ -12,7 +12,7 @@
 	throw_speed = 3
 	hitsound = SFX_SWITCH
 
-	matter = list(MATERIAL_PLASTIC = 50, DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_STEEL = 50, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
 	contained_sprite = TRUE

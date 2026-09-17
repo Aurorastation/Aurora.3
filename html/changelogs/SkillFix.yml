@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed skills not costing points if you had an education granting any level in it."
-  - bugfix: "Fixed that it was not possible to lower skills that you had an education in."

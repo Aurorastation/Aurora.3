@@ -103,7 +103,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 /obj/item/clothing/accessory/armband/tauceti
 	name = "\improper Tau Ceti armband"
 	desc = "An armband tailored to look like the flag of the Republic of Biesel."
-	desc_extended = "While initially adopted during the early days of the TCFL to account for a sudden increase in volunteers and a lack of uniforms, during the height of the Republic of Biesel's conflicts with the Sol Alliance, it has been worn as a symbol of independence and patriotism."
+	desc_extended = "An old armband, often seen worn by volunteers of the deprecated Tau Ceti Foreign Legion."
 	icon_state = "armband_tau_ceti"
 	item_state = "armband_tau_ceti"
 
@@ -120,6 +120,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is purple."
 	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
 	icon_state = "ribbon_sci"
+	item_state = "ribbon_sci"
 	flippable = FALSE
 	slot = ACCESSORY_SLOT_CAPE
 
@@ -127,8 +128,10 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 	name = "engineering exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is orange with a reflective strip."
 	icon_state = "ribbon_engi"
+	item_state = "ribbon_engi"
 
 /obj/item/clothing/accessory/armband/offworlder/medical
 	name = "medical exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is white and green."
 	icon_state = "ribbon_med"
+	item_state = "ribbon_med"

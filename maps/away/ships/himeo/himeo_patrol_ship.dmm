@@ -1034,7 +1034,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 23
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/aft)
 "el" = (
@@ -2991,7 +2991,7 @@
 	pixel_y = -6;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/aft,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/aft,
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -3017,7 +3017,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/aft)
@@ -3715,6 +3715,7 @@
 	pixel_y = 5;
 	pixel_x = -1
 	},
+/obj/item/portable_whiteboard,
 /turf/simulated/floor/tiled/steel,
 /area/himeo_patrol_ship/messhall)
 "pw" = (
@@ -3769,7 +3770,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 23
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/fore{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/fore{
 	req_one_access = list(253)
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -4001,7 +4002,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -4233,7 +4234,7 @@
 /area/himeo_patrol_ship/thruster_port)
 "sa" = (
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/door/airlock/external/himeo_patrol{
 	dir = 4
 	},
@@ -4576,6 +4577,11 @@
 /obj/item/clothing/glasses/safety/goggles/tactical,
 /obj/item/clothing/glasses/safety/goggles/tactical,
 /obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/armoury)
 "tN" = (
@@ -5074,7 +5080,7 @@
 	dir = 4;
 	pixel_x = 8
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/fore{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/fore{
 	req_one_access = list(253)
 	},
 /obj/structure/machinery/door/airlock/external/himeo_patrol{
@@ -5134,7 +5140,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/fore{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/fore{
 	req_one_access = list(253)
 	},
 /obj/structure/machinery/light/small/emergency,
@@ -5547,7 +5553,7 @@
 	dir = 1;
 	pixel_x = 32
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/door/airlock/external/himeo_patrol{
 	dir = 4
 	},
@@ -5970,7 +5976,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/door/airlock/external/himeo_patrol{
 	dir = 4
 	},
@@ -6068,7 +6074,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/himeo_patrol/deck_2/starboard{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/deck_2/starboard{
 	req_one_access = list(253)
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
@@ -7218,7 +7224,7 @@
 /area/himeo_patrol_ship/blaster)
 "Ee" = (
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/access_button{
 	pixel_y = 28;
 	dir = 8;
@@ -7363,7 +7369,7 @@
 	dir = 10
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/door/airlock/external/himeo_patrol{
 	dir = 4
 	},
@@ -7743,7 +7749,7 @@
 	pixel_x = 32;
 	pixel_y = 8
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/fore{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/fore{
 	req_one_access = list(253)
 	},
 /obj/structure/machinery/door/airlock/external/himeo_patrol,
@@ -8710,6 +8716,7 @@
 /obj/structure/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/item/lore_radio,
 /turf/simulated/floor/tiled/full,
 /area/himeo_patrol_ship/barracks)
 "Lc" = (
@@ -9664,7 +9671,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/door/airlock/external/himeo_patrol{
 	dir = 4
 	},
@@ -9926,7 +9933,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -10466,7 +10473,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/himeo_patrol_ship/hydroponics)
 "Sb" = (
-/obj/effect/map_effect/marker/airlock/himeo_patrol/fore{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/fore{
 	req_one_access = list(253)
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
@@ -10734,7 +10741,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/deck_2/starboard{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/deck_2/starboard{
 	req_one_access = list(253)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -11183,7 +11190,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/aft)
 "UH" = (
@@ -11888,6 +11895,10 @@
 	pixel_x = 4
 	},
 /obj/random/dirt_75,
+/obj/item/clothing/mask/smokable/cigarette/cigar,
+/obj/item/flame/lighter/zippo/himeo{
+	pixel_x = 9
+	},
 /turf/simulated/floor/carpet/red,
 /area/himeo_patrol_ship/deck_2_office)
 "Xx" = (
@@ -11941,7 +11952,7 @@
 	pixel_x = 24;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/aft,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/aft,
 /obj/structure/machinery/door/airlock/external/himeo_patrol,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/generator)
@@ -12106,7 +12117,7 @@
 /obj/structure/sign/vacuum{
 	pixel_y = 32
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard{
 	req_one_access = list(253)
 	},
 /turf/simulated/floor/plating,
@@ -12276,7 +12287,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/deck_2/starboard{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/deck_2/starboard{
 	req_one_access = list(253)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -12303,7 +12314,7 @@
 	pixel_x = -24;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/himeo_patrol/aft,
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/aft,
 /obj/structure/machinery/door/airlock/external/himeo_patrol,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/generator)
@@ -12346,7 +12357,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/himeo_patrol/fore{
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/fore{
 	req_one_access = list(253)
 	},
 /turf/simulated/floor/plating,

@@ -30,7 +30,7 @@
 	/// The the longer version of the shop name
 	var/shop_long_name = "Idris Quik-Pay Register"
 	/// The access types that can configure the shop
-	var/req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	var/req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
 
 /datum/component/quikpay_shop/quikpay
 	shop_name = "Quik-Pay"
@@ -70,7 +70,7 @@
 	return TRUE
 
 
-/datum/component/quikpay_shop/Initialize(access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO), destination = "Operations")
+/datum/component/quikpay_shop/Initialize(access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id), destination = "Operations")
 	. = ..()
 	machine_id = "[station_name()] [shop_long_name] #[SSeconomy.num_financial_terminals++]"
 	if(!isobj(parent))

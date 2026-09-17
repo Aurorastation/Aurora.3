@@ -1,10 +1,15 @@
+/*
+ * subtypes/data_transfer.dm
+ * Data transfer circuits for copying, routing, packing, or unpacking values between pins.
+ */
+
 /obj/item/integrated_circuit/transfer
 	category_text = "Data Transfer"
 	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/transfer/multiplexer
 	name = "two multiplexer"
-	desc = "This is what those in the business tend to refer to as a 'mux' or data selector. It moves data from one of the selected inputs to the output."
+	desc = "Selects one input and sends that value to the output."
 	extended_desc = "The first input pin is used to select which of the other input pins which has its data moved to the output. \
 	If the input selection is outside the valid range then no output is given."
 	complexity = 2
@@ -58,7 +63,7 @@
 
 /obj/item/integrated_circuit/transfer/demultiplexer
 	name = "two demultiplexer"
-	desc = "This is what those in the business tend to refer to as a 'demux'. It moves data from the input to one of the selected outputs."
+	desc = "Sends one input value to the selected output."
 	extended_desc = "The first input pin is used to select which of the output pins is given the data from the second input pin. \
 	If the output selection is outside the valid range then no output is given."
 	complexity = 2
@@ -114,8 +119,8 @@
 
 /obj/item/integrated_circuit/transfer/wireless
 	name = "subspace transceiver"
-	desc = "A wireless transmitter-receiver pair that can transmit data between devices."
-	extended_desc = "The first input is the data to send to the other device, and the second input is the channel to send it on."
+	desc = "Transmits data wirelessly between linked devices."
+	extended_desc = "The first input is the data to send. The second input selects the transmission channel."
 	complexity = 12
 	spawn_flags = IC_SPAWN_RESEARCH
 	icon_state = "bluespace"

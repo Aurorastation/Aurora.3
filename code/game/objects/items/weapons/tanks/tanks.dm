@@ -183,6 +183,7 @@
 		. = TRUE
 
 /obj/item/tank/remove_air(amount)
+	START_PROCESSING(SSprocessing, src)
 	return air_contents.remove(amount)
 
 /obj/item/tank/return_air()
@@ -190,14 +191,20 @@
 
 /obj/item/tank/assume_air(datum/gas_mixture/giver)
 	air_contents.merge(giver)
-
+	START_PROCESSING(SSprocessing, src)
 	check_status()
+	update_gauge()
 	return 1
+
+/obj/item/tank/update_icon()
+	. = ..()
+	update_gauge()
 
 /obj/item/tank/proc/remove_air_volume(volume_to_return)
 	if(!air_contents)
 		return null
 
+	START_PROCESSING(SSprocessing, src)
 	var/tank_pressure = XGM_PRESSURE(air_contents)
 	if(tank_pressure < distribute_pressure)
 		distribute_pressure = tank_pressure
@@ -210,17 +217,29 @@
 	var/tank_pressure = 0
 	// we pass tank_pressure around and try not to recalc it unless we have to
 	// this is a very hot proc (~2M calls/hr)
-	if(air_contents)
-		tank_pressure = XGM_PRESSURE(air_contents)
-		air_contents.react()
-		tank_pressure = check_status(tank_pressure)
-	if(gauge_icon)
-		update_gauge(tank_pressure)
+	if(!air_contents)
+		update_gauge(tank_pressure) // Just to make sure the tank is marked empty
+		return PROCESS_KILL // No need to process empty air tanks
+
+	tank_pressure = XGM_PRESSURE(air_contents)
+	if (!air_contents.react())
+		update_gauge(tank_pressure) // Last icon cleanup on no-reaction.
+		return PROCESS_KILL // No need to continuously process non-reactive gas mixtures.
+
+	tank_pressure = check_status(tank_pressure)
+	if (!tank_pressure)
+		update_gauge(tank_pressure) // Last icon cleanup on reaction consuming all the gas
+		return PROCESS_KILL // No need to continuously process empty gas mixtures.
+
+	update_gauge(tank_pressure)
 
 /obj/item/tank/proc/adjust_initial_gas()
 	return
 
 /obj/item/tank/proc/update_gauge(gauge_pressure = 0)
+	if (!gauge_icon)
+		return
+
 	if(air_contents)
 		if(!gauge_pressure)
 			gauge_pressure = XGM_PRESSURE(air_contents)
@@ -307,5 +326,6 @@
 	return QDELETED(src) ? 0 : pressure // if we qdel'd or return 0, something changed and we gotta recalc
 
 /obj/item/tank/proc/remove_air_by_flag(flag, amount)
+	START_PROCESSING(SSprocessing, src)
 	. = air_contents.remove_by_flag(flag, amount)
 	update_icon()

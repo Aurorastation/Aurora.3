@@ -13,6 +13,6 @@
 			on_open_network = TRUE
 			GLOB.cameranet.add_source(src)
 	else
-		GLOB.cameranet.update_visibility(src)
+		GLOB.cameranet.update_visibility(src, FALSE)
 
 	invalidateCameraCache()

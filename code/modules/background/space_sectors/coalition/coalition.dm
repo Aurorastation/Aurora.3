@@ -205,4 +205,9 @@
 	)
 
 	lore_radio_stations = list(
+		"78.1 RealFM" = 'texts/lore_radio/lights_edge/85.7_Volturno_Local.txt',
+		"87.4 XNS Interstellar Broadcasting" = 'texts/lore_radio/lights_edge/87.4_XNS_Interstellar.txt',
+		"89.8 DomeChat" = 'texts/lore_radio/lights_edge/89.8_DomeChat.txt',
+		"96.2 Coalition Hits!" = 'texts/lore_radio/lights_edge/96.2_Coalition_Hits.txt',
+		"114.8 RADIO LEMURIAN TRUTH" = 'texts/lore_radio/lights_edge/114.8_Radio_Lemurian_Truth.txt'
 	)

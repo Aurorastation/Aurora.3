@@ -23,3 +23,6 @@
 	fast_pulse = 80 // Species default 70
 	v_fast_pulse = 100 // Species default 90
 	max_pulse = 140 // Species default 130
+
+	mass_modifier = REFERENCE_MASS_SKRELL_AXIORI / REFERENCE_MASS_HUMAN
+	mob_strength = 1.5 // Offset for very low mass.

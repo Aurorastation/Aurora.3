@@ -20,6 +20,7 @@
 #define SPAN_SOGHUN(str) ("<span class='soghun'>" + str + "</span>")
 #define SPAN_VOTE(str) ("<span class='vote'>" + str + "</span>")
 #define SPAN_HEAR(str) ("<span class='hear'>" + str + "</span>")
+#define SPAN_LORE_RADIO(str) ("<span class='lore-radio'>" + str + "</span>")
 #define SPAN_STYLE(style, str) "<span style=\"[style]\">[str]</span>"
 #define SPAN_COLOR(color, str) SPAN_STYLE("color: [color]", "[str]")
 #define SPAN_CAUTION(str) ("<span class='caution'>" + str + "</span>")
@@ -34,7 +35,7 @@
 #define SPAN_YELLOW(str) "<span style='color:[COLOR_YELLOW]'>[str]</span>"
 #define SPAN_GREEN(str) "<span style='color:[COLOR_GREEN]'>[str]</span>"
 
-#define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
+#define SPAN_SIZE(size, text) ("<font size='[size]'>" + text + "</font>")
 
 #define SPAN_HIGHDANGER(str) (FONT_LARGE(SPAN_DANGER(str)))
 
@@ -52,11 +53,11 @@
 #####################
 */
 
-#define FONT_SIZE_SMALL "10px"
-#define FONT_SIZE_NORMAL "13px"
-#define FONT_SIZE_LARGE "16px"
-#define FONT_SIZE_HUGE "18px"
-#define FONT_SIZE_GIANT "24px"
+#define FONT_SIZE_SMALL "2"
+#define FONT_SIZE_NORMAL "3"
+#define FONT_SIZE_LARGE "4"
+#define FONT_SIZE_HUGE "5"
+#define FONT_SIZE_GIANT "6"
 
 #define FONT_SMALL(str) SPAN_SIZE(FONT_SIZE_SMALL, str)
 #define FONT_NORMAL(str) SPAN_SIZE(FONT_SIZE_NORMAL, str)

@@ -60,6 +60,8 @@
 			R = new /obj/item/radio/headset/bluespace(player)
 		if(BURG_FREQ)
 			R = new /obj/item/radio/headset/burglar(player)
+		if(JOCK_FREQ)
+			R = new /obj/item/radio/headset/jockey(player)
 		if(SYND_FREQ)
 			R = new /obj/item/radio/headset/syndicate(player)
 		if(RAID_FREQ)
@@ -113,7 +115,7 @@
 /datum/antagonist/proc/greet(var/datum/mind/player)
 
 	// Basic intro text.
-	to_chat(player.current, SPAN_DANGER("<font size=3>You are a [role_text]!</font>"))
+	to_chat(player.current, SPAN_DANGER("<font size=5>You are a [role_text]!</font>"))
 	if(leader_welcome_text && player == leader)
 		to_chat(player.current, SPAN_NOTICE("[leader_welcome_text]"))
 	else

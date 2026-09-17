@@ -481,7 +481,6 @@
 	meat_amount = 0
 	meat_type = null
 	light_range = 2
-	smart_melee = TRUE
 	blood_overlay_icon = null
 	blood_type = null
 

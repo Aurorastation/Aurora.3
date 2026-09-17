@@ -165,6 +165,8 @@ it should be avoided in favour of manual removal where possible
 	var/source_data = 0
 	var/strength = 0
 	var/duration = null
+	/// Additive mod applied to targeted miss chances while active
+	var/miss_chance_modifier = 0
 
 	//A list of equip slots which are considered 'worn'.
 	//For equipment modifier type to be valid, the source object must be in a mob's contents
@@ -182,8 +184,8 @@ it should be avoided in favour of manual removal where possible
 	var/last_tick = 0
 
 
-//If creation of a modifier is successful, it will return a reference to itself
-//If creation fails for any reason, it will return null as well as giving some debug output
+/// If creation of a modifier is successful, it will return a reference to itself
+/// If creation fails for any reason, it will return null as well as giving some debug output
 /datum/modifier/New(var/atom/_target, var/_modifier_type, var/_source = null, var/_source_data = 0, var/_strength = 0, var/_duration = 0, var/_check_interval = 0)
 	..()
 	target = _target
@@ -304,7 +306,7 @@ it should be avoided in favour of manual removal where possible
 	return 1
 
 
-//Override this without a call to parent, for custom validity conditions
+/// Override this without a call to parent, for custom validity conditions
 /datum/modifier/proc/custom_validity()
 	return 1
 
@@ -317,7 +319,7 @@ it should be avoided in favour of manual removal where possible
 	qdel(src)
 	return 0
 
-//called by any object to either pause or remove the proc.
+/// Called by any object to either pause or remove the proc.
 /datum/modifier/proc/stop(var/instant = 0, var/suspend = 0)
 
 	//Instant var removes us from the lists immediately, instead of waiting til next frame when qdel goes through
@@ -331,7 +333,7 @@ it should be avoided in favour of manual removal where possible
 	else
 		qdel(src)
 
-//Suspends and immediately restarts the proc, thus reapplying its effects
+/// Suspends and immediately restarts the proc, thus reapplying its effects
 /datum/modifier/proc/refresh()
 	deactivate()
 	activate()
@@ -346,8 +348,8 @@ it should be avoided in favour of manual removal where possible
 	return ..()
 
 
-//Handles overriding an existing modifier of the same type.
-//This function should return either src or the existing, depending on whether or not src will be kept
+/// Handles overriding an existing modifier of the same type.
+/// This function should return either src or the existing, depending on whether or not src will be kept
 /datum/modifier/proc/handle_override(var/override, var/datum/modifier/existing)
 	switch(override)
 		if (MODIFIER_OVERRIDE_DENY)
@@ -399,7 +401,7 @@ it should be avoided in favour of manual removal where possible
 			qdel(src)
 			return existing
 
-//This function should be completely overwritten, without a call to parent, to specify custom override
+/// This function should be completely overwritten, without a call to parent, to specify custom override
 /datum/modifier/proc/custom_override(var/datum/modifier/existing)
 	qdel(src)
 	return existing
