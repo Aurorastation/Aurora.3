@@ -167,7 +167,13 @@
 	var/singleton/currency/definition = get_currency_definition()
 	return definition.spawn_credit_value(credit_value, spawnloc, human_user)
 
-/obj/structure/machinery/proc/accepts_currency(var/obj/item/currency/cash)
+/obj/proc/accepts_currency(var/obj/item/currency/cash)
+	if(!cash)
+		return FALSE
+	var/singleton/currency/definition = cash.get_currency_definition()
+	return CURRENCY_CREDITS & definition.acceptance_flag
+
+/obj/structure/machinery/accepts_currency(var/obj/item/currency/cash)
 	if(!cash)
 		return FALSE
 	var/singleton/currency/definition = cash.get_currency_definition()

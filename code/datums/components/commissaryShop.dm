@@ -87,14 +87,12 @@
 
 	if(istype(item, /obj/item/currency) && !istype(item, /obj/item/spacecash/ewallet))
 		var/obj/item/currency/cashmoney = item
-		if(istype(owner, /obj/structure/machinery))
-			var/obj/structure/machinery/machine = owner
-			if(!machine.accepts_currency(cashmoney))
-				to_chat(user, SPAN_WARNING("[owner] does not accept [cashmoney.name]."))
-				return
+		if(!owner.accepts_currency(cashmoney))
+			to_chat(user, SPAN_WARNING("[owner] does not accept [cashmoney.name]."))
+			return
 		credit += cashmoney.get_credit_value()
 		user.drop_from_inventory(cashmoney,get_turf(owner))
-		user.visible_message("\The [user] inserts some credits into \the [owner]." )
+		user.visible_message("\The [user] inserts [cashmoney] into \the [owner]." )
 		qdel(cashmoney)
 		return
 
@@ -138,11 +136,9 @@
 /datum/component/quikpay_shop/proc/cash_pay(obj/item/currency/cashmoney, mob/user)
 	if(!can_use_credits)
 		return
-	if(istype(owner, /obj/structure/machinery))
-		var/obj/structure/machinery/machine = owner
-		if(!machine.accepts_currency(cashmoney))
-			to_chat(user, SPAN_WARNING("[owner] does not accept [cashmoney.name]."))
-			return FALSE
+	if(!owner.accepts_currency(cashmoney))
+		to_chat(user, SPAN_WARNING("[owner] does not accept [cashmoney.name]."))
+		return FALSE
 	var/transaction_amount = sum
 	var/credit_value = cashmoney.get_credit_value()
 	if(transaction_amount > credit_value)
@@ -156,7 +152,7 @@
 			user.drop_from_inventory(cashmoney,get_turf(owner))
 			qdel(cashmoney)
 	else
-		user.visible_message(SPAN_INFO("\The [user] inserts a bill into \the [owner]."))
+		user.visible_message(SPAN_INFO("\The [user] inserts physical currency into \the [owner]."))
 		var/left = credit_value - transaction_amount
 		user.drop_from_inventory(cashmoney,get_turf(owner))
 
