@@ -508,64 +508,88 @@
 		qdel(src)
 
 /obj/item/adhomian_knuckle/k001
-	name = "0.01 adhomian knuckle"
+	name = "0.01 sani"
+	desc = "A silver Adhomian coin of the sani denomination."
 	icon_state = "adhomianknuckle0.01"
 	worth = 0.01
 
 /obj/item/adhomian_knuckle/k004
-	name = "0.04 adhomian knuckle"
+	name = "0.04 sani"
+	desc = "A silver Adhomian coin of the sani denomination."
 	icon_state = "adhomianknuckle0.04"
 	worth = 0.04
 
 /obj/item/adhomian_knuckle/k008
-	name = "0.08 adhomian knuckle"
+	name = "0.08 sani"
+	desc = "A silver Adhomian coin of the sani denomination."
 	icon_state = "adhomianknuckle0.08"
 	worth = 0.08
 
 /obj/item/adhomian_knuckle/k1
-	name = "1 adhomian knuckle"
+	name = "1 sako"
+	desc = "An Adhomian coin of the sako denomination."
 	icon_state = "adhomianknuckle1"
 	worth = 1
 
 /obj/item/adhomian_knuckle/k4
-	name = "4 adhomian knuckle"
+	name = "4 sako"
+	desc = "An Adhomian coin of the sako denomination."
 	icon_state = "adhomianknuckle4"
 	worth = 4
 
 /obj/item/adhomian_knuckle/k8
-	name = "8 adhomian knuckle"
+	name = "8 sako"
+	desc = "An Adhomian coin of the sako denomination."
 	icon_state = "adhomianknuckle8"
 	worth = 8
 
 /obj/item/adhomian_knuckle/k32
-	name = "32 adhomian knuckle"
+	name = "32 kalta"
+	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle32"
 	worth = 32
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/adhomian_knuckle/k64
-	name = "64 adhomian knuckle"
+	name = "64 kalta"
+	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle64"
 	worth = 64
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/adhomian_knuckle/k128
-	name = "128 adhomian knuckle"
+	name = "128 kalta"
+	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle128"
 	worth = 128
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/adhomian_knuckle/k256
-	name = "256 adhomian knuckle"
+	name = "256 kalta"
+	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle256"
 	worth = 256
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/adhomian_knuckle/k512
-	name = "512 adhomian knuckle"
+	name = "512 kalta"
+	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle512"
 	worth = 512
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/adhomian_knuckle/k1024
-	name = "1024 adhomian knuckle"
+	name = "1024 kalta"
+	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle1024"
 	worth = 1024
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /proc/spawn_adhomian_knuckles(var/sum, var/spawnloc, var/mob/living/carbon/human/human_user)
 	var/singleton/currency/currency = GET_SINGLETON(/singleton/currency/adhomian_knuckles)
