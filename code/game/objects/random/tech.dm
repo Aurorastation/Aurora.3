@@ -233,7 +233,7 @@
 	name = "random rigsuit"
 	desc = "Contains a random rigsuit found in the vault."
 	icon = 'icons/obj/rig_modules.dmi'
-	icon_state = "breacher_rig"
+	icon_state = "old_merc_rig"
 	spawnlist = list(
 		/obj/item/rig/ce = 1,
 		/obj/item/rig/eva= 1,

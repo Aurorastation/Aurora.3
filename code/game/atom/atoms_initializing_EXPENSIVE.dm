@@ -150,7 +150,7 @@
 		return INITIALIZE_HINT_QDEL
 
 	// Ensure the atom has a valid icon and icon_state
-	if(!is_abstract(src))
+	if(!is_abstract(src) && (icon || icon_state))
 		dbg_assert(icon, "[type] has no icon file set.")
 		dbg_assert(icon_state, "[type] has no icon_state set.")
 		// Ensure the icon_state actually exists inside the DMI
