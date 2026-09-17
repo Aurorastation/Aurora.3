@@ -493,7 +493,7 @@
 			overlays_to_add += knuckle
 	AddOverlays(overlays_to_add)
 	UpdateOverlays()
-	desc = "A bundle of Adhomian knuckles. Combined, this is worth [worth] knuckles ([get_credit_value()] credits)."
+	desc = "A bundle of Adhomian knuckles."
 
 /obj/item/adhomian_knuckle/bundle/attack_self(mob/user)
 	var/amount = tgui_input_number(user, "How many knuckles do you want to take out? (0 to [worth])", "Take Knuckles", min(8, worth), worth, 0, 0, round_value = FALSE)
@@ -548,48 +548,48 @@
 	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle32"
 	worth = 32
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/adhomian_knuckle/k64
 	name = "64 kalta"
 	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle64"
 	worth = 64
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/adhomian_knuckle/k128
 	name = "128 kalta"
 	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle128"
 	worth = 128
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/adhomian_knuckle/k256
 	name = "256 kalta"
 	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle256"
 	worth = 256
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/adhomian_knuckle/k512
 	name = "512 kalta"
 	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle512"
 	worth = 512
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/adhomian_knuckle/k1024
 	name = "1024 kalta"
 	desc = "An Adhomian banknote of the kalta denomination."
 	icon_state = "adhomianknuckle1024"
 	worth = 1024
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /proc/spawn_adhomian_knuckles(var/sum, var/spawnloc, var/mob/living/carbon/human/human_user)
 	var/singleton/currency/currency = GET_SINGLETON(/singleton/currency/adhomian_knuckles)
