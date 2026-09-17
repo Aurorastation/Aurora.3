@@ -44,9 +44,8 @@
 					continue
 		button.master = gun
 		button.update_icon()
-		// Place the visible edge after the previous button, allowing for DMI padding.
+		// Place the visible edge after the previous button.
 		var/list/bounds = button.get_sprite_bounds()
-		// Screen atoms use screen_loc's pixel offset for placement, not pixel_x.
 		var/screen_x_offset = 16 + next_button_x - bounds[1]
 		button.screen_loc = "CENTER-1:[screen_x_offset],SOUTH+1:14"
 		button.pixel_x = 0
@@ -74,7 +73,6 @@
 		if("scope")
 			var/scope_action = gun.get_scope_action()
 			if(scope_action)
-				// Invoke the existing verb so wielding and species restrictions still apply.
 				call(gun, scope_action)()
 		if("unique action")
 			gun.unique_action(user)
@@ -175,51 +173,3 @@
 		var/mob/user = loc
 		if(user.get_active_hand() == src)
 			user.hud_used?.update_gun_actions()
-
-/obj/item/gun/energy/blaster/revolver
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/energy/rifle/icelance
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/energy/acp
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/launcher/crossbow
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/launcher/grenade
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/launcher/pneumatic
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/launcher/syringe
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/automatic/rifle/l6_saw
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/dartgun
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/revolver/lemat
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/contender
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/shotgun/pump
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/shotgun/doublebarrel
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/shotgun/foldable
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/shotgun/wallgun
-	has_unique_gun_action = TRUE
-
-/obj/item/gun/projectile/heavysniper
-	has_unique_gun_action = TRUE
