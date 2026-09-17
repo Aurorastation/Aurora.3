@@ -447,7 +447,7 @@
 			authenticated_account = null
 			. = TRUE
 
-/// Returns an ATM-enabled currency accepted by this machine, using its stable UI identifier.
+/// Returns an ATM-enabled currency accepted by this machine.
 /obj/structure/machinery/atm/proc/get_withdrawal_currency(var/currency_id)
 	for(var/singleton/currency/currency as anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/currency))
 		if(currency.id == currency_id && currency.atm_withdrawal_enabled && (accepted_currencies & currency.acceptance_flag))

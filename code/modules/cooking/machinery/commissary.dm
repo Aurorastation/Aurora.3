@@ -138,7 +138,7 @@
 /obj/structure/cash_register/commissary
 	storage_type = null
 	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
-	/// Physical currencies accepted by this register. Exposed for mapping and VV configuration.
+	/// Physical currencies accepted by this register.
 	var/accepted_currencies = CURRENCY_ALL
 	var/destination = "Operations"
 

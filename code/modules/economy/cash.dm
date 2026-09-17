@@ -1,12 +1,10 @@
 /**
- * Metadata and conversion behavior for a family of physical currency items.
- *
  * Adding a currency requires a unique acceptance flag, a subtype here, and item types pointing
- * `currency_definition` at it. Populate `denomination_types` and `bundle_type` for automatic
+ * currency_definition at it. Populate denomination_types and bundle_type for automatic
  * same-currency change and ATM output. Machines then only need the new flag in their bitfield.
  */
 /singleton/currency
-	/// Stable identifier used by UIs and machine actions.
+	/// identifier used by UIs and machine actions.
 	var/id = "currency"
 	var/display_name = "Currency"
 	var/unit_name = "unit"
@@ -42,7 +40,7 @@
 /singleton/currency/proc/get_deposit_purpose()
 	return "[display_name] deposit"
 
-/// Creates physical currency worth `credit_value` credits using the definition's denomination map.
+/// Creates physical currency worth credit_value credits using the definition's denomination map.
 /singleton/currency/proc/spawn_credit_value(var/credit_value, var/spawnloc, var/mob/living/carbon/human/human_user)
 	if(subunits_per_unit <= 0)
 		CRASH("[type] must have a positive subunits_per_unit value.")
@@ -112,7 +110,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	var/worth = 0
 	var/can_bundle = TRUE
-	/// Singleton containing all behavior and metadata for this currency family.
+	/// Singleton containing all behavior for this currency.
 	var/currency_definition = /singleton/currency/credits
 
 /obj/item/currency/proc/get_currency_definition()
@@ -121,6 +119,15 @@
 /obj/item/currency/proc/get_credit_value()
 	var/singleton/currency/definition = get_currency_definition()
 	return definition.to_credits(worth)
+
+/obj/item/currency/proc/transfer_forensics_to(var/atom/target)
+	if(!target)
+		return
+	transfer_fingerprints_to(target)
+	if(suit_fibers)
+		if(!target.suit_fibers)
+			target.suit_fibers = list()
+		target.suit_fibers |= suit_fibers.Copy()
 
 /obj/item/currency/attackby(obj/item/attacking_item, mob/user)
 	if(!can_bundle || !istype(attacking_item, /obj/item/currency))
@@ -138,8 +145,10 @@
 	else
 		bundle = new definition.bundle_type(src.loc)
 		bundle.worth += other_currency.worth
+		other_currency.transfer_forensics_to(bundle)
 		qdel(other_currency)
 	bundle.worth += worth
+	transfer_forensics_to(bundle)
 	bundle.update_icon()
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
@@ -165,7 +174,9 @@
 
 /obj/item/currency/proc/spawn_change(var/credit_value, var/spawnloc, var/mob/living/carbon/human/human_user)
 	var/singleton/currency/definition = get_currency_definition()
-	return definition.spawn_credit_value(credit_value, spawnloc, human_user)
+	var/obj/item/currency/change = definition.spawn_credit_value(credit_value, spawnloc, human_user)
+	transfer_forensics_to(change)
+	return change
 
 /obj/proc/accepts_currency(var/obj/item/currency/cash)
 	if(!cash)
@@ -294,10 +305,12 @@
 			var/obj/item/spacecash/bundle/bundle = new(user.loc)
 			bundle.worth = cents_out / 100.0
 			bundle.update_icon()
-			user.put_in_hands(bundle)
+			transfer_forensics_to(bundle)
+			user.put_in_any_hand_if_possible(bundle)
 		else
-			var/obj/cash = new cashtype(user.loc)
-			user.put_in_hands(cash)
+			var/obj/item/currency/cash = new cashtype(user.loc)
+			transfer_forensics_to(cash)
+			user.put_in_any_hand_if_possible(cash)
 
 	// coin denominations
 	else if(cents_out in list(25, 10, 5, 1))
@@ -306,17 +319,20 @@
 			var/obj/item/spacecash/bundle/bundle = new(user.loc)
 			bundle.worth = cents_out / 100.0
 			bundle.update_icon()
-			user.put_in_hands(bundle)
+			transfer_forensics_to(bundle)
+			user.put_in_any_hand_if_possible(bundle)
 		else
-			var/obj/cash = new cashtype(user.loc)
-			user.put_in_hands(cash)
+			var/obj/item/currency/cash = new cashtype(user.loc)
+			transfer_forensics_to(cash)
+			user.put_in_any_hand_if_possible(cash)
 
 	// fallback for weird edge cases
 	else
 		var/obj/item/spacecash/bundle/bundle = new(user.loc)
 		bundle.worth = cents_out / 100.0
 		bundle.update_icon()
-		user.put_in_hands(bundle)
+		transfer_forensics_to(bundle)
+		user.put_in_any_hand_if_possible(bundle)
 
 	if(!src.worth)
 		qdel(src)
@@ -442,7 +458,7 @@
 			var/obj/cash = new objpath(spawnloc)
 			if(ishuman(human_user) && !human_user.get_active_hand())
 				human_user.put_in_hands(cash)
-			return
+			return cash
 
 	// spawn a bundle for mixed/odd amounts
 	var/obj/item/spacecash/bundle/bundle = new(spawnloc)
@@ -450,9 +466,9 @@
 	bundle.update_icon()
 	if(ishuman(human_user) && !human_user.get_active_hand())
 		human_user.put_in_hands(bundle)
-	return
+	return bundle
 
-// Adhomian knuckles use their own face values, separate from Biesel Standard Credits.
+// Adhomian knuckles use their own values, separate from Biesel Standard Credits.
 /obj/item/adhomian_knuckle
 	parent_type = /obj/item/currency
 	name = "0 adhomian knuckle"
@@ -502,7 +518,9 @@
 	amount = min(round(amount, 0.01), worth)
 	worth = round(worth - amount, 0.01)
 	update_icon()
-	spawn_adhomian_knuckles(amount, user.loc, user)
+	var/obj/item/currency/split_currency = spawn_adhomian_knuckles(amount, user.loc)
+	transfer_forensics_to(split_currency)
+	user.put_in_any_hand_if_possible(split_currency)
 	if(worth <= 0)
 		user.drop_from_inventory(src)
 		qdel(src)
