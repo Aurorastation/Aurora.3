@@ -418,7 +418,11 @@
 		user.client.Process_Incorpmove(direction, src)
 	else
 		trample_on_move = (user.m_intent == M_RUN)
-		Move(target_loc, direction, 0, FALSE)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
 		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/strafe_move(mob/user, direction)
@@ -444,7 +448,11 @@
 		user.client.Process_Incorpmove(direction, src)
 	else
 		trample_on_move = (user.m_intent == M_RUN)
-		Move(target_loc, direction, 0, FALSE)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
 		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction, delay_modifier)
@@ -503,17 +511,21 @@
 		spark(src, 3, GLOB.alldirs)
 
 /mob/living/heavy_vehicle/Collide(atom/movable/target_movable_atom)
-	if(trample_on_move && isliving(target_movable_atom))
-		var/mob/living/target_mob = target_movable_atom
-		if(target_mob.mob_size <= max_trample_size)
-			var/was_lying = target_mob.lying
-			target_mob.apply_effect(2, WEAKEN)
-			if(target_mob.lying)
-				if(!was_lying)
-					visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"))
-					trample_retry = TRUE
-				// Leave them here; entering their tile applies the existing trample damage.
-				return
+	if(!trample_on_move || !isliving(target_movable_atom))
+		return ..()
+
+	var/mob/living/target_mob = target_movable_atom
+	if(target_mob.mob_size > max_trample_size)
+		return ..()
+
+	var/was_lying = target_mob.lying
+	target_mob.apply_effect(2, WEAKEN)
+	if(target_mob.lying)
+		if(!was_lying)
+			visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"))
+			trample_retry = TRUE
+		// Leave them here; entering their tile applies the existing trample damage.
+		return
 	return ..()
 
 /mob/living/heavy_vehicle/can_move_mob(mob/living/swapped, swapping = FALSE, passive = FALSE)
