@@ -193,3 +193,13 @@
   kano:
   - rscadd: Added the ability for ghostroles to recognize their group in the examine
       text, if such group defined in the ghostrole spawner.
+2026-09-17:
+  ElorgRHG:
+  - bugfix: Fixed some ammunition casings either lacking or having incorrect spent
+      sprites.
+  TheGreyWolf:
+  - bugfix: The candy missing prices in the getmore vendor now cost credits again.
+  - bugfix: Fixed a couple of items not fitting in the commissary food and drinks
+      shelf.
+  kano:
+  - rscadd: Reduced fog forming temperature from 5C to -30C.
