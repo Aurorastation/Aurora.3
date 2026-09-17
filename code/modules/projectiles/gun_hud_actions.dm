@@ -50,7 +50,7 @@
 		var/screen_x_offset = 16 + next_button_x - bounds[1]
 		button.screen_loc = "CENTER-1:[screen_x_offset],SOUTH+1:14"
 		button.pixel_x = 0
-		next_button_x += bounds[3] + 3
+		next_button_x += bounds[3]
 		mymob.client.screen |= button
 
 /atom/movable/screen/gun_action
