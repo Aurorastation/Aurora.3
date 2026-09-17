@@ -7,6 +7,7 @@
 /datum/accent/silicon/elektro_siik
 	name = ACCENT_ELEKTRO_SIIK
 	description = "An artificial voice created by varying the frequency of electrical discharges. Tinny and mechanically flat, it has little capacity for tone or emotion. It is commonly produced by Tesla and Elektroika voice technology."
+	tag_icon = "tajara_elektroika"
 	text_tag = "ESK"
 
 /datum/accent/silicon/goldendeep
