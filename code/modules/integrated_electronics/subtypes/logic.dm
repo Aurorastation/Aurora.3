@@ -289,7 +289,7 @@
 /obj/item/integrated_circuit/logic/threshold_comparator
 	name = "threshold comparator"
 	desc = "Checks whether a number is below, inside, or above a range."
-	icon_state = "comparator"
+	icon_state = "template"
 	category_text = "LOGIC - Comparisons"
 	complexity = 3
 	inputs = list(
@@ -341,7 +341,7 @@
 /obj/item/integrated_circuit/logic/multi_threshold_status
 	name = "multi-threshold status"
 	desc = "Classifies a number as normal, warning, or danger using low and high thresholds."
-	icon_state = "comparator"
+	icon_state = "template"
 	category_text = "LOGIC - Comparisons"
 	complexity = 5
 	inputs = list(
@@ -473,7 +473,7 @@
 	name = "threshold pulse counter"
 	desc = "Counts incoming pulses and reports when a threshold has been reached."
 	extended_desc = "Count is clamped between -100000 and 100000. Use the reset pulse to set the count to the configured reset value."
-	icon_state = "counter"
+	icon_state = "template"
 	complexity = 3
 	inputs = list(
 		"threshold" = IC_PINTYPE_NUMBER,
