@@ -11,23 +11,23 @@
 		if(NETWORK_THUNDER, NETWORK_NEWS, NETWORK_EXPEDITION)
 			return FALSE
 		if(NETWORK_REACTOR,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
-			return ACCESS_ENGINE
+			return /datum/access/engine::id
 		if(NETWORK_MEDICAL)
-			return ACCESS_MEDICAL
+			return /datum/access/medical::id
 		if(NETWORK_SECURITY)
-			return ACCESS_SECURITY
+			return /datum/access/security::id
 		if(NETWORK_RESEARCH,NETWORK_RESEARCH_OUTPOST)
-			return ACCESS_RESEARCH
+			return /datum/access/research::id
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
-			return ACCESS_MAILSORTING // Cargo office - all cargo staff should have access here.
+			return /datum/access/mailsorting::id // Cargo office - all cargo staff should have access here.
 		if(NETWORK_COMMAND,NETWORK_TELECOM,NETWORK_CIVILIAN_EAST,NETWORK_CIVILIAN_MAIN,NETWORK_CIVILIAN_SURFACE, NETWORK_SERVICE, NETWORK_FIRST_DECK, NETWORK_SECOND_DECK, NETWORK_THIRD_DECK, NETWORK_INTREPID)
-			return ACCESS_HEADS
+			return /datum/access/heads::id
 		if(NETWORK_CRESCENT,NETWORK_ERT)
-			return ACCESS_CENT_SPECOPS
+			return /datum/access/cent_specops::id
 		if(NETWORK_CRYO_OUTPOST)
-			return ACCESS_CRYO_OUTPOST
+			return /datum/access/cryo_outpost_access::id
 
-	return ACCESS_SECURITY // Default for all other networks
+	return /datum/access/security::id // Default for all other networks
 
 /datum/computer_file/program/camera_monitor
 	filename = "cammon"
@@ -38,7 +38,7 @@
 	size = 12
 	available_on_ntnet = TRUE
 	requires_ntnet = TRUE
-	required_access_download = ACCESS_HEADS
+	required_access_download = /datum/access/heads::id
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "CameraMonitoring"
@@ -123,7 +123,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
+	return (check_network_access(user, /datum/access/security::id) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
 /datum/computer_file/program/camera_monitor/proc/can_reach_camera(var/obj/structure/machinery/camera/C)
 	if(!C?.can_use())

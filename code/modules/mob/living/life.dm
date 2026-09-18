@@ -17,7 +17,7 @@
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
-	if(handle_regular_status_updates())
+	if(handle_regular_status_updates(seconds_per_tick))
 		handle_status_effects()
 
 	if(stat != DEAD)
@@ -67,7 +67,7 @@
 			stop_pulling()
 
 //This updates the health and status of the mob (conscious, unconscious, dead)
-/mob/living/proc/handle_regular_status_updates()
+/mob/living/proc/handle_regular_status_updates(seconds_per_tick)
 	updatehealth()
 	if(stat != DEAD)
 		if(paralysis)

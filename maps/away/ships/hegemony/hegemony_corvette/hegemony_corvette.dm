@@ -117,7 +117,6 @@
 	dock_target = "airlock_hegemony_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hegemony_corvette_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/hegemony_shuttle/transit

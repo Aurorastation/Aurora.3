@@ -5,7 +5,7 @@
 	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
-	req_access = list(ACCESS_GENETICS)
+	req_access = list(/datum/access/genetics::id)
 	var/obj/structure/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
 	var/temp = ""

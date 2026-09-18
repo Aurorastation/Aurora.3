@@ -243,6 +243,8 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/tajara
 	)

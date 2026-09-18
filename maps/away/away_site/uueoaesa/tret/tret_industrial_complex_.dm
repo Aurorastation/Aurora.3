@@ -103,7 +103,6 @@
 	shuttle_area = list(/area/shuttle/tret_industrial/main, /area/shuttle/tret_industrial/propulsion)
 	dock_target = "airlock_tret_industrial_shuttle"
 	current_location = "nav_tret_industrial_dock_outpost_1"
-	logging_home_tag = "nav_tret_industrial_dock_outpost_1"
 	landmark_transition = "nav_tret_industrial_shuttle_transit"
 	range = 1
 	fuel_consumption = 2

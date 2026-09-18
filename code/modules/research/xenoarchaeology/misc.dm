@@ -17,7 +17,7 @@
 
 /obj/structure/closet/secure_closet/xenoarchaeologist
 	name = "xenoarchaeologist's locker"
-	req_access = list(ACCESS_XENOARCH)
+	req_access = list(/datum/access/xenoarch::id)
 	icon_state = "science"
 
 /obj/structure/closet/secure_closet/xenoarchaeologist/fill()
@@ -65,8 +65,8 @@
 //---- Isolation room air alarms
 
 /obj/structure/machinery/alarm/isolation
-	req_one_access = list(ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(/datum/access/research::id, /datum/access/atmospherics::id, /datum/access/engine_equip::id)
 
 /obj/structure/machinery/alarm/monitor/isolation
-	req_one_access = list(ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	req_one_access = list(/datum/access/research::id, /datum/access/atmospherics::id, /datum/access/engine_equip::id)
 	locked = 0

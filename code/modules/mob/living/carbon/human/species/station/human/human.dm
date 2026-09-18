@@ -95,7 +95,7 @@
 				H.custom_emote(VISIBLE_MESSAGE, "clutches [H.get_pronoun("his")] [damaged_organ.name], trying to stop the blood.")
 			else if(damaged_organ.status & ORGAN_BROKEN)
 				H.custom_emote(VISIBLE_MESSAGE, "holds [H.get_pronoun("his")] [damaged_organ.name] carefully.")
-			else if(damaged_organ.burn_dam > damaged_organ.brute_dam && damaged_organ.organ_tag != BP_HEAD)
+			else if(LIMB_GET_BURN_DAMAGE(damaged_organ) > LIMB_GET_BRUTE_DAMAGE(damaged_organ) && damaged_organ.organ_tag != BP_HEAD)
 				H.custom_emote(VISIBLE_MESSAGE, "blows on [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 			else
 				H.custom_emote(VISIBLE_MESSAGE, "rubs [H.get_pronoun("his")] [damaged_organ.name] carefully.")

@@ -108,7 +108,7 @@
 
 /obj/item/circuitboard/slime_extractor
 	name = T_BOARD("slime extractor")
-	build_path = "/obj/structure/machinery/slime_extractor"
+	build_path = /obj/structure/machinery/slime_extractor
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_BIO = 2, TECH_ENGINEERING = 1, TECH_BLUESPACE = 1)
 	req_components = list(

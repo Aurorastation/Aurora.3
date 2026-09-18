@@ -399,19 +399,41 @@
 	clean_blood()
 	color = initial(color)
 
-/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS, var/display_chat = TRUE)
+/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS, var/display_chat = TRUE, var/datum/language/language)
+	var/datum/say_message/spoken_message
+	if(language)
+		spoken_message = new
+		spoken_message.raw_message = message
+		spoken_message.collapse_to(language, message)
+
 	if(display_chat)
-		var/rendered_message = "\The <b>[src.name]</b> [message_verb], \"[message]\""
-		rendered_message = format_spoken_chat_message(rendered_message)
-		audible_message(rendered_message)
+		if(spoken_message)
+			var/list/hearers = get_hearers_in_view(world.view, src)
+			for(var/atom/movable/hearer as anything in hearers)
+				var/rendered_body = message
+				if(ismob(hearer))
+					var/mob/listener = hearer
+					rendered_body = spoken_message.text_for(listener)
+					if(!length(rendered_body))
+						continue
+				var/rendered_message = "\The <b>[src.name]</b> [message_verb], \"[rendered_body]\""
+				rendered_message = format_spoken_chat_message(rendered_message)
+				hearer.show_message(rendered_message, 2)
+		else
+			var/rendered_message = "\The <b>[src.name]</b> [message_verb], \"[message]\""
+			rendered_message = format_spoken_chat_message(rendered_message)
+			audible_message(rendered_message)
 	if(display_overhead)
 		var/list/hearers = get_hearers_in_view(7, src)
-		var/list/clients_in_hearers = list()
-		for(var/mob/mob in hearers)
-			if(mob.client)
-				clients_in_hearers += mob.client
-		if(length(clients_in_hearers))
-			langchat_speech(message, hearers)
+		if(spoken_message)
+			langchat_say_message(spoken_message, hearers)
+		else
+			var/list/clients_in_hearers = list()
+			for(var/mob/mob in hearers)
+				if(mob.client)
+					clients_in_hearers += mob.client
+			if(length(clients_in_hearers))
+				langchat_speech(message, hearers)
 
 /// Override to apply object-specific formatting to spoken chat output without affecting overhead messages.
 /obj/proc/format_spoken_chat_message(var/message)

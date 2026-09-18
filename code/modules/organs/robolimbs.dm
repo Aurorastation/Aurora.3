@@ -36,6 +36,8 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 		SPECIES_TAJARA_ZHAN,
 		SPECIES_TAJARA_MSAI,
 		SPECIES_UNATHI,
+		SPECIES_UNATHI_URAWANI,
+		SPECIES_UNATHI_ZIRALIXI,
 		SPECIES_VAURCA_WORKER,
 		SPECIES_VAURCA_WARRIOR,
 		SPECIES_VAURCA_ATTENDANT,
@@ -173,7 +175,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	company = PROSTHETIC_AUTAKH
 	desc = "This limb has been designed by the Aut'akh unathi sect."
 	icon = 'icons/mob/human_races/unathi/r_autakh.dmi'
-	species_can_use = list(SPECIES_UNATHI)
+	species_can_use = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	paintable = TRUE
 	allows_internal = FALSE
 

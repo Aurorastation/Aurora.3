@@ -40,6 +40,37 @@
 			for(var/k in GLOB.config.logsettings)
 				GLOB.config.logsettings[k] = TRUE
 
+/client/proc/registry_get_value()
+	set category = "Debug"
+	set name = "Registry Get Value"
+	if(!check_rights(R_ADMIN|R_SERVER))
+		return
+
+	var/key = input(usr, "Enter the registry key to retrieve.", "Registry Get Value") as text|null
+	if(isnull(key))
+		return
+
+	var/value = SSregistry.getValue(key)
+	to_chat(usr, "Registry value for '[key]': '[value]'")
+
+/client/proc/registry_set_value()
+	set category = "Debug"
+	set name = "Registry Set Value"
+	if(!check_rights(R_ADMIN|R_SERVER))
+		return
+
+	var/key = input(usr, "Enter the registry key to set.", "Registry Set Value") as text|null
+	if(isnull(key))
+		return
+
+	var/value = input(usr, "Enter the registry value. Leave blank to clear the key.", "Registry Set Value") as text|null
+
+	var/success = SSregistry.setValue(key, value)
+	if (success)
+		to_chat(usr, "Registry set '[key]' to '[value]'.")
+	else
+		to_chat(usr, "Failed to set registry key '[key]'.")
+
 // callproc moved to code/modules/admin/callproc
 
 

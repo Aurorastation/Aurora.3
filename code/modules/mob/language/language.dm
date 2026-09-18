@@ -122,6 +122,12 @@
 		var/list/scramble_results = process_word_prescramble(word, "[word] ", word_index, new_sentence, understand_chance, music_notes)
 		var/new_word = scramble_results[1]
 		new_sentence = scramble_results[2]
+		if(word in music_notes)
+			// Scrambled words do not normally retain their trailing separator, so restore it before protected note markers.
+			if(length(scrambled_text))
+				var/previous_word_index = length(scrambled_text)
+				scrambled_text[previous_word_index] = "[trim_right(scrambled_text[previous_word_index])] "
+			new_word = "[word] "
 		scrambled_text += new_word
 		word_index++
 

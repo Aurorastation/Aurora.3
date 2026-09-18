@@ -84,7 +84,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Shuttle"
-	req_access = list(ACCESS_EE_SPY_SHIP)
+	req_access = list(/datum/access/ee_spy_ship::id)
 
 /datum/shuttle/autodock/overmap/einstein_shuttle
 	name = "Einstein Shuttle"
@@ -94,7 +94,6 @@
 	landmark_transition = "nav_transit_einstein"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_start_einstein"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/einstein_shuttle
@@ -142,7 +141,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/einstein_crew/get_id_access()
-	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/ee_spy_ship::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/einstein_crew/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
