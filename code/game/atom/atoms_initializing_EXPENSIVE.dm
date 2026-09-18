@@ -153,7 +153,7 @@
 	var/static/list/checked_atom_types = list()		// todo: remove this line
 	if (!checked_atom_types[type])					// todo: remove this line
 		checked_atom_types[type] = TRUE				// todo: remove this line
-		if (!is_abstract(src) && (icon || icon_state))
+		if (!is_abstract(src) && (icon && icon_state))
 			dbg_assert(icon, "[type] has icon_state '[icon_state]' set, but no icon file.")
 			dbg_assert(icon_state, "[type] has an icon file set ('[icon]'), but no icon_state.")
 			dbg_assert(!icon || !icon_state || (icon_state in icon_states(icon)), \
