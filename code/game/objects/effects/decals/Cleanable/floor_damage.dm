@@ -51,7 +51,7 @@
 
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken
 	icon_state = "tiled_broken0"
-	random_icon_states = list("tiled_broken0", "tiled_broken1", "tiled_broken2", "tiled_broken3", "tiled_broken4", "tiled_broken5", "tiled_broken6", "tiled_broken7")
+	random_icon_states = list("tiled_broken0", "tiled_broken1", "tiled_broken2", "tiled_broken3", "tiled_broken4")
 /obj/effect/decal/cleanable/floor_damage/tiled_broken0
 	icon_state = "tiled_broken0"
 /obj/effect/decal/cleanable/floor_damage/tiled_broken1

@@ -31,7 +31,7 @@
 
 /obj/item/fossil/skull
 	name = "fossilised skull"
-	icon_state = "skull"
+	icon_state = "skull1"
 	desc = "It's a foss1ilised skull."
 
 /obj/item/fossil/skull/Initialize(mapload, ...)
@@ -106,7 +106,7 @@
 //shells and plants do not make skeletons
 /obj/item/fossil/shell
 	name = "fossilised shell"
-	icon_state = "shell"
+	icon_state = "shell1"
 	desc = "It's a fossilised shell."
 
 /obj/item/fossil/shell/Initialize(mapload, ...)

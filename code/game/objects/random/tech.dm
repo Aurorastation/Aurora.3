@@ -247,7 +247,7 @@
 	name = "random rigsuit"
 	desc = "contains a random highvalue rigsuit found in the vault"
 	icon = 'icons/obj/rig_modules.dmi'
-	icon_state = "breacher_rig"
+	icon_state = "old_merc_rig"
 	spawnlist = list(
 		/obj/item/rig/combat/equipped = 0.8,
 		/obj/item/rig/military = 0.3,
