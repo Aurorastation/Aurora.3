@@ -11868,6 +11868,10 @@
 "hPd" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/table/rack/folding_table,
+/obj/item/tape_roll{
+	pixel_x = 7;
+	pixel_y = 1
+	},
 /obj/item/flashlight/lamp/off{
 	pixel_y = 8;
 	pixel_x = -6
@@ -20461,6 +20465,10 @@
 	pixel_y = 10;
 	pixel_x = 5
 	},
+/obj/item/tape_roll{
+	pixel_x = -4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/inside/sewers)
 "nse" = (
@@ -20957,15 +20965,23 @@
 	dir = 4
 	},
 /obj/structure/table/rack/folding_table,
-/obj/item/material/twohanded/baseballbat/metal{
-	pixel_y = 3;
-	pixel_x = -5
-	},
 /obj/item/material/knife/tacknife{
 	pixel_x = 6
 	},
 /obj/item/material/knife/butterfly/switchblade{
 	pixel_x = -2
+	},
+/obj/item/flashlight{
+	pixel_y = 10;
+	pixel_x = -7
+	},
+/obj/item/flashlight{
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/obj/item/material/twohanded/baseballbat/metal{
+	pixel_y = 3;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/the_lock/backroom)
@@ -24028,6 +24044,14 @@
 	pixel_x = -6;
 	pixel_y = 4
 	},
+/obj/item/taperecorder{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/taperecorder{
+	pixel_y = 1;
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/rhan_cresh_office)
 "pLd" = (
@@ -25972,6 +25996,10 @@
 	pixel_x = 9;
 	pixel_y = 4
 	},
+/obj/item/taperecorder{
+	pixel_y = -10;
+	pixel_x = -4
+	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/inside/restaurant/azaula_enforcers)
 "rbI" = (
@@ -27560,6 +27588,10 @@
 /obj/item/storage/box/fancy/cigarettes/cigar{
 	pixel_x = 10;
 	pixel_y = 5
+	},
+/obj/item/taperecorder{
+	pixel_y = -10;
+	pixel_x = -4
 	},
 /turf/simulated/floor/lino/diamond,
 /area/crevus/inside/restaurant/azaula_enforcers)
@@ -30012,6 +30044,31 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/transit_centre)
+"tzU" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack/folding_table,
+/obj/item/clothing/mask/balaclava/green{
+	pixel_y = 11;
+	pixel_x = 8
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_y = 6;
+	pixel_x = 8
+	},
+/obj/item/clothing/mask/pig{
+	pixel_y = -1;
+	pixel_x = 8
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical/generic{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical/generic{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/crevus/inside/sewers)
 "tzW" = (
 /obj/structure/machinery/door/urban/glass_sliding{
 	name = "NanoTrasen Pharmacy"
@@ -30977,12 +31034,32 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/crevus/outside)
 "uhP" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack/folding_table,
+/obj/item/clothing/mask/balaclava/green{
+	pixel_y = 11;
+	pixel_x = 8
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_y = 6;
+	pixel_x = 8
+	},
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/random/dirt_75,
-/obj/structure/trash_pile,
-/turf/simulated/floor/exoplanet/tiled/dark,
+/obj/item/clothing/mask/gas/owl_mask{
+	pixel_y = -5;
+	pixel_x = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = -8;
+	pixel_y = 11
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/inside/sewers)
 "uic" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -31349,14 +31426,14 @@
 	pixel_y = 9;
 	pixel_x = 6
 	},
-/obj/item/clothing/mask/gas{
-	pixel_x = 6
-	},
 /obj/item/reagent_containers/dropper/electronic_pipette{
 	pixel_x = -8
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
+	},
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/crevus/inside/nt_pharmacy/basement)
@@ -31935,6 +32012,16 @@
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/crevus/inside/general_store)
+"uPH" = (
+/obj/structure/table/rack/folding_table,
+/obj/random/loot,
+/obj/random/dirt_75,
+/obj/item/tape_roll{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/crevus/inside/sewers)
 "uPK" = (
 /obj/structure/girder,
 /obj/random/dirt_75,
@@ -58200,7 +58287,7 @@ naJ
 xmB
 wNC
 pmk
-ace
+uPH
 poJ
 dMP
 lXB
@@ -60000,7 +60087,7 @@ xmB
 jXP
 vFl
 lbi
-lbi
+tzU
 dMP
 lXB
 wWQ
