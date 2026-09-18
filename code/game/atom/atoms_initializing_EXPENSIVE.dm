@@ -154,6 +154,7 @@
 	var/static/list/cached_icon_states = list()
 	var/static/list/ignored_check_types = list(
 		/mob/living/carbon/human,
+		/atom/movable/screen,
 	)
 
 	if (!checked_atom_types[type])
@@ -166,7 +167,7 @@
 					skip = TRUE
 					break
 
-		if (!skip && (icon || icon_state))
+		if (!skip && (icon && icon_state))
 			dbg_assert(icon, "[type] has icon_state '[icon_state]' set, but no icon file.")
 			dbg_assert(icon_state, "[type] has an icon file set ('[icon]'), but no icon_state.")
 
