@@ -53,7 +53,8 @@
 
 /obj/item/spacecash/bundle
 	name = "credit chips"
-	icon_state = ""
+	icon = null
+	icon_state = null
 	gender = PLURAL
 	desc = "They are worth 0电."
 	worth = 0
