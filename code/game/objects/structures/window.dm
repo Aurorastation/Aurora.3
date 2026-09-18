@@ -706,8 +706,6 @@
 	name = "reinforced window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth/window/full_window.dmi'
-	icon_state = "window_glass"
-	basestate = "window_glass"
 	maxhealth = OBJECT_HEALTH_LOW
 	reinf = TRUE
 	maximal_heat = T0C + 750
@@ -776,8 +774,6 @@
 /obj/structure/window/full/reinforced/shuttle
 	icon = 'icons/obj/smooth/window/shuttle_window_dark.dmi'
 	color = "#006eff"
-	icon_state = "window_glass"
-	basestate = "window_glass"
 
 /obj/structure/window/full/reinforced/shuttle/red
 	color = "#ff0000"
@@ -792,9 +788,7 @@
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
 	desc = "You aren't supposed to see this."
-	icon = 'icons/obj/smooth/window/full_window_phoron.dmi'
-	icon_state = "window_glass"
-	basestate = "window_glass"
+	color = "#6e114b"
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	shardtype = /obj/item/material/shard/phoron
 	maxhealth = OBJECT_HEALTH_LOW
