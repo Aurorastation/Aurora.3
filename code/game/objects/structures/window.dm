@@ -705,7 +705,6 @@
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth/window/full_window.dmi'
 	maxhealth = OBJECT_HEALTH_LOW
 	reinf = TRUE
 	maximal_heat = T0C + 750

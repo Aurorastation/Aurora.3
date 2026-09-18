@@ -150,14 +150,33 @@
 		return INITIALIZE_HINT_QDEL
 
 	// Ensure the atom has a valid icon and icon_state
-	var/static/list/checked_atom_types = list()		// todo: remove this line
-	if (!checked_atom_types[type])					// todo: remove this line
-		checked_atom_types[type] = TRUE				// todo: remove this line
-		if (!is_abstract(src) && (icon && icon_state))
+	var/static/list/checked_atom_types = list()
+	var/static/list/cached_icon_states = list()
+	var/static/list/ignored_check_types = list(
+		/mob/living/carbon/human,
+	)
+
+	if (!checked_atom_types[type])
+		checked_atom_types[type] = TRUE
+
+		var/skip = is_abstract(src)
+		if (!skip)
+			for (var/ignored_path in ignored_check_types)
+				if (istype(src, ignored_path))
+					skip = TRUE
+					break
+
+		if (!skip && (icon || icon_state))
 			dbg_assert(icon, "[type] has icon_state '[icon_state]' set, but no icon file.")
 			dbg_assert(icon_state, "[type] has an icon file set ('[icon]'), but no icon_state.")
-			dbg_assert(!icon || !icon_state || (icon_state in icon_states(icon)), \
-				"[type] has invalid icon_state '[icon_state]' in icon '[icon]'.")
+
+			if (icon && icon_state)
+				var/list/states = cached_icon_states[icon]
+				if (!states)
+					states = icon_states(icon)
+					cached_icon_states[icon] = states
+
+				dbg_assert(icon_state in states, "[type] has invalid icon_state '[icon_state]' in icon '[icon]'.")
 
 	return INITIALIZE_HINT_NORMAL
 
