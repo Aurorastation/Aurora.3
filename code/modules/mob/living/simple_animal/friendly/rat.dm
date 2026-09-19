@@ -244,7 +244,7 @@
 		K.absorb(src)
 
 /mob/living/simple_animal/rat/death()
-	layer = MOB_LAYER
+	set_layer(MOB_LAYER)
 	if (stat != DEAD && (ckey || prob(50)))
 		squeak_loud(0)//deathgasp
 

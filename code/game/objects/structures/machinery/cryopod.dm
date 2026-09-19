@@ -513,8 +513,7 @@
 		return
 
 	if(occupant.client)
-		occupant.client.eye = src.occupant.client.mob
-		occupant.client.perspective = MOB_PERSPECTIVE
+		occupant.client.set_eye(src.occupant.client.mob, MOB_PERSPECTIVE)
 		occupant.reset_death_timers()
 
 	occupant.forceMove(get_turf(src))
@@ -527,8 +526,7 @@
 	occupant.forceMove(src)
 	occupant.stop_pulling()
 	if(occupant.client)
-		occupant.client.perspective = EYE_PERSPECTIVE
-		occupant.client.eye = src
+		occupant.client.set_eye(src, EYE_PERSPECTIVE)
 		time_entered = world.time
 		occupant.set_respawn_time()
 	update_icon()

@@ -19,7 +19,7 @@
 /mob/living/simple_animal/illusion/proc/copy_appearance(atom/movable/thing_to_copy)
 	if(!thing_to_copy)
 		return FALSE
-	appearance = thing_to_copy.appearance
+	copy_visual_appearance(thing_to_copy)
 	copying = thing_to_copy
 	density = thing_to_copy.density // So you can't bump into objects that aren't supposed to be dense.
 	return TRUE

@@ -72,7 +72,7 @@
 	owner.eyeobj = src
 	name = "[owner.name] ([name_suffix])"
 	if(owner.client)
-		owner.client.eye = src
+		owner.client.set_eye(src)
 	LAZYDISTINCTADD(owner.additional_vision_handlers, src)
 	apply_visual(owner)
 	if(click_handler_type)
@@ -90,7 +90,7 @@
 	visualnet?.remove_eye(src)
 	owner.eyeobj = null
 	if(owner.client)
-		owner.client.eye = owner
+		owner.client.set_eye(owner)
 	if(click_handler_type)
 		owner.RemoveClickHandler(click_handler_type)
 	owner = null
@@ -109,7 +109,7 @@
 	forceMove(T)
 
 	if(owner.client)
-		owner.client.eye = src
+		owner.client.set_eye(src)
 	if(owner_follows_eye)
 		owner.forceMove(loc)
 

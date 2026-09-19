@@ -945,6 +945,7 @@ There are several things that need to be remembered:
 
 	if(update_icons)
 		update_icon()
+	update_vision_cone()
 
 /mob/living/carbon/human/update_inv_belt(var/update_icons=1)
 	if (QDELETED(src))
@@ -1069,6 +1070,7 @@ There are several things that need to be remembered:
 
 	if(update_icons)
 		update_icon()
+	update_vision_cone()
 
 
 /mob/living/carbon/human/update_inv_back(var/update_icons=1)

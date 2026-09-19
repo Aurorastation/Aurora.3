@@ -1,4 +1,6 @@
 /obj/item/clothing
+	/// Directional restrictions contributed while worn on the head or face.
+	var/vision_cone_restrictions = 0
 	name = "clothing"
 	siemens_coefficient = 0.9
 	drop_sound = 'sound/items/drop/clothing.ogg'

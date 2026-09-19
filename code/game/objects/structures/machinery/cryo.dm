@@ -383,8 +383,7 @@
 	if(!(occupant))
 		return
 	if (occupant.client)
-		occupant.client.eye = occupant.client.mob
-		occupant.client.perspective = MOB_PERSPECTIVE
+		occupant.client.set_eye(occupant.client.mob, MOB_PERSPECTIVE)
 	occupant.forceMove(get_step(loc, SOUTH))	//this doesn't account for walls or anything, but i don't forsee that being a problem.
 	if (occupant.bodytemperature < 261 && occupant.bodytemperature >= 70) //Patch by Aranclanos to stop people from taking burn damage after being ejected
 		occupant.bodytemperature = 261									  // Changed to 70 from 140 by Zuhayr due to reoccurance of bug.
@@ -411,8 +410,7 @@
 		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
 		return
 	if (M.client)
-		M.client.perspective = EYE_PERSPECTIVE
-		M.client.eye = src
+		M.client.set_eye(src, EYE_PERSPECTIVE)
 	M.stop_pulling()
 	M.forceMove(src)
 	M.ExtinguishMob()

@@ -281,8 +281,7 @@
 			for(var/datum/weakref/W in machine.viewers)
 				var/mob/M = W.resolve()
 				if(istype(M) && M.client)
-					M.client.pixel_x = pixel_x
-					M.client.pixel_y = pixel_y
+					M.client.set_view_offset(pixel_x, pixel_y)
 	..()
 
 /obj/effect/overmap/visitable/ship/proc/burn(var/power_modifier = 1)
