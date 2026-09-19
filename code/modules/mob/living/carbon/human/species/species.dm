@@ -1088,6 +1088,8 @@
 	return human.stamina > (human.max_stamina / 10)
 
 /datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	if(HAS_TRAIT(human, TRAIT_TESLA_CIRCULATORY_DRIVER))
+		stamina_cost *= 0.85
 	human.stamina -= stamina_cost
 	human.hud_used.move_intent.update_move_icon(human)
 

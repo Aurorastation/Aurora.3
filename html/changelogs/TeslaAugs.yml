@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a large selection of tesla based augments for PRA tajara with the tesla spine."
+  - balance: "Reduced the recharge time of the experimental welder to go from empty to full in 5 min."
+  - rscadd: "Changed the robotics analyzer to be a TGUI."

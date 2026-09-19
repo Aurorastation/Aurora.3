@@ -51,15 +51,20 @@
 		toggle = FALSE
 
 	for (var/obj/item/organ/external/organ in owner.organs)
-		if (!model)
+		if (!organ.model)
 			continue
 
-		var/datum/robolimb/R = GLOB.all_robolimbs[model]
+		var/datum/robolimb/R = GLOB.all_robolimbs[organ.model]
 		if (!R || !R.is_tesla)
 			continue
 
 		organ.is_emissive = toggle
 		organ.is_overlay = toggle
+
+	for(var/obj/item/organ/internal/organ in owner.internal_organs)
+		if(organ == src || !hascall(organ, "tesla_power_changed"))
+			continue
+		call(organ, "tesla_power_changed")(toggle)
 
 /**
  * Tesla spines power all tesla augs, and if they break, the lights go out.

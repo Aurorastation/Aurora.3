@@ -71,6 +71,8 @@
 
 	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
 		tally += 1
+	else if(HAS_TRAIT(src, TRAIT_TESLA_TRACTION_ASSIST))
+		tally += 0.5
 
 	tally += GLOB.config.human_delay
 
@@ -99,6 +101,8 @@
 
 /mob/living/carbon/human/slip_chance(var/prob_slip = 5)
 	if(!..())
+		return 0
+	if(HAS_TRAIT(src, TRAIT_TESLA_TRACTION_ASSIST))
 		return 0
 
 	//Check hands and mod slip
