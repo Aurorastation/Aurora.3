@@ -2335,6 +2335,7 @@
 #include "code\modules\effects\map_effects\beam_point.dm"
 #include "code\modules\effects\map_effects\door_helper.dm"
 #include "code\modules\effects\map_effects\effect_emitter.dm"
+#include "code\modules\effects\map_effects\landing_zone_border.dm"
 #include "code\modules\effects\map_effects\map_effects.dm"
 #include "code\modules\effects\map_effects\map_helpers.dm"
 #include "code\modules\effects\map_effects\mob_spawner.dm"
