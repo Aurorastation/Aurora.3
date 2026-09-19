@@ -210,7 +210,7 @@ SUBSYSTEM_DEF(atlas)
 	var/using_sector_config = FALSE
 
 	if(GLOB.config.current_space_sector)
-		chosen_sector = "Badlands"
+		chosen_sector = SECTOR_SRANDMARR
 		using_sector_config = TRUE
 	else
 		chosen_sector = current_map.default_sector
