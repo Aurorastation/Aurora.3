@@ -783,3 +783,7 @@
 /datum/access/abandoned_casino
 	id = 257
 
+/datum/access/modular_freelancer_ship
+	id = 258
+	desc = "Freelancer Ship Access"
+
