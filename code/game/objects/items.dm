@@ -368,16 +368,33 @@
 /obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..(user, distance, is_adjacent, get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	if(armor_component && !armor_component.hidden)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
+	if((armor_component && !armor_component.hidden) || get_cold_protection_rating())
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has protection values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Protection Values\]</a>"))
+
+/obj/item/proc/get_cold_protection_rating()
+	if(!cold_protection || isnull(min_cold_protection_temperature))
+		return
+	if(min_cold_protection_temperature <= WINTER_MIN_COLD_PROTECTION_TEMPERATURE)
+		return "Heavy"
+	if(min_cold_protection_temperature <= MODERATE_MIN_COLD_PROTECTION_TEMPERATURE)
+		return "Moderate"
+	return "Light"
+
+/obj/item/proc/get_cold_protection_percentage()
+	if(!cold_protection || isnull(min_cold_protection_temperature))
+		return 0
+	if(min_cold_protection_temperature < WINTER_MIN_COLD_PROTECTION_TEMPERATURE)
+		return 100
+	return clamp(round((T0C - min_cold_protection_temperature) / (T0C - WINTER_MIN_COLD_PROTECTION_TEMPERATURE) * 80, 1), 0, 80)
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 		var/list/armor_details = list()
-		for(var/armor_type in armor_component.armor_values)
-			armor_details[armor_type] = armor_component.armor_values[armor_type]
-		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
+		if(armor_component && !armor_component.hidden)
+			for(var/armor_type in armor_component.armor_values)
+				armor_details[armor_type] = armor_component.armor_values[armor_type]
+		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details, get_cold_protection_rating(), get_cold_protection_percentage())
 		AV.ui_interact(usr)
 	return ..()
 

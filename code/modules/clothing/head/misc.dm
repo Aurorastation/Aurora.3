@@ -432,7 +432,7 @@
 	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|EYES
 	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/tanker
 	name = "tanker cap"

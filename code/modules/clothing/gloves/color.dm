@@ -226,3 +226,5 @@
 	item_state = "mittens"
 	contained_sprite = TRUE
 	species_restricted = list("exclude", null)
+	cold_protection = HANDS
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE

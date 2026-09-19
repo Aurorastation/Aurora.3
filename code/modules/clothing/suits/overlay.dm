@@ -10,3 +10,5 @@
 	item_state = "submariner_coat"
 	build_from_parts = TRUE
 	worn_overlay = "collar"
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE

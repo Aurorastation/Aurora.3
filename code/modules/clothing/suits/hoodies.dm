@@ -44,7 +44,7 @@
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
 		BIO = ARMOR_BIO_MINOR
 	)
@@ -61,7 +61,7 @@
 	cold_protection = HEAD
 	siemens_coefficient = 0.75
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 	canremove = 0
 	protects_against_weather = TRUE
 	var/hooded = FALSE
@@ -261,10 +261,12 @@
 	item_state = "corgi"
 	flags_inv = HIDEJUMPSUIT
 	hoodtype = /obj/item/clothing/head/winterhood/corgi
+	min_cold_protection_temperature = null
 
 /obj/item/clothing/head/winterhood/corgi
 	name = "corgi hood"
 	desc = "A hood attached to a corgi costume."
+	min_cold_protection_temperature = null
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/carp
 	name = "space carp costume"
@@ -273,10 +275,12 @@
 	item_state = "carp"
 	flags_inv = HIDEJUMPSUIT
 	hoodtype = /obj/item/clothing/head/winterhood/carp
+	min_cold_protection_temperature = null
 
 /obj/item/clothing/head/winterhood/carp
 	name = "space carp hood"
 	desc = "A hood attached to a space carp costume."
+	min_cold_protection_temperature = null
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	name = "hoodie"
@@ -284,6 +288,7 @@
 	icon_state = "hoodie"
 	item_state = "hoodie"
 	hoodtype = /obj/item/clothing/head/winterhood/hoodie
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle()
 	set name = "Toggle Coat Zipper"
@@ -301,6 +306,7 @@
 /obj/item/clothing/head/winterhood/hoodie
 	name = "hood"
 	desc = "A hood attached to a warm hoodie."
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random/Initialize()
 	. = ..()
@@ -342,6 +348,13 @@
 	Gus Maldarth was regarded as a martyr after being silenced by operatives allegedly working on the behalf of Sol."
 	icon_state = "hoodie_mars"
 	item_state = "hoodie_mars"
+	hoodtype = /obj/item/clothing/head/winterhood/mars
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/head/winterhood/mars
+	name = "martian hood"
+	desc = "A hood attached to a warm Martian hoodie."
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
 	icon_state = "coatwinter_w"
@@ -364,10 +377,12 @@
 	icon_state = "ponczo"
 	item_state = "ponczo"
 	hoodtype = /obj/item/clothing/head/winterhood/colorable/ponczo
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/winterhood/colorable/ponczo
 	name = "visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
 	name = "red visegradi patterned ponczo"
@@ -375,10 +390,12 @@
 	icon_state = "red_ponczo"
 	item_state = "red_ponczo"
 	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/winterhood/patterned_ponczo
 	name = "red visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
 	name = "brown visegradi patterned ponczo"
