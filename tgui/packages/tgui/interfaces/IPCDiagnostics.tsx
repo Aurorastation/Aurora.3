@@ -1,49 +1,55 @@
 import {
-  AnimatedNumber,
   Box,
+  Button,
   Collapsible,
   Divider,
-  LabeledList,
   Section,
+  Table,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
+import {
+  getStandardSeverity,
+  MedicalSummary,
+  type MedicalSeverity,
+} from './common/MedicalSummary';
 
 export type DiagnosticsData = {
   broken: BooleanLike;
-  integrity: number;
+  integrity?: number;
   machine_ui_theme: string;
   patient_name: string;
-
-  temp: number;
-  robolimb_self_repair_cap: number;
-  charge_percent: number;
-
+  diagnostic_mode?: 'ipc' | 'prosthetic' | null;
+  standalone_prosthetic?: BooleanLike;
+  connected_zone_name?: string;
+  temp?: number;
+  robolimb_self_repair_cap?: number;
+  charge_percent?: number;
+  power_core_integrity?: number;
+  has_power_core?: BooleanLike;
+  has_endoskeleton?: BooleanLike;
+  has_armor?: BooleanLike;
   organs: Organ[];
   limbs: Limb[];
-
   armor_data: ArmorDamage[];
-
-  endoskeleton_damage: number;
-  endoskeleton_max_damage: number;
+  missing_organs?: string[];
+  endoskeleton_damage?: number;
+  endoskeleton_max_damage?: number;
 };
 
-type ArmorDamage = {
-  key: string;
-  status: string;
-};
+type ArmorDamage = { key: string; status: string };
 
 type Organ = {
   name: string;
+  location?: string;
   desc: string;
   damage: number;
   max_damage: number;
-
-  wiring_status: number;
-  plating_status: number;
-  electronics_status: number;
-  diagnostics_info: string;
+  wiring_status?: number;
+  plating_status?: number;
+  electronics_status?: number;
+  diagnostics_info?: string;
 };
 
 type Limb = {
@@ -51,261 +57,449 @@ type Limb = {
   brute_damage: number;
   burn_damage: number;
   max_damage: number;
+  foreign_bodies?: string[];
 };
 
+const isOrganFaulted = (organ: Organ) =>
+  organ.damage > 0 ||
+  (organ.wiring_status !== undefined && organ.wiring_status < 100) ||
+  (organ.plating_status !== undefined && organ.plating_status < 100) ||
+  (organ.electronics_status !== undefined && organ.electronics_status < 100);
+
+const isLimbFaulted = (limb: Limb) =>
+  limb.brute_damage > 0 ||
+  limb.burn_damage > 0 ||
+  Boolean(limb.foreign_bodies?.length);
+
+const severityLabel = (severity: MedicalSeverity) => capitalize(severity);
+const damageSeverity = (damage: number, maximum: number) =>
+  getStandardSeverity(damage, maximum);
+const integritySeverity = (integrity: number) =>
+  getStandardSeverity(integrity, 100, false);
+
+const armorSeverity = (status: string): MedicalSeverity => {
+  switch (status.toLowerCase()) {
+    case 'catastrophic':
+      return 'critical';
+    case 'serious':
+      return 'severe';
+    case 'moderate':
+      return 'moderate';
+    case 'minor':
+      return 'minor';
+    default:
+      return 'nominal';
+  }
+};
+
+const severityRank: Record<MedicalSeverity, number> = {
+  nominal: 0,
+  minor: 1,
+  moderate: 2,
+  severe: 3,
+  critical: 4,
+};
+
+const scrollToSection = (id: string) =>
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+
 export const IPCDiagnostics = (props) => {
-  const { act, data } = useBackend<DiagnosticsData>();
+  const { data } = useBackend<DiagnosticsData>();
+  const [faultsOnly, setFaultsOnly] = useLocalState(
+    'diagnosticsFaultsOnly',
+    true,
+  );
+  const isProsthetic = data.diagnostic_mode === 'prosthetic';
+  const organs = data.organs || [];
+  const limbs = data.limbs || [];
+  const armorData = data.armor_data || [];
+  const missingOrgans = data.missing_organs || [];
+  const armorCondition = armorData.reduce<MedicalSeverity>((worst, armor) => {
+    const severity = armorSeverity(armor.status);
+    return severityRank[severity] > severityRank[worst] ? severity : worst;
+  }, 'nominal');
+  const sortedLimbs = [...limbs].sort(
+    (a, b) =>
+      Number(isLimbFaulted(b)) - Number(isLimbFaulted(a)) ||
+      a.name.localeCompare(b.name),
+  );
+  const sortedOrgans = [...organs].sort(
+    (a, b) =>
+      Number(isOrganFaulted(b)) - Number(isOrganFaulted(a)) ||
+      (a.location || '').localeCompare(b.location || '') ||
+      a.name.localeCompare(b.name),
+  );
+  const damagedAssemblies = sortedLimbs.filter(isLimbFaulted);
+  const damagedComponents = sortedOrgans.filter(isOrganFaulted);
+  const visibleLimbs = faultsOnly ? damagedAssemblies : sortedLimbs;
+  const visibleOrgans = faultsOnly ? damagedComponents : sortedOrgans;
+  const diagnosticFault =
+    !isProsthetic && data.integrity !== undefined && data.integrity < 100;
+  const endoskeletonFault =
+    Boolean(data.has_endoskeleton) && (data.endoskeleton_damage ?? 0) > 0;
+  const criticalSystemFaults =
+    damagedAssemblies.filter(
+      (limb) =>
+        Math.max(limb.brute_damage, limb.burn_damage) >=
+        limb.max_damage * 0.75,
+    ).length +
+    damagedComponents.filter(
+      (organ) =>
+        damageSeverity(organ.damage, organ.max_damage) === 'critical' ||
+        [
+          organ.wiring_status,
+          organ.plating_status,
+          organ.electronics_status,
+        ].some((status) => status !== undefined && status <= 25),
+    ).length +
+    armorData.filter((armor) => armorSeverity(armor.status) === 'critical')
+      .length +
+    Number(diagnosticFault && (data.integrity ?? 100) <= 25) +
+    missingOrgans.length +
+    Number(
+      endoskeletonFault &&
+        (data.endoskeleton_damage ?? 0) >=
+          (data.endoskeleton_max_damage ?? 1) * 0.75,
+    );
+  const totalFaults =
+    damagedAssemblies.length +
+    damagedComponents.length +
+    armorData.length +
+    Number(diagnosticFault) +
+    missingOrgans.length +
+    Number(endoskeletonFault);
+
+  if (data.broken) {
+    return (
+      <Section title={`${data.patient_name}: Diagnostics Unavailable`}>
+        <Box color="bad">
+          The patient&apos;s diagnostics suite is missing or too damaged to
+          provide a reliable reading.
+        </Box>
+      </Section>
+    );
+  }
 
   return (
     <>
-      <Section title={`${data.patient_name}: Main Information`}>
-        <Box>
-          Diagnostics unit integrity{' '}
-          <Box as="span" bold textColor={damageLabel(data.integrity)}>
-            {describeIntegrity(data.integrity)}
-          </Box>
-          .
-        </Box>
-        <Box>
-          Frame temperature at{' '}
-          <Box as="span" bold>
-            <AnimatedNumber value={data.temp} />
-            °C
-          </Box>
-          .
-        </Box>
-        <Box>
-          Battery charge at{' '}
-          <Box as="span" bold textColor={damageLabel(data.charge_percent)}>
-            {data.charge_percent}%
-          </Box>
-          .
-        </Box>
-        <Box>
-          Endoskeleton status:{' '}
-          <Box
-            as="span"
-            bold
-            textColor={endoskeletonDamageLabel(
-              data.endoskeleton_damage,
-              data.endoskeleton_max_damage,
-            )}
-          >
-            {capitalize(
-              describeEndoskeletonIntegrity(
-                data.endoskeleton_damage,
-                data.endoskeleton_max_damage,
-              ),
-            )}
-          </Box>
-          .
-        </Box>
-        {data.armor_data.length ? (
-          <Box>
-            <Divider />
-            External armor plating condition:{' '}
-            <LabeledList>
-              {data.armor_data.map((armor) => (
-                <LabeledList.Item label={capitalize(armor.key)} key={armor.key}>
-                  <Box
-                    as="span"
-                    bold
-                    textColor={armorDamageLabel(armor.status)}
-                  >
-                    {capitalize(armor.status)}
-                  </Box>
-                </LabeledList.Item>
-              ))}
-            </LabeledList>
-          </Box>
-        ) : (
-          'Internal armor plating nominal.'
+      <MedicalSummary
+        name={data.patient_name}
+        subtitle={
+          isProsthetic
+            ? data.standalone_prosthetic
+              ? `Detached assembly via ${data.connected_zone_name || 'service interface'}`
+              : `Cybernetic network via ${data.connected_zone_name || 'unknown socket'}`
+            : 'IPC chassis diagnostics'
+        }
+        metrics={[
+          {
+            label: 'Overall',
+            value: totalFaults ? `${totalFaults} faults` : 'Nominal',
+            severity: criticalSystemFaults
+              ? 'critical'
+              : totalFaults
+                ? 'moderate'
+                : 'nominal',
+          },
+          {
+            label: 'External',
+            value: `${damagedAssemblies.length} affected`,
+            severity: damagedAssemblies.length ? 'moderate' : 'nominal',
+            onClick: () => scrollToSection('diagnostics-assemblies'),
+          },
+          {
+            label: 'Internal',
+            value: missingOrgans.length
+              ? `${damagedComponents.length} damaged · ${missingOrgans.length} missing`
+              : `${damagedComponents.length} damaged`,
+            severity: missingOrgans.length
+              ? 'critical'
+              : damagedComponents.length
+                ? 'moderate'
+                : 'nominal',
+            onClick: () => scrollToSection('diagnostics-components'),
+          },
+          {
+            label: 'Critical',
+            value: criticalSystemFaults,
+            severity: criticalSystemFaults ? 'critical' : 'nominal',
+          },
+          ...(!isProsthetic
+            ? [
+                {
+                  label: 'Diagnostic Unit',
+                  value:
+                    data.integrity === undefined
+                      ? 'Not installed'
+                      : severityLabel(integritySeverity(data.integrity)),
+                  severity:
+                    data.integrity === undefined
+                      ? ('critical' as const)
+                      : integritySeverity(data.integrity),
+                },
+              ]
+            : []),
+        ]}
+      />
+
+      {!isProsthetic && (
+        <Section title="Chassis Systems">
+          <Table>
+            <Table.Row header>
+              <Table.Cell>System</Table.Cell>
+              <Table.Cell>Status</Table.Cell>
+              <Table.Cell>Reading</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Frame temperature</Table.Cell>
+              <Table.Cell>
+                <SeverityStatus
+                  severity={data.temp === undefined ? 'moderate' : 'nominal'}
+                  label={data.temp === undefined ? 'Unknown' : 'Nominal'}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                {data.temp === undefined ? 'Unknown' : `${data.temp}°C`}
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Battery</Table.Cell>
+              <Table.Cell>
+                <SeverityStatus
+                  severity={
+                    data.has_power_core &&
+                    data.power_core_integrity !== undefined
+                      ? integritySeverity(data.power_core_integrity)
+                      : 'critical'
+                  }
+                  label={
+                    !data.has_power_core
+                      ? 'Not installed'
+                      : data.power_core_integrity === undefined
+                        ? 'Unknown'
+                        : undefined
+                  }
+                />
+              </Table.Cell>
+              <Table.Cell>
+                {data.has_power_core ? `${data.charge_percent ?? 0}%` : '—'}
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Armor plating</Table.Cell>
+              <Table.Cell>
+                <SeverityStatus
+                  severity={data.has_armor ? armorCondition : 'critical'}
+                  label={data.has_armor ? undefined : 'Not installed'}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                {armorData.length
+                  ? armorData
+                      .map(
+                        (armor) =>
+                          `${capitalize(armor.key)}: ${severityLabel(armorSeverity(armor.status))}`,
+                      )
+                      .join(', ')
+                  : '—'}
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Endoskeleton</Table.Cell>
+              <Table.Cell>
+                <SeverityStatus
+                  severity={
+                    data.has_endoskeleton
+                      ? damageSeverity(
+                          data.endoskeleton_damage ?? 0,
+                          data.endoskeleton_max_damage ?? 1,
+                        )
+                      : 'critical'
+                  }
+                  label={data.has_endoskeleton ? undefined : 'Not installed'}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                {data.has_endoskeleton
+                  ? endoskeletonFault
+                    ? 'Damage detected'
+                    : 'No damage detected'
+                  : '—'}
+              </Table.Cell>
+            </Table.Row>
+          </Table>
+        </Section>
+      )}
+
+      <Box id="diagnostics-assemblies">
+        <LimbDisplay
+          limbs={visibleLimbs}
+          faultsOnly={faultsOnly}
+          setFaultsOnly={setFaultsOnly}
+        />
+      </Box>
+      <Box id="diagnostics-components">
+        {!!missingOrgans.length && (
+          <Section title="Missing Components">
+            {missingOrgans.map((organ) => (
+              <Box key={organ} mb={0.5}>
+                <SeverityStatus
+                  severity="critical"
+                  label={`${organ}: Missing`}
+                />
+              </Box>
+            ))}
+          </Section>
         )}
-      </Section>
-      <OrganDisplay />
+        <OrganDisplay organs={visibleOrgans} faultsOnly={faultsOnly} />
+      </Box>
     </>
   );
 };
 
-export const OrganDisplay = (props) => {
-  const { act, data } = useBackend<DiagnosticsData>();
+export const LimbDisplay = (props: {
+  limbs: Limb[];
+  faultsOnly: boolean;
+  setFaultsOnly: (faultsOnly: boolean) => void;
+}) => (
+  <Section
+    title="External Assemblies"
+    buttons={
+      <>
+        <Button
+          icon="filter"
+          selected={props.faultsOnly}
+          content="Faults Only"
+          onClick={() => props.setFaultsOnly(true)}
+        />
+        <Button
+          icon="list"
+          selected={!props.faultsOnly}
+          content="All Components"
+          onClick={() => props.setFaultsOnly(false)}
+        />
+      </>
+    }
+  >
+    {!props.limbs.length ? (
+      <Box color="good">
+        {props.faultsOnly
+          ? 'No external assembly faults detected.'
+          : 'No external assemblies exposed by this connection.'}
+      </Box>
+    ) : (
+      <Table>
+        <Table.Row header>
+          <Table.Cell>Assembly</Table.Cell>
+          <Table.Cell>Impact Damage</Table.Cell>
+          <Table.Cell>Thermal Damage</Table.Cell>
+          <Table.Cell>Findings</Table.Cell>
+        </Table.Row>
+        {props.limbs.map((limb) => (
+            <Table.Row key={limb.name}>
+              <Table.Cell>{capitalize(limb.name)}</Table.Cell>
+              <Table.Cell>
+                <SeverityStatus
+                  severity={damageSeverity(
+                    limb.brute_damage,
+                    limb.max_damage,
+                  )}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <SeverityStatus
+                  severity={damageSeverity(limb.burn_damage, limb.max_damage)}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                {limb.foreign_bodies?.length
+                  ? limb.foreign_bodies.join(', ')
+                  : 'None'}
+              </Table.Cell>
+            </Table.Row>
+          ))}
+      </Table>
+    )}
+  </Section>
+);
 
-  return (
-    <Section title={`${data.patient_name}: Internal Components`}>
-      {data.organs.map((organ) => (
-        <Collapsible title={organ.name} key={organ.name}>
+export const OrganDisplay = (props: {
+  organs: Organ[];
+  faultsOnly: boolean;
+}) => (
+  <Section title="Internal Components">
+    {!props.organs.length ? (
+      <Box color="good">
+        {props.faultsOnly
+          ? 'No damaged internal components.'
+          : 'No internal components exposed by this connection.'}
+      </Box>
+    ) : (
+      props.organs.map((organ, index) => (
+        <Collapsible
+          title={`${organ.location ? `${organ.name} — ${organ.location}` : organ.name} · ${severityLabel(damageSeverity(organ.damage, organ.max_damage))}`}
+          key={`${organ.name}-${organ.location}-${index}`}
+        >
           <Box italic>{organ.desc}</Box>
           <Divider />
-          <Box>
-            The {organ.name}&apos;s internal components are{' '}
-            <Box
-              as="span"
-              bold
-              textColor={organDamageLabel(organ.damage, organ.max_damage)}
-            >
-              {describeOrganDamage(organ.damage, organ.max_damage)}
-            </Box>
-            .
-          </Box>
-          {organ.wiring_status ? (
-            <LabeledList>
-              <LabeledList.Item label="Wiring">
-                <Box
-                  as="span"
-                  bold
-                  textColor={damageLabel(organ.wiring_status)}
-                >
-                  {capitalize(describeIntegrity(organ.wiring_status))}
-                </Box>
-              </LabeledList.Item>
-              <LabeledList.Item label="Plating">
-                <Box
-                  as="span"
-                  bold
-                  textColor={damageLabel(organ.plating_status)}
-                >
-                  {capitalize(describeIntegrity(organ.plating_status))}
-                </Box>
-              </LabeledList.Item>
-              <LabeledList.Item label="Electronics">
-                <Box
-                  as="span"
-                  bold
-                  textColor={damageLabel(organ.electronics_status)}
-                >
-                  {capitalize(describeIntegrity(organ.electronics_status))}
-                </Box>
-              </LabeledList.Item>
-            </LabeledList>
-          ) : (
-            ''
+          <SubsystemStatus
+            label="Component damage"
+            value={organ.damage}
+            maximum={organ.max_damage}
+            damage
+          />
+          {organ.wiring_status !== undefined && (
+            <>
+              <SubsystemStatus label="Wiring" value={organ.wiring_status} />
+              <SubsystemStatus
+                label="Plating"
+                value={organ.plating_status ?? 0}
+              />
+              <SubsystemStatus
+                label="Electronics"
+                value={organ.electronics_status ?? 0}
+              />
+            </>
           )}
-
-          <Divider />
-          {organ.diagnostics_info ? (
-            <Box fontSize={0.8} italic>
+          {!!organ.diagnostics_info && (
+            <Box mt={1} fontSize={0.8} italic>
               {organ.diagnostics_info}
             </Box>
-          ) : (
-            ''
           )}
         </Collapsible>
-      ))}
-    </Section>
+      ))
+    )}
+  </Section>
+);
+
+const SubsystemStatus = (props: {
+  label: string;
+  value: number;
+  maximum?: number;
+  damage?: boolean;
+}) => {
+  const maximum = props.maximum ?? 100;
+  const severity = props.damage
+    ? damageSeverity(props.value, maximum)
+    : integritySeverity(props.value);
+  return (
+    <Box
+      mb={0.5}
+      className={`MedicalStatus MedicalSeverity--${severity}`}
+    >
+      {props.label}: {severityLabel(severity)}
+    </Box>
   );
 };
 
-export const describeIntegrity = (integrity, max_integrity = 100) => {
-  if (integrity >= max_integrity) {
-    return 'undamaged';
-  } else if (integrity > max_integrity * 0.75) {
-    return 'fine';
-  } else if (integrity > max_integrity * 0.5) {
-    return 'problematic';
-  } else if (integrity > max_integrity * 0.25) {
-    return 'heavily compromised';
-  } else if (integrity > 0) {
-    return 'falling apart';
-  } else if (integrity <= 0) {
-    return 'destroyed';
-  } else {
-    return 'unknown';
-  }
-};
-
-const damageLabel = (value, max_value = 100) => {
-  if (value < max_value * 0.1) {
-    return 'bad';
-  }
-  if (value < max_value * 0.2) {
-    return 'bad';
-  } else if (value < max_value * 0.4) {
-    return 'average';
-  } else if (value < max_value * 0.6) {
-    return 'orange';
-  } else if (value < max_value * 0.8) {
-    return 'yellow';
-  } else if (value < max_value) {
-    return 'good';
-  } else {
-    return 'green';
-  }
-};
-
-const armorDamageLabel = (value, max_value = 100) => {
-  if (value === 'minor') {
-    return 'good';
-  } else if (value === 'moderate') {
-    return 'average';
-  } else if (value === 'serious') {
-    return 'orange';
-  } else if (value === 'catastrophic') {
-    return 'bad';
-  }
-};
-
-const describeOrganDamage = (damage, max_damage) => {
-  if (damage >= max_damage) {
-    return 'completely unresponsive';
-  } else if (damage > max_damage * 0.75) {
-    return 'severely mangled';
-  } else if (damage > max_damage * 0.5) {
-    return 'very damaged';
-  } else if (damage > max_damage * 0.25) {
-    return 'not responding properly';
-  } else if (damage > 0) {
-    return 'mostly responsive';
-  } else if (damage <= 0) {
-    return 'fully responsive';
-  } else {
-    return 'unknown';
-  }
-};
-
-const organDamageLabel = (damage, max_damage) => {
-  if (damage > max_damage * 0.9) {
-    return 'bad';
-  } else if (damage > max_damage * 0.75) {
-    return 'average';
-  } else if (damage > max_damage * 0.5) {
-    return 'orange';
-  } else if (damage > max_damage * 0.25) {
-    return 'yellow';
-  } else if (damage > 0) {
-    return 'good';
-  } else {
-    return 'green';
-  }
-};
-
-const describeEndoskeletonIntegrity = (damage, max_damage = 200) => {
-  if (damage >= max_damage) {
-    return 'completely destroyed';
-  } else if (damage > max_damage * 0.75) {
-    return 'extremely mangled';
-  } else if (damage > max_damage * 0.5) {
-    return 'severely damaged';
-  } else if (damage > max_damage * 0.3) {
-    return 'damaged';
-  } else if (damage > 0) {
-    return 'mostly fine';
-  } else if (damage <= 0) {
-    return 'fine';
-  } else {
-    return 'unknown';
-  }
-};
-
-const endoskeletonDamageLabel = (damage, max_damage = 200) => {
-  if (damage > max_damage * 0.75) {
-    return 'bad';
-  } else if (damage > max_damage * 0.5) {
-    return 'orange';
-  } else if (damage > max_damage * 0.3) {
-    return 'yellow';
-  } else if (damage > 0) {
-    return 'good';
-  } else {
-    return 'green';
-  }
-};
+const SeverityStatus = (props: {
+  severity: MedicalSeverity;
+  label?: string;
+}) => (
+  <Box
+    as="span"
+    className={`MedicalStatus MedicalSeverity--${props.severity}`}
+  >
+    {props.label || severityLabel(props.severity)}
+  </Box>
+);

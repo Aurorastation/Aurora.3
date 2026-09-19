@@ -62,7 +62,8 @@
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
-		/singleton/skill/tenacity = SKILL_LEVEL_TRAINED
+		/singleton/skill/tenacity = SKILL_LEVEL_TRAINED,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/expeditionary_trade

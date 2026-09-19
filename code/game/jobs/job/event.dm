@@ -17,7 +17,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_SECURITY, ACCESS_EVA, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_WEAPONS)
+	job_access = list(/datum/access/security::id, /datum/access/eva::id, /datum/access/sec_doors::id, /datum/access/holding::id, /datum/access/external_airlocks::id, /datum/access/weapons::id)
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/officer/event
 
@@ -57,7 +57,7 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
+	job_access = list(/datum/access/medical::id, /datum/access/medical_equip::id, /datum/access/morgue::id, /datum/access/surgery::id, /datum/access/eva::id, /datum/access/maint_tunnels::id, /datum/access/engine::id, /datum/access/research::id, /datum/access/sec_doors::id, /datum/access/external_airlocks::id, /datum/access/paramedic::id)
 	outfit = /obj/outfit/job/med_tech/event
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -102,7 +102,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_EVA, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_SHIP_WEAPONS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_LEVIATHAN)
+	job_access = list(/datum/access/eva::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/tech_storage::id, /datum/access/maint_tunnels::id, /datum/access/ship_weapons::id, /datum/access/external_airlocks::id, /datum/access/construction::id, /datum/access/leviathan::id)
 	outfit = /obj/outfit/job/engineer/event
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -152,7 +152,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
+	job_access = list(/datum/access/tox::id, /datum/access/tox_storage::id, /datum/access/research::id, /datum/access/intrepid::id)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist/event
@@ -185,7 +185,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
+	job_access = list(/datum/access/cargo::id, /datum/access/cargo_bot::id, /datum/access/ship_weapons::id, /datum/access/mailsorting::id)
 	outfit = /obj/outfit/job/hangar_tech/event
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -215,5 +215,5 @@
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
-	job_access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
+	job_access = list(/datum/access/hydroponics::id, /datum/access/bar::id, /datum/access/galley::id)
 	outfit = /obj/outfit/job/bartender

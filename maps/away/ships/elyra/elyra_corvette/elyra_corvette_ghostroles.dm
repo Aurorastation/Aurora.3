@@ -35,7 +35,7 @@
 
 
 /obj/outfit/admin/elyran_navy_crewman/get_id_access()
-	return list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/elyran_naval_infantry_ship::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/elyran_navy_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -126,4 +126,4 @@
 //items
 /obj/item/card/id/elyran_corvette
 	name = "elyran corvette id"
-	access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/elyran_naval_infantry_ship::id, /datum/access/external_airlocks::id)

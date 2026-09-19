@@ -5,7 +5,7 @@
 	icon_state = "computerw"
 	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
-	req_one_access = list( ACCESS_BRIG, ACCESS_HEADS )
+	req_one_access = list( /datum/access/holding::id, /datum/access/heads::id )
 	circuit = "/obj/item/circuitboard/sentencing"
 	density = 0
 

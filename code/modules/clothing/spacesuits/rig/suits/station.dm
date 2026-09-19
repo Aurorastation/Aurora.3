@@ -28,6 +28,46 @@
 	light_overlay = "helmet_light_dual"
 	camera = /obj/structure/machinery/camera/network/security
 
+/obj/item/rig/internalaffairs
+	name = "augmented tie"
+	suit_type = "augmented suit"
+	desc = "Prepare for paperwork."
+	icon = 'icons/obj/item/clothing/rig/tie.dmi'
+	icon_state = "internalaffairs_rig"
+	icon_supported_species_tags = null
+	armor = null
+	siemens_coefficient = 0.9
+	slowdown = 0
+	offline_slowdown = 0
+	offline_vision_restriction = TINT_HEAVY
+
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/storage/briefcase,/obj/item/storage/secure/briefcase)
+
+	req_access = list()
+	req_one_access = list()
+
+	helm_type = null
+	glove_type = null
+	boot_type = null
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+/obj/item/rig/internalaffairs/equipped
+
+	req_access = list(/datum/access/lawyer::id)
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/device/flash,
+		/obj/item/rig_module/device/paperdispenser,
+		/obj/item/rig_module/device/pen,
+		/obj/item/rig_module/device/stamp
+		)
+
+	glove_type = null
+	helm_type = null
+	boot_type = null
+
 /obj/item/rig/industrial
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
@@ -144,7 +184,7 @@
 
 /obj/item/rig/eva/equipped
 
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
@@ -156,7 +196,7 @@
 	siemens_coefficient = 0
 
 /obj/item/rig/eva/equipped/pirate
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva/pirate
 
 /obj/item/clothing/head/helmet/space/rig/eva/pirate
@@ -182,7 +222,7 @@
 
 /obj/item/rig/eva/pilot/equipped
 
-	req_access = list(ACCESS_BRIDGE_CREW)
+	req_access = list(/datum/access/bridge_crew::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
@@ -225,7 +265,7 @@
 
 /obj/item/rig/ce/equipped
 
-	req_access = list(ACCESS_CE)
+	req_access = list(/datum/access/ce::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -271,7 +311,7 @@
 
 /obj/item/rig/hazmat/equipped
 
-	req_access = list(ACCESS_RD)
+	req_access = list(/datum/access/rd::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -311,7 +351,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(ACCESS_PARAMEDIC)
+	req_access = list(/datum/access/paramedic::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,
@@ -353,7 +393,7 @@
 
 /obj/item/rig/hazard/equipped
 
-	req_access = list(ACCESS_BRIG)
+	req_access = list(/datum/access/holding::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/vision/sechud,
@@ -363,7 +403,7 @@
 		)
 
 /obj/item/rig/hazard/equipped/pirate
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate

@@ -45,7 +45,6 @@
 	landmark_transition = "nav_transit_tajaran_smuggler_cargo"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_tajaran_smuggler_cargo"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tajaran_smuggler_cargo/hangar

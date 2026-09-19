@@ -323,11 +323,13 @@
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 35)
 		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+		M.adjustHalLoss(-1)
 
 /singleton/reagent/perconol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 30)
 		M.add_up_to_chemical_effect(CE_NOFEVER, 5) //Good enough to handle fevers for a few light infections or one bad one.
+		M.adjustHalLoss(-1)
 
 /singleton/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	..()
@@ -355,6 +357,7 @@
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 70)
+		M.adjustHalLoss(-2)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
 		if(!M.chem_effects[CE_STRAIGHTWALK])
@@ -419,6 +422,7 @@
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 120)
+		M.adjustHalLoss(-3)
 		M.add_chemical_effect(CE_SLOWDOWN, 1)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
@@ -469,6 +473,7 @@
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 90)
+		M.adjustHalLoss(-2)
 		M.add_chemical_effect(CE_SLOWDOWN, 2)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)
@@ -535,6 +540,7 @@
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 210)
+		M.adjustHalLoss(-4)
 		M.add_chemical_effect(CE_SLOWDOWN, 2)
 		if(!M.chem_effects[CE_CLEARSIGHT])
 			M.eye_blurry = max(M.eye_blurry, 5)

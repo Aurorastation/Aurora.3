@@ -59,7 +59,7 @@
 	icon = 'icons/obj/item/clothing/rig/light_hacker.dmi'
 	icon_state = "hacker_rig"
 
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 	airtight = FALSE
 	seal_delay = 5 //not being vaccum-proof has an upside I guess
@@ -137,7 +137,7 @@
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
 	boot_type = /obj/item/clothing/shoes/magboots/rig/light/ninja
 
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 	initial_modules = list(
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
@@ -203,7 +203,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/stealth_field,
@@ -216,6 +216,7 @@
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
+	lift_capacity_multiplier = 1
 	icon = 'icons/obj/item/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
 	icon_supported_species_tags = null
@@ -231,6 +232,7 @@
 	chest_type = /obj/item/clothing/suit/lightrig/offworlder
 	glove_type = null
 	boot_type = null
+	cell_draw_rate = CHARGE_DRAIN_LOW
 
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner,
@@ -258,6 +260,7 @@
 /obj/item/rig/light/offworlder/frontier
 	name = "advanced mobility hardsuit control module"
 	desc = "Patterned off of the standard Exo-Stellar Skeleton, this sophisticated and light hardsuit is a staple of many armed forces throughout the Frontier. The mobility it grants compared to bulkier suits, while still packing the potential for a versatile toolset, has made it especially popular in the often cramped environments of ships and stations."
+	lift_capacity_multiplier = 2.25
 	icon = 'icons/obj/item/clothing/rig/frontier.dmi'
 	icon_state = "frontier_rig"
 	suit_type = "advanced mobility hardsuit"

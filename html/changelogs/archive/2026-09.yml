@@ -1,10 +1,4 @@
 2026-09-01:
-  ArbiterAmbrose:
-  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
-      to the doors and a paint-scheme in the form of salmon highlights on the walls.
-  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
-  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
-      and thicker walls are added to the Gadputhur corvette.
   ElorgRHG:
   - bugfix: Fixed the stargazer system icon state name for the Orion's Scar sector.
   - imageadd: Added a stargazer system sprite for the Orion's Scar sector.
@@ -18,3 +12,213 @@
   rattydew:
   - bugfix: Fixes lighting in the rocky walls of the treasure trove and cursed mine
       off-sites.
+2026-09-02:
+  DreamySkrell:
+  - rscadd: 'Small cult base update: fixes wall colors, moves thermals and binocs
+      from map to outfit'
+  Geeves:
+  - qol: Converted the character setup window to TGUI.
+  Hellfirejag:
+  - bugfix: Fixed gas canisters needing to always process forever.
+  - bugfix: Made conveyor belts only process when actually on.
+  TheGreyWolf:
+  - bugfix: Items such as bandages and health analyzers can be used on people on rollerbeds
+      again.
+  rattydew:
+  - bugfix: Fixes the on-mob sprites of the Scarab passblade.
+2026-09-03:
+  Geeves:
+  - bugfix: Fixed saved Unathi characters being changed into humans by migrating them
+      to Azaziba Unathi.
+2026-09-04:
+  FabianK3:
+  - bugfix: Fix admin GET of buckled mobs.
+  Hellfirejag:
+  - refactor: Refactored get_pain() to have essentially nonexistent cost.
+  - bugfix: Made portable air pumps, scrubbers, and air connectors no longer require
+      always-processing.
+  - bugfix: Made air alarms take less time to init.
+  kermit:
+  - rscdel: Removes PsiProtect Broad Use.
+  - rscadd: Merges the PsiProtect Personalised variants into one loadout only brand,
+      inheriting PsiProtect Personalised Gold's mechanics.
+  - rscadd: Adds the non-branded active ingredient behind PsiProtect, Ranixidone,
+      which can be made in the Pharmacy (1u Mindbreaker, 2u Impederezene, 2u Wulumunusha,
+      5u Phoron Catalyst = 3u Ranixidone) and which inherits the standard PsiProtect
+      Personalised mechanics.
+  - rscdel: Removes the mapped in PsiProtect and included memo from the Pharmacy.
+2026-09-05:
+  DreamySkrell:
+  - rscadd: Removes the redundant reinforced table type.
+  FabianK3:
+  - bugfix: Fixed hardsuit click handler not resetting throw mode, resulting in throw
+      mode staying toggle on when wearing a hardsuit.
+  - bugfix: Fixed too high passive power draw for exo-stellar suits by reducing passive
+      cell draw rate.
+  - bugfix: Fixed exo-stellar skeleton ribbon accessory not being visible.
+  Geeves:
+  - rscadd: Detachable prosthetics now use a multi-step removal procedure.
+  - rscadd: "The steps are multitool/screwdriver \u2192 multitool \u2192 screwdriver\
+      \ \u2192 wrench/crowbar \u2192 empty hand."
+  - rscadd: Owners can remove their own prosthetics while standing without any skill
+      requirement. Operating on another person requires Familiar Mechanical Engineering
+      and a suitable surgery surface.
+  - qol: Hold a detached prosthetic and use it on yourself with help intent to reattach
+      it.
+  TheGreyWolf:
+  - bugfix: Fixed the spawn-fruit command.
+  kano:
+  - rscadd: Added some mapping helpers for bike rental machine linking.
+  rattydew:
+  - qol: Significantly reduced the volume and range of the telecommunications hub
+      and gravity generator sounds.
+  - rscadd: Adds the double-barelled shotgun rack back to the bar.
+2026-09-06:
+  FabianK3:
+  - qol: Added both secure operations and tech storage locations as safe deposit location
+      for persistent charge cards.
+2026-09-07:
+  Geeves:
+  - rscadd: Ejected bullet casings now bounce and spin with simulated physics, while
+      drifting naturally in zero gravity.
+  - rscadd: Adds machine flatpaks, printable by machinists using exosuit fabricators
+      after researching the corresponding circuit board.
+  - balance: Flatpak deployment time scales with skills defined by its circuit board,
+      defaulting to 15 seconds at trained mechanical engineering. The largest skill
+      shortfall makes deployment slower; exceeding every checked skill level makes
+      it faster.
+  kano:
+  - bugfix: Fixed not being able to snort powders with cash money.
+2026-09-08:
+  ElorgRHG:
+  - rscadd: Improves industrial frame IPC movespeed, reducing G2 slowdown from 2 to
+      1, and G1 and Xion slowdown from 3 to 2.
+  FabianK3:
+  - rscadd: Added new Mai'vazh A.42 100mm howitzer variant.
+2026-09-09:
+  ASmallCuteCat:
+  - rscadd: Removed med-only access from the Recovery Ward.
+  - rscadd: Added indicators to the Recovery Ward to denote if visitors are welcome
+      or not, as well as a button to bolt the door.
+  - imageadd: Added two new holosign sprites, one to indicate an area is public, the
+      other to indicate the area is private.
+  ArbiterAmbrose:
+  - rscadd: Multiple new tools are added to the Gadputhur Corvette, alongside blastdoors
+      to the doors and a paint-scheme in the form of salmon highlights on the walls.
+  - bugfix: Fixed walls that did not abide by current standards on the Gadputhur Corvette.
+  - balance: Slug magazines, medium power primers, one Bunker-buster, extra magazines,
+      and thicker walls are added to the Gadputhur corvette.
+  DreamySkrell:
+  - refactor: Removes unused shuttle vars.
+  - refactor: Access defines are gone. No more.
+  - rscadd: Fail tests if a map has invalid atom path.
+  FabianK3:
+  - rscadd: Added a guest pass terminal to the medical cube.
+  - admin: Fixed missing chat log for the Ping Storyteller verb.
+  FabianK3, NiennaB:
+  - rscadd: Added new tajaran lobby art, by NiennaB.
+  - rscadd: Updated Badlands sector lobby art.
+  Hellfirejag:
+  - rscadd: Made voidsuit cyclers no longer require always-processing.
+  - bugfix: Made most atmos devices no longer require always-processing.
+  TGW:
+  - rscadd: Added Yasir Kra'jun's Aut'akh right arm custom item.
+  TheGreyWolf:
+  - rscadd: Added the Nav'korr armored snowsuit. It is currently not available on
+      the Horizon.
+  kano:
+  - bugfix: Fixed elevator walls appearing with greyscale sprites.
+  kermit:
+  - rscdel: Removes the napalm grenades from Secure Tech Storage.
+2026-09-10:
+  TheGreyWolf:
+  - bugfix: Fixes some pathfinding issues with cleanbots, medical bots and farmbots.
+2026-09-11:
+  DreamySkrell:
+  - rscadd: Adds `pick_consistent` procs.
+  - refactor: Refactors `/obj/random` a bit.
+  FabianK3:
+  - rscadd: Redesigned the Intrepid shuttle.
+  - qol: Add auto-attach for mapped-in turf contents for IV drips.
+  Fenodyree:
+  - bugfix: Fixes self charging cells (slime cores) not recharging themselves in hardsuits.
+  Geeves:
+  - rscadd: Added a functional chess set that allows you to play with others or against
+      a computer. It's mapped into the service areas and available in the loadout.
+  Hellfirejag:
+  - bugfix: Fixed exoplanet xenoflora requiring extremely expensive processing.
+  TheGreyWolf:
+  - rscadd: Turned the examine hints into a collapsible foldout in chat.
+  - rscadd: Lore radios can now use languages, defined on a per line basis.
+  - rscadd: The six tajaran radio stations for the lore radio have been updated.
+  - bugfix: Fixed the inability to attach certain prosthetics to people.
+  - bugfix: Suits should no longer disappear into bluespace.
+  kano:
+  - refactor: Refactored fake wall logic.
+  - bugfix: Fixed wooden walls appearing in greyscale sprites.
+  - rscadd: Checking for false walls can no longer be done in help intent, instead
+      it requires any other intents now.
+2026-09-13:
+  Fenodyree:
+  - balance: Increases the detonation time of mech launched grenades to 2 seconds,
+      from 1 second.
+  - balance: Decreased the magazine size of mech frag grenade launchers from 5 to
+      3. Also reduced their reload speed by 20%.
+  - balance: Reduced the light explosion radius of frag grenades from 3 to 2.
+2026-09-14:
+  FabianK3:
+  - bugfix: Fixed misc. issues on Intrepid.
+  - bugfix: Fixed weather damage not healing.
+  TheGreyWolf:
+  - rscadd: Updated the weight machine.
+  - rscadd: Updated conditioning to handle the weight of many items for lifting and
+      dragging.
+  - rscadd: 'Affected conditioning items include: Weight machines, lifting crates,
+      lifting ship ammo, dumbbels and barbells, climbing over various barriers, picking
+      up mech components and ship ammo, picking up delivery packages, speed of ladders
+      and squeezing through airlock assemblies.'
+  - rscadd: Conditioning now allows a chance to catch yourself during shuttle launches
+      if not buckled in.
+  - rscadd: The robotics, mechatronics, military training, police academy graduate,
+      corpsman training, fleet and paramedic educations now include conditioning.
+2026-09-15:
+  Fenodyree:
+  - bugfix: Fixes slime cells not charging the PSU when used to build a battery rack.
+2026-09-16:
+  Greenjoe:
+  - rscadd: Adhomai's surface is now colder. -20 C for normal areas and -80 C for
+      the North Pole.
+  TheGreyWolf:
+  - bugfix: Fixed the spark test unit fail.
+  kano:
+  - rscadd: Added the ability for ghostroles to recognize their group in the examine
+      text, if such group defined in the ghostrole spawner.
+2026-09-17:
+  ElorgRHG:
+  - bugfix: Fixed some ammunition casings either lacking or having incorrect spent
+      sprites.
+  TheGreyWolf:
+  - bugfix: The candy missing prices in the getmore vendor now cost credits again.
+  - bugfix: Fixed a couple of items not fitting in the commissary food and drinks
+      shelf.
+  kano:
+  - rscadd: Reduced fog forming temperature from 5C to -30C.
+2026-09-18:
+  TheGreyWolf:
+  - rscadd: The gamemode now defaults to autotraitor if no antags are found.
+  - rscadd: Instead of saying it is reattempting when failing a gamemode, it gives
+      one of a series of lines.
+  - rscadd: The possible gamemodes when starting a round are no longer displayed to
+      players.
+  - rscadd: It is now possible to preview bodyguards and diplomatic aides in char
+      setup even if no slot is open.
+  - bugfix: Fixed flatpacks being unable to be printed.
+  - rscadd: Added the surgery planner. It is available on the patient monitor for
+      organics and the robotics interface for synthetics and prosthetics.
+  - rscadd: Added the EMSI port augment to be used with the robotics interface cable
+      to diagnose augment issues for those without prosthetics.
+  - rscadd: Allowed the robotics interface cable to connect to prosthetics on organics.
+  - rscadd: Removing prosthetic organs requires robotics skill.
+  - rscadd: Assisted organs require either surgery or robotics skill.
+  - rscadd: Shrapnel removal requires either surgery or robotics skill.
+  - bugfix: Fixed the risk of rarely being trapped on crate shelves.

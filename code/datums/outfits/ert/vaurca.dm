@@ -102,7 +102,7 @@
 	if(H?.glasses)
 		H.glasses.color = "#391610"
 	var/obj/item/card/id/I = H.wear_id
-	I.access += (ACCESS_MEDICAL) //so the hud works
+	I.access += (/datum/access/medical::id) //so the hud works
 
 /obj/outfit/admin/ert/zora/engi
 	name = "Zo'ra Sapper"
@@ -235,7 +235,7 @@
 	med.replaced(H, head)
 	H.update_body()
 	var/obj/item/card/id/I = H.wear_id
-	I.access += (ACCESS_MEDICAL) //so the hud works
+	I.access += (/datum/access/medical::id) //so the hud works
 
 /obj/outfit/admin/ert/klax/engi
 	name = "K'lax Sapper"

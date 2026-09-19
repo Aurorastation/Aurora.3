@@ -84,7 +84,8 @@
 	return linked_console?.linked_silo
 
 /obj/structure/machinery/r_n_d/fabricator/proc/get_required_material_amount(datum/design/design_to_check, material_id)
-	return round(design_to_check.materials[material_id] * mat_efficiency)
+	var/list/design_materials = design_to_check.GetFabricationMaterials(src)
+	return round(design_materials[material_id] * mat_efficiency)
 
 /obj/structure/machinery/r_n_d/fabricator/proc/get_required_reagent_amount(datum/design/design_to_check, reagent_id)
 	return round(design_to_check.chemicals[reagent_id] * mat_efficiency)
@@ -97,7 +98,8 @@
 	if(!silo)
 		return FALSE
 
-	for(var/material_id in design_to_check.materials)
+	var/list/design_materials = design_to_check.GetFabricationMaterials(src)
+	for(var/material_id in design_materials)
 		if(!silo.has_material(material_id, get_required_material_amount(design_to_check, material_id)))
 			return FALSE
 
@@ -125,7 +127,8 @@
 	var/obj/structure/machinery/r_n_d/material_silo/silo = get_material_silo()
 	var/list/missing = list()
 
-	for(var/material_id in design_to_check.materials)
+	var/list/design_materials = design_to_check.GetFabricationMaterials(src)
+	for(var/material_id in design_materials)
 		var/required_amount = get_required_material_amount(design_to_check, material_id)
 		var/stored_amount = silo?.get_material_amount(material_id) || 0
 		if(stored_amount < required_amount)
@@ -161,12 +164,13 @@
 	if(!silo)
 		return FALSE
 
-	for(var/material_id in job.design.materials)
+	var/list/design_materials = job.design.GetFabricationMaterials(src)
+	for(var/material_id in design_materials)
 		var/required_amount = get_required_material_amount(job.design, material_id)
 		if(!silo.has_material(material_id, required_amount))
 			return FALSE
 
-	for(var/material_id in job.design.materials)
+	for(var/material_id in design_materials)
 		var/required_amount = get_required_material_amount(job.design, material_id)
 		var/material = SSmaterials.material_to_path(material_id, FALSE)
 		if(!material)
@@ -275,8 +279,9 @@
 
 /obj/structure/machinery/r_n_d/fabricator/proc/use_fabrication_power(datum/design/design_to_build)
 	var/power_cost = active_power_usage
-	for(var/material_id in design_to_build.materials)
-		power_cost += round(design_to_build.materials[material_id] / 2)
+	var/list/design_materials = design_to_build.GetFabricationMaterials(src)
+	for(var/material_id in design_materials)
+		power_cost += round(design_materials[material_id] / 2)
 	use_power_oneoff(max(active_power_usage, power_cost))
 
 /obj/structure/machinery/r_n_d/fabricator/proc/fabricate_design(datum/design/design_to_build, datum/research_fabrication_job/job)
