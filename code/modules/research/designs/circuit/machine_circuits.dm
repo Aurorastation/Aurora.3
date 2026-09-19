@@ -147,6 +147,11 @@
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 1)
 	build_path = /obj/item/circuitboard/cell_charger
 
+/datum/design/circuit/machine/recharger/cell_charger/rack
+	name = "Cell Charger Rack"
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/cell_charger/rack
+
 /datum/design/circuit/machine/holopadboard
 	name = "Holopad"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
