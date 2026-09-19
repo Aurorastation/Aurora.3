@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Cargo can now order grenade launchers, tranquilizer rifles, C45 revolvers, intelliCards, and more medical, engineering, and security equipment. Welding backpacks arrive empty and require no access. See the PR for the full list of new cargo inventory."
