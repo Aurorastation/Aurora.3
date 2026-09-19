@@ -79,6 +79,7 @@
 	throw_distance = 10
 
 	needspin = FALSE
+	has_unique_gun_action = TRUE
 
 	var/list/darts = list()
 	var/max_darts = 1

@@ -131,8 +131,6 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 	mymob.item_use_icon = new /atom/movable/screen/gun/item(null)
 	mymob.gun_move_icon = new /atom/movable/screen/gun/move(null)
 	mymob.radio_use_icon = new /atom/movable/screen/gun/radio(null)
-	mymob.toggle_firing_mode = new /atom/movable/screen/gun/burstfire(null)
-	mymob.unique_action_icon = new /atom/movable/screen/gun/uniqueaction(null)
 
 	mymob.client.screen = null
 
@@ -146,8 +144,6 @@ GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 		mymob.pullin,
 		GLOB.robot_inventory,
 		mymob.gun_setting_icon,
-		mymob.toggle_firing_mode,
-		mymob.unique_action_icon,
 		r.computer
 		)
 	mymob.client.screen += src.adding + src.other
