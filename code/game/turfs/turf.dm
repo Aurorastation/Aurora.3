@@ -281,7 +281,8 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/structure/machinery))
+			// The loc is due to multi-tile doors moving otherwise because they occupy multiple places.
+			if(AM.loc == src && istype(AM, /obj/structure/machinery))
 				var/obj/structure/machinery/M = AM
 				M.shuttle_move(src)
 

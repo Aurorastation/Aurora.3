@@ -94,7 +94,7 @@
 				release(H, user)
 
 /obj/item/glass_jar/proc/release(var/atom/movable/A, var/mob/user)
-	if(istype(A, /obj/item/spacecash) || istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
+	if(istype(A, /obj/item/currency) || istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes \the [A] out from \the [src]."), SPAN_NOTICE("You take \the [A] out from \the [src]."))
 	else
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> releases \the [A] from \the [src]."), SPAN_NOTICE("You release \the [A] from \the [src]."))
@@ -115,13 +115,13 @@
 				contained -= contained[1]
 
 /obj/item/glass_jar/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/spacecash))
-		var/obj/item/spacecash/S = attacking_item
+	if(istype(attacking_item, /obj/item/currency))
+		var/obj/item/currency/S = attacking_item
 		if(contains == JAR_NOTHING)
 			contains = JAR_MONEY
 		if(contains != JAR_MONEY)
 			return TRUE
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S.worth] credit\s into \the [src]."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S] into \the [src]."))
 		user.drop_from_inventory(S,src)
 		update_icon()
 	if(istype(attacking_item, /obj/item/clothing/mask/chewable/candy/gum/gumball))
@@ -157,7 +157,7 @@
 		if(JAR_MONEY)
 			name = "tip jar"
 			desc = "A small jar with money inside."
-			for(var/obj/item/spacecash/S in src)
+			for(var/obj/item/currency/S in src)
 				var/image/money = image(S.icon, S.icon_state)
 				money.pixel_x = rand(-2, 3)
 				money.pixel_y = rand(-6, 6)

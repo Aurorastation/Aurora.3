@@ -105,6 +105,8 @@ Class Procs:
 	var/stat = 0
 	/// Is this machine emagged?
 	var/emagged = 0
+	/// Bitfield of physical currencies this machine accepts. See `code/__DEFINES/economy.dm`.
+	var/accepted_currencies = CURRENCY_CREDITS
 
 	/// In what power state is this machine? Possible states include being off, idle, or active - see code/__defines/machinery.dm.
 	/// You should not be modifying this directly! Use the procs in power_usage.dm.

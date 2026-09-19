@@ -47,7 +47,7 @@
 	icon_state = "judge"
 	item_state = "judge"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/storage/box/fancy/cigarettes,/obj/item/spacecash)
+	allowed = list(/obj/item/storage/box/fancy/cigarettes,/obj/item/currency)
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/wcoat
