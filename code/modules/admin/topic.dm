@@ -1485,6 +1485,20 @@
 
 			show_player_panel(M)
 
+	else if(href_list["setskill"])
+		if(check_rights(R_SPAWN))
+			var/mob/M = locate(href_list["setskill"])
+			var/singleton/skill/skill = GET_SINGLETON(text2path(href_list["skill"]))
+			var/skill_level = text2num(href_list["skill_level"])
+			if(!istype(M) || !istype(skill) || !(skill_level in skill.skill_level_descriptions))
+				return
+
+			var/datum/component/skill/skill_component = M.GetComponent(skill.component_type)
+			qdel(skill_component)
+			skill.on_spawn(M, skill_level)
+
+			show_player_panel(M)
+
 	// player info stuff
 
 	if(href_list["add_player_info"])
