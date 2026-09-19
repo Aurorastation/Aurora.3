@@ -41,15 +41,6 @@
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
-/obj/item/clothing/suit/judgerobe
-	name = "judge's robe"
-	desc = "This robe commands authority."
-	icon_state = "judge"
-	item_state = "judge"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/storage/box/fancy/cigarettes,/obj/item/spacecash)
-	flags_inv = HIDEJUMPSUIT
-
 /obj/item/clothing/suit/wcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
@@ -75,16 +66,6 @@
 	item_state = "chickensuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 1.5
-
-
-/obj/item/clothing/suit/monkeysuit
-	name = "monkey suit"
-	desc = "A suit that looks like a primate"
-	icon_state = "monkeysuit"
-	item_state = "monkeysuit"
-	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET|HANDS
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 1.5
 
 

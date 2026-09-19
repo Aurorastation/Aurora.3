@@ -11,11 +11,8 @@ BLIND     // can't see anything
 */
 /obj/item/clothing/glasses
 	name = "glasses"
-	icon = 'icons/obj/clothing/glasses.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
-		)
+	icon = 'icons/obj/item/clothing/eyes/glasses.dmi'
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
@@ -749,6 +746,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-g"
 	item_state = "welding-g"
 	sprite_sheets = list(
@@ -796,7 +794,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
 	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
-	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
@@ -826,7 +823,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
 	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
-	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"
 	contained_sprite = TRUE
@@ -1166,10 +1162,10 @@ BLIND     // can't see anything
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
 			H.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-	mob_overlay = mutable_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay = mutable_appearance('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
-	mob_overlay_emis = emissive_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay_emis = emissive_appearance('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	if(active && ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
@@ -1204,7 +1200,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/update_icon()
 	ClearOverlays()
 	if(active)
-		var/image/eye = image('icons/obj/clothing/glasses.dmi', "[icon_state]_ovr")
+		var/image/eye = image('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_ovr")
 		eye.appearance_flags = RESET_COLOR
 		eye.color = eye_color
 		AddOverlays(eye)

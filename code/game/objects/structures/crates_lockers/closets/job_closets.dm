@@ -55,18 +55,3 @@
 	new /obj/item/clothing/head/chefhat/idris(src)
 	new /obj/item/clothing/head/hairnet(src)
 	new /obj/item/clothing/head/hairnet(src)
-
-/*
- * Lawyer
- */
-/obj/structure/closet/lawcloset
-	name = "legal closet"
-	desc = "It's a storage unit for courtroom apparel and items."
-	icon_door = "blue"
-
-/obj/structure/closet/lawcloset/fill()
-	new /obj/item/clothing/under/lawyer/red(src)
-	new /obj/item/clothing/under/lawyer/purple(src)
-	new /obj/item/clothing/suit/storage/lawyer/purpjacket(src)
-	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/shoes/sneakers/black(src)
