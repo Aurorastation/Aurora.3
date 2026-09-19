@@ -1,0 +1,9 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "It is possible to run people over in mechs by being on run intent when colliding with them."
+  - rscdel: "It is no longer possible to swap spots with a mech."
+  - rscadd: "The cargo tug and by extension the janitorial tug can now run people over on run intent."
+  - rscdel: "The emag ability was removed on the tug."
