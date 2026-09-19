@@ -25,7 +25,7 @@
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/chef_jacket/nt
 	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	r_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -54,7 +54,7 @@
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel
-	r_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	r_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	id = /obj/item/card/id
 	backpack_contents = list(
 		/obj/item/storage/box/fancy/candle_box,
@@ -109,7 +109,7 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/dark,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/dark,
 	)
-	r_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	r_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -152,7 +152,7 @@
 	name = "Automobile Salesperson"
 	uniform = /obj/item/clothing/under/tajaran/high_waisted/business
 	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	r_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -183,7 +183,7 @@
 	uniform = /obj/item/clothing/under/dressshirt
 	pants = /obj/item/clothing/pants/black
 	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	r_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	accessory = /obj/item/clothing/accessory/tie/black
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
@@ -302,7 +302,7 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless/dark,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/dark,
 	)
-	r_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	r_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -330,7 +330,7 @@
 	name = "Keltra Zav Nikal Casino Personnel"
 	uniform = /obj/item/clothing/under/tajaran/fancy/evening_suit
 	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	r_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -396,7 +396,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/visor
 	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id
-	l_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	l_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	r_pocket = /obj/item/handcuffs/ziptie
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -450,7 +450,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/visor
 	shoes = /obj/item/clothing/shoes/laceup
 	id = /obj/item/card/id
-	l_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	l_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/flashlight/maglight,
@@ -528,7 +528,7 @@
 	)
 
 	id = null
-	l_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	l_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	r_pocket = /obj/item/material/knife/butterfly/switchblade
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
@@ -592,7 +592,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/visor
 	shoes = /obj/item/clothing/shoes/laceup
 	id = null
-	l_pocket = /obj/item/storage/wallet/random/adhomian_knuckle
+	l_pocket = /obj/item/storage/wallet/random_adhomian_knuckle
 	r_pocket = /obj/item/material/knife/butterfly/switchblade
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(

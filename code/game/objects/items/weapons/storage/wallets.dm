@@ -281,7 +281,7 @@
 	new item2_type(src)
 	new item3_type(src)
 
-/obj/item/storage/wallet/random/adhomian_knuckle/fill()
+/obj/item/storage/wallet/random_adhomian_knuckle/fill()
 	..()
 
 	var/item1_type = pick(                \
@@ -297,7 +297,7 @@
 		/obj/item/adhomian_knuckle/k128,  \
 	)
 	var/item2_type
-	if(prob(50))
+	if(prob(60))
 		item2_type = pick(                \
 		/obj/item/adhomian_knuckle/k1,    \
 		/obj/item/adhomian_knuckle/k4,    \
@@ -309,7 +309,10 @@
 		/obj/item/adhomian_knuckle/k512,  \
 		/obj/item/adhomian_knuckle/k1024  \
 		)
-	var/item3_type = pick(     \
+
+	var/item3_type
+	if(prob(10))
+		item3_type = pick(     \
 		/obj/item/coin/silver, \
 		/obj/item/coin/silver, \
 		/obj/item/coin/gold,   \
