@@ -53,6 +53,13 @@
 		if(prs.type == preset_type)
 			return prs.return_install_programs(src)
 
+/// Connects an issued device to the ringers mapped to its job outfit.
+/obj/item/modular_computer/proc/connect_departmental_ringers(list/ringer_types)
+	if(length(ringer_types))
+		for(var/obj/structure/machinery/ringer/ringer in GLOB.all_ringers)
+			if(is_type_in_list(ringer, ringer_types))
+				ringer.add_pda(src)
+
 // Used to perform preset-specific hardware changes.
 /obj/item/modular_computer/proc/install_default_hardware()
 	return TRUE
