@@ -479,7 +479,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/paved/concrete,
 /area/crevus/outside)
 "arB" = (
-/obj/structure/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
@@ -2020,16 +2020,16 @@
 /area/crevus/inside/firearm_store/basement)
 "buP" = (
 /obj/structure/table/rack,
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 8
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 5
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 2
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2205,7 +2205,7 @@
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/crevus/outside)
 "bBW" = (
-/obj/structure/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/inside/commercial_complex/floor_2)
@@ -2798,37 +2798,37 @@
 /area/crevus/inside/the_lock)
 "bSH" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/casino/basement)
@@ -5546,7 +5546,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/crevus/outside/public_park)
 "dQk" = (
-/obj/structure/machinery/vending/idris_delights,
+/obj/structure/machinery/vending/idris_delights/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/outside)
@@ -7036,7 +7036,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/structure/machinery/vending/idris_delights,
+/obj/structure/machinery/vending/idris_delights/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/floor_2)
@@ -9536,7 +9536,7 @@
 /turf/simulated/floor/lino,
 /area/crevus/inside/restaurant/table_area)
 "gob" = (
-/obj/structure/machinery/vending/frontiervend,
+/obj/structure/machinery/vending/frontiervend/all_currencies,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/outside)
 "goG" = (
@@ -9926,16 +9926,18 @@
 /area/crevus/inside/restaurant/kitchen)
 "gAn" = (
 /obj/structure/table/rack,
-/obj/item/spacecash/c1000{
+/obj/item/adhomian_knuckle/k1024{
 	pixel_y = 7
 	},
-/obj/item/spacecash/c1000{
+/obj/random/dirt_75,
+/obj/item/adhomian_knuckle/k1024{
 	pixel_y = 4
 	},
-/obj/item/spacecash/c1000,
-/obj/random/dirt_75,
-/obj/item/spacecash/c1000{
-	pixel_y = -4
+/obj/item/adhomian_knuckle/k1024{
+	pixel_y = 1
+	},
+/obj/item/adhomian_knuckle/k1024{
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/casino/basement)
@@ -11014,7 +11016,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/the_lock)
 "hix" = (
-/obj/structure/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/crevus/inside/transit_centre)
@@ -12225,16 +12227,16 @@
 /area/crevus/outside)
 "iax" = (
 /obj/structure/table/rack,
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 8
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 5
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 2
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = -1
 	},
 /obj/structure/machinery/light/small{
@@ -12598,7 +12600,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/structure/machinery/vending/frontiervend,
+/obj/structure/machinery/vending/frontiervend/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/floor_2)
@@ -17006,16 +17008,32 @@
 /area/crevus/outside)
 "lbv" = (
 /obj/structure/table/rack,
-/obj/item/spacecash/c1000{
-	pixel_y = 3;
-	pixel_x = 2
-	},
-/obj/item/spacecash/c200{
-	pixel_y = -1
-	},
 /obj/item/spacecash/c200{
 	pixel_y = -5;
 	pixel_x = 4
+	},
+/obj/item/spacecash/c1000{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/obj/item/adhomian_knuckle/k1024{
+	pixel_y = 5;
+	pixel_x = 3
+	},
+/obj/item/adhomian_knuckle/k256{
+	pixel_y = -1
+	},
+/obj/item/adhomian_knuckle/k4{
+	pixel_y = -4;
+	pixel_x = -7
+	},
+/obj/item/spacecash/coin/c010{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/item/spacecash/coin/c001{
+	pixel_y = 1;
+	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/restaurant/azaula_enforcers)
@@ -18633,7 +18651,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/structure/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee/all_currencies,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/full,
 /area/crevus/inside/general_store)
@@ -20668,7 +20686,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "nzZ" = (
-/obj/structure/machinery/vending/snack,
+/obj/structure/machinery/vending/snack/all_currencies,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/floor_decal/spline/plain/corner/grey{
 	dir = 8
@@ -20938,16 +20956,16 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 8
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 5
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = 2
 	},
-/obj/item/spacecash/c200{
+/obj/item/adhomian_knuckle/k256{
 	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -21203,7 +21221,7 @@
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/crevus/outside)
 "nUJ" = (
-/obj/structure/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee/all_currencies,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/outside)
 "nVD" = (
@@ -27996,7 +28014,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete,
 /area/crevus/outside)
 "smE" = (
-/obj/structure/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/outside)
@@ -29333,70 +29351,70 @@
 /area/crevus/inside/sewers)
 "tgf" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = -4
 	},
 /obj/random/dirt_75,
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = 11;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = -7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c100{
-	pixel_y = -4;
-	pixel_x = 9
+/obj/item/adhomian_knuckle/k128{
+	pixel_x = 7;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/casino/basement)
@@ -29700,7 +29718,7 @@
 /turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/inside/sewers)
 "tou" = (
-/obj/structure/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete,
 /area/crevus/outside)
@@ -30638,13 +30656,13 @@
 /area/crevus/inside/transit_centre)
 "tVp" = (
 /obj/structure/table/rack,
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 7
 	},
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 4
 	},
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 1
 	},
 /obj/random/dirt_75,
@@ -31189,13 +31207,13 @@
 /area/crevus/outside)
 "upf" = (
 /obj/structure/table/rack,
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 7
 	},
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 4
 	},
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 1
 	},
 /obj/structure/machinery/light/small{
@@ -31632,37 +31650,37 @@
 /area/crevus/outside/public_park)
 "uFl" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = 7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = 7;
+	pixel_y = -4
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = 13;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = 11
 	},
-/obj/item/spacecash/c1000{
-	pixel_y = -2;
-	pixel_x = -7
+/obj/item/adhomian_knuckle/k1024{
+	pixel_x = -7;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/casino/basement)
@@ -32095,12 +32113,25 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/spacecash/c1000{
-	pixel_y = 4
+/obj/item/adhomian_knuckle/k1024{
+	pixel_y = 4;
+	pixel_x = -2
 	},
-/obj/item/spacecash/c500{
-	pixel_y = -1;
-	pixel_x = 3
+/obj/item/adhomian_knuckle/k512{
+	pixel_y = -2;
+	pixel_x = 2
+	},
+/obj/item/adhomian_knuckle/k4{
+	pixel_y = -4;
+	pixel_x = -5
+	},
+/obj/item/adhomian_knuckle/k1{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/obj/item/adhomian_knuckle/k1{
+	pixel_y = -6;
+	pixel_x = -2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/restaurant/azaula_enforcers)
@@ -33269,6 +33300,14 @@
 	pixel_y = -8;
 	pixel_x = -6
 	},
+/obj/item/adhomian_knuckle/k008{
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/obj/item/adhomian_knuckle/k1{
+	pixel_y = -7;
+	pixel_x = 3
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/restaurant/azaula_enforcers)
 "vLp" = (
@@ -34142,7 +34181,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/structure/machinery/vending/cola,
+/obj/structure/machinery/vending/cola/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/floor_2)
@@ -34897,7 +34936,7 @@
 /turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/inside/sewers)
 "wNM" = (
-/obj/structure/machinery/vending/cola,
+/obj/structure/machinery/vending/cola/all_currencies,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/outside)
 "wNV" = (
@@ -35929,7 +35968,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/structure/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee/all_currencies,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/floor_2)
@@ -36670,13 +36709,13 @@
 /area/crevus/inside/the_lock)
 "xYq" = (
 /obj/structure/table/rack,
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 7
 	},
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 4
 	},
-/obj/item/spacecash/c500{
+/obj/item/adhomian_knuckle/k512{
 	pixel_y = 1
 	},
 /obj/structure/machinery/light/small{
