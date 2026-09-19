@@ -45,6 +45,7 @@
 	return
 
 /obj/effect/elevator/animation_overlay
+	icon = null
 	icon_state = null
 	layer = TURF_SHADOW_LAYER
 	blend_mode = BLEND_INSET_OVERLAY
@@ -52,11 +53,14 @@
 
 /obj/effect/elevator/animation_overlay/hatch
 	name = "elevator hatch"
+	icon = 'icons/effects/224x192.dmi'
 	icon_state = "hatch"
 
 /obj/effect/elevator/animation_overlay/hatch/left
+	icon = 'icons/effects/224x192.dmi'
 	icon_state = "hatch_L"
 
 /obj/effect/elevator/animation_overlay/hatch/right
+	icon = 'icons/effects/224x192.dmi'
 	icon_state = "hatch_R"
 

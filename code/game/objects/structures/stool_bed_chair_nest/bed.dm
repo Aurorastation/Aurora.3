@@ -98,7 +98,7 @@
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
 	// Prep icon.
-	icon_state = ""
+	icon_state = null
 	ClearOverlays()
 	// Base icon.
 

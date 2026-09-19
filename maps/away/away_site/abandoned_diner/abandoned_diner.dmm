@@ -2242,9 +2242,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "aZe" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_diner/hydroponics)

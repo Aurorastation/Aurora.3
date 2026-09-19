@@ -522,8 +522,8 @@
 /obj/item/clothing/head/sol/dress/marine
 	name = "sol marine peaked cap"
 	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
-	icon_state = "whitepeakcap"
-	item_state = "whitepeakcap"
+	icon_state = "greenwheelcap"
+	item_state = "greenwheelcap"
 
 //solarian army
 

@@ -230,6 +230,8 @@
 // It needs a bit of special code since base /machinery/power assumes loc will be a tile.
 /obj/structure/machinery/power/circuit_io
 	name = "embedded electrical I/O"
+	icon = null
+	icon_state = null
 
 /obj/structure/machinery/power/circuit_io/connect_to_network()
 	var/turf/T = get_turf(src)

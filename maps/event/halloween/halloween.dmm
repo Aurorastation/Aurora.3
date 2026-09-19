@@ -5847,9 +5847,7 @@
 /turf/simulated/floor/wood,
 /area/city/dining)
 "xs" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/garden)

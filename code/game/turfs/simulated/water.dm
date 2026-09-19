@@ -48,6 +48,7 @@
 /obj/effect/water_effect
 	name = "water"
 	icon = 'icons/misc/beach.dmi'
+	icon_state = "water"
 	layer = MOB_LAYER+0.1
 	opacity = FALSE
 	anchored = TRUE

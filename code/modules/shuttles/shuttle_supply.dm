@@ -301,6 +301,7 @@
 /obj/effect/step_trigger/cargo_elevator
 	name = "cargo elevator shaft"
 	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "blank"
 	simulated = FALSE // this prevents the effects getting transported along with the elevator
 
 	/// List of turfs within the 'area/supply/dock'. Shared between all instances.

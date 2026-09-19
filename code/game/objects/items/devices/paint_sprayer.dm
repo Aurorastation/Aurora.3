@@ -466,8 +466,8 @@
 /obj/item/pipe_painter
 	name = "pipe painter"
 	icon = 'icons/obj/item/paint_sprayer.dmi'
-	icon_state = "pipe_painter"
-	item_state = "pipe_painter"
+	icon_state = "pipe_sprayer"
+	item_state = "pipe_sprayer"
 	var/list/modes
 	var/mode
 

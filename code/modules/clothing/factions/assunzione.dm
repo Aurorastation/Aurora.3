@@ -39,4 +39,5 @@
 	name = "luceian clerical robe hood"
 	desc = "A hood for an Assunzioni clerical robe."
 	icon = 'icons/obj/item/clothing/suit/storage/assunzione_robes.dmi'
+	icon_state = "keeper_hood"
 

@@ -1,6 +1,7 @@
 /obj/effect/mineral
 	name = "mineral vein"
 	icon = 'icons/obj/mining.dmi'
+	icon_state = "rock_iron"
 	desc = "Shiny."
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	density = 0

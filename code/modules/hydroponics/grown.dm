@@ -426,4 +426,4 @@ GLOBAL_LIST_EMPTY(fruit_icon_cache)
 	desc = "A type of black tea originating from Korea on Earth. It has a relatively typical flavor for a black tea, with a sweet, toasty flavor. \
 			On Konyang, it is most popular in Suwon, although coffee is still a more popular beverage in general."
 	plantname = "jaekseol"
-	icon_state = "jaekseol"
+	icon_state = "jaekseolcha"

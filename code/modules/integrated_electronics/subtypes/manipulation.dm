@@ -695,7 +695,7 @@
 		"unsafe" = IC_PINTYPE_PULSE_OUT,
 		"failed" = IC_PINTYPE_PULSE_OUT
 	)
-	icon_state = "circuit_drill"
+	icon_state = "template"
 	complexity = 0
 	size = 1
 	spawn_flags = null
