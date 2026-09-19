@@ -28,7 +28,7 @@
 /obj/item/grenade/stinger/proc/sting(var/source, var/fragmin, var/fragmax, var/light_dam, var/flash_dam, var/p_dam, var/p_range, var/can_cover=TRUE, var/shard_range = 50)
 	var/turf/O = get_turf(source)
 	var/fragger = rand(fragmin,fragmax)
-	explosion(O, -1, -1, light_dam, flash_dam)
+	explosion(O, -1, -1, light_dam, flash_dam, spreading = FALSE)
 	var/list/target_turfs = getcircle(O, 7)
 	var/fragments_per_projectile = round(fragger/target_turfs.len)
 
