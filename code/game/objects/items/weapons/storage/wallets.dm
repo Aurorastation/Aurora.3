@@ -280,3 +280,50 @@
 	new item1_type(src)
 	new item2_type(src)
 	new item3_type(src)
+
+/obj/item/storage/wallet/random_adhomian_knuckle/fill()
+	..()
+
+	var/item1_type = pick(                \
+		/obj/item/adhomian_knuckle/k001,  \
+		/obj/item/adhomian_knuckle/k004,  \
+		/obj/item/adhomian_knuckle/k008,  \
+		/obj/item/adhomian_knuckle/k001,  \
+		/obj/item/adhomian_knuckle/k1,    \
+		/obj/item/adhomian_knuckle/k4,    \
+		/obj/item/adhomian_knuckle/k8,    \
+		/obj/item/adhomian_knuckle/k32,   \
+		/obj/item/adhomian_knuckle/k64,   \
+		/obj/item/adhomian_knuckle/k128,  \
+	)
+	var/item2_type
+	if(prob(60))
+		item2_type = pick(                \
+		/obj/item/adhomian_knuckle/k1,    \
+		/obj/item/adhomian_knuckle/k4,    \
+		/obj/item/adhomian_knuckle/k8,    \
+		/obj/item/adhomian_knuckle/k32,   \
+		/obj/item/adhomian_knuckle/k64,   \
+		/obj/item/adhomian_knuckle/k128,  \
+		/obj/item/adhomian_knuckle/k256,  \
+		/obj/item/adhomian_knuckle/k512,  \
+		/obj/item/adhomian_knuckle/k1024  \
+		)
+
+	var/item3_type
+	if(prob(10))
+		item3_type = pick(     \
+		/obj/item/coin/silver, \
+		/obj/item/coin/silver, \
+		/obj/item/coin/gold,   \
+		/obj/item/coin/iron,   \
+		/obj/item/coin/iron,   \
+		/obj/item/coin/iron    \
+	)
+
+	if(item1_type)
+		new item1_type(src)
+	if(item2_type)
+		new item2_type(src)
+	if(item3_type)
+		new item3_type(src)

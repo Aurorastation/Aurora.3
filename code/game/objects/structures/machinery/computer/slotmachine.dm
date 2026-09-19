@@ -18,6 +18,7 @@
 	idle_power_usage = 250
 	active_power_usage = 500
 	circuit = /obj/item/circuitboard/slot_machine
+	accepted_currencies = CURRENCY_ALL
 	var/emmaged = FALSE
 	light_color = LIGHT_COLOR_BROWN
 	var/money = 3000 //How much money it has CONSUMED
