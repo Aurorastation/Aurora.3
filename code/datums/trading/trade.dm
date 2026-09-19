@@ -207,7 +207,7 @@
 			else if(is_type_in_list(offer,blacklisted_trade_items))
 				return FALSE
 
-		if(istype(offer,/obj/item/spacecash))
+		if(istype(offer,/obj/item/currency))
 			if(!(trade_flags & TRADER_MONEY))
 				return TRADER_NO_MONEY
 		else

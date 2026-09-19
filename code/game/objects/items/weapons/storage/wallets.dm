@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(
-		/obj/item/spacecash,
+		/obj/item/currency,
 		/obj/item/card,
 		/obj/item/clothing/mask/smokable,
 		/obj/item/storage/box/fancy/cigpaper,
