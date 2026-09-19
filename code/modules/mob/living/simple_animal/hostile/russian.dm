@@ -1,4 +1,5 @@
 /mob/living/simple_animal/hostile/russian
+	ai_holder_type = /datum/ai_holder/simple_animal/humanoid/mercenary/hostile
 	name = "russian"
 	desc = "For the Motherland!"
 	icon = 'icons/mob/npc/human.dmi'

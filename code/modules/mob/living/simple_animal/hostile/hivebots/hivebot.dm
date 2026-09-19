@@ -1,4 +1,23 @@
+/datum/ai_holder/simple_animal/hivebot/guardian
+	var/awakened = FALSE
+
+/datum/ai_holder/simple_animal/hivebot/guardian/on_target_acquired(atom/new_target, atom/old_target)
+	if(!awakened)
+		awakened = TRUE
+		var/mob/living/simple_animal/hostile/hivebot/guardian/guardian = holder
+		guardian.wander = TRUE
+
+/datum/ai_holder/simple_animal/hivebot/bomber
+
+/datum/ai_holder/simple_animal/hivebot/bomber/post_melee_attack(atom/the_target)
+	. = ..()
+	var/mob/living/simple_animal/hostile/hivebot/bomber/bomber = holder
+	bomber.AIPrimeExplosion()
+	remove_target(FALSE)
+	set_stance(AI_STANCE_SPECIAL)
+
 /mob/living/simple_animal/hostile/hivebot
+	ai_holder_type = /datum/ai_holder/simple_animal/hivebot
 	name = "Hivebot"
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
@@ -100,9 +119,9 @@
 
 	QDEL_IN(src, 0)
 
-/mob/living/simple_animal/hostile/hivebot/think()
-	. =..()
-	if(stance == HOSTILE_STANCE_IDLE)
+/mob/living/simple_animal/hostile/hivebot/AISetLegacyStance(new_stance)
+	. = ..()
+	if(new_stance == AI_STANCE_IDLE)
 		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]_armed"
@@ -116,8 +135,8 @@
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	. = ..()
 
-	LoseTarget()
-	change_stance(HOSTILE_STANCE_TIRED)
+	ai_holder.clear_target()
+	ai_holder.set_stance(AI_STANCE_SPECIAL)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
@@ -125,7 +144,7 @@
 	do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebot/proc/wakeup()
-	change_stance(HOSTILE_STANCE_IDLE)
+	ai_holder?.set_stance(AI_STANCE_IDLE)
 
 
 /*############
@@ -136,6 +155,7 @@
  * # Hivebot Guardian
  */
 /mob/living/simple_animal/hostile/hivebot/guardian
+	ai_holder_type = /datum/ai_holder/simple_animal/hivebot/guardian
 	health = 80
 	maxhealth = 45
 	melee_damage_lower = 20
@@ -155,15 +175,11 @@
 	astype(parent_beacon?.resolve(), /mob/living/simple_animal/hostile/hivebotbeacon)?.guard_amt--
 	return ..()
 
-/mob/living/simple_animal/hostile/hivebot/guardian/think()
-	. = ..()
-	if(stance != HOSTILE_STANCE_IDLE)
-		wander = 1
-
 /**
  * # Hivebot Bomber
  */
 /mob/living/simple_animal/hostile/hivebot/bomber
+	ai_holder_type = /datum/ai_holder/simple_animal/hivebot/bomber
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one appears round in design and moves slower than its brethren."
 	health = 100
 	maxhealth = 100
@@ -173,10 +189,7 @@
 	speed = 8
 	var/has_exploded = FALSE
 
-/mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
-	..()
-	LoseTarget()
-	change_stance(HOSTILE_STANCE_TIRED)
+/mob/living/simple_animal/hostile/hivebot/bomber/proc/AIPrimeExplosion()
 	stop_automated_movement = 1
 	wander = 0
 	if(!has_exploded)
@@ -203,6 +216,7 @@
  * # Hivebot Ranged
  */
 /mob/living/simple_animal/hostile/hivebot/range
+	ai_holder_type = /datum/ai_holder/simple_animal/hivebot/ranged
 	name = "Hivebot"
 	desc = "A primitive in design, hovering robot, with a simple looking launcher sticking out of it. It bears no manufacturer markings of any kind."
 	icon_state = "hivebotranged"

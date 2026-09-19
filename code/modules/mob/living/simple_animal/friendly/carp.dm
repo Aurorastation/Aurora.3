@@ -1,3 +1,20 @@
+/datum/ai_holder/simple_animal/passive/pet_follower
+	use_astar = TRUE
+
+/datum/ai_holder/simple_animal/passive/pet_follower/handle_special_strategical()
+	var/mob/living/simple_animal/carp/fluff/pet = holder
+	if(QDELETED(pet.friend) || target)
+		return
+	var/follow_trigger_distance = 5
+	if(pet.friend.stat >= DEAD || pet.friend.health <= GLOB.config.health_threshold_softcrit)
+		follow_trigger_distance = 1
+	else if(pet.friend.stat || pet.friend.health <= 50)
+		follow_trigger_distance = 2
+	follow_distance = max(follow_trigger_distance - 2, 1)
+	leader = pet.friend
+	if(get_dist(holder, leader) > follow_trigger_distance && can_see_target(leader))
+		set_stance(AI_STANCE_FOLLOW)
+
 /mob/living/simple_animal/carp
 	name = "tame space carp"
 	desc = "A tame, floating space carp. Careful around the teeth."
@@ -70,47 +87,9 @@
 
 //Basic friend AI
 /mob/living/simple_animal/carp/fluff
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/pet_follower
 	var/mob/living/carbon/human/friend
 	var/befriend_job = null
-
-/mob/living/simple_animal/carp/fluff/think()
-	..()
-	if(!stat && !buckled_to && (turns_since_move > 5))
-		GLOB.move_manager.stop_looping(src)
-		turns_since_move = 0
-		handle_movement_target()
-	if(!movement_target && (turns_since_move > 5))
-		GLOB.move_manager.stop_looping(src)
-
-/mob/living/simple_animal/carp/fluff/proc/handle_movement_target()
-	if(!QDELETED(friend))
-		var/follow_dist = 5
-		if(friend.stat >= DEAD || friend.health <= GLOB.config.health_threshold_softcrit) //danger
-			follow_dist = 1
-		else if(friend.stat || friend.health <= 50) //danger or just sleeping
-			follow_dist = 2
-		var/near_dist = max(follow_dist - 2, 1)
-		var/current_dist = get_dist(src, friend)
-
-		if(movement_target != friend)
-			if(current_dist > follow_dist && (friend in oview(src)))
-				//stop existing movement
-				GLOB.move_manager.stop_looping(src)
-				turns_since_scan = 0
-
-				//walk to friend
-				stop_automated_movement = 1
-				movement_target = friend
-				RegisterSignal(movement_target, COMSIG_QDELETING, PROC_REF(lostMovementTarget))
-				GLOB.move_manager.move_to(src, movement_target, near_dist, seek_move_delay)
-
-		//already following and close enough, stop
-		else if(current_dist <= near_dist)
-			GLOB.move_manager.stop_looping(src)
-			lostMovementTarget()
-			stop_automated_movement = 0
-			if(prob(10))
-				say("Glub!")
 
 /mob/living/simple_animal/carp/fluff/verb/friend(var/mob/user)
 	set name = "Befriend Carp"

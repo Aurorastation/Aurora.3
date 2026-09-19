@@ -43,6 +43,11 @@
 	//Fucking snowflake code
 	SHOULD_CALL_PARENT(FALSE)
 	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
+	if(density && istype(bumped_atom, /mob/living))
+		var/mob/living/door_breaker = bumped_atom
+		if(door_breaker.ai_holder?.instant_door_destruction)
+			door_breaker.ai_holder.destroy_door(src)
+			return
 
 	var/mob/M = bumped_atom
 	if (!( ROUND_IS_STARTED ) || operating || !density || !istype(M) || !allowed(M))
