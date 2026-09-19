@@ -118,10 +118,7 @@
 
 					if (ORGAN_PREF_NYMPH)
 						if (organ_data[name])
-							O.AddComponent(/datum/component/nymph_limb)
-							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
-							if(D)
-								D.nymphize(src, O.limb_name, TRUE)
+							nymphize_limb(src, name, TRUE)
 
 					if (ORGAN_PREF_CYBORG)
 						if (rlimb_data[name])
