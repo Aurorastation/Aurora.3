@@ -82,7 +82,9 @@
 	/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter,
 	/obj/item/storage/box/fancy/toptarts_blueberry,
 	/obj/item/storage/box/unique/donkpockets,
-	/obj/item/storage/box/fancy/yoke
+	/obj/item/storage/box/fancy/yoke,
+	/obj/item/storage/box/fancy/foysnack,
+	/obj/item/storage/box/fancy/readies
 	)
 	display_tiers = 4
 	display_tier_amt = 5
@@ -137,7 +139,7 @@
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
 	storage_type = null
-	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
 	var/destination = "Operations"
 
 /obj/structure/cash_register/commissary/mechanics_hints(mob/user, distance, is_adjacent)
@@ -180,7 +182,7 @@
 	idle_power_usage = 10
 	anchored = TRUE
 	var/turned_on = FALSE
-	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_CARGO)
+	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
 	var/destination = "Operations"
 
 /obj/structure/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)

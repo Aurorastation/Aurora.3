@@ -233,7 +233,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/iac_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
-	req_access = list(ACCESS_IAC_RESCUE_SHIP)
+	req_access = list(/datum/access/iac_rescue_shit::id)
 
 /datum/shuttle/autodock/overmap/iac_shuttle
 	name = "IAC Ambulance Shuttle"
@@ -246,7 +246,6 @@
 
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_iac"
 
 	defer_initialisation = TRUE
 

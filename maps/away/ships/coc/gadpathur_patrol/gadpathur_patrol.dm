@@ -116,7 +116,6 @@
 	dock_target = "gadpathur_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_gadpathur_corvette_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/gadpathur_shuttle/dock
@@ -133,7 +132,7 @@
 	base_turf = /turf/space/transit/north
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur
-	req_access = list(ACCESS_GADPATHUR_NAVY_OFFICER)
+	req_access = list(/datum/access/gadpathur_navy_officer::id)
 
 /obj/structure/closet/secure_closet/guncabinet/gadpathur/sidearm
 	name = "sidearm cabinet"

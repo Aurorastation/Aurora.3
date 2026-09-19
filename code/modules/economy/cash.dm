@@ -13,7 +13,7 @@
 	throw_range = 2
 	w_class = WEIGHT_CLASS_SMALL
 	var/access = list()
-	access = ACCESS_CRATE_CASH
+	access = /datum/access/crate_cash::id
 	var/worth = 0
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'

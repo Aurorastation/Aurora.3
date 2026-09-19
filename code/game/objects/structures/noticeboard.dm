@@ -98,7 +98,7 @@
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comboard0"
-	req_one_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
+	req_one_access = list(/datum/access/captain::id, /datum/access/cmo::id, /datum/access/hos::id, /datum/access/qm::id, /datum/access/hos::id, /datum/access/ce::id)
 	base_icon = "comboard"
 	notice_limit = 6
 	var/open

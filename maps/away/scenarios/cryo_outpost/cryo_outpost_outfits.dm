@@ -9,7 +9,7 @@
 
 /obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CRYO_OUTPOST,
+		/datum/access/external_airlocks::id, /datum/access/cryo_outpost_access::id,
 	)
 
 // ------------------ merc

@@ -54,7 +54,7 @@
 
 /obj/item/rig/internalaffairs/equipped
 
-	req_access = list(ACCESS_LAWYER)
+	req_access = list(/datum/access/lawyer::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -184,7 +184,7 @@
 
 /obj/item/rig/eva/equipped
 
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
@@ -196,7 +196,7 @@
 	siemens_coefficient = 0
 
 /obj/item/rig/eva/equipped/pirate
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva/pirate
 
 /obj/item/clothing/head/helmet/space/rig/eva/pirate
@@ -222,7 +222,7 @@
 
 /obj/item/rig/eva/pilot/equipped
 
-	req_access = list(ACCESS_BRIDGE_CREW)
+	req_access = list(/datum/access/bridge_crew::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
@@ -265,7 +265,7 @@
 
 /obj/item/rig/ce/equipped
 
-	req_access = list(ACCESS_CE)
+	req_access = list(/datum/access/ce::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -311,7 +311,7 @@
 
 /obj/item/rig/hazmat/equipped
 
-	req_access = list(ACCESS_RD)
+	req_access = list(/datum/access/rd::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -351,7 +351,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(ACCESS_PARAMEDIC)
+	req_access = list(/datum/access/paramedic::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,
@@ -393,7 +393,7 @@
 
 /obj/item/rig/hazard/equipped
 
-	req_access = list(ACCESS_BRIG)
+	req_access = list(/datum/access/holding::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/vision/sechud,
@@ -403,7 +403,7 @@
 		)
 
 /obj/item/rig/hazard/equipped/pirate
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate

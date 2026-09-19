@@ -128,7 +128,7 @@ Deployable Kits
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
-	req_access = list(ACCESS_SECURITY)//I'm changing this until these are properly tested./N
+	req_access = list(/datum/access/security::id)//I'm changing this until these are properly tested./N
 
 /obj/structure/machinery/deployable/barrier
 	name = "deployable barrier"
@@ -139,7 +139,7 @@ Deployable Kits
 	icon_state = "barrier"
 	maxhealth = OBJECT_HEALTH_LOW
 	var/locked = 0.0
-//	req_access = list(ACCESS_MAINT_TUNNELS)
+//	req_access = list(/datum/access/maint_tunnels::id)
 
 /obj/structure/machinery/deployable/barrier/New()
 	..()
@@ -169,13 +169,13 @@ Deployable Kits
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth
 			src.emagged = 0
-			src.req_access = list(ACCESS_SECURITY)
+			src.req_access = list(/datum/access/security::id)
 			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
-			src.req_access = list(ACCESS_SECURITY)
+			src.req_access = list(/datum/access/security::id)
 			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		return
@@ -254,7 +254,7 @@ Deployable Kits
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
-	req_one_access = list(ACCESS_TCAF)
+	req_one_access = list(/datum/access/tcaf::id)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
@@ -272,7 +272,7 @@ Deployable Kits
 /**
  * A single-use, fabricator-produced package that deploys a complete machine.
  */
-ABSTRACT_TYPE(/obj/item/flatpak)
+/obj/item/flatpak
 	name = "flatpak"
 	desc = "A compact package that unfolds into a complete machine when used on an unobstructed floor."
 	icon = 'icons/obj/storage/briefcase.dmi'
@@ -296,10 +296,10 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 	. = ..()
 	circuit_type = new_circuit_type
 	if(ispath(circuit_type, /obj/item/circuitboard))
-		var/obj/item/circuitboard/board = circuit_type
-		var/list/board_skills = initial(board.flatpak_required_skills)
-		required_skills = board_skills?.Copy()
-		machine_type = initial(board.build_path)
+		var/obj/item/circuitboard/board = new circuit_type
+		required_skills = board.flatpak_required_skills?.Copy()
+		machine_type = board.build_path
+		qdel(board)
 		if(istext(machine_type))
 			machine_type = text2path(machine_type)
 	if(material_cost)
