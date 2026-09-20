@@ -15,10 +15,10 @@
 
 	// Only these types (and their subtypes) are checked
 	var/static/list/whitelisted_check_types = list(
-		// /atom
+		// Ideally this would just be `/atom`, but it would require fixing a million icons, so...
 		/turf/simulated,
 		/obj/random,
-		// /obj/item,
+		/obj/item,
 	)
 
 	// These types (and their subtypes) are ignored
