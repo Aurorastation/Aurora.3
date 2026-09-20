@@ -194,7 +194,8 @@
 /obj/item/clothing/accessory/badge/bssb
 	name = "\improper BSSB agent's badge"
 	desc = "A silver badge, set in purple leather, denoting the wearer as an agent of the Biesel Security Services Bureau."
-	desc_extended = "The overseeing authority of the domestic agencies that operate within the Republic of Biesel. In reality, the Biesel Security Services Bureau has become incredibly important to the enforcement of the Republic's laws. The BSSB was founded with the goal of monitoring the planetary policing forces within the Republic of Biesel and stepping in when needed. Most of the BSSB was sponsored by NanoTrasen, with even its headquarters having been constructed by the megacorporation. The agency quickly found its footing within the Republic and found itself being labelled as Biesel's most skilled law enforcement agency despite the accusation of bribery on behalf of NanoTrasen. Today, the BSSB has become an easily recognisable organization with several action movies and novels produced within the Republic of Biesel making it a centrepiece of the Republic's image. It is headed by Director Clarrise Lyon."
+	desc_extended = "The Biesel Security Services Bureau is the domestic intelligence and security service operating across the Republic of Biesel, \
+	holding jurisdiction over federal crimes that are particularly severe, target the overall republic, or cross member state territories."
 	icon_state = "badge_round_bssb"
 	overlay_state = "badge_round_bssb"
 	slot_flags = SLOT_TIE
@@ -204,6 +205,12 @@
 /obj/item/clothing/accessory/badge/bssb/senior
 	name = "\improper BSSB senior agent's badge"
 	desc = "A golden badge, set in purple leather, denoting the wearer as a senior agent of the Biesel Security Services Bureau."
+	icon_state = "badge_round_bssb_sen"
+	overlay_state = "badge_round_bssb_sen"
+
+/obj/item/clothing/accessory/badge/bssb/bodyguard // for consular bodyguards
+	name = "\improper BSSB close protection officer badge"
+	desc = "A silver badge, set in purple leather, denoting the wearer as a Government Security Division close protection officer of the Biesel Security Services Bureau."
 	icon_state = "badge_round_bssb_sen"
 	overlay_state = "badge_round_bssb_sen"
 
