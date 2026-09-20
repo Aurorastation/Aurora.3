@@ -1357,16 +1357,14 @@
 	set_face_dir(client.client_dir(WEST))
 
 /mob/living/verb/unique_action()
+	set name = "unique-action"
 	set hidden = 1
-	var/obj/item/gun/dakka = get_active_hand()
-	if(istype(dakka))
-		dakka.unique_action(src)
+	trigger_gun_action("unique action")
 
 /mob/living/verb/toggle_firing_mode()
+	set name = "toggle-firing-mode"
 	set hidden = 1
-	var/obj/item/gun/dakka = get_active_hand()
-	if(istype(dakka))
-		dakka.toggle_firing_mode(src)
+	trigger_gun_action("fire mode")
 
 /mob/proc/adjustEarDamage()
 	return

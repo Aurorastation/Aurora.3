@@ -62,21 +62,28 @@
 	var/obj/item/gun/gun = master
 	if(!istype(user) || !istype(gun) || QDELETED(gun) || user.get_active_hand() != gun)
 		return
-	if(user.next_move >= world.time || gun.use_check(user, USE_FORCE_SRC_IN_USER))
+	user.trigger_gun_action(action_type)
+
+/// Shared entry point for gun action HUD buttons and macro verbs.
+/mob/living/proc/trigger_gun_action(action_type)
+	var/obj/item/gun/gun = get_active_hand()
+	if(!istype(gun) || QDELETED(gun))
+		return
+	if(next_move >= world.time || gun.use_check(src, USE_FORCE_SRC_IN_USER))
 		return
 	switch(action_type)
 		if("safety")
 			if(gun.has_safety)
-				gun.toggle_safety(user)
+				gun.toggle_safety(src)
 		if("fire mode")
-			gun.toggle_firing_mode(user)
+			gun.toggle_firing_mode(src)
 		if("scope")
 			var/scope_action = gun.get_scope_action()
 			if(scope_action)
 				call(gun, scope_action)()
 		if("unique action")
-			gun.unique_action(user)
-	user.hud_used?.update_gun_actions()
+			gun.unique_action(src)
+	hud_used?.update_gun_actions()
 
 /atom/movable/screen/gun_action/update_icon()
 	var/obj/item/gun/gun = master
