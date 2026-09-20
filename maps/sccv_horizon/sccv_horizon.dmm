@@ -15684,16 +15684,16 @@
 /turf/simulated/floor/carpet,
 /area/horizon/command/heads/xo_office)
 "cbx" = (
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain/corner/grey{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -29771,7 +29771,6 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/machinery/alarm/east,
 /obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 8;
 	pixel_x = 7;
@@ -37288,11 +37287,11 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline_straight/service{
 	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
@@ -39119,10 +39118,10 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -40888,7 +40887,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/light/small/floor,
-/obj/effect/floor_decal/spline/plain/corner/grey{
+/obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -48833,6 +48832,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline_straight/service,
+/obj/structure/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "grc" = (
@@ -60738,7 +60738,7 @@
 	icon_state = "pipe-c-yellow";
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner/grey{
+/obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -68851,9 +68851,6 @@
 "iVr" = (
 /obj/effect/floor_decal/industrial/hatch/service,
 /obj/structure/machinery/vending/dinnerware/metal,
-/obj/structure/machinery/ai_status_display{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "iVt" = (
@@ -70705,16 +70702,16 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain/corner/grey{
-	dir = 1
-	},
 /obj/structure/sink/kitchen{
 	dir = 4;
 	name = "sink";
 	pixel_x = -20
+	},
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
@@ -81767,14 +81764,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
 "kBE" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
+/obj/structure/grille,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/machinery/door/blast/shutters{
+	name = "Kitchen Window Shutter";
+	id = "kitchen_window_shutter"
 	},
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 8
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, freezer"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/hallway/primary/deck_2/fore)
+/turf/simulated/floor/plating,
+/area/horizon/service/kitchen)
 "kBK" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -110660,6 +110661,10 @@
 	pixel_x = 13;
 	pixel_y = 13
 	},
+/obj/item/flashlight/lamp/green{
+	pixel_x = -4;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "opW" = (
@@ -111283,6 +111288,9 @@
 /obj/effect/floor_decal/spline/plain/grey,
 /obj/effect/floor_decal/spline/plain/purple{
 	dir = 1
+	},
+/obj/structure/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/hydroponics)
@@ -115606,7 +115614,7 @@
 	sortType = "Bar";
 	name = "Bar"
 	},
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -123363,7 +123371,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/service{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -129773,10 +129781,10 @@
 /obj/structure/disposalpipe/segment/mainline{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/corner/grey,
+/obj/effect/floor_decal/spline/plain/corner/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "qNe" = (
@@ -136197,18 +136205,14 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew/fitness/showers)
 "rEW" = (
-/obj/structure/grille,
-/obj/structure/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/structure/machinery/door/blast/shutters{
-	name = "Kitchen Window Shutter";
-	id = "kitchen_window_shutter"
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
 	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, freezer"
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/horizon/service/kitchen)
+/turf/simulated/floor/tiled/dark,
+/area/horizon/hallway/primary/deck_2/fore)
 "rEY" = (
 /obj/structure/grille,
 /obj/structure/machinery/door/blast/regular{
@@ -137074,6 +137078,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/plain/corner/red{
 	dir = 4
+	},
+/obj/structure/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
@@ -143054,10 +143061,10 @@
 /area/horizon/medical/hallway/upper)
 "swY" = (
 /obj/structure/machinery/light/small/floor,
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -157698,10 +157705,10 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain/grey,
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
+/obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "uqz" = (
@@ -286185,8 +286192,8 @@ mNo
 iGf
 fvA
 eih
-kBE
-kBE
+rEW
+rEW
 mQk
 uhZ
 uhZ
@@ -288511,7 +288518,7 @@ nBM
 cMH
 jRa
 tZc
-nBM
+jHq
 iVr
 nNm
 brr
@@ -288526,7 +288533,7 @@ kDa
 ath
 plb
 bfY
-rEW
+kBE
 pam
 eSV
 eSV
