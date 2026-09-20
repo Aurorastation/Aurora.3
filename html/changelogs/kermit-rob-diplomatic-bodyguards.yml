@@ -1,0 +1,10 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Republic of Biesel diplomatic bodyguards can now select from BSSB close protection or TCAF praetorian attire/accessories in Character Setup (or remain unaffiliated, private bodyguards)"
+  - qol: "TCAF rank accessories now in a contained file."
+  - rscadd: "splits TCAF uniforms into pants/trousers/jumpsuits."
+  - rscadd: "Some other tweaks to descriptions/names in Republic consular gear/items"
+
