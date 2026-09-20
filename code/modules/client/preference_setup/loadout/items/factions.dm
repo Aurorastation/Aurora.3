@@ -926,7 +926,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	slot = slot_tie
 	faction = "Independent"
 	allowed_roles = list("Diplomatic Bodyguard")
-	origin_restriction = ORIGINS_BIESEL
 	flags = null
 
 /datum/gear/faction/republic_of_biesel_bodyguard_accessories/New()
@@ -963,7 +962,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	slot = slot_w_uniform
 	faction = "Independent"
 	allowed_roles = list("Diplomatic Bodyguard")
-	origin_restriction = ORIGINS_BIESEL
 	flags = null
 
 /datum/gear/faction/bssb_coat
@@ -973,6 +971,5 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	slot = slot_wear_suit
 	faction = "Independent"
 	allowed_roles = list("Diplomatic Bodyguard")
-	origin_restriction = ORIGINS_BIESEL
 	flags = null
 
