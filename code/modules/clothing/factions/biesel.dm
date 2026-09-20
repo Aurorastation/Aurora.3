@@ -99,6 +99,8 @@
 	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 
 /obj/item/clothing/head/tcaf_officer

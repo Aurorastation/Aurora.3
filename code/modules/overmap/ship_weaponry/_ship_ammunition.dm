@@ -4,6 +4,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "nuke"
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 200
 	slowdown = 1
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
@@ -26,7 +27,6 @@
 	var/fired_projectile_type
 	var/heading = SOUTH
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
-	var/mob_carry_size = 12 //How large a mob has to be to carry the shell
 	//Cookoff variables.
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2
@@ -88,24 +88,14 @@
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			var/datum/species/S = H.species
-			if(S.mob_size >= mob_carry_size || S.resist_mod >= 10 || user.status_flags & GODMODE)
+			if(H.get_lift_capacity() >= mass || user.status_flags & GODMODE)
 				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
 				if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
 					wield(user)
 					return TRUE
 				else return FALSE
-			if(istype(H.back, /obj/item/rig))
-				var/obj/item/rig/R = H.back
-				if(R.suit_is_deployed())
-					visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving with some difficulty..."))
-					if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
-						visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
-						wield(user)
-						return TRUE
-					else return FALSE
-		to_chat(user, SPAN_WARNING("\The [src] is way too heavy for you to pick up without some assistance!"))
+		to_chat(user, SPAN_WARNING("\The [src] is too heavy for you to pick up without assistance!"))
 		return FALSE
 	return TRUE
 

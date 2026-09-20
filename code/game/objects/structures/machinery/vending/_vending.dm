@@ -426,9 +426,12 @@
 			var/obj/item/spacecash/ewallet/C = attacking_item
 			paid = pay_with_ewallet(C, user)
 			handled = 1
-		else if (istype(attacking_item, /obj/item/spacecash))
-			var/obj/item/spacecash/C = attacking_item
-			paid = pay_with_cash(C, user)
+		else if (istype(attacking_item, /obj/item/currency))
+			var/obj/item/currency/cash = attacking_item
+			if(accepts_currency(cash))
+				paid = pay_with_cash(cash, user)
+			else
+				to_chat(user, SPAN_WARNING("[icon2html(src, user)] This machine does not accept [cash.name]."))
 			handled = 1
 
 		if(paid)
@@ -438,7 +441,7 @@
 			SStgui.update_uis(src)
 		return TRUE // don't smack that machine with your 2 credits
 
-	if (I || istype(attacking_item, /obj/item/spacecash))
+	if (I || istype(attacking_item, /obj/item/currency))
 		return attack_hand(user)
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panel_open = !src.panel_open
@@ -513,39 +516,35 @@
  *
  *  usr is the mob who gets the change.
  */
-/obj/structure/machinery/vending/proc/pay_with_cash(var/obj/item/spacecash/cashmoney, mob/user)
-	if(currently_vending.price > cashmoney.worth)
+/obj/structure/machinery/vending/proc/pay_with_cash(var/obj/item/currency/cashmoney, mob/user)
+	var/credit_value = cashmoney.get_credit_value()
+	if(currently_vending.price > credit_value)
 
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
 		to_chat(user, "[icon2html(cashmoney, user)] <span class='warning'>That is not enough money.</span>")
 		return 0
 
-	if(istype(cashmoney, /obj/item/spacecash/bundle))
+	if(cashmoney.is_bundle())
 		// Bundles can just have money subtracted, and will work
 
 		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>")
-		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
-		cashmoney_bundle.worth -= currently_vending.price
+		cashmoney.deduct_credit_value(currently_vending.price)
 
-		if(cashmoney_bundle.worth <= 0)
-			usr.drop_from_inventory(cashmoney_bundle,get_turf(src))
-			qdel(cashmoney_bundle)
-		else
-			cashmoney_bundle.update_icon()
+		if(cashmoney.worth <= 0)
+			user.drop_from_inventory(cashmoney,get_turf(src))
+			qdel(cashmoney)
 	else
-		// Bills (banknotes) cannot really have worth different than face value,
-		// so we have to eat the bill and spit out change in a bundle
-		// This is really dirty, but there's no superclass for all bills, so we
-		// just assume that all spacecash that's not something else is a bill
+		// Individual currency pieces cannot have worth different from their face value,
+		// so consume the piece and return change in the same currency.
 
 		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>")
-		var/left = cashmoney.worth - currently_vending.price
+		var/left = credit_value - currently_vending.price
 		user.drop_from_inventory(cashmoney,get_turf(src))
-		qdel(cashmoney)
 
 		if(left)
-			spawn_money(left, get_turf(user), user)
+			cashmoney.spawn_change(left, get_turf(user), user)
+		qdel(cashmoney)
 
 	// Vending machines have no idea who paid with cash
 	credit_purchase("(cash)")

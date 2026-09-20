@@ -295,7 +295,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	max_storage_space = 100
 	w_class = WEIGHT_CLASS_BULKY
-	can_hold = list(/obj/item/coin,/obj/item/spacecash)
+	can_hold = list(/obj/item/coin,/obj/item/currency)
 
 /obj/item/storage/bag/money/Initialize(mapload)
 	. = ..()

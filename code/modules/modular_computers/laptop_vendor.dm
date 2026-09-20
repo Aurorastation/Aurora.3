@@ -352,7 +352,7 @@
 		return
 	else if(state == LAPVEND_STATE_PAYMENT) // awaiting payment state
 		var/obj/item/card/id/id_card = attacking_item.GetID()
-		if(id_card)
+		if(id_card || istype(attacking_item, /obj/item/currency))
 			if(process_payment(id_card, attacking_item))
 				create_device(user)
 				return TRUE
@@ -393,15 +393,15 @@
 
 // Simplified payment processing, returns TRUE on success.
 /obj/structure/machinery/lapvend/proc/process_payment(obj/item/card/id/id_card, obj/item/id_container)
-	var/obj/item/spacecash/cash = null
-	if(istype(id_container, /obj/item/spacecash))
+	var/obj/item/currency/cash = null
+	if(istype(id_container, /obj/item/currency))
 		cash = id_container
-	if(id_card == id_container || !id_container)
-		visible_message("<span class='info'>\The [usr] swipes \the [id_card] through \the [src].</span>")
-	else
-		visible_message("<span class='info'>\The [usr] swipes \the [id_container] through \the [src].</span>")
-	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(id_card)
+		if(id_card == id_container || !id_container)
+			visible_message("<span class='info'>\The [usr] swipes \the [id_card] through \the [src].</span>")
+		else
+			visible_message("<span class='info'>\The [usr] swipes \the [id_container] through \the [src].</span>")
+		playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
 		if(istype(id_card, /obj/item/card/id/bst))
 			return TRUE
@@ -433,15 +433,25 @@
 			SSeconomy.add_transaction_log(customer_account, transaction)
 			return TRUE
 	else if(cash)
-		if(total_price > cash.worth)
+		if(!accepts_currency(cash))
+			ping("This machine does not accept that currency.")
+			return FALSE
+		var/credit_value = cash.get_credit_value()
+		if(total_price > credit_value)
 			ping("Insufficient funds!")
 			return FALSE
 		else
-			cash.worth -= total_price
-			if(cash.worth <= 0)
-				qdel(cash)
+			visible_message(SPAN_INFO("\The [usr] inserts [cash] into \the [src]."))
+			playsound(src.loc, SFX_PRINT, 50, 1)
+			var/change = credit_value - total_price
+			if(cash.is_bundle())
+				cash.deduct_credit_value(total_price)
+				if(cash.worth <= 0)
+					qdel(cash)
 			else
-				cash.update_icon()
+				if(change)
+					cash.spawn_change(change, get_turf(usr), usr)
+				qdel(cash)
 			return TRUE
 
 	else // just incase

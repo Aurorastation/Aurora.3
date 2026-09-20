@@ -16697,8 +16697,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Medical";
-	dir = 2;
-	door_color = "#4b765c"
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/medical)
@@ -36918,7 +36917,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/shuttle/north,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
 "eNz" = (
@@ -56227,8 +56228,6 @@
 	pixel_x = -1;
 	pixel_y = -1
 	},
-/obj/item/clothing/mask/surgical,
-/obj/item/clothing/mask/surgical,
 /obj/item/reagent_containers/inhaler/pneumalin{
 	pixel_x = 7;
 	pixel_y = -1
@@ -74557,6 +74556,9 @@
 /area/antag/jockey)
 "jHI" = (
 /obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/starboard_nacelle)
 "jHN" = (
@@ -82873,6 +82875,10 @@
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -7;
 	pixel_y = 15
+	},
+/obj/item/storage/box/masks{
+	pixel_y = 4;
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
@@ -105933,6 +105939,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/seafoam/full,
+/obj/structure/machinery/alarm/shuttle/west,
 /turf/simulated/floor/tiled/white,
 /area/horizon/shuttle/intrepid/medical)
 "nJK" = (
@@ -178159,6 +178166,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/bluespace_beacon,
 /turf/simulated/floor/plating,
 /area/horizon/shuttle/intrepid/main_compartment)
 "wSO" = (
@@ -188433,7 +188441,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/machinery/bluespace_beacon,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},

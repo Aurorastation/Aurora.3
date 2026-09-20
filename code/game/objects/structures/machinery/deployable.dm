@@ -272,7 +272,7 @@ Deployable Kits
 /**
  * A single-use, fabricator-produced package that deploys a complete machine.
  */
-ABSTRACT_TYPE(/obj/item/flatpak)
+/obj/item/flatpak
 	name = "flatpak"
 	desc = "A compact package that unfolds into a complete machine when used on an unobstructed floor."
 	icon = 'icons/obj/storage/briefcase.dmi'
@@ -296,10 +296,10 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 	. = ..()
 	circuit_type = new_circuit_type
 	if(ispath(circuit_type, /obj/item/circuitboard))
-		var/obj/item/circuitboard/board = circuit_type
-		var/list/board_skills = initial(board.flatpak_required_skills)
-		required_skills = board_skills?.Copy()
-		machine_type = initial(board.build_path)
+		var/obj/item/circuitboard/board = new circuit_type
+		required_skills = board.flatpak_required_skills?.Copy()
+		machine_type = board.build_path
+		qdel(board)
 		if(istext(machine_type))
 			machine_type = text2path(machine_type)
 	if(material_cost)

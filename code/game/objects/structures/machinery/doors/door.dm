@@ -514,16 +514,15 @@
 	intent_message(MACHINE_SOUND)
 
 	do_animate("opening")
-	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
 	set_density(FALSE)
+	update_icon()
+	set_opacity(0)
 	update_nearby_tiles()
 	sleep(2)
 	src.layer = open_layer
 	explosion_resistance = 0
-	update_icon()
-	set_opacity(0)
 	operating = FALSE
 
 	if(autoclose && !QDELETED(src))
