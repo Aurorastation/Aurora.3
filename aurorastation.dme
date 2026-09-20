@@ -802,6 +802,7 @@
 #include "code\game\atom\atom_act.dm"
 #include "code\game\atom\atom_defense.dm"
 #include "code\game\atom\atom_examine.dm"
+#include "code\game\atom\atom_icon_check.dm"
 #include "code\game\atom\atom_orbit.dm"
 #include "code\game\atom\atom_tool_acts.dm"
 #include "code\game\atom\atoms_initializing_EXPENSIVE.dm"
