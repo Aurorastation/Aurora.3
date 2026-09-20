@@ -266,7 +266,6 @@
 		/obj/item/key/door_key/crevus/artisan_shop
 	)
 
-
 // ---------- NanoTrasen Pharmacist
 
 /datum/ghostspawner/human/crevus_nt_pharmacist
@@ -365,6 +364,10 @@
 		/obj/item/key/door_key/crevus/the_lock
 	)
 
+/obj/outfit/admin/crevus/generic_vendor/the_lock/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.equip_or_collect(new /obj/item/radio/map_preset(H, "the_lock_attendants"), slot_in_backpack)
+
 // ---------- Rhan-Cresh Highway Patrolman
 
 /datum/ghostspawner/human/crevus_rhan_cresh_patrol
@@ -416,6 +419,7 @@
 	H.wear_suit?.color = "#736258"
 	H.wear_suit?.accent_color = "#C0C0C0"
 	H.wear_suit?.update_worn_icon()
+	H.equip_or_collect(new /obj/item/radio/map_preset(H, "rhan_cresh_patrol"), slot_in_backpack)
 
 // ---------- Azaula Entertainment Enforcers
 
@@ -470,6 +474,7 @@
 	H.wear_suit?.color = pick(possible_colors)
 	H.wear_suit?.accent_color = "#C0C0C0"
 	H.wear_suit?.update_worn_icon()
+	H.equip_or_collect(new /obj/item/radio/map_preset(H, "azaula_enforcer"), slot_in_backpack)
 
 // ---------- Gangs
 
@@ -488,7 +493,7 @@
 	recognition_group = "crevus_gang1"
 	recognition_message = "You recognize this person as a fellow member of your gang."
 	max_count = 2
-	outfit = /obj/outfit/admin/crevus/gang_member
+	outfit = /obj/outfit/admin/crevus/gang_member/gang1
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Gang Member"
@@ -555,6 +560,16 @@
 	if(prob(55))
 		H.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack)
 
+// ----- Violet Knuckles variant
+/obj/outfit/admin/crevus/gang_member/gang1/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.equip_or_collect(new /obj/item/radio/map_preset(H, "gang_violet_knuckles"), slot_in_backpack)
+
+// ----- Sham'tyrs variant
+/obj/outfit/admin/crevus/gang_member/gang2/post_equip(mob/living/carbon/human/H)
+	. = ..()
+	H.equip_or_collect(new /obj/item/radio/map_preset(H, "gang_shamtyrs"), slot_in_backpack)
+
 /datum/ghostspawner/human/crevus_gang1_boss
 	short_name = "crevus_gang1_boss"
 	name = "The Violet Knuckles, Gang Leader"
@@ -567,7 +582,7 @@
 	recognition_group = "crevus_gang1"
 	recognition_message = "You recognize this person as the leader of your gang."
 	max_count = 1
-	outfit = /obj/outfit/admin/crevus/gang_boss
+	outfit = /obj/outfit/admin/crevus/gang_boss/gang1
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Gang Leader"
@@ -618,6 +633,16 @@
 	if(prob(55))
 		H.equip_or_collect(new /obj/item/crowbar/red, slot_in_backpack)
 
+// ----- Violet Knuckles variant
+/obj/outfit/admin/crevus/gang_boss/gang1/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	H.equip_or_collect(new /obj/item/radio/map_preset(H, "gang_violet_knuckles"), slot_in_backpack)
+
+// ----- Sham'tyrs variant
+/obj/outfit/admin/crevus/gang_boss/gang2/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	H.equip_or_collect(new /obj/item/radio/map_preset(H, "gang_shamtyrs"), slot_in_backpack)
+
 // ----- Gang 2
 
 /datum/ghostspawner/human/crevus_gang2_member
@@ -633,7 +658,7 @@
 	recognition_group = "crevus_gang2"
 	recognition_message = "You recognize this person as a fellow member of your gang."
 	max_count = 2
-	outfit = /obj/outfit/admin/crevus/gang_member
+	outfit = /obj/outfit/admin/crevus/gang_member/gang2
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Gang Member"
@@ -652,7 +677,7 @@
 	recognition_group = "crevus_gang2"
 	recognition_message = "You recognize this person as the leader of your gang."
 	max_count = 1
-	outfit = /obj/outfit/admin/crevus/gang_boss
+	outfit = /obj/outfit/admin/crevus/gang_boss/gang2
 	possible_species = CREVUS_GENERIC_SPECIES
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Gang Leader"
