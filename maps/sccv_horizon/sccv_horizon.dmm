@@ -20184,6 +20184,9 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
 "cFn" = (
@@ -32682,7 +32685,7 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_door/emergency_closet{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -81767,7 +81770,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_door/service{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -99276,7 +99279,7 @@
 "mQk" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /obj/structure/machinery/firealarm/south,
-/obj/effect/floor_decal/industrial/outline_door/service{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -106510,6 +106513,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/engineering/bluespace_drive)
+"nNm" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/mess_hall)
 "nNG" = (
 /obj/structure/platform,
 /obj/random/dirt_75,
@@ -136188,14 +136197,18 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew/fitness/showers)
 "rEW" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
+/obj/structure/grille,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/machinery/door/blast/shutters{
+	name = "Kitchen Window Shutter";
+	id = "kitchen_window_shutter"
 	},
-/obj/effect/floor_decal/industrial/outline_door/firefighting_closet{
-	dir = 8
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, freezer"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/hallway/primary/deck_2/fore)
+/turf/simulated/floor/plating,
+/area/horizon/service/kitchen)
 "rEY" = (
 /obj/structure/grille,
 /obj/structure/machinery/door/blast/regular{
@@ -150116,6 +150129,9 @@
 "try" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
@@ -165497,6 +165513,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "vqP" = (
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "vqQ" = (
@@ -165991,19 +166010,6 @@
 	density = 1
 	},
 /area/antag/ninja)
-"vuE" = (
-/obj/structure/grille,
-/obj/structure/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/structure/machinery/door/blast/shutters{
-	name = "Kitchen Window Shutter";
-	id = "kitchen_window_shutter"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, freezer"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/service/kitchen)
 "vuH" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -286179,7 +286185,7 @@ mNo
 iGf
 fvA
 eih
-rEW
+kBE
 kBE
 mQk
 uhZ
@@ -288507,7 +288513,7 @@ jRa
 tZc
 nBM
 iVr
-vqP
+nNm
 brr
 hkJ
 nvo
@@ -288520,7 +288526,7 @@ kDa
 ath
 plb
 bfY
-vuE
+rEW
 pam
 eSV
 eSV
@@ -288764,7 +288770,7 @@ qHZ
 txY
 jHq
 bLP
-vqP
+nNm
 brr
 orW
 uEZ
