@@ -1,25 +1,33 @@
 
 #ifdef UNIT_TEST
 
-// Global state caches and type filters
-var/global/list/checked_atom_types = list()
-var/global/list/cached_icon_states = list()
-
-var/global/list/whitelisted_check_types = list(
-	// /atom
-	/turf/simulated,
-	/obj/random,
-	// /obj/item,
-)
-
-var/global/list/ignored_check_types = list(
-	// e.g. /atom/movable/lighting_overlay
-)
-
 /// Icon check.
 /// Validates that an atom's icon and icon_state match valid entries in the DMI.
 /// Does nothing outside of tests.
 /proc/validate_atom_icon(atom/target)
+
+	// Atom types already checked
+	var/static/list/checked_atom_types = list()
+
+	// Cached icon states for each icon file
+	// So we don't have to re-read the DMI every time
+	var/static/list/cached_icon_states = list()
+
+	// Only these types (and their subtypes) are checked
+	var/static/list/whitelisted_check_types = list(
+		// /atom
+		/turf/simulated,
+		/obj/random,
+		// /obj/item,
+	)
+
+	// These types (and their subtypes) are ignored
+	var/static/list/ignored_check_types = list(
+		// e.g. /atom/movable/lighting_overlay
+	)
+
+	// 0. Proc begins here proper
+
 	dbg_assert(istype(target), "[target] is not a valid atom.")
 
 	if (is_abstract(target))
@@ -27,12 +35,12 @@ var/global/list/ignored_check_types = list(
 
 	var/atom_type = target.type
 
-	// 0. Check if type was already validated
+	// 1. Check if type was already validated
 	if (checked_atom_types[atom_type])
 		return TRUE
 	checked_atom_types[atom_type] = TRUE
 
-	// 1. Whitelist filter: must match at least one allowed root path
+	// 2. Whitelist filter: must match at least one allowed root path
 	var/whitelisted = FALSE
 	for (var/allowed_path in whitelisted_check_types)
 		if (istype(target, allowed_path))
@@ -41,12 +49,12 @@ var/global/list/ignored_check_types = list(
 	if (!whitelisted)
 		return FALSE
 
-	// 2. Blacklist filter: skip if it matches any ignored path
+	// 3. Blacklist filter: skip if it matches any ignored path
 	for (var/ignored_path in ignored_check_types)
 		if (istype(target, ignored_path))
 			return FALSE
 
-	// 3. Icon validation
+	// 4. Icon validation
 	// Kept as (icon && icon_state) per current scoping
 	if (target.icon && target.icon_state)
 		dbg_assert(target.icon, "[atom_type] has icon_state '[target.icon_state]' set, but no icon file.")
