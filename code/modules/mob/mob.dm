@@ -36,8 +36,6 @@
 	QDEL_NULL(radio_use_icon)
 	QDEL_NULL(gun_move_icon)
 	QDEL_NULL(gun_setting_icon)
-	QDEL_NULL(unique_action_icon)
-	QDEL_NULL(toggle_firing_mode)
 	QDEL_NULL(energy_display)
 	QDEL_NULL(instability_display)
 	QDEL_NULL(up_hint)
@@ -804,7 +802,7 @@
 
 /mob/proc/start_pulling(var/atom/movable/AM)
 
-	if ( !AM || !usr || src==AM || !isturf(src.loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
+	if(!AM || !usr || src == AM || !isturf(src.loc) || !isturf(AM.loc)) // If the puller or target is inside something, abort.
 		return
 
 	if (AM.anchored)

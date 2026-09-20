@@ -1,0 +1,8 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - admin: "Added pagination to the player notes lookup panel."
+  - admin: "Player notes are now listed in descending order by added date."
+  - bugfix: "Fixed massive player note queries."

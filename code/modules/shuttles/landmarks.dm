@@ -168,7 +168,10 @@
 		// 	return TRUE //clashes with another area
 
 		if(target.density)
-			return TRUE //dense turf
+			return TRUE //dense turf, aka we found a wall
+
+		if(GLOB.landing_zone_borders[target])
+			return TRUE // we found a landing zone border, this LZ is invalid for a shuttle of the caller's size
 
 	return FALSE
 

@@ -123,7 +123,8 @@
 	if (start_with_cell && !no_emergency)
 		cell = new /obj/item/cell/device/emergency_light(src)
 
-	if (!must_start_working && mapload && loc && isNotAdminLevel(z))
+	var/area/A = get_area(src)
+	if (!must_start_working && mapload && loc && isNotAdminLevel(z) && !A.lights_start_intact)
 		switch(fitting)
 			if("tube")
 				if(prob(2) || (maybe_broken && prob(50)))
@@ -138,12 +139,15 @@
 	// If we're randomizing the color of this fixture, we check if the area has a special palette.
 	// This is intended to save mapping time by automating light variations in different areas.
 	if(randomize_color)
-		var/area/A = get_area(src)
 		randomized_colors = A.area_lighting
 
 		brightness_color = pick(randomized_colors)
 
 	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
+
+	if(A.starts_with_nightmode)
+		nightmode = TRUE
+
 	update(0)
 	set_pixel_offsets()
 

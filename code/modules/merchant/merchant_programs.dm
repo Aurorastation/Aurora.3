@@ -137,9 +137,9 @@
 	if(pad)
 		var/list/targets = pad.get_targets()
 		for(var/target in targets)
-			if(istype(target, /obj/item/spacecash))
-				var/obj/item/spacecash/cash = target
-				bank += cash.worth
+			if(istype(target, /obj/item/currency))
+				var/obj/item/currency/cash = target
+				bank += cash.get_credit_value()
 				qdel(target)
 		last_comms = "ALL MONEY DETECTED ON PAD transferred"
 		return
