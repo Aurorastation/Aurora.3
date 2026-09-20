@@ -251,7 +251,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	M.forceMove(get_turf(src))
 
 	// Switch control to nymph
-	M.key = src.key
+	src.client.transfer_key_to_mob(M)
 	teleop = TRUE
 	M.teleop = TRUE
 	src.key = "@[M.key]"
