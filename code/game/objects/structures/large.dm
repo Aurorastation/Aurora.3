@@ -70,13 +70,14 @@
 
 
 	if(!LAZYLEN(target_turfs))
-		get_target_turfs(user)
+		if(!get_target_turfs(user))
+			return FALSE
 
 	interacting += user
 
 	user.visible_message(SPAN_NOTICE("\The [user] begins assembling \the [src]'s [stage_to_do]."))
 	stages[stage_to_do] = STAGE_PROGRESS
-	if(!do_after(user, time_per_structure * LAZYLEN(target_turfs)))
+	if(!do_after(user, 1 SECOND))//time_per_structure * LAZYLEN(target_turfs)))
 		stages[stage_to_do] = STAGE_DISASSEMBLED
 		interacting -= user
 		return
@@ -102,6 +103,7 @@
 		if(!(istype(T) || force))
 			to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
 			return FALSE
+	return TRUE
 
 /datum/large_structure/proc/build_structures()
 	for(var/turf/T in target_turfs)
