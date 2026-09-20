@@ -54,6 +54,21 @@
 	cooldown = 10
 	var/mode = 0 // 0 off, 1 assisted traction, 2 magnetic anchoring
 
+/obj/item/organ/internal/augment/tesla_device/traction/Initialize()
+	. = ..()
+	register_owner_signals()
+
+/obj/item/organ/internal/augment/tesla_device/traction/replaced()
+	. = ..()
+	register_owner_signals()
+
+/obj/item/organ/internal/augment/tesla_device/traction/proc/register_owner_signals()
+	if(!owner)
+		return
+	RegisterSignal(owner, COMSIG_GET_MOVEMENT_TALLY, PROC_REF(modify_movement_tally))
+	RegisterSignal(owner, COMSIG_GET_SLIP_MODIFIERS, PROC_REF(prevent_slipping))
+	RegisterSignal(owner, COMSIG_CHECK_SHOE_GRIP, PROC_REF(provide_shoe_grip))
+
 /obj/item/organ/internal/augment/tesla_device/traction/attack_self(var/mob/user)
 	. = ..()
 	if(!.)
@@ -64,20 +79,34 @@
 	if(!owner)
 		mode = 0
 		return
-	REMOVE_TRAIT(owner, TRAIT_TESLA_TRACTION_ASSIST, TRAIT_SOURCE_AUGMENT)
-	REMOVE_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
 	mode = has_tesla_power() ? new_mode : 0
 	switch(mode)
 		if(1)
-			ADD_TRAIT(owner, TRAIT_TESLA_TRACTION_ASSIST, TRAIT_SOURCE_AUGMENT)
 			to_chat(owner, SPAN_NOTICE("You set your transdermal magnetic pads to assisted traction."))
 			playsound(get_turf(owner), 'sound/effects/magnetclamp.ogg', 15)
 		if(2)
-			ADD_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
 			to_chat(owner, SPAN_NOTICE("You fully magnetize your transdermal magnetic pads."))
 			playsound(get_turf(owner), 'sound/effects/magnetclamp.ogg', 20)
 		else
 			to_chat(owner, SPAN_NOTICE("You switch off your transdermal magnetic pads."))
+
+/obj/item/organ/internal/augment/tesla_device/traction/proc/modify_movement_tally(mob/living/carbon/human/human, movement_tally_modifier)
+	SIGNAL_HANDLER
+	switch(mode)
+		if(1)
+			*movement_tally_modifier += 0.5
+		if(2)
+			*movement_tally_modifier += 1
+
+/obj/item/organ/internal/augment/tesla_device/traction/proc/prevent_slipping(mob/living/carbon/human/human)
+	SIGNAL_HANDLER
+	if(mode)
+		return COMPONENT_PREVENT_SLIP
+
+/obj/item/organ/internal/augment/tesla_device/traction/proc/provide_shoe_grip(mob/living/carbon/human/human)
+	SIGNAL_HANDLER
+	if(mode == 2)
+		return COMPONENT_HAS_SHOE_GRIP
 
 /obj/item/organ/internal/augment/tesla_device/traction/tesla_power_changed(var/powered)
 	if(!powered && mode)
@@ -85,8 +114,8 @@
 
 /obj/item/organ/internal/augment/tesla_device/traction/removed()
 	if(owner)
-		REMOVE_TRAIT(owner, TRAIT_TESLA_TRACTION_ASSIST, TRAIT_SOURCE_AUGMENT)
-		REMOVE_TRAIT(owner, TRAIT_SHOE_GRIP, TRAIT_SOURCE_AUGMENT)
+		UnregisterSignal(owner, list(COMSIG_GET_MOVEMENT_TALLY, COMSIG_GET_SLIP_MODIFIERS, COMSIG_CHECK_SHOE_GRIP))
+	mode = 0
 	return ..()
 
 /obj/item/organ/internal/augment/tesla_device/traction/feedback_hints(mob/user, distance, is_adjacent)
@@ -300,6 +329,10 @@
 /obj/item/weldingtool/experimental/tesla_augment/Initialize()
 	. = ..()
 	reagents.clear_reagents()
+
+/obj/item/weldingtool/experimental/tesla_augment/Destroy()
+	source_augment = null
+	return ..()
 
 /obj/item/weldingtool/experimental/tesla_augment/feedback_hints(mob/user, distance, is_adjacent)
 	. = ..()
@@ -557,15 +590,20 @@
 		return FALSE
 	active = TRUE
 	next_activation = world.time + 5 MINUTES
-	ADD_TRAIT(owner, TRAIT_TESLA_CIRCULATORY_DRIVER, TRAIT_SOURCE_AUGMENT)
+	RegisterSignal(owner, COMSIG_STAMINA_DRAIN_MODIFIERS, PROC_REF(modify_stamina_drain))
 	to_chat(owner, SPAN_NOTICE("Your circulatory pump begins boosting your blood flow."))
 	addtimer(CALLBACK(src, PROC_REF(deactivate)), 30 SECONDS)
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/proc/deactivate()
-	if(owner && active)
-		REMOVE_TRAIT(owner, TRAIT_TESLA_CIRCULATORY_DRIVER, TRAIT_SOURCE_AUGMENT)
-		to_chat(owner, SPAN_NOTICE("Your circulatory pump winds down, leaving you briefly nauseated and light-headed."))
+	if(owner)
+		UnregisterSignal(owner, COMSIG_STAMINA_DRAIN_MODIFIERS)
+		if(active)
+			to_chat(owner, SPAN_NOTICE("Your circulatory pump winds down, leaving you briefly nauseated and light-headed."))
 	active = FALSE
+
+/obj/item/organ/internal/augment/tesla_device/oxygenation/driver/proc/modify_stamina_drain(mob/living/carbon/human/human, stamina_cost)
+	SIGNAL_HANDLER
+	*stamina_cost *= 0.85
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/tesla_power_changed(var/powered)
 	if(!powered)
@@ -978,9 +1016,6 @@
 	cooldown = 10
 	var/mode = 0 // -1 cooling, 0 off, 1 warming
 
-/obj/item/organ/internal/augment/tesla_device/thermal/process_initialize()
-	START_PROCESSING(SSprocessing, src)
-
 /obj/item/organ/internal/augment/tesla_device/thermal/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
@@ -993,9 +1028,19 @@
 	if(mode > 1)
 		mode = -1
 	to_chat(owner, SPAN_NOTICE("You switch your thermal coils to [mode == 1 ? "warming" : (mode == -1 ? "cooling" : "off")]."))
+	if(mode)
+		START_PROCESSING(SSprocessing, src)
 
-/obj/item/organ/internal/augment/tesla_device/thermal/process()
-	if(!owner || !mode || !has_tesla_power())
+/obj/item/organ/internal/augment/tesla_device/thermal/process(seconds_per_tick)
+	. = ..()
+	if(!mode)
+		if(surge_damage)
+			return
+		return PROCESS_KILL
+	if(!owner)
+		mode = 0
+		return PROCESS_KILL
+	if(!has_tesla_power())
 		return
 	var/target_temperature = owner.species.body_temperature + (20 * mode)
 	if(mode > 0 && owner.bodytemperature < target_temperature)
@@ -1008,3 +1053,8 @@
 		mode = 0
 		if(owner)
 			to_chat(owner, SPAN_WARNING("Your thermal coils switch off as spine power fails."))
+
+/obj/item/organ/internal/augment/tesla_device/thermal/removed()
+	mode = 0
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()

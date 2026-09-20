@@ -72,8 +72,9 @@
 
 	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
 		tally += 1
-	else if(HAS_TRAIT(src, TRAIT_TESLA_TRACTION_ASSIST))
-		tally += 0.5
+	var/movement_tally_modifier = 0
+	SEND_SIGNAL(src, COMSIG_GET_MOVEMENT_TALLY, &movement_tally_modifier)
+	tally += movement_tally_modifier
 
 	tally += GLOB.config.human_delay
 
@@ -103,7 +104,7 @@
 /mob/living/carbon/human/slip_chance(var/prob_slip = 5)
 	if(!..())
 		return 0
-	if(HAS_TRAIT(src, TRAIT_TESLA_TRACTION_ASSIST))
+	if(SEND_SIGNAL(src, COMSIG_GET_SLIP_MODIFIERS) & COMPONENT_PREVENT_SLIP)
 		return 0
 
 	//Check hands and mod slip
@@ -119,6 +120,8 @@
 	if(shoes && (shoes.item_flags & ITEM_FLAG_NO_SLIP) && istype(shoes, /obj/item/clothing/shoes/magboots) && !lying && !buckled_to && !length(grabbed_by))
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_SHOE_GRIP))
+		return TRUE
+	if(SEND_SIGNAL(src, COMSIG_CHECK_SHOE_GRIP) & COMPONENT_HAS_SHOE_GRIP)
 		return TRUE
 	return FALSE
 
