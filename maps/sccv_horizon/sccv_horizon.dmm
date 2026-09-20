@@ -39110,7 +39110,6 @@
 /turf/simulated/floor/tiled/freezer,
 /area/horizon/medical/washroom)
 "fdd" = (
-/obj/structure/machinery/light/small/floor,
 /obj/effect/floor_decal/industrial/outline_straight/service{
 	dir = 1
 	},
@@ -123362,7 +123361,6 @@
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow"
 	},
-/obj/structure/machinery/light/small/floor,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
