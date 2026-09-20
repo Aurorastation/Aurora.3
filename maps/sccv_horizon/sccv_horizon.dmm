@@ -24347,11 +24347,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "dhe" = (
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 1
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/mess_hall)
+/turf/simulated/floor/wood,
+/area/horizon/service/bar)
 "dhg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -59011,13 +59011,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
-"hHd" = (
-/obj/structure/machinery/computer/security/terminal/public{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/hatch/service,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/bar)
 "hHg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -68450,10 +68443,10 @@
 /area/centcom/shared_dream)
 "iSz" = (
 /obj/structure/machinery/disposal,
-/obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "iSB" = (
@@ -81764,6 +81757,18 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
+"kBE" = (
+/obj/structure/table/stone/marble,
+/obj/item/toy/desk/fan{
+	pixel_x = 7;
+	pixel_y = 15
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "kBK" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -84159,17 +84164,11 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/upperdeck)
 "kSa" = (
-/obj/structure/table/stone/marble,
-/obj/item/toy/desk/fan{
-	pixel_x = 7;
-	pixel_y = 15
-	},
-/obj/item/storage/box/large/produce{
-	pixel_x = -13;
-	pixel_y = 2
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
+/area/horizon/service/mess_hall)
 "kSd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -156570,7 +156569,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/closet/walllocker/firecloset{
-	pixel_x = -32
+	pixel_x = -29;
+	pixel_y = -2
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -156589,7 +156589,7 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/north{
 	pixel_y = 0;
-	pixel_x = -32
+	pixel_x = -29
 	},
 /obj/item/storage/toolbox/emergency,
 /obj/effect/floor_decal/industrial/outline_straight/emergency_closet{
@@ -174090,7 +174090,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/table/fancy/black,
 /obj/item/flame/candle{
 	pixel_x = 5;
 	pixel_y = 15
@@ -174103,6 +174102,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
+/obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "wue" = (
@@ -188108,10 +188108,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/lobby)
 "yjV" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/structure/machinery/computer/security/terminal/public{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/hatch/service,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "ykc" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -283684,7 +283685,7 @@ ezA
 nhx
 aSm
 kcY
-hHd
+yjV
 uOK
 sdk
 uYQ
@@ -284963,8 +284964,8 @@ giv
 ezA
 pXp
 hSv
-yjV
-yjV
+dhe
+dhe
 jAu
 mcN
 lUL
@@ -287018,7 +287019,7 @@ txG
 hpC
 fId
 uEZ
-kSa
+kBE
 uEU
 xqR
 oaA
@@ -288813,7 +288814,7 @@ qHZ
 txY
 jHq
 bLP
-dhe
+kSa
 brr
 orW
 uEZ
