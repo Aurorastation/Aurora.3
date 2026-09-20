@@ -18,7 +18,7 @@
 
 /obj/item/organ/internal/augment/tesla_device/proc/has_tesla_power(var/show_warning = FALSE, var/check_damage = FALSE)
 	var/obj/item/organ/internal/augment/tesla/spine = get_spine()
-	if(!spine || spine.is_broken())
+	if(!spine || spine.is_broken() || spine.surge_damage)
 		if(show_warning && owner)
 			to_chat(owner, SPAN_WARNING("Your [src] cannot draw power from a functioning Tesla spine!"))
 		return FALSE
@@ -258,9 +258,10 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/organ/internal/augment/tool/tesla/arc_welder/process()
+/obj/item/organ/internal/augment/tool/tesla/arc_welder/process(seconds_per_tick)
+	. = ..()
 	var/obj/item/organ/internal/augment/tesla/spine = get_tesla_spine(owner)
-	if(!spine || spine.is_broken() || charge >= max_charge)
+	if(!spine || spine.is_broken() || spine.surge_damage || surge_damage || charge >= max_charge)
 		last_charge_generation = world.time
 		return
 	var/generated_charge = (world.time - last_charge_generation) / charge_generation_delay
@@ -272,6 +273,16 @@
 	var/obj/item/weldingtool/experimental/tesla_augment/deployed = locate(augment_type) in owner
 	if(deployed)
 		deployed.source_augment = src
+
+/obj/item/organ/internal/augment/tool/tesla/arc_welder/emp_act(severity)
+	. = ..()
+	charge = 0
+	last_charge_generation = world.time
+	var/obj/item/weldingtool/experimental/tesla_augment/deployed
+	if(owner)
+		deployed = locate(augment_type) in owner
+	if(deployed)
+		deployed.setWelding(FALSE, owner)
 
 /obj/item/weldingtool/experimental/tesla_augment
 	name = "tesla arc welder"
@@ -297,7 +308,10 @@
 
 /obj/item/weldingtool/experimental/tesla_augment/proc/has_spine_power(var/mob/living/user)
 	var/obj/item/organ/internal/augment/tesla/spine = get_tesla_spine(user)
-	return spine && !spine.is_broken()
+	return source_augment && !QDELETED(source_augment) && !source_augment.surge_damage && spine && !spine.is_broken() && !spine.surge_damage
+
+/obj/item/weldingtool/experimental/tesla_augment/tool_use_check(mob/living/user, amount)
+	return welding && get_fuel() >= amount && has_spine_power(user)
 
 /obj/item/weldingtool/experimental/tesla_augment/get_fuel()
 	if(!source_augment || QDELETED(source_augment))
@@ -443,6 +457,9 @@
 	organ_tag = BP_AUG_TESLA_OXYGEN
 	parent_organ = BP_CHEST
 
+/obj/item/organ/internal/augment/tesla_device/oxygenation/proc/is_emp_disabled()
+	return surge_damage > 0
+
 /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
 	name = "tesla subdermal rebreather"
 	desc = "Embodying the cutting edge of Tesla research, the subdermal rebreather is an augment implanted within the upper chest. \
@@ -477,7 +494,8 @@
 	return ..()
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/process(seconds_per_tick)
-	if(!owner || !has_tesla_power())
+	. = ..()
+	if(!owner || is_emp_disabled() || !has_tesla_power())
 		reserve_active = FALSE
 		return
 	var/seconds_elapsed = seconds_per_tick / 10
@@ -497,9 +515,17 @@
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/proc/assist_oxygenation(implantee, blood_volume, blood_volume_mod, oxygenated_add)
 	SIGNAL_HANDLER
-	if(!has_tesla_power() || *blood_volume < BLOOD_VOLUME_BAD)
+	if(is_emp_disabled() || !has_tesla_power() || *blood_volume < BLOOD_VOLUME_BAD)
 		return
 	*oxygenated_add += reserve_active ? 0.5 : 0.25
+
+/obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/emp_act(severity)
+	. = ..()
+	reserve_active = FALSE
+
+/obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/tesla_power_changed(var/powered)
+	if(!powered)
+		reserve_active = FALSE
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -520,6 +546,9 @@
 	var/next_activation = 0
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/attack_self(var/mob/user)
+	if(is_emp_disabled())
+		to_chat(owner, SPAN_WARNING("Your circulatory pump is unresponsive due to electromagnetic interference."))
+		return FALSE
 	if(world.time < next_activation)
 		to_chat(owner, SPAN_WARNING("Your circulatory pump's safety cycle has [round((next_activation - world.time) / 10)] seconds remaining."))
 		return FALSE
@@ -541,6 +570,10 @@
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/tesla_power_changed(var/powered)
 	if(!powered)
 		deactivate()
+
+/obj/item/organ/internal/augment/tesla_device/oxygenation/driver/emp_act(severity)
+	. = ..()
+	deactivate()
 
 /obj/item/organ/internal/augment/tesla_device/oxygenation/driver/removed()
 	deactivate()
@@ -652,7 +685,8 @@
 	restart_generation++
 	return ..()
 
-/obj/item/organ/internal/augment/tesla_device/cardiac/process()
+/obj/item/organ/internal/augment/tesla_device/cardiac/process(seconds_per_tick)
+	. = ..()
 	if(!owner || !has_tesla_power())
 		return
 	if(!primed && rearm_at && world.time >= rearm_at)
@@ -707,6 +741,20 @@
 		owner.reload_fullscreen()
 	to_chat(owner, SPAN_DANGER("Agonizing pain tears through your chest as the apparatus discharges."))
 	return TRUE
+
+/obj/item/organ/internal/augment/tesla_device/cardiac/emp_act(severity)
+	var/was_primed = primed
+	. = ..()
+	if(!was_primed || !owner)
+		return
+	primed = FALSE
+	restart_pending = FALSE
+	restart_generation++
+	rearm_at = world.time + 10 MINUTES
+	owner.visible_message(SPAN_DANGER("[owner]'s Tesla spine discharges with a sharp crack!"), SPAN_DANGER("Your emergency resuscitation sends an agonizing shock through your chest!"))
+	playsound(get_turf(owner), 'sound/machines/defib_zap.ogg', 60, TRUE)
+	owner.apply_damage(5, DAMAGE_BURN, BP_CHEST, src)
+	owner.custom_pain("Agonizing electrical pain tears through your chest!", 30, TRUE, owner.organs_by_name[BP_CHEST])
 
 /obj/item/organ/internal/augment/tesla_device/cardiac/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -753,7 +753,7 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	display_name = "tesla arc welder selection"
 	description = "A finger-mounted stick welder powered by a slowly regenerating Tesla capacitor. Its electrode tip requires regular maintenance."
 	path = /obj/item/organ/internal/augment/tool/tesla/arc_welder
-	cost = 3
+	cost = 2
 
 /datum/gear/augment/tesla_accessory/welder/New()
 	..()
@@ -810,7 +810,7 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	display_name = "tesla mobile power system selection"
 	description = "An integrated induction charger which powers a compatible item held in its selected hand at roughly power-outlet speed. It supports modular-computer and handheld device cells, but not full-sized power cells."
 	path = /obj/item/organ/internal/augment/tesla_device/charging_lead
-	cost = 2
+	cost = 1
 
 /datum/gear/augment/tesla_accessory/charging_lead/New()
 	..()
