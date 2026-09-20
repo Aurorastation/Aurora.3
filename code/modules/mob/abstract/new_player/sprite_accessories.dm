@@ -7257,3 +7257,44 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "taj_patchesface"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+/datum/sprite_accessory/marking/taj_spots_full
+	name = "Color Spots (Full)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_leftleg
+	name = "Color Spots (Left Leg)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_L_FOOT,BP_L_LEG)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_rightleg
+	name = "Color Spots (Right Leg)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_R_FOOT,BP_R_LEG)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_leftarm
+	name = "Color Spots (Left Arm)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_L_ARM,BP_L_HAND)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_rightarm
+	name = "Color Spots (Right Arm)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_R_ARM,BP_R_HAND)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_chest
+	name = "Color Spots (Torso)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_CHEST,BP_GROIN)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)

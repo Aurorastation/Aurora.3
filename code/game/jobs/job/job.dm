@@ -68,6 +68,8 @@
 	var/list/blacklisted_species = null
 	/// A blacklist of citizenships that can't be this job.
 	var/list/blacklisted_citizenship = list()
+	/// Whether the citizenship blacklist should prevent selecting this job in character setup.
+	var/check_citizenship_in_preferences = TRUE
 
 	/// The job name of the aide and bodyguard slots. Used for consulars and representatives.
 	var/aide_job

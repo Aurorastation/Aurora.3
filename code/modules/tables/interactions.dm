@@ -14,6 +14,8 @@
 			return 1
 	if(istype(mover, /obj/structure/closet/crate))
 		return TRUE
+	if(!can_crawl_under())
+		return FALSE
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
@@ -73,12 +75,70 @@
 
 	if(ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
+		if((H.crawling_under_table || H.attempting_table_crawl) && can_crawl_under())
+			return
 		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
 	else if((isliving(arrived) && !issmall(arrived)) || isslime(arrived))
 		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
+
+/obj/structure/table/proc/rustle_from_crawler()
+	visible_message(SPAN_NOTICE("\The [src] rustles slightly."), blind_message = SPAN_NOTICE("You hear a faint rustling."))
+	playsound(src, SFX_RUSTLE, 15, TRUE, -5)
+	var/list/rustling_atoms = list(src)
+	for(var/obj/item/item in get_turf(src))
+		if(!item.anchored && item.layer > BELOW_TABLE_LAYER)
+			rustling_atoms += item
+	for(var/atom/rustling_atom in rustling_atoms)
+		var/original_pixel_x = rustling_atom.pixel_x
+		// A slight side-to-side rustle, without changing the vertical offset.
+		animate(rustling_atom, pixel_x = original_pixel_x + 1, time = 0.1 SECOND, flags = ANIMATION_PARALLEL)
+		animate(pixel_x = original_pixel_x - 1, time = 0.1 SECOND)
+		animate(pixel_x = original_pixel_x, time = 0.1 SECOND)
+
+/obj/structure/table/proc/pull_crawler_out(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!istype(user) || !istype(target) || !target.crawling_under_table || get_turf(target) != get_turf(src))
+		return FALSE
+	if(!user.Adjacent(src))
+		return FALSE
+	if(locate(/obj/structure/table) in get_turf(user))
+		to_chat(user, SPAN_WARNING("You cannot pull someone out from under a table while standing on one yourself!"))
+		return TRUE
+	if(user.get_active_hand())
+		to_chat(user, SPAN_WARNING("You need an empty active hand to grab [target]."))
+		return TRUE
+	if(target.anchored || target.buckled_to)
+		to_chat(user, SPAN_WARNING("You cannot drag [target] out while [target.get_pronoun("he")] [target.get_pronoun("is")] secured in place."))
+		return TRUE
+	if(user.is_pacified())
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [target]!"))
+		return TRUE
+	if(!target.attempt_grab(user))
+		return TRUE
+	for(var/obj/item/grab/existing_grab in target.grabbed_by)
+		if(existing_grab.assailant == user)
+			to_chat(user, SPAN_NOTICE("You already have hold of [target]."))
+			return TRUE
+
+	user.visible_message(
+		SPAN_WARNING("[user] reaches beneath \the [src] and pulls [target] out from under it!"),
+		SPAN_WARNING("You reach beneath \the [src] and pull [target] out from under it!")
+	)
+	target.forceMove(get_turf(user))
+	var/obj/item/grab/grab = new /obj/item/grab(user, user, target)
+	if(QDELETED(grab))
+		return TRUE
+	user.put_in_active_hand(grab)
+	grab.state = GRAB_AGGRESSIVE
+	grab.icon_state = "grabbed1"
+	grab.hud.icon_state = "reinforce1"
+	grab.last_action = world.time
+	grab.synch()
+	target.LAssailant = WEAKREF(user)
+	playsound(user, SFX_GRAB, 50, FALSE, -1)
+	return TRUE
 
 /obj/structure/table/proc/throw_things(var/mob/living/user)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
@@ -172,6 +232,10 @@
 	if(ishuman(user))
 		if(!use_check_and_message(user))
 			var/mob/living/carbon/human/H = user
+			if(H.a_intent == I_GRAB)
+				for(var/mob/living/carbon/human/hidden in get_turf(src))
+					if(hidden.crawling_under_table && pull_crawler_out(H, hidden))
+						return TRUE
 			if((H.zone_sel.selecting in list(BP_R_HAND, BP_L_HAND)))
 				if(H.last_special + 1 SECOND < world.time)
 					H.last_special = world.time

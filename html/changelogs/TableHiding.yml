@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Permits crawling under non-reinforced tables to hide and adds a button in the IC tab to search under nearby tables."

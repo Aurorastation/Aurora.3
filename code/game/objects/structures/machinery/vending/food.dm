@@ -168,3 +168,6 @@
 		/obj/item/storage/box/fancy/popsicle/torpedo_dirtberry_packaged = 4.00,
 		/obj/item/storage/box/fancy/popsicle/torpedo_dyn_packaged = 4.00
 	)
+
+/obj/structure/machinery/vending/idris_delights/all_currencies
+	accepted_currencies = CURRENCY_ALL
