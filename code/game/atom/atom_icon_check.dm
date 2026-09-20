@@ -18,7 +18,7 @@
 		// Ideally this would just be `/atom`, but it would require fixing a million icons, so...
 		/turf/simulated,
 		/obj/random,
-		/obj/item,
+		/obj/structure,
 	)
 
 	// These types (and their subtypes) are ignored
