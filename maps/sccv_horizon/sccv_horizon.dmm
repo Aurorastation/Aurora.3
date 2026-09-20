@@ -23492,7 +23492,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/lower)
 "daZ" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -57967,7 +57967,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/lower)
 "hzX" = (
 /obj/effect/floor_decal/corner/brown{
@@ -106510,19 +106510,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/engineering/bluespace_drive)
-"nNm" = (
-/obj/structure/grille,
-/obj/structure/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/structure/machinery/door/blast/shutters{
-	name = "Kitchen Window Shutter";
-	id = "kitchen_window_shutter"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, freezer"
-	},
-/turf/simulated/floor/plating,
-/area/horizon/service/kitchen)
 "nNG" = (
 /obj/structure/platform,
 /obj/random/dirt_75,
@@ -125255,7 +125242,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/lower)
 "qlt" = (
 /obj/item/taperecorder{
@@ -163556,7 +163543,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/lower)
 "vcp" = (
 /obj/random/dirt_75,
@@ -166004,6 +165991,19 @@
 	density = 1
 	},
 /area/antag/ninja)
+"vuE" = (
+/obj/structure/grille,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/machinery/door/blast/shutters{
+	name = "Kitchen Window Shutter";
+	id = "kitchen_window_shutter"
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, freezer"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/service/kitchen)
 "vuH" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -166574,7 +166574,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/washroom/deck_2)
 "vyO" = (
 /obj/structure/machinery/door/airlock/external{
@@ -180641,7 +180641,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew/washroom/deck_2)
 "xiv" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -288520,7 +288520,7 @@ kDa
 ath
 plb
 bfY
-nNm
+vuE
 pam
 eSV
 eSV
