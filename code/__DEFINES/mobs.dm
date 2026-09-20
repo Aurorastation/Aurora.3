@@ -321,6 +321,9 @@
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
 
+/// Largest mob_size which can fit underneath a table.
+#define TABLE_CRAWL_MAX_MOB_SIZE 12
+
 // Mob weight, separate from mob size. Affects how easy a mob is to lift.
 /// Light mobs, can be lifted by anyone.
 #define MOB_WEIGHT_LIGHT 1
