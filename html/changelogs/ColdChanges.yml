@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - balance: "Taking cold damage from breathing now starts at cold damage tier 2 instead of tier 1."
-  - balance: "Rebalanced the cold protection values on a bunch of clothing."

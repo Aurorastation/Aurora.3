@@ -222,3 +222,16 @@
   - rscadd: Assisted organs require either surgery or robotics skill.
   - rscadd: Shrapnel removal requires either surgery or robotics skill.
   - bugfix: Fixed the risk of rarely being trapped on crate shelves.
+2026-09-20:
+  DreamySkrell:
+  - bugfix: Fixes `/obj/random/finances` not spawning.
+  TheGreyWolf:
+  - balance: Taking cold damage from breathing now starts at cold damage tier 2 instead
+      of tier 1.
+  - balance: Rebalanced the cold protection values on a bunch of clothing.
+  - bugfix: Attempted another spark heisenbug fix.
+  - bugfix: Fixed the double doors moving on the intrepid during flight.
+  TheGreyWolf and Elorg:
+  - rscadd: Added the adhomian knuckle, available in the ATM for a 10 credit fee.
+  kano:
+  - rscadd: Added Nikal Sahira, a port of call map of Crevus.
