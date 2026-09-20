@@ -7,6 +7,7 @@
 	icon_state = "atm"
 	anchored = 1
 	idle_power_usage = 10
+	accepted_currencies = CURRENCY_ALL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/datum/money_account/authenticated_account
 	var/number_incorrect_tries = 0
@@ -64,7 +65,7 @@
 		if(ticks_left_locked_down <= 0)
 			number_incorrect_tries = 0
 
-	for(var/obj/item/spacecash/S in src)
+	for(var/obj/item/currency/S in src)
 		S.forceMove(src.loc)
 		playsound(loc, SFX_PRINT, 50, 1)
 
@@ -103,20 +104,25 @@
 				authenticated_account = null
 			update_icon()
 	else if(authenticated_account)
-		if(istype(attacking_item,/obj/item/spacecash))
+		if(istype(attacking_item,/obj/item/currency))
 			if(istype(attacking_item, /obj/item/spacecash/ewallet/persistent_charge_card))
 				to_chat(user, SPAN_WARNING("You insert the [attacking_item] into [src], but the machine immediately rejects it!"))
 				return
-			var/obj/item/spacecash/cash = attacking_item
+			var/obj/item/currency/cash = attacking_item
+			if(!accepts_currency(cash))
+				to_chat(user, SPAN_WARNING("[src] does not accept [cash.name]."))
+				return
+			var/singleton/currency/currency = cash.get_currency_definition()
+			var/credit_value = cash.get_credit_value()
 			//consume the money
-			authenticated_account.money += cash.worth
+			authenticated_account.money += credit_value
 			playsound(loc, SFX_PRINT, 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new()
 			T.target_name = authenticated_account.owner_name
-			T.purpose = "Credit deposit"
-			T.amount = cash.worth
+			T.purpose = currency.get_deposit_purpose()
+			T.amount = credit_value
 			T.source_terminal = machine_id
 			T.date = worlddate2text()
 			T.time = worldtime2text()
@@ -157,6 +163,17 @@
 		data["money"] = authenticated_account.money
 	data["number_incorrect_tries"] = number_incorrect_tries
 	data["emagged"] = emagged
+	data["withdrawal_currencies"] = list()
+	for(var/singleton/currency/currency as anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/currency))
+		if(!currency.atm_withdrawal_enabled || !(accepted_currencies & currency.acceptance_flag))
+			continue
+		data["withdrawal_currencies"] += list(list(
+			"id" = currency.id,
+			"name" = currency.display_name,
+			"units_per_credit" = currency.units_per_credit,
+			"fee" = currency.atm_withdrawal_fee,
+			"icon" = currency.atm_icon
+		))
 	if(authenticated_account)
 		data["transactions"] = list()
 		for(var/datum/transaction/T in authenticated_account.transactions)
@@ -307,6 +324,36 @@
 					to_chat(usr, SPAN_WARNING("[icon2html(src, usr)] You don't have enough funds to do that!"))
 					. = TRUE
 
+		if("currency_withdrawal")
+			var/amount = max(text2num(params["funds_amount"]), 0)
+			amount = round(amount, 0.01)
+			var/singleton/currency/currency = get_withdrawal_currency(params["currency_id"])
+			if(!currency)
+				to_chat(usr, SPAN_WARNING("That currency is not available from this machine!"))
+				return TRUE
+			var/total_cost = amount + currency.atm_withdrawal_fee
+			if(amount <= 0)
+				to_chat(usr, SPAN_WARNING("That is an invalid amount!"))
+			else if(authenticated_account)
+				if(total_cost <= authenticated_account.money)
+					playsound(src, 'sound/machines/chime.ogg', 50, 1)
+					authenticated_account.money -= total_cost
+					currency.spawn_credit_value(amount, src.loc, usr)
+					intent_message(MACHINE_SOUND)
+
+					var/datum/transaction/T = new()
+					T.target_name = authenticated_account.owner_name
+					T.purpose = "[currency.display_name] withdrawal ([currency.atm_withdrawal_fee] credit conversion fee)"
+					T.amount = "([total_cost])"
+					T.source_terminal = machine_id
+					T.date = worlddate2text()
+					T.time = worldtime2text()
+					SSeconomy.add_transaction_log(authenticated_account,T)
+					. = TRUE
+				else
+					to_chat(usr, SPAN_WARNING("[icon2html(src, usr)] You need [total_cost] credits, including the conversion fee, to do that!"))
+					. = TRUE
+
 		if("balance_statement")
 			if(authenticated_account)
 				var/obj/item/paper/notepad/receipt/R = new()
@@ -399,6 +446,13 @@
 		if("logout")
 			authenticated_account = null
 			. = TRUE
+
+/// Returns an ATM-enabled currency accepted by this machine.
+/obj/structure/machinery/atm/proc/get_withdrawal_currency(var/currency_id)
+	for(var/singleton/currency/currency as anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/currency))
+		if(currency.id == currency_id && currency.atm_withdrawal_enabled && (accepted_currencies & currency.acceptance_flag))
+			return currency
+	return null
 
 //stolen wholesale and then edited a bit from newscasters, which are awesome and by Agouri
 /obj/structure/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user)

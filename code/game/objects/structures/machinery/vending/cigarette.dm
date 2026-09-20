@@ -166,6 +166,9 @@
 		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 10
 	)
 
+/obj/structure/machinery/vending/cigarette/all_currencies
+	accepted_currencies = CURRENCY_ALL
+
 /obj/item/vending_refill/smokes
 	name = "smokes resupply canister"
 	vend_id = "smokes"

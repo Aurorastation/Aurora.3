@@ -453,6 +453,8 @@
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
+	if(mover.throwing)
+		return TRUE
 	if(get_dir(mover, target) == REVERSE_DIR(dir))
 		return FALSE
 	if(height && (mover.dir == dir))
@@ -513,6 +515,9 @@
 /obj/structure/platform/rock
 	icon_state = "colorable_rock_platform"
 	color = COLOR_GRAY40
+
+/obj/structure/platform/rock/icy
+	color = "#97A7AA"
 
 // ---------- Non-colourable platforms
 
@@ -594,6 +599,9 @@
 /obj/structure/platform_deco/rock
 	icon_state = "colorable_rock_platform_deco"
 	color = COLOR_GRAY40
+
+/obj/structure/platform_deco/rock/icy
+	color = "#97A7AA"
 
 // ---------- Non-colourable platform decos
 
