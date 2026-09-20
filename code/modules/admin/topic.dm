@@ -1494,7 +1494,8 @@
 				return
 
 			var/datum/component/skill/skill_component = M.GetComponent(skill.component_type)
-			qdel(skill_component)
+			if(skill_component)
+				qdel(skill_component)
 			skill.on_spawn(M, skill_level)
 
 			show_player_panel(M)
