@@ -53,6 +53,9 @@
 /// Raised on a human before stamina is drained: (&stamina_cost)
 #define COMSIG_STAMINA_DRAIN_MODIFIERS "stamina_drain_modifiers"
 
+/// Raised on the owner of Tesla augments when their Tesla spine changes power state: (powered)
+#define COMSIG_TESLA_POWER_CHANGED "tesla_power_changed"
+
 /// For loss of limbs.
 #define COMSIG_LIMB_LOSS "lost_limb"
 

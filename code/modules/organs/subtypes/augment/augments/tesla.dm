@@ -61,10 +61,7 @@
 		organ.is_emissive = toggle
 		organ.is_overlay = toggle
 
-	for(var/obj/item/organ/internal/organ in owner.internal_organs)
-		if(organ == src || !hascall(organ, "tesla_power_changed"))
-			continue
-		call(organ, "tesla_power_changed")(toggle)
+	SEND_SIGNAL(owner, COMSIG_TESLA_POWER_CHANGED, toggle)
 
 /**
  * Tesla spines power all tesla augs, and if they break, the lights go out.

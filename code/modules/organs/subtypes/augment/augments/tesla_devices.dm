@@ -13,6 +13,27 @@
 	icon_state = "augment"
 	species_restricted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 
+/obj/item/organ/internal/augment/tesla_device/Initialize()
+	. = ..()
+	register_tesla_power_signal()
+
+/obj/item/organ/internal/augment/tesla_device/replaced()
+	. = ..()
+	register_tesla_power_signal()
+
+/obj/item/organ/internal/augment/tesla_device/removed()
+	if(owner)
+		UnregisterSignal(owner, COMSIG_TESLA_POWER_CHANGED)
+	return ..()
+
+/obj/item/organ/internal/augment/tesla_device/proc/register_tesla_power_signal()
+	if(owner)
+		RegisterSignal(owner, COMSIG_TESLA_POWER_CHANGED, PROC_REF(handle_tesla_power_signal))
+
+/obj/item/organ/internal/augment/tesla_device/proc/handle_tesla_power_signal(mob/living/carbon/human/source, powered)
+	SIGNAL_HANDLER
+	tesla_power_changed(powered)
+
 /obj/item/organ/internal/augment/tesla_device/proc/get_spine()
 	return get_tesla_spine(owner)
 
@@ -201,6 +222,27 @@
 	cooldown = 20 SECONDS
 	species_restricted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 
+/obj/item/organ/internal/augment/synthetic_cords/voice/tesla/Initialize()
+	. = ..()
+	register_tesla_power_signal()
+
+/obj/item/organ/internal/augment/synthetic_cords/voice/tesla/replaced()
+	. = ..()
+	register_tesla_power_signal()
+
+/obj/item/organ/internal/augment/synthetic_cords/voice/tesla/removed()
+	if(owner)
+		UnregisterSignal(owner, COMSIG_TESLA_POWER_CHANGED)
+	return ..()
+
+/obj/item/organ/internal/augment/synthetic_cords/voice/tesla/proc/register_tesla_power_signal()
+	if(owner)
+		RegisterSignal(owner, COMSIG_TESLA_POWER_CHANGED, PROC_REF(handle_tesla_power_signal))
+
+/obj/item/organ/internal/augment/synthetic_cords/voice/tesla/proc/handle_tesla_power_signal(mob/living/carbon/human/source, powered)
+	SIGNAL_HANDLER
+	tesla_power_changed(powered)
+
 /obj/item/organ/internal/augment/synthetic_cords/voice/tesla/attack_self(var/mob/user)
 	if(user.client && (user.client.prefs.muted & MUTE_IC))
 		to_chat(user, SPAN_WARNING("You cannot speak in IC while muted."))
@@ -235,6 +277,27 @@
 	name = "tesla retractable tool"
 	desc = "A retractable tool powered by a Tesla spine."
 	species_restricted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+
+/obj/item/organ/internal/augment/tool/tesla/Initialize()
+	. = ..()
+	register_tesla_power_signal()
+
+/obj/item/organ/internal/augment/tool/tesla/replaced()
+	. = ..()
+	register_tesla_power_signal()
+
+/obj/item/organ/internal/augment/tool/tesla/removed()
+	if(owner)
+		UnregisterSignal(owner, COMSIG_TESLA_POWER_CHANGED)
+	return ..()
+
+/obj/item/organ/internal/augment/tool/tesla/proc/register_tesla_power_signal()
+	if(owner)
+		RegisterSignal(owner, COMSIG_TESLA_POWER_CHANGED, PROC_REF(handle_tesla_power_signal))
+
+/obj/item/organ/internal/augment/tool/tesla/proc/handle_tesla_power_signal(mob/living/carbon/human/source, powered)
+	SIGNAL_HANDLER
+	tesla_power_changed(powered)
 
 /obj/item/organ/internal/augment/tool/tesla/attack_self(var/mob/user)
 	var/obj/item/organ/internal/augment/tesla/spine = get_tesla_spine(owner)
