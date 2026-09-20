@@ -4929,12 +4929,7 @@
 /area/horizon/rnd/xenobiology)
 "aGN" = (
 /obj/structure/table/stone/marble,
-/obj/item/toy/desk/fan{
-	pixel_x = 7;
-	pixel_y = 15
-	},
 /obj/item/storage/box/large/produce{
-	pixel_x = -13;
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6722,8 +6717,8 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "aSm" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
@@ -14329,10 +14324,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/tcommsat/entrance)
 "bRc" = (
-/obj/structure/table/wood,
 /obj/structure/machinery/recharger{
 	pixel_y = 3
 	},
+/obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/lino/diamond,
 /area/horizon/service/mess_hall)
 "bRd" = (
@@ -16968,9 +16963,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
@@ -24354,6 +24346,12 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
+"dhe" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/mess_hall)
 "dhg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -42609,7 +42607,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/platform{
+/obj/structure/platform_deco{
+	dir = 1
+	},
+/obj/structure/platform_deco{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -49525,7 +49526,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_3/crewlounge)
 "gvS" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -7;
 	pixel_y = -8
@@ -49542,6 +49542,7 @@
 	pixel_x = 4;
 	pixel_y = 5
 	},
+/obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/lino/diamond,
 /area/horizon/service/mess_hall)
 "gvV" = (
@@ -49859,7 +49860,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
@@ -50353,7 +50354,6 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "gBH" = (
@@ -59012,11 +59012,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
 "hHd" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+/obj/structure/machinery/computer/security/terminal/public{
+	dir = 8
 	},
-/obj/structure/machinery/light/small/floor,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/hatch/service,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "hHg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -75368,7 +75368,6 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "jNo" = (
-/obj/structure/table/wood,
 /obj/structure/machinery/power/outlet{
 	pixel_y = 3
 	},
@@ -75384,6 +75383,7 @@
 	pixel_x = 3;
 	pixel_y = 11
 	},
+/obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/lino/diamond,
 /area/horizon/service/mess_hall)
 "jNp" = (
@@ -81764,13 +81764,6 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
-"kBE" = (
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/large/produce{
-	pixel_y = 2
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "kBK" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -84166,12 +84159,17 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/upperdeck)
 "kSa" = (
-/obj/structure/machinery/light/floor,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+/obj/structure/table/stone/marble,
+/obj/item/toy/desk/fan{
+	pixel_x = 7;
+	pixel_y = 15
 	},
-/turf/simulated/floor/wood,
-/area/horizon/service/mess_hall)
+/obj/item/storage/box/large/produce{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "kSd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -86299,6 +86297,7 @@
 /obj/structure/noticeboard{
 	pixel_y = 30
 	},
+/obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "lfG" = (
@@ -88428,7 +88427,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -101429,7 +101428,10 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/atmos/air)
 "ndW" = (
-/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
 "neb" = (
@@ -106522,9 +106524,15 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/bluespace_drive)
 "nNm" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/plating,
-/area/horizon/service/mess_hall)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/bed/stool/padded/orange{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/horizon/service/bar)
 "nNG" = (
 /obj/structure/platform,
 /obj/random/dirt_75,
@@ -107616,6 +107624,10 @@
 	},
 /obj/structure/machinery/power/outlet{
 	pixel_y = 3
+	},
+/obj/item/lore_radio{
+	pixel_y = 4;
+	pixel_x = 2
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
@@ -111137,9 +111149,12 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "osr" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 4
+	},
 /obj/structure/machinery/alarm/south,
-/obj/structure/table/fancy/black,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "osu" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -118373,9 +118388,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "pqG" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
 /obj/structure/table/wood/gamblingtable,
 /obj/item/paper_bin{
 	pixel_x = 3;
@@ -118389,7 +118401,10 @@
 	pixel_x = -6;
 	pixel_y = 14
 	},
-/obj/item/radio/intercom/west,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/machinery/newscaster/west,
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
 "pqK" = (
@@ -127267,9 +127282,6 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
 "qyu" = (
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 8
-	},
 /obj/item/flashlight/lamp/green{
 	pixel_y = 15;
 	pixel_x = -4
@@ -127833,10 +127845,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/structure/platform_deco{
-	dir = 1
-	},
-/obj/structure/platform_deco{
+/obj/structure/platform{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -130050,14 +130059,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/crew/media_office)
 "qOO" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 7
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 1
-	},
-/obj/structure/bed/stool/bar/padded/orange{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
@@ -130645,9 +130651,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/main/starboard)
 "qTm" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
 /obj/structure/table/wood/gamblingtable,
 /obj/structure/machinery/recharger{
 	pixel_x = -3;
@@ -130660,6 +130663,9 @@
 /obj/structure/machinery/camera/network/service{
 	c_tag = "Service - Bar 2";
 	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
@@ -138310,15 +138316,15 @@
 /turf/simulated/floor,
 /area/horizon/ai/chamber)
 "rSm" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
 /obj/structure/machinery/camera/network/service{
 	c_tag = "Service - Mess Hall 1";
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
@@ -154426,14 +154432,14 @@
 /turf/simulated/wall,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "tVw" = (
-/obj/structure/machinery/computer/ship/navigation/terminal{
-	dir = 4
-	},
 /obj/structure/machinery/holosign/service/bar{
 	id = "bar";
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/computer/security/terminal/public{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "tVA" = (
@@ -161412,13 +161418,11 @@
 /turf/simulated/floor,
 /area/horizon/command/bridge/upperdeck)
 "uOK" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 4
-	},
-/obj/structure/synthesized_instrument/synthesizer/piano{
+/obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/hatch/service,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "uOM" = (
 /obj/effect/floor_decal/corner/red,
@@ -165535,10 +165539,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "vqP" = (
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/horizon/service/mess_hall)
 "vqQ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -171240,11 +171242,11 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_lasertag)
 "wdx" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
-	},
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
@@ -174085,11 +174087,23 @@
 /turf/simulated/open,
 /area/horizon/maintenance/deck_2/cryo)
 "wtZ" = (
-/obj/structure/machinery/computer/security/terminal/public{
-	dir = 4
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/service,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/table/fancy/black,
+/obj/item/flame/candle{
+	pixel_x = 5;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_y = 3;
+	pixel_x = 1
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "wue" = (
 /obj/structure/machinery/power/apc/super/west,
@@ -179909,12 +179923,14 @@
 	pixel_y = -32;
 	id = "kitchen"
 	},
-/obj/item/lore_radio{
-	pixel_y = 4;
-	pixel_x = 2
+/obj/structure/synthesized_instrument/synthesizer/piano{
+	dir = 8
 	},
-/obj/structure/table/fancy/black,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/structure/machinery/light,
+/turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "xdR" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
@@ -283409,7 +283425,7 @@ pQL
 mDF
 ezA
 nhf
-uKS
+nNm
 ndW
 ixz
 qOO
@@ -283667,8 +283683,8 @@ ezA
 ezA
 nhx
 aSm
-hHd
 kcY
+hHd
 uOK
 sdk
 uYQ
@@ -285714,7 +285730,7 @@ tRw
 fFs
 qgO
 gBG
-kSa
+lJW
 xTb
 fdd
 cbx
@@ -287002,7 +287018,7 @@ txG
 hpC
 fId
 uEZ
-aGN
+kSa
 uEU
 xqR
 oaA
@@ -288283,7 +288299,7 @@ nfm
 aaS
 nBM
 cFl
-nNm
+vqP
 xvd
 umk
 jPz
@@ -288540,11 +288556,11 @@ jRa
 tZc
 jHq
 iVr
-nNm
+vqP
 brr
 hkJ
 nvo
-kBE
+aGN
 uEU
 ilv
 krl
@@ -288797,7 +288813,7 @@ qHZ
 txY
 jHq
 bLP
-vqP
+dhe
 brr
 orW
 uEZ
