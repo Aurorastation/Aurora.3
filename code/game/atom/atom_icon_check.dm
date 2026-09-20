@@ -6,7 +6,10 @@ var/global/list/checked_atom_types = list()
 var/global/list/cached_icon_states = list()
 
 var/global/list/whitelisted_check_types = list(
-	/atom
+	// /atom
+	/turf/simulated,
+	/obj/random,
+	// /obj/item,
 )
 
 var/global/list/ignored_check_types = list(
