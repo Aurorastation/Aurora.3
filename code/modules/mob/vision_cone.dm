@@ -1,0 +1,117 @@
+/**
+ * Directional vision ported from Azure-Peak (AGPL-3.0).
+ * Source: https://github.com/Azure-Peak/Azure-Peak/blob/b7d8cb76191362d44fdc87e261cdd2257f1682ee/code/modules/mob/vision_cone.dm
+ * Terrain remains visible beneath a shaded cone; the renderer masks living mobs.
+ */
+/mob/proc/update_vision_cone()
+	hud_used?.update_vision_cone_relays()
+
+/// A small circular opening covering the centers of cardinally adjacent tiles.
+/// Applied to the blocker and terrain overlay after their cone sprites are scaled, so viewport size cannot
+/// change the peripheral vision radius. The circle also clears the terrain shading.
+/proc/get_vision_cone_peripheral_mask()
+	var/static/icon/peripheral_mask
+	if(peripheral_mask)
+		return peripheral_mask
+	var/radius = ceil(world.icon_size * 1.25)
+	var/feather_width = world.icon_size * 0.1875 // Six pixels at the normal tile size.
+	var/diameter = radius * 2
+	peripheral_mask = icon('icons/blanks/32x32.dmi', "nothing")
+	peripheral_mask.Scale(diameter, diameter)
+	var/center = radius + 0.5
+	for(var/row in 1 to diameter)
+		for(var/column in 1 to diameter)
+			var/distance = sqrt((column - center) ** 2 + (row - center) ** 2)
+			if(distance >= radius)
+				continue
+			var/opacity = clamp((radius - distance) / feather_width, 0, 1)
+			// Smoothstep keeps the center clear and gently blends into the cone.
+			opacity = opacity * opacity * (3 - 2 * opacity)
+			peripheral_mask.DrawBox(rgb(255, 255, 255, round(255 * opacity)), column, row, column, row)
+	return peripheral_mask
+
+/obj/item/clothing/proc/get_vision_cone_restrictions()
+	return vision_cone_restrictions
+
+/// Use live armor values, including armor added by materials or suit modules.
+/// Environmental protection alone does not make a helmet armored.
+/obj/item/clothing/head/helmet/get_vision_cone_restrictions()
+	. = ..()
+	var/datum/component/armor/helmet_armor = GetComponent(/datum/component/armor)
+	if(!length(helmet_armor?.armor_values))
+		return
+	for(var/armor_type in list(MELEE, BULLET, LASER, ENERGY, BOMB))
+		if(helmet_armor.armor_values[armor_type] > 0)
+			return . | FOV_RESTRICT_BEHIND
+
+/// Match Azure-Peak's combined head/mask restrictions to its paired sprite states.
+/mob/living/carbon/human/proc/get_vision_cone_state()
+	var/restrictions = 0
+	for(var/obj/item/clothing/equipment in list(head, wear_mask))
+		restrictions |= equipment.get_vision_cone_restrictions()
+	if(restrictions & FOV_RESTRICT_LEFT)
+		if(restrictions & FOV_RESTRICT_RIGHT)
+			return "both"
+		return (restrictions & FOV_RESTRICT_BEHIND) ? "behind_l" : "left"
+	if(restrictions & FOV_RESTRICT_RIGHT)
+		return (restrictions & FOV_RESTRICT_BEHIND) ? "behind_r" : "right"
+	return (restrictions & FOV_RESTRICT_BEHIND) ? "behind" : "combat"
+
+/// Species determine whether directional vision applies.
+/mob/living/carbon/human/proc/has_vision_cone()
+	return !species?.omni_vision
+
+/// Remote eyes, unconscious/dead characters and prone characters have no cone.
+/mob/living/carbon/human/proc/should_show_vision_cone()
+	return has_vision_cone() && client && client.eye == src && client.perspective == MOB_PERSPECTIVE && !client.pixel_x && !client.pixel_y && !stat && !lying && isturf(loc)
+
+/mob/living/carbon/human/update_vision_cone()
+	..()
+	if(!client || !hud_used)
+		return
+	if(!hud_used.fov)
+		hud_used.fov = new
+		hud_used.fov_blocker = new
+	client.screen |= hud_used.fov
+	client.screen |= hud_used.fov_blocker
+	var/show_cone = should_show_vision_cone()
+	hud_used.fov.alpha = show_cone ? 255 : 0
+	hud_used.fov_blocker.alpha = show_cone ? 255 : 0
+	if(!show_cone)
+		hud_used.clear_vision_cone_exemptions()
+		return
+
+	var/cone_state = get_vision_cone_state()
+	hud_used.fov.icon_state = cone_state
+	hud_used.fov_blocker.icon_state = "[cone_state]_v"
+	// The source sprites are 15 tiles square. Scale about their center for wider views.
+	var/list/view_size = getviewsize(client.view)
+	var/cone_scale = max(1, max(view_size[1], view_size[2]) / 15)
+	var/matrix/cone_transform = matrix()
+	cone_transform.Scale(cone_scale)
+	hud_used.fov.transform = cone_transform
+	hud_used.fov_blocker.transform = cone_transform
+	hud_used.fov.dir = dir
+	hud_used.fov_blocker.dir = dir
+
+	var/list/exempt_mobs = list(src)
+	if(isliving(pulling))
+		exempt_mobs += pulling
+	hud_used.update_vision_cone_exemptions(exempt_mobs)
+
+/atom/movable/screen/fov
+	name = " "
+	icon = 'icons/mob/vision_cone.dmi'
+	icon_state = "combat"
+	screen_loc = "CENTER-7,CENTER-7"
+	plane = FOV_OVERLAY_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	alpha = 0
+
+/atom/movable/screen/fov_blocker
+	icon = 'icons/mob/vision_cone.dmi'
+	icon_state = "combat_v"
+	screen_loc = "CENTER-7,CENTER-7"
+	plane = FIELD_OF_VISION_BLOCKER_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	alpha = 0

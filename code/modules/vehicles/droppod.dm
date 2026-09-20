@@ -132,7 +132,7 @@
 			L.anchored = 0
 			L.pixel_x = initial(user.pixel_x)
 			L.pixel_y = initial(user.pixel_y)
-			L.layer = initial(user.layer)
+			L.set_layer(initial(user.layer))
 			user_unbuckle(L, L)
 		else if(istype(a, /obj))
 			var/obj/O = a

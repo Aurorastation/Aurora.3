@@ -7,10 +7,10 @@
 		return
 
 	if (layer != HIDING_MOB_LAYER)
-		layer = HIDING_MOB_LAYER //Just above cables with their 2.44
+		set_layer(HIDING_MOB_LAYER) //Just above cables with their 2.44
 		to_chat(src, SPAN_NOTICE("You are now hiding."))
 	else
-		layer = MOB_LAYER
+		set_layer(MOB_LAYER)
 		to_chat(src, SPAN_NOTICE("You have stopped hiding."))
 	SEND_SIGNAL(src, COMSIG_MOB_ON_HIDE)
 

@@ -118,7 +118,7 @@
 			return FALSE
 
 		A.eyeobj.setLoc(get_turf(C))
-		A.client.eye = A.eyeobj
+		A.client.set_eye(A.eyeobj)
 		return TRUE
 
 	if(!can_reach_camera(C))

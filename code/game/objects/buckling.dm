@@ -57,7 +57,7 @@
 
 	post_buckle(buckling_atom)
 	buckled_original_layer = buckling_atom.layer
-	buckling_atom.layer = layer + 0.1
+	buckling_atom.set_layer(layer + 0.1)
 	return TRUE
 
 /obj/proc/unbuckle()
@@ -66,7 +66,7 @@
 		. = MA
 		MA.buckled_to = null
 		if(buckled_original_layer)
-			MA.layer = buckled_original_layer
+			MA.set_layer(buckled_original_layer)
 			buckled_original_layer = null
 		MA.anchored = initial(MA.anchored)
 		buckled = null

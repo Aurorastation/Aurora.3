@@ -145,6 +145,14 @@ GLOBAL_LIST(global_huds)
 	var/atom/movable/screen/hurt_intent
 	var/atom/movable/screen/disarm_intent
 	var/atom/movable/screen/help_intent
+	var/atom/movable/screen/fov/fov
+	var/atom/movable/screen/fov_blocker/fov_blocker
+	/// Off-screen passes indexed by source plane; each relays at its original mob layer.
+	var/list/fov_planes = list()
+	var/atom/movable/vision_cone_relay_anchor/fov_anchor
+	var/list/fov_eye_containers = list()
+	/// Live silhouettes which exempt ourselves and a pulled mob from the blocker.
+	var/list/fov_exemptions = list()
 
 	var/list/adding
 	var/list/other
@@ -160,7 +168,7 @@ GLOBAL_LIST(global_huds)
 /datum/hud/New(mob/owner)
 	mymob = owner
 
-	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate - /atom/movable/screen/plane_master/open_space)
+	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate - /atom/movable/screen/plane_master/open_space - /atom/movable/screen/plane_master/vision_cone_mobs)
 		var/atom/movable/screen/plane_master/instance = new mytype()
 		plane_masters["[instance.plane]"] = instance
 		if(owner.client)
@@ -177,9 +185,15 @@ GLOBAL_LIST(global_huds)
 		plane_master_controllers[controller_instance.name] = controller_instance
 
 	instantiate()
+	for(var/key in GLOB.vision_cone_layers)
+		add_vision_cone_layer(GLOB.vision_cone_layers[key])
 	..()
 
 /datum/hud/Destroy()
+	if(mymob?.client)
+		mymob.client.screen -= fov
+		mymob.client.screen -= fov_blocker
+	clear_vision_cone_rendering()
 	mymob = null
 	QDEL_NULL(blobpwrdisplay)
 	QDEL_NULL(blobhealthdisplay)
@@ -191,6 +205,8 @@ GLOBAL_LIST(global_huds)
 	QDEL_NULL(hurt_intent)
 	QDEL_NULL(disarm_intent)
 	QDEL_NULL(help_intent)
+	QDEL_NULL(fov)
+	QDEL_NULL(fov_blocker)
 
 	adding?.Cut()
 	other?.Cut()
@@ -360,6 +376,7 @@ GLOBAL_LIST(global_huds)
 		var/atom/movable/screen/plane_master/PM = plane_masters[thing]
 		PM.backdrop(mymob)
 		mymob.client.add_to_screen(PM)
+	update_vision_cone_relays()
 
 /mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	SHOULD_NOT_SLEEP(TRUE)

@@ -273,7 +273,7 @@
 	LAZYREMOVE(user.additional_vision_handlers, src)
 	if(user.client)
 		user.client.screen -= hud_elements
-		user.client.eye = user
+		user.client.set_eye(user)
 	if(user in pilots)
 		set_intent(I_HURT)
 		remove_verb(user, /mob/proc/toggle_exosuit_camera)
