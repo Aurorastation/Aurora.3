@@ -818,3 +818,7 @@
 /datum/access/crevus_clothing_store
 	id = 266
 	desc = "Clothing Store Access"
+
+/datum/access/modular_freelancer_ship
+	id = 267
+	desc = "Freelancer Ship Access"

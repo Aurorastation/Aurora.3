@@ -102,8 +102,7 @@
 					SPAN_DANGER("You step on \the [src]!"),
 					SPAN_DANGER("You hear a mechanical click!")
 					)
-				ASYNC // Caller requires no-sleep
-					trigger(L)
+				trigger(L)
 
 /obj/item/landmine/attack_hand(mob/user as mob)
 	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))

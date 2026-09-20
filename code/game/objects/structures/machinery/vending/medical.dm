@@ -53,6 +53,9 @@
 	light_color = LIGHT_COLOR_GREEN
 	manufacturer = "zenghu"
 
+/obj/structure/machinery/vending/medical/noid
+	req_access = null
+
 /obj/structure/machinery/vending/medical/low_supply
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
