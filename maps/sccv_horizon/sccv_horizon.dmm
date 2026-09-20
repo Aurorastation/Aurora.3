@@ -2090,6 +2090,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/green,
+/obj/structure/machinery/firealarm/east,
+/obj/structure/machinery/disposal/small/north,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "alx" = (
@@ -15694,7 +15696,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "cbA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -16314,9 +16316,9 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/structure/machinery/chemical_dispenser/coffee{
-	pixel_x = 6;
-	pixel_y = 14
+/obj/structure/machinery/chemical_dispenser/coffee/full{
+	pixel_x = 5;
+	pixel_y = 13
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
@@ -20998,6 +21000,7 @@
 /obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 4
 	},
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "cKB" = (
@@ -29784,7 +29787,7 @@
 	pixel_x = -7;
 	pixel_y = -3
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar)
 "dPc" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
@@ -36051,7 +36054,7 @@
 	pixel_x = 10;
 	pixel_y = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar)
 "eFG" = (
 /obj/effect/floor_decal/industrial/outline/service,
@@ -37279,13 +37282,16 @@
 	icon_state = "pipe-c-yellow";
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_straight/service{
 	dir = 4
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "eQv" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -39105,16 +39111,19 @@
 /area/horizon/medical/washroom)
 "fdd" = (
 /obj/structure/machinery/light/small/floor,
+/obj/effect/floor_decal/industrial/outline_straight/service{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_straight/service{
-	dir = 1
-	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "fde" = (
 /obj/structure/machinery/chem_master{
@@ -40880,7 +40889,7 @@
 /obj/effect/floor_decal/spline/plain/corner/grey{
 	dir = 4
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "fpb" = (
 /obj/structure/filingcabinet/chestdrawer{
@@ -44938,6 +44947,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
 	},
+/obj/structure/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "fRu" = (
@@ -48817,8 +48827,11 @@
 	icon_state = "2-8"
 	},
 /obj/structure/disposalpipe/segment/mainline,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/outline_straight/service,
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "grc" = (
 /obj/structure/grille,
@@ -51568,7 +51581,7 @@
 /obj/structure/disposalpipe/segment/mainline,
 /obj/structure/machinery/vending/dinnerware/bar,
 /obj/effect/floor_decal/industrial/outline/service,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar)
 "gJS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -60726,7 +60739,7 @@
 /obj/effect/floor_decal/spline/plain/corner/grey{
 	dir = 1
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "hSy" = (
 /obj/effect/floor_decal/spline/plain/corner/purple,
@@ -70701,7 +70714,7 @@
 	name = "sink";
 	pixel_x = -20
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "jil" = (
 /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -72294,6 +72307,7 @@
 /obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 8
 	},
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "jsL" = (
@@ -75729,6 +75743,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "jPB" = (
@@ -79865,7 +79880,7 @@
 /area/antag/actor)
 "kqE" = (
 /obj/structure/machinery/smartfridge/drinks,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar)
 "kqK" = (
 /obj/structure/plasticflaps/airtight,
@@ -105399,10 +105414,13 @@
 /area/horizon/operations/break_room)
 "nGl" = (
 /obj/structure/table/stone/marble,
-/obj/structure/machinery/firealarm/east,
 /obj/random/pottedplant_small{
 	pixel_x = 11;
 	pixel_y = -2
+	},
+/obj/structure/machinery/light{
+	dir = 4;
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
@@ -106494,11 +106512,18 @@
 /turf/simulated/floor/plating,
 /area/horizon/engineering/bluespace_drive)
 "nNm" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, kitchen freezer"
+/obj/structure/grille,
+/obj/structure/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/machinery/door/blast/shutters{
+	name = "Kitchen Window Shutter";
+	id = "kitchen_window_shutter"
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, freezer"
+	},
+/turf/simulated/floor/plating,
+/area/horizon/service/kitchen)
 "nNG" = (
 /obj/structure/platform,
 /obj/random/dirt_75,
@@ -110636,9 +110661,9 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/structure/machinery/chemical_dispenser/bar_soft{
-	pixel_x = 14;
-	pixel_y = 14
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = 13;
+	pixel_y = 13
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
@@ -113174,7 +113199,7 @@
 	pixel_x = 10;
 	pixel_y = 9
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar)
 "oHB" = (
 /obj/structure/machinery/recharger/wallcharger{
@@ -115589,7 +115614,7 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "oXk" = (
 /obj/structure/weightlifter,
@@ -123337,14 +123362,17 @@
 /obj/structure/disposalpipe/segment/mainline{
 	icon_state = "pipe-c-yellow"
 	},
+/obj/structure/machinery/light/small/floor,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/outline_straight/service{
 	dir = 8
 	},
-/obj/structure/machinery/light/small/floor,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "pXu" = (
 /obj/structure/plasticflaps{
@@ -129755,7 +129783,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/corner/grey,
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "qNe" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -130914,8 +130942,11 @@
 "qVn" = (
 /obj/structure/table/stone/marble,
 /obj/random/pottedplant_small{
-	pixel_x = -10;
-	pixel_y = -2
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/structure/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
@@ -143031,7 +143062,7 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 8
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "sxb" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -153809,7 +153840,7 @@
 /area/horizon/maintenance/deck_2/research)
 "tQz" = (
 /obj/structure/machinery/vending/boozeomat/bar,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar)
 "tQA" = (
 /obj/structure/dueling_table{
@@ -154372,7 +154403,6 @@
 /turf/simulated/wall,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "tVw" = (
-/obj/structure/machinery/alarm/south,
 /obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 4
 	},
@@ -157671,7 +157701,7 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "uqz" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -158229,6 +158259,7 @@
 /obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 1
 	},
+/obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "utO" = (
@@ -161704,7 +161735,7 @@
 	pixel_x = -6;
 	pixel_y = -4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar)
 "uQG" = (
 /obj/random/dirt_75,
@@ -165975,15 +166006,6 @@
 	density = 1
 	},
 /area/antag/ninja)
-"vuE" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/obj/effect/landmark/start{
-	name = "Bartender"
-	},
-/turf/simulated/floor/wood,
-/area/horizon/service/bar)
 "vuH" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -166439,7 +166461,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
 "vya" = (
 /obj/structure/machinery/telecomms/receiver/preset_cent,
@@ -170674,7 +170696,7 @@
 /obj/effect/landmark/start{
 	name = "Bartender"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar/backroom)
 "was" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -188039,7 +188061,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/machinery/hologram/holopad,
+/obj/effect/landmark/start{
+	name = "Bartender"
+	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
 "ykc" = (
@@ -285149,7 +285173,7 @@ nMW
 dze
 kqE
 qNd
-vuE
+aSm
 aGN
 pKu
 rWb
@@ -288498,7 +288522,7 @@ kDa
 ath
 plb
 bfY
-urZ
+nNm
 pam
 eSV
 eSV
@@ -291327,7 +291351,7 @@ pWB
 lEF
 eSV
 eSV
-nNm
+eSV
 eSV
 eSV
 eSV
