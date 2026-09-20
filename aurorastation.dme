@@ -3507,6 +3507,7 @@
 #include "code\modules\projectiles\ammo_display.dm"
 #include "code\modules\projectiles\ammunition.dm"
 #include "code\modules\projectiles\gun.dm"
+#include "code\modules\projectiles\gun_hud_actions.dm"
 #include "code\modules\projectiles\pins.dm"
 #include "code\modules\projectiles\projectile.dm"
 #include "code\modules\projectiles\suppressor.dm"

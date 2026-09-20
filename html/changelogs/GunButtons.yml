@@ -1,0 +1,6 @@
+author: TheGreyWolf and Wezzy
+
+delete-after: True
+
+changes:
+  - qol: "There are now hud buttons for safety when wielding a gun, alongside firing mode and the unique action button."

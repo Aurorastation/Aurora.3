@@ -48,6 +48,7 @@
 	projectile_type = /obj/projectile/energy/blaster
 	max_shots = 8
 	w_class = WEIGHT_CLASS_SMALL
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/energy/blaster/revolver/unique_action(mob/living/user)
 	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))

@@ -16,6 +16,7 @@
 	var/message_enabled = 0 //If playing the message should be enabled
 	var/message_disable = 0 //If the loop should be stopped
 	var/default_desc = "A highly advanced firearm that is capable of several different and highly lethal firing modes, the SCC's ACP-2 is a weapon to be feared."
+	has_unique_gun_action = TRUE
 
 	firemodes = list(
 		list(

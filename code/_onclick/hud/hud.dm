@@ -156,6 +156,7 @@ GLOBAL_LIST(global_huds)
 	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
 
 	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
+	var/list/atom/movable/screen/gun_action/gun_actions = list()
 
 /datum/hud/New(mob/owner)
 	mymob = owner
@@ -180,6 +181,9 @@ GLOBAL_LIST(global_huds)
 	..()
 
 /datum/hud/Destroy()
+	if(mymob?.client)
+		mymob.client.screen -= gun_actions
+	QDEL_LIST(gun_actions)
 	mymob = null
 	QDEL_NULL(blobpwrdisplay)
 	QDEL_NULL(blobhealthdisplay)
