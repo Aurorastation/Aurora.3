@@ -149,7 +149,7 @@
 		roof.dir = roof_dir
 		if(decal && C.x == x1 && C.y == y1)
 			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
-		roof.icon_state = "roof_[get_location(C)]"
+		roof.icon_state = "roof_[get_location(C, TRUE)]"
 		if(has_side_wall)
 			var/image/side_wall = overlay_image(C.icon, C.icon_state)
 			side_wall.dir = C.dir
@@ -232,16 +232,16 @@
 	// screen-space ends land after rotating the south-facing art to `wall_dir`.
 	var/left_dir = turn(wall_dir, -90)
 	var/right_dir = turn(wall_dir, 90)
-	var/opens_left = is_tent_opening(get_step(origin, left_dir), wall_dir)
-	var/opens_right = is_tent_opening(get_step(origin, right_dir), wall_dir)
+	var/connects_left = has_tent_wall(origin, left_dir) || is_tent_opening(origin, left_dir) || is_tent_opening(get_step(origin, left_dir), wall_dir)
+	var/connects_right = has_tent_wall(origin, right_dir) || is_tent_opening(origin, right_dir) || is_tent_opening(get_step(origin, right_dir), wall_dir)
 	var/front_state = "canvas_front"
-	// End-cap sprites exist solely to frame explicitly designated openings. Closed footprint
-	// transitions use the uninterrupted wall and no longer infer caps from nearby empty tiles.
-	if(opens_left && opens_right)
+	// Sloped end caps join a real perpendicular side wall at an outer corner, or frame an
+	// explicitly designated adjacent opening. Empty space alone never creates an end cap.
+	if(connects_left && connects_right)
 		front_state = "canvas_front_mid"
-	else if(opens_left)
+	else if(connects_left)
 		front_state = "canvas_front_edge_left"
-	else if(opens_right)
+	else if(connects_right)
 		front_state = "canvas_front_edge_right"
 
 	var/image/front_wall = overlay_image(target.icon, front_state)
@@ -338,7 +338,7 @@
  * Returns `mid_entrance_bot` for structures in the exact centre of the tent, for odd number widths, acting as an entrance, at the south/west of the tent
  * Otherwise returns `norm` for other structures
  */
-/datum/large_structure/tent/proc/get_location(var/obj/structure/component/tent_canvas/canvas)
+/datum/large_structure/tent/proc/get_location(var/obj/structure/component/tent_canvas/canvas, var/for_roof = FALSE)
 	var/turf/canvas_turf = get_turf(canvas)
 	var/side_one_dir = (dir & (NORTH | SOUTH)) ? WEST : SOUTH
 	var/side_two_dir = (dir & (NORTH | SOUTH)) ? EAST : NORTH
@@ -355,8 +355,35 @@
 	var/bottom_dir = turn(top_dir, 180)
 	var/is_top_entrance = is_tent_opening(canvas_turf, top_dir)
 	var/is_bottom_entrance = is_tent_opening(canvas_turf, bottom_dir)
+	// The authored `entrance_bot` frames for east/west roof slopes are only 22 pixels
+	// deep, while the matching north (`entrance_top`) frames span the full turf. Explicit
+	// south openings use that full-width roof geometry; their actual opening direction and
+	// collision remain unchanged in `entrance_dirs` and `wall_dirs`.
+	if(LAZYLEN(roof_layout) && is_bottom_entrance && bottom_dir == SOUTH)
+		is_top_entrance = TRUE
+		is_bottom_entrance = FALSE
+	// Sideways combined entrance frames remove ten pixels from the tile horizontally.
+	// Preserve the ordinary full-width roof state, as the north-facing frames effectively
+	// do, and let the explicit adjacent wall caps visually frame the opening.
+	if(entrance_dirs?[canvas_turf] in list(EAST, WEST))
+		is_top_entrance = FALSE
+		is_bottom_entrance = FALSE
 
-	if(is_side_edge)
+	// A lateral doorway is geometrically on the footprint's side edge, but its roof must
+	// still span the full turf. Only the canvas keeps edge classification at that opening.
+	var/is_side_entrance = (entrance_dirs?[canvas_turf] in list(EAST, WEST))
+	if(for_roof && is_side_entrance)
+		return is_middle ? "mid" : "norm"
+
+	// An explicit roof midpoint takes precedence over lateral-edge geometry. Canvas walls
+	// retain edge precedence so a midpoint on a narrow vestibule still closes its side.
+	if(for_roof && is_middle)
+		if(is_top_entrance)
+			return "mid_entrance_top"
+		else if(is_bottom_entrance)
+			return "mid_entrance_bot"
+		return "mid"
+	else if(is_side_edge)
 		if(is_top_entrance)
 			return "edge_entrance_top"
 		else if(is_bottom_entrance)
@@ -487,8 +514,21 @@
 /obj/item/tent/big
 	name = "base camp tent"
 	color = "#2e3763"
-	width = 3
-	length = 4
+	// A regular multipurpose pavilion with entrances at both ends.
+	footprint = list(
+		"##^##",
+		"#####",
+		"#####",
+		"#####",
+		"##v##"
+	)
+	roof_layout = list(
+		"LLMRR",
+		"LLMRR",
+		"LLMRR",
+		"LLMRR",
+		"LLMRR"
+	)
 
 /obj/item/tent/big/scc
 	name = "scc base camp tent"
@@ -497,14 +537,14 @@
 /obj/item/tent/medical
 	name = "medical tent"
 	color = HOLOMAP_AREACOLOR_MEDICAL
-	// A narrow triage entrance opening into a wider field ward.
+	// A narrow triage entrance opening into a wider field ward, with a rear emergency exit.
 	footprint = list(
 		".^^..",
 		".##..",
 		"#####",
 		"#####",
 		"#####",
-		"#####"
+		"####>"
 	)
 	roof_layout = list(
 		".LM..",
@@ -518,32 +558,273 @@
 /obj/item/tent/security
 	name = "security tent"
 	color = HOLOMAP_AREACOLOR_SECURITY
-	// A checkpoint vestibule opening into a compact security post.
+	// A controlled checkpoint opening into a security post with a secured side annex.
 	footprint = list(
-		".^^.",
-		".##.",
-		"####",
-		"####",
-		"####",
-		"####"
+		"..#^#..",
+		"..###..",
+		".#####.",
+		".######",
+		".######",
+		".#####."
 	)
 	roof_layout = list(
-		".LR.",
-		".LR.",
-		"LLRR",
-		"LLRR",
-		"LLRR",
-		"LLRR"
+		"..LMR..",
+		"..LMR..",
+		".LLMRR.",
+		".LLMRRR",
+		".LLMRRR",
+		".LLMRR."
 	)
 
 /obj/item/tent/engineering
 	name = "engineering tent"
 	color = HOLOMAP_AREACOLOR_ENGINEERING
-	// A long workshop with an offset side canopy for larger equipment.
+	// A five-wide workshop with a broad equipment entrance and an attached side canopy.
+	footprint = list(
+		"#^^^#..",
+		"#####..",
+		"#######",
+		"#######",
+		"#######",
+		"#####..",
+		"#####.."
+	)
+	roof_layout = list(
+		"LLMRR..",
+		"LLMRR..",
+		"LLMRRRR",
+		"LLMRRRR",
+		"LLMRRRR",
+		"LLMRR..",
+		"LLMRR.."
+	)
+
+/obj/item/tent/machinist
+	name = "machinist tent"
+	color = HOLOMAP_AREACOLOR_OPERATIONS
+	// A broad square work bay narrowing into a rear parts-storage annex.
+	footprint = list(
+		"##^^^##",
+		"#######",
+		"#######",
+		"#######",
+		"#######",
+		"..###..",
+		"..###.."
+	)
+	roof_layout = list(
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		"..LMR..",
+		"..LMR.."
+	)
+
+/obj/item/tent/science
+	name = "science tent"
+	color = HOLOMAP_AREACOLOR_SCIENCE
+	// A large laboratory joined through a narrow connector to an isolated rear chamber.
+	footprint = list(
+		"###^###",
+		"#######",
+		"#######",
+		"..###..",
+		".#####.",
+		".#####.",
+		".#####."
+	)
+	roof_layout = list(
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		"..LMR..",
+		".LLMRR.",
+		".LLMRR.",
+		".LLMRR."
+	)
+
+/obj/item/tent/command
+	name = "command tent"
+	color = HOLOMAP_AREACOLOR_COMMAND
+	footprint = list(
+		"..#^#..",
+		".#####.",
+		"#######",
+		"<#####>",
+		"#######",
+		".#####.",
+		"..#v#.."
+	)
+	roof_layout = list(
+		"..LMR..",
+		".LLMRR.",
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		".LLMRR.",
+		"..LMR.."
+	)
+
+/obj/item/tent/mess_hall
+	name = "mess hall tent"
+	color = HOLOMAP_AREACOLOR_CIVILIAN
+	// A broad T-shaped dining hall entered through a narrower serving neck.
+	footprint = list(
+		"..^^#..",
+		"..###..",
+		"#######",
+		"#######",
+		"#######",
+		"#######"
+	)
+	roof_layout = list(
+		"..LMR..",
+		"..LMR..",
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR"
+	)
+
+/obj/item/tent/command_comms
+	name = "command and communications tent"
+	color = HOLOMAP_AREACOLOR_COMMAND
+	// A command room with an asymmetric communications wing and a rear staff exit.
+	footprint = list(
+		"..##^##..",
+		"..#####..",
+		"#######..",
+		"#######..",
+		"..#####..",
+		"..##v##.."
+	)
+	roof_layout = list(
+		"..LLMRR..",
+		"..LLMRR..",
+		"LLLLMRR..",
+		"LLLLMRR..",
+		"..LLMRR..",
+		"..LLMRR.."
+	)
+
+/obj/item/tent/field_kitchen
+	name = "field kitchen tent"
+	color = HOLOMAP_AREACOLOR_CIVILIAN
+	// A wide preparation and serving area narrowing into a rear service projection.
+	footprint = list(
+		".##^##.",
+		".#####.",
+		".#####.",
+		".#####.",
+		"..###..",
+		"..###.."
+	)
+	roof_layout = list(
+		".LLMRR.",
+		".LLMRR.",
+		".LLMRR.",
+		".LLMRR.",
+		"..LMR..",
+		"..LMR.."
+	)
+
+/obj/item/tent/quarantine
+	name = "quarantine tent"
+	color = HOLOMAP_AREACOLOR_MEDICAL
+	// Two ward sections separated by a narrow observation and changing connector.
+	footprint = list(
+		".##^##.",
+		".#####.",
+		".#####.",
+		"..###..",
+		".#####.",
+		".#####.",
+		".##v##."
+	)
+	roof_layout = list(
+		".LLMRR.",
+		".LLMRR.",
+		".LLMRR.",
+		"..LMR..",
+		".LLMRR.",
+		".LLMRR.",
+		".LLMRR."
+	)
+
+/obj/item/tent/decontamination
+	name = "decontamination tent"
+	color = HOLOMAP_AREACOLOR_MEDICAL
+	// A narrow one-way processing tent with an entrance at either end.
+	footprint = list(
+		"#^#",
+		"###",
+		"###",
+		"###",
+		"###",
+		"#v#"
+	)
+	roof_layout = list(
+		"LMR",
+		"LMR",
+		"LMR",
+		"LMR",
+		"LMR",
+		"LMR"
+	)
+
+/obj/item/tent/vehicle_workshop
+	name = "vehicle workshop tent"
+	color = HOLOMAP_AREACOLOR_ENGINEERING
+	// A broad vehicle bay with a three-tile entrance and stepped rear work area.
+	footprint = list(
+		".#^^^#.",
+		"#######",
+		"#######",
+		"#######",
+		"#######",
+		".#####.",
+		".#####."
+	)
+	roof_layout = list(
+		".LLMRR.",
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		"LLLMRRR",
+		".LLMRR.",
+		".LLMRR."
+	)
+
+/obj/item/tent/cargo
+	name = "cargo tent"
+	color = HOLOMAP_AREACOLOR_OPERATIONS
+	// An L-shaped loading and storage tent with a two-tile receiving entrance.
+	footprint = list(
+		"#^^##..",
+		"#####..",
+		"#######",
+		"#######",
+		"#######",
+		"#######"
+	)
+	roof_layout = list(
+		"LLMRR..",
+		"LLMRR..",
+		"LLMRRRR",
+		"LLMRRRR",
+		"LLMRRRR",
+		"LLMRRRR"
+	)
+
+/obj/item/tent/mining
+	name = "miners' tent"
+	color = "#8b7242"
+	// A compact shelter with an offset equipment and ore-storage projection.
 	footprint = list(
 		".#^#.",
 		".###.",
-		".####",
 		".####",
 		".####",
 		".###."
@@ -553,59 +834,8 @@
 		".LMR.",
 		".LMRR",
 		".LMRR",
-		".LMRR",
 		".LMR."
 	)
-
-/obj/item/tent/machinist
-	name = "machinist tent"
-	color = HOLOMAP_AREACOLOR_OPERATIONS
-	// A wide work bay with an offset rear annex for parts storage.
-	footprint = list(
-		"##^##",
-		"#####",
-		"#####",
-		"#####",
-		"###..",
-		"###.."
-	)
-	roof_layout = list(
-		"LLMRR",
-		"LLMRR",
-		"LLMRR",
-		"LLMRR",
-		"LLM..",
-		"LLM.."
-	)
-
-/obj/item/tent/science
-	name = "science tent"
-	color = HOLOMAP_AREACOLOR_SCIENCE
-	// A main laboratory with an offset rear annex for isolated samples.
-	footprint = list(
-		"#^^#",
-		"####",
-		"####",
-		"####",
-		"####",
-		"..##",
-		"..##"
-	)
-	roof_layout = list(
-		"LLRR",
-		"LLRR",
-		"LLRR",
-		"LLRR",
-		"LLRR",
-		"..LR",
-		"..LR"
-	)
-
-/obj/item/tent/mining
-	name = "miners' tent"
-	color = "#8b7242"
-	width = 3
-	length = 3
 
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
