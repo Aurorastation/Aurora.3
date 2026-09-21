@@ -15,6 +15,9 @@
 	var/selected_message_of_the_day
 	var/committed_message_of_the_day
 
+	var/selected_lore_summary
+	var/committed_lore_summary
+
 /datum/tgui_module/server_configuration/ui_close(mob/user)
 	reset_state(TRUE)
 	. = ..()
@@ -22,17 +25,20 @@
 /datum/tgui_module/server_configuration/proc/reset_state(hard_reset = FALSE)
 	selected_sector = null
 	selected_message_of_the_day = null
+	selected_lore_summary = null
 
 	if(hard_reset)
 		committed_sector = null
 		committed_message_of_the_day = null
+		committed_lore_summary = null
 
 /datum/tgui_module/server_configuration/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!check_rights(R_SERVER|R_ADMIN|R_DEV, user=user))
 		return
 
-	committed_sector = SSatlas.possible_sectors[SSregistry.getValue(REGISTRY_CURRENT_SECTOR, SSatlas.current_sector)]
+	committed_sector = SSatlas.possible_sectors[SSregistry.getValue(REGISTRY_CURRENT_SECTOR, SSatlas.current_sector?.name)]
 	committed_message_of_the_day = SSregistry.getValue(REGISTRY_MESSAGE_OF_THE_DAY)
+	committed_lore_summary = SSregistry.getValue(REGISTRY_LORE_SUMMARY)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -47,15 +53,21 @@
 	data["sector_description"] = selected_sector?.description || committed_sector?.description || "No description available."
 	data["sector_changed"] = selected_sector != null
 
-	data["message_of_the_day"] = selected_message_of_the_day || committed_message_of_the_day || ""
+	data["message_of_the_day"] = selected_message_of_the_day != null ? selected_message_of_the_day : committed_message_of_the_day || ""
 	data["message_of_the_day_changed"] = selected_message_of_the_day != null
+
+	data["lore_summary"] = selected_lore_summary != null ? selected_lore_summary : committed_lore_summary || ""
+	data["lore_summary_changed"] = selected_lore_summary != null
 
 	data["read_only"] = !check_rights(R_SERVER|R_ADMIN, user=user) // Developers only get view-access, no edit permissions
 	data["unsaved_changes"] = check_for_unsaved_changes()
 	return data
 
 /datum/tgui_module/server_configuration/proc/check_for_unsaved_changes()
-	return selected_sector != null || selected_message_of_the_day != null
+	return \
+		selected_sector != null || \
+		selected_message_of_the_day != null || \
+		selected_lore_summary != null
 
 /datum/tgui_module/server_configuration/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -92,19 +104,32 @@
 			selected_message_of_the_day = null
 			return TRUE
 
+		if("set_lore_summary")
+			selected_lore_summary = params["value"]
+			return TRUE
+		if("reset_lore_summary")
+			selected_lore_summary = null
+			return TRUE
+
 		if("commit_changes")
 			if(selected_sector)
 				if(SSregistry.setValue(REGISTRY_CURRENT_SECTOR, selected_sector.name))
 					log_change("Sector changed to [selected_sector.name]")
 					committed_sector = selected_sector
 				else
-					to_chat(SPAN_WARNING("Failed to set the current sector."))
-			if(selected_message_of_the_day != committed_message_of_the_day)
+					to_chat(ui.user, SPAN_WARNING("Failed to set the current sector."))
+			if(selected_message_of_the_day != null)
 				if(SSregistry.setValue(REGISTRY_MESSAGE_OF_THE_DAY, selected_message_of_the_day))
 					log_change("Message of the day changed")
 					committed_message_of_the_day = selected_message_of_the_day
 				else
-					to_chat(SPAN_WARNING("Failed to set the message of the day."))
+					to_chat(ui.user, SPAN_WARNING("Failed to set the message of the day."))
+			if(selected_lore_summary != null)
+				if(SSregistry.setValue(REGISTRY_LORE_SUMMARY, selected_lore_summary))
+					log_change("Lore summary changed")
+					committed_lore_summary = selected_lore_summary
+				else
+					to_chat(ui.user, SPAN_WARNING("Failed to set the lore summary."))
 			reset_state()
 			return TRUE
 

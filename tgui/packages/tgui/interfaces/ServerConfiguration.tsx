@@ -9,6 +9,8 @@ type ServerConfigurationData = {
   sector_changed: BooleanLike;
   message_of_the_day: string;
   message_of_the_day_changed: BooleanLike;
+  lore_summary: string;
+  lore_summary_changed: BooleanLike;
   read_only: BooleanLike;
   unsaved_changes: BooleanLike;
 };
@@ -58,7 +60,11 @@ export const ServerConfiguration = (props) => {
               ) : null}
             </LabeledList.Item>
           </LabeledList>
-          <Box mt={1}>{data.sector_description}</Box>
+          <Box mt={1}>
+            <div>- Takes affect after round restart.</div>
+            <div>- Available sectors are based off SSatlas.possible_sectors.</div>
+          </Box>
+          <Box mt={1}>Description: {data.sector_description}</Box>
         </Section>
         <Section title="Message of the day">
           <TextArea
@@ -84,7 +90,29 @@ export const ServerConfiguration = (props) => {
             <div>- If empty, reverts to MOTD from config file.</div>
           </Box>
         </Section>
-        <Section title="Lore summary" />
+        <Section title="Lore summary">
+          <TextArea
+            disabled={!!data.read_only}
+            fluid
+            height="10rem"
+            value={data.lore_summary}
+            onChange={(value) => act('set_lore_summary', { value })}
+          />
+          {data.lore_summary_changed ? (
+            <Button
+              color="yellow"
+              icon="arrow-rotate-left"
+              content="Revert"
+              tooltip="Reset lore summary"
+              onClick={() => act('reset_lore_summary')}
+            />
+          ) : null}
+          <Box mt={1}>
+            <div>- Displayed when user clicks on lore button in lobby menu.</div>
+            <div>- Supports HTML formatting.</div>
+            <div>- If empty, reverts to lore summary from config file.</div>
+          </Box>
+        </Section>
       </Window.Content>
     </Window>
   );
