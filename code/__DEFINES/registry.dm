@@ -2,4 +2,4 @@
 	Key definitions for the registry subsystem.
 ###################################################*/
 
-#define REGISTRY_CURRENT_SECTOR "current_sector"
+#define REGISTRY_CURRENT_SECTOR "load_sector"
