@@ -62,6 +62,7 @@ export const ServerConfiguration = (props) => {
           </LabeledList>
           <Box mt={1}>
             <div>- Takes affect after round restart.</div>
+            <div>- If unavailable, reverts to sector from config file.</div>
             <div>- Available sectors are based off SSatlas.possible_sectors.</div>
           </Box>
           <Box mt={1}>Description: {data.sector_description}</Box>
