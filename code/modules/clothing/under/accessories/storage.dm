@@ -184,7 +184,7 @@
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"
 	desc = "A heavily decorated harness of sinew and leather with two knife-loops."
-	icon_state = "unathiharness2"
+	// icon_state = "unathiharness2"
 	slots = 2
 
 /obj/item/clothing/accessory/storage/knifeharness/Initialize()
