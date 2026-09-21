@@ -201,3 +201,6 @@
 /area/crevus/inside/the_lock/restroom
 
 /area/crevus/inside/the_lock/backroom
+
+/area/crevus/inside/ferry_shuttle
+	area_lighting = LIGHT_COLOR_HALOGEN
