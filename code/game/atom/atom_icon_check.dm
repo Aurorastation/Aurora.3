@@ -23,7 +23,6 @@
 
 	// These types (and their subtypes) are ignored
 	var/static/list/ignored_check_types = list(
-		// e.g. /atom/movable/lighting_overlay
 	)
 
 	// 0. Proc begins here proper
