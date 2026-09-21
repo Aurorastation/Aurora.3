@@ -235,3 +235,28 @@
   - rscadd: Added the adhomian knuckle, available in the ATM for a 10 credit fee.
   kano:
   - rscadd: Added Nikal Sahira, a port of call map of Crevus.
+2026-09-21:
+  FabianK3:
+  - bugfix: Fixed too strict whitelist restrictions for ghost roles on Nikal Sahira,
+      except gang boss roles.
+  - admin: Added skills configuration to the player panel.
+  - refactor: Resolved misc. linter issues.
+  - admin: Added pagination to the player notes lookup panel.
+  - admin: Player notes are now listed in descending order by added date.
+  - bugfix: Fixed massive player note queries.
+  Greenjoe:
+  - rscadd: Adds parkas as an alternative to winter coats, found in the loadout and
+      random spawns.
+  TheGreyWolf:
+  - rscadd: Permits crawling under non-reinforced tables to hide and adds a button
+      in the IC tab to search under nearby tables.
+  - rscadd: Added a large selection of tesla based augments for PRA tajara with the
+      tesla spine.
+  - balance: Reduced the recharge time of the experimental welder to go from empty
+      to full in 5 min.
+  - rscadd: Changed the robotics analyzer to be a TGUI.
+  TheGreyWolf and Wezzy:
+  - qol: There are now hud buttons for safety when wielding a gun, alongside firing
+      mode and the unique action button.
+  effyank:
+  - imageadd: Added a spotted body marking option for Tajara.
