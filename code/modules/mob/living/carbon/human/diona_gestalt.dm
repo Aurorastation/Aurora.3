@@ -261,6 +261,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	add_verb(M, /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt)
 	add_verb(M, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
 	M.detached = TRUE
+	M.dionae_vent_crawl = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()
 	M.accent = accent
@@ -345,6 +346,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 		for(var/mob/living/carbon/alien/diona/D in nymphos)
 			src.reagents.trans_to_mob(D, split_reag_volume, CHEM_BLOOD)
 			if(!D.mind)
+				D.dionae_vent_crawl = FALSE
 				D.master_nymph = bestNymph
 				D.birds_of_feather += nymphos
 				D.pixel_y += rand(-10,10)
