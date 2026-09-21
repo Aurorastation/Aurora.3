@@ -476,7 +476,7 @@ FORCE_MAP runtime
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
 
-# What sector the ships is currently in. Check _defines/space_sectors.dm for possible options
+# What sector the ship is currently in. Check _defines/space_sectors.dm for possible options
 # Note that if a database is used and a sector has been set using the registry/server configuration, this config will be ignored.
 CURRENT_SPACE_SECTOR Romanovich Cloud
 
