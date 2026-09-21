@@ -1,4 +1,8 @@
-/// Used to store data about comms frequencies of away sites.
+/**
+ * Used to store data about comms frequencies of away sites.
+ * These are created by `/obj/effect/overmap/visitable/proc/create_comms_groups()`, don't make subtypes of this datum for the sake of simplicity.
+ * For an example usecase, see: `/obj/effect/overmap/visitable/sector/nikal_sahira/create_comms_groups()`
+ */
 /datum/comms_group
 	/// Gets applied to relevant comms devices' names.
 	/// For example a shortwave radio will be "[comms_name] shortwave radio", intercom as "intercom ([comms_name])", etc.
