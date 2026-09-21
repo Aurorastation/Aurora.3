@@ -111174,6 +111174,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/south,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "osu" = (
