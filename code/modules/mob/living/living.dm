@@ -689,6 +689,12 @@ default behaviour is:
 			process_resist()
 
 /mob/living/proc/process_resist()
+	// Safety fallback for mobs that were incorrectly moved inside a crate shelf.
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		shelf.eject_trapped_mob(src)
+		return
+
 	//Getting out of someone's inventory.
 	if(istype(src.loc, /obj/item/holder))
 		escape_inventory(src.loc)

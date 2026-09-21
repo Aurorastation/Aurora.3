@@ -54,7 +54,7 @@
 		else
 			itemtype = pickweight(spawnlist)
 
-		if(ispath(itemtype))
+		if(itemtype && !isnum(itemtype) && !istext(itemtype))
 			. = new itemtype(loc)
 
 	if(!.)

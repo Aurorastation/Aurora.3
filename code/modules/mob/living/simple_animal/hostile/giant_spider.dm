@@ -393,14 +393,6 @@
 				C.pixel_x = P.pixel_x
 				C.pixel_y = P.pixel_y
 				break
-				if(istype(P, /obj/item))
-					var/obj/item/I = P
-					I.forceMove(C)
-				if(istype(P, /obj/structure))
-					var/obj/structure/S = P
-					if(!S.anchored)
-						S.forceMove(C)
-						large_cocoon = 1
 			if(large_cocoon)
 				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 

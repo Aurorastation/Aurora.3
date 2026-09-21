@@ -184,3 +184,79 @@
 2026-09-15:
   Fenodyree:
   - bugfix: Fixes slime cells not charging the PSU when used to build a battery rack.
+2026-09-16:
+  Greenjoe:
+  - rscadd: Adhomai's surface is now colder. -20 C for normal areas and -80 C for
+      the North Pole.
+  TheGreyWolf:
+  - bugfix: Fixed the spark test unit fail.
+  kano:
+  - rscadd: Added the ability for ghostroles to recognize their group in the examine
+      text, if such group defined in the ghostrole spawner.
+2026-09-17:
+  ElorgRHG:
+  - bugfix: Fixed some ammunition casings either lacking or having incorrect spent
+      sprites.
+  TheGreyWolf:
+  - bugfix: The candy missing prices in the getmore vendor now cost credits again.
+  - bugfix: Fixed a couple of items not fitting in the commissary food and drinks
+      shelf.
+  kano:
+  - rscadd: Reduced fog forming temperature from 5C to -30C.
+2026-09-18:
+  TheGreyWolf:
+  - rscadd: The gamemode now defaults to autotraitor if no antags are found.
+  - rscadd: Instead of saying it is reattempting when failing a gamemode, it gives
+      one of a series of lines.
+  - rscadd: The possible gamemodes when starting a round are no longer displayed to
+      players.
+  - rscadd: It is now possible to preview bodyguards and diplomatic aides in char
+      setup even if no slot is open.
+  - bugfix: Fixed flatpacks being unable to be printed.
+  - rscadd: Added the surgery planner. It is available on the patient monitor for
+      organics and the robotics interface for synthetics and prosthetics.
+  - rscadd: Added the EMSI port augment to be used with the robotics interface cable
+      to diagnose augment issues for those without prosthetics.
+  - rscadd: Allowed the robotics interface cable to connect to prosthetics on organics.
+  - rscadd: Removing prosthetic organs requires robotics skill.
+  - rscadd: Assisted organs require either surgery or robotics skill.
+  - rscadd: Shrapnel removal requires either surgery or robotics skill.
+  - bugfix: Fixed the risk of rarely being trapped on crate shelves.
+2026-09-20:
+  DreamySkrell:
+  - bugfix: Fixes `/obj/random/finances` not spawning.
+  TheGreyWolf:
+  - balance: Taking cold damage from breathing now starts at cold damage tier 2 instead
+      of tier 1.
+  - balance: Rebalanced the cold protection values on a bunch of clothing.
+  - bugfix: Attempted another spark heisenbug fix.
+  - bugfix: Fixed the double doors moving on the intrepid during flight.
+  TheGreyWolf and Elorg:
+  - rscadd: Added the adhomian knuckle, available in the ATM for a 10 credit fee.
+  kano:
+  - rscadd: Added Nikal Sahira, a port of call map of Crevus.
+2026-09-21:
+  FabianK3:
+  - bugfix: Fixed too strict whitelist restrictions for ghost roles on Nikal Sahira,
+      except gang boss roles.
+  - admin: Added skills configuration to the player panel.
+  - refactor: Resolved misc. linter issues.
+  - admin: Added pagination to the player notes lookup panel.
+  - admin: Player notes are now listed in descending order by added date.
+  - bugfix: Fixed massive player note queries.
+  Greenjoe:
+  - rscadd: Adds parkas as an alternative to winter coats, found in the loadout and
+      random spawns.
+  TheGreyWolf:
+  - rscadd: Permits crawling under non-reinforced tables to hide and adds a button
+      in the IC tab to search under nearby tables.
+  - rscadd: Added a large selection of tesla based augments for PRA tajara with the
+      tesla spine.
+  - balance: Reduced the recharge time of the experimental welder to go from empty
+      to full in 5 min.
+  - rscadd: Changed the robotics analyzer to be a TGUI.
+  TheGreyWolf and Wezzy:
+  - qol: There are now hud buttons for safety when wielding a gun, alongside firing
+      mode and the unique action button.
+  effyank:
+  - imageadd: Added a spotted body marking option for Tajara.

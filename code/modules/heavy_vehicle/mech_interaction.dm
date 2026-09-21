@@ -648,10 +648,14 @@
 					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/robotanalyzer))
-				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
-				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
-					if(limb)
-						limb.return_diagnostics(user)
+				var/obj/item/robotanalyzer/analyzer_item = attacking_item
+				if(istype(analyzer_item, /obj/item/robotanalyzer/augment/tesla))
+					var/obj/item/robotanalyzer/augment/tesla/tesla_analyzer = analyzer_item
+					if(!tesla_analyzer.has_tesla_power(user))
+						return
+				var/datum/component/robotics_analyzer/analyzer = analyzer_item.GetComponent(analyzer_item.analyzer_component_type)
+				if(analyzer)
+					analyzer.attack_mech(src, user)
 				return
 
 	return ..()

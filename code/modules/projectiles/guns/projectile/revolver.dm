@@ -187,6 +187,7 @@
 	var/list/secondary_loaded = list()
 	var/list/tertiary_loaded = list()
 	fire_delay = ROF_INTERMEDIATE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/revolver/lemat/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
