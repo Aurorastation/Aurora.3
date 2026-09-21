@@ -158,7 +158,7 @@
 
 /datum/gear/utility/business_card
 	display_name = "business card"
-	description = "A selection of business cards." // I'm not smart enough to make it spawn inside the holders and carry over the text so we'll have to live with this
+	description = "A selection of business cards."
 	path = /obj/item/paper/business_card
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -175,6 +175,103 @@
 	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 	gear_tweaks += new /datum/gear_tweak/paper_data()
+
+/datum/gear/utility/business_card_holder/filled
+	display_name = "filled business card holder"
+	description = "A customizable business card holder containing five copies of a customizable business card."
+	cost = 1
+	var/datum/gear_tweak/path/business_card/card_path_tweak
+	var/list/datum/gear_tweak/card_tweaks
+
+/datum/gear/utility/business_card_holder/filled/New()
+	..()
+	var/list/cards = list()
+	cards["paper business card, divided"] = /obj/item/paper/business_card
+	cards["paper business card, plain"] = /obj/item/paper/business_card/alt
+	cards["paper business card, rounded"] = /obj/item/paper/business_card/rounded
+	cards["glass business card"] = /obj/item/paper/business_card/glass
+	cards["glass business card, black flair"] = /obj/item/paper/business_card/glass/b
+	cards["glass business card, grey flair"] = /obj/item/paper/business_card/glass/g
+	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
+	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
+	card_path_tweak = new(cards)
+	card_tweaks = list(
+		card_path_tweak,
+		new /datum/gear_tweak/color/business_card(),
+		new /datum/gear_tweak/custom_name/business_card(),
+		new /datum/gear_tweak/custom_desc/business_card(),
+		new /datum/gear_tweak/paper_data/business_card()
+	)
+	gear_tweaks += card_tweaks
+
+/datum/gear/utility/business_card_holder/filled/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
+	var/obj/item/storage/business_card_holder/holder = ..()
+	if(!istype(holder))
+		return holder
+
+	var/card_path_metadata = metadata["[card_path_tweak]"]
+	if(!card_path_metadata)
+		card_path_metadata = card_path_tweak.get_default()
+	var/card_path = card_path_tweak.get_card_path(card_path_metadata)
+	if(!card_path)
+		return holder
+
+	for(var/i = 1 to holder.storage_slots)
+		var/obj/item/paper/business_card/card = new card_path(holder)
+		for(var/datum/gear_tweak/card_tweak in card_tweaks)
+			if(card_tweak == card_path_tweak)
+				continue
+			var/card_metadata = metadata["[card_tweak]"]
+			if(!card_metadata)
+				card_metadata = card_tweak.get_default()
+			card_tweak.tweak_item(card, card_metadata, H)
+		card.update_icon()
+
+	holder.update_icon()
+	return holder
+
+/datum/gear_tweak/path/business_card
+
+/datum/gear_tweak/path/business_card/get_contents(var/metadata)
+	return "Card Type: [metadata]"
+
+/datum/gear_tweak/path/business_card/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
+	return
+
+/datum/gear_tweak/path/business_card/proc/get_card_path(var/metadata)
+	if(metadata in valid_paths)
+		return valid_paths[metadata]
+	for(var/card_name in valid_paths)
+		if(valid_paths[card_name] == metadata)
+			return metadata
+
+/datum/gear_tweak/color/business_card/get_contents(var/metadata)
+	return "Card Color: [metadata]"
+
+/datum/gear_tweak/color/business_card/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if(istype(I, /obj/item/paper/business_card))
+		return ..()
+
+/datum/gear_tweak/custom_name/business_card/get_contents(var/metadata)
+	return "Card Name: [metadata]"
+
+/datum/gear_tweak/custom_name/business_card/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if(istype(I, /obj/item/paper/business_card))
+		return ..()
+
+/datum/gear_tweak/custom_desc/business_card/get_contents(var/metadata)
+	return "Card Description: [metadata]"
+
+/datum/gear_tweak/custom_desc/business_card/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if(istype(I, /obj/item/paper/business_card))
+		return ..()
+
+/datum/gear_tweak/paper_data/business_card/get_contents(var/metadata)
+	return "Card [..()]"
+
+/datum/gear_tweak/paper_data/business_card/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+	if(istype(I, /obj/item/paper/business_card))
+		return ..()
 
 /datum/gear/utility/paper
 	display_name = "colorable paper"
