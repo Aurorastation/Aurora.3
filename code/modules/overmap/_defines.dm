@@ -94,7 +94,8 @@ GLOBAL_LIST_EMPTY(moving_levels)
 			CHECK_TICK
 
 /// Returns the map_template.
-/// Arg can be the z-level number or atom instance.
+/// Arg must be the z-level number or atom instance.
+/// Arg must be a valid z-level: no null or out-of-bounds z-levels.
 /// Returns the corresponding `/datum/map_template` instance.
 /proc/get_map_template(z_or_atom)
 	dbg_assert(!isnull(z_or_atom), "Argument cannot be null")
@@ -113,7 +114,8 @@ GLOBAL_LIST_EMPTY(moving_levels)
 	return GLOB.map_templates["[resolved_z]"]
 
 /// Returns the map sector.
-/// Arg can be the z-level number or atom instance.
+/// Arg must be the z-level number or atom instance.
+/// Arg must be a valid z-level: no null or out-of-bounds z-levels.
 /// Returns the corresponding `/obj/effect/overmap/visitable` instance.
 /proc/get_map_sector(z_or_atom)
 	dbg_assert(!isnull(z_or_atom), "Argument cannot be null")
