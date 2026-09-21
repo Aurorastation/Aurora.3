@@ -339,7 +339,8 @@
 	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations."
 	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
 	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
-	This example bears only the Solarian flag, the background features Unity Station with a diverse range of civilian and military vessels visible in the periphery. \
+	This example bears the Solarian flag, with a background composed of the seals and stars of the Alliance arranged around a stylized golden sun. \
+	Faint geometric lines frame the card in the colors of the Alliance. \
 	These cards are issued directly by the Solarian Federal Government or by member-states that elect not to produce their own variants."
 	icon_state = "passcard_sol"
 	item_state = "passcard_sol"
@@ -422,11 +423,18 @@
 
 /obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
 	name = "restricted mars passcard"
-	desc = "A restricted passcard issued to residents of the Sovereign Solarian Union of Mars."
+	desc = "A restricted passcard issued to residents of the Provisional Government of Mars."
 	desc_extended = "This restricted variant of the Solarian passcard contains enhanced security features and personal biometric encryption. \
 	This example bears the Martian flag, set against a plain background marked by a bold red warning banner stating, “State of emergency declared in this jurisdiction. Certain civil liberties have been temporarily suspended.”"
 	icon_state = "passcard_restricted_mars"
 	item_state = "passcard_restricted_mars"
+
+/obj/item/clothing/accessory/badge/passcard/sol/restricted_lycoris
+	name = "restricted lycoris passcard"
+	desc = "A restricted passcard issued to residents of the Provisional Government of Lycoris."
+	desc_extended = "This example bears the insignia of the Provisional Government of Lycoris, set against a plain background marked by a bold red warning banner stating, “State of emergency declared in this jurisdiction. Certain civil liberties have been temporarily suspended.”"
+	icon_state = "passcard_restricted_lycoris"
+	item_state = "passcard_restricted_lycoris"
 
 /obj/item/clothing/accessory/badge/passcard/sol/san_colette
 	name = "san colette passcard"
@@ -484,6 +492,95 @@
 	A faint watermind reading “From Ruin, Resolve” encircles the card’s edges."
 	icon_state = "passcard_visegrad"
 	item_state = "passcard_visegrad"
+
+/obj/item/clothing/accessory/badge/passcard/sol/enceladus
+	name = "enceladus passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Federal Republic of Enceladus."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Enceladian flag, with a background depicting a forested shoreline beneath a clear blue sky, Saturn and its rings dominating the horizon above. \
+	In the distance, Enceladus Station hangs in orbit amid the faint sweep of Saturn’s rings. Along the lower edge, a watermark reads, “A New World Beneath Old Stars.”"
+	icon_state = "passcard_enceladus"
+	item_state = "passcard_enceladus"
+
+/obj/item/clothing/accessory/badge/passcard/sol/lhokgon
+	name = "lhokgon passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Federal Republic of Lhokgon."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Lhokger flag, with a background depicting a broad mountain silhouette rising behind a cityscape blending traditional architecture with Helium-3 refinery towers and orbital elevators. \
+	Fine decorative patterns reminiscent of textile weaves frame the edges of the card. \
+	Along the bottom, a faint watermark reads, “From the Mountains to the Stars.”"
+	icon_state = "passcard_lhokgon"
+	item_state = "passcard_lhokgon"
+
+/obj/item/clothing/accessory/badge/passcard/sol/new_peoria
+	name = "new peoria passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Republic of New Peoria."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the New Peorian flag, with a background depicting the planet’s skyline beneath the luminous arc of a warp gate, surrounded by merchant vessels and passenger craft from across the Spur. \
+	Faint route-lines and navigational markings frame the edges of the card. \
+	Along the bottom, a watermark reads, “Where Worlds Meet.”"
+	icon_state = "passcard_newpeoria"
+	item_state = "passcard_newpeoria"
+
+/obj/item/clothing/accessory/badge/passcard/sol/novo_igman
+	name = "novo igman passcard"
+	desc = "A passcard issued to citizens of the Federal Solarian Republic of Novo Igman."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Novo Igmani flag, with a background depicting a mountain memorial overlooking a wide valley, its central monument dedicated to those who defended the republic throughout its history. \
+	A ring of stars is faintly worked into the card’s border. \
+	Along the bottom, a watermark reads, “Never Broken.”"
+	icon_state = "passcard_novoigman"
+	item_state = "passcard_novoigman"
+
+/obj/item/clothing/accessory/badge/passcard/sol/mars
+	name = "mars passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Union of Mars prior to the Violet Dawn catastrophe. \
+	While still recognized as valid documentation, it is no longer issued. \
+	Replaced by the passcard of the Provisional Government."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the former Martian flag, with a background depicting the vast slopes of Olympus Mons rising behind the upper levels of Crest Olympia, its arcology towers overlooking the red plains below. \
+	Phobos and Deimos are worked faintly into the upper corners of the card, while a hundred names, those of the world’s first colonists, frame its edges in thin, looping font.  \
+	Along the bottom, a watermark reads, “A World Made by Our Hands.”"
+	icon_state = "passcard_unionmars"
+	item_state = "passcard_unionmars"
+
+/obj/item/clothing/accessory/badge/passcard/sol/unity_station
+	name = "unity station passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Federal District of Unity Station."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the flag of Unity Station, with a background depicting the station’s vast cylindrical interior, its residential districts and parkland curving upward beneath the artificial sky. \
+	The Solarian Senate complex stands prominently in the foreground, while a faint silhouette of the museum ship ASSNV Cincinnatus is worked into the lower edge. \
+	A watermark across the card reads, “The Alliance, Made One.”"
+	icon_state = "passcard_unity"
+	item_state = "passcard_unity"
+
+/obj/item/clothing/accessory/badge/passcard/sol/eris
+	name = "eris & dysnomia passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Union of Eris and Dysnomia."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship.  \
+	This example bears the Erisian flag, with a background depicting a crowded public concourse beneath one of Discordia’s great domes, surrounded by gardens, residences, and transit lines. \
+	Beyond the dome, the frozen surface stretches beneath a black sky. \
+	Along the bottom, a faint watermark reads, “Beyond the Known.”"
+	icon_state = "passcard_eris"
+	item_state = "passcard_eris"
+
+/obj/item/clothing/accessory/badge/passcard/sol/ganymede
+	name = "ganymede passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Federation of Ganymede."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Ganymedean flag, with a background depicting immense agricultural towers rising from the moon’s icy surface, their illuminated growing levels standing beside vast communications arrays. \
+	In the distance, the Hubble II telescope complex stretches across the horizon beneath Jupiter’s looming presence. \
+	Along the bottom, a faint watermark reads, “Plenty, Knowledge, Progress.”"
+	icon_state = "passcard_gany"
+	item_state = "passcard_gany"
 
 /obj/item/clothing/accessory/badge/passcard/eridani
 	name = "eridani passcard"
