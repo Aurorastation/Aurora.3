@@ -4928,12 +4928,19 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/rnd/xenobiology)
 "aGN" = (
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/large/produce{
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/machinery/firealarm/south,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/coatrack{
+	pixel_x = 9;
 	pixel_y = 2
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
+/turf/simulated/floor/wood,
+/area/horizon/service/mess_hall)
 "aGP" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	dir = 1;
@@ -24347,11 +24354,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "dhe" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/structure/table/stone/marble,
+/obj/item/toy/desk/fan{
+	pixel_x = 7;
+	pixel_y = 15
 	},
-/turf/simulated/floor/wood,
-/area/horizon/service/bar)
+/obj/item/storage/box/large/produce{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "dhg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -45943,6 +45956,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/service{
 	dir = 8
 	},
+/obj/structure/coatrack{
+	pixel_x = 12;
+	pixel_y = 25
+	},
 /turf/simulated/floor/lino/diamond,
 /area/horizon/service/bar/backroom)
 "fXB" = (
@@ -59011,6 +59028,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
+"hHd" = (
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/large/produce{
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "hHg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -81758,17 +81782,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/mess_hall)
 "kBE" = (
-/obj/structure/table/stone/marble,
-/obj/item/toy/desk/fan{
-	pixel_x = 7;
-	pixel_y = 15
+/obj/structure/machinery/computer/security/terminal/public{
+	dir = 8
 	},
-/obj/item/storage/box/large/produce{
-	pixel_x = -13;
-	pixel_y = 2
-	},
+/obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
+/area/horizon/service/bar)
 "kBK" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -84164,11 +84183,15 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/upperdeck)
 "kSa" = (
-/obj/effect/floor_decal/spline/plain/green{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/mess_hall)
+/obj/structure/bed/stool/padded/orange{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/horizon/service/bar)
 "kSd" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -86296,7 +86319,6 @@
 /obj/structure/noticeboard{
 	pixel_y = 30
 	},
-/obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "lfG" = (
@@ -106524,12 +106546,11 @@
 /area/horizon/engineering/bluespace_drive)
 "nNm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+	dir = 4
 	},
-/obj/structure/bed/stool/padded/orange{
-	dir = 1
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
-/obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
 "nNG" = (
@@ -125959,6 +125980,10 @@
 	dir = 1;
 	pixel_y = 28
 	},
+/obj/structure/coatrack{
+	pixel_x = -9;
+	pixel_y = 17
+	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
 "qpr" = (
@@ -130059,7 +130084,7 @@
 /area/horizon/crew/media_office)
 "qOO" = (
 /obj/structure/bed/stool/chair/office/dark{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -134986,6 +135011,10 @@
 	pixel_x = -6;
 	pixel_y = 26;
 	dir = 6
+	},
+/obj/structure/coatrack{
+	pixel_x = 11;
+	pixel_y = 21
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/mess_hall)
@@ -158889,6 +158918,12 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/horizon/crew/lounge)
+"uyl" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/mess_hall)
 "uym" = (
 /obj/structure/machinery/atmospherics/portables_connector/scrubber{
 	dir = 8
@@ -188108,11 +188143,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/lobby)
 "yjV" = (
-/obj/structure/machinery/computer/security/terminal/public{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/service,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/wood,
 /area/horizon/service/bar)
 "ykc" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -283414,7 +283448,7 @@ mgT
 gba
 fpF
 rRK
-qFl
+aGN
 gba
 rvY
 rRK
@@ -283426,9 +283460,9 @@ pQL
 mDF
 ezA
 nhf
-nNm
+kSa
 ndW
-ixz
+nNm
 qOO
 sdk
 uYQ
@@ -283685,7 +283719,7 @@ ezA
 nhx
 aSm
 kcY
-yjV
+kBE
 uOK
 sdk
 uYQ
@@ -284964,8 +284998,8 @@ giv
 ezA
 pXp
 hSv
-dhe
-dhe
+yjV
+yjV
 jAu
 mcN
 lUL
@@ -287019,7 +287053,7 @@ txG
 hpC
 fId
 uEZ
-kBE
+dhe
 uEU
 xqR
 oaA
@@ -288561,7 +288595,7 @@ vqP
 brr
 hkJ
 nvo
-aGN
+hHd
 uEU
 ilv
 krl
@@ -288814,7 +288848,7 @@ qHZ
 txY
 jHq
 bLP
-kSa
+uyl
 brr
 orW
 uEZ
