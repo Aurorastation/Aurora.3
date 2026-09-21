@@ -36,7 +36,7 @@
 	if(!check_rights(R_SERVER|R_ADMIN|R_DEV, user=user))
 		return
 
-	committed_sector = SSatlas.possible_sectors[SSregistry.getValue(REGISTRY_CURRENT_SECTOR, SSatlas.current_sector?.name)]
+	committed_sector = SSatlas.possible_sectors[SSregistry.getValue(REGISTRY_CURRENT_SECTOR, GLOB.config.current_space_sector ? GLOB.config.current_space_sector : SSatlas.current_sector?.name)]
 	committed_message_of_the_day = SSregistry.getValue(REGISTRY_MESSAGE_OF_THE_DAY)
 	committed_lore_summary = SSregistry.getValue(REGISTRY_LORE_SUMMARY)
 
