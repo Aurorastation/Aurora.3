@@ -1,6 +1,6 @@
 /client/proc/server_configuration()
 	set category = "Admin"
-	set name = "Server configuration"
+	set name = "Server Configuration"
 	set desc = "View and edit server configuration"
 	if(!check_rights(R_SERVER|R_ADMIN|R_DEV))
 		return
