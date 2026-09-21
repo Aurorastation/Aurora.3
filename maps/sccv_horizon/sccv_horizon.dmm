@@ -40894,7 +40894,10 @@
 /obj/effect/floor_decal/spline/plain/corner/green{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "fpb" = (
 /obj/structure/filingcabinet/chestdrawer{
@@ -48842,16 +48845,16 @@
 	icon_state = "2-8"
 	},
 /obj/structure/disposalpipe/segment/mainline,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_straight/service,
 /obj/structure/machinery/alarm/east,
 /obj/structure/sink/kitchen{
 	dir = 8;
 	name = "sink";
 	pixel_x = 20
 	},
+/obj/effect/floor_decal/corner/dark_green/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/service,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
 "grc" = (
@@ -115657,11 +115660,11 @@
 	sortType = "Bar";
 	name = "Bar"
 	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/bar)
