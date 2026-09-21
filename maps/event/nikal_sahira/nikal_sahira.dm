@@ -1,15 +1,13 @@
-/datum/map/nikal_sahira
+/datum/map/event/nikal_sahira
 	name = "Nikal Sahira"
 	full_name = "Nikal Sahira"
 	description = "Nikal Sahira, A Port of Call district of Crevus."
-	path = "nikal_sahira"
+	path = "event/nikal_sahira"
 	traits = list(
 		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
 		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
 		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
-	contact_levels = list(1, 2, 3)
-	map_levels = list(1, 2, 3)
 	lobby_icons = list('icons/misc/titlescreens/aurora/tajara.dmi')
 	use_overmap = TRUE
 	default_sector = SECTOR_SRANDMARR
@@ -26,21 +24,21 @@
 	company_short = "Orion"
 	station_type = "district"
 	allowed_jobs = list(/datum/job/visitor)
-	overmap_visitable_type = /obj/effect/overmap/visitable/sector/nikal_sahira
+	//overmap_visitable_type = /obj/effect/overmap/visitable/sector/nikal_sahira
 
 	// copy-paste from /datum/map/event
 	shuttle_call_restarts = TRUE
 	shuttle_called_message = "OOC NOTE: The round will restart in ten minutes, unless the crew transfer is recalled."
 	shuttle_recall_message = "OOC NOTE: The round will no longer restart."
 
-/datum/map/nikal_sahira/build_away_sites()
+/datum/map/event/nikal_sahira/build_away_sites()
 	// no other candidates
 	return
 
 /datum/map_template/ruin/away_site/nikal_sahira
 	name = "Nikal Sahira"
 	description = "Nikal Sahira, A Port of Call district of Crevus."
-	prefix = "away_site/adhomai/nikal_sahira/"
+	prefix = "../event/nikal_sahira/"
 	suffix = "nikal_sahira.dmm"
 	id = "nikal_sahira"
 
@@ -87,4 +85,3 @@
 	requires_contact = FALSE
 	instant_contact = TRUE
 	landing_site = TRUE
-	base = TRUE

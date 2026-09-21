@@ -868,7 +868,7 @@
 	pixel_x = 32
 	},
 /obj/structure/machinery/recharge_station,
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "aFm" = (
 /obj/structure/arch/gothic/eastwest/right,
@@ -4179,7 +4179,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "cOC" = (
 /obj/effect/decal/road_marking/turn_left{
@@ -6504,7 +6504,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "eqm" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -11666,7 +11666,7 @@
 	pixel_x = -32
 	},
 /obj/structure/machinery/vending/idris_delights/all_currencies,
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "hvI" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner,
@@ -12835,7 +12835,7 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "ijh" = (
 /obj/structure/bed/stool/chair/padded/brown,
@@ -14505,7 +14505,7 @@
 /obj/structure/machinery/cryopod{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "jjN" = (
 /obj/random/dirt_75,
@@ -15271,7 +15271,7 @@
 	pixel_y = 6;
 	pixel_x = -7
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "jEH" = (
 /obj/structure/rod_railing{
@@ -21563,7 +21563,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "nJB" = (
 /obj/structure/bed/stool/chair{
@@ -30522,7 +30522,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "tmy" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -34412,7 +34412,7 @@
 /area/crevus/inside/sewers)
 "vPg" = (
 /obj/structure/machinery/recharge_station,
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "vPs" = (
 /obj/structure/machinery/light,
@@ -37388,7 +37388,7 @@
 /area/crevus/inside/sewers)
 "xJb" = (
 /obj/structure/machinery/cryopod,
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "xJt" = (
 /obj/structure/bed/stool/chair{
@@ -37899,7 +37899,7 @@
 	dir = 4
 	},
 /obj/structure/closet,
-/turf/simulated/floor/exoplanet/carpet/rubber,
+/turf/simulated/floor/carpet/rubber,
 /area/crevus/inside/ferry_shuttle)
 "xZn" = (
 /obj/structure/arch/gothic/eastwest/left,
