@@ -84,3 +84,4 @@
 	requires_contact = FALSE
 	instant_contact = TRUE
 	landing_site = TRUE
+	comms_support = TRUE

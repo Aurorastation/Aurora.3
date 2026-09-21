@@ -2562,6 +2562,13 @@
 	},
 /turf/simulated/floor/lino,
 /area/crevus/inside/restaurant/table_area)
+"bJW" = (
+/obj/random/dirt_75,
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
+/area/crevus/outside)
 "bKi" = (
 /obj/structure/machinery/atm{
 	pixel_y = -10
@@ -36972,7 +36979,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/restaurant/kitchen)
 "xvj" = (
-/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship/common_freq,
 /turf/simulated/floor/plating,
 /area/crevus/outside)
 "xvQ" = (
@@ -138659,7 +138666,7 @@ nMo
 hbH
 qBx
 poK
-pcG
+bJW
 vpp
 nMo
 saM
@@ -138916,7 +138923,7 @@ gXk
 qBx
 qBx
 mzS
-ogF
+bpK
 bpK
 nMo
 mBu

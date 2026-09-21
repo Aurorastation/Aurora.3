@@ -68,6 +68,12 @@
 			assign_away_freq(linked.name)
 		)
 
+// A snowflake type when you need crew to have access to common frequency but exclude ghostroles from it
+// in other words when use_common option from sector visitable isn't viable
+/obj/structure/machinery/telecomms/allinone/ship/common_freq/LateInitialize()
+	. = ..()
+	freq_listening += PUB_FREQ
+
 /obj/structure/machinery/telecomms/allinone/ship/coalition_navy
 	name = "coalition navy telecommunications mainframe"
 	desc = "A compact machine used for portable subspace telecommuniations processing. This one also has encryption codes for Coalition navy vessels."
