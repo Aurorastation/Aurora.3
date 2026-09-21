@@ -113,9 +113,6 @@ SUBSYSTEM_DEF(registry)
 		return FALSE
 	if (value == null || value == "")
 		return clearKey(key) // If the value is null or empty, we treat it as a request to clear the key.
-	if (length(value) > 1024)
-		internal_log("Attempted to set registry value with value exceeding 1024 characters for key: [key]")
-		return FALSE
 
 	if(!databaseCheckConnection())
 		internal_log("No DB connection, attempted to set: [key], with: [value]")
