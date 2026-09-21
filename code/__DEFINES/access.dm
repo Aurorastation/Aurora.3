@@ -29,7 +29,7 @@
 	return info
 
 /// Converts any `/datum/access` typepaths in a list into their numeric `::id` values.
-/// Takes a mixed list like `list(1, 2, 3, ACCESS_SECURITY, /datum/access/armory)`.
+/// Takes a mixed list like `list(42, ACCESS_SECURITY, /datum/access/brig::id, /datum/access/armory)`.
 /// Returns a list with only numeric IDs.
 /proc/resolve_access_list(list/access_list)
 	// if null or empty, do nothing
@@ -52,14 +52,14 @@
 
 			// abstract types should not be used
 			if(is_abstract(acc_type))
-				stack_trace("resolve_access_list(): access path '[entry]' is abstract")
+				dbg_stack_trace("resolve_access_list(): access path '[entry]' is abstract")
 
 			var/resolved_id = acc_type::id
 			resolved[i] = resolved_id
 			continue
 
 		// neither a number nor a valid access typepath
-		stack_trace("resolve_access_list(): item '[entry]' is neither number nor /datum/access path")
+		dbg_stack_trace("resolve_access_list(): item '[entry]' is neither number nor /datum/access path")
 
 	return resolved
 
