@@ -418,3 +418,42 @@
 /obj/item/clothing/head/winterhood/patterned_ponczo/blue
 	name = "blue visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka
+	name = "nanotrasen parka"
+	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions. This one has the NanoTrasen logo on it."
+	icon_state = "ntpark"
+	item_state = "ntpark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka
+
+/obj/item/clothing/head/winterhood/parka
+	name = "nanotrasen parka hood"
+	desc = "A fur-lined hood attached to a parka."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage
+	name = "vintage parka"
+	desc = "An old-fashioned fur-lined jacket made to keep you nice and toasty on cold winter days. Or at least alive."
+	icon_state = "vintagepark"
+	item_state = "vintagepark"
+	hoodtype = /obj/item/clothing/head/winterhood/parka/vintage
+
+/obj/item/clothing/head/winterhood/parka/vintage
+	name = "vintage parka hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/parka/colorable
+	name = "parka"
+	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions."
+	icon_state = "parka_colorable"
+	item_state = "parka_colorable"
+	build_from_parts = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/parka/colorable
+	worn_overlay = "acc"
+
+/obj/item/clothing/head/winterhood/parka/colorable
+	name = "parka hood"
+	icon_state = "parka_colorable_hood"
+	build_from_parts = TRUE
+	worn_overlay = "acc"
+
+/obj/item/clothing/head/winterhood/parka/colorable/update_icon(mob/user)
+	. = ..()

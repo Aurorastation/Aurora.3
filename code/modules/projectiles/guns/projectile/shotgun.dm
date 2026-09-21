@@ -69,6 +69,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/shotgun/pump/handle_maptext()
 	var/ammo = length(loaded)
@@ -160,6 +161,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	fire_delay = ROF_INTERMEDIATE
+	has_unique_gun_action = TRUE
 
 	burst_delay = 0
 	firemodes = list(
@@ -260,6 +262,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 	var/folded = TRUE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/shotgun/foldable/update_icon()
 	if(folded)
@@ -335,6 +338,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	handle_casings = HOLD_CASINGS
 	///Whether the shotgun's chamber is open
 	var/open = FALSE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/shotgun/wallgun/update_icon()
 	if(open)

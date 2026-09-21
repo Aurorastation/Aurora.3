@@ -189,6 +189,7 @@
 		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
 		return
 	src.hand = !src.hand
+	hud_used?.update_gun_actions()
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
 			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
