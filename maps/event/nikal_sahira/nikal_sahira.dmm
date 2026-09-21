@@ -5482,6 +5482,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass,
+/obj/effect/floor_decal/industrial/hatch_door/grey{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
 "dGN" = (
@@ -10055,6 +10058,7 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2
 	},
+/obj/effect/floor_decal/industrial/hatch_door/grey,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
 "gux" = (
@@ -11939,6 +11943,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch_door/grey,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
 "hCF" = (
@@ -15369,6 +15374,9 @@
 /obj/structure/machinery/door/blast/regular/open{
 	id = "ssc_shuttle";
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/grey{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
@@ -23034,6 +23042,7 @@
 	dir = 2
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
+/obj/effect/floor_decal/industrial/hatch_door/grey,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
 "oBr" = (
@@ -23107,6 +23116,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
+/obj/effect/floor_decal/industrial/hatch_door/grey{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
 "oEL" = (
@@ -23469,6 +23481,9 @@
 	},
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/grey{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
@@ -24704,6 +24719,7 @@
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch_door/grey,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/crevus/inside/ferry_shuttle)
 "pGh" = (
@@ -27854,13 +27870,14 @@
 /turf/simulated/floor/tiled/light/full,
 /area/crevus/inside/nt_pharmacy)
 "rHB" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/machinery/light/small,
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/crevus/inside/restaurant/lobby)
+/obj/effect/floor_decal/industrial/hatch_door/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/crevus/inside/ferry_shuttle)
 "rHR" = (
 /obj/structure/platform_deco/rock/icy{
 	dir = 4
@@ -199555,7 +199572,7 @@ van
 sWN
 axQ
 vEL
-rHB
+sOo
 sWN
 sWN
 sWN
@@ -203680,7 +203697,7 @@ uLx
 uLx
 uLx
 uLx
-xTr
+uLx
 uLx
 uLx
 uLx
@@ -207021,7 +207038,7 @@ tkT
 gdE
 fcM
 fcM
-rqB
+rHB
 fcM
 fcM
 vef
@@ -207535,7 +207552,7 @@ uLx
 uLx
 uLx
 uLx
-xTr
+uLx
 uLx
 uLx
 uLx
