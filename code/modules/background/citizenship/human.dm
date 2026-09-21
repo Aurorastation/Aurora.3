@@ -53,7 +53,7 @@
 								"Have a Republic citizen re-affirm their pledge of loyalty to the Republic of Biesel")
 
 /obj/outfit/job/representative/consular/ceti
-	name = "Republic of Biesel Consular Officer"
+	name = "Republic of Biesel Civil Service Functionare"
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
@@ -65,11 +65,11 @@
 	)
 
 /obj/outfit/job/diplomatic_aide/ceti
-	name = "Republic of Biesel Diplomatic Aide"
+	name = "Republic of Biesel Civil Service Aide"
 	accessory = /obj/item/clothing/accessory/tc_pin
 
 /obj/outfit/job/diplomatic_bodyguard/ceti
-	name = "Republic of Biesel Diplomatic Bodyguard"
+	name = "Republic of Biesel Civil Service Bodyguard"
 	backpack_contents = list(
 		/obj/item/gun/energy/blaster
 	)
