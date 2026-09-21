@@ -1,4 +1,4 @@
-import { Box, Button, LabeledList, Section, Tabs } from 'tgui-core/components';
+import { Box, Button, LabeledList, Section, Tabs, TextArea } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -6,6 +6,9 @@ import { Window } from '../layouts';
 type ServerConfigurationData = {
   sector_name: string;
   sector_description: string;
+  sector_changed: BooleanLike;
+  message_of_the_day: string;
+  message_of_the_day_changed: BooleanLike;
   read_only: BooleanLike;
   unsaved_changes: BooleanLike;
 };
@@ -42,22 +45,45 @@ export const ServerConfiguration = (props) => {
                 content={data.sector_name}
                 disabled={data.read_only}
                 icon="map"
-                onClick={() => act('select_sector')}
+                onClick={() => act('set_selected_sector')}
               />
-              {data.unsaved_changes ? (
+              {data.sector_changed ? (
                 <Button
                   color="yellow"
                   icon="arrow-rotate-left"
+                  content="Revert"
                   tooltip="Reset sector selection"
-                  onClick={() => act('reset_sector_selection')}
+                  onClick={() => act('reset_selected_sector')}
                 />
               ) : null}
             </LabeledList.Item>
           </LabeledList>
           <Box mt={1}>{data.sector_description}</Box>
         </Section>
-        <Section title="Port of call" />
-        <Section title="Message of the day" />
+        <Section title="Message of the day">
+          <TextArea
+            disabled={!!data.read_only}
+            fluid
+            height="10rem"
+            value={data.message_of_the_day}
+            onChange={(value) => act('set_message_of_the_day', { value })}
+          />
+          {data.message_of_the_day_changed ? (
+            <Button
+              color="yellow"
+              icon="arrow-rotate-left"
+              content="Revert"
+              tooltip="Reset MOTD"
+              onClick={() => act('reset_message_of_the_day')}
+            />
+            ) : null}
+          <Box mt={1}>
+            <div>- Displayed when server init completes and on client-connect.</div>
+            <div>- Supports HTML formatting.</div>
+            <div>- Should include information about current Port of Call.</div>
+            <div>- If empty, reverts to MOTD from config file.</div>
+          </Box>
+        </Section>
         <Section title="Lore summary" />
       </Window.Content>
     </Window>
