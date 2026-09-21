@@ -702,7 +702,7 @@
 /obj/item/rig_module/device/defib
 	name = "mounted defibrillator"
 	desc = "A complex Zeng-Hu circuit with two metal electrodes hanging from it."
-	icon_state = "defib"
+	// icon_state = "defib"
 
 	interface_name = "mounted defibrillator"
 	interface_desc = "A prototype defibrillator, palm-mounted for ease of use."

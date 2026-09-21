@@ -162,7 +162,7 @@
 /obj/item/organ/internal/eyes/night/revenant
 	name = "spectral eyes"
 	desc = "A pair of glowing eyes. The ocular nerves still slowly writhe."
-	icon_state = "revenant_eyes"
+	// icon_state = "revenant_eyes"
 	eye_emote = null
 	vision_color = null
 	action_button_name = list("Activate Low Light Vision")

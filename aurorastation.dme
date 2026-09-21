@@ -2110,7 +2110,6 @@
 #include "code\modules\clothing\gloves\xeno\unathi.dm"
 #include "code\modules\clothing\head\bandanas.dm"
 #include "code\modules\clothing\head\berets.dm"
-#include "code\modules\clothing\head\collectable.dm"
 #include "code\modules\clothing\head\hardhat.dm"
 #include "code\modules\clothing\head\hazmat.dm"
 #include "code\modules\clothing\head\helmet.dm"

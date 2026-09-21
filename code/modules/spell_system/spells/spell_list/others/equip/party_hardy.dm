@@ -29,8 +29,7 @@
 			return "The spell will now give everybody a preztel as well."
 		if(2)
 			equipped_summons = list("active hand" = /obj/item/reagent_containers/food/drinks/bottle/absinthe,
-								"off hand" = /obj/item/reagent_containers/food/snacks/poppypretzel,
-								"[slot_head]" = /obj/item/clothing/head/collectable/wizard)
+								"off hand" = /obj/item/reagent_containers/food/snacks/poppypretzel)
 			return "Woo! Now everybody gets a cool wizard hat and MORE BOOZE!"
 
 	return 0

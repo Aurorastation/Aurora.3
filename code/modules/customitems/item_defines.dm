@@ -635,8 +635,8 @@ ABSTRACT_TYPE(/obj/item/storage/box/fluff)
 	tucked in between are mostly written in Siik'maas. The front has a strip of tape with the name 'Ahkrraazarjhri Maalhalkasanurran' on it."
 	icon = 'icons/obj/custom_items/mrakiizar_book.dmi'
 	icon_override = 'icons/obj/custom_items/mrakiizar_book.dmi'
-	icon_state = "mrakiizar_book"
-	item_state = "mrakiizar_book"
+	icon_state = "mrakiizar_book1"
+	item_state = "mrakiizar_book1"
 	contained_sprite = TRUE
 	var/open_state = "mrakiizar_book1"
 	var/list/open_states = list("mrakiizar_book1", "mrakiizar_book2", "mrakiizar_book3", "mrakiizar_book4")

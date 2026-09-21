@@ -288,46 +288,6 @@
 /obj/item/clothing/suit/wizard_costume{
 	pixel_x = -7
 	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/wizard{
-	pixel_x = -9;
-	pixel_y = 16
-	},
 /obj/random/wizard_dressup,
 /obj/item/clothing/suit/owl_costume{
 	pixel_x = 12;
@@ -13423,18 +13383,6 @@
 /obj/item/clothing/head/bandana/pirate{
 	pixel_x = -8
 	},
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
-/obj/item/clothing/head/collectable/pirate,
 /obj/item/clothing/suit/pirate,
 /obj/item/clothing/suit/pirate,
 /obj/item/clothing/suit/pirate,
