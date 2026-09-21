@@ -104,7 +104,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/crucifix
 	display_name = "crucifix selection"
 	description = "A selection of different crucifixes, commonly associated with Christianity."
-	path = /obj/item/clothing/accessory/crucifix
+	path = /obj/item/clothing/accessory/crucifix/gold
 	slot = slot_tie
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 

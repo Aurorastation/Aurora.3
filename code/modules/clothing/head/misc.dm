@@ -82,7 +82,7 @@
 	name = "silversun flower pin"
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
-/obj/item/clothing/head/pin/ribbon
+ABSTRACT_TYPE(/obj/item/clothing/head/pin/ribbon)
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/head/hair_ribbons.dmi'
@@ -575,8 +575,8 @@
 /obj/item/clothing/head/sol/army/service/general
 	name = "sol army general peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Brigadier General, Major General, Lieutenant General or full General should wear this."
-	icon_state = "army_cap_general"
-	item_state = "army_cap_general"
+	// icon_state = "army_cap_general"
+	// item_state = "army_cap_general"
 
 /obj/item/clothing/head/sol/army/service/garrison
 	name = "sol army garrison cap"

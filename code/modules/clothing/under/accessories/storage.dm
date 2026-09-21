@@ -1,6 +1,7 @@
 /obj/item/clothing/accessory/storage
 	name = "load bearing equipment"
 	desc = "Used to hold things when you don't have enough hands."
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
 	icon_state = "webbing"
 	slot = ACCESSORY_SLOT_UTILITY
 	var/slots = 3

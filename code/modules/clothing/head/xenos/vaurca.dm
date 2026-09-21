@@ -82,9 +82,3 @@
 	icon_state = "hive_rep_shroud_colorable"
 	build_from_parts = TRUE
 	worn_overlay = "cover"
-
-/obj/item/clothing/head/vaurca_breeder/colorable/flag
-	desc = "A large shroud used by Vaurca Gynes. This one displays a flag on the back of the head."
-	item_state = "hive_rep_shroud_colorable_flag"
-	icon_state = "hive_rep_shroud_colorable_flag"
-	has_accents = TRUE

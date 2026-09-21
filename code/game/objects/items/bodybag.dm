@@ -262,9 +262,3 @@
 	if(airtank)
 		return airtank
 	else return ..()
-
-/obj/item/usedcryobag
-	name = "used stasis bag"
-	desc = "Pretty useless now."
-	icon_state = "cryobag_used"
-	icon = 'icons/obj/bodybag.dmi'

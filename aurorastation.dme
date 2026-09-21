@@ -3744,7 +3744,6 @@
 #include "code\modules\reagents\reagent_containers\glass\bottle.dm"
 #include "code\modules\reagents\reagent_containers\glass\coffeecup.dm"
 #include "code\modules\reagents\reagent_containers\glass\newdrinkingglas.dm"
-#include "code\modules\reagents\reagent_containers\glass\bottle\robot.dm"
 #include "code\modules\recycling\conveyor2.dm"
 #include "code\modules\recycling\disposal-construction.dm"
 #include "code\modules\recycling\disposal.dm"

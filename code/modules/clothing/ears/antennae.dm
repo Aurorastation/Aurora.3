@@ -79,8 +79,8 @@
 /obj/item/clothing/ears/antenna/dish
 	name = "antenna dishes"
 	desc = "A decorative antenna. This particular one is stylized as two tiny dishes, intended to hold excess wiring in a very specific manner. If only they picked up holodramas."
-	icon_state = "dual_dish"
-	item_state = "dual_dish"
+	icon_state = "dish"
+	item_state = "dish"
 
 /obj/item/clothing/ears/antenna/whip
 	name = "whip antennas"

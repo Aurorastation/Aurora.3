@@ -179,7 +179,7 @@
 /datum/gear/shoes/recolourable_boots
 	display_name = "boot selection (colourable)"
 	description = "Boots, in a selection of colours."
-	path = /obj/item/clothing/shoes/heeledboots
+	path = /obj/item/clothing/shoes/colorcombat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/recolourable_boots/New()

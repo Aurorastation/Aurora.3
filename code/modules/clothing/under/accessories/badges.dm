@@ -417,8 +417,8 @@
 	desc = "A restricted pass card issued to residents of the Reconstruction Mandates."
 	desc_extended = "This restricted variant of the Solarian passcard contains enhanced security features and personal biometric encryption. \
 	This example bears the combined flags of the Northern, and Southern Mandates, set against a plain background marked by a bold red warning banner stating, “State of emergency declared in this jurisdiction. Certain civil liberties have been temporarily suspended.”"
-	icon_state = "passcard_restricted_mand"
-	item_state = "passcard_restricted_mand"
+	icon_state = "passcard_restricted_mandate"
+	item_state = "passcard_restricted_mandate"
 
 /obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
 	name = "restricted mars passcard"

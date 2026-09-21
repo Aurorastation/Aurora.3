@@ -52,11 +52,6 @@
 	icon_state = "captain"
 	item_state = "caphat"
 
-/obj/item/clothing/head/collectable/police
-	name = "collectable police officer's hat"
-	desc = "A Collectable Police Officer's Hat. This hat emphasizes that you are THE LAW."
-	icon_state = "policehelm"
-
 /obj/item/clothing/head/collectable/beret
 	name = "collectable beret"
 	desc = "A Collectable red Beret. It smells faintly of garlic."
@@ -76,15 +71,6 @@
 	name = "collectable slime hat"
 	desc = "Just like a real Brain Slug!"
 	icon_state = "headslime"
-
-/obj/item/clothing/head/collectable/flatcap
-	name = "collectable flat cap"
-	desc = "A Collectible farmer's Flat Cap!"
-	icon_state = "flat_cap"
-	item_state_slots = list(
-		slot_l_hand_str = "detective",
-		slot_r_hand_str = "detective"
-		)
 
 /obj/item/clothing/head/collectable/pirate
 	name = "collectable pirate hat"
