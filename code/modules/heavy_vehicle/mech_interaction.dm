@@ -417,7 +417,7 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		trample_on_move = (user.m_intent == M_RUN)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
 		try
 			Move(target_loc, direction, 0, FALSE)
 		catch(var/exception/error)
@@ -447,7 +447,7 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		trample_on_move = (user.m_intent == M_RUN)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
 		try
 			Move(target_loc, direction, 0, FALSE)
 		catch(var/exception/error)

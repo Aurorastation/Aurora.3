@@ -160,7 +160,7 @@
 
 /mob/living/heavy_vehicle/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	. += "Use run intent to trample people."
+	. += "Use both run and harm intent to trample people."
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
