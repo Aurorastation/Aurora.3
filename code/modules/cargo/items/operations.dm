@@ -277,11 +277,39 @@
 /singleton/cargo_item/space_bike
 	category = "operations"
 	name = "space-bike"
-	supplier = "zharkov"
+	supplier = "hephaestus"
 	description = "Space wheelies! Woo!"
 	price = 800
 	items = list(
 		/obj/vehicle/bike
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/snowmobile
+	category = "operations"
+	name = "snowmobile"
+	supplier = "zharkov"
+	description = "A vehicle adapted to travel on snow."
+	price = 800
+	items = list(
+		/obj/vehicle/bike/snow
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/monowheel
+	category = "operations"
+	name = "monowheel"
+	supplier = "zharkov"
+	description = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
+	price = 900
+	items = list(
+		/obj/vehicle/bike/monowheel
 	)
 	access = 0
 	container_type = "box"

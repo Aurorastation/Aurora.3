@@ -113,6 +113,16 @@
 
 	var/last_x = 0
 	var/last_y = 0
+	/// TRUE while this mob deliberately crawls beneath a table.
+	var/crawling_under_table = FALSE
+	/// Used during Move() so table entry effects know this is a crawl, rather than a fall or forced move.
+	var/attempting_table_crawl = FALSE
+	/// The mob's layer before crawling beneath a table, restored when they emerge.
+	var/table_crawl_old_layer = MOB_LAYER
+	/// Client-only silhouettes created by the Search Nearby maneuver.
+	var/list/table_search_silhouettes
+	/// Cooldown for searching nearby hiding places.
+	var/next_table_search = 0
 
 	var/cached_bodytype
 

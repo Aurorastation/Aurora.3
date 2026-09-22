@@ -89,8 +89,14 @@
 
 	/* START ACCESS VARS */
 	/// Required access.
+	/// All of these accesses are required at the same time.
+	/// Can be either numeric access ids or `/datum/access/...` paths or a mix of both.
+	/// Can be a single item.
 	var/list/req_access
+	/// Required access.
 	/// Only require one of these accesses.
+	/// Can be either numeric access ids or `/datum/access/...` paths or a mix of both.
+	/// Can be a single item.
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
@@ -123,10 +129,12 @@
 
 /obj/Initialize(mapload, ...)
 	. = ..()
+
 	if(maxhealth)
 		if(!health)
 			// Allows you to set dynamic health states on initialize.
 			health = maxhealth
+
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
@@ -134,6 +142,15 @@
 				break
 	else if(should_use_health)
 		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
+
+	if(req_access)
+		if(!islist(req_access))
+			req_access = list(req_access)
+		req_access = resolve_access_list(req_access)
+	if(req_one_access)
+		if(!islist(req_one_access))
+			req_one_access = list(req_one_access)
+		req_one_access = resolve_access_list(req_one_access)
 
 /obj/Destroy()
 	if(persistent_objects_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively

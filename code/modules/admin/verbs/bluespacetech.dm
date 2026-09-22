@@ -182,7 +182,7 @@
 	if(key)
 		var/mob/living/origin = original_mob?.resolve()
 		if(origin)
-			origin.key = key
+			client.transfer_key_to_mob(origin)
 			original_mob = null
 			client.init_verbs()
 		else
@@ -340,7 +340,7 @@
 			//suicide()
 			return
 
-		origin.key = key
+		client.transfer_key_to_mob(origin)
 		original_mob = null
 	suicide()
 

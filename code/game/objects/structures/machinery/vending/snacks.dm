@@ -207,6 +207,9 @@
 		/obj/item/reagent_containers/food/drinks/zobo = 1.75
 	)
 
+/obj/structure/machinery/vending/snack/all_currencies
+	accepted_currencies = CURRENCY_ALL
+
 /obj/item/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
@@ -312,6 +315,9 @@
 	name = "\improper hacked FrontierVend"
 	desc = "A complimentary FrontierVend machine. No money? No worries."
 	prices = list()
+
+/obj/structure/machinery/vending/frontiervend/all_currencies
+	accepted_currencies = CURRENCY_ALL
 
 /obj/item/vending_refill/frontiervend
 	name = "frontiervend resupply canister"

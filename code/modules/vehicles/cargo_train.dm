@@ -34,6 +34,7 @@
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck."
 	. += "If latched, you can use a wrench to unlatch."
 	. += "Click-drag on a trolley to latch and tow it."
+	. += "Use run intent to run people over."
 
 /obj/vehicle/train/cargo/engine/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -231,7 +232,10 @@
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
 	if(HAS_TRAIT(H, TRAIT_LEANING))
-		return
+		return FALSE
+	if(H.mob_size > max_runover_size)
+		collide_with_oversized_mob(H)
+		return FALSE
 
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
 
@@ -239,15 +243,18 @@
 	for(var/i = 0, i < rand(1,5), i++)
 		var/def_zone = pick(parts)
 		H.apply_damage(rand(5,10), DAMAGE_BRUTE, def_zone)
+	return TRUE
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
 	attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>"
 
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 
 	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
@@ -269,7 +276,7 @@
 	if(user != load)
 		return 0
 
-	if(user.restrained())
+	if(user.restrained() || user.incapacitated())
 		return 0
 
 	if(is_train_head())
@@ -413,6 +420,7 @@
 		move_delay += GLOB.config.walk_speed 													//base reference speed
 		move_delay *= GLOB.config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
 		move_delay -= 1
+
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length

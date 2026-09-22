@@ -295,7 +295,7 @@
 	)
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/swat/peacekeeper
@@ -335,7 +335,7 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 1
 
 /obj/item/clothing/head/helmet/gladiator
@@ -365,6 +365,23 @@
 	)
 	siemens_coefficient = 0.35
 
+
+/obj/item/clothing/head/helmet/augment
+	name = "augment array"
+	desc = "A helmet with optical and cranial augments coupled to it."
+	icon_state = "v62"
+	armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_RESISTANT,
+		BOMB = ARMOR_BOMB_PADDED
+	)
+	flags_inv = HIDEEARS|HIDEEYES
+	body_parts_covered = HEAD|EYES
+	cold_protection = HEAD
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/iachelmet
 	name = "IAC helmet"

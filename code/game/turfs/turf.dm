@@ -281,7 +281,8 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/structure/machinery))
+			// The loc is due to multi-tile doors moving otherwise because they occupy multiple places.
+			if(AM.loc == src && istype(AM, /obj/structure/machinery))
 				var/obj/structure/machinery/M = AM
 				M.shuttle_move(src)
 
@@ -717,8 +718,8 @@
 	if(density)
 		return OUTSIDE_NO
 
-	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
-		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+	for(var/obj/structure/S in src)
+		if(istype(S, /obj/structure/component/tent_canvas))
 			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)
