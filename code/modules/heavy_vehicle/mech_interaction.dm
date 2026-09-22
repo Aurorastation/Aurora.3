@@ -417,7 +417,13 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/strafe_move(mob/user, direction)
 	if (!legs)
@@ -441,7 +447,13 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction, delay_modifier)
 	if (!legs || !can_turn(user, delay_modifier))
@@ -469,7 +481,13 @@
 	// They shouldn't get to this proc without legs in the first place, but its okay to guard here.
 	if (!legs || !legs.motivator)
 		return
+	trample_retry = FALSE
 	. = ..()
+	if(!. && trample_retry && loc != newloc)
+		// Retry normal movement after the collision made the target passable.
+		trample_retry = FALSE
+		. = ..()
+	trample_retry = FALSE
 	set_glide_size(DELAY_TO_GLIDE_SIZE(next_mecha_move - world.time))
 	if(. && !istype(loc, /turf/space))
 		if(legs.mech_step_sound)
@@ -491,6 +509,29 @@
 		for (var/mob/pilot in pilots)
 			to_chat(pilot, SPAN_WARNING("Your exosuit's legs spark as you attempt to control them!"))
 		spark(src, 3, GLOB.alldirs)
+
+/mob/living/heavy_vehicle/Collide(atom/movable/target_movable_atom)
+	if(!trample_on_move || !isliving(target_movable_atom))
+		return ..()
+
+	var/mob/living/target_mob = target_movable_atom
+	if(target_mob.mob_size > max_trample_size)
+		return ..()
+
+	var/was_lying = target_mob.lying
+	target_mob.apply_effect(2, WEAKEN)
+	if(target_mob.lying)
+		if(!was_lying)
+			visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"))
+			trample_retry = TRUE
+		// Leave them here; entering their tile applies the existing trample damage.
+		return
+	return ..()
+
+/mob/living/heavy_vehicle/can_move_mob(mob/living/swapped, swapping = FALSE, passive = FALSE)
+	if(swapping)
+		return FALSE
+	return ..()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
 	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))
@@ -752,6 +793,8 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	if(!isliving(H))
 		return
 	if(src == H)
+		return
+	if(H.mob_size > max_trample_size)
 		return
 
 	if(legs?.trample_damage)
