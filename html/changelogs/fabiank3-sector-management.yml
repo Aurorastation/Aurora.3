@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - admin: "Added Server Configuration verb/menu, found under admin tab. Supports sector, motd and lore summary."

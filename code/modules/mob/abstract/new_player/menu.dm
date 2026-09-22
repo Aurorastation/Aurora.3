@@ -442,9 +442,10 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	player.show_lore_summary()
 
 /mob/abstract/new_player/proc/show_lore_summary()
-	if(GLOB.config.lore_summary)
+	var/lore = SSregistry.getValue(REGISTRY_LORE_SUMMARY, GLOB.config.lore_summary)
+	if(lore)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
-		output += "<i>[GLOB.config.lore_summary]</i><hr>"
+		output += "<i>[lore]</i><hr>"
 		to_chat(src, output)
 
 /**

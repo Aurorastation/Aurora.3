@@ -260,3 +260,10 @@
       mode and the unique action button.
   effyank:
   - imageadd: Added a spotted body marking option for Tajara.
+2026-09-22:
+  FabianK3:
+  - bugfix: Fixed loss of autohiss mode after re-entering your char after various
+      mod/key transformations.
+  Karakamenk:
+  - qol: Gives dionae the ability to run.
+  - balance: Prevents nymph ventcrawling upon splitting.
