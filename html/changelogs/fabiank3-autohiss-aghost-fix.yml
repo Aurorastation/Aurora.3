@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed loss of autohiss mode after re-entering your char after various mod/key transformations."
