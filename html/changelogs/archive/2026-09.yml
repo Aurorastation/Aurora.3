@@ -222,3 +222,48 @@
   - rscadd: Assisted organs require either surgery or robotics skill.
   - rscadd: Shrapnel removal requires either surgery or robotics skill.
   - bugfix: Fixed the risk of rarely being trapped on crate shelves.
+2026-09-20:
+  DreamySkrell:
+  - bugfix: Fixes `/obj/random/finances` not spawning.
+  TheGreyWolf:
+  - balance: Taking cold damage from breathing now starts at cold damage tier 2 instead
+      of tier 1.
+  - balance: Rebalanced the cold protection values on a bunch of clothing.
+  - bugfix: Attempted another spark heisenbug fix.
+  - bugfix: Fixed the double doors moving on the intrepid during flight.
+  TheGreyWolf and Elorg:
+  - rscadd: Added the adhomian knuckle, available in the ATM for a 10 credit fee.
+  kano:
+  - rscadd: Added Nikal Sahira, a port of call map of Crevus.
+2026-09-21:
+  FabianK3:
+  - bugfix: Fixed too strict whitelist restrictions for ghost roles on Nikal Sahira,
+      except gang boss roles.
+  - admin: Added skills configuration to the player panel.
+  - refactor: Resolved misc. linter issues.
+  - admin: Added pagination to the player notes lookup panel.
+  - admin: Player notes are now listed in descending order by added date.
+  - bugfix: Fixed massive player note queries.
+  Greenjoe:
+  - rscadd: Adds parkas as an alternative to winter coats, found in the loadout and
+      random spawns.
+  TheGreyWolf:
+  - rscadd: Permits crawling under non-reinforced tables to hide and adds a button
+      in the IC tab to search under nearby tables.
+  - rscadd: Added a large selection of tesla based augments for PRA tajara with the
+      tesla spine.
+  - balance: Reduced the recharge time of the experimental welder to go from empty
+      to full in 5 min.
+  - rscadd: Changed the robotics analyzer to be a TGUI.
+  TheGreyWolf and Wezzy:
+  - qol: There are now hud buttons for safety when wielding a gun, alongside firing
+      mode and the unique action button.
+  effyank:
+  - imageadd: Added a spotted body marking option for Tajara.
+2026-09-22:
+  FabianK3:
+  - bugfix: Fixed loss of autohiss mode after re-entering your char after various
+      mod/key transformations.
+  Karakamenk:
+  - qol: Gives dionae the ability to run.
+  - balance: Prevents nymph ventcrawling upon splitting.

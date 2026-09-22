@@ -210,6 +210,7 @@
 #define ACCENT_UNDERSONG "Undersong"
 
 #define ACCENT_TTS "Text-to-Speech"
+#define ACCENT_ELEKTRO_SIIK "Elektro'Siik"
 #define ACCENT_MERCHANT "Golden Deep Merchant"
 #define ACCENT_THESIAN "Golden Deep Thesian"
 

@@ -209,7 +209,7 @@
 		return
 	var/obj/item/rig/rig = get_rig()
 	if(istype(rig))
-		rig.forced_move(direction, user)
+		INVOKE_ASYNC(rig, TYPE_PROC_REF(/obj/item/rig, forced_move), direction, user)
 
 /obj/item/mmi/emag_act(remaining_charges, mob/user, emag_source)
 	if(cradle_state == STATE_SEALED)

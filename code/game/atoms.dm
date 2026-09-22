@@ -595,7 +595,7 @@
 
 /atom/proc/check_add_to_late_firers()
 	if(SSticker.current_state == GAME_STATE_PLAYING)
-		do_late_fire()
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, do_late_fire))
 		return
 	LAZYADD(SSmisc_late.late_misc_firers, src)
 
