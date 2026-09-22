@@ -138,8 +138,6 @@
 			add_transverse_wall(C, bottom_dir)
 
 		var/roof_dir = get_roof_direction(canvas_turf, C.dir)
-		// The one-direction `_p` overlay is opt-in through a lowercase roof marker. It is
-		// only valid on the screen's northern slope, regardless of tent rotation.
 		var/perspective_fix = !LAZYLEN(roof_layout) && C.dir == NORTH && abs(side_one_distance - side_two_distance) == 1
 		if(LAZYLEN(roof_layout))
 			perspective_fix = roof_dir == NORTH && (roof_markers?[canvas_turf] in list("l", "r"))
@@ -150,11 +148,10 @@
 		if(decal && C.x == x1 && C.y == y1)
 			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
 		roof.icon_state = "roof_[get_location(C, TRUE)]"
+
 		if(has_side_wall)
 			var/image/side_wall = overlay_image(C.icon, C.icon_state)
 			side_wall.dir = C.dir
-			// Side canvas must share the roof object's plane to remain visible above it.
-			// At corners the transverse cap is still added afterwards.
 			roof.AddOverlays(side_wall)
 		if(is_top_wall)
 			add_transverse_wall(roof, top_dir)
@@ -165,8 +162,7 @@
 			roof.AddOverlays(overlay_image(roof.icon, "[roof.icon_state]_p"))
 
 	grouped_structures += roofs
-	// Tent canvas makes these turfs return indoors from `is_outside()`. Refresh their
-	// weather contents immediately so precipitation is hidden beneath the new roof.
+
 	for(var/turf/target in target_turfs)
 		target.update_weather()
 
@@ -232,15 +228,13 @@
  */
 /datum/large_structure/tent/proc/add_transverse_wall(var/obj/structure/component/tent_canvas/target, var/wall_dir)
 	var/turf/origin = get_turf(target)
-	// `left` and `right` describe the authored sprite before rotation. Track where those
-	// screen-space ends land after rotating the south-facing art to `wall_dir`.
+
 	var/left_dir = turn(wall_dir, -90)
 	var/right_dir = turn(wall_dir, 90)
 	var/connects_left = has_tent_wall(origin, left_dir) || is_tent_opening(origin, left_dir) || is_tent_opening(get_step(origin, left_dir), wall_dir)
 	var/connects_right = has_tent_wall(origin, right_dir) || is_tent_opening(origin, right_dir) || is_tent_opening(get_step(origin, right_dir), wall_dir)
 	var/front_state = "canvas_front"
-	// Sloped end caps join a real perpendicular side wall at an outer corner, or frame an
-	// explicitly designated adjacent opening. Empty space alone never creates an end cap.
+
 	if(connects_left && connects_right)
 		front_state = "canvas_front_mid"
 	else if(connects_left)
@@ -278,8 +272,6 @@
 			if(!(get_step(origin, edge_dir) in target_turfs) || !(get_step(origin, side_dir) in target_turfs) || (get_step(origin, diagonal_dir) in target_turfs))
 				continue
 
-			// Use the compact front-inner-corner marking for every concave join. The larger
-			// directional inner-corner states cover too much roof at closed footprint steps.
 			var/source_left_dir = turn(edge_dir, -90)
 			var/corner_state = side_dir == source_left_dir ? "canvas_front_inner_corner_left" : "canvas_front_inner_corner_right"
 			var/image/canvas_corner = overlay_image(canvas.icon, corner_state)
@@ -324,7 +316,7 @@
 	for(var/obj/obstruction in target)
 		if(obstruction == source_item)
 			continue
-		// Open doors are not dense, but still occupy the turf and must not be covered by canvas.
+
 		if(obstruction.density || istype(obstruction, /obj/structure/machinery/door))
 			return obstruction
 	return null
@@ -387,33 +379,24 @@
 	var/is_middle = roof_markers?[canvas_turf] == "M"
 	if(!LAZYLEN(roof_layout))
 		is_middle = side_one_distance == side_two_distance
-	// The top and bottom icon states refer to their absolute on-screen direction, rather than the direction of deployment.
+
 	var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
 	var/bottom_dir = turn(top_dir, 180)
 	var/is_top_entrance = is_tent_opening(canvas_turf, top_dir)
 	var/is_bottom_entrance = is_tent_opening(canvas_turf, bottom_dir)
-	// The authored `entrance_bot` frames for east/west roof slopes are only 22 pixels
-	// deep, while the matching north (`entrance_top`) frames span the full turf. Explicit
-	// south openings use that full-width roof geometry; their actual opening direction and
-	// collision remain unchanged in `entrance_dirs` and `wall_dirs`.
+
 	if(LAZYLEN(roof_layout) && is_bottom_entrance && bottom_dir == SOUTH)
 		is_top_entrance = TRUE
 		is_bottom_entrance = FALSE
-	// Sideways combined entrance frames remove ten pixels from the tile horizontally.
-	// Preserve the ordinary full-width roof state, as the north-facing frames effectively
-	// do, and let the explicit adjacent wall caps visually frame the opening.
+
 	if(entrance_dirs?[canvas_turf] in list(EAST, WEST))
 		is_top_entrance = FALSE
 		is_bottom_entrance = FALSE
 
-	// A lateral doorway is geometrically on the footprint's side edge, but its roof must
-	// still span the full turf. Only the canvas keeps edge classification at that opening.
 	var/is_side_entrance = (entrance_dirs?[canvas_turf] in list(EAST, WEST))
 	if(for_roof && is_side_entrance)
 		return is_middle ? "mid" : "norm"
 
-	// An explicit roof midpoint takes precedence over lateral-edge geometry. Canvas walls
-	// retain edge precedence so a midpoint on a narrow vestibule still closes its side.
 	if(for_roof && is_middle)
 		if(is_top_entrance)
 			return "mid_entrance_top"
@@ -558,7 +541,6 @@
 /obj/item/tent/big
 	name = "base camp tent"
 	color = "#2e3763"
-	// A regular multipurpose pavilion with entrances at both ends.
 	footprint = list(
 		"##^##",
 		"#####",
@@ -581,7 +563,6 @@
 /obj/item/tent/medical
 	name = "medical tent"
 	color = HOLOMAP_AREACOLOR_MEDICAL
-	// A narrow triage entrance opening into a wider field ward, with a rear emergency exit.
 	footprint = list(
 		".^^..",
 		".##..",
@@ -602,7 +583,6 @@
 /obj/item/tent/security
 	name = "security tent"
 	color = HOLOMAP_AREACOLOR_SECURITY
-	// A controlled checkpoint opening into a security post with a secured side annex.
 	footprint = list(
 		"..#^#..",
 		"..###..",
@@ -623,7 +603,6 @@
 /obj/item/tent/engineering
 	name = "engineering tent"
 	color = HOLOMAP_AREACOLOR_ENGINEERING
-	// A five-wide workshop with a broad equipment entrance and an attached side canopy.
 	footprint = list(
 		"#^^^#..",
 		"#####..",
@@ -646,7 +625,6 @@
 /obj/item/tent/machinist
 	name = "machinist tent"
 	color = HOLOMAP_AREACOLOR_OPERATIONS
-	// A broad square work bay narrowing into a rear parts-storage annex.
 	footprint = list(
 		"##^^^##",
 		"#######",
@@ -669,7 +647,6 @@
 /obj/item/tent/science
 	name = "science tent"
 	color = HOLOMAP_AREACOLOR_SCIENCE
-	// A large laboratory joined through a narrow connector to an isolated rear chamber.
 	footprint = list(
 		"###^###",
 		"#######",
@@ -714,7 +691,6 @@
 /obj/item/tent/mess_hall
 	name = "mess hall tent"
 	color = HOLOMAP_AREACOLOR_CIVILIAN
-	// A broad T-shaped dining hall entered through a narrower serving neck.
 	footprint = list(
 		"..^^#..",
 		"..###..",
@@ -735,7 +711,6 @@
 /obj/item/tent/command_comms
 	name = "command and communications tent"
 	color = HOLOMAP_AREACOLOR_COMMAND
-	// A command room with an asymmetric communications wing and a rear staff exit.
 	footprint = list(
 		"..##^##..",
 		"..#####..",
@@ -756,7 +731,6 @@
 /obj/item/tent/field_kitchen
 	name = "field kitchen tent"
 	color = HOLOMAP_AREACOLOR_CIVILIAN
-	// A wide preparation and serving area narrowing into a rear service projection.
 	footprint = list(
 		".##^##.",
 		".#####.",
@@ -777,7 +751,6 @@
 /obj/item/tent/quarantine
 	name = "quarantine tent"
 	color = HOLOMAP_AREACOLOR_MEDICAL
-	// Two ward sections separated by a narrow observation and changing connector.
 	footprint = list(
 		".##^##.",
 		".#####.",
@@ -800,7 +773,6 @@
 /obj/item/tent/decontamination
 	name = "decontamination tent"
 	color = HOLOMAP_AREACOLOR_MEDICAL
-	// A narrow one-way processing tent with an entrance at either end.
 	footprint = list(
 		"#^#",
 		"###",
@@ -821,7 +793,6 @@
 /obj/item/tent/vehicle_workshop
 	name = "vehicle workshop tent"
 	color = HOLOMAP_AREACOLOR_ENGINEERING
-	// A broad vehicle bay with a three-tile entrance and stepped rear work area.
 	footprint = list(
 		".#^^^#.",
 		"#######",
@@ -844,7 +815,6 @@
 /obj/item/tent/cargo
 	name = "cargo tent"
 	color = HOLOMAP_AREACOLOR_OPERATIONS
-	// An L-shaped loading and storage tent with a two-tile receiving entrance.
 	footprint = list(
 		"#^^##..",
 		"#####..",
@@ -867,7 +837,6 @@
 	color = "#8b7242"
 	assembly_time_per_stage = 5 SECONDS
 	disassembly_time_per_stage = 5 SECONDS
-	// A compact shelter with an offset equipment and ore-storage projection.
 	footprint = list(
 		".#^#.",
 		".###.",
