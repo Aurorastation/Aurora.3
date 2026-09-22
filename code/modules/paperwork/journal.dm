@@ -19,11 +19,16 @@
 
 	var/open = FALSE
 	var/list/indices
+	/// The type of blank paper created by the add-pages verb.
+	var/blank_page_type = /obj/item/paper
+	/// The number of blank pages created each time the add-pages verb is used.
+	var/pages_per_batch = 5
 
 /obj/item/journal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click this while it's on your person or next to you to open this journal."
 	. += "While the journal is open, use it in hand or use a pen on it to access the contents."
+	. += "While the journal is open, use the Add Five Blank Pages verb to add more pages to an index."
 
 /obj/item/journal/Destroy()
 	if (indices)
@@ -84,6 +89,49 @@
 			return
 		attack_self(user)
 
+/obj/item/journal/verb/add_five_blank_pages()
+	set category = "Object"
+	set name = "Add Five Blank Pages"
+	set desc = "Add five blank pages to an index in the journal."
+	set src in view(1)
+
+	add_blank_pages(usr)
+
+/obj/item/journal/proc/add_blank_pages(mob/user)
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS) || !Adjacent(user))
+		return
+	if(!open)
+		to_chat(user, SPAN_WARNING("You can't add pages to \the [src] while it's closed."))
+		return
+
+	var/list/options = LAZYLEN(indices) ? indices + "New Index" : list("New Index")
+	var/selected_folder = tgui_input_list(user, "Select an index to add the blank pages to.", "Index Selection", options)
+	if(isnull(selected_folder))
+		return
+
+	var/index_name
+	if(selected_folder == "New Index")
+		index_name = sanitize(input(user, "Enter the index' name.", "Index Name") as text|null)
+		if(!index_name)
+			return
+
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS) || !Adjacent(user) || !open)
+		return
+
+	var/obj/item/folder/embedded/E
+	if(selected_folder == "New Index")
+		E = generate_index(index_name)
+	else
+		E = indices[selected_folder]
+	if(!istype(E) || E.loc != src)
+		return
+
+	for(var/i = 1 to pages_per_batch)
+		new blank_page_type(E)
+
+	to_chat(user, SPAN_NOTICE("You add [pages_per_batch] blank pages to the [E.name] index in \the [src]."))
+	update_icon()
+
 /obj/item/journal/proc/insert_item(obj/item/attacking_item, mob/user, var/selected_folder)
 	var/obj/item/folder/embedded/E
 	if(isnull(selected_folder))
@@ -131,6 +179,7 @@
 /obj/item/journal/notepad
 	name = "notepad"
 	desc = "A notepad for jotting down notes in meetings or interrogations."
+	blank_page_type = /obj/item/paper/notepad
 
 	icon = 'icons/obj/library.dmi'
 	icon_state = "notepad"
