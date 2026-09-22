@@ -229,8 +229,9 @@
 		to_chat(src, span("warning", "There are no valid hosts to bond to."))
 		return FALSE
 
-	var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in mob_list
-	var/mob/living/carbon/human/target = choice
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Choose a host to bond to:", "Attach to Host", mob_list)
+	if(!target)
+		return
 	if(!Adjacent(target) || target.stat || !target.client)
 		return
 
