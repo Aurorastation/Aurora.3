@@ -1,0 +1,9 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Removed a couple of research flatpaks that should not be printable."
+  - bugfix: "Fixed shuttle fire alarms not working."
+  - bugfix: "Fixed maint drones and other being unable to pass over reinforced tables."
+  - bugfix: "Printed items now update their sprites after being printed."
