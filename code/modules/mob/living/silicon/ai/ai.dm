@@ -722,10 +722,10 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
 					var/client/client = usr.client
-					client.prefs.update_mannequin()
-
-					var/mob/living/carbon/human/loadout_mob = SSmobs.get_mannequin(usr.client.ckey)
+					var/mob/living/carbon/human/loadout_mob = client.prefs.update_mannequin(FALSE)
+					loadout_mob.UpdateOverlays()
 					holo_icon.appearance = loadout_mob.appearance
+					loadout_mob.ClearOverlays()
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))
 
