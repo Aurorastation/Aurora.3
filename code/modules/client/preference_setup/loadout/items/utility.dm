@@ -143,9 +143,11 @@
 
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"
-	description = "Comes in different materials."
+	description = "Comes in different materials, and with five customizable business cards."
 	path = /obj/item/storage/business_card_holder
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	var/datum/gear_tweak/path/business_card/card_path_tweak
+	var/list/datum/gear_tweak/card_tweaks
 
 /datum/gear/utility/business_card_holder/New()
 	..()
@@ -155,6 +157,25 @@
 	holders["business card holder, leather"] = /obj/item/storage/business_card_holder/leather
 	holders["business card holder, plastic"] = /obj/item/storage/business_card_holder/plastic
 	gear_tweaks += new /datum/gear_tweak/path(holders)
+
+	var/list/cards = list()
+	cards["paper business card, divided"] = /obj/item/paper/business_card
+	cards["paper business card, plain"] = /obj/item/paper/business_card/alt
+	cards["paper business card, rounded"] = /obj/item/paper/business_card/rounded
+	cards["glass business card"] = /obj/item/paper/business_card/glass
+	cards["glass business card, black flair"] = /obj/item/paper/business_card/glass/b
+	cards["glass business card, grey flair"] = /obj/item/paper/business_card/glass/g
+	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
+	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
+	card_path_tweak = new(cards)
+	card_tweaks = list(
+		card_path_tweak,
+		new /datum/gear_tweak/color/business_card(),
+		new /datum/gear_tweak/custom_name/business_card(),
+		new /datum/gear_tweak/custom_desc/business_card(),
+		new /datum/gear_tweak/paper_data/business_card()
+	)
+	gear_tweaks += card_tweaks
 
 /datum/gear/utility/business_card
 	display_name = "business card"
@@ -176,35 +197,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
-/datum/gear/utility/business_card_holder/filled
-	display_name = "filled business card holder"
-	description = "A customizable business card holder containing five copies of a customizable business card."
-	cost = 1
-	var/datum/gear_tweak/path/business_card/card_path_tweak
-	var/list/datum/gear_tweak/card_tweaks
-
-/datum/gear/utility/business_card_holder/filled/New()
-	..()
-	var/list/cards = list()
-	cards["paper business card, divided"] = /obj/item/paper/business_card
-	cards["paper business card, plain"] = /obj/item/paper/business_card/alt
-	cards["paper business card, rounded"] = /obj/item/paper/business_card/rounded
-	cards["glass business card"] = /obj/item/paper/business_card/glass
-	cards["glass business card, black flair"] = /obj/item/paper/business_card/glass/b
-	cards["glass business card, grey flair"] = /obj/item/paper/business_card/glass/g
-	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
-	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
-	card_path_tweak = new(cards)
-	card_tweaks = list(
-		card_path_tweak,
-		new /datum/gear_tweak/color/business_card(),
-		new /datum/gear_tweak/custom_name/business_card(),
-		new /datum/gear_tweak/custom_desc/business_card(),
-		new /datum/gear_tweak/paper_data/business_card()
-	)
-	gear_tweaks += card_tweaks
-
-/datum/gear/utility/business_card_holder/filled/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
+/datum/gear/utility/business_card_holder/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
 	var/obj/item/storage/business_card_holder/holder = ..()
 	if(!istype(holder))
 		return holder

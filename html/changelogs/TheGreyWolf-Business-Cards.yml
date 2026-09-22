@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - rscadd: "Added  version of the business card holder that contains 5 business cards."
+  - rscadd: "The business card holder now spawns with 5 customizable business cards."
