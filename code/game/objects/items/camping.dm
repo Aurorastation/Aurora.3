@@ -165,6 +165,10 @@
 			roof.AddOverlays(overlay_image(roof.icon, "[roof.icon_state]_p"))
 
 	grouped_structures += roofs
+	// Tent canvas makes these turfs return indoors from `is_outside()`. Refresh their
+	// weather contents immediately so precipitation is hidden beneath the new roof.
+	for(var/turf/target in target_turfs)
+		target.update_weather()
 
 /** Returns the direction authored for a roof tile, or `fallback` for legacy/unplanned tents. */
 /datum/large_structure/tent/proc/get_roof_direction(var/turf/origin, var/fallback = NONE)
@@ -287,25 +291,58 @@
 
 /**
  * Shows `user` a client-only preview of the tent's occupied tiles and asks them to confirm its placement.
- * The blue tile marks the deployment anchor and near edge; green tiles mark the rest of the footprint.
+ * The blue tile marks the deployment anchor, green tiles are clear, and red tiles are obstructed.
  */
 /datum/large_structure/tent/proc/confirm_placement(var/mob/user)
 	var/client/preview_client = user?.client
 	if(!preview_client)
-		return TRUE
+		return check_placement_clear(user)
 
 	var/list/preview_images = list()
 	for(var/turf/target in target_turfs)
-		var/icon_state = target == deployment_origin ? "selected" : "valid"
+		var/icon_state
+		if(get_placement_obstruction(target))
+			icon_state = "invalid"
+		else
+			icon_state = target == deployment_origin ? "selected" : "valid"
 		var/image/preview = image('icons/effects/blueprints.dmi', target, icon_state)
 		preview.plane = HUD_PLANE
 		preview.appearance_flags = NO_CLIENT_COLOR
 		preview_images += preview
 
 	preview_client.images += preview_images
-	var/choice = alert(user, "The highlighted tiles show the tent's footprint. The blue tile is the deployment anchor and near edge.", "Confirm Tent Placement", "Assemble", "Cancel")
+	var/choice = alert(user, "The highlighted tiles show the tent's footprint. The blue tile is the deployment anchor, while red tiles have something in the way.", "Confirm Tent Placement", "Assemble", "Cancel")
 	preview_client.images -= preview_images
-	return choice == "Assemble"
+	if(choice != "Assemble")
+		return FALSE
+	return check_placement_clear(user)
+
+/** Returns the first solid turf or object preventing a tent component from occupying `target`. */
+/datum/large_structure/tent/proc/get_placement_obstruction(var/turf/target)
+	if(!istype(target) || target.density)
+		return target
+	for(var/obj/obstruction in target)
+		if(obstruction == source_item)
+			continue
+		// Open doors are not dense, but still occupy the turf and must not be covered by canvas.
+		if(obstruction.density || istype(obstruction, /obj/structure/machinery/door))
+			return obstruction
+	return null
+
+/** Checks the entire footprint and tells `user` what prevents assembly. */
+/datum/large_structure/tent/proc/check_placement_clear(var/mob/user)
+	for(var/turf/target in target_turfs)
+		var/atom/obstruction = get_placement_obstruction(target)
+		if(obstruction)
+			to_chat(user, SPAN_WARNING("You cannot assemble \the [src]; \the [obstruction] is in the way."))
+			return FALSE
+	return TRUE
+
+// Recheck at the start of every stage in case the footprint changed after its preview.
+/datum/large_structure/tent/assemble(var/mob/user)
+	if(!check_placement_clear(user))
+		return FALSE
+	return ..()
 
 /datum/large_structure/tent/structure_entered(turf/entry_point, atom/movable/entering)
 	. = ..()
@@ -417,12 +454,17 @@
 	/// Optional explicit roof plan corresponding to `footprint`.
 	var/list/roof_layout
 	var/decal
+	/// Duration of each of the four assembly stages.
+	var/assembly_time_per_stage = 7 SECONDS
+	/// Duration of each of the four disassembly stages.
+	var/disassembly_time_per_stage = 7 SECONDS
 
 	var/datum/large_structure/tent/my_tent
 
 /obj/item/tent/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
+	. += "Each assembly stage takes approximately [DisplayTimeText(assembly_time_per_stage)]."
 	. += "A footprint preview will be shown before assembly begins, allowing you to confirm its position and orientation."
 
 /obj/item/tent/Initialize()
@@ -458,7 +500,7 @@
 /obj/item/tent/proc/deploy_tent(var/turf/target, var/mob/user)
 	if(my_tent)
 		if(my_tent.origin == get_turf(src)) //Not moved
-			my_tent.assemble(1 SECOND, user)
+			my_tent.assemble(user)
 			return
 		else
 			QDEL_NULL(my_tent)
@@ -474,7 +516,7 @@
 		QDEL_NULL(my_tent)
 		return
 
-	my_tent.assemble(1 SECOND, user)
+	my_tent.assemble(user)
 
 /obj/item/tent/proc/setup_my_tent(var/deploy_dir, var/turf/target)
 	my_tent.name = name
@@ -482,6 +524,8 @@
 	my_tent.decal = decal
 	my_tent.footprint = footprint
 	my_tent.roof_layout = roof_layout
+	my_tent.assembly_time_per_stage = assembly_time_per_stage
+	my_tent.disassembly_time_per_stage = disassembly_time_per_stage
 	my_tent.dir = deploy_dir
 	my_tent.deployment_origin = target
 	my_tent.z1 = target.z
@@ -821,6 +865,8 @@
 /obj/item/tent/mining
 	name = "miners' tent"
 	color = "#8b7242"
+	assembly_time_per_stage = 5 SECONDS
+	disassembly_time_per_stage = 5 SECONDS
 	// A compact shelter with an offset equipment and ore-storage projection.
 	footprint = list(
 		".#^#.",
@@ -854,6 +900,8 @@
 /obj/structure/component/tent_canvas/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
+	if(part_of)
+		. += "Each disassembly stage takes approximately [DisplayTimeText(part_of.disassembly_time_per_stage)]."
 
 /obj/structure/component/tent_canvas/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
@@ -871,14 +919,18 @@
 	..()
 	if(use_check(usr, USE_ALLOW_NON_ADJACENT) || (get_dist(usr, src) > 1)) // use_check() can't check for adjacency due to density issues, so we check range as well
 		return
-	part_of.disassemble(2 SECONDS, usr, src)
+	part_of.disassemble(usr)
 
 /obj/structure/component/tent_canvas/Destroy() //When we're destroyed, make sure we return the roof plane to anyone inside
+	var/turf/former_turf = get_turf(src)
 	for(var/mob/M in loc)
 		var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
 		if(roof_plane)
 			roof_plane.alpha = 255
-	return ..()
+	. = ..()
+	if(former_turf)
+		addtimer(CALLBACK(former_turf, TYPE_PROC_REF(/turf, update_weather)), 0, TIMER_UNIQUE)
+	return .
 
 /obj/structure/component/tent_canvas/roof
 	plane = ROOF_PLANE
