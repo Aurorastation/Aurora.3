@@ -89,10 +89,11 @@
 
 /datum/component/nymph_limb/Initialize(obj/item/organ/external/E)
 	. = ..()
-	if (!istype(E))
-		qdel(src)
-		stack_trace("[src] was added to an entity that was not of type obj/item/organ/external. This component REQUIRES an external limb, and will delete itself immediately if one isn't provided to its AddComponent args.")
+	if(istype(parent, /mob/living/carbon/alien/diona))
 		return
+
+	if(!istype(E))
+		return COMPONENT_INCOMPATIBLE
 
 	setup_limb(E)
 	START_PROCESSING(SSprocessing, src)
@@ -212,6 +213,7 @@
 		return
 	if(!can_attach)
 		to_chat(src, span("warning", "You do not have the strength to attach to another host so soon."))
+		return
 
 	AddComponent(/datum/component/nymph_limb)
 	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
@@ -234,8 +236,9 @@
 
 	// Find a location to bond to, on the host
 	var/list/valid_locations = list()
-	for(var/O in target.organs_by_name)
-		if(!target.organs_by_name[O] && (O in N.valid_organs_to_replace))
+	for(var/O in N.valid_organs_to_replace)
+		var/obj/item/organ/external/existing_limb = target.organs_by_name[O]
+		if(target.should_have_limb(O) && (!existing_limb || existing_limb.is_stump()))
 			valid_locations += O
 
 	var/limb_choice
@@ -255,6 +258,18 @@
 	var/obj/item/organ/external/new_nymph_limb = new limb_choice
 	if(!istype(new_nymph_limb))
 		return
+	if(new_nymph_limb.parent_organ)
+		var/obj/item/organ/external/parent_limb = target.organs_by_name[new_nymph_limb.parent_organ]
+		if(!parent_limb || parent_limb.is_stump())
+			to_chat(src, SPAN_WARNING("You cannot attach there because \the [new_nymph_limb.parent_organ] is missing!"))
+			qdel(new_nymph_limb)
+			return
+	var/obj/item/organ/external/attachment_slot = target.organs_by_name[new_nymph_limb.limb_name]
+	if(attachment_slot)
+		if(!attachment_slot.is_stump())
+			qdel(new_nymph_limb)
+			return
+		attachment_slot.removed()
 	new_nymph_limb.replaced(target)
 
 	if(new_nymph_limb.nymph_child)
@@ -280,6 +295,7 @@
 		return
 	if(!can_attach)
 		to_chat(usr, SPAN_WARNING("\The [src] does not have the strength to attach to another host so soon."))
+		return
 
 	var/mob/living/carbon/human/target = usr
 
@@ -294,8 +310,9 @@
 		return
 
 	var/list/valid_locations = list()
-	for(var/O in target.organs_by_name)
-		if(!target.organs_by_name[O] && (O in N.valid_organs_to_replace))
+	for(var/O in N.valid_organs_to_replace)
+		var/obj/item/organ/external/existing_limb = target.organs_by_name[O]
+		if(target.should_have_limb(O) && (!existing_limb || existing_limb.is_stump()))
 			valid_locations += O
 
 	var/limb_choice
@@ -316,9 +333,18 @@
 	if(!istype(new_nymph_limb))
 		return
 
-	if(new_nymph_limb.parent_organ && isnull(target.organs_by_name[new_nymph_limb.parent_organ]))
+	var/obj/item/organ/external/parent_limb = target.organs_by_name[new_nymph_limb.parent_organ]
+	if(new_nymph_limb.parent_organ && (!parent_limb || parent_limb.is_stump()))
 		to_chat(target, SPAN_NOTICE("You notice that you cannot attach the nymph there because \the [new_nymph_limb.parent_organ] is missing!"))
+		qdel(new_nymph_limb)
 		return
+
+	var/obj/item/organ/external/attachment_slot = target.organs_by_name[new_nymph_limb.limb_name]
+	if(attachment_slot)
+		if(!attachment_slot.is_stump())
+			qdel(new_nymph_limb)
+			return
+		attachment_slot.removed()
 
 	new_nymph_limb.replaced(target)
 
