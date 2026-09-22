@@ -521,7 +521,6 @@
 	else
 		icon_state = "walking"
 
-#define BLACKLIST_SPECIES_RUNNING list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
 /atom/movable/screen/movement_intent/Click(location, control, params)
 	if(!usr)
@@ -544,8 +543,7 @@
 			if(M_RUN)
 				usr.m_intent = M_WALK
 			if(M_WALK)
-				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
-					usr.m_intent = M_RUN
+				usr.m_intent = M_RUN
 
 		if(modifiers["button"] == "middle")
 			C.lay_down()
@@ -562,8 +560,6 @@
 				usr.m_intent = M_RUN
 		M.update_speed()
 	update_move_icon(usr)
-
-#undef BLACKLIST_SPECIES_RUNNING
 
 /// Hand slots are special to handle the handcuffs overlay
 /atom/movable/screen/inventory/hand

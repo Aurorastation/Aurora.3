@@ -5116,7 +5116,6 @@
 /area/tret_industrial/inside/engineering)
 "aJa" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -7192,7 +7191,6 @@
 /area/shuttle/tret_industrial/main)
 "bMI" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -7675,7 +7673,6 @@
 /area/tret_industrial/inside/smelting_west)
 "dVI" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -7805,7 +7802,6 @@
 /area/shuttle/tret_industrial/main)
 "ewQ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -10913,7 +10909,6 @@
 /area/tret_industrial/inside/hallway_smelting)
 "qmq" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -10980,7 +10975,6 @@
 	dir = 8
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -12020,7 +12014,6 @@
 /area/shuttle/tret_industrial/main)
 "tvg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},

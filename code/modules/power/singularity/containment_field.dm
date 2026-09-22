@@ -11,7 +11,7 @@
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	var/obj/structure/machinery/field_generator/FG1 = null
 	var/obj/structure/machinery/field_generator/FG2 = null
-	var/has_shocked = 0 //Used to add a delay between shocks. In some cases this used to crash servers by spawning hundreds of sparks every second.
+	var/next_shock = 0 //Used to add a delay between shocks. In some cases this used to crash servers by spawning hundreds of sparks every second.
 
 /obj/structure/machinery/containment_field/Destroy()
 	if(FG1 && !FG1.clean_up)
@@ -43,22 +43,18 @@
 
 
 /obj/structure/machinery/containment_field/shock(mob/living/user as mob)
-	if(has_shocked)
+	if(world.time < next_shock)
 		return 0
 	if(!FG1 || !FG2)
 		qdel(src)
 		return 0
 	if(isliving(user))
-		has_shocked = 1
+		next_shock = world.time + 2 SECONDS
 		var/shock_damage = min(rand(30,40),rand(30,40))
 		user.electrocute_act(shock_damage, src)
 
 		var/atom/target = get_edge_target_turf(user, get_dir(src, get_step_away(user, src)))
 		user.throw_at(target, 200, 4)
-
-		sleep(20)
-
-		has_shocked = 0
 	return
 
 /obj/structure/machinery/containment_field/proc/set_master(var/master1,var/master2)

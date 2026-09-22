@@ -81,7 +81,10 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
 		return
+	INVOKE_ASYNC(src, PROC_REF(initialize_sector))
 
+
+/obj/effect/overmap/visitable/proc/initialize_sector()
 	find_z_levels()     // This populates map_z and assigns z levels to the ship.
 	register_z_levels() // This makes external calls to update global z level information.
 

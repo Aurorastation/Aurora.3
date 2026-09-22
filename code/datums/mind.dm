@@ -88,6 +88,7 @@
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
 		log_world("ERROR: ## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn")
+	var/client/old_client = current?.client
 	var/datum/changeling/changeling = antag_datums[MODE_CHANGELING]
 	var/datum/vampire/vampire = antag_datums[MODE_VAMPIRE]
 	if(current)					//remove ourself from our old body's mind variable
@@ -114,7 +115,10 @@
 	if(vampire)
 		new_character.make_vampire()
 	if(active)
-		new_character.key = key		//now transfer the key to link the client to our new body
+		if(old_client)
+			old_client.transfer_key_to_mob(new_character)
+		else
+			new_character.key = key		//now transfer the key to link the client to our new body
 
 
 /datum/mind/proc/store_memory(new_text)
