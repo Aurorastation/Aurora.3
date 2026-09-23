@@ -22,7 +22,9 @@
 	if(motd)
 		to_chat(src, "<div class=\"motd\">[motd]</div>")
 
+	to_chat(src, "<div class='info'>Game ID: </div><div class='danger'>[GLOB.round_id]</div>")
+
 	if(GLOB.changelog_hash && client.prefs.lastchangelog != GLOB.changelog_hash)
 		to_chat(src, SPAN_NOTICE("There have been new changes since you last checked. <a href='byond://winset?command=Changelog'><b>\[View Changelog\]</b></a>"))
 
-	to_chat(src, "<div class='info'>Game ID: </div><div class='danger'>[GLOB.round_id]</div>")
+	check_for_unvoted_polls()
