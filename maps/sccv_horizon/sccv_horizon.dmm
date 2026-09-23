@@ -6579,7 +6579,7 @@
 /obj/structure/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Office Aft"
 	},
-/obj/item/book/manual/tcaf_pamphlet,
+/obj/item/book/manual/wiki/tcaf_pamphlet,
 /turf/simulated/floor/carpet,
 /area/horizon/command/heads/captain)
 "aQV" = (
@@ -109622,7 +109622,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/book/manual/tcaf_pamphlet{
+/obj/item/book/manual/wiki/tcaf_pamphlet{
 	pixel_y = 12
 	},
 /obj/structure/railing/mapped{
