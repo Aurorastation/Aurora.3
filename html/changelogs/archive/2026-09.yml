@@ -267,3 +267,35 @@
   Karakamenk:
   - qol: Gives dionae the ability to run.
   - balance: Prevents nymph ventcrawling upon splitting.
+2026-09-23:
+  DreamySkrell:
+  - rscadd: Allows access datums to be used in `req_access` and `req_one_access` vars.
+  - rscadd: Added RepeatManipulations helper to BAPI/mapmanip.
+  FabianK3:
+  - admin: Added Server Configuration verb/menu, found under admin tab. Supports sector,
+      motd and lore summary.
+  - server: Replaced the persistent_configuration (not related to gameplay persistence)
+      subsystem with newly added registry subsystem.
+  - rscadd: Added additional information to the persistence panel on the current map's
+      persistence support.
+  Geeves:
+  - qol: Holding a human shield now keeps you and the shield facing the direction
+      you move, or your locked direction when direction lock is enabled.
+  Greenjoe:
+  - rscadd: Adds the snowmobile and monowheel to operations orders, under the Operations
+      section.
+  SimpleMaroon:
+  - bugfix: Fixed an incorrectly aligned directional sprite on the colonial Konyang
+      flag.
+  TheGreyWolf:
+  - rscadd: It is possible to run people over in mechs by being on run and harm intent
+      at the same time when colliding with them.
+  - rscdel: It is no longer possible to swap spots with a mech.
+  - rscadd: The cargo tug and by extension the janitorial tug can now run people over
+      on run intent.
+  - rscdel: The emag ability was removed on the tug.
+  diggiez:
+  - bugfix: The charge psionic ability actually functions now, using the correct cast
+      method.
+  - rscdel: Removed useless Resting(), SetResting(), and AdjustResting() procs that
+      were pointless for a boolean var and never used anyways.
