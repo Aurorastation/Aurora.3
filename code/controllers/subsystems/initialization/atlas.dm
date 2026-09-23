@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(atlas)
 	log_subsystem_atlas("Using compile-selected map.")
 #endif
 	if (!map_override)
-		map_override = get_selected_map()
+		map_override = "event/nikal_sahira"
 
 	admin_notice(SPAN_DANGER("Loading map [map_override]."), R_DEBUG)
 	log_subsystem_atlas("Using map '[map_override]'.")
@@ -194,7 +194,16 @@ SUBSYSTEM_DEF(atlas)
 	world.update_status()
 
 	// Begin loading the maps.
-	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
+	var/maps_loaded
+	if(istype(current_map, /datum/map/event/nikal_sahira))
+		var/datum/map_template/ruin/away_site/nikal_sahira/template = new
+		template.traits = current_map.traits
+		var/list/bounds = template.load_new_z()
+		if(bounds)
+			maps_loaded = TRUE // trust
+	else
+		// for CI tests so they don't load hardcoded map repeatedly
+		maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
 	log_subsystem_atlas("Loaded [maps_loaded] maps.")
 	admin_notice(SPAN_DANGER("Loaded [maps_loaded] levels."))
