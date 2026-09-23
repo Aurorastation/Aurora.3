@@ -50,6 +50,9 @@
 		)
 	)
 
+/datum/exoplanet_theme/snow/adhomai
+	mountain_threshold = 0.0
+
 /// Special biome when Raskara blocks the Suns. We will have hostile animals spawn more often
 /datum/exoplanet_theme/snow/adhomai/darkest_eclipse
 	possible_biomes = list(

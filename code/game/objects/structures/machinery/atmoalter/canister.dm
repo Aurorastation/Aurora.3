@@ -24,6 +24,10 @@
 	var/release_log = ""
 	var/update_flag = 0
 
+/obj/structure/machinery/portable_atmospherics/canister/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/structure/machinery/portable_atmospherics/canister/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The canister can be connected to a connector port with a wrench."
@@ -198,14 +202,26 @@
 /obj/structure/machinery/portable_atmospherics/canister/empty
 	start_pressure = 0
 	can_label = 1
+
+/obj/structure/machinery/portable_atmospherics/canister/empty/destroyed
+	destroyed = TRUE
+
 /obj/structure/machinery/portable_atmospherics/canister/empty/air
 	name = "\improper Air \[Air\]"
 	icon_state = "grey"
 	canister_color = "grey"
+
+/obj/structure/machinery/portable_atmospherics/canister/empty/air/destroyed
+	destroyed = TRUE
+
 /obj/structure/machinery/portable_atmospherics/canister/empty/oxygen
 	name = "\improper Oxygen \[O2\]"
 	icon_state = "blue"
 	canister_color = "blue"
+
+/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen/destroyed
+	destroyed = TRUE
+
 /obj/structure/machinery/portable_atmospherics/canister/empty/phoron
 	name = "\improper Phoron \[Phoron\]"
 	icon_state = "orange"
