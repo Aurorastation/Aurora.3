@@ -11,3 +11,4 @@ changes:
   - bugfix: "Fixed the AI hologram."
   - bugfix: "Fixed nymph limb attachment."
   - bugfix: "Fixed canister sprites not updating on being filled."
+  - bugfix: "Fixed kinetic accelerators lacking the unique action button."

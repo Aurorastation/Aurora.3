@@ -34,6 +34,7 @@
 
 	sel_mode = 1 //index of the currently selected mode
 	firemodes = list()
+	has_unique_gun_action = TRUE
 
 	//wielding information
 	fire_delay_wielded = 0
