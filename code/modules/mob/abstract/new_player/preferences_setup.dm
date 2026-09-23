@@ -260,14 +260,15 @@
 		return chosenJob.title
 	return chosenJob
 
-/datum/preferences/proc/update_mannequin()
+/datum/preferences/proc/update_mannequin(var/clear_overlay_cache = TRUE)
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmobs.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
 	mannequin.species.create_organs(mannequin)
 	if(gender)
 		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
-	mannequin.ClearOverlays()
+	if(clear_overlay_cache)
+		mannequin.ClearOverlays()
 	return mannequin
 
 /datum/preferences/proc/update_preview_icon()

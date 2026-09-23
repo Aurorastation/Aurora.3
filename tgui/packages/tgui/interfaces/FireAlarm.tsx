@@ -29,12 +29,13 @@ export const FireAlarm = (props) => {
         <Section title="Timed Lockdown">
           <Box>
             Current Timer:{' '}
-            {data.time > 1
+            {data.time > 0
               ? `${(data.time / 10).toFixed(0).toString()} seconds`
               : 'Not Set'}
           </Box>
           <Button.Input
-            content="Set Activation Timer"
+            buttonText="Set Activation Timer"
+            value={(data.time / 10).toString()}
             onCommit={(value) => {
               act('set_timer', {
                 set_timer: value,
