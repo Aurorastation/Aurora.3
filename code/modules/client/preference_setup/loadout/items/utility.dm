@@ -177,26 +177,6 @@
 	)
 	gear_tweaks += card_tweaks
 
-/datum/gear/utility/business_card
-	display_name = "business card"
-	description = "A selection of business cards."
-	path = /obj/item/paper/business_card
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/utility/business_card/New()
-	..()
-	var/list/cards = list()
-	cards["paper business card, divided"] = /obj/item/paper/business_card
-	cards["paper business card, plain"] = /obj/item/paper/business_card/alt
-	cards["paper business card, rounded"] = /obj/item/paper/business_card/rounded
-	cards["glass business card"] = /obj/item/paper/business_card/glass
-	cards["glass business card, black flair"] = /obj/item/paper/business_card/glass/b
-	cards["glass business card, grey flair"] = /obj/item/paper/business_card/glass/g
-	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
-	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
-	gear_tweaks += new /datum/gear_tweak/path(cards)
-	gear_tweaks += new /datum/gear_tweak/paper_data()
-
 /datum/gear/utility/business_card_holder/spawn_item(var/location, var/metadata, var/mob/living/carbon/human/H)
 	var/obj/item/storage/business_card_holder/holder = ..()
 	if(!istype(holder))

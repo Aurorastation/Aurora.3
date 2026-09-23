@@ -3,4 +3,4 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - rscadd: "The business card holder now spawns with 5 customizable business cards."
+  - rscadd: "The business card holder and business card options in the loadout have been combined, so the business card holder now spawns 5 business cards."
