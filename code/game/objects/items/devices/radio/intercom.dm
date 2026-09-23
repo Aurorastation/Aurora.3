@@ -69,8 +69,6 @@ pixel_x = 8;
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
-		if(V.comms_name)
-			name = "intercom ([V.comms_name])"
 		default_frequency = assign_away_freq(V.name)
 		channels += list(
 			V.name = TRUE,

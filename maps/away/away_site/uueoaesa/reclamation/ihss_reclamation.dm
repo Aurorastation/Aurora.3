@@ -40,7 +40,9 @@
 		"IHSS Reclamation Shuttle" = list("nav_ihss_reclamation_shuttle")
 	)
 	comms_support = TRUE
-	comms_name = "IHSS Reclamation"
+
+/obj/effect/overmap/visitable/ship/stationary/ihss_reclamation/create_comms_groups()
+	return list("default" = new /datum/comms_group("IHSS Reclamation"))
 
 /obj/effect/shuttle_landmark/nav_ihss_reclamation
 	base_area = /area/space

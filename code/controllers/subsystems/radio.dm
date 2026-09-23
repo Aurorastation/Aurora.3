@@ -252,11 +252,11 @@ SUBSYSTEM_DEF(radio)
 			LAZYREPLACEKEY(R.secure_radio_connections, old_channel, new_channel)
 
 /proc/assign_away_freq(channel)
-	if (!AWAY_FREQS_UNASSIGNED.len)
-		return FALSE
-
-	if (channel in AWAY_FREQS_ASSIGNED)
+	if(channel in AWAY_FREQS_ASSIGNED)
 		return AWAY_FREQS_ASSIGNED[channel]
+
+	if(!AWAY_FREQS_UNASSIGNED.len)
+		return FALSE
 
 	var/freq = pick_n_take(AWAY_FREQS_UNASSIGNED)
 	AWAY_FREQS_ASSIGNED[channel] = freq

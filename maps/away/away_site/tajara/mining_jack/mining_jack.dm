@@ -35,7 +35,9 @@
 		"Mining Jack" = list("nav_hangar_tajara_mining_jack")
 	)
 	comms_support = TRUE
-	comms_name = "adhomian mining"
+
+/obj/effect/overmap/visitable/sector/tajara_mining_jack/create_comms_groups()
+	return list("default" = new /datum/comms_group("adhomian mining"))
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
 	base_turf = /turf/space
