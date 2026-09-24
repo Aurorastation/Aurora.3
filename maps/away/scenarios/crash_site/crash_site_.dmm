@@ -38,7 +38,7 @@
 /obj/random/dirt_75,
 /obj/item/clothing/head/helmet/space/anomaly,
 /turf/simulated/floor/exoplanet/basalt,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "aBF" = (
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 2;
@@ -67,6 +67,7 @@
 /area/crash_site/shuttle)
 "aRg" = (
 /obj/item/tent,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "aTS" = (
@@ -86,6 +87,10 @@
 /obj/random/medical,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
+/area/crash_site/outside)
+"baQ" = (
+/obj/item/pickaxe,
+/turf/simulated/floor/exoplanet/barren,
 /area/crash_site/outside)
 "bcr" = (
 /obj/structure/girder,
@@ -131,15 +136,9 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "bsP" = (
-/obj/effect/decal/cleanable/generic{
-	pixel_x = 2;
-	pixel_y = 23
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
-/area/crash_site/shuttle)
+/obj/item/pickaxe,
+/turf/simulated/floor/exoplanet/snow,
+/area/crash_site/outside)
 "bxy" = (
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 2;
@@ -291,6 +290,7 @@
 /obj/structure/flora/log_bench{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "cCo" = (
@@ -301,10 +301,13 @@
 /area/crash_site/shuttle)
 "cDg" = (
 /obj/structure/bonfire/light_up,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "cGq" = (
-/obj/random/loot,
+/obj/random/tool,
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 2;
 	pixel_y = 23
@@ -401,6 +404,8 @@
 /area/crash_site/shuttle)
 "dru" = (
 /obj/item/trash/wooden_platter,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "dtA" = (
@@ -549,7 +554,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/firedoor/noid/closed/broken,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/dark,
 /area/crash_site/shuttle)
 "ePC" = (
@@ -597,7 +602,7 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "fkS" = (
-/obj/random/loot,
+/obj/random/tool,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -624,9 +629,10 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/exoplanet/basalt,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "fFy" = (
 /obj/item/tent/big,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "fGT" = (
@@ -748,6 +754,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/medical,
+/turf/simulated/floor/exoplanet/snow,
+/area/crash_site/outside)
+"hdn" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Clearing"
+	},
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "hmb" = (
@@ -873,7 +885,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "hWh" = (
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 2;
@@ -1167,6 +1179,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/crash_site/shuttle)
+"kUP" = (
+/obj/abstract/weather_marker/crash_site{
+	color = "#FF0000"
+	},
+/turf/simulated/floor/exoplanet/snow,
+/area/crash_site/outside)
 "laW" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1230,7 +1248,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crash_site/shuttle)
 "lRY" = (
-/obj/random/loot,
+/obj/random/tool,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
@@ -1239,7 +1257,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "man" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1386,7 +1404,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/carpet/rubber,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "nDf" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/blue{
@@ -1497,6 +1515,9 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "oBH" = (
@@ -1515,6 +1536,7 @@
 	pixel_x = -15;
 	pixel_y = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "oHv" = (
@@ -1592,6 +1614,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crash_site/shuttle)
+"prE" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Crash Site"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/crash_site/outside)
 "pxq" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/random/dirt_75,
@@ -1619,7 +1647,7 @@
 /area/crash_site/shuttle)
 "pzo" = (
 /obj/structure/door_assembly/door_assembly_hatch,
-/obj/structure/machinery/door/firedoor/noid/closed/broken,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/dark,
 /area/crash_site/shuttle)
 "pCV" = (
@@ -1641,7 +1669,7 @@
 /turf/simulated/floor/plating,
 /area/crash_site/shuttle)
 "pES" = (
-/obj/random/loot,
+/obj/random/tool,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/crash_site/outside)
@@ -1715,7 +1743,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/dark,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "qJy" = (
 /obj/effect/decal/cleanable/generic{
 	pixel_x = -9;
@@ -1884,7 +1912,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "svh" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
@@ -1905,7 +1933,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "sNv" = (
 /obj/item/stack/rods{
 	amount = 50;
@@ -2138,7 +2166,7 @@
 /area/crash_site/shuttle)
 "uPp" = (
 /obj/structure/machinery/door/airlock/glass_command,
-/obj/structure/machinery/door/firedoor/noid/closed/broken,
+/obj/structure/machinery/door/firedoor/noid/closed,
 /turf/simulated/floor/tiled/dark,
 /area/crash_site/shuttle)
 "uSf" = (
@@ -2161,7 +2189,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/tiled/dark,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 "vaG" = (
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 2;
@@ -2175,6 +2203,11 @@
 "vaK" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt,
+/area/crash_site/outside)
+"vnr" = (
+/obj/item/trap,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "vnz" = (
 /obj/random/dirt_75,
@@ -2219,6 +2252,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/crash_site/shuttle)
+"vxl" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Camp"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/snow,
+/area/crash_site/outside)
 "vCt" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2312,6 +2353,13 @@
 /obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/plating,
 /area/crash_site/shuttle)
+"wSw" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/snow,
+/area/crash_site/outside)
 "wSP" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2440,6 +2488,8 @@
 /obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/crash_site/outside)
 "xTL" = (
@@ -2483,7 +2533,7 @@
 /obj/random/dirt_75,
 /obj/random/tool,
 /turf/simulated/floor/exoplanet/barren,
-/area/crash_site/shuttle)
+/area/crash_site/outside)
 
 (1,1,1) = {"
 cQC
@@ -23749,7 +23799,7 @@ erz
 erz
 cnG
 cnG
-cnG
+hdn
 cnG
 ejP
 cnG
@@ -27524,7 +27574,7 @@ erz
 erz
 erz
 erz
-erz
+cnG
 erz
 erz
 erz
@@ -27780,10 +27830,10 @@ erz
 erz
 erz
 erz
-erz
-erz
-erz
-erz
+cnG
+cnG
+cnG
+cnG
 erz
 erz
 erz
@@ -28037,11 +28087,11 @@ erz
 erz
 erz
 erz
-erz
-erz
-erz
-erz
-erz
+cnG
+kUP
+jYA
+cnG
+cnG
 erz
 erz
 erz
@@ -28295,9 +28345,9 @@ erz
 erz
 erz
 erz
-erz
-erz
-erz
+cnG
+cnG
+cnG
 erz
 erz
 erz
@@ -31896,7 +31946,7 @@ cnG
 cnG
 cnG
 cnG
-jYA
+cnG
 cnG
 cnG
 cnG
@@ -33450,7 +33500,7 @@ cnG
 cnG
 xTL
 cnG
-xTL
+baQ
 xTL
 ejP
 qgi
@@ -34965,7 +35015,7 @@ jbL
 hIF
 wim
 gxI
-bsP
+vaG
 nCf
 qpo
 emP
@@ -36012,7 +36062,7 @@ jQl
 xZi
 bSc
 tkV
-xTL
+prE
 fkr
 tkV
 xtO
@@ -42606,7 +42656,7 @@ erz
 erz
 erz
 erz
-cnG
+bsP
 cnG
 cnG
 aHU
@@ -43119,10 +43169,10 @@ erz
 erz
 cnG
 aHU
-cnG
+fWK
 oBH
-mCs
-cnG
+wSw
+fWK
 czt
 cnG
 eqq
@@ -43376,10 +43426,10 @@ erz
 erz
 cnG
 cnG
-cnG
-cnG
+fWK
+ejP
 dru
-cnG
+fWK
 cnG
 cnG
 erz
@@ -43635,9 +43685,9 @@ cnG
 vMj
 cnG
 fFy
-cnG
-cnG
-cnG
+vxl
+ejP
+fWK
 tLY
 cnG
 erz
@@ -43892,10 +43942,10 @@ aHU
 cnG
 cnG
 nKU
-cnG
+ejP
 cDg
-cnG
-cnG
+ejP
+fWK
 abr
 erz
 erz
@@ -44149,10 +44199,10 @@ erz
 cnG
 cnG
 oDz
-cnG
+fWK
 otg
-cnG
-cnG
+ejP
+fWK
 cnG
 cnG
 erz
@@ -44407,9 +44457,9 @@ duU
 cnG
 jcp
 aRg
-cnG
+fWK
 xNj
-cnG
+ejP
 cnG
 hLY
 erz
@@ -44664,9 +44714,9 @@ erz
 erz
 cnG
 cnG
-hLY
+vnr
 cnG
-cnG
+fWK
 vpF
 cnG
 erz

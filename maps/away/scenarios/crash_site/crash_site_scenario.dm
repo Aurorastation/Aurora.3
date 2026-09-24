@@ -13,7 +13,6 @@
 		/singleton/role/generic_crew,
 	)
 	default_outfit = /obj/outfit/admin/generic
-	actor_accesses = list(/datum/access/crash_site_access)
 
 	base_area = /area/crash_site
 
