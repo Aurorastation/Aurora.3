@@ -398,6 +398,9 @@ update_flag
 	else
 		can_label = 0
 
+	if(connected_port)
+		update_icon()
+		SStgui.update_uis(src)
 
 /obj/structure/machinery/portable_atmospherics/canister/return_air()
 	return air_contents
