@@ -117,6 +117,21 @@
 		var/has_side_wall = is_side_one_wall || is_side_two_wall
 		var/is_top_wall = has_tent_wall(canvas_turf, top_dir)
 		var/is_bottom_wall = has_tent_wall(canvas_turf, bottom_dir)
+		var/entrance_dir = get_tent_entrance_direction(canvas_turf)
+		var/is_front_entrance = entrance_dir && (entrance_dir == top_dir || entrance_dir == bottom_dir)
+		var/clockwise_dir = entrance_dir && turn(entrance_dir, -90)
+		var/counterclockwise_dir = entrance_dir && turn(entrance_dir, 90)
+		var/clockwise_wall = entrance_dir && has_tent_wall(canvas_turf, clockwise_dir)
+		var/counterclockwise_wall = entrance_dir && has_tent_wall(canvas_turf, counterclockwise_dir)
+		var/turf/clockwise_turf = entrance_dir && get_step(canvas_turf, clockwise_dir)
+		var/turf/counterclockwise_turf = entrance_dir && get_step(canvas_turf, counterclockwise_dir)
+		var/clockwise_join = entrance_dir && (clockwise_turf in target_turfs) && get_tent_entrance_direction(clockwise_turf) == entrance_dir
+		var/counterclockwise_join = entrance_dir && (counterclockwise_turf in target_turfs) && get_tent_entrance_direction(counterclockwise_turf) == entrance_dir
+		var/has_entrance_corner = clockwise_wall || counterclockwise_wall
+		var/clockwise_treatment = clockwise_wall ? "corner" : (clockwise_join ? "join" : "normal")
+		var/counterclockwise_treatment = counterclockwise_wall ? "corner" : (counterclockwise_join ? "join" : "normal")
+		var/entrance_perspective = is_front_entrance ? "front" : "side"
+		var/entrance_state = entrance_dir ? "canvas_entrance_[entrance_perspective]_[clockwise_treatment]_[counterclockwise_treatment]" : null
 		C.dir = side_one_distance < side_two_distance ? side_one_dir : side_two_dir
 		if(is_side_one_wall)
 			C.dir = side_one_dir
@@ -129,12 +144,13 @@
 		if(is_bottom_wall)
 			C.wall_dirs |= bottom_dir
 		if(has_side_wall)
-			C.icon_state = "canvas_[get_location(C)]"
+			if(!has_entrance_corner)
+				C.icon_state = "canvas_[get_location(C)]"
 			if(C.dir == NORTH) // North-facing canvas has to render over occupants on its tile.
 				C.layer = ABOVE_TILE_LAYER
-		if(is_top_wall)
+		if(is_top_wall && !has_entrance_corner)
 			add_transverse_wall(C, top_dir)
-		if(is_bottom_wall)
+		if(is_bottom_wall && !has_entrance_corner)
 			add_transverse_wall(C, bottom_dir)
 
 		var/roof_dir = get_roof_direction(canvas_turf, C.dir)
@@ -149,17 +165,37 @@
 			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
 		roof.icon_state = "roof_[get_location(C, TRUE)]"
 
-		if(has_side_wall)
+		if(entrance_dir)
+			// Keep the arch on both planes so it remains visible when the roof is hidden
+			// for an occupant, while still reading as part of the roof from outside.
+			var/image/canvas_arch = overlay_image(C.icon, entrance_state)
+			orient_entrance_overlay(canvas_arch, entrance_dir, is_front_entrance)
+			C.AddOverlays(canvas_arch)
+			// Cut the roof and its edge away inside the tied-back canvas frame. This
+			// makes the frame read as an opening instead of decoration laid over canvas.
+			var/mask_state = "roof_entrance_mask_[entrance_perspective]_[clockwise_treatment]_[counterclockwise_treatment]"
+			var/icon/entrance_mask = icon(roof.icon, mask_state, entrance_dir)
+			roof.appearance_flags |= KEEP_TOGETHER
+			roof.add_filter("tent_entrance", 1, alpha_mask_filter(icon = entrance_mask))
+
+		if(has_side_wall && !has_entrance_corner)
 			var/image/side_wall = overlay_image(C.icon, C.icon_state)
 			side_wall.dir = C.dir
 			roof.AddOverlays(side_wall)
-		if(is_top_wall)
+		if(is_top_wall && !has_entrance_corner)
 			add_transverse_wall(roof, top_dir)
-		if(is_bottom_wall)
+		if(is_bottom_wall && !has_entrance_corner)
 			add_transverse_wall(roof, bottom_dir)
-		add_inner_corner_overlays(C, roof, canvas_turf, bottom_dir, side_one_dir, side_two_dir)
+		if(!has_entrance_corner)
+			add_inner_corner_overlays(C, roof, canvas_turf, bottom_dir, side_one_dir, side_two_dir)
 		if(perspective_fix && !is_bottom_wall)
 			roof.AddOverlays(overlay_image(roof.icon, "[roof.icon_state]_p"))
+		if(entrance_dir)
+			// Draw the frame after every wall and corner connector so entrances on a
+			// narrowed end (such as the command tent) remain visually unobstructed.
+			var/image/roof_arch = overlay_image(roof.icon, entrance_state)
+			orient_entrance_overlay(roof_arch, entrance_dir, is_front_entrance)
+			roof.AddOverlays(roof_arch)
 
 	grouped_structures += roofs
 
@@ -218,6 +254,19 @@
 	var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
 	return (direction in list(top_dir, turn(top_dir, 180))) && is_outer_boundary(origin, direction)
 
+/// Returns the outward direction of the entrance on `origin`, including legacy rectangular tents.
+/datum/large_structure/tent/proc/get_tent_entrance_direction(var/turf/origin)
+	var/entrance_direction = entrance_dirs?[origin]
+	if(entrance_direction || LAZYLEN(footprint))
+		return entrance_direction
+
+	var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
+	if(is_tent_opening(origin, top_dir))
+		return top_dir
+	var/bottom_dir = turn(top_dir, 180)
+	if(is_tent_opening(origin, bottom_dir))
+		return bottom_dir
+
 /// Returns whether `origin` has a closed tent wall along an exposed edge.
 /datum/large_structure/tent/proc/has_tent_wall(var/turf/origin, var/direction)
 	return (origin in target_turfs) && !(get_step(origin, direction) in target_turfs) && !is_tent_opening(origin, direction)
@@ -231,8 +280,10 @@
 
 	var/left_dir = turn(wall_dir, -90)
 	var/right_dir = turn(wall_dir, 90)
-	var/connects_left = has_tent_wall(origin, left_dir) || is_tent_opening(origin, left_dir) || is_tent_opening(get_step(origin, left_dir), wall_dir)
-	var/connects_right = has_tent_wall(origin, right_dir) || is_tent_opening(origin, right_dir) || is_tent_opening(get_step(origin, right_dir), wall_dir)
+	// Entrance frames now provide their own wall transition. Treating an entrance
+	// as a connected wall here selects the old tapered edge sprites beside it.
+	var/connects_left = has_tent_wall(origin, left_dir)
+	var/connects_right = has_tent_wall(origin, right_dir)
 	var/front_state = "canvas_front"
 
 	if(connects_left && connects_right)
@@ -257,6 +308,25 @@
 		if(NORTH)
 			rotation.Turn(180)
 		if(EAST)
+			rotation.Turn(270)
+	overlay.transform = rotation
+
+/**
+ * Orients one of the two tent-relative entrance overlays. The shallow front sprite
+ * is authored facing south, while the deeper side-wall sprite is authored facing east.
+ */
+/datum/large_structure/tent/proc/orient_entrance_overlay(var/image/overlay, var/direction, var/is_front_entrance)
+	if(is_front_entrance)
+		rotate_front_overlay(overlay, direction)
+		return
+
+	var/matrix/rotation = matrix()
+	switch(direction)
+		if(SOUTH)
+			rotation.Turn(90)
+		if(WEST)
+			rotation.Turn(180)
+		if(NORTH)
 			rotation.Turn(270)
 	overlay.transform = rotation
 
@@ -301,9 +371,17 @@
 		preview.plane = HUD_PLANE
 		preview.appearance_flags = NO_CLIENT_COLOR
 		preview_images += preview
+		var/entrance_dir = get_tent_entrance_direction(target)
+		if(entrance_dir)
+			var/image/entrance_preview = image('icons/effects/blueprints.dmi', target, "entrance")
+			entrance_preview.dir = entrance_dir
+			entrance_preview.plane = HUD_PLANE
+			entrance_preview.layer = preview.layer + 0.1
+			entrance_preview.appearance_flags = NO_CLIENT_COLOR
+			preview_images += entrance_preview
 
 	preview_client.images += preview_images
-	var/choice = alert(user, "The highlighted tiles show the tent's footprint. The blue tile is the deployment anchor, while red tiles have something in the way.", "Confirm Tent Placement", "Assemble", "Cancel")
+	var/choice = alert(user, "The highlighted tiles show the tent's footprint. The blue tile is the deployment anchor, red tiles have something in the way, and yellow arrows show every entrance and its direction.", "Confirm Tent Placement", "Assemble", "Cancel")
 	preview_client.images -= preview_images
 	if(choice != "Assemble")
 		return FALSE
@@ -358,14 +436,9 @@
 /**
  * Determines the state to use for each section of the tent
  * Returns `edge` for structures on the edge of the tent
- * Returns `entrance_top` for structures acting as an entrance, at the north/east of the tent
- * Returns `entrance_bot` for structures acting as an entrance, at the south/west of the tent
- * Returns `edge_entrance_top` for structures on the edge of the tent, and acting as an entrance, at the north/east of the tent
- * Returns `edge_entrance_bot` for structures on the edge of the tent, and acting as an entrance, at the south/west of the tent
  * Returns `mid` for structures in the exact centre of the tent, for odd number widths
- * Returns `mid_entrance_top` for structures in the exact centre of the tent, for odd number widths, acting as an entrance, at the north/east of the tent
- * Returns `mid_entrance_bot` for structures in the exact centre of the tent, for odd number widths, acting as an entrance, at the south/west of the tent
  * Otherwise returns `norm` for other structures
+ * Entrance shaping is handled separately by the perspective frame and roof mask.
  */
 /datum/large_structure/tent/proc/get_location(var/obj/structure/component/tent_canvas/canvas, var/for_roof = FALSE)
 	var/turf/canvas_turf = get_turf(canvas)
@@ -380,45 +453,12 @@
 	if(!LAZYLEN(roof_layout))
 		is_middle = side_one_distance == side_two_distance
 
-	var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
-	var/bottom_dir = turn(top_dir, 180)
-	var/is_top_entrance = is_tent_opening(canvas_turf, top_dir)
-	var/is_bottom_entrance = is_tent_opening(canvas_turf, bottom_dir)
-
-	if(LAZYLEN(roof_layout) && is_bottom_entrance && bottom_dir == SOUTH)
-		is_top_entrance = TRUE
-		is_bottom_entrance = FALSE
-
-	if(entrance_dirs?[canvas_turf] in list(EAST, WEST))
-		is_top_entrance = FALSE
-		is_bottom_entrance = FALSE
-
-	var/is_side_entrance = (entrance_dirs?[canvas_turf] in list(EAST, WEST))
-	if(for_roof && is_side_entrance)
-		return is_middle ? "mid" : "norm"
-
 	if(for_roof && is_middle)
-		if(is_top_entrance)
-			return "mid_entrance_top"
-		else if(is_bottom_entrance)
-			return "mid_entrance_bot"
 		return "mid"
 	else if(is_side_edge)
-		if(is_top_entrance)
-			return "edge_entrance_top"
-		else if(is_bottom_entrance)
-			return "edge_entrance_bot"
 		return "edge"
 	else if(is_middle)
-		if(is_top_entrance)
-			return "mid_entrance_top"
-		else if(is_bottom_entrance)
-			return "mid_entrance_bot"
 		return "mid"
-	else if(is_top_entrance)
-		return "entrance_top"
-	else if(is_bottom_entrance)
-		return "entrance_bot"
 	return "norm"
 
 /obj/item/tent
@@ -542,18 +582,18 @@
 	name = "base camp tent"
 	color = "#2e3763"
 	footprint = list(
-		"##^##",
-		"#####",
-		"#####",
-		"#####",
-		"##v##"
+		"#^^#",
+		"####",
+		"####",
+		"####",
+		"#vv#"
 	)
 	roof_layout = list(
-		"LLMRR",
-		"LLMRR",
-		"LLMRR",
-		"LLMRR",
-		"LLMRR"
+		"LLRR",
+		"LLRR",
+		"LLRR",
+		"LLRR",
+		"LLRR"
 	)
 
 /obj/item/tent/big/scc
@@ -568,8 +608,8 @@
 		".##..",
 		"#####",
 		"#####",
-		"#####",
-		"####>"
+		"####>",
+		"#####"
 	)
 	roof_layout = list(
 		".LM..",
@@ -584,232 +624,210 @@
 	name = "security tent"
 	color = HOLOMAP_AREACOLOR_SECURITY
 	footprint = list(
-		"..#^#..",
-		"..###..",
-		".#####.",
-		".######",
-		".######",
-		".#####."
+		".#^^#.",
+		".####.",
+		"#####.",
+		"######",
+		"######",
+		"#####."
 	)
 	roof_layout = list(
-		"..LMR..",
-		"..LMR..",
-		".LLMRR.",
-		".LLMRRR",
-		".LLMRRR",
-		".LLMRR."
+		".LLRR.",
+		".LLRR.",
+		"LLLRR.",
+		"LLLRRR",
+		"LLLRRR",
+		"LLLRR."
 	)
 
 /obj/item/tent/engineering
 	name = "engineering tent"
 	color = HOLOMAP_AREACOLOR_ENGINEERING
 	footprint = list(
-		"#^^^#..",
-		"#####..",
-		"#######",
-		"#######",
-		"#######",
-		"#####..",
-		"#####.."
+		"#^^#..",
+		"#####>",
+		"#####>",
+		"#####>",
+		"####.."
 	)
 	roof_layout = list(
-		"LLMRR..",
-		"LLMRR..",
-		"LLMRRRR",
-		"LLMRRRR",
-		"LLMRRRR",
-		"LLMRR..",
-		"LLMRR.."
-	)
-
-/obj/item/tent/machinist
-	name = "machinist tent"
-	color = HOLOMAP_AREACOLOR_OPERATIONS
-	footprint = list(
-		"##^^^##",
-		"#######",
-		"#######",
-		"#######",
-		"#######",
-		"..###..",
-		"..###.."
-	)
-	roof_layout = list(
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		"..LMR..",
-		"..LMR.."
+		"LLRR..",
+		"LLRRRR",
+		"LLRRRR",
+		"LLRRRR",
+		"LLRR.."
 	)
 
 /obj/item/tent/science
 	name = "science tent"
 	color = HOLOMAP_AREACOLOR_SCIENCE
 	footprint = list(
-		"###^###",
-		"#######",
-		"#######",
-		"..###..",
-		".#####.",
-		".#####.",
-		".#####."
+		".##^^#",
+		".#####",
+		".#####",
+		".###..",
+		"####..",
+		"####.."
 	)
 	roof_layout = list(
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		"..LMR..",
-		".LLMRR.",
-		".LLMRR.",
-		".LLMRR."
+		".LLMRR",
+		".LLMRR",
+		".LLMRR",
+		".LLM..",
+		"LLLM..",
+		"LLLM.."
 	)
 
 /obj/item/tent/command
 	name = "command tent"
 	color = HOLOMAP_AREACOLOR_COMMAND
 	footprint = list(
-		"..#^#..",
-		".#####.",
-		"#######",
-		"<#####>",
-		"#######",
-		".#####.",
-		"..#v#.."
+		"..^^..",
+		".####.",
+		"<####>",
+		"<####>",
+		".####.",
+		"..vv..",
 	)
 	roof_layout = list(
-		"..LMR..",
-		".LLMRR.",
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		".LLMRR.",
-		"..LMR.."
+		"..LR..",
+		".LLRR.",
+		"LLLRRR",
+		"LLLRRR",
+		".LLRR.",
+		"..LR..",
 	)
 
 /obj/item/tent/mess_hall
 	name = "mess hall tent"
 	color = HOLOMAP_AREACOLOR_CIVILIAN
 	footprint = list(
-		"..^^#..",
-		"..###..",
-		"#######",
-		"#######",
-		"#######",
-		"#######"
+		"..^^..",
+		"######",
+		"######",
+		"<#####",
+		"<#####"
 	)
 	roof_layout = list(
-		"..LMR..",
-		"..LMR..",
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR"
+		"..LR..",
+		"LLLRRR",
+		"LLLRRR",
+		"LLLRRR",
+		"LLLRRR"
 	)
 
 /obj/item/tent/command_comms
 	name = "command and communications tent"
 	color = HOLOMAP_AREACOLOR_COMMAND
 	footprint = list(
-		"..##^##..",
-		"..#####..",
-		"#######..",
-		"#######..",
-		"..#####..",
-		"..##v##.."
+		".#^^#",
+		".####",
+		"#####",
+		"#####",
+		".####",
+		".#vv#"
 	)
 	roof_layout = list(
-		"..LLMRR..",
-		"..LLMRR..",
-		"LLLLMRR..",
-		"LLLLMRR..",
-		"..LLMRR..",
-		"..LLMRR.."
+		".LLRR",
+		".LLRR",
+		"LLLRR",
+		"LLLRR",
+		".LLRR",
+		".LLRR"
 	)
 
 /obj/item/tent/field_kitchen
 	name = "field kitchen tent"
 	color = HOLOMAP_AREACOLOR_CIVILIAN
 	footprint = list(
-		".##^##.",
-		".#####.",
-		".#####.",
-		".#####.",
-		"..###..",
-		"..###.."
+		"#^^#",
+		"####",
+		"####",
+		"####"
 	)
 	roof_layout = list(
-		".LLMRR.",
-		".LLMRR.",
-		".LLMRR.",
-		".LLMRR.",
-		"..LMR..",
-		"..LMR.."
+		"LLRR",
+		"LLRR",
+		"LLRR",
+		"LLRR"
 	)
 
 /obj/item/tent/quarantine
 	name = "quarantine tent"
 	color = HOLOMAP_AREACOLOR_MEDICAL
 	footprint = list(
-		".##^##.",
-		".#####.",
-		".#####.",
-		"..###..",
-		".#####.",
-		".#####.",
-		".##v##."
+		".^^.",
+		"####",
+		"####",
+		".##.",
+		"####",
+		"####",
+		".vv."
 	)
 	roof_layout = list(
-		".LLMRR.",
-		".LLMRR.",
-		".LLMRR.",
-		"..LMR..",
-		".LLMRR.",
-		".LLMRR.",
-		".LLMRR."
+		".LR.",
+		"LLRR",
+		"LLRR",
+		".LR.",
+		"LLRR",
+		"LLRR",
+		".LR."
 	)
 
 /obj/item/tent/decontamination
 	name = "decontamination tent"
 	color = HOLOMAP_AREACOLOR_MEDICAL
 	footprint = list(
-		"#^#",
-		"###",
-		"###",
-		"###",
-		"###",
-		"#v#"
+		"#^^#",
+		"####",
+		"####",
+		"####",
+		"#vv#"
 	)
 	roof_layout = list(
-		"LMR",
-		"LMR",
-		"LMR",
-		"LMR",
-		"LMR",
-		"LMR"
+		"LLRR",
+		"LLRR",
+		"LLRR",
+		"LLRR",
+		"LLRR",
+	)
+
+/obj/item/tent/machinist
+	name = "machinist tent"
+	color = HOLOMAP_AREACOLOR_OPERATIONS
+	footprint = list(
+		"#^^#",
+		"####",
+		"####",
+		"####",
+		".##."
+	)
+	roof_layout = list(
+		"LLRR",
+		"LLRR",
+		"LLRR",
+		"LLRR",
+		".LR."
 	)
 
 /obj/item/tent/vehicle_workshop
 	name = "vehicle workshop tent"
-	color = HOLOMAP_AREACOLOR_ENGINEERING
+	color = HOLOMAP_AREACOLOR_OPERATIONS
 	footprint = list(
-		".#^^^#.",
-		"#######",
-		"#######",
-		"#######",
-		"#######",
-		".#####.",
-		".#####."
+		".#^^#.",
+		"######",
+		"######",
+		"######",
+		".####.",
+		".vvvv."
 	)
 	roof_layout = list(
-		".LLMRR.",
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		"LLLMRRR",
-		".LLMRR.",
-		".LLMRR."
+		".LLRR.",
+		"LLLRRR",
+		"LLLRRR",
+		"LLLRRR",
+		".LLRR.",
+		".LLRR."
 	)
 
 /obj/item/tent/cargo
