@@ -9,7 +9,7 @@
 			attempt_hook_up(my_sector)
 
 	if(istype(linked) && linked.comms_support)
-		var/preset_name = linked.comms_name
+		var/preset_name = linked.name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Hub"
 		network = "tcomm_[name_lower]"
@@ -45,11 +45,15 @@
 			attempt_hook_up(my_sector)
 
 	if(istype(linked) && linked.comms_support)
-		var/preset_name = linked.comms_name
+		var/preset_name = linked.name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Receiver"
 		network = "tcomm_[name_lower]"
-		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
+		for(var/group_id in linked.comms_groups)
+			var/datum/comms_group/group = linked.comms_groups[group_id]
+			var/freq_name = group.freq_name ? group.freq_name : linked.name
+			freq_listening |= assign_away_freq(freq_name)
+		freq_listening |= HAIL_FREQ
 		if (use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
@@ -88,11 +92,15 @@
 			attempt_hook_up(my_sector)
 
 	if(istype(linked) && linked.comms_support)
-		var/preset_name = linked.comms_name
+		var/preset_name = linked.name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Bus"
 		network = "tcomm_[name_lower]"
-		freq_listening += list(assign_away_freq(preset_name), HAIL_FREQ)
+		for(var/group_id in linked.comms_groups)
+			var/datum/comms_group/group = linked.comms_groups[group_id]
+			var/freq_name = group.freq_name ? group.freq_name : linked.name
+			freq_listening |= assign_away_freq(freq_name)
+		freq_listening |= HAIL_FREQ
 		if (use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
@@ -148,7 +156,7 @@
 			attempt_hook_up(my_sector)
 
 	if(istype(linked) && linked.comms_support)
-		var/preset_name = linked.comms_name
+		var/preset_name = linked.name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] Processor"
 		network = "tcomm_[name_lower]"
@@ -194,14 +202,15 @@
 			attempt_hook_up(my_sector)
 
 	if(istype(linked) && linked.comms_support)
-		var/preset_name = linked.comms_name
+		var/preset_name = linked.name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] server"
 		network = "tcomm_[name_lower]"
-		freq_listening += list(
-			assign_away_freq(preset_name),
-			HAIL_FREQ
-		)
+		for(var/group_id in linked.comms_groups)
+			var/datum/comms_group/group = linked.comms_groups[group_id]
+			var/freq_name = group.freq_name ? group.freq_name : linked.name
+			freq_listening |= assign_away_freq(freq_name)
+		freq_listening |= HAIL_FREQ
 		if(use_common || linked.use_common)
 			freq_listening += PUB_FREQ
 		autolinkers = list(
@@ -283,7 +292,7 @@
 			attempt_hook_up(my_sector)
 
 	if(istype(linked) && linked.comms_support)
-		var/preset_name = linked.comms_name
+		var/preset_name = linked.name
 		var/name_lower = replacetext(lowertext(preset_name), " ", "_")
 		id = "[preset_name] broadcaster"
 		network = "tcomm_[name_lower]"

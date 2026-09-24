@@ -65,7 +65,7 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 		return
 
 	if(action == "clear_alarm")
-		var/datum/alarm/alarm = locate(params["ref"]) in GLOB.atmosphere_alarm.alarms
+		var/datum/alarm/alarm = locate(params["ref"]) in GLOB.atmosphere_alarm.station_alarms()
 		if(alarm)
 			for(var/datum/alarm_source/alarm_source in alarm.sources)
 				var/obj/structure/machinery/alarm/air_alarm = alarm_source.source

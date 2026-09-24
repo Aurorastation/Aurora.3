@@ -76,6 +76,7 @@
 	name = "Destructive Analyzer"
 	req_tech = list(TECH_DATA = 2, TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/destructive_analyzer
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/protolathe
 	name = "Protolathe"
@@ -101,16 +102,19 @@
 	name = "R&D Server Control Console"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdservercontrol
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/rdserver
 	name = "R&D Server"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/rdtechprocessor
 	name = "R&D Tech Processor"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdtechprocessor
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"

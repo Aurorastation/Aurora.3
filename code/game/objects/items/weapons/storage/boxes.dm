@@ -1472,7 +1472,7 @@
 	name = "tau ceti armed forces pamphlets box"
 	desc = "A box full of tau ceti armed forces pamphlets."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/tcaf_pamphlet = 6)
+	starts_with = list(/obj/item/book/manual/wiki/tcaf_pamphlet = 6)
 
 /obj/item/storage/box/fountainpens
 	name = "box of fountain pens"

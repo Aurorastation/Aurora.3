@@ -651,6 +651,7 @@
 #include "code\datums\outfits\event\outfit_generic\mining.dm"
 #include "code\datums\outfits\event\outfit_generic\science.dm"
 #include "code\datums\outfits\event\outfit_generic\security.dm"
+#include "code\datums\radio\comms_group.dm"
 #include "code\datums\radio\frequency.dm"
 #include "code\datums\radio\signal.dm"
 #include "code\datums\repositories\cameras.dm"
