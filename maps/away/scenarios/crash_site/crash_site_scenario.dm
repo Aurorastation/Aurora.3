@@ -12,15 +12,15 @@
 	roles = list(
 		/singleton/role/generic_crew,
 	)
-	default_outfit = /obj/outfit/admin/generic/crash_site_crew
+	default_outfit = /obj/outfit/admin/generic
 	actor_accesses = list(/datum/access/crash_site_access)
 
 	base_area = /area/crash_site
 
-	radio_frequency_name = "#187-D Outpost"
+	radio_frequency_name = "Din'akk"
 
 /singleton/scenario_announcements/crash_site
 	horizon_announcement_title = "SCC Central Command Outpost"
-	horizon_unrestrict_landing_message = "Greetings, SCCV Horizon... (...)"
+	horizon_unrestrict_landing_message = "Greetings, SCCV Horizon..."
 
 	offship_announcement_message = "..."

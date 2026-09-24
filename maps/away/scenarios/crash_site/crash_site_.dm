@@ -33,13 +33,16 @@
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/crash_site
-	name = "Juliett-Enderly, Desert Oasis Planet"
-	desc = "\
-		Temperate planet, mostly dry and covered in sand dunes, but with river and lake oases scattered around the equator. \
-		Scans show a somewhat rich biosphere with flora and fauna, and the planet holds a standard breathable atmosphere. \
-		Landing site is in a small valley with a small river running through it.\
-		"
+	name = "Din'akk Crash Site"
+	desc = "The identified site of an SCC shuttle crash. No notable signs of population or structural build-up."
 	icon_state = /obj/effect/overmap/visitable/sector/exoplanet/adhomai::icon_state
 	color = /obj/effect/overmap/visitable/sector/exoplanet/adhomai::color
+
+	initial_restricted_waypoints = list(
+		/obj/effect/overmap/visitable/ship/landable/intrepid::name = list(/obj/effect/shuttle_landmark/crash_site/intrepid::landmark_tag),
+		/obj/effect/overmap/visitable/ship/landable/mining_shuttle::name = list(/obj/effect/shuttle_landmark/crash_site/spark::landmark_tag),
+		/obj/effect/overmap/visitable/ship/landable/canary::name = list(/obj/effect/shuttle_landmark/crash_site/canary::landmark_tag),
+		/obj/effect/overmap/visitable/ship/landable/quark::name = list(/obj/effect/shuttle_landmark/crash_site/quark::landmark_tag),
+	)
 
 // --------------------------------------------------- misc
