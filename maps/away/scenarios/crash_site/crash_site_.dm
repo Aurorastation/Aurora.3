@@ -22,8 +22,8 @@
 	spawn_cost = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
-	// template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
+	// template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
