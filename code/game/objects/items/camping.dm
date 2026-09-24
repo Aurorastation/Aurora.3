@@ -104,8 +104,20 @@
 /datum/large_structure/tent/build_structures()
 	. = ..()
 	var/list/roofs = list()
+	var/list/canvas_visuals = list()
 	for(var/obj/structure/component/tent_canvas/C in grouped_structures)
 		var/turf/canvas_turf = get_turf(C)
+
+		// The canvas object is structural only. Its appearance and direction must not
+		// influence the fixed-perspective wall artwork.
+		C.icon_state = "canvas"
+		C.dir = SOUTH
+		C.wall_dirs = NONE
+		for(var/wall_dir in list(NORTH, SOUTH, EAST, WEST))
+			if(has_tent_wall(canvas_turf, wall_dir))
+				C.wall_dirs |= wall_dir
+
+		// Roof slope remains relative to the deployed blueprint.
 		var/side_one_dir = (dir & (NORTH | SOUTH)) ? WEST : SOUTH
 		var/side_two_dir = (dir & (NORTH | SOUTH)) ? EAST : NORTH
 		var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
@@ -114,11 +126,32 @@
 		var/side_two_distance = get_lateral_distance(canvas_turf, side_two_dir)
 		var/is_side_one_wall = has_tent_wall(canvas_turf, side_one_dir)
 		var/is_side_two_wall = has_tent_wall(canvas_turf, side_two_dir)
-		var/has_side_wall = is_side_one_wall || is_side_two_wall
-		var/is_top_wall = has_tent_wall(canvas_turf, top_dir)
 		var/is_bottom_wall = has_tent_wall(canvas_turf, bottom_dir)
+		var/roof_fallback_dir = side_one_distance < side_two_distance ? side_one_dir : side_two_dir
+		if(is_side_one_wall)
+			roof_fallback_dir = side_one_dir
+		if(is_side_two_wall)
+			roof_fallback_dir = side_two_dir
+		var/roof_dir = get_roof_direction(canvas_turf, roof_fallback_dir)
+		var/perspective_fix = !LAZYLEN(roof_layout) && roof_dir == NORTH && abs(side_one_distance - side_two_distance) == 1
+		if(LAZYLEN(roof_layout))
+			perspective_fix = roof_dir == NORTH && (roof_markers?[canvas_turf] in list("l", "r"))
+
+		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(canvas_turf)
+		roof.part_of = src
+		roof.color = color
+		// Select an already-oriented frame and leave the atom itself facing south.
+		// Filters and independent canvas visuals then remain in world coordinates.
+		var/roof_location = get_location(C, TRUE)
+		roof.dir = SOUTH
+		roof.icon_state = "roof_world_[roof_location]_[direction_to_icon_suffix(roof_dir)]"
+		if(decal && C.x == x1 && C.y == y1)
+			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
+		roofs += roof
+
+		// Entrances are explicit blueprint edges. Their treatment depends only on
+		// neighbouring walls/entrances, never on deployment orientation.
 		var/entrance_dir = get_tent_entrance_direction(canvas_turf)
-		var/is_front_entrance = entrance_dir && (entrance_dir == top_dir || entrance_dir == bottom_dir)
 		var/clockwise_dir = entrance_dir && turn(entrance_dir, -90)
 		var/counterclockwise_dir = entrance_dir && turn(entrance_dir, 90)
 		var/clockwise_wall = entrance_dir && has_tent_wall(canvas_turf, clockwise_dir)
@@ -130,74 +163,28 @@
 		var/has_entrance_corner = clockwise_wall || counterclockwise_wall
 		var/clockwise_treatment = clockwise_wall ? "corner" : (clockwise_join ? "join" : "normal")
 		var/counterclockwise_treatment = counterclockwise_wall ? "corner" : (counterclockwise_join ? "join" : "normal")
-		var/entrance_perspective = is_front_entrance ? "front" : "side"
-		var/entrance_state = entrance_dir ? "canvas_entrance_[entrance_perspective]_[clockwise_treatment]_[counterclockwise_treatment]" : null
-		C.dir = side_one_distance < side_two_distance ? side_one_dir : side_two_dir
-		if(is_side_one_wall)
-			C.dir = side_one_dir
-			C.wall_dirs |= side_one_dir
-		if(is_side_two_wall)
-			C.dir = side_two_dir
-			C.wall_dirs |= side_two_dir
-		if(is_top_wall)
-			C.wall_dirs |= top_dir
-		if(is_bottom_wall)
-			C.wall_dirs |= bottom_dir
-		if(has_side_wall)
-			if(!has_entrance_corner)
-				C.icon_state = "canvas_[get_location(C)]"
-			if(C.dir == NORTH) // North-facing canvas has to render over occupants on its tile.
-				C.layer = ABOVE_TILE_LAYER
-		if(is_top_wall && !has_entrance_corner)
-			add_transverse_wall(C, top_dir)
-		if(is_bottom_wall && !has_entrance_corner)
-			add_transverse_wall(C, bottom_dir)
-
-		var/roof_dir = get_roof_direction(canvas_turf, C.dir)
-		var/perspective_fix = !LAZYLEN(roof_layout) && C.dir == NORTH && abs(side_one_distance - side_two_distance) == 1
-		if(LAZYLEN(roof_layout))
-			perspective_fix = roof_dir == NORTH && (roof_markers?[canvas_turf] in list("l", "r"))
-		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
-		roofs += roof
-		roof.color = color
-		roof.dir = roof_dir
-		if(decal && C.x == x1 && C.y == y1)
-			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
-		roof.icon_state = "roof_[get_location(C, TRUE)]"
 
 		if(entrance_dir)
-			// Keep the arch on both planes so it remains visible when the roof is hidden
-			// for an occupant, while still reading as part of the roof from outside.
-			var/image/canvas_arch = overlay_image(C.icon, entrance_state)
-			orient_entrance_overlay(canvas_arch, entrance_dir, is_front_entrance)
-			C.AddOverlays(canvas_arch)
-			// Cut the roof and its edge away inside the tied-back canvas frame. This
-			// makes the frame read as an opening instead of decoration laid over canvas.
-			var/mask_state = "roof_entrance_mask_[entrance_perspective]_[clockwise_treatment]_[counterclockwise_treatment]"
+			var/mask_state = "roof_entrance_mask_[clockwise_treatment]_[counterclockwise_treatment]"
 			var/icon/entrance_mask = icon(roof.icon, mask_state, entrance_dir)
 			roof.appearance_flags |= KEEP_TOGETHER
 			roof.add_filter("tent_entrance", 1, alpha_mask_filter(icon = entrance_mask))
 
-		if(has_side_wall && !has_entrance_corner)
-			var/image/side_wall = overlay_image(C.icon, C.icon_state)
-			side_wall.dir = C.dir
-			roof.AddOverlays(side_wall)
-		if(is_top_wall && !has_entrance_corner)
-			add_transverse_wall(roof, top_dir)
-		if(is_bottom_wall && !has_entrance_corner)
-			add_transverse_wall(roof, bottom_dir)
+		// Walls and corner seams use world-oriented DMI states on independent atoms.
+		// They therefore cannot inherit the deployed direction of the roof fabric.
 		if(!has_entrance_corner)
-			add_inner_corner_overlays(C, roof, canvas_turf, bottom_dir, side_one_dir, side_two_dir)
+			for(var/target_plane in list(C.plane, roof.plane))
+				add_visible_walls(canvas_turf, canvas_visuals, target_plane)
+				add_inner_corner_visuals(canvas_turf, canvas_visuals, target_plane)
 		if(perspective_fix && !is_bottom_wall)
-			roof.AddOverlays(overlay_image(roof.icon, "[roof.icon_state]_p"))
+			roof.AddOverlays(overlay_image(roof.icon, "roof_[roof_location]_p"))
 		if(entrance_dir)
-			// Draw the frame after every wall and corner connector so entrances on a
-			// narrowed end (such as the command tent) remain visually unobstructed.
-			var/image/roof_arch = overlay_image(roof.icon, entrance_state)
-			orient_entrance_overlay(roof_arch, entrance_dir, is_front_entrance)
-			roof.AddOverlays(roof_arch)
+			var/entrance_state = "canvas_entrance_[clockwise_treatment]_[counterclockwise_treatment]"
+			add_canvas_visual(canvas_turf, canvas_visuals, C.plane, entrance_state, entrance_dir, TRUE)
+			add_canvas_visual(canvas_turf, canvas_visuals, roof.plane, entrance_state, entrance_dir, TRUE)
 
 	grouped_structures += roofs
+	grouped_structures += canvas_visuals
 
 	for(var/turf/target in target_turfs)
 		target.update_weather()
@@ -211,6 +198,17 @@
 		if("M", "R", "r")
 			return turn(dir, -90)
 	return fallback
+
+/// Stable suffix used by the pre-oriented, single-direction roof states.
+/datum/large_structure/tent/proc/direction_to_icon_suffix(var/direction)
+	switch(direction)
+		if(NORTH)
+			return "north"
+		if(EAST)
+			return "east"
+		if(WEST)
+			return "west"
+	return "south"
 
 /**
  * Returns the number of contiguous tent tiles between `origin` and the edge in `direction`.
@@ -271,85 +269,60 @@
 /datum/large_structure/tent/proc/has_tent_wall(var/turf/origin, var/direction)
 	return (origin in target_turfs) && !(get_step(origin, direction) in target_turfs) && !is_tent_opening(origin, direction)
 
-/**
- * Adds a visible transverse wall where an irregular footprint steps inward.
- * The supplied sprites face south and are rotated for the other cardinal edges.
- */
-/datum/large_structure/tent/proc/add_transverse_wall(var/obj/structure/component/tent_canvas/target, var/wall_dir)
-	var/turf/origin = get_turf(target)
+/// Adds every closed edge using standalone visuals whose directions cannot inherit the roof's rotation.
+/datum/large_structure/tent/proc/add_visible_walls(var/turf/origin, var/list/canvas_visuals, var/target_plane)
+	for(var/wall_dir in list(NORTH, SOUTH, EAST, WEST))
+		if(has_tent_wall(origin, wall_dir))
+			add_directional_wall(origin, canvas_visuals, target_plane, wall_dir)
 
+/**
+ * Selects the connection treatment for one wall. The DMI then chooses the thin
+ * north/south or thick east/west artwork automatically from `wall_dir`.
+ */
+/datum/large_structure/tent/proc/add_directional_wall(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/wall_dir)
 	var/left_dir = turn(wall_dir, -90)
 	var/right_dir = turn(wall_dir, 90)
 	// Entrance frames now provide their own wall transition. Treating an entrance
 	// as a connected wall here selects the old tapered edge sprites beside it.
 	var/connects_left = has_tent_wall(origin, left_dir)
 	var/connects_right = has_tent_wall(origin, right_dir)
-	var/front_state = "canvas_front"
+	var/wall_state = "canvas_wall"
 
 	if(connects_left && connects_right)
-		front_state = "canvas_front_mid"
+		wall_state = "canvas_wall_mid"
 	else if(connects_left)
-		front_state = "canvas_front_edge_left"
+		wall_state = "canvas_wall_edge_left"
 	else if(connects_right)
-		front_state = "canvas_front_edge_right"
+		wall_state = "canvas_wall_edge_right"
 
-	var/image/front_wall = overlay_image(target.icon, front_state)
-	rotate_front_overlay(front_wall, wall_dir)
-	target.AddOverlays(front_wall)
+	add_canvas_visual(origin, canvas_visuals, target_plane, wall_state, wall_dir)
 
-/**
- * Rotates a south-facing front-wall overlay to another exposed edge.
- */
-/datum/large_structure/tent/proc/rotate_front_overlay(var/image/overlay, var/direction)
-	var/matrix/rotation = matrix()
-	switch(direction)
-		if(WEST)
-			rotation.Turn(90)
-		if(NORTH)
-			rotation.Turn(180)
-		if(EAST)
-			rotation.Turn(270)
-	overlay.transform = rotation
-
-/**
- * Orients one of the two tent-relative entrance overlays. The shallow front sprite
- * is authored facing south, while the deeper side-wall sprite is authored facing east.
- */
-/datum/large_structure/tent/proc/orient_entrance_overlay(var/image/overlay, var/direction, var/is_front_entrance)
-	if(is_front_entrance)
-		rotate_front_overlay(overlay, direction)
-		return
-
-	var/matrix/rotation = matrix()
-	switch(direction)
-		if(SOUTH)
-			rotation.Turn(90)
-		if(WEST)
-			rotation.Turn(180)
-		if(NORTH)
-			rotation.Turn(270)
-	overlay.transform = rotation
+/// Creates one independent, world-directed canvas appearance.
+/datum/large_structure/tent/proc/add_canvas_visual(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/icon_state, var/visual_dir, var/render_above = FALSE)
+	var/obj/structure/component/tent_canvas_visual/visual = new(origin)
+	visual.part_of = src
+	visual.color = color
+	visual.plane = target_plane
+	visual.icon_state = icon_state
+	visual.dir = visual_dir
+	if(render_above)
+		visual.layer += 0.01
+	canvas_visuals += visual
 
 /**
  * Adds the seams for concave corners where an annex or vestibule meets the main tent.
  * An inner corner has two occupied cardinal neighbours with an empty diagonal between them.
  */
-/datum/large_structure/tent/proc/add_inner_corner_overlays(var/obj/structure/component/tent_canvas/canvas, var/obj/structure/component/tent_canvas/roof/roof, var/turf/origin, var/front_dir, var/side_one_dir, var/side_two_dir)
-	var/back_dir = turn(front_dir, 180)
-	for(var/edge_dir in list(front_dir, back_dir))
-		for(var/side_dir in list(side_one_dir, side_two_dir))
+/datum/large_structure/tent/proc/add_inner_corner_visuals(var/turf/origin, var/list/canvas_visuals, var/target_plane)
+	for(var/edge_dir in list(SOUTH, NORTH))
+		for(var/side_dir in list(WEST, EAST))
 			var/diagonal_dir = edge_dir | side_dir
 			if(!(get_step(origin, edge_dir) in target_turfs) || !(get_step(origin, side_dir) in target_turfs) || (get_step(origin, diagonal_dir) in target_turfs))
 				continue
 
 			var/source_left_dir = turn(edge_dir, -90)
-			var/corner_state = side_dir == source_left_dir ? "canvas_front_inner_corner_left" : "canvas_front_inner_corner_right"
-			var/image/canvas_corner = overlay_image(canvas.icon, corner_state)
-			rotate_front_overlay(canvas_corner, edge_dir)
-			canvas.AddOverlays(canvas_corner)
-			var/image/roof_corner = overlay_image(roof.icon, corner_state)
-			rotate_front_overlay(roof_corner, edge_dir)
-			roof.AddOverlays(roof_corner)
+			var/corner_state = side_dir == source_left_dir ? "canvas_wall_inner_corner_left" : "canvas_wall_inner_corner_right"
+			add_canvas_visual(origin, canvas_visuals, target_plane, corner_state, edge_dir)
 
 /**
  * Shows `user` a client-only preview of the tent's occupied tiles and asks them to confirm its placement.
@@ -435,7 +408,8 @@
 
 /**
  * Determines the state to use for each section of the tent
- * Returns `edge` for structures on the edge of the tent
+ * Returns `edge` for legacy canvas positioning. Roofs instead distinguish the
+ * fixed-perspective `edge_west` and `edge_east` cutouts.
  * Returns `mid` for structures in the exact centre of the tent, for odd number widths
  * Otherwise returns `norm` for other structures
  * Entrance shaping is handled separately by the perspective frame and roof mask.
@@ -453,8 +427,16 @@
 	if(!LAZYLEN(roof_layout))
 		is_middle = side_one_distance == side_two_distance
 
-	if(for_roof && is_middle)
-		return "mid"
+	if(for_roof)
+		if(is_middle)
+			return "mid"
+		// Only east/west edges need the deep side-wall roof cutout. North/south
+		// boundaries use the full roof tile above their shallow wall.
+		if(has_tent_wall(canvas_turf, WEST))
+			return "edge_west"
+		if(has_tent_wall(canvas_turf, EAST))
+			return "edge_east"
+		return "norm"
 	else if(is_side_edge)
 		return "edge"
 	else if(is_middle)
@@ -928,6 +910,17 @@
 
 /obj/structure/component/tent_canvas/roof/CheckExit(atom/movable/O, turf/target)
 	return TRUE
+
+/// A standalone wall, corner, or entrance appearance. Keeping these separate from
+/// the directional roof and canvas atoms makes their perspective world-relative.
+/obj/structure/component/tent_canvas_visual
+	name = "tent canvas"
+	icon = 'icons/obj/item/camping.dmi'
+	anchored = TRUE
+	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	// Always composite over roof fabric instead of competing at the same layer.
+	layer = ABOVE_HUMAN_LAYER + 0.05
 
 //Pre-fabricated tents for mapping
 /obj/effect/tent
