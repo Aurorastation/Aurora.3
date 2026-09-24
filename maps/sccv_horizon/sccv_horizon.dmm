@@ -2973,10 +2973,6 @@
 /obj/structure/machinery/light_switch/east,
 /turf/simulated/floor/tiled/slate,
 /area/horizon/operations/warehouse)
-"asC" = (
-/obj/structure/flora/ausbushes/brflowers,
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "asF" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -12260,10 +12256,6 @@
 	icon_state = "wood-broken4"
 	},
 /area/centcom/legion/hangar5)
-"bBZ" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "bCh" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -33906,11 +33898,6 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
-"eqR" = (
-/obj/structure/bed/stool/chair/sofa/left/red,
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "eqU" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Detention Wing";
@@ -35548,10 +35535,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/repoffice/consular_two)
-"eCQ" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "eDj" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -42449,9 +42432,6 @@
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/horizon/crew/fitness/changing)
-"fAf" = (
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "fAg" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -45353,13 +45333,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_1/main/port)
-"fTE" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/machinery/light/small{
-	must_start_working = 1
-	},
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "fTH" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -79114,13 +79087,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/security/checkpoint2)
-"klO" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "klV" = (
 /obj/structure/machinery/power/emitter{
 	dir = 8
@@ -98516,15 +98482,6 @@
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/port/far)
-"mKG" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "mKH" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
@@ -111974,18 +111931,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
-"oyX" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/obj/structure/sign/painting_frame/tsunami_kami{
-	pixel_y = 32
-	},
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "oza" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -112718,10 +112663,6 @@
 /obj/effect/floor_decal/industrial/hatch_door/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/indra/mainchamber)
-"oEh" = (
-/obj/structure/flora/ausbushes/lavendergrass,
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "oEi" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -159456,16 +159397,6 @@
 /turf/simulated/floor/airless,
 /area/horizon/engineering/atmos)
 "uBO" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/reagent_containers/food/drinks/bottle/cola{
-	pixel_x = -7;
-	pixel_y = 6
-	},
-/obj/item/flashlight/lantern{
-	pixel_x = 6;
-	pixel_y = 5
-	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "uBQ" = (
@@ -163823,11 +163754,6 @@
 /obj/item/bedsheet/purple,
 /turf/simulated/floor/carpet/art,
 /area/shuttle/skipjack)
-"vdl" = (
-/obj/structure/bed/stool/chair/sofa/right/red,
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "vds" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -166945,18 +166871,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/medical/paramedic)
-"vAP" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/storage/box/unique/donkpockets{
-	pixel_x = 2;
-	pixel_y = 5
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "vAR" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -177056,10 +176970,6 @@
 /obj/item/radio/intercom/north,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
-"wNh" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/turf/unsimulated/floor/grass,
-/area/antag/actor)
 "wNj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -436153,9 +436063,9 @@ ruH
 chm
 anN
 kqs
-vAP
-oEh
-klO
+uBO
+uBO
+uBO
 mIw
 mIw
 mIw
@@ -436410,9 +436320,9 @@ ruH
 chm
 oCb
 kqs
-vdl
-asC
-wNh
+uBO
+uBO
+uBO
 mIw
 mrG
 csd
@@ -436667,9 +436577,9 @@ ruH
 chm
 anN
 kqs
-eqR
-fAf
-eCQ
+uBO
+uBO
+uBO
 mIw
 sES
 csd
@@ -436925,8 +436835,8 @@ chm
 oCb
 kqs
 uBO
-bBZ
-fTE
+uBO
+uBO
 mIw
 xTm
 csd
@@ -437181,9 +437091,9 @@ chm
 mIw
 mIw
 mIw
-mIw
-oyX
-mKG
+uBO
+uBO
+uBO
 mIw
 gAf
 gAf
@@ -437438,9 +437348,9 @@ mIw
 mIw
 mcU
 big
-wVz
-wVz
-wVz
+uBO
+uBO
+uBO
 xux
 wVz
 wVz
@@ -437695,9 +437605,9 @@ mIw
 ozR
 bRI
 iFD
-iFD
-iFD
-iFD
+uBO
+uBO
+uBO
 iFD
 iFD
 iFD
