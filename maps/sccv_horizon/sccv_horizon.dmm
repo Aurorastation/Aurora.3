@@ -9156,13 +9156,11 @@
 	},
 /area/centcom/control)
 "big" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	dir = 1
-	},
-/turf/unsimulated/floor/dark,
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "bii" = (
 /obj/effect/shuttle_landmark/escape_pod/start/pod3,
@@ -15944,6 +15942,22 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
+"cdJ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/deck/tarot/adhomai,
+/obj/item/deck/tarot/adhomai,
+/obj/item/deck/tarot/adhomai,
+/obj/item/dogtag/adhomai_tag,
+/obj/item/dogtag/adhomai_tag,
+/obj/item/dogtag/adhomai_tag,
+/obj/item/dogtag/adhomai_tag,
+/obj/item/dogtag/adhomai_tag,
+/obj/item/sticker/flagpole/adhomai/crevus,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "cdO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -22271,13 +22285,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/custodial/disposals/deck_1)
 "cSI" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	dir = 1
-	},
-/turf/unsimulated/floor/dark,
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/tajaran/black,
+/obj/item/clothing/accessory/tajaran/black,
+/obj/item/clothing/accessory/tajaran/black,
+/obj/item/clothing/accessory/tajaran/blue,
+/obj/item/clothing/accessory/tajaran/blue,
+/obj/item/clothing/accessory/poncho/tajarancloak/winter,
+/obj/item/clothing/accessory/poncho/tajarancloak/winter,
+/obj/item/clothing/accessory/poncho/tajarancloak/winter,
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon,
+/obj/item/clothing/accessory/poncho/tajarancloak/maroon,
+/obj/item/clothing/accessory/poncho/tajarancloak,
+/obj/item/clothing/accessory/poncho/tajarancloak,
+/obj/item/clothing/accessory/tajaran/cream,
+/obj/item/clothing/accessory/tajaran/lbrown,
+/obj/item/clothing/suit/storage/hooded/tajaran/amohda,
+/obj/item/clothing/suit/storage/hooded/tajaran/maroon,
+/obj/item/clothing/suit/storage/hooded/tajaran/winter,
+/obj/item/clothing/suit/storage/hooded/tajaran/winter,
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "cSO" = (
 /obj/structure/table/reinforced/steel,
@@ -27810,6 +27837,10 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
+"dBN" = (
+/obj/item/clothing/under/tajaran/summer,
+/turf/template_noop,
+/area/template_noop)
 "dBS" = (
 /obj/structure/grille,
 /obj/structure/machinery/door/firedoor,
@@ -52562,6 +52593,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/reactor/supermatter/mainchamber)
+"gQE" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/tajaran/charm/bone,
+/obj/item/clothing/accessory/tajaran/charm/bone,
+/obj/item/clothing/accessory/tajaran/charm/bone,
+/obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey,
+/obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror,
+/obj/item/clothing/accessory/tajaran/charm/tajani,
+/obj/item/clothing/accessory/tajaran/charm/twin_suns,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "gQG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -90075,6 +90117,29 @@
 /obj/structure/machinery/light_switch/north,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/rnd/xenobiology/dissection)
+"lFq" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran,
+/obj/item/clothing/under/tajaran/fancy,
+/obj/item/clothing/under/tajaran/fancy/alt1,
+/obj/item/clothing/under/tajaran/high_waisted,
+/obj/item/clothing/under/tajaran/high_waisted,
+/obj/item/clothing/under/tajaran/high_waisted,
+/obj/item/clothing/under/tajaran/mechanic,
+/obj/item/clothing/under/tajaran/mechanic,
+/obj/item/clothing/under/tajaran/mechanic,
+/obj/item/clothing/under/tajaran/relaxed,
+/obj/item/clothing/under/tajaran/relaxed,
+/obj/item/clothing/under/tajaran/relaxed,
+/obj/item/clothing/under/tajaran/relaxed/stylish,
+/obj/item/clothing/under/tajaran/summer,
+/obj/item/clothing/under/tajaran/summer,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "lFr" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -124749,6 +124814,13 @@
 "qgW" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/rnd/server)
+"qgX" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/beret/tajaran/dpra,
+/obj/item/clothing/head/beret/tajaran/dpra,
+/obj/item/clothing/head/beret/tajaran/dpra,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "qgY" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -125045,6 +125117,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/wing/starboard/far)
+"qjL" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/tajaran/archeologist,
+/obj/item/clothing/head/tajaran/archeologist,
+/obj/item/clothing/head/tajaran/circlet,
+/obj/item/clothing/head/tajaran/fur,
+/obj/item/clothing/head/tajaran/fur,
+/obj/item/clothing/head/tajaran/fur,
+/obj/item/clothing/head/tajaran/nka_cap,
+/obj/item/clothing/head/tajaran/raskara,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "qjN" = (
 /obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -148790,6 +148874,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
+"tjo" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/tajaran/fancycoat,
+/obj/item/clothing/suit/storage/tajaran/fancycoat,
+/obj/item/clothing/suit/storage/tajaran/fancycoat,
+/obj/item/clothing/suit/storage/tajaran/finecoat,
+/obj/item/clothing/suit/storage/tajaran/finecoat,
+/obj/item/clothing/suit/storage/tajaran/finecoat,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/clothing/suit/storage/tajaran/dpra_jacket,
+/obj/item/clothing/suit/storage/tajaran/dpra_jacket,
+/obj/item/clothing/suit/storage/toggle/tajaran,
+/obj/item/clothing/suit/storage/toggle/tajaran,
+/obj/item/clothing/suit/storage/toggle/tajaran/wool,
+/obj/item/clothing/suit/storage/toggle/tajaran/wool,
+/obj/item/clothing/suit/storage/toggle/tajaran/wool,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "tjp" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -152170,6 +152275,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/wing/starboard)
+"tEO" = (
+/obj/structure/machinery/vending/generic_clothing/crash_site_event,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "tEP" = (
 /obj/structure/plasticflaps/mining,
 /obj/structure/machinery/door/blast/shutters{
@@ -173024,6 +173133,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/command/bridge/aibunker)
+"wom" = (
+/obj/effect/floor_decal/industrial/arrow/red{
+	dir = 8
+	},
+/turf/unsimulated/floor/dark,
+/area/antag/actor)
 "won" = (
 /obj/structure/table/standard,
 /obj/structure/disposalpipe/segment{
@@ -434259,7 +434374,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+dBN
 eSV
 eSV
 eSV
@@ -436063,9 +436178,9 @@ ruH
 chm
 anN
 kqs
-uBO
-uBO
-uBO
+qgX
+qjL
+tjo
 mIw
 mIw
 mIw
@@ -436320,7 +436435,7 @@ ruH
 chm
 oCb
 kqs
-uBO
+big
 uBO
 uBO
 mIw
@@ -436577,7 +436692,7 @@ ruH
 chm
 anN
 kqs
-uBO
+cSI
 uBO
 uBO
 mIw
@@ -436834,7 +436949,7 @@ chm
 chm
 oCb
 kqs
-uBO
+gQE
 uBO
 uBO
 mIw
@@ -437091,10 +437206,10 @@ chm
 mIw
 mIw
 mIw
+tEO
 uBO
 uBO
-uBO
-mIw
+lFq
 gAf
 gAf
 gAf
@@ -437347,11 +437462,11 @@ ruH
 mIw
 mIw
 mcU
-big
+wVz
+cdJ
 uBO
 uBO
 uBO
-xux
 wVz
 wVz
 wVz
@@ -437605,9 +437720,9 @@ mIw
 ozR
 bRI
 iFD
-uBO
-uBO
-uBO
+wom
+wom
+wom
 iFD
 iFD
 iFD
@@ -439917,7 +440032,7 @@ chm
 mIw
 mIw
 hkI
-cSI
+vqn
 hAN
 vqn
 vqn
