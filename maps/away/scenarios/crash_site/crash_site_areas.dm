@@ -13,8 +13,12 @@
 
 /area/crash_site/outside
 	name = "Din'akk Crash Site"
-	area_blurb = "An oasis in the middle of a desert. Red rocks mar a fairly scenic environment. In the distance is a large, red cave, with an ominous entrance."
+	area_blurb = "?"
 	is_outside = OUTSIDE_YES
+
+/area/crash_site/outside/near_crash_site
+	area_blurb = "?"
+	color = "#2e2e2e"
 
 /area/crash_site/outside/mountains
 	name = "Din'akk Mountains"
