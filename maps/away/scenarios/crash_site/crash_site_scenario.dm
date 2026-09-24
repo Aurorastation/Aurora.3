@@ -1,7 +1,6 @@
 /singleton/scenario/crash_site
-	name = "Cryo Outpost #187-D"
-	desc = "An illegal cloning outpost on a desert oasis planet, that has just been noticed by megacorporations to be stealing proprietary tech. \
-			SCCV Horizon, the closest ship in this sector, was dispatched to investigate."
+	name = "Curios 1 Event"
+	desc = "(Event Stuff.)"
 	scenario_site_id = "crash_site"
 
 	min_player_amount = 0
