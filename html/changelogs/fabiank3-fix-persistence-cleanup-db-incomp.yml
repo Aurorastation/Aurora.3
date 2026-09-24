@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed database incompatiblity issue with persistence cleanup procedures."
