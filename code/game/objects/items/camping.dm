@@ -140,8 +140,8 @@
 		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(canvas_turf)
 		roof.part_of = src
 		roof.color = color
-		// Select an already-oriented frame and leave the atom itself facing south.
-		// Filters and independent canvas visuals then remain in world coordinates.
+
+
 		var/roof_location = get_location(C, TRUE)
 		roof.dir = SOUTH
 		roof.icon_state = "roof_world_[roof_location]_[direction_to_icon_suffix(roof_dir)]"
@@ -282,8 +282,6 @@
 /datum/large_structure/tent/proc/add_directional_wall(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/wall_dir)
 	var/left_dir = turn(wall_dir, -90)
 	var/right_dir = turn(wall_dir, 90)
-	// Entrance frames now provide their own wall transition. Treating an entrance
-	// as a connected wall here selects the old tapered edge sprites beside it.
 	var/connects_left = has_tent_wall(origin, left_dir)
 	var/connects_right = has_tent_wall(origin, right_dir)
 	var/wall_state = "canvas_wall"
@@ -295,16 +293,18 @@
 	else if(connects_right)
 		wall_state = "canvas_wall_edge_right"
 
-	add_canvas_visual(origin, canvas_visuals, target_plane, wall_state, wall_dir)
+	add_canvas_visual(origin, canvas_visuals, target_plane, wall_state, wall_dir, clickable = TRUE)
 
 /// Creates one independent, world-directed canvas appearance.
-/datum/large_structure/tent/proc/add_canvas_visual(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/icon_state, var/visual_dir, var/render_above = FALSE)
+/datum/large_structure/tent/proc/add_canvas_visual(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/icon_state, var/visual_dir, var/render_above = FALSE, var/clickable = FALSE)
 	var/obj/structure/component/tent_canvas_visual/visual = new(origin)
 	visual.part_of = src
 	visual.color = color
 	visual.plane = target_plane
 	visual.icon_state = icon_state
 	visual.dir = visual_dir
+	if(clickable)
+		visual.mouse_opacity = MOUSE_OPACITY_ICON
 	if(render_above)
 		visual.layer += 0.01
 	canvas_visuals += visual
@@ -404,7 +404,15 @@
 	if(!.)
 		var/atom/movable/screen/plane_master/roof/roof_plane = mover.hud_used?.plane_masters["[ROOF_PLANE]"]
 		if(roof_plane)
-			roof_plane.alpha = 255
+			// A move can leave this tent and enter another one at the same time. Do not
+			// restore the shared roof plane while the mover is still beneath tent canvas.
+			var/turf/current_turf = get_turf(mover)
+			var/inside_another_tent = FALSE
+			for(var/obj/structure/component/tent_canvas/canvas in current_turf)
+				if(istype(canvas.part_of, /datum/large_structure/tent))
+					inside_another_tent = TRUE
+					break
+			roof_plane.alpha = inside_another_tent ? 76 : 255
 
 /**
  * Determines the state to use for each section of the tent
@@ -560,6 +568,20 @@
 		my_tent.y1 = target.y - floor((width-1)/2)
 		my_tent.y2 = target.y + ceil((width-1)/2)
 
+/obj/item/tent/medium
+	name = "camp tent"
+	color = "#2e3763"
+	footprint = list(
+		"#^#",
+		"###",
+		"#v#"
+	)
+	roof_layout = list(
+		"LMR",
+		"LMR",
+		"LMR"
+	)
+
 /obj/item/tent/big
 	name = "base camp tent"
 	color = "#2e3763"
@@ -578,9 +600,37 @@
 		"LLRR"
 	)
 
-/obj/item/tent/big/scc
-	name = "scc base camp tent"
-	decal = "scc"
+/obj/item/tent/turn
+	name = "corner connector tent"
+	color = "#2e3763"
+	footprint = list(
+		"..^^",
+		"..##",
+		"<###",
+		"<###"
+	)
+	roof_layout = list(
+		"..LR",
+		"..LR",
+		"LLLR",
+		"LLLR"
+	)
+
+/obj/item/tent/t_junction
+	name = "T-junction connector tent"
+	color = "#2e3763"
+	footprint = list(
+		".^^.",
+		".##.",
+		"<##>",
+		"<##>"
+	)
+	roof_layout = list(
+		".LR.",
+		".LR.",
+		"LLRR",
+		"LLRR"
+	)
 
 /obj/item/tent/medical
 	name = "medical tent"
@@ -664,12 +714,12 @@
 	name = "command tent"
 	color = HOLOMAP_AREACOLOR_COMMAND
 	footprint = list(
-		"..^^..",
-		".####.",
+		".#^^#.",
+		"######",
 		"<####>",
 		"<####>",
-		".####.",
-		"..vv..",
+		"######",
+		".#vv#.",
 	)
 	roof_layout = list(
 		"..LR..",
@@ -884,6 +934,9 @@
 		return !density
 	return TRUE
 
+/obj/structure/component/tent_canvas/blocks_multitile_placement(turf/other)
+	return density && (get_dir(loc, other) & wall_dirs)
+
 /obj/structure/component/tent_canvas/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(use_check(usr, USE_ALLOW_NON_ADJACENT) || (get_dist(usr, src) > 1)) // use_check() can't check for adjacency due to density issues, so we check range as well
@@ -915,12 +968,25 @@
 /// the directional roof and canvas atoms makes their perspective world-relative.
 /obj/structure/component/tent_canvas_visual
 	name = "tent canvas"
+	desc = "The visible fabric and poles of a tent wall."
 	icon = 'icons/obj/item/camping.dmi'
 	anchored = TRUE
 	density = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	// Always composite over roof fabric instead of competing at the same layer.
 	layer = ABOVE_HUMAN_LAYER + 0.05
+
+/obj/structure/component/tent_canvas_visual/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging another wall to themselves."
+	if(part_of)
+		. += "Each disassembly stage takes approximately [DisplayTimeText(part_of.disassembly_time_per_stage)]."
+
+/obj/structure/component/tent_canvas_visual/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	..()
+	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
+		return
+	part_of.disassemble(user)
 
 //Pre-fabricated tents for mapping
 /obj/effect/tent
