@@ -51,8 +51,12 @@
 
 /obj/effect/decal/cleanable/persistent_objects_get_content()
 	var/list/content = list()
-	content["icon_state"] = icon_state
-	content["color"] = color
+	if(persistence_get_type() == /obj/effect/decal/cleanable/dirt && type != /obj/effect/decal/cleanable/dirt)
+		content["icon_state"] = /obj/effect/decal/cleanable/dirt::icon_state
+		content["color"] = /obj/effect/decal/cleanable/dirt::color
+	else
+		content["icon_state"] = icon_state
+		content["color"] = color
 	return content
 
 /obj/effect/decal/cleanable/persistent_objects_apply_content(content, x, y, z)

@@ -41,7 +41,7 @@
 						blood_DNA |= B.blood_DNA.Copy()
 					QDEL_IN(B, 1 SECOND)
 
-	drytime = DRYING_TIME * (amount+1)
+	drytime = dry_on_start ? 0 : DRYING_TIME * (amount+1)
 	bleed_time = world.time
 	if (dries)
 		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
@@ -62,16 +62,12 @@
 
 /obj/effect/decal/cleanable/blood/persistent_objects_get_content()
 	var/list/content = ..()
-	content["icon_state"] = icon_state
-	content["blood_DNA"] = blood_DNA
-	content["color"] = color
 	content["basecolor"] = basecolor
 	content["amount"] = amount
 	return content
 
 /obj/effect/decal/cleanable/blood/persistent_objects_apply_content(content, x, y, z)
 	..()
-	src.blood_DNA = content["blood_DNA"]
 	src.basecolor = content["basecolor"]
 	src.amount = content["amount"]
 	//Dry it
