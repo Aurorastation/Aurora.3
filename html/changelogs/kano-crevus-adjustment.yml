@@ -1,0 +1,4 @@
+author: kano
+delete-after: True
+changes:
+  - rscadd: "Added first-aid medkits, eftpos terminals, cleaning supplies to some areas of Nikal Sahira."
