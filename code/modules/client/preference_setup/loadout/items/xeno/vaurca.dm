@@ -207,7 +207,7 @@
 /datum/gear/vaurca_lunchbox
 	display_name = "vaurca lunchbox"
 	description = "A lunchbox selection containing various kois products."
-	cost = 2
+	cost = 1
 	path = /obj/item/storage/toolbox/lunchbox
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
