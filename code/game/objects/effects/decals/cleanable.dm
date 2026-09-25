@@ -3,7 +3,7 @@
 	var/list/random_icon_states
 	var/swept_away
 	var/cleanable_by_basic_cleaners = TRUE
-	persistance_expiration_time_days = 7
+	persistent_objects_expiration_time_days = 7
 	var/persistence_type_requires_canon_round = FALSE
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
@@ -48,17 +48,14 @@
 	icon = 'icons/turf/overlays.dmi'
 	icon_state = "snowfloor_transparent"
 	anchored = TRUE
-	if(T?.is_space())
-		animate(src, alpha = 0, time = 5 SECONDS)
-		QDEL_IN(src, 5 SECONDS)
 
-/obj/effect/decal/cleanable/persistence_get_content()
+/obj/effect/decal/cleanable/persistent_objects_get_content()
 	var/list/content = list()
 	content["icon_state"] = icon_state
 	content["color"] = color
 	return content
 
-/obj/effect/decal/cleanable/persistence_apply_content(content, x, y, z)
+/obj/effect/decal/cleanable/persistent_objects_apply_content(content, x, y, z)
 	src.x = x
 	src.y = y
 	src.z = z
@@ -73,7 +70,7 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_DIRT))
-			SSpersistence.register_track(src, null)
+			SSpersistence.objectsRegisterTrack(src, null)
 
 /obj/effect/decal/cleanable/persistence_get_type()
 	SHOULD_NOT_OVERRIDE(TRUE)

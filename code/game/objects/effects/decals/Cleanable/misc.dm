@@ -29,7 +29,7 @@
 	if (istype(F))
 		F.dirt += 4
 	qdel(src)
-	SSpersistence.deregister_track(src)
+	SSpersistence.objectsDeregisterTrack(src)
 
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
@@ -274,7 +274,7 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))
 	if(do_after(user, 6 SECONDS))
 		qdel(src)
-		SSpersistence.deregister_track(src)
+		SSpersistence.objectsDeregisterTrack(src)
 
 /obj/effect/decal/cleanable/acid_remnants
 	name = "acid remains"

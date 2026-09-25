@@ -34,12 +34,12 @@
 	else
 		qdel(src)
 
-/obj/effect/decal/cleanable/liquid_fuel/persistence_get_content()
+/obj/effect/decal/cleanable/liquid_fuel/persistent_objects_get_content()
 	var/list/content = ..()
 	content["amount"] = amount
 	return content
 
-/obj/effect/decal/cleanable/liquid_fuel/persistence_apply_content(content, x, y, z)
+/obj/effect/decal/cleanable/liquid_fuel/persistent_objects_apply_content(content, x, y, z)
 	..()
 	src.amount = content["amount"]
 
