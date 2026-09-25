@@ -1,7 +1,7 @@
 /obj/item/gun/energy/rifle/icelance
-	name = "icelance rifle"
+	name = "\improper Tui'ad icelance rifle"
 	desc = "A Tajaran made rifle, it houses a crank-chargable internal battery. It only holds three shots and each shot must be cranked manually."
-	icon = 'icons/obj/guns/icelance.dmi'
+	icon = 'icons/obj/guns/faction/pra/icelance.dmi'
 	icon_state = "icelance"
 	item_state = "icelance"
 	has_item_ratio = FALSE
@@ -17,6 +17,7 @@
 	secondary_fire_sound = null
 	charge_failure_message = "'s charging socket was removed to make room for a crank."
 	var/is_charging = FALSE
+	has_unique_gun_action = TRUE
 
 	firemodes = list()
 	modifystate = null

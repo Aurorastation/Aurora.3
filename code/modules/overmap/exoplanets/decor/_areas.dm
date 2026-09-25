@@ -72,6 +72,12 @@
 	name = "Xanu Prime Wilderness"
 	base_turf = /turf/simulated/floor/exoplanet/grass/stalk
 
+/area/exoplanet/assunzione
+	name = "Assunzioni Wilderness"
+	ambience = list()
+	base_turf = /turf/simulated/floor/exoplanet/snow
+	area_blurb = "A lightless lifelessness more oppressive than even that of barren asteroids. One day, even the nitrogen in the still air will freeze solid and the luce vines will finally die out in the wild."
+
 /area/exoplanet/lava
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_LAVA

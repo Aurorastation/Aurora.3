@@ -1,6 +1,6 @@
-/obj/machinery/atmospherics/var/image/pipe_image
+/obj/structure/machinery/atmospherics/var/image/pipe_image
 
-/obj/machinery/atmospherics/Destroy()
+/obj/structure/machinery/atmospherics/Destroy()
 	for(var/mob/living/M in src) //ventcrawling is serious business
 		M.remove_ventcrawl()
 		M.forceMove(get_turf(src))
@@ -12,28 +12,28 @@
 		pipe_image = null
 	. = ..()
 
-/obj/machinery/atmospherics/ex_act(severity)
+/obj/structure/machinery/atmospherics/ex_act(severity)
 	for(var/atom/movable/A in src) //ventcrawling is serious business
 		A.ex_act(severity)
 	. = ..()
 
-/obj/machinery/atmospherics/Entered(atom/movable/Obj)
+/obj/structure/machinery/atmospherics/Entered(atom/movable/Obj)
 	if(istype(Obj, /mob/living))
 		var/mob/living/L = Obj
 		L.ventcrawl_layer = layer
 	. = ..()
 
-/obj/machinery/atmospherics/relaymove(mob/living/user, direction)
+/obj/structure/machinery/atmospherics/relaymove(mob/living/user, direction)
 	. = ..()
 
 	if(user.loc != src || !(direction & initialize_directions)) //can't go in a way we aren't connecting to
 		return
 	ventcrawl_to(user,findConnecting(direction, user.ventcrawl_layer),direction)
 
-/obj/machinery/atmospherics/proc/ventcrawl_to(var/mob/living/user, var/obj/machinery/atmospherics/target_move, var/direction)
+/obj/structure/machinery/atmospherics/proc/ventcrawl_to(var/mob/living/user, var/obj/structure/machinery/atmospherics/target_move, var/direction)
 	if(target_move)
 		if(is_type_in_list(target_move, GLOB.ventcrawl_machinery) && target_move.can_crawl_through())
-			var/obj/machinery/atmospherics/unary/UA = target_move
+			var/obj/structure/machinery/atmospherics/unary/UA = target_move
 			if(UA.is_welded())
 				user.visible_message(SPAN_WARNING("You hear something banging on \the [target_move.name]!"), SPAN_NOTICE("You can't escape from a welded vent."))
 			else
@@ -65,54 +65,54 @@
 	spawn(1)
 		user.canmove = 1
 
-/obj/machinery/atmospherics/proc/can_crawl_through()
+/obj/structure/machinery/atmospherics/proc/can_crawl_through()
 	return 1
 
-/obj/machinery/atmospherics/proc/findConnecting(var/direction)
-	for(var/obj/machinery/atmospherics/target in get_step(src,direction))
+/obj/structure/machinery/atmospherics/proc/findConnecting(var/direction)
+	for(var/obj/structure/machinery/atmospherics/target in get_step(src,direction))
 		if(target.initialize_directions & get_dir(target,src))
 			if(isConnectable(target) && target.isConnectable(src))
 				return target
 
-/obj/machinery/atmospherics/proc/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/proc/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	return (target == node1 || target == node2)
 
-/obj/machinery/atmospherics/omni/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/omni/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	for (var/datum/omni_port/P in ports)
 		if (P.node == target)
 			return P.node
 
-/obj/machinery/atmospherics/pipe/manifold/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/pipe/manifold/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	return (target == node3 || ..())
 
-/obj/machinery/atmospherics/pipe/manifold4w/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/pipe/manifold4w/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	return (target == node3 || target == node4 || ..())
 
-/obj/machinery/atmospherics/tvalve/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/tvalve/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	return (target == node3 || ..())
 
-/obj/machinery/atmospherics/pipe/cap/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/pipe/cap/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	return (target == node || ..())
 
-/obj/machinery/atmospherics/portables_connector/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/portables_connector/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	return (target == node || ..())
 
-/obj/machinery/atmospherics/unary/isConnectable(var/obj/machinery/atmospherics/target)
+/obj/structure/machinery/atmospherics/unary/isConnectable(var/obj/structure/machinery/atmospherics/target)
 	return (target == node || ..())
 
-/obj/machinery/atmospherics/proc/can_z_crawl(var/mob/living/L, var/direction)
+/obj/structure/machinery/atmospherics/proc/can_z_crawl(var/mob/living/L, var/direction)
 	return FALSE
 
-/obj/machinery/atmospherics/pipe/zpipe/can_z_crawl(var/mob/living/L, var/direction)
+/obj/structure/machinery/atmospherics/pipe/zpipe/can_z_crawl(var/mob/living/L, var/direction)
 	if(L.is_ventcrawling && L.loc == src)
 		if(node2 && check_connect_types(node2,src))
 			if(direction == travel_direction)
 				return TRUE
 
-/obj/machinery/atmospherics/proc/handle_z_crawl(var/mob/living/L, var/direction)
+/obj/structure/machinery/atmospherics/proc/handle_z_crawl(var/mob/living/L, var/direction)
 	return
 
-/obj/machinery/atmospherics/pipe/zpipe/handle_z_crawl(var/mob/living/L, var/direction)
+/obj/structure/machinery/atmospherics/pipe/zpipe/handle_z_crawl(var/mob/living/L, var/direction)
 	to_chat(L, SPAN_NOTICE("You start climbing [travel_direction_name] the pipe. This will take a while..."))
 	playsound(loc, 'sound/machines/ventcrawl.ogg', 100, 1, 3)
 	if(!do_after(L, 10 SECONDS, get_turf(src), do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) || !can_z_crawl(L, direction))

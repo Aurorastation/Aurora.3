@@ -1,4 +1,4 @@
-/obj/machinery/iff_beacon
+/obj/structure/machinery/iff_beacon
 	name = "IFF transponder" //This object handles ship identification on sensors.
 	desc = "A complex set of various bluespace and subspace arrays that transmit a ship's identification tags."
 	icon = 'icons/obj/machinery/iff_transponder.dmi'
@@ -17,19 +17,19 @@
 	var/can_change_class = TRUE
 	var/can_change_name = TRUE
 
-/obj/machinery/iff_beacon/Initialize()
+/obj/structure/machinery/iff_beacon/Initialize()
 	..()
 	wires = new(src)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/iff_beacon/LateInitialize()
+/obj/structure/machinery/iff_beacon/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-/obj/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))
@@ -41,7 +41,7 @@
 		return TRUE
 	..()
 
-/obj/machinery/iff_beacon/proc/toggle()
+/obj/structure/machinery/iff_beacon/proc/toggle()
 	if(disabled)
 		return // No turning on if broken.
 	if(!use_power) //need some juice to kickstart
@@ -54,17 +54,17 @@
 		linked.update_obfuscated(TRUE)
 		obfuscating = TRUE
 
-/obj/machinery/iff_beacon/proc/disable()
+/obj/structure/machinery/iff_beacon/proc/disable()
 	update_use_power(POWER_USE_OFF)
 	obfuscating = TRUE
 	disabled = TRUE
 	linked.update_obfuscated(TRUE)
 
-/obj/machinery/iff_beacon/proc/enable()
+/obj/structure/machinery/iff_beacon/proc/enable()
 	disabled = FALSE
 	toggle()
 
-/obj/machinery/iff_beacon/update_icon()
+/obj/structure/machinery/iff_beacon/update_icon()
 	icon_state = initial(icon_state)
 	ClearOverlays()
 	if(panel_open)
@@ -72,14 +72,14 @@
 	if(!operable() || !use_power)
 		icon_state += "_off"
 
-/obj/machinery/iff_beacon/horizon
+/obj/structure/machinery/iff_beacon/horizon
 	can_change_class = FALSE
 	can_change_name = FALSE
 
-/obj/machinery/iff_beacon/horizon/shuttle
+/obj/structure/machinery/iff_beacon/horizon/shuttle
 	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
 	icon_state = "iff"
 
-/obj/machinery/iff_beacon/name_change
+/obj/structure/machinery/iff_beacon/name_change
 	can_change_name = TRUE
 	can_change_class = FALSE

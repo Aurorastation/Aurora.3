@@ -5,7 +5,7 @@
 	category = /datum/uplink_category/crystals
 	desc = "Acquire the uplink telecrystals in pure form."
 
-/datum/uplink_item/item/telecrystal/get_goods(var/obj/item/device/uplink/U, var/loc)
+/datum/uplink_item/item/telecrystal/get_goods(var/obj/item/uplink/U, var/loc)
 	return new /obj/item/stack/telecrystal(loc, telecrystal_cost(U.telecrystals))
 
 /datum/uplink_item/item/telecrystal/one
@@ -35,7 +35,7 @@
 	category = /datum/uplink_category/crystals
 	desc = "Acquire the uplink bluecrystals in pure form."
 
-/datum/uplink_item/item/bluecrystal/get_goods(var/obj/item/device/uplink/U, var/loc)
+/datum/uplink_item/item/bluecrystal/get_goods(var/obj/item/uplink/U, var/loc)
 	return new /obj/item/stack/telecrystal/blue(loc, bluecrystal_cost(U.bluecrystals))
 
 /datum/uplink_item/item/bluecrystal/one

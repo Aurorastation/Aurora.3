@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type DamageData = {
@@ -13,11 +13,11 @@ type Organ = {
   present: BooleanLike;
 };
 
-export const DamageMenu = (props, context) => {
-  const { act, data } = useBackend<DamageData>(context);
+export const DamageMenu = (props) => {
+  const { act, data } = useBackend<DamageData>();
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section title="Limbs">
           <Table>
@@ -27,7 +27,7 @@ export const DamageMenu = (props, context) => {
             </Table.Row>
             {data.limbs.map((limb) =>
               limb.present ? (
-                <Table.Row>
+                <Table.Row key={data.limbs.indexOf(limb)}>
                   <Table.Cell key={limb.name}>{limb.name}</Table.Cell>
                   <Table.Cell>
                     <Button
@@ -70,7 +70,7 @@ export const DamageMenu = (props, context) => {
                 </Table.Row>
               ) : (
                 ''
-              )
+              ),
             )}
           </Table>
         </Section>
@@ -82,7 +82,7 @@ export const DamageMenu = (props, context) => {
             </Table.Row>
             {data.organs.map((organ) =>
               organ.present ? (
-                <Table.Row>
+                <Table.Row key={data.organs.indexOf(organ)}>
                   <Table.Cell key={organ.name}>{organ.name}</Table.Cell>
                   <Table.Cell>
                     <Button
@@ -119,11 +119,19 @@ export const DamageMenu = (props, context) => {
                 </Table.Row>
               ) : (
                 ''
-              )
+              ),
             )}
           </Table>
         </Section>
-        <Section title="Miscellaneous">
+        <Section title="Miscellaneous - Minor">
+          <Button
+            content="Seizure"
+            color="yellow"
+            icon="wind"
+            onClick={() => act('misc', { action: 'seizure' })}
+          />
+        </Section>
+        <Section title="Miscellaneous - Major">
           <Button
             content="Toggle Wind"
             color="red"
@@ -131,27 +139,38 @@ export const DamageMenu = (props, context) => {
             onClick={() => act('misc', { action: 'wind' })}
           />
           <Button
+            content="Heart Attack"
+            color="red"
+            icon="heart-pulse"
+            tooltip="Stops the target's heart and pushes them into critical shock. Healthy, full-blood, quickly-treated targets may recover. Untreated or already-compromised targets are likely to die."
+            onClick={() => act('misc', { action: 'heart attack' })}
+          />
+          <Button
             content="Gigashatter"
             color="red"
             icon="bone"
+            tooltip="Applies Shatter (bone fracture) to all limbs simultaneously."
             onClick={() => act('misc', { action: 'gigashatter' })}
           />
           <Button
             content="Kill"
             color="red"
             icon="skull-crossbones"
+            tooltip="Kills the target mob. Instant death, no cause."
             onClick={() => act('misc', { action: 'kill' })}
           />
           <Button
             content="Gib"
             color="red"
             icon="splotch"
+            tooltip="Splat."
             onClick={() => act('misc', { action: 'gib' })}
           />
           <Button
             content="Dust"
             color="red"
             icon="exclamation-triangle"
+            tooltip="Turns the target mob into dust."
             onClick={() => act('misc', { action: 'dust' })}
           />
         </Section>

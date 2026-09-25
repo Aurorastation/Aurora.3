@@ -9,7 +9,7 @@
 	uses_species_whitelist = FALSE
 
 	outfit = /obj/outfit/admin/tarwa
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tarwa Conglomerate Crewman"
@@ -52,20 +52,20 @@
 	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	gloves = /obj/item/clothing/gloves/unathi
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1
 	)
 
 /obj/outfit/admin/tarwa/get_id_access()
-	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/unathi_pirate::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/tarwa/diona
 	name = "Tarwa Conglomerate Diona"
 	suit = /obj/item/clothing/accessory/poncho/green
 	head = /obj/item/clothing/head/bandana/pirate
-	backpack_contents = list(/obj/item/device/uv_light = 1)
+	backpack_contents = list(/obj/item/uv_light = 1)
 
 /obj/outfit/admin/tarwa/captain
 	name = "Tarwa Conglomerate Captain"

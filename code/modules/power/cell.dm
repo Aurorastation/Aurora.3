@@ -21,14 +21,13 @@
 
 	charge = maxcharge
 
-	if(self_charge_percentage)
+	if(self_charge_percentage && charge < maxcharge)
 		START_PROCESSING(SSprocessing, src)
 
 	update_icon()
 
 /obj/item/cell/Destroy()
-	if(self_charge_percentage)
-		STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/cell/process(seconds_per_tick)
@@ -41,6 +40,10 @@
 		var/recharge_for_this_process = round(recharge_amount_per_second * (seconds_per_tick / 10)) // divides seconds_per_tick by 10 to turn deciseconds into seconds
 		// finally, charge the cell
 		give(recharge_for_this_process)
+	else
+		return PROCESS_KILL //Cells that don't self charge don't need to process.
+	if (charge >= maxcharge)
+		return PROCESS_KILL // No need to constantly process self-charging cells that are full.
 
 /obj/item/cell/Created()
 	//Newly built cells spawn with no charge to prevent power exploits
@@ -51,13 +54,11 @@
 	return src
 
 /obj/item/cell/drain_power(var/drain_check, var/surge, var/power = 0)
-
 	if(drain_check)
 		return 1
 
 	if(charge <= 0)
 		return 0
-
 	var/cell_amt = power * CELLRATE
 
 	return use(cell_amt) / CELLRATE
@@ -95,6 +96,8 @@
 	var/used = min(charge, amount)
 	charge -= used
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
+	if (used > 0 && self_charge_percentage && charge < maxcharge)
+		START_PROCESSING(SSprocessing, src) // Always attempt at least one process if the battery level is ever reduced.
 	return used
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
@@ -132,18 +135,18 @@
 
 		S.reagents.clear_reagents()
 		return
-	else if(istype(attacking_item, /obj/item/device/assembly_holder))
-		var/obj/item/device/assembly_holder/assembly = attacking_item
-		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
+	else if(istype(attacking_item, /obj/item/assembly_holder))
+		var/obj/item/assembly_holder/assembly = attacking_item
+		if (istype(assembly.a_left, /obj/item/assembly/signaler) && istype(assembly.a_right, /obj/item/assembly/signaler))
 			//TODO: Look into this bad code
 			user.drop_item()
 			user.drop_from_inventory(src)
 
-			new /obj/item/device/radiojammer/improvised(assembly, src, user)
+			new /obj/item/radiojammer/improvised(assembly, src, user)
 		else
 			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 		return
-	else if(attacking_item.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL && ishuman(user) && user.get_inactive_hand() == src)
 		if(charge < 10)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
 			return
@@ -192,6 +195,7 @@
 	if (prob(10))
 		rigged = 1 //broken batterys are dangerous
 
+///A cell loses a random amount of charge, up to it's maxcharge, when it takes a heavy EMP, up to half it's maxcharge if hit by a light EMP.
 /obj/item/cell/emp_act(severity)
 	. = ..()
 
@@ -199,8 +203,9 @@
 	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
 		severity *= R.cell_emp_mult
-
-	charge -= maxcharge / severity
+	if(severity)
+		var/used = rand(0, (maxcharge / severity))
+		use(used)
 	if (charge < 0)
 		charge = 0
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
@@ -220,6 +225,8 @@
 	charge -= maxcharge / divisor
 	if (charge < 0)
 		charge = 0
+	if(self_charge_percentage && charge < maxcharge)
+		START_PROCESSING(SSprocessing, src) // Always attempt at least one process if the battery level is ever reduced.
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 
 /obj/item/cell/ex_act(severity)

@@ -5,6 +5,27 @@
 /mob/living/proc/attempt_grab(var/mob/living/grabber)
 	return 1
 
+/**
+ * Returns the maximum mass, in kilograms, that this mob can comfortably lift.
+ * Conditioning modifies effective mass, while species strength supplies the
+ * same final multiplier used by fireman carries and throwing grabbed mobs.
+ */
+/mob/proc/get_lift_capacity()
+	return get_effective_mass() * mob_strength
+
+/**
+ * Returns the movement delay caused by moving a load beyond this mob's
+ * comfortable lift capacity. Loads within capacity add no mass-based delay.
+ */
+/mob/proc/get_load_movement_delay(atom/movable/load)
+	if(!load)
+		return 0
+	var/lift_capacity = get_lift_capacity()
+	var/load_mass = load.get_effective_mass()
+	if(load_mass <= lift_capacity)
+		return 0
+	return load_mass / lift_capacity
+
 //As above, but called when someone tries to pull this mob
 /mob/living/proc/attempt_pull(var/mob/living/grabber)
 	return 1
@@ -12,7 +33,7 @@
 
 /obj/item/grab
 	name = "grab"
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	icon_state = "reinforce"
 	atom_flags = 0
 	var/atom/movable/screen/grab/hud = null
@@ -25,6 +46,8 @@
 	var/last_hit_zone = 0
 	var/force_down //determines if the affecting mob will be pinned to the ground
 	var/dancing //determines if assailant and affecting keep looking at each other. Basically a wrestling position
+	/// Prevents routine fireman-carry positioning from overriding a bench press animation.
+	var/bench_pressing = FALSE
 	var/has_choked = FALSE //Used as a counter for choking people.
 
 	var/obj/item/grab/linked_grab
@@ -199,6 +222,8 @@
 /obj/item/grab/proc/adjust_position()
 	if(!affecting)
 		return
+	if(bench_pressing)
+		return
 	var/buckled_to_bed = affecting.buckled_to ? istype(affecting.buckled_to, /obj/structure/bed/roller) : FALSE
 	if(buckled_to_bed)
 		return
@@ -294,7 +319,7 @@
 		if(isslime(affecting))
 			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, SFX_GRAB, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
@@ -313,7 +338,7 @@
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
-		playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+		playsound(loc, SFX_GRAB, 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
@@ -408,7 +433,7 @@
 
 /obj/item/grab/Destroy()
 	if(!QDELETED(linked_grab))
-		qdel(linked_grab)
+		QDEL_NULL(linked_grab)
 
 	UnregisterSignal(assailant, COMSIG_MOB_ZONE_SEL_CHANGE)
 
@@ -443,8 +468,9 @@
 		to_chat(H, SPAN_WARNING("You can only fireman carry humanoids!"))
 		return
 	var/mob/living/carbon/human/affected_human = affecting
-	if(affected_human.species.mob_size > 25)
-		to_chat(H, SPAN_WARNING("\The [affected_human] is way too big to fireman carry!"))
+	var/grabber_strength = H.get_lift_capacity()
+	if(affected_human.mass > grabber_strength)
+		to_chat(H, SPAN_WARNING("\The [affected_human] is heavier than your Lift Limit of [grabber_strength]kg, you cannot fireman carry then!"))
 		return
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))
@@ -488,6 +514,80 @@
 	if(affecting && assailant.Adjacent(affecting)) // Only move if it's near us.
 		affecting.forceMove(assailant.loc)
 
+/obj/item/grab/proc/bench_press_carried_person(mob/living/carbon/human/user)
+	if(bench_pressing || !wielded || !affecting || assailant != user || affecting.buckled_to != user)
+		return FALSE
+	if(user.incapacitated())
+		return FALSE
+	if(!user.isSynthetic() && user.nutrition < 50)
+		to_chat(user, SPAN_WARNING("You need more energy before you can bench press someone."))
+		return FALSE
+
+	var/lift_capacity = user.get_lift_capacity()
+	var/carried_mass = affecting.mass
+	var/starting_pixel_y = affecting.pixel_y
+	var/lift_height = lift_capacity >= carried_mass ? 10 : 3
+	bench_pressing = TRUE
+
+	user.visible_message(
+		SPAN_NOTICE("\The [user] braces and starts bench pressing \the [affecting]!"),
+		SPAN_NOTICE("You brace and start bench pressing \the [affecting]!")
+	)
+	animate(affecting, pixel_y = starting_pixel_y + lift_height, time = 0.5 SECONDS, easing = QUAD_EASING | EASE_OUT)
+	if(!do_after(user, 0.5 SECONDS, affecting, DO_EXERCISE))
+		if(!QDELETED(src))
+			bench_pressing = FALSE
+			adjust_position()
+		return FALSE
+	if(QDELETED(src) || !affecting || affecting.buckled_to != user)
+		if(!QDELETED(src))
+			bench_pressing = FALSE
+			adjust_position()
+		return FALSE
+
+	animate(affecting, pixel_y = starting_pixel_y, time = 0.5 SECONDS, easing = QUAD_EASING | EASE_IN)
+	if(!do_after(user, 0.5 SECONDS, affecting, DO_EXERCISE))
+		if(!QDELETED(src))
+			bench_pressing = FALSE
+			adjust_position()
+		return FALSE
+
+	if(QDELETED(src) || !affecting || affecting.buckled_to != user)
+		if(!QDELETED(src))
+			bench_pressing = FALSE
+			adjust_position()
+		return FALSE
+	bench_pressing = FALSE
+	adjust_position()
+
+	if(lift_capacity < carried_mass)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] only manages to lift \the [affecting] part of the way before lowering them again."),
+			SPAN_NOTICE("You only manage to lift \the [affecting] part of the way before lowering them again.")
+		)
+		return FALSE
+
+	var/effort_ratio = carried_mass / lift_capacity
+	var/effort_message
+	if(effort_ratio >= 0.9)
+		effort_message = "with great effort"
+	else if(effort_ratio >= 0.7)
+		effort_message = "while straining"
+	else if(effort_ratio >= 0.5)
+		effort_message = "without much trouble"
+	else
+		effort_message = "with ease"
+
+	if(!user.isSynthetic())
+		var/exertion_level = clamp(ceil(carried_mass / 40), 1, 5)
+		user.adjustNutritionLoss(exertion_level * 5 * HUNGER_FACTOR)
+		user.adjustHydrationLoss(exertion_level * 5 * THIRST_FACTOR)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] bench presses \the [affecting] [effort_message]!"),
+		SPAN_NOTICE("You bench press \the [affecting] [effort_message]!")
+	)
+	return TRUE
+
 /obj/item/grab/can_swap_hands(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -512,6 +612,12 @@
 	linked_grab = linked
 	linked.linked_grab = src
 	linked_grab.set_wielding()
+
+/obj/item/grab/offhand/Destroy()
+	if(linked_grab)
+		linked_grab.linked_grab = null
+		linked_grab.wielded = FALSE
+	. = ..()
 
 /obj/item/grab/offhand/process()
 	return

@@ -1,7 +1,3 @@
-/mob/living
-	var/singleton/maneuver/prepared_maneuver
-	var/list/available_maneuvers = list()
-
 /mob/living/begin_falling(var/lastloc, var/below)
 	if(throwing)
 		return

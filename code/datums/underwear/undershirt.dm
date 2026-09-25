@@ -38,11 +38,6 @@
 	icon_state = "tank_midriff"
 	has_color = TRUE
 
-/datum/category_item/underwear/undershirt/tank_top_midriff_short
-	name = "Tank Top, Midriff Short"
-	icon_state = "tank_midriff_short"
-	has_color = TRUE
-
 /datum/category_item/underwear/undershirt/tank_top_expedition
 	name = "Tank Top, Expedition"
 	icon_state = "tank_expedition"
@@ -59,14 +54,6 @@
 	name = "Tank Top, Fleet Feminine"
 	icon_state = "tank_fleet_fem"
 
-/datum/category_item/underwear/undershirt/tank_top_fire
-	name = "Tank Top, Fire"
-	icon_state = "tank_fire"
-
-/datum/category_item/underwear/undershirt/tank_top_fire_fem
-	name = "Tank Top, Fire Feminine"
-	icon_state = "tank_fire_fem"
-
 /datum/category_item/underwear/undershirt/tank_top_stripes
 	name = "Tank Top, Stripes"
 	icon_state = "tank_stripes"
@@ -82,22 +69,6 @@
 /datum/category_item/underwear/undershirt/tank_top_stripes_alt_fem
 	name = "Tank Top, Stripes Alt Feminine"
 	icon_state = "tank_stripes_alt_fem"
-
-/datum/category_item/underwear/undershirt/tank_top_sun
-	name = "Tank Top, Sun"
-	icon_state = "tank_sun"
-
-/datum/category_item/underwear/undershirt/tank_top_sun_fem
-	name = "Tank Top, Sun Feminine"
-	icon_state = "tank_sun_fem"
-
-/datum/category_item/underwear/undershirt/tank_top_sun_alt
-	name = "Tank Top, Sun Alt"
-	icon_state = "tank_sun_alt"
-
-/datum/category_item/underwear/undershirt/tank_top_sun_alt_fem
-	name = "Tank Top, Sun Alt Feminine"
-	icon_state = "tank_sun_alt_fem"
 
 /datum/category_item/underwear/undershirt/tank_top_tight
 	name = "Tank Top, Tight"
@@ -137,94 +108,10 @@
 	icon_state = "undershirt_fem"
 	has_color = TRUE
 
-/datum/category_item/underwear/undershirt/undershirt_heart
-	name = "Undershirt, Heart"
-	icon_state = "heart"
-
-/datum/category_item/underwear/undershirt/undershirt_heart_fem
-	name = "Undershirt, Heart Feminine"
-	icon_state = "heart_fem"
-
-/datum/category_item/underwear/undershirt/undershirt_heart_echelon
-	name = "Undershirt, Heart Echelon"
-	icon_state = "heart_echelon"
-
-/datum/category_item/underwear/undershirt/undershirt_heart_echelon_fem
-	name = "Undershirt, Heart Echelon Feminine"
-	icon_state = "heart_echelon_fem"
-
-/datum/category_item/underwear/undershirt/shirt_love_nt
-	name = "Undershirt, I<3NT"
-	icon_state = "ilovent"
-
-/datum/category_item/underwear/undershirt/shirt_love_nt_fem
-	name = "Undershirt, I<3NT Feminine"
-	icon_state = "ilovent_fem"
-
 /datum/category_item/underwear/undershirt/shirt
 	name = "Shirt"
 	icon_state = "shirt"
 	has_color = TRUE
-
-/datum/category_item/underwear/undershirt/shirt_alien
-	name = "Shirt, Alien"
-	icon_state = "shirt_alien"
-
-/datum/category_item/underwear/undershirt/shirt_band
-	name = "Shirt, Band"
-	icon_state = "shirt_band"
-
-/datum/category_item/underwear/undershirt/shirt_clown
-	name = "Shirt, Clown"
-	icon_state = "shirt_clown"
-
-/datum/category_item/underwear/undershirt/shirt_ian
-	name = "Shirt, Ian"
-	icon_state = "shirt_ian"
-
-/datum/category_item/underwear/undershirt/shirt_jersey
-	name = "Shirt, Blue Jersey"
-	icon_state = "shirt_jersey"
-
-/datum/category_item/underwear/undershirt/shirt_jersey_red
-	name = "Shirt, Red Jersey"
-	icon_state = "shirt_jersey_red"
-
-/datum/category_item/underwear/undershirt/shirt_meat
-	name = "Shirt, Meat"
-	icon_state = "shirt_meat"
-
-/datum/category_item/underwear/undershirt/shirt_scc
-	name = "Shirt, SCC"
-	icon_state = "shirt_scc"
-
-/datum/category_item/underwear/undershirt/shirt_scc_fem
-	name = "Shirt, SCC feminine"
-	icon_state = "shirt_scc_fem"
-
-/datum/category_item/underwear/undershirt/shirt_nt
-	name = "Shirt, NT"
-	icon_state = "shirt_nano"
-
-/datum/category_item/underwear/undershirt/shirt_nt_red
-	name = "Shirt, NT Red"
-	icon_state = "shirt_nano_red"
-
-/datum/category_item/underwear/undershirt/shirt_peace
-	name = "Shirt, Peace"
-	icon_state = "shirt_peace"
-
-/datum/category_item/underwear/undershirt/shirt_question
-	name = "Shirt, Question"
-	icon_state = "shirt_question"
-
-/datum/category_item/underwear/undershirt/shirt_skull
-	name = "Shirt, Skull"
-	icon_state = "shirt_skull"
-
-/datum/category_item/underwear/undershirt/shirt_ss13
-	name = "Shirt, SS13"
-	icon_state = "shirt_ss13"
 
 /datum/category_item/underwear/undershirt/shirt_blue_striped
 	name = "Shirt, Blue Stripes"
@@ -234,33 +121,9 @@
 	name = "Shirt, Blue Stripes Alt"
 	icon_state = "shirt_stripes_alt"
 
-/datum/category_item/underwear/undershirt/shirt_tiedye
-	name = "Shirt, Tiedye"
-	icon_state = "shirt_tiedye"
-
 /datum/category_item/underwear/undershirt/shirt_tight
 	name = "Shirt, Tight"
 	icon_state = "tight"
-
-/datum/category_item/underwear/undershirt/shirt_wing
-	name = "Shirt, Wing"
-	icon_state = "wing_shirt"
-
-/datum/category_item/underwear/undershirt/shirt_pinkblack
-	name = "Shirt, Pink-Black"
-	icon_state = "pinkblack_tshirt"
-
-/datum/category_item/underwear/undershirt/sport_shirt_blue
-	name = "Sport Shirt, Blue"
-	icon_state = "sportblue"
-
-/datum/category_item/underwear/undershirt/sport_shirt_green
-	name = "Sport Shirt, Green"
-	icon_state = "sportgreen"
-
-/datum/category_item/underwear/undershirt/sport_shirt_red
-	name = "Sport Shirt, Red"
-	icon_state = "sportred"
 
 /datum/category_item/underwear/undershirt/shirt_army
 	name = "Shirt, Army"
@@ -285,38 +148,6 @@
 /datum/category_item/underwear/undershirt/shirt_fleet_fem
 	name = "Shirt, Fleet Feminine"
 	icon_state = "shirt_fleet_fem"
-
-/datum/category_item/underwear/undershirt/shirt_zavodskoi
-	name = "Shirt, Zavodskoi Interstellar"
-	icon_state = "shirt_necropolis"
-
-/datum/category_item/underwear/undershirt/shirt_zavodskoi_fem
-	name = "Shirt, Zavodskoi Interstellar Feminine"
-	icon_state = "shirt_necropolis_fem"
-
-/datum/category_item/underwear/undershirt/shirt_epmc
-	name = "Shirt, EPMC"
-	icon_state = "shirt_epmc"
-
-/datum/category_item/underwear/undershirt/shirt_epmc_fem
-	name = "Shirt, EPMC Feminine"
-	icon_state = "shirt_epmc_fem"
-
-/datum/category_item/underwear/undershirt/bowlinga
-	name = "Bowling Shirt, Aqua"
-	icon_state = "bowlinga"
-
-/datum/category_item/underwear/undershirt/bowlingp
-	name = "Bowling Shirt, Pink"
-	icon_state = "bowlingp"
-
-/datum/category_item/underwear/undershirt/bowlingr
-	name = "Bowling Shirt, Red"
-	icon_state = "bowlingr"
-
-/datum/category_item/underwear/undershirt/bowlingw
-	name = "Bowling Shirt, White"
-	icon_state = "bowlingw"
 
 /datum/category_item/underwear/undershirt/longjon
 	name = "Long John Shirt"

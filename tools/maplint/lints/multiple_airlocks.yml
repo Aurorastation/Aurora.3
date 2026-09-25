@@ -1,3 +1,3 @@
-/obj/machinery/door/airlock:
+/obj/structure/machinery/door/airlock:
   banned_neighbors:
-  - /obj/machinery/door/airlock
+  - /obj/structure/machinery/door/airlock

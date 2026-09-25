@@ -5,11 +5,6 @@
 GLOBAL_DATUM_INIT(global_hud, /datum/global_hud, new)
 GLOBAL_LIST(global_huds)
 
-/datum/hud/var/atom/movable/screen/grab_intent
-/datum/hud/var/atom/movable/screen/hurt_intent
-/datum/hud/var/atom/movable/screen/disarm_intent
-/datum/hud/var/atom/movable/screen/help_intent
-
 /datum/global_hud
 	var/atom/movable/screen/vr_control
 	var/atom/movable/screen/druggy
@@ -51,7 +46,7 @@ GLOBAL_LIST(global_huds)
 	blurry.alpha = 100
 
 	vr_control = new /atom/movable/screen()
-	vr_control.icon = 'icons/mob/screen/full.dmi'
+	vr_control.icon = 'icons/hud/mob/full.dmi'
 	vr_control.icon_state = "vr_control"
 	vr_control.screen_loc = "1,1"
 	vr_control.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -111,12 +106,11 @@ GLOBAL_LIST(global_huds)
 		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/*
-	The hud datum
-	Used to show and hide huds for all the different mob types,
-	including inventories and item quick actions.
-*/
-
+/**
+ *	The hud datum
+ *	Used to show and hide huds for all the different mob types,
+ *	including inventories and item quick actions.
+ */
 /datum/hud
 	///The mob that possesses the HUD
 	var/mob/mymob
@@ -136,12 +130,21 @@ GLOBAL_LIST(global_huds)
 	///Boolean, if the action buttons are hidden
 	var/action_buttons_hidden = FALSE
 
+	/*
+		STOP ADDING SNOWFLAKE HUD ELEMENTS LIKE /datum/hud/var/atom/movable/screen/help_intent
+		IN DIFFERENT FILES ENTIRELY. IF YOU ARE ADDING A NEW HUD ELEMENT TO THIS, PUT IT IN THIS FILE UNDER THIS LIST,
+		AND INCLUDE A QDEL_NULL() FOR IT IN THE DESTROY PROC.
+																														*/
 	var/atom/movable/screen/blobpwrdisplay
 	var/atom/movable/screen/blobhealthdisplay
 	var/atom/movable/screen/r_hand_hud_object
 	var/atom/movable/screen/l_hand_hud_object
 	var/atom/movable/screen/action_intent
 	var/atom/movable/screen/movement_intent/move_intent
+	var/atom/movable/screen/grab_intent
+	var/atom/movable/screen/hurt_intent
+	var/atom/movable/screen/disarm_intent
+	var/atom/movable/screen/help_intent
 
 	var/list/adding
 	var/list/other
@@ -153,6 +156,7 @@ GLOBAL_LIST(global_huds)
 	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
 
 	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
+	var/list/atom/movable/screen/gun_action/gun_actions = list()
 
 /datum/hud/New(mob/owner)
 	mymob = owner
@@ -177,26 +181,30 @@ GLOBAL_LIST(global_huds)
 	..()
 
 /datum/hud/Destroy()
-	grab_intent = null
-	hurt_intent = null
-	disarm_intent = null
-	help_intent = null
-	blobpwrdisplay = null
-	blobhealthdisplay = null
-	r_hand_hud_object = null
-	l_hand_hud_object = null
-	action_intent = null
-	move_intent = null
-	adding = null
-	other = null
-	hotkeybuttons = null
-//	item_action_list = null // ?
+	if(mymob?.client)
+		mymob.client.screen -= gun_actions
+	QDEL_LIST(gun_actions)
 	mymob = null
+	QDEL_NULL(blobpwrdisplay)
+	QDEL_NULL(blobhealthdisplay)
+	QDEL_NULL(r_hand_hud_object)
+	QDEL_NULL(l_hand_hud_object)
+	QDEL_NULL(action_intent)
+	QDEL_NULL(move_intent)
+	QDEL_NULL(grab_intent)
+	QDEL_NULL(hurt_intent)
+	QDEL_NULL(disarm_intent)
+	QDEL_NULL(help_intent)
+
+	adding?.Cut()
+	other?.Cut()
+	QDEL_LIST(hotkeybuttons)
 
 	QDEL_LIST_ASSOC_VAL(plane_masters)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
+	QDEL_NULL(hide_actions_toggle)
 
-	. = ..()
+	return ..()
 
 /datum/hud/proc/hidden_inventory_update()
 	if(!mymob)
@@ -426,6 +434,7 @@ GLOBAL_LIST(global_huds)
 
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
+	hud_used.reorganize_alerts()
 	update_action_buttons()
 
 //Similar to button_pressed_F12() but keeps zone_sel, gun_setting_icon, and healths.

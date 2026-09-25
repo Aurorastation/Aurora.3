@@ -44,7 +44,8 @@
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	var/health = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
+
 	var/mob/living/affecting = null //Who it is currently affecting, if anyone.
 
 /obj/effect/energy_net/Initialize()
@@ -88,7 +89,7 @@
 
 /obj/effect/energy_net/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+	user.do_attack_animation(src)
 	if(user == affecting)
 		to_chat(user, SPAN_WARNING("You can't claw at \the [src] while trapped inside it! You need to use a weapon."))
 		return
@@ -108,7 +109,8 @@
 	health_check()
 
 /obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
-	user.do_attack_animation(src, attacking_item)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src, used_item = attacking_item)
 	var/attack_force = attacking_item.force
 	if(user == affecting)
 		attack_force /= 2
@@ -130,8 +132,8 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
-	equip_sound = /singleton/sound_category/sword_equip_sound
+	pickup_sound = SFX_PICKUP_SWORD
+	equip_sound = SFX_EQUIP_SWORD
 
 /obj/item/banhammer
 	desc = "banhammer"

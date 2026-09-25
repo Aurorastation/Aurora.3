@@ -19,10 +19,25 @@
 	map = "Ranger Gunboat"
 	descriptor = "The Xansan-class is not, in fact, a distinct design in of itself. It is instead Xanu Prime’s variant of the Lagos-class gunboat, a Solarian light attack ship design. While the Lagos-class has been out of service with the Alliance’s navy for centuries, the blueprints were captured during the Interstellar war by Xanu Prime militiamen from a regional naval shipyard during the opening stages of the conflict, and were immediately used to construct ships of the class for use by Xanu Prime’s burgeoning military. While the Xansan-class has been retired from Xanu service, the leftover ships were donated en masse to the Frontier Marshal Bureau, and the Rangers make use of the craft to this day, in spite of their advanced age."
 
+//armory submap
+/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers
+	name = "Ranger armory, lockers"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/coc_ranger_lockers
+	name = "Ranger armory, lockers"
+
+
 //areas
 /area/ship/ranger_corvette
 	name = "Ranger Gunboat"
 	requires_power = TRUE
+
+/area/ship/ranger_corvette/exterior
+	name = "Ranger Gunboat Exterior"
+	requires_power = FALSE
+	has_gravity = FALSE
+	icon_state = "exterior"
+	needs_starlight = TRUE
 
 /area/ship/ranger_corvette/bridge
 	name = "Ranger Gunboat Bridge"
@@ -190,7 +205,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/ranger_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ranger Shuttle"
 
@@ -203,7 +218,6 @@
 	dock_target = "ranger_shuttle_dock2"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_ranger"
 	// defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ranger_shuttle/hangar

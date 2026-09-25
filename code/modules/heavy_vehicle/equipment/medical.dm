@@ -8,7 +8,7 @@
 	active_power_use = 0 //Usage doesn't really require power. We don't want people stuck inside
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 3)
 	passive_power_use = 25
-	var/obj/machinery/sleeper/mounted/sleeper = null
+	var/obj/structure/machinery/sleeper/mounted/sleeper = null
 	module_hints = list(
 		"<b>Left Click(Living Target):</b> Load the target into the mech's onboard Medical Sleeper unit.",
 		"<b>Alt Click(Icon):</b> Activate the sleeper unit's control interface.",
@@ -18,7 +18,7 @@
 
 /obj/item/mecha_equipment/sleeper/Initialize()
 	. = ..()
-	sleeper = new /obj/machinery/sleeper/mounted(src)
+	sleeper = new /obj/structure/machinery/sleeper/mounted(src)
 	sleeper.forceMove(src)
 
 /obj/item/mecha_equipment/sleeper/Destroy()
@@ -75,7 +75,7 @@
 	else
 		..()
 
-/obj/machinery/sleeper/mounted
+/obj/structure/machinery/sleeper/mounted
 	name = "\improper mounted sleeper"
 	density = 0
 	anchored = 0
@@ -84,13 +84,13 @@
 	interact_offline = TRUE
 	display_loading_message = FALSE
 
-/obj/machinery/sleeper/mounted/ui_host()
+/obj/structure/machinery/sleeper/mounted/ui_host()
 	var/obj/item/mecha_equipment/sleeper/S = loc
 	if(istype(S))
 		return S.owner
 	return null
 
-/obj/machinery/sleeper/mounted/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/sleeper/mounted/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(!user.unEquip(attacking_item, src))
 			return TRUE
@@ -319,7 +319,7 @@
 /obj/item/mecha_equipment/mounted_system/medanalyzer
 	name = "mounted health analyzer"
 	icon_state = "mecha_healthyanalyzer"
-	holding_type = /obj/item/device/healthanalyzer/mech
+	holding_type = /obj/item/healthanalyzer/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 	module_hints = list(
@@ -328,30 +328,31 @@
 	)
 
 /// Special health analyzer used by the exosuit health analyzer.
-/obj/item/device/healthanalyzer/mech
+/obj/item/healthanalyzer/mech
 	name = "mounted health analyzer"
-	var/obj/machinery/body_scanconsole/connected = null
+	var/obj/structure/machinery/body_scanconsole/connected = null
 	/// Toggle whether to do full or basic scan
 	var/fullScan = FALSE
 
-/obj/item/device/healthanalyzer/mech/get_hardpoint_maptext()
+/obj/item/healthanalyzer/mech/get_hardpoint_maptext()
 	return "[(fullScan ? "Full" : "Basic")]"
 
-/obj/item/device/healthanalyzer/mech/Initialize()
+/obj/item/healthanalyzer/mech/Initialize()
 	. = ..()
 	if(!connected)
-		var/obj/machinery/body_scanconsole/S = new (src)
+		var/obj/structure/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
 		S.update_use_power(POWER_USE_OFF)
 		connected = S
+	src.LoadComponent(/datum/component/health_analyzer/mech)
 
-/obj/item/device/healthanalyzer/mech/Destroy()
+/obj/item/healthanalyzer/mech/Destroy()
 	if(connected)
 		QDEL_NULL(connected)
 	. = ..()
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
-	var/obj/item/device/healthanalyzer/mech/HA = holding
+	var/obj/item/healthanalyzer/mech/HA = holding
 	if(istype(HA))
 		HA.fullScan = !HA.fullScan
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
@@ -362,7 +363,7 @@
 		update_icon()
 		owner.update_icon()
 
-/obj/item/device/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/healthanalyzer/mech/attack(mob/living/target_mob, mob/living/user, target_zone)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	var/mob/living/heavy_vehicle/user_vehicle = user
@@ -371,7 +372,10 @@
 		return FALSE
 	if(!fullScan)
 		for(var/mob/pilot in user_vehicle.pilots)
-			health_scan_mob(target_mob, pilot, TRUE, TRUE, sound_scan = TRUE)
+			var/datum/component/health_analyzer/mech/h_analyzer = src.GetComponent(/datum/component/health_analyzer/mech)
+			if(!h_analyzer)
+				return
+			h_analyzer.health_scan_mob(target_mob, pilot, FALSE, TRUE)
 	else
 		user_vehicle.visible_message("<b>[user_vehicle]</b> starts scanning \the [target_mob] with \the [src].",
 								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
@@ -380,15 +384,15 @@
 				return FALSE
 		print_scan(target_mob, user_vehicle)
 
-/obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
+/obj/item/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/heavy_vehicle/user_vehicle)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user_vehicle.loc, connected.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
 	for(var/mob/pilot in user_vehicle.pilots)
 		R.show_content(pilot)
 	user_vehicle.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
-	playsound(user_vehicle.loc, /singleton/sound_category/print_sound, 50, 1)
+	playsound(user_vehicle.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user_vehicle.loc)
 
-/obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
+/obj/item/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
 		return
 

@@ -9,7 +9,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/hiskyn_pirate
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hiskyn Crewman"
@@ -41,14 +41,14 @@
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	gloves = /obj/item/clothing/gloves/unathi
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1
 	)
 
 /obj/outfit/admin/hiskyn_pirate/get_id_access()
-	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/unathi_pirate::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/hiskyn_pirate/captain
 	gloves = /obj/item/clothing/gloves/black_leather/unathi

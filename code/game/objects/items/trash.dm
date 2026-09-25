@@ -15,7 +15,7 @@
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/trash/persistence_get_content()
+/obj/item/trash/persistent_objects_get_content()
 	var/list/content = list()
 	content["name"] = name
 	content["desc"] = desc
@@ -26,7 +26,7 @@
 	content["pickup_sound"] = pickup_sound
 	return content
 
-/obj/item/trash/persistence_apply_content(content, x, y, z)
+/obj/item/trash/persistent_objects_apply_content(content, x, y, z)
 	name = content["name"]
 	desc = content["desc"]
 	icon = file(content["icon"])
@@ -90,7 +90,7 @@
 /obj/item/trash/waffles
 	name = "square tray"
 	icon_state = "waffles"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/plate
 	name = "plate"
@@ -122,7 +122,7 @@
 /obj/item/trash/tray
 	name = "tray"
 	icon_state = "tray"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/candle
 	name = "candle"
@@ -159,7 +159,7 @@
 /obj/item/trash/brownies
 	name = "square tray"
 	icon_state = "brownies"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/snacktray
 	name = "snacktray"
@@ -206,7 +206,7 @@
 /obj/item/trash/grease //used for generic plattered food. example is lasagna.
 	name = "square tray"
 	icon_state = "grease"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
@@ -411,6 +411,34 @@
 	name = "cookie wrapper"
 	icon_state = "foysnack_trash"
 
+/obj/item/trash/readies
+	name = "readies wrapper"
+	icon_state = "readies_trash"
+
+/obj/item/trash/getmore
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper"
+
+/obj/item/trash/getmore_nuts
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper2"
+
+/obj/item/trash/getmore_bubbles
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper3"
+
+/obj/item/trash/getmore_kelp
+	name = "getmore chocolate wrapper"
+	icon_state = "getmore_wrapper4"
+
+/obj/item/trash/cetibar
+	name = "tau ceti bar wrapper"
+	icon_state = "cetibar_wrapper"
+
+/obj/item/trash/idrisbar
+	name = "one hundred thousand bar wrapper"
+	icon_state = "idrisbar_wrapper"
+
 /obj/item/trash/papad
 	name = "empty papad box"
 	icon_state = "papad_trash"
@@ -455,3 +483,15 @@
 	name = "empty algae chips bag"
 	desc = "It looks like someone left some strands of algae in it."
 	icon_state = "algaechips"
+
+/obj/item/trash/foilwrapper
+	name = "foil wrapper"
+	//icon is located here instead of in the trash icon file because of how wrapper code works. It's either this or having duplicates of the icon show up in two different files.
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "foil_trash"
+	desc = "A foil wrapper, the kind you may find many industrially-packaged products packed in. Now it's just empty trash, though."
+
+/obj/item/trash/popsiclestick
+	name = "popsicle stick"
+	icon_state = "popsicle_trash"
+	desc = "Used by doctors to suppress tongues. Well, at least when it's clean. This one isn't, so you may as well just chuck it in the trash."

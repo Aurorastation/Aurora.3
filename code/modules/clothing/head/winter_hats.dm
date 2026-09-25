@@ -8,6 +8,8 @@
 	build_from_parts = TRUE
 	worn_overlay = "over"
 	flags_inv = HIDEEARS
+	cold_protection = HEAD
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	var/earsup = 0
 
 /obj/item/clothing/head/ushanka/cap
@@ -45,6 +47,8 @@
 	contained_sprite = TRUE
 	icon_state = "beanie"
 	item_state = "beanie"
+	cold_protection = HEAD
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/beanie/random/Initialize()
 	. = ..()
@@ -65,8 +69,8 @@
 /obj/item/clothing/head/beanie/submariner
 	name = "submariner's beanie"
 	desc = "A design of tightly fitting beanie particularly popular among the dock workers of Europa. Favored among anyone who prides a warm head."
-	icon_state = "beaner_submariner"
-	item_state = "beaner_submariner"
+	icon_state = "beanie_submariner"
+	item_state = "beanie_submariner"
 
 /obj/item/clothing/head/beanie/submariner/random/Initialize()
 	. = ..()

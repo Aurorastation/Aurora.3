@@ -5,6 +5,7 @@
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	contained_sprite = TRUE
 	action_button_name = "Toggle Headlamp"
 	light_range = 4 //luminosity when on
@@ -23,6 +24,11 @@
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+
+/obj/item/clothing/head/hardhat/dropped(mob/user)
+	. = ..()
+	if(user?.dir)
+		set_dir(user.dir)
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat_orange"
@@ -106,7 +112,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	flash_protection = FLASH_PROTECTION_MODERATE
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE

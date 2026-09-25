@@ -46,7 +46,7 @@
 	name = "sencha"
 	seed_name = "sencha leaves"
 	display_name = "sencha plant"
-	chems = list(/singleton/reagent/nutriment/teagrounds/sencha = list(4,9))
+	chems = list(/singleton/reagent/nutriment/teagrounds/sencha = list(5,9))
 
 /datum/seed/sencha/setup_traits()
 	..()
@@ -66,7 +66,7 @@
 	name = "tieguanyin"
 	seed_name = "tieguanyin leaves"
 	display_name = "tieguanyin plant"
-	chems = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = list(3,8))
+	chems = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = list(5,8))
 
 /datum/seed/tieguanyin/setup_traits()
 	..()
@@ -86,7 +86,7 @@
 	name = "jaekseol"
 	seed_name = "jaekseol leaves"
 	display_name = "jaekseol plant"
-	chems = list(/singleton/reagent/nutriment/teagrounds/jaekseol = list(4,7))
+	chems = list(/singleton/reagent/nutriment/teagrounds/jaekseol = list(5,7))
 
 /datum/seed/jaekseol/setup_traits()
 	..()

@@ -5,6 +5,7 @@
 	required_players = 10
 	required_enemies = 2
 	require_all_templates = 1
+	votable = 0
 	antag_tags = list(MODE_CHANGELING, MODE_TRAITOR)
 
 /datum/game_mode/traitorling/pre_setup()

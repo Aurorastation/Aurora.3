@@ -13,7 +13,7 @@
 	var/list/modcount = list()	// assoc list of the count of modules for a type
 
 
-GLOBAL_LIST_INIT(modules, list("/obj/machinery/power/apc" = "card_reader,power_control,id_auth,cell_power,cell_charge"))
+GLOBAL_LIST_INIT(modules, list("/obj/structure/machinery/power/apc" = "card_reader,power_control,id_auth,cell_power,cell_charge"))
 
 
 /datum/module/New(var/obj/O)

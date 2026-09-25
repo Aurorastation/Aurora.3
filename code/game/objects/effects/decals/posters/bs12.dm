@@ -236,10 +236,10 @@
 
 /singleton/poster_design/lore/tcaf
 	icon_state = "tcflposter"
-	name = "Tau Ceti Foreign Legion"
-	desc = "A TCFL recruitment poster."
+	name = "TCAF Foreign Legions"
+	desc = "A TCAF Foreign Legions recruitment poster."
 
 /singleton/poster_design/lore/tcaf2
 	icon_state = "tcflposter2"
-	name = "Tau Ceti Foreign Legion Synthetic Benefits"
-	desc = "A TCFL recruitment poster showcasing the benefits Synthetics gain when enlisting."
+	name = "Tau Ceti Armed Forces Synthetic Benefits"
+	desc = "A TCAF recruitment poster showcasing the benefits Synthetics gain when enlisting."

@@ -37,7 +37,7 @@
 #define ENG_FREQ 1357
 #define SEC_FREQ 1359
 
-var/list/AWAY_FREQS_UNASSIGNED = list(1491, 1493, 1495, 1497, 1499, 1501, 1503, 1505, 1507, 1509)
+var/list/AWAY_FREQS_UNASSIGNED = list(1491, 1493, 1495, 1497, 1499, 1501, 1503, 1505, 1507, 1509, 1511, 1513, 1515)
 var/list/AWAY_FREQS_ASSIGNED = list("Hailing" = HAIL_FREQ)
 
 var/list/radiochannels = list(
@@ -114,7 +114,8 @@ var/list/ANTAG_FREQS = list(
 	RAID_FREQ,
 	NINJ_FREQ,
 	BLSP_FREQ,
-	BURG_FREQ
+	BURG_FREQ,
+	JOCK_FREQ
 )
 
 var/list/ANTAG_FREQS_ASSOC = list(
@@ -122,7 +123,8 @@ var/list/ANTAG_FREQS_ASSOC = list(
 	"[RAID_FREQ]" = TRUE,
 	"[NINJ_FREQ]" = TRUE,
 	"[BURG_FREQ]" = TRUE,
-	"[BLSP_FREQ]" = TRUE
+	"[BLSP_FREQ]" = TRUE,
+	"[JOCK_FREQ]" = TRUE
 )
 
 /// Department channels, arranged lexically

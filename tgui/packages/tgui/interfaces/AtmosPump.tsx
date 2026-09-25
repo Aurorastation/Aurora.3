@@ -1,6 +1,13 @@
-import { BooleanLike } from 'common/react';
+import {
+  AnimatedNumber,
+  Button,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -12,10 +19,13 @@ type Data = {
   power_draw: number;
   max_power_draw: number;
   flow_rate: number;
+  flow_rate_normal: number;
+  liters_pumped: number;
+  measure_enabled: BooleanLike;
 };
 
-export const AtmosPump = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const AtmosPump = (props) => {
+  const { act, data } = useBackend<Data>();
   const {
     on,
     max_rate,
@@ -25,10 +35,13 @@ export const AtmosPump = (props, context) => {
     pressure,
     power_draw,
     flow_rate,
+    flow_rate_normal,
+    liters_pumped,
+    measure_enabled,
   } = data;
 
   return (
-    <Window width={320} height={150}>
+    <Window width={320} height={255}>
       <Window.Content>
         <Section>
           <LabeledList>
@@ -49,7 +62,7 @@ export const AtmosPump = (props, context) => {
                   unit="L/s"
                   minValue={0}
                   maxValue={max_rate}
-                  onChange={(_, value) =>
+                  onChange={(value) =>
                     act('rate', {
                       rate: value,
                     })
@@ -77,7 +90,7 @@ export const AtmosPump = (props, context) => {
                   minValue={0}
                   maxValue={max_pressure}
                   step={10}
-                  onChange={(_, value) =>
+                  onChange={(value) =>
                     act('pressure', {
                       pressure: value,
                     })
@@ -99,7 +112,6 @@ export const AtmosPump = (props, context) => {
             {max_power_draw ? (
               <LabeledList.Item label="Load">
                 <ProgressBar
-                  animated
                   color={(() => {
                     if (power_draw > (max_power_draw / 3) * 2) {
                       return 'red';
@@ -111,7 +123,9 @@ export const AtmosPump = (props, context) => {
                   })()}
                   minValue={0}
                   maxValue={max_power_draw}
-                  value={power_draw}>
+                  value={power_draw}
+                >
+                  <AnimatedNumber value={power_draw} />
                   {power_draw} W
                 </ProgressBar>
               </LabeledList.Item>
@@ -119,6 +133,29 @@ export const AtmosPump = (props, context) => {
               ''
             )}
             <LabeledList.Item label="Flow">{flow_rate} L/s</LabeledList.Item>
+            <LabeledList.Item label="Flow (normalized)">
+              {flow_rate_normal} L/s
+            </LabeledList.Item>
+          </LabeledList>
+        </Section>
+        <Section title="Measurement">
+          <LabeledList>
+            <LabeledList.Item label="Liters Pumped">
+              {liters_pumped} L
+              <Button
+                ml={1}
+                icon={measure_enabled ? 'pause' : 'play'}
+                content={measure_enabled ? 'Stop' : 'Start'}
+                selected={!!measure_enabled}
+                onClick={() => act('toggle_measure')}
+              />
+              <Button
+                ml={1}
+                icon="rotate-left"
+                content="Reset"
+                onClick={() => act('reset_measure')}
+              />
+            </LabeledList.Item>
           </LabeledList>
         </Section>
       </Window.Content>

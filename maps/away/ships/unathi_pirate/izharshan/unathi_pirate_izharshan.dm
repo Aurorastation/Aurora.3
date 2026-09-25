@@ -7,6 +7,7 @@
 	suffix = "unathi_pirate_izharshan.dmm"
 
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
@@ -45,7 +46,7 @@
 	/obj/item/spacecash/c20 = 1
 	)
 
-/obj/machinery/vending/boozeomat/unathi_pirate
+/obj/structure/machinery/vending/boozeomat/unathi_pirate
 	products = list(
 		/obj/item/reagent_containers/food/drinks/shaker = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 4,
@@ -83,9 +84,11 @@
 	vessel_mass = 7500 //This truck is too damn big
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
-	comms_name = "modified"
 	use_mapped_z_levels = TRUE
 	invisible_until_ghostrole_spawn = TRUE
+
+/obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan/create_comms_groups()
+	return list("default" = new /datum/comms_group("modified"))
 
 /obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "unathi_freighter1")
@@ -93,7 +96,7 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
+/obj/structure/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
 	name = "shuttle control console"
 	shuttle_tag = "Izharshan Freighter"
 
@@ -106,7 +109,6 @@
 	current_location = "nav_izharshan_space"
 	dock_target = "unathi_pirate_izharshan"
 	landmark_transition = "nav_izharshan_transit"
-	logging_home_tag = "nav_izharshan_space"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/unathi_pirate_izharshan

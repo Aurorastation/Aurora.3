@@ -1,5 +1,5 @@
 /mob/living/carbon/brain/death(gibbed)
-	if(!gibbed && istype(container, /obj/item/device/mmi)) //If not gibbed but in a container.
+	if(!gibbed && istype(container, /obj/item/mmi)) //If not gibbed but in a container.
 		container.icon_state = "mmi_dead"
 		return ..(gibbed,"beeps shrilly as the MMI flatlines!")
 	else

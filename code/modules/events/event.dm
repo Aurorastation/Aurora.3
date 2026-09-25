@@ -290,5 +290,5 @@
 	ic_name = hazard.name
 
 /datum/event/proc/send_sensor_message(message)
-	for(var/obj/machinery/computer/ship/sensors/console in affected_ship.consoles)
+	for(var/obj/structure/machinery/computer/ship/sensors/console in affected_ship.consoles)
 		console.display_message(message)

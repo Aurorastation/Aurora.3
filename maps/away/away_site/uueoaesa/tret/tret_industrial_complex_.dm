@@ -93,7 +93,7 @@
 	designation = pick("Xk'tiik", "Kl'axkia", "Xahth", "Aaxkia'tiik", "Lak'tixa", "Laxka")
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/tret_industrial
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/tret_industrial
 	name = "shuttle control console"
 	shuttle_tag = "Tret Mining Shuttle"
 
@@ -103,7 +103,6 @@
 	shuttle_area = list(/area/shuttle/tret_industrial/main, /area/shuttle/tret_industrial/propulsion)
 	dock_target = "airlock_tret_industrial_shuttle"
 	current_location = "nav_tret_industrial_dock_outpost_1"
-	logging_home_tag = "nav_tret_industrial_dock_outpost_1"
 	landmark_transition = "nav_tret_industrial_shuttle_transit"
 	range = 1
 	fuel_consumption = 2

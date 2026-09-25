@@ -38,7 +38,7 @@
 		powersupply = attacking_item
 		update_icon()
 
-	else if(istype(attacking_item, /obj/item/screwdriver) && powersupply)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && powersupply)
 		to_chat(user, SPAN_NOTICE("You remove \the [powersupply] from \the [src]'s power socket"))
 		powersupply.forceMove(get_turf(src))
 		user.put_in_hands(powersupply)

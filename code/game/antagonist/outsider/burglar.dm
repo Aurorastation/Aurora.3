@@ -52,6 +52,7 @@ GLOBAL_DATUM(burglars, /datum/antagonist/burglar)
 	player.update_eyes()
 	player.regenerate_icons()
 
+
 	return TRUE
 
 /datum/antagonist/burglar/get_antag_radio()

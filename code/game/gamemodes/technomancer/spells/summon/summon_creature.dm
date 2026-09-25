@@ -34,7 +34,9 @@
 		"GREIMORIAN BOMBARDIER"	=	/mob/living/simple_animal/hostile/giant_spider/bombardier,
 		"GREIMORIAN NURSE"		=	/mob/living/simple_animal/hostile/giant_spider/nurse,
 		"CARP"					=	/mob/living/simple_animal/hostile/carp,
-		"BEAR"					=	/mob/living/simple_animal/hostile/bear
+		"BEAR"					=	/mob/living/simple_animal/hostile/bear,
+		"PSIREN LASHER" 		=	/mob/living/simple_animal/hostile/psiren,
+		"PSIREN DARTER"			= 	/mob/living/simple_animal/hostile/psiren/ranged
 		)
 	cooldown = 30
 	instability_cost = 10
@@ -47,7 +49,7 @@
 			H.friends += owner
 
 	// Makes their new pal big and strong, if they have spell power.
-	summoned.maxHealth = calculate_spell_power(summoned.maxHealth)
+	summoned.maxhealth = calculate_spell_power(summoned.maxhealth)
 	summoned.health = calculate_spell_power(summoned.health)
 	summoned.melee_damage_lower = calculate_spell_power(summoned.melee_damage_lower)
 	summoned.melee_damage_upper = calculate_spell_power(summoned.melee_damage_upper)

@@ -67,7 +67,7 @@ GLOBAL_LIST_INIT(whitelisted_species, list(SPECIES_HUMAN))
 GLOBAL_LIST_EMPTY(playable_species)
 
 /// All uplinks.
-GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/device/uplink)
+GLOBAL_LIST_EMPTY_TYPED(world_uplinks, /obj/item/uplink)
 
 /// Preferences stuff below.
 /// Stores /datum/sprite_accessory/hair indexed by name.
@@ -111,11 +111,14 @@ GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Doub
 /// Primary Radio Slot loadout choices.
 GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
 
-// Used to track fauna spawners on the phoron deposit away site.
+/// Used to track fauna spawners on the phoron deposit away site.
 GLOBAL_LIST_INIT(fauna_spawners, list())
 
 /// List of spawn points associated with '/obj/effect/organized_fauna_spawner'. It will automatically assign the spawn points in the same Z level as spawner.
 GLOBAL_LIST_EMPTY(organized_spawn_points)
+
+/// List of mob waypoints for fauna spawners.
+GLOBAL_LIST_EMPTY(mob_waypoints)
 
 /// Visual nets.
 GLOBAL_LIST_EMPTY_TYPED(visual_nets, /datum/visualnet)
@@ -125,7 +128,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/visualnet/camera, new)
 /// Escape locations for Nar'Sie. Escape shuttles, generally.
 GLOBAL_LIST_EMPTY(escape_list)
 
-GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS))
+GLOBAL_LIST_INIT(syndicate_access, list(/datum/access/maint_tunnels::id, /datum/access/syndicate::id, /datum/access/external_airlocks::id))
 
 /// Cloaking devices.
 GLOBAL_LIST_EMPTY(cloaking_devices)

@@ -26,7 +26,7 @@
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	siemens_coefficient = 0.5
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/tank/oxygen,/obj/item/extinguisher,/obj/item/crowbar,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/tank/oxygen,/obj/item/extinguisher,/obj/item/crowbar,/obj/item/material/twohanded/fireaxe)
 	slowdown = 0.8 // slightly better than voidsuits
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
@@ -34,6 +34,7 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 
 	///Initial name of the firesuit's emissive overlay. Will be changed based on [icon_supported_species_tags], above
 	var/initial_emissive_state = "firesuit_emissive"
@@ -84,6 +85,8 @@
 	siemens_coefficient = 0
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
+	cold_protection = HEAD|FACE|EYES
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	tint = TINT_HEAVY
 
 
@@ -100,7 +103,7 @@
 	w_class = WEIGHT_CLASS_HUGE //bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	slowdown = 8
+	slowdown = 4
 	armor = list(
 		MELEE = ARMOR_MELEE_VERY_HIGH,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -112,6 +115,7 @@
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
+	min_cold_protection_temperature = ARMOR_MIN_COLD_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -232,8 +236,8 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
-	slowdown = 1.5
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas,/obj/item/reagent_containers/hypospray/autoinjector)
+	slowdown = 0.75
 	armor = list(
 		BIO = ARMOR_BIO_RESISTANT,
 		RAD = ARMOR_RAD_SHIELDED

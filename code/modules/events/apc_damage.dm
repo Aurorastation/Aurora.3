@@ -4,7 +4,7 @@
 /datum/event/apc_damage/start()
 	..()
 
-	var/obj/machinery/power/apc/victim_apc = acquire_random_apc()
+	var/obj/structure/machinery/power/apc/victim_apc = acquire_random_apc()
 	if(QDELETED(victim_apc))
 		return
 
@@ -36,12 +36,12 @@
 /datum/event/apc_damage/proc/acquire_random_apc()
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
-	RETURN_TYPE(/obj/machinery/power/apc)
+	RETURN_TYPE(/obj/structure/machinery/power/apc)
 
 	var/list/possible_valid_apcs = list()
 
 	for(var/area/candidate_area in GLOB.the_station_areas)
-		var/obj/machinery/power/apc/candidate_apc = candidate_area.apc
+		var/obj/structure/machinery/power/apc/candidate_apc = candidate_area.apc
 		if(QDELETED(candidate_apc))
 			continue
 
@@ -59,7 +59,7 @@
 /**
  * Returns whether the given APC is valid for this event
  */
-/datum/event/apc_damage/proc/is_valid_apc(obj/machinery/power/apc/apc)
+/datum/event/apc_damage/proc/is_valid_apc(obj/structure/machinery/power/apc/apc)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
 

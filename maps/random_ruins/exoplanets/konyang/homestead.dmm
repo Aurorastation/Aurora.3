@@ -6,11 +6,11 @@
 /area/konyang_homestead)
 "ax" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#ffffff"
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil{
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil{
 	pixel_y = 16
 	},
 /obj/structure/flora/ausbushes/brflowers,
@@ -35,11 +35,11 @@
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "bO" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_homestead)
 "cc" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/random/dirt_75,
 /obj/structure/railing/fence{
 	dir = 4
@@ -69,8 +69,8 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_homestead)
 "ee" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/portable_atmospherics/hydroponics/soil{
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil{
 	pixel_y = 16
 	},
 /obj/structure/flora/ausbushes/ppflowers,
@@ -225,8 +225,8 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_homestead)
 "ki" = (
-/obj/machinery/appliance/cooker/stove,
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino/diamond,
 /area/konyang_homestead)
 "kp" = (
@@ -245,7 +245,7 @@
 	pixel_x = 12;
 	pixel_y = -3
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -270,7 +270,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_homestead)
 "lw" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "lx" = (
@@ -288,7 +288,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_homestead)
 "mi" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /obj/structure/window/urban{
 	dir = 4
 	},
@@ -298,7 +298,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "mj" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -309,7 +309,7 @@
 /area/konyang_homestead)
 "nP" = (
 /obj/structure/undies_wardrobe,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood,
@@ -398,8 +398,8 @@
 /area/konyang_homestead)
 "qZ" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/machinery/portable_atmospherics/hydroponics/soil{
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil{
 	pixel_y = 16
 	},
 /obj/structure/flora/ausbushes/ppflowers,
@@ -427,7 +427,7 @@
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/konyang_homestead)
 "sc" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "sd" = (
@@ -445,7 +445,7 @@
 /area/konyang_homestead)
 "sj" = (
 /obj/structure/lattice/catwalk/indoor/tatami,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/wood,
 /area/konyang_homestead)
 "te" = (
@@ -455,7 +455,7 @@
 	},
 /obj/structure/railing/fence,
 /obj/structure/table/rack/cafe_table,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 12;
 	pixel_x = 2
 	},
@@ -486,7 +486,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "tV" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_homestead)
@@ -550,7 +550,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "wk" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -597,15 +597,15 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_homestead)
 "yY" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/konyang_homestead)
 "AN" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/tiled/white,
 /area/konyang_homestead)
 "BG" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/railing/fence{
 	dir = 4
 	},
@@ -625,7 +625,7 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/clothing/shoes/sandals/geta{
@@ -661,12 +661,12 @@
 	pixel_x = 8;
 	pixel_y = 29
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8;
 	pixel_x = 1;
 	pixel_y = -6
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -918,7 +918,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_homestead)
 "Ot" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/lino/diamond,
 /area/konyang_homestead)
 "PR" = (
@@ -980,7 +980,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "SH" = (
-/obj/machinery/media/jukebox/gramophone{
+/obj/structure/machinery/media/jukebox/gramophone{
 	anchored = 1;
 	pixel_y = -2
 	},
@@ -1064,7 +1064,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_homestead)
 "XG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/coatrack{

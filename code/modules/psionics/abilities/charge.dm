@@ -9,7 +9,8 @@
 /obj/item/spell/charge
 	name = "charge"
 	icon_state = "audible_deception"
-	cast_methods = CAST_USE
+	item_icons = null
+	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 5
 	psi_cost = 5

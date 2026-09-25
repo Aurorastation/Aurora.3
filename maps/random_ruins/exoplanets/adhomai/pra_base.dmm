@@ -6,14 +6,14 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /obj/item/clothing/accessory/badge/pra_passport,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "aJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -39,7 +39,7 @@
 /obj/item/bedsheet/brown,
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -71,14 +71,14 @@
 	},
 /area/pra_base)
 "ca" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "dy" = (
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	req_access = list(209);
 	department = "PRA Outpost";
 	req_one_access = null
@@ -102,7 +102,7 @@
 /obj/item/flame/lighter/adhomai{
 	pixel_x = 17
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/concrete{
@@ -111,7 +111,7 @@
 /area/pra_base)
 "fq" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/concrete/large{
@@ -122,7 +122,7 @@
 	},
 /area/pra_base)
 "fw" = (
-/obj/machinery/vending/cola,
+/obj/structure/machinery/vending/cola,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -159,7 +159,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/black,
-/obj/machinery/button/switch/windowtint{
+/obj/structure/machinery/button/switch/windowtint{
 	dir = 4;
 	id = "pra_base";
 	pixel_x = 10;
@@ -171,14 +171,14 @@
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "gS" = (
 /obj/structure/bed/roller,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -245,7 +245,7 @@
 	identifier = "pra_base_commissar";
 	name = "igs - pra_base_commissar"
 	},
-/obj/machinery/button/switch/windowtint{
+/obj/structure/machinery/button/switch/windowtint{
 	dir = 4;
 	pixel_x = -4;
 	id = "pra_base"
@@ -253,7 +253,7 @@
 /turf/simulated/floor/wood,
 /area/pra_base)
 "lC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete{
@@ -275,7 +275,7 @@
 	},
 /area/pra_base)
 "lX" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
@@ -289,19 +289,19 @@
 	req_access = list(209);
 	name = "ammunition cabinet (rifle)"
 	},
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "mj" = (
-/obj/machinery/door/window/brigdoor/northright{
+/obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 4;
 	req_access = list(209)
 	},
@@ -333,7 +333,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "nc" = (
@@ -353,7 +353,7 @@
 	},
 /area/pra_base)
 "oA" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "pra_camp_entry"
 	},
 /turf/simulated/floor/concrete{
@@ -391,7 +391,7 @@
 	},
 /area/pra_base)
 "pN" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	req_access = list(209);
 	name = "Commissar's Office";
 	dir = 4
@@ -410,7 +410,7 @@
 	},
 /area/pra_base)
 "qa" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Barracks";
 	dir = 1
@@ -420,14 +420,14 @@
 	},
 /area/pra_base)
 "qP" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/pra_base)
 "rq" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -442,7 +442,7 @@
 	},
 /area/pra_base)
 "rt" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "pra_camp_entry"
 	},
 /obj/effect/floor_decal/concrete{
@@ -490,7 +490,7 @@
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "tT" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Meeting Room";
 	req_access = list(209);
 	dir = 1
@@ -501,11 +501,11 @@
 	},
 /area/pra_base)
 "um" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/concrete{
@@ -513,7 +513,7 @@
 	},
 /area/pra_base)
 "uO" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/sign/flag/pra{
 	pixel_y = -32;
 	stand_icon = null
@@ -534,7 +534,7 @@
 	desc = "A green sign which showcases the location of a medical aid station.";
 	pixel_y = -29
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "vQ" = (
@@ -550,7 +550,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "wC" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /obj/effect/floor_decal/concrete/large{
 	dir = 4
 	},
@@ -562,7 +562,7 @@
 	},
 /area/pra_base)
 "wE" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Restroom";
 	dir = 4
@@ -572,7 +572,7 @@
 	},
 /area/pra_base)
 "wK" = (
-/obj/machinery/space_heater,
+/obj/structure/machinery/space_heater,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -593,7 +593,7 @@
 	req_access = list(209);
 	name = "armor cabinet"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -602,7 +602,7 @@
 	},
 /area/pra_base)
 "xN" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Armory";
 	req_access = list(209);
 	dir = 1
@@ -625,7 +625,7 @@
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/concrete/square{
@@ -649,7 +649,7 @@
 /obj/item/storage/field_ration/army,
 /obj/item/storage/field_ration/army,
 /obj/structure/closet/crate/freezer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/concrete/square{
@@ -667,7 +667,7 @@
 	},
 /area/pra_base)
 "Bm" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/concrete/square{
@@ -687,7 +687,7 @@
 	},
 /area/pra_base)
 "BZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -704,7 +704,7 @@
 /turf/simulated/floor/wood,
 /area/pra_base)
 "CO" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/concrete{
@@ -715,7 +715,7 @@
 	},
 /area/pra_base)
 "CW" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/concrete/square{
@@ -723,14 +723,14 @@
 	},
 /area/pra_base)
 "Dp" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	name = "Medical Center";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "DB" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -749,7 +749,7 @@
 	},
 /area/pra_base)
 "Ec" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Barracks";
 	dir = 4
@@ -769,7 +769,7 @@
 	},
 /area/pra_base)
 "Et" = (
-/obj/machinery/door/window/brigdoor/northright{
+/obj/structure/machinery/door/window/brigdoor/northright{
 	dir = 8;
 	req_access = list(209)
 	},
@@ -820,7 +820,7 @@
 	},
 /area/pra_base)
 "EP" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -830,10 +830,10 @@
 /area/pra_base)
 "Fk" = (
 /obj/structure/table/wood,
-/obj/item/device/binoculars{
+/obj/item/binoculars{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -845,7 +845,7 @@
 /area/exoplanet/adhomai)
 "FZ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/sign/flag/pra/large/south{
 	pixel_y = -32
 	},
@@ -899,11 +899,11 @@
 	},
 /area/pra_base)
 "IL" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "Jc" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Jw" = (
@@ -921,7 +921,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/victorygin{
 	pixel_y = 10
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/concrete{
@@ -943,12 +943,12 @@
 /turf/simulated/floor/wood,
 /area/pra_base)
 "Lb" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/sign/flag/pra{
 	pixel_y = -32;
 	stand_icon = null
 	},
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -984,7 +984,7 @@
 	},
 /area/pra_base)
 "Nc" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
 	req_access = list(209);
 	dir = 1
@@ -1057,13 +1057,13 @@
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/storage/backpack/satchel/leather,
-/obj/item/device/radio/headset/ship,
+/obj/item/radio/headset/ship,
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/item/ammo_magazine/a50,
 /obj/item/ammo_magazine/a50,
 /obj/item/storage/box/hadii_manifesto,
 /obj/item/storage/box/hadii_card,
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /obj/item/clothing/accessory/hadii_pin,
 /obj/item/flame/lighter/adhomai,
 /obj/item/clothing/under/tajaran/army_commissar,
@@ -1079,7 +1079,7 @@
 	},
 /area/pra_base)
 "Rb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
@@ -1089,7 +1089,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Rd" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/toilet{
@@ -1106,7 +1106,7 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
 /obj/item/clothing/accessory/holster/hip,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/structure/sign/flag/pra/large/south{
 	pixel_y = -32
@@ -1116,7 +1116,7 @@
 	},
 /area/pra_base)
 "Sc" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 8;
 	pixel_x = 10
 	},
@@ -1131,7 +1131,7 @@
 	},
 /area/pra_base)
 "St" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "pra_camp_entry";
 	name = "Entry";
 	req_access = list(209);
@@ -1185,7 +1185,7 @@
 	},
 /area/pra_base)
 "UF" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "pra_camp_entry";
 	name = "Entry";
 	req_access = list(209);
@@ -1203,7 +1203,7 @@
 	},
 /area/pra_base)
 "UU" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/filingcabinet{
@@ -1223,13 +1223,13 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
 /area/pra_base)
 "Vj" = (
-/obj/machinery/papershredder,
+/obj/structure/machinery/papershredder,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -1251,7 +1251,7 @@
 /obj/item/landmine,
 /obj/item/landmine,
 /obj/item/landmine,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/concrete/square{
@@ -1326,7 +1326,7 @@
 	},
 /area/pra_base)
 "Yb" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "pra_camp_entry"
 	},
 /obj/effect/floor_decal/concrete{
@@ -1373,7 +1373,7 @@
 /obj/item/storage/secure/safe{
 	pixel_y = 36
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/wood,

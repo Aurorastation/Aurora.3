@@ -240,7 +240,7 @@ SUBSYSTEM_DEF(spatial_grid)
 	. = list()
 
 	//technically THIS list only contains lists, but inside those lists are grid cell datums and we can go without a SINGLE var init if we do this
-	var/list/datum/spatial_grid_cell/grid_level = grids_by_z_level[center_turf.z]
+	var/list/list/datum/spatial_grid_cell/grid_level = grids_by_z_level[center_turf.z]
 
 	switch(type)
 		if(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
@@ -365,10 +365,18 @@ SUBSYSTEM_DEF(spatial_grid)
 	if(!initialized)
 		return
 	if(QDELETED(new_target))
+		#ifdef TESTING
 		CRASH("qdeleted or null target trying to enter the spatial grid!")
+		#else
+		return // Regular guard clause for production instead of forcing hard deletes.
+		#endif
 
 	if(!target_turf || !new_target.spatial_grid_key)
+		#ifdef TESTING
 		CRASH("null turf loc or a new_target that doesn't support it trying to enter the spatial grid!")
+		#else
+		return // Regular guard clause for production instead of forcing hard deletes.
+		#endif
 
 	var/x_index = GET_SPATIAL_INDEX(target_turf.x)
 	var/y_index = GET_SPATIAL_INDEX(target_turf.y)

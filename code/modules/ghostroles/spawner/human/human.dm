@@ -27,6 +27,10 @@
 	var/assigned_role = null
 	var/special_role = null
 	var/faction = null
+	/// Shared identifier for ghostroles that should recognize one another. If null, no group is assigned.
+	var/recognition_group = null
+	/// Examine text shown about this role to other members of the relevant recognition group.
+	var/recognition_message = null
 
 	/// Culture restrictions for this spawner. Use types. Make sure that there is at least one culture per allowed species!
 	var/list/culture_restriction = list()
@@ -72,7 +76,7 @@
 			pick_message = "[pick_message] Auto Prefix: \"[mob_name_prefix]\" "
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
-		mname = sanitizeName(sanitize_readd_odd_symbols(sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))))
+		mname = sanitizeName(tgui_input_text(user, pick_message, "Name for a [species] (without prefix/suffix)"))
 
 	if(!length(mname))
 		if(mob_name_prefix || mob_name_suffix)
@@ -114,6 +118,10 @@
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species, assigned_gender)
 	var/age = tgui_input_number(user, "Enter your character's age.", "Age", 25, 1000, 0)
+	var/custom_model
+
+	if(istype(GLOB.all_species[picked_species], /datum/species/machine))
+		custom_model = tgui_input_text(user, "Enter the name of a custom model name for your examine if desired.", "IPC Custom Model", max_length = 20)
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(GLOB.newplayer_start)
@@ -127,17 +135,22 @@
 	M.dna.ready_dna(M)
 
 	//Move the mob inside and initialize the mind
-	M.key = user.ckey //!! After that USER is invalid, so we have to use M
+	user.client.transfer_key_to_mob(M) //!! After that USER is invalid, so we have to use M
 
 	M.mind_initialize()
 
 	if(assigned_role)
 		M.mind.assigned_role = assigned_role
 		M.mind.role_alt_title = assigned_role
+
 	if(special_role)
 		M.mind.special_role = special_role
+
 	if(faction)
 		M.faction = faction
+
+	M.mind.recognition_group = recognition_group
+	M.mind.recognition_message = recognition_message
 
 	//Move the mob
 	M.forceMove(T)
@@ -148,6 +161,10 @@
 		mname = random_name(M.gender, M.species.name)
 
 	M.fully_replace_character_name(M.real_name, mname)
+
+	if(isipc(M))
+		var/obj/item/organ/internal/machine/posibrain/ipcbrain = M.internal_organs_by_name[BP_BRAIN]
+		ipcbrain.custom_model = custom_model
 
 	M.mind.signature = mname
 	M.mind.signfont = pick("Verdana", "Times New Roman", "Courier New")
@@ -200,7 +217,3 @@
 	M.ghost_spawner = WEAKREF(src)
 
 	return M
-
-/// Used for cryo to free up a slot when a ghost cryos.
-/mob/living/carbon/human
-	var/datum/weakref/ghost_spawner

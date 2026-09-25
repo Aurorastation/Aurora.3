@@ -35,7 +35,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/haneunim_crash
+/obj/structure/machinery/computer/shuttle_control/explore/haneunim_crash
 	name = "shuttle control console"
 	shuttle_tag = "Crashed League Shuttle"
 
@@ -47,7 +47,6 @@
 	landmark_transition = "nav_transit_haneunim_crash"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_start_haneunim_crash"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/haneunim_crash/start

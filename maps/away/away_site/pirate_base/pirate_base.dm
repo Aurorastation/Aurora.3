@@ -6,6 +6,7 @@
 	suffix = "pirate_base.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "pirate"
@@ -60,7 +61,7 @@
 	designation = "[pick("Black Betty", "Bastard's Home", "Super Glue Tank", "Battering Ram", "Desperado", "Scimitar", "Arrow's End", "Rustbucket", "Flintlock")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/pirate_ship
+/obj/structure/machinery/computer/shuttle_control/explore/pirate_ship
 	name = "shuttle control console"
 	shuttle_tag = "Wanted Vessel"
 
@@ -73,7 +74,6 @@
 	landmark_transition = "nav_transit_pirate_ship"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_pirate_ship"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/pirate_ship/hangar

@@ -8,7 +8,7 @@
 	head = /obj/item/clothing/head/helmet/space/void/kala
 	back = /obj/item/storage/backpack/kala
 	suit_store = /obj/item/gun/energy/gun/qukala
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	id = /obj/item/card/id
 	backpack_contents = list(
@@ -53,7 +53,7 @@
 		B.replaced(H, affectedB)
 		H.update_body()
 	if(H.is_diona())
-		H.equip_or_collect(new /obj/item/device/uv_light(src), slot_in_backpack)
+		H.equip_or_collect(new /obj/item/uv_light(src), slot_in_backpack)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/advance/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
@@ -63,7 +63,7 @@
 		H.equip_or_collect(new /obj/item/gun/energy/fedpistol/nopsi(src), slot_in_backpack)
 
 /obj/outfit/admin/ert/qukala/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SKRELL)
+	return list(/datum/access/distress::id, /datum/access/external_airlocks::id, /datum/access/skrell::id)
 
 /obj/outfit/admin/ert/qukala/medic
 	name = "Qukala Medic"
@@ -94,7 +94,7 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/telebaton/nlom = 1,

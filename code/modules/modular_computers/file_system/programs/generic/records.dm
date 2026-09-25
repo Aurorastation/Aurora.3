@@ -22,7 +22,7 @@
 	var/datum/record/virus/active_virus
 	var/listener/record/rconsole/listener
 	var/authenticated = FALSE
-	var/default_screen = "general"
+	var/default_screen = "General"
 	var/record_prefix = ""
 	var/typechoices = list(
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
@@ -47,13 +47,13 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(ACCESS_MEDICAL_EQUIP, ACCESS_FORENSICS_LOCKERS, ACCESS_ROBOTICS, ACCESS_HOP)
-	required_access_download = list(ACCESS_HEADS, ACCESS_MEDICAL_EQUIP, ACCESS_FORENSICS_LOCKERS, ACCESS_ROBOTICS)
+	required_access_run = list(/datum/access/medical_equip::id, /datum/access/forensics_lockers::id, /datum/access/robotics::id, /datum/access/hop::id)
+	required_access_download = list(/datum/access/heads::id, /datum/access/medical_equip::id, /datum/access/forensics_lockers::id, /datum/access/robotics::id)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
-	default_screen = "medical"
+	default_screen = "Medical"
 	program_icon_state = "medical_record"
 	program_key_icon_state = "teal_key"
 	color = LIGHT_COLOR_CYAN
@@ -64,13 +64,13 @@
 	extended_desc = "Used to view, edit and maintain security records"
 	record_prefix = "Security "
 
-	required_access_run = list(ACCESS_SECURITY, ACCESS_FORENSICS_LOCKERS, ACCESS_LAWYER, ACCESS_HOP)
-	required_access_download = list(ACCESS_HEADS, ACCESS_SECURITY)
+	required_access_run = list(/datum/access/security::id, /datum/access/forensics_lockers::id, /datum/access/lawyer::id, /datum/access/hop::id)
+	required_access_download = list(/datum/access/heads::id, /datum/access/security::id)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
-	default_screen = "security"
+	default_screen = "Security"
 	program_icon_state = "security_record"
 	program_key_icon_state = "yellow_key"
 	color = LIGHT_COLOR_YELLOW
@@ -81,13 +81,14 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(ACCESS_HEADS, ACCESS_LAWYER, ACCESS_CONSULAR)
+	required_access_run = list(/datum/access/heads::id, /datum/access/lawyer::id, /datum/access/consular::id)
 	requires_access_to_download = PROGRAM_ACCESS_ONE
-	required_access_download = ACCESS_HEADS
+	required_access_download = /datum/access/heads::id
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
+	default_screen = "General"
 	program_icon_state = "employment_record"
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
@@ -265,12 +266,6 @@
 			if(!((edit_type & RECORD_MEDICAL) || (edit_type & RECORD_GENERAL)))
 				return FALSE
 		if("medical")
-			if(!(edit_type & RECORD_MEDICAL))
-				return FALSE
-		if("diseases")
-			if(!(edit_type & RECORD_MEDICAL))
-				return FALSE
-		if("allergies")
 			if(!(edit_type & RECORD_MEDICAL))
 				return FALSE
 		if("blood_type")

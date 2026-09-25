@@ -1,10 +1,10 @@
 /obj/item/syringe_cartridge
 	name = "syringe gun cartridge"
 	desc = "An impact-triggered compressed gas cartridge that can be fitted to a syringe for rapid injection."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/ammunition/ammo.dmi'
 	icon_state = "syringe-cartridge"
 	var/icon_flight = "syringe-cartridge-flight" //so it doesn't look so weird when shot
-	matter = list(DEFAULT_WALL_MATERIAL = 125, MATERIAL_GLASS = 375)
+	matter = list(MATERIAL_STEEL = 125, MATERIAL_GLASS = 375)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 3
@@ -69,7 +69,7 @@
 	item_state = "syringegun"
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 16
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	matter = list(MATERIAL_STEEL = 2000)
 	slot_flags = SLOT_BELT
 
 	fire_sound = 'sound/weapons/click.ogg'
@@ -79,6 +79,7 @@
 	throw_distance = 10
 
 	needspin = FALSE
+	has_unique_gun_action = TRUE
 
 	var/list/darts = list()
 	var/max_darts = 1

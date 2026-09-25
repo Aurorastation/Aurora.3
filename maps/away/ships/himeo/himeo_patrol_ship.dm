@@ -76,7 +76,7 @@
 	sizeclass = "Hiirihaukka-class Fighter Shuttle"
 	shiptype = "Troop transport and anti-ship combat operations"
 
-/obj/machinery/computer/shuttle_control/explore/terminal/himeo_patrol_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/himeo_patrol_shuttle
 	name = "shuttle control terminal"
 	shuttle_tag = "Himean Patrol Shuttle"
 
@@ -90,7 +90,6 @@
 	dock_target = "airlock_himeo_patrol_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "himeo_patrol_nav_dock"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/himeo_patrol_ship
@@ -139,7 +138,7 @@
 	base_area = /area/himeo_patrol_ship/deck_2_interstitial
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship
+/obj/structure/machinery/computer/shuttle_control/multi/lift/himeo_patrol_ship
 	shuttle_tag = "Himean Patrol Ship Lift"
 
 // TEG manual. Largely just repurposed and reflavoured from the TCAF corvette, thank you Ben.

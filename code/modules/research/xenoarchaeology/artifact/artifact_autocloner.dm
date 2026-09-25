@@ -1,5 +1,5 @@
 
-/obj/machinery/auto_cloner
+/obj/structure/machinery/auto_cloner
 	name = "mysterious pod"
 	desc = "It's full of a viscous liquid, but appears dark and silent."
 	icon = 'icons/obj/cryogenics.dmi'
@@ -14,7 +14,7 @@
 	active_power_usage = 2000
 	idle_power_usage = 1000
 
-/obj/machinery/auto_cloner/Initialize()
+/obj/structure/machinery/auto_cloner/Initialize()
 	. = ..()
 
 	time_per_spawn = rand(1200,3600)
@@ -42,7 +42,7 @@
 		)
 
 //todo: how the hell is the asteroid permanently powered?
-/obj/machinery/auto_cloner/process()
+/obj/structure/machinery/auto_cloner/process()
 	if(powered(power_channel))
 		if(!previous_power_state)
 			previous_power_state = 1

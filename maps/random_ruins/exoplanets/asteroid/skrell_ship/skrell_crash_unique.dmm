@@ -71,7 +71,7 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "ak" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Cryogenics";
 	dir = 1
 	},
@@ -148,7 +148,7 @@
 /area/template_noop)
 "at" = (
 /obj/structure/table/skrell,
-/obj/item/device/hearing_aid/skrell{
+/obj/item/hearing_aid/skrell{
 	pixel_y = 4;
 	pixel_x = -3
 	},
@@ -210,12 +210,12 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "aA" = (
-/obj/machinery/bodyscanner,
+/obj/structure/machinery/bodyscanner,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "aB" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Bridge";
 	dir = 1
 	},
@@ -234,7 +234,7 @@
 /turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "aE" = (
-/obj/item/device/breath_analyzer{
+/obj/item/breath_analyzer{
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -252,7 +252,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aF" = (
-/obj/machinery/body_scanconsole{
+/obj/structure/machinery/body_scanconsole{
 	dir = 1
 	},
 /obj/item/storage/firstaid/surgery{
@@ -280,7 +280,7 @@
 /turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "aJ" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/effect/decal/cleanable/blood/drip{
 	basecolor = "#0081CD"
 	},
@@ -316,7 +316,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "aN" = (
-/obj/machinery/bioprinter,
+/obj/structure/machinery/bioprinter,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -340,7 +340,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aQ" = (
-/obj/item/device/flashlight/pen,
+/obj/item/flashlight/pen,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
@@ -394,7 +394,7 @@
 	pixel_x = -10;
 	pixel_y = -4
 	},
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
@@ -405,7 +405,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "aY" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -435,13 +435,13 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "bb" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bc" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Cryogenics";
 	dir = 4
 	},
@@ -471,7 +471,7 @@
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/item/clothing/under/skrell/qeblak{
@@ -485,8 +485,8 @@
 /area/template_noop)
 "bg" = (
 /obj/structure/table/skrell,
-/obj/item/device/flashlight/heavy,
-/obj/machinery/cell_charger,
+/obj/item/flashlight/heavy,
+/obj/structure/machinery/cell_charger,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "bh" = (
@@ -521,7 +521,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "bl" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -565,7 +565,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "bq" = (
-/obj/machinery/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -599,7 +599,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bu" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
@@ -614,14 +614,14 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "bw" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	name = "Medbay";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "bx" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
 	dir = 4
@@ -638,7 +638,7 @@
 /area/template_noop)
 "bz" = (
 /obj/structure/closet/skrell,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/item/clothing/ears/skrell/band/ebony,
 /obj/item/clothing/head/helmet/space/void/skrell/black,
 /obj/item/clothing/mask/breath/skrell,
@@ -652,7 +652,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "bB" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "bD" = (
@@ -666,7 +666,7 @@
 /area/template_noop)
 "bE" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/item/gun/energy/gun/qukala{
 	pixel_y = 7;
 	pixel_x = 2
@@ -686,7 +686,7 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "bG" = (
-/obj/item/device/t_scanner{
+/obj/item/t_scanner{
 	pixel_x = -8;
 	pixel_y = -4
 	},
@@ -715,7 +715,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bK" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -743,7 +743,7 @@
 /turf/simulated/floor/plating,
 /area/template_noop)
 "bS" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner/mauve,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -752,7 +752,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "bT" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -768,7 +768,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "bV" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -776,7 +776,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bW" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -790,8 +790,8 @@
 /area/template_noop)
 "bY" = (
 /obj/structure/table/skrell,
-/obj/item/device/healthanalyzer,
-/obj/machinery/light/skrell{
+/obj/item/healthanalyzer,
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -802,8 +802,8 @@
 /area/template_noop)
 "bZ" = (
 /obj/structure/table/skrell,
-/obj/item/device/mass_spectrometer/adv,
-/obj/machinery/light/skrell{
+/obj/item/mass_spectrometer/adv,
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -813,7 +813,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "ca" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -824,7 +824,7 @@
 /obj/effect/decal/cleanable/blood{
 	basecolor = "#0081CD"
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -836,7 +836,7 @@
 /area/template_noop)
 "cc" = (
 /obj/item/reagent_containers/blood/ripped,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
@@ -856,7 +856,7 @@
 "cf" = (
 /obj/structure/table/skrell,
 /obj/item/reagent_containers/food/snacks/skrellsnacks,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/item/clothing/suit/space/void/skrell/black,
@@ -867,7 +867,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "cg" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -914,7 +914,7 @@
 /area/template_noop)
 "co" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/item/trash/semki{
@@ -932,7 +932,7 @@
 	pixel_y = 7;
 	pixel_x = 14
 	},
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -1051,7 +1051,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "cH" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	thrust_limit = 0.25;
 	dir = 1
 	},
@@ -1066,8 +1066,8 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "cJ" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
 /obj/item/plastique,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/grey{
@@ -1100,7 +1100,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "cN" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	locked = 1;
 	dir = 1
 	},
@@ -1167,7 +1167,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "fS" = (
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "gp" = (
@@ -1254,7 +1254,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "pK" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -1309,7 +1309,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "wT" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
@@ -1327,7 +1327,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "zk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1360,7 +1360,7 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Du" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1369,11 +1369,11 @@
 /area/template_noop)
 "Dz" = (
 /obj/structure/table/skrell,
-/obj/machinery/light/skrell,
+/obj/structure/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "FP" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -1397,7 +1397,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ha" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -1406,7 +1406,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "Ik" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1430,7 +1430,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "IS" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1451,7 +1451,7 @@
 /turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "La" = (
-/obj/machinery/cryopod,
+/obj/structure/machinery/cryopod,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
@@ -1459,7 +1459,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "MJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1467,7 +1467,7 @@
 	},
 /area/template_noop)
 "MR" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/drip{
@@ -1523,7 +1523,7 @@
 /turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
 "Sr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship{
@@ -1579,13 +1579,13 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Vx" = (
-/obj/machinery/light/skrell{
+/obj/structure/machinery/light/skrell{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "VO" = (
-/obj/machinery/door/airlock/skrell{
+/obj/structure/machinery/door/airlock/skrell{
 	dir = 1
 	},
 /obj/random/dirt_75,

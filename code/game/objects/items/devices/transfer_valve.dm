@@ -1,20 +1,20 @@
-/obj/item/device/transfer_valve
+/obj/item/transfer_valve
 	name = "tank transfer valve"
 	desc = "Regulates the transfer of air between two tanks"
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "valve_1"
 	var/obj/item/tank/tank_one
 	var/obj/item/tank/tank_two
-	var/obj/item/device/assembly/attached_device
+	var/obj/item/assembly/attached_device
 	var/mob/attacher = null
 	var/valve_open = 0
 	var/toggle = 1
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
-/obj/item/device/transfer_valve/IsAssemblyHolder()
+/obj/item/transfer_valve/IsAssemblyHolder()
 	return 1
 
-/obj/item/device/transfer_valve/attackby(obj/item/attacking_item, mob/user)
+/obj/item/transfer_valve/attackby(obj/item/attacking_item, mob/user)
 	var/turf/location = get_turf(src) // For admin logs
 	if(istype(attacking_item, /obj/item/tank))
 		if(tank_one && tank_two)
@@ -36,7 +36,7 @@
 		update_static_data_for_all_viewers()
 //TODO: Have this take an assemblyholder
 	else if(isassembly(attacking_item))
-		var/obj/item/device/assembly/A = attacking_item
+		var/obj/item/assembly/A = attacking_item
 		if(A.secured)
 			to_chat(user, SPAN_NOTICE("The device is secured."))
 			return
@@ -58,23 +58,23 @@
 	return
 
 
-/obj/item/device/transfer_valve/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/transfer_valve/HasProximity(atom/movable/AM as mob|obj)
 	if(!attached_device)
 		return
 	attached_device.HasProximity(AM)
 	return
 
 
-/obj/item/device/transfer_valve/attack_self(mob/user as mob)
+/obj/item/transfer_valve/attack_self(mob/user as mob)
 	ui_interact(user)
 
-/obj/item/device/transfer_valve/ui_interact(mob/user, datum/tgui/ui)
+/obj/item/transfer_valve/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "TransferValve", ui_x=540, ui_y=165)
 		ui.open()
 
-/obj/item/device/transfer_valve/ui_data(mob/user)
+/obj/item/transfer_valve/ui_data(mob/user)
 	var/list/data = list()
 	data["tankOne"] = tank_one ? tank_one.name : null
 	data["tankTwo"] = tank_two ? tank_two.name : null
@@ -82,7 +82,7 @@
 	data["valveOpen"] = valve_open ? 1 : 0
 	return data
 
-/obj/item/device/transfer_valve/ui_act(action,params)
+/obj/item/transfer_valve/ui_act(action,params)
 	. = ..()
 	if(.)
 		return
@@ -109,14 +109,14 @@
 	if(action=="open")
 		toggle_valve()
 
-/obj/item/device/transfer_valve/proc/process_activation(var/obj/item/device/D)
+/obj/item/transfer_valve/proc/process_activation(var/obj/item/D)
 	if(toggle)
 		toggle = 0
 		toggle_valve()
 		spawn(50) // To stop a signal being spammed from a proxy sensor constantly going off or whatever
 			toggle = 1
 
-/obj/item/device/transfer_valve/update_icon()
+/obj/item/transfer_valve/update_icon()
 	ClearOverlays()
 	underlays = null
 
@@ -134,7 +134,7 @@
 	if(attached_device)
 		AddOverlays("device")
 
-/obj/item/device/transfer_valve/proc/remove_tank(obj/item/tank/T, mob/user)
+/obj/item/transfer_valve/proc/remove_tank(obj/item/tank/T, mob/user)
 	if(tank_one == T)
 		split_gases()
 		tank_one = null
@@ -149,7 +149,7 @@
 		user.put_in_hands(T)
 	update_icon()
 
-/obj/item/device/transfer_valve/proc/merge_gases()
+/obj/item/transfer_valve/proc/merge_gases()
 	if(valve_open)
 		return
 	tank_two.air_contents.volume += tank_one.air_contents.volume
@@ -158,7 +158,7 @@
 	tank_two.air_contents.merge(temp)
 	valve_open = 1
 
-/obj/item/device/transfer_valve/proc/split_gases()
+/obj/item/transfer_valve/proc/split_gases()
 	if(!valve_open)
 		return
 
@@ -179,7 +179,7 @@
 	it explodes properly when it gets a signal (and it does).
 	*/
 
-/obj/item/device/transfer_valve/proc/toggle_valve()
+/obj/item/transfer_valve/proc/toggle_valve()
 	if(!valve_open && (tank_one && tank_two))
 		var/turf/bombturf = get_turf(src)
 		var/area/A = get_area(bombturf)
@@ -214,5 +214,5 @@
 
 // this doesn't do anything but the timer etc. expects it to be here
 // eventually maybe have it update icon to show state (timer, prox etc.) like old bombs
-/obj/item/device/transfer_valve/proc/c_state()
+/obj/item/transfer_valve/proc/c_state()
 	return

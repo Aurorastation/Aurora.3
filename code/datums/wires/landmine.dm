@@ -1,3 +1,7 @@
+/datum/wires/landmine
+	// If we ever get an explosives or similar skill...
+	associated_skill = null
+
 /datum/wires/landmine/New()
 	wires = list(
 		WIRE_EXPLODE

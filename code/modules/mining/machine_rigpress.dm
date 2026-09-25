@@ -1,4 +1,4 @@
-/obj/machinery/mineral/rigpress
+/obj/structure/machinery/mineral/rigpress
 	name = "hardsuit module press"
 	desc = "This machine converts certain items permanently into hardsuit modules."
 	icon = 'icons/obj/stationobjs.dmi'
@@ -18,7 +18,7 @@
 	/obj/item/gun/energy/vaurca/thermaldrill = /obj/item/rig_module/mounted/thermalldrill
 	)
 
-/obj/machinery/mineral/rigpress/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/machinery/mineral/rigpress/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The following devices can be made:"
 	for(var/press_type in press_types)
@@ -26,7 +26,7 @@
 		var/obj/item/product = press_types[press_type]
 		. += "[initial(base.name)] -> [initial(product.name)]"
 
-/obj/machinery/mineral/rigpress/update_icon()
+/obj/structure/machinery/mineral/rigpress/update_icon()
 	if(pressing)
 		icon_state = "coinpress1"
 	else
@@ -35,7 +35,7 @@
 /**
  * If a compatible item is fed into the machine, begin conversion. Only allow one at a time.
  */
-/obj/machinery/mineral/rigpress/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/mineral/rigpress/attackby(obj/item/attacking_item, mob/user)
 	if(!pressing)
 		var/outcome_path
 		// Check that the item is compatible.

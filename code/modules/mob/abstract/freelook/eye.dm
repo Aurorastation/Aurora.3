@@ -40,6 +40,9 @@
 		return EyeMove(n, direct)
 	return 0
 
+/mob/abstract/eye/can_ztravel(var/direction)
+	return TRUE
+
 /mob/abstract/eye/airflow_hit(atom/A)
 	airflow_speed = 0
 	airflow_dest = null
@@ -119,9 +122,6 @@
 			return
 		return loc
 
-/mob
-	var/mob/abstract/eye/eyeobj
-
 /mob/proc/EyeMove(n, direct)
 	if(!eyeobj)
 		return
@@ -137,7 +137,7 @@
 
 	for(var/i = 0; i < max(sprint, initial); i += 20)
 		var/turf/step = get_turf(get_step(src, direct))
-		if(step)
+		if(step && check_allowed_movement(step))
 			setLoc(step)
 
 	cooldown = world.timeofday + 5
@@ -146,6 +146,10 @@
 	else
 		sprint = initial
 	return 1
+
+/// If the eye movement needs to be restricted by any additional means, override this.
+/mob/abstract/eye/proc/check_allowed_movement(turf/step)
+	return TRUE
 
 /mob/abstract/eye/ClickOn(atom/A, params)
 	if(owner)

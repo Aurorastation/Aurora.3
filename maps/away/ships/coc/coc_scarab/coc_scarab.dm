@@ -146,7 +146,7 @@
 	sizeclass = "Mattock-class Mining Shuttle"
 	shiptype = "Mineral exploitation and salvage operations"
 
-/obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle
 	name = "shuttle control terminal"
 	shuttle_tag = "Scarab Shuttle"
 
@@ -159,7 +159,6 @@
 	landmark_transition = "nav_scarab_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_scarab_start"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/coc_scarab/shuttle_start
@@ -194,7 +193,7 @@
 	base_area = /area/ship/coc_scarab/cargobay
 	base_turf = /turf/simulated/open
 
-/obj/machinery/computer/shuttle_control/multi/lift/scarab
+/obj/structure/machinery/computer/shuttle_control/multi/lift/scarab
 	shuttle_tag = "Scarab Lift"
 
 // CUSTOM STUFF

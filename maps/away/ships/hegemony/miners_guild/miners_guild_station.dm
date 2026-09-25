@@ -6,6 +6,7 @@
 	suffix = "miners_guild_station.dmm"
 
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
@@ -27,7 +28,6 @@
 	color = "#b07810"
 	scanimage = "unathi_guild_station.png"
 	comms_support = TRUE
-	comms_name = "Miners' Guild"
 	initial_generic_waypoints = list(
 		"miners_guild_nav1",
 		"miners_guild_nav2",
@@ -40,6 +40,9 @@
 	initial_restricted_waypoints = list(
 		"Miners' Guild Shuttle" = list("miners_guild_navhangar")
 	)
+
+/obj/effect/overmap/visitable/sector/miners_guild_station/create_comms_groups()
+	return list("default" = new /datum/comms_group("Miners' Guild"))
 
 /obj/effect/shuttle_landmark/miners_guild
 	base_turf = /turf/space
@@ -106,7 +109,7 @@
 	designation = "[pick("Stonebreaker", "Son of Kutah", "Asteroid's Bane", "Sinta Pride", "Ancestors' Glory", "Azhal's Blessing", "Fires of Sk'akh", "Pickaxe", "Where's The Phoron", "How Do I Reset The IFF")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/miners_guild
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/miners_guild
 	name = "shuttle control console"
 	shuttle_tag = "Miners' Guild Shuttle"
 
@@ -120,7 +123,6 @@
 	dock_target = "airlock_guild_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "miners_guild_navhangar"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/miners_guild/hangar

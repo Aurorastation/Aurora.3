@@ -31,7 +31,7 @@
 
 	extra_languages = list(LANGUAGE_UNATHI)
 	outfit = /obj/outfit/admin/moghes_diona_trader
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
 
@@ -72,7 +72,7 @@
 /obj/outfit/admin/moghes_diona
 	name = "Diona Servant"
 	uniform = /obj/item/clothing/under/gearharness
-	belt = /obj/item/device/flashlight/lantern
+	belt = /obj/item/flashlight/lantern
 	back = /obj/item/storage/backpack/satchel/leather
 	id = null
 	l_ear = null
@@ -95,7 +95,7 @@
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/mountain
 	id = /obj/item/card/id
 	backpack_contents = list(
-		/obj/item/device/uv_light = 1
+		/obj/item/uv_light = 1
 	)
 	r_pocket = /obj/item/storage/wallet
 

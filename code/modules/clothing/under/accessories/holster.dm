@@ -15,6 +15,10 @@
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
 	w_class = WEIGHT_CLASS_NORMAL
+	var/holster_message = "holster"
+	var/draw_peace = "pointing it at the ground."
+	var/draw_hostile = "ready to shoot!"
+	var/filled_sprite = FALSE
 
 /obj/item/clothing/accessory/holster/Initialize()
 	. = ..()
@@ -45,9 +49,10 @@
 	user.drop_from_inventory(holstered, src)
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
-	user.visible_message(SPAN_NOTICE("[user] holsters \the [holstered]."),
-							SPAN_NOTICE("You holster \the [holstered]."))
+	user.visible_message(SPAN_NOTICE("[user] [holster_message] \the [holstered]."),
+							SPAN_NOTICE("You [holster_message] \the [holstered]."))
 	update_name()
+	update_icon()
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
 	holstered = null
@@ -66,13 +71,13 @@
 		if(user.a_intent == I_HURT)
 			sound_vol = 50
 			user.visible_message(
-				SPAN_DANGER("[user] draws \the [holstered], ready to shoot!"),
-				SPAN_WARNING("You draw \the [holstered], ready to shoot!")
+				SPAN_DANGER("[user] draws \the [holstered], [draw_hostile]"),
+				SPAN_WARNING("You draw \the [holstered], [draw_hostile]")
 			)
 		else
 			user.visible_message(
-				SPAN_NOTICE("[user] draws \the [holstered], pointing it at the ground."),
-				SPAN_NOTICE("You draw \the [holstered], pointing it at the ground.")
+				SPAN_NOTICE("[user] draws \the [holstered], [draw_peace]"),
+				SPAN_NOTICE("You draw \the [holstered], [draw_peace]")
 			)
 
 		if(sound_out)
@@ -82,6 +87,16 @@
 		holstered.add_fingerprint(user)
 		w_class = initial(w_class)
 		clear_holster()
+		update_icon()
+
+/obj/item/clothing/accessory/holster/flip_sprite()
+	. = ..()
+	if(filled_sprite && holstered)
+		icon_state = "[icon_state]_filled"
+		item_state = "[item_state]_filled"
+	else
+		icon_state = "[icon_state]"
+		item_state = "[item_state]"
 
 /obj/item/clothing/accessory/holster/attack_hand(mob/user)
 	if (!ishuman(user))
@@ -260,6 +275,9 @@
 	icon_state = "holster_machete"
 	item_state = "holster_machete"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
+	holster_message = "sheath"
+	draw_peace = "holding it low."
+	draw_hostile = "ready to fight!"
 	allowed_items = list(
 		/obj/item/material/hatchet/machete,
 		/obj/item/material/hatchet/machete/deluxe,

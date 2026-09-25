@@ -190,6 +190,66 @@
 /obj/structure/automobile/langenfeld_hybrid_white/beat_up
 	name = "beat-up langenfeld compact"
 
+// ---------- Adhomian Cars
+/obj/structure/automobile/adhomai_car
+	name = "red urban half-track"
+	desc = "An automobile designed to traverse the icy roads with ease, carrying a rather old-fashion charm."
+	icon = 'icons/obj/structure/urban/adhomai_cars.dmi'
+	icon_state = "car_red"
+	bound_width = 64
+
+/obj/structure/automobile/adhomai_car/Initialize()
+	. = ..()
+	if(dir in list(NORTH, SOUTH))
+		bound_width = 32
+		bound_height = 64
+
+/obj/structure/automobile/adhomai_car/blue
+	name = "blue urban half-track"
+	icon_state = "car_blue"
+
+/obj/structure/automobile/adhomai_car/green
+	name = "green urban half-track"
+	icon_state = "car_green"
+
+/obj/structure/automobile/adhomai_car/purple
+	name = "purple urban half-track"
+	icon_state = "car_purple"
+
+/obj/structure/automobile/adhomai_car/taxi
+	name = "taxi urban half-track"
+	icon_state = "car_taxi"
+
+/obj/structure/automobile/adhomai_car/police
+	name = "police urban half-track"
+	icon_state = "car_police"
+
+/obj/structure/automobile/adhomai_car/red_van
+	name = "red urban half-track van"
+	icon_state = "soda_van"
+
+/obj/structure/automobile/adhomai_car/blue_van
+	name = "blue urban half-track van"
+	icon_state = "milk_van"
+
+/obj/random/adhomai_car
+	name = "random urban half-track"
+	icon = 'icons/obj/structure/urban/adhomai_cars.dmi'
+	icon_state = "car_random"
+	has_postspawn = TRUE
+	spawnlist = list(
+		/obj/structure/automobile/adhomai_car = 1,
+		/obj/structure/automobile/adhomai_car/blue = 1,
+		/obj/structure/automobile/adhomai_car/green = 1,
+		/obj/structure/automobile/adhomai_car/purple = 1,
+		/obj/structure/automobile/adhomai_car/taxi = 0.5,
+		/obj/structure/automobile/adhomai_car/red_van = 0.5,
+		/obj/structure/automobile/adhomai_car/blue_van = 0.5
+	)
+
+/obj/random/adhomai_car/post_spawn(obj/thing)
+	thing.dir = src.dir
+
 /obj/structure/automobile_filler
 	name = "vehicle"
 	desc = "A piece of a larger vehicle."
@@ -237,6 +297,12 @@
 	name = "[street_name]"
 	desc = "This sign indicates this crossing street is called [street_name]."
 
+/obj/structure/road_sign/notice
+	name = "notice sign"
+	desc = "A sign which warns of about something."
+	icon_state = "notice"
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+
 ABSTRACT_TYPE(/obj/structure/stairs/urban)
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
@@ -282,6 +348,31 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	bound_y = -32
 
 /obj/structure/stairs/urban/road_ramp/south
+	dir = SOUTH
+	bound_height = 64
+
+ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
+	icon = 'icons/obj/structure/urban/ledges_assun.dmi'
+	name = "inclined asphalt ramp"
+	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
+	icon_state = "road-ramp-center"
+	layer = 2.02
+
+/obj/structure/stairs/urban/road_ramp_assun/right
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+
+/obj/structure/stairs/urban/road_ramp_assun/left
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/road_ramp_assun/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/road_ramp_assun/south
 	dir = SOUTH
 	bound_height = 64
 
@@ -332,7 +423,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	var/open = 0
 
 /obj/structure/manhole/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
@@ -407,6 +498,65 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
+/obj/structure/neon_sign/assunzione/music_shop
+	name = "\improper PV AV"
+	desc = "The PV AV (Port Volturno Audio / Visual), a trendy hang-out spot for the music-conscious. Local radio DJ, Livia Sabatino, is said to be a regular."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "PV_AV"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+
+/obj/structure/neon_sign/assunzione/music_shop/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
+/obj/structure/neon_sign/assunzione/liquor_shop
+	name = "\improper Assunzione Duty-Free Libations"
+	desc = "Spaceports are fine places to make a tidy profit selling alcohol. Don't drink and pilot."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "duty_free"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+
+/obj/structure/neon_sign/assunzione/repair_shop
+	name = "\improper Sybdari Electromechanics"
+	desc = "A hybrid mechanics' bay and electronics shop that will fix just anything, from mopeds to laptops. Though not built for serious IPC work, they can help out in a pinch. A subsidiary of Iraklio Shipworks, as it happens."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "repair_shop_r"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+
+/obj/structure/neon_sign/assunzione/hotel
+	name = "\improper H O T E L sign"
+	desc = "A design five-hundred years old and still seen all across human space."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "hotel"
+
+/obj/structure/neon_sign/assunzione/chapel
+	name = "\improper Saint Alvisiol Chapel"
+	desc = "A local chapel consecrated by the Luceist Church, dedicated to spreading the Light of Ennoia."
+	icon = 'icons/obj/structure/urban/assunzione_neon.dmi'
+	icon_state = "assunzione"
+
+/obj/structure/neon_sign/assunzione/witch_hand
+	name = "\improper WITCH HAND"
+	desc = "A massive neon sign for Port Volturno's best underground nightclub. Not for the pious, and <i>especially</i> not for the photosensitive. Like, seriously. They make you sign a waiver."
+	icon = 'icons/obj/structure/urban/assunzione_96x160.dmi'
+	icon_state = "wh_sign"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+	pixel_x = -32
+	pixel_y = -32
+	light_range = 3.8
+	light_power = 0.5
+	light_color = LIGHT_COLOR_VIOLET
+
+/obj/structure/neon_sign/assunzione/witch_hand/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+	AddOverlays(emissive_appearance(icon, "[icon_state]-em", src, alpha = src.alpha))
+	set_light_range_power_color(light_range, light_power, light_color)
+	set_light_on(TRUE)
+	bound_width = 96
+	bound_height = 96
+	return INITIALIZE_HINT_NORMAL
+
 /obj/structure/shipping_container_old
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
@@ -445,6 +595,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
 
+/obj/structure/rod_railing/Initialize()
+	. = ..()
+	if(dir != NORTH)
+		layer = ABOVE_ABOVE_HUMAN_LAYER
+
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
 		return TRUE
@@ -454,14 +609,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
-	if(get_dir(loc, target) == dir)
+	if(get_dir(loc, target) & dir) // since these are bitflags, we can do bitwise &
 		return !density
 	return TRUE
 
 /obj/structure/rod_railing/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
 		return TRUE
-	if(get_dir(O.loc, target) == dir)
+	if(get_dir(O.loc, target) & dir)
 		if(!density)
 			return TRUE
 		return FALSE
@@ -470,6 +625,75 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/rod_railing/bar
 	layer = ABOVE_ABOVE_HUMAN_LAYER
 
+// ---------- Jail bars & doors
+
+/obj/structure/rod_railing/jailbar
+	name = "bars"
+	desc = "Sturdy bars of steel. One can hope not to end up at the wrong side of it."
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	icon = 'icons/obj/structure/urban/jail_bars.dmi'
+	icon_state = "bars"
+	pass_flags_self = PASSGRILLE
+	climbable = FALSE
+	armor = list(
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_PISTOL
+	)
+
+/obj/structure/rod_railing/jailbar/bars_slot
+	icon_state = "barsslot"
+
+/obj/structure/machinery/door/urban/jail_door
+	name = "barred door"
+	desc = "A barred steel door, commonly known as a jail door."
+	icon = 'icons/obj/structure/urban/jail_bars.dmi'
+	icon_state = "door_closed"
+	base_icon = "door"
+	opacity = FALSE
+	glass = TRUE
+	pass_flags = PASSGRILLE
+	pixel_x = 0
+	pixel_y = 0
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
+	open_sound = 'sound/machines/barred_door_openclose.ogg'
+	close_sound = 'sound/machines/barred_door_openclose.ogg'
+
+/obj/structure/machinery/door/urban/jail_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(mover?.movement_type & PHASING)
+		return TRUE
+	var/movingdir = get_dir(loc,target)
+	if(movingdir == 0)
+		movingdir = get_dir(loc,mover)
+	if(movingdir & dir)
+		if(air_group)
+			return FALSE
+		return !density
+	else
+		return TRUE
+
+/obj/structure/machinery/door/urban/jail_door/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
+	if(istype(mover) && mover.pass_flags & PASSGRILLE)
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return !density
+	else
+		return TRUE
+
+// rusted variant
+/obj/structure/rod_railing/jailbar/rusted
+	name = "rusted bars"
+	maxhealth = OBJECT_HEALTH_HIGH
+	icon_state = "bars_rust"
+
+/obj/structure/rod_railing/jailbar/rusted/bars_slot
+	icon_state = "barsslot_rust"
+
+/obj/structure/machinery/door/urban/jail_door/rusted
+	name = "rusted barred door"
+	icon_state = "door_rust_closed"
+	base_icon = "door_rust"
+	maxhealth = OBJECT_HEALTH_HIGH
 
 /obj/structure/dam
 	name = "concrete dam"
@@ -627,7 +851,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	anchored = TRUE
 
-
 /obj/structure/statue/buddha
 	name = "buddha statue"
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
@@ -637,6 +860,38 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	name = "gusoku"
 	desc = "A set of armor modelled after historical designs. Pieces replicating ancient artifacts are common on Konyang and viewed as favored pieces of art."
 	icon_state = "gusoku"
+
+/obj/structure/statue/aec/small
+	name = "\improper AEC memorial statue"
+	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
+	icon_state = "aec_small"
+
+/obj/structure/statue/aec/large
+	name = "\improper AEC memorial statue"
+	desc = "A towering memorial to all the fatalities incurred over the AEC's operations. Beneath the towering ranger in bronze, a plaque reads:<br>\
+			<b>FOR ALL HEROES FALLEN;</b><br>\
+			<b>INTREPID AND PIOUS,</b><br>\
+			<b>IN THAT HOLIEST OF MISSIONS:</b><br>\
+			<b>THE SEARCH OF LIGHT IN DARKNESS.</b><br>\
+			The list of names below is terribly long, the font so small as to be barely readable at all."
+	icon = 'icons/obj/structure/urban/assunzione_96x160.dmi'
+	icon_state = "aec_large"
+	layer = 5.16 // in the biz, we call this the above above ABOVE human layer
+	pixel_x = -32
+	pixel_y = -32
+	light_range = 3.8
+	light_power = 0.7
+	light_color = LIGHT_COLOR_VIOLET
+
+/obj/structure/statue/aec/large/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+	AddOverlays(emissive_appearance(icon, "[icon_state]-em", src, alpha = src.alpha))
+	set_light_range_power_color(light_range, light_power, light_color)
+	set_light_on(TRUE)
+	bound_width = 32
+	bound_height = 64
+	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/sign/urban
 	name = "exit sign"
@@ -653,16 +908,58 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
+/obj/structure/sign/billboard/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
+/obj/structure/sign/billboard/nolegs
+	name = "commercial billboard"
+	desc = "A large billboard rented out for advertisement space."
+	icon = 'icons/obj/structure/urban/billboard.dmi'
+	icon_state = "board_nolegs-l"
+	density = TRUE
+	layer = ABOVE_HUMAN_LAYER
+
 /obj/structure/sign/billboard/advert
 	name = "billboard advertisement"
 	desc = null
 	icon_state = "sign"
 	density = TRUE
+	/**
+	 * Billboard adverts have icon_states named for whether they're generic or location-specific. These variable records the # of a given type for the purpose of populating appropriate adverts.
+	 * When new adverts are added to a pool, or a new pool is added, the XYZ_adverts variables should be updated so that billboards at a given location populate their adverts randomly.
+	 */
+	var/list/advert_pool = list()
+	var/generic_adverts = 8
+	var/konyang_adverts = 11
+	var/assunzione_adverts = 3
 
-/obj/structure/sign/billboard/advert/random/Initialize(mapload)
+/obj/structure/sign/billboard/advert/random/generic/Initialize(mapload)
 	. = ..()
 	ClearOverlays()
-	icon_state = "sign[rand(1, 14)]"
+	for(var/x = 1 to generic_adverts)
+		advert_pool += "sign_generic[x]"
+	icon_state = pick(advert_pool)
+	return
+
+/obj/structure/sign/billboard/advert/random/konyang/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	for(var/x = 1 to generic_adverts)
+		advert_pool += "sign_generic[x]"
+	for(var/y = 1 to konyang_adverts)
+		advert_pool += "sign_konyang[y]"
+	icon_state = pick(advert_pool)
+	return
+
+/obj/structure/sign/billboard/advert/random/assunzione/Initialize(mapload)
+	. = ..()
+	ClearOverlays()
+	for(var/x = 1 to generic_adverts)
+		advert_pool += "sign_generic[x]"
+	for(var/y = 1 to assunzione_adverts)
+		advert_pool += "sign_assunzione[y]"
+	icon_state = pick(advert_pool)
 	return
 
 /obj/structure/sign/urban/drive_thru
@@ -691,14 +988,21 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.8
 	var/menu_text = ""
+	/// Whether or not the menu text can be updated.
+	var/static_menu = FALSE
 
 /obj/structure/restaurant_menu/attack_hand(mob/user)
+	if(static_menu)
+		to_chat(user, SPAN_WARNING("This menu sign's text is not configurable."))
 	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)
 	if(!isnull(new_text))
 		menu_text = pencode2html(new_text)
 		update_icon()
 
 /obj/structure/restaurant_menu/attackby(obj/item/attacking_item, mob/user)
+	if(static_menu)
+		to_chat(user, SPAN_WARNING("This menu sign's text is not configurable."))
+		return ..()
 	if(istype(attacking_item, /obj/item/paper))
 		var/obj/item/paper/P = attacking_item
 		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
@@ -708,6 +1012,30 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 		update_icon()
 		return TRUE
 	return ..()
+
+/obj/structure/restaurant_menu/stafylia
+	name = "\improper Stafýlia menu"
+	icon_state = "menu_gyro"
+	desc = "Welcome to Stafýlia! The real taste of Assunzione!\
+	<br><br>\
+	<br><b>Mains</b>\
+	<br>Signature Stafýlia Gyro - 6电\
+	<br>Doner Kebab - 6电\
+	<br>Falafel Pita - 6电\
+	<br><br>\
+	<br><b>Sides</b>\
+	<br>Salad - 3电\
+	<br>Fries - 3电\
+	<br>Chocolate Pita - 4电\
+	<br><br>\
+	<br><b>Drinks</b>\
+	<br>Drosiá Grape - 2电\
+	<br>Drosiá Cherry - 2电\
+	<br>Comet Cola - 2电\
+	<br>Xanu Rush - 2电\
+	<br><br>\
+	<br>Get the Stafýlia meal combo! Your choice of main, side and drink for only 9.50电!"
+	static_menu = TRUE
 
 /obj/structure/sign/urban/konyang
 	name = "convenience store sign"
@@ -740,11 +1068,33 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	desc = "A sign labeling the structure as a Konyang health and supply pharmacy."
 	icon_state = "pharmacy_sign"
 
+/obj/structure/sign/urban/assunzione
+	name = "convenience store sign"
+	desc = "A sign labeling the structure as a 24-7 MINI MART. Convenient!"
+	icon = 'icons/obj/structure/urban/assunzione_signs.dmi'
+	icon_state = "shop_sign"
+
+/obj/structure/sign/urban/assunzione/police
+	name = "police station sign"
+	desc = "A sign labeling the structure as an Volturno Spaceport security facility; while the spaceport is administered by the government of Triesto, internal security is Zeng-Hu corporate."
+	icon_state = "police_sign"
+
+/obj/structure/sign/urban/assunzione/pharmacy
+	name = "pharmacy & clinic sign"
+	desc = "A sign labeling the structure as a Zeng-Hu pharmaceutical distributor and medical clinic."
+	icon_state = "pharmacy_sign"
+
+/obj/structure/sign/urban/nanotrasen_pharmacy
+	name = "pharmacy sign"
+	desc = "A sign labeling the structure as a NanoTrasen medicine distributor."
+	icon = 'icons/obj/structure/urban/assunzione_signs.dmi'
+	icon_state = "nt_pharmacy_sign"
+
 /obj/structure/window/urban
 	icon = 'icons/obj/structure/urban/windows_tall.dmi'
 	icon_state = "wood"
 	basestate = "wood"
-	maxhealth = 60
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	alpha = 255
 
 /obj/structure/window/urban/framed
@@ -791,8 +1141,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/building_external.dmi'
 	icon_state = "wall_half"
 	//basestate = "wall_half"
-	health = 200
-	maxhealth = 200
+	maxhealth = OBJECT_HEALTH_HIGH
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/blocker/exterior_wall/red
@@ -845,7 +1194,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
  *
  * If `support_ids` is TRUE and a door is opened using an ID, it will not become a public door
  */
-/obj/machinery/door/urban
+/obj/structure/machinery/door/urban
 	name = "wooden panel door"
 	desc = "A delicate wooden door with a pristine bronze knob."
 	icon = 'icons/obj/structure/urban/unique_simple_doors.dmi'
@@ -857,23 +1206,30 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 	var/base_icon = "wood"
 
-	///Boolean, if the door also supports normal ID openings (read the ID access), or it's key only
+	/// Boolean, if the door also supports normal ID openings (read the ID access), or it's key only
 	var/support_ids = FALSE
-
-	///Stores the previous list of req_one_access, that gets readded when the door is locked with the key
+	/// Stores the previous list of req_one_access, that gets readded when the door is locked with the key
 	var/list/previous_req_one_access = list()
-
-	///Stores the previous list of req_access, that gets readded when the door is locked with the key
+	/// Stores the previous list of req_access, that gets readded when the door is locked with the key
 	var/list/previous_req_access = list()
+	/// Whether the door has an animated sprite or not.
+	var/has_open_close_animation = TRUE
+	/// Sound to play when the door is opened.
+	var/open_sound = 'sound/machines/simple_door_opening.ogg'
+	/// Sound to play when the door is closed
+	var/close_sound = 'sound/machines/simple_door_closing.ogg'
+	/// Sound to play when the door is locked and couldn't be opened.
+	var/rattle_sound = 'sound/machines/simple_door_stuck.ogg'
+	var/unlocking_sound = 'sound/machines/simple_door_lock_unlock.ogg'
 
-/obj/machinery/door/urban/update_icon()
+/obj/structure/machinery/door/urban/update_icon()
 	if(density)
 		icon_state = "[base_icon]_closed"
 	else
 		icon_state = "[base_icon]_open"
 	return
 
-/obj/machinery/door/urban/do_animate(animation)
+/obj/structure/machinery/door/urban/do_animate(animation)
 	switch(animation)
 		if("opening")
 
@@ -881,10 +1237,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 			if(!src.density)
 				return
 
-			if(p_open)
-				flick("[base_icon]c0", src)
-			else
-				flick("[base_icon]c0", src)
+			if(has_open_close_animation)
+				if(p_open)
+					flick("[base_icon]c0", src)
+				else
+					flick("[base_icon]c0", src)
+
+			if(open_sound)
+				playsound(src.loc, open_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 		if("closing")
 
@@ -892,25 +1252,40 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 			if(src.density)
 				return
 
-			if(p_open)
-				flick("[base_icon]c1", src)
-			else
-				flick("[base_icon]c1", src)
+			if(has_open_close_animation)
+				if(p_open)
+					flick("[base_icon]c1", src)
+				else
+					flick("[base_icon]c1", src)
+
+			if(close_sound)
+				playsound(src.loc, close_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+
+		if("deny")
+			if(rattle_sound)
+				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+			balloon_alert_to_viewers("*rattles*")
+			shake_animation(1)
+
 	return
 
-/obj/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
 
 	if(istype(attacking_item, /obj/item/key/door_key))
 
+		if(!density) // door needs to be closed before it can be locked
+			close()
+			return
+
 		if(check_access(attacking_item))
-			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
+			if(!(length(previous_req_one_access) || length(previous_req_access)))
 
 				//Only say that it's unlocked if there actually was an access list that did the locking
 				if(length(src.req_one_access) || length(src.req_access))
 					balloon_alert_to_viewers("*unlocks*")
 					to_chat(user, SPAN_NOTICE("You unlock \the [src]."))
 
-				open()
+				playsound(src.loc, unlocking_sound, 60, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 				//Save the list of accesses and empty them up
 				if(length(src.req_one_access))
@@ -928,7 +1303,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 					balloon_alert_to_viewers("*locks*")
 					to_chat(user, SPAN_NOTICE("You lock \the [src]."))
 
-				close()
+				playsound(src.loc, unlocking_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 				//Readd the list of accesses, and empty up the previous access lists
 				if(length(previous_req_one_access))
@@ -941,13 +1316,15 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 		else
 			balloon_alert_to_viewers("*rattles*")
+			if(rattle_sound)
+				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	//Check with our parent, in case it's not a key
 	else
 
 		. = ..()
 
-/obj/machinery/door/urban/allowed(mob/M)
+/obj/structure/machinery/door/urban/allowed(mob/M)
 	var/parent_allowed = ..()
 
 	//If we support IDs, or we are a public door, return the result of the parent, otherwise we're locked
@@ -956,7 +1333,64 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	else
 		return FALSE //Keys only
 
-/obj/machinery/door/urban/glass_sliding
+/obj/structure/machinery/door/urban/on_death()
+	visible_message(SPAN_WARNING("[src] breaks!"))
+	qdel(src)
+
+// ---------- Urban door subtypes
+
+/obj/structure/machinery/door/urban/metal
+	name = "metal door"
+	desc = "A metal, blue door. Keeps the street away."
+	icon_state = "metal_closed"
+	base_icon = "metal"
+	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_alt
+	name = "metal door"
+	desc = "A metal, blue door. Keeps the street away."
+	icon_state = "metal_alt_closed"
+	base_icon = "metal_alt"
+	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_red
+	name = "metal door"
+	desc = "A metal, red door. Keeps the street away."
+	icon_state = "metal_red_closed"
+	base_icon = "metal_red"
+	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_bar
+	name = "metal door"
+	desc = "A metal barred door."
+	icon_state = "metal_bar_closed"
+	base_icon = "metal_bar"
+	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
+	glass = TRUE
+	opacity = FALSE
+	has_open_close_animation = FALSE
+
+/obj/structure/machinery/door/urban/metal_grate
+	name = "metal door"
+	desc = "A metal door with grate."
+	icon_state = "metal_grate_closed"
+	base_icon = "metal_grate"
+	pixel_y = -8
+	open_layer = BASE_ABOVE_OBJ_LAYER
+	glass = TRUE
+	opacity = FALSE
+	has_open_close_animation = FALSE
+
+// ---------- Sliding door
+
+/obj/structure/machinery/door/urban/glass_sliding
 	name = "sliding glass door"
 	desc = "An electronic sliding glass door, often seen in cities."
 	icon_state = "glass_sliding_closed"
@@ -965,8 +1399,11 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	support_ids = TRUE
 	glass = TRUE
 	opacity = FALSE //otherwise it is opaque until opened/closed for the first time.
+	open_sound = 'sound/machines/windowdoor.ogg'
+	close_sound = 'sound/machines/windowdoor.ogg'
+	rattle_sound = null
 
-/obj/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
+/obj/structure/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
 	icon_state = "double_glass_sliding_closed"
 	base_icon = "double_glass_sliding"
 
@@ -975,14 +1412,14 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
  *
  * A key that opens a door, you probably use this everyday
  *
- * Locks and unlocks doors of type [/obj/machinery/door/urban]
+ * Locks and unlocks doors of type [/obj/structure/machinery/door/urban]
  *
  * Set in `access_list` a list of IDs that the key has, which in turn determine which doors it can open, based on
  * `req_one_access` and `req_access` logic
  */
 /obj/item/key/door_key
 	name = "Door key"
-	desc = "A key that unlocks a door"
+	desc = "A key that unlocks a door."
 
 	///A list of IDs that the key can lock/unlock
 	var/list/access_list = list()
@@ -1007,3 +1444,134 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 
 /obj/item/key/door_key/GetAccess()
 	return access_list
+
+// Overhead structural arches. Cool as hell.
+ABSTRACT_TYPE(/obj/structure/arch)
+	icon = 'icons/obj/structure/urban/arches.dmi'
+	icon_state = "gothic_arch_single"
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+	name = "arch"
+	anchored = TRUE
+
+/obj/structure/arch/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
+
+// East/west arch pieces
+/obj/structure/arch/gothic/eastwest/_single
+	dir = 4
+/obj/structure/arch/gothic/eastwest/left
+	icon_state = "gothic_arch_end"
+	dir = 4
+/obj/structure/arch/gothic/eastwest/middle
+	icon_state = "gothic_arch_middle"
+	dir = 4
+/obj/structure/arch/gothic/eastwest/right
+	icon_state = "gothic_arch_end"
+	dir = 8
+
+// North/south arch pieces
+/obj/structure/arch/gothic/northsouth/_single
+/obj/structure/arch/gothic/northsouth/upper
+	icon_state = "gothic_arch_end"
+/obj/structure/arch/gothic/northsouth/center
+	icon_state = "gothic_arch_middle"
+/obj/structure/arch/gothic/northsouth/lower
+	icon_state = "gothic_arch_end"
+	dir = 1
+
+// ---------- Quay walls
+/obj/structure/quay_wall
+	name = "quay wall"
+	icon = 'icons/obj/structure/urban/rampart.dmi'
+	icon_state = "center"
+	anchored = TRUE
+	density = TRUE
+	bound_height = 64
+
+/obj/structure/quay_wall/center_side
+	icon_state = "center-side"
+
+/obj/structure/quay_wall/corner
+	icon_state = "corner"
+
+/obj/structure/quay_wall/inner_corner
+	icon_state = "inner-corner"
+
+/obj/structure/quay_wall/side
+	icon_state = "side"
+	bound_height = 32
+
+/obj/structure/quay_wall/edge
+	icon_state = "edge"
+	bound_height = 32
+
+// ---------- Trashbin
+/obj/structure/trashbin
+	name = "trashbin"
+	desc = "It's a trashbin, where the trash goes."
+	icon = 'icons/obj/structure/urban/urban_props.dmi'
+	icon_state = "trashbin"
+	anchored = TRUE
+
+/obj/structure/trashbin/trashed
+	name = "damaged trashbin"
+	desc = "It's a trashed trashbin, poetic irony."
+	icon_state = "trashbin-1"
+
+/obj/structure/trashbin/trashed/Initialize()
+	. = ..()
+	icon_state = "trashbin-[rand(1, 3)]"
+
+// ---------- Trashbags
+/obj/structure/trashbags
+	name = "pile of trash"
+	icon = 'icons/obj/structure/urban/urban_props.dmi'
+	icon_state = "trashbags_1"
+	anchored = TRUE
+
+/obj/structure/trashbags/Initialize()
+	. = ..()
+	icon_state = "trashbags_[rand(1, 6)]"
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/trashbags/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living))
+		var/mob/living/L = arrived
+		to_chat(L, SPAN_NOTICE("You stumble through \the [src] really quite loudly."))
+		playsound(loc, 'sound/effects/plantshake.ogg', 20, TRUE)
+		shake_animation(4)
+
+// ---------- Pile of papers
+/obj/structure/paper_pile
+	name = "pile of papers"
+	icon = 'icons/obj/structure/urban/urban_props.dmi'
+	icon_state = "scattered_papers"
+	anchored = TRUE
+	layer = ABOVE_CATWALK_LAYER
+
+/obj/structure/paper_pile/random
+	icon_state = "papers_1"
+
+/obj/structure/paper_pile/random/Initialize()
+	. = ..()
+	icon_state = "papers_[rand(1, 3)]"
+	dir = pick(GLOB.cardinals)
+
+// ---------- Fire barrel
+/obj/structure/fire_barrel
+	name = "fire barrel"
+	desc = "A barrel tucked with firewood, primary sign of poverty."
+	icon = 'icons/obj/structure/urban/fires.dmi'
+	icon_state = "fire_barrel"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/fire_barrel/lit
+	icon_state = "fire_barrel_lit"

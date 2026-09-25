@@ -30,11 +30,13 @@
 		"Scrapper Ship" = list("nav_hangar_tajara_scrapper")
 	)
 	comms_support = TRUE
-	comms_name = "adhomian scrapper"
 
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost"
 	color = "#DAA06D"
+
+/obj/effect/overmap/visitable/sector/tajara_scrapper/create_comms_groups()
+	return list("default" = new /datum/comms_group("adhomian scrapper"))
 
 /obj/effect/shuttle_landmark/tajara_scrapper
 	base_turf = /turf/space
@@ -72,7 +74,7 @@
 	designation = "[pick("Space Scavenger", "Cheap Repair", "Adhomian Handyman", "Iron Rafama", "Wreck Wrecker", "Messa's Mechanic", "Grease Farwa", "Cold Gears", "Scrap's Bane")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/tajara_scrapper
+/obj/structure/machinery/computer/shuttle_control/explore/tajara_scrapper
 	name = "shuttle control console"
 	shuttle_tag = "Scrapper Ship"
 
@@ -86,7 +88,6 @@
 	landmark_transition = "nav_transit_tajara_scrapper"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tajara_scrapper"
 	defer_initialisation = TRUE
 
 

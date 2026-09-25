@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/suit_cycler/medical,
+/obj/structure/machinery/suit_cycler/medical,
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "b" = (

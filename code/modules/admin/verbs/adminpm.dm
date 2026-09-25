@@ -46,9 +46,10 @@
 		return
 
 	var/receive_pm_type = "Player"
+	var/sender_is_ahelp_staff = check_rights(R_ADMIN|R_MOD, FALSE)
 	//mod PMs are maroon
 	//PMs sent from admins and mods display their rank
-	if(holder)
+	if(sender_is_ahelp_staff)
 		if(!C.holder && holder.fakekey)
 			receive_pm_type = "Admin"
 		else
@@ -61,12 +62,12 @@
 	//get message text, limit it's length.and clean/escape html
 	// only sanitize it if we're getting it from this proc
 	if(!msg)
-		msg = input(src,"Message:", "Private message to [key_name(C, 0, holder ? 1 : 0)]") as text|null
+		msg = input(src,"Message:", "Private message to [key_name(C, 0, sender_is_ahelp_staff ? 1 : 0)]") as text|null
 
 		if(!msg)
 			return
 		if(!C)
-			if(holder)
+			if(sender_is_ahelp_staff)
 				to_chat(src, SPAN_WARNING("Error: Admin-PM: Client not found."))
 			else
 				to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!"))
@@ -81,7 +82,7 @@
 	// searches for an open ticket, in case an outdated link was clicked
 	// I'm paranoid about the problems that could be caused by accidentally finding the wrong ticket, which is why this is strict
 	if(isnull(ticket))
-		if(holder)
+		if(sender_is_ahelp_staff)
 			ticket = get_open_ticket_by_ckey(C.ckey) // it's more likely an admin clicked a different PM link, so check admin -> player with ticket first
 			if(isnull(ticket) && C.holder)
 				ticket = get_open_ticket_by_ckey(src.ckey) // if still no dice, try an admin with ticket -> admin
@@ -90,7 +91,7 @@
 
 
 	if(isnull(ticket)) // finally, accept that no ticket exists
-		if(holder && src != C)
+		if(sender_is_ahelp_staff && src != C)
 			ticket = new /datum/ticket(C.ckey)
 			ticket.take(src)
 		else
@@ -101,13 +102,13 @@
 		return
 
 	// if the sender is an admin and they're not assigned to the ticket, ask them if they want to take/join it, unless the admin is responding to their own ticket
-	if(holder && !(src.ckey in ticket.assigned_admins))
+	if(sender_is_ahelp_staff && !(src.ckey in ticket.assigned_admins))
 		if(src.ckey != ticket.owner && !ticket.take(src))
 			return
 
 	var/receive_message
 
-	if(holder && !C.holder)
+	if(sender_is_ahelp_staff && !C.holder)
 		receive_message = "<span class='pm'><span class='howto'><b>-- Click the [receive_pm_type]'s name to reply --</b></span></span>\n"
 		if(C.adminhelped)
 			to_chat(C, receive_message)
@@ -126,8 +127,8 @@
 						adminhelp(reply)													//sender has left, adminhelp instead
 				return
 
-	var/sender_message = "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>[get_options_bar(C, holder ? 1 : 0, holder ? 1 : 0, 1)]</span>"
-	if(holder)
+	var/sender_message = "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>[get_options_bar(C, sender_is_ahelp_staff ? 1 : 0, sender_is_ahelp_staff ? 1 : 0, 1)]</span>"
+	if(sender_is_ahelp_staff)
 		sender_message += " (<a href='byond://?_src_=holder;take_ticket=[REF(ticket)]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=[REF(usr)];close_ticket=[REF(ticket)]'>CLOSE</a>)"
 		sender_message += ": <span class='message linkify'>[generate_ahelp_key_words(mob, msg)]</span>"
 	else

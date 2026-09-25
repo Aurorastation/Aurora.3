@@ -5,6 +5,7 @@
 
 /singleton/surgery_step/robotics
 	can_infect = FALSE
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -22,18 +23,287 @@
 		return FALSE
 	return TRUE
 
+//////////////////////////////////////////////////////////////////
+//                     PROSTHETIC DETACHMENT                    //
+//////////////////////////////////////////////////////////////////
+
+/singleton/surgery_step/robotics/prosthetic_detachment
+	standing_self_surgery = TRUE
+	requires_surgery_compatibility = FALSE
+	skill_requirements = null
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
+
+/singleton/surgery_step/robotics/prosthetic_detachment/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(affected.is_stump() || affected.is_broken() || affected.vital && !affected.sabotaged)
+		return FALSE
+	return TRUE
+
+/singleton/surgery_step/robotics/prosthetic_detachment/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
+	if(user == target)
+		return null
+	return alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
+
+/singleton/surgery_step/robotics/prosthetic_detachment/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	if(preferred_skill_component && preferred_skill_component != ROBOTICS_SKILL_COMPONENT)
+		return null
+	if(user == target)
+		return list()
+	return ..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/get_surgery_time(mob/living/user, mob/living/carbon/human/target)
+	if(user == target)
+		return base_surgery_time
+	var/robotics_skill = GET_SKILL_LEVEL(user, ROBOTICS_SKILL_COMPONENT)
+	if(!isnull(robotics_skill) && robotics_skill < SKILL_LEVEL_FAMILIAR)
+		return base_surgery_time * 2
+	return base_surgery_time
+
+/singleton/surgery_step/robotics/prosthetic_detachment/proc/target_possessive(mob/living/user, mob/living/carbon/human/target, second_person = FALSE)
+	if(user == target)
+		return second_person ? "your" : user.get_pronoun("his")
+	return "[target]'s"
+
+/singleton/surgery_step/robotics/prosthetic_detachment/access_hub
+	name = "Access Prosthetic Interface Hub"
+	allowed_tools = list(
+		TOOL_MULTITOOL = 100,
+		TOOL_SCREWDRIVER = 100
+	)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/access_hub/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_SECURED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/access_hub/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts opening the interface hub where [target_possessive(user, target)] [affected.name] meets [target_possessive(user, target)] body with \the [tool]."), \
+		SPAN_NOTICE("You start opening the interface hub where [target_possessive(user, target, TRUE)] [affected.name] meets [target_possessive(user, target, TRUE)] body with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/access_hub/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_HUB_OPEN
+	user.visible_message(SPAN_NOTICE("[user] opens the interface hub for [target_possessive(user, target)] [affected.name]."), \
+		SPAN_NOTICE("You open [target_possessive(user, target, TRUE)] [affected.name]'s interface hub, exposing its power and neural connections."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/access_hub/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips while opening [target_possessive(user, target)] prosthetic interface hub."), \
+		SPAN_WARNING("Your [tool.name] slips while opening [target_possessive(user, target, TRUE)] prosthetic interface hub."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disable_connection
+	name = "Disable Prosthetic Power and Neural Connection"
+	allowed_tools = list(
+		TOOL_MULTITOOL = 100,
+		TOOL_SCREWDRIVER = 75
+	)
+	base_surgery_time = 5 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disable_connection/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_HUB_OPEN
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disable_connection/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts disabling the power feed and neural connection to [target_possessive(user, target)] [affected.name] with \the [tool]."), \
+		SPAN_NOTICE("You start disabling the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name] with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disable_connection/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
+	user.visible_message(SPAN_NOTICE("[user] disables the power feed and neural connection to [target_possessive(user, target)] [affected.name]."), \
+		SPAN_NOTICE("You disable the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name]."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disable_connection/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_WARNING("[user] fails to disable [target_possessive(user, target)] prosthetic's connections."), \
+		SPAN_WARNING("You fail to disable [target_possessive(user, target, TRUE)] prosthetic's connections."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties
+	name = "Disengage Prosthetic Safety Locks"
+	allowed_tools = list(TOOL_SCREWDRIVER = 100)
+	base_surgery_time = 5 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts mechanically disengaging [target_possessive(user, target)] [affected.name]'s safety locks with \the [tool]."), \
+		SPAN_NOTICE("You start mechanically disengaging [target_possessive(user, target, TRUE)] [affected.name]'s safety locks with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
+	user.visible_message(SPAN_NOTICE("[user] disengages [target_possessive(user, target)] [affected.name]'s safety locks."), \
+		SPAN_NOTICE("You disengage [target_possessive(user, target, TRUE)] [affected.name]'s safety locks."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips off [target_possessive(user, target)] prosthetic's safety locks."), \
+		SPAN_WARNING("Your [tool.name] slips off [target_possessive(user, target, TRUE)] prosthetic's safety locks."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/release_anchors
+	name = "Release Prosthetic Retention Anchors"
+	allowed_tools = list(
+		TOOL_WRENCH = 100,
+		TOOL_CROWBAR = 75
+	)
+	base_surgery_time = 6 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts releasing [target_possessive(user, target)] [affected.name]'s retention anchors with \the [tool]."), \
+		SPAN_NOTICE("You start releasing [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_ANCHORS_RELEASED
+	user.visible_message(SPAN_NOTICE("[user] releases [target_possessive(user, target)] [affected.name]'s retention anchors."), \
+		SPAN_NOTICE("You release [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors. It can now be removed by hand."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_WARNING("[user] fails to release [target_possessive(user, target)] prosthetic's retention anchors."), \
+		SPAN_WARNING("You fail to release [target_possessive(user, target, TRUE)] prosthetic's retention anchors."))
+
+//////////////////////////////////////////////////////////////////
+//                 PROSTHETIC DETACHMENT REVERSAL               //
+//////////////////////////////////////////////////////////////////
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors
+	name = "Secure Prosthetic Retention Anchors"
+	allowed_tools = list(
+		TOOL_WRENCH = 100,
+		TOOL_CROWBAR = 75
+	)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_ANCHORS_RELEASED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts securing [target_possessive(user, target)] [affected.name]'s retention anchors with \the [tool]."), \
+		SPAN_NOTICE("You start securing [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
+	user.visible_message(SPAN_NOTICE("[user] secures [target_possessive(user, target)] [affected.name]'s retention anchors."), \
+		SPAN_NOTICE("You secure [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties
+	name = "Engage Prosthetic Safety Locks"
+	allowed_tools = list(TOOL_SCREWDRIVER = 100)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts engaging [target_possessive(user, target)] [affected.name]'s safety locks with \the [tool]."), \
+		SPAN_NOTICE("You start engaging [target_possessive(user, target, TRUE)] [affected.name]'s safety locks with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection
+	name = "Restore Prosthetic Power and Neural Connection"
+	allowed_tools = list(
+		TOOL_MULTITOOL = 100,
+		TOOL_SCREWDRIVER = 75
+	)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts restoring the power feed and neural connection to [target_possessive(user, target)] [affected.name] with \the [tool]."), \
+		SPAN_NOTICE("You start restoring the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name] with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_HUB_OPEN
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub
+	name = "Close Prosthetic Interface Hub"
+	allowed_tools = list(
+		TOOL_MULTITOOL = 100,
+		TOOL_SCREWDRIVER = 100
+	)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_HUB_OPEN
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts closing [target_possessive(user, target)] [affected.name]'s interface hub with \the [tool]."), \
+		SPAN_NOTICE("You start closing [target_possessive(user, target, TRUE)] [affected.name]'s interface hub with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SECURED
+	user.visible_message(SPAN_NOTICE("[user] closes [target_possessive(user, target)] [affected.name]'s interface hub, returning it to normal operation."), \
+		SPAN_NOTICE("You close [target_possessive(user, target, TRUE)] [affected.name]'s interface hub, returning it to normal operation."))
+
 /singleton/surgery_step/robotics/unscrew_hatch
 	name = "Unscrew Hatch"
 	allowed_tools = list(
-		SCREWDRIVER = 100,
+		TOOL_SCREWDRIVER = 100,
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
-
-	min_duration = 70
-	max_duration = 90
-
+	base_surgery_time = 7 SECONDS
 	requires_surgery_compatibility = FALSE
+	// Basic surgery any novice roboticist can do
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/robotics/unscrew_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -67,15 +337,14 @@
 /singleton/surgery_step/robotics/screw_hatch
 	name = "Screw Hatch"
 	allowed_tools = list(
-		SCREWDRIVER = 100,
+		TOOL_SCREWDRIVER = 100,
 		/obj/item/coin = 50,
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
-
-	min_duration = 70
-	max_duration = 90
-
+	base_surgery_time = 7 SECONDS
 	requires_surgery_compatibility = FALSE
+	// Basic surgery any novice roboticist can do
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/robotics/screw_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -109,13 +378,13 @@
 /singleton/surgery_step/robotics/open_hatch
 	name = "Open Hatch"
 	allowed_tools = list(
-		/obj/item/surgery/retractor = 100,
-		CROWBAR = 100,
+		TOOL_RETRACTOR = 100,
+		TOOL_CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
-
-	min_duration = 20
-	max_duration = 30
+	base_surgery_time = 3 SECONDS
+	// Basic surgery any novice roboticist can do
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/open_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -146,13 +415,13 @@
 /singleton/surgery_step/robotics/close_hatch
 	name = "Close Hatch"
 	allowed_tools = list(
-		/obj/item/surgery/retractor = 100,
-		CROWBAR = 100,
+		TOOL_RETRACTOR = 100,
+		TOOL_CROWBAR = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
-
-	min_duration = 50
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
+	// Basic surgery any novice roboticist can do
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/close_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -187,23 +456,23 @@
 /singleton/surgery_step/robotics/repair_brute
 	name = "Repair Damage"
 	allowed_tools = list(
-		/obj/item/weldingtool = 100,
+		TOOL_WELDER = 100,
 		/obj/item/gun/energy/plasmacutter = 50
 	)
-
-	min_duration = 30
-	max_duration = 40
+	base_surgery_time = 4 SECONDS
+	// Basic surgery any novice roboticist can do
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/robotics/repair_brute/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || welder.get_fuel() < 2)
 			return FALSE
-	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.brute_dam > 0 && target_zone != BP_MOUTH
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && LIMB_GET_BRUTE_DAMAGE(affected) > 0 && target_zone != BP_MOUTH
 
 /singleton/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -212,7 +481,7 @@
 	..()
 
 /singleton/surgery_step/robotics/repair_brute/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() && !welder.use(2, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
@@ -232,12 +501,11 @@
 /singleton/surgery_step/robotics/repair_burn
 	name = "Repair Burns"
 	allowed_tools = list(
-		/obj/item/stack/cable_coil = 100,
-		/obj/item/stack/cable_coil/cyborg = 100
+		TOOL_CABLECOIL = 100
 	)
-
-	min_duration = 30
-	max_duration = 40
+	base_surgery_time = 4 SECONDS
+	// Basic surgery any novice roboticist can do
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/robotics/repair_burn/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -245,7 +513,7 @@
 
 	var/obj/item/stack/cable_coil/C = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.burn_dam > 0 && target_zone != BP_MOUTH)
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && LIMB_GET_BURN_DAMAGE(affected) > 0 && target_zone != BP_MOUTH)
 	if(limb_can_operate)
 		if(istype(C))
 			if(!C.get_amount() >= 6)
@@ -276,11 +544,10 @@
 /singleton/surgery_step/robotics/detach_organ_robotic
 	name = "Detach Robotic Organ"
 	allowed_tools = list(
-	/obj/item/device/multitool = 100
+	TOOL_MULTITOOL = 100
 	)
-
-	min_duration = 70
-	max_duration = 90
+	base_surgery_time = 9 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/detach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -326,13 +593,11 @@
 /singleton/surgery_step/robotics/attach_organ_robotic
 	name = "Attach Robotic Organ"
 	allowed_tools = list(
-		SCREWDRIVER = 100
+		TOOL_SCREWDRIVER = 100
 	)
-
-	min_duration = 80
-	max_duration = 100
-
+	base_surgery_time = 10 SECONDS
 	requires_surgery_compatibility = FALSE
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/attach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -377,11 +642,10 @@
 /singleton/surgery_step/robotics/install_mmi
 	name = "Install MMI"
 	allowed_tools = list(
-	/obj/item/device/mmi = 100
+	/obj/item/mmi = 100
 	)
-
-	min_duration = 40
-	max_duration = 60
+	base_surgery_time = 6 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/robotics/install_mmi/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -390,7 +654,7 @@
 	if(target_zone != BP_HEAD)
 		return FALSE
 
-	var/obj/item/device/mmi/M = tool
+	var/obj/item/mmi/M = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!(affected && affected.open == ORGAN_ENCASED_RETRACTED))
 		return FALSE
@@ -418,7 +682,7 @@
 		to_chat(user, SPAN_DANGER("You're pretty sure [target.species.name_plural] don't normally have a brain."))
 		return SURGERY_FAILURE
 
-	if(!isnull(target.internal_organs[BP_BRAIN]))
+	if(!isnull(target.internal_organs_by_name[BP_BRAIN]))
 		to_chat(user, SPAN_DANGER("Your subject already has a brain."))
 		return SURGERY_FAILURE
 
@@ -435,8 +699,8 @@
 	user.visible_message("<b>[user]</b> has installed \the [tool] into [target]'s [affected.name].", \
 		SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."))
 
-	var/obj/item/device/mmi/M = tool
-	var/obj/item/organ/internal/mmi_holder/holder = new(target, 1)
+	var/obj/item/mmi/M = tool
+	var/obj/item/organ/internal/machine/posibrain/holder = new(target, 1)
 	target.internal_organs_by_name[BP_BRAIN] = holder
 	user.drop_from_inventory(tool,holder)
 	holder.stored_mmi = tool
@@ -448,3 +712,323 @@
 /singleton/surgery_step/robotics/install_mmi/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips."), \
 		SPAN_WARNING("Your hand slips."))
+
+/singleton/surgery_step/internal/fix_internal_wiring
+	name = "Repair Internal Wiring"
+	allowed_tools = list(
+		TOOL_CABLECOIL = 100
+	)
+	base_surgery_time = 7 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
+
+/singleton/surgery_step/internal/fix_internal_wiring/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/stack/cable_coil/C = tool
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.wiring.get_status() < 100)
+				if(istype(C))
+					var/needed_wires = (I.wiring.max_wires - I.wiring.wires) / 2
+					if(needed_wires)
+						if(!(C.get_amount() >= (needed_wires)))
+							to_chat(user, SPAN_WARNING("You need [needed_wires] or more cable pieces to repair this damage."))
+							return SURGERY_FAILURE
+						is_organ_damaged = TRUE
+						C.use(needed_wires)
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_wiring/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.wiring.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins splitting and connecting new wiring in [target]'s [I]..."))
+	..()
+
+/singleton/surgery_step/internal/fix_internal_wiring/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.wiring.get_status() < 100))
+			var/needed_wires = I.wiring.max_wires - I.wiring.wires
+			user.visible_message(SPAN_NOTICE("[user] fixes the wiring in [target]'s [affected]."))
+			I.wiring.heal_damage(needed_wires)
+
+/singleton/surgery_step/internal/fix_internal_electronics
+	name = "Repair Internal Electronics"
+	allowed_tools = list(
+		TOOL_MULTITOOL = 100,
+	)
+	base_surgery_time = 20 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
+
+/singleton/surgery_step/internal/fix_internal_electronics/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.electronics.get_status() < 100)
+				is_organ_damaged = TRUE
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_electronics/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.electronics.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins replacing the electronics in [target]'s [I] and reconfiguring them..."))
+	..()
+
+/singleton/surgery_step/internal/fix_internal_electronics/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.electronics.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] repairs the electronics in [target]'s [affected]."))
+			I.electronics.heal_damage(I.electronics.max_integrity)
+
+/singleton/surgery_step/internal/fix_internal_plating
+	name = "Repair Internal Plating"
+	allowed_tools = list(
+		/obj/item/stack/material/steel = 100,
+	)
+	base_surgery_time = 12 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
+
+/singleton/surgery_step/internal/fix_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/stack/material/steel/steel = tool
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.plating.get_status() < 100)
+				if(I.plating.get_status() <= 0)
+					to_chat(user, SPAN_WARNING("That plating is too far gone! You'll need to totally replace it with new plates!"))
+					return FALSE
+				var/needed_plates = I.plating.max_health / 10
+				if(istype(steel))
+					if(!(steel.get_amount() >= (needed_plates)))
+						to_chat(user, SPAN_WARNING("You need [round(needed_plates) / 10] or more steel plates to repair this damage."))
+						return SURGERY_FAILURE
+					is_organ_damaged = TRUE
+					steel.use(needed_plates)
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			var/damage_type = pick("damage", "kinks", "gashes", "holes")
+			user.visible_message(SPAN_NOTICE("[user] begins melding steel to the [damage_type] on the plating around [target]'s [I]..."), "You begin melding steel to the [damage_type] on the plating around [target]'s [I]...")
+	..()
+
+/singleton/surgery_step/internal/fix_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] mends the plating around [target]'s [affected]."), SPAN_NOTICE("You mend the plating around [target]'s [affected]."))
+			I.plating.heal_damage(I.plating.max_health)
+
+/singleton/surgery_step/internal/replace_internal_plating
+	name = "Replace Internal Plating"
+	allowed_tools = list(
+		/obj/item/synth_plating = 100,
+	)
+	base_surgery_time = 15 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_HARD
+
+/singleton/surgery_step/internal/replace_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/is_plating_destroyed = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.plating.get_status() <= 0)
+				is_plating_destroyed = TRUE
+	return is_plating_destroyed
+
+/singleton/surgery_step/internal/replace_internal_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins cutting apart the old plating around [target]'s [I] and replacing it with new plates..."))
+	..()
+
+/singleton/surgery_step/internal/replace_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() <= 0))
+			user.visible_message(SPAN_NOTICE("[user] fully replaces the plating in [target]'s [affected]."))
+			user.remove_from_mob(tool)
+			qdel(tool)
+			I.plating.heal_damage(I.plating.max_health)
+
+
+/singleton/surgery_step/internal/replace_external_plating
+	name = "Replace External Plating"
+	allowed_tools = list(
+		/obj/item/synth_plating = 100,
+	)
+	base_surgery_time = 20 SECONDS
+	var/fast_repair = FALSE
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
+
+/singleton/surgery_step/internal/replace_external_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	if(fast_repair)
+		if(!istype(target.species, /datum/species/machine/industrial/hephaestus))
+			return FALSE
+
+	var/armor_damaged = FALSE
+	var/datum/component/armor/synthetic/synth_armor = target.GetComponent(/datum/component/armor/synthetic)
+	if(synth_armor)
+		var/list/damage = synth_armor.get_damage()
+		if(length(damage))
+			armor_damaged = TRUE
+	return armor_damaged
+
+/singleton/surgery_step/internal/replace_external_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] begins stripping [target]'s old armour plating and replacing it with new plates."), SPAN_NOTICE("You begin stripping off [target]'s old armour plating and replacing it with new plates."))
+	..()
+
+/singleton/surgery_step/internal/replace_external_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	user.visible_message(SPAN_NOTICE("[user] finished replacing [target]'s old armour plating with new plates."), SPAN_NOTICE("You finish replacing [target]'s old armour plating with new plates."))
+	var/datum/component/armor/synthetic/synth_armor = target.GetComponent(/datum/component/armor/synthetic)
+	if(istype(synth_armor))
+		for(var/key in synth_armor.armor_values)
+			synth_armor.armor_values[key] = synth_armor.max_armor_values[key]
+		qdel(tool)
+
+/singleton/surgery_step/internal/degunk
+	name = "Remove Bio-Reactor Waste"
+	allowed_tools = list(
+		/obj/item/reagent_containers/glass = 100,
+	)
+	base_surgery_time = 15 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_TRIVIAL
+
+/singleton/surgery_step/internal/replace_external_plating/g2
+	name = "Replace G2 External Armour Plating"
+	base_surgery_time = 10 SECONDS
+	fast_repair = TRUE
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+
+/singleton/surgery_step/internal/degunk/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/organ/internal/machine/reactor/bio_reactor = target.internal_organs_by_name[BP_REACTOR]
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone == BP_CHEST)
+	if(limb_can_operate)
+		if(bio_reactor && (bio_reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			var/extraneous_amount = 0
+			for(var/reagent_type in bio_reactor.bio_reagents.reagent_volumes)
+				var/reagent_amount = REAGENT_VOLUME(bio_reactor.bio_reagents, reagent_type)
+				if(!ispath(reagent_type, /singleton/reagent/nutriment))
+					extraneous_amount += reagent_amount
+			if(extraneous_amount)
+				return TRUE
+	return FALSE
+
+/singleton/surgery_step/internal/degunk/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] begins draining the refuse inside of [target]'s biological reactor..."), SPAN_NOTICE("You begin draining the refuse inside of [target]'s biological reactor."))
+	..()
+
+/singleton/surgery_step/internal/degunk/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/internal/machine/reactor/bio_reactor = target.internal_organs_by_name[BP_REACTOR]
+	for(var/reagent_type in bio_reactor.bio_reagents.reagent_volumes)
+		var/reagent_amount = REAGENT_VOLUME(bio_reactor.bio_reagents, reagent_type)
+		if(!ispath(reagent_type, /singleton/reagent/nutriment))
+			bio_reactor.bio_reagents.trans_type_to(tool, reagent_type, reagent_amount)
+	playsound(target, 'sound/effects/drain_blood.ogg', 50)
+	user.visible_message(SPAN_NOTICE("[user] extracts the refuse in [target]'s biological reactor."), SPAN_NOTICE("You drain the refuse in [target]'s biological reactor to [tool]."))
+
+/singleton/surgery_step/robotics/repair_endoskeleton
+	name = "Repair Endoskeleton"
+	allowed_tools = list(
+		TOOL_WELDER = 100,
+		/obj/item/gun/energy/plasmacutter = 50
+	)
+	base_surgery_time = 2.5 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_MEDIUM
+
+/singleton/surgery_step/robotics/repair_endoskeleton/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(tool.tool_behaviour == TOOL_WELDER)
+		var/obj/item/weldingtool/welder = tool
+		if(!welder.isOn() || welder.get_fuel() < 5)
+			return FALSE
+	var/datum/component/synthetic_endoskeleton/endoskeleton = target.GetComponent(/datum/component/synthetic_endoskeleton)
+	if(!istype(endoskeleton))
+		return FALSE
+
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.limb_name == BP_CHEST && target_zone != BP_MOUTH && endoskeleton.damage > 0
+
+/singleton/surgery_step/robotics/repair_endoskeleton/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message("<b>[user]</b> begins to repair the support structures of [target]'s endoskeleton with \the [tool]." , \
+		SPAN_NOTICE("You begin to repair the support structures of [target]'s endoskeleton  with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/repair_endoskeleton/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(tool.tool_behaviour == TOOL_WELDER)
+		var/obj/item/weldingtool/welder = tool
+		if(!welder.isOn() && !welder.use(5, user))
+			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
+			SPAN_WARNING("Your [tool] is shut off!"))
+			return
+	user.visible_message("<b>[user]</b> finishes repairing some damage to [target]'s endoskeleton with \the [tool].", \
+		SPAN_NOTICE("You finish repairing some damage to [target]'s endoskeleton with \the [tool]."))
+	SEND_SIGNAL(target, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(30, 50))
+
+/singleton/surgery_step/robotics/repair_endoskeleton/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"),
+		SPAN_WARNING("Your [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"))
+	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)

@@ -5,7 +5,7 @@
 	icon_state = "la_creatura"
 	pass_flags = PASSTABLE
 	health = 50
-	maxHealth = 50
+	maxhealth = 50
 	mob_size = 4
 
 	var/adult_form
@@ -25,7 +25,6 @@
 
 	time_of_birth = world.time
 
-	add_verb(src, /mob/living/proc/ventcrawl)
 	add_verb(src, /mob/living/proc/hide)
 
 	name = "[initial(name)] ([rand(1, 1000)])"

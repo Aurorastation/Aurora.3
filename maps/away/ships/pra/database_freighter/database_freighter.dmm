@@ -8,11 +8,11 @@
 	},
 /area/database_freighter)
 "ab" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -23,10 +23,10 @@
 	},
 /area/database_freighter)
 "ae" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -34,7 +34,7 @@
 	},
 /area/database_freighter/checkpoint)
 "ai" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/database_freighter,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -55,7 +55,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/database_freighter_shuttle)
 "al" = (
-/obj/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -63,14 +63,14 @@
 	},
 /area/database_freighter/engineering)
 "am" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -83,7 +83,7 @@
 	},
 /area/database_freighter/hangar)
 "ao" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/wood{
@@ -96,7 +96,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -117,7 +117,7 @@
 	},
 /area/database_freighter/laboratory)
 "ay" = (
-/obj/machinery/firealarm/west,
+/obj/structure/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -126,10 +126,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -151,7 +151,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -159,8 +159,8 @@
 	},
 /area/database_freighter/checkpoint)
 "aC" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -175,10 +175,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -214,11 +214,11 @@
 	pixel_y = 9
 	},
 /obj/item/deck/cards,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -235,11 +235,11 @@
 	},
 /area/database_freighter)
 "aO" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -254,13 +254,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "aV" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -285,7 +285,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
@@ -300,7 +300,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -308,10 +308,10 @@
 	},
 /area/database_freighter/checkpoint)
 "be" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/survey_probe/pra,
 /turf/simulated/floor/tiled/dark{
@@ -319,7 +319,7 @@
 	},
 /area/database_freighter/hangar)
 "bj" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -336,9 +336,9 @@
 	},
 /area/database_freighter/hangar)
 "br" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -346,7 +346,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/research{
+/obj/structure/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Laboratory";
 	dir = 1
@@ -369,10 +369,10 @@
 	},
 /area/database_freighter)
 "bu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -380,13 +380,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
 /area/database_freighter/captain_quarters)
 "bE" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(209)
 	},
@@ -407,8 +407,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -424,10 +424,10 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/firealarm/west,
+/obj/structure/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -443,10 +443,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -454,18 +454,18 @@
 	},
 /area/database_freighter/checkpoint)
 "bR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
 "bS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -476,8 +476,8 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/machinery/vending/snack,
-/obj/machinery/light{
+/obj/structure/machinery/vending/snack,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -486,7 +486,7 @@
 	},
 /area/database_freighter)
 "bX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -516,7 +516,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -524,7 +524,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle,
-/obj/machinery/airlock_sensor/airlock_exterior{
+/obj/structure/machinery/airlock_sensor/airlock_exterior{
 	dir = 4;
 	pixel_x = -24;
 	pixel_y = -1
@@ -535,7 +535,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -544,7 +544,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
@@ -552,7 +552,7 @@
 	},
 /area/database_freighter)
 "ci" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -594,7 +594,7 @@
 	},
 /area/database_freighter/laboratory)
 "cm" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -602,14 +602,14 @@
 	},
 /area/database_freighter/engineering)
 "co" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/bluegrid{
 	temperature = 278.15
 	},
 /area/database_freighter/laboratory)
 "cp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/item/blueprints,
@@ -626,9 +626,9 @@
 	},
 /area/database_freighter/engineering)
 "cq" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -637,7 +637,7 @@
 	},
 /area/database_freighter/storage)
 "cr" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -649,14 +649,14 @@
 /area/database_freighter/engineering)
 "cx" = (
 /obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "database_bridge";
 	name = "Bridge Blastdoor";
 	req_access = list(209);
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red,
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -665,7 +665,7 @@
 /area/database_freighter/bridge)
 "cB" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -685,9 +685,9 @@
 /turf/template_noop,
 /area/space)
 "cF" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -700,10 +700,10 @@
 	},
 /area/database_freighter/hangar)
 "cH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -712,8 +712,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -724,18 +724,18 @@
 	},
 /area/database_freighter)
 "cK" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	req_access = list(209);
 	name = "Head Surveyor's Quarters";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -753,7 +753,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/shipsensors/weak{
+/obj/structure/machinery/shipsensors/weak{
 	pixel_y = 4;
 	pixel_x = -1
 	},
@@ -784,10 +784,10 @@
 "cT" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -824,7 +824,7 @@
 /area/database_freighter)
 "dk" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /obj/structure/closet/secure_closet/guncabinet{
@@ -839,9 +839,9 @@
 	},
 /area/database_freighter/checkpoint)
 "dm" = (
-/obj/machinery/power/emitter,
+/obj/structure/machinery/power/emitter,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -874,7 +874,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = -32
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -886,7 +886,7 @@
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "dy" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid{
 	temperature = 278.15
 	},
@@ -895,25 +895,25 @@
 /obj/structure/bed/handrail{
 	dir = 4
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	pixel_y = -6;
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/database_freighter_shuttle)
 "dA" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -922,7 +922,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -940,7 +940,7 @@
 /area/database_freighter/barracks)
 "dH" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/item/melee/baton/loaded,
 /obj/item/reagent_containers/dropper{
 	pixel_y = -4
@@ -955,7 +955,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -966,8 +966,8 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -978,7 +978,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -987,10 +987,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1010,10 +1010,10 @@
 	},
 /area/database_freighter/captain_quarters)
 "dX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1024,7 +1024,7 @@
 	},
 /area/database_freighter/engineering)
 "dY" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1037,28 +1037,28 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
-/obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle{
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle{
 	dir = 4;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "ef" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/database_freighter/engine)
 "ei" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1066,10 +1066,10 @@
 	},
 /area/database_freighter/bridge)
 "ej" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -1092,7 +1092,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1100,7 +1100,7 @@
 	},
 /area/database_freighter/bridge)
 "eq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "et" = (
@@ -1125,18 +1125,18 @@
 	},
 /area/database_freighter)
 "eA" = (
-/obj/machinery/door/airlock/research{
+/obj/structure/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Equipment Storage";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -1150,7 +1150,7 @@
 	},
 /area/database_freighter/storage)
 "eB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1165,7 +1165,7 @@
 "eD" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1182,8 +1182,8 @@
 	},
 /area/database_freighter/laboratory)
 "eU" = (
-/obj/machinery/atmospherics/portables_connector/fuel,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector/fuel,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 28;
@@ -1195,10 +1195,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1211,7 +1211,7 @@
 	},
 /area/database_freighter)
 "eZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -1220,16 +1220,17 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/red{
 	dir = 8
 	},
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/bridge)
 "fb" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -1240,16 +1241,16 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
 /area/database_freighter)
 "fd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -1260,14 +1261,14 @@
 	},
 /area/database_freighter/hangar)
 "fi" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	req_access = list(209);
 	name = "Engines";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -1280,8 +1281,8 @@
 	},
 /area/database_freighter/engineering)
 "fm" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 20;
 	pixel_y = -28;
 	dir = 8
@@ -1297,8 +1298,8 @@
 	},
 /area/database_freighter/engine)
 "fo" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor{
@@ -1314,7 +1315,7 @@
 	},
 /area/database_freighter/checkpoint)
 "fv" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1338,23 +1339,23 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter)
 "fH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1365,10 +1366,10 @@
 	},
 /area/database_freighter/engineering)
 "fI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -1384,10 +1385,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/north,
@@ -1410,12 +1411,12 @@
 	},
 /area/database_freighter)
 "fU" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -1428,12 +1429,12 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
 "fZ" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	req_access = list(209);
 	name = "Bridge";
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1453,7 +1454,7 @@
 	},
 /area/database_freighter/engine)
 "gb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -1465,7 +1466,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1476,10 +1477,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1487,7 +1488,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1508,24 +1509,24 @@
 	pixel_y = -3
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
 "gn" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/database_freighter/engine)
 "gu" = (
-/obj/machinery/power/apc/high/south{
+/obj/structure/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -1534,10 +1535,10 @@
 /area/database_freighter/engine)
 "gv" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1553,10 +1554,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1572,7 +1573,7 @@
 /area/space)
 "gB" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1585,10 +1586,10 @@
 	pixel_y = -32
 	},
 /obj/structure/closet/emcloset,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1597,7 +1598,7 @@
 	},
 /area/database_freighter)
 "gN" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 8;
 	name = "pump to waste"
 	},
@@ -1606,7 +1607,7 @@
 	},
 /area/database_freighter/engineering)
 "gQ" = (
-/obj/machinery/atmospherics/binary/pump/fuel/on{
+/obj/structure/machinery/atmospherics/binary/pump/fuel/on{
 	dir = 1;
 	name = "Canister to Thrusters"
 	},
@@ -1614,7 +1615,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1634,10 +1635,10 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1658,8 +1659,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1676,7 +1677,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1684,19 +1685,19 @@
 	},
 /area/database_freighter/bridge)
 "hk" = (
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/table/standard,
 /obj/structure/extinguisher_cabinet/north,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1716,7 +1717,7 @@
 	},
 /area/database_freighter)
 "hv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -1740,7 +1741,7 @@
 	},
 /area/database_freighter/hangar)
 "hA" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/red{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -1761,10 +1762,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1794,10 +1795,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -1805,7 +1806,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "database_checkpoint"
 	},
@@ -1818,14 +1819,14 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
 "hS" = (
-/obj/machinery/door/airlock/command{
+/obj/structure/machinery/door/airlock/command{
 	req_access = list(209);
 	name = "Bridge";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -1838,7 +1839,7 @@
 	},
 /area/database_freighter/bridge)
 "hT" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -1848,7 +1849,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/database_freighter_shuttle)
 "hW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -1856,10 +1857,10 @@
 	},
 /area/database_freighter/engineering)
 "id" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -1867,14 +1868,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/barracks)
 "ih" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/item/clothing/shoes/jackboots/tajara,
@@ -1893,8 +1894,8 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/light,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/light,
+/obj/structure/machinery/firealarm/south,
 /obj/item/gun/energy/rifle/icelance,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1918,7 +1919,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1932,15 +1933,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	pixel_x = -26;
 	dir = 1;
 	pixel_y = 10
 	},
-/obj/machinery/door/airlock/external,
+/obj/structure/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle,
 /obj/effect/landmark/entry_point/aft,
@@ -1955,7 +1956,7 @@
 /turf/template_noop,
 /area/space)
 "iE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1977,13 +1978,13 @@
 /area/database_freighter)
 "iJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "iK" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	req_one_access = list(209);
 	pixel_x = -25;
@@ -1994,7 +1995,7 @@
 	},
 /area/database_freighter/hangar)
 "iO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2005,7 +2006,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/alarm/cold/east{
+/obj/structure/machinery/alarm/cold/east{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2013,23 +2014,23 @@
 	},
 /area/database_freighter)
 "iV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
 "iZ" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/hangar)
 "jd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/floor{
@@ -2043,8 +2044,8 @@
 	},
 /area/database_freighter/laboratory)
 "jg" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -2054,23 +2055,23 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
+/obj/structure/machinery/airlock_sensor/airlock_interior{
 	pixel_x = 28;
 	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "ji" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
 "jm" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2089,7 +2090,7 @@
 	},
 /area/database_freighter)
 "jt" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
+/obj/structure/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 8;
 	target_pressure = 250
 	},
@@ -2098,10 +2099,10 @@
 	},
 /area/database_freighter/engineering)
 "jv" = (
-/obj/machinery/computer/ship/engines/terminal{
+/obj/structure/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2120,7 +2121,7 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/wood/full,
 /obj/item/storage/box/lights/bulbs,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2133,7 +2134,7 @@
 	req_one_access = list(209);
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "database_bridge"
 	},
@@ -2142,8 +2143,8 @@
 	},
 /area/database_freighter/bridge)
 "jK" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
-/obj/machinery/light,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/structure/machinery/light,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2165,8 +2166,8 @@
 	},
 /area/database_freighter/bridge)
 "jV" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = 28;
 	pixel_y = 12;
 	dir = 1
@@ -2183,8 +2184,8 @@
 /area/database_freighter/engine)
 "jW" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2195,14 +2196,14 @@
 	},
 /area/database_freighter)
 "kb" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
 "kc" = (
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2220,11 +2221,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/media/jukebox/phonograph{
+/obj/structure/machinery/media/jukebox/phonograph{
 	anchored = 1
 	},
 /obj/structure/table/wood,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood{
@@ -2235,8 +2236,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2253,7 +2254,7 @@
 /obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
 	dir = 1
@@ -2266,14 +2267,14 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
 "ku" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2293,7 +2294,7 @@
 /turf/template_noop,
 /area/space)
 "kz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2302,7 +2303,7 @@
 /area/database_freighter/hangar)
 "kA" = (
 /obj/effect/floor_decal/corner/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2310,10 +2311,10 @@
 	},
 /area/database_freighter)
 "kC" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2324,10 +2325,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/structure/cable/green{
@@ -2340,7 +2341,7 @@
 	},
 /area/database_freighter/bridge)
 "kE" = (
-/obj/machinery/vending/tool{
+/obj/structure/machinery/vending/tool{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2351,7 +2352,7 @@
 "kH" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2359,7 +2360,7 @@
 	},
 /area/database_freighter/storage)
 "kO" = (
-/obj/machinery/atmospherics/binary/pump/on{
+/obj/structure/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -2367,7 +2368,7 @@
 	},
 /area/database_freighter/engineering)
 "kR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
@@ -2386,8 +2387,8 @@
 /area/database_freighter/hangar)
 "kU" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/flashlight/lamp,
+/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -2397,7 +2398,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -2406,10 +2407,10 @@
 	},
 /area/database_freighter/bridge)
 "lk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2418,7 +2419,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2429,13 +2430,13 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, hangar"
 	},
-/obj/machinery/door/blast/regular,
+/obj/structure/machinery/door/blast/regular,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/database_freighter/hangar)
 "ls" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -2455,8 +2456,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "lt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2488,10 +2489,10 @@
 	},
 /area/database_freighter/captain_quarters)
 "lz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2507,10 +2508,10 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2547,7 +2548,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/machinery/alarm/cold/north{
+/obj/structure/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2555,12 +2556,12 @@
 	},
 /area/database_freighter/laboratory)
 "lU" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	req_access = list(209);
 	name = "Checkpoint";
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -2572,10 +2573,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2584,7 +2585,7 @@
 /obj/item/modular_computer/console/preset/civilian{
 	dir = 1
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red/full{
@@ -2598,7 +2599,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter)
 "mc" = (
-/obj/machinery/artifact_harvester{
+/obj/structure/machinery/artifact_harvester{
 	pixel_y = 1
 	},
 /turf/simulated/floor/bluegrid{
@@ -2614,7 +2615,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "database_checkpoint"
 	},
@@ -2628,7 +2629,7 @@
 	req_one_access = list(209);
 	spawn_grille = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "database_bridge"
 	},
@@ -2637,18 +2638,18 @@
 	},
 /area/database_freighter/bridge)
 "mm" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Barracks";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -2670,7 +2671,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "database_bridge"
 	},
@@ -2683,7 +2684,7 @@
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2691,11 +2692,11 @@
 	},
 /area/database_freighter)
 "mv" = (
-/obj/machinery/chemical_dispenser/full,
+/obj/structure/machinery/chemical_dispenser/full,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2706,11 +2707,11 @@
 	},
 /area/database_freighter/barracks)
 "mA" = (
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
-/obj/machinery/door/airlock/research{
+/obj/structure/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Spectrometry";
 	dir = 4
@@ -2723,10 +2724,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2744,7 +2745,7 @@
 	},
 /area/database_freighter)
 "mF" = (
-/obj/machinery/computer/ship/helm/terminal{
+/obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
 	req_access = list(209)
 	},
@@ -2755,14 +2756,14 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/east{
+/obj/structure/machinery/power/apc/east{
 	req_access = list(209)
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "nd" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/structure/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -2779,7 +2780,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/toy/plushie/farwa,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -2794,7 +2795,7 @@
 "nm" = (
 /obj/structure/anomaly_container,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
@@ -2808,7 +2809,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/database_freighter_shuttle)
 "nr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2816,7 +2817,7 @@
 	},
 /area/database_freighter/laboratory)
 "nt" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -2829,7 +2830,7 @@
 /turf/simulated/floor/airless,
 /area/database_freighter/bridge)
 "nw" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2850,7 +2851,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2861,7 +2862,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "database_checkpoint";
 	name = "Checkpoint Blastdoor";
 	req_access = list(209);
@@ -2876,8 +2877,8 @@
 	},
 /area/database_freighter/checkpoint)
 "nE" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
@@ -2897,7 +2898,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2911,10 +2912,10 @@
 "oh" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -2932,17 +2933,17 @@
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
 /area/database_freighter/laboratory)
 "oF" = (
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/structure/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "oI" = (
@@ -2952,10 +2953,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 24
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -2963,13 +2964,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/database_freighter_shuttle)
 "oN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "oY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -2978,10 +2979,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -2994,7 +2995,7 @@
 	},
 /area/database_freighter)
 "px" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -3007,7 +3008,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/iff_beacon{
+/obj/structure/machinery/iff_beacon{
 	pixel_y = 4
 	},
 /obj/structure/railing/mapped,
@@ -3023,7 +3024,7 @@
 /area/database_freighter/engine)
 "pN" = (
 /obj/structure/table/standard,
-/obj/machinery/door/window/brigdoor/southright{
+/obj/structure/machinery/door/window/brigdoor/southright{
 	dir = 1;
 	req_access = list(209);
 	name = "Checkpoint"
@@ -3034,10 +3035,10 @@
 	},
 /area/database_freighter/checkpoint)
 "pT" = (
-/obj/machinery/computer/ship/navigation/terminal{
+/obj/structure/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -3059,13 +3060,13 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/laboratory)
 "qs" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3077,7 +3078,7 @@
 	},
 /area/database_freighter/bridge)
 "qK" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
@@ -3095,10 +3096,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3118,7 +3119,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
 "rj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -3126,14 +3127,14 @@
 	},
 /area/database_freighter/engine)
 "rq" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	req_access = list(209);
 	name = "Checkpoint";
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -3154,12 +3155,12 @@
 	},
 /area/database_freighter/hangar)
 "rM" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -3193,10 +3194,10 @@
 	},
 /area/database_freighter/hangar)
 "sx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -3210,10 +3211,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/bridge)
 "td" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
 	pixel_y = 6;
 	pixel_x = 20
@@ -3228,8 +3229,8 @@
 	},
 /area/database_freighter/engine)
 "tm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3243,16 +3244,16 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter)
 "tu" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -3287,7 +3288,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3302,7 +3303,7 @@
 	pixel_y = 32
 	},
 /obj/structure/bed/stool/chair/padded/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3310,7 +3311,7 @@
 	},
 /area/database_freighter)
 "tL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3328,10 +3329,10 @@
 	},
 /area/database_freighter/storage)
 "ub" = (
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3358,11 +3359,11 @@
 /turf/template_noop,
 /area/space)
 "uV" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "uY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -3401,10 +3402,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3412,7 +3413,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3424,7 +3425,7 @@
 /turf/template_noop,
 /area/space)
 "vQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3440,7 +3441,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3448,10 +3449,10 @@
 	},
 /area/database_freighter/bridge)
 "wb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3489,7 +3490,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/barracks)
 "wY" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -3518,7 +3519,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
@@ -3527,7 +3528,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/checkpoint)
 "yb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3551,10 +3552,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/alarm/cold/south{
+/obj/structure/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "database_checkpoint"
 	},
@@ -3570,8 +3571,8 @@
 	},
 /area/database_freighter/hangar)
 "yw" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -3580,22 +3581,22 @@
 	},
 /area/database_freighter/eva)
 "yy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
 /area/database_freighter/captain_quarters)
 "yF" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "yK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3613,14 +3614,14 @@
 	},
 /area/database_freighter)
 "yZ" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "zh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3643,7 +3644,7 @@
 	},
 /area/database_freighter)
 "zo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3665,15 +3666,15 @@
 /area/database_freighter)
 "Aa" = (
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/firealarm/north,
+/obj/structure/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	req_one_access = list(209);
 	department = "Database Freighter"
 	},
@@ -3695,10 +3696,10 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3712,8 +3713,8 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/engineering)
 "AC" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor/plating,
@@ -3725,7 +3726,7 @@
 /obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
 	dir = 1
@@ -3738,15 +3739,15 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
 "AM" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/door/airlock/external,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -3760,7 +3761,7 @@
 	},
 /area/database_freighter/engine)
 "AY" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	req_access = list(209);
 	dir = 4
@@ -3782,7 +3783,7 @@
 	},
 /area/database_freighter/engine)
 "Bv" = (
-/obj/machinery/door/blast/regular,
+/obj/structure/machinery/door/blast/regular,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3824,10 +3825,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3843,7 +3844,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/storage)
 "Ck" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3857,7 +3858,7 @@
 /obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
 	req_access = list(209);
 	dir = 1
@@ -3877,7 +3878,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor{
@@ -3886,7 +3887,7 @@
 /area/database_freighter/engineering)
 "CQ" = (
 /obj/structure/closet/cabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/ammo_magazine/mc9mm,
@@ -3901,8 +3902,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -3913,7 +3914,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -3932,10 +3933,10 @@
 	},
 /area/database_freighter/engine)
 "Dp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3949,10 +3950,10 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3996,21 +3997,21 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "Eh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
 "Ek" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/door/window,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -4020,13 +4021,13 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "Er" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4037,7 +4038,7 @@
 	},
 /area/database_freighter/engineering)
 "Ew" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4047,28 +4048,28 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/shuttle/database_freighter_shuttle)
 "Fd" = (
 /obj/structure/table/standard,
-/obj/machinery/door/window/brigdoor/westleft{
+/obj/structure/machinery/door/window/brigdoor/westleft{
 	dir = 1;
 	name = "Checkpoint";
 	req_access = list(209)
 	},
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/checkpoint)
 "Fn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
 /turf/simulated/floor{
@@ -4076,7 +4077,7 @@
 	},
 /area/database_freighter/engineering)
 "FA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4087,7 +4088,7 @@
 	},
 /area/database_freighter/eva)
 "FC" = (
-/obj/machinery/button/remote/airlock{
+/obj/structure/machinery/button/remote/airlock{
 	id = "database_energy";
 	name = "Door Bolt Control";
 	req_access = list(209);
@@ -4103,8 +4104,8 @@
 	},
 /area/database_freighter/laboratory)
 "FL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4128,7 +4129,7 @@
 /obj/structure/toilet{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -4136,17 +4137,17 @@
 	},
 /area/database_freighter/barracks)
 "Gr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
 "GV" = (
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/bluegrid{
@@ -4154,7 +4155,7 @@
 	},
 /area/database_freighter/laboratory)
 "Hm" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -4164,7 +4165,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4181,7 +4182,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -4189,19 +4190,19 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/database_freighter_shuttle)
 "HK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/database_freighter_shuttle)
 "Ic" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/closet/crate/internals,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/oxycandle,
+/obj/item/oxycandle,
 /obj/item/tank/emergency_oxygen{
 	pixel_x = 5
 	},
@@ -4213,7 +4214,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "Id" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4226,12 +4227,12 @@
 	},
 /area/database_freighter/barracks)
 "IA" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Restroom";
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -4251,9 +4252,9 @@
 /turf/simulated/floor/airless,
 /area/database_freighter)
 "IV" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -4263,13 +4264,13 @@
 /area/database_freighter/engineering)
 "IX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suit_cycler/offship/pra,
+/obj/structure/machinery/suit_cycler/offship/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/eva)
 "Ja" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /obj/effect/floor_decal/spline/plain/grey{
@@ -4279,7 +4280,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "Jn" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -4295,7 +4296,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "Ju" = (
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "Jv" = (
@@ -4326,7 +4327,7 @@
 	},
 /area/database_freighter/eva)
 "JN" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4363,7 +4364,7 @@
 	},
 /area/database_freighter/engineering)
 "Kt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -4377,7 +4378,7 @@
 /turf/template_noop,
 /area/space)
 "KA" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -4385,14 +4386,14 @@
 	},
 /area/database_freighter/engine)
 "KE" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/database_freighter/dock/aft,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "KQ" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4401,14 +4402,14 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -4423,14 +4424,14 @@
 /turf/template_noop,
 /area/space)
 "LA" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
 /turf/simulated/floor/airless,
 /area/database_freighter/engine)
 "LB" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4438,20 +4439,20 @@
 	},
 /area/database_freighter/hangar)
 "LD" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/hangar)
 "LS" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -4464,7 +4465,7 @@
 	},
 /area/database_freighter/eva)
 "LV" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -4482,8 +4483,8 @@
 	},
 /area/database_freighter/captain_quarters)
 "Mc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/structure/cable/green{
@@ -4499,7 +4500,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/wood{
@@ -4512,7 +4513,7 @@
 /obj/item/inflatable_dispenser,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4525,7 +4526,7 @@
 	},
 /area/database_freighter/hangar)
 "Ni" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -4576,7 +4577,7 @@
 /area/database_freighter/checkpoint)
 "Oa" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -4589,12 +4590,12 @@
 	},
 /area/database_freighter/engineering)
 "Oe" = (
-/obj/machinery/door/airlock/engineering{
+/obj/structure/machinery/door/airlock/engineering{
 	req_access = list(209);
 	name = "Atmospherics";
 	dir = 1
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -4608,10 +4609,10 @@
 /area/database_freighter/engine)
 "Os" = (
 /obj/effect/floor_decal/corner/red,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -4629,7 +4630,7 @@
 	},
 /area/database_freighter)
 "OD" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain/open/shower,
@@ -4640,7 +4641,7 @@
 /area/database_freighter/barracks)
 "OF" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4661,7 +4662,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4678,8 +4679,8 @@
 	},
 /area/database_freighter/laboratory)
 "Pd" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/black,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "PH" = (
@@ -4717,7 +4718,7 @@
 /turf/space,
 /area/space)
 "Qb" = (
-/obj/machinery/iff_beacon,
+/obj/structure/machinery/iff_beacon,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -4730,17 +4731,17 @@
 /turf/simulated/floor/airless,
 /area/database_freighter/bridge)
 "Qc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /turf/simulated/floor/plating,
 /area/database_freighter/engine)
 "Qi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4756,14 +4757,14 @@
 	},
 /area/database_freighter/hangar)
 "Qp" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/machinery/light/small{
+/obj/structure/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/database_freighter/engineering)
 "Qr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -4774,11 +4775,11 @@
 	},
 /obj/structure/table/standard,
 /obj/item/material/ashtray/bronze,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/north,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4805,7 +4806,7 @@
 	},
 /area/database_freighter)
 "Rj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -4818,13 +4819,13 @@
 	},
 /area/database_freighter/laboratory)
 "Ru" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	id_tag = "database_energy";
 	name = "Exotic Energies Harvesting";
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
@@ -4833,18 +4834,18 @@
 	},
 /area/database_freighter/laboratory)
 "RC" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
 "RT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/nitrogen,
+/obj/structure/machinery/portable_atmospherics/canister/empty/nitrogen,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4860,10 +4861,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4889,7 +4890,7 @@
 	},
 /area/database_freighter/hangar)
 "Td" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4898,8 +4899,8 @@
 /area/database_freighter/engineering)
 "Th" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/item/flashlight/lamp,
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/wood{
@@ -4917,7 +4918,7 @@
 	},
 /area/database_freighter/hangar)
 "Tu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4939,7 +4940,7 @@
 /turf/template_noop,
 /area/space)
 "TL" = (
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
 	pixel_y = -6
@@ -4965,7 +4966,7 @@
 	},
 /area/database_freighter/laboratory)
 "Uv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -4974,18 +4975,18 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/database_freighter_shuttle)
 "UN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4993,7 +4994,7 @@
 	},
 /area/database_freighter/hangar)
 "UQ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor{
@@ -5005,7 +5006,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/carpet/art{
@@ -5013,21 +5014,21 @@
 	},
 /area/database_freighter/captain_quarters)
 "Vk" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
 /turf/simulated/floor/airless,
 /area/database_freighter/engine)
 "Vm" = (
-/obj/machinery/door/airlock/mining{
+/obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -5043,10 +5044,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5080,10 +5081,10 @@
 	},
 /area/database_freighter/barracks)
 "Wl" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -5123,19 +5124,19 @@
 /area/space)
 "Xa" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/radiocarbon_spectrometer,
+/obj/structure/machinery/radiocarbon_spectrometer,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
 /area/database_freighter/laboratory)
 "Xb" = (
-/obj/machinery/firealarm/south,
+/obj/structure/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/database_freighter/eva)
 "Xf" = (
-/obj/machinery/computer/ship/navigation{
+/obj/structure/machinery/computer/ship/navigation{
 	dir = 4
 	},
 /turf/simulated/floor/wood{
@@ -5148,8 +5149,8 @@
 	},
 /area/database_freighter/engineering)
 "Xv" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -5168,7 +5169,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/north{
+/obj/structure/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5177,7 +5178,7 @@
 /area/database_freighter/eva)
 "Xy" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor{
@@ -5200,13 +5201,13 @@
 	},
 /area/database_freighter/hangar)
 "XZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
 /area/database_freighter/captain_quarters)
 "Ys" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
@@ -5217,11 +5218,11 @@
 	},
 /area/database_freighter/engine)
 "YC" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/black,
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/engine)
 "YD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5229,7 +5230,7 @@
 	},
 /area/database_freighter/hangar)
 "YM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5241,7 +5242,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -5262,7 +5263,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high/west{
+/obj/structure/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{

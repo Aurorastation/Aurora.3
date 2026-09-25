@@ -50,7 +50,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/template_noop)
 "an" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -64,7 +64,7 @@
 /turf/simulated/floor/exoplanet/water,
 /area/template_noop)
 "aq" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -87,7 +87,7 @@
 "at" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 1298.5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -104,7 +104,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 1
 	},
 /obj/random/powercell,
@@ -149,7 +149,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	pixel_y = 3;
 	pixel_x = 8
 	},
@@ -159,7 +159,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	pixel_y = -4;
 	pixel_x = 16;
 	dir = 8
@@ -247,7 +247,7 @@
 /area/template_noop)
 "aK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1;
 	pixel_x = 8;
 	pixel_y = 2
@@ -256,7 +256,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "aL" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	pixel_y = -4;
 	pixel_x = 16;
 	dir = 8
@@ -350,7 +350,7 @@
 /area/template_noop)
 "aT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 2965.7
 	},
 /turf/simulated/floor/tiled/white/airless,

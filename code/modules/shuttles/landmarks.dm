@@ -31,6 +31,8 @@
 	//Name of the shuttle, null for generic waypoint
 	var/shuttle_restricted
 	var/landmark_flags = 0
+	/// Automatically registers the landmark with the shuttle/sectors system if true.
+	var/auto_register = FALSE
 
 	/// Effects that show where the shuttle will land, to prevent unfair squishing
 	var/list/landing_indicators
@@ -68,13 +70,16 @@
 	else
 		base_area = locate(base_area || world.area)
 
-	if(!docking_controller)
-		return
-	var/docking_tag = docking_controller
-	if(!istype(docking_controller))
-		docking_controller = SSshuttle.docking_registry[docking_tag]
+	if(docking_controller)
+		var/docking_tag = docking_controller
 		if(!istype(docking_controller))
-			LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
+			docking_controller = SSshuttle.docking_registry[docking_tag]
+			if(!istype(docking_controller))
+				LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
+
+	if(auto_register)
+		var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
+		map_origin.add_landmark(src, shuttle_restricted)
 
 /obj/effect/shuttle_landmark/forceMove(atom/destination)
 	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
@@ -161,7 +166,10 @@
 		// 	return TRUE //clashes with another area
 
 		if(target.density)
-			return TRUE //dense turf
+			return TRUE //dense turf, aka we found a wall
+
+		if(GLOB.landing_zone_borders[target])
+			return TRUE // we found a landing zone border, this LZ is invalid for a shuttle of the caller's size
 
 	return FALSE
 
@@ -210,7 +218,7 @@
 			qdel(S)
 	..()
 
-/obj/item/device/spaceflare
+/obj/item/spaceflare
 	name = "bluespace flare"
 	desc = "Burst transmitter used to broadcast all needed information for shuttle navigation systems. Has a flare attached for marking the spot where you probably shouldn't be standing."
 	icon = 'icons/obj/space_flare.dmi'
@@ -222,11 +230,11 @@
 	/// The shuttle landmark synced to this beacon. This is set when the beacon is activated.
 	var/obj/effect/shuttle_landmark/automatic/spaceflare/landmark
 
-/obj/item/device/spaceflare/attack_self(var/mob/user)
+/obj/item/spaceflare/attack_self(var/mob/user)
 	if(activate(user))
 		user.visible_message(SPAN_NOTICE("\The [user] pulls the cord, activating \the [src]."), SPAN_NOTICE("You pull the cord, activating \the [src]."), SPAN_ITALIC("You hear the sound of something being struck and ignited."))
 
-/obj/item/device/spaceflare/proc/activate(mob/user)
+/obj/item/spaceflare/proc/activate(mob/user)
 	if(active)
 		to_chat(user, SPAN_WARNING("\The [src] is already active."))
 		return FALSE
@@ -247,7 +255,7 @@
 	update_icon()
 	return TRUE
 
-/obj/item/device/spaceflare/proc/deactivate(silent = FALSE)
+/obj/item/spaceflare/proc/deactivate(silent = FALSE)
 	if (!active)
 		return FALSE
 
@@ -259,7 +267,7 @@
 		visible_message(SPAN_WARNING("\The [src] stops burning and deactivates."))
 	return TRUE
 
-/obj/item/device/spaceflare/update_icon()
+/obj/item/spaceflare/update_icon()
 	if (active)
 		icon_state = "[initial(icon_state)]_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")
@@ -267,11 +275,11 @@
 		icon_state = initial(icon_state)
 		set_light(0)
 
-/obj/item/device/spaceflare/Destroy()
+/obj/item/spaceflare/Destroy()
 	deactivate(TRUE)
 	. = ..()
 
-/obj/item/device/spaceflare/attack_hand(mob/user)
+/obj/item/spaceflare/attack_hand(mob/user)
 	if(active)
 		var/choice = tgui_alert(user, "Do you want to deactivate \the [src]?", "Bluespace Flare", list("Yes","No"))
 		if(choice == "Yes")
@@ -284,9 +292,9 @@
 /obj/effect/shuttle_landmark/automatic/spaceflare
 	name = "Bluespace Beacon Signal"
 	/// The beacon object synced to this landmark. If this is ever null or qdeleted the landmark should delete itself.
-	var/obj/item/device/spaceflare/beacon
+	var/obj/item/spaceflare/beacon
 
-/obj/effect/shuttle_landmark/automatic/spaceflare/Initialize(mapload, obj/item/device/spaceflare/beacon)
+/obj/effect/shuttle_landmark/automatic/spaceflare/Initialize(mapload, obj/item/spaceflare/beacon)
 	. = ..()
 
 	if(!istype(beacon))

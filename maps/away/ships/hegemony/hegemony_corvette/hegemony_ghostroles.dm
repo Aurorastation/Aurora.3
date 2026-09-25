@@ -12,7 +12,7 @@
 	welcome_message = "As an Unathi warrior, abide by the Warrior's Code - act with righteousness, mercy, integrity, courage and loyalty. Defend the life and honor of Hegemony citizens, and ensure that enemies of the Izweski cannot threaten your vessel."
 
 	outfit = /obj/outfit/admin/izweski
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	assigned_role = "Izweski Navy Crewman"
 	special_role = "Izweski Navy Crewman"
@@ -76,7 +76,7 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
@@ -84,7 +84,7 @@
 	)
 
 /obj/outfit/admin/izweski/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/izweski/klax
 
@@ -116,7 +116,7 @@
 /obj/outfit/admin/izweski/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 /obj/outfit/admin/izweski/captain/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/kataphract/knight::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/izweski/priest
 	name = "Hegemony Warpriest"
@@ -124,7 +124,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/unique/donkpockets = 1,
-		/obj/item/device/versebook/skakh = 1
+		/obj/item/versebook/skakh = 1
 	)
 
 

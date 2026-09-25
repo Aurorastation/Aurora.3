@@ -12,12 +12,13 @@
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty,
-		/obj/machinery/door,
+		/obj/structure/machinery/door,
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
-		/obj/machinery/door/airlock,
-		/obj/machinery/door/unpowered/shuttle,
-		/obj/structure/shuttle/engine/propulsion
+		/obj/structure/machinery/door/airlock,
+		/obj/structure/machinery/door/unpowered/shuttle,
+		/obj/structure/shuttle/engine/propulsion,
+		/obj/structure/fake_wall
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
@@ -35,7 +36,7 @@
 	smoothing_flags = SMOOTH_TRUE
 
 /turf/simulated/wall/shuttle/dark
-	canSmoothWith = null
+	canSmoothWith = list(/turf/simulated/wall/shuttle/dark, /obj/structure/fake_wall)
 
 /turf/simulated/wall/shuttle/dark/cardinal
 	smoothing_flags = SMOOTH_MORE
@@ -43,7 +44,8 @@
 		/turf/simulated/wall/shuttle/dark,
 		/obj/structure/shuttle_part/dark,
 		/obj/structure/window_frame/shuttle,
-		/obj/machinery/door/airlock
+		/obj/structure/machinery/door/airlock,
+		/obj/structure/fake_wall
 	)
 
 /turf/simulated/wall/shuttle/dark/cardinal/merc
@@ -109,7 +111,7 @@
 	name = "spaceship hull"
 	icon = 'icons/turf/smooth/scc_ship/scc_ship_exterior.dmi'
 	icon_state = "map-wall"
-	canSmoothWith = null
+	canSmoothWith = list(/turf/simulated/wall/shuttle/scc_space_ship, /obj/structure/fake_wall)
 
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal
 	smoothing_flags = SMOOTH_MORE
@@ -118,7 +120,8 @@
 		/turf/simulated/wall/r_wall,
 		/turf/simulated/wall/shuttle/scc_space_ship,
 		/obj/structure/window/shuttle/scc_space_ship,
-		/obj/machinery/door/airlock
+		/obj/structure/machinery/door/airlock,
+		/obj/structure/fake_wall
 	)
 
 /obj/structure/shuttle_part/scc_space_ship
@@ -144,9 +147,10 @@
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/palepurple,
 		/obj/structure/window/shuttle/palepurple,
-		/obj/machinery/door/airlock,
-		/obj/machinery/door/unpowered/shuttle,
-		/obj/structure/shuttle/engine/propulsion
+		/obj/structure/machinery/door/airlock,
+		/obj/structure/machinery/door/unpowered/shuttle,
+		/obj/structure/shuttle/engine/propulsion,
+		/obj/structure/fake_wall
 	)
 
 
@@ -155,13 +159,17 @@
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
 		/obj/structure/window/shuttle,
-		/obj/machinery/door/airlock,
+		/obj/structure/machinery/door/airlock,
 		/obj/structure/shuttle/engine/propulsion,
-		/turf/unsimulated/wall/fakeairlock
+		/turf/unsimulated/wall/fakeairlock,
+		/obj/structure/fake_wall
 	)
 
+/turf/simulated/wall/shuttle/brown
+	color = COLOR_MUTED_BROWN
+
 /turf/simulated/wall/shuttle/skrell/Initialize(mapload)
-	. = ..(mapload,"skrell")
+	. = ..(mapload, MATERIAL_SHUTTLE_SKRELL)
 
 /turf/simulated/wall/shuttle/scc
 	color = "#AAAFC7"
@@ -175,6 +183,9 @@
 
 /turf/simulated/wall/shuttle/space_ship/mercenary
 	color = "#5b5b5b"
+
+/turf/simulated/wall/shuttle/space_ship/industrial
+	color = "#6E5B4A"
 
 //--Unique Shuttles--//
 
@@ -528,7 +539,7 @@
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
 	initial_flooring = /singleton/flooring/shuttle
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
@@ -572,7 +583,7 @@
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
 	initial_flooring = /singleton/flooring/shuttle/skrell
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/shuttle/skrell/airless
 	initial_gas = null

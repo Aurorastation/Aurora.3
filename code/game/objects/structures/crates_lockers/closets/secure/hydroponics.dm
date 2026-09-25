@@ -1,13 +1,13 @@
 /obj/structure/closet/secure_closet/hydroponics
 	name = "botanist's locker"
-	req_access = list(ACCESS_HYDROPONICS)
+	req_access = list(/datum/access/hydroponics::id)
 	icon_state = "hydro"
 
 /obj/structure/closet/secure_closet/hydroponics/fill()
 	..()
 	new /obj/item/storage/bag/plants(src)
-	new /obj/item/device/analyzer/plant_analyzer(src)
-	new /obj/item/device/radio/headset/headset_service(src)
+	new /obj/item/analyzer/plant_analyzer(src)
+	new /obj/item/radio/headset/headset_service(src)
 	new /obj/item/material/minihoe(src)
 	new /obj/item/material/hatchet(src)
 	new /obj/item/wirecutters/clippers(src)
@@ -17,7 +17,7 @@
 
 /obj/structure/closet/secure_closet/xenobotany
 	name = "xenobotanist's locker"
-	req_access = list(ACCESS_XENOBOTANY)
+	req_access = list(/datum/access/xenobotany::id)
 	icon_state = "xenobot"
 
 /obj/structure/closet/secure_closet/xenobotany/fill()
@@ -30,8 +30,8 @@
 	new /obj/item/clothing/under/rank/scientist/botany(src)
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/clothing/under/rank/scientist(src)
-	new /obj/item/device/analyzer/plant_analyzer(src)
-	new /obj/item/device/radio/headset/headset_sci(src)
+	new /obj/item/analyzer/plant_analyzer(src)
+	new /obj/item/radio/headset/headset_sci(src)
 	new /obj/item/clothing/head/bandana/hydro(src)
 	new /obj/item/material/minihoe(src)
 	new /obj/item/material/hatchet(src)

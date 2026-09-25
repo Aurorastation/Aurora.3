@@ -5,8 +5,9 @@
 	tile_outline = "carpet"
 	broken_overlay = "carpet"
 	initial_flooring = /singleton/flooring/carpet
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 	has_resources = FALSE
+	has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/carpet/art
 	icon_state = "artcarpet"

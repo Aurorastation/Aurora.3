@@ -1,5 +1,5 @@
 #define ORGAN_CAN_FEEL_PAIN(organ) !BP_IS_ROBOTIC(organ) && (!organ.species || !(organ.species.flags & NO_PAIN))
-#define ORGAN_IS_DISLOCATED(organ) (organ.dislocated > 0)
+#define ORGAN_IS_DISLOCATED(organ) (LIMB_GET_DISLOCATED(organ) > 0)
 #define SOCKET_UNSHIELDED 0
 #define SOCKET_SHIELDED 1
 #define SOCKET_FULLSHIELDED 2
@@ -48,3 +48,18 @@
  * Set the canceled variable to true in order to negate said weakness.
  */
 #define COMSIG_GRAVITY_WEAKNESS_EVENT "gravity_weakness_event"
+
+/// This is raised when you want to send damage to the synthetic endoskeleton. Must supply a damage number.
+#define COMSIG_DAMAGE_TO_ENDOSKELETON "machine_internal_damage"
+
+/// Sent when the burst damage is cleared by the posibrain.
+#define COMSIG_SYNTH_EMP_DAMAGE_CLEARED "emp_damage_cleared"
+
+/// Sent when the synthetic enters self-preservation mode. Must supply a TRUE/FALSE state.
+#define COMSIG_SYNTH_SET_SELF_PRESERVATION "synth_self_preservation_set"
+
+/// Sent when endoskeleton repair is done. Must supply a number of damage healed.
+#define COMSIG_SYNTH_ENDOSKELETON_REPAIR "synth_endoskeleton_repair"
+
+/// Sent when a full endoskeleton repair is done. Unlike the normal one, also restores max_damage to initial state. No extra arguments.
+#define COMSIG_SYNTH_ENDOSKELETON_FULL_REPAIR "synth_endoskeleton_full_repair"

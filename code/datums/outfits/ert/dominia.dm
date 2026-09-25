@@ -11,7 +11,7 @@
 	l_pocket = /obj/item/crowbar/red
 	suit_accessory = /obj/item/clothing/accessory/dominia
 	id = /obj/item/card/id/imperial_fleet
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	mask = /obj/item/clothing/mask/gas
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(
@@ -29,7 +29,7 @@
 	)
 
 /obj/outfit/admin/ert/dominia/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
+	return list(/datum/access/distress::id, /datum/access/external_airlocks::id, /datum/access/imperial_fleet_voidsman_ship::id)
 
 /obj/outfit/admin/ert/dominia/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
@@ -50,7 +50,7 @@
 		/obj/item/ammo_magazine/c45m/dominia = 1,
 		/obj/item/ammo_magazine/submachinemag = 2,
 		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/material/knife/bayonet= 1,

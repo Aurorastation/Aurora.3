@@ -22,17 +22,17 @@
 	/// This variable is set to 1 when you enter the game as an observer. Remains null if you died in the game and are a ghost. Not reliable for admins; they change mobs a lot.
 	var/started_as_observer
 	/// If the ghost has enabled antagHUD.
-	var/has_enabled_antagHUD = 0
+	var/has_enabled_antagHUD = FALSE
 	/// If the ghost has enabled medHUD.
-	var/medHUD = 0
+	var/medHUD = FALSE
 	/// If this is an adminghost.
-	var/admin_ghosted = 0
+	var/admin_ghosted = FALSE
 	/// If this ghost has enabled chat anonymization.
-	var/anonsay = 0
+	var/anonsay = FALSE
 	/// If the ghost can be seen through cult shenanigans.
-	var/is_manifest = 0
+	var/is_manifest = FALSE
 	/// Cooldown for ghost abilities, such as move_item().
-	var/ghost_cooldown = 0
+	var/ghost_cooldown = FALSE
 
 /mob/abstract/ghost/observer/Initialize(mapload, mob/body)
 	. = ..()
@@ -83,6 +83,26 @@
 	if(!name)							//To prevent nameless ghosts
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
+
+	src.LoadComponent(/datum/component/health_analyzer/observer)
+
+/mob/abstract/ghost/observer/Destroy()
+	// Handling client images
+	if(client && length(client.images))
+		for(var/image/I in client.images)
+			// Something deleted the image, clear it and move on.
+			if (!istype(I) || QDELETED(I))
+				client.images -= I
+				continue
+
+			if(I.loc != src)
+				continue
+
+			qdel(I)
+			client.images -= I
+
+	QDEL_NULL(hud)
+	return ..()
 
 /mob/abstract/ghost/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
@@ -188,7 +208,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another [GLOB.config.respawn_delay] minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
 		if(response != "Ghost")
 			return
-		resting = 1
+		if(!istype(usr, /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen))
+			resting = 1
 		var/turf/location = get_turf(src)
 		message_admins("[key_name_admin(usr)] has ghosted. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(usr)] has ghosted.")
@@ -226,7 +247,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 	QDEL_NULL(orbiting)
 	mind.current.ajourn=0
-	mind.current.key = key
+	client.transfer_key_to_mob(mind.current)
 	mind.current.teleop = null
 	mind.current.client.init_verbs()
 	if(!admin_ghosted)
@@ -258,7 +279,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(isipc(orbit_target) || isrobot(orbit_target))
 		robotic_analyze_mob(orbit_target, usr, TRUE)
 	else if(ishuman(orbit_target))
-		health_scan_mob(orbit_target, usr, TRUE, TRUE)
+		var/datum/component/health_analyzer/observer/h_analyzer = src.GetComponent(/datum/component/health_analyzer/observer)
+		if(!h_analyzer)
+			return
+		h_analyzer.health_scan_mob(orbit_target, usr, TRUE, FALSE)
 	else
 		to_chat(src, SPAN_WARNING("This isn't a scannable target."))
 
@@ -334,8 +358,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		// Otherwise, see if we can possess the target.
 		if(user == src && try_possession(M))
 			return
-	if(istype(over, /obj/machinery/drone_fabricator))
-		var/obj/machinery/drone_fabricator/fab = over
+	if(istype(over, /obj/structure/machinery/drone_fabricator))
+		var/obj/structure/machinery/drone_fabricator/fab = over
 		if(fab.create_drone(src))
 			return
 

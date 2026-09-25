@@ -58,8 +58,13 @@
 
 	msg += "<EM>[src.name]</EM>"
 
-	if(!species.hide_name)
-		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[species.name]</font></b>"
+	var/ipcmodel
+	if(isipc(src))
+		var/obj/item/organ/internal/machine/posibrain/ipcbrain = internal_organs_by_name[BP_BRAIN]
+		var/modelmsg = ipcbrain.custom_model
+		ipcmodel = "[modelmsg]"
+	if(!species.hide_name || ipcmodel)
+		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[ipcmodel ? "[ipcmodel] ":""][species.name]</font></b>"
 	msg += "!\n"
 
 	//uniform
@@ -209,6 +214,10 @@
 	if(wrists && !skipwrists)
 		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wrists)]'>\a [wrists]</a> [wrists.get_wrist_examine_text(src)].\n"
 
+	//closed eyes
+	if(!skipeyes && eyes_are_closed())
+		msg += "[get_pronoun("His")] eyes are closed.\n"
+
 	//Jitters
 	if(is_jittery)
 		if(jitteriness >= 300)
@@ -298,7 +307,16 @@
 
 		var/obj/item/organ/external/E = organs_by_name[organ_tag]
 		if(!E)
-			wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("is")] missing [get_pronoun("his")] [organ_descriptor].</b>\n")
+			var/has_prosthetic_socket = FALSE
+			for(var/obj/item/organ/external/possible_receiver in organs)
+				if(organ_tag in possible_receiver.prosthetic_sockets)
+					has_prosthetic_socket = TRUE
+					break
+
+			if(has_prosthetic_socket)
+				wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("has")] an exposed prosthetic socket where [get_pronoun("his")] [organ_descriptor] should be.</b>\n")
+			else
+				wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("is")] missing [get_pronoun("his")] [organ_descriptor].</b>\n")
 		else if(E.is_stump())
 			wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[get_pronoun("He")] [get_pronoun("has")] a stump where [get_pronoun("his")] [organ_descriptor] should be.</b>\n")
 		else
@@ -306,6 +324,12 @@
 
 	for(var/obj/item/organ/external/temp in organs)
 		if(temp)
+			if(temp.CheckNeedsAmputation())
+				var/damage_descriptor = "mangled"
+				if(!(temp.burn_ratio < 100))
+					damage_descriptor = "charred"
+				wound_flavor_text["[temp.name]"] = SPAN_DANGER("<b>[get_pronoun("He")] [get_pronoun("has")] \a [temp.name] that is [damage_descriptor] beyond recognition.</b>\n")
+				continue//If it's this bad, we don't care about the rest of the wounds. The limb is gone.
 			var/body_part = temp.body_part
 			if(temp.body_part & HEAD)
 				body_part &= ~HEAD
@@ -314,7 +338,7 @@
 				continue
 			var/thin_covering = (skipbody & body_part) ? TRUE : FALSE
 			if((temp.status & ORGAN_ASSISTED) && !thin_covering)
-				if(!(temp.brute_dam + temp.burn_dam) && !(temp.open))
+				if(!(LIMB_GET_BRUTE_DAMAGE(temp) + LIMB_GET_BURN_DAMAGE(temp)) && !(temp.open))
 					continue
 				else
 					wound_flavor_text["[temp.name]"] = SPAN_WARNING("[get_pronoun("He")] [get_pronoun("has")] [temp.get_wounds_desc()] on [get_pronoun("his")] [temp.name].<br>")
@@ -329,9 +353,9 @@
 					is_bleeding["[temp.name]"] = SPAN_DANGER("[get_pronoun("His")] [temp.name] is bleeding")+ "<br>"
 			else
 				wound_flavor_text["[temp.name]"] = ""
-			if(temp.dislocated == 2)
+			if(LIMB_GET_DISLOCATED(temp) == 2)
 				wound_flavor_text["[temp.name]"] += SPAN_WARNING("[get_pronoun("His")] [temp.joint] is dislocated!<br>")
-			if(((temp.status & ORGAN_BROKEN) && temp.brute_dam > temp.min_broken_damage) || (temp.status & ORGAN_MUTATED))
+			if(((temp.status & ORGAN_BROKEN) && LIMB_GET_BRUTE_DAMAGE(temp) > temp.min_broken_damage) || (temp.status & ORGAN_MUTATED))
 				wound_flavor_text["[temp.name]"] += SPAN_WARNING("[get_pronoun("His")] [temp.name] is dented and swollen!<br>")
 
 	//Handles the text strings being added to the actual description.
@@ -407,6 +431,10 @@
 	if(V && (V.status & VAMP_DRAINING))
 		var/obj/item/grab/G = get_active_hand()
 		msg += SPAN_ALERT(FONT_LARGE("\n[get_pronoun("He")] is biting [G.affecting]'[G.affecting.get_pronoun("end")] neck!"))
+
+	// recognition message for ghostroles, so they can recongize one another
+	if(isliving(user) && user != src && mind?.recognition_group && mind.recognition_group == user.mind?.recognition_group && mind.recognition_message)
+		msg += SPAN_GOOD("[mind.recognition_message]\n")
 
 	if(pose)
 		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0)

@@ -95,7 +95,9 @@
 /obj/projectile/energy/phoron
 	name = "phoron bolt"
 	icon_state = "energy"
-	irradiate = 20
+	irradiate = 80 //Radiation goes up to 1000
+	check_armor = BIO
+	damage_type = DAMAGE_TOXIN
 
 /obj/projectile/energy/bfg
 	name = "distortion"
@@ -115,7 +117,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		M.gib()
-	explosion(target, -1, 0, 5)
+	explosion(get_turf(target), -1, 0, 5)
 	. = ..()
 
 /obj/projectile/energy/bfg/New()
@@ -149,7 +151,7 @@
 	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 10
 	embed = 0
-	speed = 2
+	speed = 1
 	light_range = 4
 	light_color = "#b5ff5b"
 
@@ -160,8 +162,8 @@
 		A.gravitychange(FALSE)
 		addtimer(CALLBACK(src, PROC_REF(turnongravity)), 150)
 
-	if(istype(target, /obj/machinery/gravity_generator/main))
-		var/obj/machinery/gravity_generator/main/T = target
+	if(istype(target, /obj/structure/machinery/gravity_generator/main))
+		var/obj/structure/machinery/gravity_generator/main/T = target
 		T.eshutoff()
 
 /obj/projectile/energy/gravitydisabler/proc/turnongravity(var/area/A)
@@ -178,35 +180,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	impact_effect_type = /obj/effect/temp_visual/blaster_effect
 
-/obj/projectile/energy/blaster/disruptor
-	damage = 20
-	pass_flags = PASSTABLE | PASSRAILING
-
-/obj/projectile/energy/blaster/disruptor/practice
-	damage = 5
-	damage_type = DAMAGE_PAIN
-	eyeblur = 0
-
 /obj/projectile/energy/blaster/skrell // for nralakk fed consular pistol
 	damage = 30
 	armor_penetration = 5
 	pass_flags = PASSTABLE | PASSRAILING
-
-/obj/projectile/energy/disruptorstun
-	name = "disruptor bolt"
-	icon_state = "bluelaser"
-	damage = 1
-	agony = 40
-	speed = 0.4
-	damage_type = DAMAGE_BURN
-	eyeblur = 1
-	pass_flags = PASSTABLE | PASSRAILING
-	muzzle_type = /obj/effect/projectile/muzzle/bolt
-
-/obj/projectile/energy/disruptorstun/practice
-	damage = 5
-	damage_type = DAMAGE_PAIN
-	eyeblur = 0
 
 /obj/projectile/energy/blaster/heavy
 	damage = 35
@@ -216,7 +193,21 @@
 	icon_state = "laser"
 	damage = 35
 	armor_penetration = 60
-	incinerate = 15
+	incinerate = 2
 
-/obj/projectile/energy/disruptorstun/skrell // for nralakk fed consular pistol
+/obj/projectile/energy/blaster/incendiary/light
+	icon_state = "laser"
+	damage = 30
+	armor_penetration = 35
+	incinerate = 1
+
+/obj/projectile/energy/disruptorskrell // for nralakk fed consular pistol
+	name = "disruptor bolt"
+	icon_state = "bluelaser"
+	damage = 1
 	agony = 45
+	speed = 0.4
+	damage_type = DAMAGE_BURN
+	eyeblur = 1
+	pass_flags = PASSTABLE | PASSRAILING
+	muzzle_type = /obj/effect/projectile/muzzle/bolt

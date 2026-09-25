@@ -13,7 +13,7 @@
 
 /singleton/reagent/proc/set_thermal_energy(amount, var/datum/reagents/holder, safety = FALSE)
 	var/delta = amount / get_thermal_fraction(holder) - holder.thermal_energy
-	if(!round(delta, 1))
+	if(!delta)
 		return
 	holder.add_thermal_energy(delta, safety) // this handles on_heat_change for us
 

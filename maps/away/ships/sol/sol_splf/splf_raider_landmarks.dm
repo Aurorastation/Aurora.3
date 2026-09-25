@@ -1,25 +1,25 @@
 // Aft airlocks
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_starboard
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_starboard
 	name = "Maintenance Hatch"
 	master_tag = "splf_aft_starboard"
 
-/obj/effect/map_effect/marker/airlock/splf_raider/aft_portside
+/obj/effect/map_effect/marker/airlock/external/splf_raider/aft_portside
 	name = "Maintenance Hatch"
 	master_tag = "splf_aft_port"
 // --------
 
 // Mid airlocks
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_starboard
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_starboard
 	name = "Maintenance Hatch"
 	master_tag = "splf_mid_starboard"
 
-/obj/effect/map_effect/marker/airlock/splf_raider/mid_portside
+/obj/effect/map_effect/marker/airlock/external/splf_raider/mid_portside
 	name = "Maintenance Hatch"
 	master_tag = "splf_mid_port"
 // --------
 
 // Gunnery airlock
-/obj/effect/map_effect/marker/airlock/splf_raider/gunnery
+/obj/effect/map_effect/marker/airlock/external/splf_raider/gunnery
 	name = "Maintenance Hatch"
 	master_tag = "splf_gunnery"
 // --------

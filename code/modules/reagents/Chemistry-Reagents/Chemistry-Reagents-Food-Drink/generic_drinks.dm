@@ -1411,16 +1411,16 @@
 	glass_desc = "A tangy substance made of 0.5% natural citrus!"
 
 /singleton/reagent/drink/grapesoda
-	name = "Grape Soda"
-	description = "Grapes made into a fine drank."
+	name = "Drosiá Grape"
+	description = "Only the second best thing made of grapes to come out of Assunzione."
 	color = "#421C52"
 	adj_drowsy = -3
 	taste_description = "grape soda"
 	carbonated = TRUE
 
 	glass_icon_state = "gsodaglass"
-	glass_name = "glass of grape soda"
-	glass_desc = "Looks like a delicious drink!"
+	glass_name = "glass of Drosiá Grape"
+	glass_desc = "Only the second best thing made of grapes to come out of Assunzione."
 
 /singleton/reagent/drink/brownstar
 	name = "Orange Starshine"
@@ -1432,6 +1432,17 @@
 	glass_icon_state = "brownstar"
 	glass_name = "glass of Orange Starshine"
 	glass_desc = "A citrusy orange soda."
+
+/singleton/reagent/drink/orangeade
+	name = "Orangeade"
+	description = "A fizzy citrus-y splash of delight."
+	color = "#e77110"
+	taste_description = "fizzy citrus"
+	carbonated = TRUE
+
+	glass_icon_state = "glass_orange"
+	glass_name = "glass of orangeade"
+	glass_desc = "It tastes like it might be good for you, but it's not! Mmm, citrus!"
 
 //
 // Diet Soda

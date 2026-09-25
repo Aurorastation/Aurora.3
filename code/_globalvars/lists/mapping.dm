@@ -93,6 +93,30 @@ GLOBAL_LIST_INIT(alldirs, list(
 	SOUTHWEST,
 ))
 
+/// Used in N_* directions (defined in \code\_DEFINES\icon_smoothing.dm) to Byond native conversions
+GLOBAL_LIST_INIT(ndir_to_dir, alist(
+	N_NORTH    = NORTH,
+	N_SOUTH    = SOUTH,
+	N_EAST     = EAST,
+	N_WEST     = WEST,
+	N_NORTHEAST = NORTHEAST,
+	N_NORTHWEST = NORTHWEST,
+	N_SOUTHEAST = SOUTHEAST,
+	N_SOUTHWEST = SOUTHWEST
+))
+
+/// Used to get native equalivent of N_* directions. Useful if you need to manually hand adjacencies to smoothing system, if calculate_adjacencies() isn't viable.
+GLOBAL_LIST_INIT(dir_to_ndir, alist(
+	NORTH    = N_NORTH,
+	SOUTH    = N_SOUTH,
+	EAST     = N_EAST,
+	WEST     = N_WEST,
+	NORTHEAST = N_NORTHEAST,
+	NORTHWEST = N_NORTHWEST,
+	SOUTHEAST = N_SOUTHEAST,
+	SOUTHWEST = N_SOUTHWEST
+))
+
 /// Just a list of all the area objects in the game
 /// Note, areas can have duplicate types
 GLOBAL_LIST_EMPTY(areas)

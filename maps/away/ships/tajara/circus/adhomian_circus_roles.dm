@@ -3,11 +3,11 @@
 /obj/outfit/admin/adhomian_circus
 	id = /obj/item/card/id
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/adhomian_circus/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/adhomian_circus
 	short_name = "adhomian_circus_crew"

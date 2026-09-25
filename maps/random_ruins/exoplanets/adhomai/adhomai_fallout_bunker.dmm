@@ -65,7 +65,7 @@
 /obj/item/reagent_containers/food/snacks/adhomian_sausage,
 /obj/item/reagent_containers/food/snacks/adhomian_sausage,
 /obj/item/reagent_containers/food/snacks/adhomian_sausage,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -96,7 +96,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "eB" = (
-/obj/machinery/vending/tool{
+/obj/structure/machinery/vending/tool{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled{
@@ -129,7 +129,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "fk" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Living Quarters";
 	dir = 1
@@ -139,7 +139,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "fJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -158,7 +158,7 @@
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
 /obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -169,7 +169,7 @@
 "hR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -184,7 +184,7 @@
 /obj/item/reagent_containers/food/snacks/fruit_rikazu,
 /obj/item/reagent_containers/food/snacks/fruit_rikazu,
 /obj/item/reagent_containers/food/snacks/fruit_rikazu,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -195,7 +195,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "iw" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -221,7 +221,7 @@
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/mask/gas,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -234,8 +234,8 @@
 /area/adhomai_fallout_bunker)
 "jz" = (
 /obj/structure/table/standard,
-/obj/item/device/radio,
-/obj/machinery/light{
+/obj/item/radio,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
@@ -264,7 +264,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "kj" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_fallout_bunker)
 "kH" = (
@@ -278,7 +278,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "lo" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor{
@@ -286,7 +286,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "lO" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Food Storage";
 	req_access = list(209);
 	dir = 4
@@ -309,7 +309,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "mz" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -318,12 +318,12 @@
 /area/adhomai_fallout_bunker)
 "mV" = (
 /obj/structure/table/standard,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
-/obj/item/device/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
+/obj/item/versebook/pra,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -339,7 +339,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "nd" = (
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	name = "Restroom";
 	dir = 4
 	},
@@ -353,7 +353,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "nu" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -363,7 +363,7 @@
 /area/adhomai_fallout_bunker)
 "nC" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
@@ -390,7 +390,7 @@
 /area/adhomai_fallout_bunker)
 "nQ" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -399,7 +399,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "nT" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker Observation";
 	req_access = list(209);
 	dir = 1
@@ -409,7 +409,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "oe" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -417,7 +417,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "ol" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -436,10 +436,10 @@
 	},
 /area/adhomai_fallout_bunker)
 "pt" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -451,8 +451,8 @@
 	},
 /area/adhomai_fallout_bunker)
 "pz" = (
-/obj/machinery/washing_machine,
-/obj/machinery/light,
+/obj/structure/machinery/washing_machine,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -474,8 +474,8 @@
 /area/adhomai_fallout_bunker)
 "pT" = (
 /obj/structure/table/standard,
-/obj/item/device/radio,
-/obj/machinery/light{
+/obj/item/radio,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -488,7 +488,7 @@
 /area/adhomai_fallout_bunker)
 "pW" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -516,7 +516,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "qY" = (
-/obj/machinery/sleeper{
+/obj/structure/machinery/sleeper{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -538,7 +538,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "rt" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -550,7 +550,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "rG" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -586,7 +586,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_fallout_bunker)
 "ua" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = -32;
 	req_access = list(209);
@@ -596,12 +596,12 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_fallout_bunker)
 "uq" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker";
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -629,7 +629,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "uS" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -653,7 +653,7 @@
 /obj/item/reagent_containers/food/snacks/vegetable_rikazu,
 /obj/item/reagent_containers/food/snacks/vegetable_rikazu,
 /obj/item/reagent_containers/food/snacks/vegetable_rikazu,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -673,7 +673,7 @@
 /area/adhomai_fallout_bunker)
 "wc" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	uid = "bunker_entry"
 	},
@@ -691,11 +691,11 @@
 /area/adhomai_fallout_bunker)
 "wn" = (
 /obj/structure/closet/crate,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -710,7 +710,7 @@
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/pill_bottle/dylovene,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -719,7 +719,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "xa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
@@ -751,7 +751,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "xJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -768,7 +768,7 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -817,8 +817,8 @@
 	},
 /area/adhomai_fallout_bunker)
 "Bj" = (
-/obj/machinery/vending/cigarette,
-/obj/machinery/light{
+/obj/structure/machinery/vending/cigarette,
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red/full,
@@ -827,7 +827,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Bv" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	req_access = list(209);
 	name = "Bunker Entrance Lockdown";
@@ -842,7 +842,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Cd" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 4
 	},
@@ -861,7 +861,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
 /obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
 /obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -872,7 +872,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Cu" = (
-/obj/machinery/door/airlock/medical{
+/obj/structure/machinery/door/airlock/medical{
 	req_access = list(209);
 	name = "Medbay";
 	dir = 1
@@ -883,7 +883,7 @@
 /area/adhomai_fallout_bunker)
 "CW" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
@@ -902,26 +902,26 @@
 /area/adhomai_fallout_bunker)
 "Ez" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomai_fallout_bunker)
 "EL" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker Entry";
 	req_access = list(209);
 	dir = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	uid = "bunker_entry"
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_fallout_bunker)
 "EM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -949,7 +949,7 @@
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/item/reagent_containers/food/snacks/liquidfood,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -969,7 +969,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Ga" = (
-/obj/machinery/vending/wallmed2{
+/obj/structure/machinery/vending/wallmed2{
 	req_access = null;
 	pixel_y = 28
 	},
@@ -978,7 +978,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Gk" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
 	req_access = list(209);
 	name = "Bunker Entrance Lockdown";
@@ -1009,7 +1009,7 @@
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/mask/gas,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -1047,7 +1047,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "JI" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1070,7 +1070,7 @@
 /area/adhomai_fallout_bunker)
 "KG" = (
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1102,8 +1102,8 @@
 	},
 /area/adhomai_fallout_bunker)
 "LG" = (
-/obj/machinery/vending/snack,
-/obj/machinery/light{
+/obj/structure/machinery/vending/snack,
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1115,7 +1115,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "LN" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "bunker_door";
 	dir = 2
 	},
@@ -1123,7 +1123,7 @@
 /area/adhomai_fallout_bunker)
 "MM" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white{
@@ -1139,11 +1139,11 @@
 	},
 /area/adhomai_fallout_bunker)
 "NM" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -1199,10 +1199,10 @@
 /obj/item/shovel,
 /obj/item/shovel,
 /obj/item/shovel,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
@@ -1250,7 +1250,7 @@
 /area/adhomai_fallout_bunker)
 "Rw" = (
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
@@ -1282,8 +1282,8 @@
 	},
 /area/adhomai_fallout_bunker)
 "Sx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/light{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -1295,7 +1295,7 @@
 /area/adhomai_fallout_bunker)
 "SB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	uid = "bunker_entry"
 	},
 /turf/simulated/floor/tiled{
@@ -1313,7 +1313,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Te" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Barracks";
 	dir = 4
@@ -1337,7 +1337,7 @@
 /area/adhomai_fallout_bunker)
 "UI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
@@ -1345,11 +1345,11 @@
 	},
 /area/adhomai_fallout_bunker)
 "Vb" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/door/window,
+/obj/structure/machinery/door/window,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -1395,7 +1395,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "VL" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled{
@@ -1404,7 +1404,7 @@
 /area/adhomai_fallout_bunker)
 "Wc" = (
 /obj/structure/hadii_statue,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
@@ -1443,7 +1443,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "XB" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Maintenance Equipment Storage";
 	dir = 4
@@ -1453,7 +1453,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "XX" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	req_access = list(209);
 	name = "Radiation Suit Storage";
 	dir = 4
@@ -1463,7 +1463,7 @@
 	},
 /area/adhomai_fallout_bunker)
 "Ya" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -1473,7 +1473,7 @@
 /area/adhomai_fallout_bunker)
 "Ym" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},

@@ -115,7 +115,7 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "x" = (
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "y" = (
@@ -124,7 +124,7 @@
 /area/template_noop)
 "z" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
 	dir = 1
@@ -149,7 +149,7 @@
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "D" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
 	dir = 1

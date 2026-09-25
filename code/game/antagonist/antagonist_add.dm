@@ -45,7 +45,7 @@
 	// Handle only adding a mind and not bothering with gear etc.
 	if(nonstandard_role_type)
 		faction_members |= player
-		to_chat(player.current, SPAN_DANGER("<font size=3>You are \a [nonstandard_role_type]!</font>"))
+		to_chat(player.current, SPAN_DANGER("<font size=5>You are \a [nonstandard_role_type]!</font>"))
 		player.special_role = nonstandard_role_type
 		if(nonstandard_role_msg)
 			to_chat(player.current, SPAN_NOTICE("[nonstandard_role_msg]"))
@@ -61,6 +61,8 @@
 	return 1
 
 /datum/antagonist/proc/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
+	SHOULD_CALL_PARENT(TRUE)
+
 	if(!istype(player))
 		return 0
 
@@ -112,7 +114,7 @@
 	new_log.SetSuccessCallback(CALLBACK(src, .proc/set_db_log_id))
 	new_log.SetFailCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
 
-	new_log.ExecuteNoSleep()
+	new_log.ExecuteNoSleep(TRUE) //Allow to execute before roundstarts for roundstart antags
 	return
 
 /datum/antagonist/proc/set_db_log_id(var/datum/db_query/new_log)
@@ -137,4 +139,4 @@
 		)
 	update_query.SetSuccessCallback(CALLBACK(src, .proc/set_db_log_id))
 	update_query.SetFailCallback(CALLBACK(GLOBAL_PROC, /proc/qdel))
-	update_query.ExecuteNoSleep()
+	update_query.ExecuteNoSleep(TRUE) //Shouldnt happen but still, in case it happens we want it to run before roundstart

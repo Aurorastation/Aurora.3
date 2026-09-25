@@ -24,7 +24,7 @@
 	icon_state = "cult_arms"
 	melee_damage = 50
 	action_delay = 5
-	max_damage = 90
+	max_damage = 135
 	power_use = 3500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
@@ -37,6 +37,11 @@
 	max_damage = 90
 	power_use = 2500
 	trample_damage = 45
+
+	// Uniquely increases speed when damaged. Fragile, but good for melee.
+	// It can become faster than a light mech, but only when on the verge of death.
+	damaged_delay = 4
+	damaged_delay_slope = -1
 
 /obj/item/mech_component/sensors/cult
 	name = "daemon sensors"
@@ -56,6 +61,8 @@
 	desc = "Despite its looks, this protective chassis provides supreme comfort to its pilot during their conquest."
 	hatch_descriptor = "bloodied ribcage"
 	pilot_coverage = 100
+	cockpit_hatch_size = 60
+	cockpit_pilot_damage_multiplier = 0.4
 	exosuit_desc_string = "a bloodied chassis"
 	icon_state = "cult_body"
 	max_damage = 150

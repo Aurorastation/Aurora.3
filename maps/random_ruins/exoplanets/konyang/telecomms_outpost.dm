@@ -52,14 +52,14 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/konyang/army
 	l_pocket = /obj/item/storage/wallet/random
-	r_pocket = /obj/item/device/radio
+	r_pocket = /obj/item/radio
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/konyang_army
 
 /obj/outfit/admin/konyang/army/get_id_access()
-	return list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/portofcall_police::id, /datum/access/external_airlocks::id)
 
 /obj/item/card/id/konyang_army
 	name = "konyang army id"
-	access = list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/portofcall_police::id, /datum/access/external_airlocks::id)
 

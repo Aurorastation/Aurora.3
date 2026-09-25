@@ -4,7 +4,7 @@
 /obj/structure/closet/secure_closet/marooning_equipment
 	name = "marooning equipment locker"
 	icon_state = "maroon"
-	req_one_access = list(ACCESS_HEADS, ACCESS_SECURITY) // Marooned personnel would likely be marooned by security and/or command.
+	req_one_access = list(/datum/access/heads::id, /datum/access/security::id) // Marooned personnel would likely be marooned by security and/or command.
 
 /obj/structure/closet/secure_closet/marooning_equipment/fill()
 	new /obj/item/clothing/mask/breath(src)
@@ -21,8 +21,8 @@
 	starts_with = list(
 		// Tools
 		/obj/item/crowbar/red = 1,
-		/obj/item/device/flashlight/heavy = 1,
-		/obj/item/device/gps/marooning_equipment = 1,
+		/obj/item/flashlight/heavy = 1,
+		/obj/item/gps/marooning_equipment = 1,
 		/obj/item/airbubble = 1,
 
 		// Rations

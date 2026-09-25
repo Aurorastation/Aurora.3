@@ -15,37 +15,42 @@
 	var/icon_base
 	var/color
 
-	var/has_base_range // basically if you want your turf to have variants, e.g. snow and grass. this number sets upper bound, starts at 0.
+	/// Basically if you want your turf to have variants, e.g. snow and grass. this number sets upper bound, starts at 0.
+	var/has_base_range
 	var/has_damage_range = 7
-	var/has_damage_state // if you've got unique damage sprites, hard-baked, not overlays. if you use overlays use the range system.
+	/// If you've got unique damage sprites, hard-baked, not overlays. if you use overlays use the range system.
+	var/has_damage_state
 	var/has_burn_range = 4
-	var/has_burn_state // same as damage state for burn.
+	/// Ssame as damage state for burn.
+	var/has_burn_state
 	var/damage_uses_color = FALSE // see wood.
 	var/damage_temperature
 	var/apply_thermal_conductivity
 	var/apply_heat_capacity
 
-	///The type of floor that can make this, if it's not set (`null`), this flooring is unbuildable
-	var/obj/item/stack/build_type      // Unbuildable if not set. Must be /obj/item/stack.
+	/// The type of floor that can make this, if it's not set (`null`), this flooring is unbuildable.
+	var/obj/item/stack/build_type
 	var/build_cost = 1  // Stack units.
 	var/build_time = 0  // BYOND ticks.
 
 	var/descriptor = "tiles"
 	var/flags
 	var/can_paint = FALSE
-	var/footstep_sound = /singleton/sound_category/tiles_footstep
+	var/footstep_sound = SFX_FOOTSTEP_TILES
 
 	//How we smooth with other flooring
 	var/decal_layer = DECAL_LAYER
 	var/floor_smooth = SMOOTH_ALL
-	var/list/flooring_whitelist = list() //Smooth with nothing except the contents of this list
-	var/list/flooring_blacklist = list() //Smooth with everything except the contents of this list
+	/// Smooth with nothing except the contents of this list.
+	var/list/flooring_whitelist = list()
+	/// Smooth with everything except the contents of this list.
+	var/list/flooring_blacklist = list()
 
-	//How we smooth with walls
+	/// How we smooth with walls.
 	var/wall_smooth = SMOOTH_ALL
 	//There are no lists for walls at this time
 
-	//How we smooth with space and openspace tiles
+	/// How we smooth with space and openspace tiles.
 	var/space_smooth = SMOOTH_ALL
 	//There are no lists for spaces
 
@@ -63,7 +68,7 @@
 	damage_temperature = T0C+80
 	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_SHOVEL | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/grass
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_ALL
 	space_smooth = SMOOTH_NONE
@@ -75,7 +80,7 @@
 	icon_base = "asteroid"
 	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 
 /singleton/flooring/snow
 	name = "snow"
@@ -84,7 +89,7 @@
 	icon_base = "snow"
 	has_base_range = 2
 	flags = TURF_HAS_EDGES | TURF_OFFSET_EDGES | TURF_REMOVE_SHOVEL
-	footstep_sound = /singleton/sound_category/snow_footstep
+	footstep_sound = SFX_FOOTSTEP_SNOW
 
 //Carpet
 /singleton/flooring/carpet
@@ -95,7 +100,7 @@
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
 	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN | TURF_HAS_EDGES
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_NONE
 	space_smooth = SMOOTH_NONE
@@ -166,7 +171,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
 	can_paint = TRUE
-	footstep_sound = /singleton/sound_category/tiles_footstep
+	footstep_sound = SFX_FOOTSTEP_TILES
 	has_damage_range = 4
 	has_burn_range = 1
 
@@ -192,7 +197,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/lino
 	can_paint = TRUE
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 
 /singleton/flooring/linoleum/diamond
 	icon_base = "lino_diamond"
@@ -323,7 +328,7 @@
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER | TURF_CAN_BURN
-	footstep_sound = /singleton/sound_category/wood_footstep
+	footstep_sound = SFX_FOOTSTEP_WOOD
 	can_paint = TRUE
 
 /singleton/flooring/wood/birch
@@ -366,7 +371,7 @@
 	apply_thermal_conductivity = 0.025
 	apply_heat_capacity = 325000
 	can_paint = TRUE
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 
 /singleton/flooring/reinforced/large
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -424,7 +429,7 @@
 	icon_base = "diona"
 	has_base_range = 4
 	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL | TURF_REMOVE_WELDER
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 
 //material turfs
 
@@ -490,6 +495,10 @@
 /singleton/flooring/marble/dark
 	color = COLOR_DARK_GRAY
 	build_type = /obj/item/stack/tile/marble/dark
+
+/singleton/flooring/marble/red
+	color = "#9e6a64"
+	build_type = /obj/item/stack/tile/marble/red
 
 /singleton/flooring/concrete
 	name = "concrete"

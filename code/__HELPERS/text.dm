@@ -664,9 +664,18 @@
 	t = replacetext(t, "\[logo_golden_small\]", "<img src = goldenlogo_small.png>")
 	t = replacetext(t, "\[logo_pvpolice\]", "<img src = pvpolicelogo.png>")
 	t = replacetext(t, "\[logo_pvpolice_small\]", "<img src = pvpolicelogo_small.png>")
+	t = replacetext(t, "\[logo_outereyes\]", "<img src = outereyeslogo.png>")
+	t = replacetext(t, "\[logo_outereyes_small\]", "<img src = outereyeslogo_small.png>")
+	t = replacetext(t, "\[twinsuns\]", "<img src = twinsuns.png>")
+	t = replacetext(t, "\[twinsuns_small\]", "<img src = twinsuns_small.png>")
+	t = replacetext(t, "\[raskara_sigil\]", "<img src = raskara_sigil.png>")
+	t = replacetext(t, "\[raskara_sigil_small\]", "<img src = raskara_sigil_small.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
+	t = replacetext(t, "\[tajtime\]", "[tajaran_time()]")
+	t = replacetext(t, "\[tajdate\]", "[tajaran_full_date()]")
+	t = replacetext(t, "\[cr\]", "\u7535")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [GLOB.config.docs_image_host]$1></img>")
 	return t
@@ -734,6 +743,12 @@
 		t = replacetext(t, "<img src = goldenlogo.png>", "\[logo_golden\]")
 		t = replacetext(t, "<img src = pvpolicelogo.png>", "\[logo_pvpolice\]")
 		t = replacetext(t, "<img src = pvpolicelogo_small.png>", "\[logo_pvpolice_small\]")
+		t = replacetext(t, "<img src = outereyeslogo.png>", "\[logo_outereyes\]")
+		t = replacetext(t, "<img src = outereyeslogo_small.png>", "\[logo_outereyes_small\]")
+		t = replacetext(t, "<img src = twinsuns.png>", "\[twinsuns\]")
+		t = replacetext(t, "<img src = twinsuns_small.png>", "\[twinsuns_small\]")
+		t = replacetext(t, "<img src = raskara_sigil.png>", "\[raskara_sigil\]")
+		t = replacetext(t, "<img src = raskara_sigil_small.png>", "\[raskara_sigil_small\]")
 
 	return t
 
@@ -897,3 +912,31 @@
 /proc/endswith(input_text, ending)
 	var/input_length = LAZYLEN(ending)
 	return !!findtext(input_text, ending, -input_length)
+
+///Returns a string based on the weight class define used as argument
+/proc/weight_class_to_text(w_class)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY)
+			. = "tiny"
+		if(WEIGHT_CLASS_SMALL)
+			. = "small"
+		if(WEIGHT_CLASS_NORMAL)
+			. = "normal-sized"
+		if(WEIGHT_CLASS_BULKY)
+			. = "bulky"
+		if(WEIGHT_CLASS_HUGE)
+			. = "huge"
+		if(WEIGHT_CLASS_GIGANTIC)
+			. = "gigantic"
+		else
+			. = ""
+
+/proc/weight_class_to_tooltip(w_class)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY to WEIGHT_CLASS_SMALL)
+			return "This item can fit into pockets, boxes and backpacks."
+		if(WEIGHT_CLASS_NORMAL)
+			return "This item can fit into backpacks."
+		if(WEIGHT_CLASS_BULKY to WEIGHT_CLASS_GIGANTIC)
+			return "This item is too large to fit into any standard storage."
+	return ""

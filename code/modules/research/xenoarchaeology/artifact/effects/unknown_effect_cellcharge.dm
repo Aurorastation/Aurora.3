@@ -34,12 +34,12 @@ if (TICK_CHECK) { \
 		for (var/atom/P in range(effectrange, T))
 			SLEEP_AND_STOP
 
-			if (istype(P, /obj/machinery/power/apc))
-				var/obj/machinery/power/apc/apc = P
+			if (istype(P, /obj/structure/machinery/power/apc))
+				var/obj/structure/machinery/power/apc/apc = P
 				if (apc.cell)
 					apc.cell.charge += 25
-			else if (istype(P, /obj/machinery/power/smes))
-				var/obj/machinery/power/smes/smes = P
+			else if (istype(P, /obj/structure/machinery/power/smes))
+				var/obj/structure/machinery/power/smes/smes = P
 				smes.charge += 25
 			else if(isliving(P))
 				var/mob/living/M = P
@@ -59,10 +59,10 @@ if (TICK_CHECK) { \
 /datum/artifact_effect/cellcharge/DoEffectPulse()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for (var/obj/machinery/power/apc/C in range(200, T))
+		for (var/obj/structure/machinery/power/apc/C in range(200, T))
 			for (var/obj/item/cell/B in C.contents)
 				B.charge += rand() * 100
-		for (var/obj/machinery/power/smes/S in range (effectrange,src))
+		for (var/obj/structure/machinery/power/smes/S in range (effectrange,src))
 			S.charge += 250
 		for(var/mob/living/M in range(100, T))
 			var/obj/item/cell/D = M.get_cell()

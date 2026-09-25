@@ -8,9 +8,6 @@
 #define SQL_CHARACTER	0x1
 #define SQL_PREFERENCES	0x2
 
-// General-purpose helper for drawing a colored box.
-#define HTML_RECT(color) "&nbsp;<div style=\"display:inline;height:10px;width:30px;background:'[color || "#FFFFFF"]'\"></div>&nbsp;"
-
 // A bit of a hack to allow unit testing of category items.
 #ifdef UNIT_TEST
 #	define PREF_CLIENT_CKEY ""
@@ -28,30 +25,35 @@
 	sort_order = 2
 	category_item_type = /datum/category_item/player_setup_item/origin
 
+/datum/category_group/player_setup_category/skill_preferences
+	name = "Skills"
+	sort_order = 3
+	category_item_type = /datum/category_item/player_setup_item/skills
+
 /datum/category_group/player_setup_category/occupation_preferences
 	name = "Occupation"
-	sort_order = 3
+	sort_order = 4
 	category_item_type = /datum/category_item/player_setup_item/occupation
 
 /datum/category_group/player_setup_category/appearance_preferences
 	name = "Roles"
-	sort_order = 4
+	sort_order = 5
 	category_item_type = /datum/category_item/player_setup_item/antagonism
 
 /datum/category_group/player_setup_category/loadout_preferences
 	name = "Loadout"
-	sort_order = 5
+	sort_order = 6
 	category_item_type = /datum/category_item/player_setup_item/loadout
 
 /datum/category_group/player_setup_category/global_preferences
 	name = "Global"
-	sort_order = 6
+	sort_order = 7
 	category_item_type = /datum/category_item/player_setup_item/player_global
 	sql_role = SQL_PREFERENCES
 
 /datum/category_group/player_setup_category/other_preferences
 	name = "Other"
-	sort_order = 7
+	sort_order = 8
 	category_item_type = /datum/category_item/player_setup_item/other
 
 /****************************
@@ -95,19 +97,6 @@
 /datum/category_collection/player_setup_collection/proc/update_setup(var/savefile/preferences, var/savefile/character)
 	for(var/datum/category_group/player_setup_category/PS in categories)
 		. = . || PS.update_setup(preferences, character)
-
-/datum/category_collection/player_setup_collection/proc/header()
-	var/dat = ""
-	for(var/datum/category_group/player_setup_category/PS in categories)
-		if(PS == selected_category)
-			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
-		else
-			dat += "<a href='byond://?src=[REF(src)];category=[REF(PS)]'>[PS.name]</a> "
-	return dat
-
-/datum/category_collection/player_setup_collection/proc/content(var/mob/user)
-	if(selected_category)
-		return selected_category.content(user)
 
 /datum/category_collection/player_setup_collection/Topic(var/href,var/list/href_list)
 	if(..())
@@ -197,20 +186,12 @@
 	for(var/datum/category_item/player_setup_item/PI in items)
 		. = . || PI.update_setup(preferences, character)
 
-/datum/category_group/player_setup_category/proc/content(var/mob/user)
-	. = "<table style='width:100%'><tr style='vertical-align:top'><td style='width:50%'>"
-	var/current = 0
-	var/halfway = items.len / 2.5
+/datum/category_group/player_setup_category/ui_data(var/mob/user)
+	. = list()
 	for(var/datum/category_item/player_setup_item/PI in items)
-		if(halfway && current++ >= halfway)
-			halfway = 0
-			. += "</td><td></td><td style='width:50%'>"
-		. += "[PI.content(user)]<br>"
-	. += "</td></tr></table>"
-
-/datum/category_group/player_setup_category/occupation_preferences/content(var/mob/user)
-	for(var/datum/category_item/player_setup_item/PI in items)
-		. += "[PI.content(user)]<br>"
+		var/list/item_data = PI.ui_data(user)
+		if(length(item_data))
+			. += list(item_data)
 
 /**********************
 * Category Item Setup *
@@ -301,8 +282,13 @@
 /datum/category_item/player_setup_item/proc/gather_save_parameters()
 	return list()
 
-/datum/category_item/player_setup_item/proc/content(var/mob/user)
-	return
+/datum/category_item/player_setup_item/ui_data(var/mob/user)
+	return list(
+		"kind" = "notice",
+		"name" = name,
+		"ref" = REF(src),
+		"message" = "This preference section has no TGUI renderer."
+	)
 
 /datum/category_item/player_setup_item/proc/sanitize_character(var/sql_load = 0)
 	return
@@ -331,6 +317,16 @@
 
 /datum/category_item/player_setup_item/proc/OnTopic(var/href,var/list/href_list, var/mob/user)
 	return TOPIC_NOACTION
+
+/datum/category_item/player_setup_item/proc/handle_ui_topic(var/list/topic, var/mob/user)
+	var/result = OnTopic(null, topic, user)
+	if(result == TOPIC_NOACTION)
+		return FALSE
+	var/datum/category_group/player_setup_category/cat = category
+	cat.modified = TRUE
+	if(result & TOPIC_UPDATE_PREVIEW)
+		pref.update_preview_icon()
+	return TRUE
 
 /datum/category_item/player_setup_item/proc/preference_mob()
 	if(pref && pref.client && pref.client.mob)

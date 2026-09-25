@@ -27,15 +27,16 @@
 /obj/item/ammo_casing/c38/rubber
 	desc = "A .38 rubber bullet casing."
 	projectile_type = /obj/projectile/bullet/pistol/rubber
-	icon_state = "r-casing"
-	spent_icon = "r-casing-spent"
+	icon_state = "rubber_pistol_casing"
+	spent_icon = "rubber_pistol_casing_spent"
 
 /obj/item/ammo_casing/c38/emp
 	name = ".38 haywire round"
 	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/projectile/ion/small
-	icon_state = "empcasing"
-	matter = list(DEFAULT_WALL_MATERIAL = 130, MATERIAL_URANIUM = 100)
+	icon_state = "emp_pistol_casing"
+	spent_icon = "emp_pistol_casing_spent"
+	matter = list(MATERIAL_STEEL = 130, MATERIAL_URANIUM = 100)
 
 /obj/item/ammo_casing/c38/spent/Initialize()
 	. = ..()
@@ -71,8 +72,8 @@
 /obj/item/ammo_casing/c9mm/rubber
 	desc = "A 9mm rubber bullet casing."
 	projectile_type = /obj/projectile/bullet/pistol/rubber
-	icon_state = "r-casing"
-	spent_icon = "r-casing-spent"
+	icon_state = "rubber_pistol_casing"
+	spent_icon = "rubber_pistol_casing_spent"
 
 /obj/item/ammo_casing/c9mm/practice
 	desc = "A 9mm practice bullet casing."
@@ -101,8 +102,8 @@
 /obj/item/ammo_casing/c45/rubber
 	desc = "A .45 rubber bullet casing."
 	projectile_type = /obj/projectile/bullet/pistol/rubber
-	icon_state = "r-casing"
-	spent_icon = "r-casing-spent"
+	icon_state = "rubber_pistol_casing"
+	spent_icon = "rubber_pistol_casing_spent"
 
 /obj/item/ammo_casing/c45/flash
 	desc = "A .45 flash shell casing."
@@ -128,13 +129,13 @@
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A 12-gauge slug."
-	icon_state = "slshell"
-	spent_icon = "slshell-spent"
+	icon_state = "slug_shell"
+	spent_icon = "slug_shell_spent"
 	caliber = "shotgun"
 	projectile_type = /obj/projectile/bullet/shotgun
-	matter = list(DEFAULT_WALL_MATERIAL = 360)
-	reload_sound = /singleton/sound_category/shotgun_reload
-	drop_sound = /singleton/sound_category/casing_drop_sound_shotgun
+	matter = list(MATERIAL_STEEL = 360)
+	reload_sound = SFX_RELOAD_SHOTGUN
+	drop_sound = SFX_CASING_DROP_SHOTGUN
 	max_stack = 8
 
 /obj/item/ammo_casing/shotgun/used/Initialize()
@@ -146,10 +147,10 @@
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A 12-gauge shell."
-	icon_state = "gshell"
-	spent_icon = "gshell-spent"
+	icon_state = "buckshot_shell"
+	spent_icon = "buckshot_shell_spent"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun
-	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	matter = list(MATERIAL_STEEL = 360)
 
 /obj/item/ammo_casing/shotgun/pellet/used/Initialize()
 	. = ..()
@@ -160,36 +161,36 @@
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
 	desc = "A 12-gauge blank shell."
-	icon_state = "blshell"
-	spent_icon = "blshell-spent"
+	icon_state = "blank_shell"
+	spent_icon = "blank_shell_spent"
 	projectile_type = /obj/projectile/bullet/blank
-	matter = list(DEFAULT_WALL_MATERIAL = 90)
+	matter = list(MATERIAL_STEEL = 90)
 
 /obj/item/ammo_casing/shotgun/practice
 	name = "shotgun shell"
 	desc = "A 12-gauge practice shell."
-	icon_state = "pshell"
-	spent_icon = "pshell-spent"
+	icon_state = "practice_shell"
+	spent_icon = "practice_shell_spent"
 	projectile_type = /obj/projectile/bullet/shotgun/practice
 	matter = list(MATERIAL_STEEL = 90)
 
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "beanbag shell"
 	desc = "A 12-gauge beanbag shell."
-	icon_state = "bshell"
-	spent_icon = "bshell-spent"
+	icon_state = "beanbag_shell"
+	spent_icon = "beanbag_shell_spent"
 	projectile_type = /obj/projectile/bullet/shotgun/beanbag
-	matter = list(DEFAULT_WALL_MATERIAL = 180)
+	matter = list(MATERIAL_STEEL = 180)
 
 //Can stun in one hit if aimed at the head, but
 //is blocked by clothing that stops tasers and is vulnerable to EMP
 /obj/item/ammo_casing/shotgun/stunshell
 	name = "stun shell"
 	desc = "A 12-gauge taser cartridge."
-	icon_state = "stunshell"
-	spent_icon = "stunshell-spent"
+	icon_state = "stun_shell"
+	spent_icon = "stun_shell_spent"
 	projectile_type = /obj/projectile/energy/electrode/stunshot
-	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_GLASS = 720)
+	matter = list(MATERIAL_STEEL = 360, MATERIAL_GLASS = 720)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
@@ -204,34 +205,34 @@
 /obj/item/ammo_casing/shotgun/flash
 	name = "flash shell"
 	desc = "A 12-gauge chemical shell used to signal distress or provide illumination."
-	icon_state = "fshell"
-	spent_icon = "fshell-spent"
+	icon_state = "flash_shell"
+	spent_icon = "flash_shell_spent"
 	projectile_type = /obj/projectile/energy/flash/flare
-	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
+	matter = list(MATERIAL_STEEL = 90, MATERIAL_GLASS = 90)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/incendiary
 	name = "incendiary shell"
 	desc = "A 12-gauge incendiary shell."
-	icon_state = "ishell"
-	spent_icon = "ishell-spent"
+	icon_state = "incendiary_shell"
+	spent_icon = "incendiary_shell_spent"
 	projectile_type = /obj/projectile/bullet/shotgun/incendiary
-	matter = list(DEFAULT_WALL_MATERIAL = 450)
+	matter = list(MATERIAL_STEEL = 450)
 
 /obj/item/ammo_casing/shotgun/emp
 	name = "haywire slug"
 	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
-	icon_state = "empshell"
-	spent_icon = "empshell-spent"
+	icon_state = "emp_shell"
+	spent_icon = "emp_shell_spent"
 	projectile_type = /obj/projectile/ion
-	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
+	matter = list(MATERIAL_STEEL = 260, MATERIAL_URANIUM = 200)
 	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/tracking
 	name = "tracking slug"
 	desc = "A 12-gauge shotgun slug fitted with a tracking implant, set to activate upon embedding flesh."
-	icon_state = "trackingshell"
-	spent_icon = "trackingshell-spent"
+	icon_state = "tracking_shell"
+	spent_icon = "tracking_shell_spent"
 	projectile_type = /obj/projectile/bullet/tracking
 
 /obj/item/ammo_casing/shotgun/moghes
@@ -245,8 +246,8 @@
 /obj/item/ammo_casing/tranq
 	name = "Plastic-Gas Shell"
 	desc = "A Plastic-Gas Shell (PGS) casing, for air powered weapons."
-	icon_state = "ishell"
-	spent_icon = "ishell-spent"
+	icon_state = "incendiary_shell"
+	spent_icon = "incendiary_shell_spent"
 	caliber = "PGS"
 	projectile_type = /obj/projectile/bullet/rifle/tranq
 	max_stack = 6
@@ -255,13 +256,34 @@
 	desc = "A 7.62mm bullet casing."
 	caliber = "a762"
 	projectile_type = /obj/projectile/bullet/rifle/a762
-	icon_state = "rifle-casing"
-	spent_icon = "rifle-casing-spent"
+	icon_state = "rifle_casing"
+	spent_icon = "rifle_casing_spent"
 	max_stack = 2
 
 /obj/item/ammo_casing/a762/spent/Initialize()
 	. = ..()
 	expend()
+
+/obj/item/ammo_casing/a68
+	desc = "A Z33 Tamparii bullet casing."
+	caliber = "6.8mm"
+	projectile_type = /obj/projectile/bullet/rifle/a68
+	icon_state = "rifle_casing"
+	spent_icon = "rifle_casing_spent"
+	max_stack = 5
+
+/obj/item/ammo_casing/a68/spent/Initialize()
+	. = ..()
+	expend()
+
+/obj/item/ammo_casing/a68/ap
+	desc = "A Z33r Tamparii bullet casing."
+	projectile_type = /obj/projectile/bullet/rifle/a68/ap
+	max_stack = 5
+
+/obj/item/ammo_casing/a68/blank
+	desc = "A Z33t Tamparii blank casing."
+	projectile_type = /obj/projectile/bullet/blank
 
 /obj/item/ammo_casing/a762/blank
 	desc = "A 7.62mm blank casing."
@@ -272,17 +294,17 @@
 	desc = "A 14.5mm shell."
 	caliber = "14.5mm"
 	projectile_type = /obj/projectile/bullet/rifle/a145
-	matter = list(DEFAULT_WALL_MATERIAL = 1250)
-	icon_state = "lcasing"
-	spent_icon = "lcasing-spent"
+	matter = list(MATERIAL_STEEL = 1250)
+	icon_state = "heavy_rifle_casing"
+	spent_icon = "heavy_rifle_casing_spent"
 	max_stack = 2
 
 /obj/item/ammo_casing/a556
 	desc = "A 5.56mm bullet casing."
 	caliber = "a556"
 	projectile_type = /obj/projectile/bullet/rifle/a556
-	icon_state = "rifle-casing"
-	spent_icon = "rifle-casing-spent"
+	icon_state = "intermediate_rifle_casing"
+	spent_icon = "intermediate_rifle_casing_spent"
 	max_stack = 7
 
 /obj/item/ammo_casing/a556/ap
@@ -310,14 +332,14 @@
 	desc_extended = "Designed by de Namur not long after the interstellar war, the 6.5mmx40mm cartridge, designed to fit the needs of Xanu's military while going away from the legacy rounds used by the Sol Alliance. This cartridge has been wildly successful, and has been adopted by the majority of the Coalition of Colonies and beyond."
 	caliber = "a65"
 	projectile_type = /obj/projectile/bullet/rifle/a65
-	icon_state = "rifle-casing"
-	spent_icon = "rifle-casing-spent"
+	icon_state = "intermediate_rifle_casing"
+	spent_icon = "intermediate_rifle_casing_spent"
 	max_stack = 7
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."
-	icon_state = "rocketshell"
+	icon_state = "missile"
 	projectile_type = /obj/item/missile
 	caliber = "rocket"
 	max_stack = 1
@@ -354,8 +376,8 @@
 	projectile_type = /obj/projectile/bullet/rifle/vintage
 	desc = "A .30-06 Government bullet casing. It looks old, and you can barely understand the writing stamped on it."
 	caliber = "30-06 govt"
-	icon_state = "lcasing"
-	spent_icon = "lcasing-spent"
+	icon_state = "heavy_rifle_casing"
+	spent_icon = "heavy_rifle_casing_spent"
 	max_stack = 6
 
 /obj/item/ammo_casing/vintage/spent/Initialize()
@@ -366,15 +388,15 @@
 	projectile_type = /obj/projectile/bullet/rifle/govt
 	desc = "A .45-70 Government bullet casing."
 	caliber = "45-70 govt"
-	icon_state = "gcasing"
-	spent_icon = "gcasing-spent"
+	icon_state = "government_casing"
+	spent_icon = "government_casing_spent"
 	max_stack = 4
 
 /obj/item/ammo_casing/slugger
 	projectile_type = /obj/projectile/bullet/rifle/slugger
 	caliber = "slugger"
-	icon_state = "slugger-sharp"
-	spent_icon = "slugger-spent"
+	icon_state = "slugger_sharp"
+	spent_icon = "slugger_spent"
 	max_stack = 2
 
 /obj/item/ammo_casing/gauss
@@ -382,13 +404,13 @@
 	desc = "A heavy tungsten gauss slug."
 	caliber = "gauss"
 	icon_state = "tungstenslug"
-	spent_icon = "tungstenslug-spent"
+	spent_icon = "tungstenslug_spent"
 	projectile_type = /obj/projectile/bullet/gauss
 	max_stack = 2
 
-/obj/item/ammo_casing/gauss/carbine
-	name = "compact tungsten slug"
-	desc = "A heavy tungsten gauss slug. This one has a casing adapated for carbine models."
+/obj/item/ammo_casing/gauss/old
+	name = "depleted uranium slug"
+	desc = "A depleted uranium gauss slug. It seems quite old."
 	projectile_type = /obj/projectile/bullet/gauss/carbine
 
 /obj/item/ammo_casing/gauss/emp
@@ -420,12 +442,12 @@
 	icon_state = "cannonball"
 	caliber = "cannon"
 	projectile_type = /obj/projectile/bullet/cannonball
-	matter = list(DEFAULT_WALL_MATERIAL = 800)
+	matter = list(MATERIAL_STEEL = 800)
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	max_stack = 1
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
-	drop_sound = /singleton/sound_category/generic_drop_sound
+	drop_sound = SFX_DROP
 
 /obj/item/ammo_casing/cannon/explosive
 	name = "explosive cannonball"
@@ -446,7 +468,7 @@
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/projectile/bullet/nuke
-	drop_sound = /singleton/sound_category/generic_drop_sound
+	drop_sound = SFX_DROP
 	max_stack = 2
 
 /obj/item/ammo_casing/musket
@@ -470,7 +492,7 @@
 /obj/item/ammo_casing/peac
 	name = "anti-materiel AP cannon cartridge"
 	icon_state = "peac"
-	spent_icon = "peac-spent"
+	spent_icon = "peac_spent"
 	caliber = "peac"
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
@@ -517,10 +539,10 @@
 
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"
-	icon_state = "rifle-casing"
-	spent_icon = "rifle-casing-spent"
+	icon_state = "rifle_casing"
+	spent_icon = "rifle_casing_spent"
 	caliber = ".599 Kumar Super"
-	projectile_type = /obj/projectile/bullet
+	projectile_type = /obj/projectile/bullet/rifle/kumar_super
 	max_stack = 5
 
 /obj/item/ammo_casing/c6mm
@@ -531,16 +553,16 @@
 
 /obj/item/ammo_casing/moghes_pistol
 	desc = "A Moghesian pistol casing."
-	icon_state = "moghes_casing_p"
-	spent_icon = "moghes_casing_p_spent"
+	icon_state = "moghes_pistol_casing"
+	spent_icon = "moghes_pistol_casing_spent"
 	caliber = "11.6mm"
 	projectile_type = /obj/projectile/bullet/pistol/medium/ap
 	max_stack = 15
 
 /obj/item/ammo_casing/moghes_rifle
 	desc = "A Moghesian rifle casing."
-	icon_state = "moghes_casing"
-	spent_icon = "moghes_casing_spent"
+	icon_state = "moghes_rifle_casing"
+	spent_icon = "moghes_rifle_casing_spent"
 	caliber = "5.8mm"
 	projectile_type = /obj/projectile/bullet/rifle/a556
 	max_stack = 7

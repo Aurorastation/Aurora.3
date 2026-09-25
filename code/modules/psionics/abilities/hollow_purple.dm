@@ -77,7 +77,7 @@
 		if(target != firer)
 			var/mob/M = target
 			M.gib()
-	explosion(target, 5, 5, 5)
+	explosion(get_turf(target), 5, 5, 5)
 	. = ..()
 
 // /obj/projectile/hollow_purple/after_move()

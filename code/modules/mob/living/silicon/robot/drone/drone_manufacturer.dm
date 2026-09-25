@@ -5,7 +5,7 @@
 			drones++
 	return drones
 
-/obj/machinery/drone_fabricator
+/obj/structure/machinery/drone_fabricator
 	name = "drone fabricator"
 	desc = "A large automated factory for producing maintenance drones."
 
@@ -25,25 +25,25 @@
 	var/drone_type = /mob/living/silicon/robot/drone
 	var/drone_ghostrole_name = "maintdrone"
 
-/obj/machinery/drone_fabricator/disabled
+/obj/structure/machinery/drone_fabricator/disabled
 	produce_drones = FALSE
 
-/obj/machinery/drone_fabricator/Initialize()
+/obj/structure/machinery/drone_fabricator/Initialize()
 	. = ..()
 	check_add_to_late_firers()
 	fabricator_tag = SSatlas.current_map.station_short
 
-/obj/machinery/drone_fabricator/derelict
+/obj/structure/machinery/drone_fabricator/derelict
 	name = "construction drone fabricator"
 	fabricator_tag = "Derelict"
 	drone_type = /mob/living/silicon/robot/drone/construction
 
-/obj/machinery/drone_fabricator/power_change()
+/obj/structure/machinery/drone_fabricator/power_change()
 	..()
 	if(stat & NOPOWER)
 		icon_state = "drone_fab_nopower"
 
-/obj/machinery/drone_fabricator/process()
+/obj/structure/machinery/drone_fabricator/process()
 	if(!ROUND_IS_STARTED)
 		return
 
@@ -63,12 +63,12 @@
 	if(drone_progress >= 100)
 		visible_message(SPAN_NOTICE("\The [src] voices a strident beep, indicating a drone chassis is prepared."))
 
-/obj/machinery/drone_fabricator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/structure/machinery/drone_fabricator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && GLOB.config.allow_drone_spawn && count_drones() < GLOB.config.max_maint_drones)
 		. += SPAN_NOTICE("<B>A drone is prepared. use 'Ghost Spawner' from the Ghost tab to spawn as a maintenance drone.</B>")
 
-/obj/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)
+/obj/structure/machinery/drone_fabricator/proc/create_drone(var/client/player, var/drone_tag)
 	if(stat & NOPOWER)
 		return
 	if(!produce_drones || !GLOB.config.allow_drone_spawn || count_drones() >= GLOB.config.max_maint_drones)

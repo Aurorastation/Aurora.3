@@ -1,12 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "b" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
@@ -15,7 +15,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "d" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(209);
 	name = "Storage";
 	dir = 1
@@ -32,19 +32,19 @@
 	},
 /area/adhomai_nuclear_waste)
 "f" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/obj/machinery/light,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
 "g" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -58,30 +58,30 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "i" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste)
 "j" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "l" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "p" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/obj/machinery/light{
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -90,7 +90,7 @@
 	},
 /area/adhomai_nuclear_waste)
 "q" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(209);
 	name = "Compound";
 	dir = 1
@@ -100,7 +100,7 @@
 	},
 /area/adhomai_nuclear_waste)
 "s" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "radiation_waste";
 	dir = 2
 	},
@@ -108,10 +108,10 @@
 /area/adhomai_nuclear_waste)
 "t" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -122,7 +122,7 @@
 /obj/structure/sign/radiation{
 	pixel_y = -32
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "v" = (
@@ -132,7 +132,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "A" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/rust{
@@ -141,7 +141,7 @@
 /area/adhomai_nuclear_waste)
 "B" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/ballistic{
+/obj/structure/machinery/porta_turret/ballistic{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -149,7 +149,7 @@
 	},
 /area/adhomai_nuclear_waste)
 "E" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(209);
 	name = "Entry";
 	locked = 1;
@@ -160,10 +160,10 @@
 	},
 /area/adhomai_nuclear_waste)
 "F" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -172,13 +172,13 @@
 	},
 /area/adhomai_nuclear_waste)
 "G" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "H" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
@@ -207,14 +207,14 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "T" = (
-/obj/machinery/turretid/lethal{
+/obj/structure/machinery/turretid/lethal{
 	pixel_y = -32;
 	req_access = list(209);
 	dir = 1;
 	check_arrest = 0;
 	check_records = 0
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "radiation_waste";
 	name = "Entry";
 	req_access = list(209);
@@ -239,7 +239,7 @@
 	},
 /area/adhomai_nuclear_waste)
 "V" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/structure/machinery/door/airlock/highsecurity{
 	req_access = list(209);
 	name = "Storage";
 	dir = 4
@@ -255,8 +255,8 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "X" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/obj/machinery/light{
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/rust{

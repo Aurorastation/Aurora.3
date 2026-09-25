@@ -12,7 +12,7 @@
 
 /obj/structure/curtain/Initialize()
 	. = ..()
-	material = SSmaterials.get_material_by_name(curtain_material)
+	material = SSmaterials.get_material_by_id(curtain_material)
 	AddComponent(/datum/component/turf_hand)
 
 /obj/structure/curtain/open
@@ -40,7 +40,7 @@
 
 /obj/structure/curtain/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.iswirecutter() || attacking_item.sharp && !attacking_item.noslice)
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.sharp && !attacking_item.noslice)
 		if(manipulating)	return
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
@@ -52,7 +52,7 @@
 					SPAN_NOTICE("You cut down \the [src]."))
 		dismantle()
 
-	if(attacking_item.isscrewdriver()) //You can anchor/unanchor curtains
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) //You can anchor/unanchor curtains
 		anchored = !anchored
 		var/obj/structure/curtain/C
 		for(C in src.loc)
@@ -74,6 +74,14 @@
 /obj/structure/curtain/black
 	name = "black curtain"
 	color = "#222222"
+
+/obj/structure/curtain/gray
+	name = "gray curtain"
+	color = COLOR_GRAY20
+
+/obj/structure/curtain/open/gray
+	name = "gray curtain"
+	color = COLOR_GRAY20
 
 /obj/structure/curtain/medical
 	name = "plastic curtain"

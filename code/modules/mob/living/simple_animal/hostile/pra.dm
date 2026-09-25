@@ -1,5 +1,6 @@
 /mob/living/simple_animal/hostile/republicon
 	name = "republican defensive robot"
+	accent = ACCENT_ELEKTRO_SIIK
 	desc = "An outdated defense drone commonly used by People's Republic of Adhomai Orbital Fleet."
 	desc_extended = "Most heavy and medium Republican ships carry a detachment of very outdated combat robots brought from Solarian military surplus, they are usually armed with \
 	blades,	ballistic rifles or rockets. Those machines are usually deployed in rare cases of boarding operations. They possess a rudimentary artificial intelligence and targeting system, \
@@ -24,7 +25,7 @@
 	attack_emote = "buzzes menacingly at"
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
-	maxHealth = 300
+	maxhealth = 300
 
 	destroy_surroundings = FALSE
 
@@ -35,7 +36,8 @@
 	melee_damage_upper = 15
 	mob_size = 5
 
-	attacktext = "slashed"
+	attacktext = "slashes"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	speed = 2
@@ -116,7 +118,7 @@
 	speed = 3
 
 	health = 200
-	maxHealth = 200
+	maxhealth = 200
 
 	ranged = TRUE
 	rapid = TRUE
@@ -168,12 +170,13 @@
 	mob_size = 3
 
 	health = 100
-	maxHealth = 100
+	maxhealth = 100
 
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	attacktext = "smashed"
 	attack_sound = 'sound/weapons/genhit1.ogg'
+	attack_vis_effect = ATTACK_EFFECT_SMASH
 
 	speed = 1
 	ranged = TRUE

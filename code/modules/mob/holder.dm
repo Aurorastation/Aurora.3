@@ -26,7 +26,7 @@
 		/obj/item/storage,
 		/obj/item/reagent_containers,
 		/obj/structure/closet/crate,
-		/obj/machinery/appliance
+		/obj/structure/machinery/appliance
 	))
 
 /obj/item/holder/Initialize()

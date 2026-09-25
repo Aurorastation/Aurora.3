@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/dir_pin.dm
+ * Direction pin conversion and validation for BYOND direction constants.
+ */
+
 // These pins can only contain directions (1,2,4,8...) or null.
 /datum/integrated_io/dir
 	name = "dir pin"

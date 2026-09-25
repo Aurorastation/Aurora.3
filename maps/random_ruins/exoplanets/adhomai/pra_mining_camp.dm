@@ -51,7 +51,7 @@
 	shoes = /obj/item/clothing/shoes/workboots/tajara
 	belt = /obj/item/storage/belt/mining
 	back = /obj/item/storage/backpack/industrial
-	l_pocket = /obj/item/device/radio/hailing
+	l_pocket = /obj/item/radio/hailing
 
 	l_ear = null
 

@@ -22,7 +22,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/moghes_bar)
 "av" = (
-/obj/machinery/atm{
+/obj/structure/machinery/atm{
 	pixel_y = 25
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -62,7 +62,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/lino{
@@ -85,7 +85,7 @@
 	},
 /area/moghes_bar)
 "bL" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -100,7 +100,7 @@
 /area/moghes_bar)
 "ci" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -133,7 +133,7 @@
 /area/moghes_bar)
 "dC" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -187,7 +187,7 @@
 	pixel_y = 9
 	},
 /obj/item/reagent_containers/glass/rag,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 303.15
 	},
@@ -235,7 +235,7 @@
 /area/moghes_bar)
 "gk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -255,7 +255,7 @@
 /area/moghes)
 "gS" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -313,7 +313,7 @@
 	},
 /area/moghes_bar)
 "iQ" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
@@ -346,7 +346,7 @@
 	},
 /area/moghes_bar)
 "jM" = (
-/obj/machinery/media/jukebox,
+/obj/structure/machinery/media/jukebox,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -405,13 +405,13 @@
 /area/moghes_bar)
 "kG" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_bar)
 "kJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -422,7 +422,7 @@
 	},
 /area/moghes_bar)
 "kV" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -431,7 +431,7 @@
 	},
 /area/moghes_bar)
 "kW" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
@@ -440,7 +440,7 @@
 	},
 /area/moghes_bar)
 "lk" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -466,7 +466,7 @@
 	},
 /area/moghes_bar)
 "mO" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -486,7 +486,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/lino{
@@ -516,7 +516,7 @@
 "ok" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/appliance/mixer/candy{
+/obj/structure/machinery/appliance/mixer/candy{
 	pixel_y = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -528,10 +528,10 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/lino{
@@ -543,7 +543,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_x = 2;
 	pixel_y = 4
 	},
@@ -565,7 +565,7 @@
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 16
 	},
@@ -638,7 +638,7 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	dir = 4
 	},
 /obj/structure/sign/flag/hegemony/large/west{
@@ -664,7 +664,7 @@
 	},
 /area/moghes_bar)
 "rQ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -680,7 +680,7 @@
 	},
 /area/moghes_bar)
 "sx" = (
-/obj/machinery/chem_master/condimaster,
+/obj/structure/machinery/chem_master/condimaster,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -711,13 +711,13 @@
 /area/moghes_bar)
 "sN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes_bar)
 "tq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -741,7 +741,7 @@
 	},
 /area/moghes_bar)
 "uB" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -978,7 +978,7 @@
 /obj/item/seeds/clam,
 /obj/item/seeds/clam,
 /obj/item/seeds/clam,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -992,7 +992,7 @@
 /area/moghes)
 "Dz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -1008,7 +1008,7 @@
 /area/moghes_bar)
 "DN" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 303.15
 	},
@@ -1026,14 +1026,14 @@
 	},
 /area/moghes)
 "ER" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_bar)
 "Ff" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1153,7 +1153,7 @@
 /area/moghes_bar)
 "IJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -1201,7 +1201,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/moghes,
 /area/moghes)
 "KX" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes)
 "La" = (
@@ -1231,7 +1231,7 @@
 /area/moghes_bar)
 "Lx" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
@@ -1262,7 +1262,7 @@
 	},
 /area/moghes_bar)
 "Me" = (
-/obj/machinery/chem_heater,
+/obj/structure/machinery/chem_heater,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
@@ -1282,7 +1282,7 @@
 	},
 /area/moghes_bar)
 "ME" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1296,7 +1296,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	req_access = null
 	},
 /turf/simulated/floor/exoplanet/lino{
@@ -1323,13 +1323,13 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 303.15
 	},
 /area/moghes_bar)
 "OK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -1369,12 +1369,12 @@
 	},
 /area/moghes_bar)
 "Qe" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/water/shallow/moghes,
 /area/moghes)
 "Ql" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -1393,7 +1393,7 @@
 /area/moghes_bar)
 "Qo" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -1467,7 +1467,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/exoplanet/lino{
 	temperature = 303.15
 	},
@@ -1512,7 +1512,7 @@
 /area/moghes_bar)
 "UL" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -1526,7 +1526,7 @@
 	},
 /area/moghes_bar)
 "VH" = (
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -1596,7 +1596,7 @@
 	},
 /area/moghes_bar)
 "YU" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1664,7 +1664,7 @@
 /area/moghes_bar)
 "ZJ" = (
 /obj/structure/kitchenspike,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
@@ -1672,7 +1672,7 @@
 /area/moghes_bar)
 "ZN" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},

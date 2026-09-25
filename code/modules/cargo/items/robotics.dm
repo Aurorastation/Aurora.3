@@ -47,9 +47,9 @@
 	description = "An IPC-grade inactivated positronic brain fresh off the factory line. These sentient, enigmatic computers are the brains of advanced synthetics across the galaxy."
 	price = 8450
 	items = list(
-		/obj/item/device/mmi/digital/posibrain
+		/obj/item/mmi/digital/posibrain
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +63,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -78,7 +78,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/bishop
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -92,7 +92,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/industrial
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -106,7 +106,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/hephaestus
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -120,7 +120,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -134,7 +134,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/synthskin
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -148,7 +148,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/xion
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -162,7 +162,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/zenghu
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

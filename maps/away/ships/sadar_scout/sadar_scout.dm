@@ -156,10 +156,10 @@
 	sizeclass = "Monax-class Salvage Skiff"
 	shiptype = "Salvage & Construction Utility"
 
-/obj/machinery/computer/shuttle_control/explore/sadar_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/sadar_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Modified Salvage Skiff"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_state = "computer"
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
@@ -178,7 +178,6 @@
 	landmark_transition = "nav_transit_sadar_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_sadar_scout"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/sadar_shuttle/hangar
@@ -197,12 +196,12 @@
 
 // CUSTOM STUFF
 // dimmed yellow lights
-/obj/machinery/light/floor/decayed
+/obj/structure/machinery/light/floor/decayed
 	brightness_color = "#fabd6d"
 	randomize_color = FALSE
 	brightness_power = 0.3
 
-/obj/machinery/light/colored/decayed/dimmed
+/obj/structure/machinery/light/colored/decayed/dimmed
 	brightness_power = 0.2
 
 // accessories

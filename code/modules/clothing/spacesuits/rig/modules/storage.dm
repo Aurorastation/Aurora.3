@@ -2,6 +2,7 @@
 	name = "mounted storage unit"
 	interface_name = "mounted storage unit"
 	interface_desc = "A storage unit for storing a precious few items in your hardsuit."
+	module_type = MODULETYPE_PASSIVE
 	icon_state = "paper"
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
@@ -10,7 +11,7 @@
 	var/obj/item/storage/internal/hardsuit/pockets
 	var/storage_slots = null
 	var/storage_max_w_class = WEIGHT_CLASS_NORMAL
-	var/storage_max_storage_space = 9
+	var/storage_max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/rig_module/storage/Initialize()
 	. = ..()
@@ -23,6 +24,9 @@
 	QDEL_NULL(pockets)
 
 	. = ..()
+
+/obj/item/rig_module/storage/accepts_item(obj/item/input_item, mob/living/user)
+	return pockets.attackby(input_item, user)
 
 /obj/item/rig/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules

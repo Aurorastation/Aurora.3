@@ -1,34 +1,10 @@
 //Interactions
-/turf/simulated/wall/proc/toggle_open(var/mob/user)
-
-	if(can_open == WALL_OPENING)
-		return
-
-	if(density)
-		can_open = WALL_OPENING
-		//flick("[material.icon_base]fwall_opening", src)
-		sleep(15)
-		density = 0
-		set_opacity(0)
-		update_icon()
-		set_light(0)
-	else
-		can_open = WALL_OPENING
-		//flick("[material.icon_base]fwall_closing", src)
-		density = 1
-		set_opacity(1)
-		update_icon()
-		sleep(15)
-		set_light(1)
-
-	can_open = WALL_CAN_OPEN
-	update_icon()
 
 /turf/simulated/wall/proc/fail_smash(var/mob/user, var/multiplier = 1)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2.5)
 	to_chat(user, SPAN_DANGER("You smash against the wall!"))
 	user.do_attack_animation(src)
-	take_damage(rand(60,135)*multiplier)
+	add_damage(rand(60,135)*multiplier)
 	return 1
 
 /turf/simulated/wall/proc/success_smash(var/mob/user)
@@ -48,14 +24,13 @@
 			return TRUE
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
-	if(!do_after(user, 30, src))
+
+	if(!do_after(user, 30, src, DO_DEPLOY))
 		return
 
-	if(!can_open)
-		to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
-		playsound(src, hitsound, 25, TRUE)
-	else
-		toggle_open(user)
+	// fake wall interaction is handled by /obj/structure/fake_wall, so the only thing players are getting from here is a fail message
+	to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
+	playsound(src, hitsound, 25, TRUE)
 	return FALSE
 
 
@@ -83,7 +58,8 @@
 				H.climb(UP, src)
 				return
 
-	try_touch(user, rotting)
+	if(user.a_intent != I_HELP || rotting)
+		try_touch(user, rotting)
 
 /turf/simulated/wall/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 
@@ -122,7 +98,7 @@
 			burn(is_hot(attacking_item))
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/WT = attacking_item
 			if(WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You burn away the fungi with \the [WT]."))
@@ -139,7 +115,7 @@
 					WR.scrape(user)
 				return
 		else if(attacking_item.force >= 10)
-			user.do_attack_animation(src, attacking_item)
+			user.do_attack_animation(src, used_item = attacking_item)
 			to_chat(user, SPAN_NOTICE("\The [src] crumbles away under the force of your [attacking_item]."))
 			dismantle_wall(TRUE)
 			return
@@ -159,7 +135,7 @@
 
 			spark(EB, 5)
 			to_chat(user, SPAN_NOTICE("You slash \the [src] with \the [EB], igniting the thermite!"))
-			playsound(src, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(src, SFX_SPARKS, 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 			thermitemelt(user)
@@ -167,7 +143,7 @@
 
 	var/turf/T = user.loc	//get user's location for delay checks
 
-	if(damage && attacking_item.iswelder())
+	if(health < maxhealth && attacking_item.tool_behaviour == TOOL_WELDER)
 
 		var/obj/item/weldingtool/WT = attacking_item
 
@@ -177,9 +153,10 @@
 		if(WT.use(0,user))
 			to_chat(user, SPAN_NOTICE("You start repairing the damage to [src]."))
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
-			if(WT.use_tool(src, user, max(5, damage / 5), volume = 50) && WT && WT.isOn())
+			if(WT.use_tool(src, user, max(5, abs(health - maxhealth) / 5), volume = 50) && WT && WT.isOn())
 				to_chat(user, SPAN_NOTICE("You finish repairing the damage to [src]."))
-				take_damage(-damage)
+				add_health(maxhealth - health)
+				update_icon()
 				clear_bulletholes()
 		else
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -193,7 +170,7 @@
 		var/dismantle_verb
 		var/dismantle_sound
 
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/WT = attacking_item
 			if(!WT.isOn())
 				return
@@ -213,14 +190,14 @@
 		else if(istype(attacking_item, /obj/item/melee/energy))
 			var/obj/item/melee/energy/WT = attacking_item
 			if(WT.active)
-				dismantle_sound = /singleton/sound_category/spark_sound
+				dismantle_sound = SFX_SPARKS
 				dismantle_verb = "slicing"
 				cut_delay *= 0.5
 			else
 				to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 				return
 		else if(istype(attacking_item, /obj/item/melee/energy/blade))
-			dismantle_sound = /singleton/sound_category/spark_sound
+			dismantle_sound = SFX_SPARKS
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
 		else if(istype(attacking_item, /obj/item/melee/chainsword))
@@ -238,7 +215,7 @@
 			dismantle_sound = P.drill_sound
 			cut_delay -= P.digspeed
 		else if(istype(attacking_item,/obj/item/melee/arm_blade/))
-			dismantle_sound = /singleton/sound_category/pickaxe_sound
+			dismantle_sound = SFX_PICKAXE
 			dismantle_verb = "slicing and stabbing"
 			cut_delay *= 1.5
 
@@ -266,14 +243,14 @@
 	else
 		switch(construction_stage)
 			if(6)
-				if (attacking_item.iswirecutter())
+				if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 					playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 					construction_stage = 5
 					to_chat(user, SPAN_NOTICE("You cut the outer grille."))
 					update_icon()
 					return
 			if(5)
-				if (attacking_item.isscrewdriver())
+				if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 					to_chat(user, SPAN_NOTICE("You begin removing the support lines."))
 					attacking_item.play_tool_sound(get_turf(src), 100)
 					if(!attacking_item.use_tool(src, user, 60, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
@@ -292,7 +269,7 @@
 						return
 			if(4)
 				var/cut_cover
-				if(attacking_item.iswelder())
+				if(attacking_item.tool_behaviour == TOOL_WELDER)
 					var/obj/item/weldingtool/WT = attacking_item
 					if(!WT.isOn())
 						return
@@ -312,7 +289,7 @@
 					to_chat(user, SPAN_NOTICE("You press firmly on the cover, dislodging it."))
 					return
 			if(3)
-				if (attacking_item.iscrowbar())
+				if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the cover."))
 					if(!attacking_item.use_tool(src, user , 100, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
@@ -321,7 +298,7 @@
 					to_chat(user, SPAN_NOTICE("You pry off the cover."))
 					return
 			if(2)
-				if (attacking_item.iswrench())
+				if (attacking_item.tool_behaviour == TOOL_WRENCH)
 					to_chat(user, SPAN_NOTICE("You start loosening the anchoring bolts which secure the support rods to their frame."))
 					if(!attacking_item.use_tool(src, user , 40, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
 						return
@@ -331,7 +308,7 @@
 					return
 			if(1)
 				var/cut_cover
-				if(attacking_item.iswelder())
+				if(attacking_item.tool_behaviour == TOOL_WELDER)
 					var/obj/item/weldingtool/WT = attacking_item
 					if( WT.use(0,user) )
 						cut_cover=1
@@ -350,7 +327,7 @@
 					to_chat(user, SPAN_NOTICE("The support rods drop out as you cut them loose from the frame."))
 					return
 			if(0)
-				if(attacking_item.iscrowbar())
+				if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the outer sheath."))
 					if(!attacking_item.use_tool(src, user , 100, volume = 50)) return
 					if(!istype(src, /turf/simulated/wall) || !user || !attacking_item || !T )	return
@@ -359,8 +336,8 @@
 						dismantle_wall()
 					return
 
-	if(istype(attacking_item, /obj/item/device/electronic_assembly/wallmount))
-		var/obj/item/device/electronic_assembly/wallmount/IC = attacking_item
+	if(istype(attacking_item, /obj/item/electronic_assembly/wallmount))
+		var/obj/item/electronic_assembly/wallmount/IC = attacking_item
 		IC.mount_assembly(src, user)
 		return
 
@@ -389,7 +366,7 @@
 			//Steel walls take 3 & 15 minimum damage.
 			damage_to_deal -= weaken
 			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing some of the plating" : "putting a heavy dent on it"]!"))
-			take_damage(damage_to_deal)
+			add_damage(damage_to_deal, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		else
 			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
 			playsound(src, hitsound, 25, 1)

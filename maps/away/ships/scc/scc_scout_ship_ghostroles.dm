@@ -50,7 +50,7 @@
 		SPECIES_DIONA, SPECIES_DIONA_COEUS, \
 		SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, \
 		SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, \
-		SPECIES_UNATHI, \
+		SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, \
 		SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, \
 	)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -76,7 +76,7 @@
 		SPECIES_DIONA, SPECIES_DIONA_COEUS, \
 		SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, \
 		SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, \
-		SPECIES_UNATHI, \
+		SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, \
 		SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, \
 	)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -126,7 +126,7 @@
 		SPECIES_DIONA, SPECIES_DIONA_COEUS, \
 		SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, \
 		SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, \
-		SPECIES_UNATHI, \
+		SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, \
 		SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, \
 	)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -151,7 +151,7 @@
 		SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_UNBRANDED, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, \
 		SPECIES_DIONA, SPECIES_DIONA_COEUS, \
 		SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, \
-		SPECIES_UNATHI, \
+		SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, \
 		SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, \
 	)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -168,12 +168,14 @@
 	id = /obj/item/card/id/orion_ship
 	uniform = list(/obj/item/clothing/under/color/black, /obj/item/clothing/under/color/grey, /obj/item/clothing/under/color/white)
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
@@ -196,14 +198,14 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 		H.equip_or_collect(new /obj/item/rig/light/offworlder, slot_in_backpack)
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data()
 
 /obj/outfit/admin/scc_scout_ship_crew/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
-		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
+		/datum/access/external_airlocks::id, /datum/access/maint_tunnels::id,
+		/datum/access/security::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/research::id, /datum/access/cargo::id,
 	)
 
 /obj/outfit/admin/scc_scout_ship_crew/captain
@@ -224,9 +226,9 @@
 
 /obj/outfit/admin/scc_scout_ship_crew/captain/get_id_access()
 	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MAINT_TUNNELS,
-		ACCESS_SECURITY, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_RESEARCH, ACCESS_CARGO,
-		ACCESS_HEADS, ACCESS_CAPTAIN,
+		/datum/access/external_airlocks::id, /datum/access/maint_tunnels::id,
+		/datum/access/security::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/research::id, /datum/access/cargo::id,
+		/datum/access/heads::id, /datum/access/captain::id,
 	)
 
 /obj/outfit/admin/scc_scout_ship_crew/orion

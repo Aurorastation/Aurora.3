@@ -8,7 +8,7 @@
 	spawnpoints = list("ERTSpawn")
 
 	//Vars related to human mobs
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_IPC)
+	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_IPC)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Responder"
@@ -21,5 +21,5 @@
 
 /datum/ghostspawner/human/ert/post_spawn(mob/user)
 	if(name)
-		to_chat(user, SPAN_DANGER("<font size=3>You are [max_count > 1 ? "a" : "the"] [name]!</font>"))
+		to_chat(user, SPAN_DANGER("<font size=5>You are [max_count > 1 ? "a" : "the"] [name]!</font>"))
 	return ..()

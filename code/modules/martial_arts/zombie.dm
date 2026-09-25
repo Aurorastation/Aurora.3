@@ -28,7 +28,7 @@
 
 
 /datum/martial_art/zombie/proc/strong_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_BITE)
 	var/atk_verb = pick("chomps", "bites")
 	D.visible_message(SPAN_DANGER("[A] [atk_verb] down hard on [D]!"), SPAN_DANGER("[A] [atk_verb] down hard on you!"))
 	D.apply_damage(rand(5, 10), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, armor_pen = 100)

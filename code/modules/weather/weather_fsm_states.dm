@@ -31,10 +31,10 @@ ABSTRACT_TYPE(/singleton/state/weather)
 
 	// Temporarily removing the material checks, we do not have the same material system as Nebula
 	// if(is_liquid && weather.water_material)
-	// 	var/material/mat = SSmaterials.get_material_by_name(weather.water_material)
+	// 	var/material/mat = SSmaterials.get_material_name(weather.water_material)
 	// 	weather.color = mat.icon_colour
 	// else if(is_ice && weather.ice_material)
-	// 	var/material/mat = SSmaterials.get_material_by_name(weather.ice_material)
+	// 	var/material/mat = SSmaterials.get_material_name(weather.ice_material)
 	// 	weather.color = mat.icon_colour
 
 	if(is_liquid)
@@ -70,7 +70,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 		if(!weather.show_weather(M))
 			weather.show_wind(M)
 
-	if(exposure != WEATHER_IGNORE && weather.set_cooldown(M))
+	if(exposure != WEATHER_IGNORE)
 		if(exposure == WEATHER_EXPOSED)
 			handle_exposure_effects(M, weather)
 		else if(exposure == WEATHER_ROOFED)
@@ -184,7 +184,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 
 /singleton/state/weather/rain/hail/handle_exposure_effects(var/mob/living/M, var/obj/abstract/weather_system/weather)
 	to_chat(M, SPAN_DANGER("You are pelted by a shower of hail!"))
-	M.apply_damage(rand(1,3), DAMAGE_BRUTE)
+	M.apply_damage(rand(1,3), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /singleton/state/weather/ash
 	name =  "Ash"
@@ -220,7 +220,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 		to_chat(M, SPAN_WARNING("Your carapace protects you from the stinging sand!"))
 	else if(isipc(M) || issilicon(M)) //Metal is more durable than meat
 		to_chat(M, SPAN_DANGER("Your chassis is scratched by a gust of stinging sand!"))
-		M.apply_damage(1, DAMAGE_BRUTE)
+		M.apply_damage(1, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 	//Mechs do not take damage from sandstorms, but if the mech is open, the pilots get damaged
 	//let the mechanistoids weep at the concept of the gigachad 25th century mechanicus contraptions that do not suffer from weather
@@ -236,7 +236,7 @@ ABSTRACT_TYPE(/singleton/state/weather)
 
 	else
 		to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
-		M.apply_damage(rand(1,3), DAMAGE_BRUTE)
+		M.apply_damage(rand(1,3), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 	if(ishuman(M) && prob(50)) //only a 50% chance of getting in the eyes to avoid being too punishing
 		var/mob/living/carbon/human/H = M

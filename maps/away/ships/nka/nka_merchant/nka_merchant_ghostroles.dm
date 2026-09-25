@@ -25,13 +25,13 @@
 
 	uniform = /obj/item/clothing/under/tajaran/nka_merchant_navy
 	head = /obj/item/clothing/head/tajaran/nka_merchant_navy
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	back = /obj/item/storage/backpack/satchel/leather
 
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/nka_merchant_crew/get_id_access()
-	return list(ACCESS_NKA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/nka::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/nka_merchant_crew/captain
 	short_name = "nka_merchant_captain"

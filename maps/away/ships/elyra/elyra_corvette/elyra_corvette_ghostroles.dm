@@ -29,18 +29,18 @@
 
 	id = /obj/item/card/id/elyran_corvette
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 
 /obj/outfit/admin/elyran_navy_crewman/get_id_access()
-	return list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/elyran_naval_infantry_ship::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/elyran_navy_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isipc(H)) // All Elyran Navy synthetics are tagged, self-owned, and have Elyran citizenship.
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 			tag.ownership_info = IPC_OWNERSHIP_SELF
@@ -126,4 +126,4 @@
 //items
 /obj/item/card/id/elyran_corvette
 	name = "elyran corvette id"
-	access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/elyran_naval_infantry_ship::id, /datum/access/external_airlocks::id)

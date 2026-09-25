@@ -53,6 +53,8 @@ GLOBAL_DATUM(mercs, /datum/antagonist/mercenary)
 	player.regenerate_icons()
 
 	give_codewords(player)
+
+
 	return TRUE
 
 /datum/antagonist/mercenary/get_antag_radio()

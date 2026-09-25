@@ -6,14 +6,14 @@
 	return module_active
 
 /mob/living/silicon/robot/proc/return_wirecutter()
-	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
-		if(I.iswirecutter())
+	for(var/obj/item/I in list(module_state_1, module_state_2, module_state_3))
+		if(I.tool_behaviour == TOOL_WIRECUTTER)
 			return I
 	return
 
 /mob/living/silicon/robot/proc/return_multitool()
-	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
-		if(I.ismultitool())
+	for(var/obj/item/I in list(module_state_1, module_state_2, module_state_3))
+		if(I.tool_behaviour == TOOL_MULTITOOL)
 			return I
 	return
 

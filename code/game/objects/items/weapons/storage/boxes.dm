@@ -29,6 +29,7 @@
 	icon_state = "box"
 	item_state = "box"
 	contained_sprite = TRUE
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
 	color = COLOR_CARDBOARD
 	var/label = "label"
 	var/illustration = "writing"
@@ -40,18 +41,18 @@
 	var/trash = null
 
 	var/maxHealth = 20	//health is already defined
-	use_sound = 'sound/items/storage/box.ogg'
+	use_sound = 'sound/items/storage/cardboardbox.ogg'
+	rustle_sound = 'sound/items/rustle/cardboardbox.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
 
-/obj/item/storage/box/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if (health < maxHealth)
-		if (health >= (maxHealth * 0.5))
-			. += SPAN_WARNING("It is slightly torn.")
+/obj/item/storage/box/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if (health < maxhealth)
+		if (health >= (maxhealth * 0.5))
+			. = SPAN_WARNING("It is slightly torn.")
 		else
-			. += SPAN_DANGER("It is full of tears and holes.")
+			. = SPAN_DANGER("It is full of tears and holes.")
 
 /obj/item/storage/box/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -74,7 +75,8 @@
 
 /obj/item/storage/box/Initialize()
 	. = ..()
-	health = maxHealth
+	if(illustration)
+		AddOverlays(illustration)
 	update_icon()
 
 /obj/item/storage/box/proc/damage(var/severity)
@@ -170,6 +172,19 @@
 	label = null
 	illustration = null
 
+/obj/item/storage/box/large/blank
+	label = null
+	illustration = null
+
+/obj/item/storage/box/blank/teabox
+	max_storage_space = 12
+	can_hold = list(
+		/obj/item/storage/box/unique/tea,
+		/obj/item/reagent_containers/glass/beaker/teapot,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang
+		)
+
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
@@ -180,14 +195,14 @@
 	can_hold = list(
 				/obj/item/clothing/mask,
 				/obj/item/tank/emergency_oxygen,
-				/obj/item/device/flashlight/flare,
+				/obj/item/flashlight/flare,
 				/obj/item/stack/medical,
 				/obj/item/reagent_containers/hypospray/autoinjector,
 				/obj/item/reagent_containers/inhaler,
-				/obj/item/device/oxycandle,
+				/obj/item/oxycandle,
 				/obj/item/extinguisher/mini,
-				/obj/item/device/radio,
-				/obj/item/device/flashlight,
+				/obj/item/radio,
+				/obj/item/flashlight,
 				/obj/item/reagent_containers/food/drinks/flask,
 				/obj/item/storage/box/fancy/cigarettes,
 				/obj/item/flame/lighter,
@@ -198,8 +213,8 @@
 	starts_with = list(
 				/obj/item/clothing/mask/breath = 1,
 				/obj/item/tank/emergency_oxygen = 1,
-				/obj/item/device/oxycandle = 1,
-				/obj/item/device/flashlight/flare/glowstick/red = 1,
+				/obj/item/oxycandle = 1,
+				/obj/item/flashlight/flare/glowstick/red = 1,
 				/obj/item/stack/medical/bruise_pack = 1,
 				/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 				)
@@ -209,8 +224,8 @@
 	starts_with = list(
 				/obj/item/clothing/mask/breath = 1,
 				/obj/item/tank/emergency_oxygen/engi = 1,
-				/obj/item/device/oxycandle = 1,
-				/obj/item/device/flashlight/flare = 1,
+				/obj/item/oxycandle = 1,
+				/obj/item/flashlight/flare = 1,
 				/obj/item/stack/medical/bruise_pack = 1,
 				/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 				)
@@ -271,16 +286,17 @@
 	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	icon_state = "ammobox"
 	item_state = "ammobox"
+	label = null
 	illustration = null
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	foldable = null
 	chewable = FALSE
 
-/obj/item/storage/box/ammo/tungstenslugs
-	name = "box of compact tungsten slugs"
-	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
-	starts_with = list(/obj/item/ammo_casing/gauss/carbine = 4)
+/obj/item/storage/box/ammo/duslugs
+	name = "box of depleted uranium slugs"
+	desc = "A box with several depleted uranium slugs, aimed for use in older gauss rifles."
+	starts_with = list(/obj/item/ammo_casing/gauss/old = 4)
 
 /obj/item/storage/box/ammo/sniperammo
 	name = "box of 14.5mm shells"
@@ -400,6 +416,12 @@
 	illustration = "stinger"
 	starts_with = list(/obj/item/grenade/stinger = 7)
 
+/obj/item/storage/box/tactical/beanbags
+	name = "box of beanbag rounds"
+	desc = "A box containing 7 less-lethal beanbag rounds for grenade launchers."
+	illustration = "stinger"
+	starts_with = list(/obj/item/grenade/beanbag = 7)
+
 /obj/item/storage/box/tactical/teargas
 	name = "box of pepperspray grenades"
 	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
@@ -466,45 +488,120 @@
 	name = "box of firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin = 7)
+	starts_with = list(/obj/item/firing_pin = 7)
 
 /obj/item/storage/box/securitypins
 	name = "box of wireless-control firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are wireless-control enabled."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/wireless = 7)
+	starts_with = list(/obj/item/firing_pin/wireless = 7)
 
 /obj/item/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/test_range = 7)
+	starts_with = list(/obj/item/firing_pin/test_range = 7)
 
 /obj/item/storage/box/loyaltypins
 	name = "box of firing pins"
 	desc = "A box of specialised \"loyalty\" authentication pins produced by NanoTrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
+	starts_with = list(/obj/item/firing_pin/implant/loyalty = 7)
 
 /obj/item/storage/box/loyaltypins/fill()
 	..()
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
+	new /obj/item/firing_pin/implant/loyalty(src)
 
 /obj/item/storage/box/firingpinsRD
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	illustration = "firingpin"
-	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/psionic = 1, /obj/item/device/firing_pin/dna = 1)
+	starts_with = list(/obj/item/firing_pin = 2, /obj/item/firing_pin/access = 2, /obj/item/firing_pin/implant/loyalty = 2, /obj/item/firing_pin/psionic = 1, /obj/item/firing_pin/dna = 1)
 
-/obj/item/storage/box/psireceiver
-	name = "box of psionic receivers"
-	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
+/obj/item/storage/box/modlaser
+	name = "box of modular laser capacitors"
+	desc = "A box full of laser capacitors, used to build laser weapons."
+	color = COLOR_PURPLE_GRAY
+	illustration = "scicircuit"
+	starts_with = list(
+		/obj/item/laser_components/capacitor = 1,
+		/obj/item/laser_components/capacitor/potato = 1,
+		/obj/item/laser_components/capacitor/reinforced = 1,
+		/obj/item/laser_components/capacitor/nuclear = 1,
+		/obj/item/laser_components/capacitor/teranium = 1,
+		/obj/item/laser_components/capacitor/phoron = 2,
+		/obj/item/laser_components/capacitor/bluespace = 2
+	)
+
+/obj/item/storage/box/modlaser/modulators
+	name = "box of modular laser modulators"
+	desc = "A box full of laser modulators, used to build laser weapons."
+	illustration = "firecracker"
+	starts_with = list(
+		/obj/item/laser_components/modulator = 1,
+		/obj/item/laser_components/modulator/taser = 1,
+		/obj/item/laser_components/modulator/tesla = 1,
+		/obj/item/laser_components/modulator/ion = 1,
+		/obj/item/laser_components/modulator/floramut = 1,
+		/obj/item/laser_components/modulator/floramut2 = 1,
+		/obj/item/laser_components/modulator/xenovermin = 1,
+		/obj/item/laser_components/modulator/mindflayer = 1,
+		/obj/item/laser_components/modulator/decloner = 1,
+		/obj/item/laser_components/modulator/ebow = 1,
+		/obj/item/laser_components/modulator/blaster = 1,
+		/obj/item/laser_components/modulator/tox = 1,
+		/obj/item/laser_components/modulator/net = 1,
+		/obj/item/laser_components/modulator/freeze = 1
+	)
+
+/obj/item/storage/box/modlaser/modifiers
+	name = "box of modular laser mods"
+	desc = "A box full of laser mods, used to build laser weapons."
+	illustration = "circuit"
+	starts_with = list(
+		/obj/item/laser_components/modifier/silencer = 1,
+		/obj/item/laser_components/modifier/aeg = 1,
+		/obj/item/laser_components/modifier/surge = 1,
+		/obj/item/laser_components/modifier/repeater = 1,
+		/obj/item/laser_components/modifier/auxiliarycap = 1,
+		/obj/item/laser_components/modifier/overcharge = 1,
+		/obj/item/laser_components/modifier/gatling = 1,
+		/obj/item/laser_components/modifier/scope = 1,
+		/obj/item/laser_components/modifier/barrel = 1,
+		/obj/item/laser_components/modifier/barrel/nano = 1,
+		/obj/item/laser_components/modifier/vents = 1,
+		/obj/item/laser_components/modifier/grip = 1,
+		/obj/item/laser_components/modifier/grip/improved = 1,
+		/obj/item/laser_components/modifier/stock = 1,
+		/obj/item/laser_components/modifier/stock/gyro = 1,
+		/obj/item/laser_components/modifier/bayonet = 1,
+		/obj/item/laser_components/modifier/ebayonet = 1
+	)
+
+/obj/item/storage/box/modlaser/lens
+	name = "box of modular laser lenses"
+	desc = "A box full of laser lenses, used to build laser weapons."
+	illustration = "petridish"
+	starts_with = list(
+		/obj/item/laser_components/focusing_lens = 2,
+		/obj/item/laser_components/focusing_lens/shotgun = 2,
+		/obj/item/laser_components/focusing_lens/sniper = 2,
+		/obj/item/laser_components/focusing_lens/strong = 2
+	)
+
+/obj/item/storage/box/unique/freezer/organcooler/psireceiver
+	name = "psionic receivers cooler"
+	desc = "A cooling box for psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
 	color = COLOR_PURPLE_GRAY
 	illustration = "implant"
-	starts_with = list(/obj/item/organ/internal/augment/psi = 4)
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/psi = 4)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/psi
+	)
+	storage_slots = 4
 
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"
@@ -555,7 +652,14 @@
 	desc = "It has a large ketchup smear on it."
 	color = COLOR_YELLOW_GRAY
 	illustration = "condiment"
-	starts_with = list(/obj/item/reagent_containers/food/condiment = 6)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/ketchup = 1,
+		/obj/item/reagent_containers/food/condiment/barbecue = 1,
+		/obj/item/reagent_containers/food/condiment/soysauce = 1,
+		/obj/item/reagent_containers/food/condiment/mayonnaise = 1,
+		/obj/item/reagent_containers/food/condiment/hot_sauce = 1,
+		/obj/item/reagent_containers/food/condiment/ntella = 1
+	)
 
 /obj/item/storage/box/cups
 	name = "box of paper cups"
@@ -582,6 +686,7 @@
 	name = "unique box"
 	desc = "A unique box. How is it unique? You have no idea."
 	color = COLOR_WHITE
+	label = null
 	illustration = null
 	chewable = FALSE
 
@@ -696,7 +801,7 @@
 	name = "box of Pest-B-Gon mousetraps"
 	desc = "<B><span class='warning'>WARNING:</span></B> <I>Keep out of reach of children</I>."
 	illustration = "mousetraps"
-	starts_with = list(/obj/item/device/assembly/mousetrap = 6)
+	starts_with = list(/obj/item/assembly/mousetrap = 6)
 
 /obj/item/storage/box/pillbottles
 	name = "box of pill bottles"
@@ -773,7 +878,7 @@
 		/obj/item/light/tube/colored/blue,
 		/obj/item/light/tube/colored/magenta,
 		/obj/item/light/tube/colored/yellow,
-		/obj/item/light/tube/colored/cyan
+		/obj/item/light/tube/colored/pale_purple
 	)
 	var/static/list/bulbs_colors = list(
 		/obj/item/light/bulb/colored/red,
@@ -781,7 +886,7 @@
 		/obj/item/light/bulb/colored/blue,
 		/obj/item/light/bulb/colored/magenta,
 		/obj/item/light/bulb/colored/yellow,
-		/obj/item/light/bulb/colored/cyan
+		/obj/item/light/bulb/colored/pale_purple
 	)
 	for(var/i = 0, i < 14, i++)
 		var/type = pick(tube_colors)
@@ -820,11 +925,23 @@
 	color = COLOR_YELLOW_GRAY
 	starts_with = list(/obj/item/light/tube/colored/yellow = 14, /obj/item/light/bulb/colored/yellow = 7)
 
+/obj/item/storage/box/lights/colored/pale_purple
+	name = "box of pale purple lights"
+	illustration = "lightmixed"
+	color = COLOR_PURPLE_GRAY
+	starts_with = list(/obj/item/light/tube/colored/pale_purple = 14, /obj/item/light/bulb/colored/pale_purple = 7)
+
 /obj/item/storage/box/lights/colored/magenta
 	name = "box of magenta lights"
 	illustration = "lightmixed"
 	color = COLOR_PALE_PINK
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
+
+/obj/item/storage/box/lights/colored/beige
+	name = "box of beige lights"
+	illustration = "lightmixed"
+	color = COLOR_BEIGE
+	starts_with = list(/obj/item/light/tube/colored/beige = 14, /obj/item/light/bulb/colored/beige = 7)
 
 /obj/item/storage/box/kitchen
 	name = "galley supplies"
@@ -847,6 +964,20 @@
 	for (var/i = 0,i<6,i++)
 		var/type = pick(utensils)
 		new type(src)
+
+/obj/item/storage/box/large/tableware
+	name = "assorted tableware"
+	illustration = "bowl"
+	color = COLOR_PALE_GREEN_GRAY
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	desc = "Contains plates, bowls, and basic cutlery sets."
+	starts_with = list(
+		/obj/item/material/kitchen/utensil/fork = 3,
+		/obj/item/material/kitchen/utensil/spoon = 3,
+		/obj/item/material/kitchen/utensil/knife = 3,
+		/obj/item/reagent_containers/bowl = 3,
+		/obj/item/reagent_containers/bowl/plate = 3
+	)
 
 /obj/item/storage/box/snack
 	name = "rations box"
@@ -950,16 +1081,17 @@
 
 /obj/item/storage/box/large/candy/fill()
 	var/list/assorted_list = list(
-		/obj/item/reagent_containers/food/snacks/cb01 = 1,
-		/obj/item/reagent_containers/food/snacks/cb02 = 1,
-		/obj/item/reagent_containers/food/snacks/cb03 = 1,
-		/obj/item/reagent_containers/food/snacks/cb04 = 1,
-		/obj/item/reagent_containers/food/snacks/cb05 = 1,
-		/obj/item/reagent_containers/food/snacks/cb06 = 1,
-		/obj/item/reagent_containers/food/snacks/cb07 = 1,
-		/obj/item/reagent_containers/food/snacks/cb08 = 1,
-		/obj/item/reagent_containers/food/snacks/cb09 = 1,
-		/obj/item/reagent_containers/food/snacks/cb10 = 1
+		/obj/item/reagent_containers/food/snacks/chocolate_bar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/nuts = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/bubbles = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/kelp = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/cetibar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/idrisbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/lattecrunch = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/marsbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/crispbar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/ohdaddybar = 1,
+		/obj/item/reagent_containers/food/snacks/chocolate_bar/laughterbar = 1
 	)
 
 	for(var/i in 1 to 24)
@@ -1027,19 +1159,19 @@
 	name = "hadiist manifesto box"
 	desc = "A box filled with copies of the Hadiist Manifesto"
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/pra = 6)
+	starts_with = list(/obj/item/versebook/pra = 6)
 
 /obj/item/storage/box/dpra_manifesto
 	name = "al'mariist manifesto box"
 	desc = "A box filled with copies of 'In Defense of Al'mari's Legacy'."
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/dpra = 6)
+	starts_with = list(/obj/item/versebook/dpra = 6)
 
 /obj/item/storage/box/nka_manifesto
 	name = "royalist manifesto card box"
 	desc = "A box filled with copies of 'The New Kingdom'."
 	illustration = "paper"
-	starts_with = list(/obj/item/device/versebook/nka = 6)
+	starts_with = list(/obj/item/versebook/nka = 6)
 
 /obj/item/storage/box/suns_flags
 	name = "s'rand'marr Worship flag box"
@@ -1166,14 +1298,17 @@
 	starts_with = list(
 		/obj/item/flag/dominia = 8,
 		/obj/item/flag/dominia/l = 6,
-		/obj/item/flag/strelitz = 4,
-		/obj/item/flag/volvalaad = 4,
+		/obj/item/flag/strelitz = 2,
+		/obj/item/flag/volvalaad = 2,
 		/obj/item/flag/caladius = 2,
-		/obj/item/flag/zhao = 4,
-		/obj/item/flag/zhurong = 3,
+		/obj/item/flag/zhao = 2,
+		/obj/item/flag/zhurong = 2,
 		/obj/item/flag/zhurong/l = 2,
-		/obj/item/flag/imperial_frontier = 3,
-		/obj/item/flag/imperial_frontier/l = 2
+		/obj/item/flag/imperial_frontier = 2,
+		/obj/item/flag/imperial_frontier/l = 2,
+		/obj/item/flag/seok = 1,
+		/obj/item/flag/kaneko = 1,
+		/obj/item/flag/sinzendorf = 1,
 	)
 
 /obj/item/storage/box/large/flags/elyra
@@ -1315,8 +1450,8 @@
 		/obj/item/flag/ouerea/l = 1,
 		/obj/item/flag/sol/old = rand(1,2),
 		/obj/item/flag/sol/old/l = 1,
-		/obj/item/flag/old_visegrad = rand(1,2),
-		/obj/item/flag/old_visegrad/l = 1,
+		/obj/item/flag/visegrad_old = rand(1,2),
+		/obj/item/flag/visegrad_old/l = 1,
 		/obj/item/flag/fisanduh = rand(1,2),
 		/obj/item/flag/fisanduh/l = 1,
 		/obj/item/flag/hiskyn = rand(1,2),
@@ -1337,7 +1472,7 @@
 	name = "tau ceti armed forces pamphlets box"
 	desc = "A box full of tau ceti armed forces pamphlets."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/tcaf_pamphlet = 6)
+	starts_with = list(/obj/item/book/manual/wiki/tcaf_pamphlet = 6)
 
 /obj/item/storage/box/fountainpens
 	name = "box of fountain pens"
@@ -1356,7 +1491,7 @@
 /obj/item/storage/box/encryption_key
 	name = "box"
 	illustration = "circuit"
-	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+	starts_with = list(/obj/item/encryptionkey/rev = 8)
 
 /obj/item/storage/box/encryption_key/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -1406,7 +1541,7 @@
 		)
 	item_state = "papersack"
 	icon_state = "paperbag_None"
-	use_sound = 'sound/bureaucracy/papercrumple.ogg'
+	use_sound = 'sound/items/bureaucracy/papercrumple.ogg'
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/storage/wrapper.ogg'
 	foldable = null
@@ -1426,7 +1561,7 @@
 		icon_state = "paperbag_[choice]-food"
 
 /obj/item/storage/box/unique/papersack/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
@@ -1457,7 +1592,7 @@
 		update_icon()
 		return
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if(attacking_item.use_tool(src, user, 30))
@@ -1481,10 +1616,10 @@
 	foldable = FALSE
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
-		/obj/item/device/flashlight/flare
+		/obj/item/flashlight/flare
 	)
 	starts_with = list(
-		/obj/item/device/flashlight/flare = 12
+		/obj/item/flashlight/flare = 12
 	)
 
 // Magnetic Locks
@@ -1496,10 +1631,10 @@
 	foldable = FALSE
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
-		/obj/item/device/magnetic_lock
+		/obj/item/magnetic_lock
 	)
 	starts_with = list(
-		/obj/item/device/magnetic_lock = 4
+		/obj/item/magnetic_lock = 4
 	)
 
 // Power Cells
@@ -1581,12 +1716,12 @@
 	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
 	starts_with = list(
 		/obj/item/landmine/claymore = 5,
-		/obj/item/device/assembly/signaler = 6
+		/obj/item/assembly/signaler = 6
 		)
 
 /obj/item/storage/box/unique/tea
 	name = "sencha cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
@@ -1600,25 +1735,55 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	)
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 12
 	)
 	foldable = null
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_tie"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 12
 	)
 
 /obj/item/storage/box/unique/tea/jaekseol
 	name = "jaekseol cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_jaek"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 12
 	)
+
+
+/obj/item/storage/box/unique/tea/messa
+	name = "adhomian tin"
+	desc = "A tin labeled in Siik'maas. It is adorned by a blue sun, the symbol of the goddess Messa."
+	icon_state = "can_messa"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea = 12
+	)
+	desc_extended = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+					Its leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+
+/obj/item/storage/box/unique/tea/messa/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_NOTICE("The label says: \"Dried Messa's Tear leaves\" and then provides instructions: Steep one leaf with 25 units of hot water per cup in a teapot.")
+
+/obj/item/storage/box/unique/tea/rasnif
+	name = "ras'nif tea tin"
+	desc = "A tin with the flag of the People's Republic of Adhomai printed on it, labeled in both Siik'maas and Ceti Basic. It instructs the user to mix one packet with 25 units of hot water."
+	icon_state = "can_pra"
+	can_hold = list(
+		/obj/item/reagent_containers/food/condiment/small/packet
+	)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/small/packet/tea/rasnif = 12
+	)
+	desc_extended = "A herbal tea made with Hro'zamal Ras'nifs powder. \
+					Despite the popularity of its carbonated counterpart, Ras'nif tea remains a popular drink among Hro'zamal settlers."
 
 /obj/item/storage/box/telefreedom_kit
 	name = "telefreedom kit"
@@ -1773,4 +1938,72 @@
 /obj/item/storage/box/forearm_crutch_pair
 	starts_with = list(
 		/obj/item/cane/crutch/forearm = 2
+	)
+
+/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
+	name = "mind blanker cooler"
+	desc = "A cooling box for mind blankers, which can be surgically implanted to protect the patient from unwanted psionic interference."
+	color = COLOR_PURPLE_GRAY
+	illustration = "implant"
+	starts_with = list(/obj/item/organ/internal/augment/bioaug/mind_blanker = 1)
+	can_hold = list(
+		/obj/item/organ/internal/augment/bioaug/mind_blanker
+	)
+	storage_slots = 4
+
+// Trash components. Bottom of the line
+/obj/item/storage/box/components
+	name = "low-grade component box"
+	illustration = "circuit"
+	color = COLOR_BLUE_GRAY
+	make_exact_fit = TRUE
+	can_hold_strict = TRUE
+	display_contents_with_number = TRUE
+	allow_quick_gather = TRUE
+	use_to_pickup = TRUE
+	can_hold = list(/obj/item/stock_parts)
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor = 4,
+		/obj/item/stock_parts/scanning_module = 4,
+		/obj/item/stock_parts/manipulator = 4,
+		/obj/item/stock_parts/micro_laser = 4,
+		/obj/item/stock_parts/matter_bin = 4,
+	)
+
+// The decent stuff. Better than the small ones
+/obj/item/storage/box/components/advanced
+	name = "mid-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/adv = 4,
+		/obj/item/stock_parts/scanning_module/adv = 4,
+		/obj/item/stock_parts/manipulator/nano = 4,
+		/obj/item/stock_parts/micro_laser/high = 4,
+		/obj/item/stock_parts/matter_bin/adv = 4,
+	)
+
+// Top tier components
+/obj/item/storage/box/components/super_advanced
+	name = "high-grade component box"
+	starts_with = list(
+		/obj/item/stock_parts/console_screen = 3,
+		/obj/item/stock_parts/capacitor/super = 4,
+		/obj/item/stock_parts/scanning_module/phasic = 4,
+		/obj/item/stock_parts/manipulator/pico = 4,
+		/obj/item/stock_parts/micro_laser/ultra = 4,
+		/obj/item/stock_parts/matter_bin/super = 4,
+	)
+
+//Telecomms parts
+/obj/item/storage/box/components/telecomms
+	name = "telecomm component box"
+	starts_with = list(
+		/obj/item/stock_parts/subspace/ansible = 4,
+		/obj/item/stock_parts/subspace/filter = 4,
+		/obj/item/stock_parts/subspace/amplifier = 4,
+		/obj/item/stock_parts/subspace/treatment = 4,
+		/obj/item/stock_parts/subspace/analyzer = 4,
+		/obj/item/stock_parts/subspace/crystal = 4,
+		/obj/item/stock_parts/subspace/transmitter = 4
 	)

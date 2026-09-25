@@ -5,22 +5,28 @@
 	back = /obj/item/gun/energy/rifle/pulse
 	gloves = /obj/item/clothing/gloves/force/basic
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/ert
+	l_ear = /obj/item/radio/headset/ert
 
 	head = /obj/item/clothing/head/helmet/space/void/lancer
 	species_head = list(
-		SPECIES_UNATHI = /obj/item/clothing/head/helmet/space/void/lancer/unathi
+		SPECIES_UNATHI = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/head/helmet/space/void/lancer/unathi
 	)
 
 	suit = /obj/item/clothing/suit/space/void/lancer
 	species_suit = list(
-		SPECIES_UNATHI = /obj/item/clothing/suit/space/void/lancer/unathi
+		SPECIES_UNATHI = /obj/item/clothing/suit/space/void/lancer/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/suit/space/void/lancer/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/suit/space/void/lancer/unathi
 	)
 	suit_store = /obj/item/tank/oxygen
 
 	shoes = /obj/item/clothing/shoes/jackboots
 	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
 	belt_contents = list(
@@ -28,7 +34,7 @@
 			/obj/item/grenade/frag = 1,
 			/obj/item/melee/energy/sword = 1,
 			/obj/item/shield/energy = 1,
-			/obj/item/device/flash = 1,
+			/obj/item/flash = 1,
 			/obj/item/handcuffs/ziptie = 2,
 			/obj/item/melee/baton/loaded = 1,
 			/obj/item/grenade/empgrenade = 1
@@ -51,7 +57,9 @@
 
 	gloves = /obj/item/clothing/gloves/yellow
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu
+		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu
 	)
 
 	belt = /obj/item/storage/belt/utility/very_full
@@ -61,7 +69,7 @@
 	accessory_contents = list(
 			/obj/item/plastique = 3,
 			/obj/item/grenade/frag = 1,
-			/obj/item/device/flash = 1
+			/obj/item/flash = 1
 	)
 	id_access = "Lance Engineer"
 
@@ -70,7 +78,9 @@
 
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi
+		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/nitrile/unathi
 	)
 
 	belt = /obj/item/storage/belt/medical
@@ -82,7 +92,7 @@
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/pulse/pistol = 1)
 	belt_contents = list(
-			/obj/item/device/healthanalyzer = 1,
+			/obj/item/healthanalyzer = 1,
 			/obj/item/reagent_containers/hypospray/combat = 1,
 			/obj/item/reagent_containers/syringe = 1,
 			/obj/item/personal_inhaler/combat = 1,
@@ -103,7 +113,7 @@
 	accessory_contents = list(/obj/item/gun/energy/pulse/pistol = 1)
 
 	backpack_contents = list(
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/clothing/gloves/yellow = 1
 	)
 	id_access = "Lance Operative"
@@ -117,7 +127,7 @@
 	uniform = /obj/item/clothing/under/rank/sol
 	shoes = /obj/item/clothing/shoes/magboots
 	gloves = /obj/item/clothing/gloves/combat
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/radio/headset/syndicate
 	glasses = /obj/item/clothing/glasses/thermal
 	l_pocket = /obj/item/tank/emergency_oxygen/double
 	r_pocket = /obj/item/crowbar/red

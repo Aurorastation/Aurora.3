@@ -100,30 +100,29 @@ There are several things that need to be remembered:
 		ret.layer = layer
 	return ret
 
-/mob/living/carbon/human
-	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
-	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
-
-#define UPDATE_ICON_IGNORE_DIRECTION_UPDATE -1
-
 // Updates overlays from overlays_raw.
-/mob/living/carbon/human/update_icon(var/forceDirUpdate = FALSE)
+/mob/living/carbon/human/update_icon()
 	if (QDELETED(src))
 		return	// No point.
 
+	var/update_lying = (lying_prev != lying) || size_multiplier != 1
+	var/draw_specific_icon = (!lying || species.prone_icon)
+
+	if(update_lying && draw_specific_icon)
+		update_inv_l_hand(FALSE)
+		update_inv_r_hand(FALSE)
+
 	update_hud()		//TODO: remove the need for this
-	ClearOverlays()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		AddOverlays(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
-
-	else if (icon_update)
+		SetOverlays(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
+	else
+		var/list/ovr = list()
 		if (icon != stand_icon)
 			icon = stand_icon
 
-		var/list/ovr = list()
 		// We manually add each element instead of just using Copy() so that lists are appended instead of inserted.
 		for (var/item in overlays_raw)
 			if (item)
@@ -137,68 +136,25 @@ There are several things that need to be remembered:
 			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
 			ovr += aura_overlay
 
-		AddOverlays(ovr)
+		SetOverlays(ovr)
 
-	if (((lying_prev != lying) || forceDirUpdate || size_multiplier != 1) && forceDirUpdate != UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
-		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
-			var/matrix/M = matrix()
-
+	if(update_lying) //Only rotate them if we're not drawing a specific icon for being prone.
+		var/matrix/M = matrix()
+		M.Scale(size_multiplier)
+		if(draw_specific_icon)
+			M.Translate(0, 16*(size_multiplier-1))
+			animate(src, transform = M, time = ANIM_LYING_TIME)
+		else
 			switch(src.dir)
 				if(SOUTH,EAST)
 					M.Turn(90)
 				else
 					M.Turn(-90)
-			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
-
-			if(istype(src.l_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(slot_l_hand, src.dir)
-			if(istype(src.r_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(slot_r_hand, src.dir)
-
-		else
-			update_inv_l_hand(FALSE)
-			update_inv_r_hand(FALSE)
-			update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
-			var/matrix/M = matrix()
-			M.Scale(size_multiplier)
-			M.Translate(0, 16*(size_multiplier-1))
 			animate(src, transform = M, time = ANIM_LYING_TIME)
 
 	UpdateOverlays()
 	lying_prev = lying
-
-/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand, var/direction)
-	var/layer = null
-	if(hand == slot_r_hand)
-		update_inv_r_hand(FALSE)
-		layer = R_HAND_LAYER
-	else
-		update_inv_l_hand(FALSE)
-		layer = L_HAND_LAYER
-
-	switch(direction)
-		if(EAST)
-			TransformLayerIcon(layer, -90)
-		if(WEST)
-			TransformLayerIcon(layer, 90)
-		if(NORTH)
-			TransformLayerIcon(layer, 0)
-		if(SOUTH)
-			TransformLayerIcon(layer, 180)
-
-
-/mob/living/carbon/human/proc/TransformLayerIcon(var/layer, var/rotation = 0)
-	var/image/item_image = overlays_raw[layer]
-	var/matrix/item_transform = matrix()
-	item_transform.Turn(rotation)
-
-	animate(item_image, transform = item_transform)
-	overlays_raw[layer] = item_image
-	update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
-
-#undef UPDATE_ICON_IGNORE_DIRECTION_UPDATE
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
@@ -277,9 +233,11 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-//Overlays for the worn overlay so you can overlay while you overlay
-//eg: ammo counters, primed grenade flashing, etc.
-//"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
+/**
+ * Overlays for the worn overlay so you can overlay while you overlay
+ * eg: ammo counters, primed grenade flashing, etc.
+ * "icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
+ */
 /obj/item/proc/worn_overlays(icon_file)
 	. = list()
 	var/mutable_appearance/M = null
@@ -312,6 +270,8 @@ There are several things that need to be remembered:
 			return WORN_BELT
 		if(slot_wear_suit_str)
 			return WORN_SUIT
+		if(slot_pants_str)
+			return WORN_PANTS
 		if(slot_l_ear_str)
 			return WORN_LEAR
 		if(slot_r_ear_str)
@@ -324,7 +284,7 @@ There are several things that need to be remembered:
 			return WORN_GLOVES
 	return ""
 
-//BASE MOB SPRITE
+/// BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1, var/force_base_icon = FALSE)
 	if (QDELETED(src))
 		return
@@ -355,7 +315,7 @@ There are several things that need to be remembered:
 	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lipstick_color || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
-		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
+		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])][eyes.eyes_closed ? "closed" : "open"]"
 	else
 		icon_key += "#000000"
 
@@ -440,8 +400,10 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-// This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
-// If `hair_is_visible` is FALSE, only facial hair will be drawn.
+/**
+ * This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
+ * If `hair_is_visible` is FALSE, only facial hair will be drawn.
+ */
 /mob/living/carbon/human/proc/generate_hair_icon(hair_is_visible = TRUE)
 	var/cache_key = "[f_style ? "[f_style][r_facial][g_facial][b_facial]" : "nofacial"]_[(h_style && hair_is_visible) ? "[h_style][r_hair][g_hair][b_hair]" : "nohair"]_[(g_style && g_style != "None" && hair_is_visible) ? "[g_style][r_grad][g_grad][b_grad]" : "nograd"]"
 
@@ -485,7 +447,7 @@ There are several things that need to be remembered:
 
 	return face_standing
 
-//HAIR OVERLAY
+/// HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
 	if (QDELETED(src))
 		return
@@ -506,7 +468,7 @@ There are several things that need to be remembered:
 		if(update_icons)   update_icon()
 		return
 
-	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR)) && !(wear_suit && (wear_suit.flags_inv & BLOCKHEADHAIR))
+	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR)) && !(wear_suit && (wear_suit.flags_inv & BLOCKHEADHAIR)) && !isMonkey() && !isgolem()
 
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
 
@@ -521,7 +483,9 @@ There are several things that need to be remembered:
 			set_light(0)
 
 	var/hair_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT : HAIR_LAYER
-	overlays_raw[hair_layer] = hair_icon
+	var/image/hair_overlay = image(hair_icon)
+	hair_overlay.appearance_flags = PIXEL_SCALE
+	overlays_raw[hair_layer] = hair_overlay
 
 	if(has_visible_hair)
 		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
@@ -564,7 +528,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /* --------------------------------------- */
-//For legacy support.
+/// For legacy support.
 /mob/living/carbon/human/regenerate_icons()
 	..()
 
@@ -803,7 +767,7 @@ There are several things that need to be remembered:
 
 			var/layer = L_EAR_LAYER
 			var/layer_alt = L_EAR_LAYER_ALT
-			var/obj/item/device/radio/headset/wrist/W = l_ear
+			var/obj/item/radio/headset/wrist/W = l_ear
 			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = L_EAR_LAYER_ALT
 				layer_alt = L_EAR_LAYER
@@ -844,7 +808,7 @@ There are several things that need to be remembered:
 
 			var/layer = R_EAR_LAYER
 			var/layer_alt = R_EAR_LAYER_ALT
-			var/obj/item/device/radio/headset/wrist/W = r_ear
+			var/obj/item/radio/headset/wrist/W = r_ear
 			if(istype(W) && W.mob_wear_layer == ABOVE_SUIT_LAYER_WR)
 				layer = R_EAR_LAYER_ALT
 				layer_alt = R_EAR_LAYER
@@ -944,6 +908,7 @@ There are several things that need to be remembered:
 		return
 
 	overlays_raw[HEAD_LAYER] = null
+	overlays_raw[HEAD_LAYER_ALT] = null
 	if(head)
 		var/mob_icon = INV_HEAD_DEF_ICON
 		var/mob_state = head.icon_state
@@ -967,7 +932,12 @@ There are several things that need to be remembered:
 		else
 			mob_icon = INV_HEAD_DEF_ICON
 
-		overlays_raw[HEAD_LAYER] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
+		var/overlay_layer = HEAD_LAYER
+		if (istype(head, /obj/item/clothing/head))
+			var/obj/item/clothing/head/clothing = head
+			if (clothing.use_alt_layer)
+				overlay_layer = HEAD_LAYER_ALT
+		overlays_raw[overlay_layer] = head.get_mob_overlay(src, mob_icon, mob_state, slot_head_str)
 
 	if (recurse)
 		update_hair(FALSE)
@@ -1141,6 +1111,7 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/update_hud()	//TODO: do away with this if possible
+	hud_used?.update_gun_actions()
 	if(client)
 		client.screen |= contents
 		if(hud_used)
@@ -1206,6 +1177,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_l_hand(update_icons = TRUE)
+	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
 
@@ -1243,9 +1215,10 @@ There are several things that need to be remembered:
 		overlays_raw[L_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon(forceDirUpdate = TRUE)
+		update_icon(TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(update_icons = TRUE)
+	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
 
@@ -1282,7 +1255,7 @@ There are several things that need to be remembered:
 		overlays_raw[R_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon(forceDirUpdate = TRUE)
+		update_icon(TRUE)
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELETED(src))
@@ -1320,7 +1293,7 @@ There are several things that need to be remembered:
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
 		var/wrist_layer = ABOVE_SUIT_LAYER_WR
-		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
+		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
 			wrist_layer = W.mob_wear_layer
 
@@ -1382,12 +1355,14 @@ There are several things that need to be remembered:
 	overlays_raw[TAIL_NORTH_LAYER] = null
 	overlays_raw[TAIL_SOUTH_LAYER] = null
 
-	var/tail_layer = GET_TAIL_LAYER
-
 	if(species.tail && !(mutations & HUSK) && !(mutations & SKELETON) && !(wear_suit && wear_suit.flags_inv & HIDETAIL))
 		var/icon/tail_s = get_tail_icon()
-		overlays_raw[tail_layer] = image(tail_s, icon_state = "[tail_style]_s")
-		animate_tail_reset()
+		// Keep both ordering slots populated. The _n states contain pixels only in
+		// their north-facing frame, so the renderer naturally selects the correct
+		// layer when this appearance is copied and given a new direction.
+		overlays_raw[TAIL_SOUTH_LAYER] = image(tail_s, icon_state = "[tail_style]_s")
+		overlays_raw[TAIL_NORTH_LAYER] = image(tail_s, icon_state = "[tail_style]_s_n")
+		animate_tail_reset(FALSE)
 		update_tail_accessory(FALSE)
 
 	if(update_icons)
@@ -1412,22 +1387,23 @@ There are several things that need to be remembered:
 
 	return tail_icon
 
-/mob/living/carbon/human/proc/set_tail_state(var/mob_state)
+/mob/living/carbon/human/proc/set_tail_state(var/mob_state, var/update = TRUE)
 	if(!tail_style)
 		return
 
-	var/tail_layer = GET_TAIL_LAYER
-	var/image/tail_overlay = overlays_raw[tail_layer]
+	var/image/tail_overlay = overlays_raw[TAIL_SOUTH_LAYER]
+	var/image/north_tail_overlay = overlays_raw[TAIL_NORTH_LAYER]
 
 	var/obj/item/clothing/tail_accessory/TA = get_tail_accessory()
 	if(TA && !(tail_style in TA.compatible_animated_tail))
 		mob_state = "[tail_style]_static"
 
 	if(tail_overlay && species.tail_animation)
-		if(tail_overlay.icon_state != mob_state)
+		if(tail_overlay.icon_state != mob_state || (north_tail_overlay && north_tail_overlay.icon_state != "[mob_state]_n"))
 			tail_overlay.icon_state = mob_state
-			update_tail_accessory()
-			update_icon()
+			if(north_tail_overlay)
+				north_tail_overlay.icon_state = "[mob_state]_n"
+			update_tail_accessory(update)
 		return tail_overlay
 	return null
 
@@ -1436,20 +1412,17 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/animate_tail_once()
 	var/mob_state = "[tail_style]_once"
 
-	var/tail_layer = GET_TAIL_LAYER
-
-	var/image/tail_overlay = overlays_raw[tail_layer]
+	var/image/tail_overlay = overlays_raw[TAIL_SOUTH_LAYER]
 	if(tail_overlay && tail_overlay.icon_state == mob_state)
 		return //let the existing animation finish
 
 	tail_overlay = set_tail_state(mob_state)
 	if(tail_overlay)
-		addtimer(CALLBACK(src, PROC_REF(end_animate_tail_once), tail_overlay), 20, TIMER_CLIENT_TIME)
+		addtimer(CALLBACK(src, PROC_REF(end_animate_tail_once), tail_overlay), 20, TIMER_CLIENT_TIME|TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/carbon/human/proc/end_animate_tail_once(image/tail_overlay)
 	//check that the animation hasn't changed in the meantime
-	var/tail_layer = GET_TAIL_LAYER
-	if(overlays_raw[tail_layer] == tail_overlay && tail_overlay.icon_state == "[tail_style]_once")
+	if(overlays_raw[TAIL_SOUTH_LAYER] == tail_overlay && tail_overlay.icon_state == "[tail_style]_once")
 		animate_tail_stop()
 		update_tail_accessory()
 
@@ -1459,11 +1432,11 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/proc/animate_tail_fast()
 	set_tail_state("[tail_style]_loop")
 
-/mob/living/carbon/human/proc/animate_tail_reset()
+/mob/living/carbon/human/proc/animate_tail_reset(var/update = TRUE)
 	if(stat != DEAD && !lying)
-		set_tail_state("[tail_style]_idle")
+		set_tail_state("[tail_style]_idle", update)
 	else
-		set_tail_state("[tail_style]_static")
+		set_tail_state("[tail_style]_static", update)
 
 /mob/living/carbon/human/proc/animate_tail_stop(var/update_icons=1)
 	set_tail_state("[tail_style]_static")
@@ -1476,11 +1449,12 @@ There are several things that need to be remembered:
 	if(!TA)
 		return
 
-	var/image/tail_overlay = overlays_raw[GET_TAIL_LAYER]
+	var/image/tail_overlay = overlays_raw[TAIL_SOUTH_LAYER]
 	if(!tail_overlay)
 		return
 
-	overlays_raw[GET_TAIL_ACC_LAYER] = TA.get_mob_overlay(src, TA.icon, "[tail_overlay.icon_state]_to", slot_tail_str)
+	overlays_raw[TAIL_SOUTH_ACC_LAYER] = TA.get_mob_overlay(src, TA.icon, "[tail_overlay.icon_state]_to", slot_tail_str)
+	overlays_raw[TAIL_NORTH_ACC_LAYER] = TA.get_mob_overlay(src, TA.icon, "[tail_overlay.icon_state]_to_n", slot_tail_str)
 
 	if(update_icons)
 		update_icon()
@@ -1511,8 +1485,10 @@ There are several things that need to be remembered:
 
 	if(!on_fire)
 		set_light_on(FALSE)
+		clear_alert(ALERT_FIRE)
 	else
 		set_light_on(TRUE)
+		throw_alert(ALERT_FIRE, /atom/movable/screen/alert/fire)
 
 	var/image/fire_image_lower = on_fire ? image(species.onfire_overlay, "lower", layer = FIRE_LAYER_LOWER) : null
 	var/image/fire_image_upper = on_fire ? image(species.onfire_overlay, "upper", layer = FIRE_LAYER_UPPER) : null

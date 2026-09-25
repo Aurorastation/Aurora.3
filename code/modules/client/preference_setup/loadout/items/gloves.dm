@@ -22,7 +22,7 @@
 /datum/gear/gloves/color/New()
 	..()
 	var/list/gloves = list()
-	gloves["black gloves"] = /obj/item/clothing/gloves/black
+	gloves["work gloves"] = /obj/item/clothing/gloves/black
 	gloves["red gloves"] = /obj/item/clothing/gloves/red
 	gloves["blue gloves"] = /obj/item/clothing/gloves/blue
 	gloves["orange gloves"] = /obj/item/clothing/gloves/orange
@@ -67,6 +67,12 @@
 	ringtype["ring, wood"] = /obj/item/clothing/ring/material/wood
 	ringtype["ring, plastic"] = /obj/item/clothing/ring/material/plastic
 	gear_tweaks += new /datum/gear_tweak/path(ringtype)
+
+/datum/gear/gloves/ring/newgibson_uraniumglass_ring
+	display_name = "new gibsonite uranium glass ring"
+	path = /obj/item/clothing/ring/newgibson_uraniumglass_ring
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/ipc_tau_ceti)
 
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"

@@ -10,7 +10,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/heph_security
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -24,18 +24,22 @@
 	head = /obj/item/clothing/head/hephaestus_military
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/combat
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel/heph
 	id = /obj/item/card/id/hephaestus
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/sandals/caligae/socks,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/vaurca,
 		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/vaurca
 	)
 	species_suit = list(
-		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+		SPECIES_UNATHI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	)
 
 /obj/outfit/admin/heph_security/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -51,12 +55,12 @@
 	if(H?.wear_suit)
 		H.wear_suit.color = pick("#4f3911", "#292826")
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data()
 
 /obj/outfit/admin/heph_security/get_id_access()
-	return list(ACCESS_HEPHAESTUS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/hephaestus::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/heph_security/captain
 	name = "Hephaestus Asset Protection Squad Leader"
@@ -67,7 +71,7 @@
 
 	outfit = /obj/outfit/admin/heph_security/captain
 	max_count = 1
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	assigned_role = "Hephaestus Asset Protection Squad Leader"
 	special_role = "Hephaestus Asset Protection Squad Leader"
 

@@ -42,10 +42,6 @@
 	jackets["flannel jacket, grey"] = /obj/item/clothing/suit/storage/toggle/flannel/gray
 	jackets["flannel jacket, purple"] = /obj/item/clothing/suit/storage/toggle/flannel/purple
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
-	jackets["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
-	jackets["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
-	jackets["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis_red
-	jackets["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis_orange
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -56,6 +52,7 @@
 
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
+	description = "A selection of hazard vests."
 	path = /obj/item/clothing/suit/storage/hazardvest
 
 /datum/gear/suit/hazard_vest/New()
@@ -70,6 +67,38 @@
 	hazard["hazard vest, idris teal"] = /obj/item/clothing/suit/storage/hazardvest/teal
 	hazard["hazard vest, hephaestus green"] = /obj/item/clothing/suit/storage/hazardvest/green
 	gear_tweaks += new /datum/gear_tweak/path(hazard)
+
+/datum/gear/suit/hazard_vest_colorable
+	display_name = "colorable hazard vest selection"
+	description = "A selection of colorable hazard vests."
+	path = /obj/item/clothing/suit/storage/hazardvest/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/hazard_vest_colorable/New()
+	..()
+	var/list/hazard_vest = list()
+	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
+	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
+	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)
+
+/datum/gear/suit/highvis
+	display_name = "high visibility jacket selection"
+	description = "A selection of high visibility jackets."
+	path = /obj/item/clothing/suit/storage/toggle/highvis
+
+/datum/gear/suit/highvis/New()
+	..()
+	var/list/highvis = list()
+	highvis["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
+	highvis["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis/alt
+	highvis["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis/red
+	highvis["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis/orange
+	gear_tweaks += new /datum/gear_tweak/path(highvis)
+
+/datum/gear/suit/highvis_colorable
+	display_name = "colorable high visibility jacket"
+	path = /obj/item/clothing/suit/storage/toggle/highvis/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/hoodie
 	display_name = "hoodie selection"
@@ -277,6 +306,19 @@
 	greatcoat["greatcoat, brown"] = /obj/item/clothing/suit/storage/toggle/greatcoat/brown
 	gear_tweaks += new /datum/gear_tweak/path(greatcoat)
 
+/datum/gear/suit/greatcoat_recolors
+	display_name = "colorable greatcoats selection"
+	description = "A greatcoat capable of being recolored."
+	path = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/greatcoat_recolors/New()
+	..()
+	var/list/greatcoat = list()
+	greatcoat["greatcoat"] = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor
+	greatcoat["greatcoat, alt"] = /obj/item/clothing/suit/storage/toggle/greatcoat/recolor/alt
+	gear_tweaks += new /datum/gear_tweak/path(greatcoat)
+
 /datum/gear/suit/ian
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
@@ -303,12 +345,19 @@
 	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	wintercoat["winter coat, operations"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
+	wintercoat["parka, vintage"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage
 	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
 
 /datum/gear/suit/winter_colorable
 	display_name = "colorable winter coat"
 	description = "A colorable winter coat for the thermally challenged."
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/parka_colorable
+	display_name = "colorable parka"
+	description = "A colorable parka for the thermally challenged."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/highloft_colorable
@@ -402,15 +451,15 @@
 /datum/gear/suit/tcaf
 	display_name = "Tau Ceti Armed Forces jacket selection"
 	description = "A selection of fine, surplus jackets of the Armed Forces."
-	path = /obj/item/clothing/suit/storage/legion
-	flags = GEAR_HAS_DESC_SELECTION
+	path = /obj/item/clothing/suit/storage/tcaf
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tcaf/New()
 	..()
 	var/list/tcafjacket = list()
-	tcafjacket ["tcaf jacket"] = /obj/item/clothing/suit/storage/legion/tcaf
-	tcafjacket ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
-	tcafjacket ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	tcafjacket ["tcaf jacket"] = /obj/item/clothing/suit/storage/tcaf
+	tcafjacket ["tcaf foreign legions jacket"] = /obj/item/clothing/suit/storage/tcaf/legion
+	tcafjacket ["tcaf jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/tcaf
 	gear_tweaks += new /datum/gear_tweak/path(tcafjacket)
 
 /datum/gear/suit/dep_jacket
@@ -632,14 +681,25 @@ ABSTRACT_TYPE(/datum/gear/suit/miscellaneous)
 	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/hazard_vest_colorable
-	display_name = "colorable hazard vest selection"
-	path = /obj/item/clothing/suit/storage/hazardvest/colorable
+/datum/gear/suit/reade_racing_jacket
+	display_name = "reade extreme racing jackets selection"
+	description = "A selection of racing jackets often seen on those at once involved in the underground racing scenes of Reade."
+	path = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/reade, /singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/ipc_tau_ceti)
 
-/datum/gear/suit/hazard_vest_colorable/New()
+/datum/gear/suit/reade_racing_jacket/New()
 	..()
-	var/list/hazard_vest = list()
-	hazard_vest["colorable hazard vest"] = /obj/item/clothing/suit/storage/hazardvest/colorable
-	hazard_vest["colorable hazard vest, alt"] = /obj/item/clothing/suit/storage/hazardvest/colorable/alt
-	gear_tweaks += new /datum/gear_tweak/path(hazard_vest)
+	var/list/jackets = list()
+	jackets["racing jacket, no decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing
+	jackets["racing jacket, black-and-white checkers decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/checker
+	jackets["racing jacket, eagle decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/eagle
+	jackets["racing jacket, eagle decal variant"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/eagle2
+	jackets["racing jacket, skull decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/skull
+	jackets["racing jacket, flame decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/flames
+	jackets["racing jacket, knife decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/knife
+	jackets["racing jacket, crown decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/crown
+	jackets["racing jacket, zombie decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/zombie
+	jackets["racing jacket, cat decal"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/reade_racing/cat
+
+	gear_tweaks += new /datum/gear_tweak/path(jackets)

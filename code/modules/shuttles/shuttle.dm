@@ -5,22 +5,28 @@
 	var/warmup_time = 0
 	var/moving_status = SHUTTLE_IDLE
 
-	var/list/shuttle_area //can be both single area type or a list of areas
-	var/obj/effect/shuttle_landmark/current_location //This variable is type-abused initially: specify the landmark_tag, not the actual landmark.
+	/// Can be both a single area type or a list of areas.
+	var/list/shuttle_area
+	/// This variable is type-abused initially: specify the landmark_tag, not the actual landmark.
+	var/obj/effect/shuttle_landmark/current_location
 	var/list/shuttle_computers = list()
 
-	var/arrive_time = 0	//the time at which the shuttle arrives when long jumping
+	/// The time at which the shuttle arrives when long jumping
+	var/arrive_time = 0
 	var/flags = 0
-	var/process_state = IDLE_STATE //Used with SHUTTLE_FLAGS_PROCESS, as well as to store current state.
+	/// Used with SHUTTLE_FLAGS_PROCESS, as well as to store current state.
+	var/process_state = IDLE_STATE
 	var/category = /datum/shuttle
-	var/multiz = 0	//how many multiz levels, starts at 0
+	/// how many multiz levels, starts at 0
+	var/multiz = 0
 
 	var/ceiling_type = /turf/simulated/floor/airless/ceiling
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
 
-	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
+	/// Whether shuttle downs non-buckled_to people when it moves
+	var/knockdown = TRUE
 
 	/**
 	 * This shuttle will/won't be initialised automatically.
@@ -28,14 +34,16 @@
 	 * Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
 	 */
 	var/defer_initialisation = FALSE
-	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
-	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 
-	var/mothershuttle //tag of mothershuttle
-	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
+	/// Tag of mothershuttle
+	var/mothershuttle
+	/// Tag of mothershuttle landmark, defaults to starting location
+	var/motherdock
 
-	var/squishes = TRUE //decides whether or not things get squished when it moves.
-	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not
+	/// Decides whether or not things get squished when it moves.
+	var/squishes = TRUE
+	/// Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not.
+	var/cargo_elevator = FALSE
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
@@ -63,7 +71,7 @@
 	if(src.name in SSshuttle.shuttles)
 		CRASH("A shuttle with the name '[name]' is already defined.")
 	SSshuttle.shuttles[src.name] = src
-	for(var/obj/machinery/computer/shuttle_control/SC as anything in SSshuttle.lonely_shuttle_computers)
+	for(var/obj/structure/machinery/computer/shuttle_control/SC as anything in SSshuttle.lonely_shuttle_computers)
 		if(SC.shuttle_tag == name)
 			SSshuttle.lonely_shuttle_computers -= SC
 			shuttle_computers += SC
@@ -226,6 +234,10 @@
 		if(knockdown)
 			for(var/mob/living/carbon/M in A)
 				spawn(0)
+					var/obj/structure/bed/handrail/nearby_handrail = locate() in range(1, M)
+					var/catch_chance = (M.get_conditioning_skill_level() - SKILL_LEVEL_UNFAMILIAR) * 20
+					if(nearby_handrail)
+						catch_chance *= 1.5
 					if(M.buckled_to)
 						to_chat(M, SPAN_WARNING("Sudden acceleration presses you into your chair!"))
 						shake_camera(M, 3, 1)
@@ -233,6 +245,12 @@
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
 						M.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
 						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
+						shake_camera(M, 5, 1)
+					else if(!M.incapacitated() && (nearby_handrail || M.Check_Dense_Object(FALSE)) && prob(catch_chance))
+						M.visible_message(
+							SPAN_NOTICE("[M.name] catches hold of something as the shuttle accelerates!"),
+							SPAN_WARNING("The floor lurches beneath you, but you catch hold of something within reach!")
+						)
 						shake_camera(M, 5, 1)
 					else
 						to_chat(M, SPAN_WARNING("The floor lurches beneath you!"))
@@ -312,7 +330,7 @@
 
 /datum/shuttle/proc/set_process_state(var/new_state)
 	process_state = new_state
-	for(var/obj/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
+	for(var/obj/structure/machinery/computer/shuttle_control/SC as anything in shuttle_computers)
 		SC.update_helmets(src)
 
 /datum/shuttle/proc/on_move_interim()

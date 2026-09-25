@@ -9,7 +9,7 @@
 
 #define isanimal(A) istype(A, /mob/living/simple_animal)
 
-#define isairlock(A) istype(A, /obj/machinery/door/airlock)
+#define isairlock(A) istype(A, /obj/structure/machinery/door/airlock)
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
@@ -22,6 +22,12 @@
 #define isEye(A) istype(A, /mob/abstract/eye)
 
 #define ishuman(A) istype(A, /mob/living/carbon/human)
+/**
+ * Astype() variant of ishuman(), for use in inlining the check when you only need it once.
+ * This is equal to null if the target is not of the type /mob/living/carbon/human.
+ * And is automatically typecast as a /mob/living/carbon/human if the check passes.
+ */
+#define ashuman(A) astype(A, /mob/living/carbon/human)
 
 #define ismech(A) istype(A, /mob/living/heavy_vehicle)
 
@@ -80,3 +86,17 @@
 #define isenergy(A) istype(A, /obj/projectile/energy)
 
 #define istransparentturf(A) (HAS_TRAIT(A, TURF_Z_TRANSPARENT_TRAIT))
+
+/**
+ * A common layered filter pattern for psionics. Helps with reducing the size of guard clauses.
+ * Includes every psionic check for RECEIVING starting with the Zona Bovina, and ending with Psi-sensitivity.
+ * Set the sensitivity_threshold for your desired minimum Psi-sensitivity to pass.
+ * The most common ones you might want are:
+ * 2 for "Antag-like".
+ * 1 for "Skrell-like".
+ * 0 for "Human-like".
+ *
+ * This one is a define instead of a proc, which gives better code performance.
+ * This define is only usable if user is at least an /atom/movable/, such as /mob/
+ */
+#define IS_TELEPATHY_BLOCKED(user, sensitivity_threshold) (!user.has_zona_bovinae() || user.is_psi_blocked() || user.check_psi_sensitivity() < sensitivity_threshold)

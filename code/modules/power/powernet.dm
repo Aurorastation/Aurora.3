@@ -28,7 +28,7 @@
 	for(var/obj/structure/cable/C in cables)
 		cables -= C
 		C.powernet = null
-	for(var/obj/machinery/power/M in nodes)
+	for(var/obj/structure/machinery/power/M in nodes)
 		nodes -= M
 		M.powernet = null
 	STOP_PROCESSING_POWERNET(src)
@@ -38,11 +38,6 @@
 //This is for machines that might adjust their power consumption using this data.
 /datum/powernet/proc/last_surplus()
 	return max(avail - load, 0)
-
-/datum/powernet/proc/draw_power(var/amount)
-	var/draw = between(0, amount, avail - load)
-	load += draw
-	return draw
 
 /datum/powernet/proc/is_empty()
 	return !cables.len && !nodes.len
@@ -70,7 +65,7 @@
 //remove a power machine from the current powernet
 //if the powernet is then empty, delete it
 //Warning : this proc DON'T check if the machine exists
-/datum/powernet/proc/remove_machine(var/obj/machinery/power/M)
+/datum/powernet/proc/remove_machine(var/obj/structure/machinery/power/M)
 	nodes -=M
 	M.powernet = null
 	if(is_empty())//the powernet is now empty...
@@ -79,7 +74,7 @@
 
 //add a power machine to the current powernet
 //Warning : this proc DON'T check if the machine exists
-/datum/powernet/proc/add_machine(var/obj/machinery/power/M)
+/datum/powernet/proc/add_machine(var/obj/structure/machinery/power/M)
 	if(M.powernet)// if M already has a powernet...
 		if(M.powernet == src)
 			return
@@ -102,8 +97,8 @@
 		problem = max(problem - 1, 0)
 
 	if(nodes && nodes.len) // Added to fix a bad list bug -- TLE
-		for(var/obj/machinery/power/terminal/term in nodes)
-			if( istype( term.master, /obj/machinery/power/apc ) )
+		for(var/obj/structure/machinery/power/terminal/term in nodes)
+			if( istype( term.master, /obj/structure/machinery/power/apc ) )
 				numapc++
 
 	netexcess = avail - load
@@ -122,14 +117,14 @@
 	// At this point, all other machines have finished using power. Anything left over may be used up to charge SMESs.
 	if(inputting.len && smes_demand)
 		var/smes_input_percentage = between(0, (netexcess / smes_demand) * 100, 100)
-		for(var/obj/machinery/power/smes/S in inputting)
+		for(var/obj/structure/machinery/power/smes/S in inputting)
 			S.input_power(smes_input_percentage)
 
 	netexcess = avail - load
 
 	if(netexcess)
 		var/perc = get_percent_load(1)
-		for(var/obj/machinery/power/smes/S in nodes)
+		for(var/obj/structure/machinery/power/smes/S in nodes)
 			S.restore(perc)
 
 	//updates the viewed load (as seen on power computers)

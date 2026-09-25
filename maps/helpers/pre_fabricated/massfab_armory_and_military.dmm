@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "cR" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "df" = (
@@ -17,7 +17,7 @@
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/head/helmet/riot,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -42,7 +42,7 @@
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/head/helmet/riot,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -69,7 +69,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -97,7 +97,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/item/clothing/under/rank/security,
@@ -116,15 +116,15 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -160,7 +160,7 @@
 	pixel_x = 1;
 	pixel_y = -7
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -175,7 +175,7 @@
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/item/ammo_magazine/a556/carbine/polymer,
@@ -192,7 +192,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -223,7 +223,7 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -240,7 +240,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -263,7 +263,7 @@
 /area/space)
 "fQ" = (
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -314,7 +314,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -339,7 +339,7 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -361,7 +361,7 @@
 /obj/item/clothing/under/rank/security,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -380,7 +380,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -403,7 +403,7 @@
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -424,7 +424,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
@@ -452,7 +452,7 @@
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -479,15 +479,15 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -523,7 +523,7 @@
 	pixel_x = 1;
 	pixel_y = -7
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/steel,
@@ -542,7 +542,7 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -643,7 +643,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/item/gun/projectile/automatic/rifle/dnac,
@@ -686,7 +686,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/item/clothing/mask/gas/alt,
@@ -707,7 +707,7 @@
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/head/helmet/riot,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -725,7 +725,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -755,7 +755,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "DD" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 2;
 	pixel_y = 26
 	},
@@ -792,7 +792,7 @@
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -813,7 +813,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -840,15 +840,15 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -884,7 +884,7 @@
 	pixel_x = 1;
 	pixel_y = -7
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -934,7 +934,7 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -942,15 +942,15 @@
 	pixel_x = 10
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/radio/sec/off,
-/obj/item/device/hand_labeler{
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/radio/sec/off,
+/obj/item/hand_labeler{
 	pixel_x = 7;
 	pixel_y = 10
 	},
@@ -998,7 +998,7 @@
 /obj/item/clothing/under/rank/security,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1009,7 +1009,7 @@
 /area/space)
 "My" = (
 /obj/structure/table/rack,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1047,7 +1047,7 @@
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
 /obj/item/clothing/head/helmet/security/heavy,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/item/clothing/mask/gas/alt,
@@ -1060,7 +1060,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1086,7 +1086,7 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 4
 	},
-/obj/machinery/vending/security{
+/obj/structure/machinery/vending/security{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel,
@@ -1099,7 +1099,7 @@
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1140,7 +1140,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1153,7 +1153,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Rg" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = 3
 	},
@@ -1171,7 +1171,7 @@
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1198,7 +1198,7 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1210,7 +1210,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "ST" = (
-/obj/machinery/door/airlock/multi_tile/glass{
+/obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -1237,7 +1237,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1260,7 +1260,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Uc" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = -28;
 	pixel_y = 3
 	},
@@ -1284,7 +1284,7 @@
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/head/helmet/riot,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/item/clothing/mask/gas/alt,
@@ -1292,7 +1292,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "UB" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 3;
 	pixel_y = -24
 	},
@@ -1308,7 +1308,7 @@
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1333,7 +1333,7 @@
 /obj/item/clothing/under/rank/security,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1375,7 +1375,7 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;

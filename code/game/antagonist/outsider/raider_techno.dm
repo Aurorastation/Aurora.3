@@ -59,6 +59,8 @@ GLOBAL_DATUM(raider_techno, /datum/antagonist/raider_techno)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
+
+
 	return TRUE
 
 /datum/antagonist/raider_techno/get_antag_radio()

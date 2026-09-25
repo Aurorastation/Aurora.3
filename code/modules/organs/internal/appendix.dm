@@ -21,6 +21,13 @@
 	/// The amount of damage an appendix takes per second while in stage 2 of appendicitis.
 	var/stage_two_organ_damage_per_second = 0.006
 
+/**
+ * Override so that the appendix will never process on its own.
+ * It is instead added to processing via the spontaneous_appendicitis event.
+ */
+/obj/item/organ/internal/appendix/process_initialize()
+	return
+
 /obj/item/organ/internal/appendix/update_icon()
 	..()
 	if(inflamed)
@@ -30,7 +37,7 @@
 /obj/item/organ/internal/appendix/process(seconds_per_tick)
 	..()
 	if(!owner || !inflamed || !BP_IS_ROBOTIC(src))
-		return
+		return PROCESS_KILL
 
 	if(owner.stasis_value > 0)
 		// Decrease the effective tickrate when in stasis.
@@ -65,8 +72,9 @@
 			owner.Weaken(10)
 
 		var/obj/item/organ/external/E = owner.get_organ(parent_organ)
-		E.sever_artery()
-		E.germ_level = max(INFECTION_LEVEL_TWO, E.germ_level)
+		if(E)
+			E.sever_artery()
+			E.germ_level = max(INFECTION_LEVEL_TWO, E.germ_level)
 		owner.adjustToxLoss(25)
 		removed()
 		qdel(src)

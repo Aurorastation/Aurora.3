@@ -3,7 +3,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -58,7 +58,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "gm" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -80,7 +80,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -90,7 +90,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "kw" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "kB" = (
@@ -124,7 +124,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "rM" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "sS" = (
@@ -195,7 +195,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/exoplanet/adhomai)
 "DP" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Fz" = (
@@ -249,7 +249,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Mb" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -264,7 +264,7 @@
 /area/exoplanet/adhomai)
 "OA" = (
 /obj/structure/railing/fence,
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -290,7 +290,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "Sg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -324,7 +324,7 @@
 	},
 /area/exoplanet/adhomai)
 "Yn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/beaker{
@@ -344,7 +344,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -357,7 +357,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},

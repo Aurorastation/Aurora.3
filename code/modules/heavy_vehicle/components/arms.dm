@@ -1,5 +1,6 @@
 /obj/item/mech_component/manipulators
 	name = "arms"
+	mass = 150
 	pixel_y = -12
 	icon_state = "loader_arms"
 	has_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
@@ -27,7 +28,7 @@
 		return
 	switch(href_list["info"])
 		if("actuator")
-			to_chat(usr, SPAN_NOTICE("An actuator can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("An actuator can be created at a synthetic fabricator."))
 
 /obj/item/mech_component/manipulators/return_diagnostics(mob/user)
 	..()

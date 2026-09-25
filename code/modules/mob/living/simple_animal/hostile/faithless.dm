@@ -12,7 +12,7 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = 4
-	maxHealth = 80
+	maxhealth = 80
 	health = 80
 	environment_smash = 2
 
@@ -20,7 +20,8 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "gripped"
+	attacktext = "grips"
+	attack_vis_effect = ATTACK_EFFECT_SLASH
 	attack_sound = 'sound/hallucinations/growl1.ogg'
 
 	min_oxy = 0

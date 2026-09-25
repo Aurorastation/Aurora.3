@@ -24,6 +24,7 @@
 	var/list/bite_sizes = list(1,2,3,4,5)
 	use_material_name = FALSE
 	applies_material_colour = FALSE
+	default_material = MATERIAL_ALUMINIUM
 
 /obj/item/material/kitchen/utensil/Initialize(newloc, material_key)
 	. = ..()
@@ -93,6 +94,12 @@
 	sharp = TRUE
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
 
+/obj/item/material/kitchen/utensil/fork/bamboo
+	icon_state = "plastic_fork"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
 /obj/item/material/kitchen/utensil/fork/plastic
 	icon_state = "plastic_fork"
 	item_state = "fork"
@@ -105,6 +112,12 @@
 	desc = "It's a spork. It's much like a fork, but much blunter."
 	icon_state = "spork"
 	item_state = "fork"
+
+/obj/item/material/kitchen/utensil/spork/bamboo
+	icon_state = "plastic_spork"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /obj/item/material/kitchen/utensil/spork/plastic
 	icon_state = "plastic_spork"
@@ -126,6 +139,12 @@
 	use_material_name = TRUE
 	applies_material_colour = TRUE
 
+/obj/item/material/kitchen/utensil/fork/chopsticks/plastic
+	icon_state = "plastic_chopsticks"
+	default_material = MATERIAL_PLASTIC
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
 /obj/item/material/kitchen/utensil/spoon
 	name = "spoon"
 	desc = "It's a spoon. You can see your own upside-down face in it."
@@ -133,6 +152,16 @@
 	item_state = "spoon"
 	attack_verb = list("attacked", "poked")
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
+
+/obj/item/material/kitchen/utensil/spoon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Characters with high bartending skill can click on a drink with a spoon to stir it, improving the quality of the drink and the morale boost it provides."
+
+/obj/item/material/kitchen/utensil/spoon/bamboo
+	icon_state = "plastic_spoon"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /obj/item/material/kitchen/utensil/spoon/plastic
 	icon_state = "plastic_spoon"
@@ -172,6 +201,12 @@
 		return
 	return ..()
 
+/obj/item/material/kitchen/utensil/knife/bamboo
+	icon_state = "plastic_knife"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
 /obj/item/material/kitchen/utensil/knife/plastic
 	icon_state = "plastic_knife"
 	item_state = "knife"
@@ -189,7 +224,7 @@
 	icon_state = "rolling_pin"
 	item_state = "rolling_pin"
 	attack_verb = list("bashed", "battered", "bludgeoned", "thrashed", "whacked")
-	default_material = "wood"
+	default_material = MATERIAL_WOOD
 	force_divisor = 0.7 // 10 when wielded with weight 15 (wood)
 	thrown_force_divisor = 1 // as above
 	use_material_name = TRUE

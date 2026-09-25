@@ -1,24 +1,42 @@
 /datum/hud_data
-	var/icon                 // If set, overrides ui_style.
-	var/has_a_intent = TRUE  // Set to draw intent box.
-	var/has_m_intent = TRUE  // Set to draw move intent box.
-	var/has_warnings = TRUE  // Set to draw environment warnings.
-	var/has_pressure = TRUE  // Draw the pressure indicator.
-	var/has_nutrition = TRUE // Draw the nutrition indicator.
-	var/has_hydration = TRUE // Draw the hydration indicator.
-	var/has_bodytemp = TRUE  // Draw the bodytemp indicator.
-	var/has_hands = TRUE     // Set to draw hands.
-	var/has_drop = TRUE      // Set to draw drop button.
-	var/has_throw = TRUE     // Set to draw throw button.
-	var/has_resist = TRUE    // Set to draw resist button.
-	var/has_internals = TRUE // Set to draw the internals toggle button.
-	var/has_up_hint = TRUE   // Set to draw the "look-up" hint icon.
-	var/has_cell = FALSE     //Set if the species has a cell.
+	/// If set, overrides ui_style.
+	var/icon
+	/// Set to draw intent box.
+	var/has_a_intent = TRUE
+	/// Set to draw move intent box.
+	var/has_m_intent = TRUE
+	/// Set to draw environment warnings.
+	var/has_warnings = TRUE
+	/// Draw the pressure indicator.
+	var/has_pressure = TRUE
+	/// Draw the nutrition indicator.
+	var/has_nutrition = TRUE
+	/// Draw the hydration indicator.
+	var/has_hydration = TRUE
+	/// Draw the bodytemp indicator.
+	var/has_bodytemp = TRUE
+	/// Set to draw hands.
+	var/has_hands = TRUE
+	/// Set to draw drop button.
+	var/has_drop = TRUE
+	/// Set to draw throw button.
+	var/has_throw = TRUE
+	/// Set to draw resist button.
+	var/has_resist = TRUE
+	/// Set to draw the internals toggle button.
+	var/has_internals = TRUE
+	/// Set to draw the "look-up" hint icon.
+	var/has_up_hint = TRUE
+	/// Set if the species has a cell.
+	var/has_cell = FALSE
+	/// If the mob in question uses robot pain textures.
+	var/has_robot_pain = FALSE
 	var/list/equip_slots = list() // Checked by mob_can_equip().
 
-	// Contains information on the position and tag for all inventory slots
-	// to be drawn for the mob. This is fairly delicate, try to avoid messing with it
-	// unless you know exactly what it does.
+	/** Contains information on the position and tag for all inventory slots
+	 * to be drawn for the mob. This is fairly delicate, try to avoid messing with it
+	 * unless you know exactly what it does.
+	 */
 	var/list/gear = list(
 		"i_clothing" =   list("loc" = ui_iclothing, "name" = "uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1),
 		"o_clothing" =   list("loc" = ui_oclothing, "name" = "suit",         "slot" = slot_wear_suit, "state" = "suit",   "toggle" = 1),
@@ -98,6 +116,7 @@
 	has_hydration = FALSE
 	has_nutrition = FALSE
 	has_cell = TRUE
+	has_robot_pain = TRUE
 
 /datum/hud_data/construct
 	has_hydration = FALSE

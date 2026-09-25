@@ -9,12 +9,12 @@
 	universal_speak = FALSE
 
 	health = 10
-	maxHealth = 10
+	maxhealth = 10
 	melee_damage_lower = 1
 	melee_damage_upper = 2
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	attack_emote = "raises its fist at"
-	attacktext = "smashed"
+	attacktext = "smashes"
 	attack_sound = 'sound/weapons/woodenhit.ogg'
 	speed = 2
 	mob_size = MOB_MINISCULE
@@ -80,10 +80,9 @@
 		return
 	return ..()
 
-/mob/living/simple_animal/hostile/mech/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+/mob/living/simple_animal/hostile/mech/react_to_message(datum/say_message/msg)
 	if(!seeking_targets)
-		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), speaker, message), 0.5 SECONDS)
-	return ..()
+		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), msg.speaker, msg.to_string()), 0.5 SECONDS)
 
 /mob/living/simple_animal/hostile/mech/proc/handle_hear_say(var/mob/speaker, var/text)
 	if(seeking_targets)

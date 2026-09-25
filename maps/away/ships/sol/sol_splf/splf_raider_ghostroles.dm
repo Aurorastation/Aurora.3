@@ -25,11 +25,11 @@
 	head = /obj/item/clothing/head/sol
 	id = /obj/item/card/id/white
 	accessory = /obj/item/clothing/accessory/holster/hip
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/splf_crewman/get_id_access()
-	return list(ACCESS_SPLF, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/splf_access::id, /datum/access/external_airlocks::id)
 // ------------
 
 // Liaison Officer - a petty officer picked from the rogue navy elements from the 35th to command the vessel and its militia.
@@ -79,17 +79,17 @@
 	belt = /obj/item/storage/belt/utility/full
 	id = /obj/item/card/id/white
 	accessory = /obj/item/clothing/accessory/storage/pouches/brown
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/splf_ipc/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
 		tag.citizenship_info = CITIZENSHIP_NONE
 
 /obj/outfit/admin/splf_ipc/get_id_access()
-	return list(ACCESS_SPLF, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/splf_access::id, /datum/access/external_airlocks::id)
 // ------------

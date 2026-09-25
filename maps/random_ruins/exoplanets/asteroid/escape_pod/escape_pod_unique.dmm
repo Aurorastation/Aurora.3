@@ -80,7 +80,7 @@
 /obj/random/voidsuit,
 /obj/random/energy_antag,
 /obj/random/smalltank,
-/obj/item/device/gps,
+/obj/item/gps,
 /obj/item/archaeological_find,
 /turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)

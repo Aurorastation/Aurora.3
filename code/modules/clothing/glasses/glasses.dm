@@ -55,18 +55,27 @@ BLIND     // can't see anything
 	set name = "Change Glasses Layer"
 	set src in usr
 
+	handle_change_layer(usr)
+
+/obj/item/clothing/glasses/AltClick(user)
+	handle_change_layer(user)
+
+/obj/item/clothing/glasses/proc/handle_change_layer(mob/user)
+	if(use_check_and_message(user))
+		return
+
 	if(normal_layer == GLASSES_LAYER)
 		normal_layer = GLASSES_LAYER_ALT
 	else
 		normal_layer = GLASSES_LAYER
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
+	to_chat(user, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
 	update_clothing_icon()
 
 /obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)
 	if(stabbed && (body_parts_covered & EYES) && !(item_flags & ITEM_FLAG_THICK_MATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
-		playsound(loc, /singleton/sound_category/glass_break_sound, 70, TRUE)
+		playsound(loc, SFX_BREAK_GLASS, 70, TRUE)
 		new shatter_material(M.loc)
 		qdel(src)
 		return FALSE
@@ -840,6 +849,12 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
 	desc = "A blindfold that covers the eyes, this one seems to be made of thinner material."
 	tint = TINT_NONE // It's practically a fluff thing anyway, so.
+
+/obj/item/clothing/glasses/sunglasses/blindfold/scc_sleepmask
+	name = "\improper SCC Sleepmask"
+	desc = "A sleep mask, branded with the unmistakable logo of the Stellar Corporate Conglomerate. A small tag on the inside indicates it is a Nyx-brand Sleep Mask, produced by Idris Incorporated for Stellar Corporate Conglomerate vessels."
+	icon_state = "scc_sleepmask"
+	item_state = "scc_sleepmask"
 
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"

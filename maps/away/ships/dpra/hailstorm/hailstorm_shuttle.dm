@@ -15,10 +15,10 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Spacer Militia Shuttle"
-	req_access = list(ACCESS_DPRA)
+	req_access = list(/datum/access/dpra::id)
 // --------
 
 // Controls docking behaviour
@@ -31,7 +31,6 @@
 	dock_target = "hailstorm_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_hailstorm"
 	defer_initialisation = TRUE
 // --------
 

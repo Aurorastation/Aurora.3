@@ -4,6 +4,8 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "medcoat"
 	item_state = "medcoat"
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
@@ -42,11 +44,50 @@
 	icon_state = "navalcoat"
 	item_state = "navalcoat"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
+
+/obj/item/clothing/suit/storage/toggle/tajaran/consular
+	name = "people's republic consular coat"
+	desc = "An olive drab canvas coat used by the Diplomatic Service of the People's Republic of Adhomai. Based upon the same pattern of \
+	coats utilized by the Officer Corps, the Diplomatic Service coat simplifies the button pattern as the Service requires less security \
+	against the winds and cold of Adhomai."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "pra_consularcoat"
+	item_state = "pra_consularcoat"
+	contained_sprite = TRUE
+	desc_extended = "The People's Republic of Adhomai has enjoyed recognition across the Spur for longer than any other nation on Adhomai. \
+	Given the ambitions of the Republic, its Diplomatic Service remains an important part of Hadiist foreign affairs, being seen everywhere \
+	from Tau Ceti to the Coalition. The Service's mission is twofold. While ensuring cooperation and cordial affairs with potential trade \
+	partners, Consulars are typically expected to assist in intelligence gathering."
+
+/obj/item/clothing/suit/storage/toggle/tajaran/consular/dpra
+	name = "democratic people's republic consular coat"
+	desc = "A black and white canvas coat used by the Diplomatic Service of the Democratic People's Republic of Adhomai. These coats are \
+	commonly repurposed Hadiist coats left over by the Second Revolution. Due to the DPRA's stance on foreign affairs, little thought is \
+	placed into producing domestic models."
+	icon_state = "dpra_consularcoat"
+	item_state = "dpra_consularcoat"
+	desc_extended = "The Democratic People's Republic of Adhomai continues a stance of restrained diplomatic relations. Few nations enjoy a \
+	communicative let alone cordial relationship with the rebel nation. However, to achieve its mission in freeing the Tajaran people, off-world \
+	or otherwise, the Democratic Republic maintains a small diplomatic service focused entirely on Tajaran communities and little else."
+
+/obj/item/clothing/suit/storage/toggle/tajaran/consular/nka
+	name = "new kingdom consular coat"
+	desc = "A blue and gold coat used by the Diplomatic Service of the New Kingdom of Adhomai. These coats have only been issued in the \
+	past decade as the New Kingdom's economy begins to recover. With the focus on the image of the Kingdom's diplomatic staff, commoners \
+	and nobles alike share the same coat when representing the Kingdom abroad."
+	icon_state = "nka_consularcoat"
+	item_state = "nka_consularcoat"
+	desc_extended = "The New Kingdom of Adhomai has seen a rise in its international relations since it revolted in 2450. Having few working \
+	relationships, such as the Empire of Dominia, the New Kingdom's approach remains tied to its continued efforts to bring in Megacorporations. \
+	While the focus is improving relations for economic benefit, the Diplomatic Service does have an additional duty of aiding the Royalist \
+	communities across the Spur."
 
 /obj/item/clothing/suit/storage/tajaran/messa
 	name = "sun sister robe"
@@ -112,11 +153,17 @@
 	contained_sprite = TRUE
 	flags_inv = HIDETAIL
 	no_overheat = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/tajaran
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
+
+/obj/item/clothing/head/winterhood/tajaran
+	name = "cloak hood"
+	desc = "A hood attached to an Adhomian cloak."
+	min_cold_protection_temperature = null
 
 /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	name = "sun priest robe"
@@ -142,9 +189,12 @@
 	flags_inv = 0
 	hoodtype = /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
 	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
+	/obj/item/healthanalyzer, /obj/item/flashlight, /obj/item/radio, /obj/item/tank/emergency_oxygen, /obj/item/breath_analyzer, /obj/item/reagent_containers/blood)
 	species_restricted = list(BODYTYPE_TAJARA)
 	desc_extended = null
+	armor = list(
+			bio = ARMOR_BIO_STRONG,
+		)
 
 /obj/item/clothing/head/winterhood/hoodie/taj_scrubs
 	name = "adhomian surgeon mask"
@@ -154,6 +204,13 @@
 	item_state = "tajscrubs_hood"
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
+	body_parts_covered = FACE|HEAD
+	min_cold_protection_temperature = null
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.01
+	armor = list(
+		BIO = ARMOR_BIO_RESISTANT
+	)
 
 /obj/item/clothing/suit/storage/hooded/tajaran/amohda
 	name = "amohdan cloak"
@@ -173,6 +230,14 @@
 	icon_state = "winter_cloak"
 	item_state = "winter_cloak"
 	flags_inv = 0
+	hoodtype = /obj/item/clothing/head/winterhood/tajaran/winter
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/head/winterhood/tajaran/winter
+	name = "winter cloak hood"
+	desc = "A wool hood attached to an Adhomian winter cloak."
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/tajaran/royalist
 	name = "adhomian royalist cloak"
@@ -275,6 +340,65 @@
 		BOMB = ARMOR_BOMB_MINOR
 	)
 
+/obj/item/clothing/suit/armor/tajaran_snowsuit
+	name = "\improper Nav'korr armored snowsuit"
+	desc = "A thick snowsuit with internal armor plating designed to protect its wearer from Adhomai's harsh climate and grim conflicts."
+	desc_extended = "The Nav'korr armored snowsuit is a vital piece of equipment for any Adhomian military. Designed to balance mobility, \
+	environmental protection, and armor, it is the pinnacle of modern Tajaran body armor. As such, it has become mass produced and near ubiquitous among \
+	the industrialized nations of Adhomai and her colonies. While many variants exist with different camo patterns and environmental accommodations, \
+	such as the famed tropical suit used on Hro'zamal, the snowsuit remains the most widely used."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "snowsuit"
+	item_state = "snowsuit"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
+	protects_against_weather = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	var/hoodtype = /obj/item/clothing/head/winterhood/tajaran_snowsuit
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_CARBINE,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
+	)
+
+/obj/item/clothing/suit/armor/tajaran_snowsuit/Initialize()
+	. = ..()
+	new hoodtype(src)
+
+/obj/item/clothing/suit/armor/tajaran_snowsuit/verb/ToggleHood()
+	set name = "Toggle Snowsuit Hood"
+	set category = "Object.Equipped"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return FALSE
+
+	SEND_SIGNAL(src, COMSIG_ITEM_UPDATE_STATE)
+
+/obj/item/clothing/suit/armor/tajaran_snowsuit/AltClick(mob/user)
+	ToggleHood(user)
+
+/obj/item/clothing/head/winterhood/tajaran_snowsuit
+	name = "\improper Nav'korr snowsuit hood"
+	desc = "A thick, reinforced hood attached to a Nav'korr armored snowsuit."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "snowsuit_hood"
+	item_state = "snowsuit_hood"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_TAJARA)
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_CARBINE,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
+	)
+
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	name = "hadiist surplus jacket"
 	desc = "An olive surplus jacket worn by the forces of the Grand People's Army."
@@ -295,7 +419,7 @@
 		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50
-	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/gun/projectile/automatic/rifle/adhomian, /obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction/adhomai, /obj/item/ammo_magazine/a68, /obj/item/gun/projectile/automatic/rifle/adhomian, /obj/item/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/dpra_jacket
 	name = "al'mariist jacket"
@@ -337,6 +461,8 @@
 	item_state = "finecoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/tajaran/finecoat/blue
 	name = "fine blue coat"
@@ -359,7 +485,9 @@
 	item_state = "hunter_coat"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/gun/projectile/shotgun, /obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/device/flashlight)
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
+	allowed = list(/obj/item/gun/projectile/shotgun, /obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/archeologist
 	name = "archeologist jacket"
@@ -369,3 +497,35 @@
 	item_state = "explorer_jacket"
 	contained_sprite = TRUE
 	allowed = list(/obj/item/grenade/dynamite, /obj/item/melee/whip, /obj/item/gun/projectile/revolver, /obj/item/pickaxe)
+
+/obj/item/clothing/suit/storage/tajaran/pra_cop
+	name = "PRA NPD jacket"
+	desc = "A warm and thick jacket with the markings of the PRA national police department."
+	desc_extended = "The National Police Department is the largest and best equipped police force on Adhomai. \
+	Responsible for law enforcement in the People's Republic, the olive drab uniforms and polished badges have maintained peace and order, \
+	or inspired fear, within the population since the nation's founding."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cop_suit"
+	item_state = "taj_cop_suit"
+	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/suit/storage/tajaran/pra_cop/rural
+	name = "rural PRA NPD jacket"
+	desc = "A jacket with the markings of the PRA national police department that can commonly be found in the rural parts of the PRA."
+	icon_state = "taj_cop_suit_rural"
+	item_state = "taj_cop_suit_rural"
+
+/obj/item/clothing/suit/storage/toggle/tajaran/pra_submarine
+	name = "\improper PRA submariner coat"
+	desc = "A black leather coat with a Zshram fur lining and collar found in use by the People's Republic of Adhomai's submarine service."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "pra_submarine_coat"
+	item_state = "pra_submarine_coat"
+	contained_sprite = TRUE
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
+	desc_extended = "The Miraniye T’varrnav Varrom, translated as Miran’miran Submarine Coat, is the standard overcoat supplied to the Republican Navy’s submarine service. Designed to \
+	insulate and protect the wearer against the ice-cold water of the Adhomian seas, the black leather coat is a source of pride among submariners and coveted by Al’mariist and Royalist \
+	sailors as a war trophy. Once produced within the port city of Miran’mir it is named after, the war forced production to move to the Ardiye Romanqri Khaz’tra in Nal’tor. Despite this, \
+	the coat had only minor changes, remaining constant throughout as a symbol of the Hadiist menace across the waves."

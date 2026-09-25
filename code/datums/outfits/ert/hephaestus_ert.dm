@@ -3,13 +3,15 @@
 	uniform = /obj/item/clothing/under/ert/hephaestus
 	shoes = /obj/item/clothing/shoes/jackboots
 	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless
 	)
 	back = /obj/item/storage/backpack/satchel/heph
 	suit = /obj/item/clothing/suit/space/void/hephaestus
 	head = /obj/item/clothing/head/helmet/space/void/hephaestus
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	id = /obj/item/card/id/hephaestus
 	mask = /obj/item/clothing/mask/gas/tactical
 	glasses = /obj/item/clothing/glasses/night
@@ -50,14 +52,16 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/unathi
+		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/unathi
 	)
 	backpack_contents = list(
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/ammo_magazine/c45m = 3,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/baton/loaded = 1,
@@ -85,7 +89,9 @@
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu
+		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu
 	)
 
 	backpack_contents = list(

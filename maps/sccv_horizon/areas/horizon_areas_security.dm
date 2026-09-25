@@ -1,6 +1,7 @@
 /// SECURITY_AREAS
 /area/horizon/security
 	name = "Security (PARENT AREA - DON'T USE)"
+	area_lighting = LIGHT_WARM_COLORS
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 	department = LOC_SECURITY
 	area_blurb = "Every sound seems to echo just a little louder and more threateningly in the Security sectors of the SCCV Horizon."
@@ -93,8 +94,16 @@
 	horizon_deck = 3
 	lightswitch = FALSE
 
-/area/horizon/security/interrogation
-	name = "Interrogation"
+/area/horizon/security/interrogation_1
+	name = "Interrogation Room 1"
+	icon_state = "investigations"
+	ambience = list(AMBIENCE_HIGHSEC, AMBIENCE_FOREBODING)
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	horizon_deck = 3
+	lightswitch = FALSE
+
+/area/horizon/security/interrogation_2
+	name = "Interrogation Room 2"
 	icon_state = "investigations"
 	ambience = list(AMBIENCE_HIGHSEC, AMBIENCE_FOREBODING)
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED

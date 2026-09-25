@@ -180,7 +180,7 @@ GLOBAL_PROTECT(jobban_keylist)
  */
 /proc/jobban_loaddatabase()
 	// No database. Weee.
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		log_world("ERROR: Database connection failed. Reverting to the legacy ban system.")
 		log_misc("Database connection failed. Reverting to the legacy ban system.")
 		GLOB.config.ban_legacy_system = 1
@@ -188,7 +188,7 @@ GLOBAL_PROTECT(jobban_keylist)
 		return
 
 	// All jobbans in one query. Because we don't actually care.
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
+	var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
 	query.Execute()
 
 	while (query.NextRow())
@@ -207,6 +207,7 @@ GLOBAL_PROTECT(jobban_keylist)
 		else
 			// Woups. What happened here...?
 			log_and_message_admins("JOBBANS: Duplicate jobban entry in MySQL for [ckey]. Ban ID: #[query.item[1]]")
+	qdel(query)
 
 /**
  * Saves the current bans into the data/job_full.ban file.

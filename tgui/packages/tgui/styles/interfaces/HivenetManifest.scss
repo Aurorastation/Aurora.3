@@ -1,0 +1,10 @@
+.HivenetManifest__Hive {
+  .Section {
+    &__title {
+      border-color: var(--hive-color);
+    }
+    &__titleText {
+      color: var(--hive-color);
+    }
+  }
+}

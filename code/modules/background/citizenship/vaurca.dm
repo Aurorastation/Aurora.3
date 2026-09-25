@@ -29,6 +29,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -54,6 +56,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER
 		)
 	)
@@ -64,7 +68,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
-							"Begin the TCFL enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
+							"Begin the TCAF Foreign Legions enlistment process for an individual, completing an Enlistment form to be turned in by the individual",
 							"Develop a metric to grade the performance of different Vaurca broods that share a job")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
@@ -89,7 +93,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
-	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+	backpack_contents = list(/obj/item/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
 
 /obj/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -134,6 +138,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -158,6 +164,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER
 		)
 	)
@@ -192,7 +200,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
-	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+	backpack_contents = list(/obj/item/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
 
 /obj/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -236,6 +244,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -260,6 +270,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER
 		)
 	)
@@ -294,7 +306,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
-	backpack_contents = list(/obj/item/device/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
+	backpack_contents = list(/obj/item/camera = 1) // Redefined so they do not inherit the extra energy pistol from the parent representative outfit.
 
 /obj/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)

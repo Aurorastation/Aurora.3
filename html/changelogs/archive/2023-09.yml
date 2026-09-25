@@ -135,7 +135,7 @@
   FluffyGhost:
   - bugfix: /datum/action and /obj/screen/movable/action_button now drops their references
       on QDEL.
-  - bugfix: /obj/item/device/uplink now drops the reference to the owner on qdel.
+  - bugfix: /obj/item/uplink now drops the reference to the owner on qdel.
   - bugfix: /obj/item/implant now drops the reference to the organ (part) on qdel.
   - bugfix: /obj/screen/ability now returns the QDEL hint correctly.
   GeneralCamo:

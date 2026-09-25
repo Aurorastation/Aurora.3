@@ -61,7 +61,7 @@
 	description = "A device to automatically replace lights. Refill with working lightbulbs or sheets of glass."
 	price = 30
 	items = list(
-		/obj/item/device/lightreplacer
+		/obj/item/lightreplacer
 	)
 	access = 0
 	container_type = "crate"
@@ -133,7 +133,7 @@
 	items = list(
 		/obj/item/grenade/chem_grenade/cleaner
 	)
-	access = ACCESS_JANITOR
+	access = /datum/access/janitor::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -147,7 +147,7 @@
 	items = list(
 		/obj/structure/cart/storage/janitorialcart/full
 	)
-	access = ACCESS_JANITOR
+	access = /datum/access/janitor::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

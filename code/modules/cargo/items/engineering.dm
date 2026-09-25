@@ -76,7 +76,7 @@
 	items = list(
 		/obj/item/stack/material/phoron/full
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 
@@ -117,7 +117,7 @@
 	items = list(
 		/obj/item/grenade/chem_grenade/antifuel
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -131,7 +131,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -201,7 +201,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/coolanttank
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -213,9 +213,9 @@
 	description = "It dispenses bigger pipes for things to travel through. No, the pipes aren't green."
 	price = 30
 	items = list(
-		/obj/machinery/pipedispenser/disposal/orderable
+		/obj/structure/machinery/pipedispenser/disposal/orderable
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -229,7 +229,7 @@
 	items = list(
 		/obj/item/storage/toolbox/mechanical
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -243,7 +243,7 @@
 	items = list(
 		/obj/item/storage/toolbox/electrical
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -257,7 +257,7 @@
 	items = list(
 		/obj/item/storage/toolbox/emergency
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -271,7 +271,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/fuel_chamber
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -285,7 +285,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/center
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -299,7 +299,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/left
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -313,7 +313,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/right
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -327,7 +327,7 @@
 	items = list(
 		/obj/item/circuitboard/bluespacerelay
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -339,9 +339,9 @@
 	description = "It is a heavy duty industrial laser."
 	price = 1850
 	items = list(
-		/obj/machinery/power/emitter
+		/obj/structure/machinery/power/emitter
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -353,9 +353,9 @@
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Engineering colors."
 	price = 48
 	items = list(
-		/obj/item/device/magnetic_lock/engineering
+		/obj/item/magnetic_lock/engineering
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -369,7 +369,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/engineering
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -383,7 +383,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -395,9 +395,9 @@
 	description = "A large thermal battery that projects a high amount of energy when powered."
 	price = 250
 	items = list(
-		/obj/machinery/field_generator
+		/obj/structure/machinery/field_generator
 	)
-	access = ACCESS_ARMORY
+	access = /datum/access/armory::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -411,7 +411,7 @@
 	items = list(
 		/obj/item/material/twohanded/fireaxe
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -421,11 +421,25 @@
 	name = "fuel tank"
 	supplier = "hephaestus"
 	description = "A tank filled with welding fuel."
-	price = 10
+	price = 600
 	items = list(
 		/obj/structure/reagent_dispensers/fueltank
 	)
-	access = ACCESS_ENGINE
+	access = 0
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/extinguishertank
+	category = "engineering"
+	name = "extinguisher tank"
+	supplier = "hephaestus"
+	description = "A tank filled with extinguisher fluid."
+	price = 600
+	items = list(
+		/obj/structure/reagent_dispensers/extinguisher
+	)
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -455,7 +469,7 @@
 	items = list(
 		/obj/item/clothing/head/hardhat
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -483,7 +497,7 @@
 	items = list(
 		/obj/item/storage/belt/utility/full
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -525,7 +539,7 @@
 	items = list(
 		/obj/item/hoist_kit
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -539,7 +553,7 @@
 	items = list(
 		/obj/item/storage/bag/inflatable
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -553,7 +567,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -567,7 +581,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialt
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -581,21 +595,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialu
 	)
-	access = ACCESS_ENGINE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/packagedantimatterreactorsection
-	category = "engineering"
-	name = "packaged antimatter reactor section"
-	supplier = "eckharts"
-	description = "A section of antimatter reactor shielding. Do not eat."
-	price = 220
-	items = list(
-		/obj/item/device/am_shielding_container
-	)
-	access = ACCESS_CE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -607,9 +607,9 @@
 	description = "Used to debug electronic equipment."
 	price = 12
 	items = list(
-		/obj/item/device/debugger
+		/obj/item/debugger
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -623,7 +623,7 @@
 	items = list(
 		/obj/item/powerdrill
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -635,9 +635,9 @@
 	description = "Useful for designating areas and pissing off coworkers."
 	price = 25
 	items = list(
-		/obj/item/device/paint_sprayer
+		/obj/item/paint_sprayer
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -649,9 +649,9 @@
 	description = "This controls the density of the particles."
 	price = 2250
 	items = list(
-		/obj/machinery/particle_accelerator/control_box
+		/obj/structure/machinery/particle_accelerator/control_box
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -665,7 +665,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/power_box
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -679,7 +679,7 @@
 	items = list(
 		/obj/item/ladder_mobile
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -693,7 +693,7 @@
 	items = list(
 		/obj/item/clothing/head/radiation
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -707,7 +707,7 @@
 	items = list(
 		/obj/item/clothing/suit/radiation
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -721,7 +721,7 @@
 	items = list(
 		/obj/item/circuitboard/research_shuttle
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -733,9 +733,9 @@
 	description = "Used to generate a Singularity. It is not adviced to use this on the asteroid."
 	price = 17000
 	items = list(
-		/obj/machinery/the_singularitygen
+		/obj/structure/machinery/the_singularitygen
 	)
-	access = ACCESS_HEADS
+	access = /datum/access/heads::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -761,9 +761,9 @@
 	description = "An unstable, radioactive crystal that forms the power source of several experimental ships and stations. Extremely dangerous."
 	price = 18500
 	items = list(
-		/obj/machinery/power/supermatter
+		/obj/structure/machinery/power/supermatter
 	)
-	access = ACCESS_CAPTAIN
+	access = /datum/access/captain::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -775,11 +775,11 @@
 	description = "A kit that comes with a thermoelectric generator and two circulators that attach to it. For usage in high-power energy generation."
 	price = 1200
 	items = list(
-		/obj/machinery/power/generator,
-		/obj/machinery/atmospherics/binary/circulator,
-		/obj/machinery/atmospherics/binary/circulator
+		/obj/structure/machinery/power/generator,
+		/obj/structure/machinery/atmospherics/binary/circulator,
+		/obj/structure/machinery/atmospherics/binary/circulator
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -793,7 +793,7 @@
 	items = list(
 		/obj/item/solar_assembly
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -812,20 +812,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/watertank
-	category = "engineering"
-	name = "watertank"
-	supplier = "hephaestus"
-	description = "A tank filled with water."
-	price = 10
-	items = list(
-		/obj/structure/reagent_dispensers/watertank
-	)
-	access = ACCESS_ENGINE
-	container_type = "box"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/weldinghelmet
 	category = "engineering"
 	name = "welding helmet"
@@ -840,34 +826,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/antimattercontainmentjar
-	category = "engineering"
-	name = "antimatter containment jar"
-	supplier = "eckharts"
-	description = "Holds antimatter. Warranty void if exposed to matter."
-	price = 280
-	items = list(
-		/obj/item/am_containment
-	)
-	access = ACCESS_CE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/antimattercontrolunit
-	category = "engineering"
-	name = "antimatter control unit"
-	supplier = "eckharts"
-	description = "The control unit for an antimatter reactor. Probably safe."
-	price = 1950
-	items = list(
-		/obj/machinery/power/am_control_unit
-	)
-	access = ACCESS_CE
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/alphaparticlegenerationarray
 	category = "engineering"
 	name = "Alpha Particle Generation Array"
@@ -877,7 +835,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/end_cap
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -889,9 +847,9 @@
 	description = "A radiation collector array. Used to augment the power generation of a generator that emits ionising radiation."
 	price = 650
 	items = list(
-		/obj/machinery/power/rad_collector
+		/obj/structure/machinery/power/rad_collector
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
@@ -905,7 +863,7 @@
 	items = list(
 		/obj/structure/cart/storage/engineeringcart
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

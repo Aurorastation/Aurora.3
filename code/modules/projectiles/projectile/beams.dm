@@ -46,7 +46,7 @@
 	impact_type = /obj/effect/projectile/impact/laser/scc
 
 /obj/projectile/beam/pistol/hegemony
-	icon = 'icons/obj/guns/hegemony_pistol.dmi'
+	icon = 'icons/obj/guns/faction/izweski_hegemony/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	damage = 30
 
@@ -203,13 +203,19 @@
 	icon_state = "xray"
 	damage = 50
 	armor_penetration = 20
-	stun = 3
-	weaken = 3
-	stutter = 3
+	eyeblur = 16
+	stutter = 16
+	weaken = 1
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
 	impact_type = /obj/effect/projectile/impact/xray
+
+/obj/projectile/beam/sniper/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(ismob(target))
+		var/mob/M = target
+		M.confused += 8
 
 /obj/projectile/beam/stun
 	name = "stun beam"
@@ -358,6 +364,16 @@
 		SA.take_organ_damage(0, 20)
 	return TRUE
 
+/obj/projectile/beam/mousegun/xenofauna_holo
+	damage = 0
+
+/obj/projectile/beam/mousegun/xenofauna_holo/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living/simple_animal/hostile/carp/holodeck))
+		var/mob/living/simple_animal/hostile/carp/holodeck/C = target
+		C.take_organ_damage(15)
+	return TRUE
+
 /obj/projectile/beam/shotgun
 	name = "diffuse laser"
 	icon_state = "laser"
@@ -369,7 +385,7 @@
 	name = "thermal lance"
 	icon_state = "gauss"
 	damage = 10
-	incinerate = 5
+	incinerate = 2
 	armor_penetration = 10
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
@@ -387,10 +403,7 @@
 					M.emitter_blasts_taken += 1
 				else if(prob(33))
 					M.emitter_blasts_taken += 1
-	if(ismob(target))
-		var/mob/living/M = target
-		M.apply_effect(1, INCINERATE, 0)
-	explosion(target, -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2)
 	. = ..()
 
 /obj/projectile/beam/thermaldrill
@@ -499,6 +512,7 @@
 	damage = 15
 	damage_type = DAMAGE_BURN
 	check_armor = ENERGY
+	var/temperature_damage = 40
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
@@ -508,7 +522,7 @@
 	. = ..()
 	if(isliving(target))
 		var/mob/living/L = target
-		L.bodytemperature -= 40
+		L.bodytemperature -= temperature_damage
 
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L

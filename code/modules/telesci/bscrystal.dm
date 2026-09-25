@@ -21,7 +21,7 @@
 	user.visible_message(SPAN_WARNING("[user] crushes [src]!"),
 							SPAN_DANGER("You crush [src]!"))
 	single_spark(loc)
-	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(src.loc, SFX_SPARKS, 50, 1)
 	blink_mob(user)
 	user.unEquip(src)
 	qdel(src)
@@ -34,7 +34,7 @@
 		visible_message(SPAN_NOTICE("[src] fizzles and disappears upon impact!"))
 		var/turf/T = get_turf(hit_atom)
 		single_spark(T)
-		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(src.loc, SFX_SPARKS, 50, 1)
 		if(isliving(hit_atom))
 			blink_mob(hit_atom)
 		qdel(src)

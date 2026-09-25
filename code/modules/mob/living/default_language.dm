@@ -1,6 +1,3 @@
-/mob/living
-	var/datum/language/default_language
-
 /mob/living/verb/set_default_language_verb()
 	set name = "Set Default Language"
 	set category = "IC.Language"

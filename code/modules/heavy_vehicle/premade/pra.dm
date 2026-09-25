@@ -18,7 +18,7 @@
 	icon_state = "egg_arms"
 	melee_damage = 15
 	action_delay = 5
-	max_damage = 100
+	max_damage = 150
 	power_use = 2500
 	has_hardpoints = list(HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_HAND)
 
@@ -28,6 +28,7 @@
 	desc = "Strong legs adapted for the Adhomian rought terrain."
 	icon_state = "egg_legs"
 	move_delay = 3
+	damaged_delay = 3
 	turn_delay = 3
 	max_damage = 100
 	power_use = 2500
@@ -53,6 +54,8 @@
 	name = "\improper P'kus-3 chassis"
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
+	cockpit_hatch_size = 70
+	cockpit_pilot_damage_multiplier = 0.8
 	exosuit_desc_string = "a light armored chassis"
 	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "egg_body"
@@ -80,7 +83,7 @@
 	desc = "Armored robotics arms designed to carry large weapons."
 	icon_state = "strong_egg_arms"
 	melee_damage = 20
-	max_damage = 120
+	max_damage = 180
 
 /obj/item/mech_component/sensors/pra_egg/armored
 	name = "armored P'kus-3 sensors"
@@ -96,6 +99,8 @@
 	icon_state = "strong_egg_body"
 	max_damage = 150
 	power_use = 250
+	cockpit_hatch_size = 40
+	cockpit_pilot_damage_multiplier = 0.5
 
 	cell_type = /obj/item/cell/mecha/nuclear
 

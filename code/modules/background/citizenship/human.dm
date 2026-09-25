@@ -6,6 +6,7 @@
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /obj/outfit/job/representative/consular/ceti
 	assistant_outfit = /obj/outfit/job/diplomatic_aide/ceti
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/ceti
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -23,58 +24,54 @@
 	)
 
 /datum/citizenship/tau_ceti/get_objectives(mission_level, var/mob/living/carbon/human/H)
-	var/rep_objectives
-
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
-				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
-								"Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations.",
-								"Convince the command of the [SSatlas.current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics.")
+				return pick("Investigate and report suspicious individuals who might harbour anti-Republic sentiments",
+								"Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations",
+								"Convince the command of the [SSatlas.current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics")
 			else
-				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
-								"Have [rand(2,6)] crewmembers sign a pledge of loyalty to the Republic.")
+				return pick("Investigate and report suspicious individuals who might harbour anti-Republic sentiments",
+								"Identify and document command personnel with non-favourable views towards NanoTrasen Corporation")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
-				rep_objectives = pick("Promote the superiority of the Republic of Biesel over the Sol Alliance.",
-								"Encourage non-citizens to seek citizenship in the Republic via enlistment in the Tau Ceti Foreign Legion.",
-								"Promote Zo'rane products such as Zo'ra Soda to the crew.")
+				return pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
+								"Refer a non-Republic citizen to citizenship opportunities in the Tau Ceti Armed Forces",
+								"Promote Zo'rane products such as Zo'ra Soda to the crew")
 			else
-				rep_objectives = pick("Convince [rand(2,4)] Tau Ceti crewmembers who are not a part of Command or Security to join the Tau Ceti Foreign Legion.",
-								"Convince [rand(3,6)] crewmembers of Tau Ceti superiority over the Sol Alliance.")
+				return pick("Highlight the failures of the Solarian Alliance and promote the Republic of Biesel's successes",
+								"Refer a non-Republic citizen to citizenship opportunities in the Tau Ceti Armed Forces")
 		else
 			if(isvaurca(H))
-				rep_objectives = pick("Run a questionanaire on Tau Ceti citizens' views on Vaurca citizenship.",
+				return pick("Survey Republic citizens views of the Tau Ceti Armed Forces post-Peacekeeper Mandate.",
 								"Question non-Vaurca employees about their Vaurca coworkers, looking for areas of improvement.",
 								"Protect and promote the public image of the Zo'ra Hive to all [SSatlas.current_map.boss_name] employees.")
 			else
-				rep_objectives = pick("Run a questionnaire on Tau Ceti citizens' views on synthetic citizenship.",
-								"Run a questionnaire on Tau Ceti citizens' views on vaurca citizenship.")
-
-
-	return rep_objectives
+				return pick("Survey Republic citizens views of the Tau Ceti Armed Forces post-Peacekeeper Mandate.",
+								"Survey Republic citizen views of the Republic of Biesel's multiculturalism.",
+								"Have a Republic citizen re-affirm their pledge of loyalty to the Republic of Biesel")
 
 /obj/outfit/job/representative/consular/ceti
-	name = "Tau Ceti Consular Officer"
+	name = "Republic of Biesel Civil Service Functionare"
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcaf_pamphlet = 1,
-		/obj/item/device/versebook/biesel = 1, //constitution
+		/obj/item/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
 	)
 
 /obj/outfit/job/diplomatic_aide/ceti
-	name = "Tau Ceti Diplomatic Aide"
+	name = "Republic of Biesel Civil Service Aide"
 	accessory = /obj/item/clothing/accessory/tc_pin
 
 /obj/outfit/job/diplomatic_bodyguard/ceti
-	name = "Tau Ceti Diplomatic Bodyguard"
+	name = "Republic of Biesel Civil Service Bodyguard"
 	backpack_contents = list(
-		/obj/item/gun/energy/blaster/revolver
+		/obj/item/gun/energy/blaster
 	)
 
 /obj/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -118,6 +115,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -141,6 +140,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -164,6 +165,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -196,7 +199,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/sol_visa = 1,
 		/obj/item/stamp/sol = 1,
-		/obj/item/device/camera = 1
+		/obj/item/camera = 1
 	)
 
 /obj/outfit/job/diplomatic_aide/sol
@@ -206,6 +209,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/sol
 	name = "Sol Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/sol/army/service
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/sol/army/service/garrison
 	backpack_contents = list(
 		/obj/item/gun/projectile/pistol/sol = 1
 	)
@@ -237,6 +243,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -248,6 +256,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -259,6 +269,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -271,7 +283,7 @@
 	name = "Coalition Consular Officer"
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1
+		/obj/item/camera = 1
 	)
 
 /obj/outfit/job/diplomatic_bodyguard/coalition
@@ -292,6 +304,8 @@
 
 /obj/outfit/job/diplomatic_bodyguard/elyra
 	name = "Elyra Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/rank/elyran_fatigues
+	shoes = /obj/item/clothing/shoes/jackboots
 	backpack_contents = list(
 		/obj/item/gun/projectile/plasma/bolter/pistol = 1
 	)
@@ -327,6 +341,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,

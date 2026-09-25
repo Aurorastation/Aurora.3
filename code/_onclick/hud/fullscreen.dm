@@ -61,7 +61,7 @@
 			client.screen |= screens[category]
 
 /atom/movable/screen/fullscreen
-	icon = 'icons/mob/screen/full.dmi'
+	icon = 'icons/hud/mob/full.dmi'
 	icon_state = "default"
 	screen_loc = "CENTER-7,CENTER-7"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -105,7 +105,7 @@
 	icon_state = "impairedoverlay2"
 
 /atom/movable/screen/fullscreen/blurry
-	icon = 'icons/mob/screen/effects.dmi'
+	icon = 'icons/hud/mob/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "blurry"
 	alpha = 100
@@ -114,8 +114,12 @@
 	icon_state = "brutedamageoverlay6"
 	alpha = 0
 
+/atom/movable/screen/fullscreen/robot_pain
+	icon = 'icons/hud/mob/robot_pain.dmi'
+	alpha = 255
+
 /atom/movable/screen/fullscreen/flash
-	icon = 'icons/mob/screen/effects.dmi'
+	icon = 'icons/hud/mob/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	icon_state = "flash"
 
@@ -130,7 +134,7 @@
 	alpha = 127
 
 /atom/movable/screen/fullscreen/fadeout
-	icon = 'icons/mob/screen/effects.dmi'
+	icon = 'icons/hud/mob/effects.dmi'
 	icon_state = "black"
 	screen_loc = ui_entire_screen
 	alpha = 0
@@ -159,8 +163,11 @@
 	screen_loc = ui_entire_screen
 	alpha = 100
 
+/atom/movable/screen/fullscreen/blueprints/less_alpha
+	alpha = 35
+
 /atom/movable/screen/fullscreen/lighting_backdrop
-	icon = 'icons/mob/screen/white.dmi'
+	icon = 'icons/hud/mob/white.dmi'
 	icon_state = "flash"
 	transform = matrix(200, 0, 0, 0, 200, 0)
 	plane = LIGHTING_PLANE

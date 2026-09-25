@@ -276,6 +276,7 @@
 
 /obj/structure/component/tent_canvas/roof
 	plane = ROOF_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/component/tent_canvas/roof/CanPass(atom/movable/mover, turf/target, height, air_group)
 	return TRUE
@@ -359,7 +360,7 @@
 	base_icon = "sleepingbag_floor"
 	density = FALSE
 	anchored = FALSE
-	buckling_sound = 'sound/items/drop/cloth.ogg'
+	buckling_sound = 'sound/items/drop/clothing.ogg'
 	held_item = /obj/item/sleeping_bag
 	can_dismantle = FALSE
 	can_pad = FALSE

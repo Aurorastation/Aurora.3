@@ -3,6 +3,10 @@
 	icon_state = "buildmode2"
 	var/build_type
 
+/datum/build_mode/advanced/Destroy()
+	build_type = null
+	. = ..()
+
 /datum/build_mode/advanced/Help()
 	to_chat(user, SPAN_NOTICE("***********************************************************"))
 	to_chat(user, SPAN_NOTICE("Left Click                       = Create objects"))
@@ -30,6 +34,15 @@
 		else
 			to_chat(user, SPAN_NOTICE("Select a type to construct."))
 	else if(parameters["right"])
+		if (isturf(A))
+			// Delete exemption for Turfs, which under no circumstances are allowed to be qdel'ed directly.
+			// "Deleting" a turf instead attempts to change it to its base turf,
+			// which in most cases will either Plating, or Open Space. Open Space will simply return early instead.
+			var/turf/T = A
+			Log("Replaced turf - [log_info_line(T)]")
+			T.ChangeTurf(T.baseturf)
+			return
+
 		Log("Deleted - [log_info_line(A)]")
 		qdel(A)
 	else if((parameters["left"] && parameters["ctrl"]) || parameters["middle"])

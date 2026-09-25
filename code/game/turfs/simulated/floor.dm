@@ -17,14 +17,19 @@
 	var/flooring_override
 	var/initial_flooring
 	var/singleton/flooring/flooring
-	var/mineral = DEFAULT_WALL_MATERIAL
+	var/mineral = MATERIAL_STEEL
 
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
 	var/lava = 0
 
-	/// If the turf should generate details. Default: TRUE
+	/// Used for simple turf icon smoothing, which just adds edges to the turf if it's adjacent to a different type turf.
+	/// See `update_icon()` for the use case.
+	// ideally this shouldn't be true by default, not all turfs have edges
 	var/has_edge_icon = TRUE
+
+/turf/simulated/floor/examine_descriptor(mob/user)
+	return "floor"
 
 /turf/simulated/floor/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -53,10 +58,20 @@
 
 /turf/simulated/floor/Initialize(mapload, var/floortype)
 	. = ..()
+
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
 		set_flooring(GET_SINGLETON(floortype), mapload)
+
+	var/area/area = loc
+	if(area.generate_dirt > 0)
+		var/dirt_to_spawn = round(area.generate_dirt / 100)
+		if(prob(area.generate_dirt % 100))
+			dirt_to_spawn++
+		while(dirt_to_spawn > 0)
+			new /obj/effect/decal/cleanable/dirt(src)
+			dirt_to_spawn--
 
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring, mapload)
 	if (!mapload)
@@ -124,3 +139,9 @@
 	name = "hull plating"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced_light"
+
+/turf/simulated/IgniteTurf(power, fire_color)
+	if(turf_fire)
+		turf_fire.AddPower(power)
+		return
+	new /obj/turf_fire(src, power, fire_color)

@@ -9,8 +9,10 @@
 /obj/item/ore_detector
 	name = "ore detector"
 	desc = "A device capable of locating and displaying ores to the average untrained hole explorer."
-	icon = 'icons/obj/item/adv_mining_scanner.dmi'
-	icon_state = "advmining0"
+	icon = 'icons/obj/item/scanner.dmi'
+	icon_state = "mining_adv0"
+	item_state = "mining_adv"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	force = 1
@@ -40,7 +42,7 @@
 	return ..()
 
 /obj/item/ore_detector/update_icon()
-	icon_state = "advmining[active]"
+	icon_state = "mining_adv[active]"
 
 /obj/item/ore_detector/attack_self(mob/user)
 	ui_interact(user)
@@ -128,7 +130,7 @@
 					found_ores = TRUE
 
 		if(found_ores)
-			var/image/ore_ping = image(icon = 'icons/obj/item/adv_mining_scanner.dmi', icon_state = "signal_overlay", loc = anchor, layer = UNDER_HUD_LAYER)
+			var/image/ore_ping = image(icon = 'icons/obj/item/scanner.dmi', icon_state = "signal_overlay", loc = anchor, layer = UNDER_HUD_LAYER)
 			ore_ping.appearance_flags |= KEEP_APART|RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM
 			ore_ping.pixel_x = rand(-6, 6)
 			ore_ping.pixel_y = rand(-6, 6)

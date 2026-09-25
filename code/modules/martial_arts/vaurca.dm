@@ -45,7 +45,7 @@
 /datum/martial_art/vkutet/proc/piercing_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!isvaurca(A))
 		return 0
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	var/atk_verb = pick("slices", "pinches", "chops", "bites", "claws")
 	D.visible_message(SPAN_DANGER("[A] [atk_verb] [D]!"), \
 						SPAN_DANGER("[A] [atk_verb] you!"))

@@ -26,7 +26,7 @@
 
 	//Actually populate the voting choices, which are now sorted
 	for(var/datum/game_mode/votable_mode_sorted in gamemodes_list)
-		default_choices += capitalize(votable_mode_sorted.name)
+		default_choices |= capitalize(votable_mode_sorted.name)
 
 	//Stop the countdown while we vote
 	GLOB.round_progressing = FALSE
@@ -67,7 +67,7 @@
 	var/winning_option_lowertext = lowertext(winning_option)
 
 	if(GLOB.master_mode != winning_option_lowertext)
-		SSpersistent_configuration.last_gamemode = winning_option_lowertext
+		SSregistry.setValue("last_gamemode", winning_option_lowertext)
 
 		//This is because `/datum/configuration/proc/pick_mode()` uses the config tag, for god-knows what reason
 		//unless it's one of these snowflake gamemodes

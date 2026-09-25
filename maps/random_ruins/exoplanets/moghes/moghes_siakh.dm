@@ -23,7 +23,7 @@
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	outfit = /obj/outfit/admin/moghes_siakh
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = FALSE
 
@@ -57,7 +57,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/pistol/spitter = 1)
 	backpack_contents = list(
 		/obj/item/ammo_magazine/spitterpistol = 1,
-		/obj/item/device/versebook/siakh = 1,
+		/obj/item/versebook/siakh = 1,
 		/obj/item/clothing/suit/armor/unathi = 1,
 		/obj/item/clothing/head/helmet/unathi = 1
 	)

@@ -42,11 +42,11 @@
 		/obj/item/storage/backpack/messenger/engi
 	)
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	id = /obj/item/card/id
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 /obj/outfit/admin/tajara_mining_jack/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)

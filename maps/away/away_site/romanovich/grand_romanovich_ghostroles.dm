@@ -26,12 +26,12 @@
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)
 
 /obj/outfit/admin/grand_romanovich_host/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/grand_romanovich_staff
 	short_name = "casino_staff"
@@ -61,12 +61,12 @@
 
 	id = /obj/item/card/id/away_site
 
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)
 
 /obj/outfit/admin/grand_romanovich_staff/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/grand_romanovich_guard
 	short_name = "casino_guard"
@@ -98,7 +98,7 @@
 
 	id = /obj/item/card/id/away_site
 
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/box/handcuffs = 1)
 
@@ -110,12 +110,12 @@
 		/obj/item/reagent_containers/spray/pepper = 1,
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/grenade/chem_grenade/gas = 1,
-		/obj/item/device/flash = 1,
+		/obj/item/flash = 1,
 		/obj/item/ammo_magazine/mc9mm = 2
 	)
 
 /obj/outfit/admin/grand_romanovich_guard/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/casino_patron
 	short_name = "casino_patron"
@@ -127,7 +127,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/random/casino_patron
-	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_ATTENDANT,SPECIES_VAURCA_WORKER)
+	possible_species = list(SPECIES_HUMAN,SPECIES_HUMAN_OFFWORLD,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI,SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN,SPECIES_UNATHI,SPECIES_UNATHI_URAWANI,SPECIES_UNATHI_ZIRALIXI,SPECIES_VAURCA_WARRIOR,SPECIES_VAURCA_ATTENDANT,SPECIES_VAURCA_WORKER)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Grand Romanovich"
@@ -135,6 +135,6 @@
 	respawn_flag = null
 
 /obj/outfit/admin/random/casino_patron
-	l_ear = /obj/item/device/radio/headset/ship/common
+	l_ear = /obj/item/radio/headset/ship/common
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1, /obj/item/storage/bag/money/casino = 1)

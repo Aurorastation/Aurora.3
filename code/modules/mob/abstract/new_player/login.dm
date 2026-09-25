@@ -12,13 +12,14 @@
 	GLOB.player_list |= src
 
 	client.playtitlemusic()
-	addtimer(CALLBACK(src, PROC_REF(show_lobby_info)), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(show_lobby_info)), 5 SECONDS, TIMER_STOPPABLE | TIMER_DELETE_ME)
 
 /mob/abstract/new_player/proc/show_lobby_info()
 	if(!client)
 		return
 
-	if(GLOB.motd)
-		to_chat(src, "<div class=\"motd\">[GLOB.motd]</div>")
+	var/motd = SSregistry.getValue(REGISTRY_MESSAGE_OF_THE_DAY, GLOB.motd)
+	if(motd)
+		to_chat(src, "<div class=\"motd\">[motd]</div>")
 
 	to_chat(src, "<div class='info'>Game ID: </div><div class='danger'>[GLOB.round_id]</div>")

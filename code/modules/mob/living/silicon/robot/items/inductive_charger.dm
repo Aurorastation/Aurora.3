@@ -125,7 +125,7 @@
 		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 		cell = attacking_item
 		return TRUE
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!cell)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a cell inserted."))
 			return TRUE

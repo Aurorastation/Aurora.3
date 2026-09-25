@@ -1,0 +1,13 @@
+.Changelog {
+  &__Button {
+    height: 22px;
+  }
+
+  &__Cell {
+    padding: var(--space-s) 0;
+
+    &--Icon {
+      width: 25px;
+    }
+  }
+}

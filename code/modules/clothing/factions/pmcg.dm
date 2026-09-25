@@ -120,7 +120,7 @@
 
 /obj/item/clothing/under/rank/security/pmc/grupo_amapola
 	name = "Grupo Amapola uniform"
-	desc = "A uniform used by the forces of the Grupo Amapola, a private military company originating out of Mictlan. It is based off the old uniforms of the Mictlan Defense Force, a once-Solarian planetary guard, with red poppy patches on the back and right arm."
+	desc = "A uniform used by the forces of the Grupo Amapola, a private military company originating out of Mictlan. It is based off the old uniforms of the Mictlan Defense Force, a once-Solarian planetary guard, with red poppy patches on the back and arm."
 	desc_extended = "The Grupo Amapola's light green camo is taken from old uniforms of the Mictlan Defense Force, the same uniforms used by the insurgents known as the Samaritans. Many MDF service personnel defected to the Samaritans, and after the fighting between the Tau Ceti Armed Forces and Samaritans ended, the less scrupulous among their number now work for Grupo Amapola."
 	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "amapola_ftg"
@@ -162,6 +162,15 @@
 	desc_extended = "Kazarrhaldiye Operations Group uniforms are based on First Revolution-era naval uniforms. With modern clothing materials, these uniforms were redesigned to be much lighter and breathable for use in Human-environments. Despite the white coloration, a holdover from the snowy fields of Adhomai, the uniform remains popular."
 	icon_state = "kog_medical"
 	item_state = "kog_medical"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/medical/pmc/grupo_amapola
+	name = "Grupo Amapola uniform"
+	desc = "A uniform used by the forces of the Grupo Amapola, a private military company originating out of Mictlan. It is based off the old uniforms of the Mictlan Defense Force, a once-Solarian planetary guard, with red poppy patches on the back and arm."
+	desc_extended = "The Grupo Amapola's light green camo is taken from old uniforms of the Mictlan Defense Force, the same uniforms used by the insurgents known as the Samaritans. Many MDF service personnel defected to the Samaritans, and after the fighting between the Tau Ceti Armed Forces and Samaritans ended, the less scrupulous among their number now work for Grupo Amapola."
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
+	icon_state = "amapola_ftg"
+	item_state = "amapola_ftg"
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/armor/kog/

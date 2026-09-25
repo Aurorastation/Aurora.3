@@ -35,7 +35,9 @@
 		"Mining Jack" = list("nav_hangar_tajara_mining_jack")
 	)
 	comms_support = TRUE
-	comms_name = "adhomian mining"
+
+/obj/effect/overmap/visitable/sector/tajara_mining_jack/create_comms_groups()
+	return list("default" = new /datum/comms_group("adhomian mining"))
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
 	base_turf = /turf/space
@@ -77,7 +79,7 @@
 	designation = "[pick("Rock Breaker", "Mining Zhan", "Flying Pickaxe", "Asteroid's Worst Nightmare", "Twin Suns Drills", "Minharrzka's Blessing", "Driller", "Stardust", "Dhrarmela's Smelter")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/tajara_mining_jack
+/obj/structure/machinery/computer/shuttle_control/explore/tajara_mining_jack
 	name = "shuttle control console"
 	shuttle_tag = "Mining Jack"
 
@@ -90,5 +92,4 @@
 	landmark_transition = "nav_transit_tajara_mining_jack"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tajara_mining_jack"
 	defer_initialisation = TRUE

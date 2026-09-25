@@ -13,16 +13,16 @@
 	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha")]-[rand(100,999)]"
 
 	artifact_find_type = pick(
-		5;/obj/machinery/power/supermatter,
+		5;/obj/structure/machinery/power/supermatter,
 		5;/obj/structure/constructshell,
-		25;/obj/machinery/power/supermatter/shard,
+		25;/obj/structure/machinery/power/supermatter/shard,
 		50;/obj/structure/cult/pylon,
-		100;/obj/machinery/auto_cloner,
-		100;/obj/machinery/giga_drill,
-		100;/obj/machinery/replicator,
+		100;/obj/structure/machinery/auto_cloner,
+		100;/obj/structure/machinery/giga_drill,
+		100;/obj/structure/machinery/replicator,
 		150;/obj/structure/crystal_madness,
 		150;/obj/structure/crystal,
-		1000;/obj/machinery/artifact,
+		1000;/obj/structure/machinery/artifact,
 	)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,21 +50,21 @@
 	excavation_level = rand(5,50)
 
 /obj/structure/boulder/attackby(obj/item/attacking_item, mob/user)
-	if (istype(attacking_item, /obj/item/device/core_sampler))
+	if (istype(attacking_item, /obj/item/core_sampler))
 		src.geologic_data.artifact_distance = rand(-100,100) / 100
 		src.geologic_data.artifact_id = artifact_find.artifact_id
 
-		var/obj/item/device/core_sampler/C = attacking_item
+		var/obj/item/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 		return
 
-	if (istype(attacking_item, /obj/item/device/depth_scanner))
-		var/obj/item/device/depth_scanner/C = attacking_item
+	if (istype(attacking_item, /obj/item/depth_scanner))
+		var/obj/item/depth_scanner/C = attacking_item
 		C.scan_atom(user, src)
 		return
 
-	if (istype(attacking_item, /obj/item/device/measuring_tape))
-		var/obj/item/device/measuring_tape/P = attacking_item
+	if (istype(attacking_item, /obj/item/measuring_tape))
+		var/obj/item/measuring_tape/P = attacking_item
 		user.visible_message(SPAN_NOTICE("[user] extends [P] towards [src]."),
 								SPAN_NOTICE("You extend [P] towards [src]."))
 
@@ -101,8 +101,8 @@
 			if(artifact_find)
 				var/spawn_type = artifact_find.artifact_find_type
 				var/obj/O = new spawn_type(get_turf(src))
-				if(istype(O,/obj/machinery/artifact))
-					var/obj/machinery/artifact/X = O
+				if(istype(O,/obj/structure/machinery/artifact))
+					var/obj/structure/machinery/artifact/X = O
 					if(X.my_effect)
 						X.my_effect.artifact_id = artifact_find.artifact_id
 				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"))

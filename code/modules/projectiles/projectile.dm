@@ -74,7 +74,12 @@
 	var/projectile_piercing = NONE
 	/// Number of times we've pierced something. Incremented BEFORE bullet_act and on_hit proc!
 	var/pierces = 0
-
+	///The base chance that a projectile capable of piercing will actually pierce.
+	var/pierce_chance = 0
+	/// 0-1 multiplier, the projectile's damage is modified by multiplying this after each pierce.
+	var/pierce_decay_damage = 0.7
+	///Used to determine whether or not to apply embed chances on hit, also used in ship weapons for spalling.
+	var/last_hit_pierced = FALSE
 	/// If objects are below this layer, we pass through them.
 	var/hit_threshhold = PROJECTILE_HIT_THRESHHOLD_LAYER
 
@@ -234,7 +239,7 @@
 
 	var/reflected = FALSE
 
-	/// If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
+	/// If greater than zero, the projectile will pass through dense objects as specified by prehit_pierce()
 	var/penetrating = 0
 
 	/// For KAs, really.
@@ -326,8 +331,10 @@
 	var/mob/living/living_target = target
 
 	living_target.apply_effects(0, weaken, paralyze, 0, stutter, eyeblur, drowsy, 0, incinerate, blocked)
-	living_target.stun_effect_act(stun, agony, def_zone, src, damage_flags)
-	living_target.apply_damage(irradiate, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED) //radiation protection is handled separately from other armor types.
+	if(stun || agony)
+		living_target.stun_effect_act(stun, agony, DAMAGE_PAIN, def_zone, src, damage_flags, check_armor)
+	if(irradiate)
+		living_target.apply_damage(irradiate, DAMAGE_RADIATION, def_zone, check_armor = check_armor) //radiation protection is handled separately from other armor types.
 
 	if(!do_not_log)
 		log_combat(firer, living_target, "shot", src)
@@ -342,6 +349,12 @@
 		return clamp((src.damage) * 0.67, 30, 100)// Multiply projectile damage by 0.67, then CLAMP the value between 30 and 100
 	else
 		return 50 //if the projectile doesn't do damage, play its hitsound at 50% volume
+
+/obj/projectile/proc/get_structure_damage_sound()
+	if(damage_type == DAMAGE_BRUTE)
+		return 'sound/effects/metalping.ogg'
+	else if(damage_type == DAMAGE_BURN)
+		return pick(SOUNDS_LASER_METAL)
 
 /obj/projectile/proc/on_ricochet(atom/A)
 	if(!ricochet_auto_aim_angle || !ricochet_auto_aim_range)
@@ -367,6 +380,42 @@
 	beam_index = point_cache
 	beam_segments[beam_index] = null
 
+/obj/projectile/proc/check_human_shield(atom/A)
+	if(!ishuman(A) || !starting)
+		return FALSE
+	var/mob/living/carbon/human/M = A
+	var/list/left_hand_defense_zones = list(BP_L_ARM, BP_L_HAND, BP_CHEST, BP_GROIN)
+	var/list/right_hand_defense_zones = list(BP_R_ARM, BP_R_HAND, BP_CHEST, BP_GROIN)
+	if(point_blank || !(M.dir & get_dir(M, starting))) //Don't use the shield if the shot is at point blank, or the shot comes from behind or the sides.
+		return FALSE
+	for(var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+		if(!G?.affecting || G.state < GRAB_NECK || G.affecting.lying)
+			continue
+		if(G.affecting.mob_size < M.mob_size) //Humans are size 9, Unathi and Varuca workers 10, G1 & G2 are 11. This is mostly to make monkeys bad human shields.
+			if (rand(1, M.mob_size) > G.affecting.mob_size)
+				continue
+		if(((G == M.l_hand) && (def_zone in left_hand_defense_zones)) || ((G == M.r_hand) && (def_zone in right_hand_defense_zones)))  //Human shields only block shots to the arm holding the person, chest and groin.
+			if(G.affecting.stat == DEAD) //If they are dead hit both the hostage and the hostage taker.
+				penetrating += 1
+				projectile_piercing = PASSMOB
+				pierce_chance = 100
+				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their limp body!"))
+				return G.affecting
+			else
+				if(ishuman(G.affecting))
+					var/mob/living/carbon/human/human_shield = G.affecting
+					var/obj/item/organ/external/organ = human_shield.get_organ(def_zone)
+					if(LIMB_GET_BURN_DAMAGE(organ) + LIMB_GET_BRUTE_DAMAGE(organ) > organ.max_damage) //If the hit zone is above the max damage threshold, the shot hits both.
+						penetrating += 1
+						projectile_piercing = PASSMOB
+						pierce_chance = 100
+						M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their mangled [organ.name]!"))
+						return G.affecting
+			M.visible_message(SPAN_WARNING("\The [M] uses [G.affecting] as a shield!"))
+			return G.affecting
+		M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield but their [M.organs_by_name[def_zone]] is exposed!"))
+	return FALSE
+
 /obj/projectile/Collide(atom/A)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, A)
 	if(!can_hit_target(A, A == original, TRUE, TRUE))
@@ -385,14 +434,16 @@
  * Also, we select_target to find what to process_hit first.
  */
 /obj/projectile/proc/Impact(atom/A)
+	if(QDELETED(src))
+		return TRUE
 	if(!trajectory)
 		qdel(src)
 		return FALSE
 	if(impacted[A.weak_reference]) // NEVER doublehit
 		return FALSE
-	var/datum/point/point_cache = trajectory.copy_to()
 	var/turf/T = get_turf(A)
-	if(ricochets < ricochets_max && check_ricochet_flag(A) && check_ricochet(A))
+	var/datum/point/point_cache = trajectory.copy_to()
+	if(ricochets < ricochets_max && check_ricochet(A))
 		ricochets++
 		if(A.handle_ricochet(src))
 			on_ricochet(A)
@@ -413,6 +464,18 @@
 	if(ismob(A))
 		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
 		def_zone = get_zone_with_miss_chance(def_zone, A, miss_modifier, (distance > 1 || original != A), point_blank)
+		if (!def_zone)
+			A.visible_message(SPAN_NOTICE("\The [src] misses [A] narrowly!"))
+			return FALSE
+		var/atom/shield_target = check_human_shield(A)
+		if(shield_target)
+			var/datum/weakref/original_ref = A.weak_reference
+			impacted[original_ref] = TRUE
+			process_hit(T, shield_target, A)
+			impacted -= original_ref
+			penetrating = initial(penetrating)
+			projectile_piercing = initial(projectile_piercing)
+			pierce_chance = initial(pierce_chance)
 	else
 		def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
@@ -527,6 +590,8 @@
  */
 /obj/projectile/proc/can_hit_target(atom/target, direct_target = FALSE, ignore_loc = FALSE, cross_failed = FALSE)
 	if(QDELETED(target) || impacted[target.weak_reference])
+		return FALSE
+	if(target == firer && !ignore_source_check)
 		return FALSE
 	if(!ignore_loc && (loc != target.loc) && !(can_hit_turfs && direct_target && loc == target))
 		return FALSE
@@ -647,32 +712,26 @@
 	if((projectile_phasing & A.pass_flags_self) && (phasing_ignore_direct_target || original != A))
 		return PROJECTILE_PIERCE_PHASE
 	if(projectile_piercing & A.pass_flags_self)
-		return PROJECTILE_PIERCE_HIT
+		if (penetrating > pierces)
+			if(prob(min(100, (pierce_chance + (damage/4) + armor_penetration) * anti_materiel_potential))) //Base pierce_chance is 0. This gives the STS a 30% chance to pierce once.
+				damage *= pierce_decay_damage
+				penetrating--
+				last_hit_pierced = TRUE
+				return PROJECTILE_PIERCE_HIT
+
 	if(ismovable(A))
 		var/atom/movable/AM = A
 		if(AM.throwing)
 			return (projectile_phasing & LETPASSTHROW) ? PROJECTILE_PIERCE_PHASE : ((projectile_piercing & LETPASSTHROW)? PROJECTILE_PIERCE_HIT : PROJECTILE_PIERCE_NONE)
+	last_hit_pierced = FALSE
 	return PROJECTILE_PIERCE_NONE
 
 /obj/projectile/proc/check_ricochet(atom/A)
-	var/chance = ricochet_chance * A.receive_ricochet_chance_mod
+	var/chance = ricochet_chance
 	if(firer && HAS_TRAIT(firer, TRAIT_NICE_SHOT))
 		chance += NICE_SHOT_RICOCHET_BONUS
 	if(ricochets < min_ricochets || prob(chance))
 		return TRUE
-	return FALSE
-
-/obj/projectile/proc/check_ricochet_flag(atom/A)
-	// if((armor_flag in list(ENERGY, LASER)) && (A.flags_ricochet & RICOCHET_SHINY))
-	// 	return TRUE
-
-	// if((armor_flag in list(BOMB, BULLET)) && (A.flags_ricochet & RICOCHET_HARD))
-	// 	return TRUE
-
-	//Keep it easy for now
-	if(A.flags_ricochet & RICOCHET_SHINY|RICOCHET_HARD)
-		return TRUE
-
 	return FALSE
 
 /obj/projectile/proc/return_predicted_turf_after_moves(moves, forced_angle) //I say predicted because there's no telling that the projectile won't change direction/location in flight.
@@ -717,6 +776,8 @@
 		pixel_move(pixel_speed_multiplier, FALSE)
 
 /obj/projectile/proc/fire(angle, atom/direct_target)
+	if(QDELETED(src))
+		return
 	LAZYINITLIST(impacted)
 	if(fired_from)
 		SEND_SIGNAL(fired_from, COMSIG_PROJECTILE_BEFORE_FIRE, src, original)
@@ -725,8 +786,9 @@
 	if(!log_override && firer && original && !do_not_log)
 		log_combat(firer, original, "fired at", src, "from [get_area_name(src, TRUE)]")
 			//note: mecha projectile logging is handled in /obj/item/mecha_parts/mecha_equipment/weapon/action(). try to keep these messages roughly the sameish just for consistency's sake.
-	if(direct_target && (get_dist(direct_target, get_turf(src)) <= 1)) // point blank shots
-		process_hit(get_turf(direct_target), direct_target)
+	var/atom/pb_target = direct_target || original
+	if(pb_target && (get_dist(pb_target, get_turf(src)) == 0)) // point blank shots
+		process_hit(get_turf(pb_target), pb_target)
 		if(QDELETED(src))
 			return
 	var/turf/starting = get_turf(src)
@@ -936,8 +998,7 @@
  */
 /obj/projectile/proc/preparePixelProjectile(atom/target, atom/source, list/modifiers = null, deviation = 0)
 	if(!(isnull(modifiers) || islist(modifiers)))
-		stack_trace("WARNING: Projectile [type] fired with non-list modifiers, likely was passed click params.")
-		modifiers = null
+		modifiers = params2list(modifiers)
 
 	var/turf/source_loc = get_turf(source)
 	var/turf/target_loc = get_turf(target)
@@ -969,7 +1030,10 @@
 	if(target_loc)
 		yo = target_loc.y - source_loc.y
 		xo = target_loc.x - source_loc.x
-		set_angle(get_angle(src, target_loc) + deviation)
+		if(target_loc == source_loc)
+			set_angle(dir2angle(source_position.dir) + deviation)
+		else
+			set_angle(get_angle(src, target_loc) + deviation)
 		return TRUE
 
 	stack_trace("WARNING: Projectile [type] fired without a target or mouse parameters to aim with.")
@@ -995,7 +1059,10 @@
 		var/turf/target_loc = get_turf(target)
 		var/dx = ((target_loc.x - source_loc.x) * world.icon_size) + (target.pixel_x - source.pixel_x) + (p_x - (world.icon_size / 2))
 		var/dy = ((target_loc.y - source_loc.y) * world.icon_size) + (target.pixel_y - source.pixel_y) + (target.pixel_z - source.pixel_z) + (p_y - (world.icon_size / 2))
-		angle = ATAN2(dy, dx)
+		if(!dx && !dy)
+			angle = dir2angle(source.dir)
+		else
+			angle = ATAN2(dy, dx)
 		return list(angle, p_x, p_y)
 
 	if(!ismob(source) || !LAZYACCESS(modifiers, SCREEN_LOC))
@@ -1030,8 +1097,13 @@
 		finalize_hitscan_and_generate_tracers()
 	STOP_PROCESSING(SSprojectiles, src)
 	cleanup_beam_segments()
-	if(trajectory)
-		QDEL_NULL(trajectory)
+	QDEL_NULL(trajectory)
+	firer = null
+	fired_from = null
+	original = null
+	starting = null
+	homing_target = null
+	impacted.Cut()
 	return ..()
 
 /obj/projectile/proc/cleanup_beam_segments()
@@ -1137,6 +1209,9 @@
 /// Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/projectile/proc/can_embed()
 	//embed must be enabled and damage type must be brute
+	if (projectile_piercing & PASSMOB) //If the shot passes through you it can't embed.
+		if (last_hit_pierced)
+			return FALSE
 	if(!embed || damage_type != DAMAGE_BRUTE)
 		return FALSE
 	return TRUE
@@ -1157,8 +1232,8 @@
 	var/obj/item/SP = new shrapnel_type(organ)
 	SP.edge = TRUE
 	SP.sharp = TRUE
-	SP.name = (name != "shrapnel") ? "[initial(name)] shrapnel" : "shrapnel"
-	SP.desc += " It looks like it was fired from [fired_from]."
+	SP.name = (name != "shrapnel") ? "[name] shrapnel" : "shrapnel"
+	SP.desc += " It looks like it came from from \a [fired_from]."
 	SP.forceMove(organ)
 	organ.embed(SP)
 	return SP
@@ -1200,7 +1275,7 @@
 	if(!P || !P.ping_effect)
 		return
 
-	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
+	var/image/I = image('icons/obj/projectiles.dmi', src, P.ping_effect, 10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
 	var/angle = (P.firer && prob(60)) ? round(get_angle(P.firer,src)) : round(rand(1,359))
 	I.pixel_x += rand(-6,6)
 	I.pixel_y += rand(-6,6)
@@ -1209,6 +1284,7 @@
 	rotate.Turn(angle)
 	I.transform = rotate
 	// Need to do this in order to prevent the ping from being deleted
+	playsound(src, P.get_structure_damage_sound(), P.vol_by_damage())
 	addtimer(CALLBACK(I, TYPE_PROC_REF(/image, flick_overlay), src, 3), 1)
 
 /image/proc/flick_overlay(var/atom/A, var/duration)

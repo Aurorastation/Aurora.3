@@ -1,0 +1,1 @@
+RENAME TABLE ss13_persistent_data TO ss13_persistent_objects;

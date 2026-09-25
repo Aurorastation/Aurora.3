@@ -1,9 +1,9 @@
-/obj/item/gun/projectile
+ABSTRACT_TYPE(/obj/item/gun/projectile)
 	name = "gun"
 	desc = "A gun that fires bullets."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = WEIGHT_CLASS_NORMAL
-	matter = list(DEFAULT_WALL_MATERIAL = 1000)
+	matter = list(MATERIAL_STEEL = 1000)
 	recoil = 1
 
 	var/caliber = "357"		//determines which casings will fit
@@ -26,6 +26,14 @@
 	var/jam_num = 0             //Whether this gun is jammed and how many self-uses until it's unjammed
 	var/unjam_cooldown = 0      //Gives the unjammer some time after spamming unjam to not eject their mag
 	var/jam_chance = 0          //Chance it jams on fire
+	/// Turf used for the most recent casing gravity query.
+	var/turf/cached_casing_gravity_turf
+	/// Casing type used for the most recent casing gravity query.
+	var/cached_casing_gravity_type
+	/// Result of the most recent casing gravity query.
+	var/cached_casing_gravity
+	/// World time at which the cached casing gravity result expires.
+	var/cached_casing_gravity_expires = 0
 
 	///Pixel offset for the suppressor overlay on the x axis.
 	var/suppressor_x_offset
@@ -55,6 +63,8 @@
 
 /obj/item/gun/projectile/Initialize()
 	. = ..()
+	if(firemodes.len <= 1)
+		has_unique_gun_action = TRUE
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)
@@ -71,7 +81,7 @@
 /obj/item/gun/projectile/update_icon()
 	..()
 	if(suppressed)
-		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/suppressor.dmi', "suppressor")
+		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/attachments/suppressor.dmi', "suppressor")
 		if(suppressor_x_offset)
 			MA.pixel_x = suppressor_x_offset
 		if(suppressor_y_offset)
@@ -99,7 +109,7 @@
 	..()
 	if(chambered)
 		chambered.expend()
-		process_chambered()
+		process_chambered(user)
 	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.check_weapon_affinity(src))
@@ -122,7 +132,7 @@
 			return FALSE
 	return TRUE
 
-/obj/item/gun/projectile/proc/process_chambered()
+/obj/item/gun/projectile/proc/process_chambered(mob/shooter)
 	if (!chambered) return
 
 	// Aurora forensics port, gunpowder residue.
@@ -140,8 +150,17 @@
 			qdel(chambered)
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
-			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			playsound(chambered, /singleton/sound_category/casing_drop_sound, 50, FALSE)
+			var/ejection_direction = shooter ? turn(shooter.dir, 270) : pick(GLOB.cardinals)
+			if(casing_has_gravity(chambered))
+				chambered.pixel_x = rand(-4, 4)
+				chambered.pixel_y = rand(-4, 4)
+				chambered.pixel_z = 8
+				var/ejection_angle = SIMPLIFY_DEGREES(dir2degree(ejection_direction) + rand(-30, 30))
+				// Vary horizontal speed from 60 to 140 pixels per second for a closer, broader landing spread.
+				chambered.AddComponent(/datum/component/movable_physics, rand(60, 140), rand(400, 450) / 5, rand(30, 36) * 4, 196.133, 0, ejection_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, chambered.drop_sound)
+			else
+				chambered.pixel_z = 0
+				chambered.throw_at(get_edge_target_turf(chambered, ejection_direction), 1, 1, shooter)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -150,6 +169,18 @@
 
 	if(handle_casings != HOLD_CASINGS)
 		chambered = null
+
+/// Returns whether a casing is affected by gravity, caching identical queries briefly for automatic fire.
+/obj/item/gun/projectile/proc/casing_has_gravity(obj/item/ammo_casing/casing)
+	var/turf/casing_turf = get_turf(casing)
+	if(casing_turf == cached_casing_gravity_turf && casing.type == cached_casing_gravity_type && world.time < cached_casing_gravity_expires)
+		return cached_casing_gravity
+
+	cached_casing_gravity_turf = casing_turf
+	cached_casing_gravity_type = casing.type
+	cached_casing_gravity = casing.has_gravity(casing_turf)
+	cached_casing_gravity_expires = world.time + 1 SECOND
+	return cached_casing_gravity
 
 
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
@@ -208,7 +239,7 @@
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
-/obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
+/obj/item/gun/projectile/proc/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(ammo_magazine)
 		if(drop_mag)
 			ammo_magazine.forceMove(user.loc)
@@ -226,7 +257,12 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
-					playsound(C, /singleton/sound_category/casing_drop_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
+					var/unload_direction = turn(user.dir, 180)
+					if(casing_has_gravity(C))
+						var/unload_angle = SIMPLIFY_DEGREES(dir2degree(unload_direction) + rand(-30, 30))
+						C.AddComponent(/datum/component/movable_physics, rand(60, 140), rand(400, 450) / 5, rand(30, 36) * 4, 196.133, 0, unload_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, C.drop_sound)
+					else
+						C.throw_at(get_edge_target_turf(C, unload_direction), 1, 1, user)
 					count++
 				loaded.Cut()
 			if(count)
@@ -281,6 +317,10 @@
 	else if(firemodes.len > 1)
 		..()
 	else
+		unload_ammo(user)
+
+/obj/item/gun/projectile/unique_action(mob/user)
+	if(firemodes.len <= 1)
 		unload_ammo(user)
 
 /obj/item/gun/projectile/attack_hand(mob/user)

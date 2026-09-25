@@ -129,7 +129,7 @@
 	data["signal"] = get_signal(NTNET_COMMUNICATION)
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
-	data["can_netadmin_mode"] = can_run(user, FALSE, ACCESS_NETWORK)
+	data["can_netadmin_mode"] = can_run(user, FALSE, /datum/access/network::id)
 	data["message_mute"] = message_mute
 	if(active && active.can_interact(src))
 		var/ref = text_ref(active)
@@ -196,7 +196,7 @@
 
 	if(action == "ringtone")
 		var/new_ringtone = params["ringtone"]
-		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
+		var/obj/item/uplink/hidden/H = computer.hidden_uplink
 		if(istype(H) && H.check_trigger(usr, lowertext(new_ringtone), lowertext(H.pda_code)))
 			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
 			syndi_auth = TRUE
@@ -324,7 +324,7 @@
 			netadmin_mode = FALSE
 		else
 			var/mob/living/user = usr
-			if(can_run(user, TRUE, ACCESS_NETWORK))
+			if(can_run(user, TRUE, /datum/access/network::id))
 				netadmin_mode = TRUE
 		computer.update_static_data_for_all_viewers()
 		. = TRUE

@@ -40,7 +40,7 @@
 	if(item_to_equip.item_flags & ITEM_FLAG_NO_MOVE) //Cannot move ITEM_FLAG_NO_MOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
 		return FALSE
 
-	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check))
+	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check, is_overlay_check = FALSE))
 		if(delete_on_fail)
 			qdel(item_to_equip)
 		else
@@ -239,7 +239,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
-/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target)
+/mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target, update_icons = TRUE, force = FALSE)
 	if(W)
 		remove_from_mob(W)
 		if(!(W && W.loc))
@@ -247,7 +247,8 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		if(target)
 			W.forceMove(target)
 		W.do_drop_animation(src)
-		update_icon()
+		if(update_icons)
+			update_icon()
 		return TRUE
 	return FALSE
 
@@ -412,6 +413,9 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	var/atom/movable/item = src.get_active_hand()
 	if(!item)
 		return FALSE
+	if(a_intent == I_HURT && !item.can_throw_on_harm)
+		balloon_alert(src, item.throw_on_harm_alert)
+		return TRUE
 
 	var/throw_range = item.throw_range
 	var/itemsize
@@ -421,7 +425,13 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
 			var/mob/M = item
-			throw_range = round(throw_range * (src.mob_size/M.mob_size))
+			var/grabber_strength = get_lift_capacity()
+			var/target_mass = M.get_effective_mass()
+			if(target_mass > grabber_strength)
+				to_chat(src, SPAN_WARNING("[M] is heavier (or more unwieldy) than your limit of [grabber_strength]kg, you cannot throw them!"))
+				return
+
+			throw_range = max(1, round(throw_range * clamp(grabber_strength / target_mass, 0.25, 2)))
 			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
@@ -523,7 +533,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
 	for(var/obj/item/I as anything in get_equipped_items(include_carried ? INCLUDE_POCKETS|INCLUDE_HELD : 0))
-		drop_from_inventory(I)
+		drop_from_inventory(I, null, FALSE)
 		qdel(I)
 
 /mob/proc/get_covering_equipped_items(var/body_parts)

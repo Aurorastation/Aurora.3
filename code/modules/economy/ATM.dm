@@ -1,12 +1,13 @@
 /obj/item/card/id/var/money = 2000
 
-/obj/machinery/atm
+/obj/structure/machinery/atm
 	name = "Idris SelfServ Teller"
 	desc = "For all your monetary needs! Astronomical figures!"
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "atm"
 	anchored = 1
 	idle_power_usage = 10
+	accepted_currencies = CURRENCY_ALL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/datum/money_account/authenticated_account
 	var/number_incorrect_tries = 0
@@ -18,12 +19,12 @@
 	var/obj/item/card/held_card
 	var/editing_security_level = 0
 
-/obj/machinery/atm/Initialize()
+/obj/structure/machinery/atm/Initialize()
 	. = ..()
 	machine_id = "[SSeconomy.num_financial_terminals++]"
 	update_icon()
 
-/obj/machinery/atm/Destroy()
+/obj/structure/machinery/atm/Destroy()
 	authenticated_account = null
 	if (held_card)
 		held_card.forceMove(loc)
@@ -31,11 +32,11 @@
 
 	return ..()
 
-/obj/machinery/atm/power_change()
+/obj/structure/machinery/atm/power_change()
 	..()
 	update_icon()
 
-/obj/machinery/atm/update_icon()
+/obj/structure/machinery/atm/update_icon()
 	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(FALSE)
@@ -43,13 +44,13 @@
 
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", plane = ABOVE_LIGHTING_PLANE)
 	AddOverlays(screen_overlay)
-	set_light(1.4, 1, COLOR_CYAN)
+	set_light(1.4, 0.75, COLOR_CYAN)
 
 	if(held_card)
 		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(card_overlay)
 
-/obj/machinery/atm/process()
+/obj/structure/machinery/atm/process()
 	if(stat & NOPOWER)
 		ClearOverlays()
 		set_light(FALSE)
@@ -64,11 +65,11 @@
 		if(ticks_left_locked_down <= 0)
 			number_incorrect_tries = 0
 
-	for(var/obj/item/spacecash/S in src)
+	for(var/obj/item/currency/S in src)
 		S.forceMove(src.loc)
-		playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+		playsound(loc, SFX_PRINT, 50, 1)
 
-/obj/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged)
 		return
 
@@ -85,7 +86,7 @@
 	intent_message(MACHINE_SOUND)
 	return 1
 
-/obj/machinery/atm/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/atm/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/card))
 		if(emagged)
 			//prevent inserting id into an emagged ATM
@@ -103,17 +104,25 @@
 				authenticated_account = null
 			update_icon()
 	else if(authenticated_account)
-		if(istype(attacking_item,/obj/item/spacecash))
-			var/obj/item/spacecash/cash = attacking_item
+		if(istype(attacking_item,/obj/item/currency))
+			if(istype(attacking_item, /obj/item/spacecash/ewallet/persistent_charge_card))
+				to_chat(user, SPAN_WARNING("You insert the [attacking_item] into [src], but the machine immediately rejects it!"))
+				return
+			var/obj/item/currency/cash = attacking_item
+			if(!accepts_currency(cash))
+				to_chat(user, SPAN_WARNING("[src] does not accept [cash.name]."))
+				return
+			var/singleton/currency/currency = cash.get_currency_definition()
+			var/credit_value = cash.get_credit_value()
 			//consume the money
-			authenticated_account.money += cash.worth
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			authenticated_account.money += credit_value
+			playsound(loc, SFX_PRINT, 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new()
 			T.target_name = authenticated_account.owner_name
-			T.purpose = "Credit deposit"
-			T.amount = cash.worth
+			T.purpose = currency.get_deposit_purpose()
+			T.amount = credit_value
 			T.source_terminal = machine_id
 			T.date = worlddate2text()
 			T.time = worldtime2text()
@@ -126,7 +135,7 @@
 	else
 		..()
 
-/obj/machinery/atm/attack_hand(mob/user)
+/obj/structure/machinery/atm/attack_hand(mob/user)
 	. = ..()
 	if(issilicon(user))
 		to_chat(user, SPAN_WARNING("[icon2html(src, user)] Artificial unit recognized. Artificial units do not currently receive monetary compensation, \
@@ -135,13 +144,13 @@
 
 	ui_interact(user)
 
-/obj/machinery/atm/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/atm/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "ATM", "Idris ATM #[machine_id]", 550, 650)
 		ui.open()
 
-/obj/machinery/atm/ui_data(mob/user)
+/obj/structure/machinery/atm/ui_data(mob/user)
 	var/list/data = list()
 	data["machine_id"] = machine_id
 	data["card"] = held_card ? held_card.name : null
@@ -154,6 +163,17 @@
 		data["money"] = authenticated_account.money
 	data["number_incorrect_tries"] = number_incorrect_tries
 	data["emagged"] = emagged
+	data["withdrawal_currencies"] = list()
+	for(var/singleton/currency/currency as anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/currency))
+		if(!currency.atm_withdrawal_enabled || !(accepted_currencies & currency.acceptance_flag))
+			continue
+		data["withdrawal_currencies"] += list(list(
+			"id" = currency.id,
+			"name" = currency.display_name,
+			"units_per_credit" = currency.units_per_credit,
+			"fee" = currency.atm_withdrawal_fee,
+			"icon" = currency.atm_icon
+		))
 	if(authenticated_account)
 		data["transactions"] = list()
 		for(var/datum/transaction/T in authenticated_account.transactions)
@@ -167,7 +187,7 @@
 			))
 	return data
 
-/obj/machinery/atm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/atm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -304,9 +324,39 @@
 					to_chat(usr, SPAN_WARNING("[icon2html(src, usr)] You don't have enough funds to do that!"))
 					. = TRUE
 
+		if("currency_withdrawal")
+			var/amount = max(text2num(params["funds_amount"]), 0)
+			amount = round(amount, 0.01)
+			var/singleton/currency/currency = get_withdrawal_currency(params["currency_id"])
+			if(!currency)
+				to_chat(usr, SPAN_WARNING("That currency is not available from this machine!"))
+				return TRUE
+			var/total_cost = amount + currency.atm_withdrawal_fee
+			if(amount <= 0)
+				to_chat(usr, SPAN_WARNING("That is an invalid amount!"))
+			else if(authenticated_account)
+				if(total_cost <= authenticated_account.money)
+					playsound(src, 'sound/machines/chime.ogg', 50, 1)
+					authenticated_account.money -= total_cost
+					currency.spawn_credit_value(amount, src.loc, usr)
+					intent_message(MACHINE_SOUND)
+
+					var/datum/transaction/T = new()
+					T.target_name = authenticated_account.owner_name
+					T.purpose = "[currency.display_name] withdrawal ([currency.atm_withdrawal_fee] credit conversion fee)"
+					T.amount = "([total_cost])"
+					T.source_terminal = machine_id
+					T.date = worlddate2text()
+					T.time = worldtime2text()
+					SSeconomy.add_transaction_log(authenticated_account,T)
+					. = TRUE
+				else
+					to_chat(usr, SPAN_WARNING("[icon2html(src, usr)] You need [total_cost] credits, including the conversion fee, to do that!"))
+					. = TRUE
+
 		if("balance_statement")
 			if(authenticated_account)
-				var/obj/item/paper/R = new()
+				var/obj/item/paper/notepad/receipt/R = new()
 				var/pname = "Account balance: [authenticated_account.owner_name]"
 				var/info = "<b>Idris Automated Teller Account Statement</b><br><br>"
 				info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
@@ -318,21 +368,22 @@
 
 				//stamp the paper
 				var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-				stampoverlay.icon_state = "paper_stamp-cent"
+				stampoverlay.icon_state = "paper_stamp-hop"
 				if(!R.stamped)
 					R.stamped = new
 				R.stamped += /obj/item/stamp
 				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+				R.ripped = TRUE
 				print(R, user = usr)
 
 				release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 				. = TRUE
 
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 		if ("print_transaction")
 			if(authenticated_account)
-				var/obj/item/paper/R = new()
+				var/obj/item/paper/notepad/receipt/R = new()
 				var/pname = "Transaction logs: [authenticated_account.owner_name]"
 				var/info = "<b>Transaction logs</b><br>"
 				info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
@@ -369,9 +420,10 @@
 				R.stamped += /obj/item/stamp
 				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+				R.ripped = TRUE
 				print(R, user = usr)
 
-			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
+			playsound(loc, SFX_PRINT, 50, 1)
 			release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 			. = TRUE
 
@@ -395,8 +447,15 @@
 			authenticated_account = null
 			. = TRUE
 
+/// Returns an ATM-enabled currency accepted by this machine.
+/obj/structure/machinery/atm/proc/get_withdrawal_currency(var/currency_id)
+	for(var/singleton/currency/currency as anything in GET_SINGLETON_SUBTYPE_LIST(/singleton/currency))
+		if(currency.id == currency_id && currency.atm_withdrawal_enabled && (accepted_currencies & currency.acceptance_flag))
+			return currency
+	return null
+
 //stolen wholesale and then edited a bit from newscasters, which are awesome and by Agouri
-/obj/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user)
+/obj/structure/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user)
 	if(!authenticated_account)
 		if(istype(human_user))
 			var/obj/item/card/id/I = human_user.GetIdCard()
@@ -415,7 +474,7 @@
 					SSeconomy.add_transaction_log(authenticated_account,T)
 
 // checks if the ATM needs to be locked down and locks it down if it does
-/obj/machinery/atm/proc/handle_lockdown(var/tried_account_num = null)
+/obj/structure/machinery/atm/proc/handle_lockdown(var/tried_account_num = null)
 	if (number_incorrect_tries > max_pin_attempts)
 		//lock down the atm
 		var/area/t = get_area(src)
@@ -428,11 +487,11 @@
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 
 
-/obj/machinery/atm/AltClick(var/mob/user)
+/obj/structure/machinery/atm/AltClick(var/mob/user)
 	release_held_id(user)
 
 // put the currently held id on the ground or in the hand of the user
-/obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
+/obj/structure/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
 
 	if (!ishuman(human_user))
 		return
@@ -451,7 +510,7 @@
 	authenticated_account = null
 	update_icon()
 
-/obj/machinery/atm/proc/spawn_ewallet(var/sum, loc, mob/living/carbon/human/human_user as mob)
+/obj/structure/machinery/atm/proc/spawn_ewallet(var/sum, loc, mob/living/carbon/human/human_user as mob)
 	var/obj/item/spacecash/ewallet/E = new /obj/item/spacecash/ewallet(loc)
 	if(ishuman(human_user) && !human_user.get_active_hand())
 		human_user.put_in_hands(E)

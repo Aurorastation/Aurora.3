@@ -1,8 +1,8 @@
-/obj/machinery/portable_atmospherics/hydroponics/proc/need_update_icon()
+/obj/structure/machinery/portable_atmospherics/hydroponics/proc/need_update_icon()
 	. = 0
 	var/overlay_stage
 	if (seed)
-		if (mechanical && health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
+		if (mechanical && plant_health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
 			. |= TRAY_LOW_HEALTH
 
 		if (dead)
@@ -42,7 +42,7 @@
 	if (. != icon_status)
 		do_update_icon(., overlay_stage)
 
-/obj/machinery/portable_atmospherics/hydroponics/proc/do_update_icon(var/needed_state, var/plant_stage)
+/obj/structure/machinery/portable_atmospherics/hydroponics/proc/do_update_icon(var/needed_state, var/plant_stage)
 	. = list()
 	if (needed_state & TRAY_PLANT_DEAD)
 		var/ikey = "[GET_SEED_TRAIT(seed, TRAIT_PLANT_ICON)]"
@@ -83,7 +83,7 @@
 	icon_status = .
 
 /// Refreshes the icon and sets the luminosity.
-/obj/machinery/portable_atmospherics/hydroponics/update_icon()
+/obj/structure/machinery/portable_atmospherics/hydroponics/update_icon()
 	// Update name.
 	if(seed)
 		if(mechanical)

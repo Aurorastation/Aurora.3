@@ -230,10 +230,10 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/iac_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/iac_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "IAC Ambulance Shuttle"
-	req_access = list(ACCESS_IAC_RESCUE_SHIP)
+	req_access = list(/datum/access/iac_rescue_shit::id)
 
 /datum/shuttle/autodock/overmap/iac_shuttle
 	name = "IAC Ambulance Shuttle"
@@ -246,7 +246,6 @@
 
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_iac"
 
 	defer_initialisation = TRUE
 
@@ -268,11 +267,11 @@
 
 // airlocks
 
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/port
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/port
 	name = "Port Airlock"
 	master_tag = "airlock_iac_rescue_port"
 
-/obj/effect/map_effect/marker/airlock/iac_rescue_ship/starboard
+/obj/effect/map_effect/marker/airlock/external/iac_rescue_ship/starboard
 	name = "Starboard Airlock"
 	master_tag = "airlock_iac_rescue_stbd"
 

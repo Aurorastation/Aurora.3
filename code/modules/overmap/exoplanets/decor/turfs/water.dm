@@ -4,15 +4,29 @@
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seadeep"
 	desc = "It is wet."
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 	movement_cost = 4
 	has_resources = FALSE
-	///How many objects are currently on this turf? Used to stop empty water turfs from processing.
+	/// How many objects are currently on this turf? Used to stop empty water turfs from processing.
 	var/numobjects = 0
-	///Is this water deep enough to drown in?
+	/// Is this water deep enough to drown in?
 	var/deep = TRUE
-	///The overlay used to make it look like atoms on the turf are underwater.
+	/// The overlay used to make it look like atoms on the turf are underwater.
 	var/obj/effect/water_effect/water_overlay
+	/// The list of types that shouldn't appear submerged. If we find any of these by initialize, we don't apply the `water_effect`
+	var/static/list/non_submerging_types = typecacheof(list(
+		/obj/structure/lattice,
+		/obj/structure/platform,
+		/obj/structure/platform_deco,
+		/obj/structure/bed/stool/chair/office/hover,
+		/obj/structure/bed/stool/hover,
+		/obj/structure/arch,
+		/obj/structure/flora,
+		/obj/structure/machinery/light,
+		/obj/structure/railing,
+		/obj/structure/rod_railing,
+		/obj/structure/machinery/door/firedoor,
+	))
 
 /turf/simulated/floor/exoplanet/water/update_icon()
 	return
@@ -22,13 +36,23 @@
 
 /turf/simulated/floor/exoplanet/water/Initialize()
 	. = ..()
-	if(deep)
-		var/obj/effect/water_effect/W = new /obj/effect/water_effect(src)
-		W.icon = icon
-		W.icon_state = icon_state
-		water_overlay = W
-		W.alpha = 128
 	create_reagents(4)
+	if(!deep)
+		return
+
+	var/obj/effect/water_effect/W = new /obj/effect/water_effect(src)
+	W.icon = icon
+	W.icon_state = icon_state
+	water_overlay = W
+	W.alpha = 128
+
+	if(locate(/obj/structure/lattice) in src)
+		movement_cost = 0
+
+	for(var/atom/movable/AM in src)
+		if(is_type_in_typecache(AM, non_submerging_types))
+			water_overlay.layer = RUNE_LAYER // right below 2.05, lattice layer
+			return
 
 /turf/simulated/floor/exoplanet/water/Destroy()
 	if(water_overlay)
@@ -67,7 +91,7 @@
 		return
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
-		return
+		return ..()
 	START_PROCESSING(SSprocessing, src)
 	if(isobj(AM))
 		numobjects += 1
@@ -117,7 +141,7 @@
 	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 	deep = FALSE
 	var/reagent_type = /singleton/reagent/water
 
@@ -144,7 +168,11 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang, /turf/simulated/floor/exoplanet/water/shallow/konyang/beach)
+	canSmoothWith = list(
+		/turf/simulated/floor/exoplanet/water/shallow/konyang,
+		/turf/simulated/floor/exoplanet/water/konyang,
+		/turf/simulated/floor/exoplanet/water/shallow/konyang/beach
+	)
 
 /turf/simulated/floor/exoplanet/water/shallow/sewage//What horror.
 	name = "putrid sewage"
@@ -165,11 +193,10 @@
 			var/obj/item/organ/external/E = A
 			if(BP_IS_ROBOTIC(E))
 				continue
-			if (E.wounds.len)
-				for(var/datum/wound/W in E.wounds)
-					if(W.germ_level < INFECTION_LEVEL_ONE)
-						W.germ_level = INFECTION_LEVEL_ONE
-					W.germ_level += rand(10, 50)
+			for(var/datum/wound/W as anything in E.wounds)
+				if(W.germ_level < INFECTION_LEVEL_ONE)
+					W.germ_level = INFECTION_LEVEL_ONE
+				W.germ_level += rand(10, 50)
 
 /turf/simulated/floor/exoplanet/water/shallow/moghes
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
@@ -189,3 +216,6 @@
 		var/turf/tile = loc
 		tile.clean_blood()
 		tile.remove_cleanables()
+
+/turf/simulated/floor/exoplanet/water/alt
+	icon_state = "poolwater"

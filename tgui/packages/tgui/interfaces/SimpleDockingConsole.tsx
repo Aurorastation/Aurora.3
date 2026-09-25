@@ -1,5 +1,5 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type SimpleDockingConsoleData = {
@@ -9,11 +9,11 @@ export type SimpleDockingConsoleData = {
   door_lock: string;
 };
 
-export const SimpleDockingConsole = (props, context) => {
-  const { act, data } = useBackend<SimpleDockingConsoleData>(context);
+export const SimpleDockingConsole = (props) => {
+  const { act, data } = useBackend<SimpleDockingConsoleData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <Box>

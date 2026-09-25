@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/string_pin.dm
+ * String pin conversion, validation, and formatting.
+ */
+
 // These pins can only contain text and null.
 /datum/integrated_io/string
 	name = "string pin"

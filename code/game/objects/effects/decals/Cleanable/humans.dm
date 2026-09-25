@@ -20,6 +20,8 @@
 	var/amount = 5
 	var/drytime
 	var/dries = TRUE
+	/// If the decal start as dried.
+	var/dry_on_start = FALSE
 	var/bleed_time
 	persistence_type_requires_canon_round = TRUE
 
@@ -76,6 +78,9 @@
 /obj/effect/decal/cleanable/blood/no_dry
 	dries = FALSE
 
+/obj/effect/decal/cleanable/blood/dry
+	dry_on_start = TRUE
+
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
 		fluorescent = 1
@@ -92,6 +97,30 @@
 
 /obj/effect/decal/cleanable/blood/hide()
 	return
+
+/obj/effect/decal/cleanable/blood/Initialize(mapload)
+	. = ..()
+	fall_to_floor()
+	update_icon()
+	if(istype(src, /obj/effect/decal/cleanable/blood/gibs))
+		return
+	if(type == /obj/effect/decal/cleanable/blood)
+		if (isturf(loc))
+			for(var/obj/effect/decal/cleanable/blood/B in src.loc)
+				if(B != src)
+					if (B.blood_DNA)
+						blood_DNA |= B.blood_DNA.Copy()
+					QDEL_IN(B, 1 SECOND)
+	drytime = DRYING_TIME * (amount+1)
+	bleed_time = world.time
+	if (dries)
+		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/effect/decal/cleanable/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	if(dries && world.time > (bleed_time + drytime))

@@ -1,7 +1,12 @@
+/*
+ * subtypes/memory.dm
+ * Memory circuits that store circuit values across pulses and expose saved values through output pins.
+ */
+
 /obj/item/integrated_circuit/memory
 	complexity = 1
 	category_text = "Memory"
-	power_draw_per_use = 1
+	power_draw_per_use = 10
 
 /obj/item/integrated_circuit/memory/storage
 	name = "memory chip"
@@ -40,6 +45,9 @@
 /obj/item/integrated_circuit/memory/storage/do_work()
 	for(var/i = 1 to inputs.len)
 		var/data = get_pin_data(IC_INPUT, i)
+		if(islist(data))
+			var/list/list_data = data
+			data = list_data.Copy()
 		set_pin_data(IC_OUTPUT, i, data)
 	push_data()
 	activate_pin(2)
@@ -48,30 +56,30 @@
 	name = "memory circuit"
 	desc = "This circuit can store four pieces of data."
 	icon_state = "memory4"
-	power_draw_per_use = 2
+	power_draw_per_use = 20
 	number_of_pins = 4
 
 /obj/item/integrated_circuit/memory/storage/large
 	name = "large memory circuit"
-	desc = "This big circuit can hold eight pieces of data."
+	desc = "This circuit can store eight pieces of data."
 	icon_state = "memory8"
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
-	power_draw_per_use = 4
+	power_draw_per_use = 40
 	number_of_pins = 8
 
 /obj/item/integrated_circuit/memory/storage/huge
 	name = "large memory stick"
-	desc = "This stick of memory can hold up up to sixteen pieces of data."
+	desc = "This memory stick can store up to sixteen pieces of data."
 	icon_state = "memory16"
 	w_class = WEIGHT_CLASS_NORMAL
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4)
-	power_draw_per_use = 8
+	power_draw_per_use = 80
 	number_of_pins = 16
 
 /obj/item/integrated_circuit/memory/constant
 	name = "constant chip"
-	desc = "This tiny chip can store one piece of data, which cannot be overwritten without disassembly."
+	desc = "This chip stores one constant value. It cannot be changed without disassembly."
 	icon_state = "memory1"
 	inputs = list()
 	outputs = list("output pin" = IC_PINTYPE_ANY)
@@ -84,7 +92,11 @@
 	var/data
 
 /obj/item/integrated_circuit/memory/constant/do_work()
-	set_pin_data(IC_OUTPUT, 1, data)
+	var/output_data = data
+	if(islist(output_data))
+		var/list/list_data = output_data
+		output_data = list_data.Copy()
+	set_pin_data(IC_OUTPUT, 1, output_data)
 	push_data()
 	activate_pin(2)
 

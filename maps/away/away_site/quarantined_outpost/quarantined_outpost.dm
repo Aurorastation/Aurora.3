@@ -28,7 +28,7 @@
 		Handshake protocols are unresponsive. Failed to communicate with docking hangar subsystems. \
 		Outpost transponders are connected to an auxiliary power source and are transmitting a corrupted distress signal, details unknown. \
 		The facility has been under quarantine protocols for \[unknown\] amount of time. \
-		Multiple unidentified life forms are detected within. \
+		Multiple unidentified life forms are detected within. Extreme threat probable, high readiness advised.\
 		"
 
 	static_vessel = TRUE

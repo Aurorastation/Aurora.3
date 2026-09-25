@@ -1,0 +1,30 @@
+/**
+ * Copyright (c) 2020 Aleksej Komarov
+ * SPDX-License-Identifier: MIT
+ */
+
+.theme-hammertail {
+  --button-background-default: var(--color-primary);
+  --button-background-disabled: #363636;
+  --button-background-selected: #9d0808;
+  --button-background-caution: #be6209;
+  --button-background-danger: #9a9d00;
+  --input-border-color: #87ce87;
+  --input-border-color-focus: #87ce87;
+  --number-input-border-color: #87ce87;
+  --number-input-border-color-active: #87ce87;
+  --notice-box-background: #910101;
+  --notice-box-color: var(--color-text-fixed-white);
+  --progress-bar-background: rgba(0, 0, 0, 0.5);
+  --progress-bar-fill: var(--color-primary);
+  --tooltip-background: #4a0202;
+  --titlebar-background: #cbd600;
+  --color-base: #550202;
+  --color-primary: #397439;
+  --base-gradient-spread: 6;
+  --section-background: rgba(0, 0, 0, 0.33);
+
+  .Layout__content {
+    background-image: url('../../assets/bg-hammertail.svg');
+  }
+}

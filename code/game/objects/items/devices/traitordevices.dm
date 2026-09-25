@@ -14,10 +14,10 @@ effective or pretty fucking useless.
 
 */
 
-/obj/item/device/batterer
+/obj/item/batterer
 	name = "mind batterer"
 	desc = "A strange device with twin antennas."
-	icon = 'icons/obj/item/device/batterer.dmi'
+	icon = 'icons/obj/item/batterer.dmi'
 	icon_state = "batterer"
 	item_state = "electronic"
 	throwforce = 5
@@ -30,7 +30,7 @@ effective or pretty fucking useless.
 	var/times_used = 0 //Number of times it's been used.
 	var/max_uses = 2
 
-/obj/item/device/batterer/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
+/obj/item/batterer/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	if(!user) 	return
 	if(times_used >= max_uses)
 		to_chat(user, SPAN_WARNING("The mind batterer has been burnt out!"))
@@ -53,17 +53,17 @@ effective or pretty fucking useless.
 	if(times_used >= max_uses)
 		icon_state = "battererburnt"
 
-/obj/item/device/liidrafier //adminspawn/event injector, designed to easily make someone a lii'dra zombie/actual lii'dra
+/obj/item/liidrafier //adminspawn/event injector, designed to easily make someone a lii'dra zombie/actual lii'dra
 	name = "Lii'drafication Injector"
 	desc = "Use this single-use injector on a Vaurca to grant them access to the Lii'dra Hivenet. Use it on an organic non-Vaurca to infect them with black k'ois. This is an OOC item, do not let anyone see it!"
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
 
-/obj/item/device/liidrafier/attack(mob/living/target_mob, mob/living/user, target_zone)
+/obj/item/liidrafier/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/device/liidrafier/afterattack(atom/A as mob, mob/user as mob)
+/obj/item/liidrafier/afterattack(atom/A as mob, mob/user as mob)
 	var/mob/living/carbon/human/target = A
 	if(!istype(target))
 		to_chat(user, SPAN_NOTICE("[target] is not a valid target!"))

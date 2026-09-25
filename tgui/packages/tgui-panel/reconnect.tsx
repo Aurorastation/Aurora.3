@@ -1,4 +1,4 @@
-import { Button } from 'tgui/components';
+import { Button } from 'tgui-core/components';
 
 let url: string | null = null;
 
@@ -11,27 +11,31 @@ setInterval(() => {
   });
 }, 5000);
 
-export const ReconnectButton = () => {
+export function ReconnectButton() {
   if (!url) {
     return null;
   }
+
   return (
     <>
       <Button
         color="white"
         onClick={() => {
           Byond.command('.reconnect');
-        }}>
+        }}
+      >
         Reconnect
       </Button>
       <Button
         color="white"
+        icon="power-off"
+        tooltip="Relaunch game"
+        tooltipPosition="bottom-end"
         onClick={() => {
           location.href = `byond://${url}`;
           Byond.command('.quit');
-        }}>
-        Relaunch game
-      </Button>
+        }}
+      />
     </>
   );
-};
+}

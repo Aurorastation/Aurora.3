@@ -84,6 +84,7 @@
 
 /area/hivebothub/exterior
 	name = "Independent Supply Hub - Exterior"
+	needs_starlight = TRUE
 	icon_state = "exterior"
 
 // Docks
@@ -119,7 +120,7 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/weakened
 	name = "dilapidated hivebot beacon"
 	desc = "An odd and primitive looking machine. It emanates of strange and powerful energies. It bears no manufacturer markings of any kind. This one appears to have been badly damaged."
-	maxHealth = 100
+	maxhealth = 100
 	health = 100
 
 /obj/item/paper/hivebot_hub/diary

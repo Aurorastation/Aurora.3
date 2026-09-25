@@ -130,3 +130,17 @@
 	reagents = list(/singleton/reagent/drink/milk/nemiik = 5, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/cherryjelly = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nakarka_mousse/cherry
+
+/singleton/recipe/tiramisu
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/foy,
+		/obj/item/reagent_containers/food/snacks/foy,
+		/obj/item/reagent_containers/food/snacks/foy,
+		/obj/item/reagent_containers/food/snacks/foy,
+		/obj/item/reagent_containers/food/snacks/foy,
+		/obj/item/reagent_containers/food/snacks/foy
+	)
+	reagents = list(/singleton/reagent/drink/coffee = 10, /singleton/reagent/nutriment/coco = 5 , /singleton/reagent/drink/milk/cream = 10, /singleton/reagent/sugar = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify it
+	result = /obj/item/reagent_containers/food/snacks/sliceable/tiramisu_tray

@@ -4,8 +4,8 @@
 	program_icon_state = "crew"
 	program_key_icon_state = "teal_key"
 	extended_desc = "This program connects to life signs monitoring system to provide basic information on crew health."
-	required_access_run = ACCESS_MEDICAL
-	required_access_download = ACCESS_MEDICAL
+	required_access_run = /datum/access/medical::id
+	required_access_download = /datum/access/medical::id
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
@@ -26,7 +26,7 @@
 	data["isAI"] = isAI(user)
 	data["crewmembers"] = list()
 	if(SSradio.telecomms_ping(computer))
-		for(var/z_level in SSatlas.current_map.map_levels)
+		for(var/z_level in GLOB.ntnet_global.get_reachable_z_levels(computer.network_card))
 			data["crewmembers"] += GLOB.crew_repository.health_data(z_level)
 
 	data["security_level"] = seclevel2num(get_security_level())

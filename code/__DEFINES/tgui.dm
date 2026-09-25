@@ -11,6 +11,8 @@
 #define TGUI_WINDOW_SOFT_LIMIT 5
 /// Maximum number of open windows
 #define TGUI_WINDOW_HARD_LIMIT 9
+/// Pooled window reserved and preloaded for the character setup UI.
+#define TGUI_CHARACTER_SETUP_WINDOW_INDEX 5
 
 /// Maximum ping timeout allowed to detect zombie windows
 #define TGUI_PING_TIMEOUT (4 SECONDS)
@@ -23,6 +25,16 @@
 #define TGUI_WINDOW_LOADING 1
 /// Window is free and ready to receive data
 #define TGUI_WINDOW_READY 2
+
+/// Though not the maximum renderable ByondUis within tgui, this is the maximum that the server will manage per-UI
+#define TGUI_MANAGED_BYONDUI_LIMIT 10
+
+// These are defines instead of being inline, as they're being sent over
+// from tgui-core, so can't be easily played with
+#define TGUI_MANAGED_BYONDUI_TYPE_RENDER "renderByondUi"
+#define TGUI_MANAGED_BYONDUI_TYPE_UNMOUNT "unmountByondUi"
+
+#define TGUI_MANAGED_BYONDUI_PAYLOAD_ID "renderByondUi"
 
 /// Get a window id based on the provided pool index
 #define TGUI_WINDOW_ID(index) "tgui-window-[index]"

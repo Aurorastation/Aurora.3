@@ -1,5 +1,5 @@
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
 import { Window } from '../layouts';
 
 export type ListData = {
@@ -11,11 +11,11 @@ type List = {
   value: any;
 };
 
-export const ListViewer = (props, context) => {
-  const { act, data } = useBackend<ListData>(context);
+export const ListViewer = (props) => {
+  const { act, data } = useBackend<ListData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="List"
@@ -23,7 +23,8 @@ export const ListViewer = (props, context) => {
             <Button onClick={() => act('open_whole_list')}>
               Open Whole List
             </Button>
-          }>
+          }
+        >
           <Table preserveWhitespace>
             <Table.Row header>
               <Table.Cell>Key</Table.Cell>
@@ -33,13 +34,14 @@ export const ListViewer = (props, context) => {
             {data.listvar.map((list) => (
               <Box key={list.key}>
                 <Table.Row>
-                  <Table.Cell label={list.key}>{list.key}</Table.Cell>
-                  <Table.Cell label={list.key}>{list.value}</Table.Cell>
+                  <Table.Cell>{list.key}</Table.Cell>
+                  <Table.Cell>{list.value}</Table.Cell>
                   <Table.Cell>
                     <Button
                       onClick={() =>
                         act('open_entry', { open_entry_key: list.key })
-                      }>
+                      }
+                    >
                       Edit
                     </Button>
                   </Table.Cell>

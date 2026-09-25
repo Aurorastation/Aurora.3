@@ -7,7 +7,7 @@
 /client/proc/Jump(var/area/A in get_sorted_areas())
 	set name = "Jump to Area"
 	set desc = "Area to jump to"
-	set category = "Admin"
+	set category = "Admin.Jump"
 
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV) || isstoryteller(src.mob))
 		if(istype(usr, /mob/abstract/new_player))
@@ -25,7 +25,7 @@
 
 /client/proc/jumptoturf(var/turf/T in world)
 	set name = "Jump to Turf"
-	set category = "Admin"
+	set category = "Admin.Jump"
 
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV) || isstoryteller(src.mob))
 		if(isnewplayer(usr))
@@ -42,7 +42,7 @@
 		return
 
 /client/proc/jumptomob(var/mob/M in GLOB.mob_list)
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Jump to Mob Admin"
 
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV) || isstoryteller(src.mob))
@@ -65,7 +65,7 @@
 			alert("Admin jumping disabled")
 
 /client/proc/jumptocoord(tx as num, ty as num, tz as num)
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Jump to Coordinate"
 
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
@@ -85,7 +85,7 @@
 		alert("Admin jumping disabled")
 
 /client/proc/jumptozlevel()
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Jump to Z-Level"
 
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV) || isstoryteller(src.mob))
@@ -109,7 +109,7 @@
 			alert("Admin jumping disabled")
 
 /client/proc/jumptoshuttle()
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Jump to Shuttle"
 
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV) || isstoryteller(src.mob))
@@ -131,7 +131,7 @@
 			alert("Admin jumping disabled")
 
 /client/proc/jumptoship()
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Jump to Ship"
 
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV) || isstoryteller(src.mob))
@@ -153,7 +153,7 @@
 			alert("Admin jumping disabled")
 
 /client/proc/jumptosector()
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Jump to Sector"
 
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV) || isstoryteller(src.mob))
@@ -178,7 +178,7 @@
 			alert("Admin jumping disabled")
 
 /client/proc/jumptokey()
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Jump to Key"
 
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
@@ -202,13 +202,15 @@
 		alert("Admin jumping disabled")
 
 /client/proc/Getmob(var/mob/M in GLOB.mob_list)
-	set category = "Admin"
-	set name = "Get Mob"
+	set category = "Admin.Jump"
+	set name = "Get Mob to Teleport"
 	set desc = "Mob to teleport"
 	if(check_rights(R_ADMIN|R_MOD|R_DEBUG) || isstoryteller(src.mob))
 		if(GLOB.config.allow_admin_jump)
 			log_admin("[key_name(usr)] teleported [key_name(M)]")
 			message_admins("[key_name_admin(usr)] teleported [key_name_admin(M)]", 1)
+			if(M.buckled_to)
+				M.buckled_to.unbuckle()
 			M.on_mob_jump()
 			M.forceMove(get_turf(usr))
 			feedback_add_details("admin_verb","GM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -216,8 +218,8 @@
 			alert("Admin jumping disabled")
 
 /client/proc/Getkey()
-	set category = "Admin"
-	set name = "Get Key"
+	set category = "Admin.Jump"
+	set name = "Get Key to Teleport"
 	set desc = "Key to teleport"
 
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
@@ -244,7 +246,7 @@
 		alert("Admin jumping disabled")
 
 /client/proc/sendmob(var/mob/M in sortmobs())
-	set category = "Admin"
+	set category = "Admin.Jump"
 	set name = "Send Mob"
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
 		return

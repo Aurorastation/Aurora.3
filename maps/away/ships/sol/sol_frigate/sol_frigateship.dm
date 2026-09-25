@@ -6,8 +6,9 @@
 	prefix = "ships/sol/sol_frigate/"
 	suffix = "sol_frigate.dmm"
 
-	sectors = list(SECTOR_BADLANDS, SECTOR_CRESCENT_EXPANSE_WEST, SECTOR_VALLEY_HALE)
-	spawn_weight = 0.75
+	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
+	spawn_weight_sector_dependent = list(SECTOR_CRESCENT_EXPANSE_WEST = 0.5)
+	spawn_weight = 1
 	ship_cost = 1
 	id = "Sol_frigate"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/solfrig_shuttle)
@@ -41,15 +42,15 @@
 	vessel_size = SHIP_SIZE_LARGE
 	initial_restricted_waypoints = list("Solarian Frigate Shuttle" = list("nav_hangar_solfrig") )
 	initial_generic_waypoints = list(
-	"Sol_Frigate_nav1",
+	"sol_Frigate_nav1",
 	"Sol_Frigate_nav2",
-	"Sol_Frigate_nav3",
+	"sol_frigate_nav3",
 	"Sol_Frigate_nav4",
 	"Sol_Frigate_port_dock",
 	"Sol_Frigate_starboard_dock")
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/sol_frigate/New()
-	designation = "[pick("Defender", "Gladiator", "Greyhound", "Vanguard", "Undaunted", "Unchallenged", "Triumphant", "Indefatigable", "Excellent", "Unrelenting", "Furious", "Senate", "Constitution", "Pride and Glory", "Unity", "Superior", "Hunter", "Repulse", "Warspite", "Valiant", "Turner", "Nimitz", "Halsey", "Spruance", "Ingram", "Persistance", "Endurance", "Sprinter")]"
+	designation = "[pick("Defender", "Gladiator", "Greyhound", "Vanguard", "Undaunted", "Unchallenged", "Triumphant", "Indefatigable", "Excellent", "Unrelenting", "Furious", "Senate", "Constitution", "Pride and Glory", "Unity", "Superior", "Hunter", "Repulse", "Warspite", "Valiant", "Turner", "Nimitz", "Halsey", "Spruance", "Ingram", "Persistence", "Endurance", "Sprinter")]"
 	..()
 

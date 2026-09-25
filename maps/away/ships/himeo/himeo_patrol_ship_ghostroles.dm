@@ -95,10 +95,10 @@
 	uniform = /obj/item/clothing/under/himeo/navy
 	gloves = /obj/item/clothing/gloves/fingerless
 	shoes = /obj/item/clothing/shoes/workboots/dark
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/coalition
-	l_pocket = /obj/item/device/radio/off
+	l_pocket = /obj/item/radio/off
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/mask/gas/tactical = 1,
@@ -159,4 +159,4 @@
 	)
 
 /obj/outfit/admin/himeo_patrol_ship/get_id_access()
-	return list(ACCESS_HIMEO_PATROL_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/enviro_testing_facility_access_sec::id, /datum/access/external_airlocks::id)

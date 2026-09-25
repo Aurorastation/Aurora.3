@@ -45,8 +45,7 @@ if one is destroyed the second will take over. If all relays are gone it stops w
 possible to enable/disable Software Downloading, P2P file transfers and Communication (IC version of IRC, PDA messages for more than two people)
 
 5. Software
-Software would almost exclusively use NanoUI modules. Few exceptions are text editor (uses similar screen as TCS IDE used for editing and classic HTML for previewing as Nano looks differently)
-and similar programs which for some reason require HTML UI. Most software will be highly dependent on NTNet to work as laptops are not physically connected to the station's network.
+Software would almost exclusively use TGUI modules. Most software will be highly dependent on NTNet to work as laptops are not physically connected to the station's network.
 What i plan to add:
 
 Note: XXXXDB programs will use ingame_manuals to display basic help for players, similar to how books, etc. do
@@ -99,7 +98,7 @@ Command - Requires "Bridge" access on ID card (all heads)
 	//Emergency Shuttle Control Console - Allows calling/recalling the emergency shuttle.
 	//Shuttle Control Console - Allows control of various shuttles around the station (mining, research, engineering)
 
-	ID Card modifier - Allows modifying access cards. Requires ACCESS_CHANGE_IDS
+	ID Card modifier - Allows modifying access cards. Requires /datum/access/change_ids::id
 
 *REDACTED* - Can be downloaded from SyndiCorp servers, only via emagged devices. These files are very large and limited to laptops/consoles only.
 	//SYSCRACK - Allows cracking of secure network terminals, such as, NTNet administration. The sysadmin will probably notice this.

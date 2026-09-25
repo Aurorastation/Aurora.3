@@ -71,16 +71,11 @@
 		'sound/machines/tcomms/tcomms_mid7.ogg' = 1
 	)
 	mid_length = 1.8 SECONDS
-	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
 	ignore_walls = FALSE
-	volume = 10
-
-//	mid_length = 1.8 SECONDS
-//	extra_range = -11
-//	falloff_distance = 1
-//	falloff_exponent = 5 (falloff system from /tg/)(not smart enough to port it)
-//	volume = 50
-//	ignore_walls = FALSE
+	volume = 3
+	falloff_exponent = 8
+	falloff_distance = 2
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /datum/looping_sound/computer
@@ -97,11 +92,20 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/datum/looping_sound/loreconsole
+	mid_sounds = list('sound/machines/data_ping.ogg' = 1)
+	mid_length = 6 SECONDS
+	volume = 20
+	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
+	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /datum/looping_sound/gravgen
 	mid_sounds = list('sound/machines/gravgen/gravgen_mid1.ogg' = 1, 'sound/machines/gravgen/gravgen_mid2.ogg' = 1, 'sound/machines/gravgen/gravgen_mid3.ogg' = 1, 'sound/machines/gravgen/gravgen_mid4.ogg' = 1)
 	mid_length = 1.8 SECONDS
-	extra_range = 10
-	volume = 70
+	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
+	volume = 20
 	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -118,3 +122,105 @@
 	mid_sounds = list('sound/machines/clanking.ogg' = 1)
 	mid_length = 5 SECONDS
 	volume = 75
+
+/datum/looping_sound/construction
+	mid_sounds = list(
+		'sound/items/tools/hammer1.ogg' = 1,
+		'sound/items/tools/hammer2.ogg' = 1,
+		'sound/items/tools/hammer3.ogg' = 1,
+		'sound/items/tools/hammer4.ogg' = 1,
+		'sound/items/Ratchet.ogg' = 1,
+		'sound/items/Screwdriver.ogg' = 1
+	)
+	mid_length = 1.5 SECONDS
+	mid_length_vary = 0.5 SECONDS
+	volume = 45
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FABRICATORS AND SUBTYPES
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/fabricator
+	start_sound = 'sound/machines/fabricators/autolathe/autolathe_start.ogg'
+	start_length = 2.67 SECONDS
+	mid_sounds = list(
+		'sound/machines/fabricators/autolathe/autolathe_mid01.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid02.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid03.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid04.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid05.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid06.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid07.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid08.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid09.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid10.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid11.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid12.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid13.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid14.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid15.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid16.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid17.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid18.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid19.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid20.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid21.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid22.ogg' = 1,
+	)
+	mid_length = 1 SECOND
+	end_sound = 'sound/machines/fabricators/autolathe/autolathe_end.ogg'
+	each_once = TRUE
+	in_order = TRUE
+	volume = 30
+	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/fabricator/minilathe
+	volume = 20
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/synth_fab
+	start_sound = 'sound/machines/synthfab/synthfab_start.ogg'
+	start_length = 1 SECOND
+	start_volume = 100
+	mid_sounds = list('sound/machines/synthfab/synthfab_running.ogg' = 1)
+	mid_length = 3 SECONDS
+	end_sound = 'sound/machines/synthfab/synthfab_end.ogg'
+	volume = 75
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/ventilation_humming
+	skip_starting_sounds = TRUE
+	mid_sounds = list('sound/machines/ventilation_humming.ogg' = 1)
+	mid_length = 3 SECONDS
+	volume = 5
+	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/electrical_humming
+	skip_starting_sounds = TRUE
+	mid_sounds = list('sound/machines/electrical_humming.ogg' = 1)
+	mid_length = 3 SECONDS
+	volume = 75 // This sounds is rather quiet and needs a higher volume then anticipated for a background noise
+	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/mech_power
+	start_sound = 'sound/mecha/nominal.ogg'
+	start_length = 0.5 SECONDS
+	start_volume = 100
+	mid_sounds = list('sound/mecha/mechambience.ogg' = 1)
+	mid_length = 5 SECONDS
+	falloff_exponent = SOUND_FALLOFF_EXPONENT + 4 // Makes the reactor hum loud inside the cockpit, and quiet outside it.
+	end_sound = 'sound/mecha/mech-shutdown.ogg'
+	end_volume = 100
+	volume = 50

@@ -11,7 +11,7 @@
 
 /obj/structure/target_stake/Initialize(mapload)
 	. = ..()
-	material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
+	material = GET_SINGLETON(MATERIAL_STEEL)
 
 /obj/structure/target_stake/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/target))
@@ -22,7 +22,7 @@
 			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] into the stake."))
 			set_target(attacking_item)
 		return
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(pinned_target)
 			to_chat(user, SPAN_WARNING("You cannot dismantle \the [src] while it has a target attached."))
 			return

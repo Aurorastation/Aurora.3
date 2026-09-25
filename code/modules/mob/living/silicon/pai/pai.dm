@@ -12,12 +12,12 @@
 	can_hear_hivenet = FALSE //Unlike most silicons, this is a consumer product with minimal lawbinding, and isn't trusted with Hivenet logs
 
 	var/network = "SS13"
-	var/obj/machinery/camera/current = null
+	var/obj/structure/machinery/camera/current = null
 	var/ram = 100	// Used as currency to purchase different abilities
 	var/list/software = list()
 	var/userDNA		// The DNA string of our assigned user
-	var/obj/item/device/paicard/card	// The card we inhabit
-	var/obj/item/device/radio/pai/radio		// Our primary radio
+	var/obj/item/paicard/card	// The card we inhabit
+	var/obj/item/radio/pai/radio		// Our primary radio
 
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
@@ -92,11 +92,11 @@
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
 
-	var/obj/machinery/door/airlock/hackdoor		// The airlock being hacked
+	var/obj/structure/machinery/door/airlock/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
 	var/hack_aborted = 0
 
-	var/obj/item/radio/integrated/signal/sradio // AI's signaller
+	var/obj/item/integrated_signaler/signal/sradio // AI's signaller
 
 	var/translator_on = 0 // keeps track of the translator module
 
@@ -156,11 +156,11 @@
 		P.set_light(light_range, light_power, light_color)
 
 /mob/living/silicon/pai/Initialize(mapload)
-	var/obj/item/device/paicard/paicard = loc
+	var/obj/item/paicard/paicard = loc
 	if (!istype(paicard))
 		//If we get here, then we must have been created by adminspawning.
 		//so lets assist with debugging by creating our own card and adding ourself to it
-		paicard = new /obj/item/device/paicard(loc)
+		paicard = new /obj/item/paicard(loc)
 		paicard.pai = src
 
 	canmove = 0
@@ -169,9 +169,9 @@
 	sradio = new(src)
 	if(card)
 		if(!card.radio)
-			card.radio = new /obj/item/device/radio/pai(src.card)
+			card.radio = new /obj/item/radio/pai(src.card)
 		radio = card.radio
-		INVOKE_ASYNC(card, TYPE_PROC_REF(/obj/item/device/paicard, recalculateChannels))
+		INVOKE_ASYNC(card, TYPE_PROC_REF(/obj/item/paicard, recalculateChannels))
 
 	//Default languages without universal translator software
 
@@ -202,7 +202,7 @@
 /mob/living/silicon/pai/LateLogin()
 	if(!greeted)
 		// Basic intro text.
-		to_chat(src, SPAN_DANGER("<font size=3>You are a Personal AI!</font>"))
+		to_chat(src, SPAN_DANGER("<font size=5>You are a Personal AI!</font>"))
 		to_chat(src, SPAN_NOTICE("You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world."))
 		playsound(usr, 'sound/effects/pai/pai_login.ogg', 75)
 		greeted = 1
@@ -230,7 +230,7 @@
 	return 0
 
 /mob/living/silicon/pai/restrained()
-	return !istype(loc, /obj/item/device/paicard) && ..()
+	return !istype(loc, /obj/item/paicard) && ..()
 
 /mob/living/silicon/pai/emp_act(severity)
 	. = ..()
@@ -265,12 +265,12 @@
 		if(3)
 			to_chat(src, "<font color=green>You feel an electric surge run through your circuitry and become acutely aware at how lucky you are that you can still feel at all.</font>")
 
-/mob/living/silicon/pai/proc/switchCamera(var/obj/machinery/camera/C)
+/mob/living/silicon/pai/proc/switchCamera(var/obj/structure/machinery/camera/C)
 	if (!C)
 		src.unset_machine()
 		src.reset_view(null)
 		return 0
-	if (stat == 2 || !C.status || !(src.network in C.network)) return 0
+	if (stat == 2 || !C.can_use() || !(src.network in C.network)) return 0
 
 	// ok, we're alive, camera is good and in our network...
 
@@ -289,7 +289,7 @@
 /*
 // Debug command - Maybe should be added to admin verbs later
 /mob/verb/makePAI(var/turf/t in view())
-	var/obj/item/device/paicard/card = new(t)
+	var/obj/item/paicard/card = new(t)
 	var/mob/living/silicon/pai/pai = new(card)
 	pai.key = src.key
 	card.setPersonality(pai)
@@ -418,7 +418,7 @@
 	set category = "IC.Maneuver"
 
 	// Pass lying down or getting up to our pet human, if we're in a rig.
-	if(istype(src.loc,/obj/item/device/paicard))
+	if(istype(src.loc,/obj/item/paicard))
 		resting = 0
 		var/obj/item/rig/rig = src.get_rig()
 		if(istype(rig))
@@ -427,6 +427,8 @@
 		resting = !resting
 		icon_state = resting ? "[chassis]_rest" : "[chassis]"
 		to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
+
+	SEND_SIGNAL(src, COMSIG_MOB_RESTED)
 
 	canmove = !resting
 
@@ -548,5 +550,5 @@
 /mob/living/silicon/pai/set_respawn_time()
 	set_death_time(MINISYNTH, world.time)
 
-/obj/item/device/radio/pai
+/obj/item/radio/pai
 	canhear_range = 0 // only people on their tile

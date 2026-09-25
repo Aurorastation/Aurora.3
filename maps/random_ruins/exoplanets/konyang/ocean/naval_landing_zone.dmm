@@ -3,10 +3,10 @@
 /turf/simulated/wall,
 /area/konyang_landing_zone/command_center/garage)
 "ac" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 1
 	},
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_x = 28;
 	pixel_y = 7
 	},
@@ -45,7 +45,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -73,7 +73,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -91,7 +91,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "bo" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
@@ -106,7 +106,7 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "bx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown";
 	dir = 4
 	},
@@ -134,11 +134,11 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "bR" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown";
 	dir = 4
 	},
@@ -160,7 +160,7 @@
 	dir = 6
 	},
 /obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "Konyang SCC Forward Operating Post - Horizon Crew Alpha LZ"
 	},
 /turf/simulated/floor/wood,
@@ -171,16 +171,16 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/pen,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "cb" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/power/breakerbox/activated,
+/obj/structure/machinery/power/breakerbox/activated,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "cd" = (
@@ -196,7 +196,7 @@
 "ch" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/carpet/magenta,
@@ -206,7 +206,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/structure/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Air Supply Monitor";
 	sensors = list("lz_air_sensor"="Site Tank");
 	dir = 8
@@ -307,7 +307,7 @@
 /turf/simulated/floor/reinforced/airmix,
 /area/konyang_landing_zone/command_center/landing_pads)
 "du" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
@@ -340,7 +340,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -383,22 +383,22 @@
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/garage)
 "el" = (
-/obj/machinery/meter{
+/obj/structure/machinery/meter{
 	name = "Air Reserve"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
 "ep" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/curtain/open/bed{
@@ -425,7 +425,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "eG" = (
-/obj/machinery/seed_storage/garden,
+/obj/structure/machinery/seed_storage/garden,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
@@ -459,7 +459,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -486,13 +486,13 @@
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
 "fC" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "lz_vehiclebay";
 	name = "Exterior Blast Door";
 	pixel_y = 26;
 	dir = 1
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -12;
 	pixel_y = 24;
 	dir = 1
@@ -516,11 +516,11 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining{
+/obj/item/gps/mining,
+/obj/item/gps/mining{
 	pixel_x = -7
 	},
-/obj/item/device/gps/mining{
+/obj/item/gps/mining{
 	pixel_x = 6
 	},
 /obj/structure/table/rack,
@@ -536,19 +536,19 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/konyang_landing_zone)
 "fP" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
 "fV" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -562,7 +562,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -663,11 +663,11 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
 "hd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -678,7 +678,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "hg" = (
@@ -688,7 +688,7 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/airless,
 /area/konyang_landing_zone/command_center/landing_pads)
 "hz" = (
@@ -703,14 +703,14 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/light/small,
-/obj/machinery/power/apc/south{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/power/apc/south{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
 "hF" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -723,7 +723,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "hT" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -778,7 +778,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/konyang_landing_zone)
 "jd" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/effect/decal/curb,
@@ -804,7 +804,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/full,
@@ -840,7 +840,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	id = "lz_lockdown";
 	name = "Building Lockdown";
 	pixel_y = 26;
@@ -852,7 +852,7 @@
 "kd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	frequency = 1441;
 	id_tag = "lz_co2_sensor"
 	},
@@ -886,7 +886,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center/reactor)
 "kV" = (
@@ -902,7 +902,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "kZ" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
 	},
@@ -912,7 +912,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -928,7 +928,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "lo" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -952,10 +952,10 @@
 "lA" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	dir = 8;
 	pixel_x = 4;
 	pixel_y = 3
@@ -970,7 +970,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "lM" = (
-/obj/machinery/portable_atmospherics/canister,
+/obj/structure/machinery/portable_atmospherics/canister,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "lX" = (
@@ -989,7 +989,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -1015,7 +1015,7 @@
 /area/konyang_landing_zone)
 "mL" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/structure/sink/kitchen{
@@ -1028,7 +1028,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "mV" = (
@@ -1042,7 +1042,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/konyang_landing_zone)
 "nj" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -25;
 	pixel_y = 24;
 	dir = 1
@@ -1056,7 +1056,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/photocopier,
+/obj/structure/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "nu" = (
@@ -1066,7 +1066,7 @@
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center/reactor)
 "nw" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
@@ -1075,11 +1075,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "nz" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/water_cooler,
@@ -1096,7 +1096,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
 "nM" = (
@@ -1107,7 +1107,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "nP" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1117,7 +1117,7 @@
 /area/konyang_landing_zone/command_center)
 "nU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown"
 	},
 /turf/simulated/floor/reinforced,
@@ -1149,7 +1149,7 @@
 "on" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -1168,7 +1168,7 @@
 /area/konyang_landing_zone)
 "pe" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/biogenerator{
+/obj/structure/machinery/biogenerator{
 	icon_state = "biogen-empty"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1191,7 +1191,7 @@
 /area/konyang_landing_zone/command_center/living)
 "pn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown";
 	dir = 4
 	},
@@ -1240,8 +1240,8 @@
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
 	},
-/obj/machinery/door/urban,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/urban,
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown";
 	dir = 4
 	},
@@ -1255,8 +1255,8 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "qq" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -1278,7 +1278,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -1292,9 +1292,9 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "rf" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -1310,7 +1310,7 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
 "rj" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
@@ -1327,7 +1327,7 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/ledge/quarter{
@@ -1350,7 +1350,7 @@
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center)
 "rM" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -1396,13 +1396,13 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "sK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/decal/exterior_stairs/half/left,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "sL" = (
@@ -1424,7 +1424,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "sW" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "ta" = (
@@ -1440,7 +1440,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "te" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1469,8 +1469,8 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/device/camera,
-/obj/item/device/camera_film,
+/obj/item/camera,
+/obj/item/camera_film,
 /obj/item/tape_roll{
 	pixel_x = 14
 	},
@@ -1484,7 +1484,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "tJ" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "Carbon dioxide to Connector"
 	},
@@ -1501,7 +1501,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -1509,7 +1509,7 @@
 "ur" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/air_sensor{
+/obj/structure/machinery/air_sensor{
 	frequency = 1441;
 	id_tag = "lz_air_sensor"
 	},
@@ -1528,7 +1528,7 @@
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/flag/scc,
 /obj/item/flag/scc,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /turf/simulated/floor/carpet/purple,
 /area/konyang_landing_zone/command_center/living)
 "uy" = (
@@ -1538,7 +1538,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/konyang_landing_zone)
 "uE" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -12;
 	pixel_y = 24;
 	dir = 1
@@ -1555,7 +1555,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/box/lights/bulbs,
 /obj/item/storage/box/lights,
-/obj/item/device/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "vc" = (
@@ -1571,7 +1571,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -1581,7 +1581,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -1590,7 +1590,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "vm" = (
-/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -1612,7 +1612,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -1641,16 +1641,16 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "wn" = (
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	id = "lz_vehiclebay"
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "wo" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center)
 "wt" = (
@@ -1668,7 +1668,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -1702,15 +1702,15 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/structure/table/wood,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 8
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "wR" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -1733,7 +1733,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "xb" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /obj/effect/decal/exterior_stairs/half/center{
@@ -1742,7 +1742,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown"
 	},
 /turf/simulated/floor/tiled/full,
@@ -1751,7 +1751,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "xj" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
@@ -1832,7 +1832,7 @@
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
 "yJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	id_tag = "lz_co2_out";
 	dir = 1
 	},
@@ -1873,7 +1873,7 @@
 /area/konyang_landing_zone/command_center/living)
 "zG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown";
 	dir = 4
 	},
@@ -1913,7 +1913,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ar" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 10
 	},
 /obj/structure/railing/mapped,
@@ -1923,20 +1923,20 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/binary/pump/aux{
+/obj/structure/machinery/atmospherics/binary/pump/aux{
 	dir = 4;
 	name = "Air to Connector"
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
 "AD" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -1949,7 +1949,7 @@
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "AS" = (
@@ -1961,7 +1961,7 @@
 /turf/simulated/floor/reinforced/airmix,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Bc" = (
-/obj/machinery/seed_extractor,
+/obj/structure/machinery/seed_extractor,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
@@ -1969,7 +1969,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2028,7 +2028,7 @@
 /area/konyang_landing_zone)
 "BR" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
-/obj/item/device/laser_pointer,
+/obj/item/laser_pointer,
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
 "Ch" = (
@@ -2068,7 +2068,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "CR" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2099,10 +2099,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ds" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/machinery/meter{
+/obj/structure/machinery/meter{
 	name = "Fuel Reserve"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2152,8 +2152,8 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ea" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ee" = (
@@ -2180,10 +2180,10 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Fe" = (
-/obj/machinery/meter{
+/obj/structure/machinery/meter{
 	name = "Fuel Reserve"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
@@ -2229,7 +2229,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Fu" = (
-/obj/machinery/computer/general_air_control/large_tank_control{
+/obj/structure/machinery/computer/general_air_control/large_tank_control{
 	name = "LZ Carbon Dioxide Supply Monitor";
 	sensors = list("lz_co2_sensor"="Site Tank");
 	dir = 8
@@ -2247,7 +2247,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "FJ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
@@ -2261,7 +2261,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -2283,7 +2283,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Gi" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/black{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
 /obj/structure/cable/yellow{
@@ -2318,9 +2318,9 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/table/rack,
 /obj/item/wrench,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /obj/item/clothing/gloves/yellow,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /obj/item/extinguisher,
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center/reactor)
@@ -2332,7 +2332,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "GG" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/structure/railing/mapped,
@@ -2382,7 +2382,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "GX" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
@@ -2407,7 +2407,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Hr" = (
@@ -2426,11 +2426,11 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Hz" = (
-/obj/machinery/smartfridge/secure,
+/obj/structure/machinery/smartfridge/secure,
 /turf/simulated/wall,
 /area/konyang_landing_zone/command_center/greenhouse)
 "HG" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "Carbon dioxide to Connector"
 	},
@@ -2441,13 +2441,13 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ik" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "IK" = (
@@ -2471,8 +2471,8 @@
 /area/konyang_landing_zone)
 "Js" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small,
-/obj/machinery/chem_master,
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
 "Jt" = (
@@ -2486,7 +2486,7 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ju" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -2508,7 +2508,7 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center)
 "JB" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -2531,7 +2531,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
 "JV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -2562,7 +2562,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2570,7 +2570,7 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ky" = (
 /obj/structure/railing/mapped,
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2586,9 +2586,9 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "KL" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -2613,7 +2613,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Lb" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -21;
 	pixel_y = 33;
 	dir = 8
@@ -2621,7 +2621,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -2643,23 +2643,23 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "LN" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "LP" = (
 /obj/effect/decal/road_marking/no_park,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "LQ" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/structure/machinery/atmospherics/binary/pump{
 	dir = 8;
 	name = "Carbon dioxide to Connector"
 	},
@@ -2708,16 +2708,16 @@
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "MN" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "MX" = (
-/obj/machinery/meter{
+/obj/structure/machinery/meter{
 	name = "Fuel Reserve"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2735,7 +2735,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/watertank,
 /obj/structure/table/rack,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -2845,7 +2845,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2857,7 +2857,7 @@
 /area/konyang_landing_zone)
 "Ov" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/table/stone/marble,
@@ -2871,7 +2871,7 @@
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/konyang_landing_zone)
 "OR" = (
-/obj/machinery/washing_machine,
+/obj/structure/machinery/washing_machine,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "OU" = (
@@ -2910,8 +2910,8 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "PA" = (
-/obj/machinery/power/portgen/basic,
-/obj/machinery/light{
+/obj/structure/machinery/power/portgen/basic,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
@@ -2929,19 +2929,19 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air2"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "PO" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/structure/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
 	id_tag = "lz_air_out"
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/konyang_landing_zone/command_center/landing_pads)
 "PX" = (
-/obj/machinery/shipsensors/weak,
-/obj/item/device/gps/stationary{
+/obj/structure/machinery/shipsensors/weak,
+/obj/item/gps/stationary{
 	pixel_x = -23;
 	name = "static GPS (Command Center)";
 	gpstag = "SCC-FOB"
@@ -2949,7 +2949,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/konyang_landing_zone/command_center)
 "Qn" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2965,11 +2965,11 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Qy" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -3015,12 +3015,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/portables_connector/aux,
+/obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "QX" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = 23;
 	pixel_y = 24;
 	dir = 1
@@ -3032,7 +3032,7 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
 "QY" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3040,7 +3040,7 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
 "Rm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
@@ -3053,14 +3053,14 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "RD" = (
-/obj/machinery/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
@@ -3075,7 +3075,7 @@
 /area/konyang_landing_zone/command_center/living)
 "Sc" = (
 /obj/item/reagent_containers/glass/bucket,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -3090,21 +3090,21 @@
 /obj/item/stack/material/glass/full{
 	pixel_y = 9
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 8;
 	pixel_y = 3
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 8;
 	pixel_y = 3
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/ano_scanner{
+/obj/item/ano_scanner{
 	pixel_x = -5
 	},
-/obj/item/device/measuring_tape,
+/obj/item/measuring_tape,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Ss" = (
@@ -3118,7 +3118,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/item/device/paicard,
+/obj/item/paicard,
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Sx" = (
@@ -3131,9 +3131,9 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "SI" = (
-/obj/machinery/vending/hydronutrients,
+/obj/structure/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
@@ -3150,7 +3150,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/arcade,
+/obj/structure/machinery/computer/arcade,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -3190,7 +3190,7 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/machinery/power/apc/west{
+/obj/structure/machinery/power/apc/west{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
@@ -3210,7 +3210,7 @@
 /area/konyang_landing_zone/command_center/greenhouse)
 "Tq" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/machinery/chemical_dispenser,
+/obj/structure/machinery/chemical_dispenser,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
 "Tr" = (
@@ -3265,17 +3265,17 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "TX" = (
-/obj/machinery/meter{
+/obj/structure/machinery/meter{
 	name = "Air Reserve"
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "TY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -3292,12 +3292,12 @@
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone)
 "Uw" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Uy" = (
@@ -3326,7 +3326,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "UO" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -3339,15 +3339,15 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "UU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/blast/regular/open{
+/obj/structure/machinery/door/blast/regular/open{
 	id = "lz_lockdown"
 	},
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/living)
 "Vc" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Vk" = (
@@ -3395,7 +3395,7 @@
 /obj/item/stack/material/graphite/full,
 /obj/item/stack/material/graphite/full,
 /obj/item/stack/material/graphite/full,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/reinforced,
@@ -3410,8 +3410,8 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Ww" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -3443,7 +3443,7 @@
 /area/konyang_landing_zone)
 "WA" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
 "WS" = (
@@ -3475,18 +3475,18 @@
 /obj/structure/table/rack/clothing{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Xr" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3533,14 +3533,14 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/papershredder,
-/obj/machinery/power/apc/north{
+/obj/structure/machinery/papershredder,
+/obj/structure/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/wood,
@@ -3563,7 +3563,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -3613,15 +3613,15 @@
 /obj/structure/tank_wall/air{
 	icon_state = "air15"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/blue,
+/obj/structure/machinery/atmospherics/pipe/simple/visible/blue,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "YU" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3629,7 +3629,7 @@
 "YY" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3673,7 +3673,7 @@
 /turf/simulated/wall,
 /area/konyang_landing_zone/command_center/greenhouse)
 "ZZ" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	brightness_color = "#FA8282";
 	dir = 1
 	},

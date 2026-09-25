@@ -65,12 +65,12 @@
 
 	id = /obj/item/card/id
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/tirakqi_crew/get_id_access()
-	return list(ACCESS_SKRELL, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/skrell::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -188,5 +188,5 @@
 	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/engineer
 
 	accessory = /obj/item/clothing/accessory/storage/pouches/brown
-	suit = /obj/item/clothing/suit/storage/toggle/highvis_alt
+	suit = /obj/item/clothing/suit/storage/toggle/highvis/alt
 	gloves = /obj/item/clothing/gloves/yellow

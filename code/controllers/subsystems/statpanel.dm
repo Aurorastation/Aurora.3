@@ -22,8 +22,6 @@ SUBSYSTEM_DEF(statpanels)
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		num_fires++
-		var/current_month = text2num(time2text(world.realtime, "MM"))
-		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/eta_status = "No ETA"
 		if(GLOB.evacuation_controller)
 			eta_status = GLOB.evacuation_controller.get_status_panel_eta()
@@ -31,13 +29,21 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [SSatlas.current_map.name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
+			"Current Date: [worlddate2text()]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",
 			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
 			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 		)
+
+		if(istype(SSticker.round_canon))
+			global_data[++global_data.len] = list(
+				"Round Canon: ",
+				"[SSticker.round_canon.name]",
+				"src=[REF(src)];open_canon_panel=1"
+			)
+
 		if(eta_status)
 			global_data += eta_status
 
@@ -53,7 +59,7 @@ SUBSYSTEM_DEF(statpanels)
 		var/client/target = currentrun[length(currentrun)]
 		currentrun.len--
 
-		if(!target.stat_panel.is_ready())
+		if(!target?.stat_panel?.is_ready())
 			continue
 
 		if(target.stat_tab == "Status" && num_fires % status_wait == 0)
@@ -101,6 +107,10 @@ SUBSYSTEM_DEF(statpanels)
 
 		if(MC_TICK_CHECK)
 			return
+
+/datum/controller/subsystem/statpanels/Topic(href, href_list)
+	if(href_list["open_canon_panel"])
+		SSticker.round_canon.ui_interact(usr)
 
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
@@ -188,12 +198,27 @@ SUBSYSTEM_DEF(statpanels)
 		atoms_to_display += turf_content
 
 	/// Set the atoms we're meant to display
+	// Lazy-init: SSstatpanels can fire for a client whose obj_window was never
+	// created (mob transfer / relogin) or was nulled by /datum/object_window_info/Destroy()
+	// while mob.listed_turf survived. Without this guard we'd null-deref atoms_to_show.
+	if(!target.obj_window)
+		target.obj_window = new /datum/object_window_info(target)
 	var/datum/object_window_info/obj_window = target.obj_window
+	// Unregister signals for any atoms we used to track but will no longer show
+	var/list/old_atoms = obj_window.atoms_to_show
+	if(old_atoms)
+		for(var/atom as anything in old_atoms)
+			if(!(atom in atoms_to_display))
+				obj_window.UnregisterSignal(atom, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+				obj_window.UnregisterSignal(atom, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
+
 	obj_window.atoms_to_show = atoms_to_display
 	START_PROCESSING(SSobj_tab_items, obj_window)
 	refresh_client_obj_view(target)
 
 /datum/controller/subsystem/statpanels/proc/refresh_client_obj_view(client/refresh)
+	if(!refresh.stat_panel)
+		return
 	var/list/turf_items = return_object_images(refresh)
 	if(!length(turf_items) || !refresh.mob?.listed_turf)
 		return
@@ -212,6 +237,9 @@ SUBSYSTEM_DEF(statpanels)
 	// No turf? go away
 	if(!load_from.mob?.listed_turf)
 		return list()
+	// Lazy-init for the same lifecycle reasons as set_turf_examine_tab
+	if(!load_from.obj_window)
+		load_from.obj_window = new /datum/object_window_info(load_from)
 	var/datum/object_window_info/obj_window = load_from.obj_window
 	var/list/already_seen = obj_window.atoms_to_images
 	var/list/to_make = obj_window.atoms_to_imagify
@@ -230,6 +258,7 @@ SUBSYSTEM_DEF(statpanels)
 		to_make += turf_item
 		already_seen[turf_item] = OBJ_IMAGE_LOADING
 		obj_window.RegisterSignal(turf_item, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted)) // we reset cache if anything in it gets deleted
+		obj_window.RegisterSignal(turf_item, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf)) // we reset cache if anything in it moves
 	return turf_items
 
 #undef OBJ_IMAGE_LOADING
@@ -320,6 +349,10 @@ SUBSYSTEM_DEF(statpanels)
 	src.parent = parent
 
 /datum/object_window_info/Destroy(force)
+	if(atoms_to_show)
+		for(var/atom as anything in atoms_to_show)
+			UnregisterSignal(atom, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+			UnregisterSignal(atom, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
 	atoms_to_show = null
 	atoms_to_images = null
 	atoms_to_imagify = null
@@ -384,9 +417,29 @@ SUBSYSTEM_DEF(statpanels)
 /// We use hard refs cause we'd need a signal for this anyway. Cleaner this way
 /datum/object_window_info/proc/viewing_atom_deleted(atom/deleted)
 	SIGNAL_HANDLER
+	UnregisterSignal(deleted, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+	UnregisterSignal(deleted, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
 	atoms_to_show -= deleted
 	atoms_to_imagify -= deleted
 	atoms_to_images -= deleted
+
+/*
+ * Immediately removes an item from the statpanel if it is no longer on the turf.
+ * This is used to immediately update the panel when an item is picked up.
+ * Prevents many bugs related to items that should no longer be accessible to the player, still being able to be clicked on.
+ * Eg. Loading a bullet into a magazine, the panel does not update, the bullet can be clicked again, despite already being in the magazine.
+ * The bullet can then be loaded into the magazine twice.
+ */
+/datum/object_window_info/proc/item_moved_from_turf(atom/moved)
+	SIGNAL_HANDLER
+	if(!actively_tracking)
+		return
+	UnregisterSignal(moved, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+	UnregisterSignal(moved, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
+	atoms_to_show -= moved
+	atoms_to_imagify -= moved
+	atoms_to_images -= moved
+	SSstatpanels.refresh_client_obj_view(parent)
 
 /mob/proc/set_listed_turf(turf/new_turf)
 	listed_turf = new_turf

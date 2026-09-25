@@ -9,7 +9,15 @@ SUBSYSTEM_DEF(mapping)
 	var/list/away_sites_templates = list()
 	var/list/submaps = list()
 
-	var/list/used_turfs = list() //list of turf = datum/turf_reservation -- Currently unused
+	/// Not actually unused turfs they're unused but reserved for use for whatever requests them. "[zlevel_of_turf]" = list(turfs)
+	var/list/unused_turfs = list()
+	/// List of actual datum/turf_reservations - reservation-centric
+	var/list/turf_reservations = list()
+	/// List of turfs that are currently reserved and in use - turf-centric, used to get the reservations from turfs
+	var/list/used_turfs = list()
+	var/list/reservation_ready = list()
+	var/clearing_reserved_turfs = FALSE
+	var/num_of_res_levels = 0
 
 	/// List of z level (as number) -> list of all z levels vertically connected to ours
 	/// Useful for fast grouping lookups and such
@@ -47,6 +55,12 @@ SUBSYSTEM_DEF(mapping)
 	space_ruins_templates = SSmapping.space_ruins_templates
 	exoplanet_ruins_templates = SSmapping.exoplanet_ruins_templates
 	away_sites_templates = SSmapping.away_sites_templates
+	unused_turfs = SSmapping.unused_turfs
+	turf_reservations = SSmapping.turf_reservations
+	used_turfs = SSmapping.used_turfs
+	reservation_ready = SSmapping.reservation_ready
+	clearing_reserved_turfs = SSmapping.clearing_reserved_turfs
+	num_of_res_levels = SSmapping.num_of_res_levels
 
 /datum/controller/subsystem/mapping/proc/preloadTemplates(path = "maps/templates/") //see master controller setup
 	var/list/filelist = flist(path)
@@ -115,10 +129,127 @@ SUBSYSTEM_DEF(mapping)
 	// Bare minimum we have ourselves
 	z_level_to_stack[z_value] = list(z_value)
 
-//Placeholder for now
 /datum/controller/subsystem/mapping/proc/get_reservation_from_turf(turf/T)
 	RETURN_TYPE(/datum/turf_reservation)
 	return used_turfs[T]
+
+/// Adds a new reservation z level. A bit of space that can be handed out on request
+/// Of note, reservations default to transit turfs, to make their most common use, shuttles, faster
+/datum/controller/subsystem/mapping/proc/add_reservation_zlevel(for_shuttles)
+	num_of_res_levels++
+	return add_new_zlevel("Transit/Reserved #[num_of_res_levels]", list(ZTRAIT_RESERVED = TRUE), contain_turfs = FALSE)
+
+/// Sets up a z level as reserved
+/// This is not for wiping reserved levels, use wipe_reservations() for that.
+/// If this is called after SSatom init, it will call Initialize on all turfs on the passed z, as its name promises
+/datum/controller/subsystem/mapping/proc/initialize_reserved_level(z)
+	UNTIL(!clearing_reserved_turfs) //regardless, lets add a check just in case.
+	clearing_reserved_turfs = TRUE //This operation will likely clear any existing reservations, so lets make sure nothing tries to make one while we're doing it.
+
+	if(!level_trait(z, ZTRAIT_RESERVED))
+		clearing_reserved_turfs = FALSE
+		CRASH("Invalid z level prepared for reservations.")
+
+	var/min_x = SHUTTLE_TRANSIT_BORDER
+	var/min_y = SHUTTLE_TRANSIT_BORDER
+	var/max_x = world.maxx - SHUTTLE_TRANSIT_BORDER
+	var/max_y = world.maxy - SHUTTLE_TRANSIT_BORDER
+	if(min_x > max_x || min_y > max_y)
+		clearing_reserved_turfs = FALSE
+		CRASH("World bounds are too small for dynamic reservations with SHUTTLE_TRANSIT_BORDER [SHUTTLE_TRANSIT_BORDER].")
+
+	var/list/reserved_block = block(locate(min_x, min_y, z), locate(max_x, max_y, z))
+	var/list/prepared_block = list()
+	var/area/space/space_area = locate(/area/space)
+	for(var/turf/T as anything in reserved_block)
+		var/turf/reservation_turf = reset_turf_for_reservation(T, space_area)
+		if(!reservation_turf)
+			continue
+		reservation_turf.turf_flags = (reservation_turf.turf_flags | UNUSED_RESERVATION_TURF) & ~RESERVATION_TURF
+		prepared_block += reservation_turf
+		CHECK_TICK
+
+	// Gotta create these suckers if we've not done so already
+	if(SSatoms.initialized)
+		SSatoms.InitializeAtoms(Z_TURFS(z))
+
+	unused_turfs["[z]"] = prepared_block
+	reservation_ready["[z]"] = TRUE
+	clearing_reserved_turfs = FALSE
+
+/// Requests a /datum/turf_reservation based on the given width, height, and z_size. You can specify a z_reservation to use a specific z level, or leave it null to use any z level.
+/datum/controller/subsystem/mapping/proc/request_turf_block_reservation(
+	width,
+	height,
+	z_size = 1,
+	z_reservation = null,
+	reservation_type = /datum/turf_reservation,
+	turf_type_override = null,
+)
+	UNTIL(!clearing_reserved_turfs)
+
+	var/datum/turf_reservation/reserve = new reservation_type
+	if(!isnull(turf_type_override))
+		reserve.turf_type = turf_type_override
+
+	if(!z_reservation)
+		for(var/reserved_z in levels_by_trait(ZTRAIT_RESERVED))
+			if(!reservation_ready["[reserved_z]"])
+				continue
+			if(reserve.reserve(width, height, z_size, reserved_z))
+				return reserve
+
+		// If we didn't return at this point, theres a good chance we ran out of room on the existing reserved z levels, so lets try a new one
+		var/datum/space_level/newReserved = add_reservation_zlevel()
+		initialize_reserved_level(newReserved.z_value)
+		if(reserve.reserve(width, height, z_size, newReserved.z_value))
+			return reserve
+	else
+		if(!level_trait(z_reservation, ZTRAIT_RESERVED))
+			qdel(reserve)
+			return
+		if(!reservation_ready["[z_reservation]"])
+			initialize_reserved_level(z_reservation)
+		if(reserve.reserve(width, height, z_size, z_reservation))
+			return reserve
+
+	QDEL_NULL(reserve)
+
+/// Schedules a group of turfs to be handed back to the reservation system's control
+/// If await is true, will sleep until the turfs are finished work
+/datum/controller/subsystem/mapping/proc/reserve_turfs(list/turfs, await = FALSE)
+	if(!islist(turfs) || !length(turfs))
+		return
+	if(await)
+		return reset_turf_reservation_list(turfs)
+	INVOKE_ASYNC(src, PROC_REF(reset_turf_reservation_list), turfs)
+
+/datum/controller/subsystem/mapping/proc/reset_turf_reservation_list(list/turfs)
+	var/area/space/space_area = locate(/area/space)
+	while(length(turfs))
+		var/turf/T = turfs[length(turfs)]
+		turfs.len--
+		if(!istype(T))
+			continue
+		var/turf/reservation_turf = reset_turf_for_reservation(T, space_area)
+		if(!reservation_turf)
+			continue
+		reservation_turf.turf_flags = (reservation_turf.turf_flags | UNUSED_RESERVATION_TURF) & ~RESERVATION_TURF
+		LAZYINITLIST(unused_turfs["[reservation_turf.z]"])
+		unused_turfs["[reservation_turf.z]"] |= reservation_turf
+		CHECK_TICK
+
+/datum/controller/subsystem/mapping/proc/reset_turf_for_reservation(turf/T, area/target_area)
+	RETURN_TYPE(/turf)
+	if(!istype(T))
+		return
+	if(T.type != RESERVED_TURF_TYPE)
+		T = T.ChangeTurf(RESERVED_TURF_TYPE, TRUE, FALSE, TRUE)
+	if(target_area && T.loc != target_area)
+		T.change_area(T.loc, target_area)
+	T.baseturf = RESERVED_TURF_TYPE
+	T.blocks_air = TRUE
+	return T
 
 
 /proc/generateMapList(filename)

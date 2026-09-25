@@ -23,7 +23,7 @@
 	return material.value * amount
 
 /obj/item/ore/Value()
-	var/material/mat = SSmaterials.get_material_by_name(material)
+	var/singleton/material/mat = SSmaterials.get_material_by_id(material)
 	if(mat)
 		return mat.value
 	return 0
@@ -31,5 +31,5 @@
 /obj/item/material/Value()
 	return material.value * worth_multiplier
 
-/obj/item/spacecash/Value()
-	return worth
+/obj/item/currency/Value()
+	return get_credit_value()

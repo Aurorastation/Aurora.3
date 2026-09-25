@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT_TYPED(puddles, /datum/puddle, list())
 /obj/proc/liquid_pass()
 	return 1
 
-/obj/machinery/door/liquid_pass()
+/obj/structure/machinery/door/liquid_pass()
 	return !density
 
 #undef LIQUID_TRANSFER_THRESHOLD

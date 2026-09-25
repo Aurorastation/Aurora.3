@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(
-		/obj/item/spacecash,
+		/obj/item/currency,
 		/obj/item/card,
 		/obj/item/clothing/mask/smokable,
 		/obj/item/storage/box/fancy/cigpaper,
@@ -16,7 +16,7 @@
 		/obj/item/clothing/accessory/badge,
 		/obj/item/clothing/accessory/locket,
 		/obj/item/clothing/ring,
-		/obj/item/device/flashlight/pen,
+		/obj/item/flashlight/pen,
 		/obj/item/seeds,
 		/obj/item/coin,
 		/obj/item/stack/dice,
@@ -32,8 +32,8 @@
 		/obj/item/photo,
 		/obj/item/reagent_containers/pill,
 		/obj/item/stamp,
-		/obj/item/device/paicard,
-		/obj/item/device/encryptionkey,
+		/obj/item/paicard,
+		/obj/item/encryptionkey,
 		/obj/item/fluff,
 		/obj/item/storage/business_card_holder,
 		/obj/item/sample,
@@ -150,8 +150,8 @@
 		/obj/item/paper_bundle,
 		/obj/item/pen,
 		/obj/item/photo)
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	pickup_sound = 'sound/items/pickup/clothing.ogg'
 
 	var/front_id_overlay_state
 	var/image/plastic_film
@@ -194,6 +194,28 @@
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
+
+// Journalist's Lanyard
+/obj/item/storage/wallet/lanyard/press
+	name = "press lanyard"
+	desc = "A large, blue lanyard with \"PRESS\" prominently displayed along the cord in white."
+	color = "#46698c"
+	storage_slots = 5
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
+	can_hold = list(
+		/obj/item/card,
+		/obj/item/clothing/accessory/badge,
+		/obj/item/disk,
+		/obj/item/paper,
+		/obj/item/paper_bundle,
+		/obj/item/pen,
+		/obj/item/photo,
+		/obj/item/paicard,
+		/obj/item/encryptionkey,
+		/obj/item/storage/business_card_holder,
+		/obj/item/key,
+	)
 
 // wallet subtypes
 
@@ -258,3 +280,50 @@
 	new item1_type(src)
 	new item2_type(src)
 	new item3_type(src)
+
+/obj/item/storage/wallet/random_adhomian_knuckle/fill()
+	..()
+
+	var/item1_type = pick(                \
+		/obj/item/adhomian_knuckle/k001,  \
+		/obj/item/adhomian_knuckle/k004,  \
+		/obj/item/adhomian_knuckle/k008,  \
+		/obj/item/adhomian_knuckle/k001,  \
+		/obj/item/adhomian_knuckle/k1,    \
+		/obj/item/adhomian_knuckle/k4,    \
+		/obj/item/adhomian_knuckle/k8,    \
+		/obj/item/adhomian_knuckle/k32,   \
+		/obj/item/adhomian_knuckle/k64,   \
+		/obj/item/adhomian_knuckle/k128,  \
+	)
+	var/item2_type
+	if(prob(60))
+		item2_type = pick(                \
+		/obj/item/adhomian_knuckle/k1,    \
+		/obj/item/adhomian_knuckle/k4,    \
+		/obj/item/adhomian_knuckle/k8,    \
+		/obj/item/adhomian_knuckle/k32,   \
+		/obj/item/adhomian_knuckle/k64,   \
+		/obj/item/adhomian_knuckle/k128,  \
+		/obj/item/adhomian_knuckle/k256,  \
+		/obj/item/adhomian_knuckle/k512,  \
+		/obj/item/adhomian_knuckle/k1024  \
+		)
+
+	var/item3_type
+	if(prob(10))
+		item3_type = pick(     \
+		/obj/item/coin/silver, \
+		/obj/item/coin/silver, \
+		/obj/item/coin/gold,   \
+		/obj/item/coin/iron,   \
+		/obj/item/coin/iron,   \
+		/obj/item/coin/iron    \
+	)
+
+	if(item1_type)
+		new item1_type(src)
+	if(item2_type)
+		new item2_type(src)
+	if(item3_type)
+		new item3_type(src)

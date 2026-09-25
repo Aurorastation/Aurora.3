@@ -121,10 +121,10 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/fsf_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/fsf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "FSF Shuttle"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 
 /datum/shuttle/autodock/overmap/fsf_shuttle
 	name = "FSF Shuttle"
@@ -134,7 +134,6 @@
 	landmark_transition = "nav_transit_fsf_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_fsf"
 	dock_target = "airlock_fsf_shuttle"
 	defer_initialisation = TRUE
 

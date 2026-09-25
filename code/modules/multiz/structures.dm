@@ -97,7 +97,8 @@
 
 	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"))
 
-	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
+	var/adjusted_climb_time = M.get_conditioning_action_delay(climb_time)
+	if(do_after(M, istype(G) ? (adjusted_climb_time * 2) : adjusted_climb_time))
 		climbLadder(M, target_ladder)
 
 /obj/structure/ladder/attack_ghost(var/mob/M)
@@ -418,6 +419,8 @@
 /obj/structure/platform_stairs/full/south_north_cap/half
 	icon_state = "p_stair_sn_half_cap"
 
+// ---------- Platforms
+
 /obj/structure/platform
 	name = "platform"
 	desc = "An archaic method of preventing travel along the X and Y axes if you are on a lower point on the Z-axis."
@@ -430,6 +433,14 @@
 	color = COLOR_TILED
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
+/obj/structure/platform/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/structure/platform/update_icon()
+	if(dir == NORTH)
+		layer = ABOVE_HUMAN_LAYER
+
 /obj/structure/platform/dark
 	icon_state = "platform_dark"
 	color = COLOR_DARK_GUNMETAL
@@ -441,6 +452,8 @@
 	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
+		return TRUE
+	if(mover.throwing)
 		return TRUE
 	if(get_dir(mover, target) == REVERSE_DIR(dir))
 		return FALSE
@@ -467,7 +480,7 @@
 			LAZYADD(climbers, user)
 			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), SPAN_NOTICE("You start climbing [climb_text] \the [src]..."))
 
-			if(!do_after(user, 1 SECOND) || !can_climb(user, TRUE))
+			if(!do_after(user, user.get_conditioning_action_delay(1 SECOND)) || !can_climb(user, TRUE))
 				LAZYREMOVE(climbers, user) // Prevents early-cancellation not clearing the climber off the list
 				return
 
@@ -499,19 +512,61 @@
 	icon_state = "ledge_dark"
 	color = COLOR_DARK_GUNMETAL
 
+/obj/structure/platform/rock
+	icon_state = "colorable_rock_platform"
+	color = COLOR_GRAY40
+
+/obj/structure/platform/rock/icy
+	color = "#97A7AA"
+
+// ---------- Non-colourable platforms
+
+/obj/structure/platform/metal
+	icon_state = "metal_platform"
+	color = null
+
+/obj/structure/platform/metal_alt
+	icon_state = "metal_platform_alt"
+	color = null
+
+/obj/structure/platform/engineer
+	icon_state = "engineer_platform"
+	color = null
+
+/obj/structure/platform/accented
+	icon_state = "accented_platform"
+	color = null
+
+/obj/structure/platform/column
+	icon_state = "column_platform"
+	color = null
+
+// ---------- Platform cutouts
+
 /obj/structure/platform/cutout
 	icon_state = "platform_cutout"
-	density = 0
+	density = FALSE
+
+/obj/structure/platform/cutout/CanPass()
+	return TRUE
 
 /obj/structure/platform/cutout/dark
 	icon_state = "platform_cutout_dark"
 	color = COLOR_DARK_GUNMETAL
 
-/obj/structure/platform/cutout/CanPass()
-	return TRUE
+/obj/structure/platform/cutout/metal
+	icon_state = "metal_platform_cutout"
+	color = null
 
-/obj/structure/platform/bar
-	layer = ABOVE_HUMAN_LAYER
+/obj/structure/platform/cutout/metal_alt
+	icon_state = "metal_platform_alt_cutout"
+	color = null
+
+/obj/structure/platform/cutout/column
+	icon_state = "column_platform_cutout"
+	color = null
+
+// ---------- Platform decos
 
 /// No special CanPass for this one.
 /obj/structure/platform_deco
@@ -521,6 +576,14 @@
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform_deco"
 	color = COLOR_TILED
+
+/obj/structure/platform_deco/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/structure/platform_deco/update_icon()
+	if(dir & (NORTH|SOUTH))
+		layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/platform_deco/dark
 	icon_state = "platform_deco_dark"
@@ -532,3 +595,32 @@
 /obj/structure/platform_deco/ledge/dark
 	icon_state = "ledge_deco_dark"
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/platform_deco/rock
+	icon_state = "colorable_rock_platform_deco"
+	color = COLOR_GRAY40
+
+/obj/structure/platform_deco/rock/icy
+	color = "#97A7AA"
+
+// ---------- Non-colourable platform decos
+
+/obj/structure/platform_deco/metal
+	icon_state = "metal_platform_deco"
+	color = null
+
+/obj/structure/platform_deco/metal_alt
+	icon_state = "metal_platform_alt_deco"
+	color = null
+
+/obj/structure/platform_deco/engineer
+	icon_state = "engineer_platform_deco"
+	color = null
+
+/obj/structure/platform_deco/accented
+	icon_state = "accented_platform_deco"
+	color = null
+
+/obj/structure/platform_deco/column
+	icon_state = "column_platform_deco"
+	color = null

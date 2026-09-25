@@ -1,137 +1,133 @@
 /obj/item/circuitboard/message_monitor
 	name = T_BOARD("message monitor console")
-	build_path = /obj/machinery/computer/message_monitor
+	build_path = /obj/structure/machinery/computer/message_monitor
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/aiupload
 	name = T_BOARD("AI upload console")
-	build_path = /obj/machinery/computer/aiupload
+	build_path = /obj/structure/machinery/computer/aiupload
 	origin_tech = list(TECH_DATA = 4)
 
 /obj/item/circuitboard/borgupload
 	name = T_BOARD("cyborg upload console")
-	build_path = /obj/machinery/computer/borgupload
+	build_path = /obj/structure/machinery/computer/borgupload
 	origin_tech = list(TECH_DATA = 4)
 
 /obj/item/circuitboard/scan_consolenew
 	name = T_BOARD("DNA machine")
-	build_path = /obj/machinery/computer/scan_consolenew
+	build_path = /obj/structure/machinery/computer/scan_consolenew
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
 
 /obj/item/circuitboard/sentencing
 	name = T_BOARD("criminal sentencing console")
-	build_path = /obj/machinery/computer/sentencing
+	build_path = /obj/structure/machinery/computer/sentencing
 
 /obj/item/circuitboard/atmos_alert
 	name = T_BOARD("atmospheric alert console")
-	build_path = /obj/machinery/computer/atmos_alert
+	build_path = /obj/structure/machinery/computer/atmos_alert
 
 /obj/item/circuitboard/pod
 	name = T_BOARD("massdriver control")
-	build_path = /obj/machinery/computer/pod
+	build_path = /obj/structure/machinery/computer/pod
 
 /obj/item/circuitboard/robotics
 	name = T_BOARD("robotics control console")
-	build_path = /obj/machinery/computer/robotics
+	build_path = /obj/structure/machinery/computer/robotics
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/drone_control
 	name = T_BOARD("drone control console")
-	build_path = /obj/machinery/computer/drone_control
+	build_path = /obj/structure/machinery/computer/drone_control
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/cloning
 	name = T_BOARD("cloning control console")
-	build_path = /obj/machinery/computer/cloning
+	build_path = /obj/structure/machinery/computer/cloning
 	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3)
 
 /obj/item/circuitboard/arcade/battle
 	name = T_BOARD("battle arcade machine")
-	build_path = /obj/machinery/computer/arcade/battle
+	build_path = /obj/structure/machinery/computer/arcade/battle
 	origin_tech = list(TECH_DATA = 1)
 
 /obj/item/circuitboard/arcade/orion_trail
 	name = T_BOARD("orion trail arcade machine")
-	build_path = /obj/machinery/computer/arcade/orion_trail
+	build_path = /obj/structure/machinery/computer/arcade/orion_trail
 	origin_tech = list(TECH_DATA = 1)
 
 /obj/item/circuitboard/solar_control
 	name = T_BOARD("solar control console")
-	build_path = /obj/machinery/power/solar_control
+	build_path = /obj/structure/machinery/power/solar_control
 	origin_tech = list(TECH_DATA = 2, TECH_POWER = 2)
 
 /obj/item/circuitboard/olddoor
 	name = T_BOARD("DoorMex")
-	build_path = /obj/machinery/computer/pod/old
+	build_path = /obj/structure/machinery/computer/pod/old
 
 /obj/item/circuitboard/syndicatedoor
 	name = T_BOARD("ProComp Executive")
-	build_path = /obj/machinery/computer/pod/old/syndicate
-
-/obj/item/circuitboard/swfdoor
-	name = T_BOARD("Magix")
-	build_path = /obj/machinery/computer/pod/old/swf
+	build_path = /obj/structure/machinery/computer/pod/old/syndicate
 
 /obj/item/circuitboard/rdservercontrol
 	name = T_BOARD("R&D server control console")
-	build_path = /obj/machinery/computer/rdservercontrol
+	build_path = /obj/structure/machinery/computer/rdservercontrol
 
 /obj/item/circuitboard/operating
 	name = T_BOARD("patient monitoring console")
-	build_path = /obj/machinery/computer/operating
+	build_path = /obj/structure/machinery/computer/operating
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
 
 /obj/item/circuitboard/mining_shuttle
 	name = T_BOARD("mining shuttle console")
-	build_path = /obj/machinery/computer/shuttle_control/mining
+	build_path = /obj/structure/machinery/computer/shuttle_control/mining
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/engineering_shuttle
 	name = T_BOARD("engineering shuttle console")
-	build_path = /obj/machinery/computer/shuttle_control/engineering
+	build_path = /obj/structure/machinery/computer/shuttle_control/engineering
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/research_shuttle
 	name = T_BOARD("research shuttle console")
-	build_path = /obj/machinery/computer/shuttle_control/multi/research
+	build_path = /obj/structure/machinery/computer/shuttle_control/multi/research
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/area_atmos
 	name = T_BOARD("area air control console")
-	build_path = /obj/machinery/computer/area_atmos
+	build_path = /obj/structure/machinery/computer/area_atmos
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/telesci_console
 	name = T_BOARD("Telescience Console")
-	build_path = /obj/machinery/computer/telescience
+	build_path = /obj/structure/machinery/computer/telescience
 	origin_tech = list(TECH_DATA = 3, TECH_BLUESPACE = 2)
 
 /obj/item/circuitboard/slot_machine
 	name = T_BOARD("Slot Machine")
-	build_path = /obj/machinery/computer/slot_machine
+	build_path = /obj/structure/machinery/computer/slot_machine
 	origin_tech = list(TECH_DATA = 2)
 
 /obj/item/circuitboard/ship/navigation
 	name = T_BOARD("Navigation Console")
 	origin_tech = list(TECH_ENGINEERING = 2)
-	build_path = /obj/machinery/computer/ship/navigation
+	build_path = /obj/structure/machinery/computer/ship/navigation
 
 /obj/item/circuitboard/ship/helm
 	name = T_BOARD("Helm Control Console")
 	origin_tech = list(TECH_ENGINEERING = 3)
-	build_path = /obj/machinery/computer/ship/helm
+	build_path = /obj/structure/machinery/computer/ship/helm
 
 /obj/item/circuitboard/ship/sensors
 	name = T_BOARD("Ship Sensors Console")
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
-	build_path = /obj/machinery/computer/ship/sensors
+	build_path = /obj/structure/machinery/computer/ship/sensors
 
 /obj/item/circuitboard/ship/engines
 	name = T_BOARD("Ship Engines Control Console")
 	origin_tech = list(TECH_ENGINEERING = 3)
-	build_path = /obj/machinery/computer/ship/engines
+	build_path = /obj/structure/machinery/computer/ship/engines
 
 /obj/item/circuitboard/ship/targeting
 	name = T_BOARD("Ajax Targeting Systems Console")
 	origin_tech = list(TECH_ENGINEERING = 3)
-	build_path = /obj/machinery/computer/ship/targeting
+	build_path = /obj/structure/machinery/computer/ship/targeting

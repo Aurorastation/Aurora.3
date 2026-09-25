@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, ProgressBar, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, ProgressBar, Button, Box } from '../components';
 import { Window } from '../layouts';
 
 export type DoorsData = {
@@ -25,11 +25,11 @@ export type DoorsData = {
   wtime: number;
 };
 
-export const Doors = (props, context) => {
-  const { act, data } = useBackend<DoorsData>(context);
-  const door_title = data.doorArea + '(' + data.doorName + ')';
+export const Doors = (props) => {
+  const { act, data } = useBackend<DoorsData>();
+  const door_title = `${data.doorArea}(${data.doorName})`;
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title={door_title}
@@ -39,7 +39,8 @@ export const Doors = (props, context) => {
               disabled={data.main_power_lost_until !== 0}
               onClick={() => act('main_power')}
             />
-          }>
+          }
+        >
           <ProgressBar
             ranges={{
               good: [0, 1],
@@ -52,7 +53,8 @@ export const Doors = (props, context) => {
                 : data.main_power_lost_until
             }
             minValue={data.main_power_lost_until ? data.main_power_lost_at : 1}
-            maxValue={data.main_power_lost_until}>
+            maxValue={data.main_power_lost_until}
+          >
             {get_power_status_message(data.main_power_lost_until, data.wtime)}
           </ProgressBar>
         </Section>
@@ -64,7 +66,8 @@ export const Doors = (props, context) => {
               disabled={data.backup_power_lost_until !== 0}
               onClick={() => act('backup_power')}
             />
-          }>
+          }
+        >
           <ProgressBar
             ranges={{
               good: [0, 1],
@@ -79,7 +82,8 @@ export const Doors = (props, context) => {
             minValue={
               data.backup_power_lost_until ? data.backup_power_lost_at : 1
             }
-            maxValue={data.backup_power_lost_until}>
+            maxValue={data.backup_power_lost_until}
+          >
             {get_power_status_message(data.backup_power_lost_until, data.wtime)}
           </ProgressBar>
         </Section>
@@ -111,7 +115,8 @@ export const Doors = (props, context) => {
                 ''
               )}
             </>
-          }>
+          }
+        >
           <ProgressBar
             ranges={{
               good: [0, 1],
@@ -122,7 +127,8 @@ export const Doors = (props, context) => {
               data.electrified_until > 0 ? data.wtime : data.electrified_until
             }
             minValue={data.electrified_until ? data.electrified_at : 1}
-            maxValue={data.electrified_until}>
+            maxValue={data.electrified_until}
+          >
             {get_electrified_message(data.electrified_until, data.wtime)}
           </ProgressBar>
         </Section>
@@ -241,8 +247,8 @@ const get_power_status_message = (state, time) => {
   } else if (state === 0) {
     return 'Online';
   } else {
-    let timeleft = Math.max(Math.round((state - time) / 10), 0);
-    return 'Interrupted, ' + timeleft + 's remaining';
+    const timeleft = Math.max(Math.round((state - time) / 10), 0);
+    return `Interrupted, ${timeleft}s remaining`;
   }
 };
 
@@ -252,10 +258,10 @@ const get_electrified_message = (electrified, time) => {
   } else if (electrified === -1) {
     return 'Permanently';
   } else {
-    let electrified_message = Math.max(
+    const electrified_message = Math.max(
       Math.round((electrified - time) / 10),
-      0
+      0,
     );
-    return 'Electrified, ' + electrified_message + 's remaining';
+    return `Electrified, ${electrified_message}s remaining`;
   }
 };

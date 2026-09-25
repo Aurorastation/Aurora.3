@@ -17,7 +17,7 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 		/obj/item/clothing/suit/storage/toggle/highvis,
 		/obj/item/clothing/suit/storage/toggle/highvis,
-		/obj/item/clothing/suit/storage/toggle/highvis_alt,
+		/obj/item/clothing/suit/storage/toggle/highvis/alt,
 		/obj/item/clothing/suit/storage/toggle/track,
 		/obj/item/clothing/suit/storage/hazardvest,
 		/obj/item/clothing/suit/storage/hazardvest/green,
@@ -29,7 +29,7 @@
 	)
 	belt_contents = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt=1,
-		/obj/item/device/flashlight/lantern=1,
+		/obj/item/flashlight/lantern=1,
 	)
 	head = list(
 		/obj/item/clothing/head/hardhat,
@@ -50,6 +50,8 @@
 	)
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,

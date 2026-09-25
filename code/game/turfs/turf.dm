@@ -25,7 +25,7 @@
 	/// Has the turf been blessed?
 	var/blessed = 0
 
-	var/footstep_sound = /singleton/sound_category/tiles_footstep
+	var/footstep_sound = SFX_FOOTSTEP_TILES
 
 	var/list/decals
 	var/list/blueprints
@@ -132,6 +132,9 @@
 
 	if(A.base_turf)
 		baseturf = A.base_turf
+	else if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	update_starlight()
 
@@ -145,10 +148,6 @@
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
-
-	else if(!baseturf)
-		// Hard-coding this for performance reasons.
-		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
@@ -172,7 +171,7 @@
 	if (is_station_level(z))
 		GLOB.station_turfs -= src
 
-	remove_cleanables()
+	remove_cleanables(TRUE)
 	cleanup_roof()
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -248,9 +247,16 @@
 		else
 			step(user.pulling, get_dir(user.pulling.loc, src))
 
-	. = handle_hand_interception(user)
-	if (!.)
-		return TRUE
+	// Check if objects in the turf want to intercept the click.
+	var/datum/component/turf_hand/best_interceptor
+	for(var/atom/A in src)
+		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
+		if(TH && (!best_interceptor || TH.priority > best_interceptor.priority))
+			best_interceptor = TH
+
+	if(best_interceptor)
+		best_interceptor.OnHandInterception(user)
+
 	return TRUE
 
 /// Call to move a turf from its current area to a new one
@@ -275,8 +281,9 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/machinery))
-				var/obj/machinery/M = AM
+			// The loc is due to multi-tile doors moving otherwise because they occupy multiple places.
+			if(AM.loc == src && istype(AM, /obj/structure/machinery))
+				var/obj/structure/machinery/M = AM
 				M.shuttle_move(src)
 
 	last_outside_check = OUTSIDE_UNCERTAIN
@@ -290,16 +297,6 @@
 /// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
 /turf/proc/on_change_area(area/old_area, area/new_area)
 	transfer_area_lighting(old_area, new_area)
-
-/turf/proc/handle_hand_interception(var/mob/user)
-	var/datum/component/turf_hand/THE
-	for (var/atom/A in src)
-		var/datum/component/turf_hand/TH = A.GetComponent(/datum/component/turf_hand)
-		if (istype(TH) && TH.priority > THE?.priority) //Only overwrite if the new one is higher. For matching values, its first come first served
-			THE = TH
-
-	if (THE)
-		return THE.OnHandInterception(user)
 
 // /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 // 	if(movement_disabled && usr.ckey != movement_disabled_exception)
@@ -524,7 +521,7 @@
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/grab = attacking_item
 		step(grab.affecting, get_dir(grab.affecting, src))
-	if (can_lay_cable() && attacking_item.iscoil())
+	if (can_lay_cable() && attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
@@ -602,7 +599,8 @@
 
 		for(var/obj/effect/O in src)
 			if(istype(O, /obj/effect/decal/cleanable))
-				qdel(O)
+				var/obj/effect/decal/cleanable/cleanable = O
+				cleanable.clean_with_basic_cleaner()
 
 			if(istype(O, /obj/effect/overlay))
 				var/obj/effect/overlay/OV = O
@@ -616,6 +614,8 @@
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
+		if(src.is_open())
+			update_mimic();
 	else
 		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
@@ -670,11 +670,10 @@
 	var/static/list/allowed = typecacheof(list(
 		/obj/structure/table,
 		/obj/structure/closet,
-		/obj/machinery/constructable_frame,
 		/obj/structure/target_stake,
 		/obj/structure/cable,
 		/obj/structure/disposalpipe,
-		/obj/machinery,
+		/obj/structure/machinery,
 		/mob
 	))
 
@@ -691,7 +690,7 @@
 				if(!O.density)
 					add = 1
 					break
-				if(istype(O, /obj/machinery/door))
+				if(istype(O, /obj/structure/machinery/door))
 					//not sure why this doesn't fire on LinkBlocked()
 					add = 0
 					break
@@ -719,8 +718,8 @@
 	if(density)
 		return OUTSIDE_NO
 
-	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
-		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+	for(var/obj/structure/S in src)
+		if(istype(S, /obj/structure/component/tent_canvas))
 			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)
@@ -799,8 +798,18 @@
 		if(below)
 			below.update_weather(new_weather)
 
-/turf/proc/remove_cleanables()
+/turf/proc/remove_cleanables(var/force = FALSE)
 	for(var/obj/effect/O in src)
-		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
+		if(istype(O, /obj/effect/decal/cleanable))
+			var/obj/effect/decal/cleanable/cleanable = O
+			if(force)
+				qdel(cleanable)
+			else
+				cleanable.clean_with_basic_cleaner()
+			continue
+		if(istype(O,/obj/effect/rune))
 			qdel(O)
 	clean_blood()
+
+/turf/proc/IgniteTurf(power, fire_color)
+	return

@@ -6,8 +6,8 @@
 /obj/item/clothing/ring/material/Initialize(var/mapload, var/new_material)
 	. = ..(mapload)
 	if(!new_material)
-		new_material = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name(new_material)
+		new_material = MATERIAL_STEEL
+	material = SSmaterials.get_material_by_id(new_material)
 	if(!istype(material))
 		qdel(src)
 		return

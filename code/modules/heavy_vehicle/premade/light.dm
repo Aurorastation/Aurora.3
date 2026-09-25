@@ -18,7 +18,7 @@
 	icon_state = "light_arms"
 	melee_damage = 15
 	action_delay = 15
-	max_damage = 100
+	max_damage = 150
 	power_use = 1500
 	desc = "As flexible as they are fragile, these Bishop Cybernetics manipulators can follow a pilot's movements in close to real time."
 	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
@@ -29,6 +29,7 @@
 	icon_state = "light_legs"
 	move_delay = 2
 	turn_delay = 2
+	damaged_delay = 4
 	max_damage = 100
 	power_use = 1500
 	desc = "The electrical systems driving these legs are almost totally silent. Unfortunately slamming a plate of metal against the ground is not."
@@ -52,6 +53,8 @@
 /obj/item/mech_component/chassis/light
 	name = "light exosuit chassis"
 	pilot_coverage = 100
+	cockpit_hatch_size = 50
+	cockpit_pilot_damage_multiplier = 0.8
 	transparent_cabin = TRUE
 	hatch_descriptor = "canopy"
 	exosuit_desc_string = "an open and light chassis"
@@ -87,7 +90,7 @@
 	desc = "A light and agile exosuit painted in the colours of the Tau Ceti Foreign Legion."
 	icon_state = "odysseus"
 
-	e_color = COLOR_TCFL
+	e_color = COLOR_TCAF
 	e_body = /obj/item/mech_component/chassis/light/nuclear
 
 	h_head = /obj/item/mecha_equipment/light

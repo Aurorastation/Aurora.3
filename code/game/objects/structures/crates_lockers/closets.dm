@@ -1,12 +1,16 @@
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
-	icon = 'icons/obj/closet.dmi'
+	mass = 60
+	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "generic"
+	hitsound = 'sound/effects/metalhit.ogg'
 	density = TRUE
 	build_amt = 2
-	slowdown = 5
+	slowdown = 2.5
 	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
+	maxhealth = OBJECT_HEALTH_MEDIUM
+	armor = list(MELEE = ARMOR_MELEE_RESISTANT, BULLET = ARMOR_BALLISTIC_PISTOL, LASER = ARMOR_LASER_KEVLAR)
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's
@@ -34,7 +38,6 @@
 
 	/// Never solid (You can always pass over it)
 	var/wall_mounted = FALSE
-	var/health = 100
 	/// If someone is currently breaking out. mutex
 	var/breakout = 0
 
@@ -78,6 +81,39 @@
 
 	/// Used by body bags and air bubbles.
 	var/contains_body = FALSE
+
+	/// If its a plain grey closet or crate, you can use the paint sprayer on it ONCE to change its appearance.
+	var/can_label = FALSE
+	/// Combined effective mass of the movable contents.
+	var/mass_contents = 0
+	/// Set when contents change outside the usual open and close operations.
+	var/content_mass_changed = TRUE
+
+/**
+ * Closed storage is moved as a single load, so its effective mass includes
+ * everything packed inside it. Nested containers naturally include their own
+ * contents through get_effective_mass().
+ */
+/obj/structure/closet/get_effective_mass()
+	. = ..()
+	if(content_mass_changed)
+		update_content_mass()
+	. += mass_contents
+
+/obj/structure/closet/proc/update_content_mass()
+	mass_contents = 0
+	for(var/atom/movable/stored_thing in contents)
+		if(!stored_thing.anchored)
+			mass_contents += stored_thing.get_effective_mass()
+	content_mass_changed = FALSE
+
+/obj/structure/closet/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	content_mass_changed = TRUE
+
+/obj/structure/closet/Exited(atom/movable/gone, direction)
+	. = ..()
+	content_mass_changed = TRUE
 
 /obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -124,6 +160,10 @@
 		fill()
 	if(secure)
 		verbs += /obj/structure/closet/proc/verb_togglelock
+
+	// Only plain grey crates and closets can be repainted. Handle label-ability here so we don't have to deal with a ton of bespoke definition adjustments.
+	if(icon_state == "crate" || icon_state == "generic")
+		can_label = TRUE
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 /obj/structure/closet/LateInitialize()
@@ -148,6 +188,10 @@
 	QDEL_NULL(door_obj)
 	QDEL_NULL(door_obj_alt)
 
+	. = ..()
+
+/obj/structure/closet/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dump_contents()
 	. = ..()
 
 /// Fill lockers with this.
@@ -204,6 +248,7 @@
 		structure_shaken()
 	opened = TRUE
 	dump_contents()
+	update_content_mass()
 	animate_door(FALSE)
 	if(double_doors)
 		animate_door_alt(FALSE)
@@ -245,6 +290,7 @@
 
 	playsound(get_turf(src), close_sound, close_sound_volume, 0, -3)
 	density = initial(density)
+	update_content_mass()
 	return TRUE
 
 //Chem Projector Exception
@@ -311,11 +357,11 @@
 /obj/structure/closet/ex_act(severity)
 	switch(severity)
 		if(1)
-			health -= rand(120, 240)
+			add_damage(rand(120, 240))
 		if(2)
-			health -= rand(60, 120)
+			add_damage(rand(60, 120))
 		if(3)
-			health -= rand(30, 60)
+			add_damage(rand(30, 60))
 
 	if(health <= 0)
 		for (var/atom/movable/A as mob|obj in src)
@@ -344,8 +390,6 @@
 		for(var/mob/living/L in contents)
 			hitting_projectile.Impact(L)
 
-	damage(proj_damage)
-
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/closet_teleporter))
 		if(linked_teleporter)
@@ -364,7 +408,7 @@
 			var/obj/item/grab/G = attacking_item
 			mouse_drop_receive(G.affecting, user) //act like they were dragged onto the closet
 			return 0
-		if(attacking_item.isscrewdriver()) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
+		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
 				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
 				if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
@@ -373,7 +417,7 @@
 					user.put_in_hands(linked_teleporter)
 					linked_teleporter = null
 				return
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/WT = attacking_item
 			if(WT.isOn())
 				user.visible_message(
@@ -414,8 +458,8 @@
 			user.drop_from_inventory(attacking_item,loc)
 		else
 			user.drop_item()
-	else if(istype(attacking_item, /obj/item/device/cratescanner))
-		var/obj/item/device/cratescanner/Cscanner = attacking_item
+	else if(istype(attacking_item, /obj/item/cratescanner))
+		var/obj/item/cratescanner/Cscanner = attacking_item
 		if(locked)
 			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan \the [src]. Unlock it first!"))
 			return
@@ -430,7 +474,7 @@
 		return
 	else if(istype(attacking_item, /obj/item/ducttape))
 		return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
@@ -452,7 +496,7 @@
 			)
 		else
 			attack_hand(user)
-	else if(attacking_item.isscrewdriver() && canbemoved)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && canbemoved)
 		if(screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unscrew \the [src] from the floor..."))
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -467,7 +511,7 @@
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				screwed = TRUE
-	else if(attacking_item.iswrench() && canbemoved)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && canbemoved)
 		if(wrenched && !screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unfasten the bolts holding \the [src] in place..."))
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -484,16 +528,18 @@
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				wrenched = TRUE
 				anchored = TRUE
-	else if(istype(attacking_item, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = attacking_item
+	else if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 		else
 			attack_hand(user)
 	else if(istype(attacking_item,/obj/item/card/id) && secure)
 		togglelock(user)
+	else if(istype(attacking_item, /obj/item/paint_sprayer))
+		return
 
-// Secure locker cutting open stuff.
+	// Secure locker cutting open stuff.
 	else if(!opened && secure)
 		if(!broken && istype(attacking_item,/obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/ChainSawVar = attacking_item
@@ -516,9 +562,13 @@
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 			else
 				attack_hand(user)
+		else
+			return ..()
 	else
-		attack_hand(user)
-	return
+		if(attacking_item.force < 10 && user.a_intent != I_HURT)
+			attack_hand(user)
+		else
+			return ..()
 
 // helper procs for callbacks
 /obj/structure/closet/proc/is_closed()
@@ -570,11 +620,10 @@
 /obj/structure/closet/relaymove(mob/living/user, direction)
 	. = ..()
 
-	if(user.stat || !isturf(loc))
+	if(user.stat || !isturf(loc) || user.loc != src || open())
 		return
 
-	if(!open())
-		to_chat(user, SPAN_NOTICE("It won't budge!"))
+	to_chat(user, SPAN_NOTICE("It won't budge!"))
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
@@ -626,6 +675,7 @@
 			update_secure_overlays()
 
 /obj/structure/closet/proc/update_secure_overlays()
+	AddOverlays("[icon_door_overlay]securitypanel")
 	if(broken)
 		AddOverlays("[icon_door_overlay]emag")
 	else
@@ -834,22 +884,39 @@
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
+/obj/structure/closet/proc/paint_container(paint_color)
+	// Fucking engineering container sprites. Closets and crates handle their main sprite/door naming differently.
+	var/eng_prefix = findtext(paint_color,"eng_")
+	if(eng_prefix)
+		if(istype(src,/obj/structure/closet/crate))
+			icon_state = paint_color
+			icon_door = "eng"
+			icon_door_override = TRUE
+		else
+			icon_state = "eng"
+			icon_door = paint_color
+	// And back to sanity.
+	else
+		icon_state = paint_color
+	can_label = FALSE
+	update_icon()
 /*
 ==========================
 	Contents Scanner
 ==========================
 */
-/obj/item/device/cratescanner
+/obj/item/cratescanner
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
-	icon = 'icons/obj/item/device/cratescanner.dmi'
-	icon_state = "cratescanner"
-	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
+	icon = 'icons/obj/item/scanner.dmi'
+	icon_state = "crate_scanner"
+	item_state = "crate_scanner"
+	matter = list(MATERIAL_STEEL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
+/obj/item/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
 	var/output = list()
 	var/list/outputstring
 	for(var/atom/item in targetcontents)
@@ -862,3 +929,4 @@
 	var/obj/item/paper/printout = new /obj/item/paper(targetloc)
 	printout.info = "contents of [targetname]<br>"
 	printout.info += "[outputstring]"
+	printout.name = "[targetname] manifest"

@@ -6,7 +6,7 @@
 	suit = /obj/item/clothing/suit/space/void/zavodskoi
 	head = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	belt = /obj/item/storage/belt/military
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	id = /obj/item/card/id/zavodskoi
 	mask = /obj/item/clothing/mask/gas/tactical
 	glasses = /obj/item/clothing/glasses/safety/goggles/goon/zavod
@@ -46,7 +46,7 @@
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/baton/loaded = 1,

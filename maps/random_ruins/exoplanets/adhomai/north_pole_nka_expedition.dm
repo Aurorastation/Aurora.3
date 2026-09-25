@@ -48,10 +48,10 @@
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/nka_polar_explorer/get_id_access()
-	return list(ACCESS_NKA)
+	return list(/datum/access/nka::id)
 
 /datum/ghostspawner/human/nka_polar_sailor
 	short_name = "nka_polar_sailor"
@@ -85,7 +85,7 @@
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/nka_polar_sailor/get_id_access()
-	return list(ACCESS_NKA)
+	return list(/datum/access/nka::id)

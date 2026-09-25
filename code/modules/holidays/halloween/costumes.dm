@@ -150,7 +150,7 @@
 
 /obj/item/clothing/suit/roman_costume
 	name = "legionaire costume"
-	desc = "A piece of tunic and plastic armour, making you look like a legionaire. A roman one, not one from the TCFL."
+	desc = "A piece of tunic and plastic armour, making you look like a legionaire. A roman one, not one from the TCAF."
 	icon = 'icons/holidays/halloween/costumes.dmi'
 	icon_state = "roman"
 	item_state = "roman"

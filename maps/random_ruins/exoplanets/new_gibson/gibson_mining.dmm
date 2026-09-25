@@ -69,7 +69,7 @@
 	},
 /area/template_noop)
 "WK" = (
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/permafrost{
 	temperature = 73.15
 	},

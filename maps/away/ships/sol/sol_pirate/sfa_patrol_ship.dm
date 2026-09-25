@@ -7,6 +7,7 @@
 
 	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 0.5 // Lowered to represent increasing scarcity of faction.
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "sfa_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfa_shuttle)
@@ -184,10 +185,10 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/sfa_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/sfa_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "SFA Shuttle"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 
 /datum/shuttle/autodock/overmap/sfa_shuttle
 	name = "SFA Shuttle"
@@ -198,7 +199,6 @@
 	landmark_transition = "nav_transit_sfa_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_sfa"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/sfa_shuttle/hangar

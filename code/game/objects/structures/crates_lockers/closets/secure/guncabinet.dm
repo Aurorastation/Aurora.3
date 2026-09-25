@@ -1,7 +1,7 @@
 /obj/structure/closet/secure_closet/guncabinet
 	name = "gun cabinet"
-	req_access = list(ACCESS_ARMORY)
-	icon = 'icons/obj/guncabinet.dmi'
+	req_access = list(/datum/access/armory::id)
+	icon = 'icons/obj/containers/guncabinet.dmi'
 	icon_state = "base"
 	anchored = TRUE
 	canbemoved = TRUE
@@ -44,7 +44,7 @@
 
 /obj/structure/closet/secure_closet/guncabinet/sci
 	name = "science gun cabinet"
-	req_access = list(ACCESS_TOX_STORAGE)
+	req_access = list(/datum/access/tox_storage::id)
 	icon_state = "sci"
 
 /obj/structure/closet/secure_closet/guncabinet/peac
@@ -61,10 +61,14 @@
 /obj/structure/closet/secure_closet/guncabinet/station/lessthanlethals/fill()
 	for(var/i = 1 to 15)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
+	for(var/i = 1 to 4)
+		new /obj/item/ammo_magazine/c45/revolver/rubber(src)
 	for(var/i = 1 to 8)
 		new /obj/item/ammo_magazine/mc9mmt/rubber(src)
 	for(var/i = 1 to 4)
 		new /obj/item/storage/box/shells/beanbags(src)
+	for(var/i = 1 to 2)
+		new /obj/item/storage/box/tactical/beanbags(src)
 	new /obj/item/storage/box/shells/flashshells(src)
 	new /obj/item/storage/box/shells/stunshells(src)
 	new /obj/item/storage/box/shells/trackingslugs(src)
@@ -75,6 +79,8 @@
 /obj/structure/closet/secure_closet/guncabinet/station/lethals/fill()
 	for(var/i = 1 to 8)
 		new /obj/item/ammo_magazine/c45m(src)
+	for(var/i = 1 to 4)
+		new /obj/item/ammo_magazine/c45/revolver(src)
 	for(var/i = 1 to 6)
 		new /obj/item/ammo_magazine/mc9mmt(src)
 		new /obj/item/ammo_magazine/a556/carbine/polymer(src)

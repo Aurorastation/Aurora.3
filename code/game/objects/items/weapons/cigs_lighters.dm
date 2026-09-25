@@ -170,6 +170,12 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	var/burn_rate = 0
 	/// Spam limiter for audio/message when taking a drag of cigarette.
 	var/last_drag = 0
+	/// Used when setting light; change on child obj def for any weird smokables.
+	var/lit_light_radius = 1
+	/// Used when setting light; change on child obj def for any weird smokables.
+	var/lit_light_power = 0.1
+	/// Used when setting light; change on child obj def for any weird smokables.
+	var/lit_light_color = "#ffa251"
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
@@ -229,7 +235,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			M.update_inv_r_hand(1)
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
-		set_light_range_power_color(2, 0.25, "#E38F46")
+		set_light_range_power_color(lit_light_radius, lit_light_power, lit_light_color)
 		set_light_on(TRUE)
 		START_PROCESSING(SSprocessing, src)
 
@@ -246,6 +252,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
 			if(intentionally)
 				butt.loc = T
+				butt.try_make_persistent_trash()
 			else if(M.wear_mask == src)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)
@@ -284,9 +291,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			text = zippomes
 		else if(istype(attacking_item, /obj/item/flame/lighter))
 			text = lightermes
-		else if(attacking_item.iswelder())
+		else if(attacking_item.tool_behaviour == TOOL_WELDER)
 			text = weldermes
-		else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+		else if(istype(attacking_item, /obj/item/assembly/igniter))
 			text = ignitermes
 		else
 			text = genericmes
@@ -670,7 +677,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		if(M.lit)
 			light(SPAN_NOTICE("[user] lights their [name] with their [attacking_item]."))
 
-	else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+	else if(istype(attacking_item, /obj/item/assembly/igniter))
 		light(SPAN_NOTICE("[user] fiddles with [attacking_item], and manages to light their [name] with the power of science."))
 
 	user.update_inv_wear_mask(0)
@@ -780,10 +787,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	icon_state = "solzippo"
 	item_state = "solzippo"
 
-/obj/item/flame/lighter/zippo/tcfl
+/obj/item/flame/lighter/zippo/biesel
 	name = "\improper Biesellite Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Biesellite flag."
-	desc_extended = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
 	icon_state = "tcflzippo"
 	item_state = "tcflzippo"
 
@@ -982,7 +988,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
+/obj/item/flame/lighter/vendor_action(var/obj/structure/machinery/vending/V)
 	handle_lighting()
 
 /obj/item/flame/lighter/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -1081,9 +1087,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	can_fold = FALSE
 
 /obj/item/paper/cig/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/flame) || attacking_item.iswelder())
+	if(istype(attacking_item, /obj/item/flame) || attacking_item.tool_behaviour == TOOL_WELDER)
 		..()
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		..()
 	else
 		return

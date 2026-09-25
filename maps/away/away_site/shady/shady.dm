@@ -22,7 +22,7 @@
 	desc = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
 	icon_state = "object"
 
-/obj/effect/map_effect/marker/airlock/shady
+/obj/effect/map_effect/marker/airlock/external/shady
 	name = "Entrance Airlock"
 	master_tag = "airlock_shady"
 

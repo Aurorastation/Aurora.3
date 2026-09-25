@@ -24,7 +24,7 @@
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 50
+	maxhealth = 50
 	health = 50
 	max_stamina = -1
 	pass_flags = PASSTABLE
@@ -47,7 +47,6 @@
 	/// If set, then this nymph is inside a gestalt.
 	var/mob/living/carbon/gestalt = null
 	var/kept_clean = FALSE
-
 	/// Nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
 	var/mob/living/carbon/alien/diona/master_nymph
 	/// List of all related nymphs.
@@ -56,6 +55,9 @@
 	var/echo = FALSE
 	/// Whether or not the nymph is detached.
 	var/detached = FALSE
+	/// Whether the nymph can crawl through vents.
+	var/dionae_vent_crawl = TRUE
+
 
 	var/datum/reagents/metabolism/ingested
 
@@ -73,6 +75,7 @@
 	setup_dionastats()
 	eat_types |= TYPE_ORGANIC
 	nutrition = 0 //We dont start with biomass
+	remove_verb(src, /mob/living/proc/ventcrawl)
 	update_verbs()
 
 /mob/living/carbon/alien/diona/Destroy()
@@ -91,7 +94,6 @@
 	ClearOverlays()
 
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/alien/diona/get_ingested_reagents()
 	return ingested
@@ -239,7 +241,7 @@
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
 	DS.stored_energy = (DS.max_energy / 2)
-	DS.max_health = maxHealth
+	DS.max_health = maxhealth
 	DS.pain_factor = (50 / dark_consciousness) / MLS
 	DS.trauma_factor = (DS.max_health / dark_survival) / MLS
 	DS.dionatype = DIONA_NYMPH
@@ -251,7 +253,7 @@
 		var/mob/living/carbon/human/H = gestalt
 		if(!H.bad_internal_organs)
 			return
-		if(health < maxHealth)
+		if(health < maxhealth)
 			if (!(src in H.bad_internal_organs))
 				H.bad_internal_organs.Add(src)
 		else
@@ -275,16 +277,19 @@
 		add_verb(src, /mob/living/carbon/alien/diona/proc/merge)
 		add_verb(src, /mob/living/carbon/proc/absorb_nymph)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/grow)
-		add_verb(src, /mob/living/proc/ventcrawl)
 		add_verb(src, /mob/living/proc/hide)
 		add_verb(src, /mob/living/carbon/proc/sample)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/remove_hat)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/attach_nymph_limb)
 		add_verb(src, /mob/living/carbon/alien/diona/proc/detach_nymph_limb)
+		add_verb(src, /mob/living/proc/ventcrawl)
 		remove_verb(src, /mob/living/carbon/alien/diona/proc/split) // we want to remove this one
 
 	remove_verb(src, /mob/living/carbon/alien/verb/evolve) //We don't want the old alien evolve verb
 
+
+/mob/living/carbon/alien/diona/can_ventcrawl()
+		return dionae_vent_crawl
 
 /mob/living/carbon/alien/diona/get_status_tab_items()
 	. = ..()
@@ -293,7 +298,7 @@
 		. += "You have enough biomass to grow!"
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
-/mob/living/carbon/alien/diona/handle_regular_status_updates()
+/mob/living/carbon/alien/diona/handle_regular_status_updates(seconds_per_tick)
 	if(status_flags & GODMODE)
 		return FALSE
 
@@ -388,10 +393,10 @@
 /mob/living/carbon/alien/diona/adjustBruteLoss(var/amount)
 	if (status_flags & GODMODE)
 		return
-	health = min(health - amount, maxHealth)
+	health = min(health - amount, maxhealth)
 
 /mob/living/carbon/alien/diona/getHalLoss()
 	if(status_flags & GODMODE)
 		return
 
-	return max((maxHealth - health), 0)
+	return max((maxhealth - health), 0)

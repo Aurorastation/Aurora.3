@@ -16,15 +16,15 @@
 
 	/// Speed on land. Higher is slower.
 	/// If 0 it can't go on land turfs at all.
-	var/land_speed = 5
+	var/land_speed = 1.4
 	/// Speed if walk intent is on.
 	/// Should be slower, but does not crash into other bikes or people at this speed.
 	/// If land speed is 0, still can't go on land turfs at all.
-	var/land_speed_careful = 6
+	var/land_speed_careful = 2.2
 	/// Same as land speed, but for space turfs.
 	var/space_speed = 1
 	/// Same as land speed if walk intent is on, but for space turfs.
-	var/space_speed_careful = 4
+	var/space_speed_careful = 2
 
 	var/bike_icon = "bike"
 	var/storage_type = /obj/item/storage/toolbox/bike_storage
@@ -48,6 +48,8 @@
 	/// If FALSE, the key needs to be mapped/spawned somewhere outside of the vehicle,
 	/// otherwise it will be an unusable prop.
 	var/spawns_with_key = TRUE
+	/// If TRUE, the key will be spawned elsewhere designated by `/obj/effect/landmark/bike_key_spawner`.
+	var/auto_spawn_key_elsewhere = FALSE
 
 /obj/vehicle/bike/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -57,7 +59,7 @@
 	. += "CTRL-click the bike to toggle the engine."
 	. += "ALT-click to toggle the kickstand which prevents movement by driving and dragging."
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
-	. += "Use walk intent to move around carefully, or run intent to go fast, and risk crashing into other people or bikes."
+	. += "Go fast! Use the RUN intent to go fast! Just be careful you don't run anyone over."
 
 /obj/vehicle/bike/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -80,13 +82,29 @@
 	turn_off()
 	AddOverlays(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
+
 	if(storage_type)
 		storage_compartment = new storage_type(src)
+
 	if(!registration_plate)
 		generate_registration_plate()
+
 	if(spawns_with_key)
 		key = new key_type(src)
 		key.key_data = registration_plate
+
+	if(auto_spawn_key_elsewhere)
+		var/list/our_z_levels = GetConnectedZlevels(z)
+		for(var/obj/effect/landmark/bike_key_spawner/spawner in GLOB.landmarks_list)
+			if(!(spawner.z in our_z_levels)) // this spawner isn't in the same map as us
+				continue
+
+			if(key_type in spawner.allowed_key_types)
+				var/obj/item/key/bike/spawned_key = new key_type(get_turf(spawner))
+				spawned_key.key_data = registration_plate
+				spawned_key.pixel_x = pick(-8, 0, 8) // the key sprite appears nicely placed on the tables in these values
+				spawned_key.pixel_y = pick(0, 8)
+				break
 
 /obj/vehicle/bike/proc/generate_registration_plate()
 	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"
@@ -198,6 +216,25 @@
 		return
 	return Move(get_step(src, direction))
 
+/obj/vehicle/bike/RunOver(var/mob/living/carbon/human/H)
+	var/mob/living/M
+
+	if(!buckled)
+		return
+
+	if(istype(buckled, /mob/living))
+		M = buckled
+
+	var/collision_damage = clamp((maxhealth/6), 5, 30)
+	if(M.m_intent == M_RUN)
+		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
+		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
+		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
+		H.apply_damage(collision_damage, DAMAGE_BRUTE)
+		H.apply_effect(4, WEAKEN)
+		return TRUE
+
 /obj/vehicle/bike/proc/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
 	if((is_type_in_typecache(destination,types) && !locate(/obj/structure/lattice))  || pulledby)
@@ -230,7 +267,7 @@
 
 /obj/vehicle/bike/turn_on()
 	ion.start()
-	anchored = 1
+	anchored = TRUE
 
 	if(can_hover)
 		flying = TRUE
@@ -308,7 +345,7 @@
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
-				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
+				playsound(src, SFX_SWING_HIT, 50, 1)
 				H.apply_damage(20, DAMAGE_BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				H.apply_effect(4, WEAKEN)
@@ -318,7 +355,7 @@
 			else
 				var/mob/living/L = AM
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
-				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
+				playsound(src, SFX_SWING_HIT, 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, DAMAGE_BRUTE)
 				M.setMoveCooldown(10)
@@ -343,7 +380,7 @@
 	desc = "A Hephaestus-manufactured military speeder, used by the forces of the Izweski Hegemony."
 	icon_state = "heg_speeder_on"
 	bike_icon = "heg_speeder"
-	land_speed = 2
+	land_speed = 1
 	space_speed = 1
 	health = 250
 	maxhealth = 250
@@ -352,6 +389,7 @@
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
 	icon_state = "monowheel_off"
+	key_type = /obj/item/key/bike/monowheel
 
 	health = 250
 	maxhealth = 250
@@ -366,26 +404,11 @@
 	dir = EAST
 
 	land_speed = 1
-	land_speed_careful = 4
+	land_speed_careful = 1.6
 	space_speed = 0
 	space_speed_careful = 0
 
 	can_hover = FALSE
-
-/obj/vehicle/bike/monowheel/RunOver(var/mob/living/carbon/human/H)
-	var/mob/living/M
-	if(!buckled)
-		return
-	if(istype(buckled, /mob/living))
-		M = buckled
-	if(M.m_intent == M_RUN)
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
-		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
-		H.apply_damage(30, DAMAGE_BRUTE)
-		H.apply_effect(4, WEAKEN)
-		return TRUE
 
 /obj/vehicle/bike/monowheel/check_destination(var/turf/destination)
 	var/static/list/types = typecacheof(list(/turf/space))
@@ -393,6 +416,13 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/vehicle/bike/monowheel/no_keys
+	spawns_with_key = FALSE
+
+/obj/vehicle/bike/monowheel/auto_spawn_key
+	spawns_with_key = FALSE
+	auto_spawn_key_elsewhere = TRUE
 
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"
@@ -453,6 +483,14 @@
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE
+	key_type = /obj/item/key/bike/snow
+
+/obj/vehicle/bike/snow/no_key
+	spawns_with_key = FALSE
+
+/obj/vehicle/bike/snow/auto_spawn_key
+	auto_spawn_key_elsewhere = TRUE
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor
 	name = "sports bike"
@@ -460,7 +498,7 @@
 	icon_state = "sport_on"
 	bike_icon = "sport"
 	land_speed = 1
-	land_speed_careful = 4
+	land_speed_careful = 1.6
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE
@@ -476,17 +514,29 @@
 /obj/vehicle/bike/motor/generate_registration_plate()
 	registration_plate = "[rand(10,99)]S-[rand(1000,9999)]"
 
+/obj/vehicle/bike/motor/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/blue
 	icon_state = "bluesport_on"
 	bike_icon = "bluesport"
+
+/obj/vehicle/bike/motor/blue/no_key
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor/green
 	icon_state = "greensport_on"
 	bike_icon = "greensport"
 
+/obj/vehicle/bike/motor/green/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/brown
 	icon_state = "brownsport_on"
 	bike_icon = "brownsport"
+
+/obj/vehicle/bike/motor/brown/no_key
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor/police_konyang
 	name = "police bike"
@@ -506,6 +556,9 @@
 	land_speed = 2 // slower than a sport bike but will still get you around big maps
 	key_type = /obj/item/key/bike/moped
 
+/obj/vehicle/bike/motor/moped/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/moped/generate_registration_plate()
 	registration_plate = "[rand(10,99)]M-[rand(1000,9999)]"
 
@@ -523,16 +576,47 @@
 	icon_state = "redmoped_on"
 	bike_icon = "redmoped"
 
+/obj/vehicle/bike/motor/moped/red/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/moped/teal
 	icon_state = "tealmoped_on"
 	bike_icon = "tealmoped"
 
+/obj/vehicle/bike/motor/moped/teal/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/moped/blue
 	icon_state = "bluemoped_on"
 	bike_icon = "bluemoped"
+
+/obj/vehicle/bike/motor/moped/blue/no_key
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor/sand
 	name = "sandbike"
 	desc = "A specialised bike, designed for travelling on sand. Often used by Unathi of the Wasteland."
 	icon_state = "sport_on" //replace when we have a unique sprite
 	bike_icon = "sport"
+
+// A location helper landmark if we don't want to bother varediting keys explictly for the bikes.
+// Only ONE of these should exist in a map at the same time.
+ABSTRACT_TYPE(/obj/effect/landmark/bike_key_spawner)
+	/// A list of key type paths that are allowed to spawn at our location.
+	var/list/allowed_key_types = list()
+
+/obj/effect/landmark/bike_key_spawner/all_bikes/Initialize()
+	. = ..()
+	allowed_key_types = subtypesof(/obj/item/key/bike)
+
+/obj/effect/landmark/bike_key_spawner/moped_bikes
+	allowed_key_types = list(/obj/item/key/bike/moped)
+
+/obj/effect/landmark/bike_key_spawner/sport_bikes
+	allowed_key_types = list(/obj/item/key/bike/sport)
+
+/obj/effect/landmark/bike_key_spawner/snow_bikes
+	allowed_key_types = list(/obj/item/key/bike/snow)
+
+/obj/effect/landmark/bike_key_spawner/monowheel
+	allowed_key_types = list(/obj/item/key/bike/monowheel)

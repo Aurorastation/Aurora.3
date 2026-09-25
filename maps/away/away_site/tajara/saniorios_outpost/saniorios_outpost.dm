@@ -30,7 +30,9 @@
 	)
 
 	comms_support = TRUE
-	comms_name = "dpra asteroid outpost"
+
+/obj/effect/overmap/visitable/sector/saniorios_outpost/create_comms_groups()
+	return list("default" = new /datum/comms_group("dpra asteroid outpost"))
 
 /obj/effect/overmap/visitable/sector/saniorios_outpost/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/planet.dmi', "")
@@ -71,7 +73,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost
 	name = "shuttle control console"
 	shuttle_tag = "Unmarked Adhomian Shuttle"
 
@@ -83,7 +85,6 @@
 	landmark_transition = "nav_transit_saniorios_outpost"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_saniorios_outpost"
 	dock_target = "saniorios_outpost"
 	defer_initialisation = TRUE
 

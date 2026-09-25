@@ -1,7 +1,7 @@
 #define MAX_FIELD_STR 10000
 #define MIN_FIELD_STR 1
 
-/obj/machinery/power/fusion_core
+/obj/structure/machinery/power/fusion_core
 	name = "\improper INDRA Mk. II Tokamak core"
 	desc = "An enormous solenoid for generating extremely high power electromagnetic fields. It includes a kinetic energy harvester."
 	icon = 'icons/obj/machinery/fusion_core.dmi'
@@ -21,15 +21,15 @@
 	var/field_strength_max = 1.2
 	var/initial_id_tag
 
-/obj/machinery/power/fusion_core/mapped
+/obj/structure/machinery/power/fusion_core/mapped
 	anchored = TRUE
 
-/obj/machinery/power/fusion_core/Initialize()
+/obj/structure/machinery/power/fusion_core/Initialize()
 	. = ..()
 	connect_to_network()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 
-/obj/machinery/power/fusion_core/Destroy()
+/obj/structure/machinery/power/fusion_core/Destroy()
 	if(owned_field)
 		qdel(owned_field)
 		owned_field = null
@@ -39,7 +39,7 @@
 /**
  * If there's no powernet or no owned field, shutdown() in those cases too.
  */
-/obj/machinery/power/fusion_core/process()
+/obj/structure/machinery/power/fusion_core/process()
 	. = ..()
 	if(stat & BROKEN || !powernet || !owned_field)
 		Shutdown()
@@ -47,7 +47,7 @@
 /**
  * Create a new owned_field of appropriate strength and update power usage.
  */
-/obj/machinery/power/fusion_core/proc/Startup()
+/obj/structure/machinery/power/fusion_core/proc/Startup()
 	if(owned_field)
 		return
 	owned_field = new(loc, src)
@@ -60,7 +60,7 @@
 /**
  * If we're too hot, there's going to be an explosion, EMP, etc. Bad time.
  */
-/obj/machinery/power/fusion_core/proc/Shutdown(force_rupture)
+/obj/structure/machinery/power/fusion_core/proc/Shutdown(force_rupture)
 	if(owned_field)
 		icon_state = "core0"
 		// Blow the whole fucking thing up.
@@ -74,12 +74,12 @@
 	update_use_power(POWER_USE_IDLE)
 	set_light(0)
 
-/obj/machinery/power/fusion_core/proc/AddParticles(name, quantity = 1)
+/obj/structure/machinery/power/fusion_core/proc/AddParticles(name, quantity = 1)
 	if(owned_field)
 		owned_field.AddParticles(name, quantity)
 		. = 1
 
-/obj/machinery/power/fusion_core/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+/obj/structure/machinery/power/fusion_core/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
@@ -87,14 +87,14 @@
 	if(owned_field)
 		. = owned_field.bullet_act(hitting_projectile)
 
-/obj/machinery/power/fusion_core/proc/set_strength(value)
+/obj/structure/machinery/power/fusion_core/proc/set_strength(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)
 	field_strength = value
 	change_power_consumption(1500 * (value ** 1.5), POWER_USE_ACTIVE)
 	if(owned_field)
 		owned_field.ChangeFieldStrength(value)
 
-/obj/machinery/power/fusion_core/attack_hand(mob/user)
+/obj/structure/machinery/power/fusion_core/attack_hand(mob/user)
 	. = ..()
 	if(ishuman(user))
 		visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"))
@@ -102,18 +102,18 @@
 			Shutdown()
 	return TRUE
 
-/obj/machinery/power/fusion_core/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/power/fusion_core/attackby(obj/item/attacking_item, mob/user)
 
 	if(owned_field)
 		to_chat(user,SPAN_WARNING("Shut \the [src] off first!"))
 		return
 
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)
@@ -128,7 +128,7 @@
 
 	return ..()
 
-/obj/machinery/power/fusion_core/proc/jumpstart(field_temperature)
+/obj/structure/machinery/power/fusion_core/proc/jumpstart(field_temperature)
 	field_strength = 120 // Generally a good size.
 	Startup()
 	if(!owned_field)
@@ -136,11 +136,11 @@
 	owned_field.plasma_temperature = field_temperature
 	return TRUE
 
-/obj/machinery/power/fusion_core/proc/check_core_status()
+/obj/structure/machinery/power/fusion_core/proc/check_core_status()
 	if(!powernet)
 		connect_to_network()
 	if(stat & BROKEN)
 		return FALSE
-	if(idle_power_usage > avail())
+	if(idle_power_usage > POWER_AVAIL(src))
 		return FALSE
 	. = TRUE

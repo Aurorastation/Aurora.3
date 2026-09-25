@@ -87,7 +87,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/militia_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/militia_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Militia Ship"
 
@@ -100,7 +100,6 @@
 	landmark_transition = "nav_transit_militia_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_militia"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/militia_shuttle/hangar

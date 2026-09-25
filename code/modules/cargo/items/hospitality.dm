@@ -105,7 +105,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
 	)
-	access = ACCESS_GALLEY
+	access = /datum/access/galley::id
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -1519,7 +1519,7 @@
 
 /singleton/cargo_item/assunzione_wine
 	category = "hospitality"
-	name = "\improper Assunzioni Sera Stellata di Dalyan Wine"
+	name = "Assunzioni Sera Stellata di Dalyan Wine"
 	supplier = "getmore"
 	description = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione."
 	price = 50

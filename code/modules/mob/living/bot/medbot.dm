@@ -2,8 +2,8 @@
 	name = "Medibot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
 	icon_state = "medibot0"
-	req_one_access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS)
-	botcard_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS)
+	req_one_access = list(/datum/access/medical::id, /datum/access/robotics::id)
+	botcard_access = list(/datum/access/medical::id, /datum/access/morgue::id, /datum/access/surgery::id, /datum/access/pharmacy::id, /datum/access/virology::id, /datum/access/genetics::id)
 
 	var/obj/item/storage/firstaid/firstaid_item
 
@@ -43,6 +43,9 @@
 	return ..()
 
 /mob/living/bot/medbot/think()
+	if(pAI) // no AI if we have a pAI installed
+		return
+
 	..()
 	if(!on)
 		return
@@ -63,9 +66,12 @@
 					path = list()
 			if(path.len)
 				icon_state = "medibots"
-				step_to(src, path[1])
-				path -= path[1]
-				++frustration
+				var/turf/next_step = path[1]
+				if(step_to(src, next_step) && get_turf(src) == next_step)
+					path.Cut(1, 2)
+					frustration = 0
+				else
+					++frustration
 			if(get_dist(src, patient) > 7 || frustration > 8)
 				patient = null
 				icon_state = "medibot[on]"
@@ -127,7 +133,7 @@
 	if(!underlays.len)
 		underlays += image(firstaid_item.icon, firstaid_item.icon_state)
 		var/matrix/M = matrix()
-		var/image/ha_image = image('icons/obj/item/device/healthanalyzer.dmi', "health")
+		var/image/ha_image = image('icons/obj/item/scanner.dmi', "healthanalyzer")
 		M.Translate(5, 0)
 		ha_image.transform = M
 		underlays += ha_image
@@ -273,8 +279,8 @@
 		firstaid_item.forceMove(Tsec)
 		firstaid_item.contents = null
 		firstaid_item = null
-	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/device/healthanalyzer(Tsec)
+	new /obj/item/assembly/prox_sensor(Tsec)
+	new /obj/item/healthanalyzer(Tsec)
 	if (prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -307,7 +313,7 @@
 		return treatment_emag
 
 	// If they're injured, we're using a beaker, and they don't have on of the chems in the beaker
-	if(reagent_glass && use_beaker && ((H.getBruteLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getOxyLoss() >= (heal_threshold + 15))))
+	if(reagent_glass && use_beaker && ((H.getBruteLoss() >= heal_threshold) || (H.getFireLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getOxyLoss() >= (heal_threshold + 15))))
 		for(var/_R in reagent_glass.reagents.reagent_volumes)
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(!H.reagents.has_reagent(R))
@@ -359,7 +365,7 @@
 
 /obj/item/firstaid_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
@@ -369,14 +375,14 @@
 	else
 		switch(build_step)
 			if(0)
-				if(istype(attacking_item, /obj/item/device/healthanalyzer))
+				if(istype(attacking_item, /obj/item/healthanalyzer))
 					user.drop_from_inventory(attacking_item,get_turf(src))
 					qdel(attacking_item)
 					build_step++
 					to_chat(user, SPAN_NOTICE("You add the health sensor to [src]."))
 					name = "first-aid/robot arm/health analyzer assembly"
 					var/matrix/M = matrix()
-					var/image/ha_image = image('icons/obj/item/device/healthanalyzer.dmi', "health")
+					var/image/ha_image = image('icons/obj/item/scanner.dmi', "health")
 					M.Translate(5, 0)
 					ha_image.transform = M
 					underlays += ha_image

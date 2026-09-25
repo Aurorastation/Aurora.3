@@ -11,6 +11,15 @@
 	if(ishuman(A) && user != A)
 		user.visible_message(SPAN_WARNING("\The [user] gets down on one knee, presenting \the [src] to [A]."), SPAN_WARNING("You get down on one knee, presenting \the [src] to [A]."))
 
+/obj/item/clothing/ring/newgibson_uraniumglass_ring
+	name = "uranium glass ring"
+	desc = "A ring made out of a radiofluorescent, green, uranium glass. It is only marginally radioactive. Commonly seen worn by New Gibsonites."
+	icon = 'icons/obj/item/clothing/gloves/human/biesel/newgibson_uraniumglass_ring.dmi'
+	icon_state = "newgibson_ring"
+	item_state = "newgibson_ring"
+	plane = ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
+
 //Reagent Rings
 
 /obj/item/clothing/ring/reagent

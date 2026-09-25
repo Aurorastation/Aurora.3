@@ -1,7 +1,7 @@
 /obj/item/cloaking_device
 	name = "cloaking device"
 	desc = "Use this to become invisible to the human eye. Contains a removable power cell behind a screwed compartment"
-	icon = 'icons/obj/item/device/chameleon.dmi'
+	icon = 'icons/obj/item/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
 	contained_sprite = TRUE
@@ -46,8 +46,8 @@
 	cell = new /obj/item/cell/high(src)
 
 /obj/item/cloaking_device/Destroy()
-	. = ..()
 	GLOB.cloaking_devices -= src
+	return ..()
 
 /obj/item/cloaking_device/equipped(var/mob/user, var/slot)
 	..()
@@ -144,7 +144,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("[src] already has a cell."))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))
@@ -181,12 +181,23 @@
 
 /datum/modifier/cloaking_device/deactivate()
 	..()
+	var/list/invalid_cloaking_devices
 	for (var/a in GLOB.cloaking_devices)//Check for any other cloaks
 		if (a != source)
+			if(!istype(a, /obj/item/cloaking_device))
+				LAZYADD(invalid_cloaking_devices, a)
+				continue
 			var/obj/item/cloaking_device/CD = a
+			if(QDELETED(CD))
+				LAZYADD(invalid_cloaking_devices, a)
+				continue
 			if (CD.get_holding_mob() == target)
 				if (CD.active)//If target is holding another active cloak then we wont remove their stealth
+					if(invalid_cloaking_devices)
+						GLOB.cloaking_devices -= invalid_cloaking_devices
 					return
+	if(invalid_cloaking_devices)
+		GLOB.cloaking_devices -= invalid_cloaking_devices
 	var/mob/living/L = target
 	L.cloaked = 0
 	L.mouse_opacity = MOUSE_OPACITY_ICON

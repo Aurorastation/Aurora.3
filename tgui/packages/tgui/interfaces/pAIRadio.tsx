@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, LabeledList, Section, Slider } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Slider } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type RadioData = {
@@ -15,8 +15,8 @@ type Channel = {
   listening: BooleanLike;
 };
 
-export const pAIRadio = (props, context) => {
-  const { act, data } = useBackend<RadioData>(context);
+export const pAIRadio = (props) => {
+  const { act, data } = useBackend<RadioData>();
 
   return (
     <NtosWindow resizable>
@@ -27,26 +27,26 @@ export const pAIRadio = (props, context) => {
               <Button
                 content={data.listening ? 'On' : 'Off'}
                 selected={data.listening}
-                onClick={() => act('talk', { nowindow: 1 })}
+                onClick={() => act('toggle_talk', { nowindow: 1 })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Frequency">
               <Button
                 content="--"
-                onClick={() => act('freq', { freq: -10, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: -10, nowindow: 1 })}
               />
               <Button
                 content="-"
-                onClick={() => act('freq', { freq: -2, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: -2, nowindow: 1 })}
               />
               {data.frequency}
               <Button
                 content="+"
-                onClick={() => act('freq', { freq: 2, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: 2, nowindow: 1 })}
               />
               <Button
                 content="++"
-                onClick={() => act('freq', { freq: 10, nowindow: 1 })}
+                onClick={() => act('set_freq', { freq: 10, nowindow: 1 })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Range">
@@ -54,9 +54,7 @@ export const pAIRadio = (props, context) => {
                 value={data.radio_range}
                 minValue={0}
                 maxValue={4}
-                onDrag={(e, value) =>
-                  act('radio_range', { radio_range: value })
-                }
+                onChange={(_, value) => act('radio_range', { radio_range: value })}
               />
             </LabeledList.Item>
           </LabeledList>
@@ -68,9 +66,8 @@ export const pAIRadio = (props, context) => {
                     content={channel.listening ? 'On' : 'Off'}
                     selected={channel.listening}
                     onClick={() =>
-                      act('ch_name', {
-                        ch_name: channel.name,
-                        listen: 1,
+                      act('toggle_listen', {
+                        channel_name: channel.name,
                         nowindow: 1,
                       })
                     }

@@ -18,6 +18,7 @@
 	var/received_by_id = null //Character ID of the person that received the items
 	var/paid_by = null //Person that has paid for the order
 	var/paid_by_id = null //Character ID of the Person that paid for the items
+	var/paying_account = null
 	var/time_submitted = null //Time the order has been sent to cargo
 	var/time_approved = null //Time the order has been approved by cargo
 	var/time_shipped = null //Time the order has been shipped to the station
@@ -42,9 +43,8 @@
 // Returns a list of all the objects in the order - Formatted as a list to be json_encoded
 /datum/cargo_order/proc/get_object_list()
 	var/list/object_list = list()
-	for (var/datum/cargo_order_item/coi in items)
-		for(var/atom/object in coi.ci.items)
-			object_list.Add(object.name)
+	for(var/item in get_item_list())
+		object_list.Add(item["name"])
 	return object_list
 
 // Gets a list of the order data - Formatted as list to be json_encoded
@@ -137,7 +137,7 @@
 	switch(type)
 		if(0)
 			//The price of the contents of the crate + the price for the crate + the handling fee + the shipment fee
-			return price + SScargo.get_cratefee() + SScargo.get_handlingfee() + get_shipment_cost()
+			return price + SScargo.get_cratefee() + SScargo.get_handlingfee_cost(price) + get_shipment_cost()
 		if(1)
 			//The price of the contents of the crate + the price of the crate + the shipment fee
 			return price + SScargo.get_cratefee() + get_shipment_cost()
@@ -227,14 +227,14 @@
 /datum/cargo_order/proc/get_payment_status(var/pretty=1)
 	if(pretty)
 		if(paid_by != null)
-			return "Paid by [paid_by]"
+			return "Paid by [paid_by] using [(paying_account == "Personal") ? "their personal" : "the [paying_account]"] account"
 		else
 			return "Unpaid"
 	else
 		if(paid_by != null)
-			return 1
+			return TRUE
 		else
-			return 0
+			return FALSE
 
 // Returns a Invoice for the Order
 /datum/cargo_order/proc/get_report_invoice()
@@ -253,7 +253,7 @@
 	if(time_shipped)
 		order_data += "<u>Shipped at:</u> [time_shipped]<br>"
 	if(received_by)
-		order_data += "<u>Received by:</u [received_by]><br>"
+		order_data += "<u>Received by:</u> [received_by]<br>"
 		order_data += "<u>Delivered at:</u> [time_delivered]<br>"
 	order_data += "<hr>"
 	order_data += "<u>Order ID:</u> [order_id]<br>"
@@ -273,10 +273,12 @@
 	order_data += "<u>Order Fees:</u><br>"
 	order_data += "<ul>"
 	for(var/item in get_item_list())
-		order_data += "<li>[item["name"]]: [item["price"]]</li>"
-	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]</li>"
-	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]</li>"
-	order_data += "<li>Shuttle Fee: [get_shipment_cost()]</li>"
+		order_data += "<li>[item["name"]]: [item["price"]]电</li>"
+	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]电</li>"
+	order_data += "<li>Handling Fee: [SScargo.get_handlingfee_cost(get_value(2))]电</li>"
+	var/supplier_fee = get_shipment_cost()
+	if(supplier_fee)
+		order_data += "<li>Supplier Fee: [supplier_fee]电</li>"
 	order_data += "</ul>"
 
 	return order_data.Join("")
@@ -325,7 +327,9 @@
 
 //Marks a order as rejected - Returns a status message
 /datum/cargo_order/proc/set_rejected()
-	if(status == "submitted")
+	if(status == "submitted" || status == "approved")
+		if(paid_by)
+			return "The order could not be rejected - Already Paid For"
 		status = "rejected"
 		time_approved = worldtime2text()
 		return "The order has been rejected"
@@ -338,7 +342,7 @@
 	time_shipped = worldtime2text()
 
 //Marks a order as delivered - Returns a status message
-/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id, var/paid=0)
+/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id)
 	if(user_id <= 0)
 		user_id = null
 	if(status == "shipped")
@@ -346,19 +350,18 @@
 		time_delivered = worldtime2text()
 		received_by = user_name
 		received_by_id = user_id
-		if(paid)
-			set_paid(user_name, user_id)
 		return "The order has been delivered"
 	else
 		return "The order could not be delivered - Invalid Status"
 
 //Mark a order as paid
-/datum/cargo_order/proc/set_paid(var/user_name, var/user_id)
+/datum/cargo_order/proc/set_paid(user_name, user_id, account_charged)
 	if(user_id <= 0)
 		user_id = null
 	time_paid = worldtime2text()
 	paid_by = user_name
 	paid_by_id = user_id
+	paying_account = account_charged
 	return "The order has been paid for"
 
 ///	A cargo order item. Part of a category. Specifies the item, the supplier and the price of the item
@@ -442,20 +445,21 @@
 
 	invoice_data += "<p>Shuttle Data</p>"
 	invoice_data += "<table>"
+	if(shuttle_fee)
+		invoice_data += "<tr>"
+		invoice_data += "<td>Supplier fee:</td>"
+		invoice_data += "<td>[shuttle_fee]</td>"
+		invoice_data += "</tr>"
 	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Fee::</td>"
-	invoice_data += "<td>[shuttle_fee]</td>"
-	invoice_data += "</tr>"
-	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Time:</td>"
+	invoice_data += "<td>Elevator Time:</td>"
 	invoice_data += "<td>[shuttle_time]</td>"
 	invoice_data += "</tr>"
 	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Called By:</td>"
+	invoice_data += "<td>Elevator Called By:</td>"
 	invoice_data += "<td>[shuttle_called_by]</td>"
 	invoice_data += "</tr>"
 	invoice_data += "<tr>"
-	invoice_data += "<td>Shuttle Recalled By:</td>"
+	invoice_data += "<td>Elevator Recalled By:</td>"
 	invoice_data += "<td>[shuttle_recalled_by]</td>"
 	invoice_data += "</tr>"
 	invoice_data += "</table>"

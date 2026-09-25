@@ -1,12 +1,12 @@
-/mob/abstract/ghost/observer/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
-	if (!message)
+/mob/abstract/ghost/observer/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+	if (!text)
 		return
 
-	log_say("Ghost/[src.key] : [message]")
+	log_say("Ghost/[src.key] : [text]")
 
 	if (src.client)
 		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
 			to_chat(src, SPAN_WARNING("You cannot talk in deadchat (muted)."))
 			return
 
-	. = src.say_dead(message)
+	. = src.say_dead(text)

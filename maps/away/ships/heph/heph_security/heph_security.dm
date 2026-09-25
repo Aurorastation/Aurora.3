@@ -89,7 +89,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/hephsec_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/hephsec_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Hephaestus Security Shuttle"
 
@@ -102,7 +102,6 @@
 	dock_target = "airlock_heph_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "hephsec_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/hephsec_shuttle

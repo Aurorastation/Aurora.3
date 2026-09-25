@@ -6,9 +6,9 @@
 	/// This variable generally controls whether a ghost has restrictions on where it can go or not (ex. if the ghost can bypass holy places).
 	var/has_ghost_restrictions = TRUE
 	/// If the ghost has antagHUD.
-	var/antagHUD = 0
+	var/antagHUD = FALSE
 	/// Necessary for seeing wires.
-	var/obj/item/device/multitool/ghost_multitool
+	var/obj/item/multitool/ghost_multitool
 	/// The POI we're orbiting.
 	var/orbiting_ref
 
@@ -22,6 +22,7 @@
 
 /mob/abstract/ghost/Destroy()
 	QDEL_NULL(ghost_multitool)
+	orbiting_ref = null
 	return ..()
 
 /mob/abstract/ghost/Topic(href, href_list)
@@ -132,13 +133,12 @@
 	set category = "Ghost"
 	set desc = "Follow and haunt a mob."
 
-	var/datum/tgui_module/follow_menu/GM = new /datum/tgui_module/follow_menu(usr)
-	GM.ui_interact(usr)
+	GLOB.follow_menu.ui_interact(src)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/ghost/proc/ManualFollow(var/atom/movable/target)
 	if(!target)
-		return
+		return FALSE
 
 	//Stops orbit if there's any; TG doesn't do this, but if you don't it breaks the orbiting reference
 	//if you are jumping from one mob to another, hence why we're doing it here
@@ -154,6 +154,7 @@
 
 	to_chat(src, SPAN_NOTICE("Now following \the <b>[target]</b>."))
 	update_sight()
+	return TRUE
 
 /mob/abstract/ghost/proc/update_sight()
 	//if they are on a restricted level, then set the ghost vision for them.
@@ -192,7 +193,7 @@
 
 	var/datum/gas_mixture/environment = loc.return_air()
 
-	var/pressure = environment.return_pressure()
+	var/pressure = XGM_PRESSURE(environment)
 	var/total_moles = environment.total_moles
 
 	to_chat(src, SPAN_NOTICE("<B>Results:</B>"))

@@ -5,8 +5,9 @@
 	prefix = "ships/dominia/dominian_unathi_privateer/"
 	suffix = "dominian_unathi_privateer.dmm"
 
-	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "dominian_unathi"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_unathi_shuttle)
@@ -90,10 +91,10 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/dominian_unathi_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/dominian_unathi_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Kazhkz Fighter"
-	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 
 /datum/shuttle/autodock/overmap/dominian_unathi_shuttle
 	name = "Kazhkz Fighter"
@@ -104,7 +105,6 @@
 	dock_target = "airlock_kazhkz_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_kazhkz"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar

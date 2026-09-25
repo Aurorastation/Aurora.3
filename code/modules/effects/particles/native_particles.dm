@@ -16,6 +16,21 @@
 	icon = 'icons/effects/native_particles.dmi'
 	icon_state = "cooking_smoke"
 
+/particles/door_destruction
+	name = "door destruction"
+	width = 256
+	height = 256
+	count = 150
+	spawning = 12
+	lifespan = 20
+	fade = 12
+	position = generator("box", list(-24, -8, 0), list(24, 16, 48))
+	gravity = list(0.5, 0)
+	friction = 0.2
+	drift = generator("sphere", 0, 1.5)
+	icon = 'icons/effects/native_particles.dmi'
+	icon_state = "cooking_smoke"
+
 /particles/bar_smoke
 	width = 256
 	height = 256
@@ -44,6 +59,14 @@
 	position = generator("box", list(-20, -16), list(20, -2), UNIFORM_RAND)
 	friction = 0.2
 	grow = 0.0015
+
+/particles/mist/back
+	name = "mist_back"
+	spawning = 7
+	position = generator("box", list(-20, -1), list(20, 20), UNIFORM_RAND)
+	lifespan = 6 SECONDS
+	fadein = 1.5 SECONDS
+
 
 /particles/heat
 	name = "heat"
@@ -82,3 +105,64 @@
 	layer = BELOW_TABLE_LAYER
 	alpha = 128
 
+/obj/particle_emitter
+	name = ""
+	anchored = TRUE
+	mouse_opacity = 0
+	appearance_flags = PIXEL_SCALE
+	var/particle_type = null
+
+/obj/particle_emitter/Initialize(mapload, time, _color)
+	. = ..()
+	if (particle_type)
+		particles = GLOB.all_particles[particle_type]
+
+	if (time > 0)
+		QDEL_IN(src, time)
+	color = _color
+
+// Future medium-quality heat effect
+/obj/particle_emitter/heat
+	particle_type = "heat"
+	render_target = HEAT_EFFECT_PLATE_RENDER_TARGET
+	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
+
+/obj/particle_emitter/door_destruction
+	particle_type = "door destruction"
+
+
+/obj/particle_emitter/heat/Initialize()
+	. = ..()
+	add_filter("heat_blur", 1, gauss_blur_filter(1))
+
+// High-quality heat effect
+/obj/particle_emitter/heat/high
+	particle_type = "high heat"
+
+
+// Medium/High-quality cold effect
+/obj/particle_emitter/mist
+	particle_type = "mist"
+	layer = FIRE_LAYER
+
+/obj/particle_emitter/mist/back
+	particle_type = "mist_back"
+	layer = BELOW_OBJ_LAYER
+
+
+/obj/particle_emitter/mist/back/gas
+	render_target = COLD_EFFECT_BACK_PLATE_RENDER_TARGET
+
+/obj/particle_emitter/mist/back/gas/Initialize(mapload, time, _color)
+	. = ..()
+	add_filter("cold_alpha", 1, alpha_mask_filter(render_source = COLD_EFFECT_PLATE_RENDER_TARGET, flags = MASK_INVERSE))
+
+//for cold gas effect
+/obj/particle_emitter/mist/gas
+	render_target = COLD_EFFECT_PLATE_RENDER_TARGET
+	var/obj/particle_emitter/mist/back/b = /obj/particle_emitter/mist/back/gas
+
+/obj/particle_emitter/mist/gas/Initialize(mapload, time, _color)
+	. = ..()
+	b = new b(null)
+	add_vis_contents(b)

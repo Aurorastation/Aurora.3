@@ -4,14 +4,7 @@
 
 /obj/item/organ/external/leg/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/leg/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Leg
 /obj/item/organ/external/leg/right/nymph
@@ -19,14 +12,7 @@
 
 /obj/item/organ/external/leg/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/leg/right/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Left Arm
 /obj/item/organ/external/arm/nymph
@@ -34,14 +20,7 @@
 
 /obj/item/organ/external/arm/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/arm/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Arm
 /obj/item/organ/external/arm/right/nymph
@@ -49,53 +28,38 @@
 
 /obj/item/organ/external/arm/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
-
-/obj/item/organ/external/arm/right/nymph/process()
-	..()
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.handle_nymph(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Left Hand
 /obj/item/organ/external/hand/nymph
 
 /obj/item/organ/external/hand/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Hand
 /obj/item/organ/external/hand/right/nymph
 
 /obj/item/organ/external/hand/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Left Foot
 /obj/item/organ/external/foot/nymph
 
 /obj/item/organ/external/foot/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 // Right Foot
 /obj/item/organ/external/foot/right/nymph
 
 /obj/item/organ/external/foot/right/nymph/Initialize()
 	. = ..()
-	AddComponent(/datum/component/nymph_limb)
-	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
-	N.setup_limb(src)
+	AddComponent(/datum/component/nymph_limb, src)
 
 /datum/component/nymph_limb
-	var/list/valid_species = list(SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	var/list/valid_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	var/list/valid_organs_to_replace = list(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND, BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)
 	// Main limb where the Nymph mob lives
 	var/list/nymph_limb_types = list(
@@ -120,7 +84,52 @@
 		BP_R_FOOT = /obj/item/organ/external/foot/right/nymph
 	)
 
-/datum/component/nymph_limb/proc/setup_limb(var/obj/item/organ/external/E)
+	/// Typecasted owner of the component as an external limb.
+	var/obj/item/organ/external/limb
+
+/datum/component/nymph_limb/Initialize(obj/item/organ/external/E)
+	. = ..()
+	if(istype(parent, /mob/living/carbon/alien/diona))
+		return
+
+	if(!istype(E))
+		return COMPONENT_INCOMPATIBLE
+
+	setup_limb(E)
+	START_PROCESSING(SSprocessing, src)
+
+/datum/component/nymph_limb/process()
+	. = ..()
+	if (!limb)
+		qdel(src)
+		return PROCESS_KILL
+
+	var/mob/living/carbon/alien/diona/limb_nymph = limb.nymph
+	if(!istype(limb_nymph) || !limb || !is_type_in_list(limb, nymph_limb_types))
+		qdel(src)
+		return PROCESS_KILL
+
+	if((!limb.owner || limb_nymph.stat == DEAD))
+		nymph_out(limb, limb_nymph)
+		return PROCESS_KILL
+
+	if(!limb.is_usable())
+		nymph_out(limb, limb_nymph, forced = TRUE)
+		return PROCESS_KILL
+
+	var/blood_volume = round(REAGENT_VOLUME(limb.owner.vessel, /singleton/reagent/blood))
+	if(!blood_volume)
+		nymph_out(limb, limb_nymph, forced = TRUE)
+		return PROCESS_KILL
+
+	if(REAGENT_DATA(limb.owner.vessel, /singleton/reagent/blood))
+		limb.owner.vessel.remove_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
+	if(blood_volume <= 0)
+		nymph_out(limb, limb_nymph, forced = TRUE)
+		return PROCESS_KILL
+
+/datum/component/nymph_limb/proc/setup_limb(obj/item/organ/external/E)
+	limb = E
 	if(is_type_in_list(E, nymph_limb_types))
 		E.nymph = new /mob/living/carbon/alien/diona
 
@@ -132,28 +141,6 @@
 		E.set_dna(new /datum/dna)
 
 	E.limb_flags &= ~(ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON)
-
-// Called by process()
-/datum/component/nymph_limb/proc/handle_nymph(var/obj/item/organ/external/E)
-	var/mob/living/carbon/alien/diona/limb_nymph = E.nymph
-	if(!istype(limb_nymph))
-		return FALSE
-	if(!E || !is_type_in_list(E, nymph_limb_types))
-		return FALSE
-	if((!E.owner || limb_nymph.stat == DEAD))
-		nymph_out(E, limb_nymph)
-		return FALSE
-
-	if(!E.is_usable())
-		nymph_out(E, limb_nymph, forced = TRUE)
-		return FALSE
-
-	var/blood_volume = round(REAGENT_VOLUME(E.owner.vessel, /singleton/reagent/blood))
-	if(blood_volume)
-		if(REAGENT_DATA(E.owner.vessel, /singleton/reagent/blood))
-			E.owner.vessel.remove_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len))
-	if(blood_volume <= 0)
-		nymph_out(E, limb_nymph, forced = TRUE)
 
 // Host detach
 /mob/living/carbon/human/proc/detach_nymph_limb()
@@ -226,6 +213,7 @@
 		return
 	if(!can_attach)
 		to_chat(src, span("warning", "You do not have the strength to attach to another host so soon."))
+		return
 
 	AddComponent(/datum/component/nymph_limb)
 	var/datum/component/nymph_limb/N = GetComponent(/datum/component/nymph_limb)
@@ -241,15 +229,17 @@
 		to_chat(src, span("warning", "There are no valid hosts to bond to."))
 		return FALSE
 
-	var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in mob_list
-	var/mob/living/carbon/human/target = choice
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Choose a host to bond to:", "Attach to Host", mob_list)
+	if(!target)
+		return
 	if(!Adjacent(target) || target.stat || !target.client)
 		return
 
 	// Find a location to bond to, on the host
 	var/list/valid_locations = list()
-	for(var/O in target.organs_by_name)
-		if(!target.organs_by_name[O] && (O in N.valid_organs_to_replace))
+	for(var/O in N.valid_organs_to_replace)
+		var/obj/item/organ/external/existing_limb = target.organs_by_name[O]
+		if(target.should_have_limb(O) && (!existing_limb || existing_limb.is_stump()))
 			valid_locations += O
 
 	var/limb_choice
@@ -269,6 +259,18 @@
 	var/obj/item/organ/external/new_nymph_limb = new limb_choice
 	if(!istype(new_nymph_limb))
 		return
+	if(new_nymph_limb.parent_organ)
+		var/obj/item/organ/external/parent_limb = target.organs_by_name[new_nymph_limb.parent_organ]
+		if(!parent_limb || parent_limb.is_stump())
+			to_chat(src, SPAN_WARNING("You cannot attach there because \the [new_nymph_limb.parent_organ] is missing!"))
+			qdel(new_nymph_limb)
+			return
+	var/obj/item/organ/external/attachment_slot = target.organs_by_name[new_nymph_limb.limb_name]
+	if(attachment_slot)
+		if(!attachment_slot.is_stump())
+			qdel(new_nymph_limb)
+			return
+		attachment_slot.removed()
 	new_nymph_limb.replaced(target)
 
 	if(new_nymph_limb.nymph_child)
@@ -294,6 +296,7 @@
 		return
 	if(!can_attach)
 		to_chat(usr, SPAN_WARNING("\The [src] does not have the strength to attach to another host so soon."))
+		return
 
 	var/mob/living/carbon/human/target = usr
 
@@ -308,8 +311,9 @@
 		return
 
 	var/list/valid_locations = list()
-	for(var/O in target.organs_by_name)
-		if(!target.organs_by_name[O] && (O in N.valid_organs_to_replace))
+	for(var/O in N.valid_organs_to_replace)
+		var/obj/item/organ/external/existing_limb = target.organs_by_name[O]
+		if(target.should_have_limb(O) && (!existing_limb || existing_limb.is_stump()))
 			valid_locations += O
 
 	var/limb_choice
@@ -330,9 +334,18 @@
 	if(!istype(new_nymph_limb))
 		return
 
-	if(new_nymph_limb.parent_organ && isnull(target.organs_by_name[new_nymph_limb.parent_organ]))
+	var/obj/item/organ/external/parent_limb = target.organs_by_name[new_nymph_limb.parent_organ]
+	if(new_nymph_limb.parent_organ && (!parent_limb || parent_limb.is_stump()))
 		to_chat(target, SPAN_NOTICE("You notice that you cannot attach the nymph there because \the [new_nymph_limb.parent_organ] is missing!"))
+		qdel(new_nymph_limb)
 		return
+
+	var/obj/item/organ/external/attachment_slot = target.organs_by_name[new_nymph_limb.limb_name]
+	if(attachment_slot)
+		if(!attachment_slot.is_stump())
+			qdel(new_nymph_limb)
+			return
+		attachment_slot.removed()
 
 	new_nymph_limb.replaced(target)
 

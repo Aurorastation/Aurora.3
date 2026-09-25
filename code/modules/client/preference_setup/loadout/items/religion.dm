@@ -6,57 +6,90 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	religion = RELIGION_TRINARY
 
 /datum/gear/religion/trinary/mask
-	display_name = "trinary perfection mask"
+	display_name = "trinary mask"
+	description = "A thin lace mask worn by Trinarist faithful while in sacred spaces."
 	path = /obj/item/clothing/mask/trinary_mask
 	slot = slot_wear_mask
 
 /datum/gear/religion/trinary/coif
-	display_name = "trinary perfection coif"
+	display_name = "trinary coif"
+	description = "Simple hair-covering headwear common among the faithful of Axiom, and its many monastic orders."
 	path = /obj/item/clothing/head/trinary
 	slot = slot_head
 
+/datum/gear/religion/trinary/coif/New()
+	..()
+	var/list/trinarycoif = list()
+	trinarycoif["trinarist coif, red trim"] = /obj/item/clothing/head/trinary
+	trinarycoif["trinarist coif, blue trim"] = /obj/item/clothing/head/trinary/blue_trim
+	trinarycoif["trinarist coif, blue"] = /obj/item/clothing/head/trinary/blue
+	trinarycoif["trinarist coif, black"] = /obj/item/clothing/head/trinary/black
+	trinarycoif["trinarist coif, green"] = /obj/item/clothing/head/trinary/green
+	trinarycoif["trinarist coif, habit"] = /obj/item/clothing/head/trinary/habit
+	gear_tweaks += new /datum/gear_tweak/path(trinarycoif)
+
 /datum/gear/religion/trinary/robe
-	display_name = "trinary perfection robes selection"
-	description = "A selection of robes worn by adherents of the Trinary Perfection."
-	path = /obj/item/clothing/suit/trinary_robes
+	display_name = "trinary robes selection"
+	description = "A selection of robes worn by the clergy of the Trinary Perfection, running down to the feet."
+	path = /obj/item/clothing/suit/storage/hooded/trinary_robes
 	slot = slot_wear_suit
 
 /datum/gear/religion/trinary/robe/New()
 	..()
 	var/list/trinaryrobe = list()
-	trinaryrobe["trinary perfection robes"] = /obj/item/clothing/suit/trinary_robes
-	trinaryrobe["trinary perfection habit"] = /obj/item/clothing/suit/trinary_robes/habit
-	trinaryrobe["templeist robes"] = /obj/item/clothing/suit/trinary_robes/templeist
+	trinaryrobe["trinary perfection robes"] = /obj/item/clothing/suit/storage/hooded/trinary_robes
+	trinaryrobe["trinary perfection habit"] = /obj/item/clothing/suit/storage/hooded/trinary_robes/habit
+	trinaryrobe["templeist robes"] = /obj/item/clothing/suit/storage/hooded/trinary_robes/templeist
 	gear_tweaks += new /datum/gear_tweak/path(trinaryrobe)
 
+/datum/gear/religion/trinary/tunic
+	display_name = "axiomite tunic selection"
+	description = "A selection of tunics worn by the people of Axiom, and their fellow interstellar Trinarists. An emulation of a clerical style."
+	path = /obj/item/clothing/under/dressshirt/axiom_tunic
+	slot = slot_w_uniform
+
+/datum/gear/religion/trinary/tunic/New()
+	..()
+	var/list/axiomtunic = list()
+	axiomtunic["axiomite tunic, red trim"] = /obj/item/clothing/under/dressshirt/axiom_tunic
+	axiomtunic["axiomite tunic, blue trim"] = /obj/item/clothing/under/dressshirt/axiom_tunic/blue_trim
+	axiomtunic["axiomite tunic, blue"] = /obj/item/clothing/under/dressshirt/axiom_tunic/blue
+	axiomtunic["axiomite tunic, black"] = /obj/item/clothing/under/dressshirt/axiom_tunic/black
+	axiomtunic["axiomite tunic, green"] = /obj/item/clothing/under/dressshirt/axiom_tunic/green
+	gear_tweaks += new /datum/gear_tweak/path(axiomtunic)
+
 /datum/gear/religion/trinary/cape
-	display_name = "trinary perfection cape selection"
+	display_name = "trinary cape selection"
 	description = "A selection of capes worn by adherents to the Trinary Perfection."
-	path = /obj/item/clothing/accessory/poncho/trinary
+	path = /obj/item/clothing/under/dressshirt/axiom_tunic
 	slot = slot_wear_suit
 
 /datum/gear/religion/trinary/cape/New()
 	..()
 	var/list/trinarycape = list()
 	trinarycape["trinary perfection cape"] = /obj/item/clothing/accessory/poncho/trinary
+	trinarycape["trinary perfection cape, blue"] = /obj/item/clothing/accessory/poncho/trinary/blue
 	trinarycape["trinary perfection shoulder cape"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape
+	trinarycape["trinary perfection shoulder cape, blue"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape/blue
 	trinarycape["trinary perfection pellegrina"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina
+	trinarycape["trinary perfection pellegrina, blue"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina/blue
 	gear_tweaks += new /datum/gear_tweak/path(trinarycape)
 
 /datum/gear/religion/trinary/badge
 	display_name = "trinary perfection brooch"
+	description = "A declaration of one's commitment to the coming Ascension."
 	path = /obj/item/clothing/accessory/badge/trinary
 	slot = slot_tie
 
 /datum/gear/religion/trinary/book
 	display_name = "The Order"
 	description = "The holy text of the Trinary Perfection."
-	path = /obj/item/device/versebook/trinary
+	path = /obj/item/versebook/trinary
 
 /datum/gear/religion/trinary/book/temple
 	display_name = "The Voice of Temple"
 	description = "A supplementary holy text belonging to the Lodge of Temple Architect, an order within the Trinary Perfection."
-	path = /obj/item/device/versebook/templeist
+	path = /obj/item/versebook/templeist
 
 /datum/gear/religion/rosary
 	display_name = "rosary"
@@ -157,6 +190,11 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/accessory/dominia/lyodii
 	culture_restriction = list(/singleton/origin_item/culture/dominia)
 
+/datum/gear/religion/dominia/accessory/caria
+	display_name = "carian tribunal necklace"
+	path = /obj/item/clothing/accessory/dominia/caria
+	culture_restriction = list(/singleton/origin_item/culture/dominia)
+
 /datum/gear/religion/dominia/accessory/tic
 	display_name = "retired tribunal investigator card selection"
 	description = "A selection of cards identifying the user as a retired tribunal investigator."
@@ -181,6 +219,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/under/dominia/priest/consular
 	slot = slot_w_uniform
 	allowed_roles = list("Consular Officer")
+	citizenship = CITIZENSHIP_DOMINIA
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
@@ -188,6 +227,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/head/beret/dominia/consular
 	slot = slot_head
 	allowed_roles = list("Consular Officer")
+	citizenship = CITIZENSHIP_DOMINIA
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
@@ -195,10 +235,11 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
+	citizenship = CITIZENSHIP_DOMINIA
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
-	path = /obj/item/device/versebook/tribunal
+	path = /obj/item/versebook/tribunal
 
 /datum/gear/religion/dominia/icon
 	display_name = "tribunal iconography"
@@ -228,7 +269,7 @@ ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 /datum/gear/religion/assunzione/scripture
 	display_name = "luceian scripture"
 	description = "A collection of texts belonging to Luceism, the dominant religion of Assunzione."
-	path = /obj/item/device/versebook/assunzione
+	path = /obj/item/versebook/assunzione
 
 /datum/gear/religion/assunzione/cloak
 	display_name = "assunzione cloak selection"
@@ -261,13 +302,13 @@ ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 
 /datum/gear/religion/assunzione/scripture
 	display_name = "luceian scripture"
-	path = /obj/item/device/versebook/assunzione
+	path = /obj/item/versebook/assunzione
 
 /datum/gear/religion/assunzione/scripture/New()
 	..()
 	var/list/book = list()
-	book["luceian book of scripture"] = /obj/item/device/versebook/assunzione
-	book["pocket luceian book of scripture"] = /obj/item/device/versebook/assunzione/pocket
+	book["luceian book of scripture"] = /obj/item/versebook/assunzione
+	book["pocket luceian book of scripture"] = /obj/item/versebook/assunzione/pocket
 	gear_tweaks += new /datum/gear_tweak/path(book)
 
 /datum/gear/religion/assunzione/orb

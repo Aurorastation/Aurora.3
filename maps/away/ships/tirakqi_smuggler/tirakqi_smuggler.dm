@@ -121,10 +121,10 @@
 	sizeclass = "Jloqup-class Cargo Transport"
 	shiptype = "All-environment cargo transport"
 
-/obj/machinery/computer/shuttle_control/explore/tirakqi_smuggler_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/tirakqi_smuggler_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Ti'Rakqi Shuttle"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
 /datum/shuttle/autodock/overmap/tirakqi_smuggler_shuttle
 	name = "Ti'Rakqi Shuttle"
@@ -135,7 +135,6 @@
 	landmark_transition = "nav_transit_tirakqi_smuggler_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tirakqi_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tirakqi_smuggler_shuttle/hangar
@@ -158,31 +157,31 @@
 
 
 // wall nav console
-/obj/machinery/computer/ship/navigation/wall
-	icon = 'icons/obj/modular_telescreen.dmi'
+/obj/structure/machinery/computer/ship/navigation/wall
+	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
 	icon_state = "telescreen"
 	icon_screen = "command"
 	density = FALSE
 
 // doors
-/obj/machinery/door/airlock/hatch/tirakqi
+/obj/structure/machinery/door/airlock/hatch/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
-/obj/machinery/door/airlock/glass/tirakqi
+/obj/structure/machinery/door/airlock/glass/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
-/obj/machinery/door/airlock/tirakqi
+/obj/structure/machinery/door/airlock/tirakqi
 	door_color = "#704470"
 	stripe_color = "#382972"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
-/obj/machinery/door/airlock/multi_tile/glass/tirakqi
+/obj/structure/machinery/door/airlock/multi_tile/glass/tirakqi
 	door_color = "#704470"
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 
 // walls for shuttle
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/cockpit
@@ -190,10 +189,6 @@
 
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main
 	color = "#4e4378"
-
-/turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main/fake
-	can_open = TRUE
-	color = "#5e4e9c"
 
 // floor for cosmozoan cage
 /turf/simulated/floor/holofloor/tirakqi_cosmocage

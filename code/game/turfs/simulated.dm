@@ -3,6 +3,8 @@
 	var/wet_type = 0
 	var/wet_amount = 0
 	var/image/wet_overlay = null
+	/// The armor of this object, turned into an armor component.
+	var/list/armor
 
 	var/thermite = 0
 	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
@@ -23,6 +25,23 @@
 	levelupdate(mapload)
 	if (!mapload)
 		updateVisibility(src)
+
+	if(maxhealth)
+		if(!health)
+			// Allows you to set dynamic health states on initialize.
+			health = maxhealth
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor)
+				break
+	else if(should_use_health)
+		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
+
+/turf/simulated/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < maxhealth)
+		. += get_damage_condition_hints(user, distance, is_adjacent)
 
 /turf/simulated/proc/update_dirt()
 	dirt = min(dirt+1, 101)

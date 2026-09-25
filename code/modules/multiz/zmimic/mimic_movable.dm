@@ -1,16 +1,17 @@
-/atom/movable
-	/// The mimic (if any) that's *directly* copying us.
-	var/tmp/atom/movable/openspace/mimic/bound_overlay
-	/// If TRUE, this atom is ignored by Z-Mimic.
-	var/z_flags
-
 /atom/movable/set_dir(ndir)
 	. = ..()
 	if (. && bound_overlay)
 		bound_overlay.set_dir(ndir)
 
 /atom/movable/update_above()
-	if (!bound_overlay || !isturf(loc))
+	if (!bound_overlay)
+		return
+
+	if (QDELETED(bound_overlay))
+		bound_overlay = null
+		return
+
+	if (!isturf(loc))
 		return
 
 	var/turf/T = loc
@@ -82,7 +83,7 @@
 	plane = OPEN_SPACE_PLANE_END
 	var/atom/movable/associated_atom
 	var/depth
-	var/queued = 0
+	var/queued = FALSE
 	var/destruction_timer
 	var/mimiced_type
 	var/original_z
@@ -99,6 +100,8 @@
 	if (associated_atom)
 		associated_atom.bound_overlay = null
 		associated_atom = null
+
+	queued = FALSE
 
 	if (destruction_timer)
 		deltimer(destruction_timer)
@@ -122,12 +125,12 @@
 			deltimer(destruction_timer)
 			destruction_timer = null
 	else if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 1, TIMER_STOPPABLE)
 
 // Called when the turf we're on is deleted/changed.
 /atom/movable/openspace/mimic/proc/owning_turf_changed()
 	if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 1, TIMER_STOPPABLE)
 
 // -- TURF PROXY --
 

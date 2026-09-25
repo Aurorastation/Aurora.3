@@ -27,6 +27,7 @@
 	. += ..()
 	. += "Drag a crate on to the shelf, to put it on it."
 	. += "Drag a crate from the shelf to the ground to remove it."
+	. += "A carried crate can be placed directly onto the shelf, and a shelved crate can be picked up with both hands free."
 
 /obj/structure/crate_shelf/Initialize(mapload)
 	. = ..()
@@ -61,8 +62,11 @@
 	return ..()
 
 /obj/structure/crate_shelf/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/package/carried_crate))
+		load_carried(attacking_item, user)
+		return
 	. = ..()
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		dismantle(attacking_item, user)
 
 /obj/structure/crate_shelf/dismantle(obj/item/W, mob/user)
@@ -104,6 +108,16 @@
 		shelf_contents[shelf_contents.Find(crate)] = null // Remove the reference to the crate from the list.
 		handle_visuals()
 
+/obj/structure/crate_shelf/proc/eject_trapped_mob(mob/living/user)
+	if(user.loc != src)
+		return FALSE
+	user.forceMove(get_turf(src))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] climbs down from \the [src]."),
+		SPAN_NOTICE("You climb down from \the [src].")
+	)
+	return TRUE
+
 
 /obj/structure/crate_shelf/proc/handle_visuals()
 	vis_contents = contents // It really do be that shrimple.
@@ -134,7 +148,33 @@
 	visible_message("\The [user] stops putting \the [crate] on \the [src].")
 	return FALSE // If the do_after() is interrupted, return FALSE!
 
+/obj/structure/crate_shelf/proc/load_carried(obj/item/package/carried_crate/carrier, mob/living/carbon/human/user)
+	if(!ishuman(user) || !user.Adjacent(src) || carrier.loc != user || !carrier.stored_crate)
+		return FALSE
+	var/next_free = LAZYFIND(shelf_contents, null)
+	if(!next_free)
+		to_chat(user, SPAN_NOTICE("The shelf is full."))
+		balloon_alert(user, "shelf full!")
+		return FALSE
+	var/obj/structure/closet/crate/crate = carrier.stored_crate
+	visible_message("\The [user] starts to put \the [crate] on \the [src].")
+	if(!do_after(user, use_delay, target = carrier) || carrier.loc != user || carrier.stored_crate != crate || !user.Adjacent(src))
+		visible_message("\The [user] stops putting \the [crate] on \the [src].")
+		return FALSE
+	if(shelf_contents[next_free] != null)
+		to_chat(user, SPAN_NOTICE("Something else was added to the shelf first."))
+		return FALSE
+	put_in(crate, next_free)
+	carrier.stored_crate = null
+	user.drop_from_inventory(carrier, src)
+	qdel(carrier)
+	visible_message("\The [user] puts \the [crate] on \the [src].")
+	return TRUE
+
 /obj/structure/crate_shelf/proc/put_in(obj/structure/closet/crate/crate, var/next_free)
+	if(ismob(crate.pulledby))
+		var/mob/puller = crate.pulledby
+		puller.stop_pulling()
 	LAZYSET(shelf_contents, next_free, crate)
 	crate.forceMove(src) // Insert the crate into the shelf.
 	crate.pixel_y = vertical_offset * (next_free - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.
@@ -162,3 +202,32 @@
 		return TRUE
 	visible_message("\The [user] stops unloading \the [crate] from \the [src].")
 	return FALSE  // If the do_after() is interrupted, return FALSE!
+
+/obj/structure/crate_shelf/proc/lift_to_hands(obj/structure/closet/crate/crate, mob/living/carbon/human/user)
+	if(!ishuman(user) || !user.Adjacent(src) || crate.loc != src || !LAZYFIND(shelf_contents, crate))
+		return FALSE
+	if(user.get_active_hand() || user.get_inactive_hand())
+		to_chat(user, SPAN_WARNING("You need both hands free to lift \the [crate]."))
+		return FALSE
+	if(user.get_lift_capacity() < crate.get_effective_mass())
+		to_chat(user, SPAN_WARNING("\The [crate] is too heavy for you to lift."))
+		return FALSE
+	visible_message("\The [user] starts lifting \the [crate] from \the [src].")
+	if(!do_after(user, use_delay, target = crate) || !user.Adjacent(src) || crate.loc != src || !LAZYFIND(shelf_contents, crate))
+		visible_message("\The [user] stops lifting \the [crate] from \the [src].")
+		return FALSE
+	if(user.get_active_hand() || user.get_inactive_hand() || user.get_lift_capacity() < crate.get_effective_mass())
+		return FALSE
+	shelf_contents[shelf_contents.Find(crate)] = null
+	crate.layer = initial(crate.layer)
+	crate.pixel_y = initial(crate.pixel_y)
+	var/obj/item/package/carried_crate/carrier = new(get_turf(user))
+	carrier.store_crate(crate)
+	if(!user.put_in_active_hand(carrier))
+		qdel(carrier)
+		handle_visuals()
+		return FALSE
+	carrier.wield(user)
+	handle_visuals()
+	visible_message("\The [user] lifts \the [crate] from \the [src].")
+	return TRUE

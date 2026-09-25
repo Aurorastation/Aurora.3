@@ -79,7 +79,7 @@
 
 	if(!body.diagnostics || !body.diagnostics.is_functional() || ((emp_damage>EMP_GUI_DISRUPT) && prob(emp_damage*2)))
 		if(!GLOB.mecha_damage_overlay_cache["critfail"])
-			GLOB.mecha_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_error")
+			GLOB.mecha_damage_overlay_cache["critfail"] = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="dam_error")
 		hud_health?.overlays |= GLOB.mecha_damage_overlay_cache["critfail"]
 		return
 
@@ -93,7 +93,7 @@
 			else
 				state = MC.damage_state
 		if(!GLOB.mecha_damage_overlay_cache["[part]-[state]"])
-			var/image/I = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_[part]")
+			var/image/I = image(icon='icons/hud/mecha/mecha_hud.dmi',icon_state="dam_[part]")
 			switch(state)
 				if(1)
 					I.color = "#00ff00"

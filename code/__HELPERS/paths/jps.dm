@@ -87,10 +87,10 @@
 	found_turfs = list()
 
 /datum/pathfind/jps/Destroy(force)
-	. = ..()
 	requester = null
 	end = null
 	open = null
+	return ..()
 
 /datum/pathfind/jps/start()
 	start = start || get_turf(requester)

@@ -135,13 +135,19 @@
 	name = "runechat plane master"
 	plane = RUNECHAT_PLANE
 	appearance_flags = PLANE_MASTER
-	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_NON_GAME
 
 /atom/movable/screen/plane_master/runechat/backdrop(mob/mymob)
 	. = ..()
 	remove_filter("AO")
 	add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
+
+//Holds balloon chat images, those little text bars that pop up for a second when you do some things. NOT runechat.
+/atom/movable/screen/plane_master/balloon_chat
+	name = "balloon chat plane master"
+	plane = BALLOON_CHAT_PLANE
+	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
+	render_relay_plane = RENDER_PLANE_NON_GAME
 
 /atom/movable/screen/plane_master/o_light_visual
 	name = "overlight light visual plane master"
@@ -175,10 +181,46 @@
 
 /atom/movable/screen/plane_master/displacement
 	name = "displacement plane"
+	blend_mode = BLEND_ADD
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = DISPLACEMENT_PLATE_RENDER_LAYER
 	render_target = DISPLACEMENT_PLATE_RENDER_TARGET
 	render_relay_plane = null
+
+/atom/movable/screen/plane_master/warp
+	name = "warp plane"
+	blend_mode = BLEND_ADD
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = WARP_EFFECT_PLANE
+	render_target = WARP_EFFECT_PLATE_RENDER_TARGET
+	render_relay_plane = null
+
+/atom/movable/screen/plane_master/heat
+	name = "heat haze plane"
+	blend_mode = BLEND_ADD
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = HEAT_EFFECT_PLANE
+	render_target = HEAT_EFFECT_COMPOSITE_RENDER_TARGET
+	render_relay_plane = null
+
+	var/gas_heat_object
+	//Not actually handled in this plane, we just use this to spawn the particle emitter so byond's rendering system will source it.
+	var/gas_cold_object
+
+/atom/movable/screen/plane_master/heat/Initialize()
+	. = ..()
+	setup()
+
+/atom/movable/screen/plane_master/heat/proc/setup()
+	//TODO: Add graphical options. If players don't like heat haze, replace particles with icons
+	if (gas_heat_object)
+		remove_vis_contents(gas_heat_object)
+	if (gas_cold_object)
+		remove_vis_contents(gas_cold_object)
+	gas_heat_object = new /obj/particle_emitter/heat/high
+	gas_cold_object = new /obj/particle_emitter/mist/gas
+	add_vis_contents(gas_heat_object)
+	add_vis_contents(gas_cold_object)
 
 /atom/movable/screen/plane_master/open_space
 	name = "open space plane"

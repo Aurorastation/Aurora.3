@@ -1,10 +1,10 @@
-/obj/machinery/computer/fusion/core_control
+/obj/structure/machinery/computer/fusion/core_control
 	name = "\improper INDRA fusion core control"
 	ui_template = "FusionCoreControl"
 
-/obj/machinery/computer/fusion/core_control/terminal
+/obj/structure/machinery/computer/fusion/core_control/terminal
 	name = "\improper INDRA fusion core control"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "solar_screen"
 	icon_keyboard = "id_key"
 	icon_keyboard_emis = "id_key_mask"
@@ -13,12 +13,12 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/structure/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	var/obj/machinery/power/fusion_core/C = locate(params["machine"])
+	var/obj/structure/machinery/power/fusion_core/C = locate(params["machine"])
 	if(!istype(C))
 		return
 
@@ -42,18 +42,18 @@
 			C.set_strength(params["strength"])
 			return TRUE
 
-/obj/machinery/computer/fusion/core_control/ui_data(mob/user)
+/obj/structure/machinery/computer/fusion/core_control/ui_data(mob/user)
 	var/list/data = ..()
 	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 
 	var/list/cores = list()
 	if(lan)
-		var/list/fusion_cores = lan.get_devices(/obj/machinery/power/fusion_core)
+		var/list/fusion_cores = lan.get_devices(/obj/structure/machinery/power/fusion_core)
 		for(var/i = 1 to LAZYLEN(fusion_cores))
 			var/list/core = list()
-			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
-			var/power_available = C.avail()
+			var/obj/structure/machinery/power/fusion_core/C = fusion_cores[i]
+			var/power_available = POWER_AVAIL(C)
 			var/power_usage = C.active_power_usage
 			var/power_generated = C.owned_field?.output_avg
 

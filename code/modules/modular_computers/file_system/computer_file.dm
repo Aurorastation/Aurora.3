@@ -5,6 +5,7 @@ GLOBAL_VAR_INIT(file_uid, 0)
 	var/filename = "NewFile"
 	/// File full names are [filename].[filetype] so like NewFile.XXX in this case
 	var/filetype = "XXX"
+	/// Description of the file, shown in file browser.
 	var/filedesc = null
 	/// File size in GQ. Integers only!
 	var/size = 1
@@ -28,7 +29,7 @@ GLOBAL_VAR_INIT(file_uid, 0)
 	if(!hard_drive)
 		return ..()
 
-	hard_drive.remove_file(src)
+	hard_drive.remove_file(src, TRUE)
 	// hard_drive.hard_drive is the computer that has drive installed. If we are Destroy()ing program that's currently running kill it.
 	if(hard_drive.parent_computer?.active_program == src)
 		hard_drive.parent_computer.kill_program(TRUE)
@@ -46,6 +47,8 @@ GLOBAL_VAR_INIT(file_uid, 0)
 		temp.filename = filename + "(Copy)"
 	else
 		temp.filename = filename
+	if(filedesc)
+		temp.filedesc = filedesc
 	temp.filetype = filetype
 	return temp
 

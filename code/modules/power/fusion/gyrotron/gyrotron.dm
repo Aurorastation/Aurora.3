@@ -1,4 +1,4 @@
-/obj/machinery/power/emitter/gyrotron
+/obj/structure/machinery/power/emitter/gyrotron
 	name = "gyrotron"
 	icon = 'icons/obj/machinery/fusion.dmi'
 	desc = "A heavy-duty, highly configurable industrial gyrotron suited for powering fusion reactors."
@@ -10,37 +10,37 @@
 	var/rate = 3
 	var/mega_energy = 1
 
-/obj/machinery/power/emitter/gyrotron/anchored
+/obj/structure/machinery/power/emitter/gyrotron/anchored
 	anchored = TRUE
 
-/obj/machinery/power/emitter/gyrotron/Initialize()
+/obj/structure/machinery/power/emitter/gyrotron/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	change_power_consumption(mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
 	. = ..()
 
-/obj/machinery/power/emitter/gyrotron/process()
+/obj/structure/machinery/power/emitter/gyrotron/process()
 	change_power_consumption(mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
 	. = ..()
 
-/obj/machinery/power/emitter/gyrotron/get_rand_burst_delay()
+/obj/structure/machinery/power/emitter/gyrotron/get_rand_burst_delay()
 	return rate * 10
 
-/obj/machinery/power/emitter/gyrotron/get_burst_delay()
+/obj/structure/machinery/power/emitter/gyrotron/get_burst_delay()
 	return rate * 10
 
-/obj/machinery/power/emitter/gyrotron/get_emitter_beam()
+/obj/structure/machinery/power/emitter/gyrotron/get_emitter_beam()
 	var/obj/projectile/beam/emitter/E = ..()
 	E.damage = mega_energy * 50
 	return E
 
-/obj/machinery/power/emitter/gyrotron/update_icon()
-	if (active && powernet && avail(active_power_usage))
+/obj/structure/machinery/power/emitter/gyrotron/update_icon()
+	if (active && powernet && POWER_AVAIL(src))
 		icon_state = "emitter-on"
 	else
 		icon_state = "emitter-off"
 
-/obj/machinery/power/emitter/gyrotron/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+/obj/structure/machinery/power/emitter/gyrotron/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return

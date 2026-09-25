@@ -66,14 +66,14 @@
 	belt_contents = list(
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/ammo_magazine/mc9mm = 2,
-						/obj/item/ammo_magazine/boltaction = 3,
+						/obj/item/ammo_magazine/a68 = 2,
 						/obj/item/melee/baton/stunrod = 1,
 						/obj/item/handcuffs = 1
 						)
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/silo_guard/get_id_access()
-	return list(ACCESS_PRA)
+	return list(/datum/access/pra::id)

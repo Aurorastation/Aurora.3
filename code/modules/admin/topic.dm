@@ -444,7 +444,7 @@
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the mode as [GLOB.master_mode]."), 1)
 		to_world(SPAN_NOTICE("<b>The mode is now: [GLOB.master_mode]</b>"))
 		Game() // updates the main game menu
-		SSpersistent_configuration.last_gamemode = GLOB.master_mode
+		SSregistry.setValue("last_gamemode", GLOB.master_mode)
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
@@ -833,7 +833,7 @@
 			dat += "Special Role Desc: [special_role_description]<br>"
 		dat += "(<a href='byond://?src=[REF(usr)];priv_msg=[REF(M)]'>PM</a>) (<A href='byond://?src=[REF(src)];adminplayeropts=[REF(M)]'>PP</A>) (<A href='byond://?_src_=vars;Vars=[REF(M)]'>VV</A>) (<A href='byond://?src=[REF(src)];subtlemessage=[REF(M)]'>SM</A>) ([admin_jump_link(M, src)]) (<A href='byond://?src=[REF(src)];secretsadmin=check_antagonist'>CA</A>)"
 
-		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info (M.name)", 450, 500)
+		var/datum/browser/extrainfo_win = new(usr, "extrainfo", "Extra Info", 450, 500)
 		extrainfo_win.set_content(dat)
 		extrainfo_win.open()
 
@@ -939,6 +939,9 @@
 		if(!(GLOB.all_languages[LANGUAGE_VAURCA] in H.languages))
 			to_chat(usr, "The person you are trying to contact is incapable of recieving Hivenet transmissions.")
 			return
+		if(is_lemurian_sea_sector())
+			to_chat(usr, "The Lemurian Sea prevents Hivenet transmissions.")
+			return
 		var/input = sanitize(input(src.owner, "Please enter a message to reply to [key_name(H)] via the Hivenet.", "Outgoing transmission from the Hive...", ""))
 		if(!input)	return
 		to_chat(src.owner, "You sent [input] to [H] via a secure Hivenet channel.")
@@ -952,7 +955,7 @@
 		if(!istype(H))
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
-		if(!istype(H.l_ear, /obj/item/device/radio/headset) && !istype(H.r_ear, /obj/item/device/radio/headset))
+		if(!istype(H.l_ear, /obj/item/radio/headset) && !istype(H.r_ear, /obj/item/radio/headset))
 			to_chat(usr, "The person you are trying to contact is not wearing a headset")
 			return
 
@@ -1004,7 +1007,7 @@
 
 		var/department = null
 		if (href_list["faxMachine"])
-			var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
+			var/obj/structure/machinery/photocopier/faxmachine/fax = locate(href_list["faxMachine"])
 			department = fax.department
 		else
 			department = input("Choose the target department.", "Target Department", null) in GLOB.alldepartments
@@ -1304,7 +1307,7 @@
 					WANTED.backup_author = src.admincaster_signature                  //Submitted by
 					WANTED.is_admin_message = 1
 					SSnews.wanted_issue = WANTED
-					for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
+					for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 						NEWSCASTER.newsAlert()
 						NEWSCASTER.update_icon()
 					src.admincaster_screen = 15
@@ -1320,7 +1323,7 @@
 		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
 		if(choice=="Confirm")
 			SSnews.wanted_issue = null
-			for(var/obj/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
+			for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
 				NEWSCASTER.update_icon()
 			src.admincaster_screen=17
 		src.access_news_network()
@@ -1482,6 +1485,21 @@
 
 			show_player_panel(M)
 
+	else if(href_list["setskill"])
+		if(check_rights(R_SPAWN))
+			var/mob/M = locate(href_list["setskill"])
+			var/singleton/skill/skill = GET_SINGLETON(text2path(href_list["skill"]))
+			var/skill_level = text2num(href_list["skill_level"])
+			if(!istype(M) || !istype(skill) || !(skill_level in skill.skill_level_descriptions))
+				return
+
+			var/datum/component/skill/skill_component = M.GetComponent(skill.component_type)
+			if(skill_component)
+				qdel(skill_component)
+			skill.on_spawn(M, skill_level)
+
+			show_player_panel(M)
+
 	// player info stuff
 
 	if(href_list["add_player_info"])
@@ -1544,8 +1562,9 @@
 	else if(href_list["notessearchckey"] || href_list["notessearchadmin"])
 		var/adminckey = href_list["notessearchadmin"]
 		var/playerckey = href_list["notessearchckey"]
+		var/page = text2num(href_list["notespage"])
 
-		show_notes_sql(playerckey, adminckey)
+		show_notes_sql(playerckey, adminckey, page)
 		return
 
 	else if(href_list["admin_wind_player"])
@@ -1590,7 +1609,7 @@
 	return 0
 
 /mob/living/carbon/human/can_centcom_reply()
-	return istype(l_ear, /obj/item/device/radio/headset) || istype(r_ear, /obj/item/device/radio/headset)
+	return istype(l_ear, /obj/item/radio/headset) || istype(r_ear, /obj/item/radio/headset)
 
 /mob/living/silicon/ai/can_centcom_reply()
 	return common_radio != null && !check_unable(2)

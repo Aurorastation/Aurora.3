@@ -1,8 +1,3 @@
-/mob
-	//thou shall always be able to see the Geometer of Blood
-	var/image/narsimage = null
-	var/image/narglow = null
-
 /mob/proc/cultify()
 	return
 

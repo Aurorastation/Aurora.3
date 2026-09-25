@@ -4,11 +4,11 @@
 		return ..()
 
 	if(status_flags & GODMODE)
-		health = maxHealth
+		health = maxhealth
 		set_stat(CONSCIOUS)
 		return
 
-	health = maxHealth - getBrainLoss()
+	health = maxhealth - getBrainLoss()
 
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
@@ -17,15 +17,15 @@
 			ChangeToSkeleton(FALSE)
 		else
 			var/fire_dmg = getFireLoss()
-			if(fire_dmg > maxHealth * 3)
+			if(fire_dmg > maxhealth * 3)
 				ChangeToSkeleton(FALSE)
-			else if(fire_dmg > maxHealth * 1.5)
+			else if(fire_dmg > maxhealth * 1.5)
 				ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 
 /mob/living/carbon/human/proc/get_total_health()
-	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
+	var/amount = maxhealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
 	return amount
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
@@ -44,7 +44,7 @@
 	if(should_have_organ(BP_BRAIN) && internal_organs_by_name)
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
-			sponge.damage = min(max(amount, 0),sponge.species.total_health)
+			sponge.set_damage(min(max(amount, 0),sponge.species.total_health))
 			updatehealth()
 
 /mob/living/carbon/human/getBrainLoss()
@@ -63,24 +63,25 @@
 			if(sponge.status & ORGAN_DEAD)
 				return sponge.species.total_health
 			else
-				return sponge.damage
+				return sponge.get_damage()
 		else
 			return species.total_health
 	return 0
 
+///This fetches the cumulative total pain from all organs.
 /mob/living/carbon/human/getHalLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
-		amount += E.get_pain()
+		amount += LIMB_GET_PAIN(E)
 	return amount
 
-//These procs fetch a cumulative total damage from all organs
+///These procs fetch a cumulative total damage from all organs
 /mob/living/carbon/human/getBruteLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
 			continue //robot limbs don't count towards shock and crit
-		amount += O.brute_dam
+		amount += LIMB_GET_BRUTE_DAMAGE(O)
 	return amount
 
 /mob/living/carbon/human/getFireLoss()
@@ -88,7 +89,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(BP_IS_ROBOTIC(O) && !O.vital)
 			continue //robot limbs don't count towards shock and crit
-		amount += O.burn_dam
+		amount += LIMB_GET_BURN_DAMAGE(O)
 	return amount
 
 /mob/living/carbon/human/adjustBruteLoss(var/amount)
@@ -124,6 +125,11 @@
 	..()
 
 /mob/living/carbon/human/update_canmove()
+	if(crawling_under_table)
+		if(get_crawlable_table() && mob_size < TABLE_CRAWL_MAX_MOB_SIZE)
+			resting = TRUE
+		else
+			stop_crawling_under_table()
 	var/old_lying = lying
 	. = ..()
 	if(lying && !old_lying && !resting && !buckled_to && isturf(loc)) // fell down
@@ -132,7 +138,7 @@
 /mob/living/carbon/human/getCloneLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
-		amount += E.get_genetic_damage()
+		amount += LIMB_GET_GENETIC_DAMAGE(E)
 	return amount
 
 /mob/living/carbon/human/setCloneLoss(var/amount)
@@ -164,7 +170,7 @@
 			breathe_organ = internal_organs_by_name[species.breathing_organ]
 
 		if(!breathe_organ)
-			return maxHealth/2
+			return maxhealth/2
 		return breathe_organ.get_oxygen_deprivation()
 
 /mob/living/carbon/human/setOxyLoss(var/amount)
@@ -222,6 +228,9 @@
 		if(kidneys)
 			pick_organs -= kidneys
 			pick_organs.Insert(1, kidneys)
+			if (!heal)
+				// Kindly inform the kidneys that there's going to be poison to remove. :)
+				START_PROCESSING(SSprocessing, kidneys)
 
 
 	var/obj/item/organ/internal/liver/liver = null
@@ -246,15 +255,16 @@
 			break
 		if(BP_IS_ROBOTIC(I))
 			continue //Chems won't help, you need surgery to fix robot organs
+		var/organ_damage = I.get_damage()
 		if(heal)
-			if(I.damage < amount)
-				amount -= I.damage
-				I.damage = 0
+			if(organ_damage < amount)
+				amount -= organ_damage
+				I.set_damage(0)
 			else
-				I.damage -= amount
+				I.add_damage(-amount)
 				amount = 0
 		else
-			var/cap_dam = I.max_damage - I.damage
+			var/cap_dam = I.max_damage - organ_damage
 			if(amount >= cap_dam)
 				I.take_internal_damage(cap_dam, silent=TRUE)
 				amount -= cap_dam
@@ -269,6 +279,8 @@
 		adjustToxLoss(getToxLoss()-amount)
 
 /mob/living/carbon/human/adjustHalLoss(var/amount)
+	if (!amount)
+		return
 	var/heal = (amount < 0)
 	amount = abs(amount)
 	var/list/pick_organs = organs.Copy()
@@ -279,10 +291,20 @@
 			continue
 
 		if(heal)
-			amount -= E.remove_pain(amount)
+			if(LIMB_GET_PAIN(E) > 0)
+				amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
+
+/mob/living/carbon/human/proc/can_autoheal(dam_type)
+	if(!species || !dam_type) return FALSE
+
+	if (dam_type == DAMAGE_BRUTE)
+		return(getBruteLoss() < species.total_health * species.autoheal_brute_ratio)
+	else if (dam_type == DAMAGE_BURN)
+		return(getFireLoss() < species.total_health * species.autoheal_burn_ratio)
+	return FALSE
 
 ////////////////////////////////////////////
 
@@ -292,7 +314,7 @@
 	for(var/obj/item/organ/external/O in organs)
 		if(!prosthetic && BP_IS_ROBOTIC(O))
 			continue
-		if((brute && O.brute_dam) || (burn && O.burn_dam))
+		if((brute && LIMB_GET_BRUTE_DAMAGE(O)) || (burn && LIMB_GET_BURN_DAMAGE(O)))
 			parts += O
 	return parts
 
@@ -324,12 +346,12 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 //Damages ONE external organ, organ gets randomly selected from damagable ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags)
+/mob/living/carbon/human/take_organ_damage(var/brute, var/burn, var/damage_flags, var/used_weapon = null, var/silent)
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
 	if(!parts.len)
 		return
 	var/obj/item/organ/external/picked = pick(parts)
-	if(picked.take_damage(brute, burn, damage_flags))
+	if(picked.take_damage(brute, burn, damage_flags, used_weapon, silent))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
 	updatehealth()
@@ -343,13 +365,13 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	while(parts.len && (brute>0 || burn>0) )
 		var/obj/item/organ/external/picked = pick(parts)
 
-		var/brute_was = picked.brute_dam
-		var/burn_was = picked.burn_dam
+		var/brute_was = LIMB_GET_BRUTE_DAMAGE(picked)
+		var/burn_was = LIMB_GET_BURN_DAMAGE(picked)
 
 		update |= picked.heal_damage(brute,burn)
 
-		brute -= (brute_was-picked.brute_dam)
-		burn -= (burn_was-picked.burn_dam)
+		brute -= (brute_was - LIMB_GET_BRUTE_DAMAGE(picked))
+		burn -= (burn_was - LIMB_GET_BURN_DAMAGE(picked))
 
 		parts -= picked
 	updatehealth()
@@ -362,16 +384,16 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	if(status_flags & GODMODE)
 		return	//godmode
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
-	var/update = 0
+	var/update
 	while(parts.len && (brute>0 || burn>0) )
 		var/obj/item/organ/external/picked = pick(parts)
 
-		var/brute_was = picked.brute_dam
-		var/burn_was = picked.burn_dam
+		var/brute_was = LIMB_GET_BRUTE_DAMAGE(picked)
+		var/burn_was = LIMB_GET_BURN_DAMAGE(picked)
 
-		update |= picked.take_damage(brute, burn, damage_flags, used_weapon)
-		brute	-= (picked.brute_dam - brute_was)
-		burn	-= (picked.burn_dam - burn_was)
+		update = picked.take_damage(brute, burn, damage_flags, used_weapon) ? TRUE : FALSE
+		brute	-= (LIMB_GET_BRUTE_DAMAGE(picked) - brute_was)
+		burn	-= (LIMB_GET_BURN_DAMAGE(picked) - burn_was)
 
 		parts -= picked
 	updatehealth()
@@ -395,7 +417,7 @@ This function restores the subjects blood to max.
 This function restores all organs.
 */
 /mob/living/carbon/human/restore_all_organs()
-	for(var/obj/item/organ/external/current_organ in organs)
+	for(var/obj/item/organ/current_organ in organs)
 		current_organ.rejuvenate()
 
 /mob/living/carbon/human/proc/HealDamage(zone, brute, burn)
@@ -436,13 +458,23 @@ This function restores all organs.
 	if(zone_to_get in organs_by_name)
 		return organs_by_name[zone_to_get]
 
-/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE, check_armor)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, SPAN_DANGER("You are now visible."))
 			set_invisibility(0)
 
-	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : (isnull(def_zone) ? get_organ(BP_CHEST) : get_organ(def_zone))
+	var/obj/item/organ/external/organ
+	if(isorgan(def_zone))
+		organ = def_zone
+	else if(isnull(def_zone))
+		if(damage_flags & DAMAGE_FLAG_DISPERSED)
+			organ = null
+		else
+			organ = get_organ(BP_CHEST) //Default to the chest if there is no zone, and its not dispersed damage.
+	else
+		organ = get_organ(def_zone)
+
 	if(!organ)
 		if(!def_zone)
 			if(damage_flags & DAMAGE_FLAG_DISPERSED)
@@ -459,14 +491,19 @@ This function restores all organs.
 			def_zone = ran_zone(def_zone)
 		organ = get_organ(check_zone(def_zone))
 
+	if(damage_flags & DAMAGE_FLAG_IGNORE_PROSTHETICS)
+		if(BP_IS_ROBOTIC(organ))
+			return FALSE
+
 	//Handle other types of damage
 	if(!(damagetype in list(DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_PAIN, DAMAGE_CLONE)))
-		if(!stat && damagetype == DAMAGE_PAIN)
-			if((damage > 25) || (damage > 50))
-				force_say()
-				if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
-					emote("scream")
 		return ..()
+
+	if(!stat && damagetype == DAMAGE_PAIN)
+		if((damage > 25))
+			force_say()
+		if((damage > 25 && prob(20) || (damage > 50 && prob(60))))
+			emote("scream")
 
 	if(!organ)
 		return FALSE
@@ -486,18 +523,19 @@ This function restores all organs.
 			if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
 				make_adrenaline(round(damage/10))
 
+	var/datum/wound/created_wound
 	switch(damagetype)
 		if(DAMAGE_BRUTE)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.brute_mod
-			organ.take_damage(damage, 0, damage_flags, used_weapon)
+			created_wound = organ.take_damage(damage, 0, damage_flags, used_weapon)
 			UpdateDamageIcon()
 		if(DAMAGE_BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
-			organ.take_damage(0, damage, damage_flags, used_weapon)
+			created_wound = organ.take_damage(0, damage, damage_flags, used_weapon)
 			UpdateDamageIcon()
 		if(DAMAGE_PAIN)
 			organ.add_pain(damage)
@@ -507,7 +545,7 @@ This function restores all organs.
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
 	updatehealth()
 	BITSET(hud_updateflag, HEALTH_HUD)
-	return TRUE
+	return created_wound ? created_wound : TRUE
 
 /mob/living/carbon/human/apply_radiation(var/rads)
 	if(species && rads > 0)

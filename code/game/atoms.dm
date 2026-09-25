@@ -543,6 +543,18 @@
 				if(src.z == H.z && get_dist(src, H) <= range)
 					H.intent_listen(src, message)
 
+/proc/get_intent_listeners(var/atom/source, var/range = 7, var/list/hearers = list())
+	SHOULD_NOT_SLEEP(TRUE)
+	var/list/listeners = list()
+	if(air_sound(source))
+		if(!length(hearers))
+			hearers = get_hearers_in_view(range, source)
+		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
+			if((H in hearers))
+				if(source.z == H.z && get_dist(source, H) <= range)
+					listeners += H
+	return listeners
+
 /atom/movable/proc/dropInto(var/atom/destination)
 	while(istype(destination))
 		var/atom/drop_destination = destination.onDropInto(src)
@@ -583,7 +595,7 @@
 
 /atom/proc/check_add_to_late_firers()
 	if(SSticker.current_state == GAME_STATE_PLAYING)
-		do_late_fire()
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, do_late_fire))
 		return
 	LAZYADD(SSmisc_late.late_misc_firers, src)
 
@@ -633,6 +645,7 @@
 	// we limit to to 2 overlays, so 3 holes, to prevent decals from lagging the game
 	else if(length(bullet_mark.overlays) < 2)
 		var/image/bullet_overlay = image(bullet_mark.icon, icon_state = bullet_mark_icon_state, dir = bullet_mark_dir, pixel_x = p_x - bullet_mark.pixel_x, pixel_y = p_y - bullet_mark.pixel_y)
+		bullet_overlay.appearance_flags |= RESET_COLOR
 		bullet_mark.AddOverlays(bullet_overlay)
 
 /atom/proc/clear_bulletholes()

@@ -49,7 +49,7 @@
 				AM.throw_at(sweeptarget, ((clamp((1 - (clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
 	A.visible_message(SPAN_WARNING("[A] pounds [D] on the chest!"))
 	playsound(get_turf(A), "punch", 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
@@ -60,7 +60,7 @@
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	A.visible_message(SPAN_WARNING("[A] karate chops [D]'s neck!"))
-	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
+	playsound(get_turf(A), SFX_PUNCH, 50, 1, -1)
 	D.apply_damage(5, DAMAGE_BRUTE)
 	D.silent += 30
 	return 1
@@ -75,17 +75,21 @@
 	if(check_streak(A,D))
 		return 1
 	add_logs(A, D, "punched")
-	A.do_attack_animation(D)
+
 	var/picked_hit_type = pick("punched", "kicked")
+	var/attack_animation = ATTACK_EFFECT_PUNCH
+	if(picked_hit_type == "kicked")
+		attack_animation = ATTACK_EFFECT_KICK
+	A.do_attack_animation(D, attack_animation)
 	var/bonus_damage = 10
 	if(D.weakened || D.resting || D.lying)
 		bonus_damage += 5
-		picked_hit_type = "stomped on"
+		picked_hit_type = "stomped"
 	D.apply_damage(bonus_damage, DAMAGE_BRUTE)
 	if(picked_hit_type == "kicked" || picked_hit_type == "stomped")
-		playsound(get_turf(D), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
+		playsound(get_turf(D), SFX_SWING_HIT, 50, 1, -1)
 	else
-		playsound(get_turf(D), /singleton/sound_category/punch_sound, 50, 1, -1)
+		playsound(get_turf(D), SFX_PUNCH, 50, 1, -1)
 
 	A.visible_message(SPAN_DANGER("[A] [picked_hit_type] [D]!"))
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>"
@@ -96,7 +100,7 @@
 
 /datum/martial_art/sol_combat/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	add_to_streak("D",D)
-	A.do_attack_animation(D)
+	A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
 	if(check_streak(A,D))
 		return 1
 
@@ -113,7 +117,7 @@
 			A.put_in_hands(I)
 	else
 		A.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"))
-		playsound(D, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+		playsound(D, SFX_PUNCH_MISS, 25, 1, -1)
 	return 1
 
 /datum/martial_art/sol_combat/proc/sol_combat_help()

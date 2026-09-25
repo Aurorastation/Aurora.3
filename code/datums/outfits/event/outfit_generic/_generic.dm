@@ -25,7 +25,7 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white,
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 		/obj/item/clothing/suit/storage/toggle/highvis,
-		/obj/item/clothing/suit/storage/toggle/highvis_alt,
+		/obj/item/clothing/suit/storage/toggle/highvis/alt,
 		/obj/item/clothing/suit/storage/toggle/track,
 		/obj/item/clothing/suit/storage/toggle/track/blue,
 		/obj/item/clothing/suit/storage/toggle/trench/colorable/random,
@@ -60,6 +60,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,

@@ -229,7 +229,7 @@
 	description = "Needed equipment to extract sweet liquid gold."
 	price = 80
 	items = list(
-		/obj/machinery/honey_extractor
+		/obj/structure/machinery/honey_extractor
 	)
 	access = 0
 	container_type = "box"
@@ -243,7 +243,7 @@
 	description = "A safe space to raise your plants."
 	price = 100
 	items = list(
-		/obj/machinery/portable_atmospherics/hydroponics
+		/obj/structure/machinery/portable_atmospherics/hydroponics
 	)
 	access = 0
 	container_type = "crate"
@@ -313,7 +313,7 @@
 	description = "A hand-held environmental scanner which reports current gas levels."
 	price = 70
 	items = list(
-		/obj/item/device/analyzer/plant_analyzer
+		/obj/item/analyzer/plant_analyzer
 	)
 	access = 0
 	container_type = "crate"
@@ -357,7 +357,7 @@
 	items = list(
 		/obj/item/seeds/libertymycelium
 	)
-	access = ACCESS_HYDROPONICS
+	access = /datum/access/hydroponics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -371,7 +371,7 @@
 	items = list(
 		/obj/item/seeds/reishimycelium
 	)
-	access = ACCESS_HYDROPONICS
+	access = /datum/access/hydroponics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -385,7 +385,7 @@
 	items = list(
 		/obj/item/seeds/wulumunushaseed
 	)
-	access = ACCESS_HYDROPONICS
+	access = /datum/access/hydroponics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

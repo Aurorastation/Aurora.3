@@ -7,6 +7,7 @@
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tarwa_shuttle)
 	id = "tarwa_conglomerate"
@@ -94,7 +95,7 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/tarwa_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/tarwa_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Tarwa Conglomerate Shuttle"
 
@@ -107,7 +108,6 @@
 	dock_target = "airlock_tarwa_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tarwa"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tarwa_shuttle/hangar

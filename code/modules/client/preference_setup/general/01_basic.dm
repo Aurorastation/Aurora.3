@@ -14,6 +14,7 @@
 	S["floating_chat_color"] >> pref.floating_chat_color
 	S["speech_bubble_type"] >> pref.speech_bubble_type
 	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
+		S["ipc_custom_model"] >> pref.machine_custom_model
 		S["ipc_tag_status"] >> pref.machine_tag_status
 		S["ipc_serial_number"] >> pref.machine_serial_number
 		S["ipc_ownership_status"] >> pref.machine_ownership_status
@@ -32,6 +33,7 @@
 	S["floating_chat_color"] << pref.floating_chat_color
 	S["speech_bubble_type"] << pref.speech_bubble_type
 	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
+		S["ipc_custom_model"] << pref.machine_custom_model
 		S["ipc_tag_status"] << pref.machine_tag_status
 		S["ipc_serial_number"] << pref.machine_serial_number
 		S["ipc_ownership_status"] << pref.machine_ownership_status
@@ -59,6 +61,7 @@
 		),
 		"ss13_characters_ipc_tags" = list(
 			"vars" = list(
+				"custom_model" = "machine_custom_model",
 				"tag_status" = "machine_tag_status",
 				"serial_number" = "machine_serial_number",
 				"ownership_status" = "machine_ownership_status",
@@ -93,6 +96,7 @@
 			"ckey" = 1
 		),
 		"ss13_characters_ipc_tags" = list(
+			"custom_model",
 			"tag_status",
 			"serial_number",
 			"ownership_status",
@@ -111,6 +115,7 @@
 		"spawnpoint" = pref.spawnpoint,
 		"species" = pref.species,
 		"height" = pref.height,
+		"custom_model" = pref.machine_custom_model,
 		"tag_status" = pref.machine_tag_status,
 		"serial_number" = pref.machine_serial_number,
 		"ownership_status" = pref.machine_ownership_status,
@@ -161,6 +166,7 @@
 	if(!pref.real_name)
 		pref.real_name      = random_name(pref.gender, pref.species)
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
+	pref.machine_custom_model = sanitize(pref.machine_custom_model)
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 	pref.hidden_shell_status = text2num(pref.hidden_shell_status) // this too
 	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
@@ -171,47 +177,67 @@
 		else
 			pref.speech_bubble_type = "normal"
 
-/datum/category_item/player_setup_item/general/basic/content(var/mob/user)
-	var/list/dat = list("<b>Name:</b> ")
-	if (pref.can_edit_name)
-		dat += "<a href='byond://?src=[REF(src)];rename=1'><b>[pref.real_name]</b></a><br>"
-	else
-		dat += "<b>[pref.real_name]</b><br> (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)"
-	if (pref.can_edit_name)
-		dat += "(<a href='byond://?src=[REF(src)];random_name=1'>Random Name</A>)"
-	dat += "<br>"
-	dat += "<b>Sex:</b> <a href='byond://?src=[REF(src)];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
+/datum/category_item/player_setup_item/general/basic/ui_data(var/mob/user)
 	var/datum/species/S = GLOB.all_species[pref.species]
+	var/list/fields = list()
+	var/list/name_actions = list()
+	if(pref.can_edit_name)
+		name_actions += list(list("label" = "Randomize", "action" = "random_name", "icon" = "dice"))
+	else
+		name_actions += list(list("label" = "Why locked?", "action" = "namehelp", "icon" = "question"))
+	fields += list(list(
+		"label" = "Name",
+		"value" = pref.real_name,
+		"action" = pref.can_edit_name ? "rename" : null,
+		"actions" = name_actions
+	))
+	fields += list(list("label" = "Sex", "value" = capitalize(lowertext(pref.gender)), "action" = "gender"))
 	if(length(S.selectable_pronouns))
-		dat += "<b>Pronouns:</b> <a href='byond://?src=[REF(src)];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
-	dat += "<b>Age:</b> <a href='byond://?src=[REF(src)];age=1'>[pref.age]</a><br>"
-	dat += "<b>Height:</b> <a href='byond://?src=[REF(src)];height=1'>[pref.height]</a><br>"
-	dat += "<b>Spawn Point</b>: <a href='byond://?src=[REF(src)];spawnpoint=1'>[pref.spawnpoint]</a><br>"
-	dat += "<b>Floating Chat Color:</b> <a href='byond://?src=[REF(src)];select_floating_chat_color=1'><b>[pref.floating_chat_color]</b></a><br>"
-	dat += "<b>Speech Bubble Type:</b> <a href='byond://?src=[REF(src)];speech_bubble_type=1'><b>[capitalize_first_letters(pref.speech_bubble_type)]</b></a><br>"
+		fields += list(list("label" = "Pronouns", "value" = capitalize_first_letters(pref.pronouns), "action" = "pronouns"))
+	fields += list(list("label" = "Age", "value" = pref.age, "action" = "age"))
+	fields += list(list("label" = "Height", "value" = pref.height, "action" = "height"))
+	fields += list(list("label" = "Spawn Point", "value" = pref.spawnpoint, "action" = "spawnpoint"))
+	fields += list(list("label" = "Floating Chat Color", "value" = pref.floating_chat_color, "color" = pref.floating_chat_color, "action" = "select_floating_chat_color"))
+	fields += list(list("label" = "Speech Bubble Type", "value" = capitalize_first_letters(pref.speech_bubble_type), "action" = "speech_bubble_type"))
 	if(istype(S, /datum/species/machine))
-		if(pref.can_edit_ipc_tag)
-			dat += "<b>Has Tag:</b> <a href='byond://?src=[REF(src)];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
-		else
-			dat += "<b>Has Tag:</b> [pref.machine_tag_status ? "Yes" : "No"] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
+		fields += list(list("label" = "Custom Model", "value" = pref.machine_custom_model ? pref.machine_custom_model : "Not set", "action" = "custom_model"))
+		fields += list(list(
+			"label" = "Has Tag",
+			"value" = pref.machine_tag_status ? "Yes" : "No",
+			"action" = pref.can_edit_ipc_tag ? "ipc_tag" : null,
+			"actions" = pref.can_edit_ipc_tag ? list() : list(list("label" = "Why locked?", "action" = "namehelp", "icon" = "question"))
+		))
 		if(pref.machine_tag_status)
 			if(!pref.machine_serial_number)
 				var/generated_serial = uppertext(dd_limittext(md5(pref.real_name), 12))
 				pref.machine_serial_number = generated_serial
-			if(pref.can_edit_ipc_tag)
-				dat += "<b>Serial Number:</b> <a href='byond://?src=[REF(src)];serial_number=1'>[pref.machine_serial_number]</a><br>"
-				dat += "(<a href='byond://?src=[REF(src)];generate_serial=1'>Generate Serial Number</A>)<br>"
-				dat += "<b>Ownership Status:</b> <a href='byond://?src=[REF(src)];ownership_status=1'>[pref.machine_ownership_status]</a><br>"
-			else
-				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
-				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
+			fields += list(list(
+				"label" = "Serial Number",
+				"value" = pref.machine_serial_number,
+				"action" = pref.can_edit_ipc_tag ? "serial_number" : null,
+				"actions" = pref.can_edit_ipc_tag ? list(list("label" = "Generate", "action" = "generate_serial", "icon" = "rotate")) : list(list("label" = "Why locked?", "action" = "namehelp", "icon" = "question"))
+			))
+			fields += list(list(
+				"label" = "Ownership Status",
+				"value" = pref.machine_ownership_status,
+				"action" = pref.can_edit_ipc_tag ? "ownership_status" : null,
+				"actions" = pref.can_edit_ipc_tag ? list() : list(list("label" = "Why locked?", "action" = "namehelp", "icon" = "question"))
+			))
 		if(istype(S, /datum/species/machine/shell))
-			dat += "<b>Is Hidden Shell:</b> <a href='byond://?src=[REF(src)];hidden_status=1'>[pref.hidden_shell_status ? "Hidden" : "Not Hidden"]</a><br>"
+			fields += list(list("label" = "Shell Status", "value" = pref.hidden_shell_status ? "Hidden" : "Not Hidden", "action" = "hidden_status"))
 	if(GLOB.config.allow_Metadata)
-		dat += "<b>OOC Notes:</b> <a href='byond://?src=[REF(src)];metadata=1'> Edit </a>" \
-			+ "<a href='byond://?src=[REF(src)];clear_metadata=1'>Clear</a>" + "<br>"
-
-	. = dat.Join()
+		fields += list(list(
+			"label" = "OOC Notes",
+			"value" = "Edit notes",
+			"action" = "metadata",
+			"actions" = list(list("label" = "Clear", "action" = "clear_metadata", "color" = "bad", "icon" = "trash"))
+		))
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("fields" = fields))
+	)
 
 /datum/category_item/player_setup_item/general/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["rename"])
@@ -325,6 +351,12 @@
 		if(new_metadata && CanUseTopic(user))
 			pref.metadata = new_metadata
 		return TOPIC_REFRESH
+
+	else if(href_list["custom_model"]) // Same max length as tags
+		var/custom_model = tgui_input_text(user, "Enter a custom model that will display on examine. This is purely flavor.", "IPC Custom Model", default = pref.machine_custom_model, max_length = 20)
+		if(!isnull(custom_model) && CanUseTopic(user))
+			pref.machine_custom_model = sanitize(custom_model)
+			return TOPIC_REFRESH
 
 	else if(href_list["ipc_tag"])
 		if(!pref.can_edit_ipc_tag)

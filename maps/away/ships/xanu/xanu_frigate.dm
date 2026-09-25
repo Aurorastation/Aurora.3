@@ -98,7 +98,7 @@
 	designation = "[pick("Halberd", "Guisarme", "Ranseur", "Goedendag", "Bardiche", "Swordstaff", "Mancatcher")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/xanu_fighter
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/xanu_fighter
 	name = "fightercraft control console"
 	shuttle_tag = "Xanu Fighter"
 
@@ -111,7 +111,6 @@
 	landmark_transition = "xanufrigate_transit_b"
 	range = 1
 	fuel_consumption = 1
-	logging_home_tag = "xanufrigate_hangar"
 	defer_initialisation = TRUE
 
 //Boarder
@@ -139,7 +138,7 @@
 	designation = "[pick("Phoebe", "Lark", "Siskin", "Grosbeak", "Cormorant", "Skua", "Gannet")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/xanu_boarder
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/xanu_boarder
 	name = "shuttle control console"
 	shuttle_tag = "Xanu Boarder"
 
@@ -152,5 +151,4 @@
 	landmark_transition = "xanufrigate_transit_a"
 	range = 1
 	fuel_consumption = 1
-	logging_home_tag = "xanufrigate_aft"
 	defer_initialisation = TRUE

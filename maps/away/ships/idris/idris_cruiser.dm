@@ -83,7 +83,7 @@
 	designation = "Idris Runabout"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/idris_cruiser_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Idris Runabout"
 
@@ -96,6 +96,5 @@
 	landmark_transition = "nav_idris_cruiser_transit"
 	range = 1
 	fuel_consumption = 1
-	logging_home_tag = "nav_idris_cruiser_stbd_aft"
 	defer_initialisation = TRUE
 

@@ -1,4 +1,4 @@
-/obj/machinery/appliance/cooker/grill
+/obj/structure/machinery/appliance/cooker/grill
 	name = "grill"
 	desc = "Backyard grilling, IN SPACE."
 	icon_state = "grill_off"
@@ -34,25 +34,25 @@
 
 	var/datum/looping_sound/grill/grill_loop
 
-/obj/machinery/appliance/cooker/grill/Initialize()
+/obj/structure/machinery/appliance/cooker/grill/Initialize()
 	. = ..()
 	grill_loop = new(src)
 
-/obj/machinery/appliance/cooker/grill/Destroy()
+/obj/structure/machinery/appliance/cooker/grill/Destroy()
 	QDEL_NULL(grill_loop)
 	. = ..()
 
-/obj/machinery/appliance/cooker/grill/RefreshParts()
+/obj/structure/machinery/appliance/cooker/grill/RefreshParts()
 	..()
 	cooking_coeff = 0.3 // we will always cook nice and slow
 
-/obj/machinery/appliance/cooker/grill/get_efficiency()
+/obj/structure/machinery/appliance/cooker/grill/get_efficiency()
 	return (temperature / optimal_temp) * 100
 
-/obj/machinery/appliance/cooker/grill/activation_message(var/mob/user)
+/obj/structure/machinery/appliance/cooker/grill/activation_message(var/mob/user)
 	user.visible_message("<b>[user]</b> [stat ? "turns off" : "fires up"] \the [src].", "You [stat ? "turn off" : "fire up"] \the [src].")
 
-/obj/machinery/appliance/cooker/grill/has_space(var/obj/item/I)
+/obj/structure/machinery/appliance/cooker/grill/has_space(var/obj/item/I)
 	if(istype(I, /obj/item/reagent_containers/cooking_container))
 		if(length(cooking_objs) < max_contents)
 			return TRUE
@@ -65,10 +65,10 @@
 	return FALSE
 
 /// Grills do not require power to work.
-/obj/machinery/appliance/cooker/grill/powered()
+/obj/structure/machinery/appliance/cooker/grill/powered()
 	return TRUE
 
-/obj/machinery/appliance/cooker/grill/proc/update_grilling_audio()
+/obj/structure/machinery/appliance/cooker/grill/proc/update_grilling_audio()
 	if(!grill_loop)
 		return
 	if(use_power)
@@ -76,7 +76,7 @@
 	else
 		grill_loop.stop()
 
-/obj/machinery/appliance/cooker/grill/update_icon()
+/obj/structure/machinery/appliance/cooker/grill/update_icon()
 	ClearOverlays()
 	update_grilling_audio()
 	if(!stat)
@@ -115,7 +115,7 @@
 				counter++
 	..()
 
-/obj/machinery/appliance/cooker/grill/stand
+/obj/structure/machinery/appliance/cooker/grill/stand
 	name = "grill stand"
 	icon_state = "grill_cart_off"
 	on_icon = "grill_cart_on"
@@ -123,6 +123,6 @@
 	desc = "A more commercialized version of your traditional grill. What happened to the good old days where people grilled with passion?"
 	use_power = POWER_USE_OFF
 
-/obj/machinery/appliance/cooker/grill/stand/update_icon()
+/obj/structure/machinery/appliance/cooker/grill/stand/update_icon()
 	..()
 	AddOverlays(image('icons/obj/machinery/cooking_machines.dmi', "front_bar"))

@@ -16,14 +16,14 @@
 	},
 /area/exoplanet)
 "rx" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/exoplanet)
 "DP" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
 	dir = 1
 	},

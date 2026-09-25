@@ -98,11 +98,11 @@
 	var/datum/can_pass_info/pass_info
 
 /datum/pathfind/Destroy(force)
-	. = ..()
 	SSpathfinder.active_pathing -= src
 	SSpathfinder.currentrun -= src
 	hand_back(null)
 	avoid = null
+	return ..()
 
 /**
  * "starts" off the pathfinding, by storing the values this datum will need to work later on
@@ -238,7 +238,7 @@
 		if(TURF_PATHING_PASS_NO)
 			return TRUE
 
-	var/static/list/directional_blocker_cache = typecacheof(list(/obj/structure/window, /obj/machinery/door/window, /obj/structure/railing))
+	var/static/list/directional_blocker_cache = typecacheof(list(/obj/structure/window, /obj/structure/machinery/door/window, /obj/structure/railing))
 	// Source border object checks
 	for(var/obj/border in src)
 		if(!directional_blocker_cache[border.type])

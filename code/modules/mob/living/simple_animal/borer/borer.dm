@@ -16,16 +16,17 @@
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH
-	attacktext = "nipped"
+	attacktext = "nips"
 	friendly = "prods"
 	wander = 0
-	maxHealth = 40
+	maxhealth = 40
 	health = 40
 	pass_flags = PASSTABLE
 	universal_understand = TRUE
 	holder_type = /obj/item/holder/borer
 	mob_size = 1
 	hunger_enabled = FALSE
+	mob_size = MOB_TINY
 
 	var/used_dominate
 	var/datum/progressbar/ability_bar
@@ -65,6 +66,7 @@
 		SSghostroles.add_spawn_atom("borer", src)
 	name = initial(name) + " ([number])"
 	real_name = name
+	src.LoadComponent(/datum/component/health_analyzer/borer)
 
 /mob/living/simple_animal/borer/Destroy()
 	QDEL_NULL(ability_bar)

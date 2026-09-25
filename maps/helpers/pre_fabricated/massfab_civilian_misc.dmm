@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ad" = (
 /obj/random/pottedplant,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/carpet/brown,
@@ -13,7 +13,7 @@
 /obj/item/clothing/shoes/sneakers/black{
 	pixel_y = -9
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = 7;
 	pixel_y = -19
 	},
@@ -28,7 +28,7 @@
 	dir = 1;
 	pixel_y = -1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -38,11 +38,11 @@
 	dir = 4;
 	maxhealth = 140
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -52,7 +52,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/space)
 "bk" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -7;
 	pixel_y = -19
 	},
@@ -104,18 +104,18 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/recharge_station,
-/obj/machinery/light/small{
+/obj/structure/machinery/recharge_station,
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "cf" = (
-/obj/machinery/door/airlock/service,
+/obj/structure/machinery/door/airlock/service,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "cg" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4;
 	must_start_working = 1;
 	pixel_x = 19
@@ -129,7 +129,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "cl" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -139,7 +139,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/space)
 "cq" = (
-/obj/machinery/door/airlock/freezer{
+/obj/structure/machinery/door/airlock/freezer{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -162,7 +162,7 @@
 /obj/random/soap,
 /obj/random/soap,
 /obj/random/soap,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -175,7 +175,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -188,8 +188,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/appliance/cooker/stove,
-/obj/machinery/light{
+/obj/structure/machinery/appliance/cooker/stove,
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -213,18 +213,18 @@
 /obj/effect/floor_decal/corner/mauve/diagonal{
 	dir = 4
 	},
-/obj/machinery/door/airlock/research,
+/obj/structure/machinery/door/airlock/research,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "eU" = (
 /turf/simulated/wall/wood,
 /area/space)
 "fo" = (
-/obj/machinery/door/urban/glass_sliding/double,
+/obj/structure/machinery/door/urban/glass_sliding/double,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "fD" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/carpet/brown,
@@ -234,11 +234,11 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1;
 	pixel_y = -8
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4;
 	must_start_working = 1;
 	pixel_x = 19
@@ -251,7 +251,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/space)
 "ge" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 4;
 	pixel_x = 21;
 	pixel_y = -5
@@ -263,7 +263,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -284,7 +284,7 @@
 	dir = 1;
 	pixel_y = -1
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
@@ -298,7 +298,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4;
 	must_start_working = 1;
 	pixel_x = 19
@@ -311,7 +311,7 @@
 	pixel_y = 2;
 	pixel_x = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1;
 	pixel_x = -18
@@ -320,7 +320,7 @@
 /area/space)
 "hp" = (
 /obj/random/pottedplant,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -334,7 +334,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 4;
 	pixel_x = 21;
 	pixel_y = -5
@@ -342,7 +342,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "hr" = (
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "Shower"
 	},
 /obj/effect/floor_decal/corner/black{
@@ -356,7 +356,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -366,7 +366,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "hQ" = (
-/obj/machinery/door/airlock/freezer,
+/obj/structure/machinery/door/airlock/freezer,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "ij" = (
@@ -385,7 +385,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/door/airlock/research{
+/obj/structure/machinery/door/airlock/research{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -414,7 +414,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "iJ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -424,7 +424,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/space)
 "iP" = (
-/obj/machinery/door/window/northright{
+/obj/structure/machinery/door/window/northright{
 	name = "Shower"
 	},
 /obj/effect/floor_decal/corner/black,
@@ -442,14 +442,14 @@
 /turf/simulated/floor/wood,
 /area/space)
 "jm" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 24
 	},
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced{
 	name = "adjusted reinforced window"
 	},
-/obj/machinery/door/window/southleft{
+/obj/structure/machinery/door/window/southleft{
 	name = "Shower";
 	dir = 4
 	},
@@ -467,11 +467,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -492,7 +492,7 @@
 	pixel_y = 2;
 	pixel_x = -5
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = 9;
 	pixel_y = -19
 	},
@@ -502,7 +502,7 @@
 /turf/simulated/floor/wood,
 /area/space)
 "kd" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -519,7 +519,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/wood,
@@ -590,7 +590,7 @@
 /area/space)
 "md" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -621,7 +621,7 @@
 /area/space)
 "nf" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -9;
 	pixel_y = 16
 	},
@@ -648,13 +648,13 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "nz" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -684,7 +684,7 @@
 /turf/simulated/floor/marble/dark,
 /area/space)
 "nW" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "oj" = (
@@ -728,8 +728,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/recharge_station,
-/obj/machinery/light/small{
+/obj/structure/machinery/recharge_station,
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -745,7 +745,7 @@
 	pixel_x = 3;
 	pixel_y = 5
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -763,7 +763,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 8;
 	pixel_x = -21;
 	pixel_y = 5
@@ -783,16 +783,16 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window/northright{
+/obj/structure/machinery/door/window/northright{
 	name = "Shower"
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/space)
 "rr" = (
-/obj/machinery/door/window/southright{
+/obj/structure/machinery/door/window/southright{
 	name = "Shower"
 	},
 /obj/effect/floor_decal/corner/black{
@@ -810,12 +810,12 @@
 	dir = 4;
 	maxhealth = 140
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1;
 	pixel_y = -8
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -835,12 +835,12 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/quikpay,
+/obj/item/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/wrench,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -869,7 +869,7 @@
 	pixel_x = 8
 	},
 /obj/item/pen/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -879,7 +879,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/space)
 "tb" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -920,7 +920,7 @@
 	pixel_x = 16;
 	pixel_y = 16
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -933,7 +933,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 4;
 	pixel_x = 21;
 	pixel_y = -5
@@ -977,7 +977,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "vp" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_x = -7;
 	pixel_y = 24
@@ -1047,7 +1047,7 @@
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -1061,7 +1061,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1095,13 +1095,13 @@
 /obj/random_produce,
 /obj/random_produce,
 /obj/random_produce,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/space)
 "yx" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/marble/dark,
 /area/space)
 "yA" = (
@@ -1111,17 +1111,17 @@
 /obj/item/clothing/shoes/sneakers/black{
 	pixel_y = -6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "yP" = (
-/obj/machinery/vending/snack,
+/obj/structure/machinery/vending/snack,
 /turf/simulated/floor/wood,
 /area/space)
 "zk" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_x = -7;
 	pixel_y = 24
@@ -1139,11 +1139,11 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "zK" = (
@@ -1165,7 +1165,7 @@
 	pixel_y = -1;
 	color = "4974a5"
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/steel,
@@ -1175,7 +1175,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Ae" = (
@@ -1185,7 +1185,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/space)
 "An" = (
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4;
 	name = "Bathroom"
 	},
@@ -1193,10 +1193,10 @@
 /area/space)
 "AH" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 4;
 	pixel_x = 21;
 	pixel_y = -5
@@ -1218,7 +1218,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "AR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1228,7 +1228,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/space)
 "Ba" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 4;
 	pixel_x = 21;
 	pixel_y = 7
@@ -1242,7 +1242,7 @@
 /obj/item/clothing/shoes/sneakers/black{
 	pixel_y = 5
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1272,7 +1272,7 @@
 	dir = 4;
 	maxhealth = 140
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain/open/shower,
@@ -1287,7 +1287,7 @@
 	dir = 8;
 	color = "4974a5"
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4;
 	must_start_working = 1;
 	pixel_x = 19
@@ -1303,7 +1303,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal{
 	dir = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -1321,7 +1321,7 @@
 	pixel_y = 3;
 	pixel_x = 4
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1;
 	pixel_x = -18
@@ -1333,7 +1333,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_x = 7;
 	pixel_y = 24
@@ -1346,7 +1346,7 @@
 	pixel_y = 4;
 	pixel_x = 2
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1;
 	pixel_x = -18
@@ -1362,14 +1362,14 @@
 	pixel_y = 16;
 	color = "4974a5"
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Di" = (
-/obj/machinery/vending/cigarette,
+/obj/structure/machinery/vending/cigarette,
 /turf/simulated/floor/wood,
 /area/space)
 "Dp" = (
@@ -1401,10 +1401,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "DM" = (
@@ -1415,7 +1415,7 @@
 /obj/structure/toilet{
 	pixel_y = 16
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -1433,7 +1433,7 @@
 /obj/structure/mirror{
 	pixel_x = 27
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1451,7 +1451,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1;
 	pixel_x = -18
@@ -1483,28 +1483,28 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/door/airlock/research,
+/obj/structure/machinery/door/airlock/research,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "ER" = (
 /turf/simulated/floor/marble/dark,
 /area/space)
 "Fj" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window/northright{
+/obj/structure/machinery/door/window/northright{
 	dir = 8;
 	name = "Shower"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/space)
 "Fv" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 8;
 	pixel_x = -21;
 	pixel_y = -7
@@ -1566,7 +1566,7 @@
 /area/space)
 "GX" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
+/obj/structure/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -9;
 	pixel_y = -2;
 	dir = 1
@@ -1597,7 +1597,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /obj/structure/toilet{
@@ -1617,7 +1617,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_x = -7;
 	pixel_y = 24
@@ -1638,7 +1638,7 @@
 	pixel_x = 3;
 	pixel_y = 5
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -1684,7 +1684,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/rack,
@@ -1742,7 +1742,7 @@
 /obj/item/clothing/shoes/sneakers/black{
 	pixel_y = 5
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_x = -7;
 	pixel_y = 24
@@ -1766,7 +1766,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/soymilk,
 /obj/item/reagent_containers/chem_disp_cartridge/toothpaste,
 /obj/item/reagent_containers/chem_disp_cartridge/watermelon,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -1780,7 +1780,7 @@
 /obj/structure/toilet{
 	pixel_y = 16
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -1799,7 +1799,7 @@
 /area/space)
 "Lm" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1827,18 +1827,18 @@
 /area/space)
 "LS" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_x = -17;
 	pixel_y = -3
 	},
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 2;
 	pixel_x = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/space)
 "My" = (
-/obj/machinery/door/window/northleft{
+/obj/structure/machinery/door/window/northleft{
 	name = "Shower"
 	},
 /obj/effect/floor_decal/corner/black,
@@ -1848,7 +1848,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "MT" = (
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/wood,
 /area/space)
 "Ns" = (
@@ -1857,7 +1857,7 @@
 	pixel_y = -1;
 	pixel_x = 3
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1;
 	pixel_x = -18
@@ -1866,7 +1866,7 @@
 /area/space)
 "Nt" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	pixel_x = -3;
 	pixel_y = 16
 	},
@@ -1874,7 +1874,7 @@
 /area/space)
 "Nw" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -1884,7 +1884,7 @@
 /turf/simulated/floor/wood,
 /area/space)
 "Nz" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 8;
 	pixel_x = -21;
 	pixel_y = 5
@@ -1897,7 +1897,7 @@
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/chem_disp_cartridge/ice,
 /obj/item/reagent_containers/chem_disp_cartridge/ice,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -1939,7 +1939,7 @@
 /area/space)
 "OA" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_alc/full{
+/obj/structure/machinery/chemical_dispenser/bar_alc/full{
 	pixel_x = -3;
 	pixel_y = -2;
 	dir = 1
@@ -1955,7 +1955,7 @@
 	dir = 4;
 	color = "4974a5"
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1;
 	pixel_x = -18
@@ -1999,7 +1999,7 @@
 /obj/structure/mirror{
 	pixel_x = -28
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2013,10 +2013,10 @@
 /area/space)
 "PK" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 8;
 	pixel_x = -21;
 	pixel_y = 5
@@ -2024,7 +2024,7 @@
 /turf/simulated/floor/wood,
 /area/space)
 "PR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 8;
@@ -2034,7 +2034,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/space)
 "PV" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -2052,7 +2052,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -2062,24 +2062,24 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "QG" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/wood,
 /area/space)
 "Rg" = (
-/obj/machinery/computer/slot_machine,
+/obj/structure/machinery/computer/slot_machine,
 /turf/simulated/floor/carpet/brown,
 /area/space)
 "Rr" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window/northright{
+/obj/structure/machinery/door/window/northright{
 	name = "Shower"
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -2095,14 +2095,14 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = -7;
 	pixel_y = -19
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "RK" = (
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = 9;
 	pixel_y = -19
 	},
@@ -2114,7 +2114,7 @@
 /obj/random_produce,
 /obj/random_produce,
 /obj/random_produce,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -2125,10 +2125,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8;
 	must_start_working = 1;
 	pixel_x = -18
@@ -2147,12 +2147,12 @@
 /turf/simulated/floor/wood,
 /area/space)
 "SN" = (
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/structure/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "Th" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
+/obj/structure/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_x = -17;
 	pixel_y = 16
 	},
@@ -2164,7 +2164,7 @@
 	pixel_y = 6;
 	pixel_x = 11
 	},
-/obj/machinery/reagentgrinder{
+/obj/structure/machinery/reagentgrinder{
 	pixel_y = 23;
 	pixel_x = 1
 	},
@@ -2184,7 +2184,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/soymilk,
 /obj/item/reagent_containers/chem_disp_cartridge/toothpaste,
 /obj/item/reagent_containers/chem_disp_cartridge/watermelon,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
@@ -2198,7 +2198,7 @@
 /area/space)
 "Tx" = (
 /obj/random/keg,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -2233,12 +2233,12 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/quikpay,
+/obj/item/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/beanbags,
 /obj/item/wrench,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -2248,7 +2248,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	pixel_y = 15
 	},
 /obj/structure/curtain/open/shower,
@@ -2259,7 +2259,7 @@
 	dir = 4;
 	maxhealth = 140
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1;
 	pixel_y = -8
 	},
@@ -2281,7 +2281,7 @@
 /obj/item/clothing/shoes/sneakers/black{
 	pixel_y = -9
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	pixel_x = 9;
 	pixel_y = -19
 	},
@@ -2300,7 +2300,7 @@
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -2325,7 +2325,7 @@
 /obj/random/soap,
 /obj/random/soap,
 /obj/random/soap,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 4;
@@ -2356,7 +2356,7 @@
 /area/space)
 "Wm" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/wood,
@@ -2374,7 +2374,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1;
 	pixel_y = 17
 	},
@@ -2388,7 +2388,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/door/airlock/security,
+/obj/structure/machinery/door/airlock/security,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Xg" = (
@@ -2398,7 +2398,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Xn" = (
-/obj/machinery/vending/boozeomat{
+/obj/structure/machinery/vending/boozeomat{
 	req_access = null
 	},
 /turf/simulated/floor/marble/dark,
@@ -2408,7 +2408,7 @@
 /area/space)
 "XA" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
 /turf/simulated/floor/wood,
@@ -2424,7 +2424,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "XN" = (
-/obj/machinery/vending/dinnerware/bar,
+/obj/structure/machinery/vending/dinnerware/bar,
 /turf/simulated/floor/marble/dark,
 /area/space)
 "XP" = (
@@ -2439,7 +2439,7 @@
 /obj/structure/mirror{
 	pixel_x = 27
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -2456,7 +2456,7 @@
 	pixel_y = 9;
 	pixel_x = -5
 	},
-/obj/machinery/light_switch{
+/obj/structure/machinery/light_switch{
 	dir = 1;
 	pixel_x = 7;
 	pixel_y = 24
@@ -2473,7 +2473,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2490,7 +2490,7 @@
 /obj/structure/mirror{
 	pixel_x = -28
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
@@ -2500,13 +2500,13 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	name = "adjusted light fixture"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Yy" = (
-/obj/machinery/door/airlock/service{
+/obj/structure/machinery/door/airlock/service{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -2527,13 +2527,13 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Zl" = (
-/obj/machinery/smartfridge/drinks{
+/obj/structure/machinery/smartfridge/drinks{
 	opacity = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/space)
 "Zs" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;
@@ -2544,7 +2544,7 @@
 /area/space)
 "ZA" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/wood,
 /area/space)
 "ZB" = (
@@ -2552,7 +2552,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
 	dir = 1;

@@ -8,18 +8,30 @@
 	. = ..()
 	icon_state = "asphalt[rand(0,3)]"
 
+// ---------- Sidewalk start
+
 /turf/simulated/floor/sidewalk
 	name = "weathered tiling"
 	desc = "Great for speeding on."
 	icon = 'icons/turf/flooring/urban_turfs.dmi'
-	icon_state = "sidewalk-tile"
+	icon_state = "colorable-sidewalk"
+	color = "#7f7574"
 
 /turf/simulated/floor/sidewalk/detail
-	icon_state = "sidewalk-tile-detail"
+	icon_state = "preview-colorable-sidewalk-detail"
+	var/detail_color = COLOR_ASTEROID_ROCK
+
+/turf/simulated/floor/sidewalk/detail/Initialize()
+	. = ..()
+	icon_state = "colorable-sidewalk"
+	var/image/detail = new(icon, "colorable-sidewalk-detail-center")
+	detail.appearance_flags |= RESET_COLOR
+	detail.color = detail_color
+	AddOverlays(detail.appearance)
 
 /turf/simulated/floor/sidewalk/paved
 	name = "paved tiles"
-	icon_state = "brick-paver"
+	icon_state = "colorable-brick-paver"
 
 /turf/simulated/floor/sidewalk/flat
 	name = "flat paved tiles"
@@ -45,6 +57,37 @@
 
 /turf/simulated/floor/sidewalk/dark/grid
 	icon_state = "sidewalk_alt_grid"
+
+// Concrete gray
+
+/turf/simulated/floor/sidewalk/concrete
+	color = "#908f89"
+
+/turf/simulated/floor/sidewalk/paved/concrete
+	color = "#908f89"
+
+/turf/simulated/floor/sidewalk/flat/concrete
+	color = "#908f89"
+
+/turf/simulated/floor/sidewalk/detail/concrete
+	color = "#908f89"
+	detail_color = "#696863"
+
+// Concrete dark gray
+
+/turf/simulated/floor/sidewalk/concrete/dark
+	color = "#76756f"
+
+/turf/simulated/floor/sidewalk/detail/concrete/dark
+	color = "#76756f"
+
+/turf/simulated/floor/sidewalk/paved/concrete/dark
+	color = "#76756f"
+
+/turf/simulated/floor/sidewalk/flat/concrete/dark
+	color = "#76756f"
+
+// ---------- Sidewalk end
 
 /turf/simulated/floor/foundation
 	name = "foundation"
@@ -84,8 +127,14 @@
 	desc = "A short ledge that an adult-sized Human wouldn't have much trouble traversing. At best, an oversized step."
 	icon_state = "quarter-height"
 
+/obj/structure/ledge/quarter/above_decals
+	layer = ABOVE_TILE_LAYER // Forgive me.
+
 /obj/structure/ledge/quarter/corner
 	icon_state = "quarter-corner"
+
+/obj/structure/ledge/quarter/corner/above_decals
+	layer = ABOVE_TILE_LAYER // Forgive me.
 
 /obj/structure/ledge/roof
 	name = "roof ledge"
@@ -132,3 +181,50 @@
 	broken_overlay = "tiled"
 	burned_overlay = "tiled"
 	initial_flooring = /singleton/flooring/concrete/square
+
+// Assunzione variants.
+
+/turf/simulated/floor/asphalt/assunzione
+	name = "asphalt"
+	desc = "Once-hot asphalt."
+	icon = 'icons/turf/flooring/urban_turfs_assun.dmi'
+	icon_state = "asphalt0"
+
+/turf/simulated/floor/sidewalk/assunzione
+	name = "weathered tiling"
+	desc = "Great for speeding on."
+	icon = 'icons/turf/flooring/urban_turfs_assun.dmi'
+	icon_state = "sidewalk-tile"
+
+/turf/simulated/floor/sidewalk/assunzione/detail
+	icon_state = "sidewalk-tile-detail"
+
+/turf/simulated/floor/sidewalk/assunzione/paved
+	name = "paved tiles"
+	icon_state = "brick-paver"
+
+/turf/simulated/floor/sidewalk/assunzione/flat
+	name = "flat paved tiles"
+	icon_state = "flat"
+
+/turf/simulated/floor/sidewalk/assunzione/flat/Initialize(mapload)
+	. = ..()
+	icon_state = "flat[rand(1,3)]"
+
+/turf/simulated/floor/sidewalk/assunzione/blocks
+	name = "blocked sidewalk tiles"
+	icon_state = "blocks"
+
+/turf/simulated/floor/sidewalk/assunzione/blocks/Initialize(mapload)
+	. = ..()
+	icon_state = "blocks[rand(1,3)]"
+
+/turf/simulated/floor/roofing_tiles/assunzione
+	name = "roofing tiles"
+	desc = "You're on top of the world!"
+	icon = 'icons/turf/flooring/urban_turfs_assun.dmi'
+	icon_state = "rooftop"
+
+/turf/simulated/floor/roofing_tiles/assunzione/Initialize(mapload)
+	. = ..()
+	icon_state = "rooftop[rand(1,3)]"

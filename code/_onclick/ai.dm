@@ -132,7 +132,7 @@
  *
  * Returns TRUE
  */
-/obj/machinery/door/airlock/AIShiftClick(var/mob/user)
+/obj/structure/machinery/door/airlock/AIShiftClick(var/mob/user)
 	open_interact(user, density)
 	return TRUE
 
@@ -144,7 +144,7 @@
  *
  * Returns TRUE
  */
-/obj/machinery/door/airlock/AICtrlClick(mob/user) // Bolts doors
+/obj/structure/machinery/door/airlock/AICtrlClick(mob/user) // Bolts doors
 	if(player_is_antag(user.mind))
 		bolts_override(user, !locked, FALSE, player_is_antag(user.mind))
 	else
@@ -156,7 +156,7 @@
  *
  * Returns TRUE
  */
-/obj/machinery/power/apc/AICtrlClick()
+/obj/structure/machinery/power/apc/AICtrlClick()
 	toggle_breaker()
 	return TRUE
 
@@ -165,7 +165,7 @@
  *
  * Returns TRUE
  */
-/obj/machinery/turretid/AICtrlClick()
+/obj/structure/machinery/turretid/AICtrlClick()
 	enabled = !enabled
 	updateTurrets()
 	return TRUE
@@ -180,7 +180,7 @@
  *
  * Returns TRUE or FALSE
  */
-/obj/machinery/door/airlock/AIAltClick(var/mob/living/silicon/user)
+/obj/structure/machinery/door/airlock/AIAltClick(var/mob/living/silicon/user)
 	var/antag = player_is_antag(user.mind)
 	if(!antag && (electrified_until == 0))
 		to_chat(user, SPAN_WARNING("Your programming prevents you from electrifying the door."))
@@ -193,7 +193,7 @@
 			electrify(0)
 	return TRUE
 
-/obj/machinery/turretid/AIAltClick(var/mob/living/silicon/user) //toggles lethal on turrets
+/obj/structure/machinery/turretid/AIAltClick(var/mob/living/silicon/user) //toggles lethal on turrets
 	lethal = !lethal
 	updateTurrets()
 	return TRUE

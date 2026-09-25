@@ -8,7 +8,7 @@
 	inventory_shown = FALSE
 	hotkey_ui_hidden = FALSE
 
-/datum/hud/proc/new_player_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
+/datum/hud/proc/new_player_hud(var/ui_style='icons/hud/mob/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	adding = list()
@@ -138,9 +138,11 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player)
 			icon_state = pick(SSatlas.current_map.lobby_screens)
 		return
 
-	if(length(SSatlas.current_map.lobby_screens) >= 2)
+	var/num_lobby_screens = length(SSatlas.current_map.lobby_screens)
+
+	if(num_lobby_screens >= 2)
 		//Advance to the next icon
-		lobby_screen_index = max(++lobby_screen_index % length(SSatlas.current_map.lobby_screens), 1)
+		lobby_screen_index = (lobby_screen_index % num_lobby_screens) + 1
 
 		animate(src, alpha = 0, time = 1 SECOND)
 
@@ -405,15 +407,18 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 
 /atom/movable/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	if(establish_db_connection(GLOB.dbcon))
+	if(SSdbcore.Connect())
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
-		query.Execute()
-		var/newpoll = query.NextRow()
+		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = :ckey) AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = :ckey) LIMIT 0,1", list("ckey" = M.ckey))
+		query.SetSuccessCallback(CALLBACK(src, PROC_REF(_polls_check_cb)))
+		query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+		query.ExecuteNoSleep(TRUE)
 
-		if(newpoll)
-			new_polls = TRUE
+/atom/movable/screen/new_player/selection/polls/proc/_polls_check_cb(datum/db_query/query)
+	if (query.NextRow())
+		new_polls = TRUE
+	qdel(query)
 
 /atom/movable/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr
@@ -437,9 +442,10 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	player.show_lore_summary()
 
 /mob/abstract/new_player/proc/show_lore_summary()
-	if(GLOB.config.lore_summary)
+	var/lore = SSregistry.getValue(REGISTRY_LORE_SUMMARY, GLOB.config.lore_summary)
+	if(lore)
 		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
-		output += "<i>[GLOB.config.lore_summary]</i><hr>"
+		output += "<i>[lore]</i><hr>"
 		to_chat(src, output)
 
 /**

@@ -114,3 +114,8 @@
 /obj/effect/overlay/teleport_pulse/Initialize(mapload, ...)
 	. = ..()
 	QDEL_IN(src, 8)
+
+/obj/effect/overlay/vis
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	anchored = TRUE
+	vis_flags = VIS_INHERIT_DIR

@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
-/obj/machinery/atmospherics/binary/pump,
-/obj/machinery/door/window/southleft,
+/obj/structure/machinery/atmospherics/binary/pump,
+/obj/structure/machinery/door/window/southleft,
 /obj/effect/floor_decal/industrial/hatch,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
@@ -33,7 +33,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
@@ -43,7 +43,7 @@
 "ba" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6;
 	pixel_x = 5
 	},
@@ -78,7 +78,7 @@
 "bO" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6;
 	pixel_x = 5
 	},
@@ -152,7 +152,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "cF" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /obj/structure/mech_wreckage/powerloader,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/random/dirt_75,
@@ -161,7 +161,7 @@
 /area/hivebot_burrows_2)
 "cH" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 2
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -180,7 +180,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "cW" = (
-/obj/machinery/artifact_harvester{
+/obj/structure/machinery/artifact_harvester{
 	pixel_y = 1
 	},
 /obj/effect/floor_decal/spline/plain{
@@ -288,7 +288,7 @@
 /area/space)
 "ea" = (
 /obj/random/dirt_75,
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/exoplanet/plating,
 /area/hivebot_burrows_2)
@@ -313,8 +313,8 @@
 /turf/simulated/floor/exoplanet/sidewalk,
 /area/space)
 "er" = (
-/obj/machinery/appliance/cooker/oven,
-/obj/machinery/light,
+/obj/structure/machinery/appliance/cooker/oven,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/hivebot_burrows_2)
 "et" = (
@@ -331,7 +331,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hivebot_burrows_2)
 "ew" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil/streak,
@@ -359,7 +359,7 @@
 /turf/simulated/floor/exoplanet/sidewalk,
 /area/space)
 "eY" = (
-/obj/machinery/chemical_dispenser/full,
+/obj/structure/machinery/chemical_dispenser/full,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -411,7 +411,7 @@
 /area/space)
 "fA" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
@@ -433,21 +433,21 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "fM" = (
-/obj/machinery/vending/coffee,
-/obj/machinery/light{
+/obj/structure/machinery/vending/coffee,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/hivebot_burrows_2)
 "fN" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	dir = 4;
 	name = "Vacuum Chamber";
 	icon_state = "door_locked";
 	locked = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/dark/full,
@@ -488,7 +488,7 @@
 /area/space)
 "gC" = (
 /obj/random/dirt_75,
-/obj/item/device/measuring_tape{
+/obj/item/measuring_tape{
 	pixel_x = 6;
 	pixel_y = 12
 	},
@@ -522,7 +522,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
@@ -551,7 +551,7 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -574,7 +574,7 @@
 /area/hivebot_burrows_2)
 "hi" = (
 /obj/random/dirt_75,
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "hl" = (
@@ -668,7 +668,7 @@
 	name = "trashbin";
 	pixel_x = 8
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -738,7 +738,7 @@
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "kD" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -750,7 +750,7 @@
 "kH" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/exoplanet/plating,
 /area/hivebot_burrows_2)
@@ -799,7 +799,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "lu" = (
-/obj/machinery/suspension_gen,
+/obj/structure/machinery/suspension_gen,
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
@@ -847,7 +847,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "lL" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 4;
 	pixel_x = 1;
 	pixel_y = 1
@@ -865,7 +865,7 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -920,7 +920,7 @@
 "mY" = (
 /obj/random/dirt_75,
 /obj/item/archaeological_find,
-/obj/item/device/core_sampler{
+/obj/item/core_sampler{
 	pixel_y = 12;
 	pixel_x = -8
 	},
@@ -962,7 +962,7 @@
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -1036,7 +1036,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/hivebot_burrows_2)
 "oD" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/item/storage/toolbox/mechanical{
@@ -1123,7 +1123,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/space)
 "pR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/item/stack/rods{
@@ -1256,7 +1256,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8;
 	pixel_x = 1;
 	pixel_y = 1
@@ -1265,7 +1265,7 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1277,7 +1277,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1298,7 +1298,7 @@
 /area/hivebot_burrows_2)
 "sM" = (
 /obj/random/dirt_75,
-/obj/item/device/gps/science{
+/obj/item/gps/science{
 	pixel_x = 9
 	},
 /obj/effect/decal/cleanable/blood/drip{
@@ -1373,7 +1373,7 @@
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "tj" = (
-/obj/machinery/computer/general_air_control{
+/obj/structure/machinery/computer/general_air_control{
 	stat = 1;
 	icon_state = "computer-broken"
 	},
@@ -1389,7 +1389,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1397,7 +1397,7 @@
 /area/hivebot_burrows_2)
 "tD" = (
 /obj/random/dirt_75,
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
@@ -1432,7 +1432,7 @@
 "ug" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/hivebot_burrows_2)
 "uh" = (
@@ -1480,7 +1480,7 @@
 "um" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/plating,
 /area/hivebot_burrows_2)
 "ut" = (
@@ -1494,8 +1494,8 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/door/window/eastright,
-/obj/machinery/shower{
+/obj/structure/machinery/door/window/eastright,
+/obj/structure/machinery/shower{
 	dir = 4;
 	pixel_y = -2
 	},
@@ -1503,7 +1503,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/hivebot_burrows_2)
 "uJ" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
@@ -1515,7 +1515,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "vf" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/hivebot_burrows_2)
@@ -1562,7 +1562,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
 /obj/random/dirt_75,
@@ -1599,7 +1599,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /turf/simulated/floor/reinforced,
 /area/hivebot_burrows_2)
 "wh" = (
@@ -1629,7 +1629,7 @@
 /area/space)
 "wr" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
@@ -1648,7 +1648,7 @@
 "wR" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/depth_scanner{
+/obj/item/depth_scanner{
 	pixel_x = 8
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -1692,15 +1692,15 @@
 /area/space)
 "xz" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 6;
 	pixel_x = -2
 	},
-/obj/item/device/camera{
+/obj/item/camera{
 	pixel_y = -4;
 	pixel_x = 2
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1718,7 +1718,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/hivebot_burrows_2)
 "xJ" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Xenoarchaeology Lab"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1733,10 +1733,10 @@
 /area/hivebot_burrows_2)
 "xQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/recharger{
+/obj/structure/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/device/integrated_circuit_printer/upgraded{
+/obj/item/integrated_circuit_printer/upgraded{
 	pixel_x = -10
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -1796,7 +1796,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/hivebot_burrows_2)
 "yF" = (
-/obj/machinery/cell_charger{
+/obj/structure/machinery/cell_charger{
 	pixel_y = 8
 	},
 /obj/random/powercell,
@@ -1813,7 +1813,7 @@
 /area/hivebot_burrows_2)
 "yS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters,
+/obj/structure/machinery/door/blast/shutters,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/hivebot_burrows_2)
 "yT" = (
@@ -1832,13 +1832,13 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/hivebot_burrows_2)
 "zH" = (
 /obj/random/dirt_75,
-/obj/machinery/floodlight{
+/obj/structure/machinery/floodlight{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -1850,7 +1850,7 @@
 "zS" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/ano_scanner{
+/obj/item/ano_scanner{
 	pixel_x = -4;
 	pixel_y = 12
 	},
@@ -1909,7 +1909,7 @@
 /obj/structure/lattice/catwalk/indoor/tatami{
 	name = "inlaid tatami spread"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -1926,7 +1926,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "AZ" = (
-/obj/machinery/power/portgen/basic{
+/obj/structure/machinery/power/portgen/basic{
 	anchored = 1
 	},
 /obj/structure/cable{
@@ -1934,7 +1934,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/broken4,
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1943,7 +1943,7 @@
 /turf/simulated/floor/tiled,
 /area/hivebot_burrows_2)
 "Ba" = (
-/obj/machinery/power/terminal{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -1968,14 +1968,14 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/machinery/artifact_analyser,
+/obj/structure/machinery/artifact_analyser,
 /turf/simulated/floor/bluegrid,
 /area/hivebot_burrows_2)
 "Bj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 4;
 	pixel_x = 1;
 	pixel_y = 1
@@ -1984,7 +1984,7 @@
 	dir = 8;
 	pixel_x = -12
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -1995,10 +1995,10 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	on = 0
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber{
+/obj/structure/machinery/atmospherics/unary/vent_scrubber{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -2011,7 +2011,7 @@
 /area/space)
 "BP" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/door/blast/regular{
+/obj/structure/machinery/door/blast/regular{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/plating,
@@ -2025,7 +2025,7 @@
 "BU" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/ano_scanner{
+/obj/item/ano_scanner{
 	pixel_x = -4;
 	pixel_y = 2
 	},
@@ -2091,8 +2091,8 @@
 /area/space)
 "Ds" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
@@ -2153,7 +2153,7 @@
 /area/hivebot_burrows_2)
 "Er" = (
 /obj/random/dirt_75,
-/obj/item/device/camera{
+/obj/item/camera{
 	pixel_x = 5;
 	pixel_y = -4
 	},
@@ -2183,7 +2183,7 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6;
 	pixel_x = 5
 	},
@@ -2204,7 +2204,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/hivebot_burrows_2)
 "EI" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
@@ -2282,7 +2282,7 @@
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
 /area/hivebot_burrows_2)
@@ -2341,14 +2341,14 @@
 /area/hivebot_burrows_2)
 "GO" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6;
 	pixel_x = 5
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "GS" = (
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
@@ -2386,7 +2386,7 @@
 	dries = 0;
 	basecolor = "#400000"
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -10;
 	pixel_y = 2
 	},
@@ -2511,7 +2511,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/hivebot_burrows_2)
 "JA" = (
-/obj/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact_scanpad,
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
@@ -2545,8 +2545,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/machinery/artifact_scanpad,
-/obj/machinery/artifact,
+/obj/structure/machinery/artifact_scanpad,
+/obj/structure/machinery/artifact,
 /turf/simulated/floor/bluegrid,
 /area/hivebot_burrows_2)
 "Km" = (
@@ -2596,7 +2596,7 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/core_sampler{
+/obj/item/core_sampler{
 	pixel_y = 12;
 	pixel_x = -4
 	},
@@ -2663,7 +2663,7 @@
 "Mq" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform_deco,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
 	},
 /obj/random/dirt_75,
@@ -2811,13 +2811,13 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "OD" = (
-/obj/machinery/radiocarbon_spectrometer,
+/obj/structure/machinery/radiocarbon_spectrometer,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/hivebot_burrows_2)
 "OK" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -3;
 	pixel_y = 8;
 	on = 0
@@ -2874,7 +2874,7 @@
 /area/space)
 "Pt" = (
 /obj/random/dirt_75,
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "Pu" = (
@@ -2896,10 +2896,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
-/obj/machinery/air_sensor,
+/obj/structure/machinery/air_sensor,
 /turf/simulated/floor/reinforced,
 /area/hivebot_burrows_2)
 "PS" = (
@@ -2935,7 +2935,7 @@
 /area/hivebot_burrows_2)
 "Qg" = (
 /obj/random/dirt_75,
-/obj/machinery/door/airlock/hatch/broken,
+/obj/structure/machinery/door/airlock/hatch/broken,
 /obj/random/dirt_75,
 /obj/structure/barricade/wooden{
 	dir = 1
@@ -2967,13 +2967,13 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "QE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_x = 6;
 	pixel_y = 14
 	},
@@ -2991,7 +2991,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/hivebot_burrows_2)
 "QO" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	p_open = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3035,7 +3035,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/hivebot_burrows_2)
 "Rl" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 8;
 	pixel_x = 1;
 	pixel_y = 1
@@ -3089,7 +3089,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_2)
 "RE" = (
-/obj/machinery/constructable_frame/temp_deco{
+/obj/structure/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
 /obj/random/dirt_75,
@@ -3126,7 +3126,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "Sf" = (
-/obj/machinery/papershredder{
+/obj/structure/machinery/papershredder{
 	pixel_x = -6
 	},
 /obj/structure/filingcabinet/filingcabinet{
@@ -3213,7 +3213,7 @@
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -3258,7 +3258,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/space)
 "Ue" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -3349,7 +3349,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/hivebot_burrows_2)
 "UR" = (
-/obj/machinery/chem_master,
+/obj/structure/machinery/chem_master,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -3360,7 +3360,7 @@
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/hivebot_burrows_2)
 "US" = (
-/obj/machinery/door/airlock/hatch/broken{
+/obj/structure/machinery/door/airlock/hatch/broken{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -3429,10 +3429,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/atmospherics/unary/vent_pump{
+/obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -3448,13 +3448,13 @@
 "Wg" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/hivebot_burrows_2)
 "Wk" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/measuring_tape{
+/obj/item/measuring_tape{
 	pixel_x = 6;
 	pixel_y = 12
 	},
@@ -3499,7 +3499,7 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -3543,7 +3543,7 @@
 /area/space)
 "XP" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -3605,7 +3605,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "Yu" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -3622,7 +3622,7 @@
 /area/hivebot_burrows_2)
 "Yx" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6;
 	pixel_x = 5
 	},
@@ -3638,7 +3638,7 @@
 /area/space)
 "YD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters/open,
+/obj/structure/machinery/door/blast/shutters/open,
 /obj/item/stack/material/steel{
 	pixel_x = -4;
 	pixel_y = -4
@@ -3652,7 +3652,7 @@
 /obj/structure/platform_deco{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
 /area/hivebot_burrows_2)

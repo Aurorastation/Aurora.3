@@ -43,7 +43,7 @@
 	[pick("Reality", "Dreamer", "Regrets", "Boltbucket", "Wayfarer", "Trailblazer", "Overtime", "Gizmo", "Express", "Deity", "Diamond", "Miner", "Skiff of Skiffs", "Wallop", "Express", "Courier", "Coal", "Pitchblende", "Ore", "Activated Charcoal", "Plywood", "Luck", "Profit", "Write-off")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/orion_miner
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/orion_miner
 	name = "shuttle control console"
 	shuttle_tag = "Orion Express Mining Skiff"
 
@@ -78,7 +78,6 @@
 	current_location = "nav_orion_miner_space"
 	dock_target = "orion_miner"
 	landmark_transition = "nav_orion_miner_transit"
-	logging_home_tag = "nav_orion_miner_space"
 	defer_initialisation = TRUE
 
 // Main shuttle landmark
@@ -101,18 +100,18 @@
 	cycle_to_external_air = TRUE
 
 // Forward airlocks
-/obj/effect/map_effect/marker/airlock/orion_miner_port
+/obj/effect/map_effect/marker/airlock/external/orion_miner_port
 	name = "Port Fore Airlock"
 	master_tag = "port_orion_miner"
 	cycle_to_external_air = TRUE
 
-/obj/effect/map_effect/marker/airlock/orion_miner_starboard
+/obj/effect/map_effect/marker/airlock/external/orion_miner_starboard
 	name = "Starboard Fore Airlock"
 	master_tag = "stbd_orion_miner"
 	cycle_to_external_air = TRUE
 
 // Aft airlock
-/obj/effect/map_effect/marker/airlock/orion_miner_aft
+/obj/effect/map_effect/marker/airlock/external/orion_miner_aft
 	name = "Aft Airlock"
 	master_tag = "rear_orion_miner"
 	cycle_to_external_air = TRUE

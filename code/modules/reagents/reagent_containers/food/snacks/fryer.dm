@@ -141,7 +141,6 @@
 	icon_state = "onionrings"
 	trash = /obj/item/trash/plate
 	filling_color = "#eddd00"
-	center_of_mass = "x=16;y=11"
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("fried onions" = 5))
 	bitesize = 2
@@ -213,6 +212,27 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 7)
 
+/obj/item/reagent_containers/food/snacks/bowl/psiren_chips
+	name = "psiren chips"
+	gender = PLURAL
+	desc = "Small, thin slices of Psiren skin deep fried and salted. Psiren skin responds very well to being fried, absorbing oil easily and becoming very crunchy in the process."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "psiren_chips"
+	filling_color = "#1a778f"
+	bitesize = 0.5
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("salted fish chips" = 5, "extreme crunchiness" = 5))
+	unitname = "chip"
+	trash = /obj/item/trash/bowl_small
+	vendingobject = /obj/item/reagent_containers/food/snacks/psiren_chip
+
+/obj/item/reagent_containers/food/snacks/psiren_chip
+	name = "psiren chip"
+	desc = "A crunchy square of deep fried Psiren skin. Crunches in your mouth, not in your hand."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "psiren_chip"
+	bitesize = 1
+	filling_color = "#1a778f"
 
 /obj/item/reagent_containers/food/snacks/donut
 	name = "donut"
@@ -445,3 +465,27 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride/oil = 1.2, /singleton/reagent/capsaicin = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("crispy potato" = 5), /singleton/reagent/capsaicin = list("paprika" = 5))
+
+/obj/item/reagent_containers/food/snacks/fried_pickles
+	name = "fried pickles"
+	gender = PLURAL
+	desc = "Add some crunching to your munching."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "fried_pickles"
+	filling_color = "#cfda70"
+	bitesize = 1
+	trash = /obj/item/trash/bowl_small
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("crunch" = 5))
+
+/obj/item/reagent_containers/food/snacks/poutine
+	name = "poutine"
+	desc = "Fries swimming in thick gravy and melty cheese. Oh, Canada! You really know what it's all aboot."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "poutine"
+	trash = /obj/item/trash/plate
+	filling_color = "#9c5e24"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/cheese = 3, /singleton/reagent/condiment/gravy = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fresh fries" = 3))
+	bitesize = 2

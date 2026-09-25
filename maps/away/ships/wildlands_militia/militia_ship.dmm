@@ -7,7 +7,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aab" = (
-/obj/machinery/computer/shuttle_control/explore/militia_shuttle{
+/obj/structure/machinery/computer/shuttle_control/explore/militia_shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -16,27 +16,27 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "aad" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Brig";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "aae" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aaI" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aaJ" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
 	dir = 1
 	},
@@ -61,13 +61,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "ajL" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/structure/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/wall/shuttle/space_ship/mercenary{
 	name = "military hull"
 	},
 /area/shuttle/militia_shuttle)
 "aou" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/floor,
@@ -79,20 +79,20 @@
 "ate" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "atj" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -119,7 +119,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "aEB" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -134,34 +134,34 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aHt" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/machinery/meter,
+/obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/structure/machinery/meter,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aHv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aHw" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aJd" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aMB" = (
-/obj/machinery/blackbox_recorder,
+/obj/structure/machinery/blackbox_recorder,
 /turf/simulated/floor/bluegrid/cooled,
 /area/ship/militia_ship)
 "aOU" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -173,20 +173,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "aSi" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aSm" = (
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	name = "Toilet";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "aSJ" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -219,14 +219,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "bci" = (
-/obj/machinery/computer/ship/helm{
+/obj/structure/machinery/computer/ship/helm{
 	dir = 1;
 	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "bdy" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
@@ -235,7 +235,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/militia_shuttle)
 "bey" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -244,14 +244,14 @@
 /area/ship/militia_ship)
 "bhA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/cigarette/hacked,
+/obj/structure/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "bkQ" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -259,7 +259,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "bmn" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out";
@@ -273,8 +273,8 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/militia_ship)
 "buK" = (
-/obj/machinery/appliance/cooker/fryer,
-/obj/machinery/light{
+/obj/structure/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -315,20 +315,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "cQs" = (
-/obj/machinery/atmospherics/unary/engine{
+/obj/structure/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/militia_shuttle)
 "cTq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "cVA" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out";
@@ -350,15 +350,15 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/iff_beacon,
+/obj/structure/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "dqJ" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "dHA" = (
-/obj/machinery/computer/cryopod{
+/obj/structure/machinery/computer/cryopod{
 	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/dark,
@@ -369,7 +369,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "dTw" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Head";
 	dir = 1
 	},
@@ -382,16 +382,16 @@
 /turf/simulated/floor/airless,
 /area/ship/militia_ship)
 "eiL" = (
-/obj/machinery/washing_machine{
+/obj/structure/machinery/washing_machine{
 	pixel_x = -9
 	},
-/obj/machinery/washing_machine{
+/obj/structure/machinery/washing_machine{
 	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "eiR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -402,8 +402,8 @@
 /turf/space/transit/north,
 /area/space)
 "euz" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/militia_ship)
@@ -414,7 +414,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "exg" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
 	dir = 1
 	},
@@ -429,20 +429,20 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "eCV" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "eIb" = (
-/obj/machinery/vending/engivend{
+/obj/structure/machinery/vending/engivend{
 	req_access = null
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "eMT" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "eNs" = (
@@ -456,12 +456,12 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "eYX" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/button/distress{
+/obj/structure/machinery/button/distress{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -476,7 +476,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "frn" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -489,7 +489,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "fCv" = (
-/obj/machinery/computer/ship/targeting,
+/obj/structure/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "fJL" = (
@@ -540,11 +540,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "fQq" = (
-/obj/machinery/shower,
+/obj/structure/machinery/shower,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	req_one_access = list(28)
 	},
 /obj/structure/curtain/open/shower,
@@ -558,11 +558,11 @@
 /turf/simulated/floor/tiled/cooled,
 /area/ship/militia_ship)
 "fVv" = (
-/obj/machinery/telecomms/allinone/ship,
+/obj/structure/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/bluegrid/cooled,
 /area/ship/militia_ship)
 "fZq" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Brig";
 	dir = 1
 	},
@@ -590,14 +590,14 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "gxW" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "gyl" = (
-/obj/machinery/vending/tool,
+/obj/structure/machinery/vending/tool,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "gHC" = (
@@ -608,7 +608,7 @@
 /area/ship/militia_ship)
 "gLO" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -616,24 +616,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "gOy" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "hcf" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "hdb" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "heP" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "militia_shuttle_out";
@@ -649,7 +649,7 @@
 /turf/simulated/floor/tiled/cooled,
 /area/ship/militia_ship)
 "hiw" = (
-/obj/machinery/door/airlock/hatch{
+/obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
 	dir = 4
 	},
@@ -663,14 +663,14 @@
 /area/ship/militia_ship)
 "huE" = (
 /obj/structure/table/steel,
-/obj/item/device/radio{
+/obj/item/radio{
 	icon_state = "radio"
 	},
 /obj/item/toy/comic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hBd" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
@@ -678,13 +678,13 @@
 /area/ship/militia_ship)
 "hBs" = (
 /obj/structure/extinguisher_cabinet/west,
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "hFX" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "hGt" = (
@@ -695,7 +695,7 @@
 	},
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hQA" = (
@@ -730,7 +730,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "hZq" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
@@ -744,7 +744,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "iiZ" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "militia_shuttle";
 	name = "Port docking controller";
@@ -752,7 +752,7 @@
 	pixel_y = 28;
 	tag_door = "militia_shuttle_out"
 	},
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -761,7 +761,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "irX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/militia_ship)
@@ -776,7 +776,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "iGK" = (
-/obj/machinery/door/airlock/glass{
+/obj/structure/machinery/door/airlock/glass{
 	name = "Dinner Hall";
 	dir = 4
 	},
@@ -785,7 +785,7 @@
 /area/ship/militia_ship)
 "iNo" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/structure/machinery/chemical_dispenser/bar_soft/full,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
@@ -814,7 +814,7 @@
 /area/ship/militia_ship)
 "kaR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -830,13 +830,13 @@
 	pixel_x = 7;
 	pixel_y = -10
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "kpR" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "krH" = (
@@ -854,7 +854,7 @@
 /area/ship/militia_ship)
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
@@ -867,7 +867,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "kPs" = (
-/obj/machinery/cryopod{
+/obj/structure/machinery/cryopod{
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
@@ -889,7 +889,7 @@
 /area/ship/militia_ship)
 "lev" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/door/airlock/silver{
+/obj/structure/machinery/door/airlock/silver{
 	name = "Kitchen";
 	dir = 4
 	},
@@ -899,12 +899,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "lpe" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/militia_shuttle,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "lri" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -913,7 +913,7 @@
 /area/ship/militia_ship)
 "lwj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -945,12 +945,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "mlF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
 	id_tag = "militia_ship_pump"
 	},
-/obj/machinery/airlock_sensor{
+/obj/structure/machinery/airlock_sensor{
 	frequency = 1380;
 	id_tag = "militia_ship_sensor";
 	pixel_y = 26
@@ -963,7 +963,7 @@
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "mwP" = (
-/obj/machinery/computer/ship/engines{
+/obj/structure/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -973,7 +973,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "mEc" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "militia_shuttle_dock";
 	pixel_y = 24
@@ -986,7 +986,7 @@
 /area/ship/militia_ship)
 "mLa" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
 	},
@@ -1001,7 +1001,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -1017,7 +1017,7 @@
 	},
 /area/ship/militia_ship)
 "nmZ" = (
-/obj/machinery/ammunition_loader/francisca{
+/obj/structure/machinery/ammunition_loader/francisca{
 	weapon_id = "Militia Francisca Rotary Gun"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1035,7 +1035,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/iff_beacon/name_change,
+/obj/structure/machinery/iff_beacon/name_change,
 /turf/simulated/floor,
 /area/shuttle/militia_shuttle)
 "nty" = (
@@ -1065,7 +1065,7 @@
 /area/ship/militia_ship)
 "nPr" = (
 /obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/francisca{
+/obj/structure/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
 	weapon_id = "Militia Francisca Rotary Gun"
@@ -1088,18 +1088,18 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "nVi" = (
-/obj/machinery/appliance/cooker/stove,
+/obj/structure/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "ofl" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "ofY" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/machinery/atmospherics/portables_connector,
+/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "ogz" = (
@@ -1112,7 +1112,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "ome" = (
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor,
 /area/ship/militia_ship)
@@ -1131,7 +1131,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "phR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -1160,12 +1160,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "pwR" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1175,26 +1175,26 @@
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "pDZ" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "pJZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "pKf" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "militia_shuttle_out";
@@ -1232,7 +1232,7 @@
 /turf/space/transit/north,
 /area/space)
 "qwS" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Dock";
 	dir = 4
 	},
@@ -1256,13 +1256,13 @@
 /turf/simulated/floor/plating,
 /area/ship/militia_ship)
 "rdB" = (
-/obj/machinery/computer/ship/sensors{
+/obj/structure/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "rnI" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engine"
@@ -1282,11 +1282,11 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "spX" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/structure/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "szY" = (
-/obj/machinery/shipsensors/weak,
+/obj/structure/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -1302,7 +1302,7 @@
 /turf/simulated/floor,
 /area/shuttle/militia_shuttle)
 "sGi" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Cockpit";
 	dir = 1
 	},
@@ -1315,7 +1315,7 @@
 /area/space)
 "taa" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/vending/sovietsoda{
+/obj/structure/machinery/vending/sovietsoda{
 	desc = "A very, very old carbonated water dispensor.";
 	name = "Soda Water Machine"
 	},
@@ -1323,7 +1323,7 @@
 /area/ship/militia_ship)
 "tnP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
@@ -1371,7 +1371,8 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
+/obj/item/eftpos,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uaE" = (
@@ -1379,10 +1380,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "uwT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "militia_ship_in";
@@ -1406,7 +1407,7 @@
 	pixel_y = -32
 	},
 /obj/structure/table/rack,
-/obj/machinery/door/window{
+/obj/structure/machinery/door/window{
 	dir = 1
 	},
 /obj/structure/window/reinforced,
@@ -1427,11 +1428,11 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/freelancer,
 /obj/item/clothing/head/helmet/space/void/freelancer,
-/obj/item/device/gps,
+/obj/item/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "uYP" = (
-/obj/machinery/light/small/emergency{
+/obj/structure/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -1450,7 +1451,7 @@
 /turf/template_noop,
 /area/space)
 "vlC" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Captain's Quarters";
 	dir = 1
 	},
@@ -1488,7 +1489,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "vCD" = (
-/obj/machinery/door/window/northleft{
+/obj/structure/machinery/door/window/northleft{
 	dir = 2;
 	name = "Kitchen";
 	req_access = list(201)
@@ -1497,7 +1498,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "vDJ" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/structure/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engine"
@@ -1505,9 +1506,9 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "vJj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
 	master_tag = "militia_ship_port";
@@ -1518,12 +1519,12 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "vLp" = (
-/obj/machinery/vending/cigarette/hacked,
+/obj/structure/machinery/vending/cigarette/hacked,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "vMq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/cooled,
@@ -1534,19 +1535,19 @@
 "vTv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "vUu" = (
-/obj/machinery/floodlight,
+/obj/structure/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "wfy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
 /obj/structure/table/steel,
@@ -1556,7 +1557,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "wji" = (
-/obj/machinery/door/airlock/security{
+/obj/structure/machinery/door/airlock/security{
 	name = "Crew Quarters";
 	dir = 1
 	},
@@ -1578,7 +1579,7 @@
 	},
 /area/shuttle/militia_shuttle)
 "wxY" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
@@ -1594,10 +1595,10 @@
 /area/ship/militia_ship)
 "wCo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/manifold/visible{
+/obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
-/obj/machinery/meter,
+/obj/structure/machinery/meter,
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
@@ -1605,13 +1606,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/militia_shuttle)
 "wIn" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "militia_ship_in";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "wLs" = (
@@ -1619,7 +1620,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/militia_ship)
 "wUJ" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
@@ -1640,7 +1641,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "xcb" = (
-/obj/machinery/access_button{
+/obj/structure/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
 	master_tag = "militia_ship_port";
@@ -1671,7 +1672,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "xHt" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
 	frequency = 1380;
 	id_tag = "militia_ship_pump"
@@ -1679,7 +1680,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "xKJ" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/structure/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "militia_ship_port";
 	pixel_y = 28;
@@ -1691,11 +1692,11 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "xPN" = (
-/obj/machinery/computer/ship/helm,
+/obj/structure/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "xQS" = (
-/obj/machinery/vending/wallmed1{
+/obj/structure/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
 	pixel_y = -1;
@@ -1708,7 +1709,7 @@
 /area/space)
 "ygr" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/device/flashlight/lamp/lava/blue{
+/obj/item/flashlight/lamp/lava/blue{
 	pixel_x = 2;
 	pixel_y = 14
 	},

@@ -19,6 +19,17 @@
 
 	var/use_space_appearance = TRUE
 
+/turf/space/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(SSatlas.current_map.use_overmap && user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level == SKILL_LEVEL_PROFESSIONAL && user.a_intent == I_HELP)
+		if(!SSatlas.current_sector.starlight_range)
+			to_chat(user, SPAN_WARNING("There's not a speck of starlight to work with."))
+			return
+		to_chat(user, SPAN_NOTICE("You try deducing the angles and positioning of local stars..."))
+		if(do_after(user, 3 SECONDS))
+			var/obj/effect/overmap/visitable/location = GLOB.map_sectors["[z]"]
+			. += SPAN_NOTICE("Through your sense of navigation, you realize you must be around Sector [location.x] - [location.y]")
+
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
 	//todomatt: this is useless now
 
@@ -45,7 +56,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 // Handles starlight logic unique to space turfs.
-/turf/space/update_starlight()
+/turf/space/update_starlight(has_simulated_neighbor = FALSE)
 	. = ..() // We also run the parent proc here, since space may also require starlight from needs_starlight!
 
 	// Our parent proc already handled starlight for us, we don't have to do our own checks
@@ -53,7 +64,8 @@
 		return
 
 	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
-	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+	// Some callers already know this and can skip building another range list.
+	if(has_simulated_neighbor || locate(/turf/simulated) in RANGE_TURFS(1, src))
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
 
 // We don't want this doing anything on space, otherwise update_starlight() would run set_light on space turfs twice.

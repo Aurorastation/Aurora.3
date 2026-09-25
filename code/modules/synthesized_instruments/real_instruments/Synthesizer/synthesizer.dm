@@ -13,7 +13,7 @@
 	sound_player = /datum/sound_player/synthesizer
 
 /obj/structure/synthesized_instrument/synthesizer/attackby(obj/item/attacking_item, mob/user, params)
-	if (istype(attacking_item, /obj/item/wrench))
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (!anchored && !isinspace())
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			to_chat(usr, SPAN_NOTICE(" You begin to tighten \the [src] to the floor..."))
@@ -42,7 +42,7 @@
 
 
 //in-hand version
-/obj/item/device/synthesized_instrument/synthesizer
+/obj/item/synthesized_instrument/synthesizer
 	name = "Synthesizer Mini"
 	desc = "The power of an entire orchestra in a handy midi keyboard format."
 	icon_state = "h_synthesizer"

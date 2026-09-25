@@ -12,6 +12,26 @@
 	toxin_type = CE_OCULOTOXIC
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
+	/// Whether the owner has voluntarily closed this organ.
+	var/eyes_closed = FALSE
+
+/obj/item/organ/internal/eyes/verb/toggle_eyes()
+	set name = "Open/Close Eyes"
+	set desc = "Close your eyes to block your vision and protect them from bright flashes."
+	set category = "IC"
+	set src in usr
+
+	if(!owner || usr != owner || owner.incapacitated())
+		return
+
+	eyes_closed = !eyes_closed
+	if(eyes_closed)
+		owner.custom_emote(VISIBLE_MESSAGE, "closes their eyes.")
+	else
+		owner.custom_emote(VISIBLE_MESSAGE, "opens their eyes.")
+
+	owner.update_body()
+	owner.handle_vision()
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)

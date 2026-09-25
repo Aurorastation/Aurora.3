@@ -11,15 +11,16 @@
 	use_sound = 'sound/items/storage/toolbox.ogg'
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
+	rustle_sound = 'sound/items/rustle/toolbox.ogg'
 
 /obj/item/storage/briefcase/crimekit/fill()
 	..()
 	new /obj/item/storage/box/swabs(src)
 	new /obj/item/storage/box/fingerprints(src)
 	new /obj/item/reagent_containers/spray/luminol(src)
-	new /obj/item/device/uv_light(src)
+	new /obj/item/uv_light(src)
 	new /obj/item/forensics/sample_kit(src)
 	new /obj/item/forensics/sample_kit/powder(src)
-	new /obj/item/device/mass_spectrometer(src)
-	new /obj/item/device/reagent_scanner(src)
+	new /obj/item/mass_spectrometer(src)
+	new /obj/item/reagent_scanner(src)
 	new /obj/item/storage/box/fancy/csi_markers(src)

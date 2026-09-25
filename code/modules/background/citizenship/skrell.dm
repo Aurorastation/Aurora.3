@@ -27,6 +27,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -47,6 +49,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_BREEDER
 		),
 		"Diplomatic Bodyguard" = list(
@@ -64,6 +68,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_VAURCA_WORKER
 		)
@@ -110,8 +116,8 @@
 
 	uniform = /obj/item/clothing/under/skrell
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
-		/obj/item/storage/box/psireceiver = 1
+		/obj/item/camera = 1,
+		/obj/item/storage/box/unique/freezer/organcooler/psireceiver = 1
 	)
 
 /obj/outfit/job/representative/consular/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -133,7 +139,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/nralakk
 	name = "Nralakk Federation Diplomatic Bodyguard"
-	uniform = /obj/item/clothing/under/skrell
+	uniform = /obj/item/clothing/under/skrell/qukala
+	shoes = /obj/item/clothing/shoes/jackboots/kala
+	gloves = /obj/item/clothing/gloves/kala
 
 /obj/outfit/job/diplomatic_bodyguard/nralakk/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)

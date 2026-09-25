@@ -57,10 +57,10 @@
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
-	l_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/nka_base/get_id_access()
-	return list(ACCESS_NKA)
+	return list(/datum/access/nka::id)
 
 /datum/ghostspawner/human/nka_base/commander
 	short_name = "nka_base_commander"

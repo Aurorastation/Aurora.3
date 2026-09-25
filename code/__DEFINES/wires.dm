@@ -61,9 +61,6 @@
 #define WIRE_TIMING "Timing"
 #define WIRE_TX "Transmit"
 #define WIRE_UNBOLT "Unbolt"
-#define WIRE_ZAP "High Voltage Circuit"
-#define WIRE_ZAP1 "High Voltage Circuit 1"
-#define WIRE_ZAP2 "High Voltage Circuit 2"
 #define WIRE_OVERCLOCK "Overclock"
 #define WIRE_FOCUS "Focus"
 #define WIRE_FLUSH "Flush"
@@ -88,7 +85,7 @@
 
 /*################################
 	Wires for the assembly
-	/obj/item/device/assembly
+	/obj/item/assembly
 ################################*/
 
 ///Allows Pulsed(0) to call Activate()

@@ -98,6 +98,9 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 
 		log_runtime("========= END OF RUNTIME DUMP =========")
 
+	if(SSsentry)
+		SSsentry.capture_exception(e, null, usr)
+
 
 //pretty print a direction bitflag, can be useful for debugging.
 /proc/print_dir(var/dir)

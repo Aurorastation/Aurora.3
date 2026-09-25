@@ -1,36 +1,90 @@
-#define UNBUCKLED 0
-#define PARTIALLY_BUCKLED 1
-#define FULLY_BUCKLED 2
-
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	MOB_STOP_THINKING(src)
-
+	pulling?.pulledby = null
+	pulling = null
+	pullin?.icon_state = "pull0"
+	pullin = null
+	// Delete and null the grab objects that are touching this mob.
+	QDEL_LIST(grabbed_by)
 	GLOB.mob_list -= src
 	GLOB.dead_mob_list -= src
 	GLOB.living_mob_list -= src
-	unset_machine()
+	GLOB.player_list -= src
 	QDEL_NULL(hud_used)
 
+	QDEL_NULL(cells)
+	QDEL_NULL(flash)
+	QDEL_NULL(blind)
+	QDEL_NULL(hands)
+	QDEL_NULL(pullin)
+	QDEL_NULL(purged)
+	QDEL_NULL(internals)
+	QDEL_NULL(oxygen)
+	QDEL_NULL(paralysis_indicator)
+	QDEL_NULL(i_select)
+	QDEL_NULL(m_select)
+	QDEL_NULL(toxin)
+	QDEL_NULL(bodytemp)
+	QDEL_NULL(healths)
+	QDEL_NULL(throw_icon)
+	QDEL_NULL(nutrition_icon)
+	QDEL_NULL(hydration_icon)
+	QDEL_NULL(pressure)
+	QDEL_NULL(damageoverlay)
+	QDEL_NULL(pain)
+	QDEL_NULL(item_use_icon)
+	QDEL_NULL(radio_use_icon)
+	QDEL_NULL(gun_move_icon)
+	QDEL_NULL(gun_setting_icon)
+	QDEL_NULL(energy_display)
+	QDEL_NULL(instability_display)
+	QDEL_NULL(up_hint)
+	QDEL_NULL(robot_pain)
 	QDEL_LIST(spell_masters)
-	remove_screen_obj_references()
-
 	if(client)
 		for(var/atom/movable/AM in client.screen)
-			qdel(AM)
+			if (!QDELING(AM))
+				qdel(AM)
 		client.screen = list()
 
-	if (mind)
-		mind.handle_mob_deletion(src)
+	mind?.handle_mob_deletion(src)
+	mind = null
 
-	for(var/infection in viruses)
-		qdel(infection)
-
-	for(var/cc in client_colors)
-		qdel(cc)
+	QDEL_NULL(ability_master)
+	QDEL_NULL(zone_sel)
+	if (istype(machine, /obj/structure) && length(machine.climbers))
+		machine.climbers -= src
+	machine = null
 
 	client_colors = null
-	viruses.Cut()
+	additional_vision_handlers?.Cut()
+	pinned?.Cut()
+	QDEL_LIST(embedded)
+	languages?.Cut()
+	holo?.clear_holo(src)
+	holo = null
+	l_hand = null
+	r_hand = null
+	back = null
+	internal = null
+	s_active = null
+	wear_mask = null
+	QDEL_NULL(dna)
+	LAssailant = null
+	spell_list?.Cut()
+	lastarea = null
+	control_object = null
+	teleop = null
+	listed_turf = null
 	item_verbs = null
+	// This is a nested assoc list, which must be cleared outside-in
+	if (length(progressbars))
+		for (var/location in progressbars)
+			for (var/ref in progressbars[location])
+				qdel(ref)
+		progressbars.Cut()
+
+	QDEL_NULL(typing_indicator)
 
 	//Added this to prevent nonliving mobs from ghostising
 	//The only non 'living' mobs are:
@@ -48,11 +102,33 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
-	QDEL_NULL(ability_master)
+	QDEL_LIST(click_handlers)
+	vr_mob = null
+	old_mob = null
+	if (lastattacker && lastattacker.lastattacked == src)
+		lastattacker.lastattacked = null
+	if (lastattacked && lastattacked.lastattacker == src)
+		lastattacked.lastattacker = null
+	lastattacker = null
+	lastattacked = null
+	QDEL_NULL(pointing_effect)
 
-	if(click_handlers)
-		QDEL_LIST(click_handlers)
+	// Cleanup for all UIs belonging to the client.
+	// For performance reasons we check the length of the lists first since the lists can potentially either be null or empty.
+	// But it's also plausible that they might contain null values, and while their aggressive checking means any valid entry in the list
+	// is guaranteed to be of type /datum/tgui, null entries in the list can potentially exist and will pass the as anything typecast.
+	if (length(tgui_open_uis))
+		for (var/datum/tgui/ui as anything in tgui_open_uis)
+			ui?.close()
+		tgui_open_uis.Cut()
 
+	QDEL_NULL(narsimage)
+	QDEL_NULL(narglow)
+	QDEL_NULL(riftimage)
+	bloody_hands_mob = null
+	QDEL_NULL(eyeobj)
+	QDEL_NULL(bg)
+	my_client = null
 	return ..()
 
 /mob/New()
@@ -60,33 +136,6 @@
 	GenerateTag()
 	return ..()
 
-/mob/proc/remove_screen_obj_references()
-	flash = null
-	blind = null
-	hands = null
-	pullin = null
-	purged = null
-	internals = null
-	oxygen = null
-	i_select = null
-	m_select = null
-	toxin = null
-	fire = null
-	bodytemp = null
-	healths = null
-	throw_icon = null
-	nutrition_icon = null
-	hydration_icon = null
-	pressure = null
-	damageoverlay = null
-	pain = null
-	item_use_icon = null
-	gun_move_icon = null
-	gun_setting_icon = null
-	spell_masters = null
-	zone_sel = null
-
-/mob/var/should_add_to_mob_list = TRUE
 /mob/Initialize(mapload)
 	. = ..()
 	if(should_add_to_mob_list)
@@ -102,6 +151,10 @@
 	update_emotes()
 
 	become_hearing_sensitive()
+
+	// This impacts area/entered(), gravity drifting, and probably plenty more. This will likely
+	// need to be removed/moved if and when any 'moodlet' system is implemented (ref. TG component).
+	become_area_sensitive(INNATE_TRAIT)
 
 /**
  * Generate the tag for this mob
@@ -316,12 +369,6 @@
 		return UNBUCKLED
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
-/mob/proc/is_physically_disabled()
-	return MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED)
-
-/mob/proc/cannot_stand()
-	return MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
-
 // Inside this file, you should use MOB_IS_INCAPACITATED for performance reasons
 /mob/proc/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
 
@@ -362,7 +409,19 @@
 			else
 				client.perspective = EYE_PERSPECTIVE
 				client.eye = loc
+	if(istype(src, /mob/living))
+		var/mob/living/living_mob = src
+		living_mob.update_camera_view_action()
 	return
+
+/mob/proc/is_viewing_camera()
+	return client && istype(client.eye, /obj/structure/machinery/camera)
+
+/mob/proc/is_viewing_overmap()
+	return client && istype(client.eye, /obj/effect/overmap)
+
+/mob/proc/is_viewing_remote_view()
+	return is_viewing_camera() || is_viewing_overmap()
 
 
 /mob/proc/show_inv(mob/user)
@@ -406,8 +465,6 @@
 	. = ..()
 	if(!. && iscarbon(loc) && isturf(loc.loc)) // We're inside someone, let us examine still.
 		return TRUE
-
-/mob/var/obj/effect/decal/point/pointing_effect = null//Spam control, can only point when the previous pointer qdels
 
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
@@ -548,7 +605,7 @@
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
 	log_game("[usr.name]/[usr.key] used abandon mob.")
-	to_chat(usr, SPAN_NOTICE("<B>Make sure to play a different character, and please roleplay correctly!</B>"))
+	to_chat(usr, SPAN_NOTICE("<B>If you died, make sure to play a different character, and remember to roleplay correctly!</B>"))
 
 	client?.screen.Cut()
 	if(!client)
@@ -623,7 +680,7 @@
 				namecounts[name] = 1
 			creatures[name] = O
 
-		if(istype(O, /obj/machinery/bot))
+		if(istype(O, /obj/structure/machinery/bot))
 			var/name = "BOT: [O.name]"
 			if (names.Find(name))
 				namecounts[name]++
@@ -669,6 +726,9 @@
 	set name = "Cancel Camera View"
 	set category = "OOC"
 	unset_machine()
+	if(isliving(src))
+		var/mob/living/living_mob = src
+		living_mob.clear_z_eye()
 	reset_view(null)
 
 /mob/Topic(href, href_list)
@@ -737,12 +797,12 @@
 	if(pulling)
 		pulling.pulledby = null
 		pulling = null
-		if(pullin)
-			pullin.icon_state = "pull0"
+	if(pullin)
+		pullin.icon_state = "pull0"
 
 /mob/proc/start_pulling(var/atom/movable/AM)
 
-	if ( !AM || !usr || src==AM || !isturf(src.loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
+	if(!AM || !usr || src == AM || !isturf(src.loc) || !isturf(AM.loc)) // If the puller or target is inside something, abort.
 		return
 
 	if (AM.anchored)
@@ -759,17 +819,26 @@
 			to_chat(src, SPAN_WARNING("It won't budge!"))
 			return
 
-		if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
+		// Humanoids use mass and lift capacity for pulling; their load penalty is
+		// applied while moving. Preserve the legacy size categories for mobs
+		// without the player-character Conditioning system.
+		if(!ishuman(src))
+			if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
+				to_chat(src, SPAN_WARNING("It won't budge!"))
+				return
 
-		if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
+			if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
+				to_chat(src, SPAN_WARNING("It won't budge!"))
+				return
 
 		if(length(M.grabbed_by))
 			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
 			return
+
+		for (var/obj/item/grab/G in list(M.l_hand, M.r_hand))
+			if(G && G.state >= GRAB_AGGRESSIVE)
+				to_chat(src, SPAN_WARNING("You can't pull both people at once, break the grab first!"))
+				return
 
 		// If your size is larger than theirs and you have some
 		// kind of mob pull value AT ALL, you will be able to pull
@@ -782,7 +851,7 @@
 
 	else if(isobj(AM))
 		var/obj/I = AM
-		if(!can_pull_size || can_pull_size < I.w_class)
+		if(!can_pull_size || (!ishuman(src) && can_pull_size < I.w_class))
 			to_chat(src, SPAN_WARNING("It won't budge!"))
 			return
 
@@ -806,7 +875,7 @@
 			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
 		else //Otherwise we're probably just holding their arm to lead them somewhere
 			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
-		playsound(loc, /singleton/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
+		playsound(loc, SFX_GRAB, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
 			to_chat(src, SPAN_DANGER("Pulling \the [H] in their current condition would probably be a bad idea."))
 
@@ -820,9 +889,6 @@
 
 /mob/proc/is_active()
 	return (0 >= usr.stat)
-
-/mob/proc/is_dead()
-	return stat == DEAD
 
 /mob/proc/is_mechanical()
 	return FALSE
@@ -854,93 +920,68 @@
 	if(transforming)						return 0
 	return 1
 
-// Not sure what to call this. Used to check if humans are wearing an AI-controlled exosuit and hence don't need to fall over yet.
-/mob/proc/can_stand_overridden()
-	return 0
-
-//Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
+/// Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
 /mob/proc/update_canmove()
-	if(in_neck_grab())
-		lying = FALSE
-		for(var/obj/item/grab/G in grabbed_by)
-			if(G.force_down)
-				lying = TRUE
-				break
-	else if(!resting && cannot_stand() && can_stand_overridden())
-		lying = FALSE
-		lying_is_intentional = FALSE
-		canmove = TRUE
-	else
-		if(istype(buckled_to, /obj/vehicle))
-			var/obj/vehicle/V = buckled_to
-			if(is_physically_disabled())
-				lying = TRUE
-				lying_is_intentional = FALSE
-				canmove = FALSE
-				pixel_y = V.mob_offset_y - 5
-			else
-				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
-				lying_is_intentional = FALSE
-				canmove = TRUE
-				pixel_y = V.mob_offset_y
-		else if(buckled_to)
-			anchored = TRUE
+	var/found_grab = FALSE
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		if(G.wielded || G.state >= GRAB_AGGRESSIVE)
 			canmove = FALSE
-			if(isobj(buckled_to))
-				if(buckled_to.buckle_lying != -1)
-					lying = buckled_to.buckle_lying
-					lying_is_intentional = FALSE
-				if(buckled_to.buckle_movable)
-					anchored = FALSE
-					canmove = TRUE
-		else if(captured)
-			anchored = TRUE
-			canmove = FALSE
+			if(G.wielded)
+				lying = TRUE
+			else if(G.state >= GRAB_NECK)
+				lying = G.force_down
+			found_grab = TRUE
+			break
+	var/mob/living/carbon/human/H = astype(src)
+	if(!found_grab)
+		if(!resting && MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && H?.can_stand_overridden())
 			lying = FALSE
-		else if(m_intent == M_LAY && !incapacitated())
-			lying = TRUE
-			lying_is_intentional = TRUE
 			canmove = TRUE
-		else if(sleeping)
-			lying = resting || is_dead() || (MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && sleeps_horizontal()) // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
-			lying_is_intentional = FALSE
-			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 		else
-			lying = resting || is_dead() || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !recently_slept
-			lying_is_intentional = FALSE
-			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
+			if(buckled_to)
+				if(istype(buckled_to, /obj/vehicle))
+					var/obj/vehicle/V = buckled_to
+					if(MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
+						lying = TRUE
+						canmove = FALSE
+						pixel_y = V.mob_offset_y - 5
+					else
+						if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
+						canmove = TRUE
+						pixel_y = V.mob_offset_y
+				else
+					anchored = TRUE
+					canmove = FALSE
+					if(buckled_to.buckle_lying != -1)
+						lying = buckled_to.buckle_lying
+					if(buckled_to.buckle_movable)
+						anchored = FALSE
+						canmove = TRUE
+			else if(captured)
+				anchored = TRUE
+				canmove = FALSE
+				lying = FALSE
+			else if(sleeping)
+				lying = resting || (stat == DEAD) || (MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !(H?.species?.sleeps_upright)) // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
+				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
+			else
+				var/incapacitated = (stat == DEAD) || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) || weakened && !recently_slept
+				lying = incapacitated || resting
+				canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
-		if(!lying_is_intentional)
-			if(l_hand) unEquip(l_hand)
-			if(r_hand) unEquip(r_hand)
+		if(l_hand) unEquip(l_hand)
+		if(r_hand) unEquip(r_hand)
 	else
 		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
-	for(var/obj/item/grab/G in grabbed_by)
-		if(G.wielded)
-			canmove = FALSE
-			lying = TRUE
-			break
-		if(G.state >= GRAB_AGGRESSIVE)
-			canmove = 0
-			break
-
-	//Temporarily moved here from the various life() procs
-	//I'm fixing stuff incrementally so this will likely find a better home.
-	//It just makes sense for now. ~Carn
-	if( update_icon )	//forces a full overlay update
-		update_icon = 0
-		regenerate_icons()
-	else if( lying != lying_prev )
+	if( lying != lying_prev )
 		update_icon()
+		if(lying)
+			SEND_SIGNAL(src, COMSIG_MOB_LYING_DOWN)
 
 	return canmove
-
-
-/mob/proc/sleeps_horizontal()
-	return TRUE
 
 /mob/proc/facedir(var/ndir, var/force_change = FALSE)
 	if(!canface() || (client && client.moving))
@@ -976,26 +1017,30 @@
 	return facedir(client.client_dir(SOUTH))
 
 
-//This might need a rename but it should replace the can this mob use things check
+/// This might need a rename but it should replace the can this mob use things check
 /mob/proc/IsAdvancedToolUser()
 	return 0
 
+/// Adds to stun value if above current stun. Effect stops a mob from generally interacting w/ anything through clicks or picking up items.
 /mob/proc/Stun(amount)
 	if(status_flags & CANSTUN)
 		facing_dir = null
 		stunned = max(max(stunned,amount),0) //can't go below 0, getting a low amount of stun doesn't lower your current stun
 	return
 
+/// Directly sets stunned value to specified amount
 /mob/proc/SetStunned(amount) //if you REALLY need to set stun to a set amount without the whole "can't go below current stunned"
 	if(status_flags & CANSTUN)
 		stunned = max(amount,0)
 	return
 
+/// Changes stunned value from current value by given amount
 /mob/proc/AdjustStunned(amount)
 	if(status_flags & CANSTUN)
 		stunned = max(stunned + amount,0)
 	return
 
+/// Adds to weakened value if above current weakened. Effect makes and keeps the mob lying on turf for duration.
 /mob/proc/Weaken(amount)
 	if(status_flags & CANWEAKEN)
 		facing_dir = null
@@ -1003,61 +1048,57 @@
 		update_canmove()	//updates lying, canmove and icons
 	return
 
+/// Directly sets weakened value to specified amount.
 /mob/proc/SetWeakened(amount)
 	if(status_flags & CANWEAKEN)
 		weakened = max(amount,0)
 		update_canmove()	//updates lying, canmove and icons
 	return
 
+/// Changes stunned value from current value by given amount
 /mob/proc/AdjustWeakened(amount)
 	if(status_flags & CANWEAKEN)
 		weakened = max(weakened + amount,0)
 		update_canmove()	//updates lying, canmove and icons
 	return
 
+/// Adds to paralysis value if above current paralysis. Actual effect gets handled in mob's /Life() proc.
 /mob/proc/Paralyse(amount)
 	if(status_flags & CANPARALYSE)
 		facing_dir = null
 		paralysis = max(max(paralysis,amount),0)
 	return
 
+/// Directly sets paralysis value to specified amount
 /mob/proc/SetParalysis(amount)
 	if(status_flags & CANPARALYSE)
 		paralysis = max(amount,0)
 	return
 
+/// Changes paralysis value from current value by given amount
 /mob/proc/AdjustParalysis(amount)
 	if(status_flags & CANPARALYSE)
 		paralysis = max(paralysis + amount,0)
 	return
 
+/// Adds to sleeping value if above current sleeping. Effect makes mob unconscious and lie on the ground if they don't sleep standing.
 /mob/proc/Sleeping(amount)
 	facing_dir = null
 	sleeping = max(max(sleeping,amount),0)
 	return
 
+/// Directly sets sleeping value to specified amount
 /mob/proc/SetSleeping(amount)
 	sleeping = max(amount,0)
 	return
 
+/// Changes sleeping value from current value by given amount. If
 /mob/proc/AdjustSleeping(amount)
 	sleeping = max(sleeping + amount,0)
 	if(!sleeping)
 		recently_slept = 10
 	return
 
-/mob/proc/Resting(amount)
-	facing_dir = null
-	resting = max(max(resting,amount),0)
-	return
-
-/mob/proc/SetResting(amount)
-	resting = max(amount,0)
-	return
-
-/mob/proc/AdjustResting(amount)
-	resting = max(resting + amount,0)
-	return
 
 /mob/proc/get_species(var/reference = 0)
 	return ""
@@ -1089,16 +1130,17 @@
 /mob/proc/embedded_needs_process()
 	return (embedded.len > 0)
 
-/mob/proc/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
+/mob/proc/remove_implant(obj/item/implant, surgical_removal = FALSE, obj/item/organ/external/affected)
 	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)
 	for(var/obj/item/O in pinned)
 		if(O == implant)
 			pinned -= O
-		if(!pinned.len)
+		if(!length(pinned))
 			anchored = 0
 	implant.dropInto(loc)
-	implant.add_blood(src)
+	if(!affected || !BP_IS_ROBOTIC(affected))
+		implant.add_blood(src)
 	implant.update_icon()
 	if(istype(implant,/obj/item/implant))
 		var/obj/item/implant/imp = implant
@@ -1114,12 +1156,14 @@
 					break
 	if(affected)
 		affected.implants -= implant
+		for(var/datum/wound/wound as anything in affected.wounds)
+			LAZYREMOVE(wound.embedded_objects, implant)
 		if(!surgical_removal)
 			shock_stage += 20
 			apply_damage((implant.w_class * 7), DAMAGE_BRUTE, affected)
 			if(!BP_IS_ROBOTIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
 				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
-	. = ..()
+	. = ..(implant, surgical_removal, affected)
 
 /mob/proc/yank_out_object()
 	set category = "Object"
@@ -1162,7 +1206,7 @@
 	else
 		to_chat(U, SPAN_WARNING("You attempt to get a good grip on [selection] in [S]'s body."))
 
-	if(!do_after(U, 30))
+	if(!do_after(U, 3 SECONDS, S, DO_DEFAULT | DO_USER_UNIQUE_ACT, INCAPACITATION_DEFAULT & ~INCAPACITATION_FORCELYING)) //let people pinned to stuff yank it out, otherwise they're stuck... forever!!!
 		return
 	if(!selection || !S || !U)
 		return
@@ -1338,7 +1382,7 @@
 	else
 		throw_mode_on()
 
-#define THROW_MODE_ICON 'icons/effects/cursor/throw_mode.dmi'
+#define THROW_MODE_ICON 'icons/hud/cursor/throw_mode.dmi'
 
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
@@ -1467,7 +1511,7 @@
 
 	if(. && LAZYLEN(spell_list))
 		for(var/spell/S in spell_list)
-			if((!S.connected_button) || !statpanel(S.panel))
+			if(!S.connected_button)
 				continue //Not showing the noclothes spell
 			switch(S.charge_type)
 				if(Sp_RECHARGE)
@@ -1545,6 +1589,8 @@
 	var/speedies = 0
 	for(var/obj/item/thing in get_equipped_speed_mod_items())
 		speedies += (thing.slowdown + thing.slowdown_accessory)
+		if(thing.mass_based_slowdown)
+			speedies += thing.get_effective_mass() / get_lift_capacity()
 
 	if(speedies)
 		add_or_update_variable_movespeed_modifier(
@@ -1583,7 +1629,3 @@
 		var/atom/movable/screen/plane_master/lighting/exterior_lighting = hud_used.plane_masters["[EXTERIOR_LIGHTING_PLANE]"]
 		if (exterior_lighting)
 			exterior_lighting.alpha = min(GLOB.minimum_exterior_lighting_alpha, lighting_alpha)
-
-#undef UNBUCKLED
-#undef PARTIALLY_BUCKLED
-#undef FULLY_BUCKLED

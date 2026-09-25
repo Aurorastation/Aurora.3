@@ -18,6 +18,9 @@
 		"Calmness",
 	)
 
+/obj/item/organ/internal/augment/emotional_manipulator/process_initialize()
+	START_PROCESSING(SSprocessing, src)
+
 /obj/item/organ/internal/augment/emotional_manipulator/attack_self(var/mob/user)
 	. = ..()
 

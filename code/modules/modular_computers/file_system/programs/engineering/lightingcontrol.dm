@@ -4,8 +4,8 @@
 	program_icon_state = "power_monitor"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
-	required_access_run = ACCESS_HEADS
-	required_access_download = ACCESS_CE
+	required_access_run = /datum/access/heads::id
+	required_access_download = /datum/access/ce::id
 	requires_ntnet = TRUE
 	network_destination = "APC Coordinator"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
@@ -23,7 +23,9 @@
 	..()
 	lstate = SSnightlight.is_active() ? "dark" : "full"
 
-/datum/computer_file/program/lighting_control/proc/update_lighting()
+/datum/computer_file/program/lighting_control/proc/update_lighting(var/new_context = context, var/new_lstate = lstate)
+	context = new_context
+	lstate = new_lstate
 
 	// whether to only select areas explicitly marked for nightlighting
 	var/wl_only = context == "all" ? 0 : 1
@@ -48,7 +50,8 @@
 			lstate = params["mode"]
 			. = TRUE
 		if ("set")
-			update_lighting()
+			update_lighting(params["context"] || context, params["mode"] || lstate)
+			. = TRUE
 
 /datum/computer_file/program/lighting_control/ui_data(mob/user)
 	var/list/data = initial_data()

@@ -20,7 +20,7 @@
 	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it."
 	melee_damage = 50
 	action_delay = 15
-	max_damage = 200
+	max_damage = 300
 	power_use = 3500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
@@ -33,6 +33,7 @@
 	max_damage = 200
 	power_use = 2500
 	trample_damage = 45
+	damaged_delay = 5
 
 /obj/item/mech_component/sensors/heavy
 	name = "heavy sensors"
@@ -52,6 +53,8 @@
 	hatch_descriptor = "hatch"
 	desc = "The HI-Koloss chassis is a veritable juggernaut, capable of protecting a pilot even in the most hostile of environments. It handles like a battlecruiser, however."
 	pilot_coverage = 100
+	cockpit_hatch_size = 70
+	cockpit_pilot_damage_multiplier = 0.3
 	exosuit_desc_string = "a heavily armored chassis"
 	icon_state = "heavy_body"
 	max_damage = 300

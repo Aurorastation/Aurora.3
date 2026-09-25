@@ -4,7 +4,7 @@
 	name = "bloody tendrils"
 	desc = "Bloody, pulsating tendrils."
 	icon_state = "tendril"
-	maxHealth = 40
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	pass_flags = PASSTABLE | PASSMOB | PASSTRACE | PASSRAILING
 	var/being_destroyed = FALSE
 	var/is_node = FALSE
@@ -18,7 +18,7 @@
 	desc = "Clumped up flesh, pulsating in rhythm with the tendrils that surround it."
 	icon_state = "tendril_node"
 	density = TRUE
-	maxHealth = 150
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	light_range = NODERANGE
 	light_color = LIGHT_COLOR_EMERGENCY
 	is_node = TRUE
@@ -125,18 +125,16 @@
 /obj/structure/gore/tendrils/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			health = 0
+			add_damage(maxhealth)
 		if(2.0)
-			health -= maxHealth / 2
+			add_damage(maxhealth / 2)
 		if(3.0)
-			health -= maxHealth / 5
-	healthcheck()
+			add_damage(maxhealth / 5)
 
 /obj/structure/gore/tendrils/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
 
 	if(exposed_temperature > 300 + T0C)
-		health -= 5
-		healthcheck()
+		add_damage(5)
 
 #undef NODERANGE

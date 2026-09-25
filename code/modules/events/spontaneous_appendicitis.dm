@@ -11,4 +11,5 @@
 				continue
 			A.inflamed = 1
 			A.update_icon()
+			START_PROCESSING(SSprocessing, A)
 			break

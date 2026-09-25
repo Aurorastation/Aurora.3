@@ -1,5 +1,4 @@
-/mob/living/heavy_vehicle/proc/can_move(var/mob/user)
-	. = 0
+/mob/living/heavy_vehicle/proc/can_move(var/mob/user, delay_modifier)
 	if(world.time < next_mecha_move)
 		return
 
@@ -12,13 +11,11 @@
 		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
-	if(!legs.motivator || legs.total_damage > 45)
+	if(!legs.motivator || legs.total_damage != 0 && legs.total_damage >= legs.max_damage)
 		if(user)
-			to_chat(user, SPAN_WARNING("Your motivators are damaged! You can't move!"))
+			to_chat(user, SPAN_WARNING("Your motivators are destroyed! You can't move!"))
 		next_mecha_move = world.time + 15
 		return
-
-	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay)
 
 	if(maintenance_protocols)
 		if(user)
@@ -31,6 +28,81 @@
 			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
+
+	next_mecha_move = world.time + max(legs.move_delay, delay_modifier + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope))
+	return TRUE
+
+/mob/living/heavy_vehicle/proc/can_turn(var/mob/user, delay_modifier)
+	if(world.time < next_mecha_turn)
+		return
+
+	if(incapacitated() || (user && user.incapacitated()) || lockdown)
+		return
+
+	if(!legs)
+		if(user)
+			to_chat(user, SPAN_WARNING("\The [src] has no means of propulsion!"))
+		next_mecha_turn = world.time + 3 // Just to stop them from getting spammed with messages.
+		return
+
+	if(!legs.motivator || legs.total_damage != 0 && legs.total_damage >= legs.max_damage)
+		if(user)
+			to_chat(user, SPAN_WARNING("Your motivators are destroyed! You can't turn!"))
+		next_mecha_turn = world.time + 15
+		return
+
+	if(maintenance_protocols)
+		if(user)
+			to_chat(user, SPAN_WARNING("Maintenance protocols are in effect."))
+		return
+
+	var/obj/item/cell/C = get_cell()
+	if(!C || !C.check_charge(legs.power_use * CELLRATE))
+		if(user)
+			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
+		return
+
+
+	next_mecha_turn = world.time + max(legs.move_delay, delay_modifier + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope))
+	return TRUE
+
+/mob/living/heavy_vehicle/proc/can_strafe(var/mob/user, delay_modifier)
+	if (world.time < next_mecha_move)
+		return
+
+	if(incapacitated() || (user && user.incapacitated()) || lockdown)
+		return
+
+	if(!legs)
+		if(user)
+			to_chat(user, SPAN_WARNING("\The [src] has no means of propulsion!"))
+		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
+		return
+
+	if(!legs.can_strafe)
+		if(user)
+			to_chat(user, SPAN_WARNING("Your motivators are not capable of strafing!"))
+		next_mecha_move = world.time + 15
+		return
+
+	if(!legs.motivator || legs.total_damage != 0 && legs.total_damage >= legs.max_damage)
+		if(user)
+			to_chat(user, SPAN_WARNING("Your motivators are destroyed! You can't strafe!"))
+		next_mecha_move = world.time + 15
+		return
+
+	if(maintenance_protocols)
+		if(user)
+			to_chat(user, SPAN_WARNING("Maintenance protocols are in effect."))
+		return
+
+	var/obj/item/cell/C = get_cell()
+	if(!C || !C.check_charge(legs.power_use * CELLRATE))
+		if(user)
+			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
+		return
+
+	next_mecha_move = world.time + max(legs.move_delay, delay_modifier + ((legs.move_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage) * legs.damaged_delay_slope)) * legs.strafe_delay_modifier))
 	return TRUE
 
 /mob/living/heavy_vehicle/get_standard_pixel_x()
@@ -89,20 +161,32 @@
 
 /mob/living/heavy_vehicle/proc/use_cell_power(var/power_to_use)
 	var/power_used = get_cell()?.use(power_to_use)
-	if(power_used <= 0)
+	if(power_used < power_to_use - 1) //Self recharging cells would otherwise allow a mech to run indefinately at full functionality with 0.1% charge.
 		for(var/hardpoint in hardpoints)
 			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
 			if(ME)
 				ME.deactivate()
+			if(power == MECH_POWER_ON)
+				playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+				power = MECH_POWER_OFF
+				update_emp_protection()
+				if(hud_power_control)
+					SSicon_update.add_to_queue(hud_power_control)
 	return power_used
 
 /mob/living/heavy_vehicle/proc/drain_cell_power(var/power_to_drain)
 	var/power_used = get_cell()?.drain_power(0, 0, power_to_drain)
-	if(power_used <= 0)
+	if(power_used < power_to_drain - 1) //Self recharging cells would otherwise allow a mech to run indefinately at full functionality with 0.1% charge.
 		for(var/hardpoint in hardpoints)
 			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
 			if(ME)
 				ME.deactivate()
+			if(power == MECH_POWER_ON)
+				playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+				power = MECH_POWER_OFF
+				update_emp_protection()
+				if(hud_power_control)
+					SSicon_update.add_to_queue(hud_power_control)
 	return power_used
 
 /mob/living/heavy_vehicle/proc/checked_use_cell(var/power_to_drain)

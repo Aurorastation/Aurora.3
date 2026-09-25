@@ -7,10 +7,6 @@
 #define COLD_DAMAGE_LEVEL_2 1.5
 #define COLD_DAMAGE_LEVEL_3 3
 
-/mob/living/carbon/human
-	var/datum/dionastats/DS
-
-
 /mob/living/carbon/human/proc/setup_gestalt()
 	composition_reagent = /singleton/reagent/nutriment //Dionae aren't animals, so eating them doesn't give animal protein
 	setup_dionastats()
@@ -149,7 +145,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	var/MLS = (1.5 / 2.1)
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
-	DS.max_health = maxHealth*2
+	DS.max_health = maxhealth*2
 	DS.stored_energy = DS.max_energy
 	DS.pain_factor = (100 / dark_consciousness) / MLS
 	DS.trauma_factor = (DS.max_health / dark_survival) / MLS
@@ -255,7 +251,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	M.forceMove(get_turf(src))
 
 	// Switch control to nymph
-	M.key = src.key
+	src.client.transfer_key_to_mob(M)
 	teleop = TRUE
 	M.teleop = TRUE
 	src.key = "@[M.key]"
@@ -265,6 +261,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	add_verb(M, /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt)
 	add_verb(M, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
 	M.detached = TRUE
+	M.dionae_vent_crawl = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()
 	M.accent = accent
@@ -329,10 +326,10 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
-		if(gestalt_health >= D.maxHealth * 0.20)
+		if(gestalt_health >= D.maxhealth * 0.20)
 			D.health = gestalt_health
 		else
-			D.health = D.maxHealth * 0.20
+			D.health = D.maxhealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
@@ -349,6 +346,7 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 		for(var/mob/living/carbon/alien/diona/D in nymphos)
 			src.reagents.trans_to_mob(D, split_reag_volume, CHEM_BLOOD)
 			if(!D.mind)
+				D.dionae_vent_crawl = FALSE
 				D.master_nymph = bestNymph
 				D.birds_of_feather += nymphos
 				D.pixel_y += rand(-10,10)
@@ -399,7 +397,7 @@ Slows you down while being used, and will be automatically retracted if both fee
 
 /// Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
 /datum/movespeed_modifier/root_to_ground
-	multiplicative_slowdown = 1.5
+	multiplicative_slowdown = 0.375
 
 /// Engages Diona magboot roots.
 /mob/living/carbon/human/proc/root_enable()

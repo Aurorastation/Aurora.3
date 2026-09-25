@@ -13,7 +13,7 @@
 		M.mutation_chance = clamp(mutation_chance + rand(-3, 3), 0, 100)
 		step_away(M, src)
 		is_adult = FALSE
-		maxHealth = 150
+		maxhealth = 150
 		revive()
 		if(!client)
 			rabid = TRUE

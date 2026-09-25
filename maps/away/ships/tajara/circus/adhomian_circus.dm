@@ -94,7 +94,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/adhomian_circus_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Adhomian Circus Shuttle"
 
@@ -107,7 +107,6 @@
 	landmark_transition = "nav_transit_adhomian_circus_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_adhomian_circus_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/adhomian_circus_shuttle

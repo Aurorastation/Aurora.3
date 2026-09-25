@@ -19,13 +19,14 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 	if(dock_target)
 		var/datum/computer/file/embedded_program/docking/simple/own_target = SSshuttle.docking_registry[dock_target]
 		if(own_target)
-			var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/own_target_master = own_target.master
+			var/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/own_target_master = own_target.master
 			if(own_target_master)
-				own_target_master.pod = src
+				own_target_master.set_pod(src)
 
 /datum/shuttle/autodock/ferry/escape_pod/Destroy()
 	GLOB.escape_pods -= src
 	GLOB.escape_pods_by_name -= name
+	arming_controller = null
 	. = ..()
 
 /datum/shuttle/autodock/ferry/escape_pod/can_launch()
@@ -46,17 +47,32 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 	return 0
 
 //This controller goes on the escape pod itself
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod
 	name = "escape pod controller"
 	var/datum/shuttle/autodock/ferry/escape_pod/pod
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/Destroy()
+	pod = null
+	. = ..()
+
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/proc/set_pod(datum/shuttle/autodock/ferry/escape_pod/new_pod)
+	if(istype(new_pod))
+		pod = new_pod
+		RegisterSignal(pod, COMSIG_QDELETING, PROC_REF(clear_pod))
+
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/proc/clear_pod()
+	SIGNAL_HANDLER
+	if(pod)
+		UnregisterSignal(pod, COMSIG_QDELETING)
+		pod = null
+
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "EscapePodConsole", name, ui_x=470, ui_y=270)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_data(mob/user)
 	return list(
 		"docking_status" = docking_program.get_docking_status(),
 		"override_enabled" = docking_program.override_enabled,
@@ -66,7 +82,7 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 		"is_armed" = pod.arming_controller.armed
 	)
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_act(action, params)
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -82,7 +98,7 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 				pod.launch(src)
 			return TRUE
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/emag_act(var/remaining_charges, var/mob/user)
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/pod_program = pod.arming_controller
 	if(pod_program)
 		if(pod_program.emagged)
@@ -96,21 +112,21 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 
 
 //This controller is for the escape pod berth (station side)
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth
 	name = "escape pod berth controller"
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/Initialize()
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/Initialize()
 	. = ..()
 	docking_program = new/datum/computer/file/embedded_program/docking/simple/escape_pod(src)
 	program = docking_program
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_interact(mob/user, datum/tgui/ui)
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "EscapePodBerthConsole", name, ui_x=470, ui_y=200)
 		ui.open()
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_data(mob/user)
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/ui_data(mob/user)
 	var/armed = FALSE
 	if (istype(docking_program, /datum/computer/file/embedded_program/docking/simple/escape_pod))
 		var/datum/computer/file/embedded_program/docking/simple/escape_pod/P = docking_program
@@ -122,7 +138,7 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 		"armed" = armed
 	)
 
-/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/emag_act(var/remaining_charges, var/mob/user)
+/obj/structure/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/emag_act(var/remaining_charges, var/mob/user)
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/pod_program
 	if(istype(docking_program, /datum/computer/file/embedded_program/docking/simple/escape_pod))
 		pod_program = docking_program

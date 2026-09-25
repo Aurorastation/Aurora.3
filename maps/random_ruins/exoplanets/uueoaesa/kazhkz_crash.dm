@@ -33,7 +33,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/kazhkz_crash
+/obj/structure/machinery/computer/shuttle_control/explore/kazhkz_crash
 	name = "shuttle control console"
 	shuttle_tag = "Crashed Kazhkz Shuttle"
 
@@ -45,7 +45,6 @@
 	landmark_transition = "nav_transit_kazhkz_crash"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_start_kazhkz_crash"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/kazhkz_crash

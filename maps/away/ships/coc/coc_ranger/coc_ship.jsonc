@@ -1,0 +1,12 @@
+[
+  {
+    "type": "SubmapExtractInsert",
+    "submap_size_x": 4,
+    "submap_size_y": 2,
+    "submap_size_z": 1,
+    "submaps_dmm": "coc_ship_submaps.dmm",
+    "marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers",
+    "marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/coc_ranger_lockers",
+    "submaps_can_repeat": false
+  }
+]

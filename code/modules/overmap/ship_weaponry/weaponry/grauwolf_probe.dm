@@ -42,7 +42,7 @@
 	// Removes the contacts no longer visible
 	remove_lost_contacts:
 		for(var/obj/effect/overmap/lost_contact in diff_contacts)
-			for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+			for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in ship.consoles)
 
 				// If the ship is seeing it directly, do not remove
 				if(lost_contact in sensor_console.objects_in_view)
@@ -56,7 +56,7 @@
 				sensor_console.datalink_remove_contact(lost_contact, ship)
 
 	// Add the new ones
-	for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+	for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in ship.consoles)
 		for(var/contact in contacts)
 			sensor_console.datalink_add_contact(contact, ship)
 	. = ..()
@@ -69,7 +69,7 @@
 
 	remove_contacts:
 		for(var/obj/effect/overmap/contact in contacts)
-			for(var/obj/machinery/computer/ship/sensors/sensor_console in ship.consoles)
+			for(var/obj/structure/machinery/computer/ship/sensors/sensor_console in ship.consoles)
 				// If the ship is seeing it directly, do not remove
 				if(contact in sensor_console.objects_in_view)
 					continue remove_contacts

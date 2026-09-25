@@ -72,7 +72,7 @@
 			qdel(grenade_casing)
 			update_icon()
 
-	if(attacking_item.isscrewdriver() && bombcasing > BOMBCASING_EMPTY)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && bombcasing > BOMBCASING_EMPTY)
 		if(bombcasing == BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_SECURE
 			shrapnelcount = 14
@@ -107,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
-	else if(attacking_item.iswirecutter() && fuselength)
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && fuselength)
 		switch(fuselength)
 			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].",
@@ -314,13 +314,22 @@
 	reagents_to_add = list(/singleton/reagent/drink/icetea = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/grape_juice
-	name = "\improper Grapel juice"
-	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
+	name = "\improper Drosiá Grape soda"
+	desc = "Wine's cheaper, bubblier none alcoholic cousin. Drosiá is popular on Assunzione, but makes only a fraction compared to wine on the export market."
 	icon_state = "grapesoda"
 	item_state = "grapesoda"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/grapejuice = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/cherry_juice
+	name = "\improper Drosiá Cherry soda"
+	desc = "Fruity and overbearingly sweet. Drosiá is popular on Assunzione, but makes only a fraction compared to wine on the export market."
+	icon_state = "cherrysoda"
+	item_state = "cherrysoda"
+	center_of_mass = list("x"=16, "y"=10)
+
+	reagents_to_add = list(/singleton/reagent/drink/cherrysoda = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/tonic
 	name = "\improper T-Borg's tonic water"
@@ -474,6 +483,16 @@
 
 	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/fermented = 30)
 
+/obj/item/reagent_containers/food/drinks/cans/earthen_juice
+	name = "earthen-root juice"
+	desc = "A can of earthen-root juice, imported from Adhomai."
+	icon_state = "earthen_can"
+	item_state = "earthen_can"
+	center_of_mass = list("x"=16, "y"=10)
+	desc_extended = "The Earthen-Root, or Binajr-nab'at, is a herbaceous plant native to the region of the Northern Harr'masir, and is popular in the New Kingdom of Adhomai due to it's resilience in harsh environments. Common uses for the Earth-Root, besides being used in dishes, include distillation to brew alcoholic beverages, extraction of the blue pigment for the fabrication of dyes, and the production of sugar."
+
+	reagents_to_add = list(/singleton/reagent/drink/earthenrootjuice = 30)
+
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
@@ -530,8 +549,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/beer
 	name = "\improper Virklunder canned beer"
-	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
-	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in \
+	Respite in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel, to the chagrin of Virklunders, and has since been in stock in practically every bar across the nation."
 	icon_state = "space_beer"
 	item_state = "space_beer"
 	center_of_mass = list("x"=16, "y"=10)

@@ -35,7 +35,7 @@
 "do" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/heph{
@@ -57,7 +57,7 @@
 	},
 /area/moghes_heph_mining)
 "ft" = (
-/obj/machinery/mining/drill,
+/obj/structure/machinery/mining/drill,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -65,13 +65,13 @@
 /area/moghes_heph_mining)
 "gg" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
+/obj/item/radio/phone,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_heph_mining)
 "gD" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base";
 	dir = 5
 	},
@@ -95,7 +95,7 @@
 	},
 /area/moghes_heph_mining)
 "ib" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -118,7 +118,7 @@
 	},
 /area/moghes_heph_mining)
 "iA" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Living Quarters"
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -149,7 +149,7 @@
 	},
 /area/moghes_heph_mining)
 "ni" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/structure/machinery/mineral/processing_unit_console{
 	pixel_y = -28
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -157,7 +157,7 @@
 	},
 /area/moghes_heph_mining)
 "oM" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base";
 	dir = 8
 	},
@@ -169,7 +169,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/mineral/processing_unit{
+/obj/structure/machinery/mineral/processing_unit{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -216,20 +216,20 @@
 /area/moghes_heph_mining)
 "qV" = (
 /obj/structure/table/steel,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
-/obj/item/device/radio/off,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
+/obj/item/radio/off,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_heph_mining)
 "rt" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -243,7 +243,7 @@
 	},
 /area/moghes_heph_mining)
 "tJ" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Mining Smelter"
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -251,7 +251,7 @@
 	},
 /area/moghes_heph_mining)
 "ur" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -266,7 +266,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -277,7 +277,7 @@
 "uG" = (
 /obj/structure/table/steel,
 /obj/structure/reagent_dispensers/keg/xuizikeg,
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /obj/structure/sign/flag/heph{
 	pixel_y = -32;
 	stand_icon = "banner"
@@ -287,14 +287,14 @@
 	},
 /area/moghes_heph_mining)
 "vX" = (
-/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/machinery/mech_recharger/hephaestus,
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_heph_mining)
 "wv" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base";
 	dir = 1
 	},
@@ -343,7 +343,7 @@
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -361,7 +361,7 @@
 	},
 /area/moghes_heph_mining)
 "Bo" = (
-/obj/machinery/door/airlock{
+/obj/structure/machinery/door/airlock{
 	name = "Equipment Storage"
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -369,7 +369,7 @@
 	},
 /area/moghes_heph_mining)
 "Cd" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base";
 	dir = 8
 	},
@@ -386,8 +386,8 @@
 	},
 /area/moghes_heph_mining)
 "EO" = (
-/obj/machinery/vending/snack,
-/obj/machinery/light{
+/obj/structure/machinery/vending/snack,
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/heph{
@@ -416,8 +416,8 @@
 	},
 /area/moghes_heph_mining)
 "Gw" = (
-/obj/machinery/mineral/unloading_machine,
-/obj/machinery/conveyor{
+/obj/structure/machinery/mineral/unloading_machine,
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -437,7 +437,7 @@
 	},
 /area/moghes_heph_mining)
 "GL" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/heph{
@@ -466,7 +466,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/obj/machinery/mineral/stacking_unit_console{
+/obj/structure/machinery/mineral/stacking_unit_console{
 	pixel_y = null;
 	pixel_x = -32
 	},
@@ -475,7 +475,7 @@
 	},
 /area/moghes_heph_mining)
 "Hk" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -490,7 +490,7 @@
 /obj/structure/sign/flag/heph/large/north{
 	pixel_y = 32
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -498,7 +498,7 @@
 	},
 /area/moghes_heph_mining)
 "IE" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base";
 	dir = 1
 	},
@@ -508,7 +508,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/mineral/stacking_machine{
+/obj/structure/machinery/mineral/stacking_machine{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -517,7 +517,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -525,7 +525,7 @@
 	},
 /area/moghes_heph_mining)
 "Kw" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -535,7 +535,7 @@
 	},
 /area/moghes_heph_mining)
 "KW" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -555,7 +555,7 @@
 	},
 /area/moghes_heph_mining)
 "LS" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -564,20 +564,20 @@
 	},
 /area/moghes_heph_mining)
 "MH" = (
-/obj/machinery/conveyor_switch{
+/obj/structure/machinery/conveyor_switch{
 	id = "moghes_heph_base"
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_heph_mining)
 "MQ" = (
-/obj/machinery/mining/brace{
+/obj/structure/machinery/mining/brace{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/sign/flag/heph{
@@ -590,9 +590,9 @@
 /area/moghes_heph_mining)
 "NL" = (
 /obj/structure/table/steel,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
+/obj/item/analyzer,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -605,7 +605,7 @@
 	},
 /area/moghes_heph_mining)
 "OF" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -614,7 +614,7 @@
 	},
 /area/moghes_heph_mining)
 "QW" = (
-/obj/machinery/vending/coffee,
+/obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -633,10 +633,10 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -649,7 +649,7 @@
 	},
 /area/moghes_heph_mining)
 "SI" = (
-/obj/machinery/vending/dinnerware/plastic,
+/obj/structure/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -669,7 +669,7 @@
 	},
 /area/moghes_heph_mining)
 "Uw" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /obj/structure/closet,
@@ -685,7 +685,7 @@
 	},
 /area/moghes_heph_mining)
 "Vs" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete{
@@ -693,7 +693,7 @@
 	},
 /area/moghes_heph_mining)
 "VZ" = (
-/obj/machinery/conveyor{
+/obj/structure/machinery/conveyor{
 	id = "moghes_heph_base";
 	dir = 6
 	},
@@ -710,7 +710,7 @@
 /area/moghes_heph_mining)
 "Yb" = (
 /obj/structure/table/steel,
-/obj/machinery/cell_charger,
+/obj/structure/machinery/cell_charger,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},

@@ -37,11 +37,51 @@
 ///From base of mob/update_movespeed():area
 #define COMSIG_MOB_MOVESPEED_UPDATED "mob_update_movespeed"
 
+/// Raised on a human while calculating movement delay: (&movement_tally_modifier)
+#define COMSIG_GET_MOVEMENT_TALLY "get_movement_tally"
+
+/// Raised on a human while calculating their chance to slip: ()
+#define COMSIG_GET_SLIP_MODIFIERS "get_slip_modifiers"
+	/// Prevents the human from slipping.
+	#define COMPONENT_PREVENT_SLIP (1<<0)
+
+/// Raised on a human while checking whether they have magnetic or equivalent anchoring: ()
+#define COMSIG_CHECK_SHOE_GRIP "check_shoe_grip"
+	/// Gives the human shoe-grip-equivalent anchoring.
+	#define COMPONENT_HAS_SHOE_GRIP (1<<0)
+
+/// Raised on a human before stamina is drained: (&stamina_cost)
+#define COMSIG_STAMINA_DRAIN_MODIFIERS "stamina_drain_modifiers"
+
+/// Raised on the owner of Tesla augments when their Tesla spine changes power state: (powered)
+#define COMSIG_TESLA_POWER_CHANGED "tesla_power_changed"
+
 /// For loss of limbs.
 #define COMSIG_LIMB_LOSS "lost_limb"
 
 /// From /mob/living/verb/execute_resist(). Resisting.
 #define COMSIG_MOB_RESISTED "mob_resist"
 
+/// Sent when a mob rests.
+#define COMSIG_MOB_RESTED "mob_rested"
+
+/// Sent from /mob/proc/update_canmove() when the mob transitions into lying down.
+#define COMSIG_MOB_LYING_DOWN "mob_lying_down"
+
+/// Sent from /mob/living/proc/hide(). Sent after the mob's layer is updated.
+#define COMSIG_MOB_ON_HIDE "mob_on_hide"
+
 /// From /obj/item/organ/external/take_damage. Updates the limb's colour matrix. Very laggy, so we do it on reaction to stuff.
 #define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
+
+/// For when bone is fixed with surgery
+#define COMSIG_BEGIN_SURGERY "begin_surgery"
+
+/// For when the players intent changes
+#define COMSIG_INTENT_CHANGE "intent_change"
+
+/// Signal raised at the end of a mob's vision update to check if signals wish to supplement their own huds.
+#define COMSIG_MOB_UPDATE_VISION "mob_update_vision"
+
+/// Signal raised when a mob checks for their flash protection.
+#define COMSIG_GET_FLASH_PROTECTION_MODIFIERS "get_flash_protection_modifiers"

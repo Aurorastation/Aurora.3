@@ -1,6 +1,6 @@
 # Folder Rules
 Database:
-- SQL/**
+- '**/*.sql'
 
 '🗺️ Mapping - Away Ship/Away Site':
 - maps/away/**

@@ -1,5 +1,12 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Section, ProgressBar, Box, NumberInput, Button, BlockQuote } from '../components';
 import { Window } from '../layouts';
 
 export type PhotocopierData = {
@@ -11,11 +18,11 @@ export type PhotocopierData = {
   num_copies: number;
 };
 
-export const Photocopier = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+export const Photocopier = (props) => {
+  const { act, data } = useBackend<PhotocopierData>();
   // Extract `health` and `color` variables from the `data` object.
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Toner">
           {data.toner ? (
@@ -37,7 +44,8 @@ export const Photocopier = (props, context) => {
             ) : (
               ''
             )
-          }>
+          }
+        >
           {data.gotitem ? (
             <PrintOptions />
           ) : (
@@ -56,15 +64,14 @@ export const Photocopier = (props, context) => {
   );
 };
 
-const PrintOptions = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+const PrintOptions = (props) => {
+  const { act, data } = useBackend<PhotocopierData>();
   const { num_copies } = data;
   return (
     <Section>
       <Box>
         Copies to Print:
         <NumberInput
-          animate
           width={2.6}
           height={1.65}
           step={1}
@@ -72,7 +79,7 @@ const PrintOptions = (props, context) => {
           minValue={1}
           maxValue={10}
           value={num_copies}
-          onDrag={(e, value) =>
+          onChange={(value) =>
             act('set_copies', {
               num_copies: value,
             })
@@ -89,8 +96,8 @@ const PrintOptions = (props, context) => {
   );
 };
 
-const Toner = (props, context) => {
-  const { act, data } = useBackend<PhotocopierData>(context);
+const Toner = (props) => {
+  const { act, data } = useBackend<PhotocopierData>();
   const { toner, max_toner } = data;
 
   const average_toner = max_toner * 0.66;

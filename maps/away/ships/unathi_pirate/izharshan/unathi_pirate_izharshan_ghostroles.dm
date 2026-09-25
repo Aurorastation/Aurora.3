@@ -8,7 +8,7 @@
 	max_count = 3
 
 	outfit = /obj/outfit/admin/izharshan
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Izharshan Crewman"
@@ -54,14 +54,14 @@
 	head = /obj/item/clothing/head/headbando/random
 
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1
 	)
 
 /obj/outfit/admin/izharshan/get_id_access()
-	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/unathi_pirate::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/izharshan/captain
 	name = "Izharshan Captain"

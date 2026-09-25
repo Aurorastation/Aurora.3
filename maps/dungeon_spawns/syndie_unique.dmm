@@ -48,7 +48,7 @@
 /turf/simulated/wall/r_wall,
 /area/mine/unexplored)
 "r" = (
-/obj/machinery/door/airlock/vault/bolted{
+/obj/structure/machinery/door/airlock/vault/bolted{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle,

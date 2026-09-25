@@ -10,6 +10,7 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(LEMURIAN_SEA_SECTORS)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cult_base_shuttle)
 	unit_test_groups = list(3)
 
@@ -86,7 +87,7 @@
 		)
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/cult_base_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/cult_base_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Cult Base Shuttle"
 
@@ -99,7 +100,6 @@
 	landmark_transition = "nav_cult_base_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_cult_base_dock_hangar"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/cult_base_shuttle

@@ -1,6 +1,7 @@
-//Alloys that contain subsets of each other's ingredients must be ordered in the desired sequence
-//eg. steel comes after plasteel because plasteel's ingredients contain the ingredients for steel and
-//it would be impossible to produce.
+/// MATERIALS-REWORK-TODO
+/// /// Alloys that contain subsets of each other's ingredients must be ordered in the desired sequence
+/// eg. steel comes after plasteel because plasteel's ingredients contain the ingredients for steel and
+/// it would be impossible to produce.
 
 /datum/alloy
 	var/list/requires
@@ -19,7 +20,7 @@
 	product = /obj/item/stack/material/plasteel
 
 /datum/alloy/steel
-	metaltag = DEFAULT_WALL_MATERIAL
+	metaltag = "steel"
 	requires = list(
 		ORE_COAL = 1,
 		ORE_IRON = 1

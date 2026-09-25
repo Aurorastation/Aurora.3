@@ -8,7 +8,7 @@
 */
 /atom/movable/screen
 	name = ""
-	icon = 'icons/mob/screen/generic.dmi'
+	icon = 'icons/hud/mob/generic.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
 	/// A reference to the object in the slot. Grabs or items, generally.
@@ -26,8 +26,13 @@
 /atom/movable/screen/Destroy(force = FALSE)
 	master = null
 	screen_loc = null
-	hud = null
-	. = ..()
+	if(length(hud?.mymob?.client?.screen))
+		hud.mymob.client.screen -= src
+	// All register signals MUST be mirrored with Unregister signals included in a Destroy proc, even if other procs also call Unregister Signal.
+	if (hud)
+		UnregisterSignal(hud, COMSIG_QDELETING)
+		hud = null
+	return ..()
 
 /// Screen elements are always on top of the players screen and don't move so yes they are adjacent
 /atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
@@ -38,6 +43,10 @@
  */
 /atom/movable/screen/proc/handle_hud_destruction()
 	SIGNAL_HANDLER
+
+	// If we were QDEL'ed directly (probably by our owner), then there's no need to Unregister Signal and qdel ourselves twice.
+	if (QDELING(src))
+		return
 
 	UnregisterSignal(hud, COMSIG_QDELETING)
 	qdel(src)
@@ -76,7 +85,7 @@
 
 		var/image/item_overlay = image(holding)
 		item_overlay.alpha = 92
-		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE))
+		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE, is_overlay_check = TRUE))
 			item_overlay.color = "#ff0000"
 		else
 			item_overlay.color = "#00ff00"
@@ -226,7 +235,7 @@
 
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/mob/zone_sel.dmi'
+	icon = 'icons/hud/mob/zone_sel.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
@@ -291,7 +300,7 @@
 
 /atom/movable/screen/zone_sel/update_icon()
 	ClearOverlays()
-	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
+	selecting_appearance = mutable_appearance('icons/hud/mob/zone_sel.dmi', "[selecting]")
 	AddOverlays(selecting_appearance)
 
 /atom/movable/screen/Click(location, control, params)
@@ -359,7 +368,7 @@
 					var/turf/above_turf = GET_TURF_ABOVE(T)
 					if(!isopenturf(above_turf))
 						continue
-					var/image/point_up = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
+					var/image/point_up = image(icon = 'icons/hud/mob/generic.dmi', icon_state = "arrow_up", loc = T)
 					point_up.plane = GAME_PLANE
 					point_up.layer = POINTER_LAYER
 					viewer_client?.images += point_up
@@ -441,11 +450,27 @@
 			return 0
 	return 1
 
-/atom/movable/screen/inventory/Click()
+/atom/movable/screen/inventory/Click(location, control, params)
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
 	if(!usr.canClick())
 		return TRUE
+
+	var/obj/item/worn_item = usr.get_equipped_item(slot_id)
+	if(istype(worn_item))
+		var/list/modifiers = params2list(params)
+		if(LAZYACCESS(modifiers, ALT_CLICK)) // --- Alt click combinations
+			if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Alt-Shift click
+				worn_item.AltShiftClick(usr)
+				return TRUE
+
+			worn_item.AltClick(usr) // Alt click
+			return TRUE
+
+		if(LAZYACCESS(modifiers, SHIFT_CLICK)) // Shift click
+			worn_item.ShiftClick(usr)
+			return TRUE
+
 	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
 	switch(name)
@@ -466,7 +491,7 @@
 				usr.update_inv_l_hand(0)
 				usr.update_inv_r_hand(0)
 
-	return 1
+	return TRUE
 
 /atom/movable/screen/movement_intent
 	name = "mov_intent"
@@ -474,14 +499,17 @@
 
 /// This updates the run/walk button on the hud.
 /atom/movable/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
-	if(!user.client)
+	if(!user?.client || QDELETED(user) || QDELETED(src))
 		return
 
 	if(user.max_stamina == -1 || user.stamina == user.max_stamina)
 		if(user.stamina_bar)
-			user.stamina_bar.end_progress()
+			if(!QDELETED(user.stamina_bar))
+				user.stamina_bar.end_progress()
 			QDEL_NULL(user.stamina_bar) //Because otherwise they stack weirdly when calculating the progress bar offsets
 	else
+		if(QDELETED(user.stamina_bar))
+			user.stamina_bar = null
 		if(!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
 		user.stamina_bar.goal = user.max_stamina
@@ -489,12 +517,9 @@
 
 	if(user.m_intent == M_RUN)
 		icon_state = "running"
-	else if(user.m_intent == M_LAY)
-		icon_state = "lying"
 	else
 		icon_state = "walking"
 
-#define BLACKLIST_SPECIES_RUNNING list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 
 /atom/movable/screen/movement_intent/Click(location, control, params)
 	if(!usr)
@@ -517,27 +542,11 @@
 			if(M_RUN)
 				usr.m_intent = M_WALK
 			if(M_WALK)
-				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
-					usr.m_intent = M_RUN
-			if(M_LAY)
-				// No funny "haha i get the bonuses then stand up"
-				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
-				if(gun_in_hand?.wielded)
-					to_chat(C, SPAN_WARNING("You cannot wield and stand up!"))
-					return
+				usr.m_intent = M_RUN
 
-				if(C.lying_is_intentional)
-					usr.m_intent = M_WALK
+		if(modifiers["button"] == "middle")
+			C.lay_down()
 
-		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
-			// You want this bonus weapon or not? Wield it when you are lying, not before!
-			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
-			if(gun_in_hand?.wielded)
-				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
-				return
-			C.m_intent = M_LAY
-
-		// this works in conjunction with M_LAY to make the mob stand up or lie down instantly
 		C.update_canmove()
 		C.update_icon()
 
@@ -551,8 +560,6 @@
 		M.update_speed()
 	update_move_icon(usr)
 
-#undef BLACKLIST_SPECIES_RUNNING
-
 /// Hand slots are special to handle the handcuffs overlay
 /atom/movable/screen/inventory/hand
 	var/image/handcuff_overlay
@@ -565,13 +572,13 @@
 		return
 	if(!handcuff_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
-		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+		handcuff_overlay = image("icon"='icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!disabled_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_disabled" : "r_hand_disabled"
-		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		disabled_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	if(!removed_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
-		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+		removed_hand_overlay = image("icon" = 'icons/hud/mob/screen_gen.dmi', "icon_state" = state)
 	ClearOverlays()
 	if(hud.mymob && ishuman(hud.mymob))
 		var/mob/living/carbon/human/H = hud.mymob

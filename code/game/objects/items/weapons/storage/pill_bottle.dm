@@ -13,6 +13,7 @@
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
 	pickup_sound = 'sound/items/pickup/pillbottle.ogg'
+	rustle_sound = 'sound/items/pickup/pillbottle.ogg'
 	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
@@ -210,3 +211,29 @@
 	name = "bottle of Psilocybin pills"
 	desc = "Contains psychotropic pills derived from certain species of mushroom."
 	starts_with = list(/obj/item/reagent_containers/pill/psilocybin = 4)
+
+/**
+ * The base psi-protect pills. Childs of this have variations of side effects.
+ * This version of the pill has no side effects, and is not intended to be spawned directly.
+ */
+/obj/item/storage/pill_bottle/psi_protect
+	name = "bottle of Ranixodone pills"
+	desc = "A high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+	name = "bottle of Ranixodone pills"
+	desc = "A YomiGenetics counter-psionic drug that broadly blocks neural pathways in the zona bovinae associated with psionic sensitivity. " \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea. " \
+		+ "It has been improved upon and is significantly safer than the pilot 'PsiProtect Broad Use' brand that was mired in a Spur-wide 2468 scandal, with the appropriate side-effect" \
+		+ "warnings this time around (including seizures)."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics = 6)
+
+/obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
+	name = "bottle of PsiProtect Personalised pills"
+	desc = "A YomiGenetics high-precision, personalised drug tailored to a patient's genetic, neurological, and psionic profile. It uses Ranixidone as the active ingredient, delivered in gold nanoparticles with targeting ligands on the surface." \
+		+ "It is marketed towards those with psionic disorders, such as psionic echoes, and made available at discounted prices to Zeng-Hu-affiliated explorers of the Lemurian Sea. " \
+		+ "Thrice as expensive as other brands of ranixidone and marketed towards more affluent customers. " \
+		+ "Nonetheless, it remains cheaper than the more elegant ZHP-MSV3 'Mindblankers'."
+	starts_with = list(/obj/item/reagent_containers/pill/psi_protect/yomi_genetics/expensive = 6)

@@ -28,7 +28,7 @@
 	back = /obj/item/storage/backpack/industrial
 	l_pocket = /obj/item/clothing/accessory/badge/passcard/scarab/gold
 	r_pocket = /obj/item/wrench
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	belt = /obj/item/storage/belt/utility/full
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/pill_bottle/rmt = 1, /obj/item/clothing/accessory/offworlder/drab = 1, /obj/item/clothing/accessory/offworlder/bracer/drab = 1, /obj/item/clothing/accessory/offworlder/bracer/neckbrace/drab = 1, )
 
@@ -37,7 +37,7 @@
 	accessory = /obj/item/clothing/accessory/sash/purple
 
 /obj/outfit/admin/scarab/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/coc_scarab/captain
 	name = "Scarab Salvager Captain"

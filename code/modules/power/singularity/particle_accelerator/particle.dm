@@ -18,6 +18,7 @@
 	var/turf/target
 	var/turf/source
 	var/movetotarget = 1
+	var/list/irradiated_mobs
 
 /obj/effect/accelerated_particle/weak
 	movement_range = 8
@@ -38,19 +39,27 @@
 	if(movement_range > 20)
 		movement_range = 20
 	active = TRUE
+	irradiate_living_on_turf()
 	move(1)
+
+/obj/effect/accelerated_particle/Destroy()
+	active = FALSE
+	target = null
+	source = null
+	irradiated_mobs = null
+	return ..()
 
 /obj/effect/accelerated_particle/Collide(atom/A)
 	if (!active)
 		return
 	if (A)
-		if(ismob(A))
+		if(isliving(A))
 			toxmob(A)
-		if((istype(A,/obj/machinery/the_singularitygen))||(istype(A,/obj/singularity)))
+		if((istype(A,/obj/structure/machinery/the_singularitygen))||(istype(A,/obj/singularity)))
 			var/obj/singularity/singulo = A
 			singulo.energy += energy
-		else if(istype(A, /obj/machinery/power/fusion_core))
-			var/obj/machinery/power/fusion_core/collided_core = A
+		else if(istype(A, /obj/structure/machinery/power/fusion_core))
+			var/obj/structure/machinery/power/fusion_core/collided_core = A
 			if(particle_type && particle_type != "neutron")
 				if(collided_core.AddParticles(particle_type, 12 + additional_particles))
 					collided_core.owned_field.plasma_temperature += mega_energy
@@ -68,7 +77,7 @@
 	. = ..()
 	if (!active)
 		return
-	if(ismob(bumped_atom))
+	if(isliving(bumped_atom))
 		toxmob(bumped_atom)
 
 /obj/effect/accelerated_particle/ex_act(severity)
@@ -77,11 +86,23 @@
 	qdel(src)
 
 /obj/effect/accelerated_particle/proc/toxmob(mob/living/M)
-	if (!active)
+	if (!active || !istype(M))
 		return
+	LAZYINITLIST(irradiated_mobs)
+	var/datum/weakref/mob_ref = WEAKREF(M)
+	if(irradiated_mobs[mob_ref])
+		return
+	irradiated_mobs[mob_ref] = TRUE
 	var/radiation = (energy*2)
 	M.apply_damage((radiation*3), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	M.updatehealth()
+
+/obj/effect/accelerated_particle/proc/irradiate_living_on_turf()
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		return
+	for(var/mob/living/M in current_turf)
+		toxmob(M)
 
 /obj/effect/accelerated_particle/proc/move(lag)
 	set waitfor = FALSE
@@ -98,6 +119,7 @@
 		if(QDELETED(src))
 			return
 		forceMove(destination)
+	irradiate_living_on_turf()
 	if(target && movetotarget && (get_dist(src,target) < 1))
 		movetotarget = FALSE
 	movement_range--

@@ -45,6 +45,17 @@
 
 #define GEAR_EVA 15
 
+// Physical currencies accepted by machinery.
+// New currencies need a unique bit here and a matching /singleton/currency definition.
+#define CURRENCY_CREDITS BITFLAG(0)
+#define CURRENCY_ADHOMIAN_KNUCKLES BITFLAG(1)
+// Keep this updated when adding a physical currency intended for all-currency machines.
+#define CURRENCY_ALL (CURRENCY_CREDITS | CURRENCY_ADHOMIAN_KNUCKLES)
+
+// Adhomian knuckles are less than the value of the credits
+#define ADHOMIAN_KNUCKLES_PER_CREDIT 8
+#define ADHOMIAN_KNUCKLE_WITHDRAWAL_FEE 10
+
 //---- Descriptions of destination types
 //Space stations can be purpose built for a number of different things, but generally require regular shipments of essential supplies.
 //Corvettes are small, fast warships generally assigned to border patrol or chasing down smugglers.

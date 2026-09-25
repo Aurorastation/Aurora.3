@@ -59,7 +59,7 @@
 	color_weight = 0
 	taste_description = "chalk"
 	fallback_specific_heat = 0.2
-	var/unpaintable_types = list(/obj/item/reagent_containers, /obj/machinery/chem_master, /obj/machinery/chemical_dispenser, /obj/machinery/chem_heater)
+	var/unpaintable_types = list(/obj/item/reagent_containers, /obj/structure/machinery/chem_master, /obj/structure/machinery/chemical_dispenser, /obj/structure/machinery/chem_heater)
 
 /singleton/reagent/paint/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(istype(T) && !istype(T, /turf/space))
@@ -78,8 +78,8 @@
 		var/obj/item/light/L = O
 		L.brightness_color = setcolor
 		L.update()
-	else if(istype(O, /obj/machinery/light))
-		var/obj/machinery/light/L = O
+	else if(istype(O, /obj/structure/machinery/light))
+		var/obj/structure/machinery/light/L = O
 		L.brightness_color = setcolor
 		L.update()
 	else if(istype(O))
@@ -161,14 +161,14 @@
 	affect_ingest(M, alien, removed, holder)
 
 /singleton/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_damage(5 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	M.apply_damage(5 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED, armor_pen = 100) //Radiation in the blood shouldn't check your radsuit.
 
 /singleton/reagent/uranium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow(T)
+				new /obj/effect/decal/cleanable/greenglow/radioactive/low(T)
 			return
 
 /singleton/reagent/radioactive_waste
@@ -177,20 +177,26 @@
 	reagent_state = SOLID
 	color = "#E0FF66"
 	taste_description = "warm, tingly imminent death"
+	/// It cannot be overstated how bad this tastes.
+	taste_mult = 20
 	fallback_specific_heat = 2.286
 
 /singleton/reagent/radioactive_waste/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	affect_ingest(M, alien, removed, holder)
 
 /singleton/reagent/radioactive_waste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_effect(25 * removed, DAMAGE_RADIATION, blocked = 0)
+	var/rad_damage = min(75, 40 * removed)
+	M.apply_damage(rad_damage, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED, armor_pen = 100)
 
 /singleton/reagent/radioactive_waste/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow/radioactive(T)
+				if(amount >= 10)
+					new /obj/effect/decal/cleanable/greenglow/radioactive/high(T)
+				else
+					new /obj/effect/decal/cleanable/greenglow/radioactive(T)
 			return
 
 /singleton/reagent/platinum
@@ -314,6 +320,7 @@
 	color = "#A5F0EE"
 	touch_met = REM * 10
 	taste_description = "sourness"
+	taste_mult = 1.5
 	germ_adjust = 10
 	value = 0.7
 
@@ -397,9 +404,24 @@
 	description = "This compound is very specifically designed to react with and break up common combustible fuels."
 	taste_description = "varnish"
 
+/singleton/reagent/antifuel/proc/neutralize_fuel_spill(var/obj/O)
+	if(istype(O, /obj/effect/decal/cleanable/liquid_fuel) || istype(O, /obj/effect/decal/cleanable/napalm))
+		qdel(O)
+		return TRUE
+	return FALSE
+
+/singleton/reagent/antifuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(!istype(T))
+		return
+
+	for(var/obj/effect/decal/cleanable/liquid_fuel/fuel in T)
+		neutralize_fuel_spill(fuel)
+
+	for(var/obj/effect/decal/cleanable/napalm/napalm in T)
+		neutralize_fuel_spill(napalm)
+
 /singleton/reagent/antifuel/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
-	if (istype(O, /obj/effect/decal/cleanable/liquid_fuel))
-		O.clean_blood()
+	neutralize_fuel_spill(O)
 
 /singleton/reagent/antifuel/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
@@ -485,6 +507,7 @@
 	reagent_state = LIQUID
 	color = COLOR_GRAY
 	taste_description = "oil"
+	taste_mult = 1.3
 	value = 9
 
 /singleton/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)
@@ -634,24 +657,19 @@
 
 	to_chat(M, SPAN_WARNING("You seem back to your normal self."))
 
-/singleton/reagent/fuel/zoragel
-	name = "Inert Gel"
-	description = "A particularly adhesive but otherwise inert and harmless gel."
-	reagent_state = LIQUID
-	color = "#D35908"
-	touch_met = 50
-	taste_description = "plhegm"
-
 /singleton/reagent/fuel/napalm
-	name = "Zo'rane Fire"
-	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis. Napalm sticks to kids."
+	name = "napalm"
+	description = "A flammable gel used in warfare."
 	reagent_state = LIQUID
 	color = "#D35908"
 	touch_met = 50
 	taste_description = "fiery death"
+	taste_mult = 20
+	accelerant_quality = 20
+	flamethrower_effect = /obj/effect/decal/cleanable/napalm
 
 /singleton/reagent/fuel/napalm/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
-	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, amount/3)
+	new /obj/effect/decal/cleanable/napalm(T, amount/3)
 	for(var/mob/living/L in T)
 		L.adjust_fire_stacks(amount / 10)
 	remove_self(amount, holder)
@@ -661,7 +679,41 @@
 	. = ..()
 	if(istype(L))
 		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
-		new /obj/effect/decal/cleanable/liquid_fuel/napalm(get_turf(L), amount/3)
+		new /obj/effect/decal/cleanable/napalm(get_turf(L), amount/3)
+		L.adjustFireLoss(amount / 10)
+		remove_self(amount, holder)
+
+/singleton/reagent/fuel/zoragel
+	name = "Inert Gel"
+	description = "A particularly adhesive but otherwise inert and harmless gel."
+	reagent_state = LIQUID
+	color = "#D35908"
+	touch_met = 50
+	taste_description = "plhegm"
+
+/singleton/reagent/fuel/zorane_fire
+	name = "Zo'rane fire"
+	description = "A highly flammable and cohesive gel once used commonly in the tunnels of Sedantis."
+	reagent_state = LIQUID
+	color = "#FA00AF"
+	touch_met = 50
+	taste_description = "fiery death"
+	taste_mult = 20
+	accelerant_quality = 40
+	flamethrower_effect = /obj/effect/decal/cleanable/napalm/zorane_fire
+
+/singleton/reagent/fuel/zorane_fire/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	new /obj/effect/decal/cleanable/napalm/zorane_fire(T, amount/3)
+	for(var/mob/living/L in T)
+		L.adjust_fire_stacks(amount / 10)
+	remove_self(amount, holder)
+	return
+
+/singleton/reagent/fuel/zorane_fire/touch_mob(var/mob/living/L, var/amount, var/datum/reagents/holder)
+	. = ..()
+	if(istype(L))
+		L.adjust_fire_stacks(amount / 10) // Splashing people with welding fuel to make them easy to ignite!
+		new /obj/effect/decal/cleanable/napalm/zorane_fire(get_turf(L), amount/3)
 		L.adjustFireLoss(amount / 10)
 		remove_self(amount, holder)
 

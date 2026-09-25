@@ -3,29 +3,29 @@
 // all conduit connects go to this object instead of the APC
 // using this solves the problem of having the APC in a wall yet also inside an area
 
-/obj/machinery/power/terminal
+/obj/structure/machinery/power/terminal
 	name = "terminal"
 	icon_state = "term"
 	desc = "It's an underfloor wiring terminal for power equipment."
 	level = 1
 	layer = EXPOSED_WIRE_TERMINAL_LAYER
-	var/obj/machinery/power/master = null
+	var/obj/structure/machinery/power/master = null
 	anchored = 1
 
 
-/obj/machinery/power/terminal/Initialize()
+/obj/structure/machinery/power/terminal/Initialize()
 	. = ..()
 	var/turf/T = src.loc
 	if(level == 1)
 		hide(!T.is_plating())
 	return
 
-/obj/machinery/power/terminal/Destroy()
+/obj/structure/machinery/power/terminal/Destroy()
 	if(master)
 		master.disconnect_terminal()
 		master = null
 	return ..()
 
-/obj/machinery/power/terminal/hide(var/i)
+/obj/structure/machinery/power/terminal/hide(var/i)
 	set_invisibility(i ? 101 : initial(invisibility))
 	icon_state = i ? "term-f" : "term"

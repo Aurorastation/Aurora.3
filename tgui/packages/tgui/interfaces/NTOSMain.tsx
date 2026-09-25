@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type NTOSMainData = {
@@ -21,13 +21,13 @@ type NTService = {
   running: BooleanLike;
 };
 
-export const NTOSMain = (props, context) => {
-  const { act, data } = useBackend<NTOSMainData>(context);
+export const NTOSMain = (props) => {
+  const { act, data } = useBackend<NTOSMainData>();
   const { programs = [], services = [] } = data;
   return (
-    <NtosWindow title={'NtOS Main Menu'} width={400} height={500}>
+    <NtosWindow title={'NTOS Main Menu'} width={400} height={500}>
       <NtosWindow.Content scrollable>
-        <Section title="NtOS Program Directory">
+        <Section title="NTOS Program Directory">
           <Table>
             {programs.map((program) => {
               return (
@@ -58,7 +58,7 @@ export const NTOSMain = (props, context) => {
             })}
           </Table>
         </Section>
-        <Section collapsing title="NtOS Services">
+        <Section title="NTOS Services">
           <Table>
             {services.map((service) => {
               return (

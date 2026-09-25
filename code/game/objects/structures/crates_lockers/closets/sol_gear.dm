@@ -133,7 +133,7 @@
 
 /obj/structure/closet/secure_closet/sol_officer
 	name = "sol alliance officer locker"
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/sol_officer/fill()
@@ -147,10 +147,10 @@
 	new /obj/item/clothing/suit/storage/vest(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/device/radio/headset/heads/captain(src)
+	new /obj/item/radio/headset/heads/captain(src)
 	new /obj/item/clothing/gloves/white(src)
 	new /obj/item/gun/energy/pistol(src)
-	new /obj/item/device/flash(src)
+	new /obj/item/flash(src)
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/melee/ceremonial_sword(src)
 	new /obj/item/clothing/under/rank/sol(src)

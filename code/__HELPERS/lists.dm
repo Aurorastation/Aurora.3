@@ -266,20 +266,23 @@
  * mylist[myelement1] = myweight1
  * mylist[myelement2] = myweight2
  * The proc will return the element index, and not the weight.
+ * If weight is not provided, it defaults to 1.
+ * If all weights are explicitly set to 0, it selects whatever.
+ * The list arg is not modified.
  */
 /proc/pickweight(list/L)
 	var/total = 0
 	var/item
 	for (item in L)
-		if (isnull(L[item]))
-		// A default weight will no longer overwrite an explicitly set weight of 0
-		// It will only use a default if no weight is defined.
-			L[item] = 1
-		total += L[item]
+		// If no weight, use weight of 1
+		var/weight = isnull(L[item]) ? 1 : L[item]
+		total += weight
+
 	// Allows it to handle noninteger weights.
 	total = rand() * total
 	for (item in L)
-		total -= L[item]
+		var/weight = isnull(L[item]) ? 1 : L[item]
+		total -= weight
 		if (total <= 0)
 			return item
 
@@ -426,18 +429,24 @@
 /**
  * List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
  */
-/proc/sortByKey(var/list/L, var/key)
+/proc/sortByKeyText(var/list/L, var/key)
 	if(L.len < 2)
 		return L
 	var/middle = L.len / 2 + 1
-	return mergeKeyedLists(sortByKey(L.Copy(0, middle), key), sortByKey(L.Copy(middle), key), key)
+	return mergeKeyedLists(sortByKeyText(L.Copy(0, middle), key), sortByKeyText(L.Copy(middle), key), key)
 
-/proc/mergeKeyedLists(var/list/L, var/list/R, var/key)
+/proc/sortByKeyNumber(var/list/L, var/key)
+	if(L.len < 2)
+		return L
+	var/middle = L.len / 2 + 1
+	return mergeKeyedLists(sortByKeyNumber(L.Copy(0, middle), key), sortByKeyNumber(L.Copy(middle), key), key, value_is_number = TRUE)
+
+/proc/mergeKeyedLists(var/list/L, var/list/R, var/key, var/value_is_number = FALSE)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
 	while(Li <= L.len && Ri <= R.len)
-		if(sorttext(L[Li][key], R[Ri][key]) < 1)
+		if((value_is_number && L[Li][key] < R[Ri][key]) || (!value_is_number && sorttext(L[Li][key], R[Ri][key]) < 1))
 			// Works around list += list2 merging lists; it's not pretty but it works.
 			result += "temp item"
 			result[result.len] = R[Ri++]
@@ -894,13 +903,13 @@
 
 /datum/proc/dd_SortValue()
 	return "[src]"
-
-/obj/machinery/dd_SortValue()
+/*
+/obj/structure/machinery/dd_SortValue()
 	return "[sanitize_old(name)]"
 
-/obj/machinery/camera/dd_SortValue()
+/obj/structure/machinery/camera/dd_SortValue()
 	return "[c_tag]"
-
+*/
 /datum/alarm/dd_SortValue()
 	return "[sanitize_old(last_name)]"
 
@@ -974,6 +983,22 @@
 			. += M
 		else
 			. += flatten_list(M)
+
+/**
+ * Takes an assoc list of items with counts (item = count, item = count)
+ * or a simple flat list (item, item), or a mix of both (item, item = count).
+ * Returns an assoc list of items with counts (item = count, item = count, ...).
+ * If no count is provided, default is 1.
+ * Also deduplicates entries, where (item, item) becomes (item = 2)
+ */
+/proc/counted_list(list/input_list)
+	var/list/counted = list()
+	if(!islist(input_list))
+		return counted
+	for(var/item in input_list)
+		var/count = isnum(input_list[item]) ? input_list[item] : 1
+		counted[item] += count
+	return counted
 
 /**
  * Takes an input_key, as text, and the list of keys already used, outputting a replacement key in the format of "[input_key] ([number_of_duplicates])" if it finds a duplicate.

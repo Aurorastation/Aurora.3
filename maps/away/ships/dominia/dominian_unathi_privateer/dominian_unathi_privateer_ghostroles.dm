@@ -9,7 +9,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/kazhkz_privateer
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kazhkz Privateer"
@@ -26,12 +26,12 @@
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/unique/donkpockets = 1,
-		/obj/item/device/versebook/tribunal = 1,
+		/obj/item/versebook/tribunal = 1,
 		/obj/item/shield/energy/dominia = 1
 	)
 
@@ -43,7 +43,7 @@
 		H.w_uniform.accent_color = uniform_colour
 
 /obj/outfit/admin/kazhkz_privateer/get_id_access()
-	return list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/imperial_fleet_voidsman_ship::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/kazhkz_privateer/captain
 	short_name = "kazhkz_privateer_captain"

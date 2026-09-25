@@ -4,8 +4,8 @@
  * @license MIT
  */
 
+import { Button, Section, Tabs } from 'tgui-core/components';
 import { useLocalState } from '../backend';
-import { Button, Section, Tabs } from '../components';
 
 export const meta = {
   title: 'Tabs',
@@ -14,7 +14,7 @@ export const meta = {
 
 const TAB_RANGE = ['Tab #1', 'Tab #2', 'Tab #3', 'Tab #4'];
 
-const Story = (props, context) => {
+const Story = (props) => {
   const [tabProps, setTabProps] = useLocalState(context, 'tabProps', {});
   return (
     <>
@@ -101,14 +101,15 @@ const Story = (props, context) => {
   );
 };
 
-const TabsPrefab = (props, context) => {
+const TabsPrefab = (props) => {
   const [tabIndex, setTabIndex] = useLocalState(context, 'tabIndex', 0);
   const [tabProps] = useLocalState(context, 'tabProps', {});
   return (
     <Tabs
       vertical={tabProps.vertical}
       fluid={tabProps.fluid}
-      textAlign={tabProps.centered && 'center'}>
+      textAlign={tabProps.centered && 'center'}
+    >
       {TAB_RANGE.map((text, i) => (
         <Tabs.Tab
           key={i}
@@ -124,7 +125,8 @@ const TabsPrefab = (props, context) => {
               <Button circular compact color="transparent" icon="times" />
             )
           }
-          onClick={() => setTabIndex(i)}>
+          onClick={() => setTabIndex(i)}
+        >
           {text}
         </Tabs.Tab>
       ))}

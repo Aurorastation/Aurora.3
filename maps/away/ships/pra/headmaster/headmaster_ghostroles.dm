@@ -22,7 +22,7 @@
 	name = "Kosmostrelki"
 
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
 	accessory = /obj/item/clothing/accessory/badge/pra_passport
@@ -35,7 +35,7 @@
 	l_hand = /obj/item/martial_manual/tajara
 
 /obj/outfit/admin/headmaster_kosmostrelki/get_id_access()
-	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/pra::id, /datum/access/external_airlocks::id)
 
 // Kosmostrelki Captain - Orbital Fleet Captain in official and operational command of the Headmaster
 /datum/ghostspawner/human/headmaster_kosmostrelki/captain

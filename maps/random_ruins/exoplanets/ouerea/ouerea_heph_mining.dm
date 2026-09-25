@@ -39,7 +39,9 @@
 		SPECIES_HUMAN = /obj/outfit/admin/cyclops_crew,
 		SPECIES_SKRELL = /obj/outfit/admin/cyclops_crew,
 		SPECIES_SKRELL_AXIORI = /obj/outfit/admin/cyclops_crew,
-		SPECIES_UNATHI = /obj/outfit/admin/moghes_heph_miner
+		SPECIES_UNATHI = /obj/outfit/admin/moghes_heph_miner,
+		SPECIES_UNATHI_URAWANI = /obj/outfit/admin/moghes_heph_miner,
+		SPECIES_UNATHI_ZIRALIXI = /obj/outfit/admin/moghes_heph_miner
 	)
 
 /datum/ghostspawner/human/ouerea_heph_miner/klax

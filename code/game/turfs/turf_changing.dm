@@ -27,11 +27,11 @@
 		// exoplanet
 		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
 		if (istype(exoplanet) && istype(exoplanet.theme))
-			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area)
+			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area, exoplanet)
 		// away site
 		var/datum/map_template/ruin/away_site/away_site = GLOB.map_templates["[z]"]
 		if (istype(away_site) && istype(away_site.exoplanet_theme_base))
-			away_site.exoplanet_theme_base.on_turf_generation(src, null)
+			away_site.exoplanet_theme_base.on_turf_generation(src, null, away_site)
 
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
@@ -46,7 +46,8 @@
 	if(ispath(path, /turf/space) && GET_TURF_BELOW(src) && !ignore_override)
 		path = openspace_override_type || /turf/simulated/open/airless
 
-	var/obj/fire/old_fire = fire
+	var/old_hotspot = hotspot
+	var/old_turf_fire = turf_fire
 	var/old_baseturf = baseturf
 	var/old_above = above
 	var/list/old_blueprints = blueprints
@@ -69,6 +70,11 @@
 
 	changing_turf = TRUE
 
+	if(isspaceturf(path) || isopenspace(path))
+		QDEL_NULL(turf_fire)
+	else
+		old_turf_fire = turf_fire
+
 	if(connections)
 		connections.erase_all()
 
@@ -80,6 +86,11 @@
 	var/list/old_signal_procs = _signal_procs?.Copy()
 
 	var/turf/new_turf = new path(src)
+
+	if(!density)
+		turf_fire = old_turf_fire
+	else if (old_turf_fire)
+		QDEL_NULL(old_turf_fire)
 
 	// If the area requires starlight, we need to fill it back in with starlight after the change.
 	// Particularly necessary so shuttles don't leave dark patches after undocking with starlit turfs.
@@ -129,12 +140,12 @@
 	new_turf.above = old_above
 
 	if(ispath(path, /turf/simulated))
-		if(old_fire)
-			fire = old_fire
+		if(old_hotspot)
+			hotspot = old_hotspot
 		if (istype(new_turf, /turf/simulated/floor))
 			new_turf.RemoveLattice()
-	else if(old_fire)
-		old_fire.RemoveFire()
+	else if(hotspot)
+		qdel(hotspot)
 
 	if(tell_universe)
 		GLOB.universe.OnTurfChange(new_turf)
@@ -211,15 +222,12 @@
 	other.icon_state = icon_state
 	other.name = name
 	other.layer = layer
-	other.decals = decals
+	other.decals = decals?.Copy()
 	other.roof_flags = roof_flags
 	other.roof_type = roof_type
 
-	if (atom_overlay_cache)
-		other.atom_overlay_cache = atom_overlay_cache
-
-	if (atom_protected_overlay_cache)
-		other.atom_protected_overlay_cache = atom_protected_overlay_cache
+	other.atom_overlay_cache = atom_overlay_cache?.Copy()
+	other.atom_protected_overlay_cache = atom_protected_overlay_cache?.Copy()
 
 	other.overlays = overlays.Copy()
 
@@ -227,6 +235,7 @@
 	. = ..()
 
 	if (ignore_air || !zone || !istype(other))
+		other.update_icon()
 		return
 
 	if (!other.air)
@@ -240,11 +249,12 @@
 
 /turf/simulated/wall/copy_turf(turf/simulated/wall/other, ignore_air = FALSE)
 	.=..()
-	other.damage = damage
+	other.health = health
 
 /turf/simulated/floor/copy_turf(turf/simulated/floor/other, ignore_air = FALSE)
 	.=..()
 	other.flooring = flooring
+	other.update_icon()
 
 /turf/simulated/wall/shuttle/dark/corner/underlay/copy_turf(turf/simulated/wall/shuttle/dark/corner/underlay/other, ignore_air = FALSE)
 	.=..()

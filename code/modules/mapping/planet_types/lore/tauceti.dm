@@ -75,7 +75,7 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson
 	name = "New Gibson"
-	desc = "An ice world just outside the outer edge of the habitable zone."
+	desc = "An icy moon orbiting the gas giant Reade, a fair way away from the centre of the system."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	alignment = "Federal Republic of Biesel"
 	icon_state = "globe1"
@@ -94,14 +94,14 @@
 	return HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_ground_survey_result()
-	ground_survey_result = "<br>Mineral-rich soil with presence of artificial structures"
+	ground_survey_result = "<br>Mineral-rich permafrost with high levels of radon gas and pockets of naturally-occurring radioactive materials."
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/generate_atmosphere()
 	..()
 	if(atmosphere)
 		atmosphere.remove_ratio(1)
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_O2STANDARD)
-		atmosphere.temperature = T0C - 200
+		atmosphere.temperature = T0C - 182
 		atmosphere.update_values()
 
 // --------------------------------- Chandras

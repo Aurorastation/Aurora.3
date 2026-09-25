@@ -40,7 +40,9 @@
 		"IHSS Reclamation Shuttle" = list("nav_ihss_reclamation_shuttle")
 	)
 	comms_support = TRUE
-	comms_name = "IHSS Reclamation"
+
+/obj/effect/overmap/visitable/ship/stationary/ihss_reclamation/create_comms_groups()
+	return list("default" = new /datum/comms_group("IHSS Reclamation"))
 
 /obj/effect/shuttle_landmark/nav_ihss_reclamation
 	base_area = /area/space
@@ -101,7 +103,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/ihss_reclamation
+/obj/structure/machinery/computer/shuttle_control/explore/ihss_reclamation
 	name = "shuttle control console"
 	shuttle_tag = "IHSS Reclamation Shuttle"
 
@@ -114,7 +116,6 @@
 	dock_target = "airlock_reclamation_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_ihss_reclamation_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ihss_reclamation_shuttle

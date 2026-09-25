@@ -12,12 +12,25 @@
 	throw_speed = 4
 	throw_range = 20
 	obj_flags = OBJ_FLAG_CONDUCTABLE
+	pass_flags_self = PASSTABLE | PASSRAILING
 	slot_flags = SLOT_BELT
 	contained_sprite = 1
 	var/active = 0
 	var/det_time = 30
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
+	/// If TRUE, grenade launchers defer projectile processing and post-fire handling to this ammunition.
+	var/special_launcher_handling = FALSE
+	/// If TRUE, firing this ammunition from a grenade launcher sends a live notification to admins.
+	var/notify_admins_on_launcher_fire = TRUE
+	pickup_sound = 'sound/items/pickup/grenade.ogg'
+	drop_sound = 'sound/items/drop/grenade.ogg'
+
+/obj/item/grenade/Destroy()
+	// Stop all animations to prevent a hard delete.
+	animate(src)
+	walk(src, 0)
+	return ..()
 
 /obj/item/grenade/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -80,6 +93,14 @@
 	// Nor do we want people to instantly know when to throw a perfectly timed grenade.
 	animate(src, det_time + rand(-5, 5), -1, LINEAR_EASING, color = COLOR_RED)
 
+/// Handles firing behavior for ammunition with special_launcher_handling.
+/obj/item/grenade/proc/process_launcher_projectile(obj/item/gun/launcher/grenade/launcher, mob/user, atom/target, target_zone, params)
+	return FALSE
+
+/// Handles cleanup after special launcher ammunition has been successfully fired.
+/obj/item/grenade/proc/handle_launcher_post_fire(obj/item/gun/launcher/grenade/launcher)
+	return
+
 /obj/item/grenade/proc/prime()
 	var/turf/T = get_turf(src)
 	if(T)
@@ -87,18 +108,18 @@
 
 	if(ishuman(loc))
 		var/mob/living/carbon/human/victim = loc
-		var/obj/item/organ/external/exploded_hand
-		if(victim.hand == src)
-			exploded_hand = victim.organs_by_name[BP_R_HAND]
-		else if(victim.l_hand == src)
-			exploded_hand = victim.organs_by_name[BP_L_HAND]
-		explode_in_hand(victim, exploded_hand)
+		var/obj/item/organ/external/exploded_organ
+		if(victim.l_hand == src)
+			exploded_organ = victim.get_organ(BP_L_HAND)
+		else if(victim.r_hand == src)
+			exploded_organ = victim.get_organ(BP_R_HAND)
+		explode_in_hand(victim, exploded_organ)
 
-/// This proc is called when the grenade explodes in your hand or on you. Exploded_hand can be null in case the grenade explodes in a pocket or something.
-/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+/// This proc is called when the grenade explodes in your hand or on you. Exploded_organ can be null in case the grenade explodes in a pocket or something.
+/obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)
 	SHOULD_CALL_PARENT(TRUE)
-	if(exploded_hand)
-		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
+	if(exploded_organ)
+		victim.visible_message(SPAN_DANGER("\The [src] goes off in \the [victim]'s hands!"), SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
 	else
 		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
 
@@ -107,5 +128,5 @@
 	..()
 	return
 
-/obj/item/grenade/vendor_action(var/obj/machinery/vending/V)
+/obj/item/grenade/vendor_action(var/obj/structure/machinery/vending/V)
 	activate(V)

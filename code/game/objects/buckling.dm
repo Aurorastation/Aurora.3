@@ -50,6 +50,7 @@
 		buckling_mob.set_dir(buckle_dir ? buckle_dir : dir)
 		buckling_mob.facing_dir = null
 		buckling_mob.update_canmove()
+		buckling_mob.throw_alert(ALERT_BUCKLED, /atom/movable/screen/alert/buckled)
 
 	else
 		buckling_atom.anchored = TRUE
@@ -72,6 +73,7 @@
 		if(istype(MA, /mob/living))
 			var/mob/living/M = MA
 			M.update_canmove()
+			M.clear_alert(ALERT_BUCKLED)
 		post_buckle(.)
 
 /obj/proc/post_buckle(atom/movable/MA)

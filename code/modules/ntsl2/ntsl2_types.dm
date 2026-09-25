@@ -47,7 +47,7 @@
 // Telecommunications program
 /datum/ntsl2_program/tcomm
 	name = "NTSL2++ comm program"
-	var/obj/machinery/telecomms/server/server
+	var/obj/structure/machinery/telecomms/server/server
 
 
 /datum/ntsl2_program/tcomm/New(var/server)

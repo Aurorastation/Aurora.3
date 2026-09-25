@@ -63,6 +63,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
 	"log_subsystems_persistence" = TRUE, // Persistence
+	"log_subsystems_registry" = TRUE, // Registry
 	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
@@ -70,6 +71,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_zas" = FALSE, // ZAS
 	"log_subsystems_zas_debug" = FALSE, // ZAS debug
 	"log_subsystems_http" = TRUE, //HTTP Log
+	"log_subsystems_sentry" = TRUE, //Sentry subsystem self-diagnostics
 
 	/*#### MODULES ####*/
 
@@ -122,6 +124,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_law_log" = "subsystems/law.log",
 	"world_subsystems_cargo_log" = "subsystems/cargo.log",
 	"world_subsystems_persistence_log" = "subsystems/persistence.log",
+	"world_subsystems_registry_log" = "subsystems/registry.log",
 	"world_subsystems_documents_log" = "subsystems/documents.log",
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
@@ -129,6 +132,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_zas" = "subsystems/zas.log",
 	"world_subsystems_zas_debug" = "subsystems/zas.log",
 	"world_subsystems_http" = "subsystems/http.log",
+	"world_subsystems_sentry_log" = "subsystems/sentry.log",
 
 	/*#### MODULES ####*/
 
@@ -226,7 +230,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/load_jobs_from_txt = 0
 	var/automute_on = 0					//enables automuting/spam prevention
 	var/macro_trigger = 5				// The grace period between messages before it's counted as abusing a macro.
-	var/jobs_have_minimal_access = 0	//determines whether jobs use minimal access or expanded access.
 	var/override_map
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
@@ -234,7 +237,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	var/character_slots = 10				// The number of available character slots
 	var/loadout_slots = 3					// The number of loadout slots per character
-	var/loadout_cost = 15					// The maximum cost of the loadout per slot
+	var/loadout_cost = 20					// The maximum cost of the loadout per slot
 
 	var/max_maint_drones = 5				//This many drones can spawn,
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
@@ -246,6 +249,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/allow_extra_antags = 0
 	var/guests_allowed = 1
 	var/debugparanoid = 0
+	var/minimum_participation_time = 15 //Minimum time, in minutes, that a player must be active in round to count as an active participant.
 
 	var/server
 	var/banappeals
@@ -298,7 +302,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	//Unversal modifiers
 	var/walk_speed = 0
 	var/walk_delay_multiplier = 1
-	var/lying_delay_multiplier = 4
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
 
@@ -341,13 +344,13 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
 	// If the first delay has a custom start time
 	// No custom time, no custom time, between 80 to 100 minutes respectively.
-	var/list/event_first_run   = list(EVENT_LEVEL_MUNDANE = null, 	EVENT_LEVEL_MODERATE = null,	EVENT_LEVEL_MAJOR = list("lower" = 48000, "upper" = 60000))
+	var/alist/event_first_run   = alist(EVENT_LEVEL_MUNDANE = null, 	EVENT_LEVEL_MODERATE = null,	EVENT_LEVEL_MAJOR = list("lower" = 48000, "upper" = 60000))
 	// The lowest delay until next event
 	// 10, 30, 50 minutes respectively
-	var/list/event_delay_lower = list(EVENT_LEVEL_MUNDANE = 6000,	EVENT_LEVEL_MODERATE = 18000,	EVENT_LEVEL_MAJOR = 30000)
+	var/alist/event_delay_lower = alist(EVENT_LEVEL_MUNDANE = 6000,	EVENT_LEVEL_MODERATE = 18000,	EVENT_LEVEL_MAJOR = 30000)
 	// The upper delay until next event
 	// 15, 45, 70 minutes respectively
-	var/list/event_delay_upper = list(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
+	var/alist/event_delay_upper = alist(EVENT_LEVEL_MUNDANE = 9000,	EVENT_LEVEL_MODERATE = 27000,	EVENT_LEVEL_MAJOR = 42000)
 
 	var/ninjas_allowed = 0
 	var/abandon_allowed = 1
@@ -460,9 +463,9 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	// global.forum_api_key - see modules/http/forum_api.dm
 	var/news_use_forum_api = FALSE
 
-	var/forumuser_api_url
-	var/use_forumuser_api = FALSE
-	// global.forumuser_api_key - see modules/http/forumuser_api.dm
+	var/authentik_api_url
+	var/authentik_api_key
+	var/use_authentik_api = FALSE
 
 	var/profiler_is_enabled = FALSE
 	var/profiler_restart_period = 120 SECONDS
@@ -531,6 +534,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 		if(type == "config")
 			switch (name)
+				if ("minimum_participation_time")
+					GLOB.config.minimum_participation_time = text2num(value) MINUTES
+
 				if ("auto_local_admin")
 					GLOB.config.auto_local_admin = TRUE
 
@@ -548,9 +554,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if ("load_age_restrictions_from_file")
 					GLOB.config.age_restrictions_from_file = 1
-
-				if ("jobs_have_minimal_access")
-					GLOB.config.jobs_have_minimal_access = 1
 
 				if ("use_spreading_explosions")
 					GLOB.config.use_spreading_explosions = 1
@@ -1072,12 +1075,12 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if ("profiler_timeout_threshold")
 					profiler_timeout_threshold = text2num(value)
 
-				if ("forumuser_api_url")
-					forumuser_api_url = value
-				if ("use_forumuser_api")
-					use_forumuser_api = TRUE
-				if ("forumuser_api_key")
-					global.forumuser_api_key = value
+				if ("authentik_api_url")
+					GLOB.config.authentik_api_url = value
+				if ("use_authentik_api")
+					GLOB.config.use_authentik_api = TRUE
+				if ("authentik_api_key")
+					GLOB.config.authentik_api_key = value
 
 				if ("external_rsc_urls")
 					external_rsc_urls = splittext(value, ",")
@@ -1189,6 +1192,41 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					SSdiscord.alert_visibility = TRUE
 				else
 					log_config("Unknown setting in discord configuration: '[name]'")
+
+		else if (type == "sentry")
+			if (!SSsentry)
+				log_config("Sentry: Attempted to read config/sentry.txt before SSsentry was initialized.")
+				return
+
+			switch (name)
+				if ("enabled")
+					SSsentry._config_enabled_flag = TRUE
+				if ("dsn")
+					if (!SSsentry.parse_dsn(value))
+						log_config("Sentry: Invalid DSN '[value]' in config/sentry.txt")
+				if ("environment")
+					SSsentry.environment = value
+				if ("server_name")
+					SSsentry.server_name = value
+				if ("capture_runtimes")
+					SSsentry.capture_runtimes = text2num(value) ? TRUE : FALSE
+				if ("capture_sql")
+					SSsentry.capture_sql = text2num(value) ? TRUE : FALSE
+				if ("capture_hard_dels")
+					SSsentry.capture_hard_dels = text2num(value) ? TRUE : FALSE
+				if ("capture_profiler")
+					SSsentry.capture_profiler = text2num(value) ? TRUE : FALSE
+				if ("profiler_top_n")
+					SSsentry.profiler_top_n = text2num(value)
+				if ("dedup_window")
+					SSsentry.dedup_window = text2num(value)
+				if ("scrub_ckeys")
+					SSsentry.scrub_ckeys = text2num(value) ? TRUE : FALSE
+				if ("max_consecutive_failures")
+					SSsentry.max_consecutive_failures = text2num(value)
+				else
+					log_config("Sentry: Unknown setting '[name]' in config/sentry.txt")
+
 	load_logging_config()
 	load_away_sites_config()
 	load_exoplanets_config()

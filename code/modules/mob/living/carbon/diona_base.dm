@@ -256,16 +256,16 @@ and some alternative things that are toxic to other life, such as radium and mut
 	if (life_tick % LIFETICK_INTERVAL_LESS == 0)
 		if (bad_internal_organs.len)
 			for (var/obj/item/organ/O in bad_internal_organs)
-				var/CL = O.damage
+				var/CL = O.get_damage()
 				var/value
 				if(total_radiation > 0)
 					value = min(CL, total_radiation, 2 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-					O.damage += value/-1.5
+					O.add_damage(value/-1.5)
 					total_radiation -= value
 					CL = getCloneLoss()
 
 				value = min(CL, DS.stored_energy, 1 * DS.healing_factor * LIFETICK_INTERVAL_LESS)
-				O.damage += value/-3
+				O.add_damage(value/-3)
 				DS.stored_energy -= value
 
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
@@ -370,15 +370,14 @@ and some alternative things that are toxic to other life, such as radium and mut
 
 	updatehealth()
 
-/mob/living/carbon/human/proc/diona_regen_progress(var/datum/dionastats/DS)
+/mob/living/carbon/human/proc/diona_regen_progress(datum/dionastats/DS)
 	if(!DS)
 		return
 	if(DS.regen_limb_progress > LIMB_REGROW_REQUIREMENT)
-		DS.regen_limb.Invoke()
+		DS.regen_limb?.Invoke()
 		DS.regen_limb = null
-		if(DS.regen_extra)
-			DS.regen_extra.Invoke()
-			DS.regen_extra = null
+		DS.regen_extra?.Invoke()
+		DS.regen_extra = null
 	var/progress = nutrition * 0.45
 	adjustNutritionLoss(nutrition * 0.15)
 	progress += DS.stored_energy * 0.3
@@ -501,7 +500,7 @@ Lightstates:
 	if (DS.dionatype == 0)
 		return health
 	else
-		return health+(maxHealth*0.5)
+		return health+(maxhealth*0.5)
 
 /mob/living/carbon/proc/get_dionastats()
 	return
@@ -558,7 +557,7 @@ The nymph has a chance to inherit each language. */
 	else if(gestalt.stat == DEAD)
 		to_chat(src, SPAN_DANGER("Your Gestalt is not responding! Something might have happened to it!"))
 	else
-		gestalt.key = key
+		client.transfer_key_to_mob(gestalt)
 		remove_verb(gestalt, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
 		add_verb(gestalt, /mob/living/carbon/human/proc/switch_to_nymph)
 		gestalt.client.init_verbs()
@@ -579,7 +578,7 @@ The nymph has a chance to inherit each language. */
 		if(C == gestalt)
 			C.nutrition += REGROW_FOOD_REQ * 0.75
 			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
-			C.key = src.key
+			src.client.transfer_key_to_mob(C)
 			if(C.DS.regen_limb)
 				C.DS.regen_limb.Invoke()
 				if(C.DS.regen_extra)
@@ -637,7 +636,8 @@ Most of these values are calculated from information configured at authortime in
 	last_location = null
 	regen_limb = null
 	regen_extra = null
-	. = ..()
+	nym = null
+	return ..()
 
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))

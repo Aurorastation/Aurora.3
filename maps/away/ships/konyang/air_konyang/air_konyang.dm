@@ -40,7 +40,7 @@
 	designation = "[pick("Qianlima", "Senrima", "Cheollima", "Chollima")]"
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/air_konyang
+/obj/structure/machinery/computer/shuttle_control/explore/air_konyang
 	name = "shuttle control console"
 	shuttle_tag = "Air Konyang Transport"
 
@@ -53,7 +53,6 @@
 	current_location = "nav_air_konyang_start"
 	dock_target = "airlock_air_konyang"
 	landmark_transition = "nav_air_konyang_transit"
-	logging_home_tag = "nav_air_konyang_start"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/air_konyang

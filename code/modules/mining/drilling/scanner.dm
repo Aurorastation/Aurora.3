@@ -1,12 +1,12 @@
 /obj/item/mining_scanner
 	name = "deep ore scanner"
 	desc = "A complex device used to locate ore deep underground."
-	icon = 'icons/obj/item/mining_scanner.dmi'
+	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "manual_mining"
 	item_state = "manual_mining"
 	contained_sprite = TRUE
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 150)
+	matter = list(MATERIAL_STEEL = 150)
 
 /obj/item/mining_scanner/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You begin sweeping \the [src] about, scanning for metal deposits."))

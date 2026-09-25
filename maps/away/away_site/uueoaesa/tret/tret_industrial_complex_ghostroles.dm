@@ -99,7 +99,7 @@
 
 /obj/effect/landmark/corpse/tret_industrial_sinta
 	name = "Cult Base Cultist Corpse"
-	species = list(SPECIES_UNATHI)
+	species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	outfit = list(/obj/outfit/admin/tret_industrial/sinta)
 
 /obj/effect/landmark/corpse/tret_industrial_sinta/do_extra_customization(var/mob/living/carbon/human/human)
@@ -143,13 +143,13 @@
 	l_pocket = list(/obj/item/reagent_containers/food/snacks/koisbar)
 	id = /obj/item/card/id/hephaestus
 	backpack_contents = list(
-		/obj/item/device/gps/mining = 1,
-		/obj/item/device/flashlight/lantern = 1,
-		/obj/item/device/radio/hailing = 1,
+		/obj/item/gps/mining = 1,
+		/obj/item/flashlight/lantern = 1,
+		/obj/item/radio/hailing = 1,
 	)
 
 /obj/outfit/admin/tret_industrial/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
+	return list(/datum/access/external_airlocks::id, /datum/access/hephaestus::id)
 
 /obj/outfit/admin/tret_industrial/vaurca/bulwark
 	name = "Tret Industrial Bulwark"

@@ -113,6 +113,15 @@
 
 	return "[contains_vote_in_name ? "[capitalize(name)]" : "[capitalize(name)] vote"] started by [initiator || "Central Command"]."
 
+/// Handles voting power application for each voter. Used in situations where some players should have more say in a vote than others.
+/datum/vote/proc/get_voting_power(mob/voter)
+	SHOULD_CALL_PARENT(TRUE)
+	if(!voter?.ckey)
+		return 0
+	if(FALSE && voter.stat == DEAD && !voter.client?.holder) //Used to be "CONFIG_GET(flag/no_dead_vote)"
+		return 0
+	return 1
+
 /**
  * Gets the result of the vote.
  *
@@ -158,7 +167,7 @@
 
 /// Gets the winner of the vote, selecting a random choice from all choices based on their vote count.
 /datum/vote/proc/get_random_winner()
-	var/winner = pick_weight(choices)
+	var/winner = pickweight(choices)
 	return winner ? list(winner) : list()
 
 /**

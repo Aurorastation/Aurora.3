@@ -3,14 +3,18 @@
 	priority = 2
 	can_infect = TRUE
 	blood_level = 1
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	skill_diff_fail_modifier = SURGERY_DIFFICULTY_EXTREME
 
 /singleton/surgery_step/internal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return FALSE
 	if(affected.encased)
-		return affected && IS_ORGAN_FULLY_OPEN
+		return IS_ORGAN_FULLY_OPEN
 	if(BP_IS_ROBOTIC(affected))
 		return affected.augment_limit && affected.open == ORGAN_ENCASED_RETRACTED
 	else
@@ -25,9 +29,8 @@
 	/obj/item/stack/medical/advanced/bruise_pack= 100,		\
 	/obj/item/stack/medical/bruise_pack = 20
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -111,11 +114,10 @@
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/surgery/bone_gel = 30,
-	SCREWDRIVER = 70
+	TOOL_SCREWDRIVER = 70
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
 /singleton/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -142,7 +144,7 @@
 				user.visible_message("<b>[user]</b> starts mending the damage to [target]'s [I.name]'s mechanisms.", \
 					SPAN_NOTICE("You start mending the damage to [target]'s [I.name]'s mechanisms." ))
 
-	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 75, affecting = affected)
 	..()
 
 /singleton/surgery_step/internal/fix_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -156,6 +158,7 @@
 				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
 					SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
 				I.surgical_fix(user)
+				START_PROCESSING(SSprocessing, I)
 				if(istype(tool, /obj/item/stack/nanopaste))
 					var/obj/item/stack/nanopaste/nanopaste = tool
 					nanopaste.use(1)
@@ -180,13 +183,15 @@
 	name = "Separate Organ"
 	priority = 1
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
+	base_surgery_time = 9 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
-	min_duration = 70
-	max_duration = 90
+/singleton/surgery_step/internal/detach_organ/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	return get_internal_organ_removal_skill_requirements(user, target, target_zone, FALSE, preferred_skill_component)
 
 /singleton/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -246,13 +251,51 @@
 /singleton/surgery_step/internal/remove_organ
 	name = "Remove Organ"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	WIRECUTTER = 75,	\
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
+	base_surgery_time = 6 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
-	min_duration = 40
-	max_duration = 60
+/singleton/surgery_step/internal/remove_organ/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	return get_internal_organ_removal_skill_requirements(user, target, target_zone, TRUE, preferred_skill_component)
+
+/**
+ * Organ separation and extraction follow the organ being handled rather than
+ * the organic housing around it. Assisted organs may use either skill, as may
+ * organic brains due to the overlap in medical and roboticist responsibilities.
+ */
+/singleton/surgery_step/internal/proc/get_internal_organ_removal_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, organ_must_be_cut_away, preferred_skill_component)
+	var/list/permitted_skills = list()
+	var/obj/item/organ/selected_organ = target.internal_organs_by_name[target.op_stage.current_organ]
+
+	if(selected_organ \
+		&& selected_organ.parent_organ == target_zone \
+		&& (organ_must_be_cut_away || !(selected_organ.status & ORGAN_ZOMBIFIED)) \
+		&& !!(selected_organ.status & ORGAN_CUT_AWAY) == !!organ_must_be_cut_away)
+		add_internal_organ_removal_skills(selected_organ, permitted_skills)
+	else
+		for(var/obj/item/organ/internal/organ in target.internal_organs)
+			if(organ.parent_organ != target_zone)
+				continue
+			if(!organ_must_be_cut_away && (organ.status & ORGAN_ZOMBIFIED))
+				continue
+			if(!!(organ.status & ORGAN_CUT_AWAY) != !!organ_must_be_cut_away)
+				continue
+			add_internal_organ_removal_skills(organ, permitted_skills)
+
+	return get_alternative_surgery_skill_requirements(user, permitted_skills, SKILL_LEVEL_TRAINED, preferred_skill_component)
+
+/singleton/surgery_step/internal/proc/add_internal_organ_removal_skills(obj/item/organ/organ, list/permitted_skills)
+	if(BP_IS_ROBOTIC(organ) || organ.robotic >= ROBOTIC_MECHANICAL)
+		permitted_skills |= ROBOTICS_SKILL_COMPONENT
+	else if(organ.organ_tag == BP_BRAIN \
+		|| (organ.status & ORGAN_ASSISTED) \
+		|| organ.robotic >= ROBOTIC_ASSISTED)
+		permitted_skills |= list(SURGERY_SKILL_COMPONENT, ROBOTICS_SKILL_COMPONENT)
+	else
+		permitted_skills |= SURGERY_SKILL_COMPONENT
 
 /singleton/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -309,9 +352,8 @@
 	allowed_tools = list(
 	/obj/item/organ = 100
 	)
-
-	min_duration = 40
-	max_duration = 60
+	base_surgery_time = 6 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -342,7 +384,7 @@
 		return FALSE
 	else if(target.species.has_organ[O.organ_tag] || O.is_augment)
 
-		if(O.damage > (O.max_damage * 0.75))
+		if(O.get_damage() > (O.max_damage * 0.75))
 			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_is] in no state to be transplanted."))
 			return SURGERY_FAILURE
 
@@ -385,7 +427,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
 		"You start transplanting \the [tool] into [target]'s [affected.name].")
-	target.custom_pain("Someone's rooting around in your [affected.name]!", 75)
+	target.custom_pain("Someone's rooting around in your [affected.name]!", 75, affecting = affected)
 	..()
 
 /singleton/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -412,11 +454,10 @@
 	name = "Attach Organ"
 	allowed_tools = list(
 	/obj/item/surgery/fix_o_vein = 100, \
-	/obj/item/stack/cable_coil = 75
+	TOOL_CABLECOIL = 75
 	)
-
-	min_duration = 80
-	max_duration = 100
+	base_surgery_time = 10 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/attach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -465,12 +506,11 @@
 	name = "Prepare Brain"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/manager = 95,
-	/obj/item/surgery/surgicaldrill = 75,
+	TOOL_DRILL = 75,
 	/obj/item/pickaxe/ = 5
 	)
-
-	min_duration = 80
-	max_duration = 100
+	base_surgery_time = 10 SECONDS
+	skill_requirements = alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

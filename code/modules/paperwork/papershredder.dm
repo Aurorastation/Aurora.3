@@ -1,10 +1,11 @@
-/obj/machinery/papershredder
+/obj/structure/machinery/papershredder
 	name = "paper shredder"
 	desc = "For those documents you don't want seen."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "papershredder0"
 	density = 1
 	anchored = 1
+	maxhealth = OBJECT_HEALTH_LOW
 	var/max_paper = 10
 	var/paperamount = 0
 	var/list/shred_amounts = list(
@@ -16,12 +17,12 @@
 		/obj/item/paper_bundle = 3
 		)// use -1 if it doesn't generate paper
 
-/obj/machinery/papershredder/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/papershredder/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/storage))
 		empty_bin(user, attacking_item)
 		return
 
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message(
@@ -45,7 +46,7 @@
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
-			if(attacking_item.icon_state == "scrap")
+			if(astype(attacking_item, /obj/item/paper)?.crumpled)
 				flick("papershredder_s_on", src)
 			else if(attacking_item.icon_state == "paper_words")
 				flick("papershredder_w_on", src)
@@ -54,7 +55,7 @@
 			else
 				flick("papershredder_on", src)
 			qdel(attacking_item)
-			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, SPAN_NOTICE("You shred the paper."))
 			intent_message(MACHINE_SOUND)
 			if(paperamount > max_paper)
@@ -68,7 +69,7 @@
 			return
 	return ..()
 
-/obj/machinery/papershredder/verb/empty_contents()
+/obj/structure/machinery/papershredder/verb/empty_contents()
 	set name = "Empty bin"
 	set category = "Object"
 	set src in range(1)
@@ -82,7 +83,7 @@
 
 	empty_bin(usr)
 
-/obj/machinery/papershredder/proc/empty_bin(var/mob/living/user, var/obj/item/storage/empty_into)
+/obj/structure/machinery/papershredder/proc/empty_bin(var/mob/living/user, var/obj/item/storage/empty_into)
 
 	// Sanity.
 	if(empty_into && !istype(empty_into))
@@ -109,13 +110,13 @@
 		to_chat(user,  SPAN_NOTICE("You empty \the [src]."))
 	update_icon()
 
-/obj/machinery/papershredder/proc/get_shredded_paper()
+/obj/structure/machinery/papershredder/proc/get_shredded_paper()
 	if(!paperamount)
 		return
 	paperamount--
 	return new /obj/item/shreddedp(get_turf(src))
 
-/obj/machinery/papershredder/update_icon() //makes it show how full the papershredder is while covering up the animation. Seemsgood - Wezzy
+/obj/structure/machinery/papershredder/update_icon() //makes it show how full the papershredder is while covering up the animation. Seemsgood - Wezzy
 	ClearOverlays()
 	switch(paperamount)
 		if(2 to 3)
@@ -143,7 +144,7 @@
 			var/obj/item/flame/F = P
 			if (!F.lit)
 				return
-		else if (P.iswelder())
+		else if (P.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
 			if (!F.welding)
 				return
@@ -158,7 +159,7 @@
 
 		user.visible_message(span("[class]", "[user] holds \the [P] up to \the [src], trying to burn it!"), \
 		span("[class]", "You hold \the [P] up to \the [src], burning it slowly."))
-		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/bureaucracy/paperburn.ogg', 50, 1)
 		flick("shredp_onfire", src)
 
 		if (do_after(user, 2 SECONDS, src, DO_UNIQUE | DO_USER_CAN_MOVE))

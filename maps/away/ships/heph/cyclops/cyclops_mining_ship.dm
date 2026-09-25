@@ -136,7 +136,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Cyclops Shuttle"
 
@@ -149,7 +149,6 @@
 	dock_target = "airlock_shuttle_cyclops"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_cyclops"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar
@@ -167,11 +166,11 @@
 
 // airlocks
 
-/obj/effect/map_effect/marker/airlock/heph_cyclops/port
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/port
 	name = "Port Airlock"
 	master_tag = "airlock_cyclops_port"
 
-/obj/effect/map_effect/marker/airlock/heph_cyclops/starboard
+/obj/effect/map_effect/marker/airlock/external/heph_cyclops/starboard
 	name = "Starboard Airlock"
 	master_tag = "airlock_cyclops_starboard"
 

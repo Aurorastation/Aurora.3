@@ -28,7 +28,7 @@
 	research = null
 	// Fix hacked APCs
 	if(hacked_apcs)
-		for(var/obj/machinery/power/apc/A in hacked_apcs)
+		for(var/obj/structure/machinery/power/apc/A in hacked_apcs)
 			A.hacker = null
 	hacked_apcs = null
 	// Reset our verbs
@@ -62,7 +62,7 @@
 	var/cpu_storage = 10
 
 	// Off-Station APCs should not count towards CPU generation.
-	for(var/obj/machinery/power/apc/A in hacked_apcs)
+	for(var/obj/structure/machinery/power/apc/A in hacked_apcs)
 		if(A.z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			cpu_gain += 0.05
 			cpu_storage += 100
@@ -102,11 +102,11 @@
 
 // Returns percentage of AI's remaining backup capacitor charge (maxhealth - oxyloss).
 /mob/living/silicon/ai/proc/backup_capacitor()
-	return ((getOxyLoss() - maxHealth) / maxHealth) * -100
+	return ((getOxyLoss() - maxhealth) / maxhealth) * -100
 
 // Returns percentage of AI's remaining hardware integrity (maxhealth - (bruteloss + fireloss))
 /mob/living/silicon/ai/proc/hardware_integrity()
-	return (health / maxHealth) * 100
+	return (health / maxhealth) * 100
 
 // Shows AI Malfunction related information to the AI.
 /mob/living/silicon/ai/show_malf_ai()
@@ -130,4 +130,4 @@
 /mob/living/silicon/ai/proc/create_powersupply()
 	if(psupply)
 		qdel(psupply)
-	psupply = new/obj/machinery/ai_powersupply(src)
+	psupply = new/obj/structure/machinery/ai_powersupply(src)

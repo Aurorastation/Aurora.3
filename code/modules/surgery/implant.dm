@@ -6,6 +6,7 @@
 
 /singleton/surgery_step/cavity
 	priority = 1
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -42,13 +43,12 @@
 /singleton/surgery_step/cavity/make_space
 	name = "Hollow Out Cavity"
 	allowed_tools = list(
-	/obj/item/surgery/surgicaldrill = 100,	\
+	TOOL_DRILL = 100,	\
 	/obj/item/pen = 75,	\
 	/obj/item/stack/rods = 50
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -60,7 +60,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
-	target.custom_pain("The pain in your chest is living hell!",1)
+	target.custom_pain("The pain in your chest is living hell!", 1, affecting = affected)
 	affected.cavity = CAVITY_OPEN
 	..()
 
@@ -73,14 +73,13 @@
 	name = "Close Cavity"
 	priority = 2
 	allowed_tools = list(
-	/obj/item/surgery/cautery = 100,			\
+	TOOL_CAUTERY = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
 	)
-
-	min_duration = 50
-	max_duration = 70
+	base_surgery_time = 7 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -92,7 +91,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts mending [target]'s [get_cavity(affected)] cavity wall with \the [tool].", \
 		"You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool]." )
-	target.custom_pain("The pain in your chest is living hell!", 75)
+	target.custom_pain("The pain in your chest is living hell!", 75, affecting = affected)
 	affected.cavity = CAVITY_CLOSED
 	..()
 
@@ -105,9 +104,8 @@
 	name = "Place Item in Cavity"
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
-
-	min_duration = 60
-	max_duration = 80
+	base_surgery_time = 8 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -127,8 +125,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts putting \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
 		SPAN_NOTICE("You start putting \the [tool] inside [target]'s [get_cavity(affected)] cavity." ))
-	target.custom_pain("The pain in your chest is living hell!", 75)
-	playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
+	target.custom_pain("The pain in your chest is living hell!", 75, affecting = affected)
+	playsound(target.loc, BP_IS_ROBOTIC(affected) ? 'sound/items/wrench.ogg' : 'sound/effects/squelch1.ogg', 50, 1)
 	..()
 
 /singleton/surgery_step/cavity/place_item/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -152,13 +150,22 @@
 /singleton/surgery_step/cavity/implant_removal
 	name = "Remove Foreign Body"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	WIRECUTTER = 75,	\
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
+	base_surgery_time = 8 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
-	min_duration = 60
-	max_duration = 80
+/singleton/surgery_step/cavity/implant_removal/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	// Implant, embedded-object, and shrapnel extraction can all use either
+	// organic surgical training or robotics training.
+	return get_alternative_surgery_skill_requirements(
+		user,
+		list(SURGERY_SKILL_COMPONENT, ROBOTICS_SKILL_COMPONENT),
+		SKILL_LEVEL_TRAINED,
+		preferred_skill_component
+	)
 
 /singleton/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -171,7 +178,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
 		"You start poking around inside [target]'s [affected.name] with \the [tool]." )
-	target.custom_pain("The pain in your [affected.name] is living hell!", 50)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 50, affecting = affected)
 	..()
 
 /singleton/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -206,7 +213,7 @@
 					worm.detach()
 					worm.leave_host()
 
-				playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
+				playsound(target.loc, BP_IS_ROBOTIC(affected) ? 'sound/items/wrench.ogg' : 'sound/effects/squelch1.ogg', 50, 1)
 	else
 		user.visible_message("<b>[user]</b> could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.", \
 			SPAN_NOTICE("You could not find anything inside [target]'s [affected.name].") )
@@ -217,4 +224,3 @@
 	user.visible_message(SPAN_WARNING("[user] loses their grip and stabs [target] with \the [tool]!"), SPAN_WARNING("You lose your grip on \the [tool] and stab [target]!"))
 	affected.sever_artery()
 	target.apply_damage(25, DAMAGE_BRUTE, target_zone)
-

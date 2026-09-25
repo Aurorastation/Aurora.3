@@ -45,7 +45,7 @@
 	return
 
 /obj/vehicle/droppod/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder() && status == USED && !humanload && !passenger)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && status == USED && !humanload && !passenger)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.welding)
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
@@ -231,7 +231,7 @@
 		var/obstacle_found = FALSE
 		if(!iswall(T))
 			for(var/obj/O in T)
-				if(istype(O, /obj/structure/grille) || istype(O, /obj/machinery/door/airlock/external) || istype(O, /obj/machinery/embedded_controller)) //This is to help prevent the pod from landing right on an exterior window or airlock.
+				if(istype(O, /obj/structure/grille) || istype(O, /obj/structure/machinery/door/airlock/external) || istype(O, /obj/structure/machinery/embedded_controller)) //This is to help prevent the pod from landing right on an exterior window or airlock.
 					obstacle_found = TRUE
 					break
 			if(!obstacle_found)

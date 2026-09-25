@@ -8,8 +8,8 @@
 /obj/item/robot_harvester/afterattack(var/atom/target, var/mob/living/user, proximity)
 	if(!target || !proximity)
 		return
-	if(istype(target, /obj/machinery/portable_atmospherics/hydroponics))
-		var/obj/machinery/portable_atmospherics/hydroponics/T = target
+	if(istype(target, /obj/structure/machinery/portable_atmospherics/hydroponics))
+		var/obj/structure/machinery/portable_atmospherics/hydroponics/T = target
 		if(T.harvest) //Try to harvest, assuming it's alive.
 			T.harvest(user)
 		else if(T.dead) //It's probably dead otherwise.

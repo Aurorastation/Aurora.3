@@ -65,7 +65,7 @@
 	var/list/speech_buffer = list()
 	var/list/available_channels = list()
 
-	var/obj/item/device/radio/headset/ears = null
+	var/obj/item/radio/headset/ears = null
 
 	//The thing the parrot is currently interested in. This gets used for items the parrot wants to pick up, mobs it wants to steal from,
 	//mobs it wants to attack or mobs that have attacked it
@@ -75,12 +75,12 @@
 	//These vars store their preffered perch and if they dont have one, what they can use as a perch
 	var/obj/parrot_perch = null
 	var/obj/desired_perches = list(/obj/structure/computerframe, 		/obj/structure/displaycase, \
-									/obj/structure/filingcabinet,		/obj/machinery/teleport, \
-									/obj/machinery/computer,			/obj/machinery/clonepod, \
-									/obj/machinery/dna_scannernew,		/obj/machinery/telecomms, \
-									/obj/machinery/nuclearbomb,			/obj/machinery/particle_accelerator, \
-									/obj/machinery/recharge_station,	/obj/machinery/smartfridge, \
-									/obj/machinery/suit_storage_unit)
+									/obj/structure/filingcabinet,		/obj/structure/machinery/teleport, \
+									/obj/structure/machinery/computer,			/obj/structure/machinery/clonepod, \
+									/obj/structure/machinery/dna_scannernew,		/obj/structure/machinery/telecomms, \
+									/obj/structure/machinery/nuclearbomb,			/obj/structure/machinery/particle_accelerator, \
+									/obj/structure/machinery/recharge_station,	/obj/structure/machinery/smartfridge, \
+									/obj/structure/machinery/suit_storage_unit)
 
 	//Parrots are kleptomaniacs. This variable ... stores the item a parrot is holding.
 	var/obj/item/held_item = null
@@ -90,11 +90,11 @@
 /mob/living/simple_animal/parrot/Initialize()
 	. = ..()
 	if(!ears)
-		var/headset = pick(/obj/item/device/radio/headset/headset_sec, \
-						/obj/item/device/radio/headset/headset_eng, \
-						/obj/item/device/radio/headset/headset_med, \
-						/obj/item/device/radio/headset/headset_sci, \
-						/obj/item/device/radio/headset/headset_cargo)
+		var/headset = pick(/obj/item/radio/headset/headset_sec, \
+						/obj/item/radio/headset/headset_eng, \
+						/obj/item/radio/headset/headset_med, \
+						/obj/item/radio/headset/headset_sci, \
+						/obj/item/radio/headset/headset_cargo)
 		ears = new headset(src)
 
 	parrot_sleep_dur = parrot_sleep_max //In case someone decides to change the max without changing the duration var
@@ -184,11 +184,11 @@
 						if(!item_to_add)
 							return
 
-						if( !istype(item_to_add,  /obj/item/device/radio/headset) )
+						if( !istype(item_to_add,  /obj/item/radio/headset) )
 							to_chat(usr, SPAN_WARNING("This object won't fit."))
 							return
 
-						var/obj/item/device/radio/headset/headset_to_add = item_to_add
+						var/obj/item/radio/headset/headset_to_add = item_to_add
 
 						usr.drop_from_inventory(headset_to_add,src)
 						src.ears = headset_to_add
@@ -681,7 +681,7 @@
 	to_chat(src, SPAN_WARNING("There is no perch nearby to sit on."))
 	return
 
-/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/simple_animal/parrot/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 
 	if(stat)
 		return
@@ -691,40 +691,35 @@
 
 
 	var/message_mode=""
-	if(copytext(message,1,2) == ";")
+	if(copytext(text,1,2) == ";")
 		message_mode = "headset"
-		message = copytext(message,2)
+		text = copytext(text,2)
 
-	if(length(message) >= 2)
-		var/channel_prefix = copytext(message, 1 ,3)
+	if(length(text) >= 2)
+		var/channel_prefix = copytext(text, 1 ,3)
 		message_mode = department_radio_keys[channel_prefix]
 
-	if(copytext(message,1,2) == ":")
+	if(copytext(text,1,2) == ":")
 		var/positioncut = 3
-		message = trim(copytext(message,positioncut))
+		text = trim(copytext(text,positioncut))
 
-	message = capitalize(trim_left(message))
+	text = capitalize(trim_left(text))
 
 	if(message_mode)
 		if(message_mode in radiochannels)
-			if(ears && istype(ears,/obj/item/device/radio))
-				ears.talk_into(src,sanitize(message), message_mode, verb, null)
+			if(ears && istype(ears,/obj/item/radio))
+				ears.talk_into(src,sanitize(text), message_mode, verb, null)
 
 
-	..(message)
+	..(text)
 
 
-/mob/living/simple_animal/parrot/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null)
+/mob/living/simple_animal/parrot/react_to_message(datum/say_message/msg)
 	if(prob(50))
-		parrot_hear(message)
-	..(message,verb,language,alt_name,italics,speaker)
-
-
-
-/mob/living/simple_animal/parrot/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
-	if(prob(50))
-		parrot_hear("[pick(available_channels)] [message]")
-	..(message,verb,language,part_a,part_b,speaker,hard_to_hear)
+		if(msg.say_mode == SAYMODE_RADIO)
+			parrot_hear("[pick(available_channels)] [msg.to_string()]")
+		else
+			parrot_hear(msg.to_string())
 
 
 /mob/living/simple_animal/parrot/proc/parrot_hear(var/message="")

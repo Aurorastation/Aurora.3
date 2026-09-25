@@ -20,7 +20,7 @@
 		slot_l_hand_str = "welding",
 		slot_r_hand_str = "welding"
 		)
-	matter = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000)
+	matter = list(MATERIAL_STEEL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
 	armor = list(
 			MELEE = ARMOR_MELEE_SMALL
@@ -167,7 +167,7 @@
 
 /obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()

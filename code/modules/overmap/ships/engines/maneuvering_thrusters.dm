@@ -1,8 +1,8 @@
 /datum/ship_engine/maneuvering
 	name = "maneuvering thruster"
-	var/obj/machinery/maneuvering_engine/thruster
+	var/obj/structure/machinery/maneuvering_engine/thruster
 
-/datum/ship_engine/maneuvering/New(obj/machinery/_holder)
+/datum/ship_engine/maneuvering/New(obj/structure/machinery/_holder)
 	..()
 	thruster = _holder
 
@@ -34,7 +34,7 @@
 /datum/ship_engine/maneuvering/can_burn()
 	return thruster.on
 
-/obj/machinery/maneuvering_engine
+/obj/structure/machinery/maneuvering_engine
 	name = "pulse-maneuvering device"
 	desc = "This engine is outfitted with an internal reservoir of pressurized gas. It's primarily intended to slowly move the vessel into dock, but can be used as very low level thrusters in a pinch."
 	icon = 'icons/obj/ship_engine.dmi'
@@ -52,15 +52,15 @@
 	var/on = TRUE
 	var/generated_thrust = 2
 
-/obj/machinery/maneuvering_engine/Initialize()
+/obj/structure/machinery/maneuvering_engine/Initialize()
 	. = ..()
 	controller = new(src)
 
-/obj/machinery/maneuvering_engine/Destroy()
+/obj/structure/machinery/maneuvering_engine/Destroy()
 	QDEL_NULL(controller)
 	return ..()
 
-/obj/machinery/maneuvering_engine/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/machinery/maneuvering_engine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
@@ -69,13 +69,16 @@
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/maneuvering_engine/proc/get_status()
+/obj/structure/machinery/maneuvering_engine/proc/get_status()
 	. = list()
-	.+= "Location: [get_area(src)]."
-	. = jointext(.,"<br>")
 
-/obj/machinery/maneuvering_engine/proc/burn(var/power_modifier = 1)
+	. += list(list(
+		"text" = "Location: [get_area(src)].",
+		"severity" = "info"
+	))
+
+/obj/structure/machinery/maneuvering_engine/proc/burn(var/power_modifier = 1)
 	. = thrust_limit * generated_thrust * power_modifier
 
-/obj/machinery/maneuvering_engine/proc/get_thrust()
+/obj/structure/machinery/maneuvering_engine/proc/get_thrust()
 	return thrust_limit * generated_thrust * on

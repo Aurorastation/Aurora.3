@@ -15,7 +15,13 @@
 	if(istype(mover, /obj/structure/closet/crate))
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
+		if(ishuman(mover))
+			var/mob/living/carbon/human/human_mover = mover
+			if(human_mover.attempting_table_crawl && !can_crawl_under())
+				return FALSE
 		return 1
+	if(!can_crawl_under())
+		return FALSE
 	if(locate(/obj/structure/table) in get_turf(mover))
 		return 1
 	return 0
@@ -66,14 +72,77 @@
 /obj/structure/table/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
+	if(isliving(arrived))
+		var/mob/living/L = arrived
+		if(L.buckled_to)
+			return
+
 	if(ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
+		if((H.crawling_under_table || H.attempting_table_crawl) && can_crawl_under())
+			return
 		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
 			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
 	else if((isliving(arrived) && !issmall(arrived)) || isslime(arrived))
 		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
+
+/obj/structure/table/proc/rustle_from_crawler()
+	visible_message(SPAN_NOTICE("\The [src] rustles slightly."), blind_message = SPAN_NOTICE("You hear a faint rustling."))
+	playsound(src, SFX_RUSTLE, 15, TRUE, -5)
+	var/list/rustling_atoms = list(src)
+	for(var/obj/item/item in get_turf(src))
+		if(!item.anchored && item.layer > BELOW_TABLE_LAYER)
+			rustling_atoms += item
+	for(var/atom/rustling_atom in rustling_atoms)
+		var/original_pixel_x = rustling_atom.pixel_x
+		// A slight side-to-side rustle, without changing the vertical offset.
+		animate(rustling_atom, pixel_x = original_pixel_x + 1, time = 0.1 SECOND, flags = ANIMATION_PARALLEL)
+		animate(pixel_x = original_pixel_x - 1, time = 0.1 SECOND)
+		animate(pixel_x = original_pixel_x, time = 0.1 SECOND)
+
+/obj/structure/table/proc/pull_crawler_out(mob/living/carbon/human/user, mob/living/carbon/human/target)
+	if(!istype(user) || !istype(target) || !target.crawling_under_table || get_turf(target) != get_turf(src))
+		return FALSE
+	if(!user.Adjacent(src))
+		return FALSE
+	if(locate(/obj/structure/table) in get_turf(user))
+		to_chat(user, SPAN_WARNING("You cannot pull someone out from under a table while standing on one yourself!"))
+		return TRUE
+	if(user.get_active_hand())
+		to_chat(user, SPAN_WARNING("You need an empty active hand to grab [target]."))
+		return TRUE
+	if(target.anchored || target.buckled_to)
+		to_chat(user, SPAN_WARNING("You cannot drag [target] out while [target.get_pronoun("he")] [target.get_pronoun("is")] secured in place."))
+		return TRUE
+	if(user.is_pacified())
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [target]!"))
+		return TRUE
+	if(!target.attempt_grab(user))
+		return TRUE
+	for(var/obj/item/grab/existing_grab in target.grabbed_by)
+		if(existing_grab.assailant == user)
+			to_chat(user, SPAN_NOTICE("You already have hold of [target]."))
+			return TRUE
+
+	user.visible_message(
+		SPAN_WARNING("[user] reaches beneath \the [src] and pulls [target] out from under it!"),
+		SPAN_WARNING("You reach beneath \the [src] and pull [target] out from under it!")
+	)
+	target.forceMove(get_turf(user))
+	var/obj/item/grab/grab = new /obj/item/grab(user, user, target)
+	if(QDELETED(grab))
+		return TRUE
+	user.put_in_active_hand(grab)
+	grab.state = GRAB_AGGRESSIVE
+	grab.icon_state = "grabbed1"
+	grab.hud.icon_state = "reinforce1"
+	grab.last_action = world.time
+	grab.synch()
+	target.LAssailant = WEAKREF(user)
+	playsound(user, SFX_GRAB, 50, FALSE, -1)
+	return TRUE
 
 /obj/structure/table/proc/throw_things(var/mob/living/user)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))
@@ -107,7 +176,7 @@
 	)
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 2.5 SECONDS))
+	if(!do_after(user, user.get_conditioning_action_delay(2.5 SECONDS)))
 		LAZYREMOVE(climbers, user)
 		return
 
@@ -167,6 +236,10 @@
 	if(ishuman(user))
 		if(!use_check_and_message(user))
 			var/mob/living/carbon/human/H = user
+			if(H.a_intent == I_GRAB)
+				for(var/mob/living/carbon/human/hidden in get_turf(src))
+					if(hidden.crawling_under_table && pull_crawler_out(H, hidden))
+						return TRUE
 			if((H.zone_sel.selecting in list(BP_R_HAND, BP_L_HAND)))
 				if(H.last_special + 1 SECOND < world.time)
 					H.last_special = world.time
@@ -239,7 +312,7 @@
 				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
 
-	if(reinforced && attacking_item.isscrewdriver())
+	if(reinforced && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		remove_reinforced(attacking_item, user)
 		if(!reinforced)
 			update_desc()
@@ -247,7 +320,7 @@
 			update_material()
 		return 1
 
-	if(carpeted && attacking_item.iscrowbar())
+	if(carpeted && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
 								SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
@@ -266,7 +339,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You don't have enough carpet!"))
 
-	if(!reinforced && !carpeted && material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	if(!reinforced && !carpeted && material && (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		remove_material(attacking_item, user)
 		if(!material)
 			update_connections(1)
@@ -277,11 +350,11 @@
 			update_material()
 		return 1
 
-	if(!carpeted && !reinforced && !material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	if(!carpeted && !reinforced && !material && (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		dismantle(attacking_item, user)
 		return 1
 
-	if(health < maxhealth && attacking_item.iswelder())
+	if(health < maxhealth && attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/F = attacking_item
 		if(F.welding)
 			to_chat(user, SPAN_NOTICE("You begin reparing damage to \the [src]."))
@@ -311,7 +384,7 @@
 		var/obj/item/melee/energy/blade/blade = attacking_item
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(src.loc, SFX_SPARKS, 50, 1)
 		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"))
 		break_to_parts()
 		return
@@ -321,11 +394,11 @@
 		return
 
 
-	if(attacking_item.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
-			if(D.get_material_name() != material.name)
+			if(D.get_material() != material)
 				return ..()
 			if(health < maxhealth)
 				if(D.get_amount() < 1)

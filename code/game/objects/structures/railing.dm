@@ -8,14 +8,14 @@
 	layer = OBJ_LAYER
 	anchored = FALSE
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
+	hitsound = 'sound/effects/metalhit.ogg'
 
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
+
 	var/broken = FALSE
-	var/health = 70
-	var/maxhealth = 70
 	var/neighbor_status = 0
 
 	/// If the object shouldn't inherit a material, set this to True.
@@ -25,16 +25,15 @@
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
-/obj/structure/railing/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/railing/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if (health < maxhealth)
 		switch(health / maxhealth)
 			if (0.0 to 0.5)
-				. += SPAN_WARNING("It looks severely damaged!")
+				. = SPAN_WARNING("It looks severely damaged!")
 			if (0.25 to 0.5)
-				. += SPAN_WARNING("It looks damaged!")
+				. = SPAN_WARNING("It looks damaged!")
 			if (0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
+				. = SPAN_NOTICE("It has a few scrapes and dents.")
 
 /obj/structure/railing/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -64,7 +63,10 @@
 	. = ..()
 	update_icon()
 
-/obj/structure/railing/New(var/newloc, var/material_key = DEFAULT_WALL_MATERIAL)
+/obj/structure/railing/mapped/no_density/low
+	icon_state = "railing0-0"
+
+/obj/structure/railing/New(var/newloc, var/material_key = MATERIAL_STEEL)
 	material = material_key // Converted to datum in initialize().
 	..(newloc)
 
@@ -79,14 +81,14 @@
 
 	if(!non_material_object)
 		if(!isnull(material) && !istype(material))
-			material = SSmaterials.get_material_by_name(material)
+			material = SSmaterials.get_material_by_id(material)
 		if(!istype(material))
 			return INITIALIZE_HINT_QDEL
 
 		name = "[material.display_name] [initial(name)]"
 		desc = "A simple [material.display_name] railing designed to protect against careless trespass."
-		maxhealth = round(material.integrity / 5)
-		health = maxhealth
+		set_maxhealth(round(material.integrity / 2), TRUE)
+		set_health(maxhealth)
 		color = material.icon_colour
 
 		if(material.products_need_process())
@@ -121,13 +123,11 @@
 		return !density
 	return TRUE
 
-/obj/structure/railing/proc/take_damage(amount)
-	health -= amount
-	if(health <= 0)
-		visible_message(SPAN_WARNING("\The [src] [material.destruction_desc]!"))
-		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
-		material.place_shard(get_turf(src))
-		qdel(src)
+/obj/structure/railing/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	visible_message(SPAN_WARNING("\The [src] [material.destruction_desc]!"))
+	playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
+	material.place_shard(get_turf(src))
+	qdel(src)
 
 /obj/structure/railing/proc/NeighborsCheck(var/UpdateNeighbors = 1)
 	neighbor_status = 0
@@ -136,39 +136,39 @@
 
 	for(var/obj/structure/railing/R in get_turf(src))
 		if((R.dir == Lturn) && R.anchored)
-			neighbor_status |= 32
+			neighbor_status |= 32 // neighbor is making a left turn on the same tile
 			if(UpdateNeighbors)
 				R.update_icon(0)
 		if((R.dir == Rturn) && R.anchored)
-			neighbor_status |= 2
+			neighbor_status |= 2 // neighbor is making a right turn on the same tile
 			if(UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, Lturn))
 		if((R.dir == src.dir) && R.anchored)
-			neighbor_status |= 16
+			neighbor_status |= 16 // neighbor is in our left, in the same line
 			if(UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, Rturn))
 		if((R.dir == src.dir) && R.anchored)
-			neighbor_status |= 1
+			neighbor_status |= 1 // neighbor is in our right, in the same line
 			if (UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, (Lturn + src.dir)))
 		if((R.dir == Rturn) && R.anchored)
-			neighbor_status |= 64
+			neighbor_status |= 64 // neighbor is in our diagonal left, making a longer turn
 			if (UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, (Rturn + src.dir)))
 		if((R.dir == Lturn) && R.anchored)
-			neighbor_status |= 4
+			neighbor_status |= 4 // neighbor is in our diagonal right, making a longer turn
 			if (UpdateNeighbors)
 				R.update_icon(0)
 
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	CutOverlays()
-	if(dir == SOUTH)
-		layer = ABOVE_HUMAN_LAYER
+	if(dir != NORTH)
+		layer = ABOVE_ABOVE_HUMAN_LAYER
 	else
 		layer = initial(layer)
 	if(!neighbor_status || !anchored)
@@ -177,8 +177,10 @@
 		icon_state = "railing1-[density]"
 		if(neighbor_status & 32)
 			AddOverlays(image(icon, "corneroverlay[density]"))
+
 		if((neighbor_status & 16) || !(neighbor_status & 32) || (neighbor_status & 64))
 			AddOverlays(image(icon, "frontoverlay_l[density]"))
+
 		if(!(neighbor_status & 2) || (neighbor_status & 1) || (neighbor_status & 4))
 			AddOverlays(image(icon, "frontoverlay_r[density]"))
 			if(neighbor_status & 4)
@@ -194,6 +196,12 @@
 					if(WEST)
 						pix_offset_y = 32
 				AddOverlays(image(icon, "mcorneroverlay[density]", pixel_x = pix_offset_x, pixel_y = pix_offset_y))
+
+		if(!(neighbor_status & 16) && !(neighbor_status & 64) && !(neighbor_status & 32)) // Left endcap, we have no connections in left
+			AddOverlays(image(icon, "frontend_l[density]"))
+
+		if(!(neighbor_status & 1) && !(neighbor_status & 4) && !(neighbor_status & 2)) // Right endcap, we have no connections in right
+			AddOverlays(image(icon, "frontend_r[density]"))
 
 /obj/structure/railing/verb/flip() // This will help push railing to remote places, such as open space turfs
 	set name = "Flip Railing"
@@ -251,7 +259,7 @@
 			return
 
 	// Dismantle
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!can_wrench)
 			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
 			return
@@ -276,7 +284,7 @@
 			update_icon()
 			return
 	// Repair
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/F = attacking_item
 		if(F.isOn())
 			if(health >= maxhealth)
@@ -287,11 +295,11 @@
 				if(health >= maxhealth)
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."), SPAN_NOTICE("You repair some damage to \the [src]."))
-				health = min(health + (maxhealth / 5), maxhealth)
+				add_health(maxhealth * 0.5)
 			return
 
 	// Install
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!can_screwdriver)
 			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
 			return
@@ -306,11 +314,6 @@
 			update_icon()
 		return
 
-	if(attacking_item.force && (attacking_item.damtype == DAMAGE_BURN || attacking_item.damtype == DAMAGE_BRUTE))
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		visible_message(SPAN_WARNING("\The [src] has been [LAZYLEN(attacking_item.attack_verb) ? pick(attacking_item.attack_verb) : "attacked"] with \the [attacking_item] by \the [user]!"))
-		take_damage(attacking_item.force)
-		return
 	. = ..()
 
 /obj/structure/railing/ex_act(severity)
@@ -342,7 +345,7 @@
 	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 2 SECONDS))
+	if(!do_after(user, user.get_conditioning_action_delay(2 SECONDS)))
 		LAZYREMOVE(climbers, user)
 		return
 
@@ -356,7 +359,7 @@
 	LAZYREMOVE(climbers, user)
 
 	if(!anchored || material.is_brittle())
-		take_damage(maxhealth) // Fatboy
+		add_damage(maxhealth) // Fatboy
 
 /obj/structure/railing/proc/get_destination_turf(var/mob/user)
 	. = get_turf(src) // by default, we pop into the turf the railing's on
@@ -383,8 +386,7 @@
 	icon = 'icons/obj/doors/retractable_railing.dmi'
 	icon_state = "railing1"
 	anchored = TRUE
-	health = 150
-	maxhealth = 150
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	non_material_object = TRUE
 	can_wrench = FALSE
 	can_screwdriver = FALSE

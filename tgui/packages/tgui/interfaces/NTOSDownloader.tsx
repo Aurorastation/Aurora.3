@@ -1,6 +1,15 @@
-import { toFixed } from 'common/math';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Collapsible,
+  Divider,
+  ProgressBar,
+  Section,
+  Stack,
+} from 'tgui-core/components';
+import { toFixed } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, Collapsible, Section, Stack, ProgressBar, Divider } from '../components';
 import { NtosWindow } from '../layouts';
 
 type NTOSProgram = {
@@ -28,8 +37,8 @@ type NTOSDownloaderData = {
   queue: NTOSDownload[];
 };
 
-const AvailableDownloads = (props, context) => {
-  const { act, data } = useBackend<NTOSDownloaderData>(context);
+const AvailableDownloads = (props) => {
+  const { act, data } = useBackend<NTOSDownloaderData>();
   const { available = [], disk_size, disk_used, queue_size } = data;
   const remainingSpace = disk_size - (disk_used + queue_size);
   const filteredAvailable = available.filter((prg) => !prg.stat);
@@ -53,7 +62,8 @@ const AvailableDownloads = (props, context) => {
                   onClick={() => act('download', prg)}
                   disabled={prg.size > remainingSpace}
                 />
-              }>
+              }
+            >
               <Stack>
                 <Stack.Item grow>
                   <BlockQuote ml={2}>{prg.desc}</BlockQuote>
@@ -72,8 +82,8 @@ const AvailableDownloads = (props, context) => {
   );
 };
 
-const DownloadQueue = (props, context) => {
-  const { act, data } = useBackend<NTOSDownloaderData>(context);
+const DownloadQueue = (props) => {
+  const { act, data } = useBackend<NTOSDownloaderData>();
   const { queue_size, speed, queue, active_download } = data;
   return (
     <Stack fill vertical>
@@ -82,9 +92,10 @@ const DownloadQueue = (props, context) => {
         mx={4}
         mb={2}
         mt={1}
-        style={{ 'border': '2px solid #4972a1' }}
+        style={{ border: '2px solid #4972a1' }}
         backgroundColor={'#111'}
-        fitted>
+        fitted
+      >
         {queue.map((prg) => {
           return (
             <Section
@@ -98,12 +109,14 @@ const DownloadQueue = (props, context) => {
                 <Button icon="times" onClick={() => act('cancel', prg)}>
                   Cancel
                 </Button>
-              }>
+              }
+            >
               <ProgressBar
                 mb={2}
                 mt={1}
                 value={prg.progress / prg.size}
-                color={prg.filename === active_download ? 'good' : 'label'}>
+                color={prg.filename === active_download ? 'good' : 'label'}
+              >
                 {prg.progress} GQ of {prg.size} GQ ({speed} GQps)
               </ProgressBar>
             </Section>
@@ -114,8 +127,8 @@ const DownloadQueue = (props, context) => {
   );
 };
 
-export const NTOSDownloader = (props, context) => {
-  const { act, data } = useBackend<NTOSDownloaderData>(context);
+export const NTOSDownloader = (props) => {
+  const { act, data } = useBackend<NTOSDownloaderData>();
   const {
     available,
     disk_size,
@@ -132,7 +145,8 @@ export const NTOSDownloader = (props, context) => {
           <ProgressBar
             mt={1}
             value={disk_used / disk_size}
-            ranges={{ average: [0.75, 0.9], bad: [0.9, Infinity] }}>
+            ranges={{ average: [0.75, 0.9], bad: [0.9, Infinity] }}
+          >
             {remainingSpace} GQ free of {disk_size} GQ (
             {toFixed((disk_used / disk_size) * 100)}%)
           </ProgressBar>

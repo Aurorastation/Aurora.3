@@ -82,7 +82,7 @@
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "snowplating"
-	footstep_sound = /singleton/sound_category/snow_footstep
+	footstep_sound = SFX_FOOTSTEP_SNOW
 
 /turf/simulated/floor/vaurca
 	name = "alien floor"
@@ -105,16 +105,21 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /singleton/flooring/grass
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 
 /turf/simulated/floor/grass/no_edge
+	has_edge_icon = FALSE
+
+/turf/simulated/floor/grass1/no_edge
+	icon = 'icons/turf/flooring/grass2.dmi'
+	icon_state = "grass10"
 	has_edge_icon = FALSE
 
 /turf/simulated/floor/diona
 	name = "biomass flooring"
 	icon = 'icons/turf/flooring/diona.dmi'
 	icon_state = "diona0"
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 	initial_flooring = /singleton/flooring/diona
 
 /turf/simulated/floor/diona/airless

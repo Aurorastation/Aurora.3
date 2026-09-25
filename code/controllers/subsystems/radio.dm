@@ -156,18 +156,18 @@ SUBSYSTEM_DEF(radio)
 
 	return frequency
 
-// Used to test connectivity to the telecomms network.
+/// Used to test connectivity to the telecomms network.
 /datum/controller/subsystem/radio/proc/telecomms_ping(obj/O, test_freq = PUB_FREQ)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	var/datum/signal/subspace/testsig = new(O, test_freq)
-	for (var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
+	for (var/obj/structure/machinery/telecomms/R in SSmachinery.all_receivers)
 		if(R.receive_range(testsig) >= 0)
 			return TRUE
 
 // Some misc procs not technically part of the subsystem, but are related.
 
-//callback used by objects to react to incoming radio signals
+/// Callback used by objects to react to incoming radio signals
 /obj/proc/receive_signal(datum/signal/signal, receive_method, receive_param)
 	SHOULD_NOT_SLEEP(TRUE)
 
@@ -199,8 +199,8 @@ SUBSYSTEM_DEF(radio)
 			return "sciradio"
 		if (MED_FREQ,MED_I_FREQ)
 			return"medradio"
-		if (SUP_FREQ)	// cargo
-			return "supradio"
+		if (SUP_FREQ)	// operations
+			return "opsradio"
 		if (SRV_FREQ)	// service
 			return "srvradio"
 		if (ENT_FREQ) //entertainment
@@ -238,10 +238,10 @@ SUBSYSTEM_DEF(radio)
 	LAZYREPLACEKEY(ALL_RADIO_CHANNELS, old_channel, new_channel)
 	reverseradiochannels["[freq]"] = new_channel
 
-	for(var/obj/item/device/radio/R in RF.devices[RADIO_CHAT])
-		var/obj/item/device/radio/headset/H = R
+	for(var/obj/item/radio/R in RF.devices[RADIO_CHAT])
+		var/obj/item/radio/headset/H = R
 		if(istype(H))
-			for(var/obj/item/device/encryptionkey/EK in list(H.keyslot1, H.keyslot2))
+			for(var/obj/item/encryptionkey/EK in list(H.keyslot1, H.keyslot2))
 				if(old_channel in EK.channels)
 					LAZYREPLACEKEY(EK.channels, old_channel, new_channel)
 
@@ -252,11 +252,11 @@ SUBSYSTEM_DEF(radio)
 			LAZYREPLACEKEY(R.secure_radio_connections, old_channel, new_channel)
 
 /proc/assign_away_freq(channel)
-	if (!AWAY_FREQS_UNASSIGNED.len)
-		return FALSE
-
-	if (channel in AWAY_FREQS_ASSIGNED)
+	if(channel in AWAY_FREQS_ASSIGNED)
 		return AWAY_FREQS_ASSIGNED[channel]
+
+	if(!AWAY_FREQS_UNASSIGNED.len)
+		return FALSE
 
 	var/freq = pick_n_take(AWAY_FREQS_UNASSIGNED)
 	AWAY_FREQS_ASSIGNED[channel] = freq

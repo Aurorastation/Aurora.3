@@ -1,0 +1,26 @@
+.ResearchFabricator {
+  &__recipeRow {
+    &--odd {
+      background-color: rgba(255, 255, 255, 0.035);
+    }
+
+    &--even {
+      background-color: rgba(0, 0, 0, 0.035);
+    }
+
+    &--odd:hover,
+    &--even:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &__requirement {
+    &--missing {
+      background-color: rgba(160, 20, 20, 0.18);
+    }
+
+    &--available {
+      background-color: rgba(20, 120, 20, 0.12);
+    }
+  }
+}

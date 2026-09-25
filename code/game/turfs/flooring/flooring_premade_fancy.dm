@@ -8,7 +8,7 @@
 	tile_outline = "carpet"
 	broken_overlay = "carpet"
 	initial_flooring = /singleton/flooring/carpet
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 
 /turf/simulated/floor/carpet/cyan
 	name = "cyan carpet"
@@ -70,7 +70,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "wood"
 	initial_flooring = /singleton/flooring/wood
-	footstep_sound = /singleton/sound_category/wood_footstep
+	footstep_sound = SFX_FOOTSTEP_WOOD
 	tile_outline = "wood"
 	tile_decal_state = "wood"
 	broken_overlay = "wood"
@@ -120,3 +120,7 @@
 /turf/simulated/floor/marble/dark
 	initial_flooring = /singleton/flooring/marble/dark
 	color = COLOR_DARK_GRAY
+
+/turf/simulated/floor/marble/red
+	initial_flooring = /singleton/flooring/marble/red
+	color = "#9e6a64"

@@ -1,4 +1,4 @@
-/obj/item/circuitboard/rig_assembly
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly)
 	name = "rig circuit board"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
@@ -9,7 +9,7 @@
 ////CIVILIAN BOARDS////
 ///////////////////////
 
-/obj/item/circuitboard/rig_assembly/civilian
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly/civilian)
 	origin_tech = list(TECH_DATA = 4)
 
 /obj/item/circuitboard/rig_assembly/civilian/industrial
@@ -35,7 +35,7 @@
 ////COMBAT BOARDS////
 /////////////////////
 
-/obj/item/circuitboard/rig_assembly/combat
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly/combat)
 	origin_tech = list(TECH_DATA = 5)
 
 /obj/item/circuitboard/rig_assembly/combat/targeting
@@ -69,7 +69,7 @@
 ////ILLEGAL BOARDS////
 //////////////////////
 
-/obj/item/circuitboard/rig_assembly/illegal
+ABSTRACT_TYPE(/obj/item/circuitboard/rig_assembly/illegal)
 	origin_tech = list(TECH_DATA = 7, TECH_ILLEGAL = 4)
 
 /obj/item/circuitboard/rig_assembly/illegal/targeting

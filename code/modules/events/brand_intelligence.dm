@@ -2,9 +2,9 @@
 	announceWhen	= 21
 	endWhen			= 1000	//Ends when all vending machines are subverted anyway.
 
-	var/list/obj/machinery/vending/vendingMachines = list()
-	var/list/obj/machinery/vending/infectedVendingMachines = list()
-	var/obj/machinery/vending/originMachine
+	var/list/obj/structure/machinery/vending/vendingMachines = list()
+	var/list/obj/structure/machinery/vending/infectedVendingMachines = list()
+	var/obj/structure/machinery/vending/originMachine
 
 
 /datum/event/brand_intelligence/announce()
@@ -14,7 +14,7 @@
 /datum/event/brand_intelligence/start()
 	..()
 
-	for(var/obj/machinery/vending/V in SSmachinery.processing)
+	for(var/obj/structure/machinery/vending/V in SSmachinery.processing)
 		if(!is_station_level(V.z))	continue
 		vendingMachines.Add(V)
 
@@ -36,7 +36,7 @@
 
 	if(IsMultiple(activeFor, 5))
 		if(prob(15))
-			var/obj/machinery/vending/infectedMachine = pick(vendingMachines)
+			var/obj/structure/machinery/vending/infectedMachine = pick(vendingMachines)
 			vendingMachines.Remove(infectedMachine)
 			infectedVendingMachines.Add(infectedMachine)
 			infectedMachine.shut_up = 0
@@ -57,6 +57,6 @@
 /datum/event/brand_intelligence/end(var/faked)
 	..()
 
-	for(var/obj/machinery/vending/infectedMachine in infectedVendingMachines)
+	for(var/obj/structure/machinery/vending/infectedMachine in infectedVendingMachines)
 		infectedMachine.shut_up = 1
 		infectedMachine.shoot_inventory = 0

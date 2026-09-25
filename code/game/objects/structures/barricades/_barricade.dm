@@ -4,20 +4,14 @@
 	anchored = TRUE
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	maxhealth = OBJECT_HEALTH_LOW
+	pass_flags_self = LETPASSTHROW
 	/// The type of stack the barricade dropped when disassembled if any.
 	var/stack_type
 	/// The amount of stack dropped when disassembled at full health
 	var/stack_amount = 5
 	/// to specify a non-zero amount of stack to drop when destroyed
 	var/destroyed_stack_amount
-	/// Pretty tough. Changes sprites at 300 and 150
-	var/health = 100
-	/// Basic code functions
-	var/maxhealth = 100
-
-	/// Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
-	var/starting_maxhealth = 100
-
 	/// How much force an item needs to even damage it at all.
 	var/force_level_absorption = 5
 	var/barricade_hitsound
@@ -33,19 +27,17 @@
 /obj/structure/barricade/Initialize(mapload, mob/user)
 	. = ..()
 	update_icon()
-	starting_maxhealth = maxhealth
 
-/obj/structure/barricade/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/barricade/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	switch(damage_state)
 		if(BARRICADE_DMG_NONE)
-			. += SPAN_INFO("It appears to be in good shape.")
+			. = SPAN_INFO("It appears to be in good shape.")
 		if(BARRICADE_DMG_SLIGHT)
-			. += SPAN_WARNING("It's slightly damaged, but still very functional.")
+			. = SPAN_WARNING("It's slightly damaged, but still very functional.")
 		if(BARRICADE_DMG_MODERATE)
-			. += SPAN_WARNING("It's quite beat up, but it's holding together.")
+			. = SPAN_WARNING("It's quite beat up, but it's holding together.")
 		if(BARRICADE_DMG_HEAVY)
-			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
+			. = SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
 
 /obj/structure/barricade/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -92,11 +84,11 @@
 			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire"))
 
 	..()
-
-/obj/structure/barricade/proc/handle_barrier_chance()
+///Rolls a chance based on the percentage of the barricade's health remaining. Returns TRUE if the chance succeeds, FALSE if it fails. The chance is divided by the optional chance_divisor parameter, which defaults to 1.
+/obj/structure/barricade/proc/handle_barrier_chance(chance_divisor = 1)
 	if(!anchored)
 		return FALSE
-	return prob(max(30,(100.0*health)/maxhealth))
+	return prob(max(30,(100.0*health)/maxhealth) / chance_divisor)
 
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -106,6 +98,16 @@
 	if(istype(mover, /obj/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
+		if(mover.throwing)
+			var/chance = (handle_barrier_chance(3))
+			if(chance)
+				visible_message(SPAN_WARNING("\The [mover] clips the top of \the [src] and bounces off!"))
+				if(barricade_hitsound)
+					playsound(src, barricade_hitsound, 20, 1)
+				return !density
+			else
+				visible_message(SPAN_WARNING("\The [mover] sails over \the [src]!"))
+				return TRUE
 		return !density
 	else
 		return TRUE
@@ -164,7 +166,7 @@
 		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
 		L.apply_damage((5), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
-	take_damage(damage)
+	add_damage(damage)
 
 /obj/structure/barricade/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/barbed_wire))
@@ -181,27 +183,26 @@
 				user.visible_message(SPAN_NOTICE("[user] sets up [attacking_item.name] on [src]."),
 				SPAN_NOTICE("You set up [attacking_item.name] on [src]."))
 
-				maxhealth += 50
-				update_health(-50)
+				set_maxhealth(maxhealth + 50)
+				add_health(50)
 				can_wire = FALSE
 				is_wired = TRUE
 				climbable = FALSE
 				update_icon()
 		return
 
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(is_wired)
 			user.visible_message(SPAN_NOTICE("[user] begin removing the barbed wire on [src]."),
 			SPAN_NOTICE("You begin removing the barbed wire on [src]."))
 			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT))
 				if(!is_wired)
 					return
-
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 25, 1)
 				user.visible_message(SPAN_NOTICE("[user] removes the barbed wire on [src]."),
 				SPAN_NOTICE("You remove the barbed wire on [src]."))
-				maxhealth -= 50
-				update_health(50)
+				set_maxhealth(maxhealth - 50)
+				add_damage(50)
 				can_wire = TRUE
 				is_wired = FALSE
 				climbable = TRUE
@@ -221,8 +222,6 @@
 		return .
 
 	bullet_ping(hitting_projectile)
-	var/damage_to_take = hitting_projectile.damage * hitting_projectile.anti_materiel_potential
-	take_damage(damage_to_take)
 
 /obj/structure/barricade/proc/barricade_deconstruct(deconstruct)
 	if(deconstruct && is_wired)
@@ -232,7 +231,7 @@
 		if(!deconstruct && destroyed_stack_amount)
 			stack_amt = destroyed_stack_amount
 		else
-			stack_amt = round(stack_amount * (health/starting_maxhealth)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
+			stack_amt = round(stack_amount * (health/initial(maxhealth))) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
 
 		if(stack_amt)
 			new stack_type (loc, stack_amt)
@@ -242,7 +241,7 @@
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
 		if(B.dir == REVERSE_DIR(dir))
 			INVOKE_ASYNC(B, TYPE_PROC_REF(/atom, ex_act), severity, direction)
-	update_health(round(severity))
+	add_damage(round(severity))
 
 // This proc is called whenever the cade is moved, so I thought it was appropriate,
 // especially since the barricade's direction needs to be handled when moving
@@ -267,26 +266,20 @@
 	var/message = pick(I.attack_verb)
 	visible_message(SPAN_DANGER("[L] has [message] the [src]!"))
 	L.do_attack_animation(src)
-	take_damage(I.force)
+	add_damage(I.force, I.damage_flags(), I.damtype, I.armor_penetration, I)
 
-/obj/structure/barricade/proc/take_damage(var/damage)
+/obj/structure/barricade/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
 		if(B.dir == REVERSE_DIR(dir))
-			B.update_health(damage)
-	update_health(damage)
+			B.add_damage(damage, damage_flags, damage_type, armor_penetration, weapon)
+	if(..())
+		update_damage_state()
+		update_icon()
 
-/obj/structure/barricade/proc/update_health(damage, nomessage)
-	health -= damage
-	health = clamp(health, 0, maxhealth)
-
+/obj/structure/barricade/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!health)
-		if(!nomessage)
-			visible_message(SPAN_DANGER("[src] falls apart!"))
+		visible_message(SPAN_DANGER("[src] falls apart!"))
 		barricade_deconstruct()
-		return
-
-	update_damage_state()
-	update_icon()
 
 /obj/structure/barricade/proc/update_damage_state()
 	var/health_percent = round(health/maxhealth * 100)
@@ -309,7 +302,7 @@
 	if(WT.use_tool(src, user, 7 SECONDS, volume = 40))
 		user.visible_message(SPAN_NOTICE("[user] repairs some damage on [src]."),
 		SPAN_NOTICE("You repair \the [src]."))
-		update_health(-200)
+		add_health(200)
 
 	return TRUE
 

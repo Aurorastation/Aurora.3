@@ -25,7 +25,7 @@
 /turf/template_noop,
 /area/template_noop)
 "i" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -50,10 +50,10 @@
 /area/haneunim_refugees)
 "p" = (
 /obj/effect/decal/cleanable/blood/oil,
-/obj/machinery/atmospherics/portables_connector{
+/obj/structure/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 "q" = (
@@ -62,14 +62,14 @@
 /area/haneunim_refugees)
 "r" = (
 /obj/effect/landmark/scorcher,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 "t" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
+/obj/structure/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
 	},
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 "v" = (
@@ -119,7 +119,7 @@
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 "M" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
 /obj/effect/landmark/corpse/ipc_refugee,
@@ -135,7 +135,7 @@
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 "P" = (
-/obj/machinery/power/portgen/basic,
+/obj/structure/machinery/power/portgen/basic,
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 "Q" = (
@@ -148,7 +148,7 @@
 /area/template_noop)
 "T" = (
 /obj/effect/landmark/scorcher,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/airless,
@@ -168,11 +168,11 @@
 /area/haneunim_refugees)
 "Y" = (
 /obj/effect/decal/cleanable/blood/oil,
-/obj/machinery/recharge_station,
+/obj/structure/machinery/recharge_station,
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 "Z" = (
-/obj/machinery/power/apc/empty/east,
+/obj/structure/machinery/power/apc/empty/east,
 /turf/simulated/floor/airless,
 /area/haneunim_refugees)
 

@@ -1,7 +1,7 @@
-/obj/item/device/chameleon
+/obj/item/chameleon
 	name = "chameleon projector"
 	desc = "A strange device."
-	icon = 'icons/obj/item/device/chameleon.dmi'
+	icon = 'icons/obj/item/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -18,24 +18,24 @@
 	var/saved_icon_state = "cigbutt"
 	var/saved_overlays
 
-/obj/item/device/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/item/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This device can let you disguise as common objects."
 	. += "Left-click on an object with this in your active hand to scan it."
 	. += "Left-click it in-hand to toggle the effect."
 
-/obj/item/device/chameleon/dropped()
+/obj/item/chameleon/dropped()
 	disrupt()
 	..()
 
-/obj/item/device/chameleon/equipped()
+/obj/item/chameleon/equipped()
 	disrupt()
 	..()
 
-/obj/item/device/chameleon/attack_self()
+/obj/item/chameleon/attack_self()
 	toggle()
 
-/obj/item/device/chameleon/afterattack(atom/target, mob/user , proximity)
+/obj/item/chameleon/afterattack(atom/target, mob/user , proximity)
 	if(!proximity)
 		return
 	if(!active_dummy)
@@ -47,7 +47,7 @@
 			saved_icon_state = target.icon_state
 			saved_overlays = target.overlays
 
-/obj/item/device/chameleon/proc/toggle()
+/obj/item/chameleon/proc/toggle()
 	if(!can_use || !saved_item)
 		return
 	if(active_dummy)
@@ -74,7 +74,7 @@
 		flick("emppulse",T)
 		QDEL_IN(T, 8)
 
-/obj/item/device/chameleon/proc/disrupt(var/delete_dummy = 1)
+/obj/item/chameleon/proc/disrupt(var/delete_dummy = 1)
 	if(active_dummy)
 		spark(src, 5)
 		eject_all()
@@ -84,7 +84,7 @@
 		can_use = 0
 		spawn(50) can_use = 1
 
-/obj/item/device/chameleon/proc/eject_all()
+/obj/item/chameleon/proc/eject_all()
 	for(var/atom/movable/A in active_dummy)
 		A.forceMove(active_dummy.loc)
 		if(ismob(A))
@@ -98,9 +98,9 @@
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 	var/can_move = TRUE
-	var/obj/item/device/chameleon/master = null
+	var/obj/item/chameleon/master = null
 
-/obj/effect/dummy/chameleon/proc/activate(var/obj/O, var/mob/M, new_icon, new_iconstate, new_overlays, var/obj/item/device/chameleon/C)
+/obj/effect/dummy/chameleon/proc/activate(var/obj/O, var/mob/M, new_icon, new_iconstate, new_overlays, var/obj/item/chameleon/C)
 	name = O.name
 	desc = O.desc
 	icon = new_icon

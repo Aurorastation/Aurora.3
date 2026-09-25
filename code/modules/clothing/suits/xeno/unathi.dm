@@ -73,7 +73,7 @@
 	)
 	matter = list(MATERIAL_BRONZE = 1000)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/clothing/suit/armor/unathi/ancient/mador
 	name = "\improper Sinta'Mador bronze armor"

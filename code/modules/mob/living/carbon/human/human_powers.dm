@@ -180,25 +180,27 @@
 
 	T.Weaken(3)
 
-	var/use_hand = "left"
 	if(l_hand)
 		if(r_hand)
 			to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
 			return TRUE
-		else
-			use_hand = "right"
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"),
 					SPAN_WARNING("You aggressively seize [T]!"))
 
-	var/obj/item/grab/G = new(src,T)
-	if(use_hand == "left")
-		l_hand = G
-	else
-		r_hand = G
+	var/obj/item/grab/G = new /obj/item/grab(src, src, T)
 
-	G.state = GRAB_PASSIVE
+	if(buckled_to)
+		to_chat(src, SPAN_WARNING("You cannot grab [T], [T.get_pronoun("he")] [get_pronoun("is")] buckled in!"))
+	if(!G)	//the grab will delete itself in New if affecting is anchored
+		return
+	src.put_in_active_hand(G)
+	LAssailant = WEAKREF(src)
+	playsound(loc, SFX_GRAB, 50, FALSE, -1)
+	G.state = GRAB_AGGRESSIVE
 	G.icon_state = "grabbed1"
+	G.hud.icon_state = "reinforce1"
+	G.last_action = world.time
 	G.synch()
 
 	return TRUE
@@ -240,9 +242,12 @@
 		if(M.stat == 2)
 			M.gib()
 
-
-// Simple mobs cannot use Skrellepathy
-/mob/proc/has_psionics()
+/**
+ * A binary yes or no check as to whether or not a target has a Psi Complexus.
+ * This proc is to be DEPRECATED, nothing new should check it.
+ * Use check_psi_sensitivity() instead for all your psionic interactions.
+ */
+/atom/movable/proc/has_psionics()
 	return FALSE
 
 /mob/living/carbon/human/has_psionics()
@@ -327,15 +332,13 @@
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if (target.has_psionics())
+	if (target.check_psi_sensitivity())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
-			if (target.has_psionics())
-				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,SPAN_WARNING("Your nose begins to bleed..."))
 				H.drip(3)
@@ -538,7 +541,7 @@
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
 	sleep(20)
-	explosion(src, -1, 1, 5)
+	explosion(get_turf(src), -1, 1, 5)
 	src.gib()
 
 /mob/living/carbon/human/proc/hivenet()
@@ -643,7 +646,7 @@
 		else if (T in range(src, 2))
 			earpain(1, TRUE, 1)
 
-	for(var/obj/machinery/light/L in range(7))
+	for(var/obj/structure/machinery/light/L in range(7))
 		L.broken()
 		CHECK_TICK
 
@@ -662,7 +665,7 @@
 
 	src.set_light(4,-20)
 
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /mob/living/carbon/human/proc/darkness_eyes()
 	set category = "Abilities"
@@ -783,7 +786,7 @@
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
 			src.visible_message(SPAN_DANGER("[src.name] breaks through!"))
-		addtimer(CALLBACK(src, PROC_REF(trampling)), 1)
+		addtimer(CALLBACK(src, PROC_REF(trampling)), 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 	else
 		target = get_step(src, dir)
@@ -856,7 +859,7 @@
 	for (var/obj/structure/window/W in view(2))
 		W.shatter()
 
-	for (var/obj/machinery/light/L in view(4))
+	for (var/obj/structure/machinery/light/L in view(4))
 		L.broken()
 
 	if (victims.len)
@@ -1009,25 +1012,136 @@
 		to_chat(src,SPAN_WARNING("Your body fails to interface with this alien technology."))
 		return
 
-	if(E.is_stump() || (E.status & ORGAN_DESTROYED) || E.is_broken())
-		to_chat(src,SPAN_WARNING("The limb is too damaged to be removed manually!"))
-		return
+	if(manually_detach_prosthetic(E, FALSE))
+		last_special = world.time + 20
 
-	if(E.vital && !E.sabotaged)
-		to_chat(src,SPAN_WARNING("Your safety system stops you from removing \the [E]."))
-		return
+/mob/living/carbon/human/proc/manually_detach_prosthetic(var/obj/item/organ/external/limb, var/detachment_delay = 2 SECONDS, var/mob/living/user = src)
+	if(!limb || limb.owner != src)
+		return FALSE
 
-	last_special = world.time + 20
+	if(!user || user.incapacitated())
+		to_chat(user ? user : src, SPAN_WARNING("You cannot detach a prosthetic in your current state!"))
+		return FALSE
+	if(!limb.robotic)
+		to_chat(src, SPAN_WARNING("You can only detach robotic limbs."))
+		return FALSE
 
-	E.removed(src)
-	E.forceMove(get_turf(src))
+	if(limb.is_stump() || (limb.status & ORGAN_DESTROYED) || limb.is_broken())
+		to_chat(user, SPAN_WARNING("The limb is too damaged to be removed manually!"))
+		return FALSE
+
+	if(limb.vital && !limb.sabotaged)
+		to_chat(user, SPAN_WARNING("The safety system stops you from removing \the [limb]."))
+		return FALSE
+
+	if(detachment_delay && limb.prosthetic_detachment_stage != PROSTHETIC_DETACHMENT_ANCHORS_RELEASED)
+		to_chat(user, SPAN_WARNING("You must access and shut down the prosthetic's interface, disengage its safety locks, and release its retention anchors first."))
+		return FALSE
+
+	if(detachment_delay)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts disconnecting [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]."),
+			SPAN_NOTICE("You start disconnecting [src == user ? "your" : "[src]'s"] [limb].")
+		)
+		if(!do_after(user, detachment_delay, src))
+			return FALSE
+
+		if(limb.owner != src)
+			return FALSE
+
+		if(limb.is_stump() || (limb.status & ORGAN_DESTROYED) || limb.is_broken())
+			to_chat(src, SPAN_WARNING("The limb is too damaged to be removed manually!"))
+			return FALSE
+
+		if(limb.vital && !limb.sabotaged)
+			to_chat(src, SPAN_WARNING("Your safety system stops you from removing \the [limb]."))
+			return FALSE
+
+		if(limb.prosthetic_detachment_stage != PROSTHETIC_DETACHMENT_ANCHORS_RELEASED)
+			return FALSE
+
+	var/obj/item/organ/external/receiving_limb = limb.parent
+	if(receiving_limb)
+		receiving_limb.prosthetic_sockets |= limb.limb_name
+
+	var/use_inactive_hand = user == src && ((hand && (limb.limb_name in list(BP_L_ARM, BP_L_HAND))) || (!hand && (limb.limb_name in list(BP_R_ARM, BP_R_HAND))))
+
+	limb.removed(src)
+	limb.forceMove(get_turf(src))
 
 	update_body()
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message(SPAN_NOTICE("\The [src] detaches [get_pronoun("his")] [E]!"),
-			SPAN_NOTICE("You detach your [E]!"))
+	if(use_inactive_hand)
+		user.put_in_inactive_hand(limb)
+	else
+		user.put_in_active_hand(limb)
+
+	user.visible_message(
+		SPAN_NOTICE("\The [user] detaches [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]!"),
+		SPAN_NOTICE("You detach [src == user ? "your" : "[src]'s"] [limb]!")
+	)
+	return TRUE
+
+/mob/living/carbon/human/proc/manually_attach_prosthetic(var/obj/item/organ/external/limb, var/attachment_delay = 2 SECONDS)
+	if(!limb || limb.owner || !limb.robotic)
+		return FALSE
+
+	if(stat || paralysis || stunned || weakened || lying || restrained())
+		to_chat(src, SPAN_WARNING("You cannot attach a prosthetic in your current state!"))
+		return FALSE
+
+	if(limb.is_stump() || (limb.status & ORGAN_DESTROYED) || limb.is_broken())
+		to_chat(src, SPAN_WARNING("The limb is too damaged to attach manually!"))
+		return FALSE
+
+	if(organs_by_name[limb.limb_name])
+		to_chat(src, SPAN_WARNING("You already have a limb attached there."))
+		return FALSE
+
+	var/obj/item/organ/external/receiving_limb = organs_by_name[limb.parent_organ]
+	if(!receiving_limb)
+		to_chat(src, SPAN_WARNING("You have nothing to attach \the [limb] to."))
+		return FALSE
+
+	var/obj/item/organ/external/selected_organ = get_organ(zone_sel.selecting)
+	if(zone_sel.selecting != limb.limb_name && selected_organ != receiving_limb)
+		to_chat(src, SPAN_WARNING("You need to target the missing [limb.name] or the [receiving_limb.name] containing its socket."))
+		return FALSE
+
+	if(!receiving_limb.accepts_manually_attached_prosthetic(limb))
+		to_chat(src, SPAN_WARNING("Your [receiving_limb.name] does not have a socket for \the [limb]."))
+		return FALSE
+
+	if(attachment_delay)
+		visible_message(
+			SPAN_NOTICE("\The [src] starts connecting [get_pronoun("his")] [limb]."),
+			SPAN_NOTICE("You start connecting your [limb].")
+		)
+		if(!do_after(src, attachment_delay, src))
+			return FALSE
+
+		if(limb.owner || organs_by_name[limb.limb_name] || get_active_hand() != limb)
+			return FALSE
+
+		receiving_limb = organs_by_name[limb.parent_organ]
+		if(!receiving_limb || !receiving_limb.accepts_manually_attached_prosthetic(limb))
+			return FALSE
+
+	drop_from_inventory(limb)
+	limb.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SECURED
+	limb.replaced(src)
+
+	update_body()
+	updatehealth()
+	UpdateDamageIcon()
+
+	visible_message(
+		SPAN_NOTICE("\The [src] attaches [get_pronoun("his")] [limb] to its socket!"),
+		SPAN_NOTICE("You attach your [limb] to its socket!")
+	)
+	return TRUE
 
 /mob/living/carbon/human/proc/attach_limb()
 	set category = "Abilities"
@@ -1065,9 +1179,6 @@
 
 		drop_from_inventory(O)
 		O.replaced(src)
-		update_body()
-		updatehealth()
-		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()
@@ -1075,45 +1186,6 @@
 
 		visible_message(SPAN_NOTICE("\The [src] attaches \the [O] to [get_pronoun("his")] body!"),
 				SPAN_NOTICE("You attach \the [O] to your body!"))
-
-/mob/living/carbon/human/proc/self_diagnostics()
-	set name = "Self-Diagnostics"
-	set desc = "Run an internal self-diagnostic to check for damage."
-	set category = "Abilities"
-
-	if(stat == DEAD) return
-
-	to_chat(src, SPAN_NOTICE("Performing self-diagnostic, please wait..."))
-	if (do_after(src, 10))
-		var/output = SPAN_NOTICE("Self-Diagnostic Results:\n")
-
-		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
-
-		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
-		if(!C || !C.cell)
-			output += SPAN_DANGER("ERROR: NO BATTERY DETECTED")
-		else
-			output += "Current Charge Level: [C.percent()]\n"
-
-		var/toxDam = getToxLoss()
-		if(toxDam)
-			output += "Blood Toxicity: <span class='warning'>[toxDam > 25 ? "Severe" : "Moderate"]</span>. Seek medical facilities for cleanup.\n"
-		else
-			output += "Blood Toxicity: <span style='color:green;'>OK</span>\n"
-
-		for(var/obj/item/organ/external/EO in organs)
-			if(EO.brute_dam || EO.burn_dam)
-				output += "[EO.name] - <span class='warning'>[EO.burn_dam + EO.brute_dam > ROBOLIMB_SELF_REPAIR_CAP ? "Heavy Damage" : "Light Damage"]</span>\n"
-			else
-				output += "[EO.name] - <span style='color:green;'>OK</span>\n"
-
-		for(var/obj/item/organ/IO in internal_organs)
-			if(IO.damage)
-				output += "[IO.name] - <span class='warning'>[IO.damage > 10 ? "Heavy Damage" : "Light Damage"]</span>\n"
-			else
-				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
-
-		to_chat(src, output)
 
 /mob/living/carbon/human/proc/check_tag()
 	set name = "Check Tag"
@@ -1123,7 +1195,7 @@
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
 	if(isnull(tag) || !tag)
 		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
 		return
@@ -1415,15 +1487,15 @@
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to ban", "Hivenet Ban", available_vaurca)
 	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[target_fullname.len]
 	if(istype(V))
@@ -1595,8 +1667,8 @@
 			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 
@@ -1604,7 +1676,7 @@
 	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[target_fullname.len]
 	if(istype(V))
@@ -1688,13 +1760,17 @@
 	set category = "Hivenet"
 
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You must be conscious to use this ability!"))
 		return
 
 	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in src.languages))
 		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
+		return
+
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_DANGER("You're too far from any Hivenet relay."))
 		return
 
 	if(!istype(S) && !istype(V))
@@ -1779,8 +1855,8 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a Vaurca to observe.", "Hivenet Remote Observation", available_vaurca)
@@ -1788,7 +1864,7 @@
 		remoteview_target = null
 		reset_view(0)
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 		remoteview_target = target
@@ -1849,14 +1925,14 @@
 			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to shock", "Neural Shock", available_vaurca)
 	if(!target)
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		to_chat(src, SPAN_WARNING("You lash out over the Hivenet, delivering a neural shock to [target]!"))
 		to_chat(target, SPAN_DANGER("You feel [src]'s will strike out at you, pain burning inside your head!"))
@@ -1963,15 +2039,15 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	LAZYADD(available_vaurca, "Cancel")
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to disrupt", "Hivenet Disrupt", available_vaurca)
 	if(!istype(target))
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		if(prob(35))
 			to_chat(src, SPAN_DANGER("Your disruption attempt fails, [target]'s countermeasures repelling your assault! You can feel their defenses spring to life, tracing your location!"))
@@ -2089,6 +2165,9 @@
 	if(!istype(S))
 		to_chat(src, SPAN_WARNING("You require a functional neural socket to do this!"))
 		return FALSE
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_DANGER("You're too far from any Hivenet relay."))
+		return FALSE
 	if(S.last_action > world.time)
 		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet action!"))
 		return FALSE
@@ -2197,7 +2276,7 @@
 	set desc = "Make a preset transmission over the Hivenet."
 	set category = "Hivenet"
 
-	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/messages = list(
 		"I am operational.",
 		"I am on standby.",
@@ -2224,6 +2303,10 @@
 		to_chat(src, SPAN_WARNING("You are not connected to the Hivenet!"))
 		return
 
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing this far from relays!"))
+		return
+
 	if(within_jamming_range(src))
 		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
 		return
@@ -2242,6 +2325,10 @@
 	set name = "Hivenet Manifest"
 	set desc = "Get a list of all vaurca currently on the Hivenet."
 	set category = "Hivenet"
+
+	if(!SSatlas.current_sector.hivenet_echoes && isNotContactLevel(src.z))
+		to_chat(src, SPAN_WARNING("You attempt to query the Hivenet, but find nothing this far from relays."))
+		return
 
 	var/list/all_vaurca = list()
 	for(var/mob/living/carbon/human/vaurca in GLOB.human_mob_list)

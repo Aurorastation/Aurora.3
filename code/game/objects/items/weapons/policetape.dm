@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_one_access = list(ACCESS_SECURITY, ACCESS_KONYANG_POLICE) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
+	req_one_access = list(/datum/access/security::id, /datum/access/portofcall_police::id) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
 	icon_base = "police"
 
 /obj/item/taperoll/medical
@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/medical
 	name = "medical tape"
 	desc = "A length of medical tape. Better not cross it."
-	req_one_access = list(ACCESS_MEDICAL_EQUIP)
+	req_one_access = list(/datum/access/medical_equip::id)
 	icon_base = "medical"
 
 /obj/item/taperoll/science
@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/science
 	name = "science tape"
 	desc = "A length of science tape. Better not cross it."
-	req_one_access = list(ACCESS_RESEARCH)
+	req_one_access = list(/datum/access/research::id)
 	icon_base = "science"
 
 /obj/item/taperoll/engineering
@@ -92,21 +92,21 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	req_one_access = list(ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
+	req_one_access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	icon_base = "engineering"
 	var/shield_marker = FALSE
 
 /obj/item/tape/engineering/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+	. += "You can use a multitool on this tape to allow emergency shield projectors to deploy shields on this tile."
 
 /obj/item/tape/engineering/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(shield_marker)
-		. += "This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."
+		. += "This strip of tape has been modified to serve as a marker for emergency shield projectors to lock onto."
 
 /obj/item/tape/engineering/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		shield_marker = !shield_marker
 		to_chat(user, SPAN_NOTICE("You [shield_marker ? "" : "un"]designate \the [src] as a target for an emergency shield generator."))
 		if(shield_marker)
@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/custodial
 	name = "custodial holographic tape"
 	desc = "A length of custodial tape. Better not cross it."
-	req_one_access = list(ACCESS_JANITOR)
+	req_one_access = list(/datum/access/janitor::id)
 	icon_base = "custodial"
 
 /obj/item/taperoll/attack_self(mob/user as mob)
@@ -186,7 +186,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	if(!proximity)
 		return
 
-	if (istype(A, /obj/machinery/door/airlock))
+	if (istype(A, /obj/structure/machinery/door/airlock))
 		var/turf/T = get_turf(A)
 		var/obj/item/tape/P = new tape_type(T.x,T.y,T.z)
 		P.forceMove(locate(T.x,T.y,T.z))

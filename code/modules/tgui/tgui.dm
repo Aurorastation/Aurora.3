@@ -19,6 +19,10 @@
 	var/window_key
 	/// Deprecated: Window size.
 	var/window_size
+	/// Optional HTML shown before the React interface mounts.
+	var/initial_html
+	/// Optional reserved pooled window index for interfaces which are preloaded.
+	var/preferred_window_index
 	/// The interface (template) to be used for this UI.
 	var/interface
 	/// Update the UI every MC tick.
@@ -37,8 +41,9 @@
 	var/datum/ui_state/state = null
 	/// Rate limit client refreshes to prevent DoS.
 	COOLDOWN_DECLARE(refresh_cooldown)
-	/// Are byond mouse events beyond the window passed in to the ui
-	var/mouse_hooked = FALSE
+
+	/// The id of any ByondUi elements that we have opened
+	var/list/open_byondui_elements
 
 /**
  * public
@@ -54,10 +59,7 @@
  *
  * return datum/tgui The requested UI.
  */
-/datum/tgui/New(mob/user, datum/src_object, interface, title, ui_x, ui_y)
-	log_tgui(user,
-		"new [interface] fancy [user?.client?.prefs.tgui_fancy]",
-		src_object = src_object)
+/datum/tgui/New(mob/user, datum/src_object, interface, title, ui_x, ui_y, initial_html, preferred_window_index)
 	src.user = user
 	src.src_object = src_object
 	src.window_key = "[REF(src_object)]-main"
@@ -68,6 +70,8 @@
 	// Deprecated
 	if(ui_x && ui_y)
 		src.window_size = list(ui_x, ui_y)
+	src.initial_html = initial_html
+	src.preferred_window_index = preferred_window_index
 
 /datum/tgui/Destroy()
 	user = null
@@ -82,33 +86,36 @@
  * return bool - TRUE if a new pooled window is opened, FALSE in all other situations including if a new pooled window didn't open because one already exists.
  */
 /datum/tgui/proc/open()
-	if(!user?.client)
+	if(user && !user.client)
 		return FALSE
 	if(window)
 		return FALSE
 	process_status()
 	if(status < UI_UPDATE)
 		return FALSE
-	window = SStgui.request_pooled_window(user)
+	window = SStgui.request_pooled_window(user, preferred_window_index)
 	if(!window)
 		return FALSE
 	opened_at = world.time
 	window.acquire_lock(src)
-	if(!window.is_ready())
+	if(preferred_window_index)
+		// The skin-defined Character Setup window guards against browse() making
+		// its background preload visible. The real open action removes that guard.
+		winset(user.client, window.id, "on-show=")
+	if(!window.is_ready() && !window.preloaded_hidden)
 		window.initialize(
 			strict_mode = TRUE,
-			fancy = user.client.prefs.tgui_fancy,
 			assets = list(
 				get_asset_datum(/datum/asset/simple/tgui),
-			))
+			),
+			inline_html = initial_html)
 	else
 		window.send_message("ping")
+	window.preloaded_hidden = FALSE
 	send_assets()
 	window.send_message("update", get_payload(
 		with_data = TRUE,
 		with_static_data = TRUE))
-	if(mouse_hooked)
-		window.set_mouse_macro()
 	SStgui.on_open(src)
 
 	return TRUE
@@ -143,10 +150,26 @@
 		window.release_lock()
 		window.close(can_be_suspended)
 		src_object.ui_close(user)
-		SEND_SIGNAL(src, COMSIG_TGUI_CLOSE, user)
 		SStgui.on_close(src)
+
+		if(user.client)
+			terminate_byondui_elements()
+
 	state = null
 	qdel(src)
+
+/**
+ * public
+ *
+ * Closes all ByondUI elements, left dangling by a forceful TGUI exit,
+ * such as via Alt+F4, or terminating the process
+ *
+ */
+/datum/tgui/proc/terminate_byondui_elements()
+	set waitfor = FALSE
+
+	for(var/byondui_element in open_byondui_elements)
+		winset(user.client, byondui_element, list("parent" = ""))
 
 /**
  * public
@@ -157,18 +180,6 @@
  */
 /datum/tgui/proc/set_autoupdate(autoupdate)
 	src.autoupdate = autoupdate
-
-/**
- * public
- *
- * Enable/disable passing through byond mouse events to the window
- *
- * required value bool Enable/disable hooking.
- */
-/datum/tgui/proc/set_mouse_hook(value)
-	src.mouse_hooked = value
-	//Handle unhooking/hooking on already open windows ?
-
 
 /**
  * public
@@ -245,12 +256,13 @@
 	json_data["config"] = list(
 		"title" = title,
 		"status" = status,
-		"interface" = interface,
+		"interface" = list(
+			"name" = interface,
+		),
 		"refreshing" = refreshing,
 		"window" = list(
 			"key" = window_key,
 			"size" = window_size,
-			"fancy" = user.client.prefs.tgui_fancy,
 			"locked" = user.client.prefs.tgui_lock,
 			"scale" = user.client.prefs.ui_scale,
 		),
@@ -353,6 +365,18 @@
 			LAZYINITLIST(src_object.tgui_shared_states)
 			src_object.tgui_shared_states[href_list["key"]] = href_list["value"]
 			SStgui.update_uis(src_object)
+		if(TGUI_MANAGED_BYONDUI_TYPE_RENDER)
+			var/byond_ui_id = payload[TGUI_MANAGED_BYONDUI_PAYLOAD_ID]
+			if(!byond_ui_id || LAZYLEN(open_byondui_elements) > TGUI_MANAGED_BYONDUI_LIMIT)
+				return
+
+			LAZYOR(open_byondui_elements, byond_ui_id)
+		if(TGUI_MANAGED_BYONDUI_TYPE_UNMOUNT)
+			var/byond_ui_id = payload[TGUI_MANAGED_BYONDUI_PAYLOAD_ID]
+			if(!byond_ui_id)
+				return
+
+			LAZYREMOVE(open_byondui_elements, byond_ui_id)
 
 /// Wrapper for behavior to potentially wait until the next tick if the server is overloaded
 /datum/tgui/proc/on_act_message(act_type, payload, state)

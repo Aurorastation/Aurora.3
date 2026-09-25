@@ -20,18 +20,18 @@
 	emp_protection = 30
 	vision_restriction = TINT_NONE
 	slowdown = 0
-	offline_slowdown = 3
+	offline_slowdown = 1.5
 	species_restricted = list(BODYTYPE_SKRELL)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/skrell
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/skrell/equipped
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
@@ -46,7 +46,7 @@
 		)
 
 /obj/item/rig/skrell/equipped/merc
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 /obj/item/clothing/head/helmet/space/rig/skrell/tup
 	light_overlay = "helmet_light_tadpole"
@@ -67,7 +67,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/skrell/tup/equipped
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -113,7 +113,7 @@
 		)
 
 /obj/item/rig/skrell/tup/modern/equipped
-	req_access = list(ACCESS_SKRELL)
+	req_access = list(/datum/access/skrell::id)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,

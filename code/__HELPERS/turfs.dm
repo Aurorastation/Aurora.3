@@ -50,6 +50,8 @@
 			turfs += T
 	if(turfs.len)
 		return pick(turfs)
+	else
+		return null
 
 ///Returns a turf based on text inputs, original turf and viewing client
 /proc/parse_caught_click_modifiers(list/modifiers, turf/origin, client/viewing_client)
@@ -122,7 +124,7 @@
 
 /proc/is_below_sound_pressure(var/turf/T)
 	var/datum/gas_mixture/environment = T ? T.return_air() : null
-	var/pressure =  environment ? environment.return_pressure() : 0
+	var/pressure =  SAFE_XGM_PRESSURE(environment)
 	if(pressure < SOUND_MINIMUM_PRESSURE)
 		return TRUE
 	return FALSE
@@ -212,7 +214,7 @@
 	var/turf/T = get_turf(source)
 	if(!istype(T)) return FALSE
 	var/datum/gas_mixture/environment = T.return_air()
-	var/pressure = (environment)? environment.return_pressure() : 0
+	var/pressure = SAFE_XGM_PRESSURE(environment)
 	if(pressure < required_pressure)
 		return FALSE
 	return TRUE

@@ -102,9 +102,9 @@
 	description = "This implant - locked firing pin authorizes the weapon for only mindshield-implanted users."
 	price = 800
 	items = list(
-		/obj/item/device/firing_pin/implant/loyalty
+		/obj/item/firing_pin/implant/loyalty
 	)
-	access = ACCESS_HEADS
+	access = /datum/access/heads::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -118,7 +118,7 @@
 	items = list(
 		/mob/living/carbon/human
 	)
-	access = ACCESS_RESEARCH
+	access = /datum/access/research::id
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -132,7 +132,7 @@
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
-	access = ACCESS_RESEARCH
+	access = /datum/access/research::id
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -146,7 +146,7 @@
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
-	access = ACCESS_RESEARCH
+	access = /datum/access/research::id
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -160,7 +160,7 @@
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
-	access = ACCESS_RESEARCH
+	access = /datum/access/research::id
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -174,7 +174,7 @@
 	items = list(
 		/mob/living/carbon/human/type_a/cargo
 	)
-	access = ACCESS_RESEARCH
+	access = /datum/access/research::id
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -186,7 +186,7 @@
 	description = "Used for scanning and alerting when someone enters a certain proximity."
 	price = 35
 	items = list(
-		/obj/item/device/assembly/prox_sensor
+		/obj/item/assembly/prox_sensor
 	)
 	access = 0
 	container_type = "crate"
@@ -200,9 +200,9 @@
 	description = "This safety firing pin allows weapons to be fired within proximity to a firing range."
 	price = 200
 	items = list(
-		/obj/item/device/firing_pin/test_range
+		/obj/item/firing_pin/test_range
 	)
-	access = ACCESS_RESEARCH
+	access = /datum/access/research::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -214,7 +214,7 @@
 	description = "Used to time things. Works well with contraptions which has to count down. Tick tock."
 	price = 22
 	items = list(
-		/obj/item/device/assembly/timer
+		/obj/item/assembly/timer
 	)
 	access = 0
 	container_type = "crate"
@@ -228,7 +228,7 @@
 	description = "A small electronic device able to ignite combustable substances."
 	price = 23
 	items = list(
-		/obj/item/device/assembly/igniter
+		/obj/item/assembly/igniter
 	)
 	access = 0
 	container_type = "crate"

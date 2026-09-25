@@ -30,12 +30,12 @@
 
 	id = /obj/item/card/id/sfa_ship
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/sfa_navy_crewman/get_id_access()
-	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/sfa_navy_officer
 	short_name = "sfa_navy_officer"
@@ -68,15 +68,15 @@
 
 	id = /obj/item/card/id/sfa_ship
 
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/sfa_navy_officer/get_id_access()
-	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
 
 //items
 
 /obj/item/card/id/sfa_ship
 	name = "sfa patrol ship id"
-	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)

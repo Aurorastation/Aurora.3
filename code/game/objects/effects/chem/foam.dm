@@ -15,6 +15,7 @@
 	var/amount = 3
 	var/expand = 1
 	var/metal = 0
+	var/reagents_checked = FALSE
 
 /obj/effect/effect/foam/New(var/loc, var/ismetal = 0)
 	..(loc)
@@ -45,11 +46,25 @@
 	QDEL_IN(src, 5)
 
 /obj/effect/effect/foam/proc/checkReagents() // transfer any reagents to the floor
+	reagents_checked = TRUE
 	if(!metal && reagents)
 		var/turf/T = get_turf(src)
 		reagents.touch_turf(T)
 		for(var/obj/O in T)
 			reagents.touch_obj(O)
+
+/obj/effect/effect/foam/proc/add_carried_reagents(var/list/reagent_ids)
+	if(metal || !LAZYLEN(reagent_ids))
+		return FALSE
+
+	if(!reagents)
+		create_reagents(10)
+
+	var/added = FALSE
+	for(var/id in reagent_ids)
+		if(reagents.add_reagent(id, 1, safety = 1))
+			added = TRUE
+	return added
 
 /obj/effect/effect/foam/process()
 	if(--amount < 0)
@@ -65,15 +80,16 @@
 
 		var/obj/effect/effect/foam/F = locate() in T
 		if(F)
+			if(!metal && reagents)
+				if(F.add_carried_reagents(reagents.reagent_volumes) && F.reagents_checked)
+					F.checkReagents()
 			continue
 
 		F = new(T, metal)
 		F.amount = amount
 		if(!metal)
-			F.create_reagents(10)
 			if(reagents)
-				for(var/_R in reagents.reagent_volumes)
-					F.reagents.add_reagent(_R, 1, safety = 1) //added safety check since reagents in the foam have already had a chance to react
+				F.add_carried_reagents(reagents.reagent_volumes)
 
 /obj/effect/effect/foam/fire_act(exposed_temperature, exposed_volume) // foam disolves when heated, except metal foams
 	. = ..()
@@ -125,18 +141,18 @@
 	var/obj/effect/effect/foam/F = locate() in location
 	if(F)
 		F.amount += amount
+		if(!metal && F.add_carried_reagents(carried_reagents) && F.reagents_checked)
+			F.checkReagents()
 		return
 
 	F = new /obj/effect/effect/foam(location, metal)
 	F.amount = amount
 
 	if(!metal) // don't carry other chemicals if a metal foam
-		F.create_reagents(10)
-
-		if(carried_reagents)
-			for(var/id in carried_reagents)
-				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
+		if(LAZYLEN(carried_reagents))
+			F.add_carried_reagents(carried_reagents)
 		else
+			F.create_reagents(10)
 			F.reagents.add_reagent(/singleton/reagent/water, 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
@@ -180,7 +196,7 @@
 
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
+	user.do_attack_animation(src)
 	if ((user.mutations & HULK) || (prob(75 - metal * 25)))
 		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
@@ -208,7 +224,7 @@
 			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 			return TRUE
 
-		var/material/M = SSmaterials.get_material_by_name(S.default_type)
+		var/singleton/material/M = GET_SINGLETON(S.default_type)
 		if(!istype(M))
 			return TRUE
 		if(M.integrity < 50)
@@ -238,7 +254,7 @@
 		qdel(src)
 		return TRUE
 
-	user.do_attack_animation(src, attacking_item)
+	user.do_attack_animation(src, used_item = attacking_item)
 	if(prob(attacking_item.force * 20 - metal * 25))
 		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the foamed metal with \the [attacking_item]."))
 		qdel(src)

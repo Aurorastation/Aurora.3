@@ -175,7 +175,7 @@
 		return
 	else //and if it's beating, let's see if it should
 		var/should_stop = prob(80) && circulation < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
-		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
+		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxhealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(fibrillation_stop_risk) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
 		should_stop = should_stop || owner.chem_effects[CE_NOPULSE]
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
@@ -247,7 +247,7 @@
 		var/list/do_spray = list()
 		for(var/obj/item/organ/external/temp in owner.bad_external_organs)
 			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
-				for(var/datum/wound/W in temp.wounds)
+				for(var/datum/wound/W as anything in temp.wounds)
 					if(W.bleeding())
 						open_wound = TRUE
 						if(temp.applied_pressure)
@@ -291,7 +291,7 @@
 
 		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)
 			owner.visible_message(SPAN_DANGER("Blood squirts from \the [owner]'s [pick(do_spray)]!"), \
-								SPAN_DANGER("<font size=3>Blood sprays out of your [pick(do_spray)]!</font>"))
+								SPAN_DANGER("<font size=5>Blood sprays out of your [pick(do_spray)]!</font>"))
 			owner.eye_blurry = 2
 			owner.Stun(1)
 			next_blood_squirt = world.time + time_between_arterial_sprays

@@ -5,18 +5,13 @@
 	desc = "It's a gruesome pile of thick, sticky flesh shaped like a nest."
 	icon = 'icons/obj/gore_structures.dmi'
 	icon_state = "nest"
+	maxhealth = OBJECT_HEALTH_LOW
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"
-	var/maxHealth = 100
-	var/health = 100
-
-/obj/structure/bed/nest/Initialize(mapload, new_material, new_padding_material)
-	. = ..()
-	health = maxHealth
 
 /obj/structure/bed/nest/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
-		var/health_div = health / maxHealth
+		var/health_div = health / maxhealth
 		if(health_div >= 0.9)
 			. += SPAN_NOTICE("\The [src] appears completely intact.")
 		else if(health_div >= 0.7)
@@ -51,19 +46,16 @@
 		unbuckle()
 
 /obj/structure/bed/nest/attackby(obj/item/attacking_item, mob/user)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, attacking_item)
-	var/force_damage = attacking_item.force
+	var/damage = attacking_item.force
 	if(attacking_item.damtype == DAMAGE_BURN)
-		force_damage *= 1.25
-	health -= force_damage
+		damage *= 1.25
+	. = ..()
+	add_damage(damage)
 	playsound(loc, 'sound/effects/attackblob.ogg', 80, TRUE)
-	healthcheck()
 
-/obj/structure/bed/nest/proc/healthcheck()
-	if(health <= 0)
-		var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
-		visible_message(SPAN_WARNING(final_message))
-		qdel(src)
+/obj/structure/bed/nest/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
+	visible_message(SPAN_WARNING(final_message))
+	qdel(src)
 
 #undef NEST_RESIST_TIME

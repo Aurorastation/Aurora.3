@@ -1,8 +1,19 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+  Tooltip,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip, Stack, Input } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
+import { SearchBar } from './common/SearchBar';
 
 export type CargoData = {
   username: string;
@@ -80,21 +91,23 @@ type Order = {
   reason: string;
 };
 
-export const CargoOrder = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const CargoOrder = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
-    <NtosWindow resizable width={800} height={800}>
+    <NtosWindow resizable width={800} height={800} theme="orion">
       <NtosWindow.Content scrollable>
         <Tabs fluid>
           <Tabs.Tab
             onClick={() => act('page', { page: 'main' })}
-            selected={data.page === 'main'}>
+            selected={data.page === 'main'}
+          >
             Main
           </Tabs.Tab>
           <Tabs.Tab
             onClick={() => act('page', { page: 'tracking' })}
-            selected={data.page === 'tracking'}>
+            selected={data.page === 'tracking'}
+          >
             Tracking
           </Tabs.Tab>
         </Tabs>
@@ -104,22 +117,14 @@ export const CargoOrder = (props, context) => {
   );
 };
 
-export const MainPage = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
-  const [details, setDetails] = useLocalState<boolean>(
-    context,
-    'details',
-    false
-  );
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+export const MainPage = (props) => {
+  const { act, data } = useBackend<CargoData>();
+  const [details, setDetails] = useLocalState<boolean>('details', false);
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Stack vertical>
-      <Section title={'Welcome, ' + data.username}>
+      <Section title={`Welcome, ${data.username}`}>
         <Stack vertical>
           <Stack.Item fontSize={1.4} bold>
             Your Basket
@@ -130,7 +135,7 @@ export const MainPage = (props, context) => {
                 {data.order_item_count}
               </LabeledList.Item>
               <LabeledList.Item label="Price">
-                {data.order_value.toFixed(2)} 电
+                {data.order_value.toFixed(2)}电
               </LabeledList.Item>
               {data.status_message && (
                 <LabeledList.Item label="Status">
@@ -147,12 +152,13 @@ export const MainPage = (props, context) => {
             />
             <Button
               content="Clear"
-              color="red"
+              color="reject"
               icon="stop"
               onClick={() => act('clear_order')}
             />
             <Button
               content="Submit Order"
+              color="approve"
               icon="check"
               onClick={() => act('submit_order')}
             />
@@ -163,15 +169,13 @@ export const MainPage = (props, context) => {
       <Section
         title="Catalog"
         buttons={
-          <Input
+          <SearchBar
             autoFocus
-            autoSelect
             placeholder="Search by name"
-            maxLength={512}
-            onInput={(e, value) => {
+            query={searchTerm}
+            onSearch={(value) => {
               setSearchTerm(value);
             }}
-            value={searchTerm}
           />
         }
       />
@@ -185,7 +189,8 @@ export const MainPage = (props, context) => {
                 selected={data.selected_category === category.name}
                 onClick={() =>
                   act('select_category', { select_category: category.name })
-                }>
+                }
+              >
                 <Icon name={category.icon} /> {category.display_name}
               </Tabs.Tab>
             ))}
@@ -197,15 +202,15 @@ export const MainPage = (props, context) => {
           {data.category_items
             .filter(
               (c) =>
-                c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+                c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
             )
             .map((item) => (
               <Section
                 title={item.name}
-                key={item.name}
+                key={item.id}
                 buttons={
                   <Button
-                    content={item.price_adjusted.toFixed(2) + '电'}
+                    content={`${item.price_adjusted.toFixed(2)}电`}
                     disabled={
                       !item.supplier_data.available && item.price_adjusted <= 0
                     }
@@ -215,7 +220,8 @@ export const MainPage = (props, context) => {
                       act('add_item', { add_item: item.name.toString() })
                     }
                   />
-                }>
+                }
+              >
                 <Stack vertical>
                   <Stack.Item>{item.description}</Stack.Item>
                   <Stack.Item>
@@ -245,8 +251,8 @@ export const MainPage = (props, context) => {
   );
 };
 
-export const ShowDetails = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const ShowDetails = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Details">
@@ -257,16 +263,16 @@ export const ShowDetails = (props, context) => {
         </Table.Row>
         <Table.Row>
           <Table.Cell>Handling Fee</Table.Cell>
-          <Table.Cell>{data.handling_fee.toFixed(2)} 电</Table.Cell>
+          <Table.Cell>{data.handling_fee.toFixed(2)}电</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Crate Fee</Table.Cell>
-          <Table.Cell>{data.crate_fee.toFixed(2)} 电</Table.Cell>
+          <Table.Cell>{data.crate_fee.toFixed(2)}电</Table.Cell>
         </Table.Row>
         {data.order_items.map((item) => (
-          <Table.Row key={item.name}>
+          <Table.Row key={item.id}>
             <Table.Cell>{item.name}</Table.Cell>
-            <Table.Cell>{item.price.toFixed(2)} 电</Table.Cell>
+            <Table.Cell>{item.price.toFixed(2)}电</Table.Cell>
           </Table.Row>
         ))}
       </Table>
@@ -274,8 +280,8 @@ export const ShowDetails = (props, context) => {
   );
 };
 
-export const TrackingPage = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const TrackingPage = (props) => {
+  const { act, data } = useBackend<CargoData>();
 
   return (
     <Section title="Tracking">
@@ -305,12 +311,13 @@ export const TrackingPage = (props, context) => {
   );
 };
 
-export const ShowTrackingStatus = (props, context) => {
-  const { act, data } = useBackend<CargoData>(context);
+export const ShowTrackingStatus = (props) => {
+  const { act, data } = useBackend<CargoData>();
   const contentHtml = { __html: sanitizeText(data.tracked_order_report) };
 
   return (
-    <Section title="Tracking Information">
+    <Section title={`Tracking Information`}>
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

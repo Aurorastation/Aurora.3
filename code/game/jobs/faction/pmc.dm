@@ -1,16 +1,17 @@
 /datum/faction/pmc
 	name = "Private Military Contracting Group"
-	description = {"<p>
+	description = {"
 	The Private Military Contracting Group is a coalition of security and medical contractors;
-	borne from the necessity of protecting the Stellar Corporate Conglomerate and its holdings.
+	borne from the necessity of protecting the Stellar Corporate Conglomerate and its holdings.<br>
 	Following the ever-growing corporate empire, mercenaries and contractors from all across the spur are deployed accordingly;
-	from mere office buildings to outposts in the Corporate Reconstruction Zone.
+	from mere office buildings to outposts in the Corporate Reconstruction Zone.<br><br>
 	Unlike the other members of the Corporate Conglomerate, the Private Military Contracting Group has few employees of its own.
 	Only some liaisons and bureaucrats work behind the scenes to hire and manage the contractors;
 	the rest of its members are part of several organizations contracted to supply the PMCG.
-	</p>"}
-	departments = {"Medical<br>Security"}
+	"}
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_SECURITY)
 	title_suffix = "PMCG"
+	wiki_page = "Private_Military_Contracting_Group"
 
 	allowed_role_types = PMC_ROLES
 
@@ -57,6 +58,18 @@
 		"Security Personnel" = /obj/outfit/job/officer/event/pmc,
 		"Medical Personnel" = /obj/outfit/job/med_tech/event/pmc
 	)
+
+/datum/faction/pmc/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Ensure PMCG contractors are integrating properly into the [station_name()]'s corporate environment")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Encourage team-building exercises between PMCG subcontractors",
+						"Have a PMCG employee sign a contract extension")
+		else
+			return pick("Conduct a survey on Private Military Contracting Group employee morale",
+						"Identify and resolve a complaint of a Private Military Contracting Group employee [station_name()]")
+
 
 /obj/outfit/job/officer/pmc
 	name = "Security Officer - PMC"

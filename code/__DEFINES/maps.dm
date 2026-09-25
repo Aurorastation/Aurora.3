@@ -7,6 +7,7 @@
 /* Aurora Snowflake */
 #define ZTRAIT_OVERMAP "Overmap"
 #define ZTRAIT_EXPLANET "Exoplanet"
+#define ZTRAIT_PORTOFCALL "Port of Call"
 
 
 // Whether this z level is linked up/down. Bool.
@@ -42,3 +43,6 @@
 #define DEFAULT_MAP_TRAITS list(\
 	DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),\
 )
+
+//Reserved/Transit turf type
+#define RESERVED_TURF_TYPE /turf/space //What the turf is when not being used

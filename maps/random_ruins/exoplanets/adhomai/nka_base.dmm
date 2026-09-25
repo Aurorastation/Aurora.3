@@ -24,7 +24,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "bR" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -43,7 +43,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "eh" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "eF" = (
@@ -95,7 +95,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ji" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -122,7 +122,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "lX" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "mf" = (
@@ -166,11 +166,11 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "nA" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren{
@@ -206,7 +206,7 @@
 /area/exoplanet/adhomai)
 "qa" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -220,7 +220,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "rV" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -258,7 +258,7 @@
 /obj/structure/table/wood,
 /obj/item/storage/pill_bottle/dice/tajara,
 /obj/item/deck/cards,
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "vd" = (
@@ -313,7 +313,7 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "wB" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/sign/flag/nka{
@@ -344,7 +344,7 @@
 	req_access = list(213);
 	name = "revolver ammunition cabinet"
 	},
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -365,17 +365,17 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "xQ" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "yk" = (
-/obj/machinery/shower{
+/obj/structure/machinery/shower{
 	dir = 1
 	},
 /obj/structure/curtain/open/shower,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren{
@@ -383,7 +383,7 @@
 	},
 /area/nka_base)
 "yx" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -458,7 +458,7 @@
 /turf/unsimulated/wall/steel,
 /area/nka_base)
 "CW" = (
-/obj/machinery/light/small,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "DB" = (
@@ -476,14 +476,14 @@
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Em" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 12;
 	pixel_x = 5
 	},
@@ -504,7 +504,7 @@
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -552,7 +552,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Md" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled,
@@ -568,10 +568,10 @@
 /area/nka_base)
 "NW" = (
 /obj/structure/table/wood,
-/obj/item/device/binoculars/spyglass,
+/obj/item/binoculars/spyglass,
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/adhomai,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/item/key{
@@ -635,7 +635,7 @@
 /area/nka_base)
 "Up" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/sign/flag/nka/large/north{
 	pixel_y = 32
 	},
@@ -651,14 +651,14 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Vn" = (
-/obj/machinery/door/urban,
+/obj/structure/machinery/door/urban,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
 /area/nka_base)
 "Vy" = (
 /obj/structure/table/wood,
-/obj/item/device/versebook/nka,
+/obj/item/versebook/nka,
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "VN" = (
@@ -668,7 +668,7 @@
 /obj/item/clothing/head/tajaran/nka_cap/commander,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood,
@@ -691,7 +691,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Xb" = (
-/obj/machinery/door/window/brigdoor{
+/obj/structure/machinery/door/window/brigdoor{
 	dir = 4;
 	req_access = list(213);
 	name = "checkpoint"
@@ -719,7 +719,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "YC" = (
-/obj/machinery/light/small{
+/obj/structure/machinery/light/small{
 	dir = 8
 	},
 /obj/item/trash/tray,
@@ -727,8 +727,8 @@
 /area/nka_base)
 "YD" = (
 /obj/structure/table/wood,
-/obj/machinery/light/small,
-/obj/machinery/photocopier/faxmachine{
+/obj/structure/machinery/light/small,
+/obj/structure/machinery/photocopier/faxmachine{
 	department = "NKA Outpost";
 	req_one_access = null
 	},

@@ -96,7 +96,7 @@
 			balloon_alert(user, "it won't budge!")
 			to_chat(user, SPAN_WARNING("You lack the required access to operate this rack's lock, or the lock mechanism is broken."))
 
-	else if(locked && attacking_item.iswelder())
+	else if(locked && attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 
 		balloon_alert_to_viewers("cutting through the lock...")
@@ -147,7 +147,7 @@
 #define INTER_OFFSET_RIFLE_SLOT 7
 /obj/structure/weapons_rack/update_icon()
 	. = ..()
-	visual_holder.overlays.Cut()
+	visual_holder.ClearOverlays()
 	ClearOverlays()
 
 	for(var/i in 1 to length(src.contents))
@@ -162,7 +162,7 @@
 		var/mutable_appearance/weapon_appearance = mutable_appearance(G.icon, G.icon_state, plane = src.plane, layer = G.layer)
 		weapon_appearance.transform = transform_matrix
 
-		visual_holder.overlays += weapon_appearance
+		visual_holder.AddOverlays(weapon_appearance)
 
 	if(locked)
 		AddOverlays(image(src.icon, "locked_overlay", layer = ABOVE_OBJ_LAYER))
@@ -205,7 +205,7 @@
 				forced_open = TRUE
 
 		else
-			var/picked = pick_weight(list("burn_weapon" = 2, "explode_ammos" = 10, "nothing" = 80))
+			var/picked = pickweight(list("burn_weapon" = 2, "explode_ammos" = 10, "nothing" = 80))
 
 			//Burn down one of the guns
 			if(picked == "burn_weapon" && length(src.contents))

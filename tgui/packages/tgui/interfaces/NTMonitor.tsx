@@ -1,11 +1,21 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MonitorData = {
   ntnetstatus: BooleanLike;
   ntnetrelays: number;
+  ntnetcores: number;
+  ntnetfieldrelays: number;
+  ntnetroutedrelays: number;
   idsstatus: BooleanLike;
   idsalarm: BooleanLike;
   config_softwaredownload: BooleanLike;
@@ -18,8 +28,8 @@ export type MonitorData = {
   ntnetmaxlogs: number;
 };
 
-export const NTMonitor = (props, context) => {
-  const { act, data } = useBackend<MonitorData>(context);
+export const NTMonitor = (props) => {
+  const { act, data } = useBackend<MonitorData>();
 
   return (
     <NtosWindow resizable>
@@ -28,6 +38,15 @@ export const NTMonitor = (props, context) => {
           <LabeledList>
             <LabeledList.Item label="Active NTNet Relays">
               {data.ntnetrelays}
+            </LabeledList.Item>
+            <LabeledList.Item label="Core Relays">
+              {data.ntnetcores}
+            </LabeledList.Item>
+            <LabeledList.Item label="Field Relays">
+              {data.ntnetfieldrelays}
+            </LabeledList.Item>
+            <LabeledList.Item label="Routed Relays">
+              {data.ntnetroutedrelays}
             </LabeledList.Item>
             <LabeledList.Item label="System Status">
               {data.ntnetstatus ? 'Enabled' : 'Disabled'}
@@ -104,7 +123,8 @@ export const NTMonitor = (props, context) => {
                 onClick={() => act('purgelogs')}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Intrusion Detection">
               {data.idsstatus ? 'Enabled' : 'Disabled'}
@@ -115,7 +135,7 @@ export const NTMonitor = (props, context) => {
           </LabeledList>
         </Section>
         <Section title="System Logs">
-          {data.ntnetlogs && data.ntnetlogs.length ? (
+          {data.ntnetlogs?.length ? (
             data.ntnetlogs.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}
@@ -126,7 +146,7 @@ export const NTMonitor = (props, context) => {
           )}
         </Section>
         <Section title="Message Logs">
-          {data.ntnetmessages && data.ntnetmessages.length ? (
+          {data.ntnetmessages?.length ? (
             data.ntnetmessages.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}

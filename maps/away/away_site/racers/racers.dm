@@ -24,7 +24,11 @@
 	name = "unregistered station"
 	desc = "A station that doesn't appear to have been legally registered. It has four large hangar bays and a small habitation module - and the signals emittered by its dying equipment seem to identify it as belonging to an underground racing group."
 	comms_support = TRUE
-	comms_name = "station"
+
+/obj/effect/overmap/visitable/sector/racers/create_comms_groups()
+	return list(
+		"default" = new /datum/comms_group("station")
+	)
 
 /area/racers
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
@@ -64,7 +68,6 @@
 	current_location = "nav_red_racer_hangar"
 	landmark_transition = "nav_red_racer_transit"
 	fuel_consumption = 2
-	logging_home_tag = "nav_red_racer_hangar"
 	range = 1
 	defer_initialisation = TRUE
 
@@ -91,15 +94,14 @@
 	current_location = "nav_blue_racer_hangar"
 	landmark_transition = "nav_blue_racer_transit"
 	fuel_consumption = 2
-	logging_home_tag = "nav_blue_racer_hangar"
 	range = 1
 	defer_initialisation = TRUE
 
-/obj/machinery/computer/shuttle_control/explore/red_racer
+/obj/structure/machinery/computer/shuttle_control/explore/red_racer
 	name = "shuttle control console"
 	shuttle_tag = "Red Racer"
 
-/obj/machinery/computer/shuttle_control/explore/blue_racer
+/obj/structure/machinery/computer/shuttle_control/explore/blue_racer
 	name = "shuttle control console"
 	shuttle_tag = "Blue Racer"
 

@@ -49,7 +49,9 @@
 		"People's Station Transport Shuttle" = list("nav_hangar_peoples_station_transport")
 	)
 	comms_support = TRUE
-	comms_name = "people's station"
+
+/obj/effect/overmap/visitable/ship/stationary/peoples_station/create_comms_groups()
+	return list("default" = new /datum/comms_group("people's station"))
 
 /obj/effect/overmap/visitable/ship/stationary/peoples_station/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "pss")
@@ -96,7 +98,7 @@
 	else
 		designation = "[pick("Adhomai's Finest", "Party's Dagger", "Sunray", "Kazarrhaldiye", "Revolutionary Courage", "Hadiist Avenger")]"
 	..()
-/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Fang"
 
@@ -109,7 +111,6 @@
 	range = 1
 	fuel_consumption = 2
 	dock_target = "peoples_station_fang"
-	logging_home_tag = "nav_hangar_peoples_station_fang"
 	defer_initialisation = TRUE
 
 //transport shuttle
@@ -129,7 +130,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport
 	name = "shuttle control console"
 	shuttle_tag = "People's Station Transport Shuttle"
 
@@ -142,7 +143,6 @@
 	dock_target = "peoples_station_transport"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_peoples_station_transport"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/peoples_station_transport/hangar

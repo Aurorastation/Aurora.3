@@ -9,25 +9,25 @@
 		/obj/item/crowbar,
 		/obj/item/wrench,
 		/obj/item/hammer,
-		/obj/item/device/flashlight
+		/obj/item/flashlight
 	)
 
 /obj/random/technology_scanner
 	name = "random scanner"
 	desc = "This is a random technology scanner."
-	icon = 'icons/obj/item/device/air_analyzer.dmi'
-	icon_state = "analyzer"
-	problist = list(
-		/obj/item/device/t_scanner = 5,
-		/obj/item/device/radio = 2,
-		/obj/item/device/analyzer = 5
+	icon = 'icons/obj/item/scanner.dmi'
+	icon_state = "airanalyzer"
+	spawnlist = list(
+		/obj/item/t_scanner = 5,
+		/obj/item/radio = 2,
+		/obj/item/analyzer = 5
 	)
 
 /obj/random/powercell
 	name = "random powercell"
 	desc = "This is a random powercell."
 	icon_state = "cell"
-	problist = list(
+	spawnlist = list(
 		/obj/item/cell = 40,
 		/obj/item/cell/high = 40,
 		/obj/item/cell/crap = 10,
@@ -42,12 +42,12 @@
 	desc = "This is a random bomb supply."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "signaller"
-	problist = list(
-		/obj/item/device/assembly/igniter = 2,
-		/obj/item/device/assembly/prox_sensor = 2,
-		/obj/item/device/assembly/signaler = 2,
-		/obj/item/device/multitool = 1,
-		/obj/item/device/transfer_valve = 0.5
+	spawnlist = list(
+		/obj/item/assembly/igniter = 2,
+		/obj/item/assembly/prox_sensor = 2,
+		/obj/item/assembly/signaler = 2,
+		/obj/item/multitool = 1,
+		/obj/item/transfer_valve = 0.5
 	)
 
 /obj/random/toolbox
@@ -64,7 +64,7 @@
 	name = "random tech supply"
 	desc = "This is a random piece of technology supplies."
 	icon_state = "tech_supply"
-	problist = list(
+	spawnlist = list(
 		/obj/random/powercell = 3,
 		/obj/random/technology_scanner = 2,
 		/obj/item/stack/packageWrap = 1,
@@ -132,7 +132,7 @@
 		/obj/item/clothing/suit/space/syndicate/black/red = /obj/item/clothing/head/helmet/space/syndicate/black/red,
 		/obj/item/clothing/suit/space/syndicate/black = /obj/item/clothing/head/helmet/space/syndicate/black
 	)
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/space/void/engineering = 3,
 		/obj/item/clothing/suit/space/void/mining = 3,
 		/obj/item/clothing/suit/space/void/merc = 1,
@@ -168,7 +168,7 @@
 		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
 		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	)
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/space/void = 2,
 		/obj/item/clothing/suit/space/void/engineering = 2,
 		/obj/item/clothing/suit/space/void/mining = 2,
@@ -203,7 +203,7 @@
 		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
 		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	)
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/space/void = 2,
 		/obj/item/clothing/suit/space/void/merc = 0.5,
 		/obj/item/clothing/suit/space/void/cruiser = 0.5,
@@ -261,52 +261,75 @@
 	name = "random canister"
 	icon_state = "canister"
 	spawn_nothing_percentage = 20
-	problist = list(
+	spawnlist = list(
 		/obj/random/canister/empty = 0.6,
 		/obj/random/canister/filled = 0.4,
 	)
 
+/// Used on the Horizon, or anywhere else you don't want people to find extremely rare/valuable gases like Phoron or Helium-3.
+/obj/random/canister/restricted
+	name = "random canister (restricted)"
+	icon_state = "canister"
+	spawn_nothing_percentage = 20
+	spawnlist = list(
+		/obj/random/canister/empty = 0.6,
+		/obj/random/canister/filled/restricted = 0.4,
+	)
+
 /obj/random/canister/empty
 	name = "random empty canister"
-	problist = list(
+	// In descending order of probability
+	spawnlist = list(
 		// common:
-		/obj/machinery/portable_atmospherics/canister/empty = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/air = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/air = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/hydrogen = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/nitrogen = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/oxygen = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/oxygen = 1,
-		/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent = 1,
-		// rare:
-		/obj/machinery/portable_atmospherics/canister/empty/heliumfuel = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/chlorine = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/helium = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/phoron = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/air = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/oxygen = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/empty = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/nitrogen = 1.5,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/hydrogen = 1.25,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/sleeping_agent = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/helium = 0.5,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/chlorine = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/sulfur_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/heliumfuel = 0.05,
+		/obj/structure/machinery/portable_atmospherics/canister/empty/phoron = 0.1,
 	)
 
 /obj/random/canister/filled
 	name = "random filled canister"
-	problist = list(
-		// common:
-		/obj/machinery/portable_atmospherics/canister/air = 1,
-		/obj/machinery/portable_atmospherics/canister/air = 1,
-		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 1,
-		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 1,
-		/obj/machinery/portable_atmospherics/canister/hydrogen = 1,
-		/obj/machinery/portable_atmospherics/canister/nitrogen = 1,
-		/obj/machinery/portable_atmospherics/canister/oxygen = 1,
-		/obj/machinery/portable_atmospherics/canister/oxygen = 1,
-		/obj/machinery/portable_atmospherics/canister/sleeping_agent = 1,
-		// rare:
-		/obj/machinery/portable_atmospherics/canister/heliumfuel = 0.1,
-		/obj/machinery/portable_atmospherics/canister/chlorine = 0.1,
-		/obj/machinery/portable_atmospherics/canister/helium = 0.1,
-		/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
-		/obj/machinery/portable_atmospherics/canister/phoron_scarce = 0.1,
-		// extra rare:
-		/obj/machinery/portable_atmospherics/canister/phoron = 0.01,
+	// In descending order of probability
+	spawnlist = list(
+		/obj/structure/machinery/portable_atmospherics/canister/air = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/oxygen = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen = 1.5,
+		/obj/structure/machinery/portable_atmospherics/canister/hydrogen = 1.25,
+		/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen/prechilled = 0.75,
+		/obj/structure/machinery/portable_atmospherics/canister/helium = 0.5,
+		/obj/structure/machinery/portable_atmospherics/canister/chlorine = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/sulfur_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/heliumfuel = 0.05,
+		/obj/structure/machinery/portable_atmospherics/canister/phoron_scarce = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/phoron = 0.01,
+	)
+
+/// Used on the Horizon, or anywhere else you don't want people to find extremely rare/valuable gases like Phoron or Helium-3.
+/obj/random/canister/filled/restricted
+	name = "random filled canister (restricted)"
+	// In descending order of probability
+	spawnlist = list(
+		/obj/structure/machinery/portable_atmospherics/canister/air = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/oxygen = 2,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen = 1.5,
+		/obj/structure/machinery/portable_atmospherics/canister/hydrogen = 1.25,
+		/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent = 1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen/prechilled = 0.75,
+		/obj/structure/machinery/portable_atmospherics/canister/helium = 0.5,
+		/obj/structure/machinery/portable_atmospherics/canister/chlorine = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/sulfur_dioxide = 0.1,
+		/obj/structure/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
 	)

@@ -73,7 +73,6 @@
 	name = "Cafe"
 	icon_state = "cafeteria"
 	area_blurb = "The smell of coffee wafts over from the cafe. Patience, the tree, stands proudly in the centre of the atrium."
-	area_blurb_category = "d3_cafe"
 	horizon_deck = 3
 
 // Custodial areas
@@ -84,7 +83,6 @@
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_ENGINEERING)
 	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
-	area_blurb_category = "janitor"
 	horizon_deck = 1
 	area_flags = AREA_FLAG_PREVENT_PERSISTENT_TRASH
 
@@ -93,7 +91,6 @@
 	icon_state = "disposal"
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS) // Industrial sounds.
 	area_blurb = "A large trash compactor takes up much of the room, ready to crush the ship's rubbish."
-	area_blurb_category = "trash_compactor"
 
 /area/horizon/service/custodial/disposals/deck_1
 	name = "Disposals and Recycling"
@@ -113,15 +110,23 @@
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_CHAPEL
 	horizon_deck = 2
-	lightswitch = FALSE
+	lightswitch = TRUE
 
 /area/horizon/service/chapel/main
 	name = "Chapel"
 	icon_state = "chapel"
 	area_blurb = "An impressive, spacious compartment nonetheless kept somewhat bland to accommodate the many disparate faiths whose practice may be attended here."
 
+/area/horizon/service/chapel/corpse_storage
+	name = "Chapel Storage"
+	icon_state = "chapel"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "The air is damp, and smells faintly of long-burned ash."
+	lightswitch = FALSE
+
 /area/horizon/service/chapel/office
 	name = "Chapel Office"
 	icon_state = "chapeloffice"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_blurb = "The atmosphere here is subdued and solemn."
+	lightswitch = FALSE

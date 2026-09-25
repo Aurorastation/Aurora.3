@@ -294,7 +294,7 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	path = /obj/item/organ/internal/augment/vaurca_mag
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
-	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel", "Paramedic", "Medical Personnel")
+	allowed_roles = list("Shaft Miner", "Ship Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel", "Paramedic", "Medical Personnel")
 
 /datum/gear/accessory/tret_passcard
 	display_name = "tret passcard"
@@ -399,5 +399,5 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	cost = 1
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_COLOR_SELECTION
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	culture_restriction = list(/singleton/origin_item/culture/klax)

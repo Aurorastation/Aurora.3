@@ -29,7 +29,7 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	max_count = 1
 	spawnpoints = list("ouerea_bar_innkeeper")
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/moghes_bar_innkeeper
 
@@ -48,7 +48,7 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	spawnpoints = list("ouerea_bar_server")
 	max_count = 2
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/moghes_bar_server
 
@@ -67,11 +67,13 @@
 	extra_languages = list(LANGUAGE_UNATHI)
 	max_count = 5
 	spawnpoints = list("ouerea_bar_patron")
-	possible_species = list(SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/moghes_bar_patron
 	species_outfits = list(
 		SPECIES_UNATHI = /obj/outfit/admin/moghes_bar_patron,
+		SPECIES_UNATHI_URAWANI = /obj/outfit/admin/moghes_bar_patron,
+		SPECIES_UNATHI_ZIRALIXI = /obj/outfit/admin/moghes_bar_patron,
 		SPECIES_SKRELL = /obj/outfit/admin/ouerea_skrell,
 		SPECIES_SKRELL_AXIORI = /obj/outfit/admin/ouerea_skrell,
 		SPECIES_HUMAN = /obj/outfit/admin/ouerea_human
@@ -85,7 +87,7 @@
 /obj/outfit/admin/ouerea_human
 	name = "Ouerean Human"
 	uniform = list(/obj/item/clothing/under/dressshirt/silversun/random, /obj/item/clothing/under/dressshirt, /obj/item/clothing/under/dressshirt/tshirt, /obj/item/clothing/under/dressshirt/longsleeve)
-	pants = list(/obj/item/clothing/pants/tan, /obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
+	pants = list(/obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
 	suit = list(/obj/item/clothing/suit/storage/toggle/track, /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan, /obj/item/clothing/accessory/poncho/unathimantle, /obj/item/clothing/suit/storage/toggle/corp/heph)
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/workboots, /obj/item/clothing/shoes/jackboots)
 	head = list(/obj/item/clothing/head/unathi, /obj/item/clothing/head/cowboy, /obj/item/clothing/head/cowboy/wide, /obj/item/clothing/head/bandana/colorable/random)
@@ -97,7 +99,7 @@
 /obj/outfit/admin/ouerea_skrell
 	name = "Ouerean Skrell"
 	uniform = list(/obj/item/clothing/under/dressshirt/tshirt/skrell/maelstrom, /obj/item/clothing/under/dressshirt/tshirt/skrell/nebula, /obj/item/clothing/under/dressshirt/tshirt/skrell/reef)
-	pants = list(/obj/item/clothing/pants/tan, /obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
+	pants = list(/obj/item/clothing/pants/jeans, /obj/item/clothing/pants/shorts/black, /obj/item/clothing/pants/shorts/jeans)
 	shoes = list(/obj/item/clothing/shoes/sandals/caligae, /obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/workboots, /obj/item/clothing/shoes/jackboots)
 	back = /obj/item/storage/backpack/satchel/leather
 	l_pocket = /obj/item/storage/wallet/random

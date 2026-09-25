@@ -8,7 +8,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/tactical
 	glasses = /obj/item/clothing/glasses/sunglasses/blinders
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(
 		/obj/item/gun/energy/vaurca/blaster = 1
@@ -61,7 +61,7 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/vaurca = 1,
@@ -102,7 +102,7 @@
 	if(H?.glasses)
 		H.glasses.color = "#391610"
 	var/obj/item/card/id/I = H.wear_id
-	I.access += (ACCESS_MEDICAL) //so the hud works
+	I.access += (/datum/access/medical::id) //so the hud works
 
 /obj/outfit/admin/ert/zora/engi
 	name = "Zo'ra Sapper"
@@ -151,7 +151,7 @@
 	mask = /obj/item/clothing/mask/gas/vaurca/tactical
 	glasses = /obj/item/clothing/glasses/sunglasses/blinders
 	id = /obj/item/card/id
-	l_ear = /obj/item/device/radio/headset/distress
+	l_ear = /obj/item/radio/headset/distress
 	r_pocket = /obj/item/crowbar/red
 	accessory = /obj/item/clothing/accessory/holster/hip
 	r_hand = /obj/item/recharger_backpack/high //so they can charge the hegemony weapons
@@ -206,7 +206,7 @@
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
-		/obj/item/device/healthanalyzer = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/melee/energy/sword/hegemony = 1,
@@ -235,7 +235,7 @@
 	med.replaced(H, head)
 	H.update_body()
 	var/obj/item/card/id/I = H.wear_id
-	I.access += (ACCESS_MEDICAL) //so the hud works
+	I.access += (/datum/access/medical::id) //so the hud works
 
 /obj/outfit/admin/ert/klax/engi
 	name = "K'lax Sapper"

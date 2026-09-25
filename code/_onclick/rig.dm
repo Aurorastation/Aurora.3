@@ -48,7 +48,7 @@
 	return 1
 
 /mob/living/carbon/brain/can_use_rig()
-	return istype(loc, /obj/item/device/mmi)
+	return istype(loc, /obj/item/mmi)
 
 /mob/living/silicon/ai/can_use_rig()
 	return carded

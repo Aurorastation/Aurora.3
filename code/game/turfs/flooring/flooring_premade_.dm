@@ -1,5 +1,5 @@
 /turf/simulated/floor/plating
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 
 // ------------------------------- grids
 
@@ -17,6 +17,15 @@
 	name = "cooled mainframe floor"
 	temperature = 80
 	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD) //one atmosphere of nitrogen
+
+/turf/simulated/floor/hivebot
+	name = "alien circuitry"
+	desc = "A strange, almost organic pattern of circuitry. It pulses softly, glowing with a dull red light."
+	icon = 'icons/turf/flooring/circuit.dmi'
+	icon_state = "hivecircuitfloor"
+	light_power = 1
+	light_color = LIGHT_COLOR_EMERGENCY_SOFT
+	light_range = MINIMUM_USEFUL_LIGHT_RANGE
 
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
@@ -149,6 +158,9 @@
 	initial_flooring = /singleton/flooring/tiling/freezer
 	color = null
 
+/turf/simulated/floor/tiled/freezer/cold
+	temperature = T0C - 5
+
 /turf/simulated/floor/tiled/ramp
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -181,7 +193,7 @@
 	name = "airless plating"
 	initial_gas = null
 	temperature = TCMB
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 	roof_type = null
 
 /turf/simulated/floor/tiled/airless
@@ -226,6 +238,11 @@
 /turf/simulated/floor/tiled/dark/full/airless
 	name = "airless full plasteel tile"
 	initial_gas = null
+
+/turf/simulated/floor/tiled/dark/full/cold
+	name = "cold full plasteel tile"
+	temperature = T0C - 5
+
 
 // ------------------------------- tiled/light
 

@@ -24,14 +24,14 @@
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/database_freighter
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	back = /obj/item/storage/backpack/duffel/eng
 
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/database_freighter_crew/get_id_access()
-	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/pra::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/database_freighter_crew/captain
 	short_name = "database_freighter_captain"

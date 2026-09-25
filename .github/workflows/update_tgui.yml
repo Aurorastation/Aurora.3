@@ -5,24 +5,17 @@ on:
 jobs:
   update-tgui:
     concurrency: tgui
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-24.04
     steps:
-    
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.BOT_TOKEN_AURORA }}
-        
-    - name: Install Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14
-        cache: 'yarn'
-        cache-dependency-path: tgui/yarn.lock
+    - name: Install Bun
+      uses: ./.github/actions/setup_bun
 
     - name: Update TGUI
       run: |
-        tools/bootstrap/node tools/build/build.js tgui
+        tools/bootstrap/javascript tools/build/build.sh tgui
 
     - name: Commit TGUI
       run: |

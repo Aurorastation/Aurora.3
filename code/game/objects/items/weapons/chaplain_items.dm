@@ -48,6 +48,9 @@
 /obj/item/nullrod/dominia/holodeck
 	can_change_form = FALSE
 
+/obj/item/nullrod/luceiansceptre/holodeck
+	can_change_form = FALSE
+
 /obj/item/nullrod/staff
 	name = "null staff"
 	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
@@ -138,6 +141,7 @@
 	else
 		to_chat(user, SPAN_NOTICE("You extinguish \the [src]!"))
 
+	set_light_on(lit)
 	update_icon()
 	user.update_inv_l_hand(FALSE)
 	user.update_inv_r_hand()
@@ -224,16 +228,23 @@
 	light_power = 2
 	light_color = LIGHT_COLOR_BLUE
 
+/obj/item/nullrod/luceiansceptre/Initialize(mapload)
+	set_light_on(TRUE)
+	..()
+	return INITIALIZE_HINT_NORMAL
+
 /obj/item/nullrod/clockworkstave
-	name = "\improper clockwork stave"
-	desc = "A long, wooden stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
-	hand-crafted by synthetics from the monastic Society of Pitters and exported off the planet of Orepit."
+	name = "\improper stave of ecclesiastical office"
+	desc = "A long brass stave used as the marker of the holder of some ecclesiastical \
+		office in the church of the Trinary Perfection. Priests, bishops, and government \
+		officials often bear such a staff; all faithful Trinarists ought listen when one \
+		holding it makes their voice heard."
 	icon = 'icons/obj/trinary_stave.dmi'
 	icon_state = "trinary_stave"
 	item_state = "trinary_stave"
 	contained_sprite = TRUE
-
 	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = SLOT_BACK
 
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
@@ -431,6 +442,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/assunzioneorb/Initialize(mapload)
+	set_light_on(TRUE)
+	..()
+	return INITIALIZE_HINT_NORMAL
 
 /obj/item/assunzioneorb/proc/shatter()
 	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))

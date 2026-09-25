@@ -61,7 +61,7 @@
 	data["battery"] = computer.battery_module ? list("rating" = computer.battery_module.battery_rating, "percent" = computer.battery_module.battery.percent()) : null
 
 	if(computer.flashlight)
-		var/brightness = clamp(0, round(computer.flashlight.power, 0.1) * 10, 10)
+		var/brightness = clamp(0, round(computer.flashlight.light_power, 0.1) * 10, 10)
 		data["brightness"] = brightness
 
 	return data

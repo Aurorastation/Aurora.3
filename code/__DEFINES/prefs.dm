@@ -35,3 +35,19 @@
 /// Internal organ. Removed, used for appendixes.
 #define ORGAN_PREF_REMOVED "removed"
 /// Note that a "normal" limb or organ has no pref, so there's no define for it.
+
+/// Air cooling. Technically not used, but we need this for the linked lists in cooling_unit.dm.
+#define ORGAN_PREF_AIRCOOLED "air"
+/// Liquid cooling. For IPC cooling units. Default is air cooling.
+#define ORGAN_PREF_LIQUIDCOOLED "liquid"
+/// Passive cooling. For IPC cooling units. Default is air cooling.
+#define ORGAN_PREF_PASSIVECOOLED "passive"
+
+/// Externally powered only. Technically not used, but we need this for the linked lists in reactor.dm.
+#define ORGAN_PREF_ELECTRICPOWER "electric"
+/// Biological power reactor. Nutrients, food, etc.
+#define ORGAN_PREF_BIOPOWER "biological"
+/// Kinetic power reactor. Walking, running.
+#define ORGAN_PREF_KINETICPOWER "kinetic"
+/// Solar powered. Stand in the sun. Or LED lights. It's the future, fuck you.
+#define ORGAN_PREF_SOLARPOWER "solar"

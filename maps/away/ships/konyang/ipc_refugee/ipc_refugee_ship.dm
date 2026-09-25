@@ -136,7 +136,7 @@
 	sizeclass = "Stout-class Utility Craft"
 	shiptype = "Cargo Tug"
 
-/obj/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/ipc_refugee_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Decrepit Cargo Tug"
 
@@ -149,7 +149,6 @@
 	landmark_transition = "nav_transit_ipc_refugee_shuttle"
 	range = 1
 	fuel_consumption = 4 // very old, so not as efficient as other shuttles
-	logging_home_tag = "nav_hangar_ipc_refugee"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ipc_refugee_shuttle/hangar

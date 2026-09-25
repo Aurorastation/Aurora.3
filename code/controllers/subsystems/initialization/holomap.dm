@@ -96,10 +96,10 @@ SUBSYSTEM_DEF(holomap)
 			if(outer_hull_tcache[Ttype] || (length(T.contents) && (locate(/obj/structure/shuttle_part/scc_space_ship, T) || locate(/obj/structure/window/shuttle/scc_space_ship, T))))
 				canvas.DrawBox(HOLOMAP_OBSTACLE + "DD", T.x, T.y)
 
-			if(length(T.contents) && locate(/obj/machinery/door/airlock/external, T))
+			if(length(T.contents) && locate(/obj/structure/machinery/door/airlock/external, T))
 				canvas.DrawBox(HOLOMAP_PATH + "DD", T.x, T.y)
 
-			if(!istype(A, /area/horizon/maintenance) && !istype(A, /area/horizon/weapons) && !istype(A, /area/horizon/ai) && !istype(A, /area/horizon/command/bridge/aibunker) && !istype(A, /area/horizon/command/bridge/selfdestruct))
+			if(!istype(A, /area/horizon/maintenance) && !istype(A, /area/horizon/weapons) && !istype(A, /area/horizon/ai) && !istype(A, /area/horizon/command/bridge/aibunker) && !istype(A, /area/horizon/command/bridge/selfdestruct) && !istype(A, /area/port_volturno/unsimulated))
 				if(path_tcache[Ttype] || (length(T.contents) && locate(/obj/structure/grille, T)))
 					canvas.DrawBox(HOLOMAP_PATH + "DD", T.x, T.y)
 			else

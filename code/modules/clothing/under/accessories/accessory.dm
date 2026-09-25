@@ -135,28 +135,32 @@
 //default attack_self behaviour
 /obj/item/clothing/accessory/attack_self(mob/user as mob)
 	if(flippable)
-		if(!flipped)
-			if(!overlay_state)
-				icon_state = "[initial(icon_state)]_flip"
-				item_state = "[initial(item_state)]_flip"
-				flipped = 1
-			else
-				overlay_state = "[overlay_state]_flip"
-				flipped = 1
-		else
-			if(!overlay_state)
-				icon_state = initial(icon_state)
-				item_state = initial(item_state)
-				flipped = 0
-			else
-				overlay_state = initial(overlay_state)
-				flipped = 0
+		flipped = !flipped
+		update_icon()
 		flip_message(user)
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
 		return
 	..()
+
+/obj/item/clothing/accessory/update_icon()
+	. = ..()
+	flip_sprite()
+
+/obj/item/clothing/accessory/proc/flip_sprite()
+	if(flipped)
+		if(!overlay_state)
+			icon_state = "[initial(icon_state)]_flip"
+			item_state = "[initial(item_state)]_flip"
+		else
+			overlay_state = "[overlay_state]_flip"
+	else
+		if(!overlay_state)
+			icon_state = initial(icon_state)
+			item_state = initial(item_state)
+		else
+			overlay_state = initial(overlay_state)
 
 /obj/item/clothing/accessory/proc/flip_message(mob/user)
 	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
@@ -370,6 +374,10 @@
 		accessory_mob_overlay = null
 		to_chat(user, SPAN_NOTICE("You retie \the [src] as \an [alt]."))
 	return ..()
+
+/obj/item/clothing/accessory/scarf/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
 
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
@@ -754,31 +762,6 @@
 	flippable = FALSE
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/trinary
-	name = "trinary perfection cape"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-	icon = 'icons/obj/clothing/ties.dmi'
-	icon_override = 'icons/mob/ties.dmi'
-	icon_state = "trinary_cape"
-	item_state = "trinary_cape"
-	overlay_state = "trinary_cape"
-	contained_sprite = FALSE
-	protects_against_weather = FALSE
-
-/obj/item/clothing/accessory/poncho/trinary/pellegrina
-	name = "trinary perfection pellegrina"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
-	icon_state = "trinary_pellegrina"
-	item_state = "trinary_pellegrina"
-	overlay_state = "trinary_pellegrina"
-
-/obj/item/clothing/accessory/poncho/trinary/shouldercape
-	name = "trinary perfection shoulder cape"
-	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
-	icon_state = "trinary_shouldercape"
-	item_state = "trinary_shouldercape"
-	overlay_state = "trinary_shouldercape"
-
 /obj/item/clothing/accessory/poncho/assunzione
 	name = "\improper Luceian cloak"
 	desc = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
@@ -843,8 +826,8 @@
 	item_state = "neckbrace"
 
 /obj/item/clothing/accessory/tc_pin
-	name = "Tau Ceti pin"
-	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
+	name = "Republic of Biesel pin"
+	desc = "A small Republic of Biesel flag pin."
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"
@@ -1040,7 +1023,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_GENERIC
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
@@ -1228,7 +1211,7 @@
 	color = "#3429d1"
 	allowed = list(
 		/obj/item/reagent_containers/spray/plantbgone,
-		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/analyzer/plant_analyzer,
 		/obj/item/seeds,
 		/obj/item/reagent_containers/glass/fertilizer,
 		/obj/item/material/minihoe
@@ -1245,11 +1228,11 @@
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/syringe,
-		/obj/item/device/healthanalyzer,
-		/obj/item/device/flashlight,
-		/obj/item/device/radio,
+		/obj/item/healthanalyzer,
+		/obj/item/flashlight,
+		/obj/item/radio,
 		/obj/item/tank/emergency_oxygen,
-		/obj/item/device/breath_analyzer,
+		/obj/item/breath_analyzer,
 		/obj/item/reagent_containers/blood
 	)
 
@@ -1418,24 +1401,56 @@
 	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
-	plane = ABOVE_LIGHTING_PLANE
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY_MINOR
+	var/mutable_appearance/inventory_emissive
 
 /obj/item/clothing/accessory/led_collar/Initialize()
 	. = ..()
 	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
-	set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	AddOverlays(emissive_appearance(icon, icon_state))
+	set_light_range_power_color(0.5, 0.4, color)
 	set_light_on(TRUE)
+
+/obj/item/clothing/accessory/led_collar/get_inv_overlay(mob/M, force = FALSE)
+	var/image/I = ..()
+	if(!inventory_emissive)
+		inventory_emissive = emissive_appearance(I.icon, I.icon_state)
+	I.AddOverlays(inventory_emissive)
+	return I
+
+/// Update the light mode to one used by accessories when it gets attached.
+/obj/item/clothing/accessory/led_collar/on_attached(obj/item/clothing/S, mob/user)
+	. = ..()
+	set_light_flags(LIGHT_ATTACHED)
+
+/// Clears LIGHT_ATTACHED tracking when the collar is detached from clothing.
+/obj/item/clothing/accessory/led_collar/on_removed(mob/user)
+	. = ..()
+	set_light_flags(NONE)
 
 /obj/item/clothing/accessory/led_collar/attack_self(mob/user)
 	. = ..()
 	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
 	if(new_color)
 		color = new_color
-		set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+		set_light_range_power_color(0.5, 0.4, color)
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
+	var/image/I = ..()
+	I.AddOverlays(emissive_appearance(I.icon, I.icon_state))
+	return I
+
+/obj/item/clothing/accessory/newgibson_uraniumglass_necklace
+	name = "uranium glass bead necklace"
+	desc = "A beaded necklace made out of a radiofluorescent, green, uranium glass. It is only marginally radioactive. Commonly seen worn by New Gibsonites."
+	icon = 'icons/obj/item/clothing/accessory/human/biesel/newgibson_uraniumglass_necklace.dmi'
+	icon_state = "newgibson_necklace"
+	item_state = "newgibson_necklace"
+	plane = ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/newgibson_uraniumglass_necklace/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
 	I.plane = ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART

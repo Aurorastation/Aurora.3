@@ -28,8 +28,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	var/destroy_surroundings = 1
 	a_intent = I_HURT
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
-	var/shuttletarget = null
-	var/enroute = 0
 	var/obj/effect/landmark/mob_waypoint/target_waypoint = null // The waypoint mobs that are spawned by mapped in spawners move to
 
 	// Vars to help find targets
@@ -39,7 +37,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	var/list/tolerated_types = list()
 	var/attack_emote = "stares menacingly at"
 
-	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
 	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
 	var/hostile_nameable = FALSE //If we can rename this hostile mob. Mostly to prevent repeat checks with guard dogs and hostile/retaliate farm animals
 
@@ -54,17 +51,19 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	setup_target_type_validators()
 
 /mob/living/simple_animal/hostile/Destroy()
-	friends = null
-	last_found_target = null
-	targets = null
-	target_type_validator_map = null
+	GLOB.move_manager.stop_looping(src)
+	unset_last_found_target()
+	friends.Cut()
+	target_waypoint = null
+	targets.Cut()
+	target_type_validator_map.Cut()
+	tolerated_types.Cut()
 	return ..()
-
 
 /mob/living/simple_animal/hostile/proc/setup_target_type_validators()
 	target_type_validator_map[/mob/living] = CALLBACK(src, PROC_REF(validator_living))
-	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, PROC_REF(validator_bot))
-	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, PROC_REF(validator_turret))
+	target_type_validator_map[/obj/structure/machinery/bot] = CALLBACK(src, PROC_REF(validator_bot))
+	target_type_validator_map[/obj/structure/machinery/porta_turret] = CALLBACK(src, PROC_REF(validator_turret))
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
 	if(!hostile_nameable)
@@ -261,25 +260,23 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			return
 		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, environment_smash, armor_penetration, attack_flags, damage_type))
 		target = L
-	else if(istype(last_found_target, /obj/machinery/bot))
-		var/obj/machinery/bot/B = last_found_target
+	else if(istype(last_found_target, /obj/structure/machinery/bot))
+		var/obj/structure/machinery/bot/B = last_found_target
 		B.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
 		target = B
-	else if(istype(last_found_target, /obj/machinery/porta_turret))
-		var/obj/machinery/porta_turret/T = last_found_target
+	else if(istype(last_found_target, /obj/structure/machinery/porta_turret))
+		var/obj/structure/machinery/porta_turret/T = last_found_target
 		if(!T.raising && !T.raised)
 			return
 		face_atom(T)
 		src.do_attack_animation(T)
-		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
+		T.add_damage(max(melee_damage_lower, melee_damage_upper) / 2, armor_penetration = armor_penetration)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T // no need to take a step back here
 	if(loc && attack_sound)
 		playsound(loc, attack_sound, 50, 1, 1)
 	if(target)
 		face_atom(target)
-		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -372,6 +369,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 /mob/living/simple_animal/hostile/proc/OpenFire(atom/target, ignore_visibility = FALSE)
 	set waitfor = FALSE
 
+	if(!isturf(loc) || captured)
+		return
+
 	if(QDELETED(target))
 		LoseTarget()
 		return
@@ -390,9 +390,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
-		addtimer(shoot_cb, 1)
-		addtimer(shoot_cb, 4)
-		addtimer(shoot_cb, 6)
+		addtimer(shoot_cb, 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		addtimer(shoot_cb, 4, TIMER_STOPPABLE|TIMER_DELETE_ME)
+		addtimer(shoot_cb, 6, TIMER_STOPPABLE|TIMER_DELETE_ME)
 	else
 		shoot_wrapper(target, loc, src)
 
@@ -418,10 +418,12 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	return target_hit
 
 /mob/living/simple_animal/hostile/proc/shoot_wrapper(atom/target, location, user)
+	if(!isturf(loc))
+		return
 	Shoot(target, location, user)
 	if(casingtype)
 		new casingtype(loc)
-		playsound(src, /singleton/sound_category/casing_drop_sound, 50, TRUE)
+		playsound(src, SFX_CASING_DROP, 50, TRUE)
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
@@ -429,7 +431,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	// var/def_zone = get_exposed_defense_zone(target)
 
-	fire_projectile(/obj/projectile, target, projectilesound, firer = user)
+	fire_projectile(projectiletype, target, projectilesound, firer = user)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings(var/bypass_prob = FALSE)
 	if(ON_ATTACK_COOLDOWN(src))
@@ -478,7 +480,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			found_obj = locate(/obj/structure/table) in target_turf
 			if(found_obj)
 				var/obj/structure/table/table = found_obj
-				if(!table.breakable)
+				if(!table.maxhealth)
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time
@@ -545,7 +547,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		return FALSE
 	return FALSE
 
-/mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B, var/atom/current)
+/mob/living/simple_animal/hostile/proc/validator_bot(var/obj/structure/machinery/bot/B, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else
 		return FALSE
 	if (B.health > 0)
@@ -553,7 +555,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	else
 		return FALSE
 
-/mob/living/simple_animal/hostile/proc/validator_turret(var/obj/machinery/porta_turret/T, var/atom/current)
+/mob/living/simple_animal/hostile/proc/validator_turret(var/obj/structure/machinery/porta_turret/T, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else
 		return FALSE
 	return !(T.health <= 0)

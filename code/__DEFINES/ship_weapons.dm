@@ -23,6 +23,7 @@
 #define SHIP_AMMO_IMPACT_HE "high explosive"
 #define SHIP_AMMO_IMPACT_PROBE "sensor probe"
 #define SHIP_AMMO_IMPACT_FMJ "full metal jacket"
+#define SHIP_AMMO_IMPACT_FRAG "fragmentation"
 #define SHIP_AMMO_IMPACT_AP "armour-piercing"
 #define SHIP_AMMO_IMPACT_LASER "laser"
 #define SHIP_AMMO_IMPACT_BUNKERBUSTER "bunker-buster"

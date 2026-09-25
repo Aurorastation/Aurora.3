@@ -1,15 +1,16 @@
 /datum/faction/zavodskoi_interstellar
 	name = "Zavodskoi Interstellar"
-	description = {"<p>
+	description = {"
 	The largest weapons producer in human space, Zavodskoi Interstellar initially
-	found its place with the invention of a militarized voidsuit for use in the Interstellar War.
+	found its place with the invention of a militarized voidsuit for use in the Interstellar War.<br>
 	With many lucrative weapon contracts thanks to the Sol Alliance, as well as acquisitions of
 	other major armaments companies, Zavodskoi weapons can be found in the hands of nearly every
-	military force across the Orion Spur. They are the main corporation found in the Empire of
+	military force across the Orion Spur.<br> They are the main corporation found in the Empire of
 	Dominia, and are at the forefront of weapons development technology.
-	</p>"}
-	departments = {"Engineering<br>Research<br>Security"}
+	"}
+	departments = list(DEPARTMENT_ENGINEERING, DEPARTMENT_SCIENCE, DEPARTMENT_SECURITY)
 	title_suffix = "Zavod"
+	wiki_page = "Zavodskoi_Interstellar"
 
 	allowed_role_types = ZAVOD_ROLES
 
@@ -22,7 +23,13 @@
 		/datum/species/bug = TRUE,
 		/datum/species/bug/type_b = TRUE,
 		/datum/species/bug/type_b/type_bb = TRUE,
-		/datum/species/bug/type_e = TRUE
+		/datum/species/bug/type_e = TRUE,
+		/datum/species/tajaran
+	)
+
+	blacklisted_citizenship_types = list(
+		/datum/citizenship/dpra,
+		/datum/citizenship/pra
 	)
 
 	job_species_blacklist = list(
@@ -59,7 +66,7 @@
 		"Research Intern" = /obj/outfit/job/intern_sci/zavodskoi,
 		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zavodskoi,
 		"Anomalist"= /obj/outfit/job/scientist/anomalist/zavodskoi,
-		"Engineer" = /obj/outfit/job/engineer/zavodskoi,
+		"Ship Engineer" = /obj/outfit/job/engineer/zavodskoi,
 		"Atmospheric Technician" = /obj/outfit/job/atmos/zavodskoi,
 		"Engineering Apprentice" = /obj/outfit/job/intern_eng/zavodskoi,
 		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/zavodskoi,
@@ -74,6 +81,22 @@
 		"Engineering Personnel" = /obj/outfit/job/engineer/event/zavodskoi,
 		"Science Personnel" = /obj/outfit/job/scientist/event/zavodskoi
 	)
+
+/datum/faction/zavodskoi_interstellar/get_corporate_objectives(var/mission_level)
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_HIGH)
+			return pick("Recruit a crew member to inform Hephaestus Industries contractors of their poor benefits, unsupportive company, and need to unionise.",
+						"Support Zavodskoi employees involved in disputes with Hephaestus Industries contractors",
+						"Identify and document Hephaestus Industries employees with disfavourable views towards Hephaestus")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
+			return pick("Identify and rectify Zavodskoi Interstellar employees not compliant with company image standards or otherwise damaging company optics",
+						"Identify and rectify aberrant behaviour in Zavodskoi Interstellar synthetics.",
+						"Have a Zavodskoi employee sign a contract extension in exchange for a nearly-all-paid, 3-day holiday to a destination of choice on Moroz")
+		else
+			return pick("Conduct a survey on Zavodskoi Interstellar employee morale",
+						"Evaluate crew opinions on Zavodskoi Interstellar's company image",
+						"Identify and resolve a complaint of a Zavodskoi Interstellar employee")
+
 
 /obj/outfit/job/officer/zavodskoi
 	name = "Security Officer - Zavodskoi Interstellar"
@@ -270,7 +293,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/projectile/pistol = 1,
 		/obj/item/stamp/zavodskoi = 1
 	)

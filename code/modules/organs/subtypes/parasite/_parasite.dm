@@ -38,6 +38,7 @@
 /obj/item/organ/internal/parasite/process()
 	..()
 	if(!owner)
+		qdel(src)
 		return
 
 	if(owner.chem_effects[CE_ANTIPARASITE] && !drug_resistance)
@@ -73,6 +74,13 @@
 
 /obj/item/organ/internal/parasite/proc/stage_effect()
 	return
+
+/// Removes the parasite on next process().
+/obj/item/organ/internal/parasite/proc/remove_parasite()
+	recession = 1000
+	stage = 1
+	stage_ticker = 0
+	drug_resistance = FALSE
 
 /mob/living/carbon/human/proc/infest_with_parasite(var/mob/living/carbon/victim, var/parasite_type, var/obj/item/organ/external/organ_to_infest, var/chance_to_infest = 100, var/parasite_limit = 3)
 	if(ishuman(victim))

@@ -20,6 +20,7 @@
 /obj/item/spell/aura/unstable/process()
 	if(!pay_energy(200))
 		qdel(src)
+		return
 	var/list/nearby_mobs = range(calculate_spell_power(14),owner)
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))

@@ -79,6 +79,7 @@ var/global/datum/xgm_gas_data/gas_data
 	desc = "You shouldn't be clicking this."
 	plane = HEAT_EFFECT_PLANE
 	gas_id = GAS_HEAT
+	render_source = HEAT_EFFECT_PLATE_RENDER_TARGET
 
 /obj/gas_overlay/heat/Initialize(mapload, gas)
 	. = ..()
@@ -88,16 +89,18 @@ var/global/datum/xgm_gas_data/gas_data
 /obj/effect/gas_cold_back
 	plane = GAME_PLANE
 	layer = BELOW_OBJ_LAYER
+	render_source = COLD_EFFECT_BACK_PLATE_RENDER_TARGET
 
 /obj/gas_overlay/cold
 	name = "gas"
 	desc = "You shouldn't be clicking this."
 	gas_id = GAS_COLD
 	var/obj/effect/gas_cold_back/b = null
+	render_source = COLD_EFFECT_PLATE_RENDER_TARGET
 
 /obj/gas_overlay/cold/Initialize(mapload, gas)
 	. = ..()
 	icon = null
 	icon_state = null
 	b = new()
-	vis_contents += b
+	add_vis_contents(b)

@@ -22,8 +22,8 @@
 /datum/computer_file/program/alarm_monitor/all
 	filename = "alarmmonitorall"
 	filedesc = "Alarm Monitoring (All)"
-	required_access_download = ACCESS_HEADS
-	required_access_run = list(ACCESS_HEADS, ACCESS_EQUIPMENT)
+	required_access_download = /datum/access/heads::id
+	required_access_run = list(/datum/access/heads::id, /datum/access/equipment::id)
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 
 /datum/computer_file/program/alarm_monitor/all/New()
@@ -33,8 +33,8 @@
 /datum/computer_file/program/alarm_monitor/engineering
 	filename = "alarmmonitoreng"
 	filedesc = "Alarm Monitoring (Engineering)"
-	required_access_download = ACCESS_ENGINE
-	required_access_run = ACCESS_ENGINE
+	required_access_download = /datum/access/engine::id
+	required_access_run = /datum/access/engine::id
 
 /datum/computer_file/program/alarm_monitor/engineering/New()
 	..()
@@ -43,8 +43,8 @@
 /datum/computer_file/program/alarm_monitor/security
 	filename = "alarmmonitorsec"
 	filedesc = "Alarm Monitoring (Security)"
-	required_access_download = ACCESS_SECURITY
-	required_access_run = ACCESS_SECURITY
+	required_access_download = /datum/access/security::id
+	required_access_run = /datum/access/security::id
 
 /datum/computer_file/program/alarm_monitor/security/New()
 	..()
@@ -61,7 +61,7 @@
 /datum/computer_file/program/alarm_monitor/proc/all_alarms()
 	var/list/all_alarms = new()
 	for(var/datum/alarm_handler/AH in alarm_handlers)
-		all_alarms += AH.alarms
+		all_alarms += AH.station_alarms()
 
 	return all_alarms
 
@@ -92,7 +92,7 @@
 	if(.)
 		return
 	if(action == "switchTo")
-		var/obj/machinery/camera/C = locate(params["switchTo"]) in GLOB.cameranet.cameras
+		var/obj/structure/machinery/camera/C = locate(params["switchTo"]) in GLOB.cameranet.cameras
 		if(!C)
 			return
 
@@ -111,7 +111,7 @@
 			var/list/lost_sources = list()
 
 			if(isAI(user))
-				for(var/obj/machinery/camera/C in A.cameras())
+				for(var/obj/structure/machinery/camera/C in A.cameras())
 					cameras += list(C.nano_structure())
 			for(var/datum/alarm_source/AS in A.sources)
 				if(!AS.source)
@@ -141,4 +141,3 @@
 			update_computer_icon()
 			has_alert = FALSE
 	return TRUE
-

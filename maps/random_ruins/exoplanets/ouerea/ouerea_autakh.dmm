@@ -3,19 +3,19 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_autakh)
 "aR" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Compound Gates";
 	pixel_y = 25;
 	id = "autakh_base_entry";
 	req_access = list(228)
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /obj/structure/bed/stool/chair/office/dark{
@@ -50,7 +50,7 @@
 /area/ouerea_autakh)
 "bx" = (
 /obj/structure/table/wood,
-/obj/machinery/door/window/brigdoor{
+/obj/structure/machinery/door/window/brigdoor{
 	req_access = list(217);
 	dir = 8
 	},
@@ -59,11 +59,11 @@
 	},
 /area/ouerea_autakh)
 "ds" = (
-/obj/machinery/optable,
+/obj/structure/machinery/optable,
 /turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "dP" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -102,7 +102,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -112,7 +112,7 @@
 /turf/simulated/wall/wood,
 /area/ouerea_autakh)
 "iC" = (
-/obj/machinery/vending/dinnerware,
+/obj/structure/machinery/vending/dinnerware,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -128,7 +128,7 @@
 	},
 /area/ouerea_autakh)
 "jc" = (
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "kd" = (
@@ -145,7 +145,7 @@
 	},
 /area/ouerea_autakh)
 "lZ" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/marble/dark,
@@ -154,14 +154,14 @@
 /turf/simulated/wall/marble,
 /area/ouerea_autakh)
 "nO" = (
-/obj/machinery/appliance/cooker/stove,
-/obj/machinery/light,
+/obj/structure/machinery/appliance/cooker/stove,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "op" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -179,11 +179,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/autolathe,
+/obj/structure/machinery/fabricator/autolathe,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_autakh)
 "pC" = (
-/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/grass{
 	temperature = 298.15
 	},
@@ -221,7 +221,7 @@
 /area/ouerea_autakh)
 "ro" = (
 /obj/structure/table/wood,
-/obj/machinery/door/window/brigdoor{
+/obj/structure/machinery/door/window/brigdoor{
 	req_access = list(217);
 	dir = 4
 	},
@@ -248,7 +248,7 @@
 	req_access = list(228)
 	},
 /obj/item/melee/hammer/powered,
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -293,13 +293,13 @@
 	},
 /area/ouerea_autakh)
 "xL" = (
-/obj/machinery/button/remote/blast_door{
+/obj/structure/machinery/button/remote/blast_door{
 	name = "Compound Gates";
 	pixel_y = 25;
 	id = "autakh_base_entry";
 	req_access = list(228)
 	},
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4;
 	status = 2
 	},
@@ -319,7 +319,7 @@
 	},
 /area/ouerea_autakh)
 "zK" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/marble/dark,
@@ -338,10 +338,10 @@
 /area/ouerea_autakh)
 "AS" = (
 /obj/structure/table/standard,
-/obj/machinery/chemical_dispenser/bar_soft{
+/obj/structure/machinery/chemical_dispenser/bar_soft{
 	dir = 1
 	},
-/obj/machinery/light,
+/obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -365,7 +365,7 @@
 	},
 /area/ouerea_autakh)
 "CH" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -379,7 +379,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/mech_recharger,
+/obj/structure/machinery/mech_recharger,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_autakh)
 "DJ" = (
@@ -494,7 +494,7 @@
 	},
 /area/ouerea_autakh)
 "Mj" = (
-/obj/machinery/vending/boozeomat/merchant,
+/obj/structure/machinery/vending/boozeomat/merchant,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -517,7 +517,7 @@
 	},
 /area/ouerea_autakh)
 "OC" = (
-/obj/machinery/light{
+/obj/structure/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood{
@@ -531,11 +531,11 @@
 	},
 /area/ouerea_autakh)
 "Pa" = (
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = 4
 	},
-/obj/machinery/recharger/wallcharger{
+/obj/structure/machinery/recharger/wallcharger{
 	pixel_x = 32;
 	pixel_y = -8
 	},
@@ -579,16 +579,16 @@
 "QJ" = (
 /obj/structure/table/stone/marble,
 /obj/item/flame/candle,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
-/obj/item/device/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
+/obj/item/versebook/autakh,
 /turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "SL" = (
-/obj/machinery/appliance/cooker/oven,
+/obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -617,7 +617,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_autakh)
 "Xg" = (
-/obj/machinery/door/blast/shutters{
+/obj/structure/machinery/door/blast/shutters{
 	id = "autakh_base_entry"
 	},
 /turf/simulated/floor/exoplanet/barren{

@@ -135,7 +135,7 @@
 			newreagent.set_thermal_energy(new_thermal_energy, src, safety = TRUE)
 		else
 			newreagent.set_temperature(temperature, src, safety = TRUE)
-		if(!new_thermal_energy && round(temperature, 1) != round(get_temperature(), 1))
+		if(!new_thermal_energy && abs(temperature - get_temperature()) > 0.1)
 			crash_with("Temperature [temperature] did not match [get_temperature()] after adding NEW reagent [rtype]!")
 	else	// Existing reagent
 		var/old_energy = (newreagent.get_thermal_energy(src)/reagent_volumes[rtype]) * amount

@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/ref_pin.dm
+ * Reference pin behavior for passing object references between circuits.
+ */
+
 // These pins only contain weakrefs or null.
 /datum/integrated_io/ref
 	name = "ref pin"

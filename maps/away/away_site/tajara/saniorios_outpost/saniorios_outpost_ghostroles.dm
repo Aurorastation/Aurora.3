@@ -26,7 +26,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/pvsm
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 
 	back = /obj/item/storage/backpack/rucksack
 	belt = /obj/item/storage/belt/military
@@ -34,4 +34,4 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/saniorios_outpost_crew/get_id_access()
-	return list(ACCESS_DPRA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/dpra::id, /datum/access/external_airlocks::id)

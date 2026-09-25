@@ -8,7 +8,7 @@
 	max_count = 3
 
 	outfit = /obj/outfit/admin/miners_guild
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Guild Miner"
@@ -31,12 +31,12 @@
 	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/miner
 	back = /obj/item/storage/backpack/satchel/eng
-	l_ear = /obj/item/device/radio/headset/ship
+	l_ear = /obj/item/radio/headset/ship
 	id = /obj/item/card/id
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 
 /obj/outfit/admin/miners_guild/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/miners_guild/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)

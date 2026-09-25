@@ -12,7 +12,7 @@
 	name = "Treasure Trove Beach"
 	icon_state = "yellow"
 	is_outside = OUTSIDE_YES
-	ambience = 'sound/ambience/konyang/konyang-water.ogg'
+	ambience = list('sound/ambience/konyang/konyang-water.ogg')
 	area_blurb = "You can hear the sound of waves hitting the shore. Something at the back of your mind makes you think the beauty of the area hides something darker."
 
 /area/trove/beach/landing
@@ -21,14 +21,14 @@
 	name = "Treasure Trove Ocean"
 	icon_state =  "purple"
 	is_outside = OUTSIDE_YES
-	ambience = 'sound/ambience/konyang/konyang-water.ogg'
+	ambience = list('sound/ambience/konyang/konyang-water.ogg')
 	area_blurb = "Endless blue in all directions broken by the occasional jutting rock."
 
 /area/trove/jungle
 	name = "Treasure Trove Jungle"
 	icon_state = "green"
 	is_outside = OUTSIDE_YES
-	ambience = 'sound/ambience/eeriejungle1.ogg'
+	ambience = list('sound/ambience/eeriejungle1.ogg')
 	area_blurb = "Lush foliage and the sounds of distant animals... and something larger."
 
 // ----- Interior

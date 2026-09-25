@@ -5,6 +5,10 @@
 	var/list/samples = list()		// Write here however many samples, follow this syntax: "%note num%"='%sample file%' eg. "27"='synthesizer/e2.ogg'. Key must never be lower than 0 and higher than 127
 	var/list/datum/sample_pair/sample_map = list() // Used to modulate sounds, don't fill yourself
 
+/datum/instrument/Destroy()
+	samples.Cut()
+	QDEL_LIST_ASSOC_VAL(sample_map)
+	return ..()
 
 /datum/instrument/proc/create_full_sample_deviation_map()
 	// Obtain samples

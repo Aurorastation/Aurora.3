@@ -8,6 +8,7 @@
 
 	ship_cost = 1
 	spawn_weight = 1
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
@@ -98,7 +99,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle
+/obj/structure/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Database Freighter Shuttle"
 
@@ -111,7 +112,6 @@
 	landmark_transition = "nav_transit_database_freighter_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_database_freighter_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle

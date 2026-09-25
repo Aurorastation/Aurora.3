@@ -5,7 +5,8 @@
 	icon = 'icons/turf/jungle.dmi'
 	icon_state = "greygrass"
 	color = "#799c4b"
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
+	has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
@@ -19,6 +20,9 @@
 		resources[ORE_URANIUM] = rand(1,3)
 	if(prob(2))
 		resources[ORE_DIAMOND] = 1
+
+/turf/simulated/floor/exoplanet/grass/no_edge
+	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/grass/grove
 	desc = "Short grass is growing here."
@@ -36,7 +40,7 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass_stalk"
 	color = null
-	has_edge_icon = null
+	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/grass/marsh
 	name = "marshy ground"
@@ -44,8 +48,8 @@
 	icon = 'icons/turf/fungal_marsh.dmi'
 	icon_state = "marsh"
 	color = null
-	has_edge_icon = null
-	footstep_sound = /singleton/sound_category/water_footstep
+	has_edge_icon = FALSE
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/exoplanet/grass/marsh/Initialize()
 	. = ..()

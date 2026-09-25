@@ -7,13 +7,13 @@
 	// Descriptors and strings.
 	/// Species name.
 	var/name
-	/// Pluralized name (since "[name]s" is not always valid)
+	/// Pluralized name (since "[name]s" is not always valid).
 	var/name_plural
 	/// If TRUE, the species' name won't be visible on examine.
 	var/hide_name = FALSE
-	/// Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	/// Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase.
 	var/short_name
-	/// A name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
+	/// A name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation.
 	var/category_name
 	/// A brief lore summary for use in the chargen screen.
 	var/blurb = "A completely nondescript species."
@@ -94,6 +94,10 @@
 	/// Used for mob icon generation for non-32x32 species.
 	var/icon/icon_template
 	var/mob_size	= MOB_MEDIUM
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_MEDIUM
+	/// The strength of the mob. A bonus to the checks on lifting/throwing other mobs.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 	var/show_ssd = "in a deep slumber"
 	var/short_sighted
 	var/bald = 0
@@ -122,6 +126,10 @@
 	// Combat vars.
 	/// Point at which the mob will enter crit.
 	var/total_health = 200
+	/// Ratio at which the mob will stop autohealing a wound. For brute damage.
+	var/autoheal_brute_ratio = 0.5
+	/// Ratio at which the mob will stop autohealing a wound. For burn damage.
+	var/autoheal_burn_ratio = 0.5
 	/// Possible unarmed attacks that the mob will use in combat,
 	var/list/unarmed_types = list(
 		/datum/unarmed_attack,
@@ -194,12 +202,12 @@
 
 	// External Organ Pain Damage
 	var/organ_low_pain_message = "<b>Your %PARTNAME% hurts.</b>"
-	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
-	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
+	var/organ_med_pain_message = "<b><font size=4>Your %PARTNAME% hurts badly!</font></b>"
+	var/organ_high_pain_message = "<b><font size=5>Your %PARTNAME% is screaming out in pain!</font></b>"
 
 	var/organ_low_burn_message = SPAN_DANGER("Your %PARTNAME% burns.")
-	var/organ_med_burn_message = SPAN_DANGER("<font size=3>Your %PARTNAME% burns horribly!</font>")
-	var/organ_high_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% feels like it's on fire!</font>")
+	var/organ_med_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% burns horribly!</font>")
+	var/organ_high_burn_message = SPAN_DANGER("<font size=5>Your %PARTNAME% feels like it's on fire!</font>")
 
 	var/list/stutter_verbs = list("stammers", "stutters")
 
@@ -230,7 +238,7 @@
 	var/heat_level_2 = 400
 	/// Heat damage level 3 above this point
 	var/heat_level_3 = 1000
-	/// Species will gain this much temperature every second
+	/// Species will gain this much temperature (in degrees kelvin per second)
 	var/passive_temp_gain = 0
 	/// Dangerously high pressure
 	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE
@@ -292,8 +300,6 @@
 	var/has_fine_manipulation = 1
 	/// The lower, the thicker the skin and better the insulation.
 	var/siemens_coefficient = 1
-	/// Native darksight distance.
-	var/darksight = 2
 	/// Various specific features.
 	var/flags = 0
 	/// Appearance/display related features.
@@ -385,6 +391,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
+	var/natural_armor_type = /datum/component/armor/natural
 	var/list/natural_armor
 
 	// Bump vars
@@ -411,10 +418,9 @@
 	/// What zombie species they become
 	var/zombie_type
 	/// Default, can be used for species specific falling sounds
-	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	var/bodyfall_sound = SFX_BODYFALL
 	/// Same as above but for footsteps without shoes
-	var/footsound = /singleton/sound_category/blank_footsteps
-
+	var/footsound = SFX_FOOTSTEP_BLANK
 	/// Sets the base "tint" of the species' sprite, which is then adjusted by the skin tone
 	var/list/character_color_presets
 
@@ -441,6 +447,13 @@
 	/// Which species-unique robolimb types can this species take?
 	var/list/valid_prosthetics
 
+	/// Modifiers for the available skill points for this species. Assoc list of SKILL_CATEGORY to number.
+	var/list/skill_points_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+
 	//Sleeping stuff
 	/// Does this species sleep standing up?
 	var/sleeps_upright = FALSE
@@ -453,10 +466,39 @@
 	/// The default lighting alpha of this species. Override to set innate NVGs.
 	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
+	/// Controls whether this species spawns with a Morale Component.
+	var/has_morale = TRUE
+
+	/// A list of species components that should only EVER apply to this species. This is because some components must be removed if the species changes (imagine changing from IPC to human as a merc).
+	var/list/species_components
+
+	var/list/default_emotes = list()
+
+	// Vars used for Autohiss
+	var/has_autohiss = FALSE
+	var/list/autohiss_basic_map = null
+	var/list/autohiss_extra_map = null
+	var/list/autohiss_exempt = null
+	var/list/autohiss_basic_extend = null
+	var/list/autohiss_extra_extend = null
+	var/autohiss_extender = "..."
+	var/ignore_subsequent = FALSE
+
+	/**
+	 * The "Mass Modifier" used to set the starting mass of a player character for a given species.
+	 * This should always be written as REFERENCE_MASS_SPECIES / REFERENCE_MASS_HUMAN
+	 * This division by REFERENCE_MASS_HUMAN will be algebraically cancelled out,
+	 * when multiplied by the humanoid character's standard mass (which happens to be REFERENCE_MASS_HUMAN)
+	 *
+	 * This is a pure number ratio (kg / kg), it has no SI Units.
+	 */
+	var/mass_modifier = REFERENCE_MASS_HUMAN / REFERENCE_MASS_HUMAN
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
 /datum/species/New()
+	ENFORCE_POSITIVE_SPECIES_MASS(mass_modifier)
 	if(hud_type)
 		hud = new hud_type()
 	else
@@ -532,6 +574,7 @@
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
 	for(var/obj/item/organ/organ in H.contents)
 		if((organ in H.organs) || (organ in H.internal_organs))
+			H.drop_from_inventory(organ, null, FALSE, TRUE)
 			qdel(organ)
 
 	if(H.organs)                  H.organs.Cut()
@@ -541,7 +584,7 @@
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
-	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
+	var/datum/component/armor/armor_component = H.GetComponent(natural_armor_type)
 	if(armor_component)
 		qdel(armor_component)
 
@@ -580,7 +623,10 @@
 			I.status |= ORGAN_ADV_ROBOT
 
 	if(natural_armor)
-		H.AddComponent(/datum/component/armor, natural_armor)
+		H.AddComponent(natural_armor_type, natural_armor)
+
+	if(has_morale)
+		H.LoadComponent(MORALE_COMPONENT)
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
@@ -603,7 +649,11 @@
 			for(var/spell/spell in H.spell_list)
 				if(istype(spell, spell_path))
 					H.remove_spell(spell)
-	return
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			for(var/datum/component/comp in H.GetComponents(comp_type))
+				qdel(comp)
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -616,13 +666,16 @@
 
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
+/// Handles anything not already covered by basic species assignment. Keepgene (kpg) value should only be used by genetics.
+/datum/species/proc/handle_post_spawn(mob/living/carbon/human/H, kpg = 0)
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
+	H.mob_weight = mob_weight
+	H.mob_strength = mob_strength
 	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))
@@ -634,6 +687,10 @@
 		H.pronouns = H.gender
 	if(has_psionics)
 		H.set_psi_rank(has_psionics)
+
+	if(length(species_components))
+		for(var/comp_type in species_components)
+			H.AddComponent(comp_type)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -714,7 +771,7 @@
 	if(!H.client)//no client, no screen to update
 		return 1
 
-	H.set_fullscreen(H.eye_blind, "blind", /atom/movable/screen/fullscreen/blind)
+	H.set_fullscreen(H.eye_blind || H.eyes_are_closed(), "blind", /atom/movable/screen/fullscreen/blind)
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(GLOB.config.welder_vision)
@@ -984,7 +1041,9 @@
 /datum/species/proc/handle_stance_damage(var/mob/living/carbon/human/H, var/damage_only = FALSE)
 	var/static/support_limbs = list(
 		BP_L_LEG = BP_R_LEG,
-		BP_L_FOOT = BP_R_FOOT
+		BP_L_FOOT = BP_R_FOOT,
+		BP_R_LEG = BP_L_LEG,
+		BP_R_FOOT = BP_L_FOOT
 	)
 
 	var/has_opposite_limb = FALSE
@@ -1029,6 +1088,7 @@
 	return human.stamina > (human.max_stamina / 10)
 
 /datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	SEND_SIGNAL(human, COMSIG_STAMINA_DRAIN_MODIFIERS, &stamina_cost)
 	human.stamina -= stamina_cost
 	human.hud_used.move_intent.update_move_icon(human)
 
@@ -1053,3 +1113,31 @@
  */
 /datum/species/proc/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
+
+/**
+ * This proc is used to override speech checks for human mobs.
+ * If it returns FALSE, the mob will not be able to speak.
+ * Make sure to give the user the relevant error message in the override.
+ */
+/datum/species/proc/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
+	return TRUE
+
+/**
+ * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
+ * Can be overridden for more complex calculations.
+ */
+
+/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human, seconds_per_tick)
+	human.bodytemperature += passive_temp_gain * seconds_per_tick
+
+/**
+ * Gets a modifier for a skill category based on the character age or other species things.
+ * Must return a list with all three skill categories to a modifier (example: list(SKILL_CATEGORY_EVERYDAY = 1.5) )
+ */
+/datum/species/proc/modify_skill_points(singleton/skill_category/skill_category, age)
+	var/list/skill_age_modifiers = list(
+		SKILL_CATEGORY_EVERYDAY = 1,
+		SKILL_CATEGORY_OCCUPATIONAL = 1,
+		SKILL_CATEGORY_COMBAT = 1
+	)
+	return skill_age_modifiers

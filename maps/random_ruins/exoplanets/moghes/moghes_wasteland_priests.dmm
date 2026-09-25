@@ -19,7 +19,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/box/unique/freezer/organcooler,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/foundation{
@@ -64,7 +64,7 @@
 	},
 /area/moghes_wasteland_priests)
 "l" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/foundation{
@@ -72,7 +72,7 @@
 	},
 /area/moghes_wasteland_priests)
 "m" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/rubber{
@@ -84,7 +84,7 @@
 /area/moghes_wasteland_priests)
 "o" = (
 /obj/structure/chemkit,
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/foundation{
@@ -118,7 +118,7 @@
 	},
 /area/moghes_wasteland_priests)
 "t" = (
-/obj/machinery/door/urban{
+/obj/structure/machinery/door/urban{
 	dir = 4;
 	pixel_x = -3
 	},
@@ -164,7 +164,7 @@
 	},
 /area/exoplanet/moghes)
 "x" = (
-/obj/machinery/recharger,
+/obj/structure/machinery/recharger,
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/reagent_containers/spray/cleaner,
@@ -244,7 +244,7 @@
 	},
 /area/moghes_wasteland_priests)
 "J" = (
-/obj/machinery/iv_drip,
+/obj/structure/machinery/iv_drip,
 /turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
@@ -312,7 +312,7 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/mask/surgical/w,
 /obj/item/clothing/mask/surgical/w,
-/obj/item/device/versebook/skakh,
+/obj/item/versebook/skakh,
 /obj/item/nullrod/shaman,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
@@ -329,11 +329,11 @@
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/accessory/stethoscope,
-/obj/item/device/flashlight/pen,
-/obj/item/device/flashlight/pen,
-/obj/item/device/breath_analyzer,
-/obj/item/device/healthanalyzer,
-/obj/item/device/healthanalyzer,
+/obj/item/flashlight/pen,
+/obj/item/flashlight/pen,
+/obj/item/breath_analyzer,
+/obj/item/healthanalyzer,
+/obj/item/healthanalyzer,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
@@ -360,7 +360,7 @@
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/ointment/full,
-/obj/item/device/breath_analyzer,
+/obj/item/breath_analyzer,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
@@ -372,7 +372,7 @@
 	},
 /area/moghes_wasteland_priests)
 "X" = (
-/obj/machinery/light/colored/decayed{
+/obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/foundation{
