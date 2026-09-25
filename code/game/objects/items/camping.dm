@@ -354,7 +354,7 @@
 			preview_images += entrance_preview
 
 	preview_client.images += preview_images
-	var/choice = alert(user, "The highlighted tiles show the tent's footprint. The blue tile is the deployment anchor, red tiles have something in the way, and yellow arrows show every entrance and its direction.", "Confirm Tent Placement", "Assemble", "Cancel")
+	var/choice = tgui_alert(user, "The highlighted tiles show the tent's footprint. The blue tile is the deployment anchor, red tiles have something in the way, and yellow arrows show every entrance and its direction.", "Confirm Tent Placement", list("Assemble", "Cancel"))
 	preview_client.images -= preview_images
 	if(choice != "Assemble")
 		return FALSE
@@ -367,7 +367,6 @@
 	for(var/obj/obstruction in target)
 		if(obstruction == source_item)
 			continue
-
 		if(obstruction.density || istype(obstruction, /obj/structure/machinery/door))
 			return obstruction
 	return null
