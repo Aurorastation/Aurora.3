@@ -1,0 +1,5 @@
+author: kermit
+delete-after: True
+
+changes:
+  - rscadd: "Adds all Zo'rane vaurca origins to The Big Biesel Origins list (only used by the RoB Civil Service Bodyguard rn)."
