@@ -1096,6 +1096,7 @@
 #include "code\game\objects\items\blueprints.dm"
 #include "code\game\objects\items\bodybag.dm"
 #include "code\game\objects\items\camping.dm"
+#include "code\game\objects\items\camping_tents.dm"
 #include "code\game\objects\items\canvas.dm"
 #include "code\game\objects\items\contraband.dm"
 #include "code\game\objects\items\crayons.dm"
