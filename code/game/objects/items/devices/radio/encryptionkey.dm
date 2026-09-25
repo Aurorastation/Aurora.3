@@ -28,9 +28,10 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
+	var/obj/effect/overmap/visitable/V
 	var/sector_z = get_sector_z()
 	if(sector_z)
-		var/obj/effect/overmap/visitable/V = get_map_sector(sector_z)
+		V = get_map_sector(sector_z)
 		if(!istype(V) || !V.comms_support)
 			return INITIALIZE_HINT_NORMAL
 
