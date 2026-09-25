@@ -12587,6 +12587,9 @@
 /obj/item/clothing/suit/storage/hooded/tajaran/maroon,
 /obj/item/clothing/suit/storage/hooded/tajaran/winter,
 /obj/item/clothing/suit/storage/hooded/tajaran/winter,
+/obj/structure/sign/flag/dpra/unmovable{
+	pixel_y = 32
+	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "bEm" = (
@@ -48735,6 +48738,9 @@
 	dir = 1;
 	must_start_working = 1
 	},
+/obj/structure/sign/flag/scc/unmovable{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/slate,
 /area/antag/actor)
 "gqH" = (
@@ -50437,7 +50443,7 @@
 	pixel_y = -5
 	},
 /obj/structure/table/rack,
-/turf/unsimulated/floor/wood,
+/turf/simulated/floor/tiled/slate,
 /area/antag/actor)
 "gCb" = (
 /obj/structure/machinery/door/airlock/centcom{
@@ -94040,6 +94046,9 @@
 	dir = 1;
 	must_start_working = 1
 	},
+/obj/structure/sign/flag/scc/unmovable{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/slate,
 /area/antag/actor)
 "mgj" = (
@@ -101250,6 +101259,11 @@
 	dir = 1;
 	must_start_working = 1
 	},
+/obj/structure/sign/flag/pra/unmovable{
+	pixel_y = 32
+	},
+/obj/item/clothing/gloves/botanic_leather/tajara,
+/obj/item/clothing/gloves/black_leather/tajara,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "ncp" = (
@@ -141160,6 +141174,27 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
+"siy" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc/alt,
+/obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
+/obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
+/obj/item/clothing/suit/storage/toggle/corp/scc,
+/obj/item/clothing/suit/storage/toggle/corp/scc,
+/obj/item/clothing/suit/storage/toggle/corp/scc/alt,
+/obj/item/clothing/under/rank/scc2,
+/obj/item/clothing/under/rank/scc2,
+/obj/item/clothing/under/rank/scc2,
+/obj/item/flag/scc,
+/obj/item/journal/notepad/scc/filled,
+/obj/item/storage/toolbox/lunchbox/scc/filled,
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
+/turf/simulated/floor/tiled/slate,
+/area/antag/actor)
 "siD" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -150805,7 +150840,7 @@
 /obj/item/storage/backpack/messenger/com,
 /obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
 /obj/item/clothing/suit/storage/hooded/wintercoat/captain,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/slate,
 /area/antag/actor)
 "tuz" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -153456,6 +153491,23 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard/near)
+"tLo" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/tie/corporate/scc/alt,
+/obj/item/clothing/accessory/tie/corporate/scc/alt,
+/obj/item/clothing/accessory/tie/corporate/scc/alt,
+/obj/item/clothing/head/beret/scc,
+/obj/item/clothing/head/beret/scc,
+/obj/item/clothing/head/helmet/pilot/scc,
+/obj/item/clothing/head/wool/scc,
+/turf/simulated/floor/tiled/slate,
+/area/antag/actor)
 "tLr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -440931,7 +440983,7 @@ mIw
 mgi
 uBO
 uBO
-mIw
+tLo
 mIw
 nmQ
 chm
@@ -441188,8 +441240,8 @@ mIw
 kTS
 uBO
 uBO
+siy
 mIw
-ruH
 ruH
 chm
 dHi
@@ -441446,7 +441498,7 @@ mIw
 mIw
 mIw
 mIw
-dSs
+mIw
 dHi
 chm
 hyg
