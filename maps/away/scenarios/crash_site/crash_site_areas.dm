@@ -14,6 +14,7 @@
 /area/crash_site/outside
 	name = "Din'akk Crash Site"
 	is_outside = OUTSIDE_YES
+	requires_power = FALSE
 	area_blurb = "Cold winter wind whips by with snowflakes on its trail. In the distance, a smoke plume carries off into the sky above the piney Adhomian trees. Mountains loom at a distance seeming near but yet so far, piercing the sky with snowy summits beyond."
 
 /area/crash_site/outside/near_crash_site
