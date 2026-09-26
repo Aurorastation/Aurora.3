@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Yelling and shouting can now be heard beyond line of sight, at ranges of fourteen and twenty-one turfs respectively."
