@@ -63,7 +63,7 @@
 #define RELIGION_RASKARA_ALT "Raskariim (Suns)"
 
 #define RELIGION_HIVEPANTHEON "Hive Pantheon"
-#define RELIGION_PREIMMINENNCE "Preimminennce"
+#define RELIGION_PREIMMINENCE "Preimminence"
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
 #define RELIGION_ETERNAL "Orthodox Eternal"
