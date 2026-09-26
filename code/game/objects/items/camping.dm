@@ -32,6 +32,10 @@
 	var/turf/deployment_origin
 	/// Whether the authored footprint is reflected across its forward axis.
 	var/mirrored = FALSE
+	/// Strength of the dim, overlapping glow emitted beneath each roof tile.
+	var/roof_light_range = MINIMUM_USEFUL_LIGHT_RANGE
+	var/roof_light_power = 0.15
+	var/roof_light_color = LIGHT_COLOR_TUNGSTEN
 	/**
 	 * The state name of an overlay in `icons/obj/item/tent_decals.dmi`
 	 * Used for branded tents, such as the SCC base camp tent
@@ -175,6 +179,7 @@
 		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(canvas_turf)
 		roof.part_of = src
 		roof.color = color
+		roof.set_light(roof_light_range, roof_light_power, roof_light_color)
 
 
 		var/roof_location = get_location(C, TRUE)
