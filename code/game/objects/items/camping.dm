@@ -103,6 +103,7 @@
 
 /datum/large_structure/tent/build_structures()
 	. = ..()
+	register_occupancy_signals()
 	var/list/roofs = list()
 	var/list/canvas_visuals = list()
 	for(var/obj/structure/component/tent_canvas/C in grouped_structures)
@@ -188,6 +189,21 @@
 
 	for(var/turf/target in target_turfs)
 		target.update_weather()
+
+/**
+ * Registers the signals used to make the roof transparent while occupied.
+ * Turf replacement normally carries signals forward, but construction such as
+ * plating can still leave listeners attached to the turf being replaced.
+ */
+/datum/large_structure/tent/proc/register_occupancy_signals()
+	for(var/turf/target in target_turfs)
+		RegisterSignal(target, COMSIG_ATOM_ENTERED, PROC_REF(structure_entered), override = TRUE)
+		RegisterSignal(target, COMSIG_TURF_CHANGE, PROC_REF(occupancy_turf_changed), override = TRUE)
+
+/// Refreshes entry listeners after a tent turf has finished being replaced.
+/datum/large_structure/tent/proc/occupancy_turf_changed()
+	SIGNAL_HANDLER
+	addtimer(CALLBACK(src, PROC_REF(register_occupancy_signals)), 1, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 /** Returns the direction authored for a roof tile, or `fallback` for legacy/unplanned tents. */
 /datum/large_structure/tent/proc/get_roof_direction(var/turf/origin, var/fallback = NONE)
