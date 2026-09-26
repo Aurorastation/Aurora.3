@@ -22,6 +22,12 @@
 
 /singleton/scenario_announcements/crash_site
 	horizon_announcement_title = "SCC Central Command Outpost"
-	horizon_unrestrict_landing_message = "Greetings, SCCV Horizon..."
+	horizon_unrestrict_landing_message = "SCCV Horizon. \
+	The crash of an SCC shuttle has been reported in Southern Harr'masir on Adhomai. \
+	You are the most capable vessel for search and rescue operations. \
+	Investigate and recover any equipment, crew, or intelligence from the crash site. \
+	Be aware, there is a known presence of local bandits. \
+	Landing sites have been registered and cleared. \
+	You may now depart to the planet."
 
 	offship_announcement_message = "..."
