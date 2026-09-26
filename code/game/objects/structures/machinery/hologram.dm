@@ -34,6 +34,7 @@ Possible to do for anyone motivated enough:
 	name = "holopad"
 	desc = "It's a floor-mounted device for projecting holographic images."
 	icon_state = "holopad0"
+	pda_linkable = TRUE
 	var/icon_state_suffix = ""
 
 	layer = ABOVE_TILE_LAYER
@@ -279,16 +280,17 @@ Possible to do for anyone motivated enough:
 
 /obj/structure/machinery/hologram/holopad/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/modular_computer))
-		var/obj/item/modular_computer/MC = attacking_item
-		if(!(MC in linked_pdas))
-			linked_pdas |= MC
-			to_chat(user, SPAN_NOTICE("You link \the [MC] to \the [src]."))
-			return TRUE
-		else
-			linked_pdas -= MC
-			to_chat(user, SPAN_NOTICE("You unlink \the [MC] from \the [src]."))
-			return TRUE
+		return toggle_pda_link(attacking_item, user)
 	return FALSE
+
+/obj/structure/machinery/hologram/holopad/toggle_pda_link(obj/item/modular_computer/pda, mob/user)
+	if(!(pda in linked_pdas))
+		linked_pdas |= pda
+		to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src]."))
+	else
+		linked_pdas -= pda
+		to_chat(user, SPAN_NOTICE("You unlink \the [pda] from \the [src]."))
+	return TRUE
 
 /obj/structure/machinery/hologram/holopad/attack_ai(mob/living/silicon/user)
 	if(!istype(user))

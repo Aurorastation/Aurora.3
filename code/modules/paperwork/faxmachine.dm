@@ -19,6 +19,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	idle_power_usage = 30
 	active_power_usage = 200
 	print_animation = "faxreceive"
+	pda_linkable = TRUE
 
 	var/static/const/adminfax_cooldown = 1800
 	var/static/const/normalfax_cooldown = 300
@@ -143,11 +144,11 @@ GLOBAL_LIST_EMPTY(admin_departments)
 			else if (pda in alert_pdas)
 				to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 				//Update the name real quick.
-				alert_pdas[pda] = pda.name
+				alert_pdas[pda] = get_pda_link_name(pda, usr)
 				return TRUE
 			else
 				alert_pdas += pda
-				alert_pdas[pda] = pda.name
+				alert_pdas[pda] = get_pda_link_name(pda, usr)
 				to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
 				return TRUE
 
@@ -164,6 +165,16 @@ GLOBAL_LIST_EMPTY(admin_departments)
 				return
 			destination = params["select_destination"]
 			return TRUE
+
+/obj/structure/machinery/photocopier/faxmachine/toggle_pda_link(obj/item/modular_computer/pda, mob/user)
+	if(pda in alert_pdas)
+		to_chat(user, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes."))
+		alert_pdas -= pda
+	else
+		alert_pdas += pda
+		alert_pdas[pda] = get_pda_link_name(pda, user)
+		to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
+	return TRUE
 
 /obj/structure/machinery/photocopier/faxmachine/process()
 	.=..()

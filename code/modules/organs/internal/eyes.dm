@@ -21,7 +21,7 @@
 	set category = "IC"
 	set src in usr
 
-	if(!owner || usr != owner || owner.incapacitated())
+	if(usr != owner || !can_toggle_eyes())
 		return
 
 	eyes_closed = !eyes_closed
@@ -32,6 +32,11 @@
 
 	owner.update_body()
 	owner.handle_vision()
+
+/obj/item/organ/internal/eyes/proc/can_toggle_eyes()
+	if(!owner || owner.incapacitated(INCAPACITATION_STUNNED | INCAPACITATION_KNOCKOUT))
+		return FALSE
+	return TRUE
 
 /obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)

@@ -12,6 +12,29 @@
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
 	req_components = list("/obj/item/cell" = 3)
 
+/obj/item/circuitboard/radial_floodlight
+	name = T_BOARD("radial floodlight")
+	build_path = /obj/structure/machinery/power/radial_floodlight
+	board_type = BOARD_MACHINE
+	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
+	req_components = list()
+
+/obj/item/circuitboard/radial_floodlight/construct(obj/structure/machinery/power/radial_floodlight/floodlight)
+	. = ..()
+	if(.)
+		floodlight.anchored = TRUE
+		floodlight.connect_to_network()
+
+/obj/item/circuitboard/floodlight
+	name = T_BOARD("industrial floodlight")
+	build_path = /obj/structure/machinery/floodlight
+	board_type = BOARD_MACHINE
+	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	flatpak_anchors_machine = FALSE
+	req_components = list(
+		"/obj/item/cell" = 1
+	)
+
 /obj/item/circuitboard/ghettosmes
 	name = T_BOARD("makeshift PSU")
 	desc = "An APC circuit repurposed into some power storage device controller."

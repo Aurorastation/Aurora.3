@@ -357,6 +357,7 @@ Deployable Kits
 	var/obj/deployed_machine
 	if(ispath(machine_type, /obj/structure/machinery))
 		var/obj/item/circuitboard/board = new circuit_type
+		var/anchor_machine = board.flatpak_anchors_machine
 		var/obj/structure/machinery/machine = new machine_type(deployment_turf, user.dir, FALSE)
 		machine.component_parts = list()
 
@@ -385,7 +386,7 @@ Deployable Kits
 		else
 			qdel(board)
 		machine.RefreshParts()
-		machine.anchored = TRUE
+		machine.anchored = anchor_machine
 		deployed_machine = machine
 	else
 		// Some machine circuit boards build non-machinery objects, such as cargo train trolleys.
