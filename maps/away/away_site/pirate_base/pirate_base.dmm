@@ -3557,10 +3557,6 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
 "qD" = (
-/obj/item/clothing/head/collectable/paper{
-	pixel_y = -3;
-	pixel_x = 3
-	},
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},

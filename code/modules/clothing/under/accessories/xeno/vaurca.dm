@@ -10,7 +10,7 @@
 	build_from_parts = TRUE
 	has_accents = TRUE
 
-/obj/item/clothing/accessory/vaurca_breeder
+ABSTRACT_TYPE(/obj/item/clothing/accessory/vaurca_breeder)
 	name = "vaurca breeder parent accessory"
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/mob/species/breeder/accessories.dmi'

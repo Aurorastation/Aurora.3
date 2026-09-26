@@ -431,7 +431,7 @@ GLOBAL_LIST(click_catchers)
 
 /atom/movable/screen/click_catcher
 	icon = 'icons/hud/mob/screen_gen.dmi'
-	icon_state = "click_catcher"
+	icon_state = "blank"
 	plane = CLICKCATCHER_PLANE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	screen_loc = "CENTER-7,CENTER-7"

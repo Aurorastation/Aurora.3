@@ -884,7 +884,7 @@
 /obj/item/shapesand
 	name = "shapesand"
 	desc = "A strangely animate clump of sand which can shift its color and consistency."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/item/ore.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	icon_state = "ore_glass"
 

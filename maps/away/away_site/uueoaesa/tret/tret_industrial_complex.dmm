@@ -2847,9 +2847,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "aqg" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
 "aqm" = (

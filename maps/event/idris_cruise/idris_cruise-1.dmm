@@ -24677,9 +24677,7 @@
 /turf/unsimulated/floor/plating,
 /area/cruise/pool)
 "uJd" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/machinery/light{
 	dir = 4
@@ -28249,8 +28247,6 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},

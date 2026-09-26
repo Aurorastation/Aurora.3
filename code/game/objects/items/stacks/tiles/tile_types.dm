@@ -176,7 +176,7 @@
 
 /obj/item/stack/tile/lino/diamond
 	name = "diamond linoleum"
-	icon_state = "tile_linoleum_diamond"
+	icon_state = "tile_linoleum_grey"
 
 /*
  * Circuits

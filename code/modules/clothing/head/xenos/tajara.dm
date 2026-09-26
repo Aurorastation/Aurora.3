@@ -62,7 +62,7 @@
 	icon_state = "raskara_mask"
 	item_state = "raskara_mask"
 
-/obj/item/clothing/head/beret/tajaran
+ABSTRACT_TYPE(/obj/item/clothing/head/beret/tajaran)
 	icon = 'icons/obj/tajara_items.dmi'
 	contained_sprite = TRUE
 

@@ -10,7 +10,6 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	light_range = 4
-	icon = 'icons/obj/clothing/hats.dmi'
 	contained_sprite = FALSE
 
 /obj/item/clothing/gloves/rig
@@ -59,8 +58,6 @@
 	resilience = 0.2
 	can_breach = 1
 	contained_sprite = FALSE
-	icon = 'icons/obj/clothing/suits.dmi'
-
 	supporting_limbs = list()
 
 //TODO: move this to modules

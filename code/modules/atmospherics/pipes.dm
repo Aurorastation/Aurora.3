@@ -203,6 +203,7 @@
 	// Pipe colors and icon states are handled by an image cache - so color and icon should
 	//  be null. For mapping purposes color is defined in the object definitions.
 	icon = null
+	icon_state = null
 	alpha = 255
 
 	switch(dir)
@@ -498,6 +499,7 @@
 
 	alpha = 255
 	icon = null
+	icon_state = null
 
 	switch(dir)
 		if(NORTH)
@@ -803,6 +805,7 @@
 
 	alpha = 255
 	icon = null
+	icon_state = null
 
 /obj/structure/machinery/atmospherics/pipe/manifold4w/pipeline_expansion()
 	return list(node1, node2, node3, node4)

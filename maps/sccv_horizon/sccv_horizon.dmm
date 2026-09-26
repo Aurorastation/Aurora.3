@@ -11749,10 +11749,6 @@
 	pixel_y = 8;
 	pixel_x = 1
 	},
-/obj/item/clothing/head/collectable/welding{
-	pixel_x = -8;
-	pixel_y = 6
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard)
@@ -115056,7 +115052,6 @@
 "oTC" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
-/obj/item/clothing/head/collectable/petehat,
 /obj/item/clothing/head/cone,
 /obj/item/clothing/head/cone,
 /obj/item/clothing/head/cone,

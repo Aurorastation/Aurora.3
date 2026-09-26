@@ -1,6 +1,7 @@
 /obj/item/clothing/shoes/cyborg
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume"
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
 	icon_state = "jackboots"
 	item_state = "jackboots"
 

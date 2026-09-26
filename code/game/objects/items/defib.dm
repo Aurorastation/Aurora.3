@@ -210,8 +210,8 @@
 	name = "defibrillator paddles"
 	desc = "A pair of plastic-gripped paddles with flat metal surfaces that are used to deliver powerful electric shocks."
 	icon = 'icons/obj/defibrillator.dmi'
-	icon_state = "defibpaddles"
-	item_state = "defibpaddles"
+	icon_state = "defibpaddles0"
+	item_state = "defibpaddles0"
 	contained_sprite = TRUE
 	gender = PLURAL
 	force = 2
@@ -702,7 +702,7 @@
 /obj/item/rig_module/device/defib
 	name = "mounted defibrillator"
 	desc = "A complex Zeng-Hu circuit with two metal electrodes hanging from it."
-	icon_state = "defib"
+	// icon_state = "defib"
 
 	interface_name = "mounted defibrillator"
 	interface_desc = "A prototype defibrillator, palm-mounted for ease of use."

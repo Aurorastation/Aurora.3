@@ -53,7 +53,7 @@
 
 /obj/item/stamp/accepted
 	name = "\improper ACCEPTED rubber stamp"
-	icon_state = "stamp-accept"
+	icon_state = "stamp-cent"
 
 /obj/item/stamp/clown
 	name = "clown's rubber stamp"

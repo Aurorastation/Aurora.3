@@ -18,12 +18,8 @@
 /area/konyang_pirate_moonshine)
 "f" = (
 /obj/structure/closet/secure_closet/refrigerator/standard,
-/obj/item/storage/box/unique/donkpockets/gwok/takoyaki{
-	icon_state = "redbox"
-	},
-/obj/item/storage/box/unique/donkpockets/gwok/takoyaki{
-	icon_state = "redbox"
-	},
+/obj/item/storage/box/unique/donkpockets/gwok/takoyaki,
+/obj/item/storage/box/unique/donkpockets/gwok/takoyaki,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/wood,

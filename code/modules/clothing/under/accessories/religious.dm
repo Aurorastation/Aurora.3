@@ -12,7 +12,7 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/clothing/accessory/crucifix
+ABSTRACT_TYPE(/obj/item/clothing/accessory/crucifix)
 	name = "crucifix"
 	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
 	icon = 'icons/obj/item/clothing/accessory/religious.dmi'

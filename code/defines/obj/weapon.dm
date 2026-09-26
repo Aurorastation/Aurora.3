@@ -15,7 +15,7 @@
 /obj/item/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
 	desc = "A device used to rapidly deploy seeds."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/rfd.dmi'
 	icon_state = "rfd"
 	opacity = 0
 	density = 0

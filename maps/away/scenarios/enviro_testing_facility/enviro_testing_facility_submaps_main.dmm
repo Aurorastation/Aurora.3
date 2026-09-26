@@ -10359,10 +10359,6 @@
 /turf/template_noop,
 /area/template_noop)
 "krV" = (
-/obj/item/clothing/head/collectable/welding{
-	pixel_x = -8;
-	pixel_y = 12
-	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,

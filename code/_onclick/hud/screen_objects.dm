@@ -9,6 +9,7 @@
 /atom/movable/screen
 	name = ""
 	icon = 'icons/hud/mob/generic.dmi'
+	icon_state = "blank"
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
 	/// A reference to the object in the slot. Grabs or items, generally.

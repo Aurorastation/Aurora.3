@@ -5,6 +5,17 @@ Add custom items to this file, their sprites into their own dmi. in the icons/ob
 All custom items with worn sprites must follow the contained sprite system: http://forums.aurorastation.org/viewtopic.php?f=23&t=6798
 */
 
+ABSTRACT_TYPE(/obj/item/implanter/fluff)
+ABSTRACT_TYPE(/obj/item/clothing/suit/fluff)
+ABSTRACT_TYPE(/obj/item/organ/internal/augment/fluff)
+ABSTRACT_TYPE(/obj/item/clothing/accessory/badge/fluff)
+ABSTRACT_TYPE(/obj/item/clothing/accessory/fluff)
+ABSTRACT_TYPE(/obj/item/clothing/head/fluff)
+ABSTRACT_TYPE(/obj/item/clothing/head/welding/fluff)
+ABSTRACT_TYPE(/obj/item/clothing/under/fluff)
+ABSTRACT_TYPE(/obj/item/clothing/accessory/armband/fluff)
+ABSTRACT_TYPE(/obj/item/storage/box/fluff)
+
 /obj/item/implanter/fluff //snowflake implanters for snowflakes
 	var/allowed_ckey = ""
 	var/implant_type = null
@@ -22,8 +33,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	..()
-
-/obj/item/organ/internal/augment/fluff //used for custom item that are augments
 
 /obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - catnippy
 	name = "dog tags"
@@ -370,7 +379,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "djikstra_blade"
 	contained_sprite = TRUE
 
-
 /obj/item/clothing/head/welding/fluff/ioraks_mask //Iorakian Welding Mask - Kuhserze Ioraks - geeves
 	name = "iorakian welding mask"
 	desc = "A modified version of the standard issue NanoTrasen Engineering Corps welding mask, hand-painted into the colours of the Ioraks clan. Various alterations are clearly \
@@ -627,8 +635,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	tucked in between are mostly written in Siik'maas. The front has a strip of tape with the name 'Ahkrraazarjhri Maalhalkasanurran' on it."
 	icon = 'icons/obj/custom_items/mrakiizar_book.dmi'
 	icon_override = 'icons/obj/custom_items/mrakiizar_book.dmi'
-	icon_state = "mrakiizar_book"
-	item_state = "mrakiizar_book"
+	icon_state = "mrakiizar_book1"
+	item_state = "mrakiizar_book1"
 	contained_sprite = TRUE
 	var/open_state = "mrakiizar_book1"
 	var/list/open_states = list("mrakiizar_book1", "mrakiizar_book2", "mrakiizar_book3", "mrakiizar_book4")
