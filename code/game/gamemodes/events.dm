@@ -37,7 +37,7 @@
 	else
 		log_world("ERROR: Could not initate grey-tide. Unable find prison or brig area.")
 
-/proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
+/proc/lightsout(isEvent = 0, lightsoutAmount = 1, lightsoutRange = 25, z_level = 0) //leave lightsoutAmount as 0 to break ALL lights
 	if(isEvent)
 		command_announcement.Announce("Attention: an electrical storm has been detected in your sector, please repair potential electronic overloads.", "Electrical Storm Alert")
 
@@ -63,7 +63,8 @@
 
 	else
 		for(var/obj/structure/machinery/power/apc/apc in SSmachinery.processing)
-			apc.overload_lighting()
+			if(!z_level || apc.z == z_level)
+				apc.overload_lighting()
 
 	return
 
