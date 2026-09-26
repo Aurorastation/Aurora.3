@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Reworked tent code to add a lot more possible shapes and types."
+  - rscadd: "Added new tents to the Intrepid hangar gear."

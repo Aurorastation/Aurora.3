@@ -102,7 +102,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	var/turf/T = src.loc			// hide if turf is not intact
 	if(level == 1 && !T.is_hole)
-		hide(!T.is_plating())
+		hide(!T.is_plating() && !T.has_tent_floor())
 
 	GLOB.cable_list += src
 

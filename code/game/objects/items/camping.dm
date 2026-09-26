@@ -1,7 +1,7 @@
 /*
 
-	Tents
-
+	Tent generation and associated code
+	Look in camping_tents.dm for the actual tent shapes
 */
 
 /datum/large_structure/tent
@@ -12,48 +12,503 @@
 	component_structure = /obj/structure/component/tent_canvas
 	source_item_type = /obj/item/tent
 	/**
+	 * An optional footprint made up of text rows. `#` marks a closed tile and `.` marks an empty tile.
+	 * `^`, `v`, `<`, and `>` also occupy a tile, but leave that relative edge open as an entrance.
+	 * Rows start at the deployment point and extend in the direction the tent is facing. The footprint and entrances rotate with the tent.
+	 */
+	var/list/footprint
+	/// Turf-keyed map of explicitly designated entrance directions generated from `footprint`.
+	var/list/entrance_dirs
+	/**
+	 * Optional roof rows corresponding to `footprint`. `L` and `R` slope toward the
+	 * blueprint's left and right sides, while `M` uses the authored ridge tile.
+	 * Lowercase `l` and `r` opt a slope into the perspective ridge overlay when it
+	 * rotates onto the screen's northern side.
+	 */
+	var/list/roof_layout
+	/// Turf-keyed map of explicit roof markers generated from `roof_layout`.
+	var/list/roof_markers
+	/// The turf represented by the first row and horizontal centre of the footprint.
+	var/turf/deployment_origin
+	/// Whether the authored footprint is reflected across its forward axis.
+	var/mirrored = FALSE
+	/// Strength of the dim, overlapping glow emitted beneath each roof tile.
+	var/roof_light_range = MINIMUM_USEFUL_LIGHT_RANGE
+	var/roof_light_power = 0.15
+	var/roof_light_color = LIGHT_COLOR_TUNGSTEN
+	/**
 	 * The state name of an overlay in `icons/obj/item/tent_decals.dmi`
 	 * Used for branded tents, such as the SCC base camp tent
 	 */
 	var/decal
 
+/datum/large_structure/tent/get_target_turfs(var/mob/user, var/force = FALSE)
+	if(!LAZYLEN(footprint))
+		return ..()
+
+	target_turfs = list()
+	entrance_dirs = list()
+	roof_markers = list()
+	var/footprint_width = 0
+	for(var/footprint_row in footprint)
+		footprint_width = max(footprint_width, length(footprint_row))
+	var/left_offset = floor((footprint_width - 1) / 2)
+	var/forward_x = 0
+	var/forward_y = 0
+	var/right_x = 0
+	var/right_y = 0
+	switch(dir)
+		if(NORTH)
+			forward_y = 1
+			right_x = 1
+		if(SOUTH)
+			forward_y = -1
+			right_x = -1
+		if(EAST)
+			forward_x = 1
+			right_y = -1
+		if(WEST)
+			forward_x = -1
+			right_y = 1
+
+	for(var/row_number = 1 to footprint.len)
+		var/row_text = footprint[row_number]
+		var/roof_row = row_number <= LAZYLEN(roof_layout) ? roof_layout[row_number] : null
+		for(var/column_number = 1 to length(row_text))
+			var/marker = copytext(row_text, column_number, column_number + 1)
+			if(!(marker in list("#", "^", "v", "<", ">")))
+				continue
+			var/forward_offset = row_number - 1
+			var/side_offset = column_number - 1 - left_offset
+			if(mirrored)
+				side_offset *= -1
+			var/turf/target = locate(
+				deployment_origin.x + forward_x * forward_offset + right_x * side_offset,
+				deployment_origin.y + forward_y * forward_offset + right_y * side_offset,
+				deployment_origin.z
+			)
+			if(!istype(target))
+				target_turfs.Cut()
+				entrance_dirs.Cut()
+				roof_markers.Cut()
+				if(!force)
+					to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
+				return FALSE
+			target_turfs += target
+			if(roof_row && column_number <= length(roof_row))
+				var/roof_marker = copytext(roof_row, column_number, column_number + 1)
+				if(mirrored)
+					switch(roof_marker)
+						if("L")
+							roof_marker = "R"
+						if("R")
+							roof_marker = "L"
+						if("l")
+							roof_marker = "r"
+						if("r")
+							roof_marker = "l"
+				if(roof_marker in list("L", "M", "R", "l", "r"))
+					roof_markers[target] = roof_marker
+			switch(marker)
+				if("^")
+					entrance_dirs[target] = turn(dir, 180)
+				if("v")
+					entrance_dirs[target] = dir
+				if("<")
+					entrance_dirs[target] = turn(dir, mirrored ? -90 : 90)
+				if(">")
+					entrance_dirs[target] = turn(dir, mirrored ? 90 : -90)
+
+	// Even-width footprints shift to the opposite side of their anchor when
+	// mirrored, so derive the bounds from the transformed tiles themselves.
+	if(LAZYLEN(target_turfs))
+		var/turf/first_target = target_turfs[1]
+		x1 = first_target.x
+		x2 = first_target.x
+		y1 = first_target.y
+		y2 = first_target.y
+		for(var/turf/target in target_turfs)
+			x1 = min(x1, target.x)
+			x2 = max(x2, target.x)
+			y1 = min(y1, target.y)
+			y2 = max(y2, target.y)
+	return TRUE
+
 /datum/large_structure/tent/build_structures()
 	. = ..()
+	register_occupancy_signals()
 	var/list/roofs = list()
+	var/list/canvas_visuals = list()
+	var/list/floors = list()
 	for(var/obj/structure/component/tent_canvas/C in grouped_structures)
-		var/perspective_fix = FALSE // Used to make E/W facing even tents have similar perspective to odd ones
-		if(dir & (NORTH | SOUTH))
-			if(C.x == x1 || C.x == x2)
-				C.icon_state = "canvas_[get_location(C)]"
-			var/mid = Mean(x1, x2)
-			if(C.x < mid)
-				C.dir = WEST
-			else
-				C.dir = EAST
-		else
-			var/width = y2 - y1
-			if(C.y == y1 || C.y == y2)
-				C.icon_state = "canvas_[get_location(C)]"
-				if(C.y == y2) //Upper wall
-					C.layer = ABOVE_TILE_LAYER
-			var/mid = Mean(y1, y2)
-			if(C.y < mid)
-				C.dir = SOUTH
-			else
-				if(ISODD(width) && C.y == Ceil(mid)) // `width` is actually 1 less than the width, so we need to check if this is odd
-					perspective_fix = TRUE
-				C.dir = NORTH
-		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
-		roofs += roof
+		var/turf/canvas_turf = get_turf(C)
+		var/obj/structure/component/tent_floor/floor_visual = new(canvas_turf)
+		floor_visual.part_of = src
+		floor_visual.color = get_floor_color()
+		floors += floor_visual
+
+		// The canvas object is structural only. Its appearance and direction must not
+		// influence the fixed-perspective wall artwork.
+		C.icon_state = "canvas"
+		C.dir = SOUTH
+		C.wall_dirs = NONE
+		for(var/wall_dir in list(NORTH, SOUTH, EAST, WEST))
+			if(has_tent_wall(canvas_turf, wall_dir))
+				C.wall_dirs |= wall_dir
+
+		// Roof slope remains relative to the deployed blueprint.
+		var/side_one_dir = (dir & (NORTH | SOUTH)) ? WEST : SOUTH
+		var/side_two_dir = (dir & (NORTH | SOUTH)) ? EAST : NORTH
+		var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
+		var/bottom_dir = turn(top_dir, 180)
+		var/side_one_distance = get_lateral_distance(canvas_turf, side_one_dir)
+		var/side_two_distance = get_lateral_distance(canvas_turf, side_two_dir)
+		var/is_side_one_wall = has_tent_wall(canvas_turf, side_one_dir)
+		var/is_side_two_wall = has_tent_wall(canvas_turf, side_two_dir)
+		var/is_bottom_wall = has_tent_wall(canvas_turf, bottom_dir)
+		var/roof_fallback_dir = side_one_distance < side_two_distance ? side_one_dir : side_two_dir
+		if(is_side_one_wall)
+			roof_fallback_dir = side_one_dir
+		if(is_side_two_wall)
+			roof_fallback_dir = side_two_dir
+		var/roof_dir = get_roof_direction(canvas_turf, roof_fallback_dir)
+		var/perspective_fix = !LAZYLEN(roof_layout) && roof_dir == NORTH && abs(side_one_distance - side_two_distance) == 1
+		if(LAZYLEN(roof_layout))
+			perspective_fix = roof_dir == NORTH && (roof_markers?[canvas_turf] in list("l", "r"))
+
+		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(canvas_turf)
+		roof.part_of = src
 		roof.color = color
-		roof.dir = C.dir
+		roof.set_light(roof_light_range, roof_light_power, roof_light_color)
+
+
+		var/roof_location = get_location(C, TRUE)
+		roof.dir = SOUTH
+		roof.icon_state = "roof_world_[roof_location]_[direction_to_icon_suffix(roof_dir)]"
 		if(decal && C.x == x1 && C.y == y1)
 			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
-		roof.icon_state = "roof_[get_location(C)]"
-		if(perspective_fix)
-			roof.AddOverlays(overlay_image(roof.icon, "[roof.icon_state]_p"))
+		roofs += roof
+
+		// Entrances are explicit blueprint edges. Their treatment depends only on
+		// neighbouring walls/entrances, never on deployment orientation.
+		var/entrance_dir = get_tent_entrance_direction(canvas_turf)
+		var/clockwise_dir = entrance_dir && turn(entrance_dir, -90)
+		var/counterclockwise_dir = entrance_dir && turn(entrance_dir, 90)
+		var/clockwise_wall = entrance_dir && has_tent_wall(canvas_turf, clockwise_dir)
+		var/counterclockwise_wall = entrance_dir && has_tent_wall(canvas_turf, counterclockwise_dir)
+		var/turf/clockwise_turf = entrance_dir && get_step(canvas_turf, clockwise_dir)
+		var/turf/counterclockwise_turf = entrance_dir && get_step(canvas_turf, counterclockwise_dir)
+		var/clockwise_join = entrance_dir && (clockwise_turf in target_turfs) && get_tent_entrance_direction(clockwise_turf) == entrance_dir
+		var/counterclockwise_join = entrance_dir && (counterclockwise_turf in target_turfs) && get_tent_entrance_direction(counterclockwise_turf) == entrance_dir
+		var/has_entrance_corner = clockwise_wall || counterclockwise_wall
+		var/clockwise_treatment = clockwise_wall ? "corner" : (clockwise_join ? "join" : "normal")
+		var/counterclockwise_treatment = counterclockwise_wall ? "corner" : (counterclockwise_join ? "join" : "normal")
+
+		var/list/entrance_filter
+		if(entrance_dir)
+			var/mask_state = "roof_entrance_mask_[clockwise_treatment]_[counterclockwise_treatment]"
+			var/icon/entrance_mask = icon(roof.icon, mask_state, entrance_dir)
+			roof.appearance_flags |= KEEP_TOGETHER
+			entrance_filter = alpha_mask_filter(icon = entrance_mask)
+			roof.add_filter("tent_entrance", 1, entrance_filter)
+
+		// Walls and corner seams use world-oriented DMI states on independent atoms.
+		// They therefore cannot inherit the deployed direction of the roof fabric.
+		if(!has_entrance_corner)
+			for(var/target_plane in list(C.plane, roof.plane))
+				add_visible_walls(canvas_turf, canvas_visuals, target_plane)
+				add_inner_corner_visuals(canvas_turf, canvas_visuals, target_plane)
+		if(perspective_fix && !is_bottom_wall)
+			roof.AddOverlays(overlay_image(roof.icon, "roof_[roof_location]_p"))
+		if(entrance_dir)
+			var/entrance_state = "canvas_entrance_[clockwise_treatment]_[counterclockwise_treatment]"
+			add_canvas_visual(canvas_turf, canvas_visuals, C.plane, entrance_state, entrance_dir, TRUE)
+			add_canvas_visual(canvas_turf, canvas_visuals, roof.plane, entrance_state, entrance_dir, TRUE)
+
+		roof.update_emissive_blocker()
+		var/mutable_appearance/roof_emissive_blocker = roof.emissive_overlay
+		if(entrance_filter && roof_emissive_blocker)
+			roof_emissive_blocker.filters += filter(arglist(entrance_filter))
 
 	grouped_structures += roofs
+	grouped_structures += canvas_visuals
+	grouped_structures += floors
+	for(var/obj/structure/component/tent_canvas_visual/visual in canvas_visuals)
+		visual.update_emissive_blocker()
+
+	for(var/turf/target in target_turfs)
+		target.update_weather()
+
+/// Returns the tent color with slightly reduced saturation for the groundsheet.
+/datum/large_structure/tent/proc/get_floor_color()
+	if(!istext(color))
+		return color
+	var/list/floor_hsv = ReadHSV(RGBtoHSV(color))
+	if(!floor_hsv)
+		return color
+	var/alpha = floor_hsv.len > 3 ? floor_hsv[4] : null
+	return HSVtoRGB(hsv(floor_hsv[1], round(floor_hsv[2] * 0.8), floor_hsv[3], alpha))
+
+/**
+ * Registers the signals used to make the roof transparent while occupied.
+ * Turf replacement normally carries signals forward, but construction such as
+ * plating can still leave listeners attached to the turf being replaced.
+ */
+/datum/large_structure/tent/proc/register_occupancy_signals()
+	for(var/turf/target in target_turfs)
+		RegisterSignal(target, COMSIG_ATOM_ENTERED, PROC_REF(structure_entered), override = TRUE)
+		RegisterSignal(target, COMSIG_TURF_CHANGE, PROC_REF(occupancy_turf_changed), override = TRUE)
+
+/// Refreshes entry listeners after a tent turf has finished being replaced.
+/datum/large_structure/tent/proc/occupancy_turf_changed()
+	SIGNAL_HANDLER
+	addtimer(CALLBACK(src, PROC_REF(register_occupancy_signals)), 1, TIMER_UNIQUE | TIMER_OVERRIDE)
+
+/** Returns the direction authored for a roof tile, or `fallback` for legacy/unplanned tents. */
+/datum/large_structure/tent/proc/get_roof_direction(var/turf/origin, var/fallback = NONE)
+	var/roof_marker = roof_markers?[origin]
+	switch(roof_marker)
+		if("L", "l")
+			return turn(dir, 90)
+		if("M", "R", "r")
+			return turn(dir, -90)
+	return fallback
+
+/// Stable suffix used by the pre-oriented, single-direction roof states.
+/datum/large_structure/tent/proc/direction_to_icon_suffix(var/direction)
+	switch(direction)
+		if(NORTH)
+			return "north"
+		if(EAST)
+			return "east"
+		if(WEST)
+			return "west"
+	return "south"
+
+/**
+ * Returns the number of contiguous tent tiles between `origin` and the edge in `direction`.
+ */
+/datum/large_structure/tent/proc/get_lateral_distance(var/turf/origin, var/direction)
+	var/distance = 0
+	var/turf/current = origin
+	while(TRUE)
+		var/turf/next = get_step(current, direction)
+		if(!(next in target_turfs))
+			return distance
+		distance++
+		current = next
+
+/**
+ * Returns whether `origin` is on the footprint's outermost edge in `direction`.
+ * Missing neighbours inside these bounds are walls created by a change in the footprint's shape.
+ */
+/datum/large_structure/tent/proc/is_outer_boundary(var/turf/origin, var/direction)
+	switch(direction)
+		if(NORTH)
+			return origin.y == y2
+		if(SOUTH)
+			return origin.y == y1
+		if(EAST)
+			return origin.x == x2
+		if(WEST)
+			return origin.x == x1
+	return FALSE
+
+/**
+ * Returns whether an exposed edge is open. Custom footprints only open explicitly marked edges;
+ * legacy rectangular tents retain their original open north/east and south/west ends.
+ */
+/datum/large_structure/tent/proc/is_tent_opening(var/turf/origin, var/direction)
+	if(get_step(origin, direction) in target_turfs)
+		return FALSE
+	if(LAZYLEN(footprint))
+		return entrance_dirs[origin] == direction
+
+	var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
+	return (direction in list(top_dir, turn(top_dir, 180))) && is_outer_boundary(origin, direction)
+
+/// Returns the outward direction of the entrance on `origin`, including legacy rectangular tents.
+/datum/large_structure/tent/proc/get_tent_entrance_direction(var/turf/origin)
+	var/entrance_direction = entrance_dirs?[origin]
+	if(entrance_direction || LAZYLEN(footprint))
+		return entrance_direction
+
+	var/top_dir = (dir & (NORTH | SOUTH)) ? NORTH : EAST
+	if(is_tent_opening(origin, top_dir))
+		return top_dir
+	var/bottom_dir = turn(top_dir, 180)
+	if(is_tent_opening(origin, bottom_dir))
+		return bottom_dir
+
+/// Returns whether `origin` has a closed tent wall along an exposed edge.
+/datum/large_structure/tent/proc/has_tent_wall(var/turf/origin, var/direction)
+	return (origin in target_turfs) && !(get_step(origin, direction) in target_turfs) && !is_tent_opening(origin, direction)
+
+/// Adds every closed edge using standalone visuals whose directions cannot inherit the roof's rotation.
+/datum/large_structure/tent/proc/add_visible_walls(var/turf/origin, var/list/canvas_visuals, var/target_plane)
+	for(var/wall_dir in list(NORTH, SOUTH, EAST, WEST))
+		if(has_tent_wall(origin, wall_dir))
+			add_directional_wall(origin, canvas_visuals, target_plane, wall_dir)
+
+/**
+ * Selects the connection treatment for one wall. The DMI then chooses the thin
+ * north/south or thick east/west artwork automatically from `wall_dir`.
+ */
+/datum/large_structure/tent/proc/add_directional_wall(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/wall_dir)
+	var/left_dir = turn(wall_dir, -90)
+	var/right_dir = turn(wall_dir, 90)
+	var/connects_left = has_tent_wall(origin, left_dir)
+	var/connects_right = has_tent_wall(origin, right_dir)
+	var/wall_state = "canvas_wall"
+
+	if(connects_left && connects_right)
+		wall_state = "canvas_wall_mid"
+	else if(connects_left)
+		wall_state = "canvas_wall_edge_left"
+	else if(connects_right)
+		wall_state = "canvas_wall_edge_right"
+
+	var/is_roof_visual = target_plane == ROOF_PLANE
+	var/obj/structure/component/tent_canvas_visual/wall_visual = add_canvas_visual(origin, canvas_visuals, target_plane, wall_state, wall_dir, clickable = !is_roof_visual)
+	if(!is_roof_visual && (wall_dir & (EAST | WEST)))
+		wall_visual.icon = get_thin_side_wall_icon(wall_state, wall_dir)
+		// icon() flattens the selected frame into the default SOUTH state.
+		wall_visual.icon_state = ""
+		wall_visual.dir = SOUTH
+
+/// Returns a cached copy of a side-wall frame with its inward six pixels removed.
+/// Using the wall pixels themselves avoids client-side alpha-mask inconsistencies.
+/datum/large_structure/tent/proc/get_thin_side_wall_icon(var/wall_state, var/wall_dir)
+	var/static/list/thin_side_wall_icons = list()
+	var/cache_key = "[wall_state]-[wall_dir]"
+	if(thin_side_wall_icons[cache_key])
+		return thin_side_wall_icons[cache_key]
+
+	var/icon/thin_wall = icon('icons/obj/item/camping.dmi', wall_state, wall_dir)
+	if(wall_dir == WEST)
+		thin_wall.DrawBox(null, 8, 1, world.icon_size, world.icon_size)
+	else
+		thin_wall.DrawBox(null, 1, 1, world.icon_size - 7, world.icon_size)
+	thin_side_wall_icons[cache_key] = thin_wall
+	return thin_wall
+
+/// Creates one independent, world-directed canvas appearance.
+/datum/large_structure/tent/proc/add_canvas_visual(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/icon_state, var/visual_dir, var/render_above = FALSE, var/clickable = FALSE)
+	var/obj/structure/component/tent_canvas_visual/visual = new(origin)
+	visual.part_of = src
+	visual.color = color
+	visual.plane = target_plane
+	visual.icon_state = icon_state
+	visual.dir = visual_dir
+	if(clickable)
+		visual.mouse_opacity = MOUSE_OPACITY_ICON
+	if(render_above)
+		visual.layer += 0.01
+	canvas_visuals += visual
+	return visual
+
+/**
+ * Adds the seams for concave corners where an annex or vestibule meets the main tent.
+ * An inner corner has two occupied cardinal neighbours with an empty diagonal between them.
+ */
+/datum/large_structure/tent/proc/add_inner_corner_visuals(var/turf/origin, var/list/canvas_visuals, var/target_plane)
+	for(var/edge_dir in list(SOUTH, NORTH))
+		for(var/side_dir in list(WEST, EAST))
+			var/diagonal_dir = edge_dir | side_dir
+			if(!(get_step(origin, edge_dir) in target_turfs) || !(get_step(origin, side_dir) in target_turfs) || (get_step(origin, diagonal_dir) in target_turfs))
+				continue
+
+			var/source_left_dir = turn(edge_dir, -90)
+			var/corner_state = side_dir == source_left_dir ? "canvas_wall_inner_corner_left" : "canvas_wall_inner_corner_right"
+			var/obj/structure/component/tent_canvas_visual/corner_visual = add_canvas_visual(origin, canvas_visuals, target_plane, corner_state, edge_dir)
+			if(target_plane != ROOF_PLANE)
+				corner_visual.icon = get_thin_inner_corner_icon(corner_state, edge_dir)
+				corner_visual.icon_state = ""
+				corner_visual.dir = SOUTH
+
+/// Returns an inner-corner frame with the six-pixel-deep portion of its side wall removed.
+/datum/large_structure/tent/proc/get_thin_inner_corner_icon(var/corner_state, var/edge_dir)
+	var/static/list/thin_inner_corner_icons = list()
+	var/cache_key = "[corner_state]-[edge_dir]"
+	if(thin_inner_corner_icons[cache_key])
+		return thin_inner_corner_icons[cache_key]
+
+	var/icon/thin_corner = icon('icons/obj/item/camping.dmi', corner_state, edge_dir)
+	thin_corner.DrawBox(null, 8, 1, world.icon_size - 7, world.icon_size)
+	thin_inner_corner_icons[cache_key] = thin_corner
+	return thin_corner
+
+/**
+ * Shows `user` a client-only preview of the tent's occupied tiles and asks them to confirm its placement.
+ * The blue tile marks the deployment anchor, green tiles are clear, and red tiles are obstructed.
+ */
+/datum/large_structure/tent/proc/confirm_placement(var/mob/user)
+	var/client/preview_client = user?.client
+	if(!preview_client)
+		return check_placement_clear(user)
+
+	while(TRUE)
+		var/list/preview_images = list()
+		for(var/turf/target in target_turfs)
+			var/icon_state
+			if(get_placement_obstruction(target))
+				icon_state = "invalid"
+			else
+				icon_state = target == deployment_origin ? "selected" : "valid"
+			var/image/preview = image('icons/effects/blueprints.dmi', target, icon_state)
+			preview.plane = HUD_PLANE
+			preview.appearance_flags = NO_CLIENT_COLOR
+			preview_images += preview
+			var/entrance_dir = get_tent_entrance_direction(target)
+			if(entrance_dir)
+				var/image/entrance_preview = image('icons/effects/blueprints.dmi', target, "entrance")
+				entrance_preview.dir = entrance_dir
+				entrance_preview.plane = HUD_PLANE
+				entrance_preview.layer = preview.layer + 0.1
+				entrance_preview.appearance_flags = NO_CLIENT_COLOR
+				preview_images += entrance_preview
+
+		preview_client.images += preview_images
+		var/layout_name = mirrored ? "mirrored" : "original"
+		var/choice = tgui_alert(user, "The highlighted tiles show the [layout_name] tent footprint. The blue tile is the deployment anchor, red tiles have something in the way, and yellow arrows show every entrance and its direction.", "Confirm Tent Placement", list("Assemble", "Mirror", "Cancel"))
+		preview_client.images -= preview_images
+
+		if(choice == "Mirror")
+			mirrored = !mirrored
+			if(!get_target_turfs(user))
+				// Keep the usable orientation if its reflection would leave the map.
+				mirrored = !mirrored
+				get_target_turfs(user, TRUE)
+			continue
+		if(choice != "Assemble")
+			return FALSE
+		return check_placement_clear(user)
+
+/** Returns the first solid turf or object preventing a tent component from occupying `target`. */
+/datum/large_structure/tent/proc/get_placement_obstruction(var/turf/target)
+	if(!istype(target) || target.density)
+		return target
+	for(var/obj/obstruction in target)
+		if(obstruction == source_item)
+			continue
+		if(obstruction.density || istype(obstruction, /obj/structure/machinery/door))
+			return obstruction
+	return null
+
+/** Checks the entire footprint and tells `user` what prevents assembly. */
+/datum/large_structure/tent/proc/check_placement_clear(var/mob/user)
+	for(var/turf/target in target_turfs)
+		var/atom/obstruction = get_placement_obstruction(target)
+		if(obstruction)
+			to_chat(user, SPAN_WARNING("You cannot assemble \the [src]; \the [obstruction] is in the way."))
+			return FALSE
+	return TRUE
+
+// Recheck at the start of every stage in case the footprint changed after its preview.
+/datum/large_structure/tent/assemble(var/mob/user)
+	if(!check_placement_clear(user))
+		return FALSE
+	return ..()
 
 /datum/large_structure/tent/structure_entered(turf/entry_point, atom/movable/entering)
 	. = ..()
@@ -65,64 +520,58 @@
 	var/mob/M = entering
 	var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
 	if(roof_plane)
-		roof_plane.alpha = 76
+		roof_plane.alpha = 0
 
 /datum/large_structure/tent/mob_moved(mob/mover, turf/exit_point)
 	. = ..()
 	if(!.)
 		var/atom/movable/screen/plane_master/roof/roof_plane = mover.hud_used?.plane_masters["[ROOF_PLANE]"]
 		if(roof_plane)
-			roof_plane.alpha = 255
+			// A move can leave this tent and enter another one at the same time. Do not
+			// restore the shared roof plane while the mover is still beneath tent canvas.
+			var/turf/current_turf = get_turf(mover)
+			var/inside_another_tent = FALSE
+			for(var/obj/structure/component/tent_canvas/canvas in current_turf)
+				if(istype(canvas.part_of, /datum/large_structure/tent))
+					inside_another_tent = TRUE
+					break
+			roof_plane.alpha = inside_another_tent ? 0 : 255
 
 /**
  * Determines the state to use for each section of the tent
- * Returns `edge` for structures on the edge of the tent
- * Returns `entrance_top` for structures acting as an entrance, at the north/east of the tent
- * Returns `entrance_bot` for structures acting as an entrance, at the south/west of the tent
- * Returns `edge_entrance_top` for structures on the edge of the tent, and acting as an entrance, at the north/east of the tent
- * Returns `edge_entrance_bot` for structures on the edge of the tent, and acting as an entrance, at the south/west of the tent
+ * Returns `edge` for legacy canvas positioning. Roofs instead distinguish the
+ * fixed-perspective `edge_west` and `edge_east` cutouts.
  * Returns `mid` for structures in the exact centre of the tent, for odd number widths
- * Returns `mid_entrance_top` for structures in the exact centre of the tent, for odd number widths, acting as an entrance, at the north/east of the tent
- * Returns `mid_entrance_bot` for structures in the exact centre of the tent, for odd number widths, acting as an entrance, at the south/west of the tent
  * Otherwise returns `norm` for other structures
+ * Entrance shaping is handled separately by the perspective frame and roof mask.
  */
-/datum/large_structure/tent/proc/get_location(var/obj/structure/component/tent_canvas/canvas)
-	var/edge1
-	var/edge2
-	var/side_coord
-	var/top_coord
-	var/top_edge
-	var/bot_edge
-	if(dir & (NORTH | SOUTH))
-		edge1 = x1
-		edge2 = x2
-		side_coord = canvas.x
-		top_edge = y2
-		bot_edge = y1
-		top_coord = canvas.y
-	else
-		edge1 = y1
-		edge2 = y2
-		side_coord = canvas.y
-		top_edge = x2
-		bot_edge = x1
-		top_coord = canvas.x
-	if(side_coord == edge1 || side_coord == edge2)
-		if(top_coord == top_edge)
-			return "edge_entrance_top"
-		else if(top_coord == bot_edge)
-			return "edge_entrance_bot"
+/datum/large_structure/tent/proc/get_location(var/obj/structure/component/tent_canvas/canvas, var/for_roof = FALSE)
+	var/turf/canvas_turf = get_turf(canvas)
+	var/side_one_dir = (dir & (NORTH | SOUTH)) ? WEST : SOUTH
+	var/side_two_dir = (dir & (NORTH | SOUTH)) ? EAST : NORTH
+	var/side_one_distance = get_lateral_distance(canvas_turf, side_one_dir)
+	var/side_two_distance = get_lateral_distance(canvas_turf, side_two_dir)
+	var/is_side_edge = !side_one_distance || !side_two_distance
+	// Explicit roof plans decide where irregular ridges sit. Rectangular tents retain the
+	// original geometric midpoint behaviour.
+	var/is_middle = roof_markers?[canvas_turf] == "M"
+	if(!LAZYLEN(roof_layout))
+		is_middle = side_one_distance == side_two_distance
+
+	if(for_roof)
+		if(is_middle)
+			return "mid"
+		// Only east/west edges need the deep side-wall roof cutout. North/south
+		// boundaries use the full roof tile above their shallow wall.
+		if(has_tent_wall(canvas_turf, WEST))
+			return "edge_west"
+		if(has_tent_wall(canvas_turf, EAST))
+			return "edge_east"
+		return "norm"
+	else if(is_side_edge)
 		return "edge"
-	else if(side_coord == Mean(edge1, edge2))
-		if(top_coord == top_edge)
-			return "mid_entrance_top"
-		else if(top_coord == bot_edge)
-			return "mid_entrance_bot"
+	else if(is_middle)
 		return "mid"
-	else if(top_coord == top_edge)
-		return "entrance_top"
-	else if(top_coord == bot_edge)
-		return "entrance_bot"
 	return "norm"
 
 /obj/item/tent
@@ -136,18 +585,38 @@
 	color = "#58a178"
 	var/width = 2
 	var/length = 3
+	/// Optional irregular footprint. See `/datum/large_structure/tent/footprint`.
+	var/list/footprint
+	/// Optional explicit roof plan corresponding to `footprint`.
+	var/list/roof_layout
 	var/decal
+	/// Duration of each of the four assembly stages.
+	var/assembly_time_per_stage = 7 SECONDS
+	/// Duration of each of the four disassembly stages.
+	var/disassembly_time_per_stage = 7 SECONDS
 
 	var/datum/large_structure/tent/my_tent
 
 /obj/item/tent/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
+	. += "Each assembly stage takes approximately [DisplayTimeText(assembly_time_per_stage)]."
+	. += "A footprint preview will be shown before assembly begins, allowing you to confirm its position, orientation, or mirror the layout."
 
 /obj/item/tent/Initialize()
 	. = ..()
-	w_class = min(ceil(width * length / 1.5), WEIGHT_CLASS_GIGANTIC) // 2x2 = WEIGHT_CLASS_NORMAL
-	desc += "\nThis one is [width] x [length] in size."
+	var/occupied_tiles = width * length
+	if(LAZYLEN(footprint))
+		length = footprint.len
+		width = 0
+		occupied_tiles = 0
+		for(var/row in footprint)
+			width = max(width, length(row))
+			for(var/column_number = 1 to length(row))
+				if(copytext(row, column_number, column_number + 1) in list("#", "^", "v", "<", ">"))
+					occupied_tiles++
+	w_class = min(ceil(occupied_tiles / 1.5), WEIGHT_CLASS_GIGANTIC) // 2x2 = WEIGHT_CLASS_NORMAL
+	desc += "\nThis one has a [width] x [length] footprint."
 
 /obj/item/tent/Destroy()
 	if(my_tent)
@@ -167,7 +636,7 @@
 /obj/item/tent/proc/deploy_tent(var/turf/target, var/mob/user)
 	if(my_tent)
 		if(my_tent.origin == get_turf(src)) //Not moved
-			my_tent.assemble(1 SECOND, user)
+			my_tent.assemble(user)
 			return
 		else
 			QDEL_NULL(my_tent)
@@ -179,13 +648,22 @@
 	my_tent = new /datum/large_structure/tent(src)
 	setup_my_tent(deploy_dir, target)
 
-	my_tent.assemble(1 SECOND, user)
+	if(!my_tent.get_target_turfs(user) || !my_tent.confirm_placement(user))
+		QDEL_NULL(my_tent)
+		return
+
+	my_tent.assemble(user)
 
 /obj/item/tent/proc/setup_my_tent(var/deploy_dir, var/turf/target)
 	my_tent.name = name
 	my_tent.color = color
 	my_tent.decal = decal
+	my_tent.footprint = footprint
+	my_tent.roof_layout = roof_layout
+	my_tent.assembly_time_per_stage = assembly_time_per_stage
+	my_tent.disassembly_time_per_stage = disassembly_time_per_stage
 	my_tent.dir = deploy_dir
+	my_tent.deployment_origin = target
 	my_tent.z1 = target.z
 	my_tent.z2 = target.z
 	my_tent.source_item_type = type
@@ -213,66 +691,66 @@
 		my_tent.y1 = target.y - floor((width-1)/2)
 		my_tent.y2 = target.y + ceil((width-1)/2)
 
-/obj/item/tent/big
-	name = "base camp tent"
-	color = "#2e3763"
-	width = 3
-	length = 4
-
-/obj/item/tent/big/scc
-	name = "scc base camp tent"
-	decal = "scc"
-
-/obj/item/tent/mining
-	name = "miners' tent"
-	color = "#8b7242"
-	width = 3
-	length = 3
-
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
 	desc = "The fabric and poles which make up the wall of a tent. Not air-tight, but able to keep out the weather, and very cozy."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "canvas"
 	item_state = "canvas"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = TRUE
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	atmos_canpass = CANPASS_ALWAYS //Tents are not air tight
 	layer = ABOVE_HUMAN_LAYER
+	/// Cardinal edges of this tile occupied by tent walls.
+	var/wall_dirs = NONE
 
 /obj/structure/component/tent_canvas/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
+	. += "You can also alt-click a wall while on grab intent to begin disassembly."
+	if(part_of)
+		. += "Each disassembly stage takes approximately [DisplayTimeText(part_of.disassembly_time_per_stage)]."
+
+/obj/structure/component/tent_canvas/AltClick(mob/user)
+	if(user.a_intent != I_GRAB)
+		return ..()
+	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
+		return
+	part_of.disassemble(user)
 
 /obj/structure/component/tent_canvas/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
-	if(icon_state in list("canvas", "canvas_mid", "canvas_entrance_top", "canvas_entrace_bot"))
-		return TRUE	//Non-directional, always allow passage
-	if(get_dir(loc, target) & dir)
+	if(get_dir(loc, target) & wall_dirs)
 		return !density
 	return TRUE
 
 /obj/structure/component/tent_canvas/CheckExit(atom/movable/O, turf/target)
 	. = ..()
-	if(icon_state in list("canvas", "canvas_mid", "canvas_entrance_top", "canvas_entrace_bot"))
-		return TRUE	//Non-directional, always allow passage
-	if(get_dir(O.loc, target) & dir)
+	if(get_dir(O.loc, target) & wall_dirs)
 		return !density
 	return TRUE
+
+/obj/structure/component/tent_canvas/blocks_multitile_placement(turf/other)
+	return density && (get_dir(loc, other) & wall_dirs)
 
 /obj/structure/component/tent_canvas/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(use_check(usr, USE_ALLOW_NON_ADJACENT) || (get_dist(usr, src) > 1)) // use_check() can't check for adjacency due to density issues, so we check range as well
 		return
-	part_of.disassemble(2 SECONDS, usr, src)
+	part_of.disassemble(usr)
 
 /obj/structure/component/tent_canvas/Destroy() //When we're destroyed, make sure we return the roof plane to anyone inside
+	var/turf/former_turf = get_turf(src)
 	for(var/mob/M in loc)
 		var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
 		if(roof_plane)
 			roof_plane.alpha = 255
-	return ..()
+	. = ..()
+	if(former_turf)
+		addtimer(CALLBACK(former_turf, TYPE_PROC_REF(/turf, update_weather)), 0, TIMER_UNIQUE)
+	return .
 
 /obj/structure/component/tent_canvas/roof
 	plane = ROOF_PLANE
@@ -283,6 +761,70 @@
 
 /obj/structure/component/tent_canvas/roof/CheckExit(atom/movable/O, turf/target)
 	return TRUE
+
+/// A non-interactive groundsheet. The underlying turf remains the target of all clicks.
+/obj/structure/component/tent_floor
+	name = "tent floor"
+	desc = "A simple groundsheet laid beneath a tent."
+	icon = 'icons/obj/item/camping.dmi'
+	icon_state = "tent_floor"
+	anchored = TRUE
+	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = TURF_DETAIL_LAYER
+	blocks_emissive = EMISSIVE_BLOCK_NONE
+
+/obj/structure/component/tent_floor/Initialize(mapload)
+	. = ..()
+	// Cables laid before the tent was deployed should also appear above its floor.
+	for(var/obj/structure/cable/cable in loc)
+		if(cable.level == 1)
+			cable.hide(FALSE)
+
+/obj/structure/component/tent_floor/Destroy()
+	var/turf/former_turf = get_turf(src)
+	. = ..()
+	if(former_turf)
+		for(var/obj/structure/cable/cable in former_turf)
+			if(cable.level == 1 && !former_turf.is_hole)
+				cable.hide(!former_turf.is_plating())
+	return .
+
+/// A standalone wall, corner, or entrance appearance. Keeping these separate from
+/// the directional roof and canvas atoms makes their perspective world-relative.
+/obj/structure/component/tent_canvas_visual
+	name = "tent canvas"
+	desc = "The visible fabric and poles of a tent wall."
+	icon = 'icons/obj/item/camping.dmi'
+	anchored = TRUE
+	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	// Always composite over roof fabric instead of competing at the same layer.
+	layer = ABOVE_HUMAN_LAYER + 0.05
+
+/obj/structure/component/tent_canvas_visual/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging another wall to themselves."
+	. += "You can also alt-click a wall while on grab intent to begin disassembly."
+	if(part_of)
+		. += "Each disassembly stage takes approximately [DisplayTimeText(part_of.disassembly_time_per_stage)]."
+
+/obj/structure/component/tent_canvas_visual/AltClick(mob/user)
+	if(user.a_intent != I_GRAB)
+		return ..()
+	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
+		return
+	part_of.disassemble(user)
+
+/obj/structure/component/tent_canvas_visual/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	..()
+	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
+		return
+	part_of.disassemble(user)
+
+/// Returns whether this turf is covered by a deployed tent groundsheet.
+/turf/proc/has_tent_floor()
+	return locate(/obj/structure/component/tent_floor) in src
 
 //Pre-fabricated tents for mapping
 /obj/effect/tent

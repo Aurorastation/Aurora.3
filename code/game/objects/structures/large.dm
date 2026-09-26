@@ -48,6 +48,10 @@
 	var/y2
 	var/z1
 	var/z2
+	/// Time one assembly stage takes. Individual source items can override this on their datum.
+	var/assembly_time_per_stage = 1 SECOND
+	/// Time one disassembly stage takes. Individual source items can override this on their datum.
+	var/disassembly_time_per_stage = 2 SECONDS
 
 /**
  * Returns the first stage with value `type`
@@ -57,7 +61,7 @@
 		if(stages[stage] == type)
 			return stage
 
-/datum/large_structure/proc/assemble(var/time_per_structure, var/mob/user)
+/datum/large_structure/proc/assemble(var/mob/user)
 	if(user in interacting)
 		to_chat(user, SPAN_INFO("You are already working on assembling \the [src]."))
 		return FALSE
@@ -70,13 +74,14 @@
 
 
 	if(!LAZYLEN(target_turfs))
-		get_target_turfs(user)
+		if(!get_target_turfs(user))
+			return FALSE
 
 	interacting += user
 
 	user.visible_message(SPAN_NOTICE("\The [user] begins assembling \the [src]'s [stage_to_do]."))
 	stages[stage_to_do] = STAGE_PROGRESS
-	if(!do_after(user, time_per_structure * LAZYLEN(target_turfs)))
+	if(!do_after(user, assembly_time_per_stage))
 		stages[stage_to_do] = STAGE_DISASSEMBLED
 		interacting -= user
 		return
@@ -86,7 +91,7 @@
 	interacting -= user
 
 	if(get_next_stage(STAGE_DISASSEMBLED)) //Still work to do
-		assemble(time_per_structure, user)
+		assemble(user)
 		return FALSE
 
 	if(get_next_stage(STAGE_PROGRESS)) //Still work being done
@@ -102,6 +107,7 @@
 		if(!(istype(T) || force))
 			to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
 			return FALSE
+	return TRUE
 
 /datum/large_structure/proc/build_structures()
 	for(var/turf/T in target_turfs)
@@ -111,7 +117,7 @@
 		grouped_structures += C
 		RegisterSignal(T, COMSIG_ATOM_ENTERED, PROC_REF(structure_entered), override = TRUE)
 
-/datum/large_structure/proc/disassemble(var/time_per_structure, var/mob/user)
+/datum/large_structure/proc/disassemble(var/mob/user)
 	if(user in interacting)
 		to_chat(user, SPAN_INFO("You are already working on disassembling \the [src]."))
 		return FALSE
@@ -126,7 +132,7 @@
 
 	user.visible_message(SPAN_NOTICE("\The [user] begins disassembling \the [src]'s [stage_to_do]."))
 	stages[stage_to_do] = STAGE_PROGRESS
-	if(!do_after(user, time_per_structure * LAZYLEN(grouped_structures)))
+	if(!do_after(user, disassembly_time_per_stage))
 		stages[stage_to_do] = STAGE_ASSEMBLED
 		interacting -= user
 		return FALSE
@@ -136,12 +142,17 @@
 	interacting -= user
 
 	if(get_next_stage(STAGE_ASSEMBLED)) //Still work to do
-		return disassemble(time_per_structure, user)
+		return disassemble(user)
 
 	if(get_next_stage(STAGE_PROGRESS)) //Still work being done
 		return
 
-	QDEL_LIST(grouped_structures)
+	var/list/structures_to_delete = grouped_structures.Copy()
+	grouped_structures.Cut()
+	for(var/obj/structure/component/component in structures_to_delete)
+		component.part_of = null
+		qdel(component)
+	structures_to_delete.Cut()
 
 	var/obj/item/I = new source_item_type(get_turf(user))
 	I.color = color
@@ -164,6 +175,8 @@
 	var/datum/large_structure/part_of
 
 /obj/structure/component/Destroy()
-	if(part_of)
-		part_of.grouped_structures -= src
+	var/datum/large_structure/owner = part_of
+	part_of = null
+	if(owner)
+		owner.grouped_structures -= src
 	return ..()

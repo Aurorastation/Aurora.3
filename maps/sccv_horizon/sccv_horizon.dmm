@@ -23223,7 +23223,6 @@
 	},
 /obj/item/tent,
 /obj/item/tent,
-/obj/item/tent/big/scc,
 /obj/item/tent,
 /obj/item/tent,
 /obj/structure/railing/mapped,
@@ -46111,18 +46110,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/command/bridge/meeting_room)
 "fYX" = (
-/obj/item/tent,
-/obj/item/tent,
-/obj/item/tent/big/scc,
-/obj/item/tent,
-/obj/item/tent,
-/obj/structure/closet/crate{
-	name = "tents crate"
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/crate/specialized_tents,
 /turf/simulated/floor/plating,
 /area/horizon/hangar/intrepid)
 "fZf" = (
@@ -127343,15 +127335,8 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/ward/isolation)
 "qyL" = (
-/obj/item/tent,
-/obj/item/tent,
-/obj/item/tent/big/scc,
-/obj/item/tent,
-/obj/item/tent,
-/obj/structure/closet/crate{
-	name = "tents crate"
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/regular_tents,
 /turf/simulated/floor/plating,
 /area/horizon/hangar/intrepid)
 "qyM" = (

@@ -894,3 +894,41 @@
 	new /obj/item/reagent_containers/weldpack(src)
 	new /obj/item/portable_whiteboard(src)
 	new /obj/item/paint_sprayer(src)
+
+/obj/structure/closet/crate/regular_tents
+	name = "expedition tent crate"
+
+/obj/structure/closet/crate/regular_tents/fill()
+	new /obj/item/tent(src)
+	new /obj/item/tent(src)
+	new /obj/item/tent(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/big(src)
+	new /obj/item/tent/big(src)
+	new /obj/item/tent/turn(src)
+	new /obj/item/tent/turn(src)
+	new /obj/item/tent/turn(src)
+	new /obj/item/tent/t_junction(src)
+	new /obj/item/tent/t_junction(src)
+
+/obj/structure/closet/crate/specialized_tents
+	name = "department tent crate"
+
+/obj/structure/closet/crate/specialized_tents/fill()
+	new /obj/item/tent/cargo(src)
+	new /obj/item/tent/command(src)
+	new /obj/item/tent/command_comms(src)
+	new /obj/item/tent/decontamination(src)
+	new /obj/item/tent/engineering(src)
+	new /obj/item/tent/field_kitchen(src)
+	new /obj/item/tent/machinist(src)
+	new /obj/item/tent/medical(src)
+	new /obj/item/tent/mess_hall(src)
+	new /obj/item/tent/mining(src)
+	new /obj/item/tent/quarantine(src)
+	new /obj/item/tent/science(src)
+	new /obj/item/tent/security(src)
+	new /obj/item/tent/vehicle_workshop(src)
