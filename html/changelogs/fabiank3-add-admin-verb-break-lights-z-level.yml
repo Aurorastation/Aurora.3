@@ -1,4 +1,4 @@
-author: Copilot
+author: FabianK3
 delete-after: True
 changes:
   - admin: "Added a secret to break all lights on the admin's current Z-level."
