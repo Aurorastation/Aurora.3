@@ -10,14 +10,17 @@
 	throw_speed = 3
 	throw_range = 7
 	layer = BELOW_OBJ_LAYER
-	var/amount = 30					//How much paper is in the bin.
-	var/list/papers = new/list()	//List of papers put in the bin for reference.
+	/// How much generic paper stock is in the bin.
+	var/amount = 30
+	/// The of physical papers put in the bin for reference.
+	var/list/papers = new/list()
 
 /obj/item/paper_bin/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)
-		if(amount)
-			. += SPAN_NOTICE("There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.")
+		var/total_papers = amount + papers.len
+		if(total_papers)
+			. += SPAN_NOTICE("There " + (total_papers > 1 ? "are [total_papers] papers" : "is one paper") + " in the bin.")
 		else
 			. += SPAN_NOTICE("There are no papers in the bin.")
 
@@ -47,37 +50,28 @@
 		if(temp && !temp.is_usable())
 			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
-	var/response = ""
-	if(!papers.len > 0)
-		response = alert(user, "Do you take regular paper, or Carbon copy paper?", "Paper type request", "Regular", "Carbon-Copy", "Cancel")
-		if (response != "Regular" && response != "Carbon-Copy")
-			add_fingerprint(user)
+	var/obj/item/paper/P
+	// Any inserted paper is used before making a generic blank one.
+	if(papers.len)
+		P = papers[papers.len]
+		papers.Remove(P)
+	else if(amount)
+		var/response = alert(user, "Do you take regular paper, or Carbon copy paper?", "Paper type request", "Regular", "Carbon-Copy", "Cancel")
+		if(response != "Regular" && response != "Carbon-Copy")
 			return
-	if(amount >= 1)
 		amount--
-		if(amount==0)
-			update_icon()
-
-		var/obj/item/paper/P
-		if(papers.len > 0)	//If there's any custom paper on the stack, use that instead of creating a new paper.
-			P = papers[papers.len]
-			papers.Remove(P)
+		if(response == "Regular")
+			P = new /obj/item/paper
 		else
-			if(response == "Regular")
-				P = new /obj/item/paper
-				if(Holiday == "April Fool's Day")
-					if(prob(30))
-						P.info = "<font face=\"[P.crayonfont]\" color=\"red\"><b>HONK HONK HONK HONK HONK HONK HONK<br>HOOOOOOOOOOOOOOOOOOOOOONK<br>APRIL FOOLS</b></font>"
-						P.rigged = 1
-						P.updateinfolinks()
-			else if (response == "Carbon-Copy")
-				P = new /obj/item/paper/carbon
-
-		P.forceMove(user.loc)
-		user.put_in_hands(P)
-		to_chat(user, SPAN_NOTICE("You take [P] out of the [src]."))
+			P = new /obj/item/paper/carbon
 	else
 		to_chat(user, SPAN_NOTICE("[src] is empty!"))
+		return
+
+	P.forceMove(user.loc)
+	user.put_in_hands(P)
+	to_chat(user, SPAN_NOTICE("You take [P] out of the [src]."))
+	update_icon()
 
 	add_fingerprint(user)
 	return
@@ -88,10 +82,19 @@
 		user.drop_from_inventory(i,src)
 		to_chat(user, SPAN_NOTICE("You put [i] in [src]."))
 		papers.Add(i)
-		amount++
+		update_icon()
+
+/obj/item/paper_bin/proc/consume_generic_paper(amount_to_consume)
+	amount_to_consume = min(amount_to_consume, amount)
+	if(amount_to_consume <= 0)
+		return 0
+
+	amount -= amount_to_consume
+	update_icon()
+	return amount_to_consume
 
 /obj/item/paper_bin/update_icon()
-	if(amount < 1)
+	if(amount <= 0 && !papers.len)
 		icon_state = "paper_bin0"
 	else
 		icon_state = "paper_bin1"

@@ -19,11 +19,16 @@
 
 	var/open = FALSE
 	var/list/indices
+	/// The type of blank paper created by the add-pages verb.
+	var/blank_page_type = /obj/item/paper
+	/// The maximum number of blank pages which can be added at once.
+	var/max_pages_per_batch = 10
 
 /obj/item/journal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click this while it's on your person or next to you to open this journal."
 	. += "While the journal is open, use it in hand or use a pen on it to access the contents."
+	. += "While the journal is open and within one tile of a paper bin with unused paper stock, use the Add Blank Pages verb to add up to ten pages to an index."
 
 /obj/item/journal/Destroy()
 	if (indices)
@@ -84,6 +89,72 @@
 			return
 		attack_self(user)
 
+/obj/item/journal/verb/add_blank_pages_verb()
+	set category = "Object"
+	set name = "Add Blank Pages"
+	set desc = "Add blank pages from a nearby paper bin to an index in the journal."
+	set src in view(1)
+
+	add_blank_pages(usr)
+
+/obj/item/journal/proc/add_blank_pages(mob/user)
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS) || !Adjacent(user))
+		return
+	if(!open)
+		to_chat(user, SPAN_WARNING("You can't add pages to \the [src] while it's closed."))
+		return
+
+	var/obj/item/paper_bin/paper_bin
+	for(var/obj/item/paper_bin/nearby_bin in range(1, get_turf(src)))
+		if(nearby_bin.amount)
+			paper_bin = nearby_bin
+			break
+	if(!paper_bin)
+		to_chat(user, SPAN_WARNING("There must be a paper bin with unused paper stock within one tile of \the [src]."))
+		return
+
+	var/max_pages = min(max_pages_per_batch, paper_bin.amount)
+	var/pages_to_add = tgui_input_number(user, "How many blank pages would you like to add?", "Add Blank Pages", min(5, max_pages), max_pages, 1)
+
+	if(isnull(pages_to_add))
+		return
+
+	var/list/options = LAZYLEN(indices) ? indices + "New Index" : list("New Index")
+	var/selected_folder = tgui_input_list(user, "Select an index to add the blank pages to.", "Index Selection", options)
+	if(isnull(selected_folder))
+		return
+
+	var/index_name
+	if(selected_folder == "New Index")
+		index_name = sanitize(input(user, "Enter the index' name.", "Index Name") as text|null)
+		if(!index_name)
+			return
+
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS) || !Adjacent(user) || !open)
+		return
+	if(!(paper_bin in range(1, get_turf(src))) || !paper_bin.amount)
+		to_chat(user, SPAN_WARNING("The paper bin must remain within one tile of \the [src] and contain unused paper stock."))
+		return
+	pages_to_add = min(pages_to_add, paper_bin.amount)
+
+	var/obj/item/folder/embedded/E
+	if(selected_folder == "New Index")
+		E = generate_index(index_name)
+	else
+		E = indices[selected_folder]
+	if(!istype(E) || E.loc != src)
+		return
+
+	pages_to_add = paper_bin.consume_generic_paper(pages_to_add)
+	if(!pages_to_add)
+		return
+
+	for(var/i = 1 to pages_to_add)
+		new blank_page_type(E)
+
+	to_chat(user, SPAN_NOTICE("You take [pages_to_add] sheet[pages_to_add == 1 ? "" : "s"] from \the [paper_bin] and add [pages_to_add == 1 ? "it" : "them"] to the [E.name] index in \the [src]."))
+	update_icon()
+
 /obj/item/journal/proc/insert_item(obj/item/attacking_item, mob/user, var/selected_folder)
 	var/obj/item/folder/embedded/E
 	if(isnull(selected_folder))
@@ -131,6 +202,7 @@
 /obj/item/journal/notepad
 	name = "notepad"
 	desc = "A notepad for jotting down notes in meetings or interrogations."
+	blank_page_type = /obj/item/paper/notepad
 
 	icon = 'icons/obj/library.dmi'
 	icon_state = "notepad"
