@@ -194,11 +194,13 @@
 		var/clockwise_treatment = clockwise_wall ? "corner" : (clockwise_join ? "join" : "normal")
 		var/counterclockwise_treatment = counterclockwise_wall ? "corner" : (counterclockwise_join ? "join" : "normal")
 
+		var/list/entrance_filter
 		if(entrance_dir)
 			var/mask_state = "roof_entrance_mask_[clockwise_treatment]_[counterclockwise_treatment]"
 			var/icon/entrance_mask = icon(roof.icon, mask_state, entrance_dir)
 			roof.appearance_flags |= KEEP_TOGETHER
-			roof.add_filter("tent_entrance", 1, alpha_mask_filter(icon = entrance_mask))
+			entrance_filter = alpha_mask_filter(icon = entrance_mask)
+			roof.add_filter("tent_entrance", 1, entrance_filter)
 
 		// Walls and corner seams use world-oriented DMI states on independent atoms.
 		// They therefore cannot inherit the deployed direction of the roof fabric.
@@ -213,8 +215,14 @@
 			add_canvas_visual(canvas_turf, canvas_visuals, C.plane, entrance_state, entrance_dir, TRUE)
 			add_canvas_visual(canvas_turf, canvas_visuals, roof.plane, entrance_state, entrance_dir, TRUE)
 
+		roof.update_emissive_blocker()
+		if(entrance_filter && roof.emissive_overlay)
+			roof.emissive_overlay.filters += filter(arglist(entrance_filter))
+
 	grouped_structures += roofs
 	grouped_structures += canvas_visuals
+	for(var/obj/structure/component/tent_canvas_visual/visual in canvas_visuals)
+		visual.update_emissive_blocker()
 
 	for(var/turf/target in target_turfs)
 		target.update_weather()
