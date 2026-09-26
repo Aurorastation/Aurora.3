@@ -354,10 +354,11 @@
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 	check_citizenship_in_preferences = FALSE
 
-	alt_titles = list("Civil Service Aide", "Crown Servant")
+	alt_titles = list("Civil Service Aide","Party Aide", "Crown Servant")
 	alt_citizenships = list(
 		"Diplomatic Aide" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
 		"Civil Service Aide" = list("Republic of Biesel"),
+		"Party Aide" = list("People's Republic of Adhomai"),
 		"Crown Servant" = list("New Kingdom of Adhomai")
 	)
 
