@@ -573,6 +573,7 @@
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "canvas"
 	item_state = "canvas"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = TRUE
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
