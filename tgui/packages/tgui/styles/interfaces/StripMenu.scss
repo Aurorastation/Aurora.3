@@ -1,0 +1,167 @@
+.StripMenu {
+  background: #111;
+  padding: 6px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 64px);
+    grid-auto-rows: 64px;
+    gap: 6px;
+  }
+
+  &__slot {
+    position: relative;
+  }
+
+  .StripMenu__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: #202020;
+    --button-background-disabled: #202020;
+    color: white;
+    opacity: 1;
+    overflow: hidden;
+
+    &:hover:not(.Button--disabled) {
+      background: #3a4c58;
+    }
+    &--fixed {
+      background: transparent;
+      --button-background-disabled: transparent;
+    }
+    &--active {
+      background: #805800;
+      --button-background-disabled: #805800;
+    }
+    &.Button--selected {
+      background: #324b34;
+    }
+    &.Button--disabled {
+      color: #7c7c7c;
+    }
+  }
+
+  .StripMenu__tile > .Button__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__silhouette,
+  &__item {
+    position: absolute;
+    inset: 0;
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    pointer-events: none;
+  }
+  &__silhouette {
+    opacity: 0.7;
+  }
+  &__item {
+    z-index: 1;
+  }
+  &__marker {
+    z-index: 2;
+    font-size: 34px;
+    color: white;
+    text-shadow: 1px 1px #42677c;
+  }
+  &__placeholder {
+    font-size: 30px;
+    color: #42677c;
+  }
+  &__hand {
+    position: absolute;
+    top: 2px;
+    z-index: 2;
+    font-size: 10px;
+    color: #aaa;
+    text-shadow: 1px 1px #000;
+  }
+  &__hand--R {
+    left: 4px;
+  }
+  &__hand--L {
+    right: 4px;
+  }
+
+  &__actions {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .StripMenu__action {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    pointer-events: auto;
+    --button-background-disabled: rgba(0, 0, 0, 0.7);
+    .Icon {
+      margin: 0;
+    }
+    &:hover:not(.Button--disabled) {
+      background: #56788c;
+    }
+    &--0 {
+      bottom: 0;
+      left: 0;
+    }
+    &--1 {
+      bottom: 0;
+      right: 0;
+    }
+    &--2 {
+      top: 0;
+      left: 0;
+    }
+    &--3 {
+      top: 0;
+      right: 0;
+    }
+  }
+  &__actions--many {
+    display: grid;
+    grid-template-columns: repeat(3, 20px);
+    align-content: end;
+    gap: 2px;
+    overflow-y: auto;
+    pointer-events: auto;
+    .StripMenu__action {
+      position: static;
+    }
+  }
+  .StripMenu__utility {
+    font-size: 24px;
+    .Icon {
+      margin: 0;
+    }
+  }
+  &__status {
+    margin-top: 6px;
+    font-size: 11px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
