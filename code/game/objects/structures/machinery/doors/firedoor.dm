@@ -530,7 +530,12 @@
 	icon_state = "door_closed"
 	density = TRUE
 	opacity = TRUE
+	layer = ABOVE_DOOR_LAYER
 
+/obj/structure/machinery/door/firedoor/noid/closed/broken
+	icon_state = "door_construction"
+	opacity = FALSE
+x
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
 /*/obj/structure/machinery/door/firedoor/border_only

@@ -74,7 +74,8 @@ SUBSYSTEM_DEF(odyssey)
 			log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR!")))
 			return FALSE
 
-		scenario = pickweight(possible_scenarios)
+		// scenario = pickweight(possible_scenarios)
+		scenario = GET_SINGLETON(/singleton/scenario/crash_site)
 
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
@@ -98,12 +99,13 @@ SUBSYSTEM_DEF(odyssey)
 		ody_gamemode.required_enemies = scenario.min_actor_amount
 
 		//Setting the scenario_canonicity_type variable for use here in UI info and chat notices.
-		if(!length(scenario.possible_scenario_canonicity_types))
-			scenario.scenario_canonicity_type = /singleton/canonicity/limited
-		else if(SSatlas.current_sector in ALL_EVENT_ONLY_SECTORS) // If we are in an exclusive event area for an arc (EG. The Horizon finds itself isolated and alone), we may not want canon odysseys spawning.
-			scenario.scenario_canonicity_type = /singleton/canonicity/limited // Noncanon odysseys are fine though!
-		else
-			scenario.scenario_canonicity_type = pick(scenario.possible_scenario_canonicity_types)
+		// if(!length(scenario.possible_scenario_canonicity_types))
+		// 	scenario.scenario_canonicity_type = /singleton/canonicity/limited
+		// else if(SSatlas.current_sector in ALL_EVENT_ONLY_SECTORS) // If we are in an exclusive event area for an arc (EG. The Horizon finds itself isolated and alone), we may not want canon odysseys spawning.
+		// 	scenario.scenario_canonicity_type = /singleton/canonicity/limited // Noncanon odysseys are fine though!
+		// else
+		// 	scenario.scenario_canonicity_type = pick(scenario.possible_scenario_canonicity_types)
+		scenario.scenario_canonicity_type = /singleton/canonicity/canon_event
 
 	site_landing_restricted = scenario.site_landing_restricted
 
