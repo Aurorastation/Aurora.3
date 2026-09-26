@@ -28,10 +28,12 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
+	var/obj/effect/overmap/visitable/V
 	var/sector_z = get_sector_z()
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
-	if(!istype(V) || !V.comms_support)
-		return INITIALIZE_HINT_NORMAL
+	if(sector_z)
+		V = get_map_sector(sector_z)
+		if(!istype(V) || !V.comms_support)
+			return INITIALIZE_HINT_NORMAL
 
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
