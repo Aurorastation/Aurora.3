@@ -119,6 +119,7 @@
 /obj/outfit/job/hydro
 	name = "Gardener"
 	jobtype = /datum/job/hydro
+	notification_ringer_types = list(/obj/structure/machinery/ringer/east/hydroponics, /obj/structure/machinery/ringer/west/hydroponics)
 
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	head = /obj/item/clothing/head/bandana/hydro/nt
@@ -171,6 +172,11 @@
 /obj/outfit/job/janitor
 	name = "Janitor"
 	jobtype = /datum/job/janitor
+	notification_ringer_types = list(
+		/obj/structure/machinery/ringer/west/custodial,
+		/obj/structure/machinery/ringer/south/custodial,
+		/obj/structure/machinery/ringer/west/custodial_auxiliary
+	)
 
 	uniform = /obj/item/clothing/under/rank/janitor
 	head = /obj/item/clothing/head/softcap/nt/custodian
@@ -361,6 +367,7 @@
 /obj/outfit/job/operations_manager
 	name = "Operations Manager"
 	jobtype = /datum/job/operations_manager
+	notification_ringer_types = list(/obj/structure/machinery/ringer/east/operations_office)
 
 	uniform = /obj/item/clothing/under/rank/operations_manager
 	shoes = /obj/item/clothing/shoes/sneakers/brown
@@ -410,6 +417,7 @@
 /obj/outfit/job/hangar_tech
 	name = "Hangar Technician"
 	jobtype = /datum/job/hangar_tech
+	notification_ringer_types = list(/obj/structure/machinery/ringer/east/operations_office)
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician
 	id = /obj/item/card/id/silver
@@ -525,6 +533,7 @@
 /obj/outfit/job/machinist
 	name = "Machinist"
 	jobtype = /datum/job/machinist
+	notification_ringer_types = list(/obj/structure/machinery/ringer/east/machinist)
 
 	uniform = /obj/item/clothing/under/rank/machinist
 	suit = /obj/item/clothing/suit/storage/machinist
