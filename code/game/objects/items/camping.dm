@@ -135,8 +135,13 @@
 	register_occupancy_signals()
 	var/list/roofs = list()
 	var/list/canvas_visuals = list()
+	var/list/floors = list()
 	for(var/obj/structure/component/tent_canvas/C in grouped_structures)
 		var/turf/canvas_turf = get_turf(C)
+		var/obj/structure/component/tent_floor/floor_visual = new(canvas_turf)
+		floor_visual.part_of = src
+		floor_visual.color = get_floor_color()
+		floors += floor_visual
 
 		// The canvas object is structural only. Its appearance and direction must not
 		// influence the fixed-perspective wall artwork.
@@ -216,16 +221,28 @@
 			add_canvas_visual(canvas_turf, canvas_visuals, roof.plane, entrance_state, entrance_dir, TRUE)
 
 		roof.update_emissive_blocker()
-		if(entrance_filter && roof.emissive_overlay)
-			roof.emissive_overlay.filters += filter(arglist(entrance_filter))
+		var/mutable_appearance/roof_emissive_blocker = roof.emissive_overlay
+		if(entrance_filter && roof_emissive_blocker)
+			roof_emissive_blocker.filters += filter(arglist(entrance_filter))
 
 	grouped_structures += roofs
 	grouped_structures += canvas_visuals
+	grouped_structures += floors
 	for(var/obj/structure/component/tent_canvas_visual/visual in canvas_visuals)
 		visual.update_emissive_blocker()
 
 	for(var/turf/target in target_turfs)
 		target.update_weather()
+
+/// Returns the tent color with slightly reduced saturation for the groundsheet.
+/datum/large_structure/tent/proc/get_floor_color()
+	if(!istext(color))
+		return color
+	var/list/floor_hsv = ReadHSV(RGBtoHSV(color))
+	if(!floor_hsv)
+		return color
+	var/alpha = floor_hsv.len > 3 ? floor_hsv[4] : null
+	return HSVtoRGB(hsv(floor_hsv[1], round(floor_hsv[2] * 0.8), floor_hsv[3], alpha))
 
 /**
  * Registers the signals used to make the roof transparent while occupied.
@@ -498,7 +515,7 @@
 	var/mob/M = entering
 	var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
 	if(roof_plane)
-		roof_plane.alpha = 76
+		roof_plane.alpha = 0
 
 /datum/large_structure/tent/mob_moved(mob/mover, turf/exit_point)
 	. = ..()
@@ -513,7 +530,7 @@
 				if(istype(canvas.part_of, /datum/large_structure/tent))
 					inside_another_tent = TRUE
 					break
-			roof_plane.alpha = inside_another_tent ? 76 : 255
+			roof_plane.alpha = inside_another_tent ? 0 : 255
 
 /**
  * Determines the state to use for each section of the tent
@@ -740,6 +757,34 @@
 /obj/structure/component/tent_canvas/roof/CheckExit(atom/movable/O, turf/target)
 	return TRUE
 
+/// A non-interactive groundsheet. The underlying turf remains the target of all clicks.
+/obj/structure/component/tent_floor
+	name = "tent floor"
+	desc = "A simple groundsheet laid beneath a tent."
+	icon = 'icons/obj/item/camping.dmi'
+	icon_state = "tent_floor"
+	anchored = TRUE
+	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = TURF_DETAIL_LAYER
+	blocks_emissive = EMISSIVE_BLOCK_NONE
+
+/obj/structure/component/tent_floor/Initialize(mapload)
+	. = ..()
+	// Cables laid before the tent was deployed should also appear above its floor.
+	for(var/obj/structure/cable/cable in loc)
+		if(cable.level == 1)
+			cable.hide(FALSE)
+
+/obj/structure/component/tent_floor/Destroy()
+	var/turf/former_turf = get_turf(src)
+	. = ..()
+	if(former_turf)
+		for(var/obj/structure/cable/cable in former_turf)
+			if(cable.level == 1 && !former_turf.is_hole)
+				cable.hide(!former_turf.is_plating())
+	return .
+
 /// A standalone wall, corner, or entrance appearance. Keeping these separate from
 /// the directional roof and canvas atoms makes their perspective world-relative.
 /obj/structure/component/tent_canvas_visual
@@ -771,6 +816,10 @@
 	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
 		return
 	part_of.disassemble(user)
+
+/// Returns whether this turf is covered by a deployed tent groundsheet.
+/turf/proc/has_tent_floor()
+	return locate(/obj/structure/component/tent_floor) in src
 
 //Pre-fabricated tents for mapping
 /obj/effect/tent
