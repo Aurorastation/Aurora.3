@@ -36,9 +36,10 @@
 	return ..()
 
 /mob/abstract/eye/Move(n, direct)
-	if(owner == src)
-		return EyeMove(n, direct)
-	return 0
+	if(owner != src)
+		return FALSE
+
+	EyeMove(n, direct)
 
 /mob/abstract/eye/can_ztravel(var/direction)
 	return TRUE
