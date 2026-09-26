@@ -327,3 +327,13 @@
 2026-09-25:
   TheGreyWolf:
   - bugfix: Fixed the consular bodyguard and aide slots.
+2026-09-26:
+  FabianK3:
+  - bugfix: Fixed database incompatiblity issue with persistence cleanup procedures.
+  - bugfix: Fixed SQL query error related to pAI save parameters.
+  kano:
+  - rscadd: Added first-aid medkits, eftpos terminals, cleaning supplies to some areas
+      of Nikal Sahira.
+  kermit:
+  - rscadd: Adds all Zo'rane vaurca origins to The Big Biesel Origins list (only used
+      by the RoB Civil Service Bodyguard rn).
