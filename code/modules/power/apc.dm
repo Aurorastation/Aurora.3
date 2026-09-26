@@ -1414,7 +1414,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 // overload the lights in this APC area
 
-/obj/structure/machinery/power/apc/proc/overload_lighting(var/chance = 100, var/force = FALSE)
+/obj/structure/machinery/power/apc/proc/overload_lighting(var/chance = 100, var/force = FALSE, var/z_level = 0)
 	set waitfor = 0
 	if((!operating || shorted) && !force)
 		return
@@ -1423,7 +1423,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 		cell.use(20)	// Draining an empty cell is fine.
 
 		for (var/obj/structure/machinery/light/L in area)
-			if (prob(chance))
+			if ((!z_level || L.z == z_level) && prob(chance))
 				L.stat &= ~POWEROFF
 				L.broken()
 				spark(L, 5, GLOB.alldirs)

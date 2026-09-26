@@ -64,7 +64,7 @@
 	else
 		for(var/obj/structure/machinery/power/apc/apc in SSmachinery.processing)
 			if(!z_level || apc.z == z_level)
-				apc.overload_lighting()
+				apc.overload_lighting(100, FALSE, z_level)
 
 	return
 
