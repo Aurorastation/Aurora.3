@@ -198,7 +198,9 @@ SUBSYSTEM_DEF(jobs)
 	//Get the players who are ready
 	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player.ready && player.mind && !player.mind.assigned_role)
-			unassigned += player
+			var/datum/job/high_job = astype(player.client.prefs.return_chosen_high_job(), /datum/job)
+			if(high_job.name in player.client.prefs.job_pity)
+				unassigned[player] = player.client.prefs.job_pity[high_job.name]
 
 	Debug("DO, Len: [unassigned.len]")
 	if(unassigned.len == 0)
@@ -268,6 +270,7 @@ SUBSYSTEM_DEF(jobs)
 
 	// For those who wanted to be assistant if their preferences were filled, here you go.
 	for(var/mob/abstract/new_player/player in unassigned)
+		player.client.prefs.job_pity |= astype(player.client.prefs.return_chosen_high_job(), /datum/job).name
 		if(player.client.prefs.alternate_option == BE_ASSISTANT)
 			Debug("AC2 Assistant located, Player: [player]")
 			AssignRole(player, "Assistant")
