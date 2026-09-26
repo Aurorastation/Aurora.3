@@ -72,6 +72,9 @@
 	random_itemcount = FALSE
 	light_color = COLOR_BABY_BLUE
 
+/obj/structure/machinery/vending/battlemonsters/free
+	prices = list()
+
 /obj/item/vending_refill/battlemonsters
 	name = "Battlemonsters resupply canister"
 	vend_id = "battlemonsters"

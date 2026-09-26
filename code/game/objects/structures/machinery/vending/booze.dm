@@ -198,3 +198,6 @@
 
 /obj/structure/machinery/vending/boozeomat/bar
 	layer = BELOW_TABLE_LAYER
+
+/obj/structure/machinery/vending/boozeomat/noid
+	req_access = list()
