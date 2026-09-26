@@ -279,6 +279,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(GLOB.config.sql_saves && !client.prefs.current_character)
 		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
+	if(SSticker.mode && !SSticker.mode.can_spawn_character(src, TRUE))
+		return 0
 	if(!IsJobAvailable(rank))
 		to_chat(usr, SPAN_NOTICE("[rank] is not available. Please try another."))
 		return 0
