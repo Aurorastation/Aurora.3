@@ -803,6 +803,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/stethoscope
+	category = "medical"
+	name = "stethoscope"
+	supplier = "zeng_hu"
+	description = "A medical instrument used to listen to a patient's heartbeat and breathing."
+	price = 25
+	items = list(
+		/obj/item/clothing/accessory/stethoscope
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/organcooler/mind_blanker
 	name = "mind blanker cooler"
 	description = "An organ cooler containing a single Zeng-Hu Mind Blanker. Their cost has been subsidized by ZH for Operation Deep Dive."
