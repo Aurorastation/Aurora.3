@@ -151,13 +151,6 @@
 	icon_state = "tcaf_pilot"
 	item_state = "tcaf_pilot"
 
-/obj/item/clothing/head/helmet/pilot/legion
-	name = "foreign legion flight helmet"
-	desc = "A helmet clearly belonging to a TCFL pilot, it has aged pilot visor attached to it. The visor feeds its wearer in-flight information via an integrated heads-up display."
-	icon_state = "legion_pilot"
-	item_state = "legion_pilot"
-	camera = /obj/structure/machinery/camera/network/tcaf
-
 /obj/item/clothing/head/helmet/pilot/himeo
 	name = "himean naval flight helmet"
 	desc = "A helmet with a pilots visor attached, painted in the drab tan colours of the Himean navy uniform. The visor feeds its wearer in-flight information via an integrated heads-up display."
