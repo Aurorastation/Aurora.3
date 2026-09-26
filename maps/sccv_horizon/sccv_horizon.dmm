@@ -127325,6 +127325,9 @@
 	pixel_x = 2
 	},
 /obj/structure/table/wood/gamblingtable,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
 "qyA" = (
