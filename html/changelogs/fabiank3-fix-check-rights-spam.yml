@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed check rights spam issue in the server configuration menu for developers."
