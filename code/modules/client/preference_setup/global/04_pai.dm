@@ -38,9 +38,9 @@
 
 /datum/category_item/player_setup_item/player_global/pai/gather_save_parameters()
 	if (!candidate)
-		return list()
+		candidate = new()
 
-	return list("ckey" = PREF_CLIENT_CKEY, "name" = candidate.name, "description" = candidate.description, "role" = candidate.role, "comments" = candidate.comments)
+	return list("ckey" = PREF_CLIENT_CKEY, "name" = isnull(candidate.name) ? "" : candidate.name, "description" = isnull(candidate.description) ? "" : candidate.description, "role" = isnull(candidate.role) ? "" : candidate.role, "comments" = isnull(candidate.comments) ? "" : candidate.comments)
 
 /datum/category_item/player_setup_item/player_global/pai/sanitize_preferences(var/sql_load = 0)
 	if (sql_load && candidate && pref.pai.len)

@@ -233,7 +233,9 @@
 	/singleton/origin_item/origin/valkyrie, /singleton/origin_item/origin/biesel_grown, /singleton/origin_item/origin/diona_district_11,\
 	/singleton/origin_item/origin/titan_prime, /singleton/origin_item/origin/biesel_wildborn, /singleton/origin_item/origin/ipc_tau_ceti,\
 	/singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/little_adhomai, /singleton/origin_item/origin/little_adhomai/zhan,\
-	/singleton/origin_item/origin/little_adhomai/msai)
+	/singleton/origin_item/origin/little_adhomai/msai, /singleton/origin_item/origin/zoleth, /singleton/origin_item/origin/scay,\
+	/singleton/origin_item/origin/vaur, /singleton/origin_item/origin/xakt, /singleton/origin_item/origin/athvur,\
+	/singleton/origin_item/origin/queenless_zora)
 
 #define RELIGIONS_COALITION list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)
 #define RELIGIONS_COALITION_ALL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_MOROZ)
