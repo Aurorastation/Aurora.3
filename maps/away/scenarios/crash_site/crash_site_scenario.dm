@@ -30,4 +30,4 @@
 	Landing sites have been registered and cleared. \
 	You may now depart to the planet."
 
-	offship_announcement_message = "..."
+	offship_announcement_message = "An unidentified crash site has been located nearby. The coordinates have been registered on the flight deck."
