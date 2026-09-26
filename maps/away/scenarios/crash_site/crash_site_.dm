@@ -11,7 +11,7 @@
 
 	exoplanet_theme_base = /datum/exoplanet_theme/snow/adhomai
 	exoplanet_themes = list(
-		/turf/unsimulated/marker/khaki = /datum/exoplanet_theme/snow/adhomai,
+		/turf/unsimulated/marker/khaki = /datum/exoplanet_theme/snow/adhomai/no_mountain,
 		/turf/unsimulated/marker/red   = /datum/exoplanet_theme/snow/adhomai/mountain,
 	)
 	exoplanet_atmospheres = list(/datum/gas_mixture/earth_cold)
