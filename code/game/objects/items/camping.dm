@@ -30,6 +30,8 @@
 	var/list/roof_markers
 	/// The turf represented by the first row and horizontal centre of the footprint.
 	var/turf/deployment_origin
+	/// Whether the authored footprint is reflected across its forward axis.
+	var/mirrored = FALSE
 	/**
 	 * The state name of an overlay in `icons/obj/item/tent_decals.dmi`
 	 * Used for branded tents, such as the SCC base camp tent
@@ -74,6 +76,8 @@
 				continue
 			var/forward_offset = row_number - 1
 			var/side_offset = column_number - 1 - left_offset
+			if(mirrored)
+				side_offset *= -1
 			var/turf/target = locate(
 				deployment_origin.x + forward_x * forward_offset + right_x * side_offset,
 				deployment_origin.y + forward_y * forward_offset + right_y * side_offset,
@@ -82,12 +86,23 @@
 			if(!istype(target))
 				target_turfs.Cut()
 				entrance_dirs.Cut()
+				roof_markers.Cut()
 				if(!force)
 					to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
 				return FALSE
 			target_turfs += target
 			if(roof_row && column_number <= length(roof_row))
 				var/roof_marker = copytext(roof_row, column_number, column_number + 1)
+				if(mirrored)
+					switch(roof_marker)
+						if("L")
+							roof_marker = "R"
+						if("R")
+							roof_marker = "L"
+						if("l")
+							roof_marker = "r"
+						if("r")
+							roof_marker = "l"
 				if(roof_marker in list("L", "M", "R", "l", "r"))
 					roof_markers[target] = roof_marker
 			switch(marker)
@@ -96,9 +111,23 @@
 				if("v")
 					entrance_dirs[target] = dir
 				if("<")
-					entrance_dirs[target] = turn(dir, 90)
+					entrance_dirs[target] = turn(dir, mirrored ? -90 : 90)
 				if(">")
-					entrance_dirs[target] = turn(dir, -90)
+					entrance_dirs[target] = turn(dir, mirrored ? 90 : -90)
+
+	// Even-width footprints shift to the opposite side of their anchor when
+	// mirrored, so derive the bounds from the transformed tiles themselves.
+	if(LAZYLEN(target_turfs))
+		var/turf/first_target = target_turfs[1]
+		x1 = first_target.x
+		x2 = first_target.x
+		y1 = first_target.y
+		y2 = first_target.y
+		for(var/turf/target in target_turfs)
+			x1 = min(x1, target.x)
+			x2 = max(x2, target.x)
+			y1 = min(y1, target.y)
+			y2 = max(y2, target.y)
 	return TRUE
 
 /datum/large_structure/tent/build_structures()
@@ -388,32 +417,42 @@
 	if(!preview_client)
 		return check_placement_clear(user)
 
-	var/list/preview_images = list()
-	for(var/turf/target in target_turfs)
-		var/icon_state
-		if(get_placement_obstruction(target))
-			icon_state = "invalid"
-		else
-			icon_state = target == deployment_origin ? "selected" : "valid"
-		var/image/preview = image('icons/effects/blueprints.dmi', target, icon_state)
-		preview.plane = HUD_PLANE
-		preview.appearance_flags = NO_CLIENT_COLOR
-		preview_images += preview
-		var/entrance_dir = get_tent_entrance_direction(target)
-		if(entrance_dir)
-			var/image/entrance_preview = image('icons/effects/blueprints.dmi', target, "entrance")
-			entrance_preview.dir = entrance_dir
-			entrance_preview.plane = HUD_PLANE
-			entrance_preview.layer = preview.layer + 0.1
-			entrance_preview.appearance_flags = NO_CLIENT_COLOR
-			preview_images += entrance_preview
+	while(TRUE)
+		var/list/preview_images = list()
+		for(var/turf/target in target_turfs)
+			var/icon_state
+			if(get_placement_obstruction(target))
+				icon_state = "invalid"
+			else
+				icon_state = target == deployment_origin ? "selected" : "valid"
+			var/image/preview = image('icons/effects/blueprints.dmi', target, icon_state)
+			preview.plane = HUD_PLANE
+			preview.appearance_flags = NO_CLIENT_COLOR
+			preview_images += preview
+			var/entrance_dir = get_tent_entrance_direction(target)
+			if(entrance_dir)
+				var/image/entrance_preview = image('icons/effects/blueprints.dmi', target, "entrance")
+				entrance_preview.dir = entrance_dir
+				entrance_preview.plane = HUD_PLANE
+				entrance_preview.layer = preview.layer + 0.1
+				entrance_preview.appearance_flags = NO_CLIENT_COLOR
+				preview_images += entrance_preview
 
-	preview_client.images += preview_images
-	var/choice = tgui_alert(user, "The highlighted tiles show the tent's footprint. The blue tile is the deployment anchor, red tiles have something in the way, and yellow arrows show every entrance and its direction.", "Confirm Tent Placement", list("Assemble", "Cancel"))
-	preview_client.images -= preview_images
-	if(choice != "Assemble")
-		return FALSE
-	return check_placement_clear(user)
+		preview_client.images += preview_images
+		var/layout_name = mirrored ? "mirrored" : "original"
+		var/choice = tgui_alert(user, "The highlighted tiles show the [layout_name] tent footprint. The blue tile is the deployment anchor, red tiles have something in the way, and yellow arrows show every entrance and its direction.", "Confirm Tent Placement", list("Assemble", "Mirror", "Cancel"))
+		preview_client.images -= preview_images
+
+		if(choice == "Mirror")
+			mirrored = !mirrored
+			if(!get_target_turfs(user))
+				// Keep the usable orientation if its reflection would leave the map.
+				mirrored = !mirrored
+				get_target_turfs(user, TRUE)
+			continue
+		if(choice != "Assemble")
+			return FALSE
+		return check_placement_clear(user)
 
 /** Returns the first solid turf or object preventing a tent component from occupying `target`. */
 /datum/large_structure/tent/proc/get_placement_obstruction(var/turf/target)
@@ -532,7 +571,7 @@
 	. += ..()
 	. += "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 	. += "Each assembly stage takes approximately [DisplayTimeText(assembly_time_per_stage)]."
-	. += "A footprint preview will be shown before assembly begins, allowing you to confirm its position and orientation."
+	. += "A footprint preview will be shown before assembly begins, allowing you to confirm its position, orientation, or mirror the layout."
 
 /obj/item/tent/Initialize()
 	. = ..()
