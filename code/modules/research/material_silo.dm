@@ -5,6 +5,7 @@
 
 	idle_power_usage = 30 WATTS
 	component_types = list(
+		/obj/item/circuitboard/material_silo,
 		/obj/item/stock_parts/matter_bin = 3
 	)
 
