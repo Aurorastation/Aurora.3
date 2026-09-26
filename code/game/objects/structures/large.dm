@@ -147,7 +147,12 @@
 	if(get_next_stage(STAGE_PROGRESS)) //Still work being done
 		return
 
-	QDEL_LIST(grouped_structures)
+	var/list/structures_to_delete = grouped_structures.Copy()
+	grouped_structures.Cut()
+	for(var/obj/structure/component/component in structures_to_delete)
+		component.part_of = null
+		qdel(component)
+	structures_to_delete.Cut()
 
 	var/obj/item/I = new source_item_type(get_turf(user))
 	I.color = color
@@ -170,6 +175,8 @@
 	var/datum/large_structure/part_of
 
 /obj/structure/component/Destroy()
-	if(part_of)
-		part_of.grouped_structures -= src
+	var/datum/large_structure/owner = part_of
+	part_of = null
+	if(owner)
+		owner.grouped_structures -= src
 	return ..()
