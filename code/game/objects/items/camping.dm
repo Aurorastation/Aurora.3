@@ -309,7 +309,29 @@
 	else if(connects_right)
 		wall_state = "canvas_wall_edge_right"
 
-	add_canvas_visual(origin, canvas_visuals, target_plane, wall_state, wall_dir, clickable = TRUE)
+	var/is_roof_visual = target_plane == ROOF_PLANE
+	var/obj/structure/component/tent_canvas_visual/wall_visual = add_canvas_visual(origin, canvas_visuals, target_plane, wall_state, wall_dir, clickable = !is_roof_visual)
+	if(!is_roof_visual && (wall_dir & (EAST | WEST)))
+		wall_visual.icon = get_thin_side_wall_icon(wall_state, wall_dir)
+		// icon() flattens the selected frame into the default SOUTH state.
+		wall_visual.icon_state = ""
+		wall_visual.dir = SOUTH
+
+/// Returns a cached copy of a side-wall frame with its inward six pixels removed.
+/// Using the wall pixels themselves avoids client-side alpha-mask inconsistencies.
+/datum/large_structure/tent/proc/get_thin_side_wall_icon(var/wall_state, var/wall_dir)
+	var/static/list/thin_side_wall_icons = list()
+	var/cache_key = "[wall_state]-[wall_dir]"
+	if(thin_side_wall_icons[cache_key])
+		return thin_side_wall_icons[cache_key]
+
+	var/icon/thin_wall = icon('icons/obj/item/camping.dmi', wall_state, wall_dir)
+	if(wall_dir == WEST)
+		thin_wall.DrawBox(null, 8, 1, world.icon_size, world.icon_size)
+	else
+		thin_wall.DrawBox(null, 1, 1, world.icon_size - 7, world.icon_size)
+	thin_side_wall_icons[cache_key] = thin_wall
+	return thin_wall
 
 /// Creates one independent, world-directed canvas appearance.
 /datum/large_structure/tent/proc/add_canvas_visual(var/turf/origin, var/list/canvas_visuals, var/target_plane, var/icon_state, var/visual_dir, var/render_above = FALSE, var/clickable = FALSE)
@@ -324,6 +346,7 @@
 	if(render_above)
 		visual.layer += 0.01
 	canvas_visuals += visual
+	return visual
 
 /**
  * Adds the seams for concave corners where an annex or vestibule meets the main tent.
@@ -338,7 +361,23 @@
 
 			var/source_left_dir = turn(edge_dir, -90)
 			var/corner_state = side_dir == source_left_dir ? "canvas_wall_inner_corner_left" : "canvas_wall_inner_corner_right"
-			add_canvas_visual(origin, canvas_visuals, target_plane, corner_state, edge_dir)
+			var/obj/structure/component/tent_canvas_visual/corner_visual = add_canvas_visual(origin, canvas_visuals, target_plane, corner_state, edge_dir)
+			if(target_plane != ROOF_PLANE)
+				corner_visual.icon = get_thin_inner_corner_icon(corner_state, edge_dir)
+				corner_visual.icon_state = ""
+				corner_visual.dir = SOUTH
+
+/// Returns an inner-corner frame with the six-pixel-deep portion of its side wall removed.
+/datum/large_structure/tent/proc/get_thin_inner_corner_icon(var/corner_state, var/edge_dir)
+	var/static/list/thin_inner_corner_icons = list()
+	var/cache_key = "[corner_state]-[edge_dir]"
+	if(thin_inner_corner_icons[cache_key])
+		return thin_inner_corner_icons[cache_key]
+
+	var/icon/thin_corner = icon('icons/obj/item/camping.dmi', corner_state, edge_dir)
+	thin_corner.DrawBox(null, 8, 1, world.icon_size - 7, world.icon_size)
+	thin_inner_corner_icons[cache_key] = thin_corner
+	return thin_corner
 
 /**
  * Shows `user` a client-only preview of the tent's occupied tiles and asks them to confirm its placement.
@@ -601,8 +640,16 @@
 /obj/structure/component/tent_canvas/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
+	. += "You can also alt-click a wall while on grab intent to begin disassembly."
 	if(part_of)
 		. += "Each disassembly stage takes approximately [DisplayTimeText(part_of.disassembly_time_per_stage)]."
+
+/obj/structure/component/tent_canvas/AltClick(mob/user)
+	if(user.a_intent != I_GRAB)
+		return ..()
+	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
+		return
+	part_of.disassemble(user)
 
 /obj/structure/component/tent_canvas/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
@@ -661,8 +708,16 @@
 /obj/structure/component/tent_canvas_visual/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging another wall to themselves."
+	. += "You can also alt-click a wall while on grab intent to begin disassembly."
 	if(part_of)
 		. += "Each disassembly stage takes approximately [DisplayTimeText(part_of.disassembly_time_per_stage)]."
+
+/obj/structure/component/tent_canvas_visual/AltClick(mob/user)
+	if(user.a_intent != I_GRAB)
+		return ..()
+	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
+		return
+	part_of.disassemble(user)
 
 /obj/structure/component/tent_canvas_visual/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
