@@ -6,10 +6,6 @@
  * Processing uses Aurora's normal and fast mob AI subsystems.
  */
 /datum/ai_holder
-	/// Optional mode owner which can direct idle movement.
-	var/datum/game_mode/mode_ai_owner
-	/// Requests priority handling when the mode provides an idle destination.
-	var/mode_ai_high_priority = FALSE
 	var/mob/living/holder
 	var/stance = AI_STANCE_IDLE
 	var/intelligence_level = AI_INTELLIGENCE_NORMAL
@@ -46,8 +42,6 @@
 	var/can_breakthrough = TRUE
 	var/violent_breakthrough = TRUE
 	var/can_demolish = FALSE
-	/// Instantly removes blocking airlocks, windoors, and railings before normal obstacle handling.
-	var/instant_door_destruction = FALSE
 	var/failed_breakthroughs = 0
 
 	// Movement.
@@ -240,8 +234,6 @@
 		if(AI_STANCE_IDLE)
 			handle_idle_speaking()
 			if(hostile && find_target())
-				return
-			if(move_to_mode_destination())
 				return
 			if(should_go_home())
 				go_home()
@@ -492,10 +484,6 @@
 	if(should_flee())
 		set_stance(AI_STANCE_FLEE)
 		return
-	if(instant_door_destruction && world.time >= next_movement && destroy_blocking_door(get_dir(holder, target)))
-		next_movement = world.time + holder.AIMovementDelay()
-		forget_path()
-		return
 
 	holder.face_atom(target)
 	if(holder.AICheckSpecialAttack(target))
@@ -573,14 +561,6 @@
 	set_stance(combat ? AI_STANCE_REPOSITION : AI_STANCE_MOVE)
 	return TRUE
 
-/datum/ai_holder/proc/move_to_mode_destination()
-	if(!mode_ai_owner || !holder || stance != AI_STANCE_IDLE)
-		return FALSE
-	var/turf/new_destination = mode_ai_owner.get_ai_idle_destination(holder, mode_ai_high_priority)
-	if(!new_destination)
-		return FALSE
-	return give_destination(new_destination, 0)
-
 /datum/ai_holder/proc/walk_to_destination()
 	if(!destination)
 		set_stance(stance == AI_STANCE_REPOSITION ? AI_STANCE_APPROACH : AI_STANCE_IDLE)
@@ -610,10 +590,6 @@
 
 	if(!next_step)
 		return AI_MOVEMENT_FAILED
-	if(instant_door_destruction && destroy_blocking_door(get_dir(holder, next_step)))
-		next_movement = world.time + holder.AIMovementDelay()
-		forget_path()
-		return AI_MOVEMENT_ON_COOLDOWN
 
 	var/result = holder.AIMove(next_step)
 	if(result == AI_MOVEMENT_SUCCESS)
@@ -625,7 +601,7 @@
 
 	if(result == AI_MOVEMENT_FAILED)
 		failed_steps++
-		if(can_breakthrough || instant_door_destruction)
+		if(can_breakthrough)
 			if(!breakthrough(next_step))
 				failed_breakthroughs++
 			else
@@ -654,8 +630,7 @@
 	if(!goal)
 		return
 	var/turf/start_turf = get_turf(holder)
-	var/adjacent_proc = instant_door_destruction ? /turf/proc/CardinalTurfsWithDestructibleBarriers : /turf/proc/CardinalTurfsWithAccess
-	var/list/new_path = AStar(start_turf, goal, adjacent_proc, /turf/proc/Distance, max_nodes = 100, max_node_depth = max_distance, min_target_dist = get_to, id = holder.AIGetID(), exclude = obstacles)
+	var/list/new_path = AStar(start_turf, goal, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, max_nodes = 100, max_node_depth = max_distance, min_target_dist = get_to, id = holder.AIGetID(), exclude = obstacles)
 	// Legacy AStar includes the starting turf, while walk_path expects its first
 	// entry to be the next turf to enter.
 	if(length(new_path) && new_path[1] == start_turf)

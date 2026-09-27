@@ -154,9 +154,6 @@
 		reset_view(null)
 
 /mob/living/proc/handle_hearing()
-	if(HAS_TRAIT(src, TRAIT_DEAFNESS_IMMUNITY))
-		ear_deaf = 0
-		return
 	// deafness heals slowly over time, unless ear_damage is over HEARING_DAMAGE_LIMIT
 	if(ear_damage < HEARING_DAMAGE_LIMIT)
 		adjustEarDamage(-0.05, -1)
