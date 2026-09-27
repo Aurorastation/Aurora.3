@@ -544,7 +544,8 @@
 	return TRUE
 
 /datum/large_structure/tent/mob_moved(atom/movable/mover, turf/exit_point)
-	var/still_inside = get_turf(mover) in target_turfs
+	var/turf/mover_turf = get_turf(mover)
+	var/still_inside = (mover_turf in target_turfs)
 	if(!still_inside)
 		UnregisterSignal(mover, COMSIG_MOVABLE_MOVED)
 	update_roof_viewers(mover)
