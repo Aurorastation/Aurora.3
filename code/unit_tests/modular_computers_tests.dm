@@ -77,3 +77,47 @@ ABSTRACT_TYPE(/datum/unit_test/modular_computers)
 		TEST_PASS("All modular computers supports all the programs referenced in their _app_preset_type.")
 
 	return test_result
+
+/datum/unit_test/modular_computers/departmental_ringers
+	name = "MOD COMP: Job ringer registry survives rotation and deletion"
+	groups = list("generic", "departmental ringers")
+
+/datum/unit_test/modular_computers/departmental_ringers/start_test()
+	. = UNIT_TEST_PASSED
+	var/obj/structure/machinery/ringer/north/medical/medical = new(locate(1, 1, 1))
+	var/obj/structure/machinery/ringer/south/pharmacy/pharmacy = new(locate(1, 1, 1))
+	var/obj/item/modular_computer/medical_pda = new()
+	var/obj/item/modular_computer/pharmacy_pda = new()
+	var/obj/item/modular_computer/unrelated_pda = new()
+	var/datum/weakref/medical_ref = WEAKREF(medical)
+	if(!(medical_ref in GLOB.ringers_by_job["Physician"]))
+		. = TEST_FAIL("Medical ringer did not register a weak reference for its jobs.")
+
+	medical.set_dir(WEST)
+	medical_pda.connect_departmental_ringers("Resident Physician")
+	medical_pda.connect_departmental_ringers("Resident Physician")
+	pharmacy_pda.connect_departmental_ringers("Pharmacy Intern")
+	unrelated_pda.connect_departmental_ringers("Paramedic Trainee")
+	if(length(medical.rings_pdas) != 1 || !(medical_pda in medical.rings_pdas))
+		. = TEST_FAIL("A rotated medical ringer did not link its resident exactly once.")
+	if(length(pharmacy.rings_pdas) != 1 || !(pharmacy_pda in pharmacy.rings_pdas))
+		. = TEST_FAIL("Pharmacy interns were not linked exclusively to the pharmacy ringer.")
+
+	qdel(medical_pda)
+	if(length(medical.rings_pdas))
+		. = TEST_FAIL("Deleting an automatically linked PDA did not unlink it.")
+	qdel(medical)
+	if(medical_ref.resolve() || (medical_ref in GLOB.ringers_by_job["Physician"]))
+		. = TEST_FAIL("Deleting a ringer left its reference in the job registry.")
+
+	// A stale entry must also be safe if it survives until the next lookup.
+	LAZYADD(GLOB.ringers_by_job["Unit Test Ringer Job"], medical_ref)
+	unrelated_pda.connect_departmental_ringers("Unit Test Ringer Job")
+	if("Unit Test Ringer Job" in GLOB.ringers_by_job)
+		. = TEST_FAIL("Looking up a deleted ringer did not prune its empty registry entry.")
+	GLOB.ringers_by_job -= "Unit Test Ringer Job"
+	qdel(pharmacy_pda)
+	qdel(unrelated_pda)
+	qdel(pharmacy)
+	if(. == UNIT_TEST_PASSED)
+		return TEST_PASS("Ringers link by job after rotation, preserve intern roles, and clean up deleted devices and weak references.")

@@ -39,7 +39,6 @@
 /obj/outfit/job/chief_engineer
 	name = "Chief Engineer"
 	jobtype = /datum/job/chief_engineer
-	notification_ringer_types = list(/obj/structure/machinery/ringer/north/engineering)
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
@@ -112,7 +111,6 @@
 /obj/outfit/job/engineer
 	name = "Ship Engineer"
 	jobtype = /datum/job/engineer
-	notification_ringer_types = list(/obj/structure/machinery/ringer/north/engineering)
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer
@@ -191,7 +189,6 @@
 /obj/outfit/job/atmos
 	name = "Atmospheric Technician"
 	jobtype = /datum/job/atmos
-	notification_ringer_types = list(/obj/structure/machinery/ringer/north/engineering)
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
@@ -270,7 +267,6 @@
 /obj/outfit/job/intern_eng
 	name = "Engineering Apprentice"
 	jobtype = /datum/job/intern_eng
-	notification_ringer_types = list(/obj/structure/machinery/ringer/north/engineering)
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
@@ -305,7 +301,6 @@
 /obj/outfit/job/intern_atmos
 	name = "Atmospherics Apprentice"
 	jobtype = /datum/job/intern_eng
-	notification_ringer_types = list(/obj/structure/machinery/ringer/north/engineering)
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice

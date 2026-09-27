@@ -31,12 +31,6 @@
 /obj/outfit/job/hos
 	name = "Head of Security"
 	jobtype = /datum/job/hos
-	notification_ringer_types = list(
-		/obj/structure/machinery/ringer/east/security_lobby,
-		/obj/structure/machinery/ringer/east/investigations,
-		/obj/structure/machinery/ringer/west/investigations,
-		/obj/structure/machinery/ringer/south/investigations
-	)
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	head = /obj/item/clothing/head/hos
@@ -102,7 +96,6 @@
 /obj/outfit/job/warden
 	name = "Warden"
 	jobtype = /datum/job/warden
-	notification_ringer_types = list(/obj/structure/machinery/ringer/east/security_lobby)
 
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/storage/toggle/warden
@@ -167,11 +160,6 @@
 /obj/outfit/job/forensics
 	name = "Investigator"
 	jobtype = /datum/job/investigator
-	notification_ringer_types = list(
-		/obj/structure/machinery/ringer/east/investigations,
-		/obj/structure/machinery/ringer/west/investigations,
-		/obj/structure/machinery/ringer/south/investigations
-	)
 
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
@@ -228,7 +216,6 @@
 /obj/outfit/job/officer
 	name = "Security Officer"
 	jobtype = /datum/job/officer
-	notification_ringer_types = list(/obj/structure/machinery/ringer/east/security_lobby)
 
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = null
@@ -322,7 +309,6 @@
 /obj/outfit/job/intern_sec/officer
 	name = "Security Cadet"
 	jobtype = /datum/job/intern_sec
-	notification_ringer_types = list(/obj/structure/machinery/ringer/east/security_lobby)
 
 	shoes = null
 
@@ -341,11 +327,6 @@
 /obj/outfit/job/intern_sec/forensics
 	name = "Investigator Intern"
 	jobtype = /datum/job/intern_sec
-	notification_ringer_types = list(
-		/obj/structure/machinery/ringer/east/investigations,
-		/obj/structure/machinery/ringer/west/investigations,
-		/obj/structure/machinery/ringer/south/investigations
-	)
 
 	shoes = /obj/item/clothing/shoes/laceup
 
