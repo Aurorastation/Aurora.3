@@ -75,6 +75,14 @@
 	name = "black curtain"
 	color = "#222222"
 
+/obj/structure/curtain/gray
+	name = "gray curtain"
+	color = COLOR_GRAY20
+
+/obj/structure/curtain/open/gray
+	name = "gray curtain"
+	color = COLOR_GRAY20
+
 /obj/structure/curtain/medical
 	name = "plastic curtain"
 	color = "#B8F5E3"

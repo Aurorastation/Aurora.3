@@ -1,5 +1,6 @@
 /obj/item/mech_component/chassis
 	name = "body"
+	mass = 250
 	icon_state = "loader_body"
 	gender = NEUTER
 	pixel_y = -8

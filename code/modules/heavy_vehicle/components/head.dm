@@ -1,5 +1,6 @@
 /obj/item/mech_component/sensors
 	name = "head"
+	mass = 80
 	pixel_y = -18
 	center_of_mass = list("x"=24, "y"=34)
 	icon_state = "loader_head"

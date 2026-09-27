@@ -164,7 +164,7 @@
 	icon_state = "winterboots"
 	item_state = "winterboots"
 	cold_protection = FEET|LEGS
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = FEET|LEGS
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 	armor = list(

@@ -37,6 +37,25 @@
 ///From base of mob/update_movespeed():area
 #define COMSIG_MOB_MOVESPEED_UPDATED "mob_update_movespeed"
 
+/// Raised on a human while calculating movement delay: (&movement_tally_modifier)
+#define COMSIG_GET_MOVEMENT_TALLY "get_movement_tally"
+
+/// Raised on a human while calculating their chance to slip: ()
+#define COMSIG_GET_SLIP_MODIFIERS "get_slip_modifiers"
+	/// Prevents the human from slipping.
+	#define COMPONENT_PREVENT_SLIP (1<<0)
+
+/// Raised on a human while checking whether they have magnetic or equivalent anchoring: ()
+#define COMSIG_CHECK_SHOE_GRIP "check_shoe_grip"
+	/// Gives the human shoe-grip-equivalent anchoring.
+	#define COMPONENT_HAS_SHOE_GRIP (1<<0)
+
+/// Raised on a human before stamina is drained: (&stamina_cost)
+#define COMSIG_STAMINA_DRAIN_MODIFIERS "stamina_drain_modifiers"
+
+/// Raised on the owner of Tesla augments when their Tesla spine changes power state: (powered)
+#define COMSIG_TESLA_POWER_CHANGED "tesla_power_changed"
+
 /// For loss of limbs.
 #define COMSIG_LIMB_LOSS "lost_limb"
 

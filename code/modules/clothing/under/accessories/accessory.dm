@@ -375,6 +375,10 @@
 		to_chat(user, SPAN_NOTICE("You retie \the [src] as \an [alt]."))
 	return ..()
 
+/obj/item/clothing/accessory/scarf/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
 	build_from_parts = TRUE
@@ -822,8 +826,8 @@
 	item_state = "neckbrace"
 
 /obj/item/clothing/accessory/tc_pin
-	name = "Tau Ceti pin"
-	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
+	name = "Republic of Biesel pin"
+	desc = "A small Republic of Biesel flag pin."
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"

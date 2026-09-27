@@ -30,7 +30,9 @@
 	)
 
 	comms_support = TRUE
-	comms_name = "dpra asteroid outpost"
+
+/obj/effect/overmap/visitable/sector/saniorios_outpost/create_comms_groups()
+	return list("default" = new /datum/comms_group("dpra asteroid outpost"))
 
 /obj/effect/overmap/visitable/sector/saniorios_outpost/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/planet.dmi', "")
