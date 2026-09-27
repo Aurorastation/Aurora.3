@@ -337,3 +337,16 @@
   kermit:
   - rscadd: Adds all Zo'rane vaurca origins to The Big Biesel Origins list (only used
       by the RoB Civil Service Bodyguard rn).
+2026-09-27:
+  FabianK3:
+  - bugfix: Fixed check rights spam issue in the server configuration menu for developers.
+  - admin: Fixed PDA logging.
+  TheGreyWolf:
+  - bugfix: Adhomian animals are now merely really fast rather than stupidly fast.
+  - bugfix: Field relays can now be made as flatpaks and be powered by a cable under
+      them.
+  - bugfix: Fixed floodlights.
+  - bugfix: Added flatpaks for floodlights and the material silos.
+  - bugfix: Fixed the inability to close/open eyes while resting.
+  - bugfix: Made it possible to connect modular computers by alt clicking related
+      devices.
