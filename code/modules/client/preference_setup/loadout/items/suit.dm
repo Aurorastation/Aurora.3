@@ -346,19 +346,22 @@
 	wintercoat["winter coat, operations"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	wintercoat["parka, vintage"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage
+	wintercoat["winter jacket"] = /obj/item/clothing/suit/storage/hooded/wintercoat/jacket
 	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
 
 /datum/gear/suit/winter_colorable
-	display_name = "colorable winter coat"
+	display_name = "colorable winter suits"
 	description = "A colorable winter coat for the thermally challenged."
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
-/datum/gear/suit/parka_colorable
-	display_name = "colorable parka"
-	description = "A colorable parka for the thermally challenged."
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/colorable
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+/datum/gear/suit/winter_colorable/New()
+	..()
+	var/list/wintercoat_colorable = list()
+	wintercoat_colorable["winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
+	wintercoat_colorable["parka"] = /obj/item/clothing/suit/storage/hooded/wintercoat/parka/colorable
+	wintercoat_colorable["winter jacket"] = /obj/item/clothing/suit/storage/hooded/wintercoat/jacket/colorable
+	gear_tweaks += new /datum/gear_tweak/path(wintercoat_colorable)
 
 /datum/gear/suit/highloft_colorable
 	display_name = "colorable high loft jacket"
