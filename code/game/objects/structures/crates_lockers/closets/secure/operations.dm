@@ -6,7 +6,7 @@
 /obj/structure/closet/secure_closet/operations_manager
 	name = "operations manager's locker"
 	icon_state = "om"
-	req_access = list(ACCESS_QM)
+	req_access = list(/datum/access/qm::id)
 
 /obj/structure/closet/secure_closet/operations_manager/fill()
 	new /obj/item/clothing/under/rank/operations_manager(src)
@@ -36,7 +36,7 @@
 /obj/structure/closet/secure_closet/hangar_tech
 	name = "hangar technician's locker"
 	icon_state = "hangar_tech"
-	req_access = list(ACCESS_CARGO)
+	req_access = list(/datum/access/cargo::id)
 
 /obj/structure/closet/secure_closet/hangar_tech/fill()
 	..()
@@ -60,7 +60,7 @@
 /obj/structure/closet/secure_closet/machinist
 	name = "machinist's locker"
 	icon_state = "machinist"
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 
 /obj/structure/closet/secure_closet/machinist/fill()
 	..()
@@ -82,7 +82,7 @@
 /obj/structure/closet/secure_closet/miner
 	name = "miner's locker"
 	icon_state = "miner"
-	req_access = list(ACCESS_MINING)
+	req_access = list(/datum/access/mining::id)
 
 /obj/structure/closet/secure_closet/miner/fill()
 	..()
@@ -109,13 +109,13 @@
 // Merchant
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant's locker"
-	req_access = list(ACCESS_MERCHANT)
+	req_access = list(/datum/access/merchant::id)
 
 // Package Courier
 /obj/structure/closet/secure_closet/package_courier
 	name = "courier's locker"
 	icon_state = "hangar_tech"
-	req_access = list(ACCESS_CARGO)
+	req_access = list(/datum/access/cargo::id)
 
 /obj/structure/closet/secure_closet/package_courier/fill()
 	..()

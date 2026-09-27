@@ -27,6 +27,8 @@
 
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
@@ -52,7 +54,7 @@
 			tag.modify_tag_data()
 
 /obj/outfit/admin/tcaf/get_id_access()
-	return list(ACCESS_TCAF, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/tcaf::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/tcaf/co
 	name = "TCAF Republic Astroforce Astrarch (Equipped)"
@@ -60,7 +62,7 @@
 	head = /obj/item/clothing/head/tcaf_officer
 	uniform = /obj/item/clothing/under/tcaf_officer
 	suit = /obj/item/clothing/suit/storage/toggle/tcaf_officer_greatcoat
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/shield/energy/tcaf = 1, /obj/item/clothing/accessory/tcaf/astrarch = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/shield/energy/tcaf = 1, /obj/item/clothing/accessory/tcaf/medallion/astrarch = 1)
 
 /// Home Defence Forces
 /// TBD

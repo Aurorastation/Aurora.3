@@ -521,6 +521,7 @@
 	return 1
 
 /mob/living/proc/handle_actions()
+	hud_used?.update_gun_actions()
 	//Pretty bad, i'd use picked/dropped instead but the parent calls in these are nonexistent
 	for(var/datum/action/A in actions)
 		if(A.CheckRemoval(src))
@@ -611,6 +612,7 @@
 	update_camera_view_action()
 
 /mob/living/update_action_buttons()
+	hud_used?.update_gun_actions()
 	if(!hud_used) return
 	if(!client) return
 

@@ -1,16 +1,16 @@
 use std::collections::HashMap;
 
-use core::to_grid_map;
 use core::GridMap;
 use core::TileGrid;
+use core::to_grid_map;
 
 use dmmtools::dmi::Dir;
 use dmmtools::dmm::Coord3;
 use dmmtools::dmm::Prefab;
 use dreammaker::constants::Constant;
-use eyre::eyre;
 use eyre::Context;
 use eyre::ContextCompat;
+use eyre::eyre;
 use itertools::Itertools;
 use procgen::{mapmanip_mazegen_hauberk, MazegenHauberkSettings};
 use rand::seq::SliceRandom;
@@ -47,6 +47,10 @@ pub enum MapManipulation {
     },
     RandomOrientation,
     MazegenHauberk(MazegenHauberkSettings),
+    RepeatManipulations {
+        times: u64,
+        what: Vec<MapManipulation>,
+    },
 }
 
 #[derive(Debug)]
@@ -80,13 +84,21 @@ pub fn mapmanip(
     map: dmmtools::dmm::Map,
     config: &[MapManipulation],
 ) -> eyre::Result<dmmtools::dmm::Map> {
-    // convert to gridmap
     let mut map = to_grid_map(&map);
     let mut singleton_tags: Vec<Constant> = vec![];
 
-    // go through all the manipulations in `.jsonc` config for this `.dmm`
+    apply_manipulations(map_dir_path, &mut map, &mut singleton_tags, config)?;
+
+    core::to_dict_map(&map).wrap_err("failed on `to_dict_map`")
+}
+
+fn apply_manipulations(
+    map_dir_path: &std::path::Path,
+    map: &mut GridMap,
+    singleton_tags: &mut Vec<Constant>,
+    config: &[MapManipulation],
+) -> eyre::Result<()> {
     for (n, manipulation) in config.iter().enumerate() {
-        // readable index for errors
         let n = n + 1;
         let config_len = config.len();
 
@@ -101,7 +113,7 @@ pub fn mapmanip(
                 submaps_can_repeat,
             } => mapmanip_submap_extract_insert(
                 map_dir_path,
-                &mut map,
+                map,
                 *submap_size_x,
                 *submap_size_y,
                 *submap_size_z,
@@ -109,24 +121,32 @@ pub fn mapmanip(
                 marker_extract,
                 marker_insert,
                 *submaps_can_repeat,
-                &mut singleton_tags,
+                singleton_tags,
             )
-            .wrap_err(format!(
-                "submap extract insert fail;
-					submaps path: {submaps_dmm:?};
-					markers: {marker_extract}, {marker_insert};"
-            )),
+            .wrap_err_with(|| {
+                format!(
+                    "submap extract insert fail; submaps path: {submaps_dmm:?}; markers: {marker_extract}, {marker_insert};"
+                )
+            }),
             MapManipulation::RandomOrientation => {
-                mapmanip_orientation_randomize(&mut map).wrap_err("randomize orientation failure")
+                mapmanip_orientation_randomize(map).wrap_err("randomize orientation failure")
             }
             MapManipulation::MazegenHauberk(settings) => {
-                mapmanip_mazegen_hauberk(&mut map, settings)
+                mapmanip_mazegen_hauberk(map, settings).wrap_err("mazegen failed")
+            }
+            MapManipulation::RepeatManipulations { times, what } => {
+                let count = (*times).max(0) as usize;
+                for i in 0..count {
+                    apply_manipulations(map_dir_path, map, singleton_tags, what)
+                        .wrap_err_with(|| format!("repeat iteration {}/{count} failed", i + 1))?;
+                }
+                Ok(())
             }
         }
-        .wrap_err(format!("mapmanip fail; manip n is: {n}/{config_len}"))?;
+        .wrap_err_with(|| format!("mapmanip fail; manip n is: {n}/{config_len}"))?;
     }
 
-    core::to_dict_map(&map).wrap_err("failed on `to_dict_map`")
+    Ok(())
 }
 
 #[allow(clippy::too_many_arguments)]

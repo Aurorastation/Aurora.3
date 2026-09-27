@@ -89,8 +89,14 @@
 
 	/* START ACCESS VARS */
 	/// Required access.
+	/// All of these accesses are required at the same time.
+	/// Can be either numeric access ids or `/datum/access/...` paths or a mix of both.
+	/// Can be a single item.
 	var/list/req_access
+	/// Required access.
 	/// Only require one of these accesses.
+	/// Can be either numeric access ids or `/datum/access/...` paths or a mix of both.
+	/// Can be a single item.
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
@@ -123,10 +129,12 @@
 
 /obj/Initialize(mapload, ...)
 	. = ..()
+
 	if(maxhealth)
 		if(!health)
 			// Allows you to set dynamic health states on initialize.
 			health = maxhealth
+
 	if(islist(armor))
 		for(var/type in armor)
 			if(armor[type])
@@ -134,6 +142,15 @@
 				break
 	else if(should_use_health)
 		AddComponent(/datum/component/armor, GLOB.default_object_armor, TRUE)
+
+	if(req_access)
+		if(!islist(req_access))
+			req_access = list(req_access)
+		req_access = resolve_access_list(req_access)
+	if(req_one_access)
+		if(!islist(req_one_access))
+			req_one_access = list(req_one_access)
+		req_one_access = resolve_access_list(req_one_access)
 
 /obj/Destroy()
 	if(persistent_objects_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
@@ -399,16 +416,45 @@
 	clean_blood()
 	color = initial(color)
 
-/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS)
-	audible_message("\The <b>[src.name]</b> [message_verb], \"[message]\"")
+/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS, var/display_chat = TRUE, var/datum/language/language)
+	var/datum/say_message/spoken_message
+	if(language)
+		spoken_message = new
+		spoken_message.raw_message = message
+		spoken_message.collapse_to(language, message)
+
+	if(display_chat)
+		if(spoken_message)
+			var/list/hearers = get_hearers_in_view(world.view, src)
+			for(var/atom/movable/hearer as anything in hearers)
+				var/rendered_body = message
+				if(ismob(hearer))
+					var/mob/listener = hearer
+					rendered_body = spoken_message.text_for(listener)
+					if(!length(rendered_body))
+						continue
+				var/rendered_message = "\The <b>[src.name]</b> [message_verb], \"[rendered_body]\""
+				rendered_message = format_spoken_chat_message(rendered_message)
+				hearer.show_message(rendered_message, 2)
+		else
+			var/rendered_message = "\The <b>[src.name]</b> [message_verb], \"[message]\""
+			rendered_message = format_spoken_chat_message(rendered_message)
+			audible_message(rendered_message)
 	if(display_overhead)
 		var/list/hearers = get_hearers_in_view(7, src)
-		var/list/clients_in_hearers = list()
-		for(var/mob/mob in hearers)
-			if(mob.client)
-				clients_in_hearers += mob.client
-		if(length(clients_in_hearers))
-			langchat_speech(message, hearers)
+		if(spoken_message)
+			langchat_say_message(spoken_message, hearers)
+		else
+			var/list/clients_in_hearers = list()
+			for(var/mob/mob in hearers)
+				if(mob.client)
+					clients_in_hearers += mob.client
+			if(length(clients_in_hearers))
+				langchat_speech(message, hearers)
+
+/// Override to apply object-specific formatting to spoken chat output without affecting overhead messages.
+/obj/proc/format_spoken_chat_message(var/message)
+	return message
 
 /// Override this to customize the effects an activated signaler has.
 /obj/proc/do_signaler()

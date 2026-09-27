@@ -58,10 +58,20 @@
 
 /turf/simulated/floor/Initialize(mapload, var/floortype)
 	. = ..()
+
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
 		set_flooring(GET_SINGLETON(floortype), mapload)
+
+	var/area/area = loc
+	if(area.generate_dirt > 0)
+		var/dirt_to_spawn = round(area.generate_dirt / 100)
+		if(prob(area.generate_dirt % 100))
+			dirt_to_spawn++
+		while(dirt_to_spawn > 0)
+			new /obj/effect/decal/cleanable/dirt(src)
+			dirt_to_spawn--
 
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring, mapload)
 	if (!mapload)

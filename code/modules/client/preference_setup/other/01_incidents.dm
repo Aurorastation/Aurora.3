@@ -62,31 +62,36 @@
 			infraction.felony = text2num(char_infraction_query.item[11])
 			pref.incidents.Add(infraction)
 
-/datum/category_item/player_setup_item/other/incidents/content(mob/user)
-	var/list/dat = list(
-		"<b>Incident Information</b><br>",
-		"The following incidents are on file for your character<br>"
-	)
+/datum/category_item/player_setup_item/other/incidents/ui_data(mob/user)
+	var/list/sections = list()
 	for (var/In in pref.incidents)
 		var/datum/record/char_infraction/I = In
-		dat += "<hr>"
-		dat += "UID: [I.id]<br>"
-		dat += "Date/Time: [I.datetime]<br>"
-		dat += "Charges: "
-		for (var/L in I.charges)
-			dat += "[L], "
+		var/list/fields = list(
+			list("label" = "UID", "value" = I.id),
+			list("label" = "Date / Time", "value" = I.datetime),
+			list("label" = "Charges", "value" = english_list(I.charges))
+		)
 		if (I.fine == 0)
-			dat += "<br>Brig Sentence: [I.getBrigSentence()] <br>"
+			fields += list(list("label" = "Brig Sentence", "value" = I.getBrigSentence()))
 		else
-			dat += "Fine: [I.fine]电<br>"
-		dat += "Notes: <br>"
-		if (I.notes != "")
-			dat += nl2br(I.notes)
-		else
-			dat += "- No Summary Entered -"
-		dat += "<br><a href='byond://?src=[REF(src)];details_sec_incident=[I.db_id]'>Show Details</a><br><a href='byond://?src=[REF(src)];del_sec_incident=[I.db_id]'>Delete Incident</a>"
-
-	. = dat.Join()
+			fields += list(list("label" = "Fine", "value" = "[I.fine]电"))
+		fields += list(list(
+			"label" = "Notes",
+			"value" = I.notes != "" ? strip_html_readd_newlines(I.notes) : "No summary entered.",
+			"actions" = list(
+				list("label" = "Show Details", "action" = "details_sec_incident", "value" = I.db_id, "icon" = "up-right-from-square"),
+				list("label" = "Delete Incident", "action" = "del_sec_incident", "value" = I.db_id, "color" = "bad", "icon" = "trash")
+			)
+		))
+		sections += list(list("title" = "Incident [I.id]", "fields" = fields))
+	if(!length(sections))
+		sections += list(list("description" = "No incidents are on file for this character.", "fields" = list()))
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = sections
+	)
 
 /datum/category_item/player_setup_item/other/incidents/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["del_sec_incident"])

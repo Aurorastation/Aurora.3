@@ -37,7 +37,7 @@
 			to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
 			return
 
-		if(!(ACCESS_HEADS in id.access)) //doesn't have this access
+		if(!(/datum/access/heads::id in id.access)) //doesn't have this access
 			to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
 			return 0
 

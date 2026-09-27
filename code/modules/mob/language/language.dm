@@ -138,6 +138,12 @@
 			var/decipher_delay_seconds = decipher_delay / 10
 			var/decipher_duration_seconds = PARTIAL_DECIPHER_WORD_TIME / 10
 			new_word = "<span class='language-decipher' data-decipher-delay='[decipher_delay]' data-decipher-duration='[PARTIAL_DECIPHER_WORD_TIME]' style='--decipher-delay: [decipher_delay_seconds]s; --decipher-duration: [decipher_duration_seconds]s'><span class='language-decipher-initial'>[initial_word]</span><span class='language-decipher-scramble'>[initial_word]</span><span class='language-decipher-solution'>[deciphered_word]</span></span> "
+		if(word in music_notes)
+			// Scrambled words do not normally retain their trailing separator, so restore it before protected note markers.
+			if(length(scrambled_text))
+				var/previous_word_index = length(scrambled_text)
+				scrambled_text[previous_word_index] = "[trim_right(scrambled_text[previous_word_index])] "
+			new_word = "[word] "
 		scrambled_text += new_word
 		word_index++
 

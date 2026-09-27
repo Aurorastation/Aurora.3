@@ -27,7 +27,16 @@ export type ATMData = {
   owner_name: string;
   number_incorrect_tries: number;
   emagged: BooleanLike;
+  withdrawal_currencies: WithdrawalCurrency[];
   transactions: Transaction[];
+};
+
+type WithdrawalCurrency = {
+  id: string;
+  name: string;
+  units_per_credit: number;
+  fee: number;
+  icon: string;
 };
 
 type Transaction = {
@@ -164,7 +173,10 @@ export const AuthenticatedWindow = (props) => {
       </Box>
       Your account balance is{' '}
       <Box as="span" bold>
-        {data.money.toFixed(2)}
+        {data.money.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 5,
+        })}
       </Box>
       电.
       <LabeledList>
@@ -198,6 +210,21 @@ export const AuthenticatedWindow = (props) => {
               act('e_withdrawal', { funds_amount: commitWithdrawAmount() })
             }
           />
+          {data.withdrawal_currencies.map((currency) => (
+            <Button
+              key={currency.id}
+              tooltip={`${currency.name} (${currency.units_per_credit} per credit; ${currency.fee} credit fee)`}
+              icon={currency.icon}
+              disabled={withdraw + currency.fee > data.money}
+              onMouseDown={() => commitWithdrawAmount()}
+              onClick={() =>
+                act('currency_withdrawal', {
+                  currency_id: currency.id,
+                  funds_amount: commitWithdrawAmount(),
+                })
+              }
+            />
+          ))}
         </LabeledList.Item>
       </LabeledList>
       <Divider />

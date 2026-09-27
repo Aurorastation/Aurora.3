@@ -2,27 +2,25 @@
 	if(!material)
 		return
 
-	if(reinf_material)
-		construction_stage = 6
-	else
-		construction_stage = null
-	if(!material)
-		material = GET_SINGLETON(MATERIAL_STEEL)
-	if(material)
-		explosion_resistance = material.explosion_resistance
-		if (material.wall_icon)
-			icon = material.wall_icon
+	explosion_resistance = material.explosion_resistance
+	if(material.wall_icon)
+		icon = material.wall_icon
+
+	if(!color && material.wall_colour)
+		color = material.wall_colour
 
 	if(reinf_material && reinf_material.explosion_resistance > explosion_resistance)
 		explosion_resistance = reinf_material.explosion_resistance
 
 	if(reinf_material)
+		construction_stage = 6
 		name = "reinforced [material.display_name] wall"
 		if(material.display_name == reinf_material.display_name)
 			desc = "It seems to be a section of hull reinforced and plated with [material.display_name]."
 		else
 			desc = "It seems to be a section of hull reinforced with [reinf_material.display_name] and plated with [material.display_name]."
 	else
+		construction_stage = null
 		name = "[material.display_name] wall"
 		desc = "It seems to be a section of hull plated with [material.display_name]."
 
@@ -50,30 +48,17 @@
 	if(!damage_overlays[1]) //list hasn't been populated
 		generate_overlays()
 
-	if (LAZYLEN(reinforcement_images))
+	if(LAZYLEN(reinforcement_images))
 		CutOverlays(reinforcement_images, ATOM_ICON_CACHE_PROTECTED)
-	if (damage_image)
+	if(damage_image)
 		CutOverlays(damage_image, ATOM_ICON_CACHE_PROTECTED)
 
 	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
 
-	var/list/overlays_to_add = list()
-
-	if (!density)	// We're a fake and we're open.
-		clear_smooth_overlays()
-		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
-		fake_wall_image.color = material.icon_colour
-		AddOverlays(fake_wall_image)
-		smoothing_flags = SMOOTH_FALSE
-		return
-	else if (fake_wall_image)
-		CutOverlays(fake_wall_image)
-		fake_wall_image = null
-		smoothing_flags = initial(smoothing_flags)
-
 	calculate_adjacencies()	// Update cached_adjacency
 
+	var/list/overlays_to_add = list()
 	if(reinf_material)
 		var/image/I
 		if(construction_stage != null && construction_stage < 6)
@@ -101,6 +86,7 @@
 			overlay = damage_overlays.len
 
 		damage_image = damage_overlays[overlay]
+		damage_image.appearance_flags |= RESET_COLOR
 		overlays_to_add += damage_image
 
 	// Remove the existing damage overlay entirely and replace it with the newly-calculated one.

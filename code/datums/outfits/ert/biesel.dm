@@ -1,6 +1,7 @@
 /obj/outfit/admin/ert/tcaf
 	name = "TCAF Republic Espatiers Legionnaire"
-	uniform = /obj/item/clothing/under/tcaf/espatier
+	uniform = /obj/item/clothing/under/dressshirt/tcaf/espatier
+	pants = /obj/item/clothing/pants/tcaf
 	suit = /obj/item/clothing/suit/space/void/tcaf
 	head = /obj/item/clothing/head/helmet/space/void/tcaf
 	gloves = /obj/item/clothing/gloves/tcaf
@@ -24,6 +25,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/jackboots/toeless,
@@ -61,6 +64,8 @@
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/nitrile/unathi,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/latex/nitrile/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/latex/nitrile/tajara,
@@ -98,6 +103,8 @@
 	gloves = /obj/item/clothing/gloves/yellow
 	species_gloves = list(
 		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu,
 		SPECIES_TAJARA = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,
@@ -120,4 +127,4 @@
 
 /obj/outfit/admin/ert/tcaf/officer
 	name = "TCAF Republic Espatiers Officer"
-	accessory = /obj/item/clothing/accessory/tcaf/astrarch
+	accessory = /obj/item/clothing/accessory/tcaf/medallion/astrarch

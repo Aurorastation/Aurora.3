@@ -254,6 +254,9 @@ GLOBAL_VAR_INIT(photo_count, 1)
 	desc = "A one use - polaroid camera."
 	pictures_left = 30
 
+/obj/item/camera/detective/press
+	name = "journalists camera"
+
 // Detective cameras have build in data recording, so no need for a skill check
 /obj/item/camera/detective/record_data(mob/living/user, obj/item/photo/pic)
 	pic.time_taken = worldtime2text()

@@ -311,6 +311,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
+/obj/item/gun/launcher/grenade,
 /turf/unsimulated/floor/dark_monotile,
 /area/runtime/floor_one/main)
 "ba" = (
@@ -5654,6 +5655,7 @@
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/tactical/beanbags,
 /turf/simulated/floor/tiled/dark,
 /area/runtime/floor_one/main)
 "Db" = (

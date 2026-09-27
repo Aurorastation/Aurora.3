@@ -31,7 +31,7 @@
 	light_overlay = "helmet_light_xanu"
 
 /obj/item/rig/xanu/equipped
-	req_access = list(ACCESS_COALITION_NAVY)
+	req_access = list(/datum/access/coalition_navy::id)
 	initial_modules = list(
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/vision/thermal,
