@@ -57,7 +57,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/autakh/get_id_access()
-	return list(ACCESS_AUTAKH)
+	return list(/datum/access/autakh::id)
 
 /obj/outfit/admin/autakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/organ/A = new /obj/item/organ/internal/anchor(H)

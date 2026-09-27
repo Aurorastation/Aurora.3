@@ -21487,9 +21487,8 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/elevator_hallway/maintenance)
 "oqf" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/quarantined_outpost/engineering/atmospherics)
 "orm" = (
 /obj/effect/floor_decal/corner/dark_blue{

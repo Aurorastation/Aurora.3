@@ -266,20 +266,23 @@
  * mylist[myelement1] = myweight1
  * mylist[myelement2] = myweight2
  * The proc will return the element index, and not the weight.
+ * If weight is not provided, it defaults to 1.
+ * If all weights are explicitly set to 0, it selects whatever.
+ * The list arg is not modified.
  */
 /proc/pickweight(list/L)
 	var/total = 0
 	var/item
 	for (item in L)
-		if (isnull(L[item]))
-		// A default weight will no longer overwrite an explicitly set weight of 0
-		// It will only use a default if no weight is defined.
-			L[item] = 1
-		total += L[item]
+		// If no weight, use weight of 1
+		var/weight = isnull(L[item]) ? 1 : L[item]
+		total += weight
+
 	// Allows it to handle noninteger weights.
 	total = rand() * total
 	for (item in L)
-		total -= L[item]
+		var/weight = isnull(L[item]) ? 1 : L[item]
+		total -= weight
 		if (total <= 0)
 			return item
 

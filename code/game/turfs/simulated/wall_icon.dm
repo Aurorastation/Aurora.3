@@ -48,30 +48,17 @@
 	if(!damage_overlays[1]) //list hasn't been populated
 		generate_overlays()
 
-	if (LAZYLEN(reinforcement_images))
+	if(LAZYLEN(reinforcement_images))
 		CutOverlays(reinforcement_images, ATOM_ICON_CACHE_PROTECTED)
-	if (damage_image)
+	if(damage_image)
 		CutOverlays(damage_image, ATOM_ICON_CACHE_PROTECTED)
 
 	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
 
-	var/list/overlays_to_add = list()
-
-	if (!density)	// We're a fake and we're open.
-		clear_smooth_overlays()
-		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
-		fake_wall_image.color = material.icon_colour
-		AddOverlays(fake_wall_image)
-		smoothing_flags = SMOOTH_FALSE
-		return
-	else if (fake_wall_image)
-		CutOverlays(fake_wall_image)
-		fake_wall_image = null
-		smoothing_flags = initial(smoothing_flags)
-
 	calculate_adjacencies()	// Update cached_adjacency
 
+	var/list/overlays_to_add = list()
 	if(reinf_material)
 		var/image/I
 		if(construction_stage != null && construction_stage < 6)

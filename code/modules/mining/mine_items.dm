@@ -1397,55 +1397,275 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		flick("[icon_state]2", src)
 		playsound(get_turf(src), 'sound/weapons/bladeparry.ogg', 25, 1, -1)
 
+/obj/item/gym_dumbbell
+	name = "10 kg dumbbell"
+	desc = "A heavy piece of metal used for weight training."
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
+	icon_state = "dumbbell"
+	item_state = "dumbbell"
+	contained_sprite = TRUE
+	w_class = 4
+	mass = 10
+	mass_based_slowdown = TRUE
+	action_button_name = "Lift Dumbbell"
+
+	/// Prevents a second repetition from starting while this dumbbell is already being lifted.
+	var/being_lifted = FALSE
+
+/obj/item/gym_dumbbell/twenty
+	name = "20 kg dumbbell"
+	desc = "A particularly heavy piece of metal used for weight training."
+	mass = 20
+
+/obj/item/gym_dumbbell/barbell
+	name = "40 kg barbell"
+	desc = "A long steel bar fitted with heavy weights for strength training."
+	icon_state = "barbell"
+	item_state = "barbell"
+	w_class = 5
+	mass = 40
+	action_button_name = "Lift Barbell"
+
+/obj/item/gym_dumbbell/barbell/sixty
+	name = "60 kg barbell"
+	mass = 60
+
+/obj/item/gym_dumbbell/barbell/eighty
+	name = "80 kg barbell"
+	mass = 80
+
+/obj/item/gym_dumbbell/barbell/hundred
+	name = "100 kg barbell"
+	mass = 100
+
+/obj/item/gym_dumbbell/barbell/hundredforty
+	name = "140 kg barbell"
+	mass = 140
+
+/obj/item/gym_dumbbell/barbell/hundredeighty
+	name = "180 kg barbell"
+	mass = 180
+
+/obj/item/gym_dumbbell/barbell/twohundred
+	name = "200 kg barbell"
+	mass = 200
+
+/obj/item/gym_dumbbell/barbell/twohundredtwenty
+	name = "220 kg barbell"
+	mass = 220
+
+/obj/item/gym_dumbbell/barbell/twohundredforty
+	name = "240 kg barbell"
+	mass = 240
+
+/obj/item/gym_dumbbell/barbell/twohundredsixty
+	name = "260 kg barbell"
+	mass = 260
+
+/obj/item/gym_dumbbell/barbell/threehundred
+	name = "300 kg barbell"
+	mass = 300
+
+/obj/item/gym_dumbbell/barbell/do_additional_pickup_checks(mob/user)
+	if(!..())
+		return FALSE
+	if(user.get_lift_capacity() < mass && !(user.status_flags & GODMODE))
+		to_chat(user, SPAN_WARNING("\The [src] is too heavy for you to lift."))
+		return FALSE
+	return do_mass_based_pickup_delay(user)
+
+/obj/item/gym_dumbbell/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "It weighs [mass] kilograms."
+
+/obj/item/gym_dumbbell/attack_self(mob/living/carbon/human/user)
+	if(!istype(user))
+		return
+	if(user.get_active_hand() != src && user.get_inactive_hand() != src)
+		to_chat(user, SPAN_WARNING("You need to hold \the [src] to lift it."))
+		return
+	if(user.incapacitated())
+		return
+	if(being_lifted)
+		to_chat(user, SPAN_WARNING("You are already lifting \the [src]."))
+		return
+
+	var/synth = user.isSynthetic()
+	if(!synth && user.nutrition < 50)
+		to_chat(user, SPAN_WARNING("You need more energy to lift weights. Go eat something."))
+		return
+
+	var/lift_capacity = user.get_lift_capacity()
+	var/strain = mass / lift_capacity
+	// A lightly loaded rep is brisk, while a rep at the user's limit takes two seconds each way.
+	var/half_rep_time = clamp(0.35 SECONDS + (strain * 1.65 SECONDS), 0.4 SECONDS, 2 SECONDS)
+	var/lift_height = strain <= 1 ? 8 : 3
+
+	being_lifted = TRUE
+	user.visible_message(SPAN_NOTICE("\The [user] starts a repetition with \the [src]."), SPAN_NOTICE("You start lifting \the [src]."))
+
+	if(!do_after(user, half_rep_time, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT) || !set_lift_height(user, lift_height))
+		finish_lift(user)
+		return
+
+	if(!do_after(user, half_rep_time, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
+		finish_lift(user)
+		return
+
+	finish_lift(user)
+	if(strain > 1)
+		user.visible_message(SPAN_WARNING("\The [user] only manages a partial repetition with \the [src]."), SPAN_WARNING("The weight is beyond your lifting capacity; you only manage a partial repetition."))
+		return
+
+	if(!synth)
+		var/exertion = max(1, round(mass / 8))
+		user.adjustNutritionLoss(exertion * HUNGER_FACTOR)
+		user.adjustHydrationLoss(exertion * THIRST_FACTOR)
+
+	var/effort_message
+	if(strain >= 0.8)
+		effort_message = "with great effort"
+	else if(strain >= 0.5)
+		effort_message = "while visibly straining"
+	else if(strain >= 0.25)
+		effort_message = "without much trouble"
+	else
+		effort_message = "with ease"
+	user.visible_message(SPAN_NOTICE("\The [user] completes a repetition with \the [src] [effort_message]."), SPAN_NOTICE("You complete the repetition [effort_message]."))
+
+/// Moves the dumbbell's held overlay without moving the user or their other equipment.
+/obj/item/gym_dumbbell/proc/set_lift_height(mob/living/carbon/human/user, height)
+	if(loc != user)
+		return FALSE
+
+	var/image/held_overlay
+	if(user.l_hand == src)
+		user.update_inv_l_hand(FALSE)
+		held_overlay = user.overlays_raw[L_HAND_LAYER]
+	else if(user.r_hand == src)
+		user.update_inv_r_hand(FALSE)
+		held_overlay = user.overlays_raw[R_HAND_LAYER]
+	else
+		return FALSE
+
+	if(!held_overlay)
+		return FALSE
+	held_overlay.pixel_y += height
+	user.update_icon()
+	return TRUE
+
+/obj/item/gym_dumbbell/proc/finish_lift(mob/living/carbon/human/user)
+	being_lifted = FALSE
+	if(!user || QDELETED(user))
+		return
+	if(user.l_hand == src)
+		user.update_inv_l_hand()
+	else if(user.r_hand == src)
+		user.update_inv_r_hand()
+
 /obj/structure/weightlifter
 	name = "weight machine"
 	desc = "Just looking at this thing makes you feel tired."
 	icon = 'icons/obj/mining.dmi'
-	icon_state = "fitnessweight"
-	density = TRUE
+	icon_state = "weightlifter"
+	density = FALSE
 	anchored = TRUE
 
-/obj/structure/weightlifter/attack_hand(var/mob/living/carbon/human/user)
+	var/being_used = FALSE
+	var/weight = 1
+	var/max_weight = 5
+	/// The mass represented by each weight setting, in kilograms.
+	var/weight_per_level = 40
+
+	var/list/success_message = list("with great effort",
+		"while straining hard",
+		"without much trouble",
+		"with ease")
+
+	var/list/fail_message = list(", lifting them part of the way before letting them drop",
+		", unable to even budge them")
+
+/obj/structure/weightlifter/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += SPAN_NOTICE("It is currently set to [weight * weight_per_level] kg (level [weight] out of [max_weight]).")
+
+/obj/structure/weightlifter/verb/adjust_weight()
+	set name = "Adjust weight"
+	set category = "Object"
+	set src in view(1)
+
+	if(being_used)
+		to_chat(usr, SPAN_WARNING("You cannot adjust \the [src] while it is being used."))
+		return FALSE
+
+	var/list/weight_options = list()
+
+	for(var/i = 1 to max_weight)
+		weight_options["[i * weight_per_level] kg (level [i])"] = i
+
+	var/selected_weight = tgui_input_list(usr, "Select the machine's weight level.", "Adjust Weight", weight_options)
+
+	if(isnull(selected_weight))
+		return FALSE
+
+	var/new_weight = weight_options[selected_weight]
+
+	if(new_weight == weight)
+		to_chat(usr, SPAN_NOTICE("\The [src] is already set to weight level [weight]."))
+		return FALSE
+
+	weight = new_weight
+
+	usr.visible_message(SPAN_NOTICE("\The [usr] adjusts \the [src]'s weight level."), SPAN_NOTICE("You set \the [src] to [weight * weight_per_level] kg."))
+
+	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
+	return TRUE
+
+/obj/structure/weightlifter/attack_hand(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
-	if(in_use)
-		to_chat(user, "It's already in use - wait a bit.")
+
+	var/synth = user.isSynthetic()
+	if(user.loc != src.loc)
+		to_chat(user, SPAN_WARNING("You must be on the weight machine to use it."))
+		return
+	if(!synth && user.nutrition < 50)
+		to_chat(user, SPAN_WARNING("You need more energy to lift weights. Go eat something."))
+		return
+	if(being_used)
+		to_chat(user, SPAN_WARNING("The weight machine is already in use by somebody else."))
 		return
 	else
-		in_use = TRUE
-		icon_state = "fitnessweight-c"
-		user.dir = SOUTH
-		user.Stun(4)
-		user.forceMove(src.loc)
-		var/image/W = image('icons/obj/mining.dmi',"fitnessweight-w")
-		W.layer = 5.1
-		AddOverlays(W)
-		var/bragmessage = pick("pushing it to the limit","going into overdrive","burning with determination","rising up to the challenge", "getting strong now","getting ripped")
-		user.visible_message(SPAN_NOTICE("<B>[user] is [bragmessage]!</B>"))
-		var/reps = 0
-		user.pixel_y = 5
-		while (reps++ < 6)
-			if (user.loc != src.loc)
-				break
-
-			for (var/innerReps = max(reps, 1), innerReps > 0, innerReps--)
-				sleep(3)
-				animate(user, pixel_y = (user.pixel_y == 3) ? 5 : 3, time = 3)
-
-			playsound(user,'sound/effects/spring.ogg', 60, 1)
-
-		sleep(3)
-		animate(user, pixel_y = 2, time = 3)
-		sleep(3)
-		playsound(user, 'sound/machines/click.ogg', 60, 1)
-		in_use = 0
-		animate(user, pixel_y = 0, time = 3)
-		var/finishmessage = pick("You feel stronger!","You feel like you can take on the world!","You feel robust!","You feel indestructible!")
-		icon_state = "fitnessweight"
-		CutOverlays(W)
-		to_chat(user, SPAN_NOTICE("[finishmessage]"))
-		user.adjustNutritionLoss(5)
-		user.adjustHydrationLoss(5)
+		being_used = TRUE
+		playsound(src.loc, 'sound/effects/weightlifter.ogg', 50, 1)
+		user.set_dir(SOUTH)
+		flick("[icon_state]_[weight]", src)
+		if(do_after(user, (2 + weight) SECONDS, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
+			playsound(src.loc, 'sound/effects/weightdrop.ogg', 25, 1)
+			var/lift_capacity = user.get_lift_capacity()
+			var/selected_mass = weight * weight_per_level
+			var/message
+			if(lift_capacity < selected_mass)
+				var/shortfall = selected_mass - lift_capacity
+				if(shortfall > (max_weight * weight_per_level) / 2)
+					if(prob(50))
+						message = ", getting hurt in the process"
+						user.apply_damage(5)
+					else
+						message = "; this does not look safe"
+				else
+					var/failure_index = clamp(1 + round(shortfall / weight_per_level), 1, length(fail_message))
+					message = fail_message[failure_index]
+				user.visible_message(SPAN_NOTICE("\The [user] fails to lift the weights[message]."), SPAN_NOTICE("You fail to lift the weights[message]."))
+			else
+				if(!synth)
+					var/adj_weight = weight * 5
+					user.adjustNutritionLoss(adj_weight * HUNGER_FACTOR)
+					user.adjustHydrationLoss(adj_weight * THIRST_FACTOR)
+				var/success_index = clamp(1 + round((lift_capacity - selected_mass) / weight_per_level), 1, length(success_message))
+				message = success_message[success_index]
+				user.visible_message(SPAN_NOTICE("\The [user] lift\s the weights [message]."), SPAN_NOTICE("You lift the weights [message]."))
+		being_used = FALSE
 
 /******************************Seismic Charge*******************************/
 

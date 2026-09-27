@@ -180,7 +180,7 @@
 
 /obj/item/storage/lockbox/shuttle_blueprints //Blueprints for modifying the Horizon's shuttles.
 	name = "shuttle blueprints lockbox"
-	req_access = list(ACCESS_CE)
+	req_access = list(/datum/access/ce::id)
 	starts_with = list(
 		/obj/item/blueprints/shuttle/intrepid = 1,
 		/obj/item/blueprints/shuttle/mining_shuttle = 1,

@@ -9,6 +9,10 @@
 	light_system = DIRECTIONAL_LIGHT
 	light_range = 6
 	light_color = LIGHT_COLOR_TUNGSTEN
+	component_types = list(
+		/obj/item/circuitboard/floodlight,
+		/obj/item/cell
+	)
 
 	var/on = FALSE
 	var/obj/item/cell/cell = null
@@ -18,20 +22,20 @@
 
 /obj/structure/machinery/floodlight/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	if(!cell)
+		. += SPAN_WARNING("\The [src] has no cell installed!")
+		return
 	if(!cell.charge)
 		. += SPAN_WARNING("The installed [cell.name] is completely flat!")
 		return
-	else
-		. += SPAN_WARNING("\The [src] has no cell installed!")
 	. += SPAN_NOTICE("The installed [cell.name] has [AS_PCT(cell.charge, cell.maxcharge)]% charge remaining.")
 
-/obj/structure/machinery/floodlight/Initialize()
+/obj/structure/machinery/floodlight/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
-	cell = new /obj/item/cell(src)
 
-/obj/structure/machinery/floodlight/Destroy()
-	QDEL_NULL(cell)
-	return ..()
+/obj/structure/machinery/floodlight/RefreshParts()
+	. = ..()
+	cell = locate(/obj/item/cell) in component_parts
 
 /obj/structure/machinery/floodlight/update_icon()
 	ClearOverlays()
@@ -47,14 +51,14 @@
 
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
-		set_light_range_power_color(light_range/3, 0.5, light_color)
+		set_light_range_power_color(initial(light_range) / 3, 0.5, light_color)
 		addtimer(CALLBACK(src, PROC_REF(stop_flicker)), 5, TIMER_UNIQUE)
 
 	cell.use(use*CELLRATE)
 
 /obj/structure/machinery/floodlight/proc/stop_flicker()
 	if(on)
-		set_light_range_power_color(light_range, 1, light_color)
+		set_light_range_power_color(initial(light_range), initial(light_power), light_color)
 
 // Returns 0 on failure and 1 on success
 /obj/structure/machinery/floodlight/proc/turn_on(var/loud = FALSE)
@@ -64,6 +68,7 @@
 		return FALSE
 
 	on = TRUE
+	set_light_range_power_color(initial(light_range), initial(light_power), light_color)
 	set_light_on(on)
 	update_icon()
 	if(loud)
@@ -89,15 +94,14 @@
 
 /obj/structure/machinery/floodlight/attack_hand(mob/user)
 	if(open && cell)
+		component_parts -= cell
 		user.put_in_hands(cell)
 		cell.add_fingerprint(user)
 		cell.update_icon()
 		cell = null
 
-		on = FALSE
-		set_light(0)
+		turn_off()
 		to_chat(user, SPAN_NOTICE("You remove the power cell."))
-		update_icon()
 		return
 
 	if(on)
@@ -133,14 +137,16 @@
 			else
 				user.drop_from_inventory(attacking_item, src)
 				cell = attacking_item
+				component_parts += attacking_item
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
+				update_icon()
 		return TRUE
 	update_icon()
 
 /obj/structure/machinery/floodlight/randomcharge
 	// Intentionally left empty as it's the same as the parent, but the cell is randomized.
 
-/obj/structure/machinery/floodlight/randomcharge/Initialize()
+/obj/structure/machinery/floodlight/randomcharge/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()
 	if(cell)
 		cell.charge = rand(1, cell.maxcharge)
