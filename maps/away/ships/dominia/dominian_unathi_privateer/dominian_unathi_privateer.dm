@@ -94,7 +94,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/dominian_unathi_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Kazhkz Fighter"
-	req_access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
 
 /datum/shuttle/autodock/overmap/dominian_unathi_shuttle
 	name = "Kazhkz Fighter"
@@ -105,7 +105,6 @@
 	dock_target = "airlock_kazhkz_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_kazhkz"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar

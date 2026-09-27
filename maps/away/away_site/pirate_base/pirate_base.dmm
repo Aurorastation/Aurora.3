@@ -1440,9 +1440,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall{
-	can_open = 1;
-	color = "#DDDDDD"
+	color = "#2e2e2e"
 	},
 /area/piratebase/equipment)
 "gJ" = (
@@ -7360,9 +7360,9 @@
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
 "KZ" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall{
-	can_open = 1;
-	color = "#DDDDDD"
+	color = "#2e2e2e"
 	},
 /area/piratebase/equipment)
 "La" = (

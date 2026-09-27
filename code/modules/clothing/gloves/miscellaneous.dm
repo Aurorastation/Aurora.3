@@ -293,6 +293,8 @@
 	item_state = "starmittens"
 	build_from_parts = TRUE
 	worn_overlay = "over"
+	cold_protection = HANDS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"

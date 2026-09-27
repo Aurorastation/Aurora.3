@@ -335,7 +335,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		id_card.registered_name = pickedName
 		id_card.assignment = "AI"
 		id_card.access = get_all_station_access()
-		id_card.access += ACCESS_EQUIPMENT
+		id_card.access += /datum/access/equipment::id
 		id_card.update_name()
 
 	if(client)
@@ -722,10 +722,14 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
 					var/client/client = usr.client
-					client.prefs.update_mannequin()
-
-					var/mob/living/carbon/human/loadout_mob = SSmobs.get_mannequin(usr.client.ckey)
-					holo_icon.appearance = loadout_mob.appearance
+					var/mob/living/carbon/human/loadout_mob = client.prefs.update_mannequin(FALSE)
+					loadout_mob.UpdateOverlays()
+					var/icon/loadout_hologram = new /icon()
+					for(var/direction in GLOB.cardinals)
+						loadout_mob.set_dir(direction)
+						loadout_hologram.Insert(getFlatIcon(loadout_mob, direction, no_anim = TRUE), "", direction, 1, 0)
+					set_hologram_unique(loadout_hologram)
+					loadout_mob.ClearOverlays()
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))
 

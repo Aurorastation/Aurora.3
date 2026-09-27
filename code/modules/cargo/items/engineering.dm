@@ -76,7 +76,7 @@
 	items = list(
 		/obj/item/stack/material/phoron/full
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 
@@ -117,7 +117,7 @@
 	items = list(
 		/obj/item/grenade/chem_grenade/antifuel
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -131,7 +131,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -201,7 +201,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/coolanttank
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -215,7 +215,7 @@
 	items = list(
 		/obj/structure/machinery/pipedispenser/disposal/orderable
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -229,7 +229,7 @@
 	items = list(
 		/obj/item/storage/toolbox/mechanical
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -243,7 +243,7 @@
 	items = list(
 		/obj/item/storage/toolbox/electrical
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -257,7 +257,7 @@
 	items = list(
 		/obj/item/storage/toolbox/emergency
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -271,7 +271,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/fuel_chamber
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -285,7 +285,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/center
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -299,7 +299,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/left
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -313,7 +313,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/right
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -327,7 +327,7 @@
 	items = list(
 		/obj/item/circuitboard/bluespacerelay
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -341,7 +341,7 @@
 	items = list(
 		/obj/structure/machinery/power/emitter
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -355,7 +355,7 @@
 	items = list(
 		/obj/item/magnetic_lock/engineering
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -369,7 +369,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/engineering
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -383,7 +383,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -397,7 +397,7 @@
 	items = list(
 		/obj/structure/machinery/field_generator
 	)
-	access = ACCESS_ARMORY
+	access = /datum/access/armory::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -411,7 +411,7 @@
 	items = list(
 		/obj/item/material/twohanded/fireaxe
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -439,7 +439,7 @@
 	items = list(
 		/obj/item/reagent_containers/extinguisher_refill/filled
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -481,7 +481,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/extinguisher
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -509,7 +509,7 @@
 	items = list(
 		/obj/item/geiger/dosimeter
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -523,7 +523,7 @@
 	items = list(
 		/obj/item/clothing/head/hardhat
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -551,7 +551,7 @@
 	items = list(
 		/obj/item/storage/belt/utility/full
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -593,7 +593,7 @@
 	items = list(
 		/obj/item/hoist_kit
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -607,7 +607,7 @@
 	items = list(
 		/obj/item/storage/bag/inflatable
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -621,7 +621,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -635,7 +635,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialt
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -649,7 +649,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialu
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -663,7 +663,7 @@
 	items = list(
 		/obj/item/debugger
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -677,7 +677,7 @@
 	items = list(
 		/obj/item/powerdrill
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -691,7 +691,7 @@
 	items = list(
 		/obj/item/paint_sprayer
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -705,7 +705,7 @@
 	items = list(
 		/obj/structure/machinery/particle_accelerator/control_box
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -719,7 +719,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/power_box
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -733,7 +733,7 @@
 	items = list(
 		/obj/item/ladder_mobile
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -747,7 +747,7 @@
 	items = list(
 		/obj/item/clothing/head/radiation
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -761,7 +761,7 @@
 	items = list(
 		/obj/item/clothing/suit/radiation
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -775,7 +775,7 @@
 	items = list(
 		/obj/item/circuitboard/research_shuttle
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -789,7 +789,7 @@
 	items = list(
 		/obj/structure/machinery/the_singularitygen
 	)
-	access = ACCESS_HEADS
+	access = /datum/access/heads::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -817,7 +817,7 @@
 	items = list(
 		/obj/structure/machinery/power/supermatter
 	)
-	access = ACCESS_CAPTAIN
+	access = /datum/access/captain::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -833,7 +833,7 @@
 		/obj/structure/machinery/atmospherics/binary/circulator,
 		/obj/structure/machinery/atmospherics/binary/circulator
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -847,7 +847,7 @@
 	items = list(
 		/obj/item/solar_assembly
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -889,7 +889,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/end_cap
 	)
-	access = ACCESS_CE
+	access = /datum/access/ce::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -903,7 +903,7 @@
 	items = list(
 		/obj/structure/machinery/power/rad_collector
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
@@ -917,7 +917,7 @@
 	items = list(
 		/obj/structure/cart/storage/engineeringcart
 	)
-	access = ACCESS_ENGINE
+	access = /datum/access/engine::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

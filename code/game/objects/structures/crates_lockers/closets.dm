@@ -1,6 +1,7 @@
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
+	mass = 60
 	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "generic"
 	hitsound = 'sound/effects/metalhit.ogg'
@@ -83,6 +84,36 @@
 
 	/// If its a plain grey closet or crate, you can use the paint sprayer on it ONCE to change its appearance.
 	var/can_label = FALSE
+	/// Combined effective mass of the movable contents.
+	var/mass_contents = 0
+	/// Set when contents change outside the usual open and close operations.
+	var/content_mass_changed = TRUE
+
+/**
+ * Closed storage is moved as a single load, so its effective mass includes
+ * everything packed inside it. Nested containers naturally include their own
+ * contents through get_effective_mass().
+ */
+/obj/structure/closet/get_effective_mass()
+	. = ..()
+	if(content_mass_changed)
+		update_content_mass()
+	. += mass_contents
+
+/obj/structure/closet/proc/update_content_mass()
+	mass_contents = 0
+	for(var/atom/movable/stored_thing in contents)
+		if(!stored_thing.anchored)
+			mass_contents += stored_thing.get_effective_mass()
+	content_mass_changed = FALSE
+
+/obj/structure/closet/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	content_mass_changed = TRUE
+
+/obj/structure/closet/Exited(atom/movable/gone, direction)
+	. = ..()
+	content_mass_changed = TRUE
 
 /obj/structure/closet/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -217,6 +248,7 @@
 		structure_shaken()
 	opened = TRUE
 	dump_contents()
+	update_content_mass()
 	animate_door(FALSE)
 	if(double_doors)
 		animate_door_alt(FALSE)
@@ -258,6 +290,7 @@
 
 	playsound(get_turf(src), close_sound, close_sound_volume, 0, -3)
 	density = initial(density)
+	update_content_mass()
 	return TRUE
 
 //Chem Projector Exception

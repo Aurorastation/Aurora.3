@@ -1111,6 +1111,7 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/update_hud()	//TODO: do away with this if possible
+	hud_used?.update_gun_actions()
 	if(client)
 		client.screen |= contents
 		if(hud_used)
@@ -1176,6 +1177,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_l_hand(update_icons = TRUE)
+	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
 
@@ -1216,6 +1218,7 @@ There are several things that need to be remembered:
 		update_icon(TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(update_icons = TRUE)
+	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
 

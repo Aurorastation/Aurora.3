@@ -223,7 +223,7 @@
 				var/obj/item/I = usr.get_active_hand()
 				if (istype(I, /obj/item/card))
 					var/obj/item/card/id/C = I
-					if((ACCESS_CENT_CCIA in C.access) || (ACCESS_HOP in C.access) || (ACCESS_CAPTAIN in C.access))
+					if((/datum/access/cent_ccia::id in C.access) || (/datum/access/hop::id in C.access) || (/datum/access/captain::id in C.access))
 						access_code = 0
 						to_chat(usr, "[icon2html(src, usr)]<span class='info'>Access code reset to 0.</span>")
 				else if (istype(I, /obj/item/card/emag))

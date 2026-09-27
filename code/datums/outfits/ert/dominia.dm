@@ -29,7 +29,7 @@
 	)
 
 /obj/outfit/admin/ert/dominia/get_id_access()
-	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP)
+	return list(/datum/access/distress::id, /datum/access/external_airlocks::id, /datum/access/imperial_fleet_voidsman_ship::id)
 
 /obj/outfit/admin/ert/dominia/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()

@@ -196,6 +196,7 @@
 
 	if(species && species.climb_coeff)
 		climb_speed = round(max(1, (species.climb_coeff * climb_speed) - speed_bonus), 1)
+	climb_speed = get_conditioning_action_delay(climb_speed)
 
 	if(prob(climb_chance))
 		will_succeed = TRUE

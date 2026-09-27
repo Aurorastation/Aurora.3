@@ -1088,6 +1088,7 @@
 	return human.stamina > (human.max_stamina / 10)
 
 /datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	SEND_SIGNAL(human, COMSIG_STAMINA_DRAIN_MODIFIERS, &stamina_cost)
 	human.stamina -= stamina_cost
 	human.hud_used.move_intent.update_move_icon(human)
 
