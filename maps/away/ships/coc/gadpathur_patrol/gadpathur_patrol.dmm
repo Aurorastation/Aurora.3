@@ -28,7 +28,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/thrusters/starboard)
@@ -172,11 +172,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/reactor)
 "bt" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, officer's compartment"
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, engine compartment"
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/officer_bath)
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "bC" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -237,6 +237,9 @@
 /obj/item/clothing/accessory/storage/bandolier{
 	pixel_x = -4
 	},
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/glasses/night,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
 "bT" = (
@@ -322,6 +325,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/sign/flag/gadpathur{
+	pixel_y = 30
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
@@ -471,11 +477,17 @@
 /area/ship/gadpathur_patrol/cryo)
 "dV" = (
 /obj/structure/machinery/door/airlock/external/gadpathur,
-/obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "gadputhurwindow"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/eva)
 "dX" = (
@@ -571,15 +583,19 @@
 /area/ship/gadpathur_patrol/corridor/starboard)
 "eB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
+	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/armanent/francisca)
 "eK" = (
-/obj/structure/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/sign/flag/gadpathur/large/north{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/sit_room)
@@ -633,12 +649,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thrusters"
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/port)
 "fj" = (
 /obj/structure/ship_weapon_dummy,
@@ -668,6 +679,7 @@
 /obj/structure/machinery/alarm/east{
 	req_one_access = list(223,224)
 	},
+/obj/item/shovel/gadpathur,
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
 "fF" = (
@@ -727,7 +739,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/bluegrid/airless,
-/area/ship/gadpathur_patrol/exterior)
+/area/ship/gadpathur_patrol/cic)
 "fX" = (
 /turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
@@ -751,12 +763,12 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "gq" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "2-4"
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -861,11 +873,12 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
 "hn" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, rotary cannon"
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/armanent/francisca)
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
+"hz" = (
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/thrusters/port)
 "hL" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -876,6 +889,10 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/structure/machinery/photocopier,
+/obj/structure/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/sit_room)
@@ -936,6 +953,8 @@
 	dir = 9
 	},
 /obj/structure/machinery/pipedispenser,
+/obj/item/pipewrench,
+/obj/item/pipewrench,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/atmos)
 "ii" = (
@@ -975,6 +994,10 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/port{
 	name = "port, compartment"
+	},
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/galley)
@@ -1016,6 +1039,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/item/shovel/gadpathur,
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
 "iR" = (
@@ -1146,14 +1170,14 @@
 	id = "sensorshroud";
 	name = "sensor shroud";
 	pixel_x = 28;
-	pixel_y = 3
+	pixel_y = 4
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 5;
 	id = "sensorwindow";
 	name = "sensor window";
 	pixel_x = 37;
-	pixel_y = 3
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
@@ -1320,10 +1344,8 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
 "kJ" = (
-/obj/structure/machinery/door/airlock/multi_tile/glass/gadpathur{
-	dir = 8
-	},
 /obj/structure/machinery/door/firedoor/multi_tile,
+/obj/structure/machinery/door/airlock/multi_tile/glass/gadpathur,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/corridor/port)
 "kP" = (
@@ -1373,9 +1395,11 @@
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
 "kV" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/window/reinforced,
+/obj/structure/machinery/door/window/southright{
+	req_one_access = list(224,223,222)
+	},
+/obj/structure/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
 "la" = (
@@ -1393,12 +1417,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thrusters"
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "le" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red,
@@ -1522,6 +1541,7 @@
 /obj/item/gun/projectile/xanupistol,
 /obj/item/ammo_magazine/c46m,
 /obj/item/ammo_magazine/c46m,
+/obj/item/shovel/gadpathur,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "mk" = (
@@ -1543,7 +1563,6 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
 	req_one_access = list(223,224)
 	},
@@ -1552,6 +1571,9 @@
 	dir = 4;
 	pixel_x = -22;
 	pixel_y = 26
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/eva)
@@ -1569,9 +1591,11 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/corridor/starboard)
 "mE" = (
-/obj/effect/landmark/entry_point/fore,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, compartment"
+	},
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/crew_prep)
+/area/ship/gadpathur_patrol/exterior)
 "mG" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-13"
@@ -1695,7 +1719,7 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/bluegrid/airless,
-/area/ship/gadpathur_patrol/exterior)
+/area/ship/gadpathur_patrol/cic)
 "nD" = (
 /obj/effect/shuttle_landmark/gadpathur_patrol/nav2,
 /turf/template_noop,
@@ -1832,6 +1856,10 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, rotary cannon"
 	},
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
+	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/armanent/francisca)
 "pg" = (
@@ -1905,13 +1933,13 @@
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
 /obj/structure/machinery/access_button/airlock_interior{
 	pixel_y = 28;
 	dir = 4;
 	pixel_x = 9
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/thrusters/starboard)
@@ -2050,11 +2078,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)
 "qn" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, rotary cannon"
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/quarters_bath)
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "qC" = (
 /obj/structure/machinery/alarm/south,
 /turf/simulated/floor,
@@ -2202,6 +2230,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/longbow)
 "ry" = (
@@ -2237,11 +2269,11 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/cic)
 "rL" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, engine compartment"
+/obj/effect/landmark/entry_point/port{
+	name = "port, officer's compartment"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/reactor)
+/area/ship/gadpathur_patrol/exterior)
 "rM" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2314,6 +2346,10 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, medical bay"
 	},
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
+	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/medbay)
 "sb" = (
@@ -2364,11 +2400,9 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/gadpathur_patrol/cic)
 "sj" = (
-/obj/structure/machinery/door/airlock/external/gadpathur/shuttle,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 1
 	},
-/obj/effect/landmark/entry_point/aft,
 /obj/structure/machinery/access_button{
 	pixel_x = 26;
 	pixel_y = 11;
@@ -2377,11 +2411,18 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
 	req_one_access = list(223,224)
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/machinery/door/blast/regular/open{
+	id = "gadputhurwindowshuttle";
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/external/gadpathur/shuttle,
+/obj/effect/landmark/entry_point/aft,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
 "sl" = (
@@ -2446,10 +2487,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/medbay)
 "sP" = (
-/obj/structure/railing/mapped,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/gadpathur_shuttle)
 "sQ" = (
@@ -2503,6 +2544,9 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	frame_color = "#ac8b78";
 	color = "#ac8b78"
+	},
+/obj/structure/machinery/door/blast/regular/open{
+	id = "gadputhurwindowshuttle"
 	},
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
@@ -2621,6 +2665,11 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
+/obj/structure/machinery/button/remote/blast_door{
+	pixel_y = -3;
+	id = "gadputhurwindow";
+	name = "Exterior blast doors"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "uy" = (
@@ -2697,12 +2746,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
-"vD" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, compartment"
-	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/morgue)
 "vE" = (
 /obj/structure/platform_stairs/full/east_west_cap/half,
 /obj/structure/platform{
@@ -2734,14 +2777,11 @@
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/engineering)
-"vW" = (
-/obj/structure/table/reinforced/glass,
-/obj/effect/floor_decal/corner_wide/brown/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/ship/gadpathur_patrol/sit_room)
 "vX" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -2775,6 +2815,14 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/gadpathur_shuttle)
+"wc" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "gadputhurwindow"
+	},
+/turf/simulated/floor,
+/area/ship/gadpathur_patrol/galley)
 "wn" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -2894,9 +2942,11 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/warhead/longbow,
+/obj/item/warhead/longbow/ap,
 /obj/item/warhead/longbow,
 /obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/ap,
+/obj/item/warhead/longbow,
+/obj/item/warhead/longbow/bunker,
 /obj/item/warhead/longbow,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
@@ -2954,6 +3004,10 @@
 	pixel_y = 4
 	},
 /obj/item/storage/firstaid/large/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/medbay)
 "xr" = (
@@ -3031,16 +3085,15 @@
 /area/ship/gadpathur_patrol/hangar)
 "xU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
+	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/medbay)
 "xV" = (
 /obj/structure/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/port)
 "yb" = (
 /obj/structure/machinery/alarm/west{
@@ -3055,6 +3108,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/armory)
+"yh" = (
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "ys" = (
 /obj/structure/machinery/light/floor,
 /obj/structure/machinery/alarm/west{
@@ -3107,11 +3163,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/eva)
 "yS" = (
@@ -3139,6 +3197,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	frame_color = "#ac8b78";
 	color = "#ac8b78"
+	},
+/obj/structure/machinery/door/blast/regular/open{
+	id = "gadputhurwindowshuttle";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
@@ -3205,18 +3267,10 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/gadpathur_patrol/fuel)
 "zB" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "zD" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3252,7 +3306,9 @@
 	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_y = -32
 	},
-/obj/item/primer/low,
+/obj/item/primer,
+/obj/item/primer,
+/obj/item/primer,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "zM" = (
@@ -3269,6 +3325,10 @@
 /area/ship/gadpathur_patrol/officer)
 "zT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
+	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/ward)
 "zU" = (
@@ -3314,12 +3374,7 @@
 /area/ship/gadpathur_patrol/officer_bath)
 "Aa" = (
 /obj/structure/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Ah" = (
 /obj/structure/viewport/zavod,
@@ -3332,6 +3387,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/galley)
+"An" = (
+/obj/structure/platform,
+/obj/structure/machinery/light/floor,
+/obj/structure/machinery/button/remote/blast_door{
+	pixel_y = 8;
+	id = "gadputhurwindowshuttle";
+	name = "Shuttle Exterior blast doors";
+	pixel_x = -25;
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/gadpathur_shuttle)
 "Ar" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -3387,6 +3454,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/longbow)
+"AT" = (
+/obj/structure/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/gadpathur_shuttle)
 "AU" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -3415,6 +3489,14 @@
 /obj/structure/machinery/light,
 /obj/item/clothing/accessory/holster/waist,
 /obj/item/clothing/accessory/holster/waist,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/gun/energy/taser,
+/obj/item/gun/energy/taser,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/clothing/accessory/holster/waist,
+/obj/item/clothing/accessory/holster/waist,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
 "Ba" = (
@@ -3427,18 +3509,10 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "Bd" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "Bm" = (
 /obj/structure/machinery/atmospherics/portables_connector/aux,
@@ -3485,13 +3559,13 @@
 /turf/template_noop,
 /area/space)
 "BL" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "BN" = (
@@ -3539,7 +3613,11 @@
 "BY" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/ship_weapon_dummy,
-/obj/structure/machinery/iff_beacon/name_change,
+/obj/structure/machinery/ship_weapon/francisca/compact{
+	pixel_x = -38;
+	pixel_y = -92;
+	weapon_id = "Gadpathur Shuttle Rotary Gun"
+	},
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
 "Ce" = (
@@ -3564,10 +3642,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "Ch" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor,
-/area/shuttle/gadpathur_shuttle)
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/obj/item/pen/green,
+/obj/item/pen/blue,
+/obj/item/pen/red,
+/obj/item/pen/black,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/sit_room)
 "Ci" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3597,18 +3683,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/officer)
 "Cl" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Cr" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3706,6 +3784,7 @@
 /obj/item/gun/projectile/xanupistol,
 /obj/item/ammo_magazine/c46m,
 /obj/item/ammo_magazine/c46m,
+/obj/item/shovel/gadpathur,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/officer)
 "CN" = (
@@ -3724,16 +3803,12 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/ammo)
 "CX" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
-/obj/structure/machinery/power/apc/west{
-	req_access = null;
-	req_one_access = list(223,224)
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -3820,9 +3895,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
 /obj/structure/machinery/access_button/airlock_exterior{
 	dir = 8;
 	pixel_x = -9;
@@ -3834,6 +3906,7 @@
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/thrusters/port)
 "DI" = (
@@ -3890,6 +3963,7 @@
 /obj/item/clothing/accessory/dogtags/gadpathur,
 /obj/item/versebook/gadpathur,
 /obj/item/clothing/glasses/regular,
+/obj/item/shovel/gadpathur,
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
 "Ee" = (
@@ -4126,11 +4200,17 @@
 	pixel_x = 26;
 	pixel_y = -7
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/map_effect/marker/airlock/docking/gadpathur_patrol/dock/fore{
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "gadputhurwindow"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/eva)
 "FO" = (
@@ -4147,9 +4227,6 @@
 /obj/structure/machinery/door/airlock/external/gadpathur{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
 /obj/structure/machinery/access_button/airlock_exterior{
 	pixel_y = -28;
 	dir = 4;
@@ -4161,6 +4238,11 @@
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/thrusters/port)
 "FU" = (
@@ -4344,6 +4426,9 @@
 /obj/item/ammo_magazine/a65,
 /obj/item/ammo_magazine/a65,
 /obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/armory)
 "HS" = (
@@ -4364,9 +4449,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/officer_bath)
 "Ik" = (
-/obj/structure/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -4493,11 +4575,6 @@
 "IU" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window/southright,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night,
-/obj/item/clothing/glasses/night{
-	pixel_y = 7
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/crew_prep)
 "IV" = (
@@ -4610,7 +4687,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/bluegrid/airless,
-/area/ship/gadpathur_patrol/exterior)
+/area/ship/gadpathur_patrol/cic)
 "JT" = (
 /obj/structure/machinery/door/window/southright{
 	dir = 4
@@ -4669,15 +4746,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "Ki" = (
-/obj/structure/machinery/ship_weapon/francisca/compact{
-	pixel_x = -38;
-	pixel_y = -92;
-	weapon_id = "Gadpathur Shuttle Rotary Gun"
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "gadputhurwindow"
 	},
-/obj/structure/ship_weapon_dummy,
-/obj/structure/lattice/catwalk,
 /turf/simulated/floor,
-/area/shuttle/gadpathur_shuttle)
+/area/ship/gadpathur_patrol/galley)
 "Kp" = (
 /turf/simulated/floor/tiled/freezer,
 /area/ship/gadpathur_patrol/morgue)
@@ -4898,11 +4973,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/sign/vacuum{
 	pixel_x = 32
 	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "Mt" = (
@@ -5034,16 +5109,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "NI" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "NO" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -5216,6 +5283,11 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/thrusters/port)
+"Pj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor,
+/area/shuttle/gadpathur_shuttle)
 "Pl" = (
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/tiled/dark,
@@ -5236,12 +5308,19 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
 "Pt" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 1
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/light{
 	dir = 8
+	},
+/obj/structure/machinery/power/apc/west{
+	req_access = null;
+	req_one_access = list(223,224)
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/eva)
@@ -5296,7 +5375,7 @@
 /area/shuttle/gadpathur_shuttle)
 "PG" = (
 /obj/structure/machinery/atmospherics/binary/pump/fuel{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/machinery/light{
 	dir = 1
@@ -5318,12 +5397,14 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock/shuttle/gadpathur_patrol/shuttle{
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
 "PW" = (
@@ -5334,6 +5415,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	frame_color = "#ac8b78";
 	color = "#ac8b78"
+	},
+/obj/structure/machinery/door/blast/regular/open{
+	id = "gadputhurwindowshuttle";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
@@ -5378,16 +5463,8 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/fuel)
 "Qp" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "Qu" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -5507,6 +5584,9 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/structure/sign/flag/gadpathur{
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/interrogation)
 "Rp" = (
@@ -5531,6 +5611,17 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/machinery/photocopier/faxmachine{
+	department = "Gadputhur Patrol Ship";
+	req_one_access = list(224,223,222)
+	},
+/obj/structure/sign/flag/gadpathur/large/north{
+	pixel_y = 32
+	},
+/obj/structure/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/sit_room)
@@ -5588,6 +5679,9 @@
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
+"RK" = (
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/thrusters/starboard)
 "RL" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
@@ -5747,7 +5841,9 @@
 	req_one_access = list(223,224)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/gadpathur_patrol/engineering)
 "SN" = (
@@ -6008,6 +6104,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
+"UM" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/machinery/papershredder{
+	pixel_x = 6
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/gadpathur_patrol/sit_room)
 "US" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -6024,18 +6131,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "UW" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
+/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "Vf" = (
 /obj/structure/machinery/door/airlock/gadpathur/atmos,
@@ -6127,6 +6226,10 @@
 /obj/item/ammo_magazine/xanan_shotgun/slugs,
 /obj/item/ammo_magazine/xanan_shotgun/beanbag,
 /obj/item/ammo_magazine/xanan_shotgun/beanbag,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/ammo_magazine/xanan_shotgun/stun,
+/obj/item/ammo_magazine/xanan_shotgun/stun,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/armory)
 "VU" = (
@@ -6148,9 +6251,6 @@
 "VX" = (
 /obj/structure/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/structure/sign/flag/gadpathur/large/north{
-	pixel_y = 32
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6251,6 +6351,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/shovel/gadpathur,
 /turf/simulated/floor/tiled,
 /area/ship/gadpathur_patrol/quarters)
 "WS" = (
@@ -6267,6 +6368,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/interrogation)
+"WW" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	frame_color = "#ac8b78";
+	color = "#ac8b78"
+	},
+/obj/structure/machinery/door/blast/regular/open{
+	id = "gadputhurwindowshuttle"
+	},
+/turf/simulated/floor,
+/area/shuttle/gadpathur_shuttle)
 "Xe" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -6391,6 +6502,8 @@
 /obj/item/ship_ammunition/longbow,
 /obj/item/ship_ammunition/longbow,
 /obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "XM" = (
@@ -6416,11 +6529,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "XX" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, compartment"
+/obj/effect/landmark/entry_point/port{
+	name = "port, compartment"
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/eva)
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/ship/gadpathur_patrol/exterior)
 "Ya" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -6526,6 +6639,7 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/item/roller,
+/obj/item/storage/box/bodybags,
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/medbay)
 "Zd" = (
@@ -6618,11 +6732,9 @@
 /area/shuttle/gadpathur_shuttle)
 "ZJ" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/structure/machinery/shipsensors/weak,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced,
 /area/shuttle/gadpathur_shuttle)
 "ZN" = (
@@ -34048,12 +34160,12 @@ px
 px
 px
 px
-pL
-uE
-uE
-uE
-uE
-Lb
+px
+px
+px
+px
+px
+RP
 LJ
 IM
 gX
@@ -34305,12 +34417,12 @@ HS
 ta
 WA
 bb
-RP
-px
-px
-px
-px
-RP
+nP
+yh
+bt
+yh
+yh
+nP
 LJ
 NV
 pW
@@ -34564,7 +34676,7 @@ iR
 ad
 HD
 HD
-rL
+HD
 HD
 HD
 HD
@@ -35322,8 +35434,8 @@ uE
 uE
 uE
 uE
-gK
-gK
+RK
+RK
 gK
 Yf
 gK
@@ -35357,8 +35469,8 @@ rC
 pa
 eB
 rl
+nP
 pL
-uE
 uE
 uE
 uE
@@ -35613,9 +35725,9 @@ pg
 yG
 cx
 ic
-hn
+rl
+qn
 VZ
-uE
 uE
 uE
 uE
@@ -35871,8 +35983,8 @@ kl
 Ci
 np
 rl
+nP
 RP
-px
 px
 px
 px
@@ -36384,7 +36496,7 @@ pg
 de
 sc
 Nm
-CX
+Nm
 Pt
 cX
 mn
@@ -36642,7 +36754,7 @@ So
 FZ
 Xs
 gq
-So
+CX
 So
 yK
 iT
@@ -37158,9 +37270,9 @@ XE
 el
 So
 QR
-XX
+Nm
+mE
 RP
-IR
 fN
 uE
 uE
@@ -37388,12 +37500,12 @@ Wq
 kV
 Xl
 Cw
-mk
+Ry
 mk
 BY
-Ki
 Jv
-Ch
+Pj
+lO
 hg
 om
 Rv
@@ -37416,8 +37528,8 @@ pD
 So
 QR
 Nm
+yh
 VZ
-uE
 uE
 uE
 uE
@@ -37648,7 +37760,7 @@ Fz
 Yo
 Ry
 Ry
-PX
+WW
 PX
 lO
 hg
@@ -37673,8 +37785,8 @@ Td
 QU
 QR
 Nm
+yh
 VZ
-uE
 uE
 uE
 uE
@@ -37903,7 +38015,7 @@ Di
 MX
 JT
 BL
-Cy
+An
 bW
 TY
 PX
@@ -37930,8 +38042,8 @@ MG
 hl
 QR
 Nm
+yh
 VZ
-uE
 uE
 uE
 uE
@@ -38168,7 +38280,7 @@ lO
 SG
 om
 pP
-vW
+wB
 fl
 sF
 cS
@@ -38186,9 +38298,9 @@ Sv
 Gf
 dD
 Sv
-mE
+Sv
+hn
 VZ
-uE
 uE
 uE
 uE
@@ -38444,8 +38556,8 @@ jl
 Ar
 YU
 Sv
+nP
 VZ
-uE
 uE
 uE
 uE
@@ -38676,7 +38788,7 @@ Rw
 vX
 Ry
 Ry
-PX
+WW
 PX
 lO
 lO
@@ -38702,7 +38814,7 @@ gU
 AZ
 Sv
 RP
-px
+RP
 ub
 uE
 uE
@@ -38939,8 +39051,8 @@ lO
 lO
 om
 hU
-PW
-PW
+UM
+Ch
 SY
 Me
 gD
@@ -39185,11 +39297,11 @@ Rp
 Ba
 Ry
 Ry
-PX
+WW
 ti
-PX
+WW
 Ry
-lO
+AT
 lO
 VI
 aD
@@ -39988,8 +40100,8 @@ JV
 VN
 VN
 VN
-VZ
-uE
+RP
+ub
 uE
 uE
 uE
@@ -40245,8 +40357,8 @@ UB
 rQ
 jZ
 VN
+nP
 VZ
-uE
 uE
 uE
 uE
@@ -40502,8 +40614,8 @@ Ro
 WU
 QL
 VN
+yh
 VZ
-uE
 uE
 uE
 uE
@@ -40759,8 +40871,8 @@ yX
 VN
 VN
 VN
+yh
 VZ
-uE
 uE
 uE
 uE
@@ -40976,8 +41088,8 @@ uE
 uE
 uE
 uE
-fr
-fr
+hz
+hz
 fr
 QN
 fr
@@ -41013,11 +41125,11 @@ Fd
 uN
 Kr
 yX
-RP
-IR
-IR
-Yu
-uE
+nP
+yh
+yh
+nP
+VZ
 uE
 uE
 uE
@@ -41270,11 +41382,11 @@ Kp
 Kp
 Kp
 yX
-VZ
-uE
-uE
-uE
-uE
+RP
+IR
+IR
+IR
+Yu
 uE
 uE
 uE
@@ -41769,7 +41881,7 @@ Pq
 KW
 xz
 xz
-bt
+xz
 xz
 xz
 St
@@ -41781,7 +41893,7 @@ sa
 oQ
 yX
 yX
-vD
+yX
 yX
 yX
 VZ
@@ -42024,24 +42136,24 @@ vG
 bC
 fc
 bi
-RC
+wc
 RP
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-zU
+rL
+yh
+yh
+nP
+RP
+nP
+nP
+RP
+RP
+nP
+yh
+yh
+XX
+yh
+nP
+VZ
 uE
 uE
 uE
@@ -42272,33 +42384,33 @@ uE
 Lb
 uV
 uV
-qn
+uV
 uV
 uV
 SN
 SN
-RC
-RC
+Ki
+Ki
 ix
-RC
+Ki
 SN
-VZ
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
+RP
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+zU
 uE
 uE
 uE
@@ -42526,20 +42638,20 @@ uE
 uE
 uE
 uE
-Pv
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-IR
-zU
+Lb
+nP
+yh
+XX
+nP
+yh
+yh
+nP
+RP
+RP
+RP
+RP
+nP
+VZ
 uE
 uE
 uE
@@ -42783,20 +42895,20 @@ uE
 uE
 uE
 uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
-uE
+Pv
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+IR
+zU
 uE
 uE
 uE

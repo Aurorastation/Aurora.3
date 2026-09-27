@@ -1,4 +1,4 @@
-/obj/structure/machinery/ship_weapon
+ABSTRACT_TYPE(/obj/structure/machinery/ship_weapon)
 	name = "ship weapon"
 	desc = DESC_PARENT
 	icon = 'icons/obj/machinery/ship_guns/longbow.dmi'
@@ -25,8 +25,10 @@
 	var/load_time = 5 SECONDS
 	/// When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
 	var/mobile_platform = FALSE
-
-	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
+	/// Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader.
+	/// Must be unique!
+	/// If empty, it will be set automatically in the form of `name (123)`.
+	var/weapon_id
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
 	var/obj/structure/ship_weapon_dummy/barrel
 
@@ -76,6 +78,8 @@
 /obj/structure/machinery/ship_weapon/Initialize(mapload)
 	..()
 	appearance_flags &= ~TILE_BOUND //NOT BOUND BY ANY LIMITS
+	if(!weapon_id)
+		weapon_id = "[name] - [get_area(src)]"
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/machinery/ship_weapon/LateInitialize()
@@ -85,8 +89,6 @@
 		SSshuttle.initialize_ship_weapons()
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		SD.connect(src)
-	if(!weapon_id)
-		weapon_id = "[name] - [sequential_id(type)]"
 
 /obj/structure/machinery/ship_weapon/Destroy()
 	for(var/obj/O in ammunition)

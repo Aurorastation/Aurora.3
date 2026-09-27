@@ -46,6 +46,8 @@
 	var/self_preservation_activated = FALSE
 	/// The looping sound played when an IPC is sizzling from burn damage.
 	var/datum/looping_sound/ipc_sizzling/sizzle
+	/// An IPC's custom model. Flavor, but gets cleared when a posibrain is removed as they could swap chassis to a new model
+	var/custom_model
 
 /obj/item/organ/internal/machine/posibrain/Initialize(mapload)
 	stored_mmi = new robotic_brain_type(src)
@@ -145,12 +147,12 @@
 	icon_state = stored_mmi.icon_state
 
 /obj/item/organ/internal/machine/posibrain/removed(var/mob/living/user)
+	custom_model = null
 	if(stored_mmi)
 		stored_mmi.forceMove(get_turf(src))
 		if(owner.mind)
 			owner.mind.transfer_to(stored_mmi.brainmob)
 		stored_mmi = null
-
 	. = ..()
 
 	var/mob/living/holder_mob = loc

@@ -476,7 +476,8 @@ FORCE_MAP runtime
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
 
-# What sector the station/station is currently on. Check _defines/space_sectors.dm for possible options
+# What sector the ship is currently in. Check _defines/space_sectors.dm for possible options
+# Note that if a database is used and a sector has been set using the registry/server configuration, this config will be ignored.
 CURRENT_SPACE_SECTOR Romanovich Cloud
 
 # If using TGS, counts how many regularly TGS hard restarts the server process.
@@ -558,6 +559,7 @@ FAIL2TOPIC_ENABLED 0
 
 ## Lore Summary
 ## The text that will appear when the player clicks the lore button at the start screen
+## If a value has been set in the database registry, this config will be ignored
 LORE_SUMMARY
 
 ## Assets can opt-in to caching their results into `tmp`.

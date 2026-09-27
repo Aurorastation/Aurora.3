@@ -154,7 +154,7 @@
 		if(!istype(id_card))
 			return
 
-		if((ACCESS_SECURITY in id_card.access) || emagged)
+		if((/datum/access/security::id in id_card.access) || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else
@@ -194,7 +194,8 @@
 /obj/item/clothing/accessory/badge/bssb
 	name = "\improper BSSB agent's badge"
 	desc = "A silver badge, set in purple leather, denoting the wearer as an agent of the Biesel Security Services Bureau."
-	desc_extended = "The overseeing authority of the domestic agencies that operate within the Republic of Biesel. In reality, the Biesel Security Services Bureau has become incredibly important to the enforcement of the Republic's laws. The BSSB was founded with the goal of monitoring the planetary policing forces within the Republic of Biesel and stepping in when needed. Most of the BSSB was sponsored by NanoTrasen, with even its headquarters having been constructed by the megacorporation. The agency quickly found its footing within the Republic and found itself being labelled as Biesel's most skilled law enforcement agency despite the accusation of bribery on behalf of NanoTrasen. Today, the BSSB has become an easily recognisable organization with several action movies and novels produced within the Republic of Biesel making it a centrepiece of the Republic's image. It is headed by Director Clarrise Lyon."
+	desc_extended = "The Biesel Security Services Bureau is the domestic intelligence and security service operating across the Republic of Biesel, \
+	holding jurisdiction over federal crimes that are particularly severe, target the overall republic, or cross member state territories."
 	icon_state = "badge_round_bssb"
 	overlay_state = "badge_round_bssb"
 	slot_flags = SLOT_TIE
@@ -207,6 +208,12 @@
 	icon_state = "badge_round_bssb_sen"
 	overlay_state = "badge_round_bssb_sen"
 
+/obj/item/clothing/accessory/badge/bssb/bodyguard // for consular bodyguards
+	name = "\improper BSSB close protection officer badge"
+	desc = "A silver badge, set in purple leather, denoting the wearer as a Government Security Division close protection officer of the Biesel Security Services Bureau."
+	icon_state = "badge_round_bssb_sen"
+	overlay_state = "badge_round_bssb_sen"
+
 /obj/item/clothing/accessory/badge/sol_visa
 	name = "\improper ASSN visa recommendation slip"
 	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
@@ -214,6 +221,21 @@
 	overlay_state = "sol-visa"
 	slot_flags = SLOT_TIE
 	badge_string = "Priority ASSN Visa Applicant"
+
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
+
+/obj/item/clothing/accessory/badge/shotgun_permit
+	name = "\improper bar shotgun permit"
+	desc = "This is a condensed piece of paperwork cast in the green colors of the service \
+	department, instructing the reader that the bartender is permitted to possess and use \
+	their provided firearm within, and exclusively within, the boundaries of the bar. Failure \
+	to adhere to these limitations, it reads, will result in the confiscation of the weapon. \
+	It's been signed by some high-up corporate executive whose signature is so incomprehensible \
+	that you can't make out a single letter of their name."
+	icon_state = "shotgunpermit"
+	overlay_state = "shotgunpermit"
+	badge_string = "Licensed Bartender"
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'

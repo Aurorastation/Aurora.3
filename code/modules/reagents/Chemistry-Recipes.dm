@@ -759,6 +759,14 @@
 	catalysts = list(/singleton/reagent/sodium = 5)
 	result_amount = 1
 
+/datum/chemical_reaction/psiblock
+	name = "Ranixidone"
+	id = "ranixidone"
+	result = /singleton/reagent/drugs/psiblock/yomi_genetics
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/drugs/impedrezene = 2, /singleton/reagent/wulumunusha = 2)
+	catalysts = list(/singleton/reagent/toxin/phoron = 5)
+	result_amount = 3
+
 //Mental Medication
 
 /datum/chemical_reaction/corophenidate

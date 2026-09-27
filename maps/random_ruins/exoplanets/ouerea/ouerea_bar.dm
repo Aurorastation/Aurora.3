@@ -29,7 +29,7 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	max_count = 1
 	spawnpoints = list("ouerea_bar_innkeeper")
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/moghes_bar_innkeeper
 
@@ -48,7 +48,7 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	spawnpoints = list("ouerea_bar_server")
 	max_count = 2
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/moghes_bar_server
 
@@ -67,11 +67,13 @@
 	extra_languages = list(LANGUAGE_UNATHI)
 	max_count = 5
 	spawnpoints = list("ouerea_bar_patron")
-	possible_species = list(SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	outfit = /obj/outfit/admin/moghes_bar_patron
 	species_outfits = list(
 		SPECIES_UNATHI = /obj/outfit/admin/moghes_bar_patron,
+		SPECIES_UNATHI_URAWANI = /obj/outfit/admin/moghes_bar_patron,
+		SPECIES_UNATHI_ZIRALIXI = /obj/outfit/admin/moghes_bar_patron,
 		SPECIES_SKRELL = /obj/outfit/admin/ouerea_skrell,
 		SPECIES_SKRELL_AXIORI = /obj/outfit/admin/ouerea_skrell,
 		SPECIES_HUMAN = /obj/outfit/admin/ouerea_human

@@ -17,7 +17,7 @@
 	desc = "This is a random technology scanner."
 	icon = 'icons/obj/item/scanner.dmi'
 	icon_state = "airanalyzer"
-	problist = list(
+	spawnlist = list(
 		/obj/item/t_scanner = 5,
 		/obj/item/radio = 2,
 		/obj/item/analyzer = 5
@@ -27,7 +27,7 @@
 	name = "random powercell"
 	desc = "This is a random powercell."
 	icon_state = "cell"
-	problist = list(
+	spawnlist = list(
 		/obj/item/cell = 40,
 		/obj/item/cell/high = 40,
 		/obj/item/cell/crap = 10,
@@ -42,7 +42,7 @@
 	desc = "This is a random bomb supply."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "signaller"
-	problist = list(
+	spawnlist = list(
 		/obj/item/assembly/igniter = 2,
 		/obj/item/assembly/prox_sensor = 2,
 		/obj/item/assembly/signaler = 2,
@@ -64,7 +64,7 @@
 	name = "random tech supply"
 	desc = "This is a random piece of technology supplies."
 	icon_state = "tech_supply"
-	problist = list(
+	spawnlist = list(
 		/obj/random/powercell = 3,
 		/obj/random/technology_scanner = 2,
 		/obj/item/stack/packageWrap = 1,
@@ -132,7 +132,7 @@
 		/obj/item/clothing/suit/space/syndicate/black/red = /obj/item/clothing/head/helmet/space/syndicate/black/red,
 		/obj/item/clothing/suit/space/syndicate/black = /obj/item/clothing/head/helmet/space/syndicate/black
 	)
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/space/void/engineering = 3,
 		/obj/item/clothing/suit/space/void/mining = 3,
 		/obj/item/clothing/suit/space/void/merc = 1,
@@ -168,7 +168,7 @@
 		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
 		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	)
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/space/void = 2,
 		/obj/item/clothing/suit/space/void/engineering = 2,
 		/obj/item/clothing/suit/space/void/mining = 2,
@@ -203,7 +203,7 @@
 		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
 		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	)
-	problist = list(
+	spawnlist = list(
 		/obj/item/clothing/suit/space/void = 2,
 		/obj/item/clothing/suit/space/void/merc = 0.5,
 		/obj/item/clothing/suit/space/void/cruiser = 0.5,
@@ -261,7 +261,7 @@
 	name = "random canister"
 	icon_state = "canister"
 	spawn_nothing_percentage = 20
-	problist = list(
+	spawnlist = list(
 		/obj/random/canister/empty = 0.6,
 		/obj/random/canister/filled = 0.4,
 	)
@@ -271,7 +271,7 @@
 	name = "random canister (restricted)"
 	icon_state = "canister"
 	spawn_nothing_percentage = 20
-	problist = list(
+	spawnlist = list(
 		/obj/random/canister/empty = 0.6,
 		/obj/random/canister/filled/restricted = 0.4,
 	)
@@ -279,7 +279,7 @@
 /obj/random/canister/empty
 	name = "random empty canister"
 	// In descending order of probability
-	problist = list(
+	spawnlist = list(
 		// common:
 		/obj/structure/machinery/portable_atmospherics/canister/empty/air = 2,
 		/obj/structure/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 2,
@@ -299,7 +299,7 @@
 /obj/random/canister/filled
 	name = "random filled canister"
 	// In descending order of probability
-	problist = list(
+	spawnlist = list(
 		/obj/structure/machinery/portable_atmospherics/canister/air = 2,
 		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
 		/obj/structure/machinery/portable_atmospherics/canister/oxygen = 2,
@@ -320,7 +320,7 @@
 /obj/random/canister/filled/restricted
 	name = "random filled canister (restricted)"
 	// In descending order of probability
-	problist = list(
+	spawnlist = list(
 		/obj/structure/machinery/portable_atmospherics/canister/air = 2,
 		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide = 2,
 		/obj/structure/machinery/portable_atmospherics/canister/oxygen = 2,

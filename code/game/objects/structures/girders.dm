@@ -268,7 +268,7 @@
 	T.under_turf = original_type
 	T.set_material(material, reinf_material)
 	if(wall_fake)
-		T.can_open = 1
+		new /obj/effect/map_effect/marker/fake_wall(get_turf(src))
 	T.add_hiddenprint(usr)
 	qdel(src)
 	return 1

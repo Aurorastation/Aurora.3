@@ -21,6 +21,9 @@
 	if(prob(2))
 		resources[ORE_DIAMOND] = 1
 
+/turf/simulated/floor/exoplanet/grass/no_edge
+	has_edge_icon = FALSE
+
 /turf/simulated/floor/exoplanet/grass/grove
 	desc = "Short grass is growing here."
 	icon_state = "grove_grass1"

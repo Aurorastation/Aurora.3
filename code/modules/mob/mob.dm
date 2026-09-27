@@ -36,8 +36,6 @@
 	QDEL_NULL(radio_use_icon)
 	QDEL_NULL(gun_move_icon)
 	QDEL_NULL(gun_setting_icon)
-	QDEL_NULL(unique_action_icon)
-	QDEL_NULL(toggle_firing_mode)
 	QDEL_NULL(energy_display)
 	QDEL_NULL(instability_display)
 	QDEL_NULL(up_hint)
@@ -804,7 +802,7 @@
 
 /mob/proc/start_pulling(var/atom/movable/AM)
 
-	if ( !AM || !usr || src==AM || !isturf(src.loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
+	if(!AM || !usr || src == AM || !isturf(src.loc) || !isturf(AM.loc)) // If the puller or target is inside something, abort.
 		return
 
 	if (AM.anchored)
@@ -821,13 +819,17 @@
 			to_chat(src, SPAN_WARNING("It won't budge!"))
 			return
 
-		if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
+		// Humanoids use mass and lift capacity for pulling; their load penalty is
+		// applied while moving. Preserve the legacy size categories for mobs
+		// without the player-character Conditioning system.
+		if(!ishuman(src))
+			if((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
+				to_chat(src, SPAN_WARNING("It won't budge!"))
+				return
 
-		if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
-			to_chat(src, SPAN_WARNING("It won't budge!"))
-			return
+			if((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
+				to_chat(src, SPAN_WARNING("It won't budge!"))
+				return
 
 		if(length(M.grabbed_by))
 			to_chat(src, SPAN_WARNING("You can't pull someone being held in a grab!"))
@@ -849,7 +851,7 @@
 
 	else if(isobj(AM))
 		var/obj/I = AM
-		if(!can_pull_size || can_pull_size < I.w_class)
+		if(!can_pull_size || (!ishuman(src) && can_pull_size < I.w_class))
 			to_chat(src, SPAN_WARNING("It won't budge!"))
 			return
 
@@ -924,7 +926,10 @@
 	for(var/obj/item/grab/G as anything in grabbed_by)
 		if(G.wielded || G.state >= GRAB_AGGRESSIVE)
 			canmove = FALSE
-			lying = G.wielded || (G.state >= GRAB_NECK && G.force_down)
+			if(G.wielded)
+				lying = TRUE
+			else if(G.state >= GRAB_NECK)
+				lying = G.force_down
 			found_grab = TRUE
 			break
 	var/mob/living/carbon/human/H = astype(src)
@@ -1016,22 +1021,26 @@
 /mob/proc/IsAdvancedToolUser()
 	return 0
 
+/// Adds to stun value if above current stun. Effect stops a mob from generally interacting w/ anything through clicks or picking up items.
 /mob/proc/Stun(amount)
 	if(status_flags & CANSTUN)
 		facing_dir = null
 		stunned = max(max(stunned,amount),0) //can't go below 0, getting a low amount of stun doesn't lower your current stun
 	return
 
+/// Directly sets stunned value to specified amount
 /mob/proc/SetStunned(amount) //if you REALLY need to set stun to a set amount without the whole "can't go below current stunned"
 	if(status_flags & CANSTUN)
 		stunned = max(amount,0)
 	return
 
+/// Changes stunned value from current value by given amount
 /mob/proc/AdjustStunned(amount)
 	if(status_flags & CANSTUN)
 		stunned = max(stunned + amount,0)
 	return
 
+/// Adds to weakened value if above current weakened. Effect makes and keeps the mob lying on turf for duration.
 /mob/proc/Weaken(amount)
 	if(status_flags & CANWEAKEN)
 		facing_dir = null
@@ -1039,61 +1048,57 @@
 		update_canmove()	//updates lying, canmove and icons
 	return
 
+/// Directly sets weakened value to specified amount.
 /mob/proc/SetWeakened(amount)
 	if(status_flags & CANWEAKEN)
 		weakened = max(amount,0)
 		update_canmove()	//updates lying, canmove and icons
 	return
 
+/// Changes stunned value from current value by given amount
 /mob/proc/AdjustWeakened(amount)
 	if(status_flags & CANWEAKEN)
 		weakened = max(weakened + amount,0)
 		update_canmove()	//updates lying, canmove and icons
 	return
 
+/// Adds to paralysis value if above current paralysis. Actual effect gets handled in mob's /Life() proc.
 /mob/proc/Paralyse(amount)
 	if(status_flags & CANPARALYSE)
 		facing_dir = null
 		paralysis = max(max(paralysis,amount),0)
 	return
 
+/// Directly sets paralysis value to specified amount
 /mob/proc/SetParalysis(amount)
 	if(status_flags & CANPARALYSE)
 		paralysis = max(amount,0)
 	return
 
+/// Changes paralysis value from current value by given amount
 /mob/proc/AdjustParalysis(amount)
 	if(status_flags & CANPARALYSE)
 		paralysis = max(paralysis + amount,0)
 	return
 
+/// Adds to sleeping value if above current sleeping. Effect makes mob unconscious and lie on the ground if they don't sleep standing.
 /mob/proc/Sleeping(amount)
 	facing_dir = null
 	sleeping = max(max(sleeping,amount),0)
 	return
 
+/// Directly sets sleeping value to specified amount
 /mob/proc/SetSleeping(amount)
 	sleeping = max(amount,0)
 	return
 
+/// Changes sleeping value from current value by given amount. If
 /mob/proc/AdjustSleeping(amount)
 	sleeping = max(sleeping + amount,0)
 	if(!sleeping)
 		recently_slept = 10
 	return
 
-/mob/proc/Resting(amount)
-	facing_dir = null
-	resting = max(max(resting,amount),0)
-	return
-
-/mob/proc/SetResting(amount)
-	resting = max(amount,0)
-	return
-
-/mob/proc/AdjustResting(amount)
-	resting = max(resting + amount,0)
-	return
 
 /mob/proc/get_species(var/reference = 0)
 	return ""
@@ -1125,7 +1130,7 @@
 /mob/proc/embedded_needs_process()
 	return (embedded.len > 0)
 
-/mob/proc/remove_implant(obj/item/implant, surgical_removal = FALSE)
+/mob/proc/remove_implant(obj/item/implant, surgical_removal = FALSE, obj/item/organ/external/affected)
 	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
 		remove_verb(src, /mob/proc/yank_out_object)
 	for(var/obj/item/O in pinned)
@@ -1134,7 +1139,8 @@
 		if(!length(pinned))
 			anchored = 0
 	implant.dropInto(loc)
-	implant.add_blood(src)
+	if(!affected || !BP_IS_ROBOTIC(affected))
+		implant.add_blood(src)
 	implant.update_icon()
 	if(istype(implant,/obj/item/implant))
 		var/obj/item/implant/imp = implant
@@ -1157,7 +1163,7 @@
 			apply_damage((implant.w_class * 7), DAMAGE_BRUTE, affected)
 			if(!BP_IS_ROBOTIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
 				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
-	. = ..()
+	. = ..(implant, surgical_removal, affected)
 
 /mob/proc/yank_out_object()
 	set category = "Object"
@@ -1583,6 +1589,8 @@
 	var/speedies = 0
 	for(var/obj/item/thing in get_equipped_speed_mod_items())
 		speedies += (thing.slowdown + thing.slowdown_accessory)
+		if(thing.mass_based_slowdown)
+			speedies += thing.get_effective_mass() / get_lift_capacity()
 
 	if(speedies)
 		add_or_update_variable_movespeed_modifier(

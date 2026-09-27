@@ -226,8 +226,8 @@
 	icon_state = "law_rep_b"
 
 /// Uncategorized/general
-/area/horizon/crew/journalistoffice
-	name = "Journalist's Office"
+/area/horizon/crew/media_office
+	name = "Media Office"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	horizon_deck = 3
 	lightswitch = FALSE

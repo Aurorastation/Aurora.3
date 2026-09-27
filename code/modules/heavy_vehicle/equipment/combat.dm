@@ -236,16 +236,15 @@
 
 	release_force = 5
 	throw_distance = 7
-	proj = 5
-	max_proj = 5
-	proj_gen_time = 300
-
+	proj = 3
+	max_proj = 3
+	proj_gen_time = 400
 
 /obj/item/gun/launcher/mech/mountedgl/consume_next_projectile()
 	if(proj < 1)
 		return null
 	var/obj/item/grenade/g = new grenade_type(src)
-	g.det_time = 10
+	g.det_time = 20
 	g.activate(null)
 	proj--
 	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)

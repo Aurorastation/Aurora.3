@@ -9,7 +9,7 @@
 	welcome_message = "As an apprentice, you are seeking to prove yourself by working under a full guildsman - in this case, your captain. Follow their orders, and work hard to prove that you have what it takes to make it in the Merchants' Guild."
 
 	outfit = /obj/outfit/admin/merchant_guild
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	respawn_flag = null
 
@@ -29,7 +29,7 @@
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/merchant
 
 /obj/outfit/admin/merchant_guild/get_id_access()
-	return list(ACCESS_MERCHANTS_GUILD, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/merchants_guild::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/merchant_guild/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)

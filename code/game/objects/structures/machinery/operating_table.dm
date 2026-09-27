@@ -261,8 +261,6 @@
  * Returns `TRUE` if the patient was taken, `FALSE` otherwise
  */
 /obj/structure/machinery/optable/proc/take_occupant(mob/living/carbon/patient, mob/living/carbon/giver)
-	SHOULD_NOT_SLEEP(TRUE)
-
 	//No point if there's no patient
 	if(!istype(patient))
 		return FALSE

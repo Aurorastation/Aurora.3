@@ -149,7 +149,6 @@
 	dock_target = "airlock_shuttle_cyclops"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_cyclops"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar

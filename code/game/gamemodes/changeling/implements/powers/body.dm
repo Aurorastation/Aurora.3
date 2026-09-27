@@ -108,7 +108,7 @@
 	if(H.mind)
 		H.mind.transfer_to(ling)
 	else
-		ling.key = H.key
+		H.client.transfer_key_to_mob(ling)
 	ling.occupant = H
 	var/atom/movable/overlay/effect = new /atom/movable/overlay(get_turf(H))
 	effect.density = FALSE

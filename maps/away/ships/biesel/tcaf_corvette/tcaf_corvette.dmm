@@ -4862,7 +4862,6 @@
 /obj/item/storage/briefcase,
 /obj/item/storage/secure/briefcase,
 /obj/item/camera,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
 /obj/item/reagent_containers/food/drinks/flask,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/captain_quarters)
@@ -7134,12 +7133,6 @@
 /obj/item/shield/riot/tact/tcaf,
 /obj/item/shield/riot/tact/tcaf,
 /obj/item/shield/riot/tact/tcaf,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/glasses/safety/goggles/tactical,
 /obj/item/clothing/glasses/safety/goggles/tactical,
 /obj/item/clothing/glasses/safety/goggles/tactical,
@@ -7152,6 +7145,13 @@
 /obj/item/storage/belt/security/full/alt,
 /obj/item/storage/belt/security/full/alt,
 /obj/item/storage/belt/security/full/alt,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/shield/energy/tcaf,
+/obj/item/shield/energy/tcaf,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/storage)
 "Bn" = (
@@ -8159,16 +8159,8 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/ammo_magazine/a357{
-	pixel_x = -6;
-	pixel_y = -2
-	},
-/obj/item/ammo_magazine/a357{
-	pixel_x = -6;
-	pixel_y = -2
-	},
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a357,
 /obj/item/gun/projectile/revolver/konyang{
 	pixel_y = 5
 	},
@@ -11037,16 +11029,6 @@
 /obj/item/clothing/suit/storage/tcaf,
 /obj/item/clothing/accessory/tc_pin,
 /obj/item/clothing/accessory/tc_pin,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/badge/tcaf_papers/service,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/head/beret/tcaf/field,
 /obj/item/clothing/head/beret/tcaf/field,
 /obj/item/clothing/head/beret/tcaf/field,
