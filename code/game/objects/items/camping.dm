@@ -264,6 +264,32 @@
 	SIGNAL_HANDLER
 	addtimer(CALLBACK(src, PROC_REF(register_occupancy_signals)), 1, TIMER_UNIQUE | TIMER_OVERRIDE)
 
+/**
+ * Updates clients whose effective viewpoint shares a turf with `viewpoint`.
+ *
+ * A client's eye may be its mob, a mob contained by a vehicle, a freelook eye,
+ * or a machinery camera. Basing this on the eye turf makes all of those cases
+ * use the same roof-visibility rule.
+ */
+/datum/large_structure/tent/proc/update_roof_viewers(atom/movable/viewpoint)
+	var/turf/viewpoint_turf = get_turf(viewpoint)
+	if(!viewpoint_turf)
+		return
+
+	for(var/client/viewer in GLOB.clients)
+		if(viewer.mob && get_turf(viewer.eye) == viewpoint_turf)
+			viewer.mob.update_tent_roof_visibility()
+
+/// Returns whether a client is viewing through `mover` or something contained by it.
+/datum/large_structure/tent/proc/movable_carries_viewer(atom/movable/mover)
+	for(var/client/viewer in GLOB.clients)
+		var/atom/current_viewpoint = viewer.eye
+		while(current_viewpoint && !isturf(current_viewpoint))
+			if(current_viewpoint == mover)
+				return TRUE
+			current_viewpoint = current_viewpoint.loc
+	return FALSE
+
 /** Returns the direction authored for a roof tile, or `fallback` for legacy/unplanned tents. */
 /datum/large_structure/tent/proc/get_roof_direction(var/turf/origin, var/fallback = NONE)
 	var/roof_marker = roof_markers?[origin]
@@ -511,31 +537,36 @@
 	return ..()
 
 /datum/large_structure/tent/structure_entered(turf/entry_point, atom/movable/entering)
-	. = ..()
-	if(!.)
-		return
-	if(!istype(entering, /mob))
+	if(!ismob(entering) && !movable_carries_viewer(entering))
+		return FALSE
+	RegisterSignal(entering, COMSIG_MOVABLE_MOVED, PROC_REF(mob_moved), override = TRUE)
+	update_roof_viewers(entering)
+	return TRUE
+
+/datum/large_structure/tent/mob_moved(atom/movable/mover, turf/exit_point)
+	var/still_inside = get_turf(mover) in target_turfs
+	if(!still_inside)
+		UnregisterSignal(mover, COMSIG_MOVABLE_MOVED)
+	update_roof_viewers(mover)
+	return still_inside
+
+/// Makes the tent roof follow the client's actual viewpoint rather than only the mob's location.
+/mob/proc/update_tent_roof_visibility()
+	var/atom/movable/screen/plane_master/roof/roof_plane = hud_used?.plane_masters["[ROOF_PLANE]"]
+	if(!roof_plane)
 		return
 
-	var/mob/M = entering
-	var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
-	if(roof_plane)
-		roof_plane.alpha = 0
-
-/datum/large_structure/tent/mob_moved(mob/mover, turf/exit_point)
-	. = ..()
-	if(!.)
-		var/atom/movable/screen/plane_master/roof/roof_plane = mover.hud_used?.plane_masters["[ROOF_PLANE]"]
-		if(roof_plane)
-			// A move can leave this tent and enter another one at the same time. Do not
-			// restore the shared roof plane while the mover is still beneath tent canvas.
-			var/turf/current_turf = get_turf(mover)
-			var/inside_another_tent = FALSE
-			for(var/obj/structure/component/tent_canvas/canvas in current_turf)
-				if(istype(canvas.part_of, /datum/large_structure/tent))
-					inside_another_tent = TRUE
-					break
-			roof_plane.alpha = inside_another_tent ? 0 : 255
+	var/atom/viewpoint = client?.eye
+	if(!viewpoint)
+		viewpoint = src
+	var/turf/viewpoint_turf = get_turf(viewpoint)
+	var/inside_tent = FALSE
+	if(viewpoint_turf)
+		for(var/obj/structure/component/tent_canvas/canvas in viewpoint_turf)
+			if(istype(canvas.part_of, /datum/large_structure/tent))
+				inside_tent = TRUE
+				break
+	roof_plane.alpha = inside_tent ? 0 : 255
 
 /**
  * Determines the state to use for each section of the tent
@@ -743,13 +774,12 @@
 
 /obj/structure/component/tent_canvas/Destroy() //When we're destroyed, make sure we return the roof plane to anyone inside
 	var/turf/former_turf = get_turf(src)
-	for(var/mob/M in loc)
-		var/atom/movable/screen/plane_master/roof/roof_plane = M.hud_used?.plane_masters["[ROOF_PLANE]"]
-		if(roof_plane)
-			roof_plane.alpha = 255
 	. = ..()
 	if(former_turf)
 		addtimer(CALLBACK(former_turf, TYPE_PROC_REF(/turf, update_weather)), 0, TIMER_UNIQUE)
+		for(var/client/viewer in GLOB.clients)
+			if(viewer.mob && get_turf(viewer.eye) == former_turf)
+				addtimer(CALLBACK(viewer.mob, TYPE_PROC_REF(/mob, update_tent_roof_visibility)), 0, TIMER_UNIQUE)
 	return .
 
 /obj/structure/component/tent_canvas/roof
