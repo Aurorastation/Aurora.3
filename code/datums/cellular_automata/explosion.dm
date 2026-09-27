@@ -17,6 +17,8 @@
 	var/max_damage_range
 	var/reflection_power_multiplier = 0.4
 	var/direction
+	/// Only epicenter cells may seed adjacent decks, after the separating floor is open.
+	var/z_transfer = 0
 	var/delay = 0
 	var/should_merge = TRUE
 	var/list/exploded_atoms = list()
@@ -124,6 +126,7 @@
 
 	var/severity = get_severity()
 	in_turf.ex_act(severity, direction)
+	propagate_z()
 	for(var/atom/movable/thing as anything in in_turf)
 		if(QDELETED(thing) || !thing.simulated || (thing in exploded_atoms))
 			continue
@@ -186,8 +189,44 @@
 
 	qdel(src)
 
+/// Cross-deck blasts require an actual opening and lose two tiles of each damage band.
+/// Keep transfer on epicenters, rather than multiplying it across every horizontal cell.
+/datum/automata_cell/explosion/proc/propagate_z()
+	if(!z_transfer || power < GLOB.config.iterative_explosives_z_threshold)
+		return
+	// Match the legacy limit: light-only blasts and small heavy blasts stay on their deck.
+	if(max_damage_range > 0 && devastation_range <= 2 && heavy_impact_range <= 2)
+		return
+	for(var/z_direction in list(UP, DOWN))
+		if(!(z_transfer & z_direction))
+			continue
+		var/turf/destination = z_direction == UP ? GET_TURF_ABOVE(in_turf) : GET_TURF_BELOW(in_turf)
+		if(!destination)
+			continue
+		// The upper turf is the floor separating these two decks. Broken tiles or
+		// exposed plating are still solid floors, not openings.
+		var/turf/separating_floor = z_direction == UP ? destination : in_turf
+		if(!separating_floor.is_open() || in_turf.density || destination.density)
+			continue
+		var/transferred_power = power * GLOB.config.iterative_explosives_z_multiplier - GLOB.config.iterative_explosives_z_subtraction
+		if(transferred_power <= 0)
+			continue
+		var/datum/explosiondata/data = new
+		data.epicenter = destination
+		data.rec_pow = transferred_power
+		data.power_falloff = power_falloff
+		data.devastation_range = max(0, devastation_range - 2)
+		data.heavy_impact_range = max(0, heavy_impact_range - 2)
+		data.light_impact_range = max(0, light_impact_range - 2)
+		data.max_damage_range = max(0, max_damage_range - 2)
+		data.z_transfer = z_direction
+		data.spreading = TRUE
+		data.source_mob = source_mob
+		data.source_name = source_name
+		SSexplosives.queue(data)
+
 /// Begin a subsystem-paced cellular explosion.
-/proc/cell_explosion(turf/epicenter, power, falloff = 1, direction, devastation_range, heavy_impact_range, light_impact_range, max_damage_range, mob/source_mob, source_name = "an explosion")
+/proc/cell_explosion(turf/epicenter, power, falloff = 1, direction, devastation_range, heavy_impact_range, light_impact_range, max_damage_range, mob/source_mob, source_name = "an explosion", z_transfer = 0)
 	epicenter = get_turf(epicenter)
 	if(!epicenter || power <= 0)
 		return
@@ -225,6 +264,7 @@
 	cell.light_impact_range = light_impact_range
 	cell.max_damage_range = max_damage_range
 	cell.direction = direction
+	cell.z_transfer = z_transfer
 	cell.source_mob = source_mob
 	cell.source_name = source_name
 	cell.update_wave_visual()
