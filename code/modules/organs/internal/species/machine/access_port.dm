@@ -181,6 +181,12 @@
 		QDEL_NULL(cable)
 	return ..()
 
+/obj/item/access_cable/mechanics_hints()
+	. = ..()
+	. += "Use this on an IPC to connect through its universal access port."
+	. += "For a non-IPC patient, target one of their prosthetic limbs or the body area containing a cybernetic service jack before using the cable on them."
+	. += "It can also connect directly to a detached prosthetic's service interface for component diagnostics."
+
 /**
  * When the cable is actually taken out of an object and thus is shown in world.
  * The parameters here might be different from the source/target variables on the cable itself.
@@ -252,11 +258,60 @@
 
 	target.cable_interact(src, user)
 
+/obj/item/access_cable/proc/find_service_jack(mob/living/carbon/human/human, target_zone)
+	for(var/obj/item/organ/internal/augment/service_jack/jack in human.internal_organs)
+		if(jack.parent_organ == target_zone)
+			return jack
+
 /obj/item/access_cable/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(ishuman(target_mob))
 		var/mob/living/carbon/human/human = target_mob
 		if(!isipc(human))
-			to_chat(user, SPAN_WARNING("Where are you planning to put that...?"))
+			var/obj/item/organ/external/prosthetic = human.get_organ(target_zone)
+			if(!prosthetic || !BP_IS_ROBOTIC(prosthetic) || prosthetic.is_stump())
+				prosthetic = null
+			var/obj/item/organ/internal/augment/service_jack/service_jack = find_service_jack(human, target_zone)
+			var/obj/item/organ/connection_socket = prosthetic ? prosthetic : service_jack
+			if(!connection_socket)
+				to_chat(user, SPAN_WARNING("[human] has no compatible prosthetic socket or cybernetic service jack in that area."))
+				return
+			if(connection_socket == service_jack && service_jack.is_broken())
+				to_chat(user, SPAN_WARNING("[service_jack] is too damaged to accept a connection."))
+				return
+			if(locate(/obj/item/access_cable) in connection_socket)
+				to_chat(user, SPAN_WARNING("[connection_socket] already has an access cable connected."))
+				return
+
+			if(user != human)
+				if(human.client && !human.incapacitated(INCAPACITATION_FORCELYING|INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_BUCKLED_PARTIALLY))
+					var/request = tgui_alert(human, "[user] would like to connect to your [connection_socket]. Allow them?", "Cybernetic Access", list("Yes", "No"))
+					if(request != "Yes")
+						human.visible_message(SPAN_NOTICE("[human] pushes away [user]'s [src]."))
+						return
+
+				user.visible_message(SPAN_WARNING("[user] tries to connect \the [src] to [human]'s [connection_socket]..."))
+				if(!do_mob(user, human, 2 SECONDS))
+					return
+
+				// Re-check the selected socket after the consent and connection delay.
+				var/obj/item/organ/external/fresh_prosthetic = human.get_organ(target_zone)
+				if(!fresh_prosthetic || !BP_IS_ROBOTIC(fresh_prosthetic) || fresh_prosthetic.is_stump())
+					fresh_prosthetic = null
+				var/obj/item/organ/internal/augment/service_jack/fresh_service_jack = find_service_jack(human, target_zone)
+				var/obj/item/organ/fresh_socket = fresh_prosthetic ? fresh_prosthetic : fresh_service_jack
+				if(!fresh_socket || (fresh_socket == fresh_service_jack && fresh_service_jack.is_broken()))
+					to_chat(user, SPAN_WARNING("[human] no longer has a usable cybernetic connection in that area."))
+					return
+				if(locate(/obj/item/access_cable) in fresh_socket)
+					to_chat(user, SPAN_WARNING("[fresh_socket] now has another access cable connected."))
+					return
+				connection_socket = fresh_socket
+				user.visible_message(SPAN_WARNING("[user] connects \the [src] to [human]'s [connection_socket]."))
+			else
+				user.visible_message(SPAN_WARNING("[user] connects \the [src] to their [connection_socket]."), SPAN_WARNING("You connect \the [src] to your [connection_socket]."))
+
+			connection_socket.insert_cable(src, user)
+			create_cable(human)
 			return
 
 		var/obj/item/organ/internal/machine/access_port/access_port = human.internal_organs_by_name[BP_ACCESS_PORT]

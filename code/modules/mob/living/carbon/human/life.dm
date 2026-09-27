@@ -24,8 +24,6 @@
 ///Amount of damage applied when the current breath's temperature passes the 1000K point
 #define HEAT_GAS_DAMAGE_LEVEL_3 8
 
-///Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
-#define COLD_GAS_DAMAGE_LEVEL_1 0.5
 ///Amount of damage applied when the current breath's temperature passes the 200K point
 #define COLD_GAS_DAMAGE_LEVEL_2 1.5
 ///Amount of damage applied when the current breath's temperature passes the 120K point
@@ -799,7 +797,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/human/handle_regular_status_updates()
+/mob/living/carbon/human/handle_regular_status_updates(seconds_per_tick)
 	if(!handle_some_updates())
 		return 0
 
@@ -843,7 +841,7 @@
 					sleeping_msg_debounce = TRUE
 					to_chat(src, EXAMINE_BLOCK_BLUE(SPAN_NOTICE(FONT_LARGE("You are now unconscious. You will not remember anything you see, hear, or feel happening around you until you regain consciousness."))))
 
-			adjustHalLoss(-3)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
@@ -883,11 +881,11 @@
 			dizziness = max(0, dizziness - 15)
 			jitteriness = max(0, jitteriness - 15)
 			drowsiness = max(0, drowsiness - 5)
-			adjustHalLoss(-3)
+			adjustHalLoss(-0.3 * seconds_per_tick)
 		else
 			dizziness = max(0, dizziness - 3)
 			jitteriness = max(0, jitteriness - 3)
-			adjustHalLoss(-1)
+			adjustHalLoss(-0.1 * seconds_per_tick)
 
 		//Other
 		handle_statuses()
@@ -1013,7 +1011,7 @@
 				// Collect and apply the images all at once to avoid appearance churn.
 				var/list/health_images = list()
 				for(var/obj/item/organ/external/E in organs)
-					if(no_damage && (E.brute_dam || E.burn_dam))
+					if(no_damage && (LIMB_GET_BRUTE_DAMAGE(E) || LIMB_GET_BURN_DAMAGE(E)))
 						no_damage = 0
 					health_images += E.get_damage_hud_image()
 

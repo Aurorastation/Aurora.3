@@ -451,6 +451,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		inline_js = file("html/statbrowser.js"),
 		inline_css = file("html/statbrowser.css"),
 	)
+	addtimer(CALLBACK(src, PROC_REF(preload_character_setup_tgui)), 1)
 	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 /client/proc/InitClient()
@@ -1113,3 +1114,16 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	var/list/zoom_options = list("Default" = 0, "Low" = 3, "Medium" = 6, "High" = 10, "Extreme" = 15)
 	var/selected_zoom = tgui_input_list(usr, "Please select a zoom level for your view.", "Set View Zoom", zoom_options, zoom_options[1])
 	winset(src, "mapwindow.map", "zoom=[zoom_options[selected_zoom]]")
+
+/// Sets the key for a mob to the client's key, effectively transferring the client to the new mob. Preserves certain client preferences.
+/client/proc/transfer_key_to_mob(mob/target)
+	if(!target)
+		return
+
+	// Preserve old vars
+	var/autohiss_mode = src.autohiss_mode
+
+	target.key = src.key // Invokes LateLogin(), which can reset client state such as autohiss.
+
+	// Re-set the preserved vars after LateLogin() potentially reset them.
+	src.autohiss_mode = autohiss_mode

@@ -13,6 +13,8 @@
 
 /obj/effect/visual/sparks/tick()
 	. = ..()
+	if (. == EFFECT_DESTROY)
+		return
 	ticks_until_step = ticks_until_step ? ticks_until_step - 1 : 0
 	if (!ticks_until_step && spread_direction)
 		step(src, spread_direction)
@@ -22,7 +24,7 @@
 	if(T)
 		T.hotspot_expose(1000, 100)
 
-	if (life_ticks < 2)
+	if (life_ticks == 1)
 		animate(src, alpha = 0, time = 2, easing = SINE_EASING | EASE_IN)
 
 /obj/effect/visual/sparks/start(var/direction)

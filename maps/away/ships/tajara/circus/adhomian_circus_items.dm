@@ -135,279 +135,43 @@
 	user.put_in_active_hand(B)
 
 /obj/item/dumbbell
+	parent_type = /obj/item/gym_dumbbell
 	name = "adhomian dumbbell"
 	desc = "A heavy piece of metal used in weight lifting."
-	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
-	icon_state = "dumbbell"
-	item_state = "dumbbell"
-	contained_sprite = TRUE
-	var/weight = "10"
-
-/obj/item/dumbbell/feedback_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "It weighs [weight] kilograms."
 
 /obj/item/dumbbell/twenty
-	weight = "20"
+	mass = 20
 
 /obj/item/dumbbell/barbell
+	parent_type = /obj/item/gym_dumbbell/barbell
 	name = "adhomian barbell"
-	icon_state = "barbell"
-	item_state = "barbell"
-	weight = "40"
-	slowdown = 1
-	w_class = 5
-	var/lifttime = 10
-
-/obj/item/dumbbell/barbell/attack_hand(mob/user)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		H.visible_message(SPAN_NOTICE("The [H] starts to try to lift \the [src]!"), SPAN_NOTICE("You attempt to lift \the [src]."))
-		if (do_mob(user, H, lifttime))
-			if(!pickuptest(H))
-				H.visible_message(SPAN_DANGER("\The [H] drops \the [src], failing to lift it!"), SPAN_DANGER("You fail to lift \the [src]."))
-				return FALSE
-			else
-				H.visible_message(SPAN_NOTICE("The [H] lifts \the [src]!"))
-				..()
-		else
-			return
-
-/obj/item/dumbbell/barbell/proc/pickuptest(var/mob/living/carbon/human/user)
-	return TRUE
 
 /obj/item/dumbbell/barbell/sixty
-	weight = "60"
-	lifttime = 15
-	slowdown = 2
+	mass = 60
 
 /obj/item/dumbbell/barbell/eighty
-	weight = "80"
-	lifttime = 25
-	slowdown = 3
+	mass = 80
 
 /obj/item/dumbbell/barbell/hundred
-	weight = "100"
-	lifttime = 30
-	slowdown = 4
-
-/obj/item/dumbbell/barbell/hundred/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(isunathi(user))
-		return TRUE
-	if(isvaurca(user))
-		return TRUE
-	if(isipc(user))
-		return TRUE
-	if(user.is_diona())
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(user.is_berserk())
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 100
 
 /obj/item/dumbbell/barbell/hundredforty
-	weight = "140"
-	lifttime = 35
-	slowdown = 5
-
-/obj/item/dumbbell/barbell/hundredforty/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(isunathi(user))
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARRIOR)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BREEDER)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BULWARK)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARFORM)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G1)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G2)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_XION)
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(user.is_diona())
-		return TRUE
-	if(user.is_berserk())
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 140
 
 /obj/item/dumbbell/barbell/hundredeighty
-	weight = "180"
-	lifttime = 40
-	slowdown = 6
-
-/obj/item/dumbbell/barbell/hundredeighty/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(isunathi(user))
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARRIOR)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BREEDER)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BULWARK)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARFORM)
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G1)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G2)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_XION)
-		return TRUE
-	if(user.is_diona())
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 180
 
 /obj/item/dumbbell/barbell/twohundred
-	weight = "200"
-	lifttime = 40
-	slowdown = 7
-
-/obj/item/dumbbell/barbell/twohundred/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARRIOR)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BREEDER)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BULWARK)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARFORM)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G1)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G2)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_XION)
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(user.is_diona())
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 200
 
 /obj/item/dumbbell/barbell/twohundredtwenty
-	weight = "220"
-	lifttime = 40
-	slowdown = 8
-
-/obj/item/dumbbell/barbell/twohundredtwenty/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARRIOR)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BREEDER)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BULWARK)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARFORM)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G1)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G2)
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(user.is_diona())
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 220
 
 /obj/item/dumbbell/barbell/twohundredforty
-	weight = "240"
-	lifttime = 40
-	slowdown = 9
-
-/obj/item/dumbbell/barbell/twohundredforty/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BREEDER)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BULWARK)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARFORM)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G1)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G2)
-		return TRUE
-	if(user.is_diona())
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 240
 
 /obj/item/dumbbell/barbell/twohundredsixty
-	weight = "260"
-	lifttime = 50
-	slowdown = 10
-
-/obj/item/dumbbell/barbell/twohundredsixty/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BREEDER)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BULWARK)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARFORM)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G2)
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 260
 
 /obj/item/dumbbell/barbell/threehundred
-	weight = "300"
-	lifttime = 50
-	slowdown = 11
-
-/obj/item/dumbbell/barbell/threehundred/pickuptest(var/mob/living/carbon/human/user)
-	if(user.mind.assigned_role == "Adhomian Circus Strongzhan")
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BREEDER)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_BULWARK)
-		return TRUE
-	if(user.species.name == SPECIES_VAURCA_WARFORM)
-		return TRUE
-	if(user.species.name == SPECIES_IPC_G2)
-		return TRUE
-	if(user.species.name == SPECIES_TAJARA_TESLA_BODY)
-		return TRUE
-	if(HULK in user.mutations)
-		return TRUE
-	else
-		return FALSE
+	mass = 300

@@ -1,0 +1,4 @@
+CREATE TABLE `ss13_registry` (
+    `lookup` VARCHAR(128) NOT NULL UNIQUE PRIMARY KEY,
+    `content` VARCHAR(1024) NOT NULL
+);

@@ -39,7 +39,7 @@
 	mob_name_pick_message = "Pick an Unathi last name."
 
 	outfit = /obj/outfit/admin/kataphract/wasteland
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kataphract-Hopeful"
@@ -58,7 +58,7 @@
 	welcome_message = "You are a warrior of the Kataphract Guild, assigned to train and protect a group of Hopefuls in the harshness of the Wasteland. Seek to test them on their prowess and honor, and instruct them on the meaning of being a Kataphract. Try not to get them killed, though."
 
 	outfit = /obj/outfit/admin/kataphract/knight/wasteland
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kataphract Knight"

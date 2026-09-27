@@ -90,7 +90,6 @@
 	dock_target = "airlock_himeo_patrol_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "himeo_patrol_nav_dock"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/himeo_patrol_ship

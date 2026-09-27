@@ -849,8 +849,8 @@
 	. = ..()
 
 /singleton/reagent/drugs/psiblock
-	name = "PsiProtect"
-	description = "A drug that provides temporary protection against psionic effects. It is marketed towards explorers intending to enter or travel near to the Lemurian Sea."
+	name = "Ranixidone"
+	description = "A drug that provides temporary protection against psionic effects. It is marketed towards Lemurian Sea explorers and those with psionic disorders."
 	color = "#b0b0b0"
 	taste_description = "inexplicably the color grey itself, then all other tastes fade into nothingness"
 	initial_effect_message_list = null
@@ -864,9 +864,6 @@
 
 /singleton/reagent/drugs/psiblock/yomi_genetics
 	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics
-
-/singleton/reagent/drugs/psiblock/yomi_genetics/cheap
-	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap
 
 /singleton/reagent/drugs/psiblock/yomi_genetics/expensive
 	component_to_add = /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive

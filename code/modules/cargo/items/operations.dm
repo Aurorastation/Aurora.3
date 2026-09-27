@@ -23,7 +23,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/trolley
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -37,7 +37,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/engine
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -269,7 +269,7 @@
 	items = list(
 		/obj/item/clothing/accessory/holster
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -277,11 +277,39 @@
 /singleton/cargo_item/space_bike
 	category = "operations"
 	name = "space-bike"
-	supplier = "zharkov"
+	supplier = "hephaestus"
 	description = "Space wheelies! Woo!"
 	price = 800
 	items = list(
 		/obj/vehicle/bike
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/snowmobile
+	category = "operations"
+	name = "snowmobile"
+	supplier = "zharkov"
+	description = "A vehicle adapted to travel on snow."
+	price = 800
+	items = list(
+		/obj/vehicle/bike/snow
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/monowheel
+	category = "operations"
+	name = "monowheel"
+	supplier = "zharkov"
+	description = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
+	price = 900
+	items = list(
+		/obj/vehicle/bike/monowheel
 	)
 	access = 0
 	container_type = "box"
@@ -591,7 +619,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -605,7 +633,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/rollable
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -619,7 +647,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/chewable
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -633,7 +661,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -647,7 +675,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -661,7 +689,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -675,7 +703,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -689,7 +717,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/candy
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -703,7 +731,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -717,7 +745,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -731,7 +759,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -745,7 +773,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -759,7 +787,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -773,7 +801,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/mech
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -787,7 +815,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -801,7 +829,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -815,7 +843,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/music
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -830,7 +858,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/tea
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

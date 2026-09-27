@@ -82,23 +82,26 @@
 		to_chat(pref.client, SPAN_WARNING("You have more psionics than possible! Resetting..."))
 		pref.psionics = list()
 
-/datum/category_item/player_setup_item/general/psionics/content(var/mob/user)
+/datum/category_item/player_setup_item/general/psionics/ui_data(var/mob/user)
 	var/datum/species/mob_species = GLOB.all_species[pref.species]
 	if(!(mob_species.has_psionics))
-		return
-	var/list/bought_psionic_powers = list()
+		return list()
+	var/list/fields = list()
 	for(var/S in pref.psionics)
 		var/singleton/psionic_power/P = GET_SINGLETON(text2path(S))
 		if(istype(P))
-			bought_psionic_powers |= P
-
-	var/list/dat = list(
-		"<b>Psionics:</b><br>"
+			fields += list(list(
+				"label" = "Power",
+				"value" = P.name,
+				"actions" = list(list("label" = "Remove", "action" = "remove_psi_power", "value" = P.type, "color" = "bad", "icon" = "minus"))
+			))
+	fields += list(list("label" = "Available Powers", "value" = "", "actions" = list(list("label" = "Add Psionic Power", "action" = "add_psi_power", "icon" = "plus"))))
+	return list(
+		"kind" = "form",
+		"name" = name,
+		"ref" = REF(src),
+		"sections" = list(list("title" = "Psionics", "fields" = fields))
 	)
-	for(var/singleton/psionic_power/P in bought_psionic_powers)
-		dat += "- [P.name] <a href='byond://?src=[REF(src)];remove_psi_power=[P.type]'>-</a><br>"
-	dat += "<a href='byond://?src=[REF(src)];add_psi_power=1'>Add Psionic Power</a><br>"
-	. = dat.Join()
 
 /datum/category_item/player_setup_item/general/psionics/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["remove_psi_power"])
@@ -135,4 +138,3 @@
 			if(istype(P))
 				pref.psionics += "[P.type]"
 				return TOPIC_REFRESH
-

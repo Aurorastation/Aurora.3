@@ -58,6 +58,7 @@
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = 0
 	needspin = FALSE
+	has_unique_gun_action = TRUE
 
 	var/list/beakers = list() //All containers inside the gun.
 	var/list/mixing = list() //Containers being used for mixing.

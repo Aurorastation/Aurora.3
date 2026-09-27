@@ -209,6 +209,8 @@
 		if(GLOB.config.allow_admin_jump)
 			log_admin("[key_name(usr)] teleported [key_name(M)]")
 			message_admins("[key_name_admin(usr)] teleported [key_name_admin(M)]", 1)
+			if(M.buckled_to)
+				M.buckled_to.unbuckle()
 			M.on_mob_jump()
 			M.forceMove(get_turf(usr))
 			feedback_add_details("admin_verb","GM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

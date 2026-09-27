@@ -590,9 +590,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "Nt" = (
-/turf/simulated/wall/wood{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/wood,
 /area/adhomai_raskariim_hideout)
 "NN" = (
 /obj/structure/bed/stool/chair/wood{
