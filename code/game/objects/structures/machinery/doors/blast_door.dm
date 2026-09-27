@@ -260,7 +260,6 @@
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
-	closed_layer = CLOSED_DOOR_LAYER
 	destroy_hits = 20
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,

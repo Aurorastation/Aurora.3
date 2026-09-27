@@ -11,7 +11,7 @@
 		/obj/item/storage/firstaid/o2,
 		/obj/item/storage/firstaid/adv
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -25,7 +25,7 @@
 	items = list(
 		/obj/item/storage/firstaid/regular
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -39,7 +39,7 @@
 	items = list(
 		/obj/item/storage/firstaid/adv
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -53,7 +53,7 @@
 	items = list(
 		/obj/item/storage/firstaid/large/adv
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -67,7 +67,7 @@
 	items = list(
 		/obj/item/storage/firstaid/fire
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -81,7 +81,7 @@
 	items = list(
 		/obj/item/storage/firstaid/o2
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -95,7 +95,7 @@
 	items = list(
 		/obj/item/storage/firstaid/toxin
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -109,7 +109,7 @@
 	items = list(
 		/obj/item/storage/firstaid/radiation
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -123,7 +123,7 @@
 	items = list(
 		/obj/item/reagent_containers/blood/OMinus
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 2
@@ -137,7 +137,7 @@
 	items = list(
 		/obj/item/reagent_containers/blood/sbs
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 2
@@ -151,7 +151,7 @@
 	items = list(
 		/obj/item/storage/box/bloodpacks
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
@@ -165,7 +165,7 @@
 	items = list(
 		/obj/item/reagent_containers/inhaler/pneumalin
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
@@ -207,7 +207,7 @@
 	items = list(
 		/obj/item/storage/box/gloves
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -235,7 +235,7 @@
 	items = list(
 		/obj/item/storage/box/syringes
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -263,7 +263,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/bicaridine
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -305,7 +305,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/dermaline
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -361,7 +361,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/stoxin
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -375,7 +375,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/mortaphenyl
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -389,7 +389,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/thetamycin
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -431,7 +431,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/beaker/vial/peridaxon
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -445,7 +445,7 @@
 	items = list(
 		/obj/item/storage/belt/medical
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -459,7 +459,7 @@
 	items = list(
 		/obj/item/clothing/mask/breath/medical
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -473,7 +473,7 @@
 	items = list(
 		/obj/item/clothing/head/surgery
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -487,7 +487,7 @@
 	items = list(
 		/obj/item/clothing/under/rank/medical/surgeon
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -501,7 +501,7 @@
 	items = list(
 		/obj/item/clothing/under/medical_gown
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -515,7 +515,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/medical
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -529,7 +529,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/medical
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -543,7 +543,7 @@
 	items = list(
 		/obj/item/storage/pill_bottle
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -557,7 +557,7 @@
 	items = list(
 		/obj/item/bodybag/cryobag
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -571,7 +571,7 @@
 	items = list(
 		/obj/item/auto_cpr
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -585,7 +585,7 @@
 	items = list(
 		/obj/item/reagent_containers/hypospray
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -601,7 +601,7 @@
 	items = list(
 		/obj/item/storage/firstaid/surgery
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -615,7 +615,7 @@
 	items = list(
 		/obj/item/tank/anesthetic
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -629,7 +629,7 @@
 	items = list(
 		/obj/item/surgery/scalpel
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -643,7 +643,7 @@
 	items = list(
 		/obj/item/surgery/retractor
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -657,7 +657,7 @@
 	items = list(
 		/obj/item/surgery/hemostat
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -671,7 +671,7 @@
 	items = list(
 		/obj/item/surgery/circular_saw
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -685,7 +685,7 @@
 	items = list(
 		/obj/item/surgery/fix_o_vein
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -699,7 +699,7 @@
 	items = list(
 		/obj/item/surgery/cautery
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -713,7 +713,7 @@
 	items = list(
 		/obj/item/surgery/surgicaldrill
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -727,7 +727,7 @@
 	items = list(
 		/obj/item/surgery/bone_gel
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -741,7 +741,7 @@
 	items = list(
 		/obj/item/surgery/bonesetter
 	)
-	access = ACCESS_SURGERY
+	access = /datum/access/surgery::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -755,7 +755,7 @@
 	items = list(
 		/obj/item/clothing/gloves/latex/tajara
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -769,7 +769,7 @@
 	items = list(
 		/obj/item/clothing/gloves/latex/unathi
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -783,7 +783,7 @@
 	items = list(
 		/obj/item/storage/box/unique/freezer/organcooler
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -798,7 +798,7 @@
 		/obj/structure/machinery/iv_drip,
 		/obj/item/clothing/mask/breath/medical
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

@@ -1,6 +1,8 @@
 /obj/item/mech_component
 	icon = 'icons/mecha/mech_parts.dmi'
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 100
+	mass_based_slowdown = TRUE
 	pixel_x = -8
 	gender = PLURAL
 	var/on_mech_icon = 'icons/mecha/mech_parts.dmi'
@@ -30,9 +32,18 @@
 		. += get_missing_parts_text(user)
 
 /obj/item/mech_component/pickup(mob/user)
+	. = ..()
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
-	return
+
+/obj/item/mech_component/do_additional_pickup_checks(mob/user)
+	return do_mass_based_pickup_delay(user)
+
+/obj/item/mech_component/get_effective_mass()
+	. = ..()
+	for(var/atom/movable/installed_part in contents)
+		if(!installed_part.anchored)
+			. += installed_part.get_effective_mass()
 
 /obj/item/mech_component/proc/set_colour(new_colour)
 	var/last_colour = color
@@ -139,7 +150,7 @@
 /obj/item/mech_component/proc/update_components()
 	return
 
-/obj/item/mech_component/proc/repair_brute_generic(var/obj/item/weldingtool/WT, var/mob/user)
+/obj/item/mech_component/proc/repair_brute_generic(obj/item/weldingtool/WT, var/mob/user)
 	if(!istype(WT))
 		return
 	if(!brute_damage)
@@ -148,12 +159,38 @@
 	if(!WT.isOn())
 		to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 		return
-	if(WT.use(0, user))
-		var/repair_value = 15
-		if(brute_damage)
-			repair_brute_damage(repair_value)
-			to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]."))
-			playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
+
+	var/do_after_time = 5 SECONDS
+	var/repair_value = 5
+	// Get modifiers only once before entering the loop.
+	SEND_SIGNAL(user, COMSIG_GET_MECH_WELD_MODIFIERS, src, &do_after_time, &repair_value)
+	if (repair_value <= 0) // Sanity check just in case to prevent an infinite loop after we start.
+		to_chat(user, SPAN_NOTICE("You can't repair \the [src]"))
+		return
+
+	to_chat(user, SPAN_NOTICE("You start welding \the [src]"))
+	playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
+
+	// Loop until finished fixing it.
+	while (TRUE)
+		if (!src || !WT || !user) // Any one of the three failed to exist.
+			return
+
+		if (!brute_damage) // Check damage both before and after do_after
+			to_chat(user, SPAN_NOTICE("You finish welding \the [src]."))
+			return
+
+		if (!do_after(user, do_after_time, src, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_SHOW_PROGRESS))
+			to_chat(user, SPAN_NOTICE("You were interrupted while welding \the [src]"))
+			return
+
+		if (!brute_damage || !WT.use(0, user))
+			to_chat(user, SPAN_NOTICE("You finish welding \the [src]."))
+			return
+
+		repair_brute_damage(repair_value)
+		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]."))
+		playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
 
 /obj/item/mech_component/proc/repair_burn_generic(var/obj/item/stack/cable_coil/CC, var/mob/user)
 	if(!istype(CC))

@@ -155,7 +155,7 @@ var/list/worths = list(
 					/obj/item/storage/backpack/holding = -300,
 					/obj/item/storage = -3,
 //WEAPONS,
-					/obj/item/spacecash = -1,
+					/obj/item/currency = -1,
 					/obj/item/ore = 1,
 					/obj/item/mining_scanner =  13,
 					/obj/item/bee_smoker = 5,

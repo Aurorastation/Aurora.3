@@ -771,7 +771,7 @@
 	if(!H.client)//no client, no screen to update
 		return 1
 
-	H.set_fullscreen(H.eye_blind, "blind", /atom/movable/screen/fullscreen/blind)
+	H.set_fullscreen(H.eye_blind || H.eyes_are_closed(), "blind", /atom/movable/screen/fullscreen/blind)
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /atom/movable/screen/fullscreen/blackout)
 
 	if(GLOB.config.welder_vision)
@@ -1088,6 +1088,7 @@
 	return human.stamina > (human.max_stamina / 10)
 
 /datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	SEND_SIGNAL(human, COMSIG_STAMINA_DRAIN_MODIFIERS, &stamina_cost)
 	human.stamina -= stamina_cost
 	human.hud_used.move_intent.update_move_icon(human)
 

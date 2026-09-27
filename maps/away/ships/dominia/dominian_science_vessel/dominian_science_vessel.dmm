@@ -71,7 +71,7 @@
 /area/ship/dominian_science_vessel/armory)
 "alp" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "portext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -467,7 +467,7 @@
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/mess)
 "aZo" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "portext"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -697,7 +697,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_science_vessel/port_hall)
 "bRh" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "starboardext"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -1205,7 +1205,7 @@
 /area/ship/dominian_science_vessel/quarters)
 "dnN" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "portext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -1224,7 +1224,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "starboardext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -1605,7 +1605,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "shipexterior"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -2446,7 +2446,7 @@
 /area/ship/dominian_science_vessel/officer)
 "hcG" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "portext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -2473,7 +2473,7 @@
 "hhf" = (
 /obj/structure/machinery/door/airlock/external,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "shipexterior"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -2773,7 +2773,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
 "hOQ" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "portext"
 	},
 /obj/structure/machinery/airlock_sensor{
@@ -2886,7 +2886,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "starboardext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -3202,7 +3202,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "iZU" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "starboardext"
 	},
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -3980,7 +3980,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "shipexterior"
 	},
 /obj/structure/machinery/airlock_sensor{
@@ -4391,7 +4391,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "starboardext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -4956,7 +4956,7 @@
 /area/ship/dominian_science_vessel/showers)
 "oCX" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "shipexterior"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -5213,7 +5213,7 @@
 /area/ship/dominian_science_vessel/research)
 "pub" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "shipexterior"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -5285,7 +5285,7 @@
 /area/ship/dominian_science_vessel/research)
 "pDc" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "shipexterior"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -6792,7 +6792,7 @@
 /area/ship/dominian_science_vessel/aft_dock)
 "uDy" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "portext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -6844,7 +6844,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "starboardext"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,

@@ -32,7 +32,7 @@
 		step_towards(B, get_step(B, direction))
 	var/obj/item/rig/rig = src.get_rig()
 	if(istype(rig))
-		rig.forced_move(direction, user)
+		INVOKE_ASYNC(rig, TYPE_PROC_REF(/obj/item/rig, forced_move), direction, user)
 
 /obj/item/paicard/Initialize()
 	. = ..()

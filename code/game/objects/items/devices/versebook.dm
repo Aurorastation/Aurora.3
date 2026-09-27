@@ -5,6 +5,7 @@
 	icon = 'icons/obj/library.dmi'
 	icon_state = "dominiabook"
 	item_state = "dominia"
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	/// Boolean that prevents reading multiple times
 	var/reading = FALSE

@@ -58,7 +58,7 @@
 /area/abandoned_casino/reception)
 "ag" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "ah" = (
@@ -322,7 +322,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark/damaged,
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "aT" = (
@@ -914,7 +914,7 @@
 	pixel_y = -31;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "cf" = (
@@ -3098,7 +3098,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "hG" = (
@@ -5262,7 +5262,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "mR" = (
@@ -6115,7 +6115,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "qG" = (
@@ -8718,7 +8718,7 @@
 "Do" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "Dq" = (
@@ -8779,7 +8779,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "DE" = (
@@ -9066,7 +9066,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "Fb" = (
@@ -9084,7 +9084,7 @@
 /area/abandoned_casino/staff/breakroom)
 "Fe" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark/damaged,
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "Fi" = (
@@ -9166,7 +9166,7 @@
 	pixel_y = -30;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "FH" = (
@@ -9778,7 +9778,7 @@
 "IR" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "IS" = (
@@ -9997,7 +9997,7 @@
 "JS" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/maintenance/solar_wing)
 "JU" = (
@@ -10347,7 +10347,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "Ln" = (
@@ -11193,7 +11193,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "PM" = (
@@ -11985,7 +11985,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars,
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars,
 /turf/simulated/floor/plating,
 /area/abandoned_casino/maintenance/solar_wing)
 "TA" = (

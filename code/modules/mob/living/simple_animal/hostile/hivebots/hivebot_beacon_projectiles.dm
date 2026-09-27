@@ -23,3 +23,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	impact_type = /obj/effect/projectile/impact/laser/blue
+
+/obj/projectile/beam/hivebot/incendiary/boss
+	damage = 35
+	armor_penetration = 25

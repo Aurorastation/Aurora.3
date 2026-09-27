@@ -332,7 +332,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_fore";
 	master_tag = "airlock_scarab_starboard_fore"
 	},
@@ -438,7 +438,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/bed/handrail,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -1662,7 +1662,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},
@@ -1870,7 +1870,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -1959,7 +1959,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -2031,7 +2031,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_aft";
 	master_tag = "airlock_scarab_port_aft"
 	},
@@ -2336,7 +2336,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_fore";
 	master_tag = "airlock_scarab_starboard_fore"
 	},
@@ -2473,7 +2473,7 @@
 	pixel_y = -25
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_aft";
 	master_tag = "airlock_scarab_port_aft"
 	},
@@ -3235,7 +3235,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -3925,7 +3925,7 @@
 	pixel_y = -28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_aft";
 	master_tag = "airlock_scarab_starboard_aft"
 	},
@@ -3984,7 +3984,7 @@
 /obj/structure/machinery/door/airlock/external,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},
@@ -4025,7 +4025,7 @@
 	pixel_y = -28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -4180,7 +4180,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/bed/handrail,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -4277,7 +4277,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_aft";
 	master_tag = "airlock_scarab_port_aft"
 	},
@@ -4330,7 +4330,7 @@
 "rT" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -5014,7 +5014,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -5260,7 +5260,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_fore";
 	master_tag = "airlock_scarab_starboard_fore"
 	},
@@ -5533,7 +5533,7 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_fore";
 	master_tag = "airlock_scarab_port_fore"
 	},
@@ -5888,7 +5888,7 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -6768,7 +6768,7 @@
 	pixel_x = 25
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},
@@ -6826,7 +6826,7 @@
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},
@@ -7023,7 +7023,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_fore";
 	master_tag = "airlock_scarab_port_fore"
 	},
@@ -7393,7 +7393,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -9501,7 +9501,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -9537,7 +9537,7 @@
 	pixel_y = -25
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_fore";
 	master_tag = "airlock_scarab_port_fore"
 	},
@@ -9759,7 +9759,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_aft";
 	master_tag = "airlock_scarab_starboard_aft"
 	},
@@ -10060,7 +10060,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, hangar aft"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},
@@ -10359,7 +10359,7 @@
 	pixel_x = -28;
 	pixel_y = 26
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_aft";
 	master_tag = "airlock_scarab_port_aft"
 	},
@@ -10430,7 +10430,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},
@@ -10529,7 +10529,7 @@
 	pixel_y = -25
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_aft";
 	master_tag = "airlock_scarab_starboard_aft"
 	},
@@ -10675,7 +10675,7 @@
 	pixel_y = -25
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_fore";
 	master_tag = "airlock_scarab_starboard_fore"
 	},
@@ -10760,7 +10760,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -11556,7 +11556,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -11638,7 +11638,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -11717,7 +11717,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port_fore";
 	master_tag = "airlock_scarab_port_fore"
 	},
@@ -11753,7 +11753,7 @@
 	pixel_x = 28;
 	pixel_y = 26
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard_aft";
 	master_tag = "airlock_scarab_starboard_aft"
 	},
@@ -11795,7 +11795,7 @@
 "UD" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_port";
 	master_tag = "airlock_scarab_port"
 	},
@@ -12200,7 +12200,7 @@
 	pixel_x = -27
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},
@@ -12333,7 +12333,7 @@
 	pixel_y = -28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_starboard";
 	master_tag = "airlock_scarab_starboard"
 	},
@@ -12361,7 +12361,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "airlock_scarab_deck_one";
 	master_tag = "airlock_scarab_deck_one"
 	},

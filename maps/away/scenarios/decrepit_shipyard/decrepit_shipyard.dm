@@ -94,7 +94,6 @@
 	dock_target = "airlock_decrepit_shipyard_shuttle_docking"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_decrepit_shipyard_drydock"
 	defer_initialisation = TRUE
 
 // Shuttle starting landmark
@@ -116,13 +115,13 @@
 // Shuttle non-docking airlocks
 
 // Port
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/port
 	name = "Port Airlock"
 	master_tag = "airlock_decrepit_shipyard_shuttle_port"
 	cycle_to_external_air = TRUE
 
 // Starboard
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/starboard
 	name = "Starboard Airlock"
 	master_tag = "airlock_decrepit_shipyard_shuttle_starboard"
 	cycle_to_external_air = TRUE

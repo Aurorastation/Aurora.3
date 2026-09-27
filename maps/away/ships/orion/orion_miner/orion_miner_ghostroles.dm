@@ -10,7 +10,7 @@
 	max_count = 4
 
 	outfit = /obj/outfit/admin/orion_miner
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Orion Mining Skiff Crewmember"
@@ -33,6 +33,8 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/wallet/random = 1)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
@@ -63,8 +65,8 @@
 		H.equip_or_collect(new /obj/item/storage/firstaid/sleekstab, slot_in_backpack)
 
 /obj/outfit/admin/orion_miner/get_id_access()
-	return list(ACCESS_ORION_EXPRESS_SHIP, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MINING, ACCESS_ENGINE_EQUIP)
+	return list(/datum/access/exress_ship::id, /datum/access/external_airlocks::id, /datum/access/mining::id, /datum/access/engine_equip::id)
 
 /obj/item/card/id/orion/miner
 	name = "\improper Orion Express mining identification card"
-	access = list(ACCESS_ORION_EXPRESS_SHIP, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MINING, ACCESS_ENGINE_EQUIP)
+	access = list(/datum/access/exress_ship::id, /datum/access/external_airlocks::id, /datum/access/mining::id, /datum/access/engine_equip::id)

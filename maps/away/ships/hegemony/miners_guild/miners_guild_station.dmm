@@ -963,7 +963,7 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_unathi_mining_guild_airlock_port";
 	name = "airlock_unathi_mining_guild_airlock_port"
 	},
@@ -1005,7 +1005,7 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_unathi_mining_guild_airlock_port";
 	name = "airlock_unathi_mining_guild_airlock_port"
 	},
@@ -1135,7 +1135,7 @@
 	pixel_y = 28;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_unathi_mining_guild_airlock_starboard";
 	name = "airlock_unathi_mining_guild_airlock_starboard"
 	},
@@ -1739,7 +1739,7 @@
 	pixel_x = -6
 	},
 /obj/structure/machinery/light/small/emergency,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_unathi_mining_guild_airlock_port";
 	name = "airlock_unathi_mining_guild_airlock_port"
 	},
@@ -3622,7 +3622,7 @@
 	pixel_x = -6
 	},
 /obj/structure/machinery/light/small/emergency,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_unathi_mining_guild_airlock_starboard";
 	name = "airlock_unathi_mining_guild_airlock_starboard"
 	},
@@ -5791,7 +5791,7 @@
 	pixel_y = -28;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_unathi_mining_guild_airlock_port";
 	name = "airlock_unathi_mining_guild_airlock_port"
 	},

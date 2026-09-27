@@ -7,7 +7,7 @@
 	req_perms = null
 	max_count = 4
 	uses_species_whitelist = FALSE
-	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	welcome_message = "You are a crewmember aboard the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland.\
 	IMPORTANT - If you choose to play a Vaurca, know that they are a very alien species, and difficult to roleplay. Reading the wiki page for the species is highly encouraged."
@@ -27,7 +27,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/ihss_reclamation/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/ihss_reclamation/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(isvaurca(H))
@@ -48,7 +48,7 @@
 	spawnpoints = list("ihss_security")
 	max_count = 3
 	uses_species_whitelist = TRUE
-	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	welcome_message = "You are security personnel aboard the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland."
 	assigned_role = "IHSS Reclamation Security"
 	special_role = "IHSS Reclamation Security"
@@ -67,7 +67,7 @@
 	spawnpoints = list("ihss_captain")
 	max_count = 1
 	uses_species_whitelist = TRUE
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	welcome_message = "You are the captain of the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland."
 	assigned_role = "IHSS Reclamation Captain"
 	special_role = "IHSS Reclamation Captain"
@@ -80,4 +80,4 @@
 	accessory_contents = /obj/item/gun/energy/pistol/hegemony
 
 /obj/outfit/admin/ihss_reclamation/captain/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/kataphract/knight::id, /datum/access/external_airlocks::id)

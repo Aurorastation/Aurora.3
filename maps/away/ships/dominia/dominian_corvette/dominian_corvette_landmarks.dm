@@ -1,13 +1,13 @@
 // Maintenance airlocks
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_hangar
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_hangar
 	name = "Maintenance Hatch"
 	master_tag = "dominia_aft_hangar"
 
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_starboard
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_starboard
 	name = "Maintenance Hatch"
 	master_tag = "dominia_aft_starboard"
 
-/obj/effect/map_effect/marker/airlock/dominian_corvette/aft_port
+/obj/effect/map_effect/marker/airlock/external/dominian_corvette/aft_port
 	name = "Maintenance Hatch"
 	master_tag = "dominia_aft_port"
 

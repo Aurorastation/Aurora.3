@@ -424,7 +424,7 @@
 	msg_admin_attack("An integrated circuit with a shocker circuit was used to shock [M.name] ([M.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 	to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 	spark(get_turf(M), 3, 1)
-	M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2), 0, 30), null)
+	M.stun_effect_act(0, clamp(get_pin_data(IC_INPUT, 2), 0, 30), DAMAGE_PAIN, null)
 	shocktime = world.time
 
 

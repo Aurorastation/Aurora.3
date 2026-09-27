@@ -68,7 +68,7 @@
 	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
 	A.visible_message(SPAN_DANGER("[A] stabs [D]'s [organ.name] with their claws!"))
-	D.apply_damage(organ.brute_dam, DAMAGE_BRUTE, organ, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
+	D.apply_damage(LIMB_GET_BRUTE_DAMAGE(organ), DAMAGE_BRUTE, organ, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	return 1
 
 /datum/martial_art/baghrar/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

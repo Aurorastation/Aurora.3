@@ -30,7 +30,7 @@
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		for(var/obj/item/organ/external/O in H.organs)
-			if(BP_IS_ROBOTIC(O) && (O.brute_dam || O.burn_dam))
+			if(BP_IS_ROBOTIC(O) && (LIMB_GET_BRUTE_DAMAGE(O) || LIMB_GET_BURN_DAMAGE(O)))
 				return TRUE
 		return FALSE
 	if(L.isSynthetic() && (L.getBruteLoss() || L.getFireLoss()))
@@ -53,12 +53,12 @@
 			var/mob/living/carbon/human/H = target
 			for(var/obj/item/organ/external/E in H.organs)
 				var/obj/item/organ/external/O = E
-				if(!BP_IS_ROBOTIC(O) || (!O.brute_dam && !O.burn_dam))
+				if(!BP_IS_ROBOTIC(O) || (!LIMB_GET_BRUTE_DAMAGE(O) && !LIMB_GET_BURN_DAMAGE(O)))
 					continue
-				var/previous_brute = O.brute_dam
-				var/previous_burn = O.burn_dam
+				var/previous_brute = LIMB_GET_BRUTE_DAMAGE(O)
+				var/previous_burn = LIMB_GET_BURN_DAMAGE(O)
 				O.heal_damage(4 * strength, 4 * strength, 0, TRUE)
-				if(O.brute_dam < previous_brute || O.burn_dam < previous_burn)
+				if(LIMB_GET_BRUTE_DAMAGE(O) < previous_brute || LIMB_GET_BURN_DAMAGE(O) < previous_burn)
 					repaired_damage = TRUE
 		else
 			if(M.isSynthetic())

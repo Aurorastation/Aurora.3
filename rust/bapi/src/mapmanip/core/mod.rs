@@ -145,8 +145,8 @@ pub struct GridMap {
 
 impl GridMap {
     pub fn from_file(path: &std::path::Path) -> eyre::Result<GridMap> {
-        Ok(to_grid_map(
-            &dmm::Map::from_file(path).wrap_err("failure to read from dmm parser")?,
-        ))
+        Ok(to_grid_map(&dmm::Map::from_file(path).wrap_err(
+            format!("failed to read dmm map from path: '{}'", path.display()),
+        )?))
     }
 }

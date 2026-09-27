@@ -331,8 +331,10 @@
 	var/mob/living/living_target = target
 
 	living_target.apply_effects(0, weaken, paralyze, 0, stutter, eyeblur, drowsy, 0, incinerate, blocked)
-	living_target.stun_effect_act(stun, agony, def_zone, src, damage_flags)
-	living_target.apply_damage(irradiate, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED) //radiation protection is handled separately from other armor types.
+	if(stun || agony)
+		living_target.stun_effect_act(stun, agony, DAMAGE_PAIN, def_zone, src, damage_flags, check_armor)
+	if(irradiate)
+		living_target.apply_damage(irradiate, DAMAGE_RADIATION, def_zone, check_armor = check_armor) //radiation protection is handled separately from other armor types.
 
 	if(!do_not_log)
 		log_combat(firer, living_target, "shot", src)
@@ -403,7 +405,7 @@
 				if(ishuman(G.affecting))
 					var/mob/living/carbon/human/human_shield = G.affecting
 					var/obj/item/organ/external/organ = human_shield.get_organ(def_zone)
-					if(organ.burn_dam + organ.brute_dam > organ.max_damage) //If the hit zone is above the max damage threshold, the shot hits both.
+					if(LIMB_GET_BURN_DAMAGE(organ) + LIMB_GET_BRUTE_DAMAGE(organ) > organ.max_damage) //If the hit zone is above the max damage threshold, the shot hits both.
 						penetrating += 1
 						projectile_piercing = PASSMOB
 						pierce_chance = 100

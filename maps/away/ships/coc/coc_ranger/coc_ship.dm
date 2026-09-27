@@ -32,6 +32,13 @@
 	name = "Ranger Gunboat"
 	requires_power = TRUE
 
+/area/ship/ranger_corvette/exterior
+	name = "Ranger Gunboat Exterior"
+	requires_power = FALSE
+	has_gravity = FALSE
+	icon_state = "exterior"
+	needs_starlight = TRUE
+
 /area/ship/ranger_corvette/bridge
 	name = "Ranger Gunboat Bridge"
 
@@ -211,7 +218,6 @@
 	dock_target = "ranger_shuttle_dock2"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_ranger"
 	// defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ranger_shuttle/hangar

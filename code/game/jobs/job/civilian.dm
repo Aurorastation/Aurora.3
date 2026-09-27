@@ -15,7 +15,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_BAR)
+	job_access = list(/datum/access/bar::id)
 	alt_titles = list("Barista")
 	outfit = /obj/outfit/job/bartender
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -61,7 +61,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_GALLEY)
+	job_access = list(/datum/access/galley::id)
 	alt_titles = list("Cook")
 	outfit = /obj/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -111,7 +111,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_HYDROPONICS)
+	job_access = list(/datum/access/hydroponics::id)
 	outfit = /obj/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	alt_titles = list("Hydroponicist")
@@ -163,7 +163,7 @@
 	spawn_positions = 2
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	job_access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
+	job_access = list(/datum/access/janitor::id, /datum/access/maint_tunnels::id, /datum/access/engine::id, /datum/access/research::id, /datum/access/sec_doors::id, /datum/access/medical::id)
 	outfit = /obj/outfit/job/janitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -201,10 +201,10 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	job_access = list(ACCESS_LIBRARY)
+	job_access = list(/datum/access/library::id)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /obj/outfit/job/librarian/curator, "Tech Support" = /obj/outfit/job/librarian/tech_support)
-	title_accesses = list("Tech Support" = list(ACCESS_IT, ACCESS_TECH_STORAGE))
+	title_accesses = list("Tech Support" = list(/datum/access/tech_support::id, /datum/access/tech_storage::id))
 	outfit = /obj/outfit/job/librarian
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -269,7 +269,7 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	job_access = list(ACCESS_CHAPEL_OFFICE)
+	job_access = list(/datum/access/chapel_office::id)
 	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Priestess", "Shaman", "Counselor", "Keeper", "Shaper", "Sleepwalker")
 	outfit = /obj/outfit/job/chaplain
 
@@ -347,8 +347,8 @@
 		SPECIES_SKRELL_AXIORI = 70
 	)
 
-	job_access = list(ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_SHIP_WEAPONS, ACCESS_MINING_STATION, ACCESS_KEYCARD_AUTH, ACCESS_RC_ANNOUNCE, ACCESS_HEADS,
-						ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_ENGINE, ACCESS_TELEPORTER, ACCESS_EVA, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_CANARY)
+	job_access = list(/datum/access/mailsorting::id, /datum/access/cargo::id, /datum/access/cargo_bot::id, /datum/access/qm::id, /datum/access/mining::id, /datum/access/ship_weapons::id, /datum/access/mining_station::id, /datum/access/keycard_auth::id, /datum/access/RC_announce::id, /datum/access/heads::id,
+						/datum/access/sec_doors::id, /datum/access/research::id, /datum/access/medical::id, /datum/access/robotics::id, /datum/access/engine::id, /datum/access/teleporter::id, /datum/access/eva::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/canary::id)
 
 	outfit = /obj/outfit/job/operations_manager
 
@@ -401,7 +401,7 @@
 	)
 
 	job_access = list(
-		ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING, ACCESS_EVA
+		/datum/access/cargo::id, /datum/access/cargo_bot::id, /datum/access/ship_weapons::id, /datum/access/mailsorting::id, /datum/access/eva::id
 	)
 	outfit = /obj/outfit/job/hangar_tech
 
@@ -451,7 +451,7 @@
 	)
 
 	job_access = list(
-		ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_SPARK
+		/datum/access/mining::id, /datum/access/mining_station::id, /datum/access/mailsorting::id, /datum/access/spark::id
 	)
 	outfit = /obj/outfit/job/mining
 
@@ -509,7 +509,7 @@
 	)
 
 	job_access = list(
-		ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING
+		/datum/access/robotics::id, /datum/access/tech_storage::id, /datum/access/mailsorting::id
 	)
 
 	minimal_player_age = 7

@@ -1124,3 +1124,420 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	icon_overlays = FALSE
+
+//Popsicles!
+
+ABSTRACT_TYPE(/obj/item/storage/box/fancy/popsicle)
+	name = "popsicle wrapper"
+	desc = "Some kind of prepackaged popsicle. If you can read this, something has gone wrong."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "chocoblock_wrap"
+	icon_type = "popsicle"
+	storage_type = "wrapper"
+	opened_icon_state = "foil_trash"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/choc_o_block = 1) //This is just here so it has something to default to. It can be anything.
+	can_hold = list(/obj/item/reagent_containers/food/snacks/choc_o_block)
+	make_exact_fit = TRUE
+	w_class = WEIGHT_CLASS_SMALL
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/foilwrapper
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/popsicle/choc_o_block_packaged
+	name = "\improper choc o' block"
+	desc = "A pre-packaged vanilla popsicle with chocolate flavored coating. Thrilling. Whatever will they think of next?"
+	icon_state = "chocoblock_wrap"
+
+/obj/item/reagent_containers/food/snacks/choc_o_block
+	name = "\improper choc o' block popsicle"
+	desc = "Why is it called 'Choc o' Block'? I mean, yeah, there's chocolate flavored coating, but this thing is still mostly vanilla."
+	icon_state = "chocoblock"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	item_state = "popsicle_brown"
+	contained_sprite = TRUE
+	filling_color = "#dbdbdb"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("vanilla" = 5, "chocolate" = 3))
+
+/obj/item/reagent_containers/food/snacks/choc_o_block/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_chocoblock = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_chocoblock)
+		if(-INFINITY to 95)
+			icon_state = "chocoblock_bite"
+		if(96 to INFINITY)
+			icon_state = "chocoblock"
+
+/obj/item/storage/box/fancy/popsicle/burrly_duo_packaged
+	name = "\improper BURRLY duo"
+	desc = "A pre-packaged popsicle with a rich cream filling. This one has chocolate-vanilla filling and a milk chocolate coating. The packaging says BURRLY on it in a delightfully aggressive font."
+	icon_state = "burrly_duo_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/burrly_duo = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/burrly_duo)
+
+/obj/item/reagent_containers/food/snacks/burrly_duo
+	name = "\improper BURRLY duo popsicle"
+	desc = "A choco-vanilla cream filled popcicle, coated in real chocolate, and made of %100 real calories."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "burrly_duo"
+	item_state = "popsicle_brown"
+	contained_sprite = TRUE
+	filling_color = "#693d14"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 5, "vanilla" = 3))
+
+/obj/item/reagent_containers/food/snacks/burrly_duo/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_burrly_duo = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_burrly_duo)
+		if(-INFINITY to 95)
+			icon_state = "burrly_duo_bite"
+		if(96 to INFINITY)
+			icon_state = "burrly_duo"
+
+/obj/item/storage/box/fancy/popsicle/burrly_white_packaged
+	name = "\improper BURRLY white"
+	desc = "A pre-packaged popsicle with vanilla-caramel filling and white chocolate coating. It's about as hoity toity as you can get from a snack vending machine. The packaging says BURRLY on it in a delightfully aggressive font."
+	icon_state = "burrly_white_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/burrly_white = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/burrly_white)
+
+/obj/item/reagent_containers/food/snacks/burrly_white
+	name = "\improper BURRLY white popsicle"
+	desc = "A popsicle with a brittle white chocolate coating and a vanilla-caramel cream filling. Luxurious!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "burrly_white"
+	item_state = "popsicle_light"
+	contained_sprite = TRUE
+	filling_color = "#ffefce"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("white chocolate" = 5, "vanilla" = 5, "caramel" = 3))
+
+/obj/item/reagent_containers/food/snacks/burrly_white/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_burrly_white = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_burrly_white)
+		if(-INFINITY to 95)
+			icon_state = "burrly_white_bite"
+		if(96 to INFINITY)
+			icon_state = "burrly_white"
+
+/obj/item/storage/box/fancy/popsicle/swimstars_packaged
+	name = "\improper swimstars pop"
+	desc = "Who doesn't love the beloved media franchise Swimstars? Except for half of the non-psionic demographic, that is. Movies, shows, and now - a sorbet-based promotional popsicle! A cool, flavorful rendition of Qill smiles at you from the packaging with friendly gumball eyes. Skrell don't smile, of course, but it looks smile-ish enough from how they stylized it. It's Ylpha berry and Guami flavored."
+	icon_state = "swimstars_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/swimstars = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/swimstars)
+
+/obj/item/reagent_containers/food/snacks/swimstars
+	name = "\improper swimstars popsicle"
+	desc = "Oh... Wow... It, uh... looks just like them. Yup. Definitely not going to have any nightmares about this thing later."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "swimstars"
+	item_state = "popsicle_orange"
+	contained_sprite = TRUE
+	filling_color = "#fcb982"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/drink/ice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("ylpha berry" = 5, "guami fruit" = 3, "soft gumballs" = 2))
+
+/obj/item/reagent_containers/food/snacks/swimstars/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_swimstars = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_swimstars)
+		if(0 to 95)
+			icon_state = "swimstars_bite"
+		if(96 to INFINITY)
+			icon_state = "swimstars"
+
+/obj/item/storage/box/fancy/popsicle/idrice_strawberry_packaged
+	name = "\improper idrICE strawberry"
+	desc = "A pre-packaged strawberry flavored ice pop. Simple, cheap, sweet and refreshing!"
+	icon_state = "idrice_red_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/idrice_strawberry = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/idrice_strawberry)
+
+/obj/item/reagent_containers/food/snacks/idrice_strawberry
+	name = "\improper idrICE strawberry ice pop"
+	desc = "A cool, shapely block of sweet, strawberry-flavored ice cleverly imposed unto a stick for your convenience. Contains no actual strawberries. Does, for some reason, contain beets, though? Weird."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "idrice_red"
+	item_state = "popsicle_red"
+	contained_sprite = TRUE
+	filling_color = "#e00031"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/drink/ice = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("strawberry flavoring" = 5))
+
+/obj/item/reagent_containers/food/snacks/idrice_strawberry/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_idrice_strawberry = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_idrice_strawberry)
+		if(0 to 70)
+			icon_state = "idrice_red_bite"
+		if(71 to INFINITY)
+			icon_state = "idrice_red"
+
+/obj/item/storage/box/fancy/popsicle/idrice_lemon_packaged
+	name = "\improper idrICE lemon"
+	desc = "A pre-packaged lemon flavored ice pop. Simple, cheap, tangy and refreshing!"
+	icon_state = "idrice_yellow_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/idrice_lemon = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/idrice_lemon)
+
+/obj/item/reagent_containers/food/snacks/idrice_lemon
+	name = "\improper idrICE lemon ice pop"
+	desc = "A cool, shapely block of sweet, lemon-flavored ice cleverly imposed unto a stick for your convenience. The ingredients list contains no lemons and reads like a cat at a chemistry lab walked around on a keyboard."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "idrice_yellow"
+	item_state = "popsicle_light"
+	contained_sprite = TRUE
+	filling_color = "#ffee00"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/drink/ice = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("lemon flavoring" = 5))
+
+/obj/item/reagent_containers/food/snacks/idrice_lemon/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_idrice_lemon = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_idrice_lemon)
+		if(0 to 70)
+			icon_state = "idrice_yellow_bite"
+		if(71 to INFINITY)
+			icon_state = "idrice_yellow"
+
+/obj/item/storage/box/fancy/popsicle/idrice_cola_packaged
+	name = "\improper idrICE cola"
+	desc = "A pre-packaged cola flavored ice pop. Simple, cheap, lively and refreshing!"
+	icon_state = "idrice_cola_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/idrice_cola = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/idrice_cola)
+
+/obj/item/reagent_containers/food/snacks/idrice_cola
+	name = "\improper idrICE cola ice pop"
+	desc = "A cool, shapely block of sweet, cola-flavored ice cleverly imposed unto a stick for your convenience. Some planets have Dr. Gibb flavor ones!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "idrice_cola"
+	item_state = "popsicle_brown"
+	contained_sprite = TRUE
+	filling_color = "#3d2218"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/drink/ice = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cola" = 5))
+
+/obj/item/reagent_containers/food/snacks/idrice_cola/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_idrice_cola = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_idrice_cola)
+		if(0 to 70)
+			icon_state = "idrice_cola_bite"
+		if(71 to INFINITY)
+			icon_state = "idrice_cola"
+
+/obj/item/storage/box/fancy/popsicle/sunsicle_packaged
+	name = "\improper sunsicle"
+	desc = "A pre-packaged popsicle with a sweet citrusy shell around a light, creamy center."
+	icon_state = "sunsicle_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/sunsicle = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/sunsicle)
+
+/obj/item/reagent_containers/food/snacks/sunsicle
+	name = "\improper sunsicle ice pop"
+	desc = "A brightly colored popsicle with bright, sunny colors and a light, creamy center."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "sunsicle"
+	item_state = "popsicle_orange"
+	contained_sprite = TRUE
+	filling_color = "#ff9100"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/drink/ice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet citrus" = 5, "summer vibes" = 5))
+
+/obj/item/reagent_containers/food/snacks/sunsicle/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_sunsicle = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_sunsicle)
+		if(0 to 95)
+			icon_state = "sunsicle_bite"
+		if(96 to INFINITY)
+			icon_state = "sunsicle"
+
+/obj/item/storage/box/fancy/popsicle/dreamwich_packaged
+	name = "\improper dreamwich"
+	desc = "And Idris-brand ice cream sandwich in a shiny golden packaging. Very basic, but a classic for a reason."
+	icon_state = "dreamwich_wrap"
+	icon_type = "ice cream sandwich"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich)
+
+/obj/item/storage/box/fancy/popsicle/torpedo_classic_packaged
+	name = "\improper torpedo classic"
+	desc = "A pre-packaged ice cream cone with vanilla ice cream, strips of chocolate on top, and small chocolate flakes mixed in. The edge of the cone has a small bit of chocolate in it, too! The graphic on the packaging makes it look like you can see the ice cream inside, but it is merely an illusion brought on by the unfathomable magic that is graphic design."
+	icon_state = "torpedo_wrap"
+	icon_type = "ice cream cone"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/torpedo_classic = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/torpedo_classic)
+
+/obj/item/reagent_containers/food/snacks/torpedo_classic
+	name = "\improper torpedo ice cream cone"
+	desc = "A lovely ice cream cone containing vanilla ice cream and chocolate strips as well as chocolate flakes. A real treat!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "torpedo"
+	item_state = "cone"
+	contained_sprite = TRUE
+	filling_color = "#ececec"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("vanilla ice cream" = 5, "chocolate" = 5, "waffle cone" = 5))
+
+/obj/item/storage/box/fancy/popsicle/torpedo_dyn_packaged
+	name = "\improper torpedo dyn supreme"
+	desc = "A pre-packaged ice cream cone with dyn flavored ice cream, strips of dark chocolate on top, small dark chocolate flakes mixed in, and a cocoa flavored cone. The edge of the cone has a small bit of dark chocolate in it, too! The graphic on the packaging makes it look like you can see the ice cream inside. This one is less popular among kids, for some reason."
+	icon_state = "torpedo_dyn_wrap"
+	icon_type = "ice cream cone"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/torpedo_dyn = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/torpedo_dyn)
+
+/obj/item/reagent_containers/food/snacks/torpedo_dyn
+	name = "\improper torpedo dyn ice cream cone"
+	desc = "A lovely ice cream cone containing dyn ice cream and dark chocolate strips in a cocoa flavored waffle cone."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "torpedo_dyn"
+	item_state = "cone"
+	contained_sprite = TRUE
+	filling_color = "#ececec"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("mint ice cream" = 5, "dark chocolate" = 5, "waffle cone" = 5))
+
+/obj/item/storage/box/fancy/popsicle/odin_pop_packaged
+	name = "\improper odin pop"
+	desc = "A pre-packaged three-colored fruity ice pop. The packaging portrays it as bravely travelling through the stars. It looks nothing like the SCC-CC Odin, though. Is that for practical reasons or legal reasons? Either way, it still looks delicious, and that's what counts."
+	icon_state = "odinpop_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/odin_pop = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/odin_pop)
+
+/obj/item/reagent_containers/food/snacks/odin_pop
+	name = "\improper odin ice pop"
+	desc = "A fruity ice pop that looks alluring, refreshing, and for some reason, nothing like the famous ship it may or may not have been named after."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "odinpop"
+	item_state = "popsicle_red"
+	contained_sprite = TRUE
+	filling_color = "#ff970e"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/drink/ice = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cherry flavoring" = 5, "pineapple flavoring" = 5, "lemon flavoring" = 5))
+
+/obj/item/reagent_containers/food/snacks/odin_pop/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_odin_pop = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_odin_pop)
+		if(0 to 70)
+			icon_state = "odinpop_bite"
+		if(71 to INFINITY)
+			icon_state = "odinpop"
+
+/obj/item/storage/box/fancy/popsicle/traitor_pop_packaged
+	name = "\improper traitor pop"
+	desc = "The edgiest, angstiest popsicle you've ever seen. Released ages ago to promote the 'traitorlings' video game. The package advertises an intense black cherry flavor. Hey, wait, weren't these banned in a bunch of places a while back for some reason...?"
+	icon_state = "traitor_pop_wrap"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/traitor_pop = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/traitor_pop)
+
+/obj/item/reagent_containers/food/snacks/traitor_pop
+	name = "black cherry ice pop"
+	desc = "A definitely normal, non-suspicious, black and red popsicle. It gives off 'it's not a phase, mom' vibes."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "traitor_pop"
+	item_state = "popsicle_red"
+	contained_sprite = TRUE
+	filling_color = "#b40000"
+	trash = /obj/item/trash/popsiclestick
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/capsaicin = 4, /singleton/reagent/drink/ice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("chili" = 5, "betrayal" = 5))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/traitor_pop/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_traitor_pop = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_traitor_pop)
+		if(0 to 95)
+			icon_state = "traitor_pop_bite"
+		if(96 to INFINITY)
+			icon_state = "traitor_pop"
+
+/obj/item/storage/box/fancy/popsicle/torpedo_dirtberry_packaged
+	name = "\improper torpedo dirtberry dreams"
+	desc = "A pre-packaged ice cream cone with dirtberry ice cream, strips of chocolate on top, and small chocolate flakes mixed in."
+	icon_state = "torpedo_gold_wrap"
+	icon_type = "ice cream cone"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/torpedo_dirtberry = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/torpedo_dirtberry)
+
+/obj/item/reagent_containers/food/snacks/torpedo_dirtberry
+	name = "\improper torpedo dirtberry ice cream cone"
+	desc = "A lovely ice cream cone containing dirtberry ice cream and chocolate strips as well as chocolate flakes. Something about this combination of flavors just works extra-well, you know?"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "torpedo_gold"
+	item_state = "cone"
+	contained_sprite = TRUE
+	filling_color = "#7c5a2e"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("nougat ice cream" = 5, "chocolate" = 5, "waffle cone" = 5))
+
+/obj/item/storage/box/fancy/popsicle/chocolate_taco_packaged
+	name = "chocolate taco"
+	desc = "A delicious, crunchy ice cream dessert disguising itself as a taco to avoid being eaten by hungry sweets-seeking predators. It's either doing a very bad job of it, or a very good job of it, because you're pretty sure you haven't seen one of these in years and thought they all went extinct! The expiration date miraculously checks out, though!"
+	icon_state = "chocotaco_wrap"
+	icon_type = "taco"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chocolate_taco = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/chocolate_taco)
+
+/obj/item/reagent_containers/food/snacks/chocolate_taco
+	name = "chocolate ice cream taco"
+	desc = "A delicious, crunchy taco made out of waffle cone, rich ice cream, chocolate, nuts, and caramel syrup."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "chocotaco"
+	item_state = "cone"
+	contained_sprite = TRUE
+	filling_color = "#d6b994"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/ice = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("caramel ice cream" = 5, "nutty chocolate" = 5, "crunchy waffle" = 5, "cultural appropriation" = 3))
+
+/obj/item/reagent_containers/food/snacks/chocolate_taco/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_chocolate_taco = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_chocolate_taco)
+		if(0 to 80)
+			icon_state = "chocotaco_bite"
+		if(81 to INFINITY)
+			icon_state = "chocotaco"

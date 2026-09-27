@@ -41,7 +41,7 @@
 /area/listening_post/servers
 	name = "Listening Post Installation - Server Room"
 
-/obj/effect/map_effect/marker/airlock/listening_post
+/obj/effect/map_effect/marker/airlock/external/listening_post
 	name = "Entrance"
 	master_tag = "airlock_listening_post_ruin"
 	cycle_to_external_air = TRUE

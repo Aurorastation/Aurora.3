@@ -443,7 +443,7 @@
 /obj/structure/sign/vacuum{
 	pixel_y = 30
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
@@ -507,7 +507,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -527,7 +527,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -592,7 +592,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
@@ -673,7 +673,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
@@ -834,7 +834,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
@@ -1653,7 +1653,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -1906,7 +1906,7 @@
 /area/ship/freebooter_ship/thruster1)
 "hQd" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -2307,7 +2307,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
@@ -2815,7 +2815,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -3478,7 +3478,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -4682,7 +4682,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
@@ -5388,7 +5388,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -5646,7 +5646,7 @@
 /area/ship/freebooter_ship/thruster2)
 "vDD" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_2";
 	master_tag = "freebooter_port_2"
 	},
@@ -6218,7 +6218,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},
@@ -6325,7 +6325,7 @@
 /area/ship/freebooter_ship/thruster1)
 "xQS" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "freebooter_port_1";
 	master_tag = "freebooter_port_1"
 	},

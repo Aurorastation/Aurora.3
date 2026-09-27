@@ -118,7 +118,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /turf/simulated/floor/plating{
@@ -255,7 +255,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /obj/structure/machinery/light/small/emergency{
@@ -634,7 +634,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/saniorios_outpost)
 "iD" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
@@ -657,7 +657,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /turf/simulated/floor/plating{
@@ -1016,7 +1016,7 @@
 	},
 /area/saniorios_outpost/armory)
 "ok" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -1566,7 +1566,7 @@
 	pixel_x = 20;
 	pixel_y = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /turf/simulated/floor/plating{
@@ -2233,7 +2233,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /turf/simulated/floor/plating{
@@ -2485,7 +2485,7 @@
 	req_access = list(214)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /turf/simulated/floor/plating{
@@ -2546,7 +2546,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /turf/simulated/floor/plating{
@@ -2741,7 +2741,7 @@
 /turf/simulated/floor/airless,
 /area/saniorios_outpost/gun)
 "Mp" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -3442,7 +3442,7 @@
 /area/space)
 "Zx" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "saniorios_airlock_1"
 	},
 /turf/simulated/floor/plating{

@@ -173,7 +173,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712
@@ -254,7 +254,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712
@@ -287,7 +287,7 @@
 	},
 /area/miners_guild_outpost/quarters)
 "eg" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712
@@ -888,7 +888,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712
@@ -1179,7 +1179,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712
@@ -1493,7 +1493,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712
@@ -1557,7 +1557,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712
@@ -1862,7 +1862,7 @@
 	pixel_x = -12;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_guild_uueoa";
 	name = "airlock_guild_uueoa";
 	frequency = 1712

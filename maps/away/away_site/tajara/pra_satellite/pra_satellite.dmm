@@ -126,7 +126,7 @@
 	},
 /area/pra_satellite)
 "bh" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -139,7 +139,7 @@
 	},
 /area/pra_satellite)
 "bp" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button/airlock_exterior{
 	pixel_x = 8;
@@ -227,7 +227,7 @@
 	},
 /area/pra_satellite)
 "ci" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 25
@@ -776,7 +776,7 @@
 	},
 /area/pra_satellite)
 "my" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -807,7 +807,7 @@
 	},
 /area/pra_satellite)
 "on" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button/airlock_exterior{
 	pixel_x = -8;
@@ -937,7 +937,7 @@
 	},
 /area/pra_satellite)
 "qF" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
@@ -958,7 +958,7 @@
 	},
 /area/pra_satellite)
 "qW" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -968,7 +968,7 @@
 	},
 /area/pra_satellite)
 "rl" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
@@ -977,7 +977,7 @@
 	},
 /area/pra_satellite)
 "rH" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = 20;
 	dir = 8;
@@ -1018,7 +1018,7 @@
 	},
 /area/pra_satellite)
 "sS" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -1074,7 +1074,7 @@
 	},
 /area/pra_satellite)
 "tV" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
@@ -1279,7 +1279,7 @@
 	},
 /area/pra_satellite)
 "zP" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = 25
@@ -1328,7 +1328,7 @@
 	},
 /area/pra_satellite)
 "AP" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -1379,7 +1379,7 @@
 	},
 /area/pra_satellite)
 "CB" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
@@ -1469,7 +1469,7 @@
 /area/pra_satellite)
 "FB" = (
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1641,7 +1641,7 @@
 /area/space)
 "Ks" = (
 /obj/structure/machinery/light/small,
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1675,13 +1675,13 @@
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
 "LD" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1734,7 +1734,7 @@
 	},
 /area/pra_satellite)
 "Nu" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/external,
@@ -1772,7 +1772,7 @@
 	},
 /area/pra_satellite)
 "Pp" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = -28;
@@ -1836,7 +1836,7 @@
 	},
 /area/pra_satellite)
 "QG" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
@@ -1876,7 +1876,7 @@
 	},
 /area/pra_satellite)
 "Sd" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
@@ -1886,7 +1886,7 @@
 	},
 /area/pra_satellite)
 "Su" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
@@ -1988,7 +1988,7 @@
 	},
 /area/pra_satellite)
 "WI" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor{
 	temperature = 278.15

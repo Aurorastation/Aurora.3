@@ -192,7 +192,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1233;
 	master_tag = "airlock_elyra_corvette_port_2";
 	name = "airlock_elyra_corvette_port_2"
@@ -2315,7 +2315,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1232;
 	master_tag = "airlock_elyra_corvette_starboard_1";
 	name = "airlock_elyra_corvette_starboard_1"
@@ -2544,7 +2544,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1234;
 	master_tag = "airlock_elyra_corvette_starboard_2";
 	name = "airlock_elyra_corvette_starboard_2"
@@ -3679,7 +3679,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1231;
 	master_tag = "airlock_elyra_corvette_port_1";
 	name = "airlock_elyra_corvette_port_1"
@@ -4084,7 +4084,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1234;
 	master_tag = "airlock_elyra_corvette_starboard_2";
 	name = "airlock_elyra_corvette_starboard_2"
@@ -4318,7 +4318,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1232;
 	master_tag = "airlock_elyra_corvette_starboard_1";
 	name = "airlock_elyra_corvette_starboard_1"
@@ -5284,7 +5284,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1233;
 	master_tag = "airlock_elyra_corvette_port_2";
 	name = "airlock_elyra_corvette_port_2"
@@ -5740,7 +5740,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1231;
 	master_tag = "airlock_elyra_corvette_port_1";
 	name = "airlock_elyra_corvette_port_1"
@@ -7334,7 +7334,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1232;
 	master_tag = "airlock_elyra_corvette_starboard_1";
 	name = "airlock_elyra_corvette_starboard_1"
@@ -7533,7 +7533,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1233;
 	master_tag = "airlock_elyra_corvette_port_2";
 	name = "airlock_elyra_corvette_port_2"
@@ -8336,7 +8336,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1231;
 	master_tag = "airlock_elyra_corvette_port_1";
 	name = "airlock_elyra_corvette_port_1"
@@ -8539,7 +8539,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1234;
 	master_tag = "airlock_elyra_corvette_starboard_2";
 	name = "airlock_elyra_corvette_starboard_2"

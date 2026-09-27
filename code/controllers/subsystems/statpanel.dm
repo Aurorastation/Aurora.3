@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(statpanels)
 		var/client/target = currentrun[length(currentrun)]
 		currentrun.len--
 
-		if(!target.stat_panel.is_ready())
+		if(!target?.stat_panel?.is_ready())
 			continue
 
 		if(target.stat_tab == "Status" && num_fires % status_wait == 0)
@@ -217,6 +217,8 @@ SUBSYSTEM_DEF(statpanels)
 	refresh_client_obj_view(target)
 
 /datum/controller/subsystem/statpanels/proc/refresh_client_obj_view(client/refresh)
+	if(!refresh.stat_panel)
+		return
 	var/list/turf_items = return_object_images(refresh)
 	if(!length(turf_items) || !refresh.mob?.listed_turf)
 		return

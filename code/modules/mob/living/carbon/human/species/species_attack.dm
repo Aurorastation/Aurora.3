@@ -74,6 +74,12 @@
 	shredding = TRUE
 	attack_name = "strong claws"
 
+/datum/unarmed_attack/claws/strongunathi
+	attack_verb = list("slashed")
+	damage = 10
+	attack_name = "unathi claws"
+	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy // unathi have heavier pain hits in this mode
+
 /datum/unarmed_attack/claws/strong/zombie
 	attack_verb = list("mauled", "slashed", "gored", "stabbed")
 	desc = "These claws are armor-piercing and do a good amount of damage, but do not infect! Use these if you need to take someone with heavy armor down."
@@ -84,6 +90,11 @@
 	attack_verb = list("mauled")
 	damage = 10
 	shredding = TRUE
+	attack_name = "strong bite"
+
+/datum/unarmed_attack/bite/strongunathi
+	attack_verb = list("mauled")
+	damage = 10
 	attack_name = "strong bite"
 
 /datum/unarmed_attack/slime_glomp

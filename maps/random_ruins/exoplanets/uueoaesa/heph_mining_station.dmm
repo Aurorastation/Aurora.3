@@ -388,7 +388,7 @@
 	},
 /area/heph_mining_station/mess)
 "ga" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
@@ -1420,7 +1420,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/heph_mining_station/eva)
 "tH" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
@@ -1463,7 +1463,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/heph_mining_station/mining)
 "vT" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
@@ -1621,7 +1621,7 @@
 /turf/simulated/floor/airless,
 /area/heph_mining_station/mining)
 "yd" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
@@ -1758,7 +1758,7 @@
 	},
 /area/heph_mining_station/storage)
 "zY" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
@@ -2255,7 +2255,7 @@
 	},
 /area/heph_mining_station/entry)
 "IM" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
@@ -2843,7 +2843,7 @@
 	},
 /area/heph_mining_station/mining)
 "Sk" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";
@@ -3193,7 +3193,7 @@
 	},
 /area/heph_mining_station/entry)
 "Zt" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 1003;
 	master_tag = "airlock_heph_uueoa";
 	name = "airlock_heph_uueoa";

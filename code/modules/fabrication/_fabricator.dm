@@ -213,7 +213,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	load_lathe(attacking_item, user)
 	return TRUE
 
-/obj/structure/machinery/fabricator/autolathe/proc/recycle_rped_contents(obj/item/storage/part_replacer/R, mob/user)
+/obj/structure/machinery/fabricator/autolathe/proc/recycle_item_contents(obj/item/R, mob/user)
 	var/recycled = 0
 	var/recyclable = 0
 	var/rejected = 0
@@ -241,7 +241,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	user.set_machine(src)
 	ui_interact(user)
 
-///
 /obj/structure/machinery/fabricator/proc/is_functioning()
 	. = use_power != POWER_USE_OFF && !(fab_status_flags & FAB_DISABLED)
 

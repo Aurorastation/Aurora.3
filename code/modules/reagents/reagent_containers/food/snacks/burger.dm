@@ -278,3 +278,12 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 10)
 	reagent_data = list(/singleton/reagent/nutriment = list("mossy crunch" = 5, "buns" = 3), /singleton/reagent/nutriment/protein = list("meat" = 5, "egg" = 3, "cheese" = 3))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/burger/psiren
+	name = "psiburger"
+	desc = "A yellowish Psiren meat patty topped with crunchy Psiren chips on an optional bed of sauerkraut. Delicious revenge served piping hot off the grill."
+	icon = 'icons/obj/item/reagent_containers/food/burger.dmi'
+	icon_state = "psiburger"
+	item_state = "burger" // Don't touch this unless you know what you're doing
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)

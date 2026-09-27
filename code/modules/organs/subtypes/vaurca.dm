@@ -661,7 +661,7 @@
 			if(owner.a_intent == I_HURT)
 				H.electrocute_act(10, owner, def_zone = target_zone)
 			else
-				H.stun_effect_act(0, 50, target_zone, owner)
+				H.stun_effect_act(0, 50, DAMAGE_PAIN, target_zone, owner, check_armor = ENERGY)
 
 			owner.visible_message(SPAN_DANGER("[H] has been prodded with [src] by [owner]!"))
 			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)

@@ -145,6 +145,16 @@
 	items = list(/obj/item/reagent_containers/food/snacks/fish)
 	result = /obj/item/reagent_containers/food/snacks/black_eyed_gumbo
 
+/singleton/recipe/psiren_surprise
+	appliance = POT
+	fruit = list("onion" = 1, "tomato" = 1, "garlic" = 1)
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/psiren_body_meat,
+		/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/stew/psiren_surprise
+
 // Chili
 /singleton/recipe/bearchili
 	appliance = SAUCEPAN | POT

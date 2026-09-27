@@ -4,18 +4,20 @@
 /obj/effect/shuttle_landmark/scc_scout_ship
 	base_area = /area/space
 	base_turf = /turf/space
+	auto_register = TRUE
 
 // --------------------- shuttle
 
 /obj/effect/shuttle_landmark/scc_scout_ship/shuttle_hangar
-	name = "Shuttle Dock"
-	landmark_tag = "nav_scc_scout_shuttle_dock"
-	docking_controller = "airlock_scc_scout_shuttle_dock"
+	name				= "Shuttle Dock"
+	landmark_tag		= "nav_scc_scout_shuttle_dock"
+	docking_controller	= "airlock_scc_scout_shuttle_dock"
+	shuttle_restricted	= /obj/effect/overmap/visitable/ship/landable/scc_scout_shuttle::name
 
 /obj/effect/map_effect/marker/airlock/docking/scc_scout_ship/shuttle_hangar
-	name = "Shuttle Dock"
-	landmark_tag = "nav_scc_scout_shuttle_dock"
-	master_tag = "airlock_scc_scout_shuttle_dock"
+	name			= /obj/effect/shuttle_landmark/scc_scout_ship/shuttle_hangar::name
+	landmark_tag	= /obj/effect/shuttle_landmark/scc_scout_ship/shuttle_hangar::landmark_tag
+	master_tag		= /obj/effect/shuttle_landmark/scc_scout_ship/shuttle_hangar::docking_controller
 
 // ----
 
@@ -23,42 +25,43 @@
 	name = "In transit"
 	landmark_tag = "nav_scc_scout_shuttle_transit"
 	base_turf = /turf/space/transit
+	auto_register = FALSE
 
 // --------------------- docks
 
 /obj/effect/shuttle_landmark/scc_scout_ship/dock/starboard
-	name = "Dock, Starboard"
-	landmark_tag = "nav_scc_scout_dock_starboard"
-	docking_controller = "airlock_scc_scout_dock_starboard"
+	name 				= "Dock, Starboard"
+	landmark_tag 		= "nav_scc_scout_dock_starboard"
+	docking_controller 	= "airlock_scc_scout_dock_starboard"
 
 /obj/effect/map_effect/marker/airlock/docking/scc_scout_ship/dock/starboard
-	name = "Dock, Starboard"
-	landmark_tag = "nav_scc_scout_dock_starboard"
-	master_tag = "airlock_scc_scout_dock_starboard"
+	name 			= /obj/effect/shuttle_landmark/scc_scout_ship/dock/starboard::name
+	landmark_tag 	= /obj/effect/shuttle_landmark/scc_scout_ship/dock/starboard::landmark_tag
+	master_tag 		= /obj/effect/shuttle_landmark/scc_scout_ship/dock/starboard::docking_controller
 
 // ----
 
 /obj/effect/shuttle_landmark/scc_scout_ship/dock/port
-	name = "Dock, Port"
-	landmark_tag = "nav_scc_scout_dock_port"
-	docking_controller = "airlock_scc_scout_dock_port"
+	name 				= "Dock, Port"
+	landmark_tag 		= "nav_scc_scout_dock_port"
+	docking_controller 	= "airlock_scc_scout_dock_port"
 
 /obj/effect/map_effect/marker/airlock/docking/scc_scout_ship/dock/port
-	name = "Dock, Port"
-	landmark_tag = "nav_scc_scout_dock_port"
-	master_tag = "airlock_scc_scout_dock_port"
+	name 			= /obj/effect/shuttle_landmark/scc_scout_ship/dock/port::name
+	landmark_tag 	= /obj/effect/shuttle_landmark/scc_scout_ship/dock/port::landmark_tag
+	master_tag 		= /obj/effect/shuttle_landmark/scc_scout_ship/dock/port::docking_controller
 
 // ----
 
 /obj/effect/shuttle_landmark/scc_scout_ship/dock/aft
-	name = "Dock, Aft"
-	landmark_tag = "nav_scc_scout_dock_aft"
-	docking_controller = "airlock_scc_scout_dock_aft"
+	name 				= "Dock, Aft"
+	landmark_tag 		= "nav_scc_scout_dock_aft"
+	docking_controller 	= "airlock_scc_scout_dock_aft"
 
 /obj/effect/map_effect/marker/airlock/docking/scc_scout_ship/dock/aft
-	name = "Dock, Aft"
-	landmark_tag = "nav_scc_scout_dock_aft"
-	master_tag = "airlock_scc_scout_dock_aft"
+	name 			= /obj/effect/shuttle_landmark/scc_scout_ship/dock/aft::name
+	landmark_tag 	= /obj/effect/shuttle_landmark/scc_scout_ship/dock/aft::landmark_tag
+	master_tag 		= /obj/effect/shuttle_landmark/scc_scout_ship/dock/aft::docking_controller
 
 // --------------------- catwalk
 

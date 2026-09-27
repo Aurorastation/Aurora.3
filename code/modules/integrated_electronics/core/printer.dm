@@ -15,10 +15,10 @@
 
 	// Stored phoron amount available for printing.
 	var/phoron = 0
-	var/max_phoron = 20
+	var/max_phoron = 10
 	var/phoron_per_sheet = 10
 
-	var/clone_metal_storage_bonus = 400
+	var/clone_metal_storage_bonus = 150
 
 	var/upgraded = FALSE
 	var/can_clone = FALSE
@@ -618,6 +618,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] fails to finish the cloned assembly."))
 		return
 
+	new_clone.recyclable = FALSE //A cloned circuit will have components in it.
 	if(user)
 		to_chat(user, SPAN_NOTICE("\The [src] finishes printing \the [new_clone]."))
 
@@ -628,7 +629,6 @@
 
 	var/obj/item/integrated_circuit/IC = circuit_type
 	return max(0, initial(IC.phoron_cost) * phoron_per_sheet)
-
 
 /obj/item/integrated_circuit_printer/proc/get_clone_metal_cost(obj/item/electronic_assembly/source)
 	if(!source)

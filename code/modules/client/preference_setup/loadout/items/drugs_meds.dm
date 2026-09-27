@@ -216,14 +216,13 @@
 	gear_tweaks += new /datum/gear_tweak/path(legal_rec)
 
 /datum/gear/drugs_meds/psi_pills
-	display_name = "psi-protect pill selection"
-	description = "Select from the different kinds of YomiGenetics Psi-protect pills, used to protect against Acute Debilitating Psionic Interference and to treat other psionic related conditions such as psionic echoes."
+	display_name = "anti-psionic pill selection"
+	description = "Select from the different kinds of YomiGenetics I&R anti-psionic pills, used to protect against certain psionic disorders, such as psionic echoes and ADPI."
 	path = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
 
 /datum/gear/drugs_meds/psi_pills/New()
 	..()
 	var/list/psipills = list()
-	psipills["Psi-protect Broad-Use pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/cheap
-	psipills["Psi-protect Personalized pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
-	psipills["Psi-protect Personalized Gold pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
+	psipills["Ranixidone pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics
+	psipills["PsiProtect Personalised pills"] = /obj/item/storage/pill_bottle/psi_protect/yomi_genetics/expensive
 	gear_tweaks += new /datum/gear_tweak/path(psipills)

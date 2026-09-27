@@ -311,6 +311,7 @@
 /obj/structure/railing/mapped/no_density/low{
 	dir = 8
 	},
+/obj/item/gun/launcher/grenade,
 /turf/unsimulated/floor/dark_monotile,
 /area/runtime/floor_one/main)
 "ba" = (
@@ -1319,7 +1320,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -2942,7 +2943,7 @@
 /turf/simulated/floor/plating,
 /area/runtime/floor_one/atmospherics)
 "nh" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -3664,7 +3665,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -3995,7 +3996,7 @@
 /turf/unsimulated/floor/dark_monotile,
 /area/runtime/floor_one/atmospherics)
 "tw" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -4088,7 +4089,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -4617,7 +4618,7 @@
 /turf/simulated/floor/reinforced/n20,
 /area/runtime/floor_one/atmospherics)
 "wY" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -4770,7 +4771,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/runtime/floor_two/comms)
 "xU" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -5527,7 +5528,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -5654,6 +5655,7 @@
 /obj/item/storage/box/shells/beanbags,
 /obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/tactical/beanbags,
 /turf/simulated/floor/tiled/dark,
 /area/runtime/floor_one/main)
 "Db" = (
@@ -6000,7 +6002,7 @@
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
 "Fm" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},
@@ -8565,7 +8567,7 @@
 /turf/space,
 /area/runtime/exterior)
 "TQ" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "runtime_airlock_1_1";
 	name = "runtime_airlock_1_1"
 	},

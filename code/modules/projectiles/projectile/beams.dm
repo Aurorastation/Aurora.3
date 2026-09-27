@@ -203,13 +203,19 @@
 	icon_state = "xray"
 	damage = 50
 	armor_penetration = 20
-	stun = 3
-	weaken = 3
-	stutter = 3
+	eyeblur = 16
+	stutter = 16
+	weaken = 1
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
 	impact_type = /obj/effect/projectile/impact/xray
+
+/obj/projectile/beam/sniper/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(ismob(target))
+		var/mob/M = target
+		M.confused += 8
 
 /obj/projectile/beam/stun
 	name = "stun beam"

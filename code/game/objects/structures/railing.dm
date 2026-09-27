@@ -167,8 +167,8 @@
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	CutOverlays()
-	if(dir == SOUTH)
-		layer = ABOVE_HUMAN_LAYER
+	if(dir != NORTH)
+		layer = ABOVE_ABOVE_HUMAN_LAYER
 	else
 		layer = initial(layer)
 	if(!neighbor_status || !anchored)
@@ -345,7 +345,7 @@
 	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 2 SECONDS))
+	if(!do_after(user, user.get_conditioning_action_delay(2 SECONDS)))
 		LAZYREMOVE(climbers, user)
 		return
 
