@@ -17,6 +17,8 @@ type TextInputData = {
   placeholder: string;
   preview_html?: string;
   preview_limited: boolean;
+  preview_width: number;
+  preview_height: number;
   timeout: number;
   title: string;
 };
@@ -40,6 +42,8 @@ export const TextInputModal = (props) => {
     placeholder = '',
     preview_html = '',
     preview_limited,
+    preview_width,
+    preview_height,
     timeout,
     title,
   } = data;
@@ -60,6 +64,10 @@ export const TextInputModal = (props) => {
   };
 
   const visualMultiline = multiline || input.length >= 30;
+  const paperEditorHeight = `${Math.max(
+    20,
+    37 + (preview_height - 600) / 12,
+  )}rem`;
   // Dynamically changes the window height based on the message.
   const windowHeight =
     135 +
@@ -81,8 +89,8 @@ export const TextInputModal = (props) => {
   return (
     <Window
       title={title}
-      width={paper_preview ? 700 : 325}
-      height={paper_preview ? 600 : windowHeight}
+      width={paper_preview ? preview_width : 325}
+      height={paper_preview ? preview_height : windowHeight}
     >
       {timeout && <Loader value={timeout} />}
       <Window.Content onKeyDown={handleKeyDown}>
@@ -94,7 +102,7 @@ export const TextInputModal = (props) => {
             <Stack.Item grow>
               {paper_preview ? (
                 <TextEditor
-                  height="29rem"
+                  height={paperEditorHeight}
                   initial_text={placeholder}
                   limited={preview_limited}
                   maxLength={max_length}

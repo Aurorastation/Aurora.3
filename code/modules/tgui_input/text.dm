@@ -15,7 +15,7 @@
  * * encode - Toggling this determines if input is filtered via html_encode. Setting this to FALSE gives raw input.
  * * timeout - The timeout of the textbox, after which the modal will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_text(mob/user, message = "", title = "Text Input", default, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0, ui_state = GLOB.always_state, datum/callback/preview_callback, preview_limited = FALSE)
+/proc/tgui_input_text(mob/user, message = "", title = "Text Input", default, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0, ui_state = GLOB.always_state, datum/callback/preview_callback, preview_limited = FALSE, preview_width = 700, preview_height = 600)
 	if (!user)
 		user = usr
 	if (!istype(user))
@@ -44,7 +44,7 @@
 				result = input(user, message, title, default) as text|null
 		QDEL_NULL(preview_callback)
 		return result
-	var/datum/tgui_input_text/text_input = new(user, message, title, default, max_length, multiline, encode, timeout, ui_state, preview_callback, preview_limited)
+	var/datum/tgui_input_text/text_input = new(user, message, title, default, max_length, multiline, encode, timeout, ui_state, preview_callback, preview_limited, preview_width, preview_height)
 	text_input.ui_interact(user)
 	text_input.wait()
 	if (text_input)
@@ -84,10 +84,12 @@
 	var/preview_source
 	var/preview_html
 	var/preview_limited
+	var/preview_width
+	var/preview_height
 	/// The TGUI UI state that will be returned in ui_state(). Default: always_state
 	var/datum/ui_state/state
 
-/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout, ui_state, datum/callback/preview_callback, preview_limited)
+/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout, ui_state, datum/callback/preview_callback, preview_limited, preview_width, preview_height)
 	src.default = default
 	src.encode = encode
 	src.max_length = max_length
@@ -97,6 +99,8 @@
 	src.state = ui_state
 	src.preview_callback = preview_callback
 	src.preview_limited = preview_limited
+	src.preview_width = preview_width
+	src.preview_height = preview_height
 	if(preview_callback)
 		preview_source = isnull(default) ? "" : default
 		preview_html = preview_callback.Invoke(preview_source)
@@ -148,6 +152,8 @@
 	data["title"] = title
 	data["paper_preview"] = !!preview_callback
 	data["preview_limited"] = preview_limited
+	data["preview_width"] = preview_width
+	data["preview_height"] = preview_height
 	return data
 
 /datum/tgui_input_text/ui_data(mob/user)

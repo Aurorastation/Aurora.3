@@ -70,7 +70,7 @@ export default function TextEditor({
     }, 0);
   };
 
-  const editor = (
+  const toolbar = (
     <Box>
       <Button
         onClick={() => applyFormatting('[b]', '[/b]')}
@@ -101,7 +101,10 @@ export default function TextEditor({
           />
           <Button
             onClick={() =>
-              applyFormatting('[table][row][cell]', '[/cell][/row][/table]')
+              applyFormatting(
+                '[table][row][cell]',
+                '[/cell][/row][/table]',
+              )
             }
             icon="table"
             tooltip="Table"
@@ -128,57 +131,83 @@ export default function TextEditor({
         tooltip="Large"
         icon="arrow-up"
       />
-      <TextArea
-        fluid
-        height={height}
-        maxLength={maxLength}
-        ref={textareaRef}
-        value={text}
-        onChange={setText}
-        placeholder={placeholder}
-      />
     </Box>
   );
 
+  const textArea = (
+    <TextArea
+      fluid
+      height={height}
+      maxLength={maxLength}
+      ref={textareaRef}
+      value={text}
+      onChange={setText}
+      placeholder={placeholder}
+    />
+  );
+
   if (previewHtml === undefined) {
-    return editor;
+    return (
+      <Box>
+        {toolbar}
+        {textArea}
+      </Box>
+    );
+  }
+
+  const previewToggle = (
+    <Button
+      icon={previewVisible ? 'eye-slash' : 'eye'}
+      onClick={() => setPreviewVisible(!previewVisible)}
+    >
+      {previewVisible ? 'Hide Preview' : 'Show Preview'}
+    </Button>
+  );
+
+  if (!previewVisible) {
+    return (
+      <Box>
+        <Stack align="center">
+          <Stack.Item grow>{toolbar}</Stack.Item>
+          <Stack.Item>{previewToggle}</Stack.Item>
+        </Stack>
+        {textArea}
+      </Box>
+    );
   }
 
   return (
     <Box>
-      <Box textAlign="right" mb={0.5}>
-        <Button
-          icon={previewVisible ? 'eye-slash' : 'eye'}
-          onClick={() => setPreviewVisible(!previewVisible)}
-        >
-          {previewVisible ? 'Hide Preview' : 'Show Preview'}
-        </Button>
-      </Box>
-      {previewVisible ? (
-        <Stack fill>
-          <Stack.Item grow basis={0}>
-            {editor}
-          </Stack.Item>
-          <Stack.Item grow basis={0}>
-            <Box bold mb={0.5}>
+      <Stack align="center">
+        <Stack.Item grow basis={0}>
+          {toolbar}
+        </Stack.Item>
+        <Stack.Item grow basis={0}>
+          <Stack align="center">
+            <Stack.Item bold grow>
               Preview
-            </Box>
-            <Box
-              backgroundColor="#ffffff"
-              color="#000000"
-              height={height}
-              overflow="auto"
-              p={1}
-              style={{ overflowWrap: 'anywhere' }}
-              dangerouslySetInnerHTML={{
-                __html: sanitizePaperText(previewHtml),
-              }}
-            />
-          </Stack.Item>
-        </Stack>
-      ) : (
-        editor
-      )}
+            </Stack.Item>
+            <Stack.Item>{previewToggle}</Stack.Item>
+          </Stack>
+        </Stack.Item>
+      </Stack>
+      <Stack fill>
+        <Stack.Item grow basis={0}>
+          {textArea}
+        </Stack.Item>
+        <Stack.Item grow basis={0}>
+          <Box
+            backgroundColor="#111111"
+            height={height}
+            overflow="auto"
+            p={1}
+            style={{ overflowWrap: 'anywhere' }}
+            dangerouslySetInnerHTML={{
+              __html: sanitizePaperText(previewHtml),
+            }}
+          />
+        </Stack.Item>
+      </Stack>
     </Box>
   );
 }

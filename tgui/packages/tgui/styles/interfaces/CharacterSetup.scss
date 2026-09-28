@@ -704,22 +704,6 @@
     box-shadow: 0 0.8em 2.5em hsla(0, 0%, 0%, 0.55);
   }
 
-  &__recordDialog {
-    width: 72em;
-    max-width: 100%;
-    height: 80%;
-    border: var(--border-thickness-small) solid
-      hsl(from var(--character-accent) h s calc(l + 12));
-    box-shadow: 0 0.8em 2.5em hsla(0, 0%, 0%, 0.55);
-
-    > .Section__rest,
-    > .Section__rest > .Section__content,
-    .record-editor {
-      min-height: 0;
-      height: 100%;
-    }
-  }
-
   &__speciesDialog {
     width: 64em;
     max-width: 100%;

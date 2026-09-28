@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -7,11 +7,9 @@ import {
   Section,
   Stack,
   Tabs,
-  TextArea,
 } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { sanitizePaperText } from '../sanitize';
 import { CharacterPreview } from './common/CharacterPreview';
 import { LoadingScreen } from './common/LoadingScreen';
 
@@ -126,25 +124,11 @@ type BodyPreferenceItem = BasePreferenceItem & {
 type BackgroundPreferenceItem = BasePreferenceItem & {
   kind: 'background';
   banned: boolean;
-  record_max_length: number;
-  record_preview: {
-    html?: string;
-    type?: string;
-    value?: string;
-  };
   records: {
     name: string;
     preview: string;
     type: string;
-    value: string;
   }[];
-};
-
-type RecordEditor = {
-  itemRef: string;
-  name: string;
-  type: string;
-  value: string;
 };
 
 type SkillLevel = {
@@ -339,7 +323,6 @@ const renderPencode = (text: string) => {
 
 export const CharacterSetup = () => {
   const { act, data } = useBackend<CharacterSetupData>();
-  const [recordEditor, setRecordEditor] = useState<RecordEditor>();
 
   useEffect(() => {
     if (!data.loading) {
@@ -388,32 +371,13 @@ export const CharacterSetup = () => {
     return () => clearTimeout(timer);
   }, [act, data.loading]);
 
-  useEffect(() => {
-    if (!recordEditor) {
-      return;
-    }
-    const timer = setTimeout(
-      () =>
-        act('preference_topic', {
-          item: recordEditor.itemRef,
-          topic: {
-            preview_record: recordEditor.type,
-            value: recordEditor.value,
-          },
-        }),
-      150,
-    );
-    return () => clearTimeout(timer);
-  }, [act, recordEditor]);
-
   const selectedCategory = data.categories.find(
     (category) => category.selected,
   );
   const speciesDialogOpen = data.items.some(
     (item) => item.kind === 'body' && item.species_menu_open,
   );
-  const modalOpen =
-    !!data.slot_dialog || speciesDialogOpen || !!recordEditor;
+  const modalOpen = !!data.slot_dialog || speciesDialogOpen;
   const sendPreferenceTopic = (
     item: BasePreferenceItem,
     topic: Record<string, string | number>,
@@ -424,123 +388,6 @@ export const CharacterSetup = () => {
     action: string,
     value: string | number = 1,
   ) => sendPreferenceTopic(item, { [action]: value });
-
-  const openRecordEditor = (
-    item: BackgroundPreferenceItem,
-    record: BackgroundPreferenceItem['records'][number],
-  ) => {
-    const editor = {
-      itemRef: item.ref,
-      name: record.name,
-      type: record.type,
-      value: record.value || '',
-    };
-    setRecordEditor(editor);
-  };
-
-  const renderRecordEditor = () => {
-    if (!recordEditor) {
-      return null;
-    }
-
-    const item = data.items.find(
-      (candidate): candidate is BackgroundPreferenceItem =>
-        candidate.kind === 'background' &&
-        candidate.ref === recordEditor.itemRef,
-    );
-    const preview = item?.record_preview;
-    const previewIsCurrent =
-      preview?.type === recordEditor.type &&
-      preview?.value === recordEditor.value;
-    const contentHtml = {
-      __html: sanitizePaperText(previewIsCurrent ? preview?.html || '' : ''),
-    };
-
-    return (
-      <Box className="CharacterSetup__slotOverlay">
-        <Section
-          className="CharacterSetup__recordDialog"
-          fill
-          title={`${recordEditor.name} Records`}
-          buttons={
-            <Button
-              color="transparent"
-              icon="xmark"
-              onClick={() => setRecordEditor(undefined)}
-            />
-          }
-        >
-          <Stack className="record-editor" fill vertical>
-            <Stack.Item grow>
-              <Stack fill>
-                <Stack.Item basis="50%" grow>
-                  <Section fill title="Papercode">
-                    <TextArea
-                      autoFocus
-                      fluid
-                      height="100%"
-                      maxLength={item?.record_max_length}
-                      onChange={(value) => {
-                        const editor = { ...recordEditor, value };
-                        setRecordEditor(editor);
-                      }}
-                      onEscape={() => setRecordEditor(undefined)}
-                      value={recordEditor.value}
-                    />
-                  </Section>
-                </Stack.Item>
-                <Stack.Item basis="50%" grow>
-                  <Section fill scrollable title="Preview">
-                    {previewIsCurrent ? (
-                      <Box
-                        // biome-ignore lint/security/noDangerouslySetInnerHtml: Server-generated papercode is sanitized again here.
-                        dangerouslySetInnerHTML={contentHtml}
-                      />
-                    ) : (
-                      <Box color="label">Updating preview...</Box>
-                    )}
-                  </Section>
-                </Stack.Item>
-              </Stack>
-            </Stack.Item>
-            <Stack.Item>
-              <Stack align="center">
-                <Stack.Item grow color="label">
-                  {recordEditor.value.length}/{item?.record_max_length}
-                </Stack.Item>
-                <Stack.Item>
-                  <Button
-                    color="good"
-                    icon="check"
-                    onClick={() => {
-                      act('preference_topic', {
-                        item: recordEditor.itemRef,
-                        topic: {
-                          save_record: recordEditor.type,
-                          value: recordEditor.value,
-                        },
-                      });
-                      setRecordEditor(undefined);
-                    }}
-                  >
-                    Save
-                  </Button>
-                </Stack.Item>
-                <Stack.Item>
-                  <Button
-                    icon="xmark"
-                    onClick={() => setRecordEditor(undefined)}
-                  >
-                    Cancel
-                  </Button>
-                </Stack.Item>
-              </Stack>
-            </Stack.Item>
-          </Stack>
-        </Section>
-      </Box>
-    );
-  };
 
   const renderSlotDialog = () => {
     const dialog = data.slot_dialog;
@@ -1142,7 +989,9 @@ export const CharacterSetup = () => {
                 <Button
                   fluid
                   color="transparent"
-                  onClick={() => openRecordEditor(item, record)}
+                  onClick={() =>
+                    sendPreferenceAction(item, 'edit_record', record.type)
+                  }
                 >
                   {record.preview}
                 </Button>
@@ -1703,7 +1552,6 @@ export const CharacterSetup = () => {
         </Stack>
         {renderSlotDialog()}
         {renderSpeciesDialog()}
-        {renderRecordEditor()}
       </Window.Content>
     </Window>
   );
