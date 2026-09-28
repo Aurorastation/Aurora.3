@@ -36,8 +36,6 @@
 	if(!notes)
 		return ""
 
-	// Character preferences store records HTML-encoded. Normalize them before
-	// sanitizing so entities such as &#39; are not encoded a second time.
 	var/text = trim(html_decode("[notes]"))
 	if(!length(text))
 		return ""
