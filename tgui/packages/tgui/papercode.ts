@@ -74,20 +74,22 @@ export function renderPaperCode(source: string, context: PaperCodeContext) {
     );
   }
 
-  const languages = new Map(
-    (context.languages || []).map((language) => [language.key, language]),
-  );
-  text = text.replace(
-    /\[lang=([#_a-zA-Z0-9^])](.*?)\[\/lang]/g,
-    (_match, key: string, content: string) => {
-      const language = languages.get(key);
-      if (!language) {
-        return '';
-      }
-      const label = language.short ? `(${encodeHtml(language.short)}) ` : '';
-      return `<span class="${encodeHtml(language.style || '')} understood">${label}${content}</span>`;
-    },
-  );
+  if (context.languages !== undefined) {
+    const languages = new Map(
+      context.languages.map((language) => [language.key, language]),
+    );
+    text = text.replace(
+      /\[lang=([#_a-zA-Z0-9^])](.*?)\[\/lang]/g,
+      (_match, key: string, content: string) => {
+        const language = languages.get(key);
+        if (!language) {
+          return '';
+        }
+        const label = language.short ? `(${encodeHtml(language.short)}) ` : '';
+        return `<span class="${encodeHtml(language.style || '')} understood">${label}${content}</span>`;
+      },
+    );
+  }
 
   if (context.font_face) {
     const openingStyle = context.font_style === 'bold' ? '<b>' : context.font_style === 'italic' ? '<i>' : '';
