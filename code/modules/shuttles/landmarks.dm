@@ -79,7 +79,10 @@
 
 	if(auto_register)
 		var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
-		map_origin.add_landmark(src, shuttle_restricted)
+		if(map_origin)
+			map_origin.add_landmark(src, shuttle_restricted)
+		else
+			LAZYDISTINCTADD(SSshuttle.landmarks_awaiting_sector, src)
 
 /obj/effect/shuttle_landmark/forceMove(atom/destination)
 	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
@@ -98,8 +101,9 @@
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
 	if(shuttle.current_location == src)
 		return FALSE
+	var/rotation = shuttle.get_rotation(src)
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents, rotation)
 		if(check_collision(list_values(translation)))
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
@@ -110,8 +114,9 @@
 
 /obj/effect/shuttle_landmark/proc/deploy_landing_indicators(var/datum/shuttle/shuttle)
 	LAZYINITLIST(landing_indicators)
+	var/rotation = shuttle.get_rotation(src)
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents, rotation)
 		for(var/target_turf in list_values(translation))
 			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
 

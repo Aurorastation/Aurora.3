@@ -7,6 +7,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/ship_weapon)
 	anchored = TRUE
 	density = TRUE
 	health = 1000
+	rotate_icon_with_shuttle = TRUE
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
 	var/projectile_type = /obj/projectile/ship_ammo
