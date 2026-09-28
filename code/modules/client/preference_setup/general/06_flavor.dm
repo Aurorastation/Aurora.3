@@ -219,7 +219,7 @@
 	else if (href_list["edit_signature"])
 		switch (href_list["edit_signature"])
 			if ("text")
-				var/new_sign = tgui_input_text(usr, "Please input the new character signature.", "New Signature", html2pencode(html_decode(pref.signature)), max_length = 100, multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(render_pencode_preview), TRUE, TRUE, TRUE, FALSE, 100), preview_limited = TRUE)
+				var/new_sign = tgui_input_text(usr, "Please input the new character signature.", "New Signature", html2pencode(html_decode(pref.signature)), max_length = 100, multiline = TRUE, encode = FALSE, preview_context = get_pencode_preview_context(TRUE, TRUE, TRUE, FALSE, 100), preview_limited = TRUE)
 				if (!new_sign)
 					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signature)

@@ -83,7 +83,7 @@
 			else
 				return TOPIC_NOACTION
 
-		var/new_value = tgui_input_text(user, "Write the character's [lowertext(record_name)] record.", "[record_name] Records", html_decode(current_value), max_length = MAX_PAPER_MESSAGE_LEN - 1, multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(record_notes_to_paper_html)), preview_width = 864, preview_height = 720)
+		var/new_value = tgui_input_text(user, "Write the character's [lowertext(record_name)] record.", "[record_name] Records", html_decode(current_value), max_length = MAX_PAPER_MESSAGE_LEN - 1, multiline = TRUE, encode = FALSE, preview_context = get_pencode_preview_context(FALSE, TRUE, TRUE, TRUE, MAX_PAPER_MESSAGE_LEN), preview_width = 864, preview_height = 720)
 		if(isnull(new_value) || jobban_isbanned(user, "Records") || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		new_value = sanitize(new_value, MAX_PAPER_MESSAGE_LEN, extra = FALSE) || ""

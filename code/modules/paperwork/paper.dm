@@ -549,14 +549,14 @@
 		var/obj/item/clipboard/clipboard = loc
 		return clipboard.haspen
 
-/// Renders a draft exactly as the current writing implement would render it.
-/obj/item/paper/proc/preview_writing(mob/user, text)
+/// Snapshots the current writing context for TGUI's local papercode preview.
+/obj/item/paper/proc/get_writing_preview_context(mob/user)
+	var/list/context = get_pencode_preview_context(FALSE, TRUE, TRUE, TRUE, free_space)
 	var/obj/item/implement = get_writing_implement(user)
 	if(!implement)
-		return ""
+		return context
+	var/obj/item/pen/writing_pen = implement
 
-	text = sanitize(text, free_space, extra = FALSE)
-	var/previous_fields = fields
 	var/is_crayon = istype(implement, /obj/item/pen/crayon)
 	var/is_typewriter = istype(implement, /obj/item/pen/typewriter)
 	var/is_fountain = FALSE
@@ -564,8 +564,34 @@
 		var/obj/item/pen/fountain_pen = implement
 		is_fountain = fountain_pen.cursive
 
-	. = parsepencode(text, implement, user, is_crayon, is_fountain, is_typewriter)
-	fields = previous_fields
+	context["signature"] = get_signature(writing_pen, user)
+	context["signature_font"] = get_signfont(writing_pen, user)
+	context["font_color"] = writing_pen.colour
+	if(is_crayon)
+		context["font_face"] = crayonfont
+		context["font_style"] = "bold"
+		context["disabled_tags"] = list("*", "hr", "small", "list", "table", "row", "cell", "logo_scc", "logo_scc_small", "logo_nt", "logo_nt_small", "logo_zh", "logo_zh_small", "logo_idris", "logo_idris_small", "logo_eridani", "logo_eridani_small", "logo_zavod", "logo_zavod_small", "logo_hp", "logo_hp_small", "logo_be", "logo_golden", "logo_pvpolice", "logo_pvpolice_small", "logo_outereyes", "logo_outereyes_small", "twinsuns", "twinsuns_small", "raskara_sigil", "raskara_sigil_small", "barcode")
+	else if(is_fountain)
+		context["font_face"] = fountainfont
+		context["font_style"] = "italic"
+	else if(is_typewriter)
+		context["font_face"] = typewriterfont
+		context["font_style"] = "italic"
+		context["disabled_tags"] = list("*", "hr", "small", "list", "table", "row", "cell", "barcode")
+	else
+		context["font_face"] = deffont
+
+	var/list/languages = list()
+	for(var/key in GLOB.language_keys)
+		var/datum/language/language = GLOB.language_keys[key]
+		if(language?.written_style && user.say_understands(null, language))
+			languages += list(list(
+				"key" = key,
+				"short" = language.short,
+				"style" = language.written_style
+			))
+	context["languages"] = languages
+	return context
 
 /obj/item/paper/Topic(href, href_list)
 	..()
@@ -580,7 +606,7 @@
 			to_chat(usr, SPAN_INFO("There isn't enough space left on \the [src] to write anything."))
 			return
 
-		var/t = sanitize(tgui_input_text(usr, "Enter what you want to write:", "Write", max_length = free_space, multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(src, PROC_REF(preview_writing), usr)), free_space, extra = FALSE)
+		var/t = sanitize(tgui_input_text(usr, "Enter what you want to write:", "Write", max_length = free_space, multiline = TRUE, encode = FALSE, preview_context = get_writing_preview_context(usr)), free_space, extra = FALSE)
 
 		if(!t)
 			return

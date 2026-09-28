@@ -111,7 +111,7 @@
 				return data
 		if(screen == FMS_EDIT)
 			data["file_data"] = file.stored_data
-			data["file_preview"] = pencode2html(file.stored_data)
+			data["preview_context"] = get_pencode_preview_context(FALSE, FALSE, FALSE, TRUE, MAX_TEXTFILE_LENGTH, FALSE, TRUE)
 		else
 			data["file_data"] = pencode2html(file.stored_data)
 	return data

@@ -11,6 +11,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
+import type { PaperCodeContext } from '../papercode';
 import TextEditor from './common/TextEditor';
 import React, { useState } from 'react';
 
@@ -31,7 +32,7 @@ type FileData = {
   file_desc: string;
   file_is_usb: BooleanLike;
   file_name: string;
-  file_preview?: string;
+  preview_context?: PaperCodeContext;
   files: File[];
   forms?: FormEntry[];
   usb_files: File[];
@@ -350,7 +351,7 @@ export const File_Edit = (props) => {
         <TextEditor
           initial_text={data.file_data}
           onChange={(e) => act('PRG_edit', { PRG_edit: e })}
-          previewHtml={data.file_preview || ''}
+          previewContext={data.preview_context}
         />
       </Section>
   );

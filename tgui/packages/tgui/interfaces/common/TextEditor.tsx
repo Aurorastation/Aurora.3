@@ -1,6 +1,7 @@
 import { Box, Button, Stack, TextArea } from 'tgui-core/components';
 import React, { useEffect, useRef, useState } from 'react';
 
+import { type PaperCodeContext, renderPaperCode } from '../../papercode';
 import { sanitizePaperText } from '../../sanitize';
 
 interface TextEditorProps {
@@ -10,7 +11,7 @@ interface TextEditorProps {
   limited?: boolean;
   maxLength?: number;
   onChange?: (value: string) => void;
-  previewHtml?: string;
+  previewContext?: PaperCodeContext;
   value?: string;
 }
 
@@ -28,13 +29,16 @@ export default function TextEditor({
   limited = false,
   maxLength,
   onChange,
-  previewHtml,
+  previewContext,
   value,
 }: TextEditorProps) {
   const [localText, setLocalText] = useState<string>(value ?? initial_text);
   const [previewVisible, setPreviewVisible] = useState(true);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const text = value ?? localText;
+  const previewHtml = previewContext
+    ? renderPaperCode(text, previewContext)
+    : undefined;
 
   useEffect(() => {
     if (value === undefined) {

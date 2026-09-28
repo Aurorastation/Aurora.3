@@ -680,14 +680,23 @@
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [GLOB.config.docs_image_host]$1></img>")
 	return t
 
-/// Callback-friendly renderer used by live papercode editors.
-/proc/render_pencode_preview(limited, encode, trim_text, preserve_whitespace, max_length, text)
-	text = sanitize(text, max_length = max_length, encode = encode, trim = trim_text, extra = !preserve_whitespace)
-	return pencode2html(text, limited)
-
-/// Matches the stored format used by loadout-provided pre-written paper.
-/proc/render_preprinted_paper_preview(text)
-	return pencode2html(strip_html(text, MAX_PAPER_MESSAGE_LEN))
+/// Takes a snapshot of the server values needed for a local TGUI papercode preview.
+/proc/get_pencode_preview_context(limited = FALSE, encode = TRUE, trim_text = TRUE, preserve_whitespace = FALSE, max_length = MAX_MESSAGE_LEN, strip_html = FALSE, raw = FALSE)
+	return list(
+		"limited" = limited,
+		"encode" = encode,
+		"trim" = trim_text,
+		"preserve_whitespace" = preserve_whitespace,
+		"max_length" = max_length,
+		"strip_html" = strip_html,
+		"raw" = raw,
+		"station" = SSatlas.current_map.station_name,
+		"time" = worldtime2text(),
+		"date" = worlddate2text(),
+		"tajtime" = tajaran_time(),
+		"tajdate" = tajaran_full_date(),
+		"docs_image_host" = GLOB.config.docs_image_host
+	)
 
 /proc/html2pencode(t, var/include_images = FALSE)
 	t = replacetext(t, "<B>", "\[b\]")

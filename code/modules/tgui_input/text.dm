@@ -15,7 +15,7 @@
  * * encode - Toggling this determines if input is filtered via html_encode. Setting this to FALSE gives raw input.
  * * timeout - The timeout of the textbox, after which the modal will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_text(mob/user, message = "", title = "Text Input", default, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0, ui_state = GLOB.always_state, datum/callback/preview_callback, preview_limited = FALSE, preview_width = 700, preview_height = 600)
+/proc/tgui_input_text(mob/user, message = "", title = "Text Input", default, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0, ui_state = GLOB.always_state, list/preview_context, preview_limited = FALSE, preview_width = 700, preview_height = 600)
 	if (!user)
 		user = usr
 	if (!istype(user))
@@ -23,14 +23,12 @@
 			var/client/client = user
 			user = client.mob
 		else
-			QDEL_NULL(preview_callback)
 			return
 	if (!user.client)
-		QDEL_NULL(preview_callback)
 		return
 
 	// Client does NOT have tgui_input on: Returns regular input
-	if(!user.client.prefs.tgui_inputs && !preview_callback)
+	if(!user.client.prefs.tgui_inputs && !preview_context)
 		var/result
 		if(encode)
 			if(multiline)
@@ -42,9 +40,8 @@
 				result = input(user, message, title, default) as message|null
 			else
 				result = input(user, message, title, default) as text|null
-		QDEL_NULL(preview_callback)
 		return result
-	var/datum/tgui_input_text/text_input = new(user, message, title, default, max_length, multiline, encode, timeout, ui_state, preview_callback, preview_limited, preview_width, preview_height)
+	var/datum/tgui_input_text/text_input = new(user, message, title, default, max_length, multiline, encode, timeout, ui_state, preview_context, preview_limited, preview_width, preview_height)
 	text_input.ui_interact(user)
 	text_input.wait()
 	if (text_input)
@@ -78,18 +75,15 @@
 	var/timeout
 	/// The title of the TGUI window
 	var/title
-	/// Optional renderer used to show a live papercode preview.
-	var/datum/callback/preview_callback
-	/// Most recently previewed source and rendered HTML.
-	var/preview_source
-	var/preview_html
+	/// Snapshot used by TGUI to render papercode locally.
+	var/list/preview_context
 	var/preview_limited
 	var/preview_width
 	var/preview_height
 	/// The TGUI UI state that will be returned in ui_state(). Default: always_state
 	var/datum/ui_state/state
 
-/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout, ui_state, datum/callback/preview_callback, preview_limited, preview_width, preview_height)
+/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout, ui_state, list/preview_context, preview_limited, preview_width, preview_height)
 	src.default = default
 	src.encode = encode
 	src.max_length = max_length
@@ -97,15 +91,10 @@
 	src.multiline = multiline
 	src.title = title
 	src.state = ui_state
-	src.preview_callback = preview_callback
+	src.preview_context = preview_context
 	src.preview_limited = preview_limited
 	src.preview_width = preview_width
 	src.preview_height = preview_height
-	if(preview_callback)
-		preview_source = isnull(default) ? "" : default
-		preview_html = preview_callback.Invoke(preview_source)
-		if(isnull(preview_html))
-			preview_html = ""
 	if (timeout)
 		src.timeout = timeout
 		start_time = world.time
@@ -114,7 +103,7 @@
 /datum/tgui_input_text/Destroy(force)
 	SStgui.close_uis(src)
 	state = null
-	QDEL_NULL(preview_callback)
+	preview_context = null
 	return ..()
 
 /**
@@ -150,7 +139,8 @@
 	data["multiline"] = multiline
 	data["placeholder"] = default // Default is a reserved keyword
 	data["title"] = title
-	data["paper_preview"] = !!preview_callback
+	data["paper_preview"] = !!preview_context
+	data["preview_context"] = preview_context
 	data["preview_limited"] = preview_limited
 	data["preview_width"] = preview_width
 	data["preview_height"] = preview_height
@@ -160,9 +150,6 @@
 	var/list/data = list()
 	if(timeout)
 		data["timeout"] = CLAMP01((timeout - (world.time - start_time) - 1 SECONDS) / (timeout - 1 SECONDS))
-	if(preview_callback)
-		data["preview_source"] = preview_source
-		data["preview_html"] = preview_html
 	return data
 
 /datum/tgui_input_text/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -170,17 +157,6 @@
 	if (.)
 		return
 	switch(action)
-		if("preview")
-			if(!preview_callback)
-				return TRUE
-			preview_source = params["entry"]
-			if(max_length)
-				preview_source = copytext_char(preview_source, 1, max_length)
-			preview_source = trim(preview_source)
-			preview_html = preview_callback.Invoke(preview_source)
-			if(isnull(preview_html))
-				preview_html = ""
-			return TRUE
 		if("submit")
 			if(max_length)
 				if(length(params["entry"]) > max_length)

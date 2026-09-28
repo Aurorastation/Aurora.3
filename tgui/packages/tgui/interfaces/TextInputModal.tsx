@@ -4,6 +4,7 @@ import { isEscape, KEY } from 'tgui-core/keys';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+import type { PaperCodeContext } from '../papercode';
 import { InputButtons } from './common/InputButtons';
 import { Loader } from './common/Loader';
 import TextEditor from './common/TextEditor';
@@ -15,7 +16,7 @@ type TextInputData = {
   multiline: boolean;
   paper_preview: boolean;
   placeholder: string;
-  preview_html?: string;
+  preview_context?: PaperCodeContext;
   preview_limited: boolean;
   preview_width: number;
   preview_height: number;
@@ -40,7 +41,7 @@ export const TextInputModal = (props) => {
     multiline,
     paper_preview,
     placeholder = '',
-    preview_html = '',
+    preview_context,
     preview_limited,
     preview_width,
     preview_height,
@@ -58,9 +59,6 @@ export const TextInputModal = (props) => {
       ? sanitizeMultiline(value)
       : removeAllSkiplines(value);
     setInput(sanitizedInput);
-    if (paper_preview) {
-      act('preview', { entry: sanitizedInput });
-    }
   };
 
   const visualMultiline = multiline || input.length >= 30;
@@ -107,7 +105,7 @@ export const TextInputModal = (props) => {
                   limited={preview_limited}
                   maxLength={max_length}
                   onChange={onType}
-                  previewHtml={preview_html}
+                  previewContext={preview_context}
                   value={input}
                 />
               ) : (

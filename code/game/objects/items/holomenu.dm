@@ -89,7 +89,7 @@
 /obj/item/holomenu/attack_hand(mob/user)
 	if(anchored)
 		if(allowed(user))
-			var/new_text = sanitize(tgui_input_text(user, "Enter new text for the holo-menu to display.", "Holo-Menu Display", html2pencode(menu_text, TRUE), multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(render_pencode_preview), FALSE, TRUE, TRUE, FALSE, MAX_MESSAGE_LEN)))
+			var/new_text = sanitize(tgui_input_text(user, "Enter new text for the holo-menu to display.", "Holo-Menu Display", html2pencode(menu_text, TRUE), multiline = TRUE, encode = FALSE, preview_context = get_pencode_preview_context(FALSE, TRUE, TRUE, FALSE, MAX_MESSAGE_LEN)))
 			if(!isnull(new_text))
 				menu_text = pencode2html(new_text)
 				update_icon()
@@ -145,7 +145,7 @@
 	. += "Note that holodecks do not support RAVE MODE."
 
 /obj/item/holomenu/holodeck/attack_hand(mob/user)
-	var/new_text = sanitize(tgui_input_text(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE), multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(render_pencode_preview), FALSE, TRUE, TRUE, FALSE, MAX_MESSAGE_LEN)))
+	var/new_text = sanitize(tgui_input_text(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE), multiline = TRUE, encode = FALSE, preview_context = get_pencode_preview_context(FALSE, TRUE, TRUE, FALSE, MAX_MESSAGE_LEN)))
 	if(!isnull(new_text))
 		menu_text = pencode2html(new_text)
 		update_icon()
