@@ -148,7 +148,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 	if((istype(O, /obj/item) || istype(O, /obj/structure)) && !is_type_in_list(O, GLOB.protected_objects))
 
 		O.forceMove(src)
-		appearance = O
+		copy_visual_appearance(O)
 		icon_living = icon_state
 
 		if(istype(O, /obj/structure))

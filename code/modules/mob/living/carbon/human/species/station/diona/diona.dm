@@ -120,6 +120,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 
 	climb_coeff = 1.3
 	vision_organ = BP_HEAD
+	omni_vision = TRUE
 
 	max_hydration_factor = -1
 

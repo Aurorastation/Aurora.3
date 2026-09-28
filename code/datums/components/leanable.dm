@@ -99,7 +99,7 @@
 		src.add_filter("cutout", 1, alpha_mask_filter(y = 0, icon = icon('icons/effects/effects.dmi', "white")))
 		animate(src.get_filter("cutout"), y = 10, time = 1, flags = ANIMATION_PARALLEL)
 	if(direction == SOUTH)
-		src.layer = ABOVE_DOOR_LAYER
+		set_layer(ABOVE_DOOR_LAYER)
 	set_density(FALSE)
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
 	ADD_TRAIT(src, TRAIT_LEANING, TRAIT_SOURCE_WALL_LEANING)
@@ -114,7 +114,7 @@
 	set_density(TRUE)
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
-	layer = initial(layer)
+	set_layer(initial(layer))
 	UnregisterSignal(src, list(
 		COMSIG_MOVABLE_MOVED,
 		COMSIG_MOB_RESISTED,

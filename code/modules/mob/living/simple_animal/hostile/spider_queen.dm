@@ -102,7 +102,7 @@
 		M.speed = -1
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
-		M.layer = LYING_MOB_LAYER
+		M.set_layer(LYING_MOB_LAYER)
 		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else
@@ -114,7 +114,7 @@
 	S.speed = initial(S.speed)
 	S.update_icon()
 	S.pass_flags = PASSTABLE
-	S.layer = initial(S.layer)
+	S.set_layer(initial(S.layer))
 	var/turf/target_turf = get_turf(S)
 	if(target_turf)
 		S.visible_message(SPAN_DANGER("\The [S] lands on the [target_turf]!"))

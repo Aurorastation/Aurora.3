@@ -46,6 +46,36 @@
 	name = "above game world plane master"
 	plane = ABOVE_GAME_PLANE
 
+/atom/movable/screen/plane_master/fov_exemptions
+	name = "vision cone exemptions"
+	// Clear every occupied pixel fully, preserving the source mob's own transparency.
+	color = list(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,255, 1,1,1,0)
+	plane = FOV_EXEMPT_PLANE
+	render_target = FOV_EXEMPT_RENDER_TARGET
+	render_relay_plane = null
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/plane_master/field_of_vision_blocker
+	name = "field of vision blocker plane master"
+	plane = FIELD_OF_VISION_BLOCKER_PLANE
+	render_target = FIELD_OF_VISION_BLOCKER_RENDER_TARGET
+	render_relay_plane = null
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/plane_master/field_of_vision_blocker/Initialize(mapload)
+	. = ..()
+	add_filter("peripheral_vision", 1, alpha_mask_filter(icon = get_vision_cone_peripheral_mask(), flags = MASK_INVERSE))
+	add_filter("exempt_mobs", 2, alpha_mask_filter(render_source = FOV_EXEMPT_RENDER_TARGET, flags = MASK_INVERSE))
+
+/atom/movable/screen/plane_master/fov_overlay
+	name = "field of vision overlay plane master"
+	plane = FOV_OVERLAY_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/screen/plane_master/fov_overlay/Initialize(mapload)
+	. = ..()
+	add_filter("peripheral_vision", 1, alpha_mask_filter(icon = get_vision_cone_peripheral_mask(), flags = MASK_INVERSE))
+
 /atom/movable/screen/plane_master/ghost
 	name = "ghost plane master"
 	plane = GHOST_PLANE

@@ -95,8 +95,7 @@
 	for(var/mob/M in src) //Should only be one but whatever.
 		M.forceMove(src.loc)
 		if (M.client)
-			M.client.eye = M.client.mob
-			M.client.perspective = MOB_PERSPECTIVE
+			M.client.set_eye(M.client.mob, MOB_PERSPECTIVE)
 
 	qdel(src)
 

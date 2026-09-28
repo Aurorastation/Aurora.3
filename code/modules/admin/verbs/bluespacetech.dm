@@ -146,6 +146,9 @@
 	/// The BST's original mob. Moved here from /datum/holder to support storytellers.
 	var/datum/weakref/original_mob
 
+/mob/living/carbon/human/bst/has_vision_cone()
+	return FALSE
+
 /mob/living/carbon/human/bst/Destroy(force)
 	QDEL_NULL(original_mob)
 	return ..()

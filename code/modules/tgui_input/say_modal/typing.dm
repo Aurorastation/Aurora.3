@@ -89,6 +89,8 @@ I IS TYPIN'!'
 	icon = 'icons/mob/talk.dmi'
 	icon_state = "default"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	// Keep typing visible above the cone shading, even when the speaker is masked.
+	plane = RUNECHAT_PLANE
 	vis_flags = VIS_INHERIT_ID
 	var/shown = FALSE
 	var/atom/movable/master

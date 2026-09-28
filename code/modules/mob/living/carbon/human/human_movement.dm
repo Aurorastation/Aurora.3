@@ -128,6 +128,7 @@
 	. = ..()
 	if(. && tail_style)
 		update_tail_showing(!lying)
+	update_vision_cone()
 
 /mob/living/carbon/human/Move(atom/newloc, direct)
 	// A prone mob already sharing a table's turf without this state is on top of

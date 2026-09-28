@@ -141,7 +141,7 @@
 	morphed = TRUE
 	form = target
 	visible_message(SPAN_WARNING("\The [src] suddenly twists and changes shape, becoming a copy of \the [target]!"), SPAN_NOTICE("You twist your body and assume the form of \the [target]."))
-	appearance = target.appearance
+	copy_visual_appearance(target)
 	alpha = max(alpha, 150)	//fucking chameleons
 	transform = initial(transform)
 	pixel_y = initial(pixel_y)
@@ -166,6 +166,7 @@
 	maptext = null
 
 	visible_message(SPAN_WARNING("\The [src] suddenly collapses in on itself, dissolving into a pile of green flesh!"), SPAN_NOTICE("You reform to your normal body."))
+	reset_plane_and_layer()
 	name = initial(name)
 	icon = initial(icon)
 	icon_state = initial(icon_state)

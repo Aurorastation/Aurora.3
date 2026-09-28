@@ -4,6 +4,7 @@
 
 	//TGUI
 	remove_all_indicators()
+	hud_used?.clear_vision_cone_rendering()
 
 	GLOB.player_list -= src
 	disconnect_time = world.realtime

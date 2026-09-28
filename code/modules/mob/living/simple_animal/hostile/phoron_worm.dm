@@ -123,7 +123,7 @@
 	speed = -1
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
-	layer = TURF_DETAIL_LAYER
+	set_layer(TURF_DETAIL_LAYER)
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 
@@ -135,7 +135,7 @@
 	speed = initial(speed)
 	update_icon()
 	pass_flags = initial(pass_flags)
-	layer = initial(layer)
+	set_layer(initial(layer))
 	REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
 	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
 	if(mob_size > 15)

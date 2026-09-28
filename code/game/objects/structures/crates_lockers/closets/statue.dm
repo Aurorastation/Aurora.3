@@ -33,8 +33,7 @@
 			L.buckled_to = 0
 			L.anchored = 0
 		if(L.client)
-			L.client.perspective = EYE_PERSPECTIVE
-			L.client.eye = src
+			L.client.set_eye(src, EYE_PERSPECTIVE)
 
 		L.drop_r_hand()
 		L.drop_l_hand()
@@ -104,8 +103,7 @@
 		M.frozen = FALSE
 		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transferred to the mob
 		if(M.client)
-			M.client.eye = M.client.mob
-			M.client.perspective = MOB_PERSPECTIVE
+			M.client.set_eye(M.client.mob, MOB_PERSPECTIVE)
 
 /obj/structure/closet/statue/open()
 	return

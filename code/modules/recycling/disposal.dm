@@ -245,8 +245,7 @@
 				V.show_message("[usr] starts putting [GM.name] into the disposal.", 3)
 			if(do_after(usr, 20))
 				if (GM.client)
-					GM.client.perspective = EYE_PERSPECTIVE
-					GM.client.eye = src
+					GM.client.set_eye(src, EYE_PERSPECTIVE)
 				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
 					C.show_message(SPAN_WARNING("[GM.name] has been placed in the [src] by [user]."), 3)
@@ -319,8 +318,7 @@
 	else
 		return
 	if (target.client)
-		target.client.perspective = EYE_PERSPECTIVE
-		target.client.eye = src
+		target.client.set_eye(src, EYE_PERSPECTIVE)
 
 	target.forceMove(src)
 
@@ -352,8 +350,7 @@
 /obj/structure/machinery/disposal/proc/go_out(mob/user)
 
 	if (user.client)
-		user.client.eye = user.client.mob
-		user.client.perspective = MOB_PERSPECTIVE
+		user.client.set_eye(user.client.mob, MOB_PERSPECTIVE)
 	user.forceMove(src.loc)
 	update()
 	return
@@ -804,7 +801,7 @@
 			var/mob/M = AM
 			// if a client mob, update eye to follow this holder
 			if(M.client)
-				M.client.eye = src
+				M.client.set_eye(src)
 
 	qdel(other)
 
@@ -1732,8 +1729,7 @@
  */
 /mob/pipe_eject(var/direction)
 	if (src.client)
-		src.client.perspective = MOB_PERSPECTIVE
-		src.client.eye = src
+		src.client.set_eye(src, MOB_PERSPECTIVE)
 
 	return
 

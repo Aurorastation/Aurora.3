@@ -72,7 +72,7 @@
 	dizziness = 0
 	jitteriness = 0
 
-	layer = MOB_LAYER
+	set_layer(MOB_LAYER)
 
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
