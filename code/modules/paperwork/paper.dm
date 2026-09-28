@@ -552,6 +552,7 @@
 /// Snapshots the current writing context for TGUI's local papercode preview.
 /obj/item/paper/proc/get_writing_preview_context(mob/user)
 	var/list/context = get_pencode_preview_context(FALSE, TRUE, TRUE, TRUE, free_space)
+	context["background_color"] = color || COLOR_WHITE
 	var/obj/item/implement = get_writing_implement(user)
 	if(!implement)
 		return context

@@ -5,6 +5,7 @@ export type PaperCodeLanguage = {
 };
 
 export type PaperCodeContext = {
+  background_color?: string;
   date: string;
   disabled_tags?: string[];
   docs_image_host?: string;
