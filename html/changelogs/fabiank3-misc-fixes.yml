@@ -7,3 +7,4 @@ changes:
   - bugfix: "Fixed psionic mend."
   - bugfix: "Fixed psionic time-stop."
   - bugfix: "Fixed missing wood in cargo."
+  - code_imp: "Fixed linter warning."
