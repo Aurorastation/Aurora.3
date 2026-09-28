@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -39,6 +40,13 @@ export type RecordsData = {
   front: string;
   side: string;
   active: Record;
+  record_comments: RecordComment[];
+  record_comments_type?: 'employment' | 'medical' | 'security';
+  record_comments_page: number;
+  record_comments_total: number;
+  record_comments_page_size: number;
+  record_comments_loading: BooleanLike;
+  record_comments_error: BooleanLike;
 };
 
 type Record = {
@@ -59,7 +67,6 @@ type Record = {
   employer?: string;
   notes?: string;
   notes_html?: string;
-  comments?: RecordComment[];
   security?: Security;
   medical?: Medical;
   ccia_notes?: string;
@@ -72,7 +79,6 @@ type Security = {
   criminal: string;
   crimes: string;
   incidents: Incident[];
-  comments: RecordComment[];
 };
 
 type Incident = {
@@ -89,7 +95,6 @@ type Medical = {
   notes_html?: string;
   blood_type: string;
   blood_dna: string;
-  comments: RecordComment[];
 };
 
 type RecordComment = {
@@ -239,6 +244,15 @@ export const ListActive = (props) => {
     (recordTab === 'Security' && !(data.available_types & 4))
       ? 'Public'
       : recordTab;
+  useEffect(() => {
+    if (
+      activeTab === 'Employment' ||
+      activeTab === 'Medical' ||
+      activeTab === 'Security'
+    ) {
+      act('loadcomments', { record_type: activeTab.toLowerCase() });
+    }
+  }, [act, activeTab, data.active.id]);
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
     'editingPhysStatus',
     false,
@@ -672,7 +686,6 @@ export const ListActive = (props) => {
           </Section>
           <RecordComments
             recordType="employment"
-            comments={data.active.comments}
             editable={!!(data.editable & 1)}
           />
         </>
@@ -686,7 +699,6 @@ export const ListActive = (props) => {
           </Section>
           <RecordComments
             recordType="security"
-            comments={security.comments}
             editable={!!(data.editable & 4)}
           />
         </>
@@ -700,7 +712,6 @@ export const ListActive = (props) => {
           </Section>
           <RecordComments
             recordType="medical"
-            comments={medical.comments}
             editable={!!(data.editable & 2)}
           />
         </>
@@ -788,69 +799,135 @@ const PaperRecordText = (props: { html?: string; fallback?: string }) => {
 
 const RecordComments = (props: {
   recordType: 'employment' | 'medical' | 'security';
-  comments?: RecordComment[];
   editable: boolean;
 }) => {
-  const { act } = useBackend<RecordsData>();
-  const { recordType, comments = [], editable } = props;
+  const { act, data } = useBackend<RecordsData>();
+  const { recordType, editable } = props;
+  const isLoadedType = data.record_comments_type === recordType;
+  const comments = isLoadedType ? data.record_comments : [];
+  const loading = !isLoadedType || !!data.record_comments_loading;
+  const error = isLoadedType && !!data.record_comments_error;
+  const totalPages = Math.max(
+    1,
+    Math.ceil(data.record_comments_total / data.record_comments_page_size),
+  );
 
   return (
     <Section
       title="Comments"
       buttons={
-        editable ? (
+        <>
           <Button
-            icon="plus"
-            content="Add Comment"
-            onClick={() => act('addcomment', { record_type: recordType })}
+            icon="rotate"
+            tooltip="Refresh comments"
+            disabled={loading}
+            onClick={() =>
+              act('commentpage', {
+                record_type: recordType,
+                page: data.record_comments_page,
+              })
+            }
           />
-        ) : undefined
+          {editable ? (
+            <Button
+              icon="plus"
+              content="Add Comment"
+              onClick={() => act('addcomment', { record_type: recordType })}
+            />
+          ) : null}
+        </>
       }
     >
-      {comments.length ? (
-        comments.map((comment) => (
-          <Section
-            key={comment.id}
-            title={`${comment.author} - ${comment.created_at}`}
-            buttons={
-              editable ? (
-                <>
-                  <Button
-                    icon="pen"
-                    tooltip="Edit comment"
-                    onClick={() =>
-                      act('editcomment', {
-                        record_type: recordType,
-                        comment_id: comment.id,
-                      })
-                    }
-                  />
-                  <Button
-                    icon="trash"
-                    color="bad"
-                    tooltip="Delete comment"
-                    onClick={() =>
-                      act('deletecomment', {
-                        record_type: recordType,
-                        comment_id: comment.id,
-                      })
-                    }
-                  />
-                </>
-              ) : undefined
-            }
-          >
-            <Box style={{ whiteSpace: 'pre-wrap' }}>{comment.comment}</Box>
-            {comment.updated_at ? (
-              <Box color="label" mt={1}>
-                Last edited {comment.updated_at}
-              </Box>
-            ) : null}
-          </Section>
-        ))
+      {loading ? (
+        'Loading comments...'
       ) : (
-        'No comments found.'
+        <>
+          {error ? (
+            <Box color="bad" mb={1}>
+              Persistent comments could not be loaded. Showing comments created
+              this round.
+            </Box>
+          ) : null}
+          {comments.length ? (
+            comments.map((comment) => (
+              <Section
+                key={comment.id}
+                title={`${comment.author} - ${comment.created_at}`}
+                buttons={
+                  editable ? (
+                    <>
+                      <Button
+                        icon="pen"
+                        tooltip="Edit comment"
+                        onClick={() =>
+                          act('editcomment', {
+                            record_type: recordType,
+                            comment_id: comment.id,
+                          })
+                        }
+                      />
+                      <Button
+                        icon="trash"
+                        color="bad"
+                        tooltip="Delete comment"
+                        onClick={() =>
+                          act('deletecomment', {
+                            record_type: recordType,
+                            comment_id: comment.id,
+                          })
+                        }
+                      />
+                    </>
+                  ) : undefined
+                }
+              >
+                <Box style={{ whiteSpace: 'pre-wrap' }}>
+                  {comment.comment}
+                </Box>
+                {comment.updated_at ? (
+                  <Box color="label" mt={1}>
+                    Last edited {comment.updated_at}
+                  </Box>
+                ) : null}
+              </Section>
+            ))
+          ) : (
+            'No comments found.'
+          )}
+        </>
       )}
+      {!loading && !error && data.record_comments_total > 0 ? (
+        <Stack align="center" justify="center" mt={1}>
+          <Stack.Item>
+            <Button
+              icon="chevron-left"
+              disabled={data.record_comments_page <= 1}
+              onClick={() =>
+                act('commentpage', {
+                  record_type: recordType,
+                  page: data.record_comments_page - 1,
+                })
+              }
+            />
+          </Stack.Item>
+          <Stack.Item>
+            Page {data.record_comments_page} of {totalPages} (
+            {data.record_comments_total} comments)
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              icon="chevron-right"
+              disabled={data.record_comments_page >= totalPages}
+              onClick={() =>
+                act('commentpage', {
+                  record_type: recordType,
+                  page: data.record_comments_page + 1,
+                })
+              }
+            />
+          </Stack.Item>
+        </Stack>
+      ) : null}
     </Section>
   );
 };

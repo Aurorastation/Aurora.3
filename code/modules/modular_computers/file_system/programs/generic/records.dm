@@ -23,6 +23,15 @@
 	var/authenticated = FALSE
 	var/authenticated_name
 	var/default_screen = "Public"
+	var/list/datum/record/record_comment/comment_results = list()
+	var/comments_character_id
+	var/comments_record_type
+	var/comments_page = 1
+	var/comments_total = 0
+	var/comments_loading = FALSE
+	var/comments_error = FALSE
+	var/comments_loaded = FALSE
+	var/comments_request_id = 0
 	var/list/medical_access = list(/datum/access/medical_equip::id, /datum/access/forensics_lockers::id, /datum/access/robotics::id, /datum/access/hop::id)
 	var/list/security_access = list(/datum/access/security::id, /datum/access/forensics_lockers::id, /datum/access/lawyer::id, /datum/access/hop::id)
 	var/list/employment_access = list(/datum/access/heads::id, /datum/access/lawyer::id, /datum/access/consular::id)
@@ -39,6 +48,7 @@
 
 /datum/computer_file/program/records/Destroy()
 	active = null
+	QDEL_LIST(comment_results)
 	QDEL_NULL(listener)
 	. = ..()
 
@@ -52,6 +62,7 @@
 	authenticated_name = null
 	records_type = 0
 	edit_type = 0
+	clear_comment_page()
 
 /datum/computer_file/program/records/proc/login(obj/item/card/id/id_card)
 	logout()
@@ -96,6 +107,15 @@
 	data["mental_status_options"] = typechoices["mental_status"]
 	data["blood_type_options"] = typechoices["blood_type"]
 	data["medical_options"] = typechoices["medical"]
+	data["record_comments"] = list()
+	data["record_comments_type"] = comments_record_type
+	data["record_comments_page"] = comments_page
+	data["record_comments_total"] = comments_total
+	data["record_comments_page_size"] = RECORD_COMMENT_PAGE_SIZE
+	data["record_comments_loading"] = comments_loading
+	data["record_comments_error"] = comments_error
+	for(var/datum/record/record_comment/record_comment in comment_results)
+		data["record_comments"] += list(record_comment.Listify(decode_html = TRUE))
 	data["allrecords"] = list()
 	data["allrecords_locked"] = list()
 	for(var/tR in sortRecord(SSrecords.records))
@@ -129,17 +149,14 @@
 				"notes" = html_decode(active.notes),
 				"notes_html" = active.notes_as_paper_html(),
 				"ccia_notes" = active.ccia_record,
-				"ccia_actions" = active.ccia_actions,
-				"comments" = list()
+				"ccia_actions" = active.ccia_actions
 			)
-			for(var/datum/record/record_comment/record_comment in active.comments)
-				data["active"]["comments"] += list(record_comment.Listify(decode_html = TRUE))
 		if(records_type & RECORD_SECURITY)
 			data["active"]["fingerprint"] = active.fingerprint
-			data["active"]["security"] = active.security?.Listify(decode_html = TRUE)
+			data["active"]["security"] = active.security?.Listify(excluded = list("comments"), decode_html = TRUE)
 		if(records_type & RECORD_MEDICAL)
 			data["active"]["mental_status"] = active.mental_status
-			data["active"]["medical"] = active.medical?.Listify(decode_html = TRUE)
+			data["active"]["medical"] = active.medical?.Listify(excluded = list("comments"), decode_html = TRUE)
 	else
 		data["active"] = null
 	return data
@@ -165,6 +182,20 @@
 	switch(action)
 		if("setactive")
 			active = SSrecords.find_record("id", params["setactive"])
+			clear_comment_page()
+			. = TRUE
+
+		if("loadcomments")
+			var/record_type = params["record_type"]
+			if(active && can_view_comments(record_type))
+				request_comment_page(record_type, 1)
+			. = TRUE
+
+		if("commentpage")
+			var/record_type = params["record_type"]
+			var/new_page = text2num(params["page"])
+			if(active && can_view_comments(record_type) && new_page >= 1)
+				request_comment_page(record_type, new_page, TRUE)
 			. = TRUE
 
 		//Key is the variable we want to edit. Value is what we set it to.
@@ -210,9 +241,16 @@
 			if(!comment_text || active != selected_record || !can_manage_comments(record_type))
 				return
 			var/datum/record/record_comment/record_comment = selected_record.add_comment(record_type, comment_text, authenticated_name, usr.ckey)
-			if(selected_record.character_id && record_comment && !record_comment.db_id)
+			if(selected_record.character_id && !record_comment.db_id)
 				to_chat(usr, SPAN_WARNING("The comment was added for this round, but could not be saved to the persistent database."))
-			SSrecords.onModify(selected_record)
+			if(record_comment.db_id)
+				request_comment_page(record_type, 1, TRUE)
+			else
+				clear_comment_page()
+				comments_record_type = record_type
+				comments_character_id = selected_record.character_id
+				load_round_comment_page(record_type, 1)
+				comments_loaded = TRUE
 			. = TRUE
 
 		if("editcomment")
@@ -239,7 +277,11 @@
 				record_comment.updated_at = old_updated_at
 				to_chat(usr, SPAN_WARNING("The comment could not be saved to the persistent database."))
 				return
-			SSrecords.onModify(selected_record)
+			var/datum/record/record_comment/round_comment = find_round_comment(record_type, record_comment.id)
+			if(round_comment && round_comment != record_comment)
+				round_comment.comment = record_comment.comment
+				round_comment.updated_by = record_comment.updated_by
+				round_comment.updated_at = record_comment.updated_at
 			. = TRUE
 
 		if("deletecomment")
@@ -251,13 +293,20 @@
 				return
 			if(!active || !can_manage_comments(record_type) || record_comment != find_comment(record_type, params["comment_id"]))
 				return
-			var/list/comment_list = active.get_comments(record_type)
 			if(record_comment.db_id && !record_comment.delete_from_db(usr.ckey))
 				to_chat(usr, SPAN_WARNING("The comment could not be deleted from the persistent database."))
 				return
-			comment_list -= record_comment
+			var/datum/record/record_comment/round_comment = find_round_comment(record_type, record_comment.id)
+			if(round_comment)
+				var/list/round_comments = active.get_comments(record_type)
+				round_comments -= round_comment
+			comment_results -= record_comment
+			if(round_comment && round_comment != record_comment)
+				qdel(round_comment)
 			qdel(record_comment)
-			SSrecords.onModify(active)
+			comments_total = max(0, comments_total - 1)
+			if(active.character_id)
+				request_comment_page(record_type, comments_page, TRUE)
 			. = TRUE
 
 		if("print")
@@ -274,6 +323,14 @@
 					excluded += "medical"
 					excluded += "mental_status"
 				var/out = active.Printify(excluded)
+				if(comments_loaded && !comments_error && comments_character_id == active.character_id && can_view_comments(comments_record_type))
+					var/total_pages = max(1, CEILING(comments_total, RECORD_COMMENT_PAGE_SIZE) / RECORD_COMMENT_PAGE_SIZE)
+					out += "<center><h3>[capitalize(comments_record_type)] Comments (Page [comments_page] of [total_pages])</h3></center>"
+					if(length(comment_results))
+						for(var/datum/record/record_comment/record_comment in comment_results)
+							out += "[record_comment.as_html()]<br>"
+					else
+						out += "No comments found.<br>"
 				computer.nano_printer.print_text(out, "Employee Record ([active.name])")
 				. = TRUE
 
@@ -306,9 +363,91 @@
 			return !!(edit_type & RECORD_SECURITY)
 	return FALSE
 
+/datum/computer_file/program/records/proc/can_view_comments(var/record_type)
+	switch(record_type)
+		if("employment")
+			return !!(records_type & RECORD_GENERAL)
+		if("medical")
+			return !!(records_type & RECORD_MEDICAL)
+		if("security")
+			return !!(records_type & RECORD_SECURITY)
+	return FALSE
+
+/datum/computer_file/program/records/proc/clear_comment_page()
+	comments_request_id++
+	QDEL_LIST(comment_results)
+	comment_results = list()
+	comments_character_id = null
+	comments_record_type = null
+	comments_page = 1
+	comments_total = 0
+	comments_loading = FALSE
+	comments_error = FALSE
+	comments_loaded = FALSE
+
+/datum/computer_file/program/records/proc/request_comment_page(var/record_type, var/page, var/force = FALSE)
+	if(!active || !can_view_comments(record_type))
+		return
+	if(!force && comments_loaded && comments_character_id == active.character_id && comments_record_type == record_type && comments_page == page)
+		return
+
+	comments_request_id++
+	QDEL_LIST(comment_results)
+	comment_results = list()
+	comments_character_id = active.character_id
+	comments_record_type = record_type
+	comments_page = max(1, round(page))
+	comments_total = 0
+	comments_loading = TRUE
+	comments_error = FALSE
+	comments_loaded = FALSE
+	if(!comments_character_id)
+		load_round_comment_page(record_type, comments_page)
+		comments_loading = FALSE
+		comments_loaded = TRUE
+		return
+	INVOKE_ASYNC(src, PROC_REF(async_load_comment_page), comments_character_id, record_type, comments_page, comments_request_id)
+
+/datum/computer_file/program/records/proc/async_load_comment_page(var/character_id, var/record_type, var/page, var/request_id)
+	var/list/result = load_record_comment_page(character_id, record_type, page)
+	if(request_id != comments_request_id || active?.character_id != character_id || comments_record_type != record_type)
+		var/list/stale_comments = result["comments"]
+		QDEL_LIST(stale_comments)
+		return
+	if(result["error"])
+		var/list/failed_comments = result["comments"]
+		QDEL_LIST(failed_comments)
+		load_round_comment_page(record_type, page)
+		comments_error = TRUE
+	else
+		comment_results = result["comments"]
+		comments_page = result["page"]
+		comments_total = result["total"]
+		comments_error = FALSE
+	comments_loading = FALSE
+	comments_loaded = TRUE
+	SStgui.update_uis(src)
+
+/datum/computer_file/program/records/proc/load_round_comment_page(var/record_type, var/page)
+	var/list/round_comments = active?.get_comments(record_type)
+	comments_total = length(round_comments)
+	var/total_pages = max(1, CEILING(comments_total, RECORD_COMMENT_PAGE_SIZE) / RECORD_COMMENT_PAGE_SIZE)
+	comments_page = clamp(round(page), 1, total_pages)
+	var/start = ((comments_page - 1) * RECORD_COMMENT_PAGE_SIZE) + 1
+	var/end = min(comments_total, start + RECORD_COMMENT_PAGE_SIZE - 1)
+	for(var/position = start, position <= end, position++)
+		var/datum/record/record_comment/record_comment = round_comments[comments_total - position + 1]
+		comment_results += record_comment.copy_comment()
+
 /datum/computer_file/program/records/proc/find_comment(var/record_type, var/comment_id)
-	var/list/comment_list = active?.get_comments(record_type)
-	for(var/datum/record/record_comment/record_comment in comment_list)
+	if(comments_record_type != record_type || comments_character_id != active?.character_id)
+		return
+	for(var/datum/record/record_comment/record_comment in comment_results)
+		if(record_comment.id == comment_id && record_comment.record_type == record_type)
+			return record_comment
+
+/datum/computer_file/program/records/proc/find_round_comment(var/record_type, var/comment_id)
+	for(var/datum/record/record_comment/record_comment in active?.get_comments(record_type))
 		if(record_comment.id == comment_id)
 			return record_comment
 
@@ -322,6 +461,7 @@
 	if(istype(t))
 		if(t.active == r)
 			t.active = null
+			t.clear_comment_page()
 			. = TRUE
 		if(.)
 			SStgui.update_uis(t)

@@ -1,11 +1,29 @@
 /datum/category_item/player_setup_item/other/incidents
 	name = "Incidents"
 	sort_order = 7
+	var/list/datum/record/record_comment/comment_results = list()
+	var/comments_character_id
+	var/comments_page = 1
+	var/comments_total = 0
+	var/comments_loading = FALSE
+	var/comments_error = FALSE
+	var/comments_request_id = 0
+
+/datum/category_item/player_setup_item/other/incidents/Destroy()
+	QDEL_LIST(comment_results)
+	return ..()
 
 /datum/category_item/player_setup_item/other/incidents/load_character_special(var/savefile/S)
 	pref.incidents = list()
-	pref.record_comments = list()
 	pref.ccia_actions = list()
+	QDEL_LIST(comment_results)
+	comment_results = list()
+	comments_character_id = null
+	comments_page = 1
+	comments_total = 0
+	comments_loading = FALSE
+	comments_error = FALSE
+	comments_request_id++
 
 	//Special Aurora Snowflake to load in the ccia actions and persistant incidents
 	if (GLOB.config.sql_saves) // Doesnt work without db
@@ -63,34 +81,10 @@
 			infraction.felony = text2num(char_infraction_query.item[11])
 			pref.incidents.Add(infraction)
 
-		var/DBQuery/record_comment_query = GLOB.dbcon.NewQuery({"SELECT
-			id, char_id, UID, record_type, body, author, created_by, updated_by, created_at, updated_at
-		FROM ss13_character_record_comments
-		WHERE
-			char_id = :char_id: AND deleted_at IS NULL
-		ORDER BY created_at ASC
-		"})
-		if(!record_comment_query.Execute(list("char_id" = pref.current_character)))
-			log_world("ERROR: Failed to load record comments for character #[pref.current_character]: [record_comment_query.ErrorMsg()]")
-		while(record_comment_query.NextRow())
-			var/datum/record/record_comment/record_comment = new()
-			record_comment.db_id = text2num(record_comment_query.item[1])
-			record_comment.char_id = text2num(record_comment_query.item[2])
-			record_comment.id = record_comment_query.item[3]
-			record_comment.record_type = record_comment_query.item[4]
-			if(!(record_comment.record_type in list("employment", "medical", "security")))
-				qdel(record_comment)
-				continue
-			record_comment.comment = record_comment_query.item[5]
-			record_comment.author = record_comment_query.item[6]
-			record_comment.created_by = record_comment_query.item[7]
-			record_comment.updated_by = record_comment_query.item[8]
-			record_comment.created_at = record_comment_query.item[9]
-			if(record_comment.updated_by)
-				record_comment.updated_at = record_comment_query.item[10]
-			pref.record_comments += record_comment
-
 /datum/category_item/player_setup_item/other/incidents/ui_data(mob/user)
+	if(GLOB.config.sql_saves && pref.current_character && comments_character_id != pref.current_character && !comments_loading)
+		request_comment_page(1)
+
 	var/list/sections = list()
 	for (var/In in pref.incidents)
 		var/datum/record/char_infraction/I = In
@@ -115,7 +109,7 @@
 	if(!length(pref.incidents))
 		sections += list(list("description" = "No incidents are on file for this character.", "fields" = list()))
 
-	for(var/datum/record/record_comment/record_comment in pref.record_comments)
+	for(var/datum/record/record_comment/record_comment in comment_results)
 		var/list/comment_fields = list(
 			list("label" = "Department", "value" = capitalize(record_comment.record_type)),
 			list("label" = "Created", "value" = record_comment.created_at),
@@ -130,8 +124,34 @@
 			"title" = "[capitalize(record_comment.record_type)] Record Comment",
 			"fields" = comment_fields
 		))
-	if(!length(pref.record_comments))
+	if(comments_loading)
+		sections += list(list("description" = "Loading record comments...", "fields" = list()))
+	else if(comments_error)
+		sections += list(list(
+			"description" = "Record comments could not be loaded.",
+			"fields" = list(list(
+				"label" = "Comments",
+				"value" = "Unavailable",
+				"actions" = list(list("label" = "Retry", "action" = "record_comments_page", "value" = comments_page, "icon" = "rotate"))
+			))
+		))
+	else if(!length(comment_results))
 		sections += list(list("description" = "No record comments are on file for this character.", "fields" = list()))
+	if(!comments_loading && comments_total)
+		var/total_pages = max(1, CEILING(comments_total, RECORD_COMMENT_PAGE_SIZE) / RECORD_COMMENT_PAGE_SIZE)
+		var/list/page_actions = list()
+		if(comments_page > 1)
+			page_actions += list(list("label" = "Previous", "action" = "record_comments_page", "value" = comments_page - 1, "icon" = "chevron-left"))
+		if(comments_page < total_pages)
+			page_actions += list(list("label" = "Next", "action" = "record_comments_page", "value" = comments_page + 1, "icon" = "chevron-right"))
+		sections += list(list(
+			"title" = "Record Comment Pages",
+			"fields" = list(list(
+				"label" = "Page",
+				"value" = "[comments_page] of [total_pages] ([comments_total] comments)",
+				"actions" = page_actions
+			))
+		))
 	return list(
 		"kind" = "form",
 		"name" = name,
@@ -140,6 +160,12 @@
 	)
 
 /datum/category_item/player_setup_item/other/incidents/OnTopic(var/href,var/list/href_list, var/mob/user)
+	if(href_list["record_comments_page"])
+		var/new_page = text2num(href_list["record_comments_page"])
+		if(new_page >= 1 && !comments_loading)
+			request_comment_page(new_page)
+		return TOPIC_REFRESH
+
 	if(href_list["del_sec_incident"])
 		var/search_incident = text2num(href_list["del_sec_incident"])
 		var/confirm = alert(user,"Do you want to delete that incident ?","Delete Incident","Yes","No")
@@ -162,3 +188,28 @@
 		usr.client.process_webint_link("interface/login/sso_server", list2params(params))
 
 	return ..()
+
+/datum/category_item/player_setup_item/other/incidents/proc/request_comment_page(var/page)
+	if(!GLOB.config.sql_saves || !pref.current_character)
+		return
+	comments_loading = TRUE
+	comments_error = FALSE
+	comments_character_id = pref.current_character
+	comments_request_id++
+	QDEL_LIST(comment_results)
+	comment_results = list()
+	INVOKE_ASYNC(src, PROC_REF(async_load_comment_page), comments_character_id, page, comments_request_id)
+
+/datum/category_item/player_setup_item/other/incidents/proc/async_load_comment_page(var/character_id, var/page, var/request_id)
+	var/list/result = load_record_comment_page(character_id, null, page)
+	if(request_id != comments_request_id || character_id != pref.current_character)
+		var/list/stale_comments = result["comments"]
+		QDEL_LIST(stale_comments)
+		return
+	QDEL_LIST(comment_results)
+	comment_results = result["comments"]
+	comments_page = result["page"]
+	comments_total = result["total"]
+	comments_error = result["error"]
+	comments_loading = FALSE
+	SStgui.update_uis(pref)

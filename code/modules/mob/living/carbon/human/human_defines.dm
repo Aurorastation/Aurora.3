@@ -190,7 +190,6 @@
 	var/med_record = ""
 	var/sec_record = ""
 	var/list/incidents = list()
-	var/list/record_comments = list()
 	var/gen_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()

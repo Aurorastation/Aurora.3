@@ -173,7 +173,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/med_record = ""
 	var/sec_record = ""
 	var/list/incidents = list()
-	var/list/record_comments = list()
 	var/gen_record = ""
 	var/exploit_record = ""
 	var/ccia_record = ""
@@ -561,7 +560,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	character.med_record = med_record
 	character.sec_record = sec_record
 	character.incidents = incidents
-	character.record_comments = record_comments
 	character.gen_record = gen_record
 	character.ccia_record = ccia_record
 	character.ccia_actions = ccia_actions
@@ -751,7 +749,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	med_record = ""
 	sec_record = ""
 	incidents = list()
-	record_comments = list()
 	gen_record = ""
 	exploit_record = ""
 	ccia_record = ""

@@ -15,6 +15,7 @@ CREATE TABLE `ss13_character_record_comments` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UID_char_id` (`char_id`, `UID`),
   KEY `record_type` (`record_type`),
+  KEY `comment_page` (`char_id`, `record_type`, `deleted_at`, `created_at`, `id`),
   KEY `created_by` (`created_by`),
   KEY `updated_by` (`updated_by`),
   KEY `deleted_by` (`deleted_by`),
