@@ -350,3 +350,18 @@
   - bugfix: Fixed the inability to close/open eyes while resting.
   - bugfix: Made it possible to connect modular computers by alt clicking related
       devices.
+2026-09-28:
+  Geeves:
+  - rscadd: Cargo can now order grenade launchers, tranquilizer rifles, C45 revolvers,
+      intelliCards, and more medical, engineering, and security equipment. Welding
+      backpacks arrive empty and require no access. See the PR for the full list of
+      new cargo inventory.
+  SimpleMaroon:
+  - spellcheck: Corrected all instances of 'preimminennce' to 'preimminence'.
+  TheGreyWolf:
+  - rscadd: The business card holder and business card options in the loadout have
+      been combined, so the business card holder now spawns 5 business cards.
+  rattydew:
+  - rscadd: Implemented assorted mapping changes to the service department, inclusive
+      of a new layout behind the bar's counter, tweaks to make the kitchen less claustrophobic,
+      and some swapped turfs in hydroponics.
