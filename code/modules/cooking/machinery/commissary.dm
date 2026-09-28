@@ -140,13 +140,21 @@
 /obj/structure/cash_register/commissary
 	storage_type = null
 	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
+	/// Physical currencies accepted by this register.
+	var/accepted_currencies = CURRENCY_ALL
 	var/destination = "Operations"
+
+/obj/structure/cash_register/commissary/accepts_currency(var/obj/item/currency/cash)
+	if(!cash)
+		return FALSE
+	var/singleton/currency/definition = cash.get_currency_definition()
+	return accepted_currencies & definition.acceptance_flag
 
 /obj/structure/cash_register/commissary/mechanics_hints(mob/user, distance, is_adjacent)
 	. = list()
-	. += "Alt-click with credits in hand, to deposit them."
+	. += "Alt-click with accepted physical currency in hand, to deposit it."
 	. += "Alt-click while having the proper access, to withdraw credits from it."
-	. += "Items can be paid for with id cards, charge cards or physical credits, and a receipt will be printed."
+	. += "Items can be paid for with id cards, charge cards or accepted physical currency, and a receipt will be printed."
 	. += "The register can print a paper which can be used to quickly fill it out in the future by using it on the register."
 
 /obj/structure/cash_register/commissary/Initialize()

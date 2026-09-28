@@ -302,6 +302,7 @@
 			new_item.matter[material_id] *= mat_efficiency
 
 	apply_product_data(new_item, design_to_build, job)
+	new_item.update_icon()
 	on_product_completed(new_item, design_to_build, job)
 
 /obj/structure/machinery/r_n_d/fabricator/proc/apply_product_data(obj/new_item, datum/design/design_to_build, datum/research_fabrication_job/job)

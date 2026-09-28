@@ -15,6 +15,9 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
+/obj/item/reagent_containers/weldpack/empty
+	reagents_to_add = null
+
 /obj/item/reagent_containers/weldpack/Initialize(mapload)
 	var/turf/T = get_turf(src)
 	if(mapload && T && is_station_level(T.z))

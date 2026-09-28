@@ -172,7 +172,30 @@ SUBSYSTEM_DEF(ticker)
 				pregame()
 			if (SETUP_REATTEMPT)
 				pregame_timeleft = 1 SECOND
-				to_world("Reattempting gamemode selection.")
+				to_world(pick(list(
+					"Shuffling cards...",
+					"Looking at the stars for guidance...",
+					"Checking the Nlom field...",
+					"Sorting supermatter crystals...",
+					"Counting phoron moles...",
+					"Reading bluespace signatures...",
+					"Counting dionae floating in space...",
+					"Listening for an answer in the Srom...",
+					"Harmonizing with the Rootsong...",
+					"Comparing the light of S'rendarr and Messa...",
+					"Asking the Queens for guidance...",
+					"Consulting an Akhandi monk...",
+					"Charting a course through the Lemurian Sea...",
+					"Sorting through corporate paperwork...",
+					"Aligning thrusters...",
+					"Charging security laser rifles...",
+					"Prefilling syringes...",
+					"Sorting through cargo orders...",
+					"Refilling soda dispensers...",
+					"Putting viscerators in crates...",
+					"Consulting the Goddess Touched seers...",
+					"Releasing the cave geist..."
+				)))
 
 /datum/controller/subsystem/ticker/proc/game_tick(var/force_end = FALSE)
 	if(current_state != GAME_STATE_PLAYING)
@@ -502,18 +525,26 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
+	var/secret_autotraitor_fallback = FALSE
 	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET)
 		src.hide_mode = ROUNDTYPE_SECRET
 	else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
 	var/list/runnable_modes = GLOB.config.get_runnable_modes(GLOB.master_mode)
+	var/datum/game_mode/extended_mode = GLOB.gamemode_cache["extended"]
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET && length(runnable_modes) == 1 && (extended_mode in runnable_modes))
+		runnable_modes.Cut()
 	if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
-			current_state = GAME_STATE_PREGAME
-			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
-			return SETUP_REVOTE
-		if(GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
+			if(GLOB.master_mode == ROUNDTYPE_STR_SECRET)
+				src.mode = GLOB.gamemode_cache["autotraitor"]
+				secret_autotraitor_fallback = TRUE
+			else
+				current_state = GAME_STATE_PREGAME
+				to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
+				return SETUP_REVOTE
+		if(!secret_autotraitor_fallback && GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			src.mode = GLOB.config.pick_mode(GLOB.secret_force_mode)
 		if(!src.mode)
 			var/list/weighted_modes = list()
@@ -545,6 +576,8 @@ SUBSYSTEM_DEF(ticker)
 		to_world("<span class='danger'>Round start pre-game setup failed! Reverting to pre-game lobby.")
 		prevent_unready = FALSE
 		return SETUP_REVOTE
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET && mode == extended_mode && !round_canon_admin_forced)
+		set_round_canon(/singleton/canonicity/limited, TRUE)
 
 	prevent_unready = FALSE
 
@@ -556,6 +589,8 @@ SUBSYSTEM_DEF(ticker)
 	var/fail_reasons = list()
 
 	var/can_start = src.mode.can_start()
+	if(secret_autotraitor_fallback)
+		can_start &= ~(GAME_FAILURE_NO_PLAYERS | GAME_FAILURE_NO_ANTAGS | GAME_FAILURE_TOO_MANY_PLAYERS)
 
 	if(can_start & GAME_FAILURE_NO_PLAYERS)
 		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
@@ -587,7 +622,7 @@ SUBSYSTEM_DEF(ticker)
 				tmpmodes+=M.name
 			tmpmodes = sortList(tmpmodes)
 			if(tmpmodes.len)
-				to_world("<B>Possibilities:</B> [english_list(tmpmodes)]")
+				admin_notice("[SPAN_BOLD("Possibilities:")] [english_list(tmpmodes)]", R_DEBUG)
 	else
 		src.mode.announce()
 

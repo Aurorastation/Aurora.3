@@ -108,6 +108,16 @@
 		shelf_contents[shelf_contents.Find(crate)] = null // Remove the reference to the crate from the list.
 		handle_visuals()
 
+/obj/structure/crate_shelf/proc/eject_trapped_mob(mob/living/user)
+	if(user.loc != src)
+		return FALSE
+	user.forceMove(get_turf(src))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] climbs down from \the [src]."),
+		SPAN_NOTICE("You climb down from \the [src].")
+	)
+	return TRUE
+
 
 /obj/structure/crate_shelf/proc/handle_visuals()
 	vis_contents = contents // It really do be that shrimple.
@@ -162,6 +172,9 @@
 	return TRUE
 
 /obj/structure/crate_shelf/proc/put_in(obj/structure/closet/crate/crate, var/next_free)
+	if(ismob(crate.pulledby))
+		var/mob/puller = crate.pulledby
+		puller.stop_pulling()
 	LAZYSET(shelf_contents, next_free, crate)
 	crate.forceMove(src) // Insert the crate into the shelf.
 	crate.pixel_y = vertical_offset * (next_free - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.

@@ -272,7 +272,7 @@ Deployable Kits
 /**
  * A single-use, fabricator-produced package that deploys a complete machine.
  */
-ABSTRACT_TYPE(/obj/item/flatpak)
+/obj/item/flatpak
 	name = "flatpak"
 	desc = "A compact package that unfolds into a complete machine when used on an unobstructed floor."
 	icon = 'icons/obj/storage/briefcase.dmi'
@@ -296,10 +296,10 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 	. = ..()
 	circuit_type = new_circuit_type
 	if(ispath(circuit_type, /obj/item/circuitboard))
-		var/obj/item/circuitboard/board = circuit_type
-		var/list/board_skills = initial(board.flatpak_required_skills)
-		required_skills = board_skills?.Copy()
-		machine_type = initial(board.build_path)
+		var/obj/item/circuitboard/board = new circuit_type
+		required_skills = board.flatpak_required_skills?.Copy()
+		machine_type = board.build_path
+		qdel(board)
 		if(istext(machine_type))
 			machine_type = text2path(machine_type)
 	if(material_cost)
@@ -321,11 +321,11 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 	if(!isfloor(deployment_turf))
 		to_chat(user, SPAN_WARNING("\The [src] can only be deployed on a floor."))
 		return
-	if(!turf_clear(deployment_turf))
-		to_chat(user, SPAN_WARNING("There is not enough room to deploy \the [src] there."))
-		return
 	if(!ispath(circuit_type, /obj/item/circuitboard) || !ispath(machine_type, /obj))
 		to_chat(user, SPAN_WARNING("\The [src] has no valid machine data."))
+		return
+	if(!turf_clear_for_bounds(deployment_turf, machine_type))
+		to_chat(user, SPAN_WARNING("There is not enough room to deploy \the [src] there."))
 		return
 
 	var/deployment_duration = deployment_time
@@ -350,13 +350,14 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 		return
 	if(!user || QDELETED(user))
 		return
-	if(!user.Adjacent(deployment_turf) || !isfloor(deployment_turf) || !turf_clear(deployment_turf))
+	if(!user.Adjacent(deployment_turf) || !isfloor(deployment_turf) || !turf_clear_for_bounds(deployment_turf, machine_type))
 		to_chat(user, SPAN_WARNING("There is no longer enough room to deploy \the [src] there."))
 		return
 
 	var/obj/deployed_machine
 	if(ispath(machine_type, /obj/structure/machinery))
 		var/obj/item/circuitboard/board = new circuit_type
+		var/anchor_machine = board.flatpak_anchors_machine
 		var/obj/structure/machinery/machine = new machine_type(deployment_turf, user.dir, FALSE)
 		machine.component_parts = list()
 
@@ -385,7 +386,7 @@ ABSTRACT_TYPE(/obj/item/flatpak)
 		else
 			qdel(board)
 		machine.RefreshParts()
-		machine.anchored = TRUE
+		machine.anchored = anchor_machine
 		deployed_machine = machine
 	else
 		// Some machine circuit boards build non-machinery objects, such as cargo train trolleys.
