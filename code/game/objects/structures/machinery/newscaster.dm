@@ -615,7 +615,9 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 			src.updateUsrDialog()
 
 		else if(href_list["set_new_message"])
-			src.msg = pencode2html(sanitize(input(usr, "Write your Feed story", "Network Channel Handler", "") as message, max_length = MAX_BOOK_MESSAGE_LEN, encode = 0, trim = 0, extra = 0))
+			var/new_message = tgui_input_text(usr, "Write your Feed story", "Network Channel Handler", "", max_length = MAX_BOOK_MESSAGE_LEN, multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(render_pencode_preview), FALSE, FALSE, FALSE, TRUE, MAX_BOOK_MESSAGE_LEN))
+			if(!isnull(new_message))
+				src.msg = pencode2html(sanitize(new_message, max_length = MAX_BOOK_MESSAGE_LEN, encode = 0, trim = 0, extra = 0))
 			src.updateUsrDialog()
 
 		else if(href_list["set_attachment"])

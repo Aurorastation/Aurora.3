@@ -854,7 +854,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 /obj/structure/restaurant_menu/attack_hand(mob/user)
 	if(static_menu)
 		to_chat(user, SPAN_WARNING("This menu sign's text is not configurable."))
-	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)
+	var/new_text = sanitize(tgui_input_text(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE), multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(render_pencode_preview), FALSE, TRUE, TRUE, FALSE, MAX_MESSAGE_LEN)))
 	if(!isnull(new_text))
 		menu_text = pencode2html(new_text)
 		update_icon()
@@ -1247,4 +1247,3 @@ ABSTRACT_TYPE(/obj/structure/arch)
 /obj/structure/arch/gothic/northsouth/lower
 	icon_state = "gothic_arch_end"
 	dir = 1
-

@@ -111,6 +111,7 @@
 				return data
 		if(screen == FMS_EDIT)
 			data["file_data"] = file.stored_data
+			data["file_preview"] = pencode2html(file.stored_data)
 		else
 			data["file_data"] = pencode2html(file.stored_data)
 	return data
@@ -233,11 +234,11 @@
 				open_file = newname
 				return
 
-			if(params["PRG_desc"])
+			if(!isnull(params["PRG_desc"]))
 				F.filedesc = params["PRG_desc"]
 				return
 
-			if(params["PRG_edit"])
+			if(!isnull(params["PRG_edit"]))
 				var/datum/computer_file/data/backup = F.clone()
 				HDD.remove_file(F)
 				F.stored_data = params["PRG_edit"]

@@ -353,7 +353,7 @@ Paper Data
 	return ""
 
 /datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata)
-	return strip_html(tgui_input_text(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata, MAX_PAPER_MESSAGE_LEN))
+	return strip_html(tgui_input_text(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata, MAX_PAPER_MESSAGE_LEN, multiline = TRUE, encode = FALSE, preview_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(render_preprinted_paper_preview))))
 
 /datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata || !istype(P))

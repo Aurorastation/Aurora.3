@@ -31,6 +31,7 @@ type FileData = {
   file_desc: string;
   file_is_usb: BooleanLike;
   file_name: string;
+  file_preview?: string;
   files: File[];
   forms?: FormEntry[];
   usb_files: File[];
@@ -349,6 +350,7 @@ export const File_Edit = (props) => {
         <TextEditor
           initial_text={data.file_data}
           onChange={(e) => act('PRG_edit', { PRG_edit: e })}
+          previewHtml={data.file_preview || ''}
         />
       </Section>
   );
