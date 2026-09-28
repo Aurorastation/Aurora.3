@@ -235,7 +235,7 @@
 		if(istype(A, /obj/structure/bed))
 			to_chat(user, SPAN_DANGER("There is already a [A.name] here."))
 			return
-		if(A.density && !istype(A, /obj/structure/railing))
+		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			to_chat(user, SPAN_DANGER("There is already something here."))
 			return
 

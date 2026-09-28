@@ -167,6 +167,15 @@
 /obj/item/organ/internal/augment/tesla_device/pda/Initialize()
 	. = ..()
 	internal_pda = new(src)
+	sync_internal_pda_registration()
+
+/obj/item/organ/internal/augment/tesla_device/pda/replaced()
+	. = ..()
+	sync_internal_pda_registration()
+
+/obj/item/organ/internal/augment/tesla_device/pda/removed()
+	internal_pda?.unregister_account(TRUE)
+	return ..()
 
 /obj/item/organ/internal/augment/tesla_device/pda/process_initialize()
 	START_PROCESSING(SSprocessing, src)
@@ -180,14 +189,31 @@
 	. = ..()
 	if(!. || !internal_pda)
 		return FALSE
+	sync_internal_pda_registration()
 	internal_pda.attack_self(user)
 
 /obj/item/organ/internal/augment/tesla_device/pda/process()
+	sync_internal_pda_registration()
 	if(!owner || !internal_pda || !has_tesla_power())
 		return
 	var/obj/item/cell/device/pda_cell = internal_pda.get_cell()
 	if(istype(pda_cell) && pda_cell.charge < pda_cell.maxcharge)
 		pda_cell.give(max(1, pda_cell.maxcharge * 0.02))
+
+/obj/item/organ/internal/augment/tesla_device/pda/proc/sync_internal_pda_registration()
+	if(!internal_pda)
+		return
+	var/obj/item/card/id/current_id = internal_pda.GetID()
+	if(internal_pda.registered_id == current_id)
+		if(current_id && internal_pda.hard_drive)
+			for(var/datum/computer_file/program/chat_client/chat_client in internal_pda.hard_drive.stored_files)
+				if(!chat_client.my_user)
+					chat_client.event_registered()
+		return
+	if(internal_pda.registered_id)
+		internal_pda.unregister_account(TRUE)
+	if(current_id)
+		internal_pda.register_account(quiet = TRUE)
 
 /obj/item/modular_computer/handheld/pda/tesla_internal
 	name = "transdermal computer"
@@ -197,7 +223,7 @@
 
 /obj/item/modular_computer/handheld/pda/tesla_internal/GetID()
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
-	return access_point?.owner?.GetIdCard()
+	return access_point?.owner?.GetIdCard(TRUE)
 
 /obj/item/modular_computer/handheld/pda/tesla_internal/ui_status(mob/user, datum/ui_state/state)
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc

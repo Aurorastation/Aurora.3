@@ -88,6 +88,11 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/circuit_imprinter
 
+/datum/design/circuit/machine/material_silo
+	name = "Material Silo"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
+	build_path = /obj/item/circuitboard/material_silo
+
 /datum/design/circuit/machine/autolathe
 	name = "Autolathe"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
@@ -250,6 +255,16 @@
 	name = "Cell Rack PSU"
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/batteryrack
+
+/datum/design/circuit/machine/radial_floodlight
+	name = "Radial Floodlight"
+	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/radial_floodlight
+
+/datum/design/circuit/machine/floodlight
+	name = "Industrial Floodlight"
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	build_path = /obj/item/circuitboard/floodlight
 
 /datum/design/circuit/machine/smes_cell
 	name = "'SMES' Superconductive Magnetic Energy Storage"

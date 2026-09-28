@@ -20,14 +20,77 @@
 //Edit by Nanako
 //This proc is used in only two places, ive changed it to make more sense
 //The old behaviour returned zero if there were any simulated atoms at all, even pipes and wires
-//Now it just finds if the tile is blocked by anything solid.
+//Now it just finds if the tile is blocked by anything solid in its interior.
+//Dense border objects (windows, railings, tent walls, etc.) do not occupy the
+//usable centre of the turf and are handled separately by movement checks.
 /proc/turf_clear(turf/T)
 	if (T.density)
 		return 0
 	for(var/atom/A in T)
-		if(A.density)
+		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 0
 	return 1
+
+/**
+ * Returns the turfs covered by the initial pixel bounds of `movable_type` when
+ * its origin is placed on `origin`. This is intended for placement previews;
+ * types which alter their bounds at runtime should provide their own check.
+ */
+/proc/get_initial_bound_turfs(turf/origin, var/atom/movable/movable_type)
+	if(!istype(origin) || !ispath(movable_type, /atom/movable))
+		return null
+
+	var/bound_x = initial(movable_type.bound_x)
+	var/bound_y = initial(movable_type.bound_y)
+	var/bound_width = initial(movable_type.bound_width)
+	var/bound_height = initial(movable_type.bound_height)
+	var/min_x = floor(bound_x / world.icon_size)
+	var/min_y = floor(bound_y / world.icon_size)
+	var/max_x = ceil((bound_x + bound_width) / world.icon_size) - 1
+	var/max_y = ceil((bound_y + bound_height) / world.icon_size) - 1
+	var/list/covered_turfs = list()
+
+	for(var/x_offset = min_x to max_x)
+		for(var/y_offset = min_y to max_y)
+			var/turf/covered = locate(origin.x + x_offset, origin.y + y_offset, origin.z)
+			if(!istype(covered))
+				return null
+			covered_turfs += covered
+
+	return covered_turfs
+
+/// Returns whether a border object prevents a placed footprint from spanning this link.
+/obj/proc/blocks_multitile_placement(turf/other)
+	return FALSE
+
+/// Checks ordinary link blockers and extensible border-only placement blockers.
+/proc/turf_link_blocks_placement(turf/first, turf/second)
+	if(LinkBlocked(first, second))
+		return TRUE
+	for(var/obj/border in first)
+		if((border.atom_flags & ATOM_FLAG_CHECKS_BORDER) && border.blocks_multitile_placement(second))
+			return TRUE
+	for(var/obj/border in second)
+		if((border.atom_flags & ATOM_FLAG_CHECKS_BORDER) && border.blocks_multitile_placement(first))
+			return TRUE
+	return FALSE
+
+/// Checks every occupied turf and every internal link of a prospective multi-turf object.
+/proc/turf_clear_for_bounds(turf/origin, var/atom/movable/movable_type)
+	var/list/covered_turfs = get_initial_bound_turfs(origin, movable_type)
+	if(!LAZYLEN(covered_turfs))
+		return FALSE
+
+	for(var/turf/covered in covered_turfs)
+		if(!turf_clear(covered))
+			return FALSE
+		// Checking north and east visits every cardinal link exactly once.
+		for(var/check_dir in list(NORTH, EAST))
+			var/turf/neighbour = get_step(covered, check_dir)
+			if((neighbour in covered_turfs) && turf_link_blocks_placement(covered, neighbour))
+				return FALSE
+
+	return TRUE
 
 /proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density, var/check_indoors)
 	origin = get_turf(origin)

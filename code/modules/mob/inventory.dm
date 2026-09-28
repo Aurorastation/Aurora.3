@@ -164,6 +164,31 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	if(hand)	return r_hand
 	else		return l_hand
 
+/// Returns the PDA that should be used when linking the mob to nearby machinery.
+/mob/proc/get_pda_for_linking()
+	var/obj/item/modular_computer/pda = get_active_hand()
+	if(istype(pda))
+		return pda
+
+	pda = get_inactive_hand()
+	if(istype(pda))
+		return pda
+
+/mob/living/carbon/human/get_pda_for_linking()
+	. = ..()
+	if(.)
+		return
+
+	var/obj/item/organ/internal/augment/tesla_device/pda/augment = internal_organs_by_name[BP_AUG_TESLA_PDA]
+	if(augment?.internal_pda)
+		return augment.internal_pda
+
+	if(istype(wear_id, /obj/item/modular_computer))
+		return wear_id
+
+	if(istype(wrists, /obj/item/modular_computer))
+		return wrists
+
 //Returns the thing if it's a subtype of the requested thing, taking priority of the active hand
 /mob/proc/get_type_in_hands(var/type)
 	if(hand)

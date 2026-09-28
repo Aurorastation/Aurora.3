@@ -63,6 +63,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		)
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	pda_linkable = TRUE
 
 	///The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/department = "Unknown"
@@ -399,11 +400,11 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 				var/datum/weakref/ref = find_pda_ref(pda)
 				if(ref)
 					to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
-					alert_pdas[ref] = pda.name
+					alert_pdas[ref] = get_pda_link_name(pda, usr)
 				else
 					ref = WEAKREF(pda)
 					alert_pdas += ref
-					alert_pdas[ref] = pda.name
+					alert_pdas[ref] = get_pda_link_name(pda, usr)
 					to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
 			return TRUE
 
@@ -483,17 +484,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/structure/machinery/requests_console/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/modular_computer))
-		var/obj/item/modular_computer/pda = attacking_item
-		var/datum/weakref/ref = find_pda_ref(pda)
-		if(ref)
-			to_chat(user, SPAN_NOTICE("You unlink [alert_pdas[ref]] from \the [src]. It will no longer be notified of new requests."))
-			alert_pdas -= ref
-		else
-			ref = WEAKREF(pda)
-			alert_pdas += ref
-			alert_pdas[ref] = pda.name
-			to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
-		return TRUE
+		return toggle_pda_link(attacking_item, user)
 	if(istype(attacking_item, /obj/item/card/id))
 		if(!operable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
@@ -543,6 +534,18 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(attacking_item, user)
 		return TRUE
+
+/obj/structure/machinery/requests_console/toggle_pda_link(obj/item/modular_computer/pda, mob/user)
+	var/datum/weakref/ref = find_pda_ref(pda)
+	if(ref)
+		to_chat(user, SPAN_NOTICE("You unlink [alert_pdas[ref]] from \the [src]. It will no longer be notified of new requests."))
+		alert_pdas -= ref
+	else
+		ref = WEAKREF(pda)
+		alert_pdas += ref
+		alert_pdas[ref] = get_pda_link_name(pda, user)
+		to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
+	return TRUE
 
 /obj/structure/machinery/requests_console/proc/can_send()
 	for(var/obj/structure/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)

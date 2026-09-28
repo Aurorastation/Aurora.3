@@ -412,6 +412,7 @@
 	if(istype(src, /mob/living))
 		var/mob/living/living_mob = src
 		living_mob.update_camera_view_action()
+	update_tent_roof_visibility()
 	return
 
 /mob/proc/is_viewing_camera()
