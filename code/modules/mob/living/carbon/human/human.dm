@@ -693,7 +693,11 @@
 					read = 1
 					if(R.security.comments.len > 0)
 						for(var/comment in R.security.comments)
-							message += comment + "\n\n"
+							if(istype(comment, /datum/record/record_comment))
+								var/datum/record/record_comment/record_comment = comment
+								message += record_comment.as_html() + "\n\n"
+							else
+								message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
 					message += "<a href='byond://?src=[REF(src)];secrecordadd=`'>\[Add Comment\]</a>"
@@ -717,10 +721,11 @@
 					return
 				if(istype(usr,/mob/living/carbon/human))
 					var/mob/living/carbon/human/U = usr
-					R.security.comments += "Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
+					R.add_comment("security", t1, "[U.get_authentification_name()] ([U.get_assignment()])", U.ckey)
 				if(istype(usr,/mob/living/silicon/robot))
 					var/mob/living/silicon/robot/U = usr
-					R.security.comments += "Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
+					R.add_comment("security", t1, "[U.name] ([U.mod_type] [U.braintype])", U.ckey)
+				SSrecords.onModify(R)
 
 	if (href_list["medical"])
 		if(hasHUD(usr,"medical"))
@@ -793,7 +798,11 @@
 					read = 1
 					if(R.medical.comments.len > 0)
 						for(var/comment in R.medical.comments)
-							message += comment + "\n\n"
+							if(istype(comment, /datum/record/record_comment))
+								var/datum/record/record_comment/record_comment = comment
+								message += record_comment.as_html() + "\n\n"
+							else
+								message += comment + "\n\n"
 					else
 						message += "No comments found.\n"
 					message += "<a href='byond://?src=[REF(src)];medrecordadd=`'>\[Add Comment\]</a>"
@@ -817,10 +826,11 @@
 					return
 				if(ishuman(usr))
 					var/mob/living/carbon/human/U = usr
-					R.medical.comments += "Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
+					R.add_comment("medical", t1, "[U.get_authentification_name()] ([U.get_assignment()])", U.ckey)
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
-					R.medical.comments += "Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
+					R.add_comment("medical", t1, "[U.name] ([U.mod_type] [U.braintype])", U.ckey)
+				SSrecords.onModify(R)
 
 	if(href_list["triagetag"])
 		if(hasHUD(usr, "medical"))

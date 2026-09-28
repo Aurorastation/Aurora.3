@@ -1,6 +1,9 @@
 /datum/category_item/player_setup_item/general/background
 	name = "Background"
 	sort_order = 5
+	var/record_preview_type
+	var/record_preview_value
+	var/record_preview_html
 
 /datum/category_item/player_setup_item/general/background/load_character(var/savefile/S)
 	S["med_record"]          >> pref.med_record
@@ -52,34 +55,52 @@
 /datum/category_item/player_setup_item/general/background/ui_data(var/mob/user)
 	var/list/records = list()
 	if(!jobban_isbanned(user, "Records"))
-		records += list(list("name" = "Medical", "preview" = html_decode(TextPreview(pref.med_record, 40)), "edit_action" = "set_medical_records", "clear_value" = "medical"))
-		records += list(list("name" = "Employment", "preview" = html_decode(TextPreview(pref.gen_record, 40)), "edit_action" = "set_general_records", "clear_value" = "general"))
-		records += list(list("name" = "Security", "preview" = html_decode(TextPreview(pref.sec_record, 40)), "edit_action" = "set_security_records", "clear_value" = "security"))
+		records += list(list("name" = "Medical", "preview" = html_decode(TextPreview(pref.med_record, 40)), "type" = "medical", "value" = html_decode(pref.med_record)))
+		records += list(list("name" = "Employment", "preview" = html_decode(TextPreview(pref.gen_record, 40)), "type" = "general", "value" = html_decode(pref.gen_record)))
+		records += list(list("name" = "Security", "preview" = html_decode(TextPreview(pref.sec_record, 40)), "type" = "security", "value" = html_decode(pref.sec_record)))
 	return list(
 		"kind" = "background",
 		"name" = name,
 		"ref" = REF(src),
 		"banned" = jobban_isbanned(user, "Records"),
-		"records" = records
+		"records" = records,
+		"record_max_length" = MAX_PAPER_MESSAGE_LEN - 1,
+		"record_preview" = list(
+			"type" = record_preview_type,
+			"value" = record_preview_value,
+			"html" = record_preview_html
+		)
 	)
 
 /datum/category_item/player_setup_item/general/background/OnTopic(var/href,var/list/href_list, var/mob/user)
-	if(href_list["set_medical_records"])
-		var/new_medical = sanitize(input(user,"Enter medical information here.","Character Preference", html_decode(pref.med_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!isnull(new_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
-			pref.med_record = new_medical
+	if(href_list["preview_record"])
+		if(jobban_isbanned(user, "Records") || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		var/preview_type = href_list["preview_record"]
+		if(!(preview_type in list("medical", "general", "security")))
+			return TOPIC_NOACTION
+		record_preview_type = preview_type
+		record_preview_value = copytext_char("[href_list["value"]]", 1, MAX_PAPER_MESSAGE_LEN)
+		record_preview_html = record_notes_to_paper_html(record_preview_value)
 		return TOPIC_REFRESH
 
-	else if(href_list["set_general_records"])
-		var/new_general = sanitize(input(user,"Enter employment information here.","Character Preference", html_decode(pref.gen_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!isnull(new_general) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
-			pref.gen_record = new_general
-		return TOPIC_REFRESH
-
-	else if(href_list["set_security_records"])
-		var/sec_medical = sanitize(input(user,"Enter security information here.","Character Preference", html_decode(pref.sec_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!isnull(sec_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
-			pref.sec_record = sec_medical
+	else if(href_list["save_record"])
+		if(jobban_isbanned(user, "Records") || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		var/record_type = href_list["save_record"]
+		var/new_value = sanitize(href_list["value"], MAX_PAPER_MESSAGE_LEN, extra = 0) || ""
+		switch(record_type)
+			if("medical")
+				pref.med_record = new_value
+			if("general")
+				pref.gen_record = new_value
+			if("security")
+				pref.sec_record = new_value
+			else
+				return TOPIC_NOACTION
+		record_preview_type = null
+		record_preview_value = null
+		record_preview_html = null
 		return TOPIC_REFRESH
 
 	else if(href_list["clear"])
