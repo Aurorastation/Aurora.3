@@ -15,6 +15,18 @@ CREATE TABLE `ss13_character_record_comments` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UID_char_id` (`char_id`, `UID`),
   KEY `record_type` (`record_type`),
+  KEY `created_by` (`created_by`),
+  KEY `updated_by` (`updated_by`),
+  KEY `deleted_by` (`deleted_by`),
+  CONSTRAINT `FK_ss13_character_record_comments_ss13_player_created_by`
+    FOREIGN KEY (`created_by`) REFERENCES `ss13_player` (`ckey`)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `FK_ss13_character_record_comments_ss13_player_updated_by`
+    FOREIGN KEY (`updated_by`) REFERENCES `ss13_player` (`ckey`)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `FK_ss13_character_record_comments_ss13_player_deleted_by`
+    FOREIGN KEY (`deleted_by`) REFERENCES `ss13_player` (`ckey`)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `FK_ss13_character_record_comments_ss13_characters`
     FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`)
     ON DELETE CASCADE ON UPDATE CASCADE
