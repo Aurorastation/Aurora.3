@@ -351,6 +351,8 @@
   - bugfix: Made it possible to connect modular computers by alt clicking related
       devices.
 2026-09-28:
+  FabianK3:
+  - admin: Added a secret to break all lights on the admin's current Z-level.
   Geeves:
   - rscadd: Cargo can now order grenade launchers, tranquilizer rifles, C45 revolvers,
       intelliCards, and more medical, engineering, and security equipment. Welding
@@ -361,6 +363,9 @@
   TheGreyWolf:
   - rscadd: The business card holder and business card options in the loadout have
       been combined, so the business card holder now spawns 5 business cards.
+  - rscadd: Reworked tent code to add a lot more possible shapes and types.
+  - rscadd: Added new tents to the Intrepid hangar gear.
+  - rscadd: Journals and notepads now have a verb to add more paper to them.
   rattydew:
   - rscadd: Implemented assorted mapping changes to the service department, inclusive
       of a new layout behind the bar's counter, tweaks to make the kitchen less claustrophobic,
