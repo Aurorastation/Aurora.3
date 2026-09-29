@@ -1,3 +1,7 @@
+/obj/vehicle/train/cargo
+	/// Chance that the vehicle intercepts a projectile aimed at its rider.
+	var/protection_percent = 0
+
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
@@ -14,6 +18,7 @@
 	var/tgui_template = "TrainEngine"
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
+	protection_percent = 20
 	active_engines = 1
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
@@ -60,6 +65,7 @@
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
+	eject_prone_riders = FALSE
 
 	load_item_visible = 1
 	load_offset_x = 0
@@ -171,13 +177,13 @@
 		return
 	..()
 
-// Cargo trains are open topped, so you can shoot at the driver.
-// Or you can shoot at the tug itself, if you're good.
+// Cargo trains are open topped, but protected sections can intercept shots aimed at their rider.
+// You can always shoot the vehicle itself directly.
 /obj/vehicle/train/cargo/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if (buckled && hitting_projectile.original == buckled)
-		buckled.bullet_act(arglist(args))
-	else
-		. = ..()
+		if (!prob(protection_percent))
+			return buckled.bullet_act(arglist(args))
+	return ..()
 
 /obj/vehicle/train/cargo/update_icon()
 	if(open)
