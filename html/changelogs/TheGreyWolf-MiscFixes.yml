@@ -9,3 +9,4 @@ changes:
   - bugfix: "Vehicles now eject riders that are prone."
   - bugfix: "Fixed cleaning turning walls white."
   - bugfix: "People can now be removed from bikes with any non-disarm intent."
+  - bugfix: "Bike engines can now be toggled by the rider even if the kickstand is up."

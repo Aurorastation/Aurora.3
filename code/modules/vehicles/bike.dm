@@ -110,7 +110,7 @@
 	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
-	if(Adjacent(user) && anchored)
+	if(user == load || (Adjacent(user) && anchored))
 		toggle_engine(user)
 	else
 		return ..()
