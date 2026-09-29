@@ -7,3 +7,4 @@ changes:
   - bugfix: "The revote should now trigger properly."
   - bugfix: "Vehicles can now be damaged, broken down and fixed."
   - bugfix: "Vehicles now eject riders that are prone."
+  - bugfix: "Fixed cleaning turning walls white."
