@@ -8,3 +8,4 @@ changes:
   - bugfix: "Vehicles can now be damaged, broken down and fixed."
   - bugfix: "Vehicles now eject riders that are prone."
   - bugfix: "Fixed cleaning turning walls white."
+  - bugfix: "People can now be removed from bikes with any non-disarm intent."
