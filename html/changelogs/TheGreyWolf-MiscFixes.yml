@@ -1,0 +1,9 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the recoil on snipers."
+  - bugfix: "The revote should now trigger properly."
+  - bugfix: "Vehicles can now be damaged, broken down and fixed."
+  - bugfix: "Vehicles now eject riders that are prone."
