@@ -370,3 +370,6 @@
   - rscadd: Implemented assorted mapping changes to the service department, inclusive
       of a new layout behind the bar's counter, tweaks to make the kitchen less claustrophobic,
       and some swapped turfs in hydroponics.
+2026-09-29:
+  ElorgRHG:
+  - bugfix: Fixed the Martian Union flag loadout selection having a banner instead.
