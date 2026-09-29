@@ -10,3 +10,4 @@ changes:
   - bugfix: "Fixed cleaning turning walls white."
   - bugfix: "People can now be removed from bikes with any non-disarm intent."
   - bugfix: "Bike engines can now be toggled by the rider even if the kickstand is up."
+  - bugfix: "Labellers now work on wooden boxes."
