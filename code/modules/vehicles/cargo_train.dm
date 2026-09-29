@@ -75,6 +75,7 @@
 /obj/vehicle/train/cargo/trolley/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
+	. += "It can carry crates, large parcels, machinery, and other heavy cargo."
 
 //-------------------------------------------
 // Standard procs
@@ -348,7 +349,7 @@
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
 	if(ismob(C) && !passenger_allowed)
 		return 0
-	if(!istype(C,/obj/structure/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
+	if(!istype(C,/obj/structure/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/bigDelivery) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
 		return 0
 
 	//if there are any items you don't want to be able to interact with, add them to this check
