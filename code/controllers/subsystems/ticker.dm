@@ -1,4 +1,5 @@
 #define LOBBY_TIME 150
+#define AUTOGAMEMODE_VOTE_BUFFER 15
 
 #define SETUP_OK 0
 #define SETUP_REVOTE 1
@@ -465,8 +466,8 @@ SUBSYSTEM_DEF(ticker)
 		login_music = shuffle(login_music)
 
 	if (is_revote)
-		pregame_timeleft = LOBBY_TIME
-		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
+		pregame_timeleft = max(LOBBY_TIME, GLOB.config.vote_autogamemode_timeleft + AUTOGAMEMODE_VOTE_BUFFER)
+		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [pregame_timeleft]s.")
 	else
 		var/mc_init_time = round(Master.init_timeofday, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
@@ -474,7 +475,7 @@ SUBSYSTEM_DEF(ticker)
 		LAZYINITLIST(ready_player_jobs)
 
 		if (dynamic_time <= GLOB.config.vote_autogamemode_timeleft)
-			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 60
+			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + AUTOGAMEMODE_VOTE_BUFFER
 			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [GLOB.config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
@@ -867,3 +868,4 @@ SUBSYSTEM_DEF(ticker)
 #undef SETUP_REVOTE
 #undef SETUP_REATTEMPT
 #undef LOBBY_TIME
+#undef AUTOGAMEMODE_VOTE_BUFFER
