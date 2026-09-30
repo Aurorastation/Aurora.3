@@ -1,33 +1,34 @@
 /singleton/scenario/nt_phoron_freighter
 	name = "Curios 1.5 - The Maw"
-	desc = "Deep in the snow, twisted metal abound. \
-			Peeking through the wreck, knowing what's nearby. \
-			The clues start to click, one piece at a time. \
-			The Horizon sets off to investigation the wreck of the SCCV Jaunter in the borderlands of Southern Harr'masir."
-	scenario_site_id = "crash_site"
+	desc = "And the engine's failed again, all limits of disguise. \
+		The Horizon receives a distress call from the NTV Cloud of Light, \
+		a tanker destined for Tomorrow's Gate."
+	scenario_site_id = "nt_phoron_freighter"
 
 	min_player_amount = 0
 	min_actor_amount = 0
 
-	scenario_announcements = /singleton/scenario_announcements/crash_site
+	scenario_announcements = /singleton/scenario_announcements/nt_phoron_freighter
 
 	roles = list(
 		/singleton/role/generic_crew,
 	)
 	default_outfit = /obj/outfit/admin/generic
 
-	base_area = /area/crash_site
+	base_area = /area/ship/nt_phoron_freighter
 
-	radio_frequency_name = "Din'akk"
+	radio_frequency_name = "NanoTrasen Freight Vessel"
 
-/singleton/scenario_announcements/crash_site
-	horizon_announcement_title = "SCC Central Command Outpost"
+/singleton/scenario_announcements/nt_phoron_freighter
+	horizon_announcement_title = "SCC Emergency Announcement"
 	horizon_unrestrict_landing_message = "SCCV Horizon. \
-	The crash of an SCC shuttle has been reported in Southern Harr'masir on Adhomai. \
-	You are the most capable vessel for search and rescue operations. \
-	Investigate and recover any equipment, crew, or intelligence from the crash site. \
-	Be aware, there is a known presence of local bandits. \
-	Landing sites have been registered and cleared. \
-	You may now depart to the planet."
+		The NTV Cloud of Light has reported engagement with local pirates. You are the \
+		nearest combat-capable vessel to assist. Disable the pirate vessel, board and secure \
+		the NTV phoron tanker, and ensure the security of stored phoron. \
+		The PRAMV Liberation of the People is engaged nearby at the S'rand'marr Bluespace \
+		Gate site and is unlikely to be able to assist. \
+		Prepare to respond as soon as possible."
 
-	offship_announcement_message = "An unidentified crash site has been located nearby. The coordinates have been registered on the flight deck."
+	offship_announcement_message = "A NanoTrasen freight vessel, the NTV Cloud of Light, \
+		has reported engagement with local pirates. It is likely that a corporate vessel \
+		has already been sent to intervene."
