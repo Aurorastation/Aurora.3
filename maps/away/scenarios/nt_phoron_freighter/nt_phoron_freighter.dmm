@@ -278,7 +278,7 @@
 	pixel_x = 4;
 	pixel_y = 19
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "cg" = (
 /obj/structure/table/reinforced/glass,
@@ -495,6 +495,9 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
 "df" = (
@@ -851,17 +854,20 @@
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
 "fh" = (
-/obj/structure/machinery/power/solar{
-	id = "portsadarsolar";
-	name = "Port Solar Array"
-	},
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/machinery/power/solar{
+	id = "portsadarsolar";
+	name = "Port Solar Array"
 	},
 /turf/simulated/floor/airless,
 /area/ship/nt_phoron_freighter/eva)
@@ -3107,6 +3113,9 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/junk,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
 "up" = (
@@ -3140,7 +3149,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "uu" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -4733,17 +4742,20 @@
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
 "EX" = (
-/obj/structure/machinery/power/solar{
-	id = "portsadarsolar";
-	name = "Port Solar Array"
-	},
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
 /obj/structure/cable/green{
-	icon_state = "0-8"
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/machinery/power/solar{
+	id = "portsadarsolar";
+	name = "Port Solar Array"
 	},
 /turf/simulated/floor/airless,
 /area/ship/nt_phoron_freighter/eva)
@@ -5003,7 +5015,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt{
 	pixel_x = 9
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "Gm" = (
 /obj/structure/machinery/power/smes/buildable/main_engine{
@@ -5967,7 +5979,7 @@
 /obj/item/ammo_casing/rifle/used{
 	pixel_x = 7
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "Mc" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -5993,7 +6005,7 @@
 	pixel_x = 8;
 	pixel_y = 27
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "Mf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -6826,7 +6838,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "Sa" = (
 /obj/structure/curtain/open/shower,
@@ -7046,7 +7058,7 @@
 	pixel_x = 16;
 	pixel_y = 16
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "Tl" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -7699,7 +7711,7 @@
 	pixel_x = 10;
 	pixel_y = 5
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "WS" = (
 /obj/effect/floor_decal/corner/paleblue/full{
