@@ -198,6 +198,7 @@
 	build_path = /obj/structure/machinery/iv_drip
 	origin_tech = list(TECH_DATA = 1, TECH_BIO = 2)
 	board_type = BOARD_MACHINE
+	anchors_constructed_machine = FALSE
 	req_components = list(
 							"/obj/item/reagent_containers/syringe" = 1,
 							"/obj/item/stock_parts/matter_bin" = 1,

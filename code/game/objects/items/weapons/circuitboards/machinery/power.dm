@@ -30,7 +30,7 @@
 	build_path = /obj/structure/machinery/floodlight
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
-	flatpak_anchors_machine = FALSE
+	anchors_constructed_machine = FALSE
 	req_components = list(
 		"/obj/item/cell" = 1
 	)
