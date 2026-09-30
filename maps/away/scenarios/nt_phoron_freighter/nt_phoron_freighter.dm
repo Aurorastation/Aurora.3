@@ -24,7 +24,7 @@
 		it is likely to be carrying a valuable cargo - not improbably, solid or gaseous phoron."
 	icon_state = "freighter_large"
 	moving_state = "freighter_large_moving"
-	colors = list("#4a4d67", "#606c7d")
+	colors = list("#8b94df", "#7fa5db")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

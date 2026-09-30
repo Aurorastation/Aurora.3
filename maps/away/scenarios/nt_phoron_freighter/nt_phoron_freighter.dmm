@@ -18,6 +18,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
+"ae" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "ai" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 8
@@ -47,6 +54,10 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/decal/cleanable/generic,
+/obj/item/tank/emergency_oxygen/double{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
 "at" = (
@@ -67,13 +78,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
-"au" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/aft_halls)
 "aH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -88,7 +92,7 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph9"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "aK" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -198,7 +202,7 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph2"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "bq" = (
 /obj/effect/floor_decal/corner/lime,
@@ -215,14 +219,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
-"bz" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "bC" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = list()
@@ -305,6 +301,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/nt_phoron_freighter/bridge)
 "cn" = (
@@ -386,6 +386,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
+"cz" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "cD" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -418,16 +428,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
-"cK" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/item/ammo_casing/shotgun/used{
-	pixel_x = -3;
-	pixel_y = 11
-	},
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "cL" = (
 /obj/structure/machinery/alarm/north{
 	req_one_access = list()
@@ -447,17 +447,12 @@
 /area/ship/nt_phoron_freighter/office)
 "cM" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
-	pixel_x = -3;
-	pixel_y = -9
-	},
-/obj/item/reagent_containers/food/drinks/cans/xanuchai{
+/obj/item/tank/oxygen{
 	pixel_x = 7;
-	pixel_y = 13
+	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/drinks/cans/koispunch{
-	pixel_x = -5;
-	pixel_y = 13
+/obj/item/tank/oxygen{
+	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
@@ -487,6 +482,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/reactor)
+"db" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
 "dc" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/crate/bin{
@@ -496,22 +498,21 @@
 /area/ship/nt_phoron_freighter/bridge)
 "df" = (
 /obj/structure/table/wood,
-/obj/random/pottedplant_small{
-	pixel_x = 7;
-	pixel_y = 1
+/obj/item/radio/intercom/west,
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = 13
 	},
-/obj/item/flashlight/lamp/green{
-	pixel_y = 2;
-	pixel_x = -5
+/obj/item/clothing/accessory/medal/gold/captain{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/pen/fountain/captain{
+	pixel_y = 4;
+	pixel_x = 13
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/nt_phoron_freighter/office)
-"dg" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/random/dirt_75,
-/obj/structure/extinguisher_cabinet/north,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "dk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/corner/green{
@@ -557,17 +558,6 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/aft_halls)
-"dC" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "dI" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -640,6 +630,13 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
+"eb" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
 "ed" = (
@@ -717,11 +714,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/bridge)
-"eA" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "eC" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -845,20 +837,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/nt_phoron_freighter/eva)
-"fl" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = 2;
-	pixel_y = 12
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = -9;
-	pixel_y = 23
-	},
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "fo" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -869,6 +847,20 @@
 	},
 /turf/space,
 /area/ship/nt_phoron_freighter/eva)
+"ft" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "fu" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/nt_phoron_freighter/office)
@@ -896,29 +888,6 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/white,
 /area/ship/nt_phoron_freighter/service)
-"fB" = (
-/obj/structure/table/steel,
-/obj/item/inflatable/door{
-	pixel_x = -4;
-	pixel_y = -10
-	},
-/obj/item/inflatable/door{
-	pixel_x = -2;
-	pixel_y = -11
-	},
-/obj/item/inflatable/door{
-	pixel_y = -9
-	},
-/obj/item/storage/toolbox/mechanical{
-	pixel_x = -2;
-	pixel_y = 14
-	},
-/obj/item/storage/toolbox/electrical{
-	pixel_x = -2;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/fore_halls)
 "fC" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/security{
@@ -955,21 +924,25 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/nt_phoron_freighter/bridge)
-"fM" = (
-/obj/structure/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/service)
-"fT" = (
+"fL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
-	},
-/obj/structure/machinery/light/small{
-	dir = 4
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
+"fM" = (
+/obj/structure/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/service)
+"fO" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "fU" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -1080,7 +1053,9 @@
 /obj/effect/floor_decal/spline/plain/corner/lime{
 	dir = 1
 	},
-/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/suit_cycler/security{
+	req_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
 "gQ" = (
@@ -1133,6 +1108,20 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/nt_phoron_freighter/bridge)
+"gZ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor,
+/area/ship/nt_phoron_freighter/fore_halls)
+"ha" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
 "hd" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
 	dir = 1;
@@ -1223,25 +1212,31 @@
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
+"ic" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/structure/extinguisher_cabinet/east,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "if" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
-"ih" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "ir" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
+"is" = (
+/obj/effect/floor_decal/industrial/hatch/firefighting_closet,
+/obj/structure/closet/firecloset/full,
+/obj/random/tool_konyang,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/fore_halls)
 "it" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -1289,7 +1284,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark{
+	pixel_x = 1
+	},
 /area/ship/nt_phoron_freighter/bridge)
 "iQ" = (
 /obj/structure/machinery/door/airlock/external/blue,
@@ -1306,6 +1303,25 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
+"iR" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/item/pen/black{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/bridge)
+"iS" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "iU" = (
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
@@ -1349,6 +1365,16 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
+"jp" = (
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/atmos)
 "jr" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -1366,6 +1392,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
+"jD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "jF" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -1402,9 +1437,17 @@
 	pixel_x = -8;
 	pixel_y = 2
 	},
-/obj/item/versebook/biesel{
-	pixel_x = 6;
-	pixel_y = 4
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 8;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 11;
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_x = 3;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
@@ -1462,8 +1505,21 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
+"kl" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/bridge)
 "kq" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/shaker/spacespice{
@@ -1509,7 +1565,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/structure/machinery/door/airlock/maintenance,
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "phoronlockdownouter"
@@ -1607,21 +1663,6 @@
 "le" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/random/pottedplant,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
-"lk" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/propulsion)
-"ll" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/item/gun/projectile/sec/unloaded{
-	pixel_x = 3;
-	pixel_y = 20
-	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
 "lo" = (
@@ -1722,13 +1763,6 @@
 /obj/structure/machinery/air_sensor,
 /turf/simulated/floor/reinforced/phoron,
 /area/ship/nt_phoron_freighter/atmos)
-"ms" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "mv" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -1764,8 +1798,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
+"mC" = (
+/obj/effect/floor_decal/industrial/hatch/emergency_closet,
+/obj/structure/closet/emcloset,
+/obj/random/tool,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/fore_halls)
 "mE" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/sign/securearea{
@@ -1774,6 +1815,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/item/stack/rods/full,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
 "mH" = (
@@ -1808,17 +1850,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"mJ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/structure/sign/flag/nanotrasen{
-	pixel_y = 32
-	},
-/obj/effect/decal/cleanable/blood/oil,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "mM" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/vending/dinnerware/metal,
@@ -1897,10 +1928,10 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph7"
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 8
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "nd" = (
 /obj/structure/machinery/light/small{
@@ -1948,11 +1979,11 @@
 /area/ship/nt_phoron_freighter/head)
 "nr" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/structure/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 4
-	},
 /obj/structure/machinery/door/blast/regular{
 	id = "phoronwindow"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
@@ -2005,7 +2036,7 @@
 "nL" = (
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/closet/firecloset/full,
-/obj/random/tool_konyang,
+/obj/random/tool,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
 "nQ" = (
@@ -2018,6 +2049,7 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_y = 16
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/fore_halls)
 "nR" = (
@@ -2094,6 +2126,38 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/atmos)
+"oe" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 4;
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/food/drinks/cans/dr_gibb{
+	pixel_x = 10;
+	pixel_y = 13
+	},
+/obj/random/dirt_75,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -19;
+	pixel_y = -1
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -25;
+	pixel_y = 21
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/ammo_casing/pistol/used,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "ok" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/portable_atmospherics/canister/empty/phoron,
@@ -2168,6 +2232,18 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/item/stack/nanopaste{
+	pixel_x = -11;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/drinks/cans/boch{
+	pixel_x = 3;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn{
+	pixel_x = 2;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
 "oI" = (
@@ -2236,9 +2312,6 @@
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
 "oZ" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 4
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -2259,14 +2332,19 @@
 	pixel_x = 5;
 	pixel_y = 20
 	},
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/engineering)
-"pc" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, thrusters"
+/obj/random/dirt_75,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 7;
+	pixel_y = -12
 	},
-/turf/simulated/floor/airless,
-/area/ship/nt_phoron_freighter/eva)
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -8
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_y = -9
+	},
+/turf/simulated/floor,
+/area/ship/nt_phoron_freighter/engineering)
 "ps" = (
 /obj/structure/table/rack,
 /obj/structure/machinery/power/apc/east{
@@ -2320,6 +2398,16 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/ship/nt_phoron_freighter/service)
+"pG" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/item/gun/projectile/sec/unloaded{
+	pixel_x = 3;
+	pixel_y = 20
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "pH" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -2340,6 +2428,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/fore_halls)
+"pM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/keg,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
+"pO" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/flash{
+	pixel_x = -8;
+	pixel_y = 3
+	},
+/obj/item/pen/blue{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/service)
 "pQ" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -2386,20 +2498,26 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/aft_halls)
-"qe" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
+"qm" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/machinery/door/blast/regular{
+	id = "windowlockdown"
 	},
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = -15;
-	pixel_y = 5
+/obj/structure/machinery/door/firedoor/noid{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
+/obj/effect/landmark/entry_point/port{
+	name = "port, atmospherics"
+	},
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "qn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/item/stack/rods{
+	pixel_x = 1;
+	pixel_y = 10
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
@@ -2482,14 +2600,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
-"ry" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/random/keg,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "rz" = (
 /obj/structure/machinery/atmospherics/unary/engine/scc_ship_engine,
 /turf/simulated/floor/airless,
@@ -2525,16 +2635,6 @@
 /obj/effect/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"rS" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "rU" = (
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
@@ -2583,24 +2683,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
-"sa" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 6
-	},
-/obj/structure/machinery/meter,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "sf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/light/small{
-	dir = 8
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = -32
 	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "sl" = (
@@ -2657,15 +2747,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"sz" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/random/junk,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "sB" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -2753,6 +2834,8 @@
 /area/ship/nt_phoron_freighter/atmos)
 "sU" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "sX" = (
@@ -2775,6 +2858,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
+"tg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
 "ti" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -2816,40 +2906,22 @@
 /obj/item/pen/black{
 	pixel_y = 6
 	},
+/obj/item/clothing/ears/earmuffs{
+	pixel_x = -3;
+	pixel_y = -11
+	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
 "tC" = (
-/obj/structure/table/reinforced/glass,
-/obj/item/paper_bin{
-	pixel_y = 5;
-	pixel_x = -12
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, thrusters"
 	},
-/obj/item/pen/black{
-	pixel_x = -11;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/cans/adhomai_milk{
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/bridge)
+/turf/simulated/floor/airless,
+/area/ship/nt_phoron_freighter/eva)
 "tD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/engineering)
-"tH" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
 "tI" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -2922,6 +2994,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/atmos)
+"tX" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/item/ammo_casing/shotgun/used{
+	pixel_x = -3;
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "ub" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3016,6 +3098,10 @@
 /obj/effect/floor_decal/spline/plain/corner/lime{
 	dir = 1
 	},
+/obj/item/storage/toolbox/emergency{
+	pixel_x = 2;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
 "uz" = (
@@ -3043,8 +3129,33 @@
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
 /obj/item/clothing/head/helmet/merc,
+/obj/item/storage/belt/security/full/investigator,
+/obj/item/storage/belt/security/full/investigator,
+/obj/item/storage/belt/security/full/investigator,
+/obj/item/storage/belt/security/full/investigator,
+/obj/item/stack/rods/full{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
+"uL" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 5;
+	pixel_y = 20
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 16
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "uR" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -3062,8 +3173,24 @@
 	pixel_x = -11;
 	pixel_y = 21
 	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 9;
+	pixel_y = -7
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -11;
+	pixel_y = 13
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
+"uZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "vd" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -3077,19 +3204,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"vh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/arrow/yellow,
-/obj/random/dirt_75,
-/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/aft_halls)
 "vk" = (
-/obj/structure/table/steel,
-/obj/item/storage/bag/inflatable{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
 "vl" = (
@@ -3107,6 +3224,17 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/nt_phoron_freighter/propulsion)
+"vr" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/sign/flag/nanotrasen{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "vs" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -3117,6 +3245,17 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
+"vt" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_x = -4;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "vu" = (
 /obj/structure/closet/crate/rad{
 	name = "radioactive fuel crate"
@@ -3130,20 +3269,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/reactor)
-"vB" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "vG" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/machinery/power/apc/east{
@@ -3181,16 +3306,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/engineering)
-"vU" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "vV" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -3199,38 +3314,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/atmos)
-"vW" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = 4;
-	pixel_y = 19
-	},
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb{
-	pixel_x = 10;
-	pixel_y = 13
-	},
-/obj/random/dirt_75,
-/obj/item/ammo_casing/rifle/used{
-	pixel_x = -6;
-	pixel_y = 12
-	},
-/obj/item/ammo_casing/rifle/used{
-	pixel_x = -19;
-	pixel_y = -1
-	},
-/obj/item/ammo_casing/rifle/used{
-	pixel_x = -25;
-	pixel_y = 21
-	},
-/obj/item/ammo_casing/rifle/used{
-	pixel_x = -8;
-	pixel_y = -4
-	},
-/obj/item/ammo_casing/pistol/used,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/aft_halls)
 "vX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3241,7 +3324,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, phoron tank"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "vY" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
@@ -3313,19 +3396,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
-"wo" = (
-/obj/structure/table/reinforced/glass,
-/obj/structure/machinery/light/small{
-	dir = 4
-	},
-/obj/item/paper_bin{
-	pixel_y = 3
-	},
-/obj/item/pen/fountain/head{
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/bridge)
 "wp" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/light/small{
@@ -3333,6 +3403,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
+"ws" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/propulsion)
 "ww" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/alarm/north{
@@ -3390,23 +3465,9 @@
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
 /area/ship/nt_phoron_freighter/eva)
-"wM" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor,
-/area/ship/nt_phoron_freighter/fore_halls)
 "wQ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/nt_phoron_freighter/head)
-"wU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "wX" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -3469,6 +3530,7 @@
 	pixel_x = -15;
 	pixel_y = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/fore_halls)
 "xs" = (
@@ -3504,12 +3566,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
-"xX" = (
-/obj/effect/floor_decal/industrial/hatch/firefighting_closet,
-/obj/structure/closet/firecloset/full,
-/obj/random/tool,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/fore_halls)
 "xZ" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/machinery/door/blast/regular{
@@ -3518,28 +3574,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/aft_halls)
-"ye" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = 5;
-	pixel_y = 20
-	},
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
-"yg" = (
-/obj/structure/table/reinforced/glass,
-/obj/item/paper_bin{
-	pixel_y = 4;
-	pixel_x = 2
-	},
-/obj/item/pen/black{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/bridge)
 "ym" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
@@ -3554,6 +3588,10 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
 	pixel_y = 1
+	},
+/obj/item/stack/rods{
+	pixel_x = 20;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/aft_halls)
@@ -3600,23 +3638,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
-"yu" = (
-/obj/structure/table/wood,
-/obj/item/radio/intercom/west,
-/obj/item/paper_bin{
-	pixel_y = 4;
-	pixel_x = 13
-	},
-/obj/item/clothing/accessory/medal/gold/captain{
-	pixel_x = -4;
-	pixel_y = 8
-	},
-/obj/item/pen/fountain/captain{
-	pixel_y = 4;
-	pixel_x = 13
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/nt_phoron_freighter/office)
 "yz" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/west{
@@ -3624,6 +3645,10 @@
 	},
 /obj/structure/machinery/firealarm/east,
 /turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/bridge)
+"yB" = (
+/obj/structure/sign/flag/nanotrasen,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/nt_phoron_freighter/bridge)
 "yE" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -3636,20 +3661,9 @@
 	name = "sink";
 	pixel_x = 21
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/fore_halls)
-"yG" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	name = "Canister to Tank"
-	},
-/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
-/obj/structure/machinery/firealarm/south,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "yL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3703,6 +3717,7 @@
 	pixel_x = 3;
 	pixel_y = 14
 	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
 "zg" = (
@@ -3710,6 +3725,11 @@
 /obj/structure/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
+"zh" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
 "zl" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3729,6 +3749,18 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/lino/diamond,
 /area/ship/nt_phoron_freighter/service)
+"zq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	name = "Canister to Tank"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/structure/machinery/firealarm/south,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
 "zz" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -3738,6 +3770,7 @@
 	pixel_x = -1;
 	pixel_y = 7
 	},
+/mob/living/simple_animal/hakhma,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/nt_phoron_freighter/bridge)
 "zA" = (
@@ -3746,6 +3779,20 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/ship/nt_phoron_freighter/service)
+"zD" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "zJ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -3886,6 +3933,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
+"As" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
+/area/ship/nt_phoron_freighter/eva)
 "Az" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -3909,8 +3960,8 @@
 	pixel_y = 10
 	},
 /obj/item/clothing/gloves/yellow{
-	pixel_x = 10;
-	pixel_y = -10
+	pixel_x = 12;
+	pixel_y = -9
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
@@ -3951,6 +4002,9 @@
 /obj/item/ammo_casing/rifle/used{
 	pixel_x = 13;
 	pixel_y = -9
+	},
+/obj/structure/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
@@ -4016,6 +4070,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
 "Bc" = (
@@ -4023,7 +4078,7 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph14"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "Bg" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -4082,16 +4137,6 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/propulsion)
-"BF" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = list()
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "BK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -4101,8 +4146,8 @@
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
 "BL" = (
-/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/machinery/vending/mredispenser,
+/obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
 "BQ" = (
@@ -4162,6 +4207,10 @@
 	pixel_x = 4;
 	pixel_y = -1
 	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 11;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/nt_phoron_freighter/bridge)
 "Cm" = (
@@ -4179,13 +4228,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"Cq" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "Cr" = (
 /obj/structure/machinery/smartfridge/foodheater,
 /obj/structure/machinery/light/small{
@@ -4254,8 +4296,23 @@
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/north,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
+"CO" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 2;
+	pixel_y = 12
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -9;
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "CQ" = (
 /obj/effect/floor_decal/industrial/hatch_door/security,
 /obj/structure/machinery/door/firedoor/noid{
@@ -4284,6 +4341,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
 "CW" = (
@@ -4293,7 +4351,7 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph4"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "CZ" = (
 /obj/structure/cable/green{
@@ -4339,16 +4397,6 @@
 /obj/structure/railing/mapped,
 /turf/space,
 /area/ship/nt_phoron_freighter/eva)
-"Dm" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = 4;
-	pixel_y = 19
-	},
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/aft_halls)
 "Dq" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -4445,19 +4493,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/reactor)
-"DO" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "DT" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -4472,6 +4507,17 @@
 /obj/structure/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
+"DU" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -15;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "DX" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
@@ -4499,20 +4545,12 @@
 	dir = 9
 	},
 /obj/structure/machinery/light/small/floor,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 21;
+	pixel_y = 9
+	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
-"Ed" = (
-/obj/structure/machinery/vending/mredispenser,
-/obj/effect/floor_decal/industrial/hatch/service,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/fore_halls)
-"Eq" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "Es" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -4538,18 +4576,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"Ev" = (
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/structure/machinery/door/blast/regular{
-	id = "windowlockdown";
-	dir = 8
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/bridge)
 "Ew" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/toy/desk/fan{
@@ -4602,22 +4628,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
-"EK" = (
-/obj/structure/table/reinforced/glass,
-/obj/random/pottedplant_small{
-	pixel_x = 7;
-	pixel_y = 11
-	},
-/obj/item/flash{
-	pixel_x = -12;
-	pixel_y = 6
-	},
-/obj/item/hand_labeler{
-	pixel_y = 2;
-	pixel_x = 3
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/bridge)
 "ES" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -4637,6 +4647,10 @@
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -9;
 	pixel_y = 18
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = -9;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/bridge)
@@ -4663,6 +4677,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
 "EX" = (
@@ -4700,6 +4715,10 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one{
 	pixel_x = 7
 	},
+/obj/item/clothing/ears/earmuffs{
+	pixel_x = -7;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
 "Fl" = (
@@ -4724,12 +4743,49 @@
 /obj/structure/closet/crate/medical,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
-"Fp" = (
-/obj/effect/floor_decal/industrial/hatch/emergency_closet,
-/obj/structure/closet/emcloset,
-/obj/random/tool,
+"Fm" = (
+/obj/structure/table/steel,
+/obj/item/inflatable/door{
+	pixel_x = -4;
+	pixel_y = -10
+	},
+/obj/item/inflatable/door{
+	pixel_x = -2;
+	pixel_y = -11
+	},
+/obj/item/inflatable/door{
+	pixel_y = -9
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_x = -2;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
+"Fn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/obj/random/junk,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
+"Fo" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 6
+	},
+/obj/structure/machinery/meter,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
 "Fw" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/material/knife{
@@ -4746,18 +4802,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/service)
-"FA" = (
-/obj/structure/table/reinforced/glass,
-/obj/item/radio/off{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/obj/item/radio/off{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/bridge)
 "FC" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -4780,21 +4824,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/nt_phoron_freighter/bridge)
 "FH" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/arrow/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
+/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/aft_halls)
 "FI" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
 /obj/structure/machinery/alarm/north{
 	req_one_access = list()
 	},
@@ -4811,7 +4847,12 @@
 	pixel_x = -7;
 	pixel_y = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/item/stack/rods{
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
 /area/ship/nt_phoron_freighter/engineering)
 "FK" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -4980,6 +5021,18 @@
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
+"GB" = (
+/obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/flashlight/lamp/green{
+	pixel_y = 2;
+	pixel_x = -5
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/nt_phoron_freighter/office)
 "GC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/machinery/hologram/holopad/long_range,
@@ -4991,6 +5044,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/bridge)
+"GJ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/ship/nt_phoron_freighter/service)
 "GK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/atmospherics/pipe/tank/air,
@@ -5013,7 +5073,7 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph15"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "GT" = (
 /obj/structure/table/reinforced/glass,
@@ -5064,14 +5124,31 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/item/tank/emergency_oxygen/double{
+	pixel_x = 13;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
-"Ho" = (
-/obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/random/weapon_and_ammo,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/engineering)
+"Hj" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
+"Hm" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "Ht" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -5081,13 +5158,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
-"Hu" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/aft_halls)
 "Hx" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/green{
@@ -5118,7 +5188,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/structure/machinery/door/airlock/maintenance,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
 "HJ" = (
@@ -5126,7 +5196,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/structure/machinery/door/airlock/maintenance,
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "phoronlockdowninner"
@@ -5187,7 +5257,8 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/table/rack,
-/obj/random/projectile,
+/obj/random/splints,
+/obj/random/splints,
 /obj/random/splints,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
@@ -5199,19 +5270,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"HZ" = (
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/structure/machinery/door/blast/regular{
-	id = "windowlockdown"
-	},
-/obj/structure/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, atmospherics"
-	},
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "Ib" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5252,10 +5310,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
-"Io" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/nt_phoron_freighter/propulsion)
 "Ip" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -5295,19 +5349,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
-"Ix" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/item/ammo_casing/pistol/used{
-	pixel_x = 15;
-	pixel_y = 19
-	},
-/obj/item/ammo_casing/pistol/used{
-	pixel_y = 7
-	},
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "IA" = (
 /obj/structure/machinery/alarm/east{
 	req_one_access = list()
@@ -5392,6 +5433,7 @@
 	pixel_x = 18;
 	pixel_y = 16
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
 "IJ" = (
@@ -5412,6 +5454,14 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
+"IK" = (
+/obj/structure/table/steel,
+/obj/item/storage/bag/inflatable{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/fore_halls)
 "IO" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -5427,6 +5477,22 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/nt_phoron_freighter/bridge)
+"IV" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = -12
+	},
+/obj/item/pen/black{
+	pixel_x = -11;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/cans/adhomai_milk{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
 "IW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5451,6 +5517,18 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/ship/nt_phoron_freighter/office)
+"Jj" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/radio/off{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/radio/off{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/bridge)
 "Jo" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -5462,14 +5540,6 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ship/nt_phoron_freighter/eva)
-"Jz" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/aft_halls)
 "JA" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -5494,15 +5564,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/bridge)
-"JE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/structure/extinguisher_cabinet/south,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "JI" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -5513,6 +5574,7 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
 "JL" = (
@@ -5583,6 +5645,21 @@
 "JZ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/nt_phoron_freighter/fore_halls)
+"Ka" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "Kb" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/washing_machine,
@@ -5624,22 +5701,14 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/nt_phoron_freighter/propulsion)
 "Kl" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = -9;
-	pixel_y = 23
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_y = 16
-	},
-/turf/simulated/floor/tiled,
+/obj/effect/decal/cleanable/blood,
+/obj/random/dirt_75,
+/turf/simulated/floor,
 /area/ship/nt_phoron_freighter/engineering)
 "Kp" = (
 /obj/structure/machinery/door/firedoor/noid,
@@ -5661,6 +5730,22 @@
 /obj/effect/floor_decal/industrial/hatch/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
+"Ks" = (
+/obj/structure/table/reinforced/glass,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 11
+	},
+/obj/item/flash{
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/item/hand_labeler{
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/bridge)
 "Kv" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5682,6 +5767,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/nt_phoron_freighter/head)
+"KB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/extinguisher_cabinet/south,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "KE" = (
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -5710,7 +5804,9 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/machinery/portable_atmospherics/powered/pump/filled,
+/obj/structure/machinery/suit_cycler/security{
+	req_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
 "KR" = (
@@ -5723,32 +5819,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
-"KT" = (
-/obj/structure/table/reinforced/glass,
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/obj/item/radio/intercom/north,
-/obj/structure/machinery/button/remote/blast_door{
-	id = "windowlockdown";
-	name = "Window Shutters";
-	pixel_x = 11;
-	dir = 1
-	},
-/obj/item/gps{
-	pixel_x = -7;
-	pixel_y = 12
-	},
-/obj/item/gps{
-	pixel_x = -6;
-	pixel_y = 1
-	},
-/obj/item/gps{
-	pixel_x = 6;
-	pixel_y = 13
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/bridge)
 "KU" = (
 /obj/structure/machinery/power/smes/buildable/autosolars,
 /obj/structure/cable/green{
@@ -5787,16 +5857,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/bridge)
-"Li" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/tank/oxygen{
-	pixel_x = 3
-	},
-/obj/item/tank/oxygen{
-	pixel_y = 10
-	},
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "Ll" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/atmospherics/pipe/tank/air{
@@ -5814,24 +5874,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
-"Ls" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/item/ammo_casing/rifle/used{
-	pixel_x = -10;
-	pixel_y = 10
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = 5;
-	pixel_y = 20
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_y = 16
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/aft_halls)
 "Lt" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
@@ -5843,6 +5885,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
+"LC" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "LD" = (
 /obj/structure/machinery/power/solar_control/autostart{
 	dir = 8
@@ -5891,6 +5940,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
+"LZ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 4;
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "Mb" = (
 /obj/structure/machinery/hologram/holopad,
 /obj/effect/decal/cleanable/blood/drip,
@@ -5947,6 +6006,9 @@
 /turf/space,
 /area/ship/nt_phoron_freighter/eva)
 "Mk" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
@@ -5954,25 +6016,11 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
 "MC" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/nt_phoron_freighter/aft_halls)
-"MD" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "ML" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5980,7 +6028,7 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph3"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "MO" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -6021,8 +6069,21 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
+/obj/item/stack/nanopaste{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
+"MS" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "MT" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -6049,15 +6110,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
-"Ne" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/flag/nanotrasen{
-	pixel_x = -32
-	},
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "Ng" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -6099,6 +6151,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/engineering)
+"Nu" = (
+/obj/item/storage/belt/security/full/pistol45,
+/turf/template_noop,
+/area/space)
 "Nv" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -6133,16 +6189,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/aft_halls)
-"NG" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/sign/flag/nanotrasen{
-	pixel_x = -32
-	},
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "NL" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -6161,6 +6207,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
+"NN" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/machinery/door/blast/regular{
+	id = "windowlockdown";
+	dir = 8
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/bridge)
 "NX" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -6245,8 +6303,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/bridge)
 "ON" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/hatch/emergency_closet,
+/obj/structure/machinery/suit_cycler/security{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
 "OO" = (
@@ -6258,14 +6317,18 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_x = 18;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
 "OS" = (
-/obj/structure/lattice,
-/obj/structure/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 4
+/obj/structure/machinery/atmospherics/valve{
+	dir = 8
 	},
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/turf/simulated/floor/airless,
 /area/ship/nt_phoron_freighter/eva)
 "OT" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -6283,6 +6346,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
+"OU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = -32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
+"OX" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/machinery/fabricator/autolathe/hacked,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/bridge)
 "Pb" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -6299,20 +6379,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
-"Pe" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/generic,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
 "Pg" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -6320,15 +6386,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
-"Pm" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+"Pi" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
 	},
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "Pp" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -6367,17 +6431,12 @@
 /area/ship/nt_phoron_freighter/aft_halls)
 "PI" = (
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 9
+	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 8
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = 5;
+	pixel_y = 20
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
 "PJ" = (
@@ -6410,6 +6469,12 @@
 /obj/structure/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/bridge)
+"PR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/ship/nt_phoron_freighter/eva)
 "PS" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -6477,6 +6542,13 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
+"Qf" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
 "Qg" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -6494,13 +6566,32 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
-"Qj" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
+"Qi" = (
+/obj/structure/table/reinforced/glass,
+/obj/structure/machinery/light/small{
+	dir = 8
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/fore_halls)
+/obj/item/radio/intercom/north,
+/obj/structure/machinery/button/remote/blast_door{
+	id = "windowlockdown";
+	name = "Window Shutters";
+	pixel_x = 11;
+	dir = 1
+	},
+/obj/item/gps{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/obj/item/gps{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/item/gps{
+	pixel_x = 6;
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/bridge)
 "Qk" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/nt_phoron_freighter/service)
@@ -6509,6 +6600,24 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
+"Qs" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/machinery/alarm/north{
+	req_one_access = list()
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
+"QI" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/engineering)
 "QJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -6562,30 +6671,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
-"Rg" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
 "Rk" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/item/ammo_casing/pistol/used{
+	pixel_x = 15;
+	pixel_y = 19
+	},
+/obj/item/ammo_casing/pistol/used{
+	pixel_y = 7
+	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
-"Rq" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/structure/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/bed/roller,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/bridge)
 "Rt" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -6594,6 +6692,23 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
+"Rv" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/external/nt_phoron_freighter/starboard,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 10;
+	pixel_y = 12
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/aft_halls)
 "RE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6601,18 +6716,11 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph13"
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/visible/purple{
-	dir = 4
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 8
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
-"RG" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/structure/machinery/fabricator/autolathe/hacked,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/bridge)
 "RH" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -6666,23 +6774,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/service)
-"RP" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/external/nt_phoron_freighter/starboard,
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/item/ammo_casing/rifle/used{
-	pixel_x = 10;
-	pixel_y = 12
-	},
-/obj/item/ammo_casing/rifle/used{
-	pixel_x = 2;
-	pixel_y = 9
-	},
+"RV" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/aft_halls)
+/area/ship/nt_phoron_freighter/atmos)
 "Sa" = (
 /obj/structure/curtain/open/shower,
 /obj/structure/machinery/shower{
@@ -6787,8 +6884,20 @@
 /area/ship/nt_phoron_freighter/bridge)
 "SI" = (
 /obj/random/dirt_75,
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 11;
+	pixel_y = 14
+	},
+/obj/item/ammo_casing/rifle/used{
+	pixel_x = 5;
+	pixel_y = 15
+	},
 /turf/simulated/floor/lino/diamond,
 /area/ship/nt_phoron_freighter/service)
+"SJ" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/ship/nt_phoron_freighter/propulsion)
 "SL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -6848,6 +6957,32 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
+"SX" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -9;
+	pixel_y = 23
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_y = 16
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/engineering)
+"Tg" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
 "Tk" = (
 /obj/effect/decal/cleanable/blood,
 /obj/random/dirt_75,
@@ -6870,6 +7005,10 @@
 /obj/item/ammo_casing/shotgun/used{
 	pixel_x = 7;
 	pixel_y = 7
+	},
+/obj/item/stack/rods{
+	pixel_x = 16;
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/service)
@@ -6908,22 +7047,12 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
 "Tv" = (
 /obj/structure/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/service)
-"Tw" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 5
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_y = 16
-	},
-/turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
 "Ty" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -6961,6 +7090,31 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/nt_phoron_freighter/eva)
+"TJ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/item/storage/toolbox/emergency{
+	pixel_x = 10;
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/fore_halls)
+"TL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "TM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/atmospherics/portables_connector,
@@ -7046,6 +7200,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
+"Uk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "Ul" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -7053,6 +7214,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
 "Un" = (
@@ -7080,6 +7242,22 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/propulsion)
+"Ux" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/xanuchai{
+	pixel_x = 7;
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/food/drinks/cans/koispunch{
+	pixel_x = -5;
+	pixel_y = 13
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
@@ -7181,17 +7359,6 @@
 /obj/effect/floor_decal/industrial/arrow/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/aft_halls)
-"UV" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	pixel_x = -9;
-	pixel_y = 23
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
 "UW" = (
 /obj/random/dirt_75,
@@ -7321,6 +7488,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/engineering)
+"VU" = (
+/obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/weapon_and_ammo,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/engineering)
 "VW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/steel,
@@ -7350,12 +7523,20 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/nt_phoron_freighter/head)
 "VY" = (
-/obj/effect/floor_decal/industrial/warning{
+/turf/template_noop,
+/area/ship/nt_phoron_freighter/eva)
+"VZ" = (
+/obj/structure/table/reinforced/glass,
+/obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/propulsion)
+/obj/item/radio/intercom/north,
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/bridge)
 "Wg" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
@@ -7421,14 +7602,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/bridge)
-"WC" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled,
-/area/ship/nt_phoron_freighter/aft_halls)
 "WG" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -7474,7 +7647,7 @@
 	dir = 1
 	},
 /obj/structure/tank_wall/phoron,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "WQ" = (
 /obj/structure/bed/stool/bar/padded/red{
@@ -7549,22 +7722,6 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
-"Xg" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/flash{
-	pixel_x = -8;
-	pixel_y = 3
-	},
-/obj/item/pen/blue{
-	pixel_x = 4;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/service)
 "Xj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/green{
@@ -7576,6 +7733,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/nt_phoron_freighter/service)
+"Xk" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor,
+/area/ship/nt_phoron_freighter/fore_halls)
 "Xn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/green{
@@ -7605,14 +7779,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ship/nt_phoron_freighter/service)
-"Xv" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "Xy" = (
 /obj/structure/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7646,6 +7812,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/fore_halls)
+"XC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "XD" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -7675,8 +7848,9 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/closet/firecloset/full,
-/obj/effect/floor_decal/industrial/hatch/firefighting_closet,
+/obj/structure/machinery/suit_cycler/security{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/bridge)
 "XO" = (
@@ -7780,18 +7954,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/office)
-"Yq" = (
-/obj/structure/table/reinforced/glass,
-/obj/structure/machinery/light/small{
-	dir = 4
-	},
-/obj/item/radio/intercom/north,
-/obj/random/pottedplant_small{
-	pixel_x = 7;
-	pixel_y = 11
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/nt_phoron_freighter/bridge)
 "Ys" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -7807,12 +7969,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/propulsion)
+"YB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/ship/nt_phoron_freighter/atmos)
 "YE" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph16"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "YI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7838,6 +8010,18 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/structure/table/rack,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/suit_cooling_unit,
+/obj/item/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/bridge)
 "YO" = (
@@ -7862,12 +8046,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/service)
-"YU" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/decal/cleanable/generic,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/ship/nt_phoron_freighter/atmos)
 "YW" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -7884,6 +8062,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/engineering)
+"YZ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	pixel_x = -9;
+	pixel_y = 23
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/ship/nt_phoron_freighter/aft_halls)
 "Zf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -7891,7 +8080,7 @@
 /obj/structure/tank_wall/phoron{
 	icon_state = "ph10"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/ship/nt_phoron_freighter/atmos)
 "Zg" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -8038,6 +8227,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/ship/nt_phoron_freighter/aft_halls)
+"ZI" = (
+/obj/structure/table/reinforced/glass,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen/fountain/head{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/nt_phoron_freighter/bridge)
 "ZU" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
@@ -36478,7 +36680,7 @@ kc
 kc
 kc
 kc
-kc
+Nu
 kc
 kc
 kc
@@ -38501,11 +38703,11 @@ JZ
 JZ
 JZ
 JZ
-nL
+is
 co
-BL
-fB
 vk
+Fm
+IK
 JZ
 JZ
 JZ
@@ -38743,7 +38945,7 @@ kc
 kc
 qH
 MC
-RP
+Rv
 FY
 ew
 MC
@@ -38755,12 +38957,12 @@ kc
 JZ
 Tl
 Mc
-FH
+jP
 Xz
 wm
 cN
 yn
-PI
+Ka
 yn
 Zh
 Ea
@@ -38987,7 +39189,7 @@ sl
 sl
 jx
 kI
-bz
+ha
 oV
 Br
 rW
@@ -39013,15 +39215,15 @@ JZ
 zf
 ia
 Oe
-qe
-Cq
+DU
+iS
 bv
-ye
-fl
-ll
+PI
+CO
+pG
 Sq
-Oe
-Eq
+ic
+Pi
 Gw
 Yn
 nA
@@ -39091,7 +39293,7 @@ kc
 kc
 kc
 kc
-lF
+kc
 kc
 kc
 kc
@@ -39241,7 +39443,7 @@ Gf
 sl
 sl
 sl
-VY
+db
 qn
 mU
 KV
@@ -39284,7 +39486,7 @@ Pc
 aL
 ZC
 Og
-sz
+Fn
 sP
 XT
 ZC
@@ -39299,7 +39501,7 @@ Og
 fu
 gd
 wZ
-yu
+df
 mW
 Jh
 fu
@@ -39502,7 +39704,7 @@ WA
 WA
 Ig
 gg
-Ix
+Rk
 Br
 UC
 do
@@ -39541,22 +39743,22 @@ Ht
 nA
 ZC
 Og
-JE
+KB
 ZC
 XT
-XT
+PR
 OS
-XT
+tm
 OS
-XT
+As
 XT
 ZC
-dg
+RV
 Og
 fu
 CZ
 wZ
-df
+GB
 ts
 mR
 Yp
@@ -39564,7 +39766,7 @@ wx
 uR
 Fl
 sq
-KT
+Qi
 eH
 LT
 PK
@@ -39758,33 +39960,33 @@ sl
 Ah
 BK
 wi
-sa
+Fo
 oW
 Br
 ZE
 Os
 bO
 Bb
+SX
 Kl
-tH
 oZ
 Pb
 MC
 oD
 rO
 Ra
-vW
-Jz
-UV
+oe
+Hm
+YZ
 HW
-Hu
-au
+fO
+ae
 qZ
 Gw
-wM
+gZ
 ro
 Qk
-Xg
+pO
 IA
 mw
 Ws
@@ -39798,7 +40000,7 @@ dU
 dY
 ZC
 Og
-ry
+pM
 ZC
 ZC
 xT
@@ -39819,11 +40021,11 @@ Wo
 fu
 oK
 ey
-Rq
+Tn
 sq
 oy
 cc
-tC
+IV
 PK
 kc
 kc
@@ -40015,7 +40217,7 @@ sl
 zV
 ow
 wi
-yG
+zq
 sl
 sl
 sl
@@ -40056,15 +40258,15 @@ kV
 ZC
 wp
 Hg
-NG
+sf
 dV
 tP
 An
 Og
 ld
 Ym
-sf
-Ne
+YB
+OU
 FT
 ka
 fu
@@ -40080,7 +40282,7 @@ Nv
 sq
 Pr
 tr
-EK
+Ks
 Vu
 Vu
 Vu
@@ -40273,7 +40475,7 @@ Uf
 hv
 wi
 Tm
-BC
+ws
 BQ
 DY
 Un
@@ -40319,7 +40521,7 @@ VN
 kR
 Og
 GL
-sU
+iZ
 Og
 Og
 Og
@@ -40338,7 +40540,7 @@ sD
 uz
 Dq
 dc
-FA
+Jj
 Ke
 PK
 PK
@@ -40364,7 +40566,7 @@ kc
 kc
 kc
 kc
-kc
+lF
 kc
 kc
 kc
@@ -40522,14 +40724,14 @@ kc
 kc
 kc
 kc
-pc
+tC
 SM
 rz
-Io
+SJ
 rt
-eA
-dC
-Rg
+zh
+Hj
+Qf
 BC
 vo
 Dv
@@ -40560,7 +40762,7 @@ Tv
 Xn
 kq
 fY
-Tw
+ki
 ce
 RO
 CG
@@ -40587,7 +40789,7 @@ JA
 FL
 zN
 nR
-sq
+yB
 uu
 Cd
 YK
@@ -40598,7 +40800,7 @@ Lc
 GC
 OL
 hd
-Ev
+NN
 kc
 kc
 kc
@@ -40787,7 +40989,7 @@ yt
 hv
 wi
 Es
-lk
+ws
 XP
 DY
 Un
@@ -40799,7 +41001,7 @@ at
 Jo
 FC
 fb
-Ls
+uL
 xZ
 XT
 XT
@@ -40817,7 +41019,7 @@ bG
 dk
 Cr
 Kf
-ki
+GJ
 Me
 ut
 Ip
@@ -40852,7 +41054,7 @@ MW
 FG
 Bg
 Qn
-wo
+ZI
 hG
 PK
 PK
@@ -41310,24 +41512,24 @@ dT
 IY
 IY
 TS
-Ho
+VU
 MC
 mH
 hF
 nd
-WC
-cv
-Dm
+MS
+vt
+LZ
 Gp
 Gt
 Gt
 cv
 Gw
-Iw
-qp
+Tg
+LC
 II
-Iw
-ih
+Tg
+Tg
 Ng
 le
 JZ
@@ -41336,7 +41538,7 @@ Mb
 Gk
 jH
 JZ
-BF
+Qs
 sG
 ZC
 UY
@@ -41347,7 +41549,7 @@ VN
 Iq
 sv
 sv
-YU
+sU
 BU
 Kv
 Fd
@@ -41593,7 +41795,7 @@ Xt
 it
 pQ
 JZ
-vU
+TJ
 tV
 ZC
 UL
@@ -41622,7 +41824,7 @@ am
 sq
 Vw
 WB
-yg
+iR
 PK
 kc
 kc
@@ -41818,7 +42020,7 @@ nm
 hv
 Nt
 Ul
-lp
+QI
 GK
 Ao
 LF
@@ -41829,7 +42031,7 @@ MC
 zM
 LD
 aO
-vh
+FH
 rE
 uj
 MC
@@ -41843,14 +42045,14 @@ DD
 JZ
 JZ
 OO
-Qj
+eb
 JZ
 JZ
 KE
 JZ
 JZ
 JZ
-mJ
+vr
 tV
 ZC
 ZC
@@ -41864,7 +42066,7 @@ ub
 UG
 BU
 ZC
-tW
+jp
 ZC
 wQ
 wQ
@@ -41875,9 +42077,9 @@ AR
 wQ
 KM
 ZF
-RG
+OX
 sq
-Yq
+VZ
 vl
 oH
 PK
@@ -42070,7 +42272,7 @@ kc
 sl
 sl
 jS
-Rk
+tg
 ni
 ni
 Br
@@ -42101,8 +42303,8 @@ pI
 JZ
 kW
 AB
-rS
-cK
+cz
+tX
 qp
 Qh
 Iw
@@ -42327,9 +42529,9 @@ kc
 kc
 sl
 sl
-cM
+Ux
 tA
-Li
+cM
 Br
 TN
 VQ
@@ -42357,10 +42559,10 @@ vY
 ui
 JZ
 HO
+Xk
+zD
 Mk
-vB
-DO
-Pe
+ft
 Va
 pH
 OB
@@ -42379,8 +42581,8 @@ ZC
 ZC
 ZC
 jg
-MD
-wU
+Uk
+fL
 sq
 hz
 TW
@@ -42389,7 +42591,7 @@ UN
 HC
 Hy
 cD
-Tn
+kl
 ON
 sq
 kc
@@ -42614,10 +42816,10 @@ JZ
 JZ
 JZ
 Kq
-Ed
 BL
-Fp
-xX
+vk
+mC
+nL
 JZ
 JZ
 JZ
@@ -42886,10 +43088,10 @@ ZC
 ZC
 ZC
 zQ
-Pm
-Xv
-ms
-fT
+jD
+uZ
+XC
+TL
 ZC
 ZC
 ZC
@@ -43144,7 +43346,7 @@ kc
 ZC
 ZC
 bj
-HZ
+qm
 bj
 ZC
 ZC
@@ -43659,7 +43861,7 @@ kc
 kc
 kc
 kc
-kc
+VY
 kc
 kc
 kc
@@ -51335,7 +51537,7 @@ kc
 kc
 kc
 kc
-kc
+lF
 kc
 kc
 kc
