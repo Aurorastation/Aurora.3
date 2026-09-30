@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes IV drips, portable floodlights, mining drills, drill braces, and portable generators being anchored when constructed."
