@@ -63,7 +63,7 @@
 #define RELIGION_RASKARA_ALT "Raskariim (Suns)"
 
 #define RELIGION_HIVEPANTHEON "Hive Pantheon"
-#define RELIGION_PREIMMINENNCE "Preimminennce"
+#define RELIGION_PREIMMINENCE "Preimminence"
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
 #define RELIGION_ETERNAL "Orthodox Eternal"
@@ -210,6 +210,7 @@
 #define ACCENT_UNDERSONG "Undersong"
 
 #define ACCENT_TTS "Text-to-Speech"
+#define ACCENT_ELEKTRO_SIIK "Elektro'Siik"
 #define ACCENT_MERCHANT "Golden Deep Merchant"
 #define ACCENT_THESIAN "Golden Deep Thesian"
 
@@ -227,6 +228,14 @@
 
 #define RELIGIONS_BIESEL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)
 #define CITIZENSHIPS_BIESEL list(CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
+#define ORIGINS_BIESEL list(\
+	/singleton/origin_item/origin/biesel, /singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/reade,\
+	/singleton/origin_item/origin/valkyrie, /singleton/origin_item/origin/biesel_grown, /singleton/origin_item/origin/diona_district_11,\
+	/singleton/origin_item/origin/titan_prime, /singleton/origin_item/origin/biesel_wildborn, /singleton/origin_item/origin/ipc_tau_ceti,\
+	/singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/little_adhomai, /singleton/origin_item/origin/little_adhomai/zhan,\
+	/singleton/origin_item/origin/little_adhomai/msai, /singleton/origin_item/origin/zoleth, /singleton/origin_item/origin/scay,\
+	/singleton/origin_item/origin/vaur, /singleton/origin_item/origin/xakt, /singleton/origin_item/origin/athvur,\
+	/singleton/origin_item/origin/queenless_zora)
 
 #define RELIGIONS_COALITION list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)
 #define RELIGIONS_COALITION_ALL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_MOROZ)

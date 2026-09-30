@@ -7,6 +7,8 @@
  */
 /datum/firemode
 	var/name = "default"
+	/// Optional HUD sprite for modes that do not describe a standard firing pattern.
+	var/button_icon_state
 	var/list/settings = list()
 	var/list/original_settings
 
@@ -19,6 +21,8 @@
 
 		if(propname == "mode_name")
 			name = propvalue
+		else if(propname == "button_icon_state")
+			button_icon_state = propvalue
 		else if(isnull(propvalue))
 			settings[propname] = gun.vars[propname] //better than initial() as it handles list vars like burst_accuracy
 		else
@@ -44,7 +48,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/pistol.dmi'
-	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
 	contained_sprite = TRUE
@@ -117,6 +120,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 	/// The higher this number, the more accurate this weapon is when fired from the off-hand.
 	var/offhand_accuracy = 0
 	var/scoped_accuracy = null
+	/// Accuracy before activating the scope, restored when zooming out.
+	var/unscoped_accuracy = null
+	/// Recoil before activating the scope, restored when zooming out.
+	var/unscoped_recoil = null
 	/// Allows for different accuracies for each shot in a burst. Applied on top of accuracy.
 	var/list/burst_accuracy = list(0)
 	var/list/dispersion = list(0)
@@ -175,9 +182,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	/// Whether or not the gun has a safety.
 	var/has_safety = TRUE
+	/// Whether this gun implements a unique action, such as pumping or opening its bolt.
+	var/has_unique_gun_action = FALSE
 	/// Whether the gun's safety is currently engaged.
 	var/safety_state = TRUE
-	var/image/safety_overlay
 
 	/// If TRUE, applies the user's ID iff_faction to the projectile. As of 2025/11, code making use of this is not currently implemented.
 	var/iff_capable = FALSE
@@ -257,6 +265,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 /obj/item/gun/update_icon()
 	..()
+	update_gun_actions()
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
@@ -264,13 +273,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
-
-	if(has_safety)
-		CutOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
-		safety_overlay = null
-		if(!isturf(loc)) // In a mob, holster or bag or something
-			safety_overlay = image(gun_gui_icons,"[safety()]")
-			AddOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 	if(is_wieldable)
 		if(wielded)
@@ -750,6 +752,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/view_size = round(world.view + zoom_amount)
 	var/scoped_accuracy_mod = zoom_offset
 
+	if(!zoom)
+		unscoped_accuracy = accuracy
+		unscoped_recoil = recoil
+
 	zoom(user, zoom_offset, view_size)
 	if(zoom)
 		accuracy = scoped_accuracy + scoped_accuracy_mod
@@ -760,7 +766,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/gun/zoom()
 	..()
 	if(!zoom)
+		if(!isnull(unscoped_accuracy))
+			accuracy = unscoped_accuracy
+			unscoped_accuracy = null
+		if(!isnull(unscoped_recoil))
+			recoil = unscoped_recoil
+			unscoped_recoil = null
 		update_firing_delays()
+	update_gun_actions()
 
 ///Handles removing the suppressor from the gun
 /obj/item/gun/proc/clear_suppressor()
@@ -783,6 +796,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 
+	update_gun_actions()
 	return new_mode
 
 /obj/item/gun/attack_self(mob/user)

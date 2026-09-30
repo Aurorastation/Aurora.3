@@ -247,7 +247,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 	QDEL_NULL(orbiting)
 	mind.current.ajourn=0
-	mind.current.key = key
+	client.transfer_key_to_mob(mind.current)
 	mind.current.teleop = null
 	mind.current.client.init_verbs()
 	if(!admin_ghosted)

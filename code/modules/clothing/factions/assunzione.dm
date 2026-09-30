@@ -17,6 +17,7 @@
 	var/initial_icon_state = "keeper"
 	icon_state = "keeper"
 	hoodtype = /obj/item/clothing/head/winterhood/assunzione_robe
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	allowed = list(/obj/item/nullrod/luceiansceptre, /obj/item/storage/assunzionesheath, /obj/item/assunzioneorb)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/alt
@@ -27,6 +28,8 @@
 	light and breezy. This lets Astructural Keepers wear their robes in everyday occasions rather than just for ceremony."
 	initial_icon_state = "keeperalt"
 	icon_state = "keeperalt"
+	hoodtype = /obj/item/clothing/head/winterhood/assunzione_robe/alt
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
@@ -38,5 +41,8 @@
 /obj/item/clothing/head/winterhood/assunzione_robe
 	name = "luceian clerical robe hood"
 	desc = "A hood for an Assunzioni clerical robe."
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	icon = 'icons/obj/item/clothing/suit/storage/assunzione_robes.dmi'
 
+/obj/item/clothing/head/winterhood/assunzione_robe/alt
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE

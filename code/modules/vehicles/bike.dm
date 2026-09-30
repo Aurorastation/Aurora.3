@@ -48,14 +48,14 @@
 	/// If FALSE, the key needs to be mapped/spawned somewhere outside of the vehicle,
 	/// otherwise it will be an unusable prop.
 	var/spawns_with_key = TRUE
-	/// If TRUE, the key will spawned elsewhere designated by `/obj/effect/landmark/bike_key_spawner`.
+	/// If TRUE, the key will be spawned elsewhere designated by `/obj/effect/landmark/bike_key_spawner`.
 	var/auto_spawn_key_elsewhere = FALSE
 
 /obj/vehicle/bike/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click-drag yourself onto the bike to climb onto it."
 	. += "Click-drag it onto yourself to access its mounted storage."
-	. += "Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key."
+	. += "Click the bike with a key to put it in, and click the bike with an empty hand to take it out. If the bike is occupied, use disarm intent to take the key instead of unbuckling the rider. The bike won't run without a key."
 	. += "CTRL-click the bike to toggle the engine."
 	. += "ALT-click to toggle the kickstand which prevents movement by driving and dragging."
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
@@ -110,7 +110,7 @@
 	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
-	if(Adjacent(user) && anchored)
+	if(user == load || (Adjacent(user) && anchored))
 		toggle_engine(user)
 	else
 		return ..()
@@ -182,7 +182,7 @@
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
-	if(key)
+	if(key && (!load || user.a_intent == I_DISARM))
 		to_chat(user, "You take \the [key] out of \the [src]")
 		user.put_in_hands(key)
 		key = null
@@ -419,6 +419,10 @@
 
 /obj/vehicle/bike/monowheel/no_keys
 	spawns_with_key = FALSE
+
+/obj/vehicle/bike/monowheel/auto_spawn_key
+	spawns_with_key = FALSE
+	auto_spawn_key_elsewhere = TRUE
 
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"

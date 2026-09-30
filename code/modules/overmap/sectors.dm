@@ -56,10 +56,8 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 
 	/// Whether ghostroles attached to this overmap object spawn with comms
 	var/comms_support = FALSE
-	/// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
-	var/comms_name = "shipboard"
-	/// Snowflake name to label frequency, if not set, frequency defaults to overmap name
-	var/freq_name = ""
+	/// An assoc list for comms frequencies of the away site. Populated by `create_comms_groups()`
+	var/list/comms_groups
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
 	/// list of weakrefs to people viewing the overmap via this ship
@@ -81,7 +79,10 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
 		return
+	INVOKE_ASYNC(src, PROC_REF(initialize_sector))
 
+
+/obj/effect/overmap/visitable/proc/initialize_sector()
 	find_z_levels()     // This populates map_z and assigns z levels to the ship.
 	register_z_levels() // This makes external calls to update global z level information.
 
@@ -96,6 +97,9 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	update_name()
 
 	log_module_sectors("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
+
+	if(comms_support)
+		comms_groups = create_comms_groups()
 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
@@ -125,8 +129,13 @@ GLOBAL_DATUM(map_overmap, /area/overmap)
 	targeting = null
 	levi_safeguard = null
 	gravity_generator = null
+	QDEL_LIST_ASSOC_VAL(comms_groups)
+	comms_groups = null
 	STOP_PROCESSING(SSovermap, src)
 	. = ..()
+
+/obj/effect/overmap/visitable/proc/create_comms_groups()
+	return list("default" = new /datum/comms_group())// override this to modify your sector's comms
 
 /obj/effect/overmap/visitable/proc/move_to_starting_location()
 	var/map_low = OVERMAP_EDGE

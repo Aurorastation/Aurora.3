@@ -174,6 +174,10 @@
 #define BP_AUG_CORRECTIVE_LENS    "corrective lenses"
 #define BP_AUG_CRAYON             "retractable crayon"
 #define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
+#define BP_AUG_SERVICE_JACK_HEAD "head cybernetic service jack"
+#define BP_AUG_SERVICE_JACK_TORSO   "torso cybernetic service jack"
+#define BP_AUG_SERVICE_JACK_L_WRIST  "left wrist cybernetic service jack"
+#define BP_AUG_SERVICE_JACK_R_WRIST  "right wrist cybernetic service jack"
 #define BP_AUG_DRILL              "integrated mining drill"
 #define BP_AUG_EMOTION            "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION    "vision enhanced retinas"
@@ -215,6 +219,15 @@
 #define BP_AUG_SUSPENSION         "calf suspension"
 #define BP_AUG_TASTE_BOOSTER      "taste booster"
 #define BP_AUG_TESLA              "tesla spine"
+#define BP_AUG_TESLA_CARDIAC      "tesla cardiac driver"
+#define BP_AUG_TESLA_CHARGER      "tesla mobile power system"
+#define BP_AUG_TESLA_DIAGNOSTIC   "tesla diagnostic panel"
+#define BP_AUG_TESLA_LIGHT        "tesla worklight"
+#define BP_AUG_TESLA_OXYGEN       "tesla oxygenation system"
+#define BP_AUG_TESLA_PDA          "tesla internal computer"
+#define BP_AUG_TESLA_THERMAL      "tesla thermal coils"
+#define BP_AUG_TESLA_TRACTION     "tesla traction pads"
+#define BP_AUG_TESLA_WELDER       "tesla arc welder"
 #define BP_AUG_TIMEPIECE          "integrated timepiece"
 #define BP_AUG_TRANSLATOR         "universal translator"
 #define BP_AUG_TOOL               "retractable combitool"
@@ -316,6 +329,9 @@
 #define MOB_SMALL 		6
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
+
+/// Largest mob_size which can fit underneath a table.
+#define TABLE_CRAWL_MAX_MOB_SIZE 12
 
 // Mob weight, separate from mob size. Affects how easy a mob is to lift.
 /// Light mobs, can be lifted by anyone.
