@@ -19,6 +19,8 @@
 	/// Skill component-to-level requirements for flatpak deployment. Null or empty disables skill scaling.
 	/// The largest shortfall determines the time penalty; faster deployment requires exceeding every checked level.
 	var/list/flatpak_required_skills = list(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	/// Whether a flatpak made from this board anchors its machine after deployment.
+	var/flatpak_anchors_machine = TRUE
 
 	recyclable = TRUE
 	matter = list(MATERIAL_GLASS = 500, MATERIAL_PHORON = 10)

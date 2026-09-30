@@ -1106,7 +1106,7 @@
 /area/racers)
 "fic" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/book/manual/tcaf_pamphlet,
+/obj/item/book/manual/wiki/tcaf_pamphlet,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "fjZ" = (

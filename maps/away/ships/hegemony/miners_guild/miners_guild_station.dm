@@ -28,7 +28,6 @@
 	color = "#b07810"
 	scanimage = "unathi_guild_station.png"
 	comms_support = TRUE
-	comms_name = "Miners' Guild"
 	initial_generic_waypoints = list(
 		"miners_guild_nav1",
 		"miners_guild_nav2",
@@ -41,6 +40,9 @@
 	initial_restricted_waypoints = list(
 		"Miners' Guild Shuttle" = list("miners_guild_navhangar")
 	)
+
+/obj/effect/overmap/visitable/sector/miners_guild_station/create_comms_groups()
+	return list("default" = new /datum/comms_group("Miners' Guild"))
 
 /obj/effect/shuttle_landmark/miners_guild
 	base_turf = /turf/space

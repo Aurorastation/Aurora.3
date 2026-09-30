@@ -171,6 +171,13 @@ Class Procs:
 	///Do we want to hook into on_enter_area and on_exit_area?
 	///Disables some optimizations
 	var/always_area_sensitive = FALSE
+	/// Whether Alt-clicking this machine attempts to link a PDA carried or worn by the user.
+	var/pda_linkable = FALSE
+
+/obj/structure/machinery/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(pda_linkable)
+		. += "Alt-click this machine to link or unlink an available modular computer."
 
 /obj/structure/machinery/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -349,6 +356,40 @@ Class Procs:
 			return src.attack_hand(user)
 	else
 		return src.attack_hand(user)
+
+/obj/structure/machinery/AltClick(mob/user)
+	if(!pda_linkable)
+		return ..()
+	if(!user.TurfAdjacent(get_turf(src)))
+		return FALSE
+
+	var/obj/item/modular_computer/pda = user.get_pda_for_linking()
+	if(!pda)
+		to_chat(user, SPAN_WARNING("You do not have a PDA available to link."))
+		return TRUE
+
+	user.visible_message(
+		SPAN_NOTICE("\The [user] swipes \the [pda] over \the [src]."),
+		SPAN_NOTICE("You swipe \the [pda] over \the [src]."),
+		range = 3
+	)
+	add_fingerprint(user)
+	return toggle_pda_link(pda, user)
+
+/// Toggles a PDA's connection to this machine. PDA-linkable machinery should override this.
+/obj/structure/machinery/proc/toggle_pda_link(obj/item/modular_computer/pda, mob/user)
+	return FALSE
+
+/// Returns the label shown for a linked PDA, including the wearer's ID when the PDA has no inserted ID.
+/obj/structure/machinery/proc/get_pda_link_name(obj/item/modular_computer/pda, mob/user)
+	. = pda.name
+	if(pda.card_slot?.stored_card || !ishuman(user))
+		return
+
+	var/mob/living/carbon/human/human_user = user
+	var/obj/item/card/id/worn_id = human_user.wear_id?.GetID()
+	if(worn_id?.registered_name)
+		. += " ([worn_id.registered_name])"
 
 /obj/structure/machinery/attack_hand(mob/user)
 	if(!operable(MAINT))
