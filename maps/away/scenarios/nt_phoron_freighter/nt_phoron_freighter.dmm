@@ -1087,7 +1087,7 @@
 /obj/effect/floor_decal/spline/plain/corner/lime{
 	dir = 1
 	},
-/obj/structure/machinery/suit_cycler/security{
+/obj/structure/machinery/suit_cycler/security/prepared{
 	req_access = null
 	},
 /turf/simulated/floor/tiled,
@@ -5762,7 +5762,7 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/machinery/suit_cycler/security{
+/obj/structure/machinery/suit_cycler/security/prepared{
 	req_access = null
 	},
 /turf/simulated/floor/tiled,
@@ -6390,7 +6390,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/nt_phoron_freighter/fore_halls)
 "ON" = (
-/obj/structure/machinery/suit_cycler/security{
+/obj/structure/machinery/suit_cycler/security/prepared{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7856,7 +7856,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/machinery/suit_cycler/security{
+/obj/structure/machinery/suit_cycler/security/prepared{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
