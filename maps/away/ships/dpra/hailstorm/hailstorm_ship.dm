@@ -11,6 +11,8 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
 	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_GAKAL = 2, SECTOR_BADLANDS = 0.5)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/hailstorm_ship
