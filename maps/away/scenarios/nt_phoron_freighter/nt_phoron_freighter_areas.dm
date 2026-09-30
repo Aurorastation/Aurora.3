@@ -4,6 +4,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_lighting = LIGHT_ENGINEERING_COLORS
 
 /area/ship/nt_phoron_freighter/bridge
 	name = "NanoTrasen Freight Vessel - Command Centre"

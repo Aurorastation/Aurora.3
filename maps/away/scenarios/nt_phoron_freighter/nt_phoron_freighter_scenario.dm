@@ -5,6 +5,8 @@
 		a tanker destined for Tomorrow's Gate."
 	scenario_site_id = "nt_phoron_freighter"
 
+	possible_scenario_canonicity_types = list(/singleton/canonicity/canon_event)
+
 	min_player_amount = 0
 	min_actor_amount = 0
 
