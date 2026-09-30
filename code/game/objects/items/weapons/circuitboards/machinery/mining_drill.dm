@@ -2,7 +2,7 @@
 	name = T_BOARD("mining drill head")
 	build_path = /obj/structure/machinery/mining/drill
 	board_type = BOARD_MACHINE
-	anchors_constructed_machine = FALSE
+	anchor_on_construction = FALSE
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(
 							"/obj/item/stock_parts/capacitor" = 1,
@@ -14,6 +14,6 @@
 	name = T_BOARD("mining drill brace")
 	build_path = /obj/structure/machinery/mining/brace
 	board_type = BOARD_MACHINE
-	anchors_constructed_machine = FALSE
+	anchor_on_construction = FALSE
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list()

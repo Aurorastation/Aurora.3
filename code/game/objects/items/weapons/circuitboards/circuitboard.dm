@@ -20,7 +20,7 @@
 	/// The largest shortfall determines the time penalty; faster deployment requires exceeding every checked level.
 	var/list/flatpak_required_skills = list(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	/// Whether machinery constructed from this board is anchored on completion.
-	var/anchors_constructed_machine = TRUE
+	var/anchor_on_construction = TRUE
 
 	recyclable = TRUE
 	matter = list(MATERIAL_GLASS = 500, MATERIAL_PHORON = 10)

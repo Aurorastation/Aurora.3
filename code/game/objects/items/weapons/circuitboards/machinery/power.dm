@@ -30,7 +30,7 @@
 	build_path = /obj/structure/machinery/floodlight
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
-	anchors_constructed_machine = FALSE
+	anchor_on_construction = FALSE
 	req_components = list(
 		"/obj/item/cell" = 1
 	)

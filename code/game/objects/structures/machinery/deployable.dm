@@ -357,7 +357,7 @@ Deployable Kits
 	var/obj/deployed_machine
 	if(ispath(machine_type, /obj/structure/machinery))
 		var/obj/item/circuitboard/board = new circuit_type
-		var/anchor_machine = board.anchors_constructed_machine
+		var/anchor_machine = board.anchor_on_construction
 		var/obj/structure/machinery/machine = new machine_type(deployment_turf, user.dir, FALSE)
 		machine.component_parts = list()
 
