@@ -216,6 +216,7 @@
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
+	lift_capacity_multiplier = 1
 	icon = 'icons/obj/item/clothing/rig/offworlder.dmi'
 	icon_state = "offworlder_rig"
 	icon_supported_species_tags = null
@@ -259,6 +260,7 @@
 /obj/item/rig/light/offworlder/frontier
 	name = "advanced mobility hardsuit control module"
 	desc = "Patterned off of the standard Exo-Stellar Skeleton, this sophisticated and light hardsuit is a staple of many armed forces throughout the Frontier. The mobility it grants compared to bulkier suits, while still packing the potential for a versatile toolset, has made it especially popular in the often cramped environments of ships and stations."
+	lift_capacity_multiplier = 2.25
 	icon = 'icons/obj/item/clothing/rig/frontier.dmi'
 	icon_state = "frontier_rig"
 	suit_type = "advanced mobility hardsuit"

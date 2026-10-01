@@ -225,9 +225,10 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
-	alt_titles = list("Foreign Service Officer", "Party Representative", "Kreshwan")
+	alt_titles = list("Civil Service Functionaire", "Foreign Service Officer", "Party Representative", "Kreshwan")
 	alt_citizenships = list(
-		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Consular Officer" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Civil Service Functionaire" = list("Republic of Biesel"),
 		"Foreign Service Officer" = list("Sol Alliance"),
 		"Party Representative" = list("People's Republic of Adhomai"),
 		"Kreshwan" = list("Karszekani Moghes")
@@ -350,6 +351,13 @@
 	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+	check_citizenship_in_preferences = FALSE
+
+	alt_titles = list("Civil Service Aide")
+	alt_citizenships = list(
+		"Diplomatic Aide" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Civil Service Aide" = list("Republic of Biesel")
+	)
 
 /datum/job/diplomatic_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -396,6 +404,13 @@
 	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+	check_citizenship_in_preferences = FALSE
+
+	alt_titles = list("Civil Service Bodyguard")
+	alt_citizenships = list(
+		"Diplomatic Bodyguard" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Civil Service Bodyguard" = list("Republic of Biesel")
+	)
 
 /datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -425,7 +440,7 @@
 	title = "Corporate Aide"
 	flag = GLOB.DIPLOMAT_AIDE
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
-	department_flag = ENGSEC
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 0 //manually opened by representative
 	spawn_positions = 0

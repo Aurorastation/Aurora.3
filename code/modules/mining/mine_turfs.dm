@@ -729,6 +729,14 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 /turf/simulated/mineral/adhomai
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
+/turf/unsimulated/mineral/adhomai
+	color = "#97A7AA"
+
+/turf/unsimulated/mineral/cave/adhomai
+	icon = 'icons/turf/smooth/cave.dmi'
+	icon_state = "preview_wall_unsimulated"
+	color = "#97A7AA"
+
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
 	mined_turf = /turf/simulated/floor/exoplanet/basalt/crystal

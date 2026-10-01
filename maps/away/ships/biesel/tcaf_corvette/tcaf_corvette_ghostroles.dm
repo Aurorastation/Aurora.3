@@ -82,7 +82,8 @@
 /obj/outfit/admin/tcaf_crewman/espatier
 	name = "TCAF Republic Astroforce Espatier"
 	head = /obj/item/clothing/head/softcap/tcaf_cap
-	uniform = /obj/item/clothing/under/tcaf/espatier
+	uniform = /obj/item/clothing/under/dressshirt/tcaf/espatier
+	pants = /obj/item/clothing/pants/tcaf
 	gloves = /obj/item/clothing/gloves/tcaf
 
 /datum/ghostspawner/human/tcaf_crewman/nco
