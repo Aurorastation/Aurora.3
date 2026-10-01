@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - bugfix: "Makeshift armor no longer makes you immortal."
   - bugfix: "Fixed some timing issues with wielded full auto weapons."
+  - bugfix: "Portals now handle projectiles properly when mobs are on the same turf."
