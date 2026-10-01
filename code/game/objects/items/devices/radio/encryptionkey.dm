@@ -34,6 +34,8 @@
 		V = get_map_sector(sector_z)
 		if(!istype(V) || !V.comms_support)
 			return INITIALIZE_HINT_NORMAL
+	else
+		return INITIALIZE_HINT_NORMAL
 
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
