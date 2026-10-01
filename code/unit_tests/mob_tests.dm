@@ -135,6 +135,56 @@
 		qdel(H)
 		return TRUE
 
+	H.resting = TRUE
+	if(!eyes.can_toggle_eyes())
+		TEST_FAIL("A resting human could not toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.resting = FALSE
+	H.SetWeakened(1)
+	if(!eyes.can_toggle_eyes())
+		TEST_FAIL("A weakened human could not toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetWeakened(0)
+	H.SetStunned(1)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A stunned human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetStunned(0)
+	H.set_stat(UNCONSCIOUS)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("An unconscious human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.set_stat(CONSCIOUS)
+	H.SetParalysis(1)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A paralyzed human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetParalysis(0)
+	H.SetSleeping(1)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A sleeping human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetSleeping(0)
+	H.set_stat(DEAD)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A dead human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.set_stat(CONSCIOUS)
+
 	eyes.eyes_closed = TRUE
 	if(!H.is_blind())
 		TEST_FAIL("A human with closed eyes was not considered blind.")
