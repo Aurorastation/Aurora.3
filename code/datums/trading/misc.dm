@@ -219,6 +219,12 @@
 /datum/trader/ship/vaurca
 	origin = "The Hive Shop"
 	name_language = LANGUAGE_VAURCA
+	trade_flags = TRADER_GOODS|TRADER_WANTED_ONLY
+
+	possible_wanted_items = list(
+		/obj/item/reagent_containers/food/snacks/grown/kois = TRADER_THIS_TYPE,
+		/obj/item/stack/material/phoron = TRADER_THIS_TYPE
+	)
 
 	possible_trading_items = list(
 		/obj/item/clothing/mask/gas/vaurca            = TRADER_THIS_TYPE,
@@ -251,6 +257,17 @@
 		"insult_good"          = "Your humor izzz odd.",
 		"insult_bad"           = "I do not take inzzultzz kindly."
 	)
+
+/datum/trader/ship/vaurca/is_wanted_item(atom/movable/offer)
+	if(..())
+		return TRUE
+	if(!istype(offer, /obj/item/reagent_containers/glass))
+		return FALSE
+
+	var/obj/item/reagent_containers/glass/container = offer
+	if(!container.reagents || container.reagents.reagent_volumes.len != 1)
+		return FALSE
+	return container.reagents.has_reagent(/singleton/reagent/toxin/phoron)
 
 /datum/trader/ship/nka_trading_company
 	name = "Her Majesty's Mercantile Flotilla Ship"
