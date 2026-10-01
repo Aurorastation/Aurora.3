@@ -4133,10 +4133,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_one/main)
-"tW" = (
-/obj/structure/machinery/light/spot,
-/turf/simulated/floor/plating,
-/area/runtime/floor_one/construction)
 "ua" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -7008,11 +7004,9 @@
 /turf/simulated/floor/tiled/gridded,
 /area/runtime/floor_one/atmospherics)
 "Kf" = (
-/obj/structure/machinery/light/spot{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/runtime/floor_one/construction)
+/obj/effect/shuttle_landmark/runtime/dock/east,
+/turf/template_noop,
+/area/template_noop)
 "Kg" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -8452,12 +8446,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open,
 /area/runtime/floor_two/main)
-"St" = (
-/obj/structure/machinery/light/spot{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/runtime/floor_one/construction)
 "Sw" = (
 /obj/effect/floor_decal/spline/plain/paleblue{
 	dir = 1
@@ -9700,12 +9688,6 @@
 /obj/effect/floor_decal/industrial/hatch_small/yellow,
 /turf/simulated/floor/tiled/bitile/middle,
 /area/runtime/floor_one/atmospherics)
-"Zu" = (
-/obj/structure/machinery/light/spot{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/runtime/floor_one/construction)
 "Zv" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -18438,7 +18420,7 @@ aa
 aa
 aa
 aa
-aa
+Kf
 aa
 aa
 aa
@@ -22831,7 +22813,7 @@ dt
 dt
 dt
 dt
-St
+dt
 dt
 dt
 dt
@@ -23087,9 +23069,9 @@ dt
 dt
 dt
 dt
-tW
-fG
-Kf
+dt
+dt
+dt
 dt
 dt
 dt
@@ -23345,7 +23327,7 @@ dt
 dt
 dt
 dt
-Zu
+dt
 dt
 dt
 dt
