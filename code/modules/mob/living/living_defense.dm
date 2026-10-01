@@ -42,7 +42,7 @@
 	return BULLET_ACT_HIT
 
 /mob/living/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-	. = ..()
+	. = ..(hitting_projectile, def_zone, piercing_hit, FALSE)
 	if(. != BULLET_ACT_HIT)
 		return .
 
@@ -68,8 +68,12 @@
 	//Armor, right above our skin, can soften the hit
 
 	// we need a second, silent armor check to actually know how much to reduce damage taken, as opposed to
-	// on [/atom/proc/bullet_act] where it's just to pass it to the projectile's on_hit().
+	// the non-living atom check, where it is only used by the projectile's on_hit().
 	blocked = check_projectile_armor(def_zone, hitting_projectile, is_silent = TRUE)
+
+	. = hitting_projectile.on_hit(src, blocked, def_zone)
+	if(. != BULLET_ACT_HIT)
+		return .
 
 	var/damage = hitting_projectile.damage //We use a supporting variable to store the damage, since we can alter it below
 	//If it's anti material vulnerable, apply the anti-material potential factor
