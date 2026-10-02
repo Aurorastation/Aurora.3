@@ -218,7 +218,7 @@
 	if(jobban_isbanned(user, "Dionaea"))
 		to_chat(user, SPAN_WARNING("You are banned from playing Dionae and other living plants!"))
 		return
-	var/response = alert(user, "Are you sure you want to harvest this [seed.display_name]?", "Living Plant Request", "Yes", "No")
+	var/response = tgui_alert(user, "Are you sure you want to harvest this [seed.display_name]?", "Living Plant Request", list("Yes", "No"))
 	if(response == "Yes")
 		harvest()
 

@@ -134,10 +134,10 @@ SUBSYSTEM_DEF(distress)
 	if(SSdistress.send_emergency_team)
 		to_chat(usr, SPAN_DANGER("[SSatlas.current_map.boss_name] has already dispatched an emergency response team!"))
 		return
-	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
+	if(tgui_alert(usr, "Do you want to dispatch an Emergency Response Team?", , list("Yes", "No")) != "Yes")
 		return
 	if(get_security_level() != "red") // Allow admins to reconsider if the alert level isn't Red
-		switch(alert("The ship is not on red alert. Do you still want to dispatch a response team?",,"Yes","No"))
+		switch(tgui_alert(usr, "The ship is not on red alert. Do you still want to dispatch a response team?", , list("Yes", "No")))
 			if("No")
 				return
 

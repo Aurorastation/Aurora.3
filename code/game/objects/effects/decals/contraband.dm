@@ -144,7 +144,7 @@
 	if(user.a_intent == I_HELP)
 		examinate(user, src)
 		return
-	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
+	if(tgui_alert(usr, "Do I want to rip the poster from the wall?", "You think...", list("Yes", "No")) == "Yes")
 		if(ruined || !user.Adjacent(src))
 			return
 		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!") )

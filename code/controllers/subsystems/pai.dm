@@ -314,7 +314,7 @@ SUBSYSTEM_DEF(pai)
 		return
 	asked.Add(C.key)
 	asked[C.key] = world.time
-	var/response = alert(C, "[inquirer] is requesting a pAI personality. Would you like to play as a personal AI?", "pAI Request", "Yes", "No", "Never for this round")
+	var/response = tgui_alert(C, "[inquirer] is requesting a pAI personality. Would you like to play as a personal AI?", "pAI Request", list("Yes", "No", "Never for this round"))
 	if(!C)	return		//handle logouts that happen whilst the alert is waiting for a response.
 	if(response == "Yes")
 		recruitWindow(C.mob)

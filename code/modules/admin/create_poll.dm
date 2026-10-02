@@ -45,7 +45,7 @@
 			to_chat(src, "Datetime entered is not later than current server time.")
 			return
 	var/adminonly
-	switch(alert("Admin only poll?",,"Yes","No","Cancel"))
+	switch(tgui_alert(usr, "Admin only poll?", , list("Yes", "No", "Cancel")))
 		if("Yes")
 			adminonly = 1
 		if("No")
@@ -99,7 +99,7 @@
 			return
 		option = sanitizeSQL(option)
 		var/percentagecalc
-		switch(alert("Calculate option results as percentage?",,"Yes","No","Cancel"))
+		switch(tgui_alert(usr, "Calculate option results as percentage?", , list("Yes", "No", "Cancel")))
 			if("Yes")
 				percentagecalc = 1
 			if("No")
@@ -135,7 +135,7 @@
 			var/err = query_polladd_option.ErrorMsg()
 			to_chat(src, "SQL ERROR adding new poll option to table. Error : \[[err]\]\n")
 			return
-		switch(alert(" ",,"Add option","Finish"))
+		switch(tgui_alert(usr, " ", , list("Add option", "Finish")))
 			if("Add option")
 				add_option = 1
 			if("Finish")

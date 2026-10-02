@@ -45,7 +45,7 @@
 	message_admins(SPAN_DANGER("[antag.mob]([antag.ckey]) attempted to convert [player.current]."))
 
 	player.rev_cooldown = world.time+100
-	var/choice = alert(player.current,"Asked by [antag.mob]: Do you want to join the [faction.faction_descriptor]?","Join the [faction.faction_descriptor]?","No!","Yes!")
+	var/choice = tgui_alert(player.current, "Asked by [antag.mob]: Do you want to join the [faction.faction_descriptor]?", "Join the [faction.faction_descriptor]?", list("No!", "Yes!"))
 	if(choice == "Yes!" && faction.add_antagonist_mind(player, 0, faction.faction_role_text, faction.faction_welcome))
 		to_chat(antag, SPAN_NOTICE("\The [player.current] joins the [faction.faction_descriptor]!"))
 		return

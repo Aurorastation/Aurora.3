@@ -151,7 +151,7 @@
 		if(H.check_has_mouth())
 			// The end of an era: no more force-feeding people crayons.
 			if(user != target_mob)
-				var/crayon_eater_response = alert(target_mob, "[user] is trying to feed you a crayon. How hungry are you?", "Hunger", "Very hungry!", "Not that hungry.")
+				var/crayon_eater_response = tgui_alert(target_mob, "[user] is trying to feed you a crayon. How hungry are you?", "Hunger", list("Very hungry!", "Not that hungry."))
 				// The ungrateful bastard doesn't want to eat any crayon.
 				if(crayon_eater_response == "Not that hungry.")
 					target_mob.visible_message(SPAN_NOTICE("[target_mob] pushes away the crayon [user] held out for them to eat."),
