@@ -51352,9 +51352,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/intrepid/interstitial)
 "gGu" = (
-/obj/structure/table/rack{
-	dir = 8
-	},
 /obj/random/glowstick,
 /obj/random/glowstick,
 /obj/random/hardhat,
