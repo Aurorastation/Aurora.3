@@ -834,7 +834,7 @@
 	items = list(
 		/obj/item/roller/hover
 	)
-	access = ACCESS_MEDICAL
+	access = /datum/access/medical::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
