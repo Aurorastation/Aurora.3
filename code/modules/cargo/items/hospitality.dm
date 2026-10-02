@@ -687,7 +687,7 @@
 /singleton/cargo_item/dynjuice
 	category = "hospitality"
 	name = "dyn juice carton"
-	supplier = "meng"
+	supplier = "orion"
 	description = "Juice from a skrell medicinal herb. It's supposed to be diluted."
 	price = 4
 	items = list(
@@ -1323,7 +1323,7 @@
 /singleton/cargo_item/skrellbeerdyn
 	category = "hospitality"
 	name = "Qel'Zvol Hospitality's Prestige Dyn Beer (x6)"
-	supplier = "meng"
+	supplier = "orion"
 	description = "A half-dozen pack of Qel'Zvol Hospitality's Prestige dyn beers, for cracking open a cold one."
 	price = 21
 	items = list(
@@ -1534,7 +1534,7 @@
 /singleton/cargo_item/skrellwineylpha
 	category = "hospitality"
 	name = "Federation's Finest Ylpha Wine"
-	supplier = "meng"
+	supplier = "orion"
 	description = "A popular type of skrell wine made from fermented ylpha berries."
 	price = 30
 	items = list(

@@ -104,7 +104,7 @@
 /singleton/cargo_item/hover_stool
 	category = "miscellaneous"
 	name = "hover stool"
-	supplier = "meng"
+	supplier = "orion"
 	description = "A stool produced in the Nralakk Federation, supported by advanced hover technology."
 	price = 37.5
 	items = list(
@@ -134,7 +134,7 @@
 /singleton/cargo_item/hover_stool_set
 	category = "miscellaneous"
 	name = "hover stool (x4)"
-	supplier = "meng"
+	supplier = "orion"
 	description = "A stool produced in the Nralakk Federation, supported by advanced hover technology."
 	price = 150
 	items = list(
