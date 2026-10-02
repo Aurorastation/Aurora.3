@@ -46,7 +46,7 @@
 		return FALSE
 	if(istype(attacking_item, /obj/item/card/id))
 		var/obj/item/card/id/ID = attacking_item
-		if(ACCESS_KEYCARD_AUTH in ID.access)
+		if(/datum/access/keycard_auth::id in ID.access)
 			if(active == 1)
 				//This is not the device that made the initial request. It is the device confirming the request.
 				if(event_source)
@@ -220,9 +220,9 @@ GLOBAL_VAR_INIT(maint_all_access, FALSE)
 	if(!I)
 		return ..(M)
 	var/list/A = I.GetAccess()
-	var/maint_sec_access = ((GLOB.security_level > SEC_LEVEL_GREEN) && has_access(ACCESS_SECURITY, accesses = A))
+	var/maint_sec_access = ((GLOB.security_level > SEC_LEVEL_GREEN) && has_access(/datum/access/security::id, accesses = A))
 	var/exceptional_circumstances = GLOB.maint_all_access || maint_sec_access
-	if(exceptional_circumstances && src.check_access_list(list(ACCESS_MAINT_TUNNELS)))
+	if(exceptional_circumstances && src.check_access_list(list(/datum/access/maint_tunnels::id)))
 		return TRUE
 	if(access_by_level || req_one_access_by_level)
 		var/sec_level = get_security_level()

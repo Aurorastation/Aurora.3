@@ -216,6 +216,23 @@ var/global/enabled_spooking = 0
 				body += "<a href='byond://?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#006600'>[k]</a>"
 			else
 				body += "<a href='byond://?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#ff0000'>[k]</a>"
+	// skills
+	body += "<br><br><b>Skills:</b><br>"
+	for(var/singleton/skill_category/category as anything in SSskills.skill_tree)
+		body += "<b>[category.name]</b><br>"
+		for(var/subcategory in SSskills.skill_tree[category])
+			for(var/singleton/skill/skill as anything in SSskills.skill_tree[category][subcategory])
+				body += "[skill.name]: "
+				var/datum/component/skill/skill_component = M.GetComponent(skill.component_type)
+				var/first_level = TRUE
+				for(var/skill_level in skill.skill_level_descriptions)
+					if(!first_level)
+						body += " | "
+					first_level = FALSE
+					var/skill_level_name = skill.skill_level_map[skill_level]
+					var/skill_link = "<a href='byond://?src=[REF(src)];setskill=[REF(M)];skill=[html_encode("[skill.type]")];skill_level=[skill_level]'>[skill_level_name]</a>"
+					body += skill_component?.skill_level == skill_level ? "<b>[skill_link]</b>" : skill_link
+				body += "<br>"
 
 	body += {"<br>
 		</body></html>
@@ -982,7 +999,7 @@ var/global/enabled_spooking = 0
 	if(!seedtype || !SSplants.seeds[seedtype])
 		return
 	var/datum/seed/S = SSplants.seeds[seedtype]
-	S.harvest(usr,0,0,1)
+	S.spawn_seed(get_turf(usr))
 	log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
 
 /datum/admins/proc/spawn_custom_item()

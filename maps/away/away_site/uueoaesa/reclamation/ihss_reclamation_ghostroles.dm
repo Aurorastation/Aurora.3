@@ -27,7 +27,7 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/ihss_reclamation/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/ihss_reclamation/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(isvaurca(H))
@@ -80,4 +80,4 @@
 	accessory_contents = /obj/item/gun/energy/pistol/hegemony
 
 /obj/outfit/admin/ihss_reclamation/captain/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/kataphract/knight::id, /datum/access/external_airlocks::id)

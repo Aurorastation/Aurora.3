@@ -5,7 +5,7 @@
 	icon_state = "posibrain"
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 	can_be_ipc = TRUE
 
 	should_use_health = TRUE

@@ -21,6 +21,10 @@
 	var/mob/living/carbon/human/H = M
 	if(!M.can_use_hand())
 		return
+	if(crawling_under_table && istype(H) && H.a_intent == I_GRAB)
+		var/obj/structure/table/table = get_crawlable_table()
+		if(table?.pull_crawler_out(H, src))
+			return TRUE
 
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
@@ -97,6 +101,11 @@
 
 			return
 
+	var/obj/item/organ/external/selected_organ = get_organ(M.zone_sel.selecting)
+	if(selected_organ?.robotic && selected_organ.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_ANCHORS_RELEASED)
+		if(M == src || M.a_intent == I_HELP)
+			return manually_detach_prosthetic(selected_organ, user = M)
+
 	var/datum/martial_art/attacker_style = H.primary_martial_art
 
 	switch(M.a_intent)
@@ -113,7 +122,12 @@
 			return 1
 
 		if(I_GRAB)
-			if(M == src || anchored)
+			if(M == src)
+				if(!selected_organ || !selected_organ.robotic)
+					return 0
+				return manually_detach_prosthetic(selected_organ)
+
+			if(anchored)
 				return 0
 			if(M.is_pacified())
 				to_chat(M, SPAN_NOTICE("You don't want to risk hurting [src]!"))

@@ -1,5 +1,66 @@
 /datum/design/circuit/machine
 	p_category = "Machine Circuit Designs"
+	category = "Flatpaks"
+	build_type = IMPRINTER | MECHFAB
+	var/list/flatpak_materials
+
+/datum/design/circuit/machine/New()
+	..()
+	var/obj/item/circuitboard/board = build_path
+	var/product_path = initial(board.build_path)
+	if(istext(product_path))
+		product_path = text2path(product_path)
+	if(!ispath(product_path, /obj))
+		build_type &= ~MECHFAB
+
+/datum/design/circuit/machine/GetFabricationName(var/fabricator)
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return "[name] flatpak"
+	return ..()
+
+/datum/design/circuit/machine/GetFabricationDesc(var/fabricator)
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return "A deployable flatpak containing everything needed to set up \a [lowertext(name)]."
+	return ..()
+
+/datum/design/circuit/machine/GetFabricationMaterials(var/fabricator)
+	if(!istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return ..()
+	if(flatpak_materials)
+		return flatpak_materials
+
+	// Start with the material cost of printing the circuit board itself.
+	flatpak_materials = materials.Copy()
+
+	// A normal machine blueprint consumes two steel sheets and five cable lengths.
+	flatpak_materials[MATERIAL_STEEL] = (flatpak_materials[MATERIAL_STEEL] || 0) + (2 * SHEET_MATERIAL_AMOUNT)
+	var/obj/item/stack/cable_coil/cable = new
+	for(var/material in cable.matter)
+		flatpak_materials[material] = (flatpak_materials[material] || 0) + (cable.matter[material] * 5)
+	qdel(cable)
+
+	// Add the raw material value of every component required by the related board.
+	var/obj/item/circuitboard/board = new build_path
+	for(var/component_type in board.req_components)
+		var/component_path = component_type
+		if(istext(component_path))
+			component_path = text2path(component_path)
+		if(!ispath(component_path, /obj/item))
+			continue
+		var/obj/item/component = new component_path
+		var/component_count = board.req_components[component_type]
+		for(var/material in component.matter)
+			flatpak_materials[material] = (flatpak_materials[material] || 0) + (component.matter[material] * component_count)
+		qdel(component)
+	qdel(board)
+
+	SSmaterials.normalize_material_amounts(flatpak_materials)
+	return flatpak_materials
+
+/datum/design/circuit/machine/Fabricate(var/newloc, var/fabricator)
+	if(istype(fabricator, /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator))
+		return new /obj/item/flatpak(newloc, build_path, GetFabricationMaterials(fabricator))
+	return ..()
 
 /datum/design/circuit/machine/arcademachine
 	name = "Battle Arcade Machine"
@@ -15,6 +76,7 @@
 	name = "Destructive Analyzer"
 	req_tech = list(TECH_DATA = 2, TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/destructive_analyzer
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/protolathe
 	name = "Protolathe"
@@ -25,6 +87,11 @@
 	name = "Circuit Imprinter"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/circuit_imprinter
+
+/datum/design/circuit/machine/material_silo
+	name = "Material Silo"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
+	build_path = /obj/item/circuitboard/material_silo
 
 /datum/design/circuit/machine/autolathe
 	name = "Autolathe"
@@ -40,16 +107,19 @@
 	name = "R&D Server Control Console"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdservercontrol
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/rdserver
 	name = "R&D Server"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/rdtechprocessor
 	name = "R&D Tech Processor"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdtechprocessor
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"
@@ -85,6 +155,11 @@
 	name = "Cell Charger"
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 1)
 	build_path = /obj/item/circuitboard/cell_charger
+
+/datum/design/circuit/machine/recharger/cell_charger/rack
+	name = "Cell Charger Rack"
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/cell_charger/rack
 
 /datum/design/circuit/machine/holopadboard
 	name = "Holopad"
@@ -185,6 +260,16 @@
 	name = "Cell Rack PSU"
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/batteryrack
+
+/datum/design/circuit/machine/radial_floodlight
+	name = "Radial Floodlight"
+	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/radial_floodlight
+
+/datum/design/circuit/machine/floodlight
+	name = "Industrial Floodlight"
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	build_path = /obj/item/circuitboard/floodlight
 
 /datum/design/circuit/machine/smes_cell
 	name = "'SMES' Superconductive Magnetic Energy Storage"

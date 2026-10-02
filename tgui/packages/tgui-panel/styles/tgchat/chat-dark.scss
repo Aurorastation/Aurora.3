@@ -701,6 +701,25 @@ em {
   padding: 0;
 }
 
+.examine_foldout {
+  summary {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__content {
+    margin-left: 1em;
+    margin-top: 0.35em;
+  }
+
+  &__divider {
+    border: 0;
+    border-top: 1px solid currentColor;
+    margin: 0.5em 0 0;
+    opacity: 0.25;
+  }
+}
+
 .tooltip {
   font-style: italic;
   border-bottom: 1px dashed;

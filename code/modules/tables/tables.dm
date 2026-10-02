@@ -32,6 +32,14 @@
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
+/obj/structure/table/proc/can_crawl_under()
+	return !flipped && (pass_flags_self & PASSTABLE) && !reinforced
+
+/obj/structure/table/proc/clear_table_crawlers()
+	for(var/mob/living/carbon/human/human in get_turf(src))
+		if(human.crawling_under_table)
+			human.stop_crawling_under_table()
+
 /obj/structure/table/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health < maxhealth)
 		switch(health / maxhealth)
@@ -164,6 +172,7 @@
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/structure/table/Destroy()
+	clear_table_crawlers()
 	material = null
 	reinforced = null
 	update_connections(1) // Update tables around us to ignore us (material=null forces no connections)
@@ -190,6 +199,8 @@
 
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
+		if(!can_crawl_under())
+			clear_table_crawlers()
 		update_desc()
 		queue_icon_update()
 		update_material()
@@ -258,13 +269,14 @@
 	if(manipulating)
 		return
 	manipulating = TRUE
-	user.visible_message("<b>[user]</b> begins dismantling \the [src].",
-						SPAN_NOTICE("You begin dismantling \the [src]."))
-	if(!W.use_tool(src, user, 20, volume = 50))
-		manipulating = FALSE
-		return
-	user.visible_message("\The [user] dismantles \the [src].",
-						SPAN_NOTICE("You dismantle \the [src]."))
+	if(W && user)
+		user.visible_message("<b>[user]</b> begins dismantling \the [src].",
+							SPAN_NOTICE("You begin dismantling \the [src]."))
+		if(!W.use_tool(src, user, 20, volume = 50))
+			manipulating = FALSE
+			return
+		user.visible_message("\The [user] dismantles \the [src].",
+							SPAN_NOTICE("You dismantle \the [src]."))
 	new dismantle_mat(src.loc)
 	qdel(src)
 

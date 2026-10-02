@@ -15,7 +15,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
+	job_access = list(/datum/access/journalist::id, /datum/access/maint_tunnels::id)
 	alt_titles = list("Independent Reporter", "Corporate Journalist", "Independent Journalist", "Media Broadcaster")
 	alt_factions = list(
 		"Corporate Reporter" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
@@ -26,8 +26,8 @@
 	)
 
 	title_accesses = list(
-		"Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE),
-		"Corporate Journalist" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE)
+		"Corporate Reporter" = list(/datum/access/medical::id, /datum/access/sec_doors::id, /datum/access/research::id, /datum/access/engine::id),
+		"Corporate Journalist" = list(/datum/access/medical::id, /datum/access/sec_doors::id, /datum/access/research::id, /datum/access/engine::id)
 	)
 
 	outfit = /obj/outfit/job/journalist
@@ -94,7 +94,7 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	job_access = list(ACCESS_LAWYER)
+	job_access = list(/datum/access/lawyer::id)
 	alt_titles = list(
 		"Workplace Liaison",
 		"Corporate Representative",
@@ -225,9 +225,10 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
-	alt_titles = list("Foreign Service Officer", "Party Representative", "Kreshwan")
+	alt_titles = list("Civil Service Functionaire", "Foreign Service Officer", "Party Representative", "Kreshwan")
 	alt_citizenships = list(
-		"Consular Officer" = list("Republic of Biesel", "Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Consular Officer" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Civil Service Functionaire" = list("Republic of Biesel"),
 		"Foreign Service Officer" = list("Sol Alliance"),
 		"Party Representative" = list("People's Republic of Adhomai"),
 		"Kreshwan" = list("Karszekani Moghes")
@@ -239,7 +240,7 @@
 		SPECIES_SKRELL_AXIORI = 100
 	)
 
-	job_access = list(ACCESS_CONSULAR)
+	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
 	blacklisted_citizenship = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
@@ -347,9 +348,16 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_CONSULAR)
+	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/diplomatic_aide
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+	check_citizenship_in_preferences = FALSE
+
+	alt_titles = list("Civil Service Aide")
+	alt_citizenships = list(
+		"Diplomatic Aide" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Civil Service Aide" = list("Republic of Biesel")
+	)
 
 /datum/job/diplomatic_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -393,9 +401,16 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_CONSULAR)
+	job_access = list(/datum/access/consular::id)
 	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+	check_citizenship_in_preferences = FALSE
+
+	alt_titles = list("Civil Service Bodyguard")
+	alt_citizenships = list(
+		"Diplomatic Bodyguard" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
+		"Civil Service Bodyguard" = list("Republic of Biesel")
+	)
 
 /datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -425,7 +440,7 @@
 	title = "Corporate Aide"
 	flag = GLOB.DIPLOMAT_AIDE
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
-	department_flag = ENGSEC
+	department_flag = SERVICE
 	faction = "Station"
 	total_positions = 0 //manually opened by representative
 	spawn_positions = 0
@@ -439,7 +454,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_LAWYER)
+	job_access = list(/datum/access/lawyer::id)
 	outfit = /obj/outfit/job/corporate_aide
 
 /obj/outfit/job/corporate_aide

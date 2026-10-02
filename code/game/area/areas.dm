@@ -80,6 +80,10 @@
 	var/no_light_control = FALSE
 	/// If TRUE, lights in area will be darkened by the night mode controller.
 	var/allow_nightmode = FALSE
+	/// If TRUE, lights will initialize in nightmode state.
+	var/starts_with_nightmode = FALSE
+	/// If TRUE, lights will be guaranteed to initialize without being broken by chance.
+	var/lights_start_intact = FALSE
 	var/emergency_lights = FALSE
 
 	/**
@@ -134,10 +138,8 @@
 	. = ..()
 
 /area/Initialize(mapload)
-#ifdef UNIT_TEST
-	if (!islist(ambience))
-		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
-#endif
+	if(ambience && !islist(ambience))
+		ambience = list(ambience)
 
 	icon_state = "white"
 	color = null

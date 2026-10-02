@@ -188,7 +188,7 @@
 	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 5 SECONDS, src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
+	if(!do_after(user, user.get_conditioning_action_delay(5 SECONDS), src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		LAZYREMOVE(climbers, user)
 		return
 

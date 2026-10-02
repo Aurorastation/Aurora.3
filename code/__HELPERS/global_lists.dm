@@ -128,7 +128,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/visualnet/camera, new)
 /// Escape locations for Nar'Sie. Escape shuttles, generally.
 GLOBAL_LIST_EMPTY(escape_list)
 
-GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS))
+GLOBAL_LIST_INIT(syndicate_access, list(/datum/access/maint_tunnels::id, /datum/access/syndicate::id, /datum/access/external_airlocks::id))
 
 /// Cloaking devices.
 GLOBAL_LIST_EMPTY(cloaking_devices)

@@ -17,6 +17,7 @@
 	secondary_fire_sound = null
 	charge_failure_message = "'s charging socket was removed to make room for a crank."
 	var/is_charging = FALSE
+	has_unique_gun_action = TRUE
 
 	firemodes = list()
 	modifystate = null

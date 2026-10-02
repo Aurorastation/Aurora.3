@@ -9,7 +9,7 @@
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	vend_id = "admin"
-	req_access = list(ACCESS_JANITOR)
+	req_access = list(/datum/access/janitor::id)
 	products = list(
 		/obj/item/vending_refill/booze = 2,
 		/obj/item/vending_refill/tools = 2,

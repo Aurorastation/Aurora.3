@@ -20,6 +20,7 @@
 @include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/Changelog.scss');
 @include meta.load-css('./interfaces/CharacterSetup.scss');
+@include meta.load-css('./interfaces/Chess.scss');
 @include meta.load-css('./interfaces/CrewManifest.scss');
 @include meta.load-css('./interfaces/Emojipedia.scss');
 @include meta.load-css('./interfaces/ExperimentConfigure.scss');
@@ -62,6 +63,8 @@
 @include meta.load-css('./interfaces/Radio.scss');
 @include meta.load-css('./interfaces/LoreConsole.scss');
 @include meta.load-css('./interfaces/ResearchFabricator.scss');
+@include meta.load-css('./interfaces/SurgeryPlanner.scss');
+@include meta.load-css('./interfaces/Medical.scss');
 
 // Layouts
 @include meta.load-css('./layouts/Layout.scss');
