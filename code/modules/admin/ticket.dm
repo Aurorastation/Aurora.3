@@ -304,15 +304,15 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 				usr.client.cmd_admin_pm(client_by_ckey(ticket.owner), ticket = ticket)
 			else if(ticket.status == TICKET_ASSIGNED)
 				// manually check that the target client exists here as to not spam the usr for each logged out admin on the ticket
-				var/admin_found = 0
+				var/admin_found = FALSE
 				for(var/admin in ticket.assigned_admins)
 					var/client/admin_client = client_by_ckey(admin)
-					if(admin_client)
-						admin_found = 1
+					if(admin_client?.holder && ((R_ADMIN|R_MOD) & admin_client.holder.rights))
+						admin_found = TRUE
 						usr.client.cmd_admin_pm(admin_client, ticket = ticket)
 						break
 				if(!admin_found)
-					to_chat(usr, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so please be patient!"))
+					usr.client.adminhelp(input(usr,"", "adminhelp \"text\"") as text)
 			else
 				usr.client.adminhelp(input(usr,"", "adminhelp \"text\"") as text)
 
