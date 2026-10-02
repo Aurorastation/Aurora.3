@@ -326,7 +326,7 @@
 
 
 /datum/gear/suit/winter
-	display_name = "winter coat selection"
+	display_name = "departmental winter coat selection"
 	description = "A selection of coats for the thermally challenged."
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
 
@@ -350,7 +350,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(wintercoat)
 
 /datum/gear/suit/winter_colorable
-	display_name = "colorable winter suits"
+	display_name = "colorable winter coat selection"
 	description = "A colorable winter coat for the thermally challenged."
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
