@@ -87,9 +87,6 @@
 
 /**
  * Returns the mob currently controlled by this mind's player.
- *
- * Observers retain a reference to their former mind without becoming `current`,
- * so `current` alone cannot identify the client during ghost-role selection.
  */
 /datum/mind/proc/get_player_mob()
 	if(current?.client)
