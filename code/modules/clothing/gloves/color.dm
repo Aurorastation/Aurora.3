@@ -162,6 +162,7 @@
 	desc = "A pair of gloves that reach past the elbow."
 	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "evening_gloves"
+	item_state = "evening_gloves"
 	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/evening/unathi

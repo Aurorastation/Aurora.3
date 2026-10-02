@@ -697,7 +697,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/big
 	icon_state = "bigsunglasses"
-	item_state = "sun"
+	item_state = "bigsunglasses"
 
 /obj/item/clothing/glasses/sunglasses/visor
 	name = "visor sunglasses"
