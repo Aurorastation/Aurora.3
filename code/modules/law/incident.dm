@@ -146,7 +146,7 @@
  * `report`. Keeping this here ensures every device which issues fines uses
  * the same regulation, account, and record handling.
  */
-/datum/crime_incident/proc/processFine(var/mob/living/user, var/transaction_source = "Sentencing Console")
+/datum/crime_incident/proc/processFine(var/mob/living/user, var/transaction_source = "Sentencing Console", var/report_criminal_name)
 	var/list/result = validateFine()
 	result["report"] = null
 	if(result["error"])
@@ -158,7 +158,7 @@
 
 	SSeconomy.charge_to_account(suspect_account.account_number, security_account.owner_name, "Incident: [UID]", transaction_source, -fine)
 	SSeconomy.charge_to_account(security_account.account_number, suspect_account.owner_name, "Incident: [UID] Fine", transaction_source, fine)
-	result["report"] = renderGuilty(user, 1)
+	result["report"] = renderGuilty(user, 1, report_criminal_name)
 	return result
 
 /datum/crime_incident/proc/getMinBrigSentence()
@@ -202,7 +202,7 @@
 	return max
 
 //type: 0 - brig sentence, 1 - fine, 2 - prison sentence
-/datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/type=0 )
+/datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/type=0, var/report_criminal_name )
 	var/mob/living/carbon/human/C = criminal.resolve()
 	if( !C )
 		return
@@ -220,18 +220,19 @@
 		fine = 0
 
 	saveCharInfraction()
-	return generateReport()
+	return generateReport(report_criminal_name)
 
-/datum/crime_incident/proc/generateReport()
+/datum/crime_incident/proc/generateReport(var/report_criminal_name)
 	var/mob/living/carbon/human/C = criminal.resolve()
 	if( !C )
 		return
+	var/criminal_display_name = report_criminal_name || "[C]"
 	. = "<center>Security Incident Report</center><hr>"
 
 	. += "<br>"
-	. += "<b>CRIMINAL</b>: <i>[C]</i><br><br>"
+	. += "<b>CRIMINAL</b>: <i>[criminal_display_name]</i><br><br>"
 
-	. += "[C] was found guilty of the following crimes on [GLOB.game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
+	. += "[criminal_display_name] was found guilty of the following crimes on [GLOB.game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
 
 	if( brig_sentence != 0 )
 		. += "As decided by the arbiter(s), they will serve the following sentence:<br>"

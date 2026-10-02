@@ -344,8 +344,8 @@ const FineDocument = (props) => {
       <Box mt={2} fontSize="10px" italic color="#bfaeae">
         This document serves as notice that the person named below has been
         assessed a monetary fine under Corporate Regulations. Payment will only
-        be collected when the named recipient authorizes it by tapping their
-        registered identification card against the warrant projector.
+        be collected when the registered identification card scanned for the
+        named recipient is tapped against the warrant projector.
       </Box>
       <Box mt={3}>
         <b>Recipient&apos;s name:</b>
@@ -384,8 +384,7 @@ const FineDocument = (props) => {
         </Box>
       </Box>
       <Box mt={3} textAlign="center" bold>
-        TAP THE RECIPIENT&apos;S REGISTERED ID AGAINST THE PROJECTOR TO
-        AUTHORIZE PAYMENT
+        TAP THE SCANNED RECIPIENT ID AGAINST THE PROJECTOR TO AUTHORIZE PAYMENT
       </Box>
     </Box>
   );
@@ -403,15 +402,15 @@ const FineEditor = (props) => {
     <>
       {!!data.awaiting_payment && (
         <NoticeBox color="average">
-          Awaiting payment authorization. {data.fine_recipient} must tap their
-          scanned ID against the projector. The fine is locked until this
-          request is cancelled or paid.
+          Awaiting payment authorization. The ID scanned for{' '}
+          {data.fine_recipient} must be tapped against the projector. The fine
+          is locked until this request is cancelled or paid.
         </NoticeBox>
       )}
       {!data.authenticated && (
         <NoticeBox>
-          Fine preparation is available. An ID with security access will be
-          required when the fine is issued.
+          Fine preparation is available. An ID with security access is required
+          to issue or cancel a fine.
         </NoticeBox>
       )}
       <Section
@@ -513,6 +512,12 @@ const FineEditor = (props) => {
           color="bad"
           icon="times"
           content="Cancel Payment Request"
+          disabled={!data.authenticated}
+          tooltip={
+            data.authenticated
+              ? undefined
+              : 'An ID with security access is required to cancel payment.'
+          }
           onClick={() => act('cancel_payment')}
         />
       ) : (

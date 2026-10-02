@@ -17,8 +17,12 @@
 	var/awaiting_payment = FALSE
 	var/datum/weakref/payment_issuer
 	var/payment_issuer_name
+	/// Registered name captured from the recipient's ID when they are scanned.
+	var/fine_recipient_name
 	/// Account selected when payment is requested. This remains stable if the ID is moved out of a PDA or other holder.
 	var/payment_account_number
+	/// Registered ID names captured when witnesses are added, keyed by their mob.
+	var/list/witness_names = list()
 	var/list/fine_presentations = list()
 
 /obj/item/holowarrant/mechanics_hints(mob/user, distance, is_adjacent)
@@ -26,7 +30,7 @@
 	. += "Use this item in-hand to open its warrant and fine interface."
 	. += "In the Warrants section, click on a person to display the loaded warrant to them."
 	. += "In the Issue Fine section, click on a person to scan their worn ID as the recipient of a fine."
-	. += "Once payment is requested, clicking a person while in the Issue Fine section displays the fine. The recipient can authorize payment by tapping their scanned ID against the projector."
+	. += "Once payment is requested, clicking a person while in the Issue Fine section displays the fine. Payment is authorized by tapping the scanned recipient ID against the projector."
 
 /obj/item/holowarrant/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -35,8 +39,7 @@
 		. += "The stated reason is: [selected_warrant.notes]"
 		. += "It is authorized by: [selected_warrant.authorization]"
 	if(awaiting_payment && fine_incident)
-		var/obj/item/card/id/target_id = fine_incident.card?.resolve()
-		. += "It is awaiting ID authorization for a [fine_incident.fine] credit fine to [target_id?.registered_name || "an unavailable recipient"]."
+		. += "It is awaiting ID authorization for a [fine_incident.fine] credit fine to [fine_recipient_name || "an unavailable recipient"]."
 
 /obj/item/holowarrant/Initialize(mapload, ...)
 	. = ..()
@@ -128,9 +131,6 @@
 		to_chat(user, SPAN_WARNING("\The [src] buzzes, \"The scanned recipient is no longer available.\""))
 		clear_payment_request()
 		return TRUE
-	if(user != recipient)
-		to_chat(user, SPAN_WARNING("\The [src] buzzes, \"Only the registered recipient can authorize this fine.\""))
-		return TRUE
 	var/mob/living/carbon/human/card_owner = payment_id.mob_id?.resolve()
 	if(card_owner != recipient || !payment_account_number || payment_id.associated_account_number != payment_account_number)
 		to_chat(user, SPAN_WARNING("\The [src] buzzes, \"This is not the ID registered for the pending fine.\""))
@@ -145,19 +145,21 @@
 	// Use the card which was physically presented. The originally scanned card may
 	// have moved through a PDA or another ID holder since the recipient was set.
 	fine_incident.card = WEAKREF(payment_id)
-	var/list/result = fine_incident.processFine(issuer, "Warrant Projector")
+	var/list/result = fine_incident.processFine(issuer, "Warrant Projector", fine_recipient_name)
 	if(result["error"])
 		var/error = result["error"]
 		to_chat(user, SPAN_WARNING("\The [src] buzzes, \"[error]\""))
 		return TRUE
 
-	var/recipient_name = payment_id.registered_name
+	var/recipient_name = fine_recipient_name
 	var/obj/item/paper/receipt = new /obj/item/paper(get_turf(src))
 	receipt.name = "fine receipt - [recipient_name]"
 	receipt.set_content_unsafe("Fine Receipt", result["report"])
 	play_message(SPAN_NOTICE("\The [src] pings, \"Payment authorized. [recipient_name] has been fined. Receipt printed.\""))
 	clear_payment_request()
 	QDEL_NULL(fine_incident)
+	fine_recipient_name = null
+	witness_names = list()
 	return TRUE
 
 /obj/item/holowarrant/update_icon()
@@ -189,6 +191,8 @@
 /obj/item/holowarrant/proc/set_fine_target(mob/living/carbon/human/target, obj/item/card/id/target_id)
 	clear_payment_request()
 	QDEL_NULL(fine_incident)
+	fine_recipient_name = target_id.registered_name
+	witness_names = list()
 	fine_incident = new()
 	fine_incident.criminal = WEAKREF(target)
 	fine_incident.card = WEAKREF(target_id)
@@ -239,10 +243,7 @@
 	data["witnesses"] = list()
 	data["evidence"] = list()
 	if(fine_incident)
-		var/obj/item/card/id/target_id = fine_incident.card?.resolve()
-		var/mob/living/carbon/human/target = fine_incident.criminal?.resolve()
-		if(istype(target_id) && istype(target))
-			data["fine_recipient"] = target_id.registered_name
+		data["fine_recipient"] = fine_recipient_name
 		data["fine"] = fine_incident.fine
 		data["fine_min"] = fine_incident.getMinFine()
 		data["fine_max"] = fine_incident.getMaxFine()
@@ -256,7 +257,7 @@
 		var/list/witnesses = fine_incident.arbiters["Witness"]
 		for(var/mob/living/carbon/human/witness in witnesses)
 			witness_data += list(list(
-				"name" = witness.name,
+				"name" = witness_names[witness] || witness.name,
 				"notes" = witnesses[witness] || "",
 				"ref" = REF(witness)
 			))
@@ -315,11 +316,19 @@
 		return TRUE
 
 	if(action == "clear_recipient")
+		if(awaiting_payment)
+			to_chat(user, SPAN_WARNING("Cancel the pending payment request before clearing the recipient."))
+			return TRUE
 		clear_payment_request()
 		QDEL_NULL(fine_incident)
+		fine_recipient_name = null
+		witness_names = list()
 		return TRUE
 
 	if(action == "cancel_payment")
+		if(!get_security_id(user))
+			to_chat(user, SPAN_WARNING("Authentication error: An ID with security access is required to cancel this payment request."))
+			return TRUE
 		clear_payment_request()
 		play_message(SPAN_NOTICE("\The [src] pings, \"Payment request cancelled.\""))
 		return TRUE
@@ -344,12 +353,17 @@
 			if(!istype(witness))
 				to_chat(user, SPAN_WARNING("The held ID is not tied to an SCC employee."))
 				return TRUE
+			if(!witness_id.registered_name)
+				to_chat(user, SPAN_WARNING("The held ID has no registered name."))
+				return TRUE
 			if(witness in fine_incident.arbiters["Witness"])
 				to_chat(user, SPAN_WARNING("[witness] is already listed as a witness."))
 				return TRUE
 			var/error = fine_incident.addArbiter(witness_id, "Witness")
 			if(error)
 				to_chat(user, SPAN_WARNING("\The [src] buzzes, \"[error]\""))
+			else
+				witness_names[witness] = witness_id.registered_name
 			return TRUE
 
 		if("remove_witness")
@@ -357,6 +371,7 @@
 			var/list/witnesses = fine_incident.arbiters["Witness"]
 			if(witness in witnesses)
 				witnesses -= witness
+				witness_names -= witness
 			return TRUE
 
 		if("edit_witness_notes")
@@ -530,7 +545,6 @@
 		return list()
 
 	var/datum/crime_incident/incident = projector.fine_incident
-	var/obj/item/card/id/target_id = incident.card?.resolve()
 	var/list/charge_names = list()
 	for(var/datum/law/charge in incident.charges)
 		charge_names += charge.name
@@ -540,7 +554,7 @@
 		"fine_presentation" = TRUE,
 		"facility" = SSatlas.current_map.station_name,
 		"date" = worlddate2text(),
-		"fine_recipient" = target_id?.registered_name,
+		"fine_recipient" = projector.fine_recipient_name,
 		"fine" = incident.fine,
 		"fine_notes" = incident.notes,
 		"fine_charges" = charge_names,

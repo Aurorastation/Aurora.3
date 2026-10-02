@@ -399,8 +399,8 @@
 		to_chat(user, SPAN_ALERT("[error]"))
 		return
 
-	print_incident_overview(incident.renderGuilty(user, 0))
-	var/obj/item/card/id/card = incident.card.resolve()
+	var/obj/item/card/id/card = incident.card?.resolve()
+	print_incident_overview(incident.renderGuilty(user, 0, card?.registered_name))
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
 		ping( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes!\"" )
 	else
@@ -417,7 +417,8 @@
 	if(!istype(user))
 		return
 
-	var/list/result = incident.processFine(user, "Sentencing Console")
+	var/obj/item/card/id/card = incident.card?.resolve()
+	var/list/result = incident.processFine(user, "Sentencing Console", card?.registered_name)
 	if(result["error"])
 		var/error = result["error"]
 		buzz("\The [src] buzzes, \"[error]\"")
@@ -425,7 +426,6 @@
 
 	print_incident_overview(result["report"])
 
-	var/obj/item/card/id/card = incident.card.resolve()
 	ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")
 
 	incident = null
