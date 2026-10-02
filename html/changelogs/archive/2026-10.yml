@@ -12,3 +12,13 @@
   - bugfix: Cargo trolleys now accept large parcels.
   - bugfix: Fixes IV drips, portable floodlights, mining drills, drill braces, and
       portable generators being anchored when constructed.
+2026-10-02:
+  Geeves:
+  - rscadd: Ported CM cellular automata explosions. Explosions now have a travel time
+      shockwave that propagates through the environment, throwing objects and mobs
+      around.
+  - bugfix: Explosions no longer pass through intact decks. Cross-deck blasts require
+      an opening and lose range and power; small blasts stay on their own deck.
+  TheGreyWolf:
+  - balance: Changed some fire balance to make temp increase slower.
+  - rscadd: Added the cell charger rack, printable from the circuit board printer.
