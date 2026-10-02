@@ -5,8 +5,8 @@
 	Vaurca of this faith call Virtual Reality the Aether and often view it as a literal heaven, created by each Queen and Lesser Queen to house the souls of their progeny. It is the \
 	belief of adherents to this doctrine that every Queen, greater or lesser work in a kind of Hive pantheon that ultimately serves to continue the Hives existence."
 
-/datum/religion/preimminennce
-	name = RELIGION_PREIMMINENNCE
+/datum/religion/preimminence
+	name = RELIGION_PREIMMINENCE
 	description = "The faith of the Preimminent Goddess is another religion that is relatively uncommon to find amongst Vaurca populations. Unlike the Hive Pantheon, adherents to this \
 	faith believe that God, or Goddess, does not exist but could exist, should all parts of themselves align in their predestined roles. They believe that all members of a Hive or in \
 	some cases, several Hives or aliens are pieces of a greater entity that would be god. "

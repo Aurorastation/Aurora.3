@@ -826,8 +826,8 @@
 	item_state = "neckbrace"
 
 /obj/item/clothing/accessory/tc_pin
-	name = "Tau Ceti pin"
-	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
+	name = "Republic of Biesel pin"
+	desc = "A small Republic of Biesel flag pin."
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"

@@ -84,9 +84,11 @@
 	vessel_mass = 7500 //This truck is too damn big
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
-	comms_name = "modified"
 	use_mapped_z_levels = TRUE
 	invisible_until_ghostrole_spawn = TRUE
+
+/obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan/create_comms_groups()
+	return list("default" = new /datum/comms_group("modified"))
 
 /obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "unathi_freighter1")
