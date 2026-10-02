@@ -6,3 +6,4 @@ changes:
   - bugfix: "Fixed the tesla spine and limbs keeping their glow in char setup when switching to another character."
   - bugfix: "Cameras now respect line of sight from the turf they take a photo from."
   - bugfix: "Fixed that the transdermal computer didn't notify its owner with a message range of 0."
+  - bugfix: "Fixed various issues with jars and their contents."
