@@ -301,10 +301,8 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 		"Compartment Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_fc"),
 // Longbow
 		"Longbow Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_longbow"),
-		"Longbow Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_longbow"),
 // Grauwolf
-		"Grauwolf Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_grauwolf"),
-		"Grauwolf Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_grauwolf"),
+		"Grauwolf Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_grauwolf")
 	)
 
 /obj/structure/machinery/controlhub/weapon_systems/longbow
@@ -317,8 +315,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 // Longbow
 		"Longbow Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_longbow"),
 		"Longbow Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_longbow"),
-		"Longbow Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_longbow"),
-		"Longbow Viewport Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_window_longbow"),
+		"Longbow Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_longbow")
 	)
 
 /obj/structure/machinery/controlhub/weapon_systems/grauwolf
@@ -331,6 +328,5 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 // Grauwolf
 		"Grauwolf Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_grauwolf"),
 		"Grauwolf Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_grauwolf"),
-		"Grauwolf Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_grauwolf"),
-		"Grauwolf Viewport Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_window_grauwolf"),
+		"Grauwolf Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_grauwolf")
 	)
