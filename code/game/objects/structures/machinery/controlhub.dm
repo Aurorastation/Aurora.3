@@ -299,7 +299,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 		"Ammunition Magazine Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_magazine"),
 // Fire Control
 		"Compartment Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_fc"),
-		"Compartment Viewport Shutters" = list("type" = "blast_door", "id" = "gunnery_shutter_window_fc"),
 // Longbow
 		"Longbow Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_longbow"),
 		"Longbow Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_longbow"),
