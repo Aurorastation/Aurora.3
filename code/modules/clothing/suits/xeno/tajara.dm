@@ -4,6 +4,8 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "medcoat"
 	item_state = "medcoat"
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
@@ -42,6 +44,8 @@
 	icon_state = "navalcoat"
 	item_state = "navalcoat"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
@@ -149,11 +153,17 @@
 	contained_sprite = TRUE
 	flags_inv = HIDETAIL
 	no_overheat = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/tajaran
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
+
+/obj/item/clothing/head/winterhood/tajaran
+	name = "cloak hood"
+	desc = "A hood attached to an Adhomian cloak."
+	min_cold_protection_temperature = null
 
 /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	name = "sun priest robe"
@@ -195,6 +205,7 @@
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 	body_parts_covered = FACE|HEAD
+	min_cold_protection_temperature = null
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
@@ -219,6 +230,14 @@
 	icon_state = "winter_cloak"
 	item_state = "winter_cloak"
 	flags_inv = 0
+	hoodtype = /obj/item/clothing/head/winterhood/tajaran/winter
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/head/winterhood/tajaran/winter
+	name = "winter cloak hood"
+	desc = "A wool hood attached to an Adhomian winter cloak."
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/tajaran/royalist
 	name = "adhomian royalist cloak"
@@ -334,7 +353,7 @@
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|FEET|HANDS
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 	protects_against_weather = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
@@ -442,6 +461,8 @@
 	item_state = "finecoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/tajaran/finecoat/blue
 	name = "fine blue coat"
@@ -464,6 +485,8 @@
 	item_state = "hunter_coat"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	allowed = list(/obj/item/gun/projectile/shotgun, /obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/material/knife, /obj/item/flashlight)
 
 /obj/item/clothing/suit/storage/tajaran/archeologist
@@ -485,6 +508,8 @@
 	icon_state = "taj_cop_suit"
 	item_state = "taj_cop_suit"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/tajaran/pra_cop/rural
 	name = "rural PRA NPD jacket"
@@ -499,6 +524,7 @@
 	icon_state = "pra_submarine_coat"
 	item_state = "pra_submarine_coat"
 	contained_sprite = TRUE
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 	desc_extended = "The Miraniye T’varrnav Varrom, translated as Miran’miran Submarine Coat, is the standard overcoat supplied to the Republican Navy’s submarine service. Designed to \
 	insulate and protect the wearer against the ice-cold water of the Adhomian seas, the black leather coat is a source of pride among submariners and coveted by Al’mariist and Royalist \
 	sailors as a war trophy. Once produced within the port city of Miran’mir it is named after, the war forced production to move to the Ardiye Romanqri Khaz’tra in Nal’tor. Despite this, \

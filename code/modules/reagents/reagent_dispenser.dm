@@ -303,11 +303,11 @@
 		return
 
 	if (reagents.total_volume > 500)
-		explosion(src.loc,1,2,4)
+		explosion(src.loc, 1, 2, 4, spreading = TRUE)
 	else if (reagents.total_volume > 100)
-		explosion(src.loc,0,1,3)
+		explosion(src.loc, 0, 1, 3, spreading = TRUE)
 	else if (reagents.total_volume > 50)
-		explosion(src.loc,-1,1,2)
+		explosion(src.loc, -1, 1, 2, spreading = TRUE)
 
 	..()
 
@@ -510,6 +510,12 @@
 	desc = "A keg full of Dorshafen kvass - non-alcoholic, and a common sight in any workers home across Himeo."
 	icon_state = "keg_kvass"
 	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
+
+/obj/structure/reagent_dispensers/keg/wine
+	name = "wine barrel"
+	desc = "A wooden wine barrel."
+	icon_state = "woodkeg"
+	reagents_to_add = list(/singleton/reagent/alcohol/wine = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil

@@ -21,6 +21,7 @@ pixel_x = 8;
 	icon_state = "bell"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	pda_linkable = TRUE
 
 	req_access = list() //what access it needs to link your pda
 
@@ -117,20 +118,28 @@ pixel_x = 8;
 		return TRUE
 
 	if (istype(attacking_item, /obj/item/modular_computer))
-		if(!check_access(attacking_item))
-			to_chat(user, SPAN_WARNING("Access denied."))
-			return TRUE
-		else if (attacking_item in rings_pdas)
-			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
-			remove_pda(attacking_item)
-			return TRUE
-		to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src]."))
-		rings_pdas += attacking_item
-		UnregisterSignal(attacking_item, COMSIG_QDELETING)
-		update_icon()
-		return TRUE
+		return toggle_pda_link(attacking_item, user)
 	else
 		return ..()
+
+/obj/structure/machinery/ringer/toggle_pda_link(obj/item/modular_computer/pda, mob/user)
+	var/obj/item/active_item = user.get_active_hand()
+	var/obj/item/card/id/active_id = active_item?.GetID()
+	if(!active_id && ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		active_id = human_user.wear_id?.GetID()
+	if(!check_access(active_id))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return TRUE
+	if(pda in rings_pdas)
+		to_chat(user, SPAN_NOTICE("You unlink \the [pda] from \the [src]."))
+		remove_pda(pda)
+		return TRUE
+	to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src], it will now ring upon someone using \the [src]."))
+	rings_pdas += pda
+	RegisterSignal(pda, COMSIG_QDELETING, PROC_REF(remove_pda))
+	update_icon()
+	return TRUE
 
 /obj/structure/machinery/ringer/attack_hand(mob/user as mob)
 	if(..())
@@ -173,7 +182,9 @@ pixel_x = 8;
 
 /obj/structure/machinery/ringer/proc/remove_pda(obj/item/modular_computer/P)
 	if (istype(P))
+		UnregisterSignal(P, COMSIG_QDELETING)
 		rings_pdas -= P
+		update_icon()
 
 /obj/structure/machinery/ringer_button
 	name = "ringer button"

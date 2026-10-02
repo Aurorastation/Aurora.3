@@ -756,7 +756,7 @@
 			var/list/armor_details = list()
 			for(var/armor_type in armor)
 				armor_details[armor_type] = armor[armor_type]
-			var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(user, capitalize_first_letters(name), armor_details)
+			var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(user, capitalize_first_letters(name), armor_details, get_cold_protection_rating(), get_cold_protection_percentage())
 			AV.ui_interact(user)
 			return TRUE
 		if("examine_fluff")

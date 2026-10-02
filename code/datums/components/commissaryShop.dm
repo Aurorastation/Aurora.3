@@ -85,11 +85,14 @@
 		return
 	var/item = user.get_active_hand()
 
-	if(istype(item, /obj/item/spacecash) && !istype(item, /obj/item/spacecash/ewallet))
-		var/obj/item/spacecash/cashmoney = item
-		credit += cashmoney.worth
+	if(istype(item, /obj/item/currency) && !istype(item, /obj/item/spacecash/ewallet))
+		var/obj/item/currency/cashmoney = item
+		if(!owner.accepts_currency(cashmoney))
+			to_chat(user, SPAN_WARNING("[owner] does not accept [cashmoney.name]."))
+			return
+		credit += cashmoney.get_credit_value()
 		user.drop_from_inventory(cashmoney,get_turf(owner))
-		user.visible_message("\The [user] inserts some credits into \the [owner]." )
+		user.visible_message("\The [user] inserts [cashmoney] into \the [owner]." )
 		qdel(cashmoney)
 		return
 
@@ -125,36 +128,37 @@
 	else if (istype(attacking_item, /obj/item/card/id))
 		ID_pay(attacking_item, user)
 		return
-	else if(istype(attacking_item, /obj/item/spacecash) && can_use_credits)
+	else if(istype(attacking_item, /obj/item/currency) && can_use_credits)
 		cash_pay(attacking_item, user)
 		return
 
 /// Paying with cash
-/datum/component/quikpay_shop/proc/cash_pay(obj/item/spacecash/cashmoney, mob/user)
+/datum/component/quikpay_shop/proc/cash_pay(obj/item/currency/cashmoney, mob/user)
 	if(!can_use_credits)
 		return
+	if(!owner.accepts_currency(cashmoney))
+		to_chat(user, SPAN_WARNING("[owner] does not accept [cashmoney.name]."))
+		return FALSE
 	var/transaction_amount = sum
-	if(transaction_amount > cashmoney.worth)
+	var/credit_value = cashmoney.get_credit_value()
+	if(transaction_amount > credit_value)
 		to_chat(user, SPAN_WARNING("[icon2html(cashmoney, user)] That is not enough money."))
 		return FALSE
-	if(istype(cashmoney, /obj/item/spacecash/bundle))
+	if(cashmoney.is_bundle())
 		user.visible_message(SPAN_INFO("\The [user] inserts some cash into \the [owner]."))
-		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
-		cashmoney_bundle.worth -= transaction_amount
+		cashmoney.deduct_credit_value(transaction_amount)
 
-		if(cashmoney_bundle.worth <= 0)
-			usr.drop_from_inventory(cashmoney_bundle,get_turf(owner))
-			qdel(cashmoney_bundle)
-		else
-			cashmoney_bundle.update_icon()
+		if(cashmoney.worth <= 0)
+			user.drop_from_inventory(cashmoney,get_turf(owner))
+			qdel(cashmoney)
 	else
-		user.visible_message(SPAN_INFO("\The [user] inserts a bill into \the [owner]."))
-		var/left = cashmoney.worth - transaction_amount
+		user.visible_message(SPAN_INFO("\The [user] inserts physical currency into \the [owner]."))
+		var/left = credit_value - transaction_amount
 		user.drop_from_inventory(cashmoney,get_turf(owner))
-		qdel(cashmoney)
 
 		if(left)
-			spawn_money(left, get_turf(user), user)
+			cashmoney.spawn_change(left, get_turf(user), user)
+		qdel(cashmoney)
 	credit += transaction_amount
 	print_receipt()
 	clear_order()

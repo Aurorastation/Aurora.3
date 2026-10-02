@@ -24,8 +24,6 @@
 ///Amount of damage applied when the current breath's temperature passes the 1000K point
 #define HEAT_GAS_DAMAGE_LEVEL_3 8
 
-///Amount of damage applied when the current breath's temperature just passes the 260.15k safety point
-#define COLD_GAS_DAMAGE_LEVEL_1 0.5
 ///Amount of damage applied when the current breath's temperature passes the 200K point
 #define COLD_GAS_DAMAGE_LEVEL_2 1.5
 ///Amount of damage applied when the current breath's temperature passes the 120K point
@@ -1506,12 +1504,13 @@
 	if(..())
 		return
 
-	var/burn_temperature = fire_burn_temperature()
+	var/burn_temperature = fire_burn_temperature(environment)
 	var/thermal_protection = get_heat_protection(burn_temperature)
 
-	// Increment bodytemp up by up to BODYTEMP_HEATING_MAX C / sec, as modified by thermal protection.
+	// Increment body temperature by up to BODYTEMP_HEATING_MAX K/sec, as modified by thermal protection.
 	if (thermal_protection < 1 && bodytemperature < burn_temperature)
-		bodytemperature += round(BODYTEMP_HEATING_MAX * (1-thermal_protection) * 20 * seconds_per_tick, 1)
+		var/temperature_increase = round(BODYTEMP_HEATING_MAX * (1 - thermal_protection) * seconds_per_tick, 1)
+		bodytemperature = min(bodytemperature + temperature_increase, burn_temperature)
 
 /mob/living/carbon/human/rejuvenate()
 	restore_blood()

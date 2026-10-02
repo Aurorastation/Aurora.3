@@ -89,6 +89,7 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
 	/client/proc/persistence_panel,
+	/client/proc/server_configuration,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
 	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
@@ -495,6 +496,7 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/debug_variables,
 	/client/proc/dsay,
 	/client/proc/persistence_panel,
+	/client/proc/server_configuration,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
@@ -1343,7 +1345,9 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		return
 
 	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
-	SSpersistent_configuration.forced_awaymission = mission_name
+	if(!SSregistry.setValue("forced_awaymission", mission_name))
+		to_chat(usr, SPAN_WARNING("Failed to persist forced away mission to registry."))
+		return
 
 	if(!mission_name)
 		log_and_message_admins("reset the forced away mission.")

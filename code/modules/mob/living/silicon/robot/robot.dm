@@ -983,7 +983,8 @@
 	if(anti_theft)
 		to_chat(src, SPAN_WARNING("Initiating wipe of all databases containing information related to [SSatlas.current_map.company_name]!"))
 	else
-		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
+		ASYNC // Some callers require non-sleeping execution
+			say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 
 	addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 1), 2 SECONDS, TIMER_UNIQUE)
 
