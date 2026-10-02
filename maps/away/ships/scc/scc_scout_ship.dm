@@ -102,7 +102,6 @@
 	landmark_transition = "nav_scc_scout_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_scc_scout_shuttle_dock"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship

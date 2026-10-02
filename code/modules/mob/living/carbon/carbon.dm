@@ -189,6 +189,7 @@
 		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
 		return
 	src.hand = !src.hand
+	hud_used?.update_gun_actions()
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
 			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
@@ -244,8 +245,8 @@
 			var/painful_check = FALSE
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
-				var/brutedamage = org.brute_dam
-				var/burndamage = org.burn_dam
+				var/brutedamage = LIMB_GET_BRUTE_DAMAGE(org)
+				var/burndamage = LIMB_GET_BURN_DAMAGE(org)
 
 				// Basic Anatomy 1: All the obvious stuff
 				// Damaged and missing limbs
@@ -290,7 +291,7 @@
 				// Broken limbs
 				// Regular and arterial bleeding are vague
 				// Necrotic is vague
-				if(org.dislocated == 2)
+				if(LIMB_GET_DISLOCATED(org) == 2)
 					status += (anatomy >= 2 ? "dislocated" : "hanging oddly")
 				if(org.status & ORGAN_BROKEN)
 					status += (anatomy < 3 ? "hurts when touched" : "broken")

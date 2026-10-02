@@ -46,6 +46,14 @@ export const NTNetRelay = (props) => {
           </Section>
         ) : (
           <Section title="NTNet Server Status">
+            {data.relay_class === 'Field' && (
+              <Box mb={1}>
+                Requires area power or a powered cable knot beneath it, an
+                enabled relay, and an operational core relay in a base sector
+                within {data.backhaul_range} overmap tile
+                {data.backhaul_range === 1 ? '' : 's'}.
+              </Box>
+            )}
             <LabeledList>
               <LabeledList.Item label="Relay Class">
                 {data.relay_class}
@@ -60,7 +68,8 @@ export const NTNetRelay = (props) => {
                 {data.backhaul_core}
               </LabeledList.Item>
               <LabeledList.Item label="Backhaul Range">
-                {data.backhaul_range}
+                {data.backhaul_range} overmap tile
+                {data.backhaul_range === 1 ? '' : 's'}
               </LabeledList.Item>
               <LabeledList.Item label="Network buffer status">
                 {data.dos_overload} / {data.dos_capacity} GQ

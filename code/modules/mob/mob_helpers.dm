@@ -69,6 +69,10 @@
 		switch(H.get_species())
 			if (SPECIES_UNATHI)
 				return 1
+			if (SPECIES_UNATHI_URAWANI)
+				return 1
+			if (SPECIES_UNATHI_ZIRALIXI)
+				return 1
 			if (SPECIES_ZOMBIE_UNATHI)
 				return 1
 	return 0
@@ -325,7 +329,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	if(prob(probability))
 		zone = check_zone(zone)
 	else
-		zone = pick_weight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
+		zone = pickweight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
 	return zone
 
 /**

@@ -483,7 +483,9 @@ There are several things that need to be remembered:
 			set_light(0)
 
 	var/hair_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT : HAIR_LAYER
-	overlays_raw[hair_layer] = hair_icon
+	var/image/hair_overlay = image(hair_icon)
+	hair_overlay.appearance_flags = PIXEL_SCALE
+	overlays_raw[hair_layer] = hair_overlay
 
 	if(has_visible_hair)
 		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
@@ -1109,6 +1111,7 @@ There are several things that need to be remembered:
 
 
 /mob/living/carbon/human/update_hud()	//TODO: do away with this if possible
+	hud_used?.update_gun_actions()
 	if(client)
 		client.screen |= contents
 		if(hud_used)
@@ -1174,6 +1177,7 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_l_hand(update_icons = TRUE)
+	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
 
@@ -1214,6 +1218,7 @@ There are several things that need to be remembered:
 		update_icon(TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(update_icons = TRUE)
+	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
 

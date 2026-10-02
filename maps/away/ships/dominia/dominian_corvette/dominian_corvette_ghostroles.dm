@@ -36,7 +36,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/clothing/accessory/badge/passport/dominia = 1)
 
 /obj/outfit/admin/imperial_fleet_voidsman/get_id_access()
-	return list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/imperial_fleet_voidsman_ship::id, /datum/access/external_airlocks::id)
 
 // Armsmen, equivalent to naval infantry
 
@@ -115,7 +115,7 @@
 
 /obj/item/card/id/imperial_fleet
 	name = "imperial fleet id"
-	access = list(ACCESS_IMPERIAL_FLEET_VOIDSMAN_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/imperial_fleet_voidsman_ship::id, /datum/access/external_airlocks::id)
 
 /obj/item/clothing/gloves/black_leather/fleet
 	name = "white leather gloves"

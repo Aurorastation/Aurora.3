@@ -484,6 +484,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
+	has_unique_gun_action = TRUE
 
 	firemodes = list(
 		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),

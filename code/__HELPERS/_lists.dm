@@ -259,32 +259,6 @@
 	} while(FALSE)
 
 /**
- * Picks a random element from a list based on a weighting system.
- * For example, given the following list:
- * A = 6, B = 3, C = 1, D = 0
- * A would have a 60% chance of being picked,
- * B would have a 30% chance of being picked,
- * C would have a 10% chance of being picked,
- * and D would have a 0% chance of being picked.
- * You should only pass integers in.
- */
-/proc/pick_weight(list/list_to_pick)
-	var/total = 0
-	var/item
-	for(item in list_to_pick)
-		if(!list_to_pick[item])
-			list_to_pick[item] = 0
-		total += list_to_pick[item]
-
-	total = rand(1, total)
-	for(item in list_to_pick)
-		total -= list_to_pick[item]
-		if(total <= 0 && list_to_pick[item])
-			return item
-
-	return null
-
-/**
  * Move a single element from position from_index within a list, to position to_index
  * All elements in the range [1,to_index) before the move will be before the pivot afterwards
  * All elements in the range [to_index, L.len+1) before the move will be after the pivot afterwards

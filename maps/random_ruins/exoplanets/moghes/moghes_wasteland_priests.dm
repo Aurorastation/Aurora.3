@@ -31,7 +31,7 @@
 
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	outfit = /obj/outfit/admin/moghes_wasteland_guard
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Priestess of the Healer"

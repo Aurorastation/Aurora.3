@@ -110,7 +110,7 @@
 	item_state = "greatcoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
 		BIO = ARMOR_BIO_MINOR
 	)

@@ -181,6 +181,26 @@
 	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	update(mapload)
 
+	// atmos override, similar to how it's done in exoplanet type turfs
+	if(SSatlas.current_map.use_overmap)
+		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
+
+		// we don't use open turfs in auto generated exoplanets as of the date of this commit, but incase that changes in future, this will save you from a minor headache!
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			if(exoplanet.atmosphere)
+				initial_gas = exoplanet.atmosphere.gas.Copy()
+				temperature = exoplanet.atmosphere.temperature
+
+		// for away sites, only applied if we're in an outside area
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
+			var/area/A = get_area(src)
+			if(away_site.exoplanet_atmosphere && A.is_outside)
+				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
+				temperature = away_site.exoplanet_atmosphere.temperature
+
 
 /**
  * Updates the turf with open turf's variables and basically resets it properly.

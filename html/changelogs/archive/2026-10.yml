@@ -1,0 +1,24 @@
+2026-10-01:
+  TheGreyWolf:
+  - bugfix: Fixes the recoil on snipers.
+  - bugfix: The revote should now trigger properly.
+  - bugfix: Vehicles can now be damaged, broken down and fixed.
+  - bugfix: Vehicles now eject riders that are prone.
+  - bugfix: Fixed cleaning turning walls white.
+  - bugfix: People can now be removed from bikes with any non-disarm intent.
+  - bugfix: Bike engines can now be toggled by the rider even if the kickstand is
+      up.
+  - bugfix: Labellers now work on wooden boxes.
+  - bugfix: Cargo trolleys now accept large parcels.
+  - bugfix: Fixes IV drips, portable floodlights, mining drills, drill braces, and
+      portable generators being anchored when constructed.
+2026-10-02:
+  Geeves:
+  - rscadd: Ported CM cellular automata explosions. Explosions now have a travel time
+      shockwave that propagates through the environment, throwing objects and mobs
+      around.
+  - bugfix: Explosions no longer pass through intact decks. Cross-deck blasts require
+      an opening and lose range and power; small blasts stay on their own deck.
+  TheGreyWolf:
+  - balance: Changed some fire balance to make temp increase slower.
+  - rscadd: Added the cell charger rack, printable from the circuit board printer.

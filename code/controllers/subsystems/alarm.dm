@@ -31,7 +31,7 @@ SUBSYSTEM_DEF(alarm)
 
 		AH.process()
 
-		active_alarm_cache += AH.alarms
+		active_alarm_cache += AH.station_alarms()
 
 		if (MC_TICK_CHECK)
 			return

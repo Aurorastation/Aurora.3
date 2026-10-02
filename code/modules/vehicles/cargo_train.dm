@@ -1,3 +1,7 @@
+/obj/vehicle/train/cargo
+	/// Chance that the vehicle intercepts a projectile aimed at its rider.
+	var/protection_percent = 0
+
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
@@ -14,6 +18,7 @@
 	var/tgui_template = "TrainEngine"
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
+	protection_percent = 20
 	active_engines = 1
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
@@ -34,6 +39,7 @@
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck."
 	. += "If latched, you can use a wrench to unlatch."
 	. += "Click-drag on a trolley to latch and tow it."
+	. += "Use run intent to run people over."
 
 /obj/vehicle/train/cargo/engine/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -59,6 +65,7 @@
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
+	eject_prone_riders = FALSE
 
 	load_item_visible = 1
 	load_offset_x = 0
@@ -68,6 +75,7 @@
 /obj/vehicle/train/cargo/trolley/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
+	. += "It can carry crates, large parcels, machinery, and other heavy cargo."
 
 //-------------------------------------------
 // Standard procs
@@ -170,13 +178,13 @@
 		return
 	..()
 
-// Cargo trains are open topped, so you can shoot at the driver.
-// Or you can shoot at the tug itself, if you're good.
+// Cargo trains are open topped, but protected sections can intercept shots aimed at their rider.
+// You can always shoot the vehicle itself directly.
 /obj/vehicle/train/cargo/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if (buckled && hitting_projectile.original == buckled)
-		buckled.bullet_act(arglist(args))
-	else
-		. = ..()
+		if (!prob(protection_percent))
+			return buckled.bullet_act(arglist(args))
+	return ..()
 
 /obj/vehicle/train/cargo/update_icon()
 	if(open)
@@ -231,7 +239,10 @@
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
 	if(HAS_TRAIT(H, TRAIT_LEANING))
-		return
+		return FALSE
+	if(H.mob_size > max_runover_size)
+		collide_with_oversized_mob(H)
+		return FALSE
 
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
 
@@ -239,15 +250,18 @@
 	for(var/i = 0, i < rand(1,5), i++)
 		var/def_zone = pick(parts)
 		H.apply_damage(rand(5,10), DAMAGE_BRUTE, def_zone)
+	return TRUE
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
 	attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>"
 
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 
 	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
@@ -269,7 +283,7 @@
 	if(user != load)
 		return 0
 
-	if(user.restrained())
+	if(user.restrained() || user.incapacitated())
 		return 0
 
 	if(is_train_head())
@@ -335,7 +349,7 @@
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
 	if(ismob(C) && !passenger_allowed)
 		return 0
-	if(!istype(C,/obj/structure/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
+	if(!istype(C,/obj/structure/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/bigDelivery) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
 		return 0
 
 	//if there are any items you don't want to be able to interact with, add them to this check
@@ -413,6 +427,7 @@
 		move_delay += GLOB.config.walk_speed 													//base reference speed
 		move_delay *= GLOB.config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
 		move_delay -= 1
+
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length

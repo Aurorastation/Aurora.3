@@ -445,9 +445,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_smuggler)
 "TB" = (
-/turf/simulated/wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall,
 /area/omgolo_smuggler)
 "TE" = (
 /obj/structure/machinery/vending/boozeomat/unathi_pirate,

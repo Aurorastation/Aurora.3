@@ -10,7 +10,7 @@
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
 	icon_vend = "sec-vend"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	vend_id = "security"
 	products = list(
 		/obj/item/handcuffs = 8,
@@ -64,7 +64,7 @@
 	name = "Tactical Express"
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	vend_id = "tactical" // Refill cartridge DNE 2025/07
 	products = list(
 		/obj/item/storage/box/shells/slugs = 2,
@@ -88,7 +88,7 @@
 /obj/structure/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	vend_id = "ert" // Refill cartridge DNE 2025/07
 	products = list(
 		/obj/item/storage/box/shells/slugs = 2,

@@ -187,16 +187,21 @@
 	if(istype(W))
 		W.hitby(arglist(args))
 
-/obj/structure/window_frame/wood
-	maxhealth = OBJECT_HEALTH_LOW
-	color = "#8f5847"
-
 /obj/structure/window_frame/unanchored // Used during in-game construction.
 	should_check_mapload = FALSE // No glass.
 	anchored = FALSE
 
 /obj/structure/window_frame/empty
 	should_check_mapload = FALSE // No glass.
+
+/obj/structure/window_frame/wood
+	maxhealth = OBJECT_HEALTH_LOW
+	color = "#8f5847"
+
+/obj/structure/window_frame/concrete
+	color = COLOR_CONCRETE
+
+// ---------- Shuttle frames
 
 /obj/structure/window_frame/shuttle
 	maxhealth = OBJECT_HEALTH_HIGH

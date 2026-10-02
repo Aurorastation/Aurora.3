@@ -10,7 +10,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = DEFAULT_BOX_STORAGE //The sum of the w_classes of all the items in this storage item.
-	req_access = list(ACCESS_ARMORY)
+	req_access = list(/datum/access/armory::id)
 	var/locked = 1
 	var/broken = 0
 	var/icon_locked = "lockbox+l"
@@ -77,7 +77,7 @@
 
 /obj/item/storage/lockbox/loyalty
 	name = "lockbox of mind shield implants"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	starts_with = list(
 		/obj/item/implantcase/mindshield = 3,
 		/obj/item/implanter/mindshield = 1
@@ -85,7 +85,7 @@
 
 /obj/item/storage/lockbox/anti_augment
 	name = "lockbox of augmentation disrupter implants"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	starts_with = list(
 		/obj/item/implantcase/anti_augment = 3,
 		/obj/item/implanter/anti_augment = 1
@@ -94,13 +94,13 @@
 /obj/item/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	starts_with = list(/obj/item/grenade/flashbang/clusterbang = 1)
 
 /obj/item/storage/lockbox/lawgiver
 	name = "weapons lockbox"
 	desc = "A high security weapons lockbox"
-	req_access = list(ACCESS_ARMORY)
+	req_access = list(/datum/access/armory::id)
 	starts_with = list(/obj/item/gun/energy/acp = 1)
 
 /obj/item/storage/lockbox/medal
@@ -110,7 +110,7 @@
 	item_state = "briefcase"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_w_class = WEIGHT_CLASS_SMALL
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"

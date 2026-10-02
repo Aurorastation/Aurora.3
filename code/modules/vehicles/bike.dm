@@ -48,12 +48,14 @@
 	/// If FALSE, the key needs to be mapped/spawned somewhere outside of the vehicle,
 	/// otherwise it will be an unusable prop.
 	var/spawns_with_key = TRUE
+	/// If TRUE, the key will be spawned elsewhere designated by `/obj/effect/landmark/bike_key_spawner`.
+	var/auto_spawn_key_elsewhere = FALSE
 
 /obj/vehicle/bike/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click-drag yourself onto the bike to climb onto it."
 	. += "Click-drag it onto yourself to access its mounted storage."
-	. += "Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key."
+	. += "Click the bike with a key to put it in, and click the bike with an empty hand to take it out. If the bike is occupied, use disarm intent to take the key instead of unbuckling the rider. The bike won't run without a key."
 	. += "CTRL-click the bike to toggle the engine."
 	. += "ALT-click to toggle the kickstand which prevents movement by driving and dragging."
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
@@ -80,19 +82,35 @@
 	turn_off()
 	AddOverlays(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
+
 	if(storage_type)
 		storage_compartment = new storage_type(src)
+
 	if(!registration_plate)
 		generate_registration_plate()
+
 	if(spawns_with_key)
 		key = new key_type(src)
 		key.key_data = registration_plate
+
+	if(auto_spawn_key_elsewhere)
+		var/list/our_z_levels = GetConnectedZlevels(z)
+		for(var/obj/effect/landmark/bike_key_spawner/spawner in GLOB.landmarks_list)
+			if(!(spawner.z in our_z_levels)) // this spawner isn't in the same map as us
+				continue
+
+			if(key_type in spawner.allowed_key_types)
+				var/obj/item/key/bike/spawned_key = new key_type(get_turf(spawner))
+				spawned_key.key_data = registration_plate
+				spawned_key.pixel_x = pick(-8, 0, 8) // the key sprite appears nicely placed on the tables in these values
+				spawned_key.pixel_y = pick(0, 8)
+				break
 
 /obj/vehicle/bike/proc/generate_registration_plate()
 	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
-	if(Adjacent(user) && anchored)
+	if(user == load || (Adjacent(user) && anchored))
 		toggle_engine(user)
 	else
 		return ..()
@@ -164,7 +182,7 @@
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
-	if(key)
+	if(key && (!load || user.a_intent == I_DISARM))
 		to_chat(user, "You take \the [key] out of \the [src]")
 		user.put_in_hands(key)
 		key = null
@@ -371,6 +389,7 @@
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
 	icon_state = "monowheel_off"
+	key_type = /obj/item/key/bike/monowheel
 
 	health = 250
 	maxhealth = 250
@@ -397,6 +416,13 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/vehicle/bike/monowheel/no_keys
+	spawns_with_key = FALSE
+
+/obj/vehicle/bike/monowheel/auto_spawn_key
+	spawns_with_key = FALSE
+	auto_spawn_key_elsewhere = TRUE
 
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"
@@ -457,6 +483,14 @@
 	space_speed = 0
 	protection_percent = 10
 	can_hover = FALSE
+	key_type = /obj/item/key/bike/snow
+
+/obj/vehicle/bike/snow/no_key
+	spawns_with_key = FALSE
+
+/obj/vehicle/bike/snow/auto_spawn_key
+	auto_spawn_key_elsewhere = TRUE
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor
 	name = "sports bike"
@@ -480,17 +514,29 @@
 /obj/vehicle/bike/motor/generate_registration_plate()
 	registration_plate = "[rand(10,99)]S-[rand(1000,9999)]"
 
+/obj/vehicle/bike/motor/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/blue
 	icon_state = "bluesport_on"
 	bike_icon = "bluesport"
+
+/obj/vehicle/bike/motor/blue/no_key
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor/green
 	icon_state = "greensport_on"
 	bike_icon = "greensport"
 
+/obj/vehicle/bike/motor/green/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/brown
 	icon_state = "brownsport_on"
 	bike_icon = "brownsport"
+
+/obj/vehicle/bike/motor/brown/no_key
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor/police_konyang
 	name = "police bike"
@@ -510,6 +556,9 @@
 	land_speed = 2 // slower than a sport bike but will still get you around big maps
 	key_type = /obj/item/key/bike/moped
 
+/obj/vehicle/bike/motor/moped/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/moped/generate_registration_plate()
 	registration_plate = "[rand(10,99)]M-[rand(1000,9999)]"
 
@@ -527,16 +576,47 @@
 	icon_state = "redmoped_on"
 	bike_icon = "redmoped"
 
+/obj/vehicle/bike/motor/moped/red/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/moped/teal
 	icon_state = "tealmoped_on"
 	bike_icon = "tealmoped"
 
+/obj/vehicle/bike/motor/moped/teal/no_key
+	spawns_with_key = FALSE
+
 /obj/vehicle/bike/motor/moped/blue
 	icon_state = "bluemoped_on"
 	bike_icon = "bluemoped"
+
+/obj/vehicle/bike/motor/moped/blue/no_key
+	spawns_with_key = FALSE
 
 /obj/vehicle/bike/motor/sand
 	name = "sandbike"
 	desc = "A specialised bike, designed for travelling on sand. Often used by Unathi of the Wasteland."
 	icon_state = "sport_on" //replace when we have a unique sprite
 	bike_icon = "sport"
+
+// A location helper landmark if we don't want to bother varediting keys explictly for the bikes.
+// Only ONE of these should exist in a map at the same time.
+ABSTRACT_TYPE(/obj/effect/landmark/bike_key_spawner)
+	/// A list of key type paths that are allowed to spawn at our location.
+	var/list/allowed_key_types = list()
+
+/obj/effect/landmark/bike_key_spawner/all_bikes/Initialize()
+	. = ..()
+	allowed_key_types = subtypesof(/obj/item/key/bike)
+
+/obj/effect/landmark/bike_key_spawner/moped_bikes
+	allowed_key_types = list(/obj/item/key/bike/moped)
+
+/obj/effect/landmark/bike_key_spawner/sport_bikes
+	allowed_key_types = list(/obj/item/key/bike/sport)
+
+/obj/effect/landmark/bike_key_spawner/snow_bikes
+	allowed_key_types = list(/obj/item/key/bike/snow)
+
+/obj/effect/landmark/bike_key_spawner/monowheel
+	allowed_key_types = list(/obj/item/key/bike/monowheel)

@@ -38,9 +38,6 @@
 
 	user.visible_message(SPAN_NOTICE("[user] lays a palm on [H]..."), SPAN_NOTICE("You lay your palm on [H] and get to work."))
 	for(var/obj/item/organ/O in H.internal_organs)
-		if(!do_mob(user, H, 1 SECONDS / effect_multiplier))
-			return
-
 		if(O.get_damage() > 0) // Fix internal damage
 			to_chat(user, SPAN_NOTICE("You flow your regenerative psionic energy through their [O.name]..."))
 			if(!do_mob(user, H, 10 SECONDS / effect_multiplier) || !pay_energy(30))
@@ -70,9 +67,6 @@
 
 	for(var/obj/item/organ/E in H.bad_external_organs) // Fix bones, tendons, arteries and necrosis.
 		var/obj/item/organ/external/affected = E
-		if(!do_mob(user, H, 1 SECONDS / effect_multiplier))
-			return
-
 		if((affected.get_damage() < affected.min_broken_damage * GLOB.config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
 			to_chat(user, SPAN_NOTICE("You flow your regenerative psionic energy through the broken bone in the [affected.name]..."))
 			if(!do_mob(user, H, 10 SECONDS / effect_multiplier) || !pay_energy(25))
@@ -99,8 +93,6 @@
 			affected.tendon.rejuvenate()
 
 	for(var/obj/item/organ/external/external_organ in H.organs) // Fix brute and burn.
-		if(!do_mob(user, H, 1 SECONDS / effect_multiplier))
-			return
 		if(external_organ.status & ORGAN_ROBOT) // No robot parts for this.
 			continue
 		if(external_organ.get_damage() <= 0)
@@ -108,7 +100,7 @@
 		to_chat(user, SPAN_NOTICE("You flow your regenerative psionic energy through the flesh of their [external_organ.name]..."))
 		if(!do_mob(user, H, 10 SECONDS / effect_multiplier) || !pay_energy(20))
 			return
-		external_organ.heal_damage(external_organ.get_brute_damage(), external_organ.get_burn_damage(), internal = FALSE, robo_repair = FALSE)
+		external_organ.heal_damage(LIMB_GET_BRUTE_DAMAGE(external_organ), LIMB_GET_BURN_DAMAGE(external_organ), internal = FALSE, robo_repair = FALSE)
 		to_chat(user, SPAN_NOTICE("You mend their [external_organ.name]'s flesh."))
 		for(var/datum/wound/W as anything in external_organ.wounds)
 			if(LAZYLEN(W.embedded_objects))

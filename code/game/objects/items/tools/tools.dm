@@ -302,8 +302,7 @@
 	light_color = LIGHT_COLOR_BLUE
 
 	var/last_gen = 0
-	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
-	//400 = 1 unit per 40 seconds
+	var/fuelgen_delay = 75 // One unit every 7.5 seconds; five minutes from empty to full.
 	change_icons = FALSE
 
 	var/obj/item/eyeshield/eyeshield
@@ -445,8 +444,8 @@
 			to_chat(user, SPAN_WARNING("You need to light the welding tool first!"))
 			return
 
-		if(S.brute_dam)
-			if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
+		if(LIMB_GET_BRUTE_DAMAGE(S))
+			if(LIMB_GET_BRUTE_DAMAGE(S) > ROBOLIMB_SELF_REPAIR_CAP)
 				to_chat(user, SPAN_WARNING("The damage is far too severe to patch over externally!"))
 				return
 			else
@@ -458,7 +457,7 @@
 		return ..()
 
 /obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
-	if(!affecting.brute_dam)
+	if(!LIMB_GET_BRUTE_DAMAGE(affecting))
 		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 

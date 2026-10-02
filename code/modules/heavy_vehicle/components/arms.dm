@@ -1,5 +1,6 @@
 /obj/item/mech_component/manipulators
 	name = "arms"
+	mass = 150
 	pixel_y = -12
 	icon_state = "loader_arms"
 	has_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)

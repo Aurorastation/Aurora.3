@@ -320,7 +320,7 @@
 	icon = 'icons/obj/unathi_ruins.dmi'
 	icon_state = "unathispacesuit"
 	item_state = "unathispacesuit"
-	species_restricted = list(SPECIES_UNATHI)
+	species_restricted = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/unathi_ruin
@@ -330,5 +330,5 @@
 	icon = 'icons/obj/unathi_ruins.dmi'
 	icon_state = "unathispacehelm"
 	item_state = "unathispacehelm"
-	species_restricted = list(SPECIES_UNATHI)
+	species_restricted = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	refittable = FALSE
