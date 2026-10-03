@@ -225,12 +225,13 @@
 	selection_color = "#6186cf"
 	economic_modifier = 15
 
-	alt_titles = list("Civil Service Functionaire", "Foreign Service Officer", "Party Representative", "Kreshwan")
+	alt_titles = list("Civil Service Functionaire", "Foreign Service Officer", "Party Representative", "Crown Diplomat", "Kreshwan")
 	alt_citizenships = list(
 		"Consular Officer" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
 		"Civil Service Functionaire" = list("Republic of Biesel"),
 		"Foreign Service Officer" = list("Sol Alliance"),
 		"Party Representative" = list("People's Republic of Adhomai"),
+		"Crown Diplomat" = list("New Kingdom of Adhomai"),
 		"Kreshwan" = list("Karszekani Moghes")
 	)
 
@@ -353,10 +354,12 @@
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 	check_citizenship_in_preferences = FALSE
 
-	alt_titles = list("Civil Service Aide")
+	alt_titles = list("Civil Service Aide","Party Aide", "Crown Servant")
 	alt_citizenships = list(
 		"Diplomatic Aide" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
-		"Civil Service Aide" = list("Republic of Biesel")
+		"Civil Service Aide" = list("Republic of Biesel"),
+		"Party Aide" = list("People's Republic of Adhomai"),
+		"Crown Servant" = list("New Kingdom of Adhomai")
 	)
 
 /datum/job/diplomatic_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
@@ -406,10 +409,13 @@
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 	check_citizenship_in_preferences = FALSE
 
-	alt_titles = list("Civil Service Bodyguard")
+	alt_titles = list("Civil Service Bodyguard", "NPD Officer", "AJIC Agent", "Imperial Army Trooper")
 	alt_citizenships = list(
 		"Diplomatic Bodyguard" = list("Sol Alliance", "Coalition of Colonies", "Republic of Elyra", "Elyran Non-Citizen Person", "Eridani Federation", "Empire of Dominia", "Karszekani Moghes", "Nralakk Federation", "The Consortium of Hieroaetheria", "The Union of Gla'orr", "The Eternal Republic of The Ekane", "People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai", "Free Tajaran Council", "Zo'ra Hive", "K'lax Hive", "C'thur Hive", "Undercover Lii'kenka", "None", "Golden Deep", "Ecclesiastical Authority of Axiom"),
-		"Civil Service Bodyguard" = list("Republic of Biesel")
+		"Civil Service Bodyguard" = list("Republic of Biesel"),
+		"NPD Officer" = list("People's Republic of Adhomai"),
+		"AJIC Agent" = list("Democratic People's Republic of Adhomai"),
+		"Imperial Army Trooper" = list("New Kingdom of Adhomai")
 	)
 
 /datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
