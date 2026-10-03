@@ -18,6 +18,7 @@ import { capitalize } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizePaperText } from '../sanitize';
+import { ActivityCard } from './common/ActivityCard';
 import { SearchBar } from './common/SearchBar';
 
 export type RecordsData = {
@@ -853,20 +854,12 @@ const RecordComments = (props: {
             <Stack vertical>
               {comments.map((comment) => (
                 <Stack.Item key={comment.id}>
-                  <Box
-                    backgroundColor="rgba(10, 10, 10, 0.45)"
-                    p={1}
-                    style={{ borderLeft: '3px solid #4b82b4' }}
-                  >
-                    <Stack align="center">
-                      <Stack.Item grow>
-                        <Box bold>{comment.author}</Box>
-                        <Box color="label" fontSize={0.9}>
-                          {comment.created_at}
-                        </Box>
-                      </Stack.Item>
-                      {editable && comment.editable ? (
-                        <Stack.Item>
+                  <ActivityCard
+                    title={comment.author}
+                    subtitle={comment.created_at}
+                    actions={
+                      editable && comment.editable ? (
+                        <>
                           <Button
                             compact
                             icon="pen"
@@ -890,26 +883,17 @@ const RecordComments = (props: {
                               })
                             }
                           />
-                        </Stack.Item>
-                      ) : null}
-                    </Stack>
-                    <Box
-                      backgroundColor="rgba(0, 0, 0, 0.3)"
-                      mt={1}
-                      p={1}
-                      style={{
-                        overflowWrap: 'anywhere',
-                        whiteSpace: 'pre-wrap',
-                      }}
-                    >
-                      {comment.comment}
-                    </Box>
-                    {comment.updated_at ? (
-                      <Box color="label" fontSize={0.9} mt={0.5}>
-                        Edited {comment.updated_at}
-                      </Box>
-                    ) : null}
-                  </Box>
+                        </>
+                      ) : undefined
+                    }
+                    footer={
+                      comment.updated_at
+                        ? `Edited ${comment.updated_at}`
+                        : undefined
+                    }
+                  >
+                    {comment.comment}
+                  </ActivityCard>
                 </Stack.Item>
               ))}
             </Stack>
