@@ -80,6 +80,8 @@
 	if(auto_register)
 		var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
 		map_origin.add_landmark(src, shuttle_restricted)
+		if(ispath(base_turf, /turf/space/transit))
+			crash_with("auto_register is enabled for a transit landmark: [name], [landmark_tag]")
 
 /obj/effect/shuttle_landmark/forceMove(atom/destination)
 	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
