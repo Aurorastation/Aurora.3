@@ -1299,9 +1299,11 @@
 	set_light_color(color)
 
 /**
- * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
+ * Called when a movable is moved by a shuttle.
  */
-/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination, rotation = 0)
+	if(rotation && isturf(loc))
+		shuttleRotate(rotation)
 	if(light)
 		update_light()
 
