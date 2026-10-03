@@ -315,29 +315,125 @@
 			. = TRUE
 
 		if("print")
+			if(!active)
+				return
+			if(!computer?.nano_printer)
+				to_chat(usr, SPAN_WARNING("No printer is installed in this device."))
+				return TRUE
+
+			var/print_scope = params["scope"] || "all"
 			var/list/excluded = list()
-			if(computer?.nano_printer && active)
-				if(!(records_type & RECORD_GENERAL))
+			var/print_title = "Employee Record ([active.name])"
+			switch(print_scope)
+				if("public")
 					excluded += active.advanced_fields
 					excluded += "notes"
 					excluded += "comments"
-				if(!(records_type & RECORD_SECURITY))
 					excluded += "security"
 					excluded += "fingerprint"
-				if(!(records_type & RECORD_MEDICAL))
 					excluded += "medical"
 					excluded += "mental_status"
-				var/out = active.Printify(excluded)
-				if(comments_loaded && !comments_error && comments_character_id == active.character_id && can_view_comments(comments_record_type))
-					var/total_pages = max(1, CEILING(comments_total, RECORD_COMMENT_PAGE_SIZE) / RECORD_COMMENT_PAGE_SIZE)
-					out += "<center><h3>[capitalize(comments_record_type)] Comments (Page [comments_page] of [total_pages])</h3></center>"
-					if(length(comment_results))
-						for(var/datum/record/record_comment/record_comment in comment_results)
-							out += "[record_comment.as_html()]<br>"
-					else
-						out += "No comments found.<br>"
-				computer.nano_printer.print_text(out, "Employee Record ([active.name])")
-				. = TRUE
+					print_title = "Employee Public Record ([active.name])"
+				if("employment")
+					if(!(records_type & RECORD_GENERAL))
+						return
+					excluded += "security"
+					excluded += "fingerprint"
+					excluded += "medical"
+					excluded += "mental_status"
+					print_title = "Employee Employment Record ([active.name])"
+				if("security")
+					if(!(records_type & RECORD_SECURITY))
+						return
+					excluded += active.advanced_fields
+					excluded += "notes"
+					excluded += "comments"
+					excluded += "medical"
+					excluded += "mental_status"
+					print_title = "Employee Security Record ([active.name])"
+				if("medical")
+					if(!(records_type & RECORD_MEDICAL))
+						return
+					excluded += active.advanced_fields
+					excluded += "notes"
+					excluded += "comments"
+					excluded += "security"
+					excluded += "fingerprint"
+					print_title = "Employee Medical Record ([active.name])"
+				if("all")
+					if(!(records_type & RECORD_GENERAL))
+						excluded += active.advanced_fields
+						excluded += "notes"
+						excluded += "comments"
+					if(!(records_type & RECORD_SECURITY))
+						excluded += "security"
+						excluded += "fingerprint"
+					if(!(records_type & RECORD_MEDICAL))
+						excluded += "medical"
+						excluded += "mental_status"
+				else
+					return
+
+			var/out = active.Printify(excluded)
+			if(print_scope == "all")
+				INVOKE_ASYNC(src, PROC_REF(print_all_records), out, print_title, active, records_type, usr)
+				return TRUE
+			if(print_scope != "public" && comments_loaded && !comments_error && comments_character_id == active.character_id && can_view_comments(comments_record_type) && print_scope == comments_record_type)
+				out += format_printed_comments(comments_record_type, comment_results, comments_page, comments_total)
+			if(!computer.nano_printer.print_text(out, print_title))
+				to_chat(usr, SPAN_WARNING("The printer could not complete the print job. Check that it is enabled, functional, and has paper."))
+			return TRUE
+
+/datum/computer_file/program/records/proc/format_printed_comments(var/record_type, var/list/comments, var/page, var/total)
+	var/total_pages = max(1, CEILING(total, RECORD_COMMENT_PAGE_SIZE) / RECORD_COMMENT_PAGE_SIZE)
+	. = "<center><h3>[capitalize(record_type)] Comments (Page [page] of [total_pages])</h3></center>"
+	if(!length(comments))
+		. += "No comments found.<br>"
+		return
+	var/first_comment = TRUE
+	for(var/datum/record/record_comment/record_comment in comments)
+		if(!first_comment)
+			. += "<hr>"
+		. += "[record_comment.as_html()]<br>"
+		first_comment = FALSE
+
+/datum/computer_file/program/records/proc/print_all_records(var/record_contents, var/print_title, var/datum/record/general/printed_record, var/record_access, var/mob/user)
+	var/list/comment_types = list()
+	if(record_access & RECORD_GENERAL)
+		comment_types += "employment"
+	if(record_access & RECORD_SECURITY)
+		comment_types += "security"
+	if(record_access & RECORD_MEDICAL)
+		comment_types += "medical"
+
+	for(var/record_type in comment_types)
+		var/list/result
+		var/delete_comments = FALSE
+		if(printed_record.character_id)
+			result = load_record_comment_page(printed_record.character_id, record_type, 1)
+			delete_comments = !result["error"]
+		if(!result || result["error"])
+			var/list/round_comments = printed_record.get_comments(record_type)
+			var/list/page_comments = list()
+			var/round_total = length(round_comments)
+			var/page_end = min(round_total, RECORD_COMMENT_PAGE_SIZE)
+			for(var/position = 1, position <= page_end, position++)
+				page_comments += round_comments[round_total - position + 1]
+			result = list(
+				"comments" = page_comments,
+				"page" = 1,
+				"total" = round_total
+			)
+		var/list/printed_comments = result["comments"]
+		record_contents += format_printed_comments(record_type, printed_comments, result["page"], result["total"])
+		if(delete_comments)
+			QDEL_LIST(printed_comments)
+
+	if(!computer?.nano_printer)
+		to_chat(user, SPAN_WARNING("No printer is installed in this device."))
+		return
+	if(!computer.nano_printer.print_text(record_contents, print_title))
+		to_chat(user, SPAN_WARNING("The printer could not complete the print job. Check that it is enabled, functional, and has paper."))
 
 /datum/computer_file/program/records/proc/canEdit(key, record_type)
 	if(record_type == "security")

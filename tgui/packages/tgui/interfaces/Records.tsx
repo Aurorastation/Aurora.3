@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import {
   Box,
   Button,
   Collapsible,
+  Divider,
   Dropdown,
   Image,
   Input,
@@ -299,7 +300,32 @@ export const ListActive = (props) => {
       fill
       title={data.active.name}
       buttons={
-        <Button content="Print" icon="print" onClick={() => act('print')} />
+        <>
+          <Button
+            color={!data.canprint ? 'bad' : undefined}
+            content={`Print ${activeTab}`}
+            icon="print"
+            tooltip={
+              data.canprint
+                ? `Print only the ${activeTab.toLowerCase()} record`
+                : 'No printer installed'
+            }
+            onClick={() =>
+              act('print', { scope: activeTab.toLowerCase() })
+            }
+          />
+          <Button
+            color={!data.canprint ? 'bad' : undefined}
+            content="Print All"
+            icon="print"
+            tooltip={
+              data.canprint
+                ? 'Print every record section available to this login'
+                : 'No printer installed'
+            }
+            onClick={() => act('print', { scope: 'all' })}
+          />
+        </>
       }
     >
       <Tabs>
@@ -852,49 +878,56 @@ const RecordComments = (props: {
           ) : null}
           {comments.length ? (
             <Stack vertical>
-              {comments.map((comment) => (
-                <Stack.Item key={comment.id}>
-                  <ActivityCard
-                    title={comment.author}
-                    subtitle={comment.created_at}
-                    actions={
-                      editable && comment.editable ? (
-                        <>
-                          <Button
-                            compact
-                            icon="pen"
-                            tooltip="Edit this comment"
-                            onClick={() =>
-                              act('editcomment', {
-                                record_type: recordType,
-                                comment_id: comment.id,
-                              })
-                            }
-                          />
-                          <Button
-                            compact
-                            icon="trash"
-                            color="bad"
-                            tooltip="Delete this comment"
-                            onClick={() =>
-                              act('deletecomment', {
-                                record_type: recordType,
-                                comment_id: comment.id,
-                              })
-                            }
-                          />
-                        </>
-                      ) : undefined
-                    }
-                    footer={
-                      comment.updated_at
-                        ? `Edited ${comment.updated_at}`
-                        : undefined
-                    }
-                  >
-                    {comment.comment}
-                  </ActivityCard>
-                </Stack.Item>
+              {comments.map((comment, index) => (
+                <Fragment key={comment.id}>
+                  {index > 0 ? (
+                    <Stack.Item>
+                      <Divider />
+                    </Stack.Item>
+                  ) : null}
+                  <Stack.Item>
+                    <ActivityCard
+                      title={comment.author}
+                      subtitle={comment.created_at}
+                      actions={
+                        editable && comment.editable ? (
+                          <>
+                            <Button
+                              compact
+                              icon="pen"
+                              tooltip="Edit this comment"
+                              onClick={() =>
+                                act('editcomment', {
+                                  record_type: recordType,
+                                  comment_id: comment.id,
+                                })
+                              }
+                            />
+                            <Button
+                              compact
+                              icon="trash"
+                              color="bad"
+                              tooltip="Delete this comment"
+                              onClick={() =>
+                                act('deletecomment', {
+                                  record_type: recordType,
+                                  comment_id: comment.id,
+                                })
+                              }
+                            />
+                          </>
+                        ) : undefined
+                      }
+                      footer={
+                        comment.updated_at
+                          ? `Edited ${comment.updated_at}`
+                          : undefined
+                      }
+                    >
+                      {comment.comment}
+                    </ActivityCard>
+                  </Stack.Item>
+                </Fragment>
               ))}
             </Stack>
           ) : (
