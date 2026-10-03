@@ -971,9 +971,11 @@
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
+	icon = 'icons/obj/item/clothing/accessory/patches.dmi'
 	icon_state = "patch"
 	item_state = "patch"
 	overlay_state = "patch"
+	contained_sprite = TRUE
 	flippable = 1
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -1018,6 +1020,7 @@
 	name = "\improper KOG Motorheads shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's PRA division the Motorheads."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The PRA division, called the Motorheads, specializes in motorized warfare and quick response force operations."
+	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_pra"
 	icon_state = "kog_tabs_pra"
 	overlay_state = "kog_tabs_pra"
@@ -1027,6 +1030,7 @@
 	name = "\improper KOG Last Chancers shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's DPRA/ALA division the Last Chancers."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The ALA/DPRA division, known as the Last Chancers, focus on sabatoge and explosives. They have become infamous for nighttime infiltrations wherein their explosive expertise leads to devastating effects."
+	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_ala"
 	icon_state = "kog_tabs_ala"
 	overlay_state = "kog_tabs_ala"
@@ -1036,6 +1040,7 @@
 	name = "\improper KOG Starry Knights shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's NKA division the Starry Knights."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The NKA divison, called the Starry Knights, are the defensive experts of the KOG. Using datasets regarding various entities of the Spur, the Starry Knights are capable of preparing an adaptable and formidable defense."
+	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_nka"
 	icon_state = "kog_tabs_nka"
 	overlay_state = "kog_tabs_nka"
