@@ -511,7 +511,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	else if(istype(attacking_item, /obj/item/paper_bundle))
 		var/obj/item/paper_bundle/paper_bundle = attacking_item
 		if(lid)
-			if(alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", "Yes", "No") == "No")
+			if(tgui_alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", list("Yes", "No")) == "No")
 				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
 				return
 			paperstock += paper_bundle.amount
@@ -523,7 +523,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		return TRUE
 	else if(istype(attacking_item, /obj/item/paper))
 		if(lid)
-			if(alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", "Yes", "No") == "No")
+			if(tgui_alert(user, "Do you want to restock \the [src] with \the [attacking_item]?", "Paper Restocking", list("Yes", "No")) == "No")
 				to_chat(user, SPAN_NOTICE("You decide against restocking \the [src], noting that the lid is still open."))
 				return
 			var/obj/item/paper/paper_item = attacking_item

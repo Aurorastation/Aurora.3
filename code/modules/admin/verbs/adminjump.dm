@@ -21,7 +21,7 @@
 			message_admins("[key_name_admin(usr)] jumped to [A]", 1)
 			feedback_add_details("admin_verb","JA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/jumptoturf(var/turf/T in world)
 	set name = "Jump to Turf"
@@ -38,7 +38,7 @@
 			usr.forceMove(T)
 			feedback_add_details("admin_verb","JT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 		return
 
 /client/proc/jumptomob(var/mob/M in GLOB.mob_list)
@@ -62,7 +62,7 @@
 				else
 					to_chat(A, "This mob is not located in the game world.")
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/jumptocoord(tx as num, ty as num, tz as num)
 	set category = "Admin.Jump"
@@ -82,7 +82,7 @@
 		message_admins("[key_name_admin(usr)] jumped to coordinates [tx], [ty], [tz]")
 
 	else
-		alert("Admin jumping disabled")
+		tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/jumptozlevel()
 	set category = "Admin.Jump"
@@ -106,7 +106,7 @@
 				message_admins("[key_name_admin(usr)] jumped to z-level [selection]", 1)
 				feedback_add_details("admin_verb","JZ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/jumptoshuttle()
 	set category = "Admin.Jump"
@@ -128,7 +128,7 @@
 				message_admins("[key_name_admin(usr)] jumped to shuttle [selection]", 1)
 				feedback_add_details("admin_verb","JSHU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/jumptoship()
 	set category = "Admin.Jump"
@@ -150,7 +150,7 @@
 				message_admins("[key_name_admin(usr)] jumped to ship [selection]", 1)
 				feedback_add_details("admin_verb","JSHI") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/jumptosector()
 	set category = "Admin.Jump"
@@ -175,7 +175,7 @@
 				message_admins("[key_name_admin(usr)] jumped to sector [selection]", 1)
 				feedback_add_details("admin_verb","JSEC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/jumptokey()
 	set category = "Admin.Jump"
@@ -199,7 +199,7 @@
 		usr.forceMove(M.loc)
 		feedback_add_details("admin_verb","JK") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
-		alert("Admin jumping disabled")
+		tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/Getmob(var/mob/M in GLOB.mob_list)
 	set category = "Admin.Jump"
@@ -215,7 +215,7 @@
 			M.forceMove(get_turf(usr))
 			feedback_add_details("admin_verb","GM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/Getkey()
 	set category = "Admin.Jump"
@@ -243,7 +243,7 @@
 			M.forceMove(get_turf(usr))
 			feedback_add_details("admin_verb","GK") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
-		alert("Admin jumping disabled")
+		tgui_alert(usr, "Admin jumping disabled")
 
 /client/proc/sendmob(var/mob/M in sortmobs())
 	set category = "Admin.Jump"
@@ -260,4 +260,4 @@
 			log_admin("[key_name(usr)] teleported [key_name(M)] to [A]")
 			message_admins("[key_name_admin(usr)] teleported [key_name_admin(M)] to [A]", 1)
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")

@@ -22,7 +22,7 @@
 	var/warning_notes = input("Add additional information. This is visible only to staff.") as null|text
 
 	var/warning_severity
-	switch (alert("Set warning severity", null, "Standard", "Severe"))
+	switch (tgui_alert(usr, "Set warning severity", null, list("Standard", "Severe")))
 		if ("standard")
 			warning_severity = "0"
 		if ("Severe")
@@ -110,7 +110,7 @@
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
 	if (!establish_db_connection(GLOB.dbcon))
-		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
+		tgui_alert(usr, "Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
 
 	var/dat = ""
@@ -212,7 +212,7 @@
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		alert("Connection to SQL database failed while attempting to update your warning's status!")
+		tgui_alert(usr, "Connection to SQL database failed while attempting to update your warning's status!")
 		return
 
 	var/DBQuery/query = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET acknowledged = 1 WHERE id = :warning_id:;")
@@ -333,7 +333,7 @@
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
 	if (!establish_db_connection(GLOB.dbcon))
-		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
+		tgui_alert(usr, "Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
 
 	var/dat = "<div align='center'><h3>Warning Look-up Panel</h3><br>"
@@ -479,7 +479,7 @@
 		return
 
 	if(!establish_db_connection(GLOB.dbcon))
-		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
+		tgui_alert(usr, "Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
 
 	var/count = 0 //failsafe
@@ -508,7 +508,7 @@
 
 	switch (warning_edit)
 		if ("delete")
-			if(alert("Delete this warning?", "Delete?", "Yes", "No") == "Yes")
+			if(tgui_alert(usr, "Delete this warning?", "Delete?", list("Yes", "No")) == "Yes")
 				var/DBQuery/deleteQuery = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id:")
 				deleteQuery.Execute(query_details)
 

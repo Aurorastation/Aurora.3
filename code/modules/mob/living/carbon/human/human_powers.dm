@@ -620,7 +620,7 @@
 	set desc = "Dissolve yourself in order to escape permanent imprisonment."
 	set category = "Abilities"
 
-	if(alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", "Yes", "No") == "No")
+	if(tgui_alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", list("Yes", "No")) == "No")
 		return
 	visible_message(SPAN_DANGER("[src] dissolves!"), SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
 	death()

@@ -150,7 +150,7 @@
 			return
 
 		var/delmob = 0
-		switch(alert("Delete old mob?","Message","Yes","No","Cancel"))
+		switch(tgui_alert(usr, "Delete old mob?", "Message", list("Yes", "No", "Cancel")))
 			if("Cancel")
 				return
 			if("Yes")
@@ -201,11 +201,11 @@
 		var/banfolder = href_list["unbanf"]
 		Banlist.cd = "/base/[banfolder]"
 		var/key = Banlist["key"]
-		if(alert(usr, "Are you sure you want to unban [key]?", "Confirmation", "Yes", "No") == "Yes")
+		if(tgui_alert(usr, "Are you sure you want to unban [key]?", "Confirmation", list("Yes", "No")) == "Yes")
 			if(RemoveBan(banfolder))
 				unbanpanel()
 			else
-				alert(usr, "This ban has already been lifted / does not exist.", "Error", "Ok")
+				tgui_alert(usr, "This ban has already been lifted / does not exist.", "Error", list("Ok"))
 				unbanpanel()
 
 	else if(href_list["warn"])
@@ -230,7 +230,7 @@
 
 		var/duration
 
-		switch(alert("Temporary Ban?",,"Yes","No"))
+		switch(tgui_alert(usr, "Temporary Ban?", , list("Yes", "No")))
 			if("Yes")
 				temp = 1
 				var/mins = 0
@@ -321,7 +321,7 @@
 		if(M.client && M.client.holder)
 			return	//admins cannot be banned. Even if they could, the ban doesn't affect them anyway
 
-		switch(alert("Temporary Ban?",,"Yes","No", "Cancel"))
+		switch(tgui_alert(usr, "Temporary Ban?", , list("Yes", "No", "Cancel")))
 			if("Yes")
 				var/mins = input(usr,"How long (in minutes)?","Ban time",1440) as num|null
 				if(!mins)
@@ -359,7 +359,7 @@
 				var/reason = sanitize(input(usr,"Reason?","reason","Griefer") as text|null)
 				if(!reason)
 					return
-				switch(alert(usr,"IP ban?",,"Yes","No","Cancel"))
+				switch(tgui_alert(usr, "IP ban?", , list("Yes", "No", "Cancel")))
 					if("Cancel")	return
 					if("Yes")
 						AddBan(M.ckey, M.computer_id, reason, usr.ckey, 0, 0, M.lastKnownIP)
@@ -409,7 +409,7 @@
 			return
 
 		if(ROUND_IS_STARTED)
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
 		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
 		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='byond://?src=[REF(src)];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
@@ -423,9 +423,9 @@
 			return
 
 		if(ROUND_IS_STARTED)
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
 		if(GLOB.master_mode != ROUNDTYPE_STR_SECRET && GLOB.master_mode != ROUNDTYPE_STR_MIXED_SECRET)
-			return alert(usr, "The game mode has to be secret!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be secret!", null, list(null, null, null))
 		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='byond://?src=[REF(src)];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
@@ -438,7 +438,7 @@
 			return
 
 		if (ROUND_IS_STARTED)
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
 		GLOB.master_mode = href_list["c_mode2"]
 		log_admin("[key_name(usr)] set the mode as [GLOB.master_mode].")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the mode as [GLOB.master_mode]."), 1)
@@ -452,9 +452,9 @@
 			return
 
 		if(ROUND_IS_STARTED)
-			return alert(usr, "The game has already started.", null, null, null, null)
+			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
 		if(GLOB.master_mode != "secret")
-			return alert(usr, "The game mode has to be secret!", null, null, null, null)
+			return tgui_alert(usr, "The game mode has to be secret!", null, list(null, null, null))
 		GLOB.secret_force_mode = href_list["f_secret2"]
 		log_admin("[key_name(usr)] set the forced secret mode as [GLOB.secret_force_mode].")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the forced secret mode as [GLOB.secret_force_mode]."), 1)
@@ -529,7 +529,7 @@
 			to_chat(usr, SPAN_WARNING("[M] doesn't seem to have an active client."))
 			return
 
-		if(alert(usr, "Send [key_name(M)] back to Lobby?", "Message", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Send [key_name(M)] back to Lobby?", "Message", list("Yes", "No")) != "Yes")
 			return
 
 		log_admin("[key_name(usr)] has sent [key_name(M)] back to the Lobby.")
@@ -543,7 +543,7 @@
 		if(!check_rights(R_FUN))
 			return
 
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Confirm?", "Message", list("Yes", "No")) != "Yes")
 			return
 
 		var/mob/M = locate(href_list["tdome1"])
@@ -569,7 +569,7 @@
 		if(!check_rights(R_FUN))
 			return
 
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Confirm?", "Message", list("Yes", "No")) != "Yes")
 			return
 
 		var/mob/M = locate(href_list["tdome2"])
@@ -595,7 +595,7 @@
 		if(!check_rights(R_FUN))
 			return
 
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Confirm?", "Message", list("Yes", "No")) != "Yes")
 			return
 
 		var/mob/M = locate(href_list["tdomeadmin"])
@@ -618,7 +618,7 @@
 		if(!check_rights(R_FUN))
 			return
 
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Confirm?", "Message", list("Yes", "No")) != "Yes")
 			return
 
 		var/mob/M = locate(href_list["tdomeobserve"])
@@ -871,7 +871,7 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living")
 			return
 
-		if(alert(src.owner, "Are you sure you wish to hit [key_name(M)] with Blue Space Artillery?",  "Confirm Firing?" , "Yes" , "No") != "Yes")
+		if(tgui_alert(src.owner, "Are you sure you wish to hit [key_name(M)] with Blue Space Artillery?", "Confirm Firing?", list("Yes", "No")) != "Yes")
 			return
 
 		if(BSACooldown)
@@ -1027,7 +1027,7 @@
 		if(!check_rights(R_BAN))
 			return
 
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Confirm?", "Message", list("Yes", "No")) != "Yes")
 			return
 		var/mob/M = locate(href_list["getmob"])
 		usr.client.Getmob(M)
@@ -1058,7 +1058,7 @@
 			return
 
 		if(!ROUND_IS_STARTED)
-			alert("The game hasn't started yet!")
+			tgui_alert(usr, "The game hasn't started yet!")
 			return
 
 		var/mob/M = locate(href_list["traitor"])
@@ -1124,13 +1124,13 @@
 			paths += path
 
 		if(!paths)
-			alert("The path list you sent is empty")
+			tgui_alert(usr, "The path list you sent is empty")
 			return
 		if(length(paths) > 5)
-			alert("Select fewer object types, (max 5)")
+			tgui_alert(usr, "Select fewer object types, (max 5)")
 			return
 		else if(length(removed_paths))
-			alert("Removed:\n" + jointext(removed_paths, "\n"))
+			tgui_alert(usr, "Removed:\n" + jointext(removed_paths, "\n"))
 
 		var/list/offset = text2list(href_list["offset"],",")
 		var/number = dd_range(1, 100, text2num(href_list["object_count"]))
@@ -1226,7 +1226,7 @@
 		if(src.admincaster_feed_channel.channel_name == "" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]" || check )
 			src.admincaster_screen=7
 		else
-			var/choice = alert("Please confirm Feed channel creation","Network Channel Handler","Confirm","Cancel")
+			var/choice = tgui_alert(usr, "Please confirm Feed channel creation", "Network Channel Handler", list("Confirm", "Cancel"))
 			if(choice=="Confirm")
 				SSnews.CreateFeedChannel(admincaster_feed_channel.channel_name, admincaster_signature, admincaster_feed_channel.locked, 1)
 				feedback_inc("newscaster_channels",1)                  //Adding channel to the global network
@@ -1298,7 +1298,7 @@
 		if(src.admincaster_feed_message.author == "" || src.admincaster_feed_message.body == "")
 			src.admincaster_screen = 16
 		else
-			var/choice = alert("Please confirm Wanted Issue [(input_param==1) ? ("creation.") : ("edit.")]","Network Security Handler","Confirm","Cancel")
+			var/choice = tgui_alert(usr, "Please confirm Wanted Issue [(input_param==1) ? ("creation.") : ("edit.")]", "Network Security Handler", list("Confirm", "Cancel"))
 			if(choice=="Confirm")
 				if(input_param==1)          //If input_param == 1 we're submitting a new wanted issue. At 2 we're just editing an existing one. See the else below
 					var/datum/feed_message/WANTED = new /datum/feed_message
@@ -1320,7 +1320,7 @@
 		src.access_news_network()
 
 	else if(href_list["ac_cancel_wanted"])
-		var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
+		var/choice = tgui_alert(usr, "Please confirm Wanted Issue removal", "Network Security Handler", list("Confirm", "Cancel"))
 		if(choice=="Confirm")
 			SSnews.wanted_issue = null
 			for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)

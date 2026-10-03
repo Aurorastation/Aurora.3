@@ -711,7 +711,7 @@
 	if(istype(user, /mob/living/silicon/robot/drone))
 		var/mob/living/silicon/robot/drone/D = user
 		if(D.hat)
-			if(alert("You are already wearing a [D.hat]. Swap with [src]?",,"Yes","No") == "Yes")
+			if(tgui_alert(usr, "You are already wearing a [D.hat]. Swap with [src]?", , list("Yes", "No")) == "Yes")
 				D.hat.forceMove(get_turf(src))
 				D.hat = null
 				D.CutOverlays(D.hat_overlay)

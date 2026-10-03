@@ -216,7 +216,7 @@
 		return
 
 	var/mob/living/carbon/C = src
-	if(!C.stat && alert("Are we sure we wish to fake our death?", , "Yes", "No") == "No") //Confirmation for living changelings if they want to fake their death
+	if(!C.stat && tgui_alert(usr, "Are we sure we wish to fake our death?", , list("Yes", "No")) == "No") //Confirmation for living changelings if they want to fake their death
 		return
 	to_chat(C, SPAN_NOTICE("We will attempt to regenerate our form."))
 
@@ -540,7 +540,7 @@
 
 	var/mob/living/carbon/human/M = src
 
-	if(alert("Are we sure we wish to reveal ourselves and assume our ultimate form? This is irreversible, and we will not be able to revert to our disguised form.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
+	if(tgui_alert(usr, "Are we sure we wish to reveal ourselves and assume our ultimate form? This is irreversible, and we will not be able to revert to our disguised form.", , list("Yes", "No")) == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
 
 	changeling.use_charges(50)

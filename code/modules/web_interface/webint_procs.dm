@@ -79,19 +79,19 @@
 	attributes += list2params(list("ckey" = user.ckey, "token" = token))
 
 	if (!establish_db_connection(GLOB.dbcon))
-		alert("An error occured while attempting to connect to the database!")
+		tgui_alert(usr, "An error occured while attempting to connect to the database!")
 		return 0
 
 	var/datum/db_query/insert_query = SSdbcore.NewQuery("INSERT INTO ss13_web_sso (ckey, token, ip, created_at) VALUES (:ckey, :token, :ip, NOW())",list("ckey" = user.ckey, "token" = token, "ip" = user.address))
 
 	if (!insert_query.Execute())
-		alert("An error occured while trying to upload the session data!")
+		tgui_alert(usr, "An error occured while trying to upload the session data!")
 		qdel(insert_query)
 		return 0
 
 	qdel(insert_query)
 
-	if (alert("This will take you to the webpage and log you in. Do you wish to proceed?",,"Yes","No") == "No")
+	if (tgui_alert(usr, "This will take you to the webpage and log you in. Do you wish to proceed?", , list("Yes", "No")) == "No")
 		return 0
 
 	return attributes

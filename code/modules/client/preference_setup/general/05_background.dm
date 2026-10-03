@@ -84,7 +84,7 @@
 
 	else if(href_list["clear"])
 		if(!jobban_isbanned(user, "Records") && CanUseTopic(user))
-			if(alert(user, "Are you sure you wish to clear the [capitalize(href_list["clear"])] record?", "Clear Record Confirmation","Yes","No") == "No")
+			if(tgui_alert(user, "Are you sure you wish to clear the [capitalize(href_list["clear"])] record?", "Clear Record Confirmation", list("Yes", "No")) == "No")
 				return TOPIC_NOACTION
 			switch(href_list["clear"])
 				if("medical")

@@ -142,11 +142,11 @@
 			return
 
 	if (reporttype == "Template")
-		var/resp = alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No")
+		var/resp = tgui_alert(usr, "Would you like it to appear as if CCIAMS made the report?", , list("Yes", "No"))
 		if (resp == "Yes")
 			reportbody += "\n\n- CCIAMS, [commstation_name()]"
 
-	switch(alert("Should this be announced to the general population?",,"Yes","No"))
+	switch(tgui_alert(usr, "Should this be announced to the general population?", , list("Yes", "No")))
 		if("Yes")
 			if(!reporttitle || !reportbody || !ability_pay(user, price))
 				to_chat(user, "Hack Aborted due to no title, no body message, or you do not have enough CPU for this action.")
@@ -226,7 +226,7 @@
 		to_chat(user, SPAN_WARNING("You are dead!"))
 		return
 
-	if (alert(user, "Begin system override? This cannot be stopped once started. The network administrators will probably notice this.", "System Override:", "Yes", "No") != "Yes")
+	if (tgui_alert(user, "Begin system override? This cannot be stopped once started. The network administrators will probably notice this.", "System Override:", list("Yes", "No")) != "Yes")
 		return
 	if (!ability_prechecks(user, price) || !ability_pay(user, price) || user.system_override)
 		if(user.system_override)
