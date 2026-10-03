@@ -118,6 +118,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/list/skills = list()
 	/// The character's current spent skill points. Assoc list of SKILL_CATEGORY define to number of remaining skill points.
 	var/list/skill_points_remaining
+	/// Selected quirks, keyed by quirk type. Values are TRUE or a selector value.
+	var/list/quirks = list()
 
 	/// The character's psionics. JSON.
 	var/list/psionics = list()
@@ -177,8 +179,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/exploit_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()
-	var/list/disabilities = list()
-
 	var/economic_status = ECONOMICALLY_AVERAGE
 
 	var/uplinklocation = "PDA"
@@ -611,8 +611,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
 
-	character.sync_trait_prefs_to_mob(src)
-
 	character.all_underwear.Cut()
 	character.all_underwear_metadata.Cut()
 	for(var/underwear_category_name in all_underwear)
@@ -665,6 +663,18 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		character.update_hair(0)
 		character.update_underwear(0)
 		character.update_icon()
+
+/**
+ * Applies selected quirks after skills, equipment, loadout items, custom items,
+ * augments, and other organ replacements have finished spawning.
+ */
+/datum/preferences/proc/apply_quirks(mob/character)
+	if(!ishuman(character))
+		return
+	for(var/quirk_type in quirks)
+		var/singleton/quirk/quirk = GET_SINGLETON(quirk_type)
+		if(istype(quirk) && quirk.can_select(src))
+			quirk.on_spawn(character, quirks[quirk_type])
 
 /datum/preferences/proc/get_character_slot_data(mob/user)
 	var/list/slots = list()
@@ -807,7 +817,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		flavour_texts_robot = list()
 
 		ccia_actions = list()
-		disabilities = list()
+		quirks = list()
 		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE

@@ -184,12 +184,6 @@
 						LAZYINITLIST(O.temporary_markings)
 						O.temporary_markings[M] = attr
 
-/mob/living/carbon/human/proc/sync_trait_prefs_to_mob(datum/preferences/prefs)
-	var/list/traits = prefs.disabilities
-	for(var/M in traits)
-		var/datum/character_disabilities/trait = GLOB.chargen_disabilities_list[M]
-		trait.apply_self(src)
-
 /**
  * Helper proc that grabs whatever organ this humantype uses to see.
  * Usually eyes, but can be something else.

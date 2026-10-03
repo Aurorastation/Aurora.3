@@ -280,6 +280,9 @@ REQ_CULT_GHOSTWRITER 6
 CHARACTER_SLOTS 10
 ## Sets the number of available loadout slots
 LOADOUT_SLOTS 3
+## Sets the starting quirk point and slot pools
+QUIRK_POINTS 5
+QUIRK_SLOTS 5
 
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
