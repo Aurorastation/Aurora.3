@@ -181,14 +181,14 @@
 // ================================ exterior sneaky antag-only landmarks
 
 #define NAV_HORIZON_EXTERIOR_ALL_SNEAKY list(\
-	"nav_horizon_exterior_sneaky_starboard_nacelle_1",\
-	"nav_horizon_exterior_sneaky_starboard_nacelle_2",\
+	"nav_horizon_exterior_sneaky_starboard_nacelle",\
+	"nav_horizon_exterior_sneaky_port_nacelle",\
 )
 
-/obj/effect/shuttle_landmark/horizon/exterior/sneaky/starboard_nacelle_1
-	name = "Deck Two, Starboard Nacelle 1"
-	landmark_tag = "nav_horizon_exterior_sneaky_starboard_nacelle_1"
+/obj/effect/shuttle_landmark/horizon/exterior/sneaky/starboard_nacelle
+	name = "Deck Two, Starboard Nacelle"
+	landmark_tag = "nav_horizon_exterior_sneaky_starboard_nacelle"
 
-/obj/effect/shuttle_landmark/horizon/exterior/sneaky/starboard_nacelle_2
-	name = "Deck Two, Starboard Nacelle 2"
-	landmark_tag = "nav_horizon_exterior_sneaky_starboard_nacelle_2"
+/obj/effect/shuttle_landmark/horizon/exterior/sneaky/port_nacelle
+	name = "Deck Two, Port Nacelle"
+	landmark_tag = "nav_horizon_exterior_sneaky_port_nacelle"
