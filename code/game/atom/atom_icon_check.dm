@@ -16,7 +16,7 @@
 	// Only these types (and their subtypes) are checked
 	var/static/list/whitelisted_check_types = list(
 		// Ideally this would just be `/atom`, but it would require fixing a million icons in a single PR
-		/obj/random,
+		// Ideally anyone adding new stuff or fixing old stuff should add paths here so they are checked in the future
 	)
 
 	// These types (and their subtypes) are ignored
