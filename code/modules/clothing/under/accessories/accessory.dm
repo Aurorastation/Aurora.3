@@ -241,6 +241,7 @@
 /obj/item/clothing/accessory/tie/colourable
 	name = "tie"
 	icon_state = "whitetie"
+	item_state = "whitetie"
 
 /obj/item/clothing/accessory/tie/colourable/clip
 	name = "tie with a gold clip"
