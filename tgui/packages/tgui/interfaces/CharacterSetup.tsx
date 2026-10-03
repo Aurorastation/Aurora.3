@@ -106,7 +106,6 @@ type SpeciesOption = {
 type BodyPreferenceItem = BasePreferenceItem & {
   kind: 'body';
   appearance: BodyAppearance[];
-  disabilities: string[];
   fields: BodyField[];
   has_internal_organs: boolean;
   has_skin_preset: boolean;
@@ -167,6 +166,29 @@ type SkillsPreferenceItem = BasePreferenceItem & {
   education_description: string;
 };
 
+type QuirkEntry = {
+  available: boolean;
+  description: string;
+  name: string;
+  point_cost: number;
+  selected: boolean;
+  selection?: string;
+  selections?: string[];
+  slot_cost: number;
+  type: string;
+  unavailable_reason?: string;
+};
+
+type QuirksPreferenceItem = BasePreferenceItem & {
+  kind: 'quirks';
+  categories: { name: string; selected: boolean }[];
+  points: number;
+  points_limit: number;
+  quirks: QuirkEntry[];
+  slots: number;
+  slots_limit: number;
+};
+
 type LoadoutItem = {
   available: boolean;
   cost: number;
@@ -219,6 +241,7 @@ type PreferenceItem =
   | BodyPreferenceItem
   | BackgroundPreferenceItem
   | SkillsPreferenceItem
+  | QuirksPreferenceItem
   | LoadoutPreferenceItem
   | OccupationPreferenceItem;
 
@@ -247,6 +270,7 @@ const categoryIcons: Record<string, string> = {
   General: 'user',
   Origin: 'globe',
   Skills: 'brain',
+  Quirks: 'puzzle-piece',
   Occupation: 'briefcase',
   Roles: 'masks-theater',
   Loadout: 'shirt',
@@ -710,33 +734,6 @@ export const CharacterSetup = () => {
               </a>
             </Box>
           ))}
-          <Box>
-            <b>Disabilities:</b>{' '}
-            <a
-              onClick={() => sendPreferenceAction(item, 'trait_add')}
-              role="button"
-              tabIndex={0}
-            >
-              Adjust
-            </a>
-          </Box>
-          {!!item.disabilities.length && (
-            <Box className="preference-detail-list">
-              {item.disabilities.map((disability) => (
-                <Box key={disability}>
-                  {disability}{' '}
-                  <Button
-                    compact
-                    color="transparent"
-                    icon="minus"
-                    onClick={() =>
-                      sendPreferenceAction(item, 'trait_remove', disability)
-                    }
-                  />
-                </Box>
-              ))}
-            </Box>
-          )}
           <Box>
             <b>Limbs:</b>{' '}
             <a
@@ -1227,6 +1224,76 @@ export const CharacterSetup = () => {
     </Box>
   );
 
+  const renderQuirks = (item: QuirksPreferenceItem) => (
+    <Box className="quirks-preferences">
+      <Stack mb={1}>
+        <Stack.Item grow>
+          <b>{item.points}</b> points remaining (base {item.points_limit})
+        </Stack.Item>
+        <Stack.Item>
+          <b>{item.slots}</b> / {item.slots_limit} slots remaining
+        </Stack.Item>
+      </Stack>
+      <Tabs fluid>
+        {item.categories.map((category) => (
+          <Tabs.Tab
+            key={category.name}
+            selected={category.selected}
+            onClick={() =>
+              sendPreferenceTopic(item, { set_category: category.name })
+            }
+          >
+            {category.name}
+          </Tabs.Tab>
+        ))}
+      </Tabs>
+      <Box className="quirk-list" mt={1}>
+        {item.quirks.map((quirk) => (
+          <Box className="quirk-row" key={quirk.type}>
+            <Stack align="center">
+              <Stack.Item grow>
+                <Box bold>{quirk.name}</Box>
+                <Box color="label">{quirk.description}</Box>
+                <Box color={quirk.point_cost < 0 ? 'good' : 'average'}>
+                  {quirk.point_cost < 0
+                    ? `Grants ${Math.abs(quirk.point_cost)}`
+                    : `Costs ${quirk.point_cost}`}{' '}
+                  {Math.abs(quirk.point_cost) === 1 ? 'point' : 'points'},{' '}
+                  {quirk.slot_cost}{' '}
+                  {quirk.slot_cost === 1 ? 'slot' : 'slots'}
+                </Box>
+              </Stack.Item>
+              {!!quirk.selections?.length && quirk.selected && (
+                <Stack.Item>
+                  <Button
+                    onClick={() =>
+                      sendPreferenceTopic(item, { select: quirk.type })
+                    }
+                  >
+                    {quirk.selection}
+                  </Button>
+                </Stack.Item>
+              )}
+              <Stack.Item>
+                <Button
+                  disabled={!quirk.available && !quirk.selected}
+                  icon={quirk.selected ? 'minus' : 'plus'}
+                  selected={quirk.selected}
+                  tooltip={!quirk.available ? quirk.unavailable_reason : null}
+                  onClick={() =>
+                    sendPreferenceTopic(item, { toggle: quirk.type })
+                  }
+                >
+                  {quirk.selected ? 'Remove' : 'Add'}
+                </Button>
+              </Stack.Item>
+            </Stack>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  );
+
   const renderLoadout = (item: LoadoutPreferenceItem) => (
     <Box className="loadout-preferences">
       {item.gear_reset ? (
@@ -1365,6 +1432,8 @@ export const CharacterSetup = () => {
           renderForm(item)
         ) : item.kind === 'skills' ? (
           renderSkills(item)
+        ) : item.kind === 'quirks' ? (
+          renderQuirks(item)
         ) : item.kind === 'loadout' ? (
           renderLoadout(item)
         ) : item.kind === 'occupation' ? (
@@ -1383,6 +1452,7 @@ export const CharacterSetup = () => {
       (item) =>
         item.kind === 'occupation' ||
         item.kind === 'skills' ||
+        item.kind === 'quirks' ||
         item.kind === 'loadout',
     );
 
