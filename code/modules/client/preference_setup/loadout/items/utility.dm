@@ -168,12 +168,13 @@
 	cards["glass business card, silver flair"] = /obj/item/paper/business_card/glass/s
 	cards["glass business card, white flair"] = /obj/item/paper/business_card/glass/w
 	card_path_tweak = new(cards)
+	var/datum/gear_tweak/color/business_card/card_color_tweak = new()
 	card_tweaks = list(
 		card_path_tweak,
-		new /datum/gear_tweak/color/business_card(),
+		card_color_tweak,
 		new /datum/gear_tweak/custom_name/business_card(),
 		new /datum/gear_tweak/custom_desc/business_card(),
-		new /datum/gear_tweak/paper_data/business_card()
+		new /datum/gear_tweak/paper_data/business_card(card_color_tweak)
 	)
 	gear_tweaks += card_tweaks
 
@@ -238,6 +239,21 @@
 /datum/gear_tweak/custom_desc/business_card/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	if(istype(I, /obj/item/paper/business_card))
 		return ..()
+
+/datum/gear_tweak/paper_data/business_card
+	var/datum/gear_tweak/color/business_card/card_color_tweak
+
+/datum/gear_tweak/paper_data/business_card/New(var/datum/gear_tweak/color/business_card/card_color_tweak)
+	..()
+	src.card_color_tweak = card_color_tweak
+
+/datum/gear_tweak/paper_data/business_card/get_preview_background_color(var/gear_path, var/list/all_metadata)
+	if(all_metadata && card_color_tweak)
+		var/background_color = all_metadata["[card_color_tweak]"]
+		if(background_color)
+			return background_color
+		return card_color_tweak.get_default()
+	return ..()
 
 /datum/gear_tweak/paper_data/business_card/get_contents(var/metadata)
 	return "Card [..()]"
