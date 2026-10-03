@@ -50,6 +50,7 @@
 	name = "faded badge"
 	desc = "A faded security badge, backed with leather."
 	icon_state = "badge_round"
+	item_state = "badge_round"
 	overlay_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
@@ -189,6 +190,7 @@
 	name = "\improper investigator badge"
 	desc = "This badge marks the holder as an investigative agent."
 	icon_state = "invbadge"
+	item_state = "invbadge"
 	overlay_state = "invbadge"
 	badge_string = "Corporate Investigator"
 
@@ -199,6 +201,7 @@
 	desc_extended = "The Biesel Security Services Bureau is the domestic intelligence and security service operating across the Republic of Biesel, \
 	holding jurisdiction over federal crimes that are particularly severe, target the overall republic, or cross member state territories."
 	icon_state = "badge_round_bssb"
+	item_state = "badge_round_bssb"
 	overlay_state = "badge_round_bssb"
 	slot_flags = SLOT_TIE
 	contained_sprite = TRUE
@@ -208,12 +211,14 @@
 	name = "\improper BSSB senior agent's badge"
 	desc = "A golden badge, set in purple leather, denoting the wearer as a senior agent of the Biesel Security Services Bureau."
 	icon_state = "badge_round_bssb_sen"
+	item_state = "badge_round_bssb_sen"
 	overlay_state = "badge_round_bssb_sen"
 
 /obj/item/clothing/accessory/badge/bssb/bodyguard // for consular bodyguards
 	name = "\improper BSSB close protection officer badge"
 	desc = "A silver badge, set in purple leather, denoting the wearer as a Government Security Division close protection officer of the Biesel Security Services Bureau."
 	icon_state = "badge_round_bssb_sen"
+	item_state = "badge_round_bssb_sen"
 	overlay_state = "badge_round_bssb_sen"
 
 /obj/item/clothing/accessory/badge/sol_visa
@@ -275,6 +280,7 @@
 	name = "sheriff badge"
 	desc = "A star-shaped brass badge denoting who the law is around these parts."
 	icon_state = "sheriff"
+	item_state = "sheriff"
 	overlay_state = "sheriff"
 	badge_string = "County Sheriff"
 
@@ -288,6 +294,7 @@
 	name = "\improper ID badge"
 	desc = "A descriptive identification badge with the holder's credentials."
 	icon_state = "solbadge"
+	item_state = "solbadge"
 	overlay_state = "solbadge"
 	badge_string = null
 	w_class = WEIGHT_CLASS_TINY
@@ -296,6 +303,7 @@
 	name = "\improper NT ID badge"
 	desc = "A descriptive identification badge with the holder's credentials. This one has red marks with the NanoTrasen logo on it."
 	icon_state = "ntbadge"
+	item_state = "ntbadge"
 	overlay_state = "ntbadge"
 	badge_string = null
 
@@ -303,6 +311,7 @@
 	name = "electronic ID badge"
 	desc = "A descriptive identification badge with the holder's credentials displayed with a harsh digital glow."
 	icon_state = "intelbadge"
+	item_state = "intelbadge"
 	overlay_state = "intelbadge"
 	badge_string = null
 
@@ -311,6 +320,7 @@
 	desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
 	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "trinary_badge"
+	item_state = "trinary_badge"
 	overlay_state = "trinary_badge"
 	badge_string = null
 

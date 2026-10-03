@@ -972,6 +972,7 @@
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
 	icon_state = "patch"
+	item_state = "patch"
 	overlay_state = "patch"
 	flippable = 1
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -982,36 +983,42 @@
 	desc = "An embroidered patch, adorned with the logo of the Stellar Corporate Conglomerate, which can be attached to the shoulder sleeve of clothing."
 	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "scc_patch"
+	item_state = "scc_patch"
 	overlay_state = "scc_patch"
 
 /obj/item/clothing/accessory/sleevepatch/zavodskoi
 	name = "\improper Zavodskoi Interstellar sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo."
 	icon_state = "necro_patch"
+	item_state = "necro_patch"
 	overlay_state = "necro_patch"
 
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec
 	name = "\improper Zavodskoi Interstellar Security sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo with an insignia."
 	icon_state = "necrosec_patch"
+	item_state = "necrosec_patch"
 	overlay_state = "necrosec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/erisec
 	name = "\improper EPMC sleeve patch"
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one denotes the wearer as an Eridani Private Military Contractor."
 	icon_state = "erisec_patch"
+	item_state = "erisec_patch"
 	overlay_state = "erisec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/idrissec
 	name = "\improper Idris Incorporated sleeve patch"
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one shows the Idris Incorporated logo with a flashing chevron."
 	icon_state = "idrissec_patch"
+	item_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/kog/pra
 	name = "\improper KOG Motorheads shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's PRA division the Motorheads."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The PRA division, called the Motorheads, specializes in motorized warfare and quick response force operations."
+	icon_state = "kog_tabs_pra"
 	icon_state = "kog_tabs_pra"
 	overlay_state = "kog_tabs_pra"
 	flippable = 0
@@ -1021,6 +1028,7 @@
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's DPRA/ALA division the Last Chancers."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The ALA/DPRA division, known as the Last Chancers, focus on sabatoge and explosives. They have become infamous for nighttime infiltrations wherein their explosive expertise leads to devastating effects."
 	icon_state = "kog_tabs_ala"
+	icon_state = "kog_tabs_ala"
 	overlay_state = "kog_tabs_ala"
 	flippable = 0
 
@@ -1028,6 +1036,7 @@
 	name = "\improper KOG Starry Knights shoulder tabs"
 	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's NKA division the Starry Knights."
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The NKA divison, called the Starry Knights, are the defensive experts of the KOG. Using datasets regarding various entities of the Spur, the Starry Knights are capable of preparing an adaptable and formidable defense."
+	icon_state = "kog_tabs_nka"
 	icon_state = "kog_tabs_nka"
 	overlay_state = "kog_tabs_nka"
 	flippable = 0

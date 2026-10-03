@@ -165,6 +165,7 @@
 	desc = "A card denoting a honorary member of the Hadiist party."
 	icon = 'icons/obj/item/clothing/accessory/hadii_id.dmi'
 	icon_state = "hadii-id"
+	item_state = "hadii-id"
 	overlay_state = "hadii-id"
 	contained_sprite = TRUE
 	slot_flags = SLOT_TIE
@@ -188,6 +189,7 @@
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
 	icon_state = "hadii-id-real"
+	item_state = "hadii-id-real"
 	overlay_state = "hadii-id-real"
 	badge_string = "Member of Party of the Free Tajara under the Leadership of Hadii"
 
@@ -195,6 +197,7 @@
 	name = "almariist pin"
 	desc = "A pin worn by supporters of the Democratic People's Republic of Adhomai and the ideals of almariism."
 	icon_state = "dpra-badge"
+	item_state = "dpra-badge"
 	overlay_state = "dpra-badge"
 	desc_extended = "The government of the DPRA seeks to dismantle the ethnic caste system present in Tajaran society. Instead of creating policies and using the force of the state \
 	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the Tajara species. Local autonomy and regional \
@@ -211,6 +214,7 @@
 	name = "royalist badge"
 	desc = "A badge worn by the supporters of the New Kingdom of Adhomai and its royalist ideals."
 	icon_state = "nka-badge"
+	item_state = "nka-badge"
 	overlay_state = "nka-badge"
 	desc_extended = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
 	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
@@ -227,6 +231,7 @@
 	desc = "A small, red flag pin worn by members of the Hadiist party."
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "hadii-pin"
+	item_state = "hadii-pin"
 	item_state = "hadii-pin"
 	overlay_state = "hadii-pin"
 	contained_sprite = TRUE
@@ -673,78 +678,90 @@
 	name = "president hadii medal for courage"
 	desc = "A medal awarded to the soldiers and PSIS agents who performed acts of bravery during the war, security operations, or during military duties."
 	icon_state = "hadii_courage"
+	item_state = "iron"
 	overlay_state = "iron"
 
 /obj/item/clothing/accessory/medal/pra_hero
 	name = "hero of the people's republic medal"
 	desc = "The highest distinction in the People's Republic of Adhomai, awarded for great service or heroic act while in duty to the nation. It can be bestowed to civilian and military recipients."
 	icon_state = "pra_hero"
+	item_state = "iron"
 	overlay_state = "iron"
 
 /obj/item/clothing/accessory/medal/messa_virtue
 	name = "messa's virtue medal"
 	desc = "A posthumous award bestowed to Tajara who lost their lives while serving the People's Republic."
 	icon_state = "messa_virtue"
+	item_state = "bronze"
 	overlay_state = "bronze"
 
 /obj/item/clothing/accessory/medal/dasnrra_evac
 	name = "medal for the evacuation of das'nrra"
 	desc = "A medal given to anyone who participated in the evacuation of the Republican Army from Das'nrra in 2460."
 	icon_state = "dasnrra_evac"
+	item_state = "iron"
 	overlay_state = "iron"
 
 /obj/item/clothing/accessory/medal/homeland_defense
 	name = "medal for the defense of the homeland"
 	desc = "A medal awarded to those who fought alongside the S'rand'marr Coalition in 2461. This was the last medal issued concerning the Second Revolution."
 	icon_state = "homeland_defense"
+	item_state = "gold"
 	overlay_state = "gold"
 
 /obj/item/clothing/accessory/medal/dpra_liberation
 	name = "adhomai hero of the liberation medal"
 	desc = "The highest decoration given to any Al'mariist citizen for their service to the Democratic People's Republic."
 	icon_state = "dpra_liberation"
+	item_state = "gold"
 	overlay_state = "gold"
 
 /obj/item/clothing/accessory/medal/ala_martyr
 	name = "al'mariist martyr medal"
 	desc = "An award granted to those who perished or were gravely wounded while fighting for the Liberation Army."
 	icon_state = "ala_martyr"
+	item_state = "gold"
 	overlay_state = "gold"
 
 /obj/item/clothing/accessory/medal/dasnrra_liberation
 	name = "medal for the liberation of das'nrra"
 	desc = "Awarded to the Liberation Army soldiers who fought to expel the People's Republic army from the continent of Das'nrra."
 	icon_state = "dasnrra_liberation"
+	item_state = "silver"
 	overlay_state = "silver"
 
 /obj/item/clothing/accessory/medal/gakalzaal_liberation
 	name = "medal for the liberation of gakal'zaal"
 	desc = "The first medal to be created after the Second Revolution. Tt was awarded to the Tajara who took part in the liberation of Gakal'zaal."
 	icon_state = "gakalzaal_liberation"
+	item_state = "gold"
 	overlay_state = "gold"
 
 /obj/item/clothing/accessory/medal/victorius_sun
 	name = "order of the victorious sun"
 	desc = "The highest order in the New Kingdom, granted for exceptional service to the Royalist cause or for leading the military to victory."
 	icon_state = "victorius_sun"
+	item_state = "gold"
 	overlay_state = "gold"
 
 /obj/item/clothing/accessory/medal/order_heart
 	name = "order of the blue heart"
 	desc = "A decoration awarded to those killed while serving the Kingdom's military."
 	icon_state = "order_heart"
+	item_state = "silver"
 	overlay_state = "silver"
 
 /obj/item/clothing/accessory/medal/kingdom_defense
 	name = "medal for the defense of the kingdom"
 	desc = "A medal awarded to those who participated in the defense of Northern Harr'masir during the Hadiist offensive of 2458."
 	icon_state = "kingdom_defense"
-	overlay_state = "iron"
+	item_state = "iron"
 
 /obj/item/clothing/accessory/medal/harrmasir_offensive
 	name = "medal for the harr'masir offensive"
 	desc = "An award bestowed to the military personnel who took part in the final offensive to liberate Harr'masir from Hadiist occupation in 2461."
 	icon_state = "harrmasir_offensive"
+	item_state = "iron"
 	overlay_state = "iron"
 
 /obj/item/clothing/accessory/apron/dharmela
