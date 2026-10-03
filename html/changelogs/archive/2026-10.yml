@@ -22,3 +22,8 @@
   TheGreyWolf:
   - balance: Changed some fire balance to make temp increase slower.
   - rscadd: Added the cell charger rack, printable from the circuit board printer.
+2026-10-03:
+  ElorgRHG:
+  - imagedel: Tweaked colorable winter coat and parka to be able to use accent colors.
+  - imagedel: Added a pre-colored and colorable winter jacket as a slimmer alternative
+      to winter coats and parkas.
