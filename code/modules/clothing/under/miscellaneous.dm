@@ -177,7 +177,7 @@
 	desc = "A black suit and red tie. Very formal."
 	icon = 'icons/obj/item/clothing/under/colored_suit_jackets.dmi'
 	icon_state = "black_suit"
-	item_state = "bl_suit"
+	item_state = "black_suit"
 	worn_state = "black_suit"
 	contained_sprite = TRUE
 
@@ -185,21 +185,21 @@
 	name = "executive suit"
 	desc = "A formal black suit and red tie, intended for the station's finest."
 	icon_state = "really_black_suit"
-	item_state = "jensensuit"
+	item_state = "really_black_suit"
 	worn_state = "really_black_suit"
 
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
 	desc = "A red suit and blue tie. Somewhat formal."
 	icon_state = "red_suit"
-	item_state = "r_suit"
+	item_state = "red_suit"
 	worn_state = "red_suit"
 
 /obj/item/clothing/under/suit_jacket/nt_skirtsuit
 	name = "nanotrasen skirtsuit"
 	desc = "A black coat with an NT blue kerchief accompanied by a swept skirt with a tasteful blue stripe. Works for every occasion."
 	icon_state = "nt_skirtsuit"
-	item_state = "bl_suit"
+	item_state = "nt_skirtsuit"
 	worn_state = "nt_skirtsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
@@ -333,35 +333,35 @@
 	name = "charcoal suit"
 	desc = "A charcoal suit and red tie. Very professional."
 	icon_state = "charcoal_suit"
-	item_state = "bl_suit"
+	item_state = "charcoal_suit"
 	worn_state = "charcoal_suit"
 
 /obj/item/clothing/under/suit_jacket/navy
 	name = "navy suit"
 	desc = "A navy suit and red tie, intended for the station's finest."
 	icon_state = "navy_suit"
-	item_state = "bl_suit"
+	item_state = "navy_suit"
 	worn_state = "navy_suit"
 
 /obj/item/clothing/under/suit_jacket/burgundy
 	name = "burgundy suit"
 	desc = "A burgundy suit and black tie. Somewhat formal."
 	icon_state = "burgundy_suit"
-	item_state = "r_suit"
+	item_state = "burgundy_suit"
 	worn_state = "burgundy_suit"
 
 /obj/item/clothing/under/suit_jacket/checkered
 	name = "checkered suit"
 	desc = "That's a very nice suit you have there. Shame if something were to happen to it, eh?"
 	icon_state = "checkered_suit"
-	item_state = "gy_suit"
+	item_state = "checkered_suit"
 	worn_state = "checkered_suit"
 
 /obj/item/clothing/under/suit_jacket/tan
 	name = "tan suit"
 	desc = "A tan suit with a yellow tie. Smart, but casual."
 	icon_state = "tan_suit"
-	item_state = "lb_suit"
+	item_state = "tan_suit"
 	worn_state = "tan_suit"
 
 /obj/item/clothing/under/service_overalls
