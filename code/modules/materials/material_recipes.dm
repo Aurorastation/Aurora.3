@@ -66,6 +66,7 @@
 			new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("floor maintenance panel frame", /obj/item/floor_frame/maintenance_panel, 2, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("fuel port", /obj/item/fuel_port, 2, time = 2 SECONDS, required_skills_hard = alist(MECHANICAL_ENGINEERING_SKILL_COMPONENT = SKILL_LEVEL_TRAINED))
 		))
 

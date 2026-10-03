@@ -159,15 +159,15 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	var/update_state = -1
 	var/update_overlay = -1
 	var/is_critical = FALSE
-	var/global/status_overlays = 0
 	var/updating_icon = FALSE
 	var/failure_timer = 0
 	var/force_update = FALSE
-	var/global/list/status_overlays_lock
-	var/global/list/status_overlays_charging
-	var/global/list/status_overlays_equipment
-	var/global/list/status_overlays_lighting
-	var/global/list/status_overlays_environ
+	/// APC status overlays, cached per icon file so alternate APC sprites can coexist.
+	var/global/list/status_overlays_lock = list()
+	var/global/list/status_overlays_charging = list()
+	var/global/list/status_overlays_equipment = list()
+	var/global/list/status_overlays_lighting = list()
+	var/global/list/status_overlays_environ = list()
 
 	var/emergency_lights = FALSE
 
@@ -177,6 +177,14 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	var/last_time = 1
 	/// For doing silly games with blowing out lights
 	var/light_explosion_safety = TRUE
+
+/obj/structure/machinery/power/apc/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += ..()
+	. += "An APC frame can be installed against an adjacent <b>wall</b> or fitted into an open modular maintenance panel."
+	. += "With its cover open, expose the floor plating and add <b>ten lengths of cable</b> to connect a power terminal."
+	. += "Insert an <b>APC power control module</b>, then secure the electronics with a <b>screwdriver</b> once the terminal is connected."
+	. += "Insert a standard-size <b>power cell</b>, then close the cover with a <b>crowbar</b>."
 
 /obj/structure/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -338,42 +346,41 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 // update the APC icon to show the three base states
 // also add overlays for indicator lights
 /obj/structure/machinery/power/apc/update_icon()
-	if (!status_overlays)
-		status_overlays = 1
-		status_overlays_lock = new
-		status_overlays_charging = new
-		status_overlays_equipment = new
-		status_overlays_lighting = new
-		status_overlays_environ = new
+	if(!status_overlays_lock[icon])
+		status_overlays_lock[icon] = list(
+			overlay_image(icon, "apc-cover-0"), // none
+			overlay_image(icon, "apc-cover-1"), // coverlocked/locked
+			overlay_image(icon, "apc-cover-2")  // coverlocked + locked
+		)
+		status_overlays_charging[icon] = list(
+			overlay_image(icon, "apc-charge-0"),
+			overlay_image(icon, "apc-charge-1"),
+			overlay_image(icon, "apc-charge-2")
+		)
+		status_overlays_equipment[icon] = list(
+			overlay_image(icon, "apcoequip-0"),
+			overlay_image(icon, "apcoequip-1"),
+			overlay_image(icon, "apcoequip-2"),
+			overlay_image(icon, "apcoequip-3")
+		)
+		status_overlays_lighting[icon] = list(
+			overlay_image(icon, "apcolight-0"),
+			overlay_image(icon, "apcolight-1"),
+			overlay_image(icon, "apcolight-2"),
+			overlay_image(icon, "apcolight-3")
+		)
+		status_overlays_environ[icon] = list(
+			overlay_image(icon, "apcoenv-0"),
+			overlay_image(icon, "apcoenv-1"),
+			overlay_image(icon, "apcoenv-2"),
+			overlay_image(icon, "apcoenv-3")
+		)
 
-		status_overlays_lock.len = 3
-		status_overlays_charging.len = 3
-		status_overlays_equipment.len = 4
-		status_overlays_lighting.len = 4
-		status_overlays_environ.len = 4
-
-		status_overlays_lock[1] = overlay_image(icon, "apc-cover-0") // none
-		status_overlays_lock[2] = overlay_image(icon, "apc-cover-1") // coverlocked/locked
-		status_overlays_lock[3] = overlay_image(icon, "apc-cover-2") // coverlocked + locked
-
-		status_overlays_charging[1] = overlay_image(icon, "apc-charge-0")
-		status_overlays_charging[2] = overlay_image(icon, "apc-charge-1")
-		status_overlays_charging[3] = overlay_image(icon, "apc-charge-2")
-
-		status_overlays_equipment[1] = overlay_image(icon, "apcoequip-0")
-		status_overlays_equipment[2] = overlay_image(icon, "apcoequip-1")
-		status_overlays_equipment[3] = overlay_image(icon, "apcoequip-2")
-		status_overlays_equipment[4] = overlay_image(icon, "apcoequip-3")
-
-		status_overlays_lighting[1] = overlay_image(icon, "apcolight-0")
-		status_overlays_lighting[2] = overlay_image(icon, "apcolight-1")
-		status_overlays_lighting[3] = overlay_image(icon, "apcolight-2")
-		status_overlays_lighting[4] = overlay_image(icon, "apcolight-3")
-
-		status_overlays_environ[1] = overlay_image(icon, "apcoenv-0")
-		status_overlays_environ[2] = overlay_image(icon, "apcoenv-1")
-		status_overlays_environ[3] = overlay_image(icon, "apcoenv-2")
-		status_overlays_environ[4] = overlay_image(icon, "apcoenv-3")
+	var/list/icon_overlays_lock = status_overlays_lock[icon]
+	var/list/icon_overlays_charging = status_overlays_charging[icon]
+	var/list/icon_overlays_equipment = status_overlays_equipment[icon]
+	var/list/icon_overlays_lighting = status_overlays_lighting[icon]
+	var/list/icon_overlays_environ = status_overlays_environ[icon]
 
 	var/update = check_updates() 		//returns 0 if no need to update icons.
 						// 1 if we need to update the icon_state
@@ -408,14 +415,14 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	if(update & 2)
 		ClearOverlays()
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			AddOverlays(status_overlays_lock[locked+1])
-			AddOverlays(status_overlays_charging[charging+1])
+			AddOverlays(icon_overlays_lock[locked+1])
+			AddOverlays(icon_overlays_charging[charging+1])
 			AddOverlays(emissive_appearance(icon, "apc-cover-0"))
 			AddOverlays(emissive_appearance(icon, "apc-charge-0"))
 			if(operating)
-				AddOverlays(status_overlays_equipment[equipment+1])
-				AddOverlays(status_overlays_lighting[lighting+1])
-				AddOverlays(status_overlays_environ[environ+1])
+				AddOverlays(icon_overlays_equipment[equipment+1])
+				AddOverlays(icon_overlays_lighting[lighting+1])
+				AddOverlays(icon_overlays_environ[environ+1])
 				AddOverlays(emissive_appearance(icon, "apcoequip-0"))
 				AddOverlays(emissive_appearance(icon, "apcolight-0"))
 				AddOverlays(emissive_appearance(icon, "apcoenv-0"))
@@ -1705,6 +1712,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 /obj/structure/machinery/power/apc/empty/south
 	dir = SOUTH
 	pixel_y = -8
+
+/// Whether this is still a pristine frame that can be folded into a combined wall panel.
+/obj/structure/machinery/power/apc/proc/can_merge_into_maintenance_panel()
+	return opened == COVER_OPENED && has_electronics == HAS_ELECTRONICS_NONE && !cell && !terminal && (stat & MAINT)
 
 #undef UPDATE_CELL_IN
 #undef UPDATE_OPENED1
