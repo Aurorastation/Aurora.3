@@ -286,7 +286,7 @@
 	var/dat
 	var/facility_name
 	if(SSatlas.current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/S = GLOB.map_sectors["[GET_Z(src)]"]
+		var/obj/effect/overmap/visitable/sector/S = get_map_sector(GET_Z(src))
 		if(!S) //Blueprints are useless now, but keep them around for fluff
 			facility_name = "If you're seeing this, report it on the GitHub issues tracker; include your current location in-game."
 		facility_name = "<b>[S.name]</b><br<br>"

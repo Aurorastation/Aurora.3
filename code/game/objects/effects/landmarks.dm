@@ -260,7 +260,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	return QDEL_HINT_LETMELIVE
 
 /obj/effect/landmark/entry_point/proc/get_candidate()
-	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = get_map_sector(src)
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

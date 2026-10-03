@@ -27,7 +27,7 @@
 			return
 		to_chat(user, SPAN_NOTICE("You try deducing the angles and positioning of local stars..."))
 		if(do_after(user, 3 SECONDS))
-			var/obj/effect/overmap/visitable/location = GLOB.map_sectors["[z]"]
+			var/obj/effect/overmap/visitable/location = get_map_sector(z)
 			. += SPAN_NOTICE("Through your sense of navigation, you realize you must be around Sector [location.x] - [location.y]")
 
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
