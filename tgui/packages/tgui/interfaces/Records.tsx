@@ -103,6 +103,7 @@ type RecordComment = {
   author: string;
   created_at: string;
   updated_at?: string;
+  editable: BooleanLike;
 };
 
 type RecordLocked = {
@@ -839,60 +840,83 @@ const RecordComments = (props: {
       }
     >
       {loading ? (
-        'Loading comments...'
+        <NoticeBox color="blue">Loading comments...</NoticeBox>
       ) : (
         <>
           {error ? (
-            <Box color="bad" mb={1}>
+            <NoticeBox danger>
               Persistent comments could not be loaded. Showing comments created
               this round.
-            </Box>
+            </NoticeBox>
           ) : null}
           {comments.length ? (
-            comments.map((comment) => (
-              <Section
-                key={comment.id}
-                title={`${comment.author} - ${comment.created_at}`}
-                buttons={
-                  editable ? (
-                    <>
-                      <Button
-                        icon="pen"
-                        tooltip="Edit comment"
-                        onClick={() =>
-                          act('editcomment', {
-                            record_type: recordType,
-                            comment_id: comment.id,
-                          })
-                        }
-                      />
-                      <Button
-                        icon="trash"
-                        color="bad"
-                        tooltip="Delete comment"
-                        onClick={() =>
-                          act('deletecomment', {
-                            record_type: recordType,
-                            comment_id: comment.id,
-                          })
-                        }
-                      />
-                    </>
-                  ) : undefined
-                }
-              >
-                <Box style={{ whiteSpace: 'pre-wrap' }}>
-                  {comment.comment}
-                </Box>
-                {comment.updated_at ? (
-                  <Box color="label" mt={1}>
-                    Last edited {comment.updated_at}
+            <Stack vertical>
+              {comments.map((comment) => (
+                <Stack.Item key={comment.id}>
+                  <Box
+                    backgroundColor="rgba(10, 10, 10, 0.45)"
+                    p={1}
+                    style={{ borderLeft: '3px solid #4b82b4' }}
+                  >
+                    <Stack align="center">
+                      <Stack.Item grow>
+                        <Box bold>{comment.author}</Box>
+                        <Box color="label" fontSize={0.9}>
+                          {comment.created_at}
+                        </Box>
+                      </Stack.Item>
+                      {editable && comment.editable ? (
+                        <Stack.Item>
+                          <Button
+                            compact
+                            icon="pen"
+                            tooltip="Edit this comment"
+                            onClick={() =>
+                              act('editcomment', {
+                                record_type: recordType,
+                                comment_id: comment.id,
+                              })
+                            }
+                          />
+                          <Button
+                            compact
+                            icon="trash"
+                            color="bad"
+                            tooltip="Delete this comment"
+                            onClick={() =>
+                              act('deletecomment', {
+                                record_type: recordType,
+                                comment_id: comment.id,
+                              })
+                            }
+                          />
+                        </Stack.Item>
+                      ) : null}
+                    </Stack>
+                    <Box
+                      backgroundColor="rgba(0, 0, 0, 0.3)"
+                      mt={1}
+                      p={1}
+                      style={{
+                        overflowWrap: 'anywhere',
+                        whiteSpace: 'pre-wrap',
+                      }}
+                    >
+                      {comment.comment}
+                    </Box>
+                    {comment.updated_at ? (
+                      <Box color="label" fontSize={0.9} mt={0.5}>
+                        Edited {comment.updated_at}
+                      </Box>
+                    ) : null}
                   </Box>
-                ) : null}
-              </Section>
-            ))
+                </Stack.Item>
+              ))}
+            </Stack>
           ) : (
-            'No comments found.'
+            <Box color="label" italic textAlign="center" py={1}>
+              No comments found.
+            </Box>
           )}
         </>
       )}

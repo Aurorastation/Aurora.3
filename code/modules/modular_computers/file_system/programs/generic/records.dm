@@ -22,6 +22,7 @@
 	var/listener/record/rconsole/listener
 	var/authenticated = FALSE
 	var/authenticated_name
+	var/authenticated_character_id
 	var/default_screen = "Public"
 	var/list/datum/record/record_comment/comment_results = list()
 	var/comments_character_id
@@ -60,6 +61,7 @@
 /datum/computer_file/program/records/proc/logout()
 	authenticated = FALSE
 	authenticated_name = null
+	authenticated_character_id = null
 	records_type = 0
 	edit_type = 0
 	clear_comment_page()
@@ -71,6 +73,7 @@
 
 	authenticated = TRUE
 	authenticated_name = "[id_card.registered_name], [id_card.assignment]"
+	authenticated_character_id = get_id_card_character_id(id_card)
 	if(has_access(req_one_access = employment_access, accesses = id_card.access))
 		records_type |= RECORD_GENERAL
 		edit_type |= RECORD_GENERAL
@@ -115,7 +118,9 @@
 	data["record_comments_loading"] = comments_loading
 	data["record_comments_error"] = comments_error
 	for(var/datum/record/record_comment/record_comment in comment_results)
-		data["record_comments"] += list(record_comment.Listify(decode_html = TRUE))
+		var/list/comment_data = record_comment.Listify(decode_html = TRUE)
+		comment_data["editable"] = can_modify_comment(record_comment)
+		data["record_comments"] += list(comment_data)
 	data["allrecords"] = list()
 	data["allrecords_locked"] = list()
 	for(var/tR in sortRecord(SSrecords.records))
@@ -240,7 +245,7 @@
 			comment_text = sanitize(comment_text, MAX_MESSAGE_LEN, encode = 0, extra = 0)
 			if(!comment_text || active != selected_record || !can_manage_comments(record_type))
 				return
-			var/datum/record/record_comment/record_comment = selected_record.add_comment(record_type, comment_text, authenticated_name, usr.ckey)
+			var/datum/record/record_comment/record_comment = selected_record.add_comment(record_type, comment_text, authenticated_name, usr.ckey, authenticated_character_id)
 			if(selected_record.character_id && !record_comment.db_id)
 				to_chat(usr, SPAN_WARNING("The comment was added for this round, but could not be saved to the persistent database."))
 			if(record_comment.db_id)
@@ -259,11 +264,11 @@
 				return
 			var/datum/record/general/selected_record = active
 			var/datum/record/record_comment/record_comment = find_comment(record_type, params["comment_id"])
-			if(!record_comment)
+			if(!can_modify_comment(record_comment))
 				return
 			var/comment_text = tgui_input_text(usr, "Edit this comment.", "[capitalize(record_type)] Record Comment", default = html_decode(record_comment.comment), multiline = TRUE, encode = FALSE)
 			comment_text = sanitize(comment_text, MAX_MESSAGE_LEN, encode = 0, extra = 0)
-			if(!comment_text || active != selected_record || !can_manage_comments(record_type) || record_comment != find_comment(record_type, params["comment_id"]))
+			if(!comment_text || active != selected_record || !can_manage_comments(record_type) || record_comment != find_comment(record_type, params["comment_id"]) || !can_modify_comment(record_comment))
 				return
 			var/old_comment = record_comment.comment
 			var/old_updated_by = record_comment.updated_by
@@ -289,9 +294,9 @@
 			if(!active || !can_manage_comments(record_type))
 				return
 			var/datum/record/record_comment/record_comment = find_comment(record_type, params["comment_id"])
-			if(!record_comment || tgui_alert(usr, "Delete this record comment?", "Delete Comment", list("Cancel", "Delete")) != "Delete")
+			if(!can_modify_comment(record_comment) || tgui_alert(usr, "Delete this record comment?", "Delete Comment", list("Cancel", "Delete")) != "Delete")
 				return
-			if(!active || !can_manage_comments(record_type) || record_comment != find_comment(record_type, params["comment_id"]))
+			if(!active || !can_manage_comments(record_type) || record_comment != find_comment(record_type, params["comment_id"]) || !can_modify_comment(record_comment))
 				return
 			if(record_comment.db_id && !record_comment.delete_from_db(usr.ckey))
 				to_chat(usr, SPAN_WARNING("The comment could not be deleted from the persistent database."))
@@ -372,6 +377,12 @@
 		if("security")
 			return !!(records_type & RECORD_SECURITY)
 	return FALSE
+
+/datum/computer_file/program/records/proc/can_modify_comment(var/datum/record/record_comment/record_comment)
+	if(!record_comment || !authenticated_character_id)
+		return FALSE
+	var/datum/record/record_comment/round_comment = find_round_comment(record_comment.record_type, record_comment.id)
+	return round_comment?.creator_character_id == authenticated_character_id
 
 /datum/computer_file/program/records/proc/clear_comment_page()
 	comments_request_id++

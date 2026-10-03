@@ -120,6 +120,14 @@
 		)
 		if(record_comment.updated_at)
 			comment_fields += list(list("label" = "Last Edited", "value" = record_comment.updated_at))
+		comment_fields += list(list(
+			"label" = "Manage",
+			"value" = "",
+			"actions" = list(
+				list("label" = "Edit Comment", "action" = "edit_record_comment", "value" = record_comment.db_id, "icon" = "pen"),
+				list("label" = "Delete Comment", "action" = "delete_record_comment", "value" = record_comment.db_id, "color" = "bad", "icon" = "trash")
+			)
+		))
 		sections += list(list(
 			"title" = "[capitalize(record_comment.record_type)] Record Comment",
 			"fields" = comment_fields
@@ -166,6 +174,45 @@
 			request_comment_page(new_page)
 		return TOPIC_REFRESH
 
+	if(href_list["edit_record_comment"])
+		if(!CanUseTopic(user))
+			return TOPIC_NOACTION
+		var/edit_comment_db_id = text2num(href_list["edit_record_comment"])
+		var/datum/record/record_comment/edit_comment = find_record_comment(edit_comment_db_id)
+		if(!edit_comment)
+			return TOPIC_NOACTION
+		var/comment_text = tgui_input_text(user, "Edit this comment.", "[capitalize(edit_comment.record_type)] Record Comment", default = html_decode(edit_comment.comment), multiline = TRUE, encode = FALSE)
+		comment_text = sanitize(comment_text, MAX_MESSAGE_LEN, encode = 0, extra = 0)
+		if(!comment_text || !CanUseTopic(user) || edit_comment != find_record_comment(edit_comment_db_id))
+			return TOPIC_NOACTION
+		var/old_comment = edit_comment.comment
+		var/old_updated_by = edit_comment.updated_by
+		edit_comment.comment = comment_text
+		edit_comment.updated_by = user.ckey
+		if(!edit_comment.save_to_db())
+			edit_comment.comment = old_comment
+			edit_comment.updated_by = old_updated_by
+			to_chat(user, SPAN_WARNING("The comment could not be saved to the persistent database."))
+			return TOPIC_NOACTION
+		request_comment_page(comments_page)
+		return TOPIC_REFRESH
+
+	if(href_list["delete_record_comment"])
+		var/delete_comment_db_id = text2num(href_list["delete_record_comment"])
+		var/datum/record/record_comment/delete_comment = find_record_comment(delete_comment_db_id)
+		if(!delete_comment || tgui_alert(user, "Delete this record comment?", "Delete Comment", list("Cancel", "Delete")) != "Delete")
+			return TOPIC_NOACTION
+		if(!CanUseTopic(user) || delete_comment != find_record_comment(delete_comment_db_id))
+			return TOPIC_NOACTION
+		if(!delete_comment.delete_from_db(user.ckey))
+			to_chat(user, SPAN_WARNING("The comment could not be deleted from the persistent database."))
+			return TOPIC_NOACTION
+		comment_results -= delete_comment
+		qdel(delete_comment)
+		comments_total = max(0, comments_total - 1)
+		request_comment_page(comments_page)
+		return TOPIC_REFRESH
+
 	if(href_list["del_sec_incident"])
 		var/search_incident = text2num(href_list["del_sec_incident"])
 		var/confirm = alert(user,"Do you want to delete that incident ?","Delete Incident","Yes","No")
@@ -199,6 +246,11 @@
 	QDEL_LIST(comment_results)
 	comment_results = list()
 	INVOKE_ASYNC(src, PROC_REF(async_load_comment_page), comments_character_id, page, comments_request_id)
+
+/datum/category_item/player_setup_item/other/incidents/proc/find_record_comment(var/comment_db_id)
+	for(var/datum/record/record_comment/record_comment in comment_results)
+		if(record_comment.db_id == comment_db_id && record_comment.char_id == pref.current_character)
+			return record_comment
 
 /datum/category_item/player_setup_item/other/incidents/proc/async_load_comment_page(var/character_id, var/page, var/request_id)
 	var/list/result = load_record_comment_page(character_id, null, page)

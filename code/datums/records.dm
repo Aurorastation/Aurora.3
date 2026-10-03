@@ -43,6 +43,10 @@
 	text = sanitize(text, MAX_PAPER_MESSAGE_LEN, extra = 0)
 	return pencode2html(text)
 
+/proc/get_id_card_character_id(var/obj/item/card/id/id_card)
+	var/mob/living/carbon/human/card_owner = id_card?.mob_id?.resolve()
+	return card_owner?.character_id
+
 /datum/record/proc/notes_as_paper_html()
 	return record_notes_to_paper_html(notes)
 
@@ -148,9 +152,11 @@
 	var/author = "Unknown"
 	var/created_at = ""
 	var/created_by
+	/// Character ID associated with the ID card that created this comment this round. Not persisted.
+	var/creator_character_id
 	var/updated_at = ""
 	var/updated_by
-	excluded_fields = list("name", "notes", "db_id", "char_id", "record_type", "created_by", "updated_by")
+	excluded_fields = list("name", "notes", "db_id", "char_id", "record_type", "created_by", "creator_character_id", "updated_by")
 
 /datum/record/record_comment/New(var/new_char_id, var/new_record_type, var/new_comment, var/new_author, var/new_created_by)
 	..()
@@ -220,6 +226,7 @@
 	copy.db_id = db_id
 	copy.id = id
 	copy.created_at = created_at
+	copy.creator_character_id = creator_character_id
 	copy.updated_at = updated_at
 	copy.updated_by = updated_by
 	return copy
@@ -360,11 +367,12 @@
 		if("security")
 			return security?.comments
 
-/datum/record/general/proc/add_comment(var/record_type, var/comment_text, var/author, var/created_by)
+/datum/record/general/proc/add_comment(var/record_type, var/comment_text, var/author, var/created_by, var/creator_character_id)
 	var/list/comment_list = get_comments(record_type)
 	if(!comment_list)
 		return
 	var/datum/record/record_comment/record_comment = new(character_id, record_type, comment_text, author, created_by)
+	record_comment.creator_character_id = creator_character_id
 	comment_list += record_comment
 	record_comment.save_to_db()
 	return record_comment

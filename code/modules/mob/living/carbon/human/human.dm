@@ -721,7 +721,7 @@
 					return
 				if(istype(usr,/mob/living/carbon/human))
 					var/mob/living/carbon/human/U = usr
-					R.add_comment("security", t1, "[U.get_authentification_name()] ([U.get_assignment()])", U.ckey)
+					R.add_comment("security", t1, "[U.get_authentification_name()] ([U.get_assignment()])", U.ckey, get_id_card_character_id(U.GetIdCard()))
 				if(istype(usr,/mob/living/silicon/robot))
 					var/mob/living/silicon/robot/U = usr
 					R.add_comment("security", t1, "[U.name] ([U.mod_type] [U.braintype])", U.ckey)
@@ -826,7 +826,7 @@
 					return
 				if(ishuman(usr))
 					var/mob/living/carbon/human/U = usr
-					R.add_comment("medical", t1, "[U.get_authentification_name()] ([U.get_assignment()])", U.ckey)
+					R.add_comment("medical", t1, "[U.get_authentification_name()] ([U.get_assignment()])", U.ckey, get_id_card_character_id(U.GetIdCard()))
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
 					R.add_comment("medical", t1, "[U.name] ([U.mod_type] [U.braintype])", U.ckey)
