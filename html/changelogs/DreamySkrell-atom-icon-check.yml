@@ -1,0 +1,6 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds an atom icon check `validate_atom_icon()` to validate icons in tests."
