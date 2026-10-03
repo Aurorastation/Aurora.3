@@ -412,6 +412,7 @@
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
+	icon = 'icons/obj/item/clothing/accessory/chaps.dmi'
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
@@ -845,9 +846,11 @@
 /obj/item/clothing/accessory/tc_pin
 	name = "Republic of Biesel pin"
 	desc = "A small Republic of Biesel flag pin."
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"
+	contained_sprite = TRUE
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
@@ -855,9 +858,11 @@
 /obj/item/clothing/accessory/sol_pin
 	name = "Sol Alliance pin"
 	desc = "A small pin of the Sol Alliance, shaped like a golden sun."
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "sol-pin"
 	item_state = "sol-pin"
 	overlay_state = "sol-pin"
+	contained_sprite = TRUE
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
@@ -954,8 +959,11 @@
 /obj/item/clothing/accessory/badge/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
+	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "namepintag"
+	item_state = "nametagpin"
 	overlay_state = null
+	contained_sprite = TRUE
 	badge_string = null
 	slot_flags = SLOT_TIE
 	w_class = WEIGHT_CLASS_TINY
@@ -963,8 +971,10 @@
 /obj/item/clothing/accessory/ribbon
 	name = "ribbon"
 	desc = "A small ribbon to commemorate or support a cause."
+	icon = 'icons/obj/item/clothing/accessory/ribbon.dmi'
 	icon_state = "ribbon"
 	item_state = "ribbon"
+	contained_sprite = TRUE
 	slot_flags = SLOT_TIE
 	w_class = WEIGHT_CLASS_TINY
 
@@ -1192,8 +1202,10 @@
 	name = "native Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of inexpensive leather. The sigil of Burzsia is imprinted on the front."
 	desc_extended = "Native Burzsians within Burzsia II, also known as the Obsidian Belt, wear these leather mantles that, unlike the IPCs' mantles from the same system, are designed to be comfortable for humans and less encumbering, nonetheless providing them partial skin protection from the harsh dwarf star."
+	icon = 'icons/obj/item/clothing/accessory/bz_mantle.dmi'
 	icon_state = "burzsianmantle"
 	item_state = "burzsianmantle"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/goon_coif
 	name = "tactical coif"
@@ -1292,7 +1304,6 @@
 /obj/item/clothing/accessory/apron/qeburgerapron
 	name = "Quick-E-Burger Food Technician Apron"
 	desc = "For industrious employees hard at work, the Quick-E-Burger Food Technician Apron is the perfect protection! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Apron is constructed from highly-resistant rubber with ergonomic quick-fastening security straps to ensure it can be made to fit any employee, of any species, anywhere!"
-	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
 	icon_state = "quickeburger_apron"
 	item_state = "quickeburger_apron"
 	allowed = list(
