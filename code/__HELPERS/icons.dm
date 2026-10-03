@@ -882,12 +882,14 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 
 	//Lines below actually render all collected data
 	atoms = sort_atoms_by_layer(atoms)
-	var/icon/cap = icon('icons/effects/96x96.dmi', "")
+	var/icon/cap = icon('icons/blanks/32x32.dmi', "nothing", SOUTH, 1)
 	cap.Scale(range*32, range*32)
 	cap.Blend("#000", ICON_OVERLAY)
 	for(var/atom/A in atoms)
 		if(A)
-			var/icon/img = getFlatIcon(A)
+			// Photographs are still images. Flatten animated atoms to one frame so
+			// blending them cannot turn the capture into a sprite sheet.
+			var/icon/img = getFlatIcon(A, no_anim = TRUE)
 			if(istype(img, /icon))
 				if(istype(A, /mob/living))
 					var/mob/living/L = A

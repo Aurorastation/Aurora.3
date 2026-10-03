@@ -52,6 +52,10 @@
 /datum/computer_file/program/proc/event_registered()
 	return
 
+/// Called when the computer is used on an atom. Return TRUE to consume the interaction.
+/datum/computer_file/program/proc/event_afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	return FALSE
+
 // Called when the computer fails due to power loss. Override when program wants to specifically react to power loss.
 /datum/computer_file/program/proc/event_powerfailure(var/background)
 	if(program_state > PROGRAM_STATE_KILLED)

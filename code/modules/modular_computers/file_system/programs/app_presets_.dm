@@ -40,6 +40,7 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 #define COMPUTER_APP_PRESET_SYSTEM list(/datum/computer_file/program/ntnetdownload, /datum/computer_file/program/filemanager)
 
 #define COMPUTER_APP_PRESET_HORIZON_CIVILIAN list(\
+	/datum/computer_file/program/pda_camera,\
 	/datum/computer_file/program/newsbrowser,\
 	/datum/computer_file/program/manifest,\
 	/datum/computer_file/program/chat_client,\

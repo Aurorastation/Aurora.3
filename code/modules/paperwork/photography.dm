@@ -274,8 +274,9 @@ GLOBAL_VAR_INIT(photo_count, 1)
 /obj/item/camera/proc/createpicture(atom/target, mob/living/user, flag)
 	var/mobs = ""
 	var/list/turfs = list()
+	var/view_radius = (size - 1) / 2
 
-	FOR_DVIEW(var/turf/T, size, target, INVISIBILITY_LIGHTING)
+	FOR_DVIEW(var/turf/T, view_radius, target, INVISIBILITY_LIGHTING)
 		if (user.can_capture_turf(T))
 			mobs += get_mobs(T)
 			turfs += T
