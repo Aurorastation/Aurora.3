@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added admin verb Arc Management and TGUI for adding arcs and decisions made in these arcs."
