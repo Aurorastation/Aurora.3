@@ -72,7 +72,7 @@
 		VALUES (:author_ckey, :type, NOW(), DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), :content, :x, :y, :z)",
 		list(
 			"author_ckey" = track.persistent_objects_author_ckey,
-			"type" = "[track.type]",
+			"type" = "[track.persistence_get_type()]",
 			"expire_in_days" = track.persistent_objects_expiration_time_days,
 			"content" = objectsGetTrackContent(track),
 			"x" = T.x,

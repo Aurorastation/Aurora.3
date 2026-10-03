@@ -1,0 +1,6 @@
+author: FabianK3, Arrow768
+
+delete-after: True
+
+changes:
+  - rscadd: "Added persistent dirt. Persistent dirt can be found up to seven days. Dirt won't be persistent in maintenance areas. A detailed list of persistent dirt types can be found in the PR."
