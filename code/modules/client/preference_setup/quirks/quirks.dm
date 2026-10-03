@@ -6,7 +6,8 @@
 /datum/category_item/player_setup_item/quirks/load_character(savefile/S)
 	S["quirks"] >> pref.quirks
 	if(!pref.quirks)
-		// Migrate pre-quirk savefiles in place.
+		// Non-SQL savefile compatibility. Database characters are converted to
+		// canonical quirk paths by V028__character_quirks.sql.
 		S["disabilities"] >> pref.quirks
 
 /datum/category_item/player_setup_item/quirks/save_character(savefile/S)
