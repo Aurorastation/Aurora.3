@@ -160,10 +160,10 @@
 			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"))
 			M.dust()
 			return
-		explosion(get_turf(target), 6, 6, 6)
+		explosion(get_turf(target), 6, 6, 6, spreading = TRUE)
 	else
 		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"))
-		explosion(get_turf(target), 30, 30, 30)
+		explosion(get_turf(target), 30, 30, 30, spreading = TRUE)
 
 /obj/structure/machinery/zat_lever
 	name = "activation lever"
