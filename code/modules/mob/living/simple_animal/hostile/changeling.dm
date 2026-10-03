@@ -1,4 +1,14 @@
+/datum/ai_holder/simple_animal/hostile/true_changeling
+
+/datum/ai_holder/simple_animal/hostile/true_changeling/handle_special_strategical()
+	if(!prob(10))
+		return
+	var/mob/living/simple_animal/hostile/true_changeling/changeling = holder
+	changeling.custom_emote(VISIBLE_MESSAGE, pick("shrieks!", "roars!", "screeches!", "snarls!", "bellows!", "screams!"))
+	playsound(changeling, pick(changeling.loud_sounds), 90, TRUE, 15, pressure_affected = FALSE)
+
 /mob/living/simple_animal/hostile/true_changeling
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/true_changeling
 	name = "shambling horror"
 	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from a twisted amalgamation of flesh and bone, covered in oozing sores, open wounds, and serrated knife-like blades of bone. A strong, sickening smell of rot, blood, and sickness emanates from it."
 	speak_emote = list("snarls")
@@ -63,16 +73,6 @@
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
-
-
-/mob/living/simple_animal/hostile/true_changeling/Life(seconds_per_tick, times_fired)
-	if(!..())
-		return FALSE
-
-	if(prob(10))
-		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
-		var/sound = pick(loud_sounds)
-		playsound(src, sound, 90, TRUE, 15, pressure_affected = FALSE)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
