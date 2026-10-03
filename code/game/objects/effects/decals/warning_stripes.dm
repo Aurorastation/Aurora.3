@@ -1,5 +1,6 @@
 /obj/effect/decal/warning_stripes
 	icon = 'icons/effects/warning_stripes.dmi'
+	icon_state = "full"
 	layer = DECAL_LAYER
 
 /obj/effect/decal/warning_stripes/Initialize()

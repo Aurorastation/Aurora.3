@@ -3,6 +3,8 @@
 /obj/item/storage/internal
 	var/obj/item/master_item
 	var/special_master_item_handling = FALSE
+	icon = null
+	icon_state = null
 
 /obj/item/storage/internal/New(obj/item/MI)
 	master_item = MI

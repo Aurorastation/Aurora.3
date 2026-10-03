@@ -1,6 +1,7 @@
 /obj/item/clothing/accessory/storage
 	name = "load bearing equipment"
 	desc = "Used to hold things when you don't have enough hands."
+	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
 	icon_state = "webbing"
 	slot = ACCESSORY_SLOT_UTILITY
 	var/slots = 3
@@ -126,8 +127,8 @@
 /obj/item/clothing/accessory/storage/overalls
 	name = "overalls"
 	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."
-	icon_state = "mining_overalls"
-	overlay_state = "mining_overalls"
+	// icon_state = "mining_overalls"
+	// overlay_state = "mining_overalls"
 	slots = 5
 
 /obj/item/clothing/accessory/storage/overalls/mining
@@ -137,14 +138,14 @@
 /obj/item/clothing/accessory/storage/overalls/engineer
 	name = "engineer's overalls"
 	desc = "Heavy-duty overalls to keep all your extra tools and notes in place, and keep the inevitable oil off your jumpsuit."
-	icon_state = "engineering_overalls"
-	overlay_state = "engineering_overalls"
+	// icon_state = "engineering_overalls"
+	// overlay_state = "engineering_overalls"
 
 /obj/item/clothing/accessory/storage/overalls/chief
 	name = "chief engineer's overalls"
 	desc = "Heavy duty overalls, bleached white to signify a \"Chief Engineer.\" Keeping them clean until the end of shift is a challenge unto itself."
-	icon_state = "ce_overalls"
-	overlay_state = "ce_overalls"
+	// icon_state = "ce_overalls"
+	// overlay_state = "ce_overalls"
 
 /obj/item/clothing/accessory/storage/pouches
 	name = "drop pouches"
@@ -183,7 +184,7 @@
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"
 	desc = "A heavily decorated harness of sinew and leather with two knife-loops."
-	icon_state = "unathiharness2"
+	// icon_state = "unathiharness2"
 	slots = 2
 
 /obj/item/clothing/accessory/storage/knifeharness/Initialize()
@@ -203,7 +204,7 @@
 /obj/item/clothing/accessory/storage/bayonet
 	name = "bayonet sheath"
 	desc = "A leather sheath designated to hold a bayonet."
-	icon_state = "holster_machete"
+	// icon_state = "holster_machete"
 	slots = 1
 
 /obj/item/clothing/accessory/storage/bayonet/Initialize()
@@ -219,8 +220,8 @@
 /obj/item/clothing/accessory/storage/bandolier
 	name = "bandolier"
 	desc = "A pocketed belt designated to hold shotgun shells."
-	icon_state = "bandolier"
-	item_state = "bandolier"
+	// icon_state = "bandolier"
+	// item_state = "bandolier"
 	slots = 16
 
 /obj/item/clothing/accessory/storage/bandolier/Initialize()

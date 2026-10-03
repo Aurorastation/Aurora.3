@@ -327,14 +327,6 @@
 /area/template_noop)
 "gQ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/machinery/sleeper.dmi';
-	icon_state = "body_scanner";
-	name = "dilapitated cryogenic freezer";
-	pixel_x = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
@@ -1364,14 +1356,6 @@
 "DB" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/extinguisher_cabinet/north,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A no longer functional cryogenic freezer.";
-	icon = 'icons/obj/machinery/sleeper.dmi';
-	icon_state = "body_scanner";
-	name = "dilapitated cryogenic freezer";
-	pixel_x = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)

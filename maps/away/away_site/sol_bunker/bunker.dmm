@@ -777,15 +777,6 @@
 /area/sol_bunker)
 "uG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "An old cryogenic freezer .";
-	dir = 4;
-	icon = 'icons/obj/machinery/sleeper.dmi';
-	icon_state = "body_scanner";
-	name = "dilapitated cryogenic freezer";
-	pixel_x = 1
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -1468,15 +1459,6 @@
 /turf/simulated/floor/tiled/white,
 /area/sol_bunker)
 "SC" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "An old cryogenic freezer .";
-	dir = 4;
-	icon = 'icons/obj/machinery/sleeper.dmi';
-	icon_state = "body_scanner";
-	name = "dilapitated cryogenic freezer";
-	pixel_x = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -1492,15 +1474,6 @@
 /area/sol_bunker)
 "SU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "An old cryogenic freezer .";
-	dir = 4;
-	icon = 'icons/obj/machinery/sleeper.dmi';
-	icon_state = "body_scanner";
-	name = "dilapitated cryogenic freezer";
-	pixel_x = 1
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},

@@ -101,7 +101,7 @@
 /obj/structure/bed/stool/chair/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-/obj/structure/bed/stool/chair/office // For the love of god, don't use this.
+ABSTRACT_TYPE(/obj/structure/bed/stool/chair/office)
 	name = "office chair"
 	desc = "The propulsion of any lazy office worker, it has wheels."
 	icon_state = null
@@ -111,7 +111,6 @@
 	buckle_movable = TRUE
 	build_amt = 5
 	held_item = null
-
 	can_pad = FALSE
 
 /obj/structure/bed/stool/chair/office/light

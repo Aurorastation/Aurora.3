@@ -314,6 +314,7 @@
 	name = "ai shell control module"
 	desc = "A specialised circuit created to permit an artificial intelligence to take over the body of a stationbound unit."
 	icon = 'icons/obj/module.dmi'
+	icon_state = "shell_circuit"
 	origin_tech = list(TECH_DATA = 6, TECH_ENGINEERING = 6)
 
 /obj/item/mmi/shell/attackby()

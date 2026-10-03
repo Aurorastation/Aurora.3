@@ -1948,7 +1948,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/magshield/south)
 "fM" = (
-/obj/structure/bed/stool/chair/office{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -2033,7 +2033,7 @@
 /turf/template_noop,
 /area/space)
 "fZ" = (
-/obj/structure/bed/stool/chair/office{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
@@ -2781,7 +2781,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/stool/chair/office{
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
 /turf/simulated/floor/airless,

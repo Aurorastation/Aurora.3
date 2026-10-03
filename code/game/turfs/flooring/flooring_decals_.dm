@@ -74,6 +74,8 @@
 
 /obj/effect/floor_decal/reset
 	name = "reset marker"
+	icon = null
+	icon_state = null
 
 /obj/effect/floor_decal/reset/Initialize(mapload)
 	. = ..(mapload, bypass = TRUE)

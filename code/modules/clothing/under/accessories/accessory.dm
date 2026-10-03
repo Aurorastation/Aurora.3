@@ -236,7 +236,7 @@
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
 
-/obj/item/clothing/accessory/tie/ribbon
+ABSTRACT_TYPE(/obj/item/clothing/accessory/tie/ribbon)
 	name = "neck ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/accessory/neck_ribbons.dmi'

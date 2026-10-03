@@ -818,15 +818,6 @@
 /turf/simulated/floor/tiled/airless,
 /area/dungeon/sol_outpost)
 "cz" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "An old cryogenic freezer .";
-	dir = 4;
-	icon = 'icons/obj/machinery/sleeper.dmi';
-	icon_state = "body_scanner";
-	name = "dilapitated cryogenic freezer";
-	pixel_x = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood{
 	nitrogen = 0;
@@ -867,15 +858,6 @@
 /area/dungeon/sol_outpost)
 "cG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "An old cryogenic freezer .";
-	dir = 4;
-	icon = 'icons/obj/machinery/sleeper.dmi';
-	icon_state = "body_scanner";
-	name = "dilapitated cryogenic freezer";
-	pixel_x = 1
-	},
 /turf/simulated/floor/wood{
 	nitrogen = 0;
 	oxygen = 0

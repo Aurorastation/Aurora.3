@@ -107,5 +107,5 @@
 /obj/item/clothing/under/rank/sol/army/service/general //sol army service uniform
 	name = "sol army general service uniform"
 	desc = "A military service uniform issued to Solarian Army personnel. A Brigadier General, Major General, Lieutenant General or full General should wear this."
-	icon_state = "army_service_general"
-	item_state = "army_service_general"
+	icon_state = "navy_service_general"
+	item_state = "navy_service_general"

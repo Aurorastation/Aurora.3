@@ -1287,9 +1287,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/cobweb2,
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /turf/simulated/floor/tiled,
 /area/coalition_base/hydroponics)
 "Be" = (

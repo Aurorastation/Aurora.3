@@ -2004,9 +2004,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 33
 	},
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/hydroponics)
 "zp" = (

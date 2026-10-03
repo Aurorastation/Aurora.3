@@ -231,7 +231,6 @@
 				)
 
 /obj/item/storage/box/survival/vaurca
-	icon_state = "redbox"
 	illustration = "survivalvox"
 	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/reagent_containers/inhaler/phoron_special = 1)
 
@@ -731,7 +730,7 @@
 /obj/item/storage/box/unique/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
-	icon_state = "portafreezer"
+	icon_state = "organcooler"
 	item_state = "medicalpack"
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
@@ -742,7 +741,6 @@
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
 	icon_state = "organcooler"
-	item_state = "redbox"
 	max_w_class = WEIGHT_CLASS_NORMAL
 	foldable = FALSE
 	w_class = WEIGHT_CLASS_BULKY
@@ -758,7 +756,6 @@
 	name = "box of donk-pockets"
 	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
 	icon_state = "donkpocketbox"
-	item_state = "redbox"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket = 6)
 
 /obj/item/storage/box/unique/donkpockets/sinpockets
@@ -775,7 +772,6 @@
 /obj/item/storage/box/unique/donkpockets/gwok
 	name = "box of teriyaki Gwok-pockets"
 	icon_state = "donkpocketboxteriyaki"
-	item_state = "redbox"
 	illustration = null
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
 

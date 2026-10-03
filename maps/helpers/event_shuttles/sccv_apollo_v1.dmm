@@ -1533,9 +1533,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "xW" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)

@@ -2,7 +2,7 @@
 	name = "umbrella"
 	desc = "A perfect tool to protect you from the elements."
 	icon = 'icons/obj/item/umbrellas.dmi'
-	icon_state = "umbrella_yellow_closed"
+	icon_state = "umbrella_yellow"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_PLASTIC = 1000)
@@ -50,16 +50,16 @@
 
 /obj/item/umbrella/red
 	umbrella_color = "red"
-	icon_state = "umbrella_red_closed"
+	icon_state = "umbrella_red"
 
 /obj/item/umbrella/black
 	umbrella_color = "black"
-	icon_state = "umbrella_black_closed"
+	icon_state = "umbrella_black"
 
 /obj/item/umbrella/yellow
 	umbrella_color = "yellow"
-	icon_state = "umbrella_yellow_closed"
+	icon_state = "umbrella_yellow"
 
 /obj/item/umbrella/green
 	umbrella_color = "green"
-	icon_state = "umbrella_green_closed"
+	icon_state = "umbrella_green"

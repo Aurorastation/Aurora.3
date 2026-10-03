@@ -206,23 +206,6 @@
 	item_state = "kala_boots"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/heeledboots/toeless
-	name = "toeless heeled boots"
-	desc = "A pair of toeless boots with heels."
-	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
-	contained_sprite = TRUE
-	icon_state = "heeledboots_toeless"
-	item_state = "heeledboots_toeless"
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
-
-/obj/item/clothing/shoes/heeledboots
-	name = "heeled boots"
-	desc = "A pair of boots with heels."
-	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
-	contained_sprite = TRUE
-	icon_state = "heeledboots"
-	item_state = "heeledboots"
-
 /obj/item/clothing/shoes/thighboots
 	name = "thigh-high boots"
 	desc = "A pair of casual boots that reach up to the thighs."
@@ -245,23 +228,6 @@
 	icon_supported_species_tags = list("taj")
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
-/obj/item/clothing/shoes/thighboots/heels
-	name = "thigh-high heeled boots"
-	desc = "A pair of casual heeled boots that reach up to the thigh."
-	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
-	contained_sprite = TRUE
-	icon_state = "thighboots_heels"
-	item_state = "thighboots_heels"
-
-/obj/item/clothing/shoes/thighboots/heels/toeless
-	name = "thigh-high toeless heeled boots"
-	desc = "A pair of casual heeled boots that reach up to the thigh, the toes have been cut off."
-	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
-	contained_sprite = TRUE
-	icon_state = "thighboots_heels_toeless"
-	item_state = "thighboots_heels_toeless"
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
-
 /obj/item/clothing/shoes/fullboots
 	name = "full-length boots"
 	desc = "A pair of boots that cover the entire leg, probably uncomfortable to wear."
@@ -282,23 +248,6 @@
 	item_state = "fullboots_toeless"
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
-
-/obj/item/clothing/shoes/fullboots/heels
-	name = "full-length heeled boots"
-	desc = "A pair of heeled boots that cover the entire leg, probably uncomfortable to wear."
-	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
-	contained_sprite = TRUE
-	icon_state = "fullboots_heels"
-	item_state = "fullboots_heels"
-
-/obj/item/clothing/shoes/fullboots/heels/toeless
-	name = "full-length toeless heeled boots"
-	desc = "A pair of heeled boots that cover the entire leg, except for the toes."
-	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
-	contained_sprite = TRUE
-	icon_state = "fullboots_heels_toeless"
-	item_state = "fullboots_heels_toeless"
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 /obj/item/clothing/shoes/mudboots

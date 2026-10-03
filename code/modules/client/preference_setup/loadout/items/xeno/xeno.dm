@@ -47,7 +47,7 @@
 
 /datum/gear/shoes/recolourable_toeless
 	display_name = "toeless boot selection (colourable)"
-	path = /obj/item/clothing/shoes/heeledboots/toeless
+	path = /obj/item/clothing/shoes/jackboots/toeless/color
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear"
 	flags = GEAR_HAS_COLOR_SELECTION

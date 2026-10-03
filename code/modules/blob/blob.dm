@@ -422,15 +422,16 @@
 /obj/item/blob_core
 	name = "asteroclast nucleus sample"
 	desc = "A sample taken from an asteroclast's nucleus. It pulses with energy."
-	icon_state = "core_sample"
-	item_state = "blob_core"
+	icon = null
+	// icon_state = "core_sample"
+	// item_state = "blob_core"
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 5, TECH_BIO = 7)
 
 /obj/item/blob_core/aux
 	name = "asteroclast auxiliary nucleus sample"
 	desc = "A sample taken from an asteroclast's auxiliary nucleus."
-	icon_state = "core_sample_2"
+	// icon_state = "core_sample_2"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BLUESPACE = 3, TECH_BIO = 4)
 
 #undef CORE_SHIELD_HIGH

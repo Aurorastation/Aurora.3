@@ -20,12 +20,6 @@
 	var/rag_underlay = "rag"
 	drink_flags = IS_GLASS
 
-/obj/item/reagent_containers/cup/glass/bottle/small
-	name = "small glass bottle"
-	desc = "This blank bottle is unyieldingly anonymous, offering no clues to its contents."
-	icon_state = "glassbottlesmall"
-	volume = 50
-
 /obj/item/reagent_containers/food/drinks/bottle/Destroy()
 	if(rag)
 		rag.forceMove(src.loc)

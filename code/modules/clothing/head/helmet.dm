@@ -148,13 +148,6 @@
 	icon_state = "helm_skrell_commander"
 	item_state = "helm_skrell_commander"
 
-/obj/item/clothing/head/helmet/hos/dermal
-	name = "dermal armor patch"
-	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
-	icon_state = "dermal"
-	has_storage = FALSE
-	allow_hair_covering = FALSE
-
 /obj/item/clothing/head/helmet/hop
 	name = "crew resource's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."

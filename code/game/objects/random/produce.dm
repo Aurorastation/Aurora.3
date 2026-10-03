@@ -1,7 +1,7 @@
 /obj/random_produce
 	name = "random produce"
 	icon = 'icons/obj/seeds.dmi'
-	icon_state = ""
+	icon_state = "random"
 	var/list/produce_list = list( //When adding produce, use the .name variable of the /datum/seed/
 		"chili" = 1,
 		"berries" = 0.25,
