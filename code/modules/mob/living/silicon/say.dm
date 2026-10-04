@@ -141,23 +141,53 @@
 		return FALSE
 	return TRUE
 
-/mob/living/silicon/ai/proc/holopad_emote(var/message) //This is called when the AI uses the 'me' verb while using a holopad.
-	log_emote("[key_name(src)] : [message]")
+/mob/living/silicon/ai/proc/holopad_emote(var/message, var/m_type = VISIBLE_MESSAGE, var/do_show_observers = TRUE)
+	if((usr && stat) || (!use_me && usr == src))
+		to_chat(src, "You are unable to emote.")
+		return FALSE
 
 	message = trim(message)
 	if(!message)
-		return
+		return FALSE
 
 	var/obj/structure/machinery/hologram/holopad/T = src.holo
-	if(T?.active_holograms[src])
-		var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message]</span></span>"
-		to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='name'>[real_name]</span> <span class='message'>[message]</span></span></i>")
-
-		for(var/mob/M in viewers(get_turf(T)))
-			to_chat(M, rendered)
-	else //This shouldn't occur, but better safe then sorry.
+	var/obj/effect/overlay/hologram/H = T?.active_holograms[src]
+	if(!H)
 		to_chat(src, SPAN_WARNING("No holopad connected."))
 		return FALSE
+
+	log_emote("[key_name(src)] : [message]")
+	var/langchat_message = process_chat_markup(message, list("~", "_"))
+	var/rendered = format_emote(src, message)
+	rendered = process_chat_markup(rendered, list("~", "_"))
+	var/list/emote_viewers = list()
+
+	if(m_type == VISIBLE_MESSAGE)
+		emote_viewers = viewers(world.view, H)
+		for(var/mob/M in emote_viewers)
+			M.show_message(rendered, VISIBLE_MESSAGE)
+		if(T.has_established_connection())
+			for(var/mob/M in viewers(world.view, T.connected_pad))
+				M.show_message(rendered, VISIBLE_MESSAGE)
+				emote_viewers |= M
+	else
+		var/list/hearers = get_hearers_in_view(world.view, H)
+		for(var/atom/movable/hearer as anything in hearers)
+			if(hearer == T)
+				continue
+			hearer.show_message(rendered, AUDIBLE_MESSAGE)
+			if(ismob(hearer))
+				emote_viewers |= hearer
+		if(T.has_established_connection())
+			for(var/atom/movable/hearer as anything in get_hearers_in_view(world.view, T.connected_pad))
+				if(hearer == T.connected_pad)
+					continue
+				hearer.show_message(rendered, AUDIBLE_MESSAGE)
+				if(ismob(hearer))
+					emote_viewers |= hearer
+
+	to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='message'>[rendered]</span></span></i>")
+	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"))
 	return TRUE
 
 #undef IS_AI
