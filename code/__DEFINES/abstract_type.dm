@@ -23,3 +23,17 @@
 // ^- The dynamic access operator is needed because we accept paths and we can't fake cast them to a hygenic typed var since we have to give a return value
 // it sucks, but it's DM, so things are bound to suck sometimes. Thanks byond. It shouldn't however give any issue, because the abstract_type var is defined
 // at the datum level, so essentially for everything, and this being a macro saves proc call overhead -- essentially, i think the tradeoff is worth it
+
+/**
+ * Basically `typesof()` but returns only non-abstract types.
+ * Returns a list of all non-abstract types derived from the specified base types.
+ * Accepts multiple typepaths or arglists identically to `typesof()`.
+ */
+/proc/nonabstract_typesof(...)
+	var/list/concrete_types = list()
+
+	for(var/typepath in typesof(arglist(args)))
+		if(!is_abstract(typepath))
+			concrete_types += typepath
+
+	return concrete_types

@@ -69,7 +69,7 @@
 /datum/unit_test/check_vending_products/start_test()
 	var/list/vending_products = list()
 	var/list/valid_keys = list()
-	for(var/v_type in typesof(/obj/structure/machinery/vending))
+	for(var/v_type in nonabstract_typesof(/obj/structure/machinery/vending))
 		var/obj/structure/machinery/vending/V = new v_type
 		for(var/list/p in list(V.products, V.contraband, V.premium))
 			for(var/k in p)
