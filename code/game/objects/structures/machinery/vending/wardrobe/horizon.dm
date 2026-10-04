@@ -1,13 +1,5 @@
-/**
- * Drobes
- */
 
-/obj/structure/machinery/vending/wardrobe
-	name = "Drobe - PARENT DO NOT USE"
-	random_itemcount = FALSE
-	restock_items = TRUE
-
-/obj/structure/machinery/vending/wardrobe/engi_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/engi
 	name = "\improper EngiDrobe"
 	desc = "A vending machine renowned for vending industrial grade clothing."
 	icon_state = "engidrobe"
@@ -80,7 +72,7 @@
 	)
 	light_color = COLOR_GOLD
 
-/obj/structure/machinery/vending/wardrobe/atmos_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/atmos
 	name = "\improper AtmosDrobe"
 	desc = "This relatively unknown vending machine delivers clothing for Atmospherics Technicians, an equally unknown job."
 	icon_state = "atmosdrobe"
@@ -151,7 +143,7 @@
 	)
 	light_color = COLOR_GOLD
 
-/obj/structure/machinery/vending/wardrobe/sec_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/sec
 	name = "\improper SecDrobe"
 	desc = "A vending machine for security and security-related clothing!"
 	icon_state = "secdrobe"
@@ -269,7 +261,7 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
-/obj/structure/machinery/vending/wardrobe/bar_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/bar
 	name = "BarDrobe"
 	desc = "A stylish vendor to dispense the most stylish bar clothing!"
 	icon_state = "bardrobe"
@@ -335,7 +327,7 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
-/obj/structure/machinery/vending/wardrobe/chef_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/chef
 	name = "ChefDrobe"
 	desc = "This vending machine might not dispense food, but it certainly dispenses chef-related clothing."
 	icon_state = "chefdrobe"
@@ -378,7 +370,7 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
-/obj/structure/machinery/vending/wardrobe/jani_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/jani
 	name = "JaniDrobe"
 	desc = "A self-cleaning vending machine capable of dispensing clothing for janitors."
 	icon_state = "janidrobe"
@@ -434,7 +426,7 @@
 	)
 	light_color = COLOR_LIME
 
-/obj/structure/machinery/vending/wardrobe/hydro_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/hydro
 	name = "HyDrobe"
 	desc = "A machine with a catchy name. It dispenses botany-related clothing and gear."
 	icon_state = "hydrobe"
@@ -486,7 +478,7 @@
 	)
 	light_color = COLOR_LIME
 
-/obj/structure/machinery/vending/wardrobe/chap_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/chap
 	name = "ChapelDrobe"
 	desc = "God wills your purchase."
 	icon_state = "chapdrobe"
@@ -546,7 +538,7 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
-/obj/structure/machinery/vending/wardrobe/science_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/science
 	name = "SciDrobe"
 	desc = "A simple vending machine suitable to dispense well-tailored science clothing."
 	icon_state = "scidrobe"
@@ -618,7 +610,7 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
-/obj/structure/machinery/vending/wardrobe/medi_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/medi
 	name = "\improper MediDrobe"
 	desc = "A vending machine rumoured to be capable of dispensing clothing for medical personnel."
 	icon_state = "medidrobe"
@@ -707,7 +699,7 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
-/obj/structure/machinery/vending/wardrobe/chem_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/chem
 	name = "ChemDrobe"
 	desc = "A vending machine for dispensing chemistry related clothing."
 	icon_state = "chemdrobe"
@@ -757,7 +749,7 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
-/obj/structure/machinery/vending/wardrobe/cargo_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/cargo
 	name = "CargoDrobe"
 	desc = "A highly advanced vending machine for buying cargo related clothing for free."
 	icon_state = "cargodrobe"
@@ -813,7 +805,7 @@
 	)
 	light_color = COLOR_GOLD
 
-/obj/structure/machinery/vending/wardrobe/robo_wardrobe
+/obj/structure/machinery/vending/wardrobe/horizon/robo
 	name = "RoboDrobe"
 	desc = "A vending machine designed to dispense clothing known only to roboticists."
 	icon_state = "robodrobe"
