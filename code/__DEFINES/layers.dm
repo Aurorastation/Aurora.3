@@ -155,6 +155,9 @@
 
 #define ROOF_PLANE -4
 
+/// Above temporary roofs, for tall natural features such as tree canopies.
+#define CANOPY_PLANE -3
+
 #define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
 
 #define DISPLACEMENT_PLATE_RENDER_LAYER 1
