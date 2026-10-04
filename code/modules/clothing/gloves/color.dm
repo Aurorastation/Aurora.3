@@ -88,6 +88,7 @@
 /obj/item/clothing/gloves/white
 	name = "white gloves"
 	desc = "These look pretty fancy."
+	icon = 'icons/obj/item/clothing/gloves/latex.dmi'
 	icon_state = "latex"
 	item_state = "latex"
 
