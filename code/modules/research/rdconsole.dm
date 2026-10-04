@@ -298,10 +298,26 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/structure/machinery/computer/rdconsole/proc/SyncTechs()
 	var/turf/turf = get_turf(src)
+	var/list/available_servers = list()
 	for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
 		var/turf/ST = get_turf(S)
 		if(ST && !AreConnectedZLevels(ST.z, turf.z))
 			continue
+		available_servers += S
+
+	// Away sites use their own research server when one is present. Otherwise,
+	// NTNet coverage allows them to fall back to the Horizon's research server.
+	if(!length(available_servers) && GLOB.ntnet_global)
+		var/list/reachable_z_levels = GLOB.ntnet_global.get_reachable_z_levels_for_endpoint(src)
+		for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
+			var/turf/ST = get_turf(S)
+			if(!ST || !is_station_level(ST.z) || !(ST.z in reachable_z_levels))
+				continue
+			if(istype(S, /obj/structure/machinery/r_n_d/server/centcom))
+				continue
+			available_servers += S
+
+	for(var/obj/structure/machinery/r_n_d/server/S as anything in available_servers)
 		var/server_processed = 0
 		if((id in S.id_with_upload) || istype(S, /obj/structure/machinery/r_n_d/server/centcom))
 			for(var/tech_id in files.known_tech)
