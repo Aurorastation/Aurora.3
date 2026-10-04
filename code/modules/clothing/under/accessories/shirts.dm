@@ -108,6 +108,7 @@
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
+	icon = 'icons/obj/item/clothing/accessory/vest_waistcoat.dmi'
 	icon_state = "wcoat"
 	item_state = "wcoat"
 
@@ -115,8 +116,10 @@
 /obj/item/clothing/accessory/wcoat_rec
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
+	icon = 'icons/obj/item/clothing/accessory/vest_waistcoat.dmi'
 	icon_state = "wcoat_rec"
 	item_state = "wcoat_rec"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/wcoat_rec/det_vest
 	var/open = FALSE
@@ -149,6 +152,7 @@
 /obj/item/clothing/accessory/university
 	name = "university sweatshirt"
 	desc = "A comfy university sweatshirt. This one is grey."
+	icon = 'icons/obj/item/clothing/accessory/university_sweatshirts.dmi'
 	icon_state = "usweatshirt_grey"
 	item_state = "usweatshirt_grey"
 

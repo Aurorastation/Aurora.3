@@ -102,7 +102,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 
 /datum/gear/accessory/horrible_tie
 	display_name = "horrible tie"
-	path = /obj/item/clothing/accessory/horrible
+	path = /obj/item/clothing/accessory/tie/horrible
 
 /datum/gear/accessory/neck_accessories_colourable
 	display_name = "neck accessories selection (colourable)"
