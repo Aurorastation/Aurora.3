@@ -33,40 +33,40 @@
 /obj/item/key/door_key/crevus/rhan_cresh_patrol
 	name = "Highway Enforcement Office Key"
 	desc = "As the label suggests, this key ought to unlock something important."
-	access_list = list(/datum/access/crevus_rhan_cresh)
+	access_list = list(/datum/access/crevus_rhan_cresh::id)
 
 /obj/item/key/door_key/crevus/azaula_enforcer
 	name = "Azaula Entertainment Enforcer Office Key"
 	desc = "As the label suggests, this key ought to unlock something important."
-	access_list = list(/datum/access/crevus_azaula_enforcer)
+	access_list = list(/datum/access/crevus_azaula_enforcer::id)
 
 /obj/item/key/door_key/crevus/the_lock
 	name = "decrepit key"
 	desc = "A key without label, who knows what it might unlock."
-	access_list = list(/datum/access/crevus_the_lock)
+	access_list = list(/datum/access/crevus_the_lock::id)
 
 /obj/item/key/door_key/crevus/casino
 	name = "Casino Key"
 	desc = "A key with \"Keltra Zav Nikal\" written in the label. Jackpot?"
-	access_list = list(/datum/access/crevus_casino)
+	access_list = list(/datum/access/crevus_casino::id)
 
 /obj/item/key/door_key/crevus/general_store
 	name = "Ane-Mart Staff Key"
 	desc = "A key with \"Ane-Mart\" written in the label."
-	access_list = list(/datum/access/crevus_general_store)
+	access_list = list(/datum/access/crevus_general_store::id)
 
 /obj/item/key/door_key/crevus/firearm_store
 	name = "Firearm Store Key"
-	access_list = list(/datum/access/crevus_firearm_store)
+	access_list = list(/datum/access/crevus_firearm_store::id)
 
 /obj/item/key/door_key/crevus/nt_pharmacy
 	name = "NanoTrasen Pharmacy Key"
-	access_list = list(/datum/access/crevus_nt_pharmacy)
+	access_list = list(/datum/access/crevus_nt_pharmacy::id)
 
 /obj/item/key/door_key/crevus/artisan_shop
 	name = "Artisan Shop Key"
-	access_list = list(/datum/access/crevus_artisan_shop)
+	access_list = list(/datum/access/crevus_artisan_shop::id)
 
 /obj/item/key/door_key/crevus/clothing_store
 	name = "Clothing Store Key"
-	access_list = list(/datum/access/crevus_clothing_store)
+	access_list = list(/datum/access/crevus_clothing_store::id)
