@@ -587,6 +587,7 @@ BLIND     // can't see anything
 	name = "scanning goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."
 	icon_state = "scanning"
+	item_state = "scanning"
 
 /obj/item/clothing/glasses/regular/scanners/glasses_examine_atom(var/atom/A, var/user)
 	if(isobj(A))
