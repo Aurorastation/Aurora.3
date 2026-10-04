@@ -47,6 +47,11 @@
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
 
+/turf/simulated/wall/reset_color()
+	color = initial(color)
+	if(!color && material)
+		color = material.wall_colour
+
 /turf/simulated/wall/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	var/state
 	var/current_damage = health / maxhealth

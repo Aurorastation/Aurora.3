@@ -16,6 +16,10 @@ SUBSYSTEM_DEF(persistence)
 	var/init_success = FALSE
 	/// Global toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
 	var/prevent_saving = FALSE
+	/// The map that was initialized on, used to check if the map has changed during the round.
+	var/initialized_on_map = null
+	/// Indicates if the current map supports persistence. Set during subsystem init.
+	var/map_supports_persistence = FALSE
 	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
 	var/object_track_register = list()
 	/// Dictionary<"[type](+[attribute])" cache of persistent history records.
@@ -82,6 +86,10 @@ SUBSYSTEM_DEF(persistence)
 		log_subsystem_persistence_error("SQL connection unavailable. Init not possible.")
 		return SS_INIT_FAILURE
 
+	if(SSatlas.current_map.path == MAP_WITH_PERSISTENCE_SUPPORT) // Persistence is currently only supported on the main map
+		map_supports_persistence = TRUE
+		initialized_on_map = SSatlas.current_map.path
+
 	try
 		objectsInitialize()
 	catch(var/exception/e_objects)
@@ -108,6 +116,10 @@ SUBSYSTEM_DEF(persistence)
 
 	if(prevent_saving)
 		log_subsystem_persistence_warning("Persistence subsystem was toggled to not save. Skipping subsystem finalization.")
+		return
+
+	if(initialized_on_map != SSatlas.current_map.path)
+		log_subsystem_persistence_panic("Persistence subsystem was initialized on map [initialized_on_map], but the current map is [SSatlas.current_map.path]. Skipping subsystem finalization to prevent anomalous data!")
 		return
 
 	if(!databaseCheckConnection("subsystem shutdown"))

@@ -92,10 +92,12 @@
 			DELETE FROM ss13_persistent_history \
 			WHERE type = :type_id AND attribute <=> :attribute \
 			AND id NOT IN ( \
-				SELECT id FROM ss13_persistent_history \
-				WHERE type = :type_id AND attribute <=> :attribute \
-				ORDER BY created_at DESC, id DESC \
-				LIMIT :row_count \
+				SELECT id FROM ( \
+					SELECT id FROM ss13_persistent_history \
+					WHERE type = :type_id AND attribute <=> :attribute \
+					ORDER BY created_at DESC, id DESC \
+					LIMIT :row_count \
+				) AS recent_records \
 			)",
 		list(
 			"type_id" = type_id,

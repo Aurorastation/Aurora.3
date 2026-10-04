@@ -919,3 +919,58 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	cost = 1
 	faction = null
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/faction/republic_of_biesel_bodyguard_accessories
+	display_name = "republic of biesel bodyguard accessories selection"
+	description = "A choice of either BSSB or TCAF accessories."
+	path = /obj/item/clothing/accessory/badge/bssb/bodyguard
+	slot = slot_tie
+	faction = "Independent"
+	allowed_roles = list("Diplomatic Bodyguard")
+	flags = null
+
+/datum/gear/faction/republic_of_biesel_bodyguard_accessories/New()
+	..()
+	var/list/republic_of_biesel_bodyguard_accessories = list()
+	republic_of_biesel_bodyguard_accessories["BSSB agent badge"] = /obj/item/clothing/accessory/badge/bssb/bodyguard
+	republic_of_biesel_bodyguard_accessories["TCAF Lgn/I rank medallions"] = /obj/item/clothing/accessory/tcaf/medallion/immunis
+	gear_tweaks += new /datum/gear_tweak/path(republic_of_biesel_bodyguard_accessories)
+
+/datum/gear/faction/tcaf_pants
+	display_name = "TCAF pants"
+	description = "A pair of two-tone trousers, blue on the inside and black on the outside, issued to Tau Ceti Armed Forces service members."
+	path = /obj/item/clothing/pants/tcaf
+	slot = slot_pants
+	faction = "Independent"
+	allowed_roles = list("Diplomatic Bodyguard")
+	origin_restriction = ORIGINS_BIESEL
+	flags = null
+
+/datum/gear/faction/espatier_shirt
+	display_name = "TCAF espatier shirt"
+	description = "A black longsleeved shirt issued to the espatiers of the TCAF's Republic Astroforce."
+	path = /obj/item/clothing/under/dressshirt/tcaf/espatier
+	slot = slot_w_uniform
+	faction = "Independent"
+	allowed_roles = list("Diplomatic Bodyguard")
+	origin_restriction = ORIGINS_BIESEL
+	flags = null
+
+/datum/gear/faction/bssb_uniform
+	display_name = "BSSB uniform"
+	description = "A formal uniform used by Biesel Security Services Bureau agents."
+	path = /obj/item/clothing/under/rank/bssb
+	slot = slot_w_uniform
+	faction = "Independent"
+	allowed_roles = list("Diplomatic Bodyguard")
+	flags = null
+
+/datum/gear/faction/bssb_coat
+	display_name = "BSSB close protection officer coat"
+	description = "A jacket used by Biesel Security Services Bureau close protection officers."
+	path = /obj/item/clothing/suit/storage/toggle/bssb/bodyguard
+	slot = slot_wear_suit
+	faction = "Independent"
+	allowed_roles = list("Diplomatic Bodyguard")
+	flags = null
+

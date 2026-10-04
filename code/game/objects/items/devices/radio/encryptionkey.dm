@@ -20,7 +20,7 @@
 	var/use_common = FALSE
 	channels = list()
 
-/obj/item/encryptionkey/ship/Initialize()
+/obj/item/encryptionkey/ship/Initialize(mapload, comms_group_id)
 	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
@@ -30,21 +30,35 @@
 
 	var/sector_z = get_sector_z()
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
-	if(istype(V) && V.comms_support)
-		var/freq_name = V.name
-		if(V.freq_name)
-			freq_name = V.freq_name
-			name = "[V.freq_name] encryption key"
-		else if(V.comms_name)
-			name = "[V.comms_name] encryption key"
-
-		channels += list(
-			"[freq_name]" = TRUE,
-			CHANNEL_HAILING = TRUE
-		)
+	if(!istype(V) || !V.comms_support)
+		return INITIALIZE_HINT_NORMAL
 
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
+
+	var/list/sector_comms_groups = V.comms_groups
+	var/datum/comms_group/comms_group
+
+	if(comms_group_id)
+		comms_group = sector_comms_groups[comms_group_id]
+
+	else if(length(sector_comms_groups) == 1)
+		// since the group has one member we get the datum from it
+		comms_group = sector_comms_groups[sector_comms_groups[1]]
+
+	if(!comms_group)
+		stack_trace("[src] at ([loc.x], [loc.y], [loc.z]) couldn't select a comms group. Received comms_group_id: [comms_group_id]")
+		return INITIALIZE_HINT_NORMAL
+
+	// Assign frequency here
+	var/freq_name = comms_group.freq_name ? comms_group.freq_name : V.name // if frequency name isn't provided, we default to sector name
+	var/name_prefix = comms_group.comms_name ? comms_group.comms_name : freq_name
+	name = "[name_prefix] encryption key"
+
+	channels += list(
+		"[freq_name]" = TRUE,
+		CHANNEL_HAILING = TRUE
+	)
 
 	return INITIALIZE_HINT_NORMAL
 
