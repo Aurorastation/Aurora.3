@@ -27,3 +27,15 @@
   - imagedel: Tweaked colorable winter coat and parka to be able to use accent colors.
   - imagedel: Added a pre-colored and colorable winter jacket as a slimmer alternative
       to winter coats and parkas.
+2026-10-04:
+  ElorgRHG:
+  - bugfix: Fixed the xanu militia reservist card's missing sprite.
+  TheGreyWolf:
+  - bugfix: Fixed the tesla spine and limbs keeping their glow in char setup when
+      switching to another character.
+  - bugfix: Cameras now respect line of sight from the turf they take a photo from.
+  - bugfix: Fixed that the transdermal computer didn't notify its owner with a message
+      range of 0.
+  - bugfix: Fixed various issues with jars and their contents.
+  - bugfix: Fixed that ahelps couldn't be sent if an admin that had taken it was disconnected.
+  - bugfix: Dead and necrotic limbs now appear on medical scans.
