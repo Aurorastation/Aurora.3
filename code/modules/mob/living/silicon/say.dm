@@ -102,6 +102,8 @@
 	log_say("[key_name(src)] : [msg.raw_message]")
 	if(!length(msg.to_string()))
 		return
+	// :h is only a routing shortcut for AIs, not a department-radio mode for the delivered message.
+	msg.message_mode = null
 
 	var/obj/structure/machinery/hologram/holopad/H = src.holo
 	if(H?.active_holograms[src])//If there is a hologram and its master is the user.

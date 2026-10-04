@@ -68,6 +68,7 @@
 		"scale" = client?.prefs.ui_scale,
 		"maxLength" = max_length,
 	))
+	window.send_message("context", list("holopadMode" = isAI(client?.mob)))
 
 	stop_thinking()
 	return TRUE
@@ -83,6 +84,7 @@
 /datum/tgui_say/proc/open(payload)
 	if(!payload?["channel"])
 		CRASH("No channel provided to an open TGUI-Say")
+	window.send_message("context", list("holopadMode" = isAI(client?.mob)))
 	window_open = TRUE
 	if(payload["channel"] != OOC_CHANNEL)
 		start_thinking()
