@@ -1630,7 +1630,7 @@
 #include "code\game\objects\structures\machinery\vending\service.dm"
 #include "code\game\objects\structures\machinery\vending\snacks.dm"
 #include "code\game\objects\structures\machinery\vending\soda.dm"
-#include "code\game\objects\structures\machinery\vending\wardrobe.dm"
+#include "code\game\objects\structures\machinery\vending\wardrobe\themed_tajara.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\chairs.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\sofa.dm"

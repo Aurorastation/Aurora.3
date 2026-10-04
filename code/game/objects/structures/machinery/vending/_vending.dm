@@ -107,9 +107,9 @@
 	 *	optional if product_records is specified.
 	 *
 	 *	For each, use the following pattern:
-	 *	list(/type/path = amount,/type/path2 = amount2)
-	 *	No specified amount = only one in stock
-	 *	Prices for each item, list(/type/path = price), items not in the list don't have a price.
+	 *	`list(/type/path = amount,/type/path2 = amount2)`
+	 *	No specified amount = uses `default_item_amount`
+	 *	Prices for each item, `list(/type/path = price)`, items not in the list don't have a price.
 	**/
 	var/list/products	= list()
 	var/list/contraband	= list()
@@ -233,6 +233,9 @@
 	/// If TRUE, skips the build_products() and build_inventory() processes in the Initialize(). Useful when you need these called later than Initialize().
 	var/build_inventory_later = FALSE
 
+	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
+	var/default_item_amount = null
+
 /obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
@@ -324,6 +327,8 @@
 		list(src.contraband, CAT_HIDDEN),
 		list(src.premium, CAT_COIN))
 
+	var/fallback_amount = !isnull(default_item_amount) ? default_item_amount : 1
+
 	for(var/current_list in all_products)
 		var/category = current_list[2]
 
@@ -331,11 +336,15 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
-			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
-				product.amount = rand(1,product.max_amount)
+
+			var/entry_amount = current_list[1][entry]
+			product.max_amount = !isnull(entry_amount) ? entry_amount : fallback_amount
+
+			if (random_itemcount == 1 && category == CAT_NORMAL) // Only the normal category is randomized.
+				product.amount = rand(1, product.max_amount)
 			else
 				product.amount = product.max_amount
+
 			product.category = category
 
 			src.product_records.Add(product)
