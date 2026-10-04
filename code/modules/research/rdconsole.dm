@@ -150,7 +150,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /datum/research_console_disk_tgui_data/proc/to_list()
 	return list(
-		"type" = type,
+		"type" = design_type,
 		"name" = name,
 		"stored_name" = stored_name,
 		"stored_description" = stored_description,
