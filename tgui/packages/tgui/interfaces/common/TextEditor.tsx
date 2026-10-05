@@ -201,7 +201,7 @@ export default function TextEditor({
         </Stack.Item>
         <Stack.Item grow basis={0}>
           <Box
-            backgroundColor={previewContext.background_color || '#111111'}
+            backgroundColor={previewContext?.background_color || '#111111'}
             height={height}
             overflow="auto"
             p={1}
