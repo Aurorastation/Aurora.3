@@ -1646,7 +1646,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// Grab all the internal giblets too.
 	for(var/obj/item/organ/organ in internal_organs)
-		organ.removed(target = victim, user = user, drop_organ = FALSE, detach = FALSE) // Organ stays inside and connected
+		organ.removed(victim, user, FALSE, FALSE) // Organ stays inside and connected
 		organ.forceMove(src)
 
 	// Remove parent references
