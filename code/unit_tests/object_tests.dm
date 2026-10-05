@@ -61,27 +61,3 @@
 		TEST_FAIL("Found non-unique build_types in flooring decl.")
 
 	return TRUE
-
-/datum/unit_test/check_vending_products
-	name = "OBJECTS: All vending products shall be /obj subtypes"
-	groups = list("machinery")
-
-/datum/unit_test/check_vending_products/start_test()
-	var/list/vending_products = list()
-	var/list/valid_keys = list()
-	for(var/v_type in nonabstract_typesof(/obj/structure/machinery/vending))
-		var/obj/structure/machinery/vending/V = new v_type
-		for(var/list/p in list(V.products, V.contraband, V.premium))
-			for(var/k in p)
-				vending_products += k
-				if(!ispath(k, /obj))
-					TEST_FAIL("Vending product [k] in vending machine [V] is not a subtype of /obj")
-				else
-					valid_keys += k
-
-	if(length(valid_keys) == length(vending_products))
-		TEST_PASS("All vending products are /obj subtypes")
-	else
-		TEST_FAIL("Some vending products are not /obj subtypes")
-
-	return TRUE

@@ -244,6 +244,16 @@
 
 /obj/structure/machinery/vending/Initialize(mapload)
 	. = ..()
+
+#ifdef UNIT_TEST
+	dbg_assert(!length(difflist(products, initial(products))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in products.")
+	dbg_assert(!length(difflist(contraband, initial(contraband))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in contraband.")
+	dbg_assert(!length(difflist(premium, initial(premium))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in premium items.")
+	for(var/list/products in flatten_list(products, contraband, premium))
+		for(var/k in products)
+			dbg_assert(ispath(k, /obj), "Vending product [k] in vending machine [src] ([type]) is not a subtype of /obj.")
+#endif
+
 	wires = new(src)
 
 	if(src.product_slogans)
