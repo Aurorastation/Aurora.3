@@ -40,11 +40,11 @@
 		cover_open = TRUE
 
 	if(installed_modules & MAINTENANCE_PANEL_APC)
-		apc = new apc_type(loc)
+		apc = new apc_type(loc, dir)
 		apc.panel_owner = src
 		apc.set_dir(dir)
 		apc.set_pixel_offsets()
-		apc.terminal?.set_dir(dir)
+		apc.terminal?.set_dir(apc.get_terminal_dir())
 	if(installed_modules & MAINTENANCE_PANEL_AIR_ALARM)
 		air_alarm = new air_alarm_type(loc)
 		air_alarm.panel_owner = src
@@ -76,8 +76,18 @@
 	. += ..()
 	. += "APC, air alarm, and fire alarm frames can be fitted into empty slots."
 	if(has_cover)
-		. += "The cover can be opened or closed with a crowbar."
+		. += "The cover can be opened or closed with a crowbar, or with an empty hand on grab intent."
 	. += "Once fitted, each module is assembled and serviced normally."
+
+/obj/structure/machinery/maintenance_panel/attack_hand(mob/user)
+	if(has_cover && user.a_intent == I_GRAB)
+		add_fingerprint(user)
+		cover_open = !cover_open
+		user.visible_message(SPAN_NOTICE("[user] [cover_open ? "opens" : "closes"] \the [src]."), SPAN_NOTICE("You [cover_open ? "open" : "close"] \the [src]."))
+		playsound(src, 'sound/items/storage/toolbox.ogg', 40, TRUE)
+		update_icon()
+		return TRUE
+	return ..()
 
 /obj/structure/machinery/maintenance_panel/attackby(obj/item/attacking_item, mob/user)
 	if(has_cover && attacking_item.tool_behaviour == TOOL_CROWBAR)
@@ -102,7 +112,7 @@
 		if(panel_area.get_apc())
 			to_chat(user, SPAN_WARNING("This area already has an APC."))
 			return TRUE
-		for(var/obj/structure/machinery/power/terminal/terminal in loc)
+		for(var/obj/structure/machinery/power/terminal/terminal in get_apc_terminal_turf())
 			if(terminal.master)
 				to_chat(user, SPAN_WARNING("There is another network terminal here."))
 				return TRUE
@@ -178,6 +188,9 @@
 			return FALSE
 	return TRUE
 
+/obj/structure/machinery/maintenance_panel/proc/get_apc_terminal_turf()
+	return get_turf(src)
+
 /obj/structure/machinery/maintenance_panel/set_pixel_offsets()
 	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 12 : -12))
 	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 22 : -8) : 0)
@@ -227,6 +240,9 @@
 	pixel_x = 0
 	pixel_y = 0
 
+/obj/structure/machinery/maintenance_panel/floor/get_apc_terminal_turf()
+	return get_step(get_turf(src), dir)
+
 // These are full machinery subtypes, with only their presentation and wall offset changed.
 /obj/structure/machinery/power/apc/maintenance_panel
 	icon = 'icons/obj/machinery/wall_maintpanel.dmi'
@@ -244,6 +260,11 @@
 	panel_owner = null
 	return ..()
 
+/obj/structure/machinery/power/apc/maintenance_panel/attack_hand(mob/user)
+	if(panel_owner?.has_cover && user.a_intent == I_GRAB)
+		return panel_owner.attack_hand(user)
+	return ..()
+
 /obj/structure/machinery/power/apc/maintenance_panel/update_icon()
 	. = ..()
 	if(icon_state == "apc0")
@@ -256,13 +277,27 @@
 /obj/structure/machinery/power/apc/maintenance_panel/floor
 	icon = 'icons/obj/machinery/floor_maintpanel.dmi'
 
+/obj/structure/machinery/power/apc/maintenance_panel/floor/Initialize(mapload, ndir, building = FALSE)
+	// The parent creates its terminal during Initialize(), so apply the floor
+	// panel's installation direction before that happens.
+	if(ndir)
+		set_dir(ndir)
+	return ..()
+
+/obj/structure/machinery/power/apc/maintenance_panel/floor/get_terminal_turf()
+	return get_step(get_turf(src), dir)
+
+/obj/structure/machinery/power/apc/maintenance_panel/floor/get_terminal_dir()
+	return REVERSE_DIR(dir)
+
 /obj/structure/machinery/power/apc/maintenance_panel/floor/set_pixel_offsets()
 	pixel_x = 0
 	pixel_y = 0
 
 /obj/structure/machinery/alarm/maintenance_panel
 	icon = 'icons/obj/machinery/wall_maintpanel.dmi'
-	layer = ABOVE_OBJ_LAYER
+	// Its wider chassis states need to render consistently above the other modules.
+	layer = ABOVE_OBJ_LAYER + 0.0001
 	var/obj/structure/machinery/maintenance_panel/panel_owner
 
 /obj/structure/machinery/alarm/maintenance_panel/set_pixel_offsets()
@@ -273,6 +308,11 @@
 	if(panel_owner?.air_alarm == src)
 		panel_owner.air_alarm = null
 	panel_owner = null
+	return ..()
+
+/obj/structure/machinery/alarm/maintenance_panel/attack_hand(mob/user)
+	if(panel_owner?.has_cover && user.a_intent == I_GRAB)
+		return panel_owner.attack_hand(user)
 	return ..()
 
 /obj/structure/machinery/alarm/maintenance_panel/update_icon()
@@ -303,6 +343,11 @@
 	if(panel_owner?.fire_alarm == src)
 		panel_owner.fire_alarm = null
 	panel_owner = null
+	return ..()
+
+/obj/structure/machinery/firealarm/maintenance_panel/attack_hand(mob/user)
+	if(panel_owner?.has_cover && user.a_intent == I_GRAB)
+		return panel_owner.attack_hand(user)
 	return ..()
 
 /obj/structure/machinery/firealarm/maintenance_panel/update_icon()

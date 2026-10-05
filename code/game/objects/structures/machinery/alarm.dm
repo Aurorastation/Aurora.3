@@ -376,7 +376,7 @@ pixel_x = 10;
 			src.set_dir(dir)
 		buildstage = 0
 		panel_open = 1
-		use_power = POWER_USE_OFF
+		update_use_power(POWER_USE_OFF)
 
 		update_icon()
 		set_pixel_offsets()
@@ -991,7 +991,8 @@ pixel_x = 10;
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
-				use_power = POWER_USE_OFF
+				update_use_power(POWER_USE_OFF)
+				remove_area_power_relationship()
 				update_icon()
 				return TRUE
 
@@ -1001,7 +1002,9 @@ pixel_x = 10;
 				if (C.use(5))
 					to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 					buildstage = 2
-					use_power = POWER_USE_IDLE
+					update_use_power(POWER_USE_IDLE)
+					setup_area_power_relationship()
+					power_change()
 					update_icon()
 					first_run()
 					radio_connection = SSradio.return_frequency(frequency)

@@ -182,7 +182,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	. = list()
 	. += ..()
 	. += "An APC frame can be installed against an adjacent <b>wall</b> or fitted into an open modular maintenance panel."
-	. += "With its cover open, expose the floor plating and add <b>ten lengths of cable</b> to connect a power terminal."
+	. += "With its cover open, expose the floor plating where its terminal will be installed and add <b>ten lengths of cable</b> to connect it."
 	. += "Insert an <b>APC power control module</b>, then secure the electronics with a <b>screwdriver</b> once the terminal is connected."
 	. += "Insert a standard-size <b>power cell</b>, then close the cover with a <b>crowbar</b>."
 
@@ -287,11 +287,15 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	failure_timer = max(failure_timer, duration)
 
 /obj/structure/machinery/power/apc/proc/make_terminal()
-	// create a terminal object at the same position as original turf loc
-	// wires will attach to this
-	terminal = new/obj/structure/machinery/power/terminal(loc)
-	terminal.set_dir(dir)
+	terminal = new/obj/structure/machinery/power/terminal(get_terminal_turf())
+	terminal.set_dir(get_terminal_dir())
 	terminal.master = src
+
+/obj/structure/machinery/power/apc/proc/get_terminal_turf()
+	return get_turf(src)
+
+/obj/structure/machinery/power/apc/proc/get_terminal_dir()
+	return dir
 
 /obj/structure/machinery/power/apc/proc/init(mapload)
 	has_electronics = HAS_ELECTRONICS_SECURED //installed and secured
@@ -629,7 +633,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 	// CABLE COIL: Install the power terminal (wire stuff on the floor in front of the APC).
 	else if (attacking_item.tool_behaviour == TOOL_CABLECOIL && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
-		var/turf/T = loc
+		var/turf/T = get_terminal_turf()
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
@@ -655,7 +659,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 	// WIRECUTTER: Dismantle the power terminal (wire stuff on the floor in front of APC).
 	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER && terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
-		var/turf/T = loc
+		var/turf/T = get_terminal_turf()
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
@@ -667,7 +671,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 					spark(src, 5, GLOB.alldirs)
 					if(usr.stunned)
 						return
-				new /obj/item/stack/cable_coil(loc,10)
+				new /obj/item/stack/cable_coil(T,10)
 				to_chat(user, SPAN_NOTICE("You cut the cables and dismantle the power terminal."))
 				qdel(terminal)
 
