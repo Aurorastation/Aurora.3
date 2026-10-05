@@ -84,9 +84,9 @@
 	worn_overlay = "cover"
 
 /obj/item/clothing/head/vaurca_breeder/colorable/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
-    if(raised)
-        return null
-    return ..()
+	if(raised)
+		return null
+	return ..()
 
 /obj/item/clothing/head/vaurca_breeder/colorable/flag
 	desc = "A large shroud used by Vaurca Gynes. This one displays a flag on the back of the head."
