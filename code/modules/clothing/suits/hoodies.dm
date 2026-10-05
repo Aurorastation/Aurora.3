@@ -37,7 +37,7 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat
 	name = "winter coat"
-	desc = "A heavy jacket made from animal furs."
+	desc = "A heavy coat made from animal furs."
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter"
 	item_state = "coatwinter"
@@ -53,7 +53,7 @@
 
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
-	desc = "A hood attached to a heavy winter jacket."
+	desc = "A hood attached to a heavy winter coat."
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter_hood"
 	contained_sprite = TRUE
@@ -69,21 +69,25 @@
 /obj/item/clothing/head/winterhood/Initialize(mapload, material_key)
 	. = ..()
 	if(isclothing(loc))
-		RegisterSignal(loc, COMSIG_ITEM_REMOVE, PROC_REF(RemoveHood))
-		RegisterSignal(loc, COMSIG_QDELETING, TYPE_PROC_REF(/datum, Destroy))
-		RegisterSignal(loc, COMSIG_ITEM_STATE_CHECK, PROC_REF(hooded))
-		RegisterSignal(loc, COMSIG_ITEM_UPDATE_STATE, PROC_REF(change_hood))
-		RegisterSignal(loc, COMSIG_ITEM_ICON_UPDATE, TYPE_PROC_REF(/atom, update_icon))
-		color = loc.color
-		icon_state = "[loc.icon_state]_hood"
-		item_state = "[loc.icon_state]_hood"
+		var/obj/item/clothing/coat = loc
+		RegisterSignal(coat, COMSIG_ITEM_REMOVE, PROC_REF(RemoveHood))
+		RegisterSignal(coat, COMSIG_QDELETING, TYPE_PROC_REF(/datum, Destroy))
+		RegisterSignal(coat, COMSIG_ITEM_STATE_CHECK, PROC_REF(hooded))
+		RegisterSignal(coat, COMSIG_ITEM_UPDATE_STATE, PROC_REF(change_hood))
+		RegisterSignal(coat, COMSIG_ITEM_ICON_UPDATE, TYPE_PROC_REF(/atom, update_icon))
+		color = coat.color
+		accent_color = coat.accent_color
+		icon_state = "[coat.icon_state]_hood"
+		item_state = "[coat.icon_state]_hood"
 
 /obj/item/clothing/head/winterhood/update_icon(mob/user)
-	. = ..()
 	if(isclothing(loc))
-		color = loc.color
-		icon_state = "[loc.icon_state]_hood"
-		item_state = "[loc.icon_state]_hood"
+		var/obj/item/clothing/coat = loc
+		color = coat.color
+		accent_color = coat.accent_color
+		icon_state = "[coat.icon_state]_hood"
+		item_state = "[coat.icon_state]_hood"
+	return ..()
 
 /obj/item/clothing/head/winterhood/proc/hooded(var/hood, list/arguments)
 	arguments[1] = hooded
@@ -357,19 +361,14 @@
 	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/colorable
-	icon_state = "coatwinter_w"
-	item_state = "coatwinter_w"
-	build_from_parts = TRUE
+	icon_state = "coatwinter_colorable"
+	item_state = "coatwinter_colorable"
+	has_accents = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood/colorable
-	worn_overlay = "collar"
 
 /obj/item/clothing/head/winterhood/colorable
-	icon_state = "coatwinter_w_hood"
-	build_from_parts = TRUE
-	worn_overlay = "collar"
-
-/obj/item/clothing/head/winterhood/colorable/update_icon(mob/user)
-	. = ..()
+	icon_state = "coatwinter_colorable_hood"
+	has_accents = TRUE
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/colorable/ponczo
 	name = "visegradi ponczo"
@@ -445,15 +444,33 @@
 	desc = "A heavy fur-lined jacket designed to keep you extra warm in sub-zero conditions."
 	icon_state = "parka_colorable"
 	item_state = "parka_colorable"
-	build_from_parts = TRUE
+	has_accents = TRUE
 	hoodtype = /obj/item/clothing/head/winterhood/parka/colorable
-	worn_overlay = "acc"
 
 /obj/item/clothing/head/winterhood/parka/colorable
 	name = "parka hood"
 	icon_state = "parka_colorable_hood"
-	build_from_parts = TRUE
-	worn_overlay = "acc"
+	has_accents = TRUE
 
-/obj/item/clothing/head/winterhood/parka/colorable/update_icon(mob/user)
-	. = ..()
+/obj/item/clothing/suit/storage/hooded/wintercoat/jacket
+	name = "winter jacket"
+	desc = "A warm jacket made from synthetic fabrics."
+	icon_state = "winter_jacket"
+	item_state = "winter_jacket"
+	hoodtype = /obj/item/clothing/head/winterhood/jacket
+
+/obj/item/clothing/head/winterhood/jacket
+	name = "winter jacket hood"
+	desc = "A warm hood made from synthetic fabrics attached to a jacket."
+	icon_state = "winter_jacket_hood"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/jacket/colorable
+	icon_state = "winter_jacket_colorable"
+	item_state = "winter_jacket_colorable"
+	has_accents = TRUE
+	hoodtype = /obj/item/clothing/head/winterhood/jacket/colorable
+
+/obj/item/clothing/head/winterhood/jacket/colorable
+	icon_state = "winter_jacket_colorable_hood"
+	has_accents = TRUE
+

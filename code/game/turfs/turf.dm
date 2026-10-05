@@ -29,6 +29,8 @@
 
 	var/list/decals
 	var/list/blueprints
+	/// Cellular automata currently occupying this turf.
+	var/list/datum/automata_cell/autocells
 
 	/// If true, turf will be treated as space or a hole
 	var/is_hole
