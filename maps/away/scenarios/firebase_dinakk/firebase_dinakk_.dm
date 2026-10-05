@@ -1,13 +1,13 @@
 
 // --------------------------------------------------- template
 
-/datum/map_template/ruin/away_site/crash_site
-	name = "Crash Site"
-	description = "Crash Site."
-	id = "crash_site"
+/datum/map_template/ruin/away_site/firebase_dinakk
+	name = "Firebase Din'akk"
+	description = "Firebase Din'akk."
+	id = "firebase_dinakk"
 
-	prefix = "scenarios/crash_site/"
-	suffix = "crash_site_.dmm"
+	prefix = "scenarios/firebase_dinakk/"
+	suffix = "firebase_dinakk_.dmm"
 
 	exoplanet_theme_base = /datum/exoplanet_theme/snow/adhomai
 	exoplanet_themes = list(
@@ -25,28 +25,35 @@
 	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	// template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
+	traits = list(
+		//Z1
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	unit_test_groups = list(3)
 
-/singleton/submap_archetype/crash_site
-	map = /datum/map_template/ruin/away_site/crash_site::name
-	descriptor = /datum/map_template/ruin/away_site/crash_site::description
+/singleton/submap_archetype/firebase_dinakk
+	map = /datum/map_template/ruin/away_site/firebase_dinakk::name
+	descriptor = /datum/map_template/ruin/away_site/firebase_dinakk::description
 
 // --------------------------------------------------- sector
 
-/obj/effect/overmap/visitable/sector/crash_site
+/obj/effect/overmap/visitable/sector/firebase_dinakk
 	name = "Din'akk Crash Site"
 	desc = "The identified site of an SCC shuttle crash. No notable signs of population or structural build-up."
 	icon_state = /obj/effect/overmap/visitable/sector/exoplanet/adhomai::icon_state
 	color = /obj/effect/overmap/visitable/sector/exoplanet/adhomai::color
 
 	initial_restricted_waypoints = list(
-		/obj/effect/overmap/visitable/ship/landable/intrepid::name = list(/obj/effect/shuttle_landmark/crash_site/intrepid::landmark_tag),
-		/obj/effect/overmap/visitable/ship/landable/mining_shuttle::name = list(/obj/effect/shuttle_landmark/crash_site/spark::landmark_tag),
-		/obj/effect/overmap/visitable/ship/landable/canary::name = list(/obj/effect/shuttle_landmark/crash_site/canary::landmark_tag),
-		/obj/effect/overmap/visitable/ship/landable/quark::name = list(/obj/effect/shuttle_landmark/crash_site/quark::landmark_tag),
+		/obj/effect/overmap/visitable/ship/landable/intrepid::name = list(/obj/effect/shuttle_landmark/firebase_dinakk/intrepid::landmark_tag),
+		/obj/effect/overmap/visitable/ship/landable/mining_shuttle::name = list(/obj/effect/shuttle_landmark/firebase_dinakk/spark::landmark_tag),
+		/obj/effect/overmap/visitable/ship/landable/canary::name = list(/obj/effect/shuttle_landmark/firebase_dinakk/canary::landmark_tag),
+		/obj/effect/overmap/visitable/ship/landable/quark::name = list(/obj/effect/shuttle_landmark/firebase_dinakk/quark::landmark_tag),
 	)
 
 // --------------------------------------------------- misc
 
-/obj/abstract/weather_marker/crash_site
+/obj/abstract/weather_marker/firebase_dinakk
 	weather_type = /singleton/state/weather/snow/medium

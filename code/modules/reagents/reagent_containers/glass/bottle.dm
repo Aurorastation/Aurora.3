@@ -298,3 +298,27 @@
 	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/morphine = 60)
+
+/obj/item/reagent_containers/glass/bottle/hclacid
+	name = "hydrochloric acid bottle"
+	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/acid/hydrochloric = 60)
+
+/obj/item/reagent_containers/glass/bottle/impedrezene
+	name = "impedrezene bottle"
+	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene = 60)
+
+/obj/item/reagent_containers/glass/bottle/mindbreaker
+	name = "mindbreaker toxin bottle"
+	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 60)
+
+/obj/item/reagent_containers/glass/bottle/raskara_dust
+	name = "raskara dust bottle"
+	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/drugs/raskara_dust = 60)
