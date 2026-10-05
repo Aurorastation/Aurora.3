@@ -130,3 +130,25 @@ If you want to expand this to more than primarily generic items, I recommend des
 		/obj/item/clothing/shoes/heels = 6,
 		/obj/item/clothing/shoes/winter = 6,
 	)
+
+/obj/structure/machinery/vending/generic_clothing/crash_site_event
+	name = "\improper Adhomai Event Clothing Vendor"
+	products = list(
+		/obj/item/clothing/shoes/workboots/tajara = 6,
+		/obj/item/clothing/shoes/workboots/tajara/adhomian_boots = 6,
+		/obj/item/clothing/shoes/workboots/tajara/dark = 6,
+		/obj/item/clothing/head/tajaran/circlet/silver = 6,
+		/obj/item/clothing/head/tajaran/fur = 6,
+		/obj/item/clothing/accessory/tajaran/cinnamon = 6,
+		/obj/item/clothing/under/tajaran = 6,
+		/obj/item/clothing/pants/tajaran = 6,
+		/obj/item/clothing/shoes/tajara/footwraps = 6,
+		/obj/item/clothing/suit/storage/hooded/tajaran/winter = 6,
+		/obj/item/clothing/suit/storage/tajaran/hunting = 6,
+		/obj/item/clothing/suit/storage/tajaran/pra_jacket/armored = 6,
+		/obj/item/clothing/suit/storage/toggle/tajaran = 6,
+		/obj/item/clothing/suit/storage/toggle/tajaran/wool = 6,
+		/obj/item/clothing/suit/storage/toggle/greatcoat/brown = 6,
+		/obj/item/clothing/accessory/scarf/lone_spacer_green = 6,
+		/obj/item/clothing/suit/storage/hooded/wintercoat = 6,
+	)
