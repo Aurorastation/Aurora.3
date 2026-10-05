@@ -203,21 +203,20 @@
 		return
 
 	var/movtext = movedir == UP ? "raise" : "lower"
-	var/size
+	var/load_mass
 
 	if(hoistee)
 		check_consistency()
-		if (ismob(hoistee))
-			var/mob/M = hoistee
-			size = M.mob_size
-		else if (isobj(hoistee))
-			var/obj/O = hoistee
-			size = O.w_class
+		if(hoistee)
+			load_mass = hoistee.get_effective_mass()
 
-	if(size) // defined size means we're hoisting and it'll take time
+	if(load_mass) // A defined load means we're hoisting and it'll take time.
 		user.visible_message(SPAN_NOTICE("[user] begins to [movtext] \the [hoistee]!"), SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), SPAN_NOTICE("You hear the sound of a crank."))
 
-	if (do_after(user, (1 SECONDS) * size / 4, src))
+	// The pulley permits loads above the user's normal capacity, but the
+	// relative strain determines how long the crank takes to operate.
+	var/operation_time = load_mass ? clamp(2 SECONDS * (load_mass / user.get_lift_capacity()), 0.5 SECONDS, 10 SECONDS) : 0.5 SECONDS
+	if (do_after(user, operation_time, src))
 		. = move_dir(movedir)
 
 	if(.)

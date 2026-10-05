@@ -13,6 +13,7 @@
 	throw_distance = 7
 	release_force = 5
 
+	has_unique_gun_action = TRUE
 	needspin = FALSE
 
 	var/blacklisted_grenades = list(

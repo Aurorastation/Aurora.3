@@ -849,6 +849,10 @@ SUBSYSTEM_DEF(jobs)
 			if(!istype(A, /obj/item/organ/external))
 				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 				A.replaced(H, affected)
+				if(istype(A, /obj/item/organ/internal))
+					var/obj/item/organ/internal/internal_augment = A
+					if(internal_augment.on_mob_icon)
+						affected.get_icon()
 			H.update_body()
 
 	log_loadout("EA/([H]): Complete.")

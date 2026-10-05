@@ -92,7 +92,6 @@
 	dock_target = "airlock_freebooter_salvager_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "freebooter_salvager_nav_hangar"
 	defer_initialisation = TRUE
 
 // shuttle airlock

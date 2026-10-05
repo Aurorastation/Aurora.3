@@ -16,7 +16,7 @@
 	icon_state = "med"
 	icon_vend = "med-vend"
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
-	req_access = list(ACCESS_MEDICAL_EQUIP)
+	req_access = list(/datum/access/medical_equip::id)
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
@@ -77,7 +77,7 @@
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
-	req_access = list(ACCESS_MEDICAL)
+	req_access = list(/datum/access/medical::id)
 	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
@@ -117,7 +117,7 @@
 	name = "NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
-	req_access = list(ACCESS_MEDICAL)
+	req_access = list(/datum/access/medical::id)
 	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(

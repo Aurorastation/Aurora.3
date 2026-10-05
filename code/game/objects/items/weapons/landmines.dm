@@ -81,7 +81,7 @@
 	spark(src, 3, GLOB.alldirs)
 	if(ishuman(triggerer))
 		triggerer.Weaken(2)
-	explosion(loc, 0, 2, 2, 3)
+	explosion(loc, 0, 2, 2, 3, spreading = TRUE)
 	qdel(src)
 
 /obj/item/landmine/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -102,7 +102,8 @@
 					SPAN_DANGER("You step on \the [src]!"),
 					SPAN_DANGER("You hear a mechanical click!")
 					)
-				trigger(L)
+				ASYNC // Caller requires no-sleep
+					trigger(L)
 
 /obj/item/landmine/attack_hand(mob/user as mob)
 	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))
@@ -426,7 +427,7 @@
 		for(var/mob/living/person_in_range in get_hearers_in_LOS(world.view, src))
 			to_chat(person_in_range, SPAN_HIGHDANGER("[victim] does a sudden move, releasing the feet from the trigger..."))
 
-		explosion(loc, 2, 3, 5, world.view)
+		explosion(loc, 2, 3, 5, world.view, spreading = TRUE)
 		qdel(src)
 
 /obj/item/landmine/standstill/deactivate(mob/user)

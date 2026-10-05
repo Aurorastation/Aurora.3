@@ -13,9 +13,9 @@
 	selection_color = "#c9ad12"
 
 	job_access = list(
-		ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_EVA, ACCESS_HEADS, ACCESS_MAINT_TUNNELS,
-		ACCESS_CONSTRUCTION, ACCESS_RESEARCH, ACCESS_GATEWAY, ACCESS_WEAPONS, ACCESS_BRIDGE_CREW, ACCESS_INTREPID,
-		ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_CENT_CCIA
+		/datum/access/sec_doors::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/eva::id, /datum/access/heads::id, /datum/access/maint_tunnels::id,
+		/datum/access/construction::id, /datum/access/research::id, /datum/access/gateway::id, /datum/access/weapons::id, /datum/access/bridge_crew::id, /datum/access/intrepid::id,
+		/datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/cent_ccia::id
 	)
 
 	outfit = /obj/outfit/job/hra

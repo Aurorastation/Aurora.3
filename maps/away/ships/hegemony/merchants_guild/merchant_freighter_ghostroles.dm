@@ -29,7 +29,7 @@
 	suit = /obj/item/clothing/accessory/poncho/unathimantle/merchant
 
 /obj/outfit/admin/merchant_guild/get_id_access()
-	return list(ACCESS_MERCHANTS_GUILD, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/merchants_guild::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/merchant_guild/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)

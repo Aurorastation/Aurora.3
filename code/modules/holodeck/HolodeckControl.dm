@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/structure/machinery/computer/hol
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
 
-	req_one_access = list(ACCESS_HEADS, ACCESS_CHAPEL_OFFICE)
+	req_one_access = list(/datum/access/heads::id, /datum/access/chapel_office::id)
 
 	/// How much power is consumed per item loaded
 	var/item_power_usage = 15
