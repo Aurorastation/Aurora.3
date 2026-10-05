@@ -157,26 +157,39 @@
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,10) + rand(5, 10)) * econ_status * economic_modifier * species_modifier + (rand(0,99) / 100)
 	var/starting_funds = H.client ? H.client.prefs.starting_funds : STARTING_FUNDS_BANK_ACCOUNT
-	var/account_balance = starting_funds == STARTING_FUNDS_BANK_ACCOUNT ? money_amount : 0
+	if((starting_funds in list(STARTING_FUNDS_ADHOMIAN_KNUCKLES, STARTING_FUNDS_ADHOMIAN_KNUCKLES_HALF)) && !(H.get_species() in ALL_TAJARA_SPECIES))
+		starting_funds = STARTING_FUNDS_BANK_ACCOUNT
+	var/account_balance = 0
+	var/physical_money_amount = money_amount
+	switch(starting_funds)
+		if(STARTING_FUNDS_BANK_ACCOUNT)
+			account_balance = money_amount
+			physical_money_amount = null
+		if(STARTING_FUNDS_CASH_HALF, STARTING_FUNDS_CHARGE_CARD_HALF, STARTING_FUNDS_ADHOMIAN_KNUCKLES_HALF)
+			account_balance = money_amount / 2
+			physical_money_amount = money_amount / 2
 	var/datum/money_account/account = SSeconomy.create_and_assign_account(H, null, account_balance, public_account)
 	to_chat(H, SPAN_BOLD(SPAN_NOTICE("Your account number is: [account.account_number], your account pin is: [account.remote_access_pin]")))
 
-	if(starting_funds != STARTING_FUNDS_BANK_ACCOUNT)
-		return money_amount
+	return physical_money_amount
 
 /datum/job/proc/equip_starting_funds(var/mob/living/carbon/human/H, var/money_amount)
-	var/obj/item/spacecash/physical_funds
+	var/obj/item/currency/physical_funds
 	switch(H.client?.prefs.starting_funds)
-		if(STARTING_FUNDS_CASH)
+		if(STARTING_FUNDS_CASH, STARTING_FUNDS_CASH_HALF)
 			var/obj/item/spacecash/bundle/cash_bundle = new(H)
 			cash_bundle.worth = money_amount
 			cash_bundle.update_icon()
 			physical_funds = cash_bundle
-		if(STARTING_FUNDS_CHARGE_CARD)
+		if(STARTING_FUNDS_CHARGE_CARD, STARTING_FUNDS_CHARGE_CARD_HALF)
 			var/obj/item/spacecash/ewallet/charge_card = new(H)
 			charge_card.worth = money_amount
 			charge_card.owner_name = H.real_name
 			physical_funds = charge_card
+		if(STARTING_FUNDS_ADHOMIAN_KNUCKLES, STARTING_FUNDS_ADHOMIAN_KNUCKLES_HALF)
+			if(H.get_species() in ALL_TAJARA_SPECIES)
+				var/singleton/currency/adhomian_knuckles/knuckles = GET_SINGLETON(/singleton/currency/adhomian_knuckles)
+				physical_funds = knuckles.spawn_credit_value(money_amount, H)
 
 	if(physical_funds)
 		H.equip_or_collect(physical_funds, slot_in_backpack)

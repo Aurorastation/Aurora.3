@@ -98,7 +98,8 @@
 		pref.accent	= our_origin.possible_accents[1]
 
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
-	pref.starting_funds = sanitize_inlist(pref.starting_funds, STARTING_FUNDS_OPTIONS, initial(pref.starting_funds))
+	var/list/starting_funds_options = (pref.species in ALL_TAJARA_SPECIES) ? STARTING_FUNDS_TAJARA_OPTIONS : STARTING_FUNDS_OPTIONS
+	pref.starting_funds = sanitize_inlist(pref.starting_funds, starting_funds_options, initial(pref.starting_funds))
 
 /datum/category_item/player_setup_item/origin/ui_data(var/mob/user)
 	if(!SSrecords.initialized)
@@ -198,7 +199,8 @@
 			return TOPIC_REFRESH
 
 	if(href_list["starting_funds"])
-		var/new_starting_funds = tgui_input_list(user, "Choose where your character's starting funds are deposited. Physical funds will be placed in your bag.", "Character Preference", STARTING_FUNDS_OPTIONS, pref.starting_funds)
+		var/list/starting_funds_options = (pref.species in ALL_TAJARA_SPECIES) ? STARTING_FUNDS_TAJARA_OPTIONS : STARTING_FUNDS_OPTIONS
+		var/new_starting_funds = tgui_input_list(user, "Choose where your character's starting funds are deposited. Physical funds will be placed in your bag.", "Character Preference", starting_funds_options, pref.starting_funds)
 		if(new_starting_funds && CanUseTopic(user))
 			pref.starting_funds = new_starting_funds
 			return TOPIC_REFRESH
