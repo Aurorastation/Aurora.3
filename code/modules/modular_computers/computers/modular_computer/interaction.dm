@@ -200,12 +200,14 @@
 			turn_on(user)
 
 /obj/item/modular_computer/attack_ranged(mob/user, params)
-	. = ..()
+	if(..())
+		return TRUE
 	if(ishuman(user) && isipc(user))
 		var/mob/living/carbon/human/robot = user
 		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
 		if(wireless_access_point?.access_terminal(src))
 			attack_hand(user)
+			return TRUE
 
 /obj/item/modular_computer/attack_hand(var/mob/user)
 	if(anchored)
