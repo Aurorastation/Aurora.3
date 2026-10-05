@@ -241,7 +241,9 @@
 	pixel_y = 0
 
 /obj/structure/machinery/maintenance_panel/floor/get_apc_terminal_turf()
-	return get_step(get_turf(src), dir)
+	var/turf/panel_turf = get_turf(src)
+	var/turf/terminal_turf = get_step(panel_turf, dir)
+	return terminal_turf ? terminal_turf : panel_turf
 
 // These are full machinery subtypes, with only their presentation and wall offset changed.
 /obj/structure/machinery/power/apc/maintenance_panel
@@ -285,7 +287,9 @@
 	return ..()
 
 /obj/structure/machinery/power/apc/maintenance_panel/floor/get_terminal_turf()
-	return get_step(get_turf(src), dir)
+	var/turf/panel_turf = get_turf(src)
+	var/turf/terminal_turf = get_step(panel_turf, dir)
+	return terminal_turf ? terminal_turf : panel_turf
 
 /obj/structure/machinery/power/apc/maintenance_panel/floor/get_terminal_dir()
 	return REVERSE_DIR(dir)

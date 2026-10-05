@@ -287,7 +287,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	failure_timer = max(failure_timer, duration)
 
 /obj/structure/machinery/power/apc/proc/make_terminal()
-	terminal = new/obj/structure/machinery/power/terminal(get_terminal_turf())
+	var/turf/terminal_turf = get_terminal_turf()
+	if(!terminal_turf)
+		return
+	terminal = new/obj/structure/machinery/power/terminal(terminal_turf)
 	terminal.set_dir(get_terminal_dir())
 	terminal.master = src
 
@@ -634,7 +637,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	// CABLE COIL: Install the power terminal (wire stuff on the floor in front of the APC).
 	else if (attacking_item.tool_behaviour == TOOL_CABLECOIL && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = get_terminal_turf()
-		if(istype(T) && !T.is_plating())
+		if(!T)
+			to_chat(user, SPAN_WARNING("There is no valid location for the APC power terminal."))
+			return
+		if(!T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
 		var/obj/item/stack/cable_coil/C = attacking_item
@@ -659,8 +665,11 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 	// WIRECUTTER: Dismantle the power terminal (wire stuff on the floor in front of APC).
 	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER && terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
-		var/turf/T = get_terminal_turf()
-		if(istype(T) && !T.is_plating())
+		var/turf/T = get_turf(terminal)
+		if(!T)
+			to_chat(user, SPAN_WARNING("The APC power terminal is not in a valid location."))
+			return
+		if(!T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
 		user.visible_message(SPAN_WARNING("[user.name] dismantles the power terminal from [src]."), \
