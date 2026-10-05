@@ -302,6 +302,20 @@
 	groupable = FALSE
 	spawn_amount = 1
 
+/singleton/cargo_item/cargosled
+	category = "operations"
+	name = "cargo sled"
+	supplier = "zharkov"
+	description = "A cargo sled that can be hitched to a snowmobile. Suitable for cargo."
+	price = 400
+	items = list(
+		/obj/vehicle/train/cargo/trolley/sled
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
 /singleton/cargo_item/monowheel
 	category = "operations"
 	name = "monowheel"
