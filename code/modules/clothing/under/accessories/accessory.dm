@@ -435,7 +435,6 @@
 	icon = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
-	icon_override = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -604,11 +603,10 @@
 /obj/item/clothing/accessory/poncho/roles/cloak
 	name = "quartermaster's cloak"
 	desc = "An elaborate brown and gold cloak."
-	icon = 'icons/obj/clothing/ties.dmi'
-	icon_override = 'icons/mob/ties.dmi'
+	icon = 'icons/obj/item/clothing/accessory/cloaks.dmi'
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
-	contained_sprite = FALSE
+	contained_sprite = TRUE
 	body_parts_covered = null
 
 /obj/item/clothing/accessory/poncho/roles/cloak/ce
@@ -705,12 +703,11 @@
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
 	desc_extended = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
-	icon = 'icons/obj/clothing/ties.dmi'
-	icon_override = 'icons/mob/ties.dmi'
+	icon = 'icons/obj/item/clothing/accessory/skrell_capes.dmi'
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = TRUE
-	contained_sprite = FALSE
+	contained_sprite = TRUE
 	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/star
