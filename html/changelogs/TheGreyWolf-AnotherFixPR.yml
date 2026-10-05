@@ -4,7 +4,7 @@ delete-after: True
 
 changes:
   - bugfix: "Fixes prosthetics losing their augments when removed."
-  - bugfix: "Fixes resaerch console tech level copying."
+  - bugfix: "Fixes research console tech level copying."
   - bugfix: "Research servers can now be reached with any NTnet connection."
   - bugfix: "Fixed synthetic medi and sechuds."
   - bugfix: "Fixed some ghost holy area movement stuff."
