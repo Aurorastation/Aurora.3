@@ -15,3 +15,4 @@ changes:
   - bugfix: "Posibrains now show a message when hit by bullets."
   - bugfix: "Fixed catwalk and grate handling to be more consistent."
   - bugfix: "Fixed some issues with clicking on grates and tent flooring."
+  - bugfix: "Fixes APC light emissives."
