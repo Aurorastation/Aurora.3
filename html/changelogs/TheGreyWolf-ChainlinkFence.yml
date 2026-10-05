@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - rscadd: "Made chainlink fences constructable from steel."
