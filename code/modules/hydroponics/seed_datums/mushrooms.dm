@@ -32,6 +32,7 @@
 	seed_name = "kois"
 	seed_noun = SEED_NOUN_SPORES
 	display_name = "k'ois spores"
+	product_type = /obj/item/reagent_containers/food/snacks/grown/kois
 	chems = list(
 				/singleton/reagent/kois = list(4),
 				/singleton/reagent/toxin/phoron = list(8))
@@ -65,6 +66,7 @@
 	name = "blackkois"
 	seed_name = "black kois"
 	display_name = "black k'ois spores"
+	product_type = /obj/item/reagent_containers/food/snacks/grown/blackkois
 	mutants = null
 	chems = list(/singleton/reagent/kois/black = list(4))
 
