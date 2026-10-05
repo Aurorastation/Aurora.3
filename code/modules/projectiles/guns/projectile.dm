@@ -63,6 +63,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 
 /obj/item/gun/projectile/Initialize()
 	. = ..()
+	if(firemodes.len <= 1)
+		has_unique_gun_action = TRUE
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)
@@ -315,6 +317,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	else if(firemodes.len > 1)
 		..()
 	else
+		unload_ammo(user)
+
+/obj/item/gun/projectile/unique_action(mob/user)
+	if(firemodes.len <= 1)
 		unload_ammo(user)
 
 /obj/item/gun/projectile/attack_hand(mob/user)

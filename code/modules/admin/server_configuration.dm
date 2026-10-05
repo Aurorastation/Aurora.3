@@ -59,7 +59,7 @@
 	data["lore_summary"] = selected_lore_summary != null ? selected_lore_summary : committed_lore_summary || ""
 	data["lore_summary_changed"] = selected_lore_summary != null
 
-	data["read_only"] = !check_rights(R_SERVER|R_ADMIN, user=user) // Developers only get view-access, no edit permissions
+	data["read_only"] = !check_rights(R_SERVER|R_ADMIN, FALSE, user=user) // Developers only get view-access, no edit permissions
 	data["unsaved_changes"] = check_for_unsaved_changes()
 	return data
 
@@ -71,7 +71,10 @@
 
 /datum/tgui_module/server_configuration/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	if(!check_rights(R_SERVER|R_ADMIN, user=ui.user)) // Developers only get view-access, no edit permissions
+	// Developers only get view-access, no edit permissions.
+	// Skip chat message due to front end read-only representation
+	// and to prevent post-back spam.
+	if(!check_rights(R_SERVER|R_ADMIN, FALSE, user=ui.user))
 		return
 
 	switch(action)
