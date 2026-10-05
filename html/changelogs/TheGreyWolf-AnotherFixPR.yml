@@ -1,0 +1,17 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes prosthetics losing their augments when removed."
+  - bugfix: "Fixes resaerch console tech level copying."
+  - bugfix: "Research servers can now be reached with any NTnet connection."
+  - bugfix: "Fixed synthetic medi and sechuds."
+  - bugfix: "Fixed some ghost holy area movement stuff."
+  - bugfix: "Put trees above the tent roof layer."
+  - bugfix: "Fixed nightvision issues."
+  - bugfix: "Fixed hologram emotes, talking and AI stuff."
+  - bugfix: "Lights no longer permanently lose their color on alert change and reimplemented rad alarm lights."
+  - bugfix: "Posibrains now show a message when hit by bullets."
+  - bugfix: "Fixed catwalk and grate handling to be more consistent."
+  - bugfix: "Fixed some issues with clicking on grates and tent flooring."
