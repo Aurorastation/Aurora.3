@@ -6,6 +6,30 @@
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
 
+	if(light_system == MOVABLE_LIGHT || light_system == DIRECTIONAL_LIGHT)
+		if(l_power != null && l_power != light_power)
+			set_light_power(l_power)
+			. = TRUE
+
+		if(l_range != null)
+			if(l_range != light_range)
+				set_light_range(l_range)
+				. = TRUE
+			if(light_on != (l_range > 0))
+				set_light_on(l_range > 0)
+				. = TRUE
+
+		if(l_color != NONSENSICAL_VALUE && l_color != light_color)
+			set_light_color(l_color)
+			. = TRUE
+
+		if(mask_type != null && mask_type != light_mask_type)
+			light_mask_type = mask_type
+			. = TRUE
+
+		SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT, l_range, l_power, l_color)
+		return
+
 	if(l_power != null && l_power != light_power)
 		light_power = l_power
 		. = TRUE
@@ -42,6 +66,9 @@
 		return
 	if(light_system == STATIC_LIGHT)
 		static_update_light()
+		return
+	if(light_system != HYBRID_LIGHT)
+		QDEL_NULL(light)
 		return
 
 	if((!light_power || !light_range) && light) // We won't emit light anyways, destroy the light source.

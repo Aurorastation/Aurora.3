@@ -85,6 +85,19 @@
 	if (original == deleted_mob)
 		original = null
 
+/**
+ * Returns the mob currently controlled by this mind's player.
+ */
+/datum/mind/proc/get_player_mob()
+	if(current?.client)
+		return current
+
+	for(var/mob/player in GLOB.player_list)
+		if(player.client && player.mind == src)
+			return player
+
+	return current
+
 /datum/mind/proc/transfer_to(mob/living/new_character)
 	if(!istype(new_character))
 		log_world("ERROR: ## DEBUG: transfer_to(): Some idiot has tried to transfer_to( a non mob/living mob. Please inform Carn")
