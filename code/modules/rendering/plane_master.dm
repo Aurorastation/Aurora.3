@@ -58,10 +58,10 @@
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 
-/// Plane master for natural canopies which should render above temporary roofs.
-/atom/movable/screen/plane_master/canopy
-	name = "canopy plane master"
-	plane = CANOPY_PLANE
+/// Plane master for natural tree canopies which should render above temporary roofs.
+/atom/movable/screen/plane_master/tree_canopy
+	name = "tree canopy plane master"
+	plane = TREE_CANOPY_PLANE
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 
