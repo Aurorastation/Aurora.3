@@ -248,9 +248,9 @@
 
 /singleton/cargo_item/pkus_exosuit_parts
 	category = "operations"
-	name = "P'kus-3 exosuit parts"
+	name = "ADEPT P'kus-3 exosuit parts"
 	supplier = "zharkov"
-	description = "A set of unprepared P'kus-3 exosuit parts. Internal components must be installed by a machinist before assembly."
+	description = "Unprepared P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must install the internal components. Operators are expected to return performance data and technical recommendations."
 	price = 3000
 	items = list(
 		/obj/item/mech_component/manipulators/pra_egg,
@@ -265,9 +265,9 @@
 
 /singleton/cargo_item/pkus_exosuit_parts_heavy
 	category = "operations"
-	name = "armored P'kus-3 exosuit parts"
+	name = "ADEPT armored P'kus-3 exosuit parts"
 	supplier = "zharkov"
-	description = "A set of unprepared armored P'kus-3 exosuit parts. Internal components must be installed by a machinist before assembly."
+	description = "Unprepared armored P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must install the internal components. Operators are expected to return performance data and technical recommendations."
 	price = 5000
 	items = list(
 		/obj/item/mech_component/manipulators/pra_egg/armored,
