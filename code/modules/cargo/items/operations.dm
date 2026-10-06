@@ -250,7 +250,7 @@
 	category = "operations"
 	name = "ADEPT P'kus-3 exosuit parts"
 	supplier = "zharkov"
-	description = "Unprepared P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must install the internal components. Operators are expected to return performance data and technical recommendations."
+	description = "Unprepared P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
 	price = 3000
 	items = list(
 		/obj/item/mech_component/manipulators/pra_egg,
@@ -267,7 +267,7 @@
 	category = "operations"
 	name = "ADEPT armored P'kus-3 exosuit parts"
 	supplier = "zharkov"
-	description = "Unprepared armored P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must install the internal components. Operators are expected to return performance data and technical recommendations."
+	description = "Unprepared armored P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
 	price = 5000
 	items = list(
 		/obj/item/mech_component/manipulators/pra_egg/armored,
