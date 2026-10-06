@@ -444,8 +444,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		pref.species = choice
 		if(prev_species != pref.species)
 			mob_species = GLOB.all_species[pref.species]
-			if(!(pref.species in ALL_TAJARA_SPECIES) && (pref.starting_funds in list(STARTING_FUNDS_ADHOMIAN_KNUCKLES, STARTING_FUNDS_ADHOMIAN_KNUCKLES_HALF)))
-				pref.starting_funds = STARTING_FUNDS_BANK_ACCOUNT
 
 			pref.gender = sanitize_gender(pref.gender, pref.species)
 			//var/bodytype = mob_species.get_bodytype()
