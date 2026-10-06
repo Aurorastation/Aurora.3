@@ -37,7 +37,7 @@
 
 	if(!hitting_projectile.do_not_log)
 		visible_message(SPAN_DANGER("\The [src] is hit by \a [hitting_projectile]!"))
-		to_chat(brainmob, SPAN_DANGER(FONT_LARGE("Your chassis is hit by \a [hitting_projectile]!")))
+		to_chat(brainmob, SPAN_DANGER(FONT_LARGE("Your positronic is hit by \a [hitting_projectile]!")))
 
 	add_damage(projectile_damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
