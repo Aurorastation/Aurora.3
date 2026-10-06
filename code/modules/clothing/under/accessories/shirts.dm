@@ -155,6 +155,7 @@
 	icon = 'icons/obj/item/clothing/accessory/university_sweatshirts.dmi'
 	icon_state = "usweatshirt_grey"
 	item_state = "usweatshirt_grey"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/university/red
 	desc = "A comfy university sweatshirt. This one is crimson."
