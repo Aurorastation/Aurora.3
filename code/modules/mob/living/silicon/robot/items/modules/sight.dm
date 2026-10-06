@@ -1,6 +1,6 @@
 /obj/item/borg/sight
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "securearea"
+	icon = null
+	icon_state = null
 	var/sight_mode = null
 
 /obj/item/borg/sight/on_module_hotbar(mob/living/silicon/robot/R)

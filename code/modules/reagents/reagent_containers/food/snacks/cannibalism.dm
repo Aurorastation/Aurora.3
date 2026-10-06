@@ -40,7 +40,7 @@
 /obj/item/reagent_containers/food/snacks/organ
 	name = "organ"
 	desc = "Sorry, this isn't the instrument."
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs/organs.dmi'
 	icon_state = "appendix"
 	filling_color = "#E00D34"
 	bitesize = 3

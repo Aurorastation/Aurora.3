@@ -369,10 +369,6 @@ STOCK_ITEM_UNCOMMON(pops, 0.5)
 	else
 		new /obj/item/storage/box/partypopper(L)
 
-STOCK_ITEM_UNCOMMON(collectable_headwear, 0.5)
-	var/type = pick(subtypesof(/obj/item/clothing/head/collectable))
-	new type(L)
-
 STOCK_ITEM_UNCOMMON(pickaxes, 1)
 	var/list/pickaxe_type = list(
 		/obj/item/pickaxe = 10,

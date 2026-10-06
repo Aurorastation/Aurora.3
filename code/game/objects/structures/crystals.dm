@@ -157,7 +157,7 @@
 /obj/item/storage/bag/crystal
 	name = "crystal satchel"
 	desc = "This big boy can store a vast amount of crystals."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/storage/bags.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	max_storage_space = 100

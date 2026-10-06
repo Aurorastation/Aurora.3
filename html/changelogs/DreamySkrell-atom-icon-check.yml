@@ -1,0 +1,9 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds an atom icon check `validate_atom_icon()` to validate icons in tests."
+  - refactor: "Fixes a fuck ton of atoms with broken or missing sprites."
+  - refactor: "Kills a fuck ton of old/unused atoms with missing sprites."

@@ -7064,20 +7064,6 @@
 "Pa" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
-/obj/item/clothing/head/collectable/petehat,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Pb" = (

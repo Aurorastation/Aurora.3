@@ -1,6 +1,6 @@
 /obj/item/borg/stun
 	name = "electrified arm"
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/signs.dmi'
 	icon_state = "shock"
 
 /obj/item/borg/stun/apply_hit_effect(mob/living/M, mob/living/silicon/robot/user, var/hit_zone)

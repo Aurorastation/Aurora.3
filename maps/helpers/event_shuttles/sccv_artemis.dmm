@@ -1051,9 +1051,7 @@
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
 "sF" = (
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)

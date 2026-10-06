@@ -3862,7 +3862,6 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "nc" = (
-/obj/item/clothing/head/collectable/tophat,
 /turf/template_noop,
 /area/template_noop)
 "nd" = (

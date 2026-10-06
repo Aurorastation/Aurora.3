@@ -1,4 +1,4 @@
-#define MODSUIT_REGULAR "Regular"
+#define MODSUIT_REGULAR ""
 #define MODSUIT_SHORTSLEEVE "Shortsleeve"
 #define MODSUIT_PANTS "Pants"
 #define MODSUIT_SHORTS "Shorts"

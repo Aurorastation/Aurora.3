@@ -1,6 +1,7 @@
 /obj/effect/overlay
 	name = "overlay"
 	unacidable = 1
+	icon_state = "nothing"
 	/// Added for possible image attachments to objects. For hallucinations and the like.
 	var/i_attached
 	/// Prevents janitorial cyborgs from cleaning this effect.

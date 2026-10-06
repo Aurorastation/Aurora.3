@@ -27,9 +27,6 @@
 		/obj/item/assembly/mousetrap = 4,
 		/obj/item/assembly/voice = 4
 	)
-	premium = list(
-		/obj/item/clothing/head/collectable/petehat = 1
-	)
 	restock_items = TRUE
 	random_itemcount = 0
 	light_color = COLOR_BLUE_GRAY

@@ -223,7 +223,7 @@
 	name = "clamp and deadband circuit"
 	desc = "Clamps a number to a range and reports whether it is inside an optional deadband."
 	extended_desc = "If minimum and maximum are entered backward, they are swapped. Deadband radius values at or below zero disable the deadband check."
-	icon_state = "comparator"
+	icon_state = "template"
 	complexity = 2
 	inputs = list(
 		"value" = IC_PINTYPE_NUMBER,

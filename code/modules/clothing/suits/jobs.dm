@@ -324,15 +324,6 @@
 	icon_state = "heph_surgown"
 	item_state = "heph_surgown"
 
-//Mime
-/obj/item/clothing/suit/suspenders
-	name = "suspenders"
-	desc = "They suspend the illusion of the mime's play."
-	icon = 'icons/obj/clothing/belts.dmi'
-	icon_state = "suspenders"
-	blood_overlay_type = "armor" //it's the less thing that I can put here
-	body_parts_covered = 0
-
 // Bartender
 /obj/item/clothing/suit/storage/bartender
 	name = "bartender jacket"

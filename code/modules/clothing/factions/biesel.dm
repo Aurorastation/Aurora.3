@@ -102,7 +102,7 @@
 	item_state = "tcaf_legate_medallions"
 
 // Pauldrons
-/obj/item/clothing/accessory/tcaf/pauldron
+ABSTRACT_TYPE(/obj/item/clothing/accessory/tcaf/pauldron)
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_GENERIC

@@ -487,8 +487,6 @@ var/list/worths = list(
 					/obj/item/clothing/suit/radiation = 45,
 					/obj/item/clothing/suit/bomb_suit = 30,
 //HEADS,
-					/obj/item/clothing/head/collectable/petehat = 35,
-					/obj/item/clothing/head/collectable = 8,
 					/obj/item/clothing/head/hardhat = 18,
 					/obj/item/clothing/head/helmet/swat = 40,
 					/obj/item/clothing/head/helmet/gladiator = 28,

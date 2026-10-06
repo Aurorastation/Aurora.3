@@ -2,6 +2,8 @@
 	name = "ammo pile"
 	desc = "A handful of some kind of ammunition."
 	w_class = WEIGHT_CLASS_SMALL
+	icon = null
+	icon_state = null
 
 	var/list/ammo = list()
 	var/list/image/ammo_overlays = list()

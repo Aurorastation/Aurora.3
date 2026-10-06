@@ -175,7 +175,7 @@
 /obj/item/radio/spy
 	canhear_range = 7
 	name = "spy device"
-	icon_state = "syn_cypherkey"
+	icon_state = "radio"
 
 /obj/item/radio/spy/Initialize()
 	. = ..()

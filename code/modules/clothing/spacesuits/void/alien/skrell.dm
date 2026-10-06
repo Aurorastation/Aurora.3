@@ -130,8 +130,8 @@
 /obj/item/clothing/head/helmet/space/void/kala/engineering
 	name = "qukala engineer voidsuit helmet"
 	desc = "A sleek skrell voidsuit helmet that slightly shimmers as it moves. This one has a Nralakk Federation emblem on it. This one belongs to a Qukala engineer."
-	icon_state = "kala_helm_eng"
-	item_state = "kala_helm_eng"
+	// icon_state = "kala_helm_eng"
+	// item_state = "kala_helm_eng"
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,

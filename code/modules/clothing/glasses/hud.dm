@@ -126,14 +126,3 @@
 	user.put_in_hands(S)
 	user.drop_item(src)
 	qdel(src)
-
-/obj/item/clothing/glasses/hud/security/jensenshades
-	name = "augmented shades"
-	desc = "Polarized bioneural eyewear, designed to augment your vision."
-	icon_state = "jensenshades"
-	item_state = "jensenshades"
-	vision_flags = SEE_MOBS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
-
-/obj/item/clothing/glasses/hud/security/process_hud(var/mob/M)
-	process_sec_hud(M, 1)

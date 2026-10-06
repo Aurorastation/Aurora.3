@@ -307,12 +307,6 @@
 	pixel_y = 11
 	},
 /obj/item/toy/plushie/shark,
-/obj/item/clothing/head/collectable/slime{
-	pixel_y = 22
-	},
-/obj/item/clothing/head/collectable/beret{
-	pixel_y = -9
-	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "ajP" = (
@@ -2088,10 +2082,6 @@
 /obj/item/reagent_containers/food/drinks/pslatte{
 	pixel_x = -9;
 	pixel_y = 9
-	},
-/obj/item/clothing/head/collectable/petehat{
-	pixel_x = -6;
-	pixel_y = -3
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
@@ -15120,9 +15110,6 @@
 	},
 /obj/item/toy/plushie/axic{
 	pixel_y = 16
-	},
-/obj/item/clothing/head/collectable/tophat{
-	pixel_x = -6
 	},
 /obj/item/flag/konyang,
 /obj/item/flag/konyang{
@@ -36675,28 +36662,6 @@
 /obj/item/toy/plushie/squid{
 	pixel_y = -3;
 	pixel_x = 14
-	},
-/obj/item/clothing/head/collectable/petehat{
-	pixel_y = 9
-	},
-/obj/item/clothing/head/collectable/pirate{
-	pixel_y = -23
-	},
-/obj/item/clothing/head/collectable/rabbitears{
-	pixel_y = 12;
-	pixel_x = 14
-	},
-/obj/item/clothing/head/collectable/rabbitears{
-	pixel_y = 12;
-	pixel_x = 5
-	},
-/obj/item/clothing/head/collectable/thunderdome{
-	pixel_y = -3;
-	pixel_x = 17
-	},
-/obj/item/clothing/head/collectable/HoS{
-	pixel_y = 6;
-	pixel_x = -10
 	},
 /obj/item/flag/konyang/l,
 /turf/simulated/floor/wood,

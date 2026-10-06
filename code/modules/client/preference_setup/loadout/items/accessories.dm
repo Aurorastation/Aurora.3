@@ -107,7 +107,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/neck_accessories_colourable
 	display_name = "neck accessories selection (colourable)"
 	description = "A selection of various neck accessories, such as ribbons and bows."
-	path = /obj/item/clothing/accessory/tie/ribbon
+	path = /obj/item/clothing/accessory/tie/ribbon/bow
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/neck_accessories_colourable/New()

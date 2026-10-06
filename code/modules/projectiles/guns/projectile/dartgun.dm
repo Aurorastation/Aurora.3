@@ -23,6 +23,7 @@
 /obj/item/ammo_casing/chemdart
 	name = "chemical dart"
 	desc = "A small hardened, hollow dart."
+	icon = 'icons/obj/ammunition/ammo.dmi'
 	icon_state = "dart"
 	caliber = "dart"
 	projectile_type = /obj/projectile/bullet/chemdart

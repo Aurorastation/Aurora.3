@@ -1168,9 +1168,7 @@
 /area/konyang_landing_zone)
 "pe" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/machinery/biogenerator{
-	icon_state = "biogen-empty"
-	},
+/obj/structure/machinery/biogenerator,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
 "pj" = (

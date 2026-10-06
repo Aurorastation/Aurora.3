@@ -141,6 +141,7 @@
 	if(ambience && !islist(ambience))
 		ambience = list(ambience)
 
+	icon = 'icons/turf/areas.dmi'
 	icon_state = "white"
 	color = null
 

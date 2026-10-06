@@ -242,7 +242,7 @@
 /obj/item/implant/explosive/deadman
 	name = "deadman explosive"
 	desc = "A military grade micro bio-explosive that detonates upon death."
-	icon_state = "implant_evil"
+	icon_state = "implant_explosive"
 
 /obj/item/implant/explosive/deadman/get_data()
 	. = {"
