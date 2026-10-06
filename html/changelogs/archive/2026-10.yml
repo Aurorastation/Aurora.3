@@ -49,3 +49,9 @@
   - bugfix: Attempted a fix to avoid prohibited item usage on aim mode from shooting
       unneeded.
   - bugfix: Fixes the vaurca merchant.
+2026-10-06:
+  ElorgRHG:
+  - bugfix: Fixed the adhomian winter cloak and amohdan cloak lacking accessory sprites.
+  SimpleMaroon:
+  - bugfix: Fixed recolorable Vaurca Gyne shroud sprites not raising or lowering properly
+      using the verb.
