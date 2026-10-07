@@ -57,3 +57,13 @@
 
 /obj/abstract/weather_marker/firebase_dinakk
 	weather_type = /singleton/state/weather/snow/medium
+
+/obj/item/key/door_key/firebase_dinakk_armoury
+	name = "Armoury Master Key"
+	desc = "A key with a label attached reading \"ARMOURY MASTER KEY\"."
+	access_list = list(/datum/access/firebase_dinakk_armoury)
+
+/obj/item/research_slip/firebase_dinakk
+	name = "Flight Data Recorder transcript slip"
+	desc = "A small slip of plastic with an embedded chip. It is commonly used to store recent flight data for recovery following a crash."
+	icon_state = "slip_generic"

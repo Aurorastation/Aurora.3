@@ -4247,6 +4247,7 @@
 #include "maps\away\scenarios\firebase_dinakk\firebase_dinakk_.dm"
 #include "maps\away\scenarios\firebase_dinakk\firebase_dinakk_areas.dm"
 #include "maps\away\scenarios\firebase_dinakk\firebase_dinakk_landmarks.dm"
+#include "maps\away\scenarios\firebase_dinakk\firebase_dinakk_outfits.dm"
 #include "maps\away\scenarios\firebase_dinakk\firebase_dinakk_scenario.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_.dm"
 #include "maps\away\scenarios\cryo_outpost\cryo_outpost_areas.dm"

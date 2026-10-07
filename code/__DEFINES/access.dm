@@ -855,3 +855,15 @@
 /datum/access/crevus_clothing_store
 	id = 266
 	desc = "Clothing Store Access"
+
+/datum/access/firebase_dinakk_checkpoint
+	id = 267
+	desc = "Firebase Din'akk, Checkpoint Access"
+
+/datum/access/firebase_dinakk_armoury
+	id = 268
+	desc = "Firebase Din'akk, Armoury Access"
+
+/datum/access/firebase_dinakk_basement
+	id = 268
+	desc = "Firebase Din'akk, Basement Access"

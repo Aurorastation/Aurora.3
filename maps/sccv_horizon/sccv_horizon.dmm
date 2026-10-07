@@ -2813,27 +2813,11 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/substation/command)
 "arj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 6
 	},
-/obj/structure/table/rack,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/gun/projectile/shotgun/pump/rifle{
-	pixel_y = -7
-	},
-/obj/item/gun/projectile/shotgun/pump/rifle{
-	pixel_y = 6
-	},
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/turf/unsimulated/floor/dark_monotile,
+/turf/unsimulated/floor,
 /area/antag/actor)
 "arp" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
@@ -6689,6 +6673,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor/rubber_carpet,
 /area/antag/jockey)
+"aRJ" = (
+/obj/item/clothing/under/tajaran/ala/wraps,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "aRM" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -9192,21 +9180,6 @@
 /obj/item/gun/projectile/revolver/konyang/pirate,
 /obj/item/gun/projectile/revolver/konyang/pirate,
 /obj/item/gun/projectile/revolver/konyang/pirate,
-/obj/item/gun/projectile/pirate{
-	pixel_y = 6
-	},
-/obj/item/gun/projectile/pirate{
-	pixel_y = 6
-	},
-/obj/item/gun/projectile/pirate{
-	pixel_y = 6
-	},
-/obj/item/gun/projectile/pirate{
-	pixel_y = 6
-	},
-/obj/item/gun/projectile/pirate{
-	pixel_y = 6
-	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "bii" = (
@@ -9985,6 +9958,10 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"bnV" = (
+/obj/item/gun/projectile/revolver/knife,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "bnW" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
@@ -12076,13 +12053,7 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/security/interrogation/monitoring)
 "bAQ" = (
-/obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/rifle/dpra,
-/obj/item/ammo_magazine/a68,
-/obj/item/ammo_magazine/a68,
-/obj/item/ammo_magazine/a68,
-/obj/item/ammo_magazine/a68,
-/obj/item/ammo_magazine/a68,
+/obj/item/gun/projectile/shotgun/pump/rifle,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "bAR" = (
@@ -12594,24 +12565,6 @@
 /area/horizon/maintenance/deck_3/aft/holodeck)
 "bEk" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/tajaran/black,
-/obj/item/clothing/accessory/tajaran/black,
-/obj/item/clothing/accessory/tajaran/black,
-/obj/item/clothing/accessory/tajaran/blue,
-/obj/item/clothing/accessory/tajaran/blue,
-/obj/item/clothing/accessory/poncho/tajarancloak/winter,
-/obj/item/clothing/accessory/poncho/tajarancloak/winter,
-/obj/item/clothing/accessory/poncho/tajarancloak/winter,
-/obj/item/clothing/accessory/poncho/tajarancloak/maroon,
-/obj/item/clothing/accessory/poncho/tajarancloak/maroon,
-/obj/item/clothing/accessory/poncho/tajarancloak,
-/obj/item/clothing/accessory/poncho/tajarancloak,
-/obj/item/clothing/accessory/tajaran/cream,
-/obj/item/clothing/accessory/tajaran/lbrown,
-/obj/item/clothing/suit/storage/hooded/tajaran/amohda,
-/obj/item/clothing/suit/storage/hooded/tajaran/maroon,
-/obj/item/clothing/suit/storage/hooded/tajaran/winter,
-/obj/item/clothing/suit/storage/hooded/tajaran/winter,
 /obj/structure/sign/flag/dpra/unmovable{
 	pixel_y = 32
 	},
@@ -21151,11 +21104,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/storage/eva)
 "cLw" = (
-/obj/structure/machinery/vending/generic_clothing/crash_site_event,
 /obj/structure/machinery/light/small{
 	dir = 1;
 	must_start_working = 1
 	},
+/obj/structure/machinery/vending/generic_clothing/adhomai_events,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "cLz" = (
@@ -21733,6 +21686,10 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/hapt)
+"cPz" = (
+/obj/item/gun/projectile/shotgun/doublebarrel/pellet,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "cPD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -22332,7 +22289,8 @@
 /obj/effect/floor_decal/industrial/arrow/red{
 	dir = 8
 	},
-/turf/unsimulated/floor/dark,
+/obj/item/deck/tarot/adhomai,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "cSO" = (
 /obj/structure/table/reinforced/steel,
@@ -25283,6 +25241,13 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/gravity_gen)
+"dmv" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/item/storage/box/zipties,
+/turf/unsimulated/floor/dark,
+/area/antag/actor)
 "dmx" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -35485,12 +35450,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew/fitness/gym)
 "eBU" = (
-/obj/structure/statue/gusoku,
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor/dark_monotile,
+/obj/effect/floor_decal/corner/grey/full,
+/turf/unsimulated/floor/dark,
 /area/antag/actor)
 "eBX" = (
 /obj/effect/floor_decal/corner/black{
@@ -36547,6 +36511,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/hallway/interior)
+"eJO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "eJT" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -38624,6 +38595,13 @@
 /mob/living/simple_animal/hostile/commanded/dog/columbo,
 /turf/simulated/floor/wood,
 /area/horizon/command/heads/hos)
+"eYZ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 10
+	},
+/turf/unsimulated/floor,
+/area/antag/actor)
 "eZa" = (
 /obj/structure/machinery/conveyor{
 	dir = 4;
@@ -42781,6 +42759,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/rnd/xenological)
+"fCy" = (
+/obj/item/flag/rredouane,
+/obj/item/storage/altar/rredouane,
+/obj/item/nullrod/rredouane,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "fCC" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
@@ -48751,25 +48735,9 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/shuttle/canary)
 "gqC" = (
-/obj/item/clothing/suit/storage/toggle/labcoat/heph,
-/obj/item/clothing/under/rank/engineer/heph,
-/obj/item/clothing/under/rank/miner/heph,
-/obj/item/clothing/suit/storage/hazardvest/green,
-/obj/random/gloves,
-/obj/item/clothing/under/rank/hangar_technician/heph,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 6
-	},
-/obj/item/clothing/under/rank/machinist/heph,
-/obj/item/clothing/accessory/storage/overalls/engineer,
-/obj/structure/closet,
-/obj/item/storage/backpack/messenger/heph,
-/obj/item/crowbar,
-/obj/structure/sign/flag/scc/unmovable{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/slate,
+/obj/structure/table/rack,
+/obj/item/storage/box/tactical/smokebombs,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "gqH" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
@@ -50447,35 +50415,9 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_combat_training)
 "gCa" = (
-/obj/item/clothing/accessory/armband/operations{
-	pixel_y = 10
-	},
-/obj/item/clothing/accessory/armband/engine{
-	pixel_y = 7
-	},
-/obj/item/clothing/accessory/armband/engine{
-	pixel_y = 7
-	},
-/obj/item/clothing/accessory/armband/med{
-	pixel_y = 4
-	},
-/obj/item/clothing/accessory/armband/med{
-	pixel_y = 4
-	},
-/obj/item/clothing/accessory/armband/science{
-	pixel_y = 1
-	},
-/obj/item/clothing/accessory/armband/science{
-	pixel_y = 1
-	},
-/obj/item/clothing/accessory/armband/med{
-	pixel_y = -2
-	},
-/obj/item/clothing/accessory/armband/scc{
-	pixel_y = -5
-	},
 /obj/structure/table/rack,
-/turf/simulated/floor/tiled/slate,
+/obj/item/gun/projectile/automatic/rifle/dpra,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "gCb" = (
 /obj/structure/machinery/door/airlock/centcom{
@@ -54775,14 +54717,7 @@
 /area/horizon/exterior)
 "heT" = (
 /obj/structure/table/rack,
-/obj/item/clothing/head/tajaran/archeologist,
-/obj/item/clothing/head/tajaran/archeologist,
-/obj/item/clothing/head/tajaran/circlet,
-/obj/item/clothing/head/tajaran/fur,
-/obj/item/clothing/head/tajaran/fur,
-/obj/item/clothing/head/tajaran/fur,
-/obj/item/clothing/head/tajaran/nka_cap,
-/obj/item/clothing/head/tajaran/raskara,
+/obj/item/clothing/head/tajaran/ala_wraps,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "heV" = (
@@ -57257,10 +57192,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/intrepid)
 "huL" = (
-/obj/effect/map_effect/perma_light/starlight,
-/obj/structure/grille,
-/turf/space,
-/area/template_noop)
+/obj/item/gun/projectile/revolver/derringer,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "huN" = (
 /obj/structure/stairs_railing{
 	dir = 4;
@@ -61015,6 +60949,27 @@
 /obj/structure/machinery/smartfridge/stocked,
 /turf/unsimulated/floor,
 /area/centcom/bar)
+"hUq" = (
+/obj/structure/closet/crate/drop,
+/obj/item/storage/chewables/solar_salve,
+/obj/item/storage/chewables/solar_salve,
+/obj/item/storage/box/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "hUv" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/maintenance/deck_3/aft/port/far)
@@ -63836,9 +63791,24 @@
 /area/centcom/legion/hangar5)
 "inQ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/head/beret/tajaran/dpra,
-/obj/item/clothing/head/beret/tajaran/dpra,
-/obj/item/clothing/head/beret/tajaran/dpra,
+/obj/item/clothing/head/beret/tajaran/dpra{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra/alt{
+	pixel_y = -4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra/alt{
+	pixel_y = -4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra/alt{
+	pixel_y = -4
+	},
 /obj/structure/machinery/light/small{
 	dir = 1;
 	must_start_working = 1
@@ -70148,6 +70118,10 @@
 	},
 /turf/simulated/wall,
 /area/horizon/operations/office)
+"jds" = (
+/obj/item/ammo_magazine/a357,
+/turf/unsimulated/wall/steel,
+/area/antag/actor)
 "jdE" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -73103,20 +73077,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/skipjack)
 "jxk" = (
-/obj/structure/table/rack,
-/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
-/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
-/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
-/obj/item/deck/tarot/adhomai,
-/obj/item/deck/tarot/adhomai,
-/obj/item/deck/tarot/adhomai,
-/obj/item/dogtag/adhomai_tag,
-/obj/item/dogtag/adhomai_tag,
-/obj/item/dogtag/adhomai_tag,
-/obj/item/dogtag/adhomai_tag,
-/obj/item/dogtag/adhomai_tag,
-/obj/item/sticker/flagpole/adhomai/crevus,
-/turf/unsimulated/floor/wood,
+/obj/effect/floor_decal/industrial/arrow/red{
+	dir = 8
+	},
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "jxp" = (
 /obj/structure/moghes_ruin/giant{
@@ -76454,6 +76418,10 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
+"jTa" = (
+/obj/item/storage/box/shells/slugs,
+/turf/unsimulated/wall/steel,
+/area/antag/actor)
 "jTh" = (
 /obj/structure/machinery/conveyor_switch/oneway{
 	id = "merchant_shipping";
@@ -78350,8 +78318,7 @@
 /turf/space,
 /area/horizon/exterior)
 "kfP" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
+/obj/item/gun/projectile/shotgun/foldable,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "kfS" = (
@@ -84566,29 +84533,10 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/horizon/command/bridge/controlroom)
 "kTS" = (
-/obj/item/clothing/head/softcap/nt,
-/obj/item/clothing/head/softcap/nt/custodian,
-/obj/item/clothing/suit/storage/toggle/labcoat/nt,
-/obj/item/clothing/under/rank/scientist,
-/obj/item/clothing/under/rank/medical,
-/obj/item/clothing/under/rank/medical/surgeon,
-/obj/item/clothing/under/rank/janitor/alt,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/item/clothing/head/wool/nt,
-/obj/item/clothing/suit/storage/hooded/wintercoat/nt,
-/obj/item/clothing/suit/storage/toggle/corp/nt,
-/obj/item/clothing/suit/storage/toggle/longcoat/nt,
-/obj/item/flame/lighter/zippo/nt,
-/obj/structure/closet,
-/obj/item/storage/backpack/messenger/nt,
-/obj/item/crowbar/rescue_axe,
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
-	},
-/turf/simulated/floor/tiled/slate,
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/c45m,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "kTY" = (
 /obj/structure/machinery/atmospherics/omni/filter{
@@ -93342,28 +93290,24 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/skipjack)
 "mbk" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/storage/toggle/corp/orion,
-/obj/item/clothing/suit/storage/toggle/labcoat/orion,
-/obj/item/clothing/under/librarian/orion,
-/obj/item/clothing/under/rank/chef/orion,
-/obj/random/gloves,
-/obj/item/clothing/under/rank/hangar_technician/orion/ship,
-/obj/item/clothing/under/rank/miner/orion,
-/obj/item/clothing/accessory/storage/brown_vest,
-/obj/item/clothing/suit/storage/hazardvest/white,
-/obj/item/clothing/accessory/storage/overalls/engineer,
-/obj/item/clothing/suit/storage/hooded/wintercoat/orion,
-/obj/item/storage/backpack/messenger/orion,
-/obj/item/crowbar/red,
-/obj/effect/floor_decal/corner/brown{
-	dir = 6
+/obj/structure/table/rack,
+/obj/item/gun/projectile/silenced{
+	pixel_y = 7
 	},
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
+/obj/item/gun/projectile/silenced{
+	pixel_y = 7
 	},
-/turf/simulated/floor/tiled/slate,
+/obj/item/gun/projectile/silenced{
+	pixel_y = 7
+	},
+/obj/item/gun/projectile/silenced{
+	pixel_y = 7
+	},
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "mbo" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
@@ -94021,28 +93965,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/ai/upload_foyer)
 "mgi" = (
-/obj/item/clothing/gloves/latex/nitrile/zeng,
-/obj/item/clothing/head/beret/corporate/zeng,
-/obj/item/clothing/suit/storage/toggle/para_jacket/zeng,
-/obj/item/clothing/suit/storage/toggle/labcoat/zeng,
-/obj/item/clothing/under/rank/medical/surgeon/zeng,
-/obj/item/clothing/head/softcap/zeng,
-/obj/item/clothing/head/surgery/zeng,
-/obj/item/clothing/under/rank/scientist/zeng,
-/obj/effect/floor_decal/corner/purple{
-	dir = 6
-	},
-/obj/item/clothing/glasses/hud/health/aviator/zeng,
-/obj/item/clothing/accessory/apron/surgery/zeng,
-/obj/item/clothing/suit/storage/hooded/wintercoat/zeng,
-/obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng,
-/obj/item/clothing/suit/storage/toggle/longcoat/zeng,
-/obj/structure/closet,
-/obj/item/storage/backpack/messenger/zeng,
-/obj/structure/sign/flag/scc/unmovable{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/slate,
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/a68/hotaki,
+/obj/item/ammo_magazine/boltaction/adhomai/ap,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/a68,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "mgj" = (
 /obj/structure/machinery/light{
@@ -95890,15 +95818,10 @@
 /turf/simulated/floor,
 /area/horizon/command/bridge/upperdeck)
 "mrG" = (
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
-	},
-/obj/structure/machinery/chemical_dispenser/bar_alc/full{
-	pixel_y = 12
-	},
-/obj/structure/table/wood,
-/turf/unsimulated/floor/linoleum,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/tajara,
+/obj/item/clothing/wrists/watch/tajara/female,
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "mrI" = (
 /obj/structure/machinery/sleeper{
@@ -98853,27 +98776,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "mMp" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/regular{
-	pixel_x = -1;
-	pixel_y = 17
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = -1;
-	pixel_y = 10
-	},
-/obj/item/storage/firstaid/trauma{
-	pixel_x = 15;
-	pixel_y = 17
-	},
-/obj/item/storage/firstaid/o2{
-	pixel_x = 15;
-	pixel_y = 10
-	},
-/obj/item/flashlight{
-	pixel_x = 5;
-	pixel_y = -1
-	},
+/obj/item/gun/projectile/revolver/detective,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "mMs" = (
@@ -101247,14 +101150,6 @@
 /area/centcom/evac)
 "nco" = (
 /obj/structure/table/rack,
-/obj/item/clothing/gloves/tajaran_gauntlets,
-/obj/item/clothing/gloves/tajaran_gauntlets,
-/obj/item/clothing/gloves/tajaran_gauntlets,
-/obj/structure/sign/flag/pra/unmovable{
-	pixel_y = 32
-	},
-/obj/item/clothing/gloves/botanic_leather/tajara,
-/obj/item/clothing/gloves/black_leather/tajara,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "ncp" = (
@@ -101288,12 +101183,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/engineering/storage_hard/lower)
 "ncv" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/light/small{
-	must_start_working = 1
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 9
 	},
-/obj/structure/machinery/vending/dinnerware/bar,
-/turf/unsimulated/floor/linoleum,
+/turf/unsimulated/floor,
 /area/antag/actor)
 "ncw" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -111320,6 +111214,21 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/starboard/auxatmos)
+"osx" = (
+/obj/item/storage/belt/military,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/waist/brown,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bayonet,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/crowbar/rescue_axe/tactical,
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "osz" = (
 /obj/structure/railing/mapped{
 	name = "adjusted railing"
@@ -120315,24 +120224,7 @@
 	},
 /area/antag/raider)
 "pCt" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/storage/tajaran/fancycoat,
-/obj/item/clothing/suit/storage/tajaran/fancycoat,
-/obj/item/clothing/suit/storage/tajaran/fancycoat,
-/obj/item/clothing/suit/storage/tajaran/finecoat,
-/obj/item/clothing/suit/storage/tajaran/finecoat,
-/obj/item/clothing/suit/storage/tajaran/finecoat,
-/obj/item/clothing/suit/storage/tajaran/hunting,
-/obj/item/clothing/suit/storage/tajaran/hunting,
-/obj/item/clothing/suit/storage/tajaran/hunting,
-/obj/item/clothing/suit/storage/tajaran/dpra_jacket,
-/obj/item/clothing/suit/storage/tajaran/dpra_jacket,
-/obj/item/clothing/suit/storage/toggle/tajaran,
-/obj/item/clothing/suit/storage/toggle/tajaran,
-/obj/item/clothing/suit/storage/toggle/tajaran/wool,
-/obj/item/clothing/suit/storage/toggle/tajaran/wool,
-/obj/item/clothing/suit/storage/toggle/tajaran/wool,
-/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/clothing/under/tajaran/ala/black,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "pCw" = (
@@ -122262,24 +122154,6 @@
 "pPb" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/tajaran,
-/obj/item/clothing/under/tajaran,
-/obj/item/clothing/under/tajaran,
-/obj/item/clothing/under/tajaran,
-/obj/item/clothing/under/tajaran,
-/obj/item/clothing/under/tajaran/fancy,
-/obj/item/clothing/under/tajaran/fancy/alt1,
-/obj/item/clothing/under/tajaran/high_waisted,
-/obj/item/clothing/under/tajaran/high_waisted,
-/obj/item/clothing/under/tajaran/high_waisted,
-/obj/item/clothing/under/tajaran/mechanic,
-/obj/item/clothing/under/tajaran/mechanic,
-/obj/item/clothing/under/tajaran/mechanic,
-/obj/item/clothing/under/tajaran/relaxed,
-/obj/item/clothing/under/tajaran/relaxed,
-/obj/item/clothing/under/tajaran/relaxed,
-/obj/item/clothing/under/tajaran/relaxed/stylish,
-/obj/item/clothing/under/tajaran/summer,
-/obj/item/clothing/under/tajaran/summer,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "pPj" = (
@@ -122356,10 +122230,7 @@
 /turf/unsimulated/floor/wood,
 /area/antag/burglar)
 "pPG" = (
-/obj/structure/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
-	},
+/obj/item/storage/box/shells/buckshot,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "pPQ" = (
@@ -130849,6 +130720,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
+"qTn" = (
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/item/clothing/head/helmet/kettle,
+/obj/item/clothing/shoes/tajara/armored,
+/obj/item/clothing/suit/armor/cuirass,
+/obj/item/material/sword/longsword,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "qTq" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
@@ -131507,16 +131386,16 @@
 /turf/simulated/floor/tiled/slate/full,
 /area/horizon/operations/warehouse)
 "qXC" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/light/small{
-	must_start_working = 1
-	},
-/obj/structure/machinery/vending/snack{
-	name = "hacked Getmore Chocolate Corp";
-	prices = list();
-	random_itemcount = 0
-	},
-/turf/unsimulated/floor/linoleum,
+/obj/item/storage/belt/military,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/waist/brown,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bayonet,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/crowbar/rescue_axe/tactical,
+/obj/structure/table/rack,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "qXE" = (
 /turf/simulated/floor/reinforced/hydrogen,
@@ -132106,23 +131985,15 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/hangar/starboard)
 "rcc" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/surgery{
-	pixel_x = 5;
-	pixel_y = 18
-	},
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
-	},
-/obj/item/storage/pill_bottle/mortaphenyl{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -4;
-	pixel_y = 5
-	},
+/obj/structure/table/rack,
+/obj/item/gun/projectile/musket,
+/obj/item/reagent_containers/powder_horn,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "rch" = (
@@ -136191,14 +136062,7 @@
 /area/horizon/engineering/lobby)
 "rDp" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/konyang_pirate,
-/obj/item/gun/projectile/automatic/konyang_pirate,
-/obj/item/gun/projectile/automatic/konyang_pirate,
-/obj/item/gun/projectile/automatic/konyang_pirate,
-/obj/item/ammo_magazine/smg10mm,
-/obj/item/ammo_magazine/smg10mm,
-/obj/item/ammo_magazine/smg10mm,
-/obj/item/ammo_magazine/smg10mm,
+/obj/item/gun/projectile/automatic/tommygun,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "rDq" = (
@@ -136686,6 +136550,60 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
+"rGR" = (
+/obj/structure/table/rack,
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/item/material/kitchen/utensil/knife/boot{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/knife/boot{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/material/knife/butterfly{
+	pixel_x = -5
+	},
+/obj/item/material/knife/butterfly{
+	pixel_x = -5
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/butterfly/switchblade{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "rGT" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -139681,6 +139599,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/port/docks)
+"rZu" = (
+/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "rZw" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -141175,25 +141097,9 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
 "siy" = (
+/obj/item/gun/projectile/recoilless_rifle,
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
-/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
-/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
-/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
-/obj/item/clothing/suit/storage/hooded/wintercoat/scc/alt,
-/obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
-/obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
-/obj/item/clothing/suit/storage/toggle/corp/scc,
-/obj/item/clothing/suit/storage/toggle/corp/scc,
-/obj/item/clothing/suit/storage/toggle/corp/scc/alt,
-/obj/item/clothing/under/rank/scc2,
-/obj/item/clothing/under/rank/scc2,
-/obj/item/clothing/under/rank/scc2,
-/obj/item/flag/scc,
-/obj/item/journal/notepad/scc/filled,
-/obj/item/storage/toolbox/lunchbox/scc/filled,
-/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
-/turf/simulated/floor/tiled/slate,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "siD" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
@@ -144643,14 +144549,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/main/starboard)
 "sES" = (
-/obj/structure/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 12
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 4
 	},
-/obj/structure/noticeboard{
-	pixel_y = 32
-	},
-/obj/structure/table/wood,
-/turf/unsimulated/floor/linoleum,
+/turf/unsimulated/floor/dark,
 /area/antag/actor)
 "sET" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -147799,6 +147701,12 @@
 /obj/structure/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_2/wing/port/near)
+"taH" = (
+/obj/item/clothing/suit/armor/tajaran_snowsuit,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "taI" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -150816,14 +150724,9 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "tus" = (
-/obj/structure/closet/cabinet,
-/obj/item/storage/briefcase/nt/captain_formal,
-/obj/item/storage/briefcase/nt/captain_white,
-/obj/item/storage/briefcase/nt/captain,
-/obj/item/storage/backpack/messenger/com,
-/obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
-/obj/item/clothing/suit/storage/hooded/wintercoat/captain,
-/turf/simulated/floor/tiled/slate,
+/obj/structure/table/rack,
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "tuz" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
@@ -152568,11 +152471,11 @@
 	},
 /area/centcom/ferry)
 "tFJ" = (
-/obj/structure/machinery/light/small{
-	dir = 4;
-	must_start_working = 1
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 5
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor,
 /area/antag/actor)
 "tFK" = (
 /obj/structure/machinery/recharge_station,
@@ -153477,20 +153380,8 @@
 /area/horizon/maintenance/deck_2/wing/starboard/near)
 "tLo" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/tie/corporate/scc/alt,
-/obj/item/clothing/accessory/tie/corporate/scc/alt,
-/obj/item/clothing/accessory/tie/corporate/scc/alt,
-/obj/item/clothing/head/beret/scc,
-/obj/item/clothing/head/beret/scc,
-/obj/item/clothing/head/helmet/pilot/scc,
-/obj/item/clothing/head/wool/scc,
-/turf/simulated/floor/tiled/slate,
+/obj/item/gun/projectile/dragunov,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "tLr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -157252,9 +157143,11 @@
 /turf/simulated/wall,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "ulW" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/vending/cigarette/hacked,
-/turf/unsimulated/floor/linoleum,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/turf/unsimulated/floor,
 /area/antag/actor)
 "umb" = (
 /obj/structure/curtain/black{
@@ -157607,6 +157500,11 @@
 /obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/security/checkpoint2)
+"unR" = (
+/obj/item/ammo_magazine/smg10mm,
+/obj/item/ammo_magazine/c38,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "unU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -164298,14 +164196,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/service/port)
 "vff" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/tajaran/charm/bone,
-/obj/item/clothing/accessory/tajaran/charm/bone,
-/obj/item/clothing/accessory/tajaran/charm/bone,
-/obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey,
-/obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror,
-/obj/item/clothing/accessory/tajaran/charm/tajani,
-/obj/item/clothing/accessory/tajaran/charm/twin_suns,
 /obj/structure/machinery/light/small{
 	dir = 1;
 	must_start_working = 1
@@ -168635,6 +168525,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/rnd/hallway/secondary)
+"vLt" = (
+/obj/item/clothing/under/tajaran/ala,
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "vLy" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
@@ -172108,6 +172002,11 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/mercenary)
+"wgY" = (
+/obj/item/ammo_magazine/submachinedrum,
+/obj/item/ammo_magazine/submachinemag,
+/turf/unsimulated/wall/steel,
+/area/antag/actor)
 "whb" = (
 /obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
@@ -176277,23 +176176,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "wGK" = (
-/obj/structure/table/reinforced/steel,
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
-	},
-/obj/item/storage/firstaid/adv{
-	pixel_x = -1;
-	pixel_y = 17
-	},
-/obj/item/storage/firstaid/combat{
-	pixel_x = -1;
-	pixel_y = 10
-	},
-/obj/item/flashlight{
-	pixel_x = -9;
-	pixel_y = -1
-	},
+/obj/item/gun/projectile/revolver/lemat,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "wGM" = (
@@ -177224,19 +177107,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "wNj" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker/large{
-	pixel_x = 9;
-	pixel_y = 15
-	},
-/obj/item/storage/box/large/produce,
-/obj/structure/machinery/reagentgrinder{
-	pixel_x = -10;
-	pixel_y = 16
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
+/obj/item/gun/projectile/shotgun/pump/rifle/scope,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "wNm" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -179718,16 +179591,6 @@
 /area/horizon/operations/office)
 "xaS" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/pistol/adhomai,
-/obj/item/gun/projectile/pistol/adhomai,
-/obj/item/gun/projectile/pistol/adhomai,
-/obj/item/gun/projectile/pistol/adhomai,
-/obj/item/gun/projectile/pistol/adhomai,
-/obj/item/gun/projectile/pistol/adhomai,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "xaT" = (
@@ -179938,6 +179801,14 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/gunmetal,
 /area/horizon/operations/warehouse)
+"xco" = (
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/item/clothing/suit/armor/amohda,
+/obj/item/clothing/head/helmet/amohda,
+/obj/item/clothing/shoes/tajara/armored,
+/obj/item/material/sword/amohdan_sword,
+/turf/unsimulated/floor/dark_monotile,
+/area/antag/actor)
 "xcu" = (
 /obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -182426,9 +182297,9 @@
 /turf/simulated/floor/reinforced/oxygen,
 /area/horizon/engineering/atmos/air)
 "xta" = (
-/obj/structure/statue{
-	name = "mysterious statue";
-	desc = "Look on my Works, ye Mighty, and despair!"
+/obj/structure/hadii_statue/stone{
+	pixel_y = 6;
+	already_toppled = 1
 	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
@@ -182681,13 +182552,9 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/tdome/tdome2)
 "xux" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/turf/unsimulated/floor/dark,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey,
+/turf/unsimulated/floor,
 /area/antag/actor)
 "xuH" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -186031,28 +185898,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "xTm" = (
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
 	},
-/obj/item/reagent_containers/food/drinks/flask/barflask{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/drinks/flask/barflask{
-	pixel_x = -6;
-	pixel_y = 1
-	},
-/obj/structure/table/wood,
-/obj/item/flame/lighter/zippo{
-	pixel_x = 7;
-	pixel_y = 11
-	},
-/obj/item/flame/lighter/zippo{
-	pixel_x = 5;
-	pixel_y = 3
-	},
-/turf/unsimulated/floor/linoleum,
+/obj/item/storage/wallet/random_adhomian_knuckle,
+/turf/unsimulated/floor/dark,
 /area/antag/actor)
 "xTA" = (
 /obj/structure/machinery/camera/network/engineering{
@@ -436055,8 +435905,8 @@ mIw
 kqs
 kqs
 kqs
+kqs
 mIw
-chm
 dHi
 chm
 dHi
@@ -436311,14 +436161,14 @@ anN
 mIw
 inQ
 heT
-pCt
+nco
+nco
 mIw
 mIw
 mIw
 mIw
 mIw
-chm
-ruH
+mIw
 eSV
 eSV
 eSV
@@ -436567,15 +436417,15 @@ chm
 oCb
 mIw
 nco
-uBO
+aRJ
+vLt
 wGo
 mIw
-mrG
-csd
+osx
 ncv
+eYZ
+osx
 mIw
-chm
-huL
 eSV
 eSV
 eSV
@@ -436825,14 +436675,14 @@ anN
 mIw
 bEk
 uBO
+pCt
 wGo
 mIw
-sES
-csd
+osx
 ulW
+xux
+osx
 mIw
-chm
-ruH
 eSV
 eSV
 eSV
@@ -437081,15 +436931,15 @@ chm
 oCb
 mIw
 vff
+mrG
 uBO
 uBO
 mIw
-xTm
-csd
+qXC
+tFJ
+arj
 qXC
 mIw
-chm
-ruH
 eSV
 eSV
 eSV
@@ -437338,13 +437188,13 @@ mIw
 mIw
 mIw
 cLw
-uBO
+taH
 uBO
 pPb
-gAf
-gAf
-gAf
 mIw
+mIw
+gAf
+gAf
 mIw
 mIw
 eSV
@@ -437594,14 +437444,14 @@ mIw
 mIw
 mcU
 wVz
-jxk
-uBO
-uBO
-uBO
 wVz
 wVz
 wVz
-xux
+wVz
+wVz
+wVz
+wVz
+wVz
 eBU
 mIw
 mIw
@@ -437852,14 +437702,14 @@ ozR
 bRI
 iFD
 cSI
-cSI
-cSI
-cSI
+jxk
+jxk
+jxk
 iFD
 iFD
 iFD
-iFD
-kfP
+hUq
+rME
 mIw
 nvp
 dPG
@@ -438107,13 +437957,13 @@ mIw
 mIw
 jhx
 bRI
-iFD
+qTn
 rOs
 vqn
 vqn
 vqn
 vqn
-vqn
+xTm
 iOy
 iFD
 jhR
@@ -438364,7 +438214,7 @@ uqi
 mIw
 jhx
 bRI
-iFD
+xco
 rME
 oMP
 qEl
@@ -438621,7 +438471,7 @@ wnd
 faA
 geY
 bRI
-iFD
+fCy
 rME
 tAz
 oIL
@@ -438630,7 +438480,7 @@ gPH
 jtg
 bRI
 iFD
-rME
+aoe
 mIw
 mIw
 mIw
@@ -439144,7 +438994,7 @@ seR
 jtg
 bRI
 iFD
-rME
+aoe
 mIw
 mIw
 mIw
@@ -439915,7 +439765,7 @@ iFD
 iFD
 afT
 afT
-aoe
+rME
 mIw
 plP
 bhs
@@ -440165,14 +440015,14 @@ mIw
 hkI
 vqn
 hAN
-vqn
+dmv
 vqn
 vqn
 vqn
 hAN
 vqn
 vqn
-vqn
+sES
 mIw
 mIw
 mIw
@@ -440423,13 +440273,13 @@ mIw
 mIw
 mIw
 rjq
+eJO
+rGR
 rjq
-rjq
-arj
 mIw
 mbk
-uBO
-uBO
+ncv
+eYZ
 gCa
 mIw
 chm
@@ -440680,13 +440530,13 @@ nmQ
 dHi
 mIw
 rcc
-iFD
-iFD
+cPz
+wNj
 bAQ
 mIw
 gqC
-uBO
-uBO
+ulW
+xux
 tus
 mIw
 dHi
@@ -440937,13 +440787,13 @@ ruH
 ruH
 mIw
 mMp
-iFD
-iFD
+kfP
+rZu
 skD
 mIw
 mgi
-uBO
-uBO
+ulW
+xux
 tLo
 mIw
 nmQ
@@ -441194,13 +441044,13 @@ chm
 chm
 mIw
 wGK
-iFD
-iFD
+bnV
+huL
 xaS
 mIw
 kTS
 tFJ
-tFJ
+arj
 siy
 mIw
 ruH
@@ -441452,7 +441302,7 @@ dHi
 mIw
 big
 pPG
-pPG
+unR
 rDp
 mIw
 mIw
@@ -441708,9 +441558,9 @@ chm
 dHi
 mIw
 mIw
-mIw
-mIw
-mIw
+jTa
+jds
+wgY
 mIw
 chm
 dHi
