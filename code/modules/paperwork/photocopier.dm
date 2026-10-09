@@ -24,22 +24,27 @@
 	var/insert_anim = "photocopier_scan"
 	/// Print animation.
 	var/print_animation = "photocopier_print"
-	/// Coordinate key used to persist toner without persisting the photocopier itself.
-	var/toner_persistence_attribute
+	/// Original map identity used to persist toner without persisting the photocopier itself.
+	var/tmp/toner_persistence_attribute
 
 /obj/structure/machinery/photocopier/Initialize(mapload)
 	. = ..()
 	if(type != /obj/structure/machinery/photocopier || !mapload || !SSpersistence.map_supports_persistence || !is_station_level(z))
 		return
 
-	toner_persistence_attribute = "[x],[y],[z]"
+	var/turf/mapped_turf = get_turf(src)
+	toner_persistence_attribute = "[mapped_turf.x],[mapped_turf.y],[mapped_turf.z],[type]"
 	var/datum/persistent_generic/saved_toner = SSpersistence.genericLoad(/singleton/persistent_type/generic/photocopier_toner, toner_persistence_attribute)
+	// Compatibility with toner saved before the machine type became part of its stable identity.
+	if(!saved_toner)
+		saved_toner = SSpersistence.genericLoad(/singleton/persistent_type/generic/photocopier_toner, "[mapped_turf.x],[mapped_turf.y],[mapped_turf.z]")
 	if(saved_toner && islist(saved_toner.content) && isnum(saved_toner.content["toner"]))
 		toner = clamp(saved_toner.content["toner"], 0, max_toner)
 
 /singleton/persistent_type/generic/photocopier_toner/finalization_hook()
 	for(var/obj/structure/machinery/photocopier/copier in SSmachinery.machinery)
-		if(copier.type != /obj/structure/machinery/photocopier || !copier.toner_persistence_attribute || !is_station_level(copier.z))
+		CHECK_TICK
+		if(copier.type != /obj/structure/machinery/photocopier || !copier.toner_persistence_attribute)
 			continue
 		SSpersistence.genericSave(/singleton/persistent_type/generic/photocopier_toner, list("toner" = copier.toner), copier.toner_persistence_attribute)
 
@@ -309,3 +314,19 @@
 	icon = 'icons/obj/item/toner.dmi'
 	icon_state = "tonercartridge"
 	var/toner_amount = 30
+
+/obj/item/toner/Initialize(mapload)
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/toner/persistent_objects_get_content()
+	var/list/content = ..()
+	content["toner_amount"] = toner_amount
+	return content
+
+/obj/item/toner/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(isnum(content["toner_amount"]))
+		toner_amount = clamp(content["toner_amount"], 0, initial(toner_amount))

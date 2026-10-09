@@ -19,12 +19,6 @@
 
 /obj/item/paper_bin/Initialize(mapload)
 	. = ..()
-	// A persisted bin replaces its original mapped counterpart instead of stacking with it.
-	if(persistent_objects_track_id)
-		for(var/obj/item/paper_bin/existing_bin in loc)
-			if(existing_bin != src && !existing_bin.persistent_objects_track_id && !QDELING(existing_bin))
-				qdel(existing_bin)
-				break
 	SSpersistence.objectsRegisterTrack(src)
 	update_icon()
 
@@ -147,3 +141,19 @@
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	/// How much generic paper stock this ream adds to a paper bin.
 	var/paper_amount = 30
+
+/obj/item/paper_bin_refill/Initialize(mapload)
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/paper_bin_refill/persistent_objects_get_content()
+	var/list/content = ..()
+	content["paper_amount"] = paper_amount
+	return content
+
+/obj/item/paper_bin_refill/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(isnum(content["paper_amount"]))
+		paper_amount = clamp(content["paper_amount"], 0, initial(paper_amount))
