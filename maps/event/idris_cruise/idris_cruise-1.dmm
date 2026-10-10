@@ -15276,14 +15276,6 @@
 /area/cruise/pool)
 "mON" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/armor/heavy{
-	desc = "A heavily armored suit that protects against gamers.";
-	name = "game moderator armor"
-	},
-/obj/item/clothing/head/helmet/thunderdome{
-	desc = "A heavily armored helmet that protects against gamers.";
-	name = "game moderator helmet"
-	},
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "mPr" = (
@@ -21870,14 +21862,6 @@
 /obj/item/melee/energy/sword/knife/sol,
 /obj/item/melee/energy/sword/knife/sol,
 /obj/item/gun/projectile/heavysniper,
-/obj/item/storage/box/sniperammo,
-/obj/item/storage/box/sniperammo,
-/obj/item/storage/box/sniperammo,
-/obj/item/storage/box/sniperammo,
-/obj/item/storage/box/sniperammo,
-/obj/item/storage/box/sniperammo,
-/obj/item/storage/box/sniperammo,
-/obj/item/storage/box/sniperammo,
 /obj/item/gun/projectile/heavysniper,
 /obj/item/gun/projectile/heavysniper,
 /obj/item/gun/projectile/heavysniper,

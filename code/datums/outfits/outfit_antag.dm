@@ -282,7 +282,6 @@
 		/obj/item/clothing/head/pirate,
 		/obj/item/clothing/head/bandana/pirate,
 		/obj/item/clothing/head/bandana/red,
-		/obj/item/clothing/head/hgpiratecap,
 		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
 		/obj/item/clothing/head/cowboy,
