@@ -130,3 +130,61 @@ If you want to expand this to more than primarily generic items, I recommend des
 		/obj/item/clothing/shoes/heels = 6,
 		/obj/item/clothing/shoes/winter = 6,
 	)
+
+/obj/structure/machinery/vending/generic_clothing/adhomai_events
+	name = "\improper Adhomai Event Clothing Vendor"
+	products = list(
+		/obj/item/clothes_dyer = 6,
+		// Shoes
+		/obj/item/clothing/shoes/tajara/footwraps = 6,
+		/obj/item/clothing/shoes/workboots/tajara/brown = 6,
+		/obj/item/clothing/shoes/workboots/tajara/dark = 6,
+		/obj/item/clothing/shoes/workboots/tajara/grey = 6,
+		/obj/item/clothing/shoes/winter/tajara = 6,
+		// Gloves
+		/obj/item/clothing/gloves/black_leather/tajara = 6,
+		/obj/item/clothing/gloves/fingerless = 6,
+		// Uniforms
+		/obj/item/clothing/under/tajaran = 6,
+		/obj/item/clothing/under/tajaran/dpra = 6,
+		/obj/item/clothing/under/tajaran/dpra/alt = 6,
+		// Accessories
+		/obj/item/clothing/accessory/dogtags/adhomai = 6,
+		/obj/item/clothing/accessory/tajaran/black = 6,
+		/obj/item/clothing/accessory/tajaran/blue = 6,
+		/obj/item/clothing/accessory/tajaran/cinnamon = 6,
+		/obj/item/clothing/accessory/tajaran/colorable = 6,
+		/obj/item/clothing/accessory/tajaran/cream = 6,
+		/obj/item/clothing/accessory/tajaran/lbrown = 6,
+		/obj/item/clothing/accessory/tajaran/orange = 6,
+		/obj/item/clothing/accessory/tajaran/ruddy = 6,
+		/obj/item/clothing/accessory/tajaran/silver = 6,
+		/obj/item/clothing/accessory/tajaran/charm = 6,
+		/obj/item/clothing/accessory/tajaran/charm/bone = 6,
+		/obj/item/clothing/accessory/tajaran/charm/steel = 6,
+		/obj/item/clothing/accessory/tajaran/charm/steel/silver = 6,
+		/obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell = 6,
+		/obj/item/clothing/accessory/tajaran/charm/stone = 6,
+		/obj/item/clothing/accessory/tajaran/charm/tajani = 6,
+		/obj/item/clothing/accessory/tajaran/charm/twin_suns = 6,
+		// Accessory slot cloaks
+		/obj/item/clothing/accessory/poncho/tajarancloak = 6,
+		/obj/item/clothing/accessory/poncho/tajarancloak/amohda = 6,
+		/obj/item/clothing/accessory/poncho/tajarancloak/colorable = 6,
+		/obj/item/clothing/accessory/poncho/tajarancloak/fancy = 6,
+		/obj/item/clothing/accessory/poncho/tajarancloak/fancyblack = 6,
+		/obj/item/clothing/accessory/poncho/tajarancloak/maroon = 6,
+		/obj/item/clothing/accessory/poncho/tajarancloak/winter = 6,
+		// Suits
+		/obj/item/clothing/suit/storage/tajaran/dpra_jacket = 6,
+		/obj/item/clothing/suit/storage/tajaran/hunting = 6,
+		/obj/item/clothing/suit/storage/toggle/tajaran = 6,
+		/obj/item/clothing/suit/storage/toggle/tajaran/wool = 6,
+		// Suit slot cloaks
+		/obj/item/clothing/suit/storage/hooded/tajaran = 6,
+		/obj/item/clothing/suit/storage/hooded/tajaran/amohda = 6,
+		/obj/item/clothing/suit/storage/hooded/tajaran/colorable = 6,
+		/obj/item/clothing/suit/storage/hooded/tajaran/fancy = 6,
+		/obj/item/clothing/suit/storage/hooded/tajaran/maroon = 6,
+		/obj/item/clothing/suit/storage/hooded/tajaran/winter = 6,
+	)

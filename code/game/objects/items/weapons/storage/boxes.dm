@@ -247,6 +247,36 @@
 						/obj/item/clothing/gloves/latex/nitrile/tajara = 1,
 						/obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
 
+/obj/item/storage/box/gloves/human
+	starts_with = list(
+		/obj/item/clothing/gloves/latex = 2,
+		/obj/item/clothing/gloves/latex/nitrile = 5
+	)
+
+/obj/item/storage/box/gloves/unathi
+	name = "box of sterile unathi gloves"
+	desc = "Contains sterile gloves fitted for unathi."
+	starts_with = list(
+		/obj/item/clothing/gloves/latex/unathi = 2,
+		/obj/item/clothing/gloves/latex/nitrile/unathi = 5
+	)
+
+/obj/item/storage/box/gloves/tajara
+	name = "box of sterile tajara gloves"
+	desc = "Contains sterile gloves fitted for tajara."
+	starts_with = list(
+		/obj/item/clothing/gloves/latex/tajara = 2,
+		/obj/item/clothing/gloves/latex/nitrile/tajara = 5
+	)
+
+/obj/item/storage/box/gloves/vaurca
+	name = "box of sterile vaurca gloves"
+	desc = "Contains sterile gloves fitted for vaurca."
+	starts_with = list(
+		/obj/item/clothing/gloves/latex/vaurca = 2,
+		/obj/item/clothing/gloves/latex/nitrile/vaurca = 5
+	)
+
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
 	desc = "This box contains masks of surgicality."

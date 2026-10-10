@@ -563,6 +563,10 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/a68
 	caliber = "6.8mm"
 
+/obj/item/ammo_magazine/boltaction/adhomai/ap
+	name = "ammo clip (6.8mm AP)"
+	ammo_type = /obj/item/ammo_casing/a68/ap
+
 /obj/item/ammo_magazine/boltaction/adhomai/blank
 	ammo_type = /obj/item/ammo_casing/a68/blank
 
