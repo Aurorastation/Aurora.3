@@ -41,3 +41,5 @@
 // Should only call functions ending with `_ffi`.
 
 #define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file_ffi, arg)
+
+#define bapi_word_complexity(arg) BAPI_CALL(word_complexity_ffi, arg)
