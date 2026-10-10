@@ -112,6 +112,8 @@ export const Radio = (props) => {
                 textAlign="center"
                 width="37px"
                 icon={speaker ? 'volume-up' : 'volume-mute'}
+                aria-label={speaker ? 'Turn speaker off' : 'Turn speaker on'}
+                tooltip={speaker ? 'Turn speaker off' : 'Turn speaker on'}
                 selected={speaker}
                 disabled={spk_cut}
                 onClick={() => act('toggle_listen')}
@@ -120,6 +122,12 @@ export const Radio = (props) => {
                 textAlign="center"
                 width="37px"
                 icon={mic_status ? 'microphone' : 'microphone-slash'}
+                aria-label={
+                  mic_status ? 'Turn microphone off' : 'Turn microphone on'
+                }
+                tooltip={
+                  mic_status ? 'Turn microphone off' : 'Turn microphone on'
+                }
                 selected={mic_status}
                 disabled={mic_cut}
                 onClick={() => act('toggle_talk')}
