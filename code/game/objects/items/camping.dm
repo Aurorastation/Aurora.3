@@ -847,6 +847,12 @@
 		return
 	part_of.disassemble(user)
 
+/obj/structure/component/tent_canvas_visual/attack_hand(mob/living/user)
+	var/turf/underlying_turf = get_turf(src)
+	if(user.pulling && underlying_turf)
+		return underlying_turf.attack_hand(user)
+	return ..()
+
 /obj/structure/component/tent_canvas_visual/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(!part_of || use_check(user, USE_ALLOW_NON_ADJACENT) || (get_dist(user, src) > 1))
