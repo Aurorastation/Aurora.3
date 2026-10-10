@@ -911,7 +911,7 @@
 					choice_text = "You can feel the taint of another master running in the veins of [T]. Do you wish to release them of their blood bond, and convert them into a vampire, in spite of their master?"
 					denial_response = "You choose not to continue with the Embrace, and permit [T] to keep serving their master."
 
-				if(alert(src, choice_text, "Choices", "Yes", "No") == "No")
+				if(tgui_alert(src, choice_text, "Choices", list("Yes", "No")) == "No")
 					to_chat(src, SPAN_NOTICE("[denial_response]"))
 					return
 

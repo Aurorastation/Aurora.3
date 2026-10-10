@@ -27,7 +27,7 @@
 				return
 
 			if(!ROUND_IS_STARTED)
-				alert("The game hasn't started yet!")
+				tgui_alert(usr, "The game hasn't started yet!")
 				return
 
 			var/mob/M = locate(params["traitor_panel"])
@@ -58,7 +58,7 @@
 
 /datum/tgui_module/moderator/shared/check_antagonists/ui_interact(mob/user, datum/tgui/ui)
 	if (!SSticker || SSticker.current_state < GAME_STATE_PLAYING)
-		alert(user, "The game hasn't started yet!")
+		tgui_alert(user, "The game hasn't started yet!")
 		return
 
 	ui = SStgui.try_update_ui(user, src, ui)

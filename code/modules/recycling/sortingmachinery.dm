@@ -55,7 +55,7 @@
 			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
 	else if(attacking_item.tool_behaviour == TOOL_PEN)
-		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
+		switch(tgui_alert(usr, "What would you like to alter?", , list("Title", "Description", "Cancel")))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
