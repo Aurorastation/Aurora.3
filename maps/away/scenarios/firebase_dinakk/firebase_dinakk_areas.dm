@@ -2,7 +2,7 @@
 
 /area/dinakk
 	icon_state = "white128a"
-	requires_power = TRUE
+	requires_power = FALSE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/snow
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS | AREA_FLAG_IS_BACKGROUND
@@ -22,6 +22,7 @@
 
 /area/firebase_dinakk/outside/firebase_dinakk
 	name = "Firebase Din'akk"
+	is_outside = OUTSIDE_YES
 	color = "#2e2e2e"
 
 /area/firebase_dinakk/outside/firebase_dinakk/artillery
@@ -43,6 +44,7 @@
 // Unsorted Building Insides
 /area/firebase_dinakk/inside
 	name = "Firebase Din'akk - Base Type"
+	requires_power = FALSE
 
 /area/firebase_dinakk/inside/checkpoint
 	name = "Firebase Din'akk - Checkpoint"
