@@ -29,12 +29,6 @@
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/helmet.dmi'
 	)
-	sprite_sheets_obj = list(
-		BODYTYPE_UNATHI = 'icons/obj/item/clothing/species/unathi/hats.dmi',
-		BODYTYPE_TAJARA = 'icons/obj/item/clothing/species/tajaran/hats.dmi',
-		BODYTYPE_SKRELL = 'icons/obj/item/clothing/species/skrell/hats.dmi',
-		BODYTYPE_IPC = 'icons/obj/item/clothing/species/machine/hats.dmi'
-	)
 
 	light_overlay = "helmet_light"
 
@@ -66,12 +60,6 @@
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
 		BODYTYPE_SKRELL = 'icons/mob/species/skrell/suit.dmi',
 		BODYTYPE_IPC = 'icons/mob/species/machine/suit.dmi'
-	)
-	sprite_sheets_obj = list(
-		BODYTYPE_UNATHI = 'icons/obj/item/clothing/species/unathi/suits.dmi',
-		BODYTYPE_TAJARA = 'icons/obj/item/clothing/species/tajaran/suits.dmi',
-		BODYTYPE_SKRELL = 'icons/obj/item/clothing/species/skrell/suits.dmi',
-		BODYTYPE_IPC= 'icons/obj/item/clothing/species/machine/suits.dmi'
 	)
 
 	movement_sounds = SFX_VOIDSUIT_FOOTSTEPS
