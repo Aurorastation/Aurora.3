@@ -26,30 +26,93 @@
 	color = "#2e2e2e"
 	area_blurb = "tbd."
 
-/area/firebase_dinakk/outside/artillery
+/area/firebase_dinakk/outside/firebase_dinakk/artillery
 	name = "Firebase Din'akk, Outdoors - Field Gun Emplacement"
 
-/area/firebase_dinakk/outside/artillery/tent
+/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent
 	is_outside = OUTSIDE_NO
 
-/area/firebase_dinakk/outside/parade
+/area/firebase_dinakk/outside/firebase_dinakk/parade
 	name = "Firebase Din'akk, Outdoors - Parade Grounds"
 
-/area/firebase_dinakk/outside/cages
+/area/firebase_dinakk/outside/firebase_dinakk/cages
 	name = "Firebase Din'akk, Outdoors - Ha'rron Kennel"
 
-/area/firebase_dinakk/outside/landing_pad
+/area/firebase_dinakk/outside/firebase_dinakk/landing_pad
 	name = "Firebase Din'akk, Outdoors - Landing Pad"
 // --------
 
-// ------------------------- inside
+// Unsorted Building Insides
+/area/firebase_dinakk/inside
+	name = "Firebase Din'akk - Base Type"
 
-/area/firebase_dinakk/shuttle
-	name = "Crashed SCC Shuttle"
-	is_outside = OUTSIDE_NO
-	color = "#777777"
-	area_blurb = "The pungent smell of smoldering polymers and burnt metals wafts through the craft. The sporadic sparking of murdered electrical systems emphasizes the groaning of overloaded girders. Slick SCC paint and marks are scorched. Equipment is scattered, ransacked by searching hands."
+/area/firebase_dinakk/inside/checkpoint
+	name = "Firebase Din'akk - Checkpoint"
 
-/area/firebase_dinakk/shuttle/hole
-	color = "#2e2e2e"
-	area_blurb = "A draft of biting cold air seeps through an ugly, jagged gash in the wreckage's hull, the hole above you through which snow falls. The resulting groans and creaks of straining metal the first suggestion of the ship's eventual fate. Anything that scavengers, sapient or not, leave behind will inevitably be reclaimed by nature. Metal rusts, organic material decays, and whatever remains will be buried beneath the snow."
+/area/firebase_dinakk/inside/garage
+	name = "Firebase Din'akk - Garage"
+
+/area/firebase_dinakk/inside/armoury
+	name = "Firebase Din'akk - Armoury"
+
+/area/firebase_dinakk/inside/infirmary
+	name = "Firebase Din'akk - Infirmary"
+// --------
+
+// Barracks
+/area/firebase_dinakk/inside/barracks
+	name = "Firebase Din'akk, Barracks - Base Type"
+
+/area/firebase_dinakk/inside/barracks/hallway
+	name = "Firebase Din'akk, Barracks - Hallway"
+
+/area/firebase_dinakk/inside/barracks/bunks
+	name = "Firebase Din'akk, Barracks - Bunks"
+
+/area/firebase_dinakk/inside/barracks/lavatory
+	name = "Firebase Din'akk, Barracks - Lavatory"
+
+/area/firebase_dinakk/inside/barracks/kitchen
+	name = "Firebase Din'akk, Barracks - Kitchen"
+
+/area/firebase_dinakk/inside/barracks/hydro
+	name = "Firebase Din'akk, Barracks - Hydroponics"
+// --------
+
+// Presidium
+/area/firebase_dinakk/inside/presidium
+	name = "Firebase Din'akk, Presidium - Base Type"
+
+/area/firebase_dinakk/inside/presidium/antechamber
+	name = "Firebase Din'akk, Presidium - Antechamber"
+
+/area/firebase_dinakk/inside/presidium/briefing
+	name = "Firebase Din'akk, Presidium - Briefing Room"
+
+/area/firebase_dinakk/inside/presidium/commander_office
+	name = "Firebase Din'akk, Presidium - Commander's Office"
+
+/area/firebase_dinakk/inside/presidium/commander_quarters
+	name = "Firebase Din'akk, Presidium - Commander's Quarters"
+// --------
+
+// Basement
+/area/firebase_dinakk/inside/basement
+	name = "Firebase Din'akk, Basement - Base Type"
+
+/area/firebase_dinakk/inside/basement/hallway_upper
+	name = "Firebase Din'akk, Basement - Hallway"
+
+/area/firebase_dinakk/inside/basement/hallway_lower
+	name = "Firebase Din'akk, Basement - Hallway"
+
+/area/firebase_dinakk/inside/basement/atc
+	name = "Firebase Din'akk, Basement - Air Traffic Control"
+
+/area/firebase_dinakk/inside/basement/helipad
+	name = "Firebase Din'akk, Basement - Helipad"
+	is_outside = OUTSIDE_YES
+
+/area/firebase_dinakk/inside/basement/vault
+	name = "Firebase Din'akk, Basement - Vault"
+// --------

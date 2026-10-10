@@ -75,7 +75,7 @@ SUBSYSTEM_DEF(odyssey)
 			return FALSE
 
 		// scenario = pickweight(possible_scenarios)
-		scenario = GET_SINGLETON(/singleton/scenario/crash_site)
+		scenario = GET_SINGLETON(/singleton/scenario/firebase_dinakk)
 
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))

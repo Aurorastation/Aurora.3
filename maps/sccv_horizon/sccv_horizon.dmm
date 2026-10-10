@@ -6673,10 +6673,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor/rubber_carpet,
 /area/antag/jockey)
-"aRJ" = (
-/obj/item/clothing/under/tajaran/ala/wraps,
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "aRM" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -9177,9 +9173,55 @@
 /area/centcom/control)
 "big" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/revolver/konyang/pirate,
-/obj/item/gun/projectile/revolver/konyang/pirate,
-/obj/item/gun/projectile/revolver/konyang/pirate,
+/obj/item/storage/box/shells/slugs{
+	pixel_y = 7
+	},
+/obj/item/storage/box/shells/slugs{
+	pixel_y = 7
+	},
+/obj/item/storage/box/shells/slugs{
+	pixel_y = 7
+	},
+/obj/item/storage/box/shells/slugs{
+	pixel_y = 7
+	},
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/zipties{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/item/storage/box/zipties{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/item/storage/box/zipties{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/item/storage/box/zipties{
+	pixel_y = -4;
+	pixel_x = -3
+	},
+/obj/item/storage/box/zipties{
+	pixel_y = -4;
+	pixel_x = 3
+	},
+/obj/item/storage/box/zipties{
+	pixel_y = -4;
+	pixel_x = 3
+	},
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "bii" = (
@@ -9959,7 +10001,21 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "bnV" = (
-/obj/item/gun/projectile/revolver/knife,
+/obj/structure/table/rack,
+/obj/item/gun/projectile/automatic/tommygun{
+	pixel_y = 5
+	},
+/obj/item/gun/projectile/automatic/tommygun{
+	pixel_y = 5
+	},
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/gun/projectile/automatic/tommygun{
+	pixel_y = -5
+	},
+/obj/item/gun/projectile/automatic/tommygun{
+	pixel_y = -5
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "bnW" = (
@@ -12053,7 +12109,183 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/security/interrogation/monitoring)
 "bAQ" = (
-/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -6
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/c45m{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "bAR" = (
@@ -12565,10 +12797,62 @@
 /area/horizon/maintenance/deck_3/aft/holodeck)
 "bEk" = (
 /obj/structure/table/rack,
-/obj/structure/sign/flag/dpra/unmovable{
-	pixel_y = 32
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
 	},
-/turf/unsimulated/floor/wood,
+/obj/item/material/knife/trench{
+	pixel_x = 4;
+	pixel_y = -1
+	},
+/obj/item/material/kitchen/utensil/knife/boot{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/utensil/knife/boot{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/material/knife/butterfly{
+	pixel_x = -5
+	},
+/obj/item/material/knife/butterfly{
+	pixel_x = -5
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/tacknife{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/obj/item/material/knife/butterfly/switchblade{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/ammo_magazine/a357,
+/obj/item/gun/projectile/revolver/derringer,
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "bEm" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -21104,11 +21388,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/storage/eva)
 "cLw" = (
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
-	},
 /obj/structure/machinery/vending/generic_clothing/adhomai_events,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "cLz" = (
@@ -21687,7 +21970,34 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/hapt)
 "cPz" = (
-/obj/item/gun/projectile/shotgun/doublebarrel/pellet,
+/obj/structure/table/rack,
+/obj/item/gun/projectile/shotgun/pump/rifle/scope{
+	pixel_y = 4
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle/scope{
+	pixel_y = 4
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle/obrez{
+	pixel_y = 1
+	},
+/obj/item/gun/projectile/shotgun/pump/rifle/obrez{
+	pixel_y = 1
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "cPD" = (
@@ -25241,13 +25551,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/gravity_gen)
-"dmv" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
-/obj/item/storage/box/zipties,
-/turf/unsimulated/floor/dark,
-/area/antag/actor)
 "dmx" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -30227,9 +30530,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/stairwell/port/deck_3)
 "dSs" = (
-/obj/effect/map_effect/perma_light/starlight/wide,
-/turf/space,
-/area/template_noop)
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
+/turf/unsimulated/floor/dark,
+/area/antag/actor)
 "dSv" = (
 /obj/item/laser_pointer/blue{
 	pixel_x = -12;
@@ -36511,13 +36819,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/hallway/interior)
-"eJO" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "eJT" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -42760,9 +43061,64 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/rnd/xenological)
 "fCy" = (
-/obj/item/flag/rredouane,
-/obj/item/storage/altar/rredouane,
-/obj/item/nullrod/rredouane,
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/submachinedrum{
+	pixel_x = -2
+	},
+/obj/item/ammo_magazine/submachinedrum{
+	pixel_x = -2
+	},
+/obj/item/ammo_magazine/submachinedrum{
+	pixel_x = -2
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/item/ammo_magazine/submachinemag{
+	pixel_x = 8
+	},
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "fCC" = (
@@ -48735,9 +49091,11 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/shuttle/canary)
 "gqC" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/tactical/smokebombs,
-/turf/unsimulated/floor/dark_monotile,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/unsimulated/floor,
 /area/antag/actor)
 "gqH" = (
 /obj/effect/step_trigger/thrower/shuttle/south,
@@ -50414,11 +50772,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_combat_training)
-"gCa" = (
-/obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/rifle/dpra,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "gCb" = (
 /obj/structure/machinery/door/airlock/centcom{
 	dir = 1;
@@ -54715,11 +55068,6 @@
 	},
 /turf/simulated/open/airless,
 /area/horizon/exterior)
-"heT" = (
-/obj/structure/table/rack,
-/obj/item/clothing/head/tajaran/ala_wraps,
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "heV" = (
 /obj/structure/cable/orange{
 	icon_state = "0-4"
@@ -55558,12 +55906,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/starboard)
 "hkI" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/vending/actor,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 1
+	},
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/turf/unsimulated/floor/dark_monotile,
+/turf/unsimulated/floor/dark,
 /area/antag/actor)
 "hkJ" = (
 /obj/structure/machinery/door/firedoor,
@@ -57192,8 +57541,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/intrepid)
 "huL" = (
-/obj/item/gun/projectile/revolver/derringer,
-/turf/unsimulated/floor/dark_monotile,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/vending/actor,
+/turf/unsimulated/floor/linoleum,
 /area/antag/actor)
 "huN" = (
 /obj/structure/stairs_railing{
@@ -60950,25 +61303,12 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "hUq" = (
-/obj/structure/closet/crate/drop,
-/obj/item/storage/chewables/solar_salve,
-/obj/item/storage/chewables/solar_salve,
-/obj/item/storage/box/fancy/cigarettes/cigar,
-/obj/item/storage/box/fancy/cigarettes/dromedaryco,
-/obj/item/storage/box/fancy/cigarettes/dromedaryco,
-/obj/item/storage/box/fancy/cigarettes/dpra,
-/obj/item/storage/box/fancy/cigarettes/dpra,
-/obj/item/storage/box/fancy/cigarettes/dpra,
-/obj/item/storage/box/fancy/cigarettes/dpra,
-/obj/item/storage/box/fancy/cigarettes/dpra,
-/obj/item/storage/box/fancy/cigarettes/dpra,
-/obj/item/flame/lighter/adhomai,
-/obj/item/flame/lighter/adhomai,
-/obj/item/flame/lighter/adhomai,
-/obj/item/flame/lighter/adhomai,
-/obj/item/flame/lighter/adhomai,
-/obj/item/flame/lighter/adhomai,
-/turf/unsimulated/floor/dark_monotile,
+/obj/structure/table/rack,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/obj/item/clothes_dyer,
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "hUv" = (
 /turf/simulated/wall/r_wall,
@@ -63790,30 +64130,19 @@
 	},
 /area/centcom/legion/hangar5)
 "inQ" = (
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/item/clothing/head/helmet/kettle,
+/obj/item/clothing/shoes/tajara/armored,
+/obj/item/clothing/suit/armor/cuirass,
+/obj/item/material/sword/longsword,
 /obj/structure/table/rack,
-/obj/item/clothing/head/beret/tajaran/dpra{
-	pixel_y = 4
-	},
-/obj/item/clothing/head/beret/tajaran/dpra{
-	pixel_y = 4
-	},
-/obj/item/clothing/head/beret/tajaran/dpra{
-	pixel_y = 4
-	},
-/obj/item/clothing/head/beret/tajaran/dpra/alt{
-	pixel_y = -4
-	},
-/obj/item/clothing/head/beret/tajaran/dpra/alt{
-	pixel_y = -4
-	},
-/obj/item/clothing/head/beret/tajaran/dpra/alt{
-	pixel_y = -4
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
+	dir = 4
 	},
-/turf/unsimulated/floor/wood,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "inR" = (
 /obj/structure/cable/green{
@@ -70119,8 +70448,11 @@
 /turf/simulated/wall,
 /area/horizon/operations/office)
 "jds" = (
-/obj/item/ammo_magazine/a357,
-/turf/unsimulated/wall/steel,
+/obj/item/clothing/suit/armor/tajaran_snowsuit,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
+/obj/structure/table/rack,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "jdE" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -76418,10 +76750,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
-"jTa" = (
-/obj/item/storage/box/shells/slugs,
-/turf/unsimulated/wall/steel,
-/area/antag/actor)
 "jTh" = (
 /obj/structure/machinery/conveyor_switch/oneway{
 	id = "merchant_shipping";
@@ -78318,7 +78646,25 @@
 /turf/space,
 /area/horizon/exterior)
 "kfP" = (
-/obj/item/gun/projectile/shotgun/foldable,
+/obj/structure/table/rack,
+/obj/item/gun/projectile/shotgun/foldable{
+	pixel_y = 9
+	},
+/obj/item/gun/projectile/shotgun/foldable{
+	pixel_y = 9
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	pixel_y = -3
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/pellet{
+	pixel_y = -7
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/pellet{
+	pixel_y = -7
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "kfS" = (
@@ -84533,10 +84879,11 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/horizon/command/bridge/controlroom)
 "kTS" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/c45m,
-/turf/unsimulated/floor/dark_monotile,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/unsimulated/floor,
 /area/antag/actor)
 "kTY" = (
 /obj/structure/machinery/atmospherics/omni/filter{
@@ -93540,12 +93887,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/bar)
 "mcU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/vending/actor,
-/obj/structure/machinery/light/small{
+/obj/effect/floor_decal/corner/grey/full{
 	dir = 8
 	},
-/turf/unsimulated/floor/dark_monotile,
+/turf/unsimulated/floor/dark,
 /area/antag/actor)
 "mcZ" = (
 /turf/unsimulated/floor,
@@ -93965,12 +94310,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/ai/upload_foyer)
 "mgi" = (
-/obj/structure/table/rack,
-/obj/item/ammo_magazine/a68/hotaki,
-/obj/item/ammo_magazine/boltaction/adhomai/ap,
-/obj/item/ammo_magazine/boltaction/adhomai,
-/obj/item/ammo_magazine/a68,
-/turf/unsimulated/floor/dark_monotile,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/unsimulated/floor,
 /area/antag/actor)
 "mgj" = (
 /obj/structure/machinery/light{
@@ -95818,10 +96159,51 @@
 /turf/simulated/floor,
 /area/horizon/command/bridge/upperdeck)
 "mrG" = (
-/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
-/obj/item/clothing/wrists/watch/tajara,
-/obj/item/clothing/wrists/watch/tajara/female,
-/turf/unsimulated/floor/wood,
+/obj/structure/table/rack,
+/obj/item/ammo_magazine/c38{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "mrI" = (
 /obj/structure/machinery/sleeper{
@@ -98775,10 +99157,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
-"mMp" = (
-/obj/item/gun/projectile/revolver/detective,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "mMs" = (
 /obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -101149,8 +101527,36 @@
 /turf/unsimulated/floor/wood,
 /area/centcom/evac)
 "nco" = (
-/obj/structure/table/rack,
-/turf/unsimulated/floor/wood,
+/obj/structure/closet/crate/drop,
+/obj/item/storage/chewables/solar_salve,
+/obj/item/storage/chewables/solar_salve,
+/obj/item/storage/box/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/storage/box/fancy/cigarettes/dpra,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/flame/lighter/adhomai,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/obj/item/storage/field_ration/dpra,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "ncp" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
@@ -112126,7 +112532,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
+/obj/structure/machinery/vending/actor,
 /turf/unsimulated/floor/linoleum,
 /area/antag/actor)
 "ozS" = (
@@ -120223,10 +120629,6 @@
 	icon_state = "carpet"
 	},
 /area/antag/raider)
-"pCt" = (
-/obj/item/clothing/under/tajaran/ala/black,
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "pCw" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/grille,
@@ -122151,11 +122553,6 @@
 /obj/structure/machinery/vending/zora,
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/upperdeck)
-"pPb" = (
-/obj/structure/table/rack,
-/obj/item/clothing/under/tajaran,
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "pPj" = (
 /obj/item/wrench,
 /obj/item/crowbar,
@@ -122230,7 +122627,21 @@
 /turf/unsimulated/floor/wood,
 /area/antag/burglar)
 "pPG" = (
-/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/belt/military,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/holster/thigh/brown,
+/obj/item/clothing/accessory/holster/waist/brown,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bayonet,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/crowbar/rescue_axe/tactical,
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "pPQ" = (
@@ -130720,14 +131131,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
-"qTn" = (
-/obj/item/clothing/gloves/tajaran_gauntlets,
-/obj/item/clothing/head/helmet/kettle,
-/obj/item/clothing/shoes/tajara/armored,
-/obj/item/clothing/suit/armor/cuirass,
-/obj/item/material/sword/longsword,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "qTq" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/warning{
@@ -131395,6 +131798,9 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/crowbar/rescue_axe/tactical,
 /obj/structure/table/rack,
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "qXE" = (
@@ -131986,14 +132392,34 @@
 /area/horizon/maintenance/deck_1/hangar/starboard)
 "rcc" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/musket,
-/obj/item/reagent_containers/powder_horn,
-/obj/item/ammo_casing/musket,
-/obj/item/ammo_casing/musket,
-/obj/item/ammo_casing/musket,
-/obj/item/ammo_casing/musket,
-/obj/item/ammo_casing/musket,
-/obj/item/ammo_casing/musket,
+/obj/item/gun/projectile/revolver/adhomian{
+	pixel_y = 5;
+	pixel_x = -3
+	},
+/obj/item/gun/projectile/revolver/adhomian{
+	pixel_y = 5;
+	pixel_x = -3
+	},
+/obj/item/gun/projectile/revolver/adhomian{
+	pixel_y = 5;
+	pixel_x = -3
+	},
+/obj/item/gun/projectile/revolver/adhomian{
+	pixel_y = 5;
+	pixel_x = -3
+	},
+/obj/item/gun/projectile/revolver/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/gun/projectile/revolver/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/gun/projectile/revolver/knife{
+	pixel_x = 9;
+	pixel_y = -4
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "rch" = (
@@ -133096,6 +133522,9 @@
 /area/horizon/medical/washroom)
 "rjq" = (
 /obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/unsimulated/floor/dark_monotile,
@@ -136060,11 +136489,6 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/lobby)
-"rDp" = (
-/obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/tommygun,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "rDq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/machinery/light{
@@ -136552,55 +136976,46 @@
 /area/horizon/holodeck/source_pool)
 "rGR" = (
 /obj/structure/table/rack,
-/obj/item/material/knife/trench{
-	pixel_x = 4;
-	pixel_y = -1
+/obj/item/clothing/under/tajaran/ala/wraps{
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/item/material/knife/trench{
-	pixel_x = 4;
-	pixel_y = -1
+/obj/item/clothing/under/tajaran/ala/wraps{
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/item/material/kitchen/utensil/knife/boot{
-	pixel_x = -7;
-	pixel_y = 4
+/obj/item/clothing/under/tajaran/ala/wraps{
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/item/material/kitchen/utensil/knife/boot{
-	pixel_x = -7;
-	pixel_y = 4
+/obj/item/clothing/under/tajaran/ala/wraps{
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/item/material/knife/butterfly{
-	pixel_x = -5
+/obj/item/clothing/under/tajaran/ala/wraps{
+	pixel_x = -4;
+	pixel_y = 2
 	},
-/obj/item/material/knife/butterfly{
-	pixel_x = -5
+/obj/item/clothing/under/tajaran/ala{
+	pixel_x = 4
 	},
-/obj/item/material/knife/tacknife{
-	pixel_x = 7;
-	pixel_y = -4
+/obj/item/clothing/under/tajaran/ala{
+	pixel_x = 4
 	},
-/obj/item/material/knife/tacknife{
-	pixel_x = 7;
-	pixel_y = -4
+/obj/item/clothing/under/tajaran/ala{
+	pixel_x = 4
 	},
-/obj/item/material/knife/tacknife{
-	pixel_x = 7;
-	pixel_y = -4
+/obj/item/clothing/under/tajaran/ala{
+	pixel_x = 4
 	},
-/obj/item/material/knife/tacknife{
-	pixel_x = 7;
-	pixel_y = -4
+/obj/item/clothing/under/tajaran/ala{
+	pixel_x = 4
 	},
-/obj/item/material/knife/tacknife{
-	pixel_x = 7;
-	pixel_y = -4
+/obj/structure/machinery/light/small{
+	dir = 4
 	},
-/obj/item/material/knife/tacknife{
-	pixel_x = 7;
-	pixel_y = -4
-	},
-/obj/item/material/knife/butterfly/switchblade{
-	pixel_x = 5;
-	pixel_y = 8
+/obj/structure/machinery/light/small{
+	dir = 4
 	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
@@ -139600,8 +140015,44 @@
 /turf/simulated/floor,
 /area/horizon/hallway/primary/deck_3/port/docks)
 "rZu" = (
-/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
-/turf/unsimulated/floor/dark_monotile,
+/obj/structure/table/rack,
+/obj/structure/sign/flag/dpra/unmovable{
+	pixel_y = 32
+	},
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/tajara{
+	pixel_x = 8
+	},
+/obj/item/clothing/wrists/watch/tajara/female{
+	pixel_x = -7
+	},
+/obj/item/clothing/wrists/watch/tajara{
+	pixel_x = 8
+	},
+/obj/item/clothing/wrists/watch/tajara{
+	pixel_x = 8
+	},
+/obj/item/clothing/wrists/watch/tajara{
+	pixel_x = 8
+	},
+/obj/item/clothing/wrists/watch/tajara{
+	pixel_x = 8
+	},
+/obj/item/clothing/wrists/watch/tajara/female{
+	pixel_x = -7
+	},
+/obj/item/clothing/wrists/watch/tajara/female{
+	pixel_x = -7
+	},
+/obj/item/clothing/wrists/watch/tajara/female{
+	pixel_x = -7
+	},
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "rZw" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -141097,8 +141548,21 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_3/aft/starboard/far)
 "siy" = (
-/obj/item/gun/projectile/recoilless_rifle,
 /obj/structure/table/rack,
+/obj/item/gun/projectile/musket,
+/obj/item/reagent_containers/powder_horn,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/item/ammo_casing/musket,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/machinery/light/small{
+	dir = 4
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "siD" = (
@@ -141415,8 +141879,65 @@
 /area/horizon/service/chapel/office)
 "skD" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/revolver/adhomian,
-/obj/item/gun/projectile/revolver/adhomian,
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai,
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/boltaction/adhomai{
+	pixel_x = -7
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "skG" = (
@@ -147701,12 +148222,6 @@
 /obj/structure/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_2/wing/port/near)
-"taH" = (
-/obj/item/clothing/suit/armor/tajaran_snowsuit,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
-/turf/unsimulated/floor/wood,
-/area/antag/actor)
 "taI" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -150725,7 +151240,36 @@
 /area/centcom/legion)
 "tus" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/item/gun/projectile/automatic/rifle/adhomian{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/gun/projectile/automatic/rifle/adhomian{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/gun/projectile/automatic/rifle/dpra{
+	pixel_x = -2;
+	pixel_y = -7
+	},
+/obj/item/gun/projectile/automatic/rifle/dpra{
+	pixel_x = -2;
+	pixel_y = -7
+	},
+/obj/item/gun/projectile/automatic/rifle/dpra{
+	pixel_x = -2;
+	pixel_y = -7
+	},
+/obj/item/gun/projectile/automatic/rifle/dpra{
+	pixel_x = -2;
+	pixel_y = -7
+	},
+/obj/item/gun/projectile/dragunov{
+	pixel_y = 2
+	},
+/obj/structure/machinery/light/small{
+	dir = 8
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "tuz" = (
@@ -153380,7 +153924,13 @@
 /area/horizon/maintenance/deck_2/wing/starboard/near)
 "tLo" = (
 /obj/structure/table/rack,
-/obj/item/gun/projectile/dragunov,
+/obj/item/gun/projectile/recoilless_rifle{
+	pixel_y = 6
+	},
+/obj/item/gun/projectile/recoilless_rifle{
+	pixel_y = -6
+	},
+/obj/item/gun/projectile/recoilless_rifle,
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "tLr" = (
@@ -157501,8 +158051,31 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/checkpoint2)
 "unR" = (
-/obj/item/ammo_magazine/smg10mm,
-/obj/item/ammo_magazine/c38,
+/obj/structure/table/rack,
+/obj/item/gun/projectile/revolver/detective{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/gun/projectile/revolver/detective{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/gun/projectile/revolver/detective{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/gun/projectile/revolver/lemat{
+	pixel_y = -3;
+	pixel_x = 5
+	},
+/obj/item/gun/projectile/revolver/lemat{
+	pixel_y = -3;
+	pixel_x = 5
+	},
+/obj/item/gun/projectile/revolver/lemat{
+	pixel_y = -3;
+	pixel_x = 5
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "unU" = (
@@ -164196,10 +164769,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/service/port)
 "vff" = (
-/obj/structure/machinery/light/small{
-	dir = 1;
-	must_start_working = 1
-	},
+/obj/structure/table/rack,
+/obj/item/clothes_dyer,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "vfg" = (
@@ -168526,8 +169097,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/rnd/hallway/secondary)
 "vLt" = (
-/obj/item/clothing/under/tajaran/ala,
-/turf/unsimulated/floor/wood,
+/obj/item/flag/rredouane,
+/obj/item/storage/altar/rredouane,
+/obj/item/nullrod/rredouane,
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "vLy" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/purple{
@@ -172002,11 +172579,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/mercenary)
-"wgY" = (
-/obj/item/ammo_magazine/submachinedrum,
-/obj/item/ammo_magazine/submachinemag,
-/turf/unsimulated/wall/steel,
-/area/antag/actor)
 "whb" = (
 /obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
@@ -176126,10 +176698,53 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/port/deck_2)
 "wGo" = (
-/obj/structure/machinery/light/small{
-	must_start_working = 1
+/obj/item/clothing/head/beret/tajaran/dpra{
+	pixel_y = 4
 	},
-/turf/unsimulated/floor/wood,
+/obj/item/clothing/head/beret/tajaran/dpra{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra{
+	pixel_y = 4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra/alt{
+	pixel_y = -4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra/alt{
+	pixel_y = -4
+	},
+/obj/item/clothing/head/beret/tajaran/dpra/alt{
+	pixel_y = -4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/obj/item/clothing/head/tajaran/ala_wraps{
+	pixel_x = 13
+	},
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "wGv" = (
 /obj/structure/shuttle_part/mercenary/small{
@@ -176175,10 +176790,6 @@
 "wGH" = (
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
-"wGK" = (
-/obj/item/gun/projectile/revolver/lemat,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "wGM" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -177106,10 +177717,6 @@
 /obj/item/radio/intercom/north,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
-"wNj" = (
-/obj/item/gun/projectile/shotgun/pump/rifle/scope,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "wNm" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -179591,6 +180198,75 @@
 /area/horizon/operations/office)
 "xaS" = (
 /obj/structure/table/rack,
+/obj/item/ammo_magazine/a68/hotaki{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/a68/hotaki{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/a68/hotaki{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/a68/hotaki{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/a68/hotaki{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/a68/hotaki{
+	pixel_x = 4
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
+/obj/item/ammo_magazine/a68{
+	pixel_x = -7
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "xaT" = (
@@ -179801,14 +180477,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/gunmetal,
 /area/horizon/operations/warehouse)
-"xco" = (
-/obj/item/clothing/gloves/tajaran_gauntlets,
-/obj/item/clothing/suit/armor/amohda,
-/obj/item/clothing/head/helmet/amohda,
-/obj/item/clothing/shoes/tajara/armored,
-/obj/item/material/sword/amohdan_sword,
-/turf/unsimulated/floor/dark_monotile,
-/area/antag/actor)
 "xcu" = (
 /obj/structure/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -185898,11 +186566,16 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/wing/port/far)
 "xTm" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
+/obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/item/clothing/suit/armor/amohda,
+/obj/item/clothing/head/helmet/amohda,
+/obj/item/clothing/shoes/tajara/armored,
+/obj/item/material/sword/amohdan_sword,
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/item/storage/wallet/random_adhomian_knuckle,
-/turf/unsimulated/floor/dark,
+/turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "xTA" = (
 /obj/structure/machinery/camera/network/engineering{
@@ -435643,12 +436316,12 @@ eSV
 eSV
 ruH
 nmQ
-chm
-chm
 anN
 anN
 anN
-chm
+anN
+anN
+anN
 chm
 chm
 nmQ
@@ -435898,11 +436571,11 @@ eSV
 eSV
 eSV
 eSV
-ruH
-chm
-dHi
 mIw
 kqs
+kqs
+kqs
+mIw
 kqs
 kqs
 kqs
@@ -436155,13 +436828,13 @@ eSV
 eSV
 eSV
 eSV
-ruH
-chm
-anN
 mIw
-inQ
-heT
-nco
+vff
+uBO
+uBO
+mIw
+ncv
+eYZ
 nco
 mIw
 mIw
@@ -436412,19 +437085,19 @@ eSV
 eSV
 eSV
 eSV
-ruH
-chm
-oCb
 mIw
-nco
-aRJ
-vLt
-wGo
+hUq
+uBO
+uBO
 mIw
-osx
+ulW
+xux
+jds
+mIw
+pPG
 ncv
 eYZ
-osx
+pPG
 mIw
 eSV
 eSV
@@ -436669,13 +437342,13 @@ eSV
 eSV
 eSV
 ruH
-ruH
-chm
-anN
 mIw
-bEk
+rZu
 uBO
-pCt
+uBO
+mIw
+ulW
+xux
 wGo
 mIw
 osx
@@ -436926,14 +437599,14 @@ eSV
 eSV
 ruH
 ruH
-chm
-chm
-oCb
 mIw
-vff
-mrG
+cLw
 uBO
 uBO
+mIw
+tFJ
+arj
+rGR
 mIw
 qXC
 tFJ
@@ -437183,14 +437856,14 @@ eSV
 eSV
 ruH
 chm
-chm
 mIw
 mIw
+gAf
+gAf
 mIw
-cLw
-taH
-uBO
-pPb
+gAf
+gAf
+mIw
 mIw
 mIw
 gAf
@@ -437444,12 +438117,12 @@ mIw
 mIw
 mcU
 wVz
+dSs
 wVz
 wVz
+dSs
 wVz
-wVz
-wVz
-wVz
+dSs
 wVz
 wVz
 eBU
@@ -437708,7 +438381,7 @@ jxk
 iFD
 iFD
 iFD
-hUq
+iFD
 rME
 mIw
 nvp
@@ -437955,15 +438628,15 @@ mIw
 mIw
 mIw
 mIw
-jhx
+wgF
 bRI
-qTn
+iFD
 rOs
 vqn
 vqn
 vqn
 vqn
-xTm
+vqn
 iOy
 iFD
 jhR
@@ -438214,7 +438887,7 @@ uqi
 mIw
 jhx
 bRI
-xco
+iFD
 rME
 oMP
 qEl
@@ -438471,7 +439144,7 @@ wnd
 faA
 geY
 bRI
-fCy
+iFD
 rME
 tAz
 oIL
@@ -439497,7 +440170,7 @@ mIw
 mIw
 mIw
 mIw
-jhx
+wgF
 bRI
 iFD
 pet
@@ -439754,7 +440427,7 @@ chm
 ruH
 chm
 mIw
-plP
+huL
 bRI
 iFD
 iFD
@@ -440014,12 +440687,12 @@ mIw
 mIw
 hkI
 vqn
-hAN
-dmv
-vqn
 vqn
 vqn
 hAN
+vqn
+hAN
+vqn
 vqn
 vqn
 sES
@@ -440270,17 +440943,17 @@ chm
 chm
 mIw
 mIw
+rjq
+rjq
+rjq
+mIw
 mIw
 mIw
 rjq
-eJO
-rGR
+rjq
+rjq
 rjq
 mIw
-mbk
-ncv
-eYZ
-gCa
 mIw
 chm
 chm
@@ -440525,18 +441198,18 @@ eSV
 ruH
 ruH
 chm
-dHi
-nmQ
-dHi
 mIw
-rcc
-cPz
-wNj
-bAQ
-mIw
+bEk
+ncv
 gqC
-ulW
-xux
+eYZ
+cPz
+mIw
+bAQ
+ncv
+gqC
+gqC
+eYZ
 tus
 mIw
 dHi
@@ -440782,17 +441455,17 @@ eSV
 eSV
 ruH
 ruH
-ruH
-ruH
-ruH
 mIw
-mMp
-kfP
-rZu
-skD
-mIw
-mgi
+unR
 ulW
+mgi
+xux
+kfP
+mIw
+skD
+ulW
+mgi
+mgi
 xux
 tLo
 mIw
@@ -441039,19 +441712,19 @@ eSV
 eSV
 ruH
 ruH
-chm
-chm
-chm
 mIw
-wGK
-bnV
-huL
-xaS
-mIw
-kTS
+rcc
 tFJ
+kTS
 arj
-siy
+bnV
+mIw
+xaS
+tFJ
+kTS
+kTS
+arj
+mbk
 mIw
 ruH
 chm
@@ -441296,18 +441969,18 @@ eSV
 eSV
 ruH
 chm
-dSs
-chm
-dHi
 mIw
+mIw
+fCy
+mrG
 big
-pPG
-unR
-rDp
 mIw
 mIw
 mIw
-mIw
+siy
+vLt
+xTm
+inQ
 mIw
 mIw
 dHi
@@ -441554,18 +442227,18 @@ eSV
 ruH
 chm
 dHi
-chm
+mIw
+mIw
+mIw
+mIw
+mIw
 dHi
 mIw
 mIw
-jTa
-jds
-wgY
 mIw
-chm
-dHi
-dHi
-chm
+mIw
+mIw
+mIw
 chm
 chm
 chm
