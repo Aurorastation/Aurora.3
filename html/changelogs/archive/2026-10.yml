@@ -22,3 +22,36 @@
   TheGreyWolf:
   - balance: Changed some fire balance to make temp increase slower.
   - rscadd: Added the cell charger rack, printable from the circuit board printer.
+2026-10-03:
+  ElorgRHG:
+  - imagedel: Tweaked colorable winter coat and parka to be able to use accent colors.
+  - imagedel: Added a pre-colored and colorable winter jacket as a slimmer alternative
+      to winter coats and parkas.
+2026-10-04:
+  ElorgRHG:
+  - bugfix: Fixed the xanu militia reservist card's missing sprite.
+  TheGreyWolf:
+  - bugfix: Fixed the tesla spine and limbs keeping their glow in char setup when
+      switching to another character.
+  - bugfix: Cameras now respect line of sight from the turf they take a photo from.
+  - bugfix: Fixed that the transdermal computer didn't notify its owner with a message
+      range of 0.
+  - bugfix: Fixed various issues with jars and their contents.
+  - bugfix: Fixed that ahelps couldn't be sent if an admin that had taken it was disconnected.
+  - bugfix: Dead and necrotic limbs now appear on medical scans.
+2026-10-05:
+  TheGreyWolf:
+  - bugfix: Fixes the random spots of lights around the map without a source.
+  - bugfix: Makeshift armor no longer makes you immortal.
+  - bugfix: Fixed some timing issues with wielded full auto weapons.
+  - bugfix: Portals now handle projectiles properly when mobs are on the same turf.
+  - bugfix: Fixed some issues with spawning off-station antags from ghosts.
+  - bugfix: Attempted a fix to avoid prohibited item usage on aim mode from shooting
+      unneeded.
+  - bugfix: Fixes the vaurca merchant.
+2026-10-06:
+  ElorgRHG:
+  - bugfix: Fixed the adhomian winter cloak and amohdan cloak lacking accessory sprites.
+  SimpleMaroon:
+  - bugfix: Fixed recolorable Vaurca Gyne shroud sprites not raising or lowering properly
+      using the verb.

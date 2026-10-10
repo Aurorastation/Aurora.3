@@ -149,6 +149,9 @@
 		stack_trace("Atom [src] ([type]) \[ X:[x] Y:[y] Z:[z] (Space level: [L ? L.name : "NOT FOUND"]) \] is abstract, but is trying to initialize!")
 		return INITIALIZE_HINT_QDEL
 
+	// Does nothing outside of tests
+	validate_atom_icon(src)
+
 	return INITIALIZE_HINT_NORMAL
 
 /**

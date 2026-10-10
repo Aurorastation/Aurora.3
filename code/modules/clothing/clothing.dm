@@ -361,7 +361,7 @@
 
 				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
-		return BULLET_ACT_HIT
+	return BULLET_ACT_HIT
 
 /proc/calculate_material_armor(amount)
 	var/result = 1 - MATERIAL_ARMOR_COEFFICENT * amount / (1 + MATERIAL_ARMOR_COEFFICENT * abs(amount))
