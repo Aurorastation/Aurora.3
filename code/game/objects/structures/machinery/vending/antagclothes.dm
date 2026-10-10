@@ -134,6 +134,7 @@ If you want to expand this to more than primarily generic items, I recommend des
 /obj/structure/machinery/vending/generic_clothing/adhomai_events
 	name = "\improper Adhomai Event Clothing Vendor"
 	products = list(
+		/obj/item/clothes_dyer = 6,
 		// Shoes
 		/obj/item/clothing/shoes/tajara/footwraps = 6,
 		/obj/item/clothing/shoes/workboots/tajara/brown = 6,

@@ -60,6 +60,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/barracks/bunks)
+"aeB" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/firebase_dinakk/inside/basement/vault)
 "afc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -71,7 +78,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/kitchen)
+/area/firebase_dinakk/inside/infirmary)
 "alP" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -100,13 +107,11 @@
 /obj/structure/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/checkpoint)
-"anK" = (
-/obj/random/dirt_75,
-/obj/structure/machinery/door/urban/metal_alt{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/kitchen)
+"anz" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "apN" = (
 /obj/structure/flora/grass/adhomai,
 /obj/effect/map_effect/marker/landing_zone_border,
@@ -136,6 +141,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"auN" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/armoury)
 "avP" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -157,16 +166,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
-"azn" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "azN" = (
 /obj/effect/decal/curb{
 	dir = 9
@@ -185,14 +184,6 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
-"aAo" = (
-/obj/structure/machinery/door/blast/shutters/open{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/bitile{
-	dir = 8
-	},
-/area/firebase_dinakk/outside/firebase_dinakk)
 "aAX" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/steel,
@@ -208,24 +199,20 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"aCr" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/hydro)
-"aCy" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 5
-	},
-/obj/structure/machinery/light/small{
+"aDw" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
+/obj/structure/machinery/door/urban/metal,
+/turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/basement/hallway_upper)
+"aFa" = (
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/firebase_dinakk/inside/presidium/briefing)
 "aFP" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/armoury)
+/turf/simulated/wall/r_wall,
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "aHU" = (
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
@@ -292,21 +279,8 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
 "aNt" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
-"aOJ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
+/turf/simulated/wall/concrete,
+/area/firebase_dinakk/inside/barracks/bunks)
 "aOQ" = (
 /obj/effect/decal/curb{
 	dir = 6
@@ -340,6 +314,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
+"aSC" = (
+/turf/simulated/wall/r_wall,
+/area/firebase_dinakk/inside/basement/vault)
 "aUC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/closet/secure_closet/freezer,
@@ -390,6 +367,10 @@
 "aXM" = (
 /turf/simulated/wall/concrete,
 /area/firebase_dinakk/inside/armoury)
+"aZD" = (
+/obj/effect/floor_decal/corner_wide/grey,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/vault)
 "aZT" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/random/dirt_75,
@@ -405,17 +386,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/infirmary)
-"bbp" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/structure/machinery/light/small/emergency,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/dinakk/outside/mountains)
 "bcr" = (
 /obj/structure/platform_deco/column{
 	dir = 4
@@ -446,15 +416,8 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
 "bgp" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/dinakk/outside/mountains)
+/turf/simulated/wall/brick,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "bhc" = (
 /obj/structure/platform/metal_alt{
 	dir = 4
@@ -509,20 +472,9 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"bmm" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/machinery/light{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "bms" = (
 /obj/effect/floor_decal/corner_wide/grey{
-	dir = 4
+	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -542,8 +494,9 @@
 "boq" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/random/dirt_75,
+/obj/structure/machinery/light,
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "bpe" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -568,6 +521,12 @@
 	dir = 8
 	},
 /area/firebase_dinakk/inside/checkpoint)
+"bqY" = (
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "bra" = (
 /obj/structure/barricade/metal/wired,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -625,17 +584,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/firebase_dinakk/inside/presidium/briefing)
-"bAQ" = (
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/presidium/briefing)
 "bBg" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/ridged,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "bBh" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/checkpoint)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/barracks/bunks)
 "bCm" = (
 /obj/structure/platform/metal_alt{
 	dir = 4
@@ -659,6 +617,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/lavatory)
+"bGc" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "bGG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -666,7 +634,12 @@
 	},
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
+/area/firebase_dinakk/inside/presidium/antechamber)
+"bHK" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/machinery/light,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/barracks/bunks)
 "bHX" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /obj/random/dirt_75,
@@ -752,6 +725,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
+"bRJ" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "bSc" = (
 /obj/structure/platform/column{
 	dir = 1
@@ -772,7 +756,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/commander_office)
+/area/firebase_dinakk/inside/presidium/briefing)
 "bVd" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -783,6 +767,11 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
+"bYx" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/machinery/light/small,
+/turf/simulated/open,
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "bZj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -871,6 +860,15 @@
 	},
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
+"cjF" = (
+/obj/structure/table/fancy/black,
+/obj/structure/rredouane_statue{
+	pixel_y = 21
+	},
+/obj/item/research_slip/firebase_dinakk,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/ridged,
+/area/dinakk/outside/mountains)
 "ckH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -892,8 +890,8 @@
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "cmI" = (
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/infirmary)
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/bunks)
 "cnG" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -910,12 +908,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/darkblue,
 /area/firebase_dinakk/inside/presidium/commander_office)
-"cuJ" = (
-/obj/structure/rod_railing{
-	dir = 8
+"csX" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
 	},
-/turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/briefing)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/vault)
 "cuX" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /obj/random/dirt_75,
@@ -965,31 +964,31 @@
 	},
 /obj/structure/table/wood,
 /obj/random/dirt_75,
+/obj/item/typewriter_case,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"cyu" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+"cyf" = (
+/obj/structure/machinery/door/blast/shutters/open{
+	dir = 2
 	},
+/turf/simulated/floor/tiled/bitile{
+	dir = 8
+	},
+/area/firebase_dinakk/inside/checkpoint)
+"cyu" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/infirmary)
-"cyK" = (
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/tiled/full,
-/area/firebase_dinakk/inside/presidium/briefing)
 "czt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 5
 	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
-"czW" = (
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/barracks/bunks)
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "cBG" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/urban/metal_alt{
@@ -1020,7 +1019,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/antechamber)
+/area/firebase_dinakk/inside/barracks/hallway)
 "cFZ" = (
 /obj/structure/sink/kitchen{
 	name = "sink";
@@ -1033,7 +1032,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
+/area/firebase_dinakk/inside/presidium/commander_office)
+"cGr" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "cGD" = (
 /obj/random/dirt_75,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -1070,7 +1076,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/large/adv,
 /obj/item/storage/firstaid/large{
 	pixel_y = 5
 	},
@@ -1093,20 +1098,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"cLK" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 6
-	},
-/obj/structure/safe/highvalue,
-/obj/structure/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/dinakk/outside/mountains)
 "cOA" = (
 /obj/structure/barricade/liquid{
 	build_stage = 5;
@@ -1176,7 +1167,9 @@
 "cRO" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/table/reinforced/steel,
-/obj/structure/machinery/door/window/brigdoor/eastleft,
+/obj/structure/machinery/door/window/brigdoor/eastleft{
+	req_access = list(/datum/access/firebase_dinakk_checkpoint::id)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
 "cSv" = (
@@ -1195,16 +1188,8 @@
 /turf/simulated/open,
 /area/firebase_dinakk/inside/basement/hallway_upper)
 "cSw" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/ridged,
-/area/firebase_dinakk/inside/basement/hallway_lower)
-"cTI" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
+/turf/simulated/wall/concrete,
+/area/firebase_dinakk/inside/barracks/lavatory)
 "cTX" = (
 /obj/structure/arch/gothic/eastwest/middle,
 /obj/effect/decal/curb{
@@ -1216,8 +1201,15 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "cUe" = (
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/garage)
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "cWj" = (
 /obj/structure/table,
 /turf/simulated/floor/exoplanet/tiled/gridded,
@@ -1226,15 +1218,6 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible/black,
 /turf/simulated/floor/reinforced,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"cWO" = (
-/obj/effect/decal/road_marking{
-	dir = 4
-	},
-/obj/effect/decal/curb{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/firebase_dinakk/inside/garage)
 "cXk" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
@@ -1276,7 +1259,6 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
 "deA" = (
@@ -1310,6 +1292,10 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/firebase_dinakk/inside/presidium/commander_office)
+"dhD" = (
+/obj/structure/window_frame,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/hydro)
 "dit" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -1322,20 +1308,6 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"djN" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/structure/safe/cash,
-/obj/structure/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/dinakk/outside/mountains)
 "dkQ" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -1436,11 +1408,11 @@
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
 "dwi" = (
-/obj/structure/machinery/door/urban/metal{
-	dir = 4
+/obj/structure/platform/rock/icy{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/kitchen)
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/firebase_dinakk/outside/firebase_dinakk/artillery)
 "dwH" = (
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
@@ -1452,6 +1424,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/kitchen)
+"dzK" = (
+/obj/abstract/footprint_spawner/body,
+/obj/abstract/footprint_spawner_turn_helper{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/armoury)
 "dAJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -1475,20 +1454,9 @@
 	},
 /turf/simulated/floor/tiled/bitile,
 /area/firebase_dinakk/inside/garage)
-"dGG" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/infirmary)
-"dGM" = (
-/obj/structure/window_frame,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/hydro)
-"dHv" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/tiled/full,
+"dJK" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/presidium/briefing)
 "dJQ" = (
 /obj/effect/floor_decal/spline/plain/white{
@@ -1520,7 +1488,7 @@
 	},
 /obj/structure/arch/gothic/eastwest/left,
 /turf/simulated/floor/exoplanet/barren,
-/area/firebase_dinakk/outside/firebase_dinakk)
+/area/dinakk/outside)
 "dMU" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/toilet{
@@ -1544,6 +1512,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
+"dPt" = (
+/obj/structure/window_frame,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/hallway)
 "dQJ" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
@@ -1558,20 +1530,8 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
 "dRv" = (
-/turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/briefing)
-"dRV" = (
-/obj/effect/decal/curb{
-	dir = 4
-	},
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/firebase_dinakk/inside/garage)
-"dST" = (
 /turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/lavatory)
+/area/firebase_dinakk/inside/infirmary)
 "dTm" = (
 /turf/simulated/floor/exoplanet/snow,
 /area/firebase_dinakk/outside/firebase_dinakk)
@@ -1582,6 +1542,15 @@
 /obj/structure/machinery/meter,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"dWx" = (
+/obj/structure/machinery/door/urban/metal_alt{
+	req_one_access = list(/datum/access/firebase_dinakk_basement)
+	},
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/basement/atc)
 "dWA" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -1594,6 +1563,12 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"dXz" = (
+/obj/structure/machinery/door/urban/metal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "dYo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1603,14 +1578,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"dYy" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/antechamber)
 "eav" = (
 /obj/structure/machinery/atmospherics/unary/freezer{
 	dir = 4
@@ -1630,11 +1597,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
+/area/firebase_dinakk/inside/presidium/antechamber)
 "ebU" = (
 /obj/structure/machinery/chemical_dispenser,
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
+"ecf" = (
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/lavatory)
 "eey" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -1645,15 +1615,12 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
 "efz" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
+/obj/structure/rod_railing{
+	dir = 6
 	},
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+/obj/structure/urban_grate,
+/turf/simulated/floor/exoplanet/roofing_tiles,
+/area/firebase_dinakk/inside/presidium/commander_office)
 "egO" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/structure/platform/column,
@@ -1673,11 +1640,6 @@
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "ejt" = (
-/obj/structure/machinery/howitzer/maivazh_a42_100mm{
-	dir = 2;
-	pixel_x = -15;
-	pixel_y = -32
-	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery)
 "ejP" = (
@@ -1724,7 +1686,7 @@
 /area/firebase_dinakk/inside/basement/helipad)
 "eoe" = (
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
+/area/firebase_dinakk/inside/barracks/bunks)
 "eoo" = (
 /obj/structure/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8
@@ -1766,6 +1728,11 @@
 	},
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
+"eql" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "eqy" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -1795,15 +1762,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/barracks/bunks)
-"euh" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/antechamber)
-"eul" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/garage)
 "exf" = (
 /obj/effect/decal/road_marking/reflector{
 	dir = 1
@@ -1849,6 +1807,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/barracks/bunks)
+"eEd" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "eEp" = (
 /obj/structure/machinery/meter,
 /obj/structure/machinery/atmospherics/pipe/simple/visible{
@@ -1872,12 +1835,13 @@
 /area/firebase_dinakk/outside/firebase_dinakk)
 "eFC" = (
 /obj/effect/map_effect/marker/fake_wall,
-/turf/simulated/wall/brick,
+/turf/simulated/wall/brick{
+	color = "#2e2e2e"
+	},
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"eIM" = (
-/obj/random/dirt_75,
+"eFD" = (
 /turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/garage)
+/area/firebase_dinakk/inside/barracks/hallway)
 "eLV" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1897,10 +1861,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/inside/barracks/lavatory)
-"eRi" = (
-/obj/random/dirt_75,
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/armoury)
 "eRU" = (
 /obj/structure/platform/rock/icy,
 /obj/structure/platform/rock/icy{
@@ -1912,6 +1872,13 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
+"eSD" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/vault)
 "eTj" = (
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 4
@@ -1920,24 +1887,19 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/inside/infirmary)
 "eUJ" = (
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery)
+/turf/simulated/wall/brick,
+/area/firebase_dinakk/inside/presidium/briefing)
 "eUR" = (
 /obj/structure/platform_deco/rock/icy{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
-"eWo" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+"eVV" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/antechamber)
 "eXH" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -1948,33 +1910,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
-"fav" = (
+"fbC" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
-"faP" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/dinakk/outside/mountains)
+/area/firebase_dinakk/inside/barracks/hallway)
+"feN" = (
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/presidium/antechamber)
 "ffV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey,
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
-"fgI" = (
-/obj/structure/rod_railing,
-/turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/presidium/briefing)
 "fgS" = (
 /obj/structure/machinery/vending/dinnerware/plastic,
@@ -1991,8 +1940,11 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
 "fjj" = (
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/dinakk/outside)
 "fkj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -2007,6 +1959,15 @@
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible/black,
 /turf/simulated/floor/reinforced,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"fkw" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/firebase_dinakk/inside/garage)
 "fkI" = (
 /obj/structure/platform/column{
 	dir = 1
@@ -2024,11 +1985,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
-"fli" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/machinery/light/small,
-/turf/simulated/open,
-/area/firebase_dinakk/inside/basement/hallway_upper)
 "fmt" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2064,10 +2020,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"fty" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/hallway)
+"fvc" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/obj/structure/machinery/light/small/emergency,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/dinakk/outside/mountains)
 "fwb" = (
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
@@ -2078,10 +2041,11 @@
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/tiled/light/full,
 /area/firebase_dinakk/inside/infirmary)
-"fyl" = (
-/obj/structure/window_frame,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/presidium/briefing)
+"fxM" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "fBa" = (
 /obj/structure/table/rack/folding_table,
 /obj/item/megaphone/red,
@@ -2093,11 +2057,6 @@
 	dir = 8
 	},
 /obj/structure/platform_deco/rock/icy,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/inside/basement/vault)
-"fDs" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
 "fEa" = (
@@ -2114,15 +2073,15 @@
 /turf/simulated/floor/tiled/bitile{
 	dir = 4
 	},
-/area/firebase_dinakk/inside/checkpoint)
+/area/firebase_dinakk/outside/firebase_dinakk)
 "fFO" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
-	pixel_y = -2;
-	pixel_x = -6
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/dpra{
+	pixel_x = -6;
+	pixel_y = -3
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hadii{
-	pixel_x = 6
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nated{
+	pixel_x = 7
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -2153,16 +2112,12 @@
 /area/firebase_dinakk/inside/basement/hallway_upper)
 "fJt" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/inside/basement/vault)
-"fJS" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 8
+/obj/structure/machinery/light{
+	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/firebase_dinakk/inside/basement/vault)
 "fLB" = (
 /obj/structure/platform_deco/column,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
@@ -2176,10 +2131,6 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"fOr" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/hydro)
 "fPu" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/binoculars/high_power,
@@ -2214,21 +2165,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"fTX" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/kitchen)
-"fVu" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/structure/machinery/light,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "fWK" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -2276,11 +2212,6 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
-"fWZ" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/firebase_dinakk/inside/garage)
 "fXS" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -2299,12 +2230,23 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/barracks/bunks)
-"gcD" = (
+"gcm" = (
+/obj/structure/platform/column{
+	dir = 8
+	},
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/briefing)
+/obj/structure/machinery/light/small,
+/turf/simulated/open,
+/area/firebase_dinakk/inside/basement/hallway_upper)
+"gcK" = (
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/barracks/hallway)
+"gdG" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/ridged,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "gfW" = (
 /obj/structure/platform_deco/metal_alt{
 	dir = 1
@@ -2324,11 +2266,6 @@
 /obj/structure/tank_wall/carbon_dioxide,
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"ghB" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
 "gif" = (
 /obj/structure/platform/metal_alt,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
@@ -2367,13 +2304,13 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/dinakk/outside)
-"goA" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
+"glh" = (
+/obj/effect/decal/curb,
+/obj/effect/decal/curb{
+	dir = 5
 	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
+/turf/simulated/floor/exoplanet/snow,
+/area/firebase_dinakk/outside/firebase_dinakk)
 "goZ" = (
 /obj/structure/platform/rock/icy{
 	dir = 8
@@ -2390,9 +2327,6 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/basement/helipad)
 "grz" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/garage)
 "grU" = (
@@ -2415,6 +2349,11 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"gvP" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/random/dirt_75,
+/turf/simulated/floor/foundation,
+/area/firebase_dinakk/inside/armoury)
 "gwl" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -2428,9 +2367,12 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "gxh" = (
-/obj/structure/window_frame,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/hallway)
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "gxI" = (
 /obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 4
@@ -2496,6 +2438,14 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/basement/atc)
+"gIj" = (
+/obj/effect/floor_decal/corner_wide/grey,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "gKn" = (
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
@@ -2503,31 +2453,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/infirmary)
-"gKH" = (
-/obj/structure/rod_railing{
-	dir = 10
-	},
-/obj/structure/urban_grate,
-/turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/commander_office)
-"gLQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
-"gMW" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 6
-	},
-/obj/structure/machinery/light/small/emergency,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/dinakk/outside/mountains)
 "gNk" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
@@ -2545,10 +2470,6 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
-"gQD" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/lavatory)
 "gQY" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/engineer_maintenance/electric/wall,
@@ -2563,9 +2484,15 @@
 /obj/effect/tent,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
+"gRS" = (
+/obj/structure/machinery/door/urban/metal_alt{
+	req_one_access = list(/datum/access/firebase_dinakk_basement)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/basement/vault)
 "gTG" = (
-/turf/unsimulated/marker/khaki,
-/area/firebase_dinakk/outside/firebase_dinakk)
+/turf/simulated/wall/concrete,
+/area/firebase_dinakk/inside/infirmary)
 "gVd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair/folding,
@@ -2594,16 +2521,20 @@
 /obj/structure/flora/grass/brown,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"hbY" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/presidium/briefing)
 "hcn" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine{
+	pixel_y = 21;
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled/freezer/cold,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "hcH" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/armoury)
+"hdy" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 9
 	},
@@ -2616,17 +2547,30 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
-"hdp" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/barracks/hallway)
 "hdI" = (
 /turf/unsimulated/wall/fakepdoor,
 /area/firebase_dinakk/inside/basement/hallway_lower)
-"hmb" = (
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+"hgg" = (
+/obj/effect/floor_decal/corner_wide/grey/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
+"hlJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
+"hmb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/armoury)
 "hmc" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -2669,6 +2613,13 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
+"hvp" = (
+/obj/structure/rod_railing{
+	dir = 10
+	},
+/obj/structure/urban_grate,
+/turf/simulated/floor/exoplanet/roofing_tiles,
+/area/firebase_dinakk/inside/presidium/briefing)
 "hwc" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -2681,6 +2632,12 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"hxs" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/vault)
 "hxC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2699,50 +2656,37 @@
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/checkpoint)
 "hDp" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
-/area/firebase_dinakk/outside/firebase_dinakk)
+/turf/simulated/wall/concrete,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "hEJ" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
+/obj/abstract/footprint_spawner{
+	dir = 8
+	},
+/obj/abstract/footprint_spawner_turn_helper{
+	dir = 1
+	},
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"hEL" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
 "hFY" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /obj/structure/table,
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/firebase_dinakk/inside/presidium/briefing)
-"hHr" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
 "hIF" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"hKk" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/checkpoint)
 "hKH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/armoury)
+/area/firebase_dinakk/inside/presidium/briefing)
 "hLy" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -2775,6 +2719,9 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"hOX" = (
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_office)
 "hPQ" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -2792,6 +2739,11 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
+"hSF" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "hTD" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
@@ -2809,10 +2761,6 @@
 "hUn" = (
 /turf/simulated/floor/exoplanet/permafrost,
 /area/firebase_dinakk/outside/firebase_dinakk/cages)
-"hUG" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/bunks)
 "hWd" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -2828,11 +2776,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"hYe" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
 "hYi" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/unique/sharps{
@@ -2859,14 +2802,12 @@
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
 "ibg" = (
-/obj/structure/platform/column{
-	dir = 8
-	},
-/obj/structure/rod_railing{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+/turf/simulated/wall/r_wall,
+/area/dinakk/outside/mountains)
+"ibG" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/bunks)
 "ibZ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -2886,25 +2827,33 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/unique/tea/messa{
-	pixel_y = 8
+	pixel_y = 8;
+	pixel_x = -4
 	},
-/obj/item/storage/box/unique/tea/rasnif,
+/obj/item/reagent_containers/food/condiment/blood{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/condiment/syrup_dirtberry,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/kitchen)
-"ifg" = (
-/obj/structure/platform/rock/icy{
-	dir = 1
+"ieV" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
 	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery)
-"igj" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
+"ifg" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/armoury)
+/turf/simulated/floor/tiled/ridged,
+/area/firebase_dinakk/inside/basement/vault)
 "iim" = (
-/turf/simulated/wall/brick,
-/area/firebase_dinakk/inside/presidium/commander_office)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/ridged,
+/area/dinakk/outside/mountains)
 "ijh" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -2918,12 +2867,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/barracks/hydro)
-"ilI" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/random/dirt_75,
-/obj/structure/machinery/light,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
 "imS" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_broken,
@@ -2949,9 +2892,9 @@
 "irl" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/large/produce/adhomai,
-/obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
-/obj/item/reagent_containers/food/condiment/blood,
+/obj/item/storage/box/midynhr_water{
+	pixel_x = 12
+	},
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "irs" = (
@@ -2968,14 +2911,7 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"isW" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/armoury)
 "ito" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/inside/garage)
 "ivU" = (
@@ -3016,6 +2952,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
+"iyB" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "izW" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
@@ -3085,13 +3028,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/barracks/kitchen)
-"iNl" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
 "iOq" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/curtain/open/shower,
@@ -3123,6 +3059,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"iUI" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/effect/decal/cleanable/blood/dry,
+/turf/simulated/floor/foundation,
+/area/firebase_dinakk/inside/armoury)
 "iUW" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/floor_damage/random_broken,
@@ -3133,19 +3074,10 @@
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer/cold,
 /area/firebase_dinakk/inside/barracks/kitchen)
-"iVA" = (
-/obj/structure/machinery/door/urban/metal_alt,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/hallway)
 "iVX" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"iYM" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
 "iZe" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -3190,13 +3122,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/garage)
-"jdl" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
-"jeG" = (
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/infirmary)
+"jdS" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 9
+	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "jgA" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -3219,10 +3154,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"jgJ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
 "jhH" = (
 /obj/structure/hadii_statue/stone{
 	pixel_y = 6;
@@ -3267,8 +3198,9 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
 "jly" = (
-/turf/simulated/wall/r_wall,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "jlA" = (
 /obj/structure/table/wood,
 /obj/item/laser_pointer/red,
@@ -3295,14 +3227,10 @@
 	},
 /turf/simulated/floor/exoplanet/permafrost,
 /area/firebase_dinakk/outside/firebase_dinakk/cages)
-"jpb" = (
-/obj/structure/machinery/door/blast/shutters/open{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/bitile{
-	dir = 4
-	},
-/area/firebase_dinakk/outside/firebase_dinakk)
+"jpP" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/checkpoint)
 "jqZ" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/random/dirt_75,
@@ -3320,16 +3248,6 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
-"jxo" = (
-/turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/commander_office)
-"jyk" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
 "jyI" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -3351,6 +3269,13 @@
 "jCc" = (
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"jCq" = (
+/obj/structure/machinery/door/urban/jail_door{
+	req_one_access = list(/datum/access/firebase_dinakk_armoury)
+	},
+/obj/abstract/footprint_spawner/body,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/firebase_dinakk/inside/armoury)
 "jIm" = (
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/firebase_dinakk/inside/presidium/briefing)
@@ -3376,6 +3301,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light/full,
 /area/firebase_dinakk/inside/infirmary)
+"jKL" = (
+/obj/structure/machinery/door/urban/metal_alt,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/hallway)
+"jKZ" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "jLj" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -3420,6 +3362,17 @@
 	},
 /turf/simulated/open,
 /area/firebase_dinakk/inside/basement/hallway_upper)
+"jTi" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/structure/machinery/light/small/emergency,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/dinakk/outside/mountains)
 "jUI" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/effect/floor_decal/spline/plain/black,
@@ -3449,6 +3402,16 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"jXS" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/dinakk/outside/mountains)
 "jYA" = (
 /obj/structure/platform/metal_alt{
 	dir = 4
@@ -3491,13 +3454,31 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
 "kcw" = (
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/barracks/hydro)
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "kcA" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/lavatory)
+"kcO" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/antechamber)
+"kdO" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "kec" = (
 /obj/structure/machinery/light/small/floor,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -3523,6 +3504,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
+"kkI" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/abstract/footprint_spawner/body,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/armoury)
 "kkO" = (
 /obj/structure/machinery/atmospherics/unary/heater{
 	dir = 4
@@ -3556,6 +3543,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
+"kpu" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/presidium/briefing)
 "ksc" = (
 /obj/structure/barricade/metal/wired,
 /obj/structure/machinery/door/blast/shutters/open{
@@ -3565,16 +3556,13 @@
 	dir = 4
 	},
 /area/firebase_dinakk/inside/checkpoint)
-"ksj" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
 "ksB" = (
-/turf/simulated/wall/brick,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
+/turf/simulated/wall/r_wall,
+/area/firebase_dinakk/inside/checkpoint)
+"ksO" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/firebase_dinakk/inside/basement/vault)
 "ktt" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/rack/clothing{
@@ -3627,23 +3615,36 @@
 /obj/structure/platform/column,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
-"kzW" = (
-/obj/random/dirt_75,
-/obj/structure/machinery/door/urban/metal{
-	dir = 4
+"kAB" = (
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/kitchen)
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/barracks/bunks)
 "kBW" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/presidium/commander_office)
+"kCm" = (
+/obj/structure/machinery/door/urban/metal_alt{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/kitchen)
+"kDl" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/garage)
 "kED" = (
 /obj/structure/machinery/door/urban/metal_alt{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/presidium/briefing)
+"kFv" = (
+/turf/simulated/floor/exoplanet/asphalt,
+/area/firebase_dinakk/inside/basement/helipad)
 "kII" = (
 /obj/structure/machinery/shower{
 	dir = 8;
@@ -3691,6 +3692,13 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"kOR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "kOV" = (
 /obj/structure/platform_deco/column,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
@@ -3723,26 +3731,14 @@
 /obj/structure/platform_deco/metal_alt,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"kQN" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/structure/engineer_maintenance/electric/wall,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
 "kRj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "kSh" = (
-/obj/structure/girder,
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/inside/armoury)
 "kUP" = (
@@ -3759,6 +3755,10 @@
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/barracks/hallway)
+"kVJ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/barracks/bunks)
 "kXA" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -3767,6 +3767,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/barracks/hallway)
+"kYG" = (
+/obj/structure/window_frame,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/presidium/commander_office)
 "kYS" = (
 /obj/effect/map_effect/marker/landing_zone_border,
 /turf/simulated/floor/exoplanet/snow,
@@ -3821,6 +3825,10 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"lgT" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_office)
 "lgU" = (
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -3927,11 +3935,12 @@
 "lnr" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /obj/random/dirt_75,
-/obj/structure/machinery/seed_storage/garden/hydroponics{
-	req_access = list(/datum/access/pra)
-	},
+/obj/structure/machinery/seed_storage/garden/hydroponics,
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
+"lnu" = (
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "lod" = (
 /obj/effect/decal/curb{
 	dir = 9
@@ -3945,17 +3954,14 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "loe" = (
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/checkpoint)
-"lot" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain/black{
+/obj/effect/decal/road_marking{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/firebase_dinakk/outside/firebase_dinakk/parade)
 "lrz" = (
 /turf/unsimulated/marker/khaki,
 /area/dinakk/outside)
@@ -4011,19 +4017,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"lvW" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
-"lwl" = (
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/barracks/hallway)
 "lwx" = (
 /obj/structure/flora/rock/adhomai,
 /turf/simulated/floor/exoplanet/snow,
@@ -4042,23 +4035,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/infirmary)
-"lxM" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
-/obj/structure/closet,
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
 "lyv" = (
 /obj/structure/machinery/body_scanconsole{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/infirmary)
+"lzW" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "lAs" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -4077,14 +4066,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"lEI" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/antechamber)
 "lGc" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -4137,8 +4118,11 @@
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
 "lPb" = (
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/barracks/lavatory)
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/roofing_tiles,
+/area/firebase_dinakk/inside/presidium/commander_office)
 "lRC" = (
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 6
@@ -4170,24 +4154,15 @@
 /obj/structure/platform/rock/icy,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery)
-"lXS" = (
-/turf/simulated/wall/r_wall,
-/area/firebase_dinakk/inside/basement/vault)
-"lZe" = (
-/turf/simulated/wall/brick,
-/area/firebase_dinakk/inside/presidium/antechamber)
 "lZi" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/armoury)
 "mar" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
+/area/firebase_dinakk/inside/barracks/hallway)
 "maZ" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /obj/random/dirt_75,
@@ -4236,16 +4211,26 @@
 "mfO" = (
 /turf/simulated/wall/r_wall,
 /area/firebase_dinakk/inside/basement/atc)
+"mfQ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/antechamber)
 "mgG" = (
 /obj/structure/rod_railing/jailbar{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/permafrost,
 /area/firebase_dinakk/outside/firebase_dinakk/cages)
-"mjq" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/full,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+"miN" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/antechamber)
 "mjD" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_y = 1;
@@ -4265,13 +4250,6 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"mjT" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
 "mkh" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -4287,15 +4265,15 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "mkz" = (
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/barracks/hallway)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/firebase_dinakk/inside/garage)
 "mlD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/antechamber)
+/area/firebase_dinakk/inside/barracks/hallway)
 "mmQ" = (
 /obj/structure/sink/kitchen{
 	dir = 4;
@@ -4339,7 +4317,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
+/area/firebase_dinakk/inside/barracks/hallway)
 "mre" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
@@ -4375,21 +4353,18 @@
 /obj/item/soap/green_soap,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/lavatory)
-"muK" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
-"mvG" = (
-/obj/structure/machinery/door/urban/metal,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/bunks)
-"mwz" = (
-/obj/structure/machinery/light/small{
-	dir = 1
+"mud" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 9
 	},
-/turf/simulated/open,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "mxD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -4414,9 +4389,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
-"myj" = (
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
 "myT" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/roofing_tiles,
@@ -4452,13 +4424,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"mFv" = (
-/turf/simulated/floor/tiled/ridged,
-/area/firebase_dinakk/inside/barracks/kitchen)
 "mGd" = (
 /obj/structure/urban_grate,
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"mLf" = (
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
+"mMY" = (
+/obj/structure/machinery/door/urban/metal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/lavatory)
 "mNE" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -4491,12 +4472,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/snow,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"mSh" = (
-/obj/structure/machinery/door/urban/metal_alt{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/kitchen)
 "mSS" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
@@ -4545,17 +4520,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"mVX" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/foundation,
-/area/firebase_dinakk/inside/armoury)
-"mWj" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 5
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/vault)
 "mXb" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -4571,7 +4535,7 @@
 "mYq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/kitchen)
+/area/firebase_dinakk/inside/barracks/hydro)
 "mYC" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/road_marking,
@@ -4584,15 +4548,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
-"mZx" = (
-/obj/structure/machinery/shower{
-	dir = 4;
-	pixel_y = 1
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/random/dirt_75,
-/turf/simulated/floor/foundation,
-/area/firebase_dinakk/inside/barracks/lavatory)
 "mZH" = (
 /obj/structure/machinery/door/urban/jail_door{
 	req_one_access = list(/datum/access/firebase_dinakk_armoury)
@@ -4600,10 +4555,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/permafrost,
 /area/firebase_dinakk/outside/firebase_dinakk/cages)
-"naf" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
-/area/firebase_dinakk/inside/checkpoint)
 "nak" = (
 /obj/structure/bookcase,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4618,6 +4569,10 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/dinakk/outside)
+"nbQ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/firebase_dinakk/inside/garage)
 "nca" = (
 /turf/simulated/floor/exoplanet/sidewalk/detail/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
@@ -4653,14 +4608,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
-"ngo" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
-"ngv" = (
-/obj/structure/window_frame,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/presidium/commander_office)
 "ngC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/stone/marble,
@@ -4695,24 +4642,25 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"nkW" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/vault)
-"nmK" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/outside/firebase_dinakk)
-"nnI" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
+"nlN" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/infirmary)
+/area/firebase_dinakk/inside/barracks/hallway)
+"nmc" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/kitchen)
+"nmK" = (
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/checkpoint)
+"nnG" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "noa" = (
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
@@ -4726,14 +4674,6 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"npR" = (
-/obj/effect/floor_decal/corner_wide/grey,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 9
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "nry" = (
 /obj/structure/platform/rock/icy{
 	dir = 8
@@ -4759,8 +4699,9 @@
 /obj/effect/floor_decal/spline/plain/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/machinery/light/small,
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+/area/firebase_dinakk/inside/basement/atc)
 "nuI" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/flashlight/lamp{
@@ -4770,6 +4711,15 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
+"nvM" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/hydro)
+"nzK" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "nAf" = (
 /obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -4780,6 +4730,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/barracks/hydro)
+"nAm" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/armoury)
 "nAP" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -4790,7 +4746,6 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
 "nBx" = (
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/firebase_dinakk/inside/basement/vault)
 "nBG" = (
@@ -4810,16 +4765,6 @@
 /obj/structure/machinery/iv_drip,
 /turf/simulated/floor/tiled/light/full,
 /area/firebase_dinakk/inside/infirmary)
-"nCY" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "nDf" = (
 /obj/structure/table/wood,
 /obj/structure/machinery/media/jukebox/phonograph{
@@ -4829,7 +4774,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/typewriter_case,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
 "nFc" = (
@@ -4895,13 +4839,6 @@
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"nLs" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/inside/basement/vault)
 "nMt" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 5
@@ -4924,10 +4861,6 @@
 "nPF" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"nRM" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/hallway)
 "nSq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/engineer_maintenance/electric/wall,
@@ -4954,9 +4887,7 @@
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "obO" = (
-/obj/structure/machinery/vending/hydronutrients/hydroponics{
-	req_access = list(/datum/access/pra)
-	},
+/obj/structure/machinery/vending/hydronutrients/hydroponics,
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
 "obW" = (
@@ -4975,6 +4906,30 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/lavatory)
+"ocD" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/structure/safe/cash,
+/obj/structure/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/dinakk/outside/mountains)
+"oew" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 6
+	},
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "ofT" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -5026,18 +4981,19 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"one" = (
-/turf/simulated/floor/tiled/ridged,
-/area/firebase_dinakk/inside/basement/vault)
+"onf" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/firebase_dinakk/inside/garage)
 "onw" = (
-/obj/effect/decal/road_marking{
-	dir = 8
-	},
-/obj/effect/decal/curb{
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/random/dirt_75,
+/obj/structure/machinery/door/urban/metal_alt{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/asphalt,
-/area/firebase_dinakk/outside/firebase_dinakk/parade)
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/infirmary)
 "onz" = (
 /obj/structure/platform/column{
 	dir = 8
@@ -5080,6 +5036,16 @@
 /obj/structure/machinery/smartfridge,
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/barracks/kitchen)
+"otY" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/freezer/cold,
+/area/firebase_dinakk/inside/barracks/kitchen)
+"oup" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/antechamber)
 "oxb" = (
 /obj/structure/engineer_maintenance/electric/wall,
 /obj/structure/cable{
@@ -5088,12 +5054,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/firebase_dinakk/inside/barracks/kitchen)
+"oxo" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/hallway)
 "oxD" = (
 /obj/effect/floor_decal/concrete/gutter/corner{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"oyH" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/barracks/hallway)
 "ozu" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
@@ -5117,11 +5094,8 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 9
 	},
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+/area/firebase_dinakk/inside/barracks/hallway)
 "oAo" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -5157,13 +5131,14 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"oCH" = (
-/obj/structure/rod_railing{
-	dir = 6
+"oCO" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
 	},
-/obj/structure/urban_grate,
-/turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/commander_office)
+/obj/structure/closet,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "oCR" = (
 /obj/random/dirt_75,
 /obj/structure/machinery/door/urban/metal_alt{
@@ -5183,24 +5158,25 @@
 /obj/item/bedsheet/brown,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"oFA" = (
+"oFz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/floor_decal/spline/plain/grey,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/presidium/briefing)
+"oGU" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/firebase_dinakk/inside/basement/vault)
 "oHv" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"oKG" = (
-/obj/structure/machinery/door/urban/metal_alt{
-	req_one_access = list(/datum/access/firebase_dinakk_basement)
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/basement/atc)
+"oJE" = (
+/turf/simulated/wall/concrete,
+/area/firebase_dinakk/inside/barracks/hydro)
 "oLV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5236,12 +5212,6 @@
 	},
 /turf/simulated/floor/exoplanet/permafrost,
 /area/firebase_dinakk/outside/firebase_dinakk/cages)
-"oOw" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
 "oOD" = (
 /obj/structure/platform/rock/icy{
 	dir = 4
@@ -5266,7 +5236,7 @@
 /turf/simulated/floor/tiled/bitile{
 	dir = 8
 	},
-/area/firebase_dinakk/inside/checkpoint)
+/area/firebase_dinakk/outside/firebase_dinakk)
 "oQB" = (
 /obj/structure/bookcase,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5274,14 +5244,9 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
-"oRT" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/inside/basement/vault)
+"oQL" = (
+/turf/simulated/floor/tiled/ridged,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "oSA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -5303,25 +5268,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"oVl" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "oVM" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
-"oYy" = (
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/kitchen)
 "oYM" = (
 /obj/structure/machinery/light,
 /turf/simulated/floor/plating,
@@ -5339,6 +5291,10 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"pbZ" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "pdP" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -5355,6 +5311,12 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"peA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/barracks/bunks)
 "peK" = (
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
@@ -5377,24 +5339,30 @@
 	},
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
-"piN" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/kitchen)
-"pkd" = (
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/obj/random/dirt_75,
-/obj/structure/machinery/door/urban/metal_alt{
-	dir = 4
+"piA" = (
+/obj/structure/machinery/howitzer/maivazh_a42_100mm{
+	dir = 2;
+	pixel_x = -15;
+	pixel_y = -32
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/infirmary)
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/firebase_dinakk/outside/firebase_dinakk/artillery)
+"piT" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/barracks/bunks)
 "pkU" = (
 /obj/structure/machinery/door/urban/metal_alt{
 	req_one_access = list(/datum/access/firebase_dinakk_basement)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/basement/hallway_lower)
+"png" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "pnv" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 5
@@ -5429,11 +5397,8 @@
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
 "ppL" = (
-/obj/structure/machinery/power/terminal{
-	dir = 1
-	},
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/garage)
@@ -5472,12 +5437,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"psY" = (
-/obj/structure/machinery/door/urban/metal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/lavatory)
 "pxq" = (
 /obj/effect/decal/exterior_stairs/half/center,
 /obj/structure/platform/column{
@@ -5486,6 +5445,17 @@
 /obj/structure/lattice/ceiling,
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
+"pyW" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "pyZ" = (
 /obj/effect/decal/curb{
 	dir = 10
@@ -5504,6 +5474,9 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/firebase_dinakk/inside/presidium/commander_office)
+"pDC" = (
+/turf/simulated/floor/exoplanet/roofing_tiles,
+/area/firebase_dinakk/inside/presidium/briefing)
 "pEo" = (
 /obj/structure/machinery/door/urban/metal,
 /turf/simulated/floor/tiled/dark/full,
@@ -5559,6 +5532,11 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
+"pNF" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/area/firebase_dinakk/inside/basement/vault)
 "pOJ" = (
 /obj/structure/platform/column{
 	dir = 4
@@ -5593,12 +5571,22 @@
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/tiled/freezer/cold,
 /area/firebase_dinakk/inside/barracks/kitchen)
-"pSA" = (
-/obj/structure/machinery/power/portgen/basic/advanced{
-	anchored = 1
+"pRD" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
 	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/barracks/hallway)
+"pSb" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/random/dirt_75,
+/turf/simulated/floor/foundation,
+/area/firebase_dinakk/inside/checkpoint)
+"pSA" = (
+/obj/structure/machinery/power/smes/buildable/substation,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/garage)
@@ -5616,8 +5604,9 @@
 /turf/simulated/floor/exoplanet/snow,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "pVd" = (
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/bunks)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/ridged,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "pVt" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/effect/decal/cleanable/floor_damage/random_burned,
@@ -5657,8 +5646,8 @@
 /turf/simulated/floor/tiled/ridged,
 /area/firebase_dinakk/inside/basement/hallway_lower)
 "pYq" = (
-/turf/simulated/wall/r_wall,
-/area/firebase_dinakk/inside/checkpoint)
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/presidium/briefing)
 "pYI" = (
 /obj/effect/landmark/minimap_poi{
 	name = "Clearing"
@@ -5677,13 +5666,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
-"qaH" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/hallway)
-"qbw" = (
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/armoury)
 "qei" = (
 /obj/structure/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/structure/machinery/meter,
@@ -5695,10 +5677,6 @@
 	dir = 10
 	},
 /obj/structure/table/wood,
-/obj/item/flashlight/lamp/green{
-	pixel_x = 6;
-	pixel_y = 14
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
@@ -5732,6 +5710,9 @@
 	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
@@ -5788,6 +5769,16 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
+"qrI" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/dinakk/outside/mountains)
 "qsL" = (
 /obj/structure/platform/column{
 	dir = 4
@@ -5809,22 +5800,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/basement/atc)
-"qxU" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/infirmary)
-"qyl" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "qyL" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/tiled/dark,
@@ -5865,9 +5840,6 @@
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
 "qDA" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/structure/machinery/door/urban/metal_alt{
 	dir = 4
 	},
@@ -5876,30 +5848,15 @@
 "qDD" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/kitchen)
+"qDK" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/inside/armoury)
-"qGm" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
 "qJy" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"qKe" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "qME" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -5913,14 +5870,19 @@
 "qMQ" = (
 /turf/unsimulated/mineral/adhomai,
 /area/dinakk/outside/mountains)
-"qRu" = (
+"qOv" = (
 /obj/effect/floor_decal/corner_wide/grey{
-	dir = 5
+	dir = 9
 	},
-/obj/effect/floor_decal/spline/plain/black,
-/obj/random/dirt_75,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/hallway_lower)
+"qRB" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "qRG" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -5937,6 +5899,14 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"qVH" = (
+/obj/structure/machinery/door/blast/shutters/open{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/bitile{
+	dir = 4
+	},
+/area/firebase_dinakk/inside/checkpoint)
 "qWf" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -5973,7 +5943,6 @@
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/large/stab,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/infirmary)
@@ -5987,7 +5956,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
+/area/firebase_dinakk/inside/presidium/commander_office)
 "qYm" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/effect/decal/exterior_stairs/half/center{
@@ -5995,23 +5964,14 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
-"qZl" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/antechamber)
 "qZW" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/large/combat,
+/obj/structure/roller_rack,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/infirmary)
-"rao" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/ridged,
-/area/dinakk/outside/mountains)
 "raV" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
@@ -6021,7 +5981,7 @@
 "rco" = (
 /obj/structure/arch/gothic/eastwest/middle,
 /turf/simulated/floor/exoplanet/barren,
-/area/firebase_dinakk/outside/firebase_dinakk)
+/area/dinakk/outside)
 "rcM" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -6047,12 +6007,9 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "rdY" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/vault)
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/infirmary)
 "rel" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/engineer_maintenance/electric{
@@ -6108,17 +6065,12 @@
 /area/firebase_dinakk/inside/garage)
 "rit" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/machinery/light,
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
-"riN" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/barracks/hydro)
+/area/firebase_dinakk/inside/presidium/commander_office)
 "riW" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/lavatory)
+/obj/abstract/weather_marker/firebase_dinakk,
+/turf/simulated/floor/exoplanet/sidewalk/detail/concrete/dark,
+/area/firebase_dinakk/outside/firebase_dinakk)
 "rlp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -6131,9 +6083,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/barracks/bunks)
-"rnf" = (
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
 "roz" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/chair/folding{
@@ -6160,15 +6109,9 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood/dry,
 /turf/simulated/floor/foundation,
 /area/firebase_dinakk/inside/armoury)
-"rsy" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
 "rsG" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/random/dirt_75,
@@ -6194,12 +6137,16 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"rym" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey,
+"rxJ" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "ryU" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -6212,11 +6159,9 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
-"rzT" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
+"rzl" = (
+/turf/simulated/floor/tiled/ridged,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "rCj" = (
 /obj/structure/machinery/sleeper{
 	dir = 4
@@ -6286,6 +6231,13 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/firebase_dinakk/inside/armoury)
+"rLw" = (
+/obj/random/dirt_75,
+/obj/structure/machinery/door/urban/metal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "rLI" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 10
@@ -6293,12 +6245,9 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/basement/helipad)
 "rNp" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/barracks/hallway)
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/garage)
 "rPI" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -6328,18 +6277,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"rSt" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
-	},
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+"rWk" = (
+/turf/simulated/floor/exoplanet/roofing_tiles,
+/area/firebase_dinakk/inside/presidium/commander_office)
 "rWG" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/machinery/washing_machine,
@@ -6369,6 +6309,13 @@
 	},
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/presidium/commander_office)
+"sci" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/vault)
 "scs" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/tent{
@@ -6397,13 +6344,45 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"scL" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/obj/structure/safe/highvalue,
+/obj/structure/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/dinakk/outside/mountains)
+"sda" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
+"seR" = (
+/obj/abstract/footprint_spawner/body,
+/obj/abstract/footprint_spawner_turn_helper{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/armoury)
 "sie" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "skU" = (
-/turf/simulated/wall/r_wall,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/firebase_dinakk/inside/presidium/briefing)
 "slK" = (
 /obj/structure/machinery/shower{
 	dir = 4;
@@ -6412,7 +6391,11 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/random/dirt_75,
 /turf/simulated/floor/foundation,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
+/area/firebase_dinakk/inside/barracks/lavatory)
+"spL" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "srM" = (
 /obj/structure/barricade/liquid{
 	build_stage = 5;
@@ -6442,6 +6425,9 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"suF" = (
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "svh" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/effect/floor_decal/industrial/warning{
@@ -6452,6 +6438,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
+"svl" = (
+/turf/simulated/wall/concrete,
+/area/firebase_dinakk/inside/barracks/hallway)
 "sxI" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
@@ -6478,6 +6467,20 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"szV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
+"szX" = (
+/obj/structure/machinery/door/urban/metal,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/bunks)
 "sFM" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing,
@@ -6486,8 +6489,8 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
 "sFU" = (
-/turf/simulated/wall/concrete,
-/area/firebase_dinakk/inside/barracks/kitchen)
+/turf/simulated/wall/r_wall,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "sGg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair/office/dark{
@@ -6499,13 +6502,6 @@
 /obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/snow,
 /area/dinakk/outside)
-"sGW" = (
-/obj/effect/decal/curb,
-/obj/effect/decal/curb{
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/snow,
-/area/firebase_dinakk/outside/firebase_dinakk)
 "sKe" = (
 /obj/structure/barricade/metal{
 	dir = 4
@@ -6513,10 +6509,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"sKw" = (
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/kitchen)
+"sKJ" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/dinakk/outside)
 "sKX" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
@@ -6544,6 +6542,10 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/barracks/bunks)
+"sNg" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/lavatory)
 "sNv" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -6673,6 +6675,28 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"thx" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/machinery/light,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
+"thB" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/kitchen)
+"thK" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "thO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/papershredder{
@@ -6691,15 +6715,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"tin" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/structure/machinery/door/urban/metal_alt{
-	req_one_access = list(/datum/access/firebase_dinakk_basement)
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/basement/helipad)
 "tjz" = (
 /obj/structure/platform_deco/rock/icy{
 	dir = 8
@@ -6720,7 +6735,11 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/firebase_dinakk/outside/firebase_dinakk)
+/area/dinakk/outside)
+"toD" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "toW" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -6755,6 +6774,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"tqU" = (
+/obj/structure/window_frame,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/presidium/briefing)
 "tua" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -6783,13 +6806,13 @@
 /obj/structure/machinery/door/urban/metal,
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"tys" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 8
-	},
-/obj/random/dirt_75,
+"twb" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/checkpoint)
+"twB" = (
 /turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/vault)
+/area/firebase_dinakk/inside/barracks/kitchen)
 "tyx" = (
 /obj/structure/platform/column{
 	dir = 4
@@ -6819,23 +6842,10 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
-"tzl" = (
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "tzG" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/infirmary)
+/area/firebase_dinakk/inside/barracks/bunks)
 "tAq" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 1
@@ -6862,6 +6872,13 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
+"tCh" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "tCY" = (
 /obj/structure/platform_deco/rock/icy{
 	dir = 4
@@ -6891,16 +6908,24 @@
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
 "tLH" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/armoury)
+"tOu" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
 	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
+"tQx" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
-"tNQ" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/infirmary)
 "tSM" = (
 /obj/structure/platform/rock/icy,
 /obj/structure/platform/rock/icy{
@@ -6935,13 +6960,8 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"tTJ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
-"tTP" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
+"tTp" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "tWY" = (
@@ -6956,6 +6976,12 @@
 /area/firebase_dinakk/inside/presidium/commander_office)
 "tXH" = (
 /obj/structure/engineer_maintenance/pipe/wall,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/garage)
 "tYD" = (
@@ -6971,21 +6997,10 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
-"tZn" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
 "uby" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/checkpoint)
-"ucB" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/briefing)
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/lavatory)
 "ueC" = (
 /obj/structure/machinery/atmospherics/valve,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -7003,6 +7018,10 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
+"uhi" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/checkpoint)
 "uim" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /obj/structure/machinery/light{
@@ -7018,13 +7037,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/barracks/hallway)
-"ujQ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
 "ujS" = (
 /obj/effect/floor_decal/snowdrift/random,
 /obj/effect/decal/road_marking{
@@ -7035,17 +7047,14 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"ukC" = (
-/obj/effect/floor_decal/spline/plain/black{
+"uka" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "ukY" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -7106,14 +7115,6 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
-"urV" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/bunks)
-"uvt" = (
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/checkpoint)
 "uvA" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -7125,10 +7126,6 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"uyJ" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
 "uyU" = (
 /obj/effect/tent{
 	dir = 8
@@ -7138,14 +7135,13 @@
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "uAf" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/firebase_dinakk/inside/garage)
+/turf/simulated/wall/r_wall,
+/area/firebase_dinakk/inside/basement/helipad)
 "uAy" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
+/area/firebase_dinakk/inside/presidium/commander_office)
 "uAS" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -7167,7 +7163,7 @@
 	},
 /obj/structure/urban_grate,
 /turf/simulated/floor/exoplanet/roofing_tiles,
-/area/firebase_dinakk/inside/presidium/briefing)
+/area/firebase_dinakk/inside/presidium/commander_office)
 "uDD" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 8
@@ -7182,14 +7178,11 @@
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
 "uGg" = (
-/obj/effect/floor_decal/corner_wide/grey/full{
+/obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+/turf/simulated/floor/exoplanet/roofing_tiles,
+/area/firebase_dinakk/inside/presidium/briefing)
 "uHK" = (
 /obj/random/dirt_75,
 /obj/structure/machinery/door/urban/metal{
@@ -7294,13 +7287,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/barracks/kitchen)
-"uNm" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
+"uND" = (
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/infirmary)
 "uOo" = (
 /obj/structure/platform/column{
 	dir = 8
@@ -7308,7 +7299,6 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/obj/structure/machinery/light/small,
 /turf/simulated/open,
 /area/firebase_dinakk/inside/basement/hallway_upper)
 "uOM" = (
@@ -7371,27 +7361,12 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"vbq" = (
-/obj/effect/floor_decal/corner_wide/grey,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/basement/vault)
 "vbE" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/dinakk/outside)
-"vdI" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/inside/basement/vault)
-"vdU" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/garage)
 "vfg" = (
 /obj/structure/platform_deco/metal_alt{
 	dir = 4
@@ -7405,6 +7380,12 @@
 /obj/structure/platform_deco/metal_alt,
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
+"vhn" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "vhs" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -7412,11 +7393,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
-"vif" = (
-/obj/effect/decal/cleanable/floor_damage/random_broken,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/garage)
 "viv" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sink/kitchen{
@@ -7470,9 +7446,10 @@
 "vnr" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/large/condiment,
-/obj/item/storage/box/midynhr_water,
-/obj/item/reagent_containers/food/condiment/syrup_dirtberry,
+/obj/item/storage/box/large/condiment{
+	pixel_y = 10
+	},
+/obj/item/storage/box/large/produce/adhomai,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "vnz" = (
@@ -7510,6 +7487,14 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"vqQ" = (
+/obj/effect/floor_decal/corner_wide/grey,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "vrM" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/road_marking,
@@ -7528,15 +7513,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer/cold,
 /area/firebase_dinakk/inside/barracks/kitchen)
-"vtw" = (
-/obj/structure/table/fancy/black,
-/obj/structure/rredouane_statue{
-	pixel_y = 21
-	},
-/obj/item/research_slip/firebase_dinakk,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/ridged,
-/area/dinakk/outside/mountains)
 "vtE" = (
 /obj/structure/machinery/atmospherics/pipe/tank/air{
 	dir = 4
@@ -7549,18 +7525,32 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"vuU" = (
+/obj/random/dirt_75,
+/obj/structure/machinery/door/urban/metal_alt{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/firebase_dinakk/inside/barracks/kitchen)
 "vvQ" = (
-/turf/simulated/wall/r_wall,
-/area/firebase_dinakk/inside/basement/helipad)
+/turf/simulated/wall/brick,
+/area/firebase_dinakk/inside/presidium/antechamber)
+"vwl" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/garage)
+"vwQ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "vxr" = (
 /obj/structure/table,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/checkpoint)
-"vxJ" = (
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_quarters)
 "vAf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/light{
@@ -7574,6 +7564,14 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery)
+"vBI" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "vBR" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -7588,9 +7586,11 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/structure/machinery/door/urban/metal,
+/obj/structure/machinery/door/urban/metal_alt{
+	req_one_access = list(/datum/access/firebase_dinakk_basement)
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+/area/firebase_dinakk/inside/basement/helipad)
 "vDS" = (
 /obj/structure/platform_deco/metal_alt{
 	dir = 8
@@ -7598,9 +7598,6 @@
 /obj/effect/decal/exterior_stairs/half/right,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"vGj" = (
-/turf/simulated/wall/r_wall,
-/area/dinakk/outside/mountains)
 "vHh" = (
 /obj/item/ammo_casing/howitzer/high_explosive/maivazh_a42_100mm{
 	pixel_x = -17;
@@ -7620,6 +7617,10 @@
 /obj/structure/closet/crate/secure/weapon,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
+"vIn" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/infirmary)
 "vIL" = (
 /obj/structure/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -7658,13 +7659,8 @@
 /area/firebase_dinakk/outside/firebase_dinakk)
 "vPu" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/garage)
 "vRO" = (
@@ -7684,13 +7680,9 @@
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/freezer/cold,
 /area/firebase_dinakk/inside/barracks/kitchen)
-"vTl" = (
-/turf/simulated/floor/tiled/ridged,
-/area/firebase_dinakk/inside/basement/hallway_lower)
 "vUf" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
-/obj/abstract/weather_marker/firebase_dinakk,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "vVh" = (
@@ -7720,6 +7712,10 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
+"vWF" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
+/area/firebase_dinakk/inside/checkpoint)
 "vXS" = (
 /obj/structure/platform/metal_alt{
 	dir = 8
@@ -7738,6 +7734,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light/full,
 /area/firebase_dinakk/inside/infirmary)
+"vZx" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/lavatory)
 "vZL" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_broken,
@@ -7757,11 +7757,6 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery)
-"wdl" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/random/dirt_75,
-/turf/simulated/floor/foundation,
-/area/firebase_dinakk/inside/checkpoint)
 "wdK" = (
 /obj/structure/flora/grass/brown,
 /obj/effect/decal/curb{
@@ -7799,9 +7794,14 @@
 	},
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
-"wiY" = (
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/presidium/antechamber)
+"wik" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
 "wjL" = (
 /obj/structure/machinery/iv_drip,
 /obj/effect/decal/cleanable/floor_damage/random_burned,
@@ -7813,6 +7813,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/lavatory)
+"wkN" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/barracks/hallway)
 "wlD" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 8
@@ -7825,6 +7829,9 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"wnd" = (
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "wpi" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/freezer/cold,
@@ -7865,12 +7872,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"wsU" = (
-/obj/structure/machinery/door/urban/metal_alt{
-	req_one_access = list(/datum/access/firebase_dinakk_basement)
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/basement/vault)
 "wvL" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -7904,6 +7905,15 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
+"wzO" = (
+/obj/structure/machinery/shower{
+	dir = 4;
+	pixel_y = 1
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/random/dirt_75,
+/turf/simulated/floor/foundation,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "wAf" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -7915,10 +7925,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
-"wCH" = (
-/turf/simulated/floor/exoplanet/asphalt,
-/area/firebase_dinakk/inside/basement/helipad)
+/area/firebase_dinakk/inside/presidium/commander_office)
 "wDn" = (
 /turf/simulated/floor/carpet/darkblue,
 /area/firebase_dinakk/inside/presidium/commander_office)
@@ -7930,12 +7937,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/kitchen)
+"wIk" = (
+/obj/structure/rod_railing,
+/turf/simulated/floor/exoplanet/roofing_tiles,
+/area/firebase_dinakk/inside/presidium/briefing)
 "wIn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/barracks/bunks)
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "wJh" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -7951,20 +7962,13 @@
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/inside/garage)
+"wLc" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/hallway)
 "wMn" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/wall/concrete,
 /area/firebase_dinakk/inside/garage)
-"wMp" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
-	dir = 5
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/presidium/antechamber)
 "wOm" = (
 /obj/structure/platform/rock/icy{
 	dir = 8
@@ -7981,18 +7985,32 @@
 /obj/structure/closet/secure_closet/cabinet,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/barracks/bunks)
-"wOW" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/ridged,
-/area/firebase_dinakk/inside/basement/hallway_lower)
+"wOT" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/basement/atc)
 "wPy" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk)
+"wQb" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "wRe" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 6;
+	pixel_y = 14
+	},
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
 "wSg" = (
@@ -8057,6 +8075,10 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_office)
+"wXr" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/firebase_dinakk/inside/basement/hallway_upper)
 "wYE" = (
 /obj/structure/machinery/smartfridge/drying_rack,
 /turf/simulated/floor/plating,
@@ -8090,6 +8112,9 @@
 /area/firebase_dinakk/inside/barracks/hydro)
 "xfR" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/structure/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/tiled/full,
 /area/firebase_dinakk/inside/presidium/briefing)
 "xfW" = (
@@ -8111,8 +8136,8 @@
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/barracks/hallway)
 "xhK" = (
-/turf/simulated/floor/exoplanet/asphalt,
-/area/firebase_dinakk/inside/garage)
+/turf/unsimulated/marker/khaki,
+/area/firebase_dinakk/outside/firebase_dinakk)
 "xil" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -8131,6 +8156,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/abstract/footprint_spawner/body,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
 "xjk" = (
@@ -8140,7 +8166,12 @@
 /turf/simulated/floor/exoplanet/sidewalk/flat/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "xjT" = (
-/obj/structure/machinery/power/smes/buildable/substation,
+/obj/structure/machinery/power/portgen/basic/advanced{
+	anchored = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/garage)
 "xke" = (
@@ -8151,10 +8182,15 @@
 /area/firebase_dinakk/inside/armoury)
 "xkT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+	dir = 1
 	},
+/obj/structure/engineer_maintenance/electric/wall,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/firebase_dinakk/inside/presidium/commander_office)
+/area/firebase_dinakk/inside/barracks/bunks)
 "xlW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -8197,6 +8233,10 @@
 /obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/infirmary)
+"xqu" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/garage)
 "xrp" = (
 /obj/effect/decal/curb/corner,
 /obj/structure/platform_deco/column{
@@ -8233,13 +8273,14 @@
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
 "xuk" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/journal/filled,
 /turf/simulated/floor/carpet/darkblue,
 /area/firebase_dinakk/inside/presidium/commander_office)
 "xxr" = (
-/obj/effect/floor_decal/corner_wide/grey,
 /obj/effect/floor_decal/spline/plain/black{
-	dir = 9
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
@@ -8271,18 +8312,19 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"xBh" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/hallway)
-"xBC" = (
-/obj/structure/girder,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/garage)
 "xBR" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/barracks/kitchen)
+/area/firebase_dinakk/inside/barracks/hydro)
+"xDB" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/firebase_dinakk/inside/garage)
 "xFf" = (
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 4
@@ -8303,17 +8345,13 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
 /obj/random/dirt_75,
+/obj/item/journal/filled,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"xGg" = (
-/obj/effect/decal/cleanable/floor_damage/random_burned,
-/turf/simulated/floor/exoplanet/tiled/full,
-/area/firebase_dinakk/inside/presidium/briefing)
 "xGB" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/infirmary)
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/checkpoint)
 "xHK" = (
 /obj/structure/table,
 /turf/simulated/floor/carpet/darkblue,
@@ -8327,22 +8365,14 @@
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
 "xJh" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/garage)
-"xKd" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/grey{
+/obj/structure/machinery/power/terminal{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/hallway_upper)
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/garage)
 "xMo" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/carbon_dioxide{
@@ -8358,6 +8388,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/armoury)
+"xNd" = (
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/firebase_dinakk/inside/presidium/briefing)
 "xNj" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -8370,18 +8406,35 @@
 	dir = 1
 	},
 /obj/structure/closet,
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/tiled/gridded,
 /area/firebase_dinakk/inside/basement/atc)
-"xOt" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/exoplanet/tiled/gridded,
-/area/firebase_dinakk/inside/basement/atc)
+"xNH" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_office)
+"xNI" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/plating,
+/area/firebase_dinakk/inside/barracks/hallway)
 "xOD" = (
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/inside/basement/vault)
-"xPy" = (
+"xRg" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/tiled/gridded,
+/area/firebase_dinakk/inside/presidium/briefing)
+"xTu" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/kitchen)
+/area/firebase_dinakk/inside/garage)
 "xTL" = (
 /obj/structure/platform_deco/column,
 /obj/effect/decal/curb,
@@ -8407,9 +8460,6 @@
 "xVZ" = (
 /turf/simulated/wall/concrete,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"xYV" = (
-/turf/simulated/floor/tiled/dark,
-/area/firebase_dinakk/inside/barracks/kitchen)
 "xZi" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -8424,7 +8474,18 @@
 /area/firebase_dinakk/inside/basement/helipad)
 "ycd" = (
 /turf/simulated/wall/brick,
-/area/firebase_dinakk/inside/presidium/briefing)
+/area/firebase_dinakk/inside/presidium/commander_office)
+"ycH" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/firebase_dinakk/inside/basement/hallway_lower)
 "yde" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/storage/belt/hydro/full,
@@ -8456,6 +8517,15 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
+"ygk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/firebase_dinakk/inside/presidium/commander_quarters)
 "yhX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain/grey{
@@ -8477,16 +8547,10 @@
 	},
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"yiG" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/firebase_dinakk/inside/barracks/hallway)
-"ykL" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating,
-/area/firebase_dinakk/inside/barracks/lavatory)
 "ykT" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/dry,
 /turf/simulated/floor/foundation,
 /area/firebase_dinakk/inside/armoury)
 "ykY" = (
@@ -40161,11 +40225,11 @@ jyR
 jyR
 jyR
 ssy
-skU
+sFU
 hdI
 hdI
 hdI
-skU
+sFU
 ssy
 jyR
 jyR
@@ -40418,11 +40482,11 @@ jyR
 jyR
 jyR
 ssy
-skU
+sFU
 bQm
 nIZ
 gja
-skU
+sFU
 ssy
 jyR
 jyR
@@ -40653,8 +40717,8 @@ jyR
 jyR
 jyR
 jyR
-lXS
-lXS
+aSC
+aSC
 wgB
 lRV
 xOD
@@ -40665,8 +40729,8 @@ xOD
 qoq
 kOV
 pWU
-skU
-skU
+sFU
+sFU
 ssy
 ssy
 ssy
@@ -40675,10 +40739,10 @@ ssy
 ssy
 ssy
 ssy
-skU
-bmm
-cSw
-efz
+sFU
+pyW
+pVd
+xxr
 kxc
 ssy
 jyR
@@ -40906,13 +40970,13 @@ jyR
 jyR
 jyR
 jyR
-vGj
-vGj
-vGj
-vGj
-lXS
-vdI
-fDs
+ibg
+ibg
+ibg
+ibg
+aSC
+aeB
+pNF
 cPb
 ial
 ial
@@ -40921,21 +40985,21 @@ ial
 ial
 ial
 pWU
-fJt
-vdI
-skU
-skU
-skU
-skU
-skU
-skU
-skU
-skU
-skU
-skU
-qRu
-cSw
-wOW
+ksO
+aeB
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+nnG
+pVd
+gdG
 kxc
 ssy
 jyR
@@ -41163,36 +41227,36 @@ jyR
 jyR
 jyR
 jyR
-vGj
-djN
-faP
-bbp
-lXS
-bms
-fDs
+ibg
+ocD
+qrI
+jTi
+aSC
+eSD
+pNF
+ifg
+ifg
+ifg
 nBx
 nBx
+ifg
 nBx
-one
-one
 nBx
-one
-one
-fJt
-vbq
-skU
-qiR
-hcH
-azn
-qiR
-qKe
+ksO
+aZD
+sFU
+qOv
+hdy
+rxJ
+qOv
+cUe
 xso
-qyl
-rSt
 qiR
-deq
-cSw
-xxr
+mud
+qOv
+bGc
+pVd
+gIj
 kxc
 ssy
 jyR
@@ -41420,37 +41484,37 @@ jyR
 jyR
 jyR
 jyR
-vGj
-vtw
-rao
-rao
-wsU
-mWj
-fDs
-fDs
-fDs
-fDs
-fJt
-fDs
-fDs
-fDs
-fDs
-fDs
-nkW
+ibg
+cjF
+iim
+iim
+gRS
+csX
+pNF
+pNF
+pNF
+pNF
+ksO
+pNF
+pNF
+pNF
+pNF
+pNF
+hxs
 pkU
-cSw
-cSw
-cSw
-cSw
+pVd
+pVd
+pVd
+pVd
 pXv
 xso
 afc
-cSw
-cSw
-cSw
-cSw
+pVd
+pVd
+pVd
+pVd
 jNV
-skU
+sFU
 ssy
 jyR
 jyR
@@ -41677,37 +41741,37 @@ jyR
 jyR
 jyR
 jyR
-vGj
-cLK
-bgp
-gMW
-lXS
-rdY
-fDs
-one
-one
+ibg
+scL
+jXS
+fvc
+aSC
+sci
+pNF
 nBx
 nBx
+ifg
+ifg
+ifg
 nBx
-one
+ifg
 nBx
-one
-fDs
-tys
-skU
+pNF
+bms
+sFU
 fkS
-tzl
-lot
-lot
-aNt
+jKZ
+ieV
+ieV
+bRJ
 xso
 rHQ
-cSw
-npR
-lot
+pVd
+vqQ
+ieV
 dPk
-uGg
-skU
+hgg
+sFU
 ssy
 jyR
 jyR
@@ -41934,13 +41998,13 @@ jyR
 jyR
 jyR
 jyR
-vGj
-vGj
-vGj
-vGj
-lXS
-nLs
-fDs
+ibg
+ibg
+ibg
+ibg
+aSC
+oGU
+pNF
 vVl
 nCf
 nCf
@@ -41949,22 +42013,22 @@ nCf
 nCf
 nCf
 qBb
+ksO
 fJt
-oRT
-skU
-skU
-skU
-skU
-skU
-skU
-skU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
 ari
-vTl
-nCY
-skU
-skU
-skU
-skU
+rzl
+wQb
+sFU
+sFU
+sFU
+sFU
 ssy
 jyR
 jyR
@@ -42195,8 +42259,8 @@ jyR
 jyR
 jyR
 jyR
-lXS
-lXS
+aSC
+aSC
 hLY
 bcr
 qoq
@@ -42207,18 +42271,18 @@ qoq
 qoq
 jwz
 qBb
-skU
-skU
+sFU
+sFU
 ssy
-skU
-skU
-skU
+sFU
+sFU
+sFU
 brG
-skU
-lvW
-cSw
-fVu
-skU
+sFU
+tOu
+pVd
+thx
+sFU
 ssy
 ssy
 ssy
@@ -42467,15 +42531,15 @@ jwz
 oqt
 qMQ
 ssy
-skU
+sFU
 qyL
-fjj
+wnd
 qBn
-skU
-qRu
-cSw
-eWo
-skU
+sFU
+nnG
+pVd
+sda
+sFU
 ssy
 jyR
 jyR
@@ -42724,14 +42788,14 @@ bjq
 wOm
 qMQ
 ssy
-skU
+sFU
 qyL
 oZL
 tyx
 kka
-oVl
-cSw
-efz
+deq
+pVd
+xxr
 kxc
 ssy
 jyR
@@ -42981,13 +43045,13 @@ wOm
 qMQ
 qMQ
 ssy
-skU
+sFU
 pnv
 jWb
-cSw
-cSw
-cSw
-cSw
+pVd
+pVd
+pVd
+pVd
 pXv
 kxc
 ssy
@@ -43238,14 +43302,14 @@ qMQ
 qMQ
 jyR
 ssy
-skU
+sFU
 ngd
-tzl
+jKZ
 fkS
 fkS
 fkS
 dPk
-ukC
+ycH
 kxc
 ssy
 jyR
@@ -43495,15 +43559,15 @@ jyR
 jyR
 jyR
 ssy
-skU
-skU
-skU
-skU
-skU
-skU
-skU
-skU
-skU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
+sFU
 ssy
 jyR
 jyR
@@ -96236,7 +96300,7 @@ kQk
 kme
 kpf
 cHk
-pYq
+ksB
 cHk
 pHM
 lgS
@@ -96493,10 +96557,10 @@ guv
 kpf
 nPF
 iVX
-pYq
+ksB
 nPF
 til
-pYq
+ksB
 lgS
 rPY
 iFP
@@ -96693,11 +96757,11 @@ uPj
 uPj
 uPj
 uqK
-pYq
+ksB
 nPF
 iVX
 nPF
-pYq
+ksB
 lEr
 uPj
 uPj
@@ -96720,11 +96784,11 @@ uPj
 uPj
 uPj
 uqK
-pYq
+ksB
 nPF
 til
 nPF
-pYq
+ksB
 lEr
 uPj
 uPj
@@ -96747,7 +96811,7 @@ uPj
 uPj
 uPj
 uqK
-pYq
+ksB
 til
 nPF
 nPF
@@ -96950,11 +97014,11 @@ vOS
 vOS
 hnP
 guv
-uby
+uhi
 nPF
 nPF
 nPF
-uby
+uhi
 gif
 rws
 vOS
@@ -96977,11 +97041,11 @@ vOS
 vOS
 hnP
 guv
-uby
+uhi
 nPF
 nPF
 nPF
-loe
+nmK
 gif
 rws
 vOS
@@ -97004,7 +97068,7 @@ vOS
 vOS
 hnP
 guv
-uby
+uhi
 nPF
 til
 nPF
@@ -97207,11 +97271,11 @@ uWm
 uWm
 ylo
 guv
-loe
+nmK
 iVX
 iVX
 til
-uby
+uhi
 gif
 wps
 uWm
@@ -97234,11 +97298,11 @@ uWm
 uWm
 ylo
 guv
-loe
+nmK
 nPF
 nPF
 iVX
-uby
+uhi
 gif
 wps
 uWm
@@ -97261,14 +97325,14 @@ uWm
 uWm
 ylo
 guv
-uby
-pYq
+uhi
+ksB
 nPF
-pYq
+ksB
 iVX
 nPF
-uby
-pYq
+uhi
+ksB
 gif
 iFP
 lrz
@@ -97464,11 +97528,11 @@ jPs
 jPs
 bJR
 jPs
-loe
+nmK
 nPF
 nPF
 nPF
-pYq
+ksB
 jPs
 jPs
 bJR
@@ -97491,11 +97555,11 @@ sMv
 jPs
 bJR
 bJR
-pYq
+ksB
 til
 nPF
 nPF
-uby
+uhi
 jPs
 sMv
 bJR
@@ -97518,7 +97582,7 @@ jPs
 jPs
 bJR
 bJR
-loe
+nmK
 nPF
 nPF
 til
@@ -97778,7 +97842,7 @@ rGd
 rGd
 rGd
 nPF
-pYq
+ksB
 nPF
 nPF
 rJa
@@ -98034,10 +98098,10 @@ pzo
 pzo
 pTY
 rGd
-pYq
-uby
-pYq
-pYq
+ksB
+uhi
+ksB
+ksB
 bep
 med
 vfg
@@ -98227,38 +98291,38 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 rGd
@@ -98286,9 +98350,9 @@ rGd
 rGd
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 sMv
@@ -98484,23 +98548,23 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 reL
 pPC
 pPC
@@ -98543,9 +98607,9 @@ mUw
 duS
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 bJR
@@ -98742,22 +98806,22 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 rGd
@@ -98800,9 +98864,9 @@ kPE
 hwc
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -98999,22 +99063,22 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 xVZ
@@ -99057,9 +99121,9 @@ gKn
 njW
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -99255,23 +99319,23 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 ghx
@@ -99314,9 +99378,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -99513,22 +99577,22 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 hpS
@@ -99571,9 +99635,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 bJR
@@ -99770,22 +99834,22 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 wsL
@@ -99828,9 +99892,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 sMv
@@ -100028,21 +100092,21 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 xVZ
@@ -100085,9 +100149,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 sMv
@@ -100286,20 +100350,20 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 uJZ
@@ -100342,9 +100406,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 bJR
@@ -100543,20 +100607,20 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 xVZ
@@ -100599,9 +100663,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 sMv
@@ -100799,21 +100863,21 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 teI
@@ -100856,9 +100920,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 bJR
@@ -101058,19 +101122,19 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 hxC
@@ -101113,9 +101177,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -101314,20 +101378,20 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 ckH
@@ -101370,9 +101434,9 @@ gKn
 jlg
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -101571,18 +101635,18 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 reL
 pPC
 azN
@@ -101627,15 +101691,15 @@ gKn
 xzw
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
-uby
-loe
-loe
-pYq
+uhi
+nmK
+nmK
+ksB
 pHM
 lgS
 rPY
@@ -101828,18 +101892,18 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 rGd
@@ -101884,9 +101948,9 @@ gtS
 hwc
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 nPF
@@ -102085,18 +102149,18 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 aaK
@@ -102141,9 +102205,9 @@ bfj
 epC
 hbK
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 iVX
@@ -102344,16 +102408,16 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 vOx
@@ -102398,9 +102462,9 @@ rGd
 rGd
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 nPF
@@ -102602,14 +102666,14 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 reL
 azN
 eCw
@@ -102623,9 +102687,9 @@ dtk
 ydi
 ayF
 lGc
-onw
-onw
-onw
+loe
+loe
+loe
 oAJ
 gCJ
 vli
@@ -102655,15 +102719,15 @@ pzo
 pzo
 pzo
 osY
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
-loe
-uby
-uby
-pYq
+nmK
+uhi
+uhi
+ksB
 bep
 med
 vfg
@@ -102859,14 +102923,14 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 eCw
 rGd
@@ -102890,11 +102954,11 @@ rGd
 qJy
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
 dTm
 emP
 emP
@@ -102914,7 +102978,7 @@ oOD
 dTm
 dTm
 dTm
-gTG
+xhK
 xNj
 rGd
 bJR
@@ -103118,12 +103182,12 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 eCw
 pfH
@@ -103162,7 +103226,7 @@ dTm
 dTm
 reG
 ayp
-eUJ
+ejt
 baQ
 epS
 epS
@@ -103376,11 +103440,11 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 pfH
@@ -103424,8 +103488,8 @@ gzQ
 gzQ
 gzQ
 uyU
-eUJ
-eUJ
+ejt
+ejt
 baQ
 oOD
 dTm
@@ -103634,10 +103698,10 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 pfH
@@ -103659,7 +103723,7 @@ sie
 mCs
 rGd
 peK
-eRi
+aXM
 aXM
 aXM
 aXM
@@ -103681,10 +103745,10 @@ vHh
 vnz
 pEI
 pEI
-eUJ
-eUJ
+ejt
+ejt
 kPO
-ifg
+dwi
 dTm
 xNj
 rGd
@@ -103891,10 +103955,10 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 pfH
@@ -103923,7 +103987,7 @@ aRU
 fWM
 aXM
 oMs
-igj
+hmb
 aXM
 rGd
 rGd
@@ -103938,10 +104002,10 @@ onz
 izW
 pEI
 pEI
-eUJ
 ejt
+piA
 cOA
-ifg
+dwi
 dTm
 xNj
 rGd
@@ -104149,9 +104213,9 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 pfH
@@ -104165,9 +104229,9 @@ dtk
 dtk
 ydi
 lGc
-onw
-onw
-onw
+loe
+loe
+loe
 oAJ
 sie
 xil
@@ -104177,10 +104241,10 @@ aXM
 vhs
 uEF
 hZZ
-qbw
-rLl
-qbw
-igj
+seR
+jCq
+dzK
+hmb
 aXM
 joD
 joD
@@ -104195,10 +104259,10 @@ pEI
 pEI
 pEI
 scs
-eUJ
-eUJ
+ejt
+ejt
 srM
-ifg
+dwi
 dTm
 xNj
 rGd
@@ -104406,9 +104470,9 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 rGd
@@ -104432,11 +104496,11 @@ rGd
 qJy
 aXM
 oBH
+gvP
 ykT
-ykT
-ykT
+gvP
 oDz
-igj
+kkI
 xiP
 jcp
 xUN
@@ -104451,11 +104515,11 @@ pEI
 pEI
 pEI
 gRl
-eUJ
-eUJ
-eUJ
-eUJ
-ifg
+ejt
+ejt
+ejt
+ejt
+dwi
 dTm
 xNj
 rGd
@@ -104664,8 +104728,8 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
+xhK
+xhK
 ijh
 pTY
 rGd
@@ -104691,10 +104755,10 @@ aXM
 duU
 ykT
 rso
-mVX
+iUI
 oDz
-qbw
-aFP
+kSh
+hcH
 aXM
 dog
 joD
@@ -104708,9 +104772,9 @@ pEI
 blb
 pEI
 pEI
-eUJ
-eUJ
-eUJ
+ejt
+ejt
+ejt
 uPp
 goZ
 dTm
@@ -104922,8 +104986,8 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
+xhK
+xhK
 xNj
 rGd
 vOx
@@ -104950,8 +105014,8 @@ aXM
 aXM
 aXM
 aXM
-isW
-isW
+auN
+auN
 jcp
 hUn
 xUN
@@ -104965,10 +105029,10 @@ pEI
 pEI
 abr
 pEI
-eUJ
-eUJ
-eUJ
-ifg
+ejt
+ejt
+ejt
+dwi
 dTm
 dTm
 xNj
@@ -105178,9 +105242,9 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
 sYD
@@ -105203,12 +105267,12 @@ eCw
 peK
 aXM
 jhY
-igj
+hmb
 rpq
 aXM
 fRN
-hKH
-qbw
+tLH
+kSh
 aXM
 joD
 joD
@@ -105222,12 +105286,12 @@ pEI
 pEI
 jYH
 uMx
-eUJ
-eUJ
+ejt
+ejt
 uPp
 goZ
 dTm
-gTG
+xhK
 xNj
 rGd
 jPs
@@ -105436,8 +105500,8 @@ ssy
 ssy
 mtd
 mtd
-gTG
-gTG
+xhK
+xhK
 dTm
 rGd
 rGd
@@ -105458,14 +105522,14 @@ gCJ
 xil
 rGd
 peK
-kSh
+qDK
 thO
-hKH
-qbw
+tLH
+kSh
 inN
-qbw
-xiP
-aFP
+kSh
+nAm
+hcH
 jcp
 hUn
 hUn
@@ -105474,17 +105538,17 @@ eCw
 amu
 emP
 lUQ
-eUJ
-eUJ
-eUJ
-eUJ
+ejt
+ejt
+ejt
+ejt
 uPp
 vBw
 vBw
 goZ
 dTm
 dTm
-gTG
+xhK
 xNj
 rGd
 bJR
@@ -105679,17 +105743,17 @@ mtd
 mtd
 mtd
 ssy
-vvQ
-vvQ
-vvQ
-vvQ
-vvQ
-vvQ
-vvQ
-vvQ
-vvQ
-vvQ
-vvQ
+uAf
+uAf
+uAf
+uAf
+uAf
+uAf
+uAf
+uAf
+uAf
+uAf
+uAf
 ssy
 mtd
 mtd
@@ -105715,13 +105779,13 @@ gCJ
 xil
 rGd
 peK
-kSh
+qDK
 hZZ
 sGg
-hKH
+tLH
 aXM
 vAf
-qbw
+kSh
 aXM
 aXM
 aXM
@@ -105936,7 +106000,7 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 mzl
 xpk
 uvA
@@ -105946,7 +106010,7 @@ uvA
 uvA
 xpk
 vJs
-vvQ
+uAf
 ssy
 mtd
 mtd
@@ -105978,7 +106042,7 @@ bMC
 aXM
 aXM
 nSq
-aFP
+hcH
 aXM
 ljw
 fPu
@@ -106193,17 +106257,17 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 env
-vvQ
+uAf
 sKX
 sKX
 sKX
 sKX
 sKX
-vvQ
+uAf
 iHg
-vvQ
+uAf
 ssy
 ssy
 ssy
@@ -106212,15 +106276,15 @@ ssy
 ssy
 ssy
 ssy
-ycd
-ycd
-ycd
-ycd
-ycd
-ycd
-ycd
-ycd
-ycd
+eUJ
+eUJ
+eUJ
+eUJ
+eUJ
+eUJ
+eUJ
+eUJ
+eUJ
 gif
 peK
 rGd
@@ -106231,13 +106295,13 @@ rGd
 peK
 aXM
 xke
-qbw
-qbw
+kSh
+kSh
 rLl
 mrt
-aFP
+hcH
 rLl
-qbw
+kSh
 vZL
 cWj
 aXM
@@ -106256,12 +106320,12 @@ emP
 dTm
 xNj
 rGd
-uby
+uhi
 gsP
-loe
-loe
-loe
-pYq
+nmK
+nmK
+nmK
+ksB
 pHM
 lgS
 rPY
@@ -106450,7 +106514,7 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 pMM
 dQJ
 tBF
@@ -106460,24 +106524,24 @@ lit
 rLI
 kaN
 mVo
-vvQ
-vvQ
-vvQ
-jly
-jly
-jly
-jly
-jly
-jly
-ycd
-jIm
-dHv
+uAf
+uAf
+uAf
+aFP
+aFP
+aFP
+aFP
+aFP
+aFP
+eUJ
 jIm
 xfR
 jIm
+skU
+jIm
 uim
 jIm
-ycd
+eUJ
 lgS
 ljx
 rPY
@@ -106486,16 +106550,16 @@ gCJ
 xil
 rGd
 peK
-kSh
+qDK
 gVd
-igj
-hKH
+hmb
+tLH
 oDz
-aFP
-qbw
+hcH
+kSh
 oDz
 tyC
-qbw
+kSh
 sOA
 aXM
 eCw
@@ -106513,7 +106577,7 @@ emP
 dTm
 xNj
 rGd
-pYq
+ksB
 iVX
 nPF
 nPF
@@ -106707,36 +106771,36 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 pMM
 dQJ
 ccm
 tpV
 tpV
-wCH
+kFv
 oAo
 wVi
 rYv
 dtA
 ykY
-vvQ
-ozW
+uAf
+jdS
 qWj
-jly
-ibg
+aFP
 uOo
-jly
-ycd
-xfR
-iNl
-gLQ
-bAQ
-bAQ
-bGG
+gcm
+aFP
+eUJ
+skU
+lzW
+kcw
+pYq
+pYq
+wik
 jIm
-fyl
-cuJ
-uCF
+tqU
+bSu
+hvp
 gif
 mYC
 sie
@@ -106745,7 +106809,7 @@ rGd
 peK
 aXM
 xMM
-qbw
+kSh
 ppw
 aXM
 aXM
@@ -106770,7 +106834,7 @@ emP
 dTm
 xNj
 rGd
-uby
+uhi
 nPF
 nPF
 til
@@ -106964,36 +107028,36 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 pMM
 dQJ
 ccm
-wCH
+kFv
 jYI
-wCH
+kFv
 oAo
 haC
 ohY
 awk
 msO
-tin
-xKd
-nst
 vDA
+kRj
+gxh
+aDw
 lUG
 xUU
-jly
-ycd
+aFP
+eUJ
 kNH
-oFA
-bAQ
-hbY
-jgJ
+xRg
+pYq
+kpu
+dJK
 ffV
-xGg
-ycd
-dRv
-fgI
+aFa
+eUJ
+pDC
+wIk
 gif
 mYC
 sie
@@ -107001,15 +107065,15 @@ xil
 rGd
 peK
 aXM
-igj
+hmb
 hZZ
-igj
-hKH
+hmb
+tLH
 aXM
 daK
 daK
-qbw
-qbw
+kSh
+kSh
 wSg
 aXM
 rGd
@@ -107027,7 +107091,7 @@ emP
 reL
 azN
 rGd
-pYq
+ksB
 nPF
 til
 nPF
@@ -107221,36 +107285,36 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 pMM
 dQJ
 ccm
 gpL
 gpL
-wCH
+kFv
 oAo
 pxq
 ltS
 uJJ
 jme
-vvQ
-aCy
+uAf
+czt
 uPk
-jly
+aFP
 cSv
 lUG
-jly
-ycd
+aFP
+eUJ
 bzi
-kRj
-tTJ
-ucB
-bAQ
-mqZ
-xfR
+thK
+hKH
+nzK
+pYq
+oFz
+skU
 nMB
-dRv
-fgI
+pDC
+wIk
 gif
 mYC
 sie
@@ -107258,15 +107322,15 @@ xil
 rGd
 peK
 aXM
-qDD
-kSh
+lZi
+qDK
 aXM
 kPn
 aXM
-qbw
+kSh
 vZL
 acM
-isW
+auN
 leE
 aXM
 rGd
@@ -107284,13 +107348,13 @@ emP
 xNj
 fLB
 rxt
-pYq
-loe
-pYq
-pYq
-pYq
-pYq
-pYq
+ksB
+nmK
+ksB
+ksB
+ksB
+ksB
+ksB
 med
 vfg
 iFP
@@ -107478,7 +107542,7 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 pMM
 dQJ
 xZP
@@ -107488,26 +107552,26 @@ eqy
 mon
 kaN
 mVo
-vvQ
-vvQ
-vvQ
-jly
-jly
-jly
+uAf
+uAf
+uAf
+aFP
+aFP
+aFP
 fkI
 xUU
-jly
-ycd
+aFP
+eUJ
 jlA
 uIg
-iYM
-bAQ
-tTJ
-mqZ
+eEd
+pYq
+hKH
+oFz
 bzi
-ycd
-dRv
-fgI
+eUJ
+pDC
+wIk
 gif
 mYC
 gCJ
@@ -107524,7 +107588,7 @@ fXS
 nKd
 nKd
 nKd
-qbw
+kSh
 aXM
 rGd
 mBP
@@ -107540,14 +107604,14 @@ uWm
 pPC
 azN
 bIV
-naf
+vWF
 cbB
 pVN
 hxG
 vxr
 iGT
 wAf
-aAo
+oQb
 gif
 naq
 vbE
@@ -107735,35 +107799,35 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 env
-vvQ
+uAf
 wcw
 wcw
 wcw
 wcw
 wcw
-vvQ
+uAf
 iHg
-vvQ
-jly
-jly
-jly
-jly
-jly
+uAf
+aFP
+aFP
+aFP
+aFP
+aFP
 jbL
 lUG
-jly
-ycd
+aFP
+eUJ
 hFY
-ebT
-cTI
-hbY
-cTI
+vBI
+tCh
+kpu
+tCh
 yhX
-xfR
-fyl
-gcD
+skU
+tqU
+uGg
 hMa
 gif
 mYC
@@ -107775,7 +107839,7 @@ rGd
 rGd
 rGd
 rGd
-hDp
+peK
 aXM
 aXM
 aXM
@@ -107797,8 +107861,8 @@ rGd
 rGd
 rGd
 bIV
-naf
-pYq
+vWF
+ksB
 amK
 bCx
 gsP
@@ -107992,7 +108056,7 @@ mtd
 mtd
 mtd
 ssy
-vvQ
+uAf
 eNo
 eqj
 vgb
@@ -108002,24 +108066,24 @@ bpe
 eXH
 eqj
 chB
-vvQ
-jly
+uAf
+aFP
 fIE
 fIE
 fIE
 lUG
 lUG
 lUG
-jly
-ycd
+aFP
+eUJ
 jIm
-cyK
-xfR
+xNd
+skU
 jIm
 jIm
 maZ
 jIm
-ycd
+eUJ
 med
 mcv
 vfg
@@ -108032,7 +108096,7 @@ pdP
 pdP
 uJl
 rGd
-hDp
+peK
 peK
 peK
 peK
@@ -108055,13 +108119,13 @@ peK
 peK
 ngZ
 vVh
-uby
+uhi
 mjD
-hKk
+jpP
 pPK
 gsP
 wAf
-jpb
+fFy
 gif
 iFP
 lSq
@@ -108249,34 +108313,34 @@ mtd
 mtd
 mtd
 ssy
-vvQ
-vvQ
-vvQ
-vvQ
+uAf
+uAf
+uAf
+uAf
 sXs
 sXs
 sXs
-vvQ
-vvQ
-vvQ
-vvQ
-jly
-mwz
+uAf
+uAf
+uAf
+uAf
+aFP
+bqY
 fIE
 fIE
 jSa
 bSc
 xUU
-jly
-ycd
-ycd
-ycd
+aFP
+eUJ
+eUJ
+eUJ
 kED
-ycd
-ycd
-ycd
-ycd
-ycd
+eUJ
+eUJ
+eUJ
+eUJ
+eUJ
 gif
 peK
 eCw
@@ -108312,13 +108376,13 @@ rGd
 rGd
 rGd
 rGd
-pYq
-pYq
+ksB
+ksB
 wAf
 cRO
 wAf
-pYq
-pYq
+ksB
+ksB
 gif
 iFP
 lSq
@@ -108517,21 +108581,21 @@ mfO
 mfO
 mfO
 mfO
-jly
-ibg
-ibg
-ibg
-ibg
+aFP
+uOo
+uOo
+uOo
+uOo
 wYT
 lUG
-jly
-lZe
+aFP
+vvQ
 tpf
 dLy
 nKH
-wiY
-lEI
-lZe
+feN
+bGG
+vvQ
 vMj
 jYA
 pWZ
@@ -108570,13 +108634,13 @@ rcM
 pdP
 pdP
 aQM
-oQb
+cyf
 qMJ
 qMJ
-wdl
+pSb
 bqG
 dMm
-vOS
+sKJ
 vbE
 lSq
 lSq
@@ -108767,27 +108831,27 @@ mtd
 mtd
 ssy
 mfO
-jyk
-rsy
-rsy
+cGr
+kOR
+kOR
 gHt
-fJS
+uka
 adR
 pEo
-mjq
+wXr
 lUG
 xUU
 lUG
 lUG
 lUG
-fli
-jly
-lZe
+bYx
+aFP
+vvQ
 dAJ
-euh
-qZl
-qZl
-wiY
+oup
+eVV
+eVV
+feN
 meb
 nca
 byn
@@ -108798,7 +108862,7 @@ mYC
 sie
 mCs
 jhH
-rGd
+riW
 vUf
 gCJ
 sie
@@ -108828,12 +108892,12 @@ gCJ
 sie
 cTX
 cGD
-wdl
-wdl
+pSb
+pSb
 qMJ
 bra
 rco
-emP
+kYV
 kYV
 lSq
 lSq
@@ -109024,28 +109088,28 @@ mtd
 mtd
 ssy
 mfO
-xNv
-xOt
+oCO
+wOT
 lxb
-mar
-mar
+hSF
+hSF
 ncN
 mfO
-jly
-jly
-jly
-jly
-jly
-jly
+aFP
+aFP
+aFP
+aFP
+aFP
+aFP
 ccc
-jly
-lZe
-wMp
-mlD
-wiY
-dYy
-cFV
-lZe
+aFP
+vvQ
+ebT
+miN
+feN
+kcO
+mfQ
+vvQ
 oxD
 mpn
 vDS
@@ -109084,13 +109148,13 @@ mVp
 gFd
 gFd
 sSS
-fFy
+qVH
 qMJ
 qMJ
 qMJ
 ksc
 toA
-uWm
+fjj
 wxh
 bZm
 lSq
@@ -109281,30 +109345,30 @@ mtd
 mtd
 ssy
 mfO
-lxM
-mar
-mar
-xOt
-xOt
-fav
+xNv
+hSF
+hSF
+wOT
+wOT
+nst
 mfO
-ksB
-ksB
-ksB
-ksB
-ksB
-ksB
-ksB
-iim
-iim
-iim
-iim
+bgp
+bgp
+bgp
+bgp
+bgp
+bgp
+bgp
+ycd
+ycd
+ycd
+ycd
 cOL
-iim
-iim
-iim
-iim
-iim
+ycd
+ycd
+ycd
+ycd
+ycd
 gif
 peK
 rGd
@@ -109340,13 +109404,13 @@ rGd
 eCw
 ldr
 rGd
-pYq
-pYq
-pYq
+ksB
+ksB
+ksB
 cBG
-pYq
-pYq
-pYq
+ksB
+ksB
+ksB
 lgS
 rPY
 iFP
@@ -109539,29 +109603,29 @@ mtd
 ssy
 mfO
 vkC
-xOt
-mar
-aOJ
-xOt
+wOT
+hSF
+png
+wOT
 qwx
 mfO
-ksB
+bgp
 tJw
-cGq
-qGm
+vhn
+ygk
 cxQ
 qfe
-ksB
-iim
+bgp
+ycd
 huy
 reY
-xkT
+cGq
 mYT
 elM
 reY
-xkT
+cGq
 sss
-iim
+ycd
 lgS
 ljx
 mTj
@@ -109597,12 +109661,12 @@ peK
 qJy
 nSs
 vCt
-loe
-loe
+nmK
+nmK
 ibZ
 oLV
 iBr
-uvt
+xGB
 til
 pHM
 gif
@@ -109796,19 +109860,19 @@ mtd
 ssy
 mfO
 sWN
-goA
+vwQ
 wvL
 cdI
-goA
-ksj
-oKG
+vwQ
+oew
+dWx
 eFC
-uNm
-rnf
-vxJ
+szV
+mLf
+eql
 irs
 xFu
-ksB
+bgp
 nak
 cbR
 ney
@@ -109817,10 +109881,10 @@ jPL
 wDn
 jPL
 ney
-muK
+uAy
 weO
-bSu
-gKH
+lPb
+uCF
 gif
 mYC
 sie
@@ -109832,34 +109896,34 @@ rGd
 rGd
 rGd
 peK
-dGG
-dGG
-cmI
-cmI
-cmI
+rdY
+rdY
+gTG
+gTG
+gTG
 rGd
 rGd
 fLB
 vCt
-cUe
-xBC
-cUe
-cUe
-cUe
+wMn
+rNp
+wMn
+wMn
+wMn
 cOV
 dGo
-cUe
-cUe
+wMn
+wMn
 rGd
 rGd
 bIV
-naf
-loe
-uvt
+vWF
+nmK
+xGB
 nPF
 iZe
-loe
-uvt
+nmK
+xGB
 iZe
 vpl
 gif
@@ -110059,13 +110123,13 @@ mfO
 mfO
 mfO
 mfO
-ksB
-uNm
-ngo
-rnf
-ngo
+bgp
+iyB
+qRB
+suF
+qRB
 wRe
-ksB
+bgp
 oQB
 fPN
 xHK
@@ -110074,8 +110138,8 @@ wDn
 jPL
 cpE
 pCV
-boq
-iim
+xNH
+ycd
 myT
 kBW
 gif
@@ -110089,35 +110153,35 @@ qJy
 peK
 peK
 peK
-dGG
+rdY
 nFl
 vms
 kMo
-cmI
+gTG
 rGd
 rDW
 bIV
 hTD
-cUe
-eIM
+wMn
+kDl
 jqZ
 oVM
 kzB
-dRV
-dRV
+fkw
+fkw
 bhh
-cUe
+wMn
 rGd
 rDW
 bIV
-naf
+vWF
 iVX
 til
 iZe
-bBh
+twb
 iZe
-loe
-loe
+nmK
+nmK
 bep
 gif
 iFP
@@ -110316,14 +110380,14 @@ ssy
 ssy
 ssy
 ssy
-ksB
+bgp
 oSA
 oDU
-oOw
+wIn
 hEJ
-jdl
-ksB
-iim
+pbZ
+bgp
+ycd
 pZn
 erO
 xuk
@@ -110331,7 +110395,7 @@ alW
 wDn
 jaL
 xHK
-boq
+xNH
 oCR
 myT
 kBW
@@ -110342,38 +110406,38 @@ xil
 rGd
 peK
 bdd
-cmI
+gTG
 qDA
-cmI
-cmI
-cmI
+gTG
+gTG
+gTG
 bJG
 gKD
 hYi
-cmI
+gTG
 rGd
 mRQ
 bIV
 hTD
-eIM
+kDl
 jdk
-eul
+xqu
 sFM
 kLp
-uAf
-xhK
+nbQ
+mkz
 aAc
-cUe
+wMn
 eCw
 qlp
 xjk
 qsL
-loe
-loe
-pYq
-pYq
-loe
-loe
+nmK
+nmK
+ksB
+ksB
+nmK
+nmK
 bep
 aaG
 vfg
@@ -110573,13 +110637,13 @@ mtd
 mtd
 mtd
 mtd
-ksB
-ksB
-ksB
-ksB
+bgp
+bgp
+bgp
+bgp
 qME
-ilI
-ksB
+boq
+bgp
 nak
 myg
 jPL
@@ -110588,9 +110652,9 @@ jPL
 jPL
 uDD
 fHC
-uyJ
-iim
-jxo
+rit
+ycd
+rWk
 kBW
 gif
 mYC
@@ -110603,24 +110667,24 @@ ipk
 cyu
 rCj
 uCj
-cmI
+gTG
 viB
 baY
-qxU
-cmI
+tQx
+gTG
 rGd
 mRQ
 xjk
 qsL
-cUe
+wMn
 ogk
 rDs
 tYD
 kLp
-xhK
-xhK
+mkz
+mkz
 urT
-cUe
+wMn
 eCw
 aBF
 pTY
@@ -110830,13 +110894,13 @@ mtd
 mtd
 mtd
 mtd
-ksB
-slK
+bgp
+wzO
 rRd
-ksB
+bgp
 yfG
-hYe
-ksB
+anz
+bgp
 oQB
 dkQ
 ney
@@ -110846,38 +110910,38 @@ wec
 mtc
 ney
 xZi
-ngv
+kYG
 sbx
-oCH
+efz
 gif
 mYC
 gCJ
 vli
 rGd
 peK
-cmI
+gTG
 upH
-nnI
-xGB
+akm
+uND
 lyv
-cmI
-cmI
-pkd
-cmI
-cmI
+gTG
+gTG
+onw
+gTG
+gTG
 eCw
 xrZ
 pTY
 rGd
-xBC
+rNp
 vWx
 lmU
 jIX
 daQ
-xhK
-uAf
+mkz
+nbQ
 jgA
-cUe
+wMn
 eCw
 aRg
 ijh
@@ -111087,23 +111151,23 @@ mtd
 mtd
 mtd
 mtd
-ksB
+bgp
 svh
 xIq
 tvp
-uNm
-ghB
-ksB
-iim
-kQN
-tLH
-eoe
-eoe
-hmb
+iyB
+fxM
+bgp
+ycd
+qXI
+wBH
+hOX
+hOX
+lgT
 aZT
-ujQ
+hlJ
 xlW
-iim
+ycd
 med
 mcv
 vfg
@@ -111112,7 +111176,7 @@ gCJ
 mCs
 rGd
 peK
-cmI
+gTG
 ozu
 peT
 bmO
@@ -111121,24 +111185,24 @@ iRq
 bmO
 bmO
 mAL
-cmI
+gTG
 rGd
 hPQ
 azN
 rGd
-cUe
+wMn
 uSN
 tyK
-xhK
-xhK
-xhK
-xhK
+mkz
+mkz
+mkz
+mkz
 urT
-cUe
+wMn
 eCw
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 eCw
 jPs
@@ -111344,10 +111408,10 @@ mtd
 mtd
 mtd
 mtd
-ksB
+bgp
 dtM
 aVI
-ksB
+bgp
 ugT
 iwE
 llN
@@ -111358,9 +111422,9 @@ fkj
 nDf
 mOS
 tWY
-iim
-iim
-iim
+ycd
+ycd
+ycd
 gif
 peK
 rGd
@@ -111369,7 +111433,7 @@ sie
 xil
 rGd
 qJy
-cmI
+gTG
 ogf
 kxQ
 gzv
@@ -111378,24 +111442,24 @@ jbZ
 vrS
 dJQ
 nFc
-tzG
+vIn
 rGd
 ukY
 rGd
 rGd
-cUe
+wMn
 bNG
 rgy
 aKI
 xrp
-uAf
-uAf
+nbQ
+nbQ
 aAc
-cUe
+wMn
 eCw
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -111601,21 +111665,21 @@ mtd
 mtd
 mtd
 mtd
-ksB
-ksB
-ksB
-ksB
-ksB
-ksB
-ksB
-iim
-iim
-iim
-iim
-iim
-iim
-iim
-iim
+bgp
+bgp
+bgp
+bgp
+bgp
+bgp
+bgp
+ycd
+ycd
+ycd
+ycd
+ycd
+ycd
+ycd
+ycd
 med
 bhc
 vfg
@@ -111626,7 +111690,7 @@ gCJ
 xil
 eCw
 peK
-tzG
+vIn
 wSw
 vnM
 nCV
@@ -111635,24 +111699,24 @@ tuk
 vZe
 jPu
 xqp
-jeG
+dRv
 rGd
 lRN
 rGd
-cUe
-cUe
+wMn
+wMn
 qWf
 uUp
 mfh
 kLp
-fWZ
-xhK
+onf
+mkz
 urT
-cUe
+wMn
 eCw
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 hbK
 sMv
@@ -111851,13 +111915,13 @@ mtd
 mtd
 mtd
 mtd
-gTG
+xhK
 mtd
 mtd
 mtd
 mtd
-xNj
-gfW
+mtd
+mtd
 bhc
 bhc
 bhc
@@ -111874,7 +111938,7 @@ bhc
 bhc
 bhc
 vfg
-sGW
+glh
 rGd
 peK
 eCw
@@ -111883,7 +111947,7 @@ sie
 mCs
 eCw
 peK
-jeG
+dRv
 sUJ
 fxw
 xFf
@@ -111892,24 +111956,24 @@ qAu
 jJD
 lRC
 ejP
-cmI
+gTG
 rGd
 lRN
 rGd
-xBC
+rNp
 xjT
 ppL
 jdk
 ltz
 kLp
-uAf
-xhK
+nbQ
+mkz
 aAc
-cUe
+wMn
 eCw
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 ldr
 sMv
@@ -112107,14 +112171,14 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
+xhK
+xhK
 mtd
 mtd
-gTG
-gTG
-ijh
-pzo
+xhK
+xhK
+mtd
+mtd
 pzo
 pzo
 pzo
@@ -112140,7 +112204,7 @@ mVp
 lod
 rGd
 peK
-cmI
+gTG
 tAq
 qjv
 hmc
@@ -112149,24 +112213,24 @@ hLy
 qXH
 qZW
 cIE
-cmI
+gTG
 rGd
 lRN
 rGd
-cUe
+wMn
 pSA
 xJh
-vif
+vwl
 ltz
 kLp
-uAf
-xhK
+nbQ
+mkz
 bLb
-cUe
+wMn
 ldr
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 eCw
 sMv
@@ -112363,18 +112427,18 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+mtd
+mtd
+xhK
+xhK
+xhK
 reL
 pPC
 pPC
@@ -112397,33 +112461,33 @@ rGd
 rGd
 rGd
 peK
-cmI
-jeG
-tzG
-jeG
-dGG
-cmI
-cmI
-cmI
-cmI
-cmI
+gTG
+dRv
+vIn
+dRv
+rdY
+gTG
+gTG
+gTG
+gTG
+gTG
 rGd
 lRN
 rGd
-cUe
+wMn
 tXH
 ito
-vdU
+xTu
 ltz
 kLp
-uAf
-uAf
+nbQ
+nbQ
 aAc
-cUe
+wMn
 rGd
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 eCw
 bJR
@@ -112620,18 +112684,18 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 rGd
@@ -112673,14 +112737,14 @@ grz
 jdk
 ltz
 prp
-cWO
-cWO
+xDB
+xDB
 wJh
-cUe
+wMn
 rGd
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -112878,45 +112942,45 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-pVd
-czW
-czW
-hUG
-czW
-urV
-mkz
-gxh
-yiG
-qaH
-nRM
-nRM
-qaH
-mkz
+cmI
+aNt
+aNt
+ibG
+aNt
+tzG
+svl
+dPt
+eFD
+wLc
+oxo
+oxo
+wLc
+svl
 ozG
 yiy
 yiy
 yiy
 ozG
-sFU
-sFU
-sFU
-piN
-piN
-sFU
-sFU
+hDp
+hDp
+hDp
+nmc
+nmc
+hDp
+hDp
 rGd
 mkp
 pzo
@@ -112924,20 +112988,20 @@ pzo
 pzo
 wUy
 rGd
-cUe
+wMn
 myb
-eul
+xqu
 jdk
 ltz
 egO
 qYm
 qYm
 fho
-cUe
+wMn
 rGd
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -113135,53 +113199,53 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-pVd
+cmI
 gbX
 sLM
-tZn
+bBh
 pQv
-pVd
-lZi
-mjT
+cmI
+ozW
+pRD
 aJe
 ndI
 bZj
 ndI
 kVy
-mkz
+svl
 sYw
 jCc
 jCc
 jCc
 jCc
-sFU
+hDp
 ngC
 hcn
 klk
 vSf
 dac
-sFU
+hDp
 rGd
 aRg
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
 xNj
 rGd
-cUe
+wMn
 aVO
 tDS
 doG
@@ -113190,11 +113254,11 @@ uUp
 qWf
 qWf
 uUp
-xBC
+rNp
 rGd
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 eCw
 bJR
@@ -113392,45 +113456,45 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-pVd
+cmI
 mxD
 tbU
 rnd
 uOM
-mvG
+szX
 ujw
-rzT
-xBh
-xBh
+mar
+nlN
+nlN
 mcw
 ice
-rzT
-iVA
+mar
+jKL
 fSK
 mGd
 sYw
 mGd
 sYw
-sFU
+hDp
 ebr
 vsE
-xPy
+lnu
 wpi
 aUC
-sFU
+hDp
 rGd
 mBP
 pPC
@@ -113438,20 +113502,20 @@ pPC
 kxk
 xNj
 rGd
-cUe
-xBC
-cUe
-xBC
-cUe
-cUe
-cUe
-xBC
-cUe
-xBC
+wMn
+rNp
+wMn
+rNp
+wMn
+wMn
+wMn
+rNp
+wMn
+rNp
 rGd
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -113649,45 +113713,45 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-czW
+aNt
 esY
 jyI
-myj
+eoe
 aer
-czW
+aNt
 wwI
 kly
-rNp
+mlD
 jWW
 xhs
 pnZ
-hEL
-mkz
+cFV
+svl
 jCc
-nmK
+jCc
 jCc
 fSK
 jCc
-sFU
-hcn
+hDp
+otY
 iVm
 pRp
 vsE
 llc
-sFU
+hDp
 rGd
 rGd
 rGd
@@ -113707,8 +113771,8 @@ rGd
 rGd
 rGd
 aRg
-gTG
-gTG
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -113906,48 +113970,48 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-czW
-qXI
-wBH
+aNt
+xkT
+kAB
 nJu
 sMU
-czW
+aNt
 kXA
-hHr
-lPb
-lPb
-lPb
-psY
-lPb
-lPb
-sFU
-mSh
-sFU
-oYy
-sFU
-sFU
-sFU
-sFU
-sFU
-anK
-sFU
-sFU
-sFU
-sFU
-sFU
+mqZ
+cSw
+cSw
+cSw
+mMY
+cSw
+cSw
+hDp
+kCm
+hDp
+jly
+hDp
+hDp
+hDp
+hDp
+hDp
+vuU
+hDp
+hDp
+hDp
+hDp
+hDp
 rGd
 aRg
 ijh
@@ -113964,14 +114028,14 @@ pzo
 pzo
 pzo
 osY
-gTG
-gTG
+xhK
+xhK
 xNj
 rGd
-pYq
-loe
-pYq
-pYq
+ksB
+nmK
+ksB
+ksB
 pHM
 lgS
 rPY
@@ -114162,39 +114226,39 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-czW
+aNt
 lbW
-myj
-myj
+eoe
+eoe
 roz
-hUG
+ibG
 ujw
-rym
-lPb
+fbC
+cSw
 oct
 iOq
 jlN
 toW
-riW
+vZx
 bBg
 eow
 mkh
-mFv
-mFv
+oQL
+oQL
 fgS
 cQs
 xVy
@@ -114204,25 +114268,25 @@ adi
 qkc
 viv
 nhD
-sFU
+hDp
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 nPF
@@ -114419,67 +114483,67 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-pVd
+cmI
 wOO
 mSS
-tNQ
+kVJ
 gjp
-hUG
-czt
+ibG
+oyH
 dob
-lPb
-lPb
-lPb
+cSw
+cSw
+cSw
 ePC
 wkH
-lPb
+cSw
 oxb
-akm
-xYV
-xBR
+kdO
+twB
+spL
 eyK
-xPy
+lnu
 eyK
-xPy
-xPy
-sKw
+lnu
+lnu
+qDD
 rsG
 grU
 keo
 wFY
-mYq
+thB
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 nPF
@@ -114676,44 +114740,44 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-pVd
+cmI
 eDb
-myj
+eoe
 rnd
 sUB
-czW
-qaH
-yiG
-lPb
+aNt
+wLc
+eFD
+cSw
 dMU
 iOq
 kcA
-dST
-lPb
+ecf
+cSw
 imS
 uMl
 iLp
 uMl
 iLp
-xYV
-fTX
+twB
+tTp
 clN
 qgi
-xPy
+lnu
 vnr
 bOy
 tbs
@@ -114721,22 +114785,22 @@ rel
 psv
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 nPF
@@ -114933,43 +114997,43 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-pVd
+cmI
 xbb
 mSS
-myj
-rit
-czW
+eoe
+bHK
+aNt
 cFZ
-hdp
-lPb
-lPb
-lPb
+wkN
+cSw
+cSw
+cSw
 bFJ
 bnQ
-lPb
-xPy
+cSw
+lnu
 iAS
 giq
 fFO
 tmd
-xPy
-fTX
+lnu
+tTp
 bsP
-xPy
+lnu
 ehP
 irl
 rFi
@@ -114978,28 +115042,28 @@ iUW
 psv
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-pYq
-pYq
-pYq
-pYq
+ksB
+ksB
+ksB
+ksB
 bep
 med
 vfg
@@ -115190,44 +115254,44 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-czW
+aNt
 eDb
-myj
-myj
-uAy
-czW
+eoe
+eoe
+piT
+aNt
 lgU
 oPg
-lPb
+cSw
 gQY
-dST
-dST
+ecf
+ecf
 kcA
-gQD
+uby
 bHX
 rKd
 uMz
 rKd
 qXp
-xBR
+spL
 eyK
 clc
-sKw
-xPy
+qDD
+lnu
 icS
 rFi
 iUW
@@ -115235,22 +115299,22 @@ obW
 psv
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -115447,40 +115511,40 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-hUG
+ibG
 xbb
 fmt
 mSS
 uOM
-czW
+aNt
 qgP
-lwl
-lPb
+gcK
+cSw
 oPQ
 jlN
 jjn
 kcA
-ykL
+sNg
 esg
-xYV
+twB
 hWd
-xYV
-xYV
-xYV
+twB
+twB
+twB
 iCi
 bsP
 qgi
@@ -115489,25 +115553,25 @@ uKo
 qfx
 eLV
 cQl
-piN
+nmc
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 bJR
@@ -115704,67 +115768,67 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-czW
+aNt
 pLK
-wIn
+peA
 rlp
 lcf
-czW
+aNt
 sZX
 vpC
-riW
+vZx
 rWG
-dST
+ecf
 aAX
 mtF
-riW
-dwi
-sFU
-sFU
-piN
-piN
-tTP
-sFU
-sFU
-sFU
-kzW
+vZx
+dXz
+hDp
+hDp
+nmc
+nmc
+toD
+hDp
+hDp
+hDp
+rLw
 oto
-sFU
-xPy
-sFU
-sFU
+hDp
+lnu
+hDp
+hDp
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -115961,35 +116025,35 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-czW
-czW
-hUG
-hUG
-czW
-pVd
-fty
-mkz
-lPb
-lPb
+aNt
+aNt
+ibG
+ibG
+aNt
+cmI
+xNI
+svl
+cSw
+cSw
 uSf
-lPb
-lPb
-riW
-riN
+cSw
+cSw
+vZx
+xBR
 eav
 kkO
 vkF
@@ -116000,28 +116064,28 @@ wYE
 mmQ
 fWK
 fWK
-kcw
+oJE
 rGd
 rGd
 rGd
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -116218,18 +116282,18 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 rGd
@@ -116240,12 +116304,12 @@ rGd
 rGd
 rGd
 rGd
-riW
+vZx
 ktt
 weY
 mTu
-mZx
-lPb
+slK
+cSw
 osx
 lOp
 qei
@@ -116257,28 +116321,28 @@ qpo
 mQS
 xdd
 oYM
-kcw
+oJE
 rGd
 mkp
 pzo
 pzo
 osY
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 jPs
@@ -116475,18 +116539,18 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 ijh
 pzo
 pzo
@@ -116497,12 +116561,12 @@ pzo
 pzo
 pTY
 rGd
-riW
+vZx
 xol
 aIf
 kII
 lsL
-lPb
+cSw
 bpR
 gNk
 ufD
@@ -116514,28 +116578,28 @@ mXw
 fWK
 tfV
 lnr
-fOr
+nvM
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 ldr
 bJR
@@ -116733,34 +116797,34 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-lPb
-dST
-lPb
-lPb
-lPb
-lPb
-kcw
+cSw
+ecf
+cSw
+cSw
+cSw
+cSw
+oJE
 eoo
 deA
 xxR
@@ -116771,28 +116835,28 @@ wxi
 ojf
 xdd
 obO
-fOr
+nvM
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 eCw
 jPs
@@ -116990,25 +117054,25 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 hbK
 rGd
@@ -117017,7 +117081,7 @@ rGd
 rGd
 rGd
 rGd
-kcw
+oJE
 eEp
 prE
 iCh
@@ -117028,28 +117092,28 @@ qrv
 ebU
 iyg
 aHU
-kcw
+oJE
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 sMv
@@ -117247,25 +117311,25 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 ijh
 pzo
 pzo
@@ -117274,7 +117338,7 @@ pzo
 pzo
 pTY
 rGd
-kcw
+oJE
 avP
 vIL
 ijr
@@ -117285,28 +117349,28 @@ uHW
 qAx
 rqR
 yde
-fOr
+nvM
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 bJR
@@ -117505,65 +117569,65 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
-kcw
-kcw
-aCr
-aCr
-kcw
-dGM
-dGM
-kcw
-dGM
-aCr
-kcw
-kcw
+oJE
+oJE
+mYq
+mYq
+oJE
+dhD
+dhD
+oJE
+dhD
+mYq
+oJE
+oJE
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 bJR
@@ -117762,30 +117826,30 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 rGd
 rGd
@@ -117802,25 +117866,25 @@ rGd
 rGd
 rGd
 aRg
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 eCw
 sMv
@@ -118020,29 +118084,29 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 ijh
 pzo
 pzo
@@ -118059,25 +118123,25 @@ pzo
 pzo
 pzo
 osY
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 eCw
 sMv
@@ -118277,64 +118341,64 @@ mtd
 mtd
 mtd
 mtd
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
-gTG
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
+xhK
 xNj
 eCw
 jPs
@@ -118594,10 +118658,10 @@ pPC
 pPC
 azN
 rGd
-pYq
-pYq
-pYq
-pYq
+ksB
+ksB
+ksB
+ksB
 pHM
 lgS
 rPY
@@ -118852,7 +118916,7 @@ rGd
 rGd
 eCw
 nPF
-pYq
+ksB
 nPF
 cuX
 nPF
@@ -119052,11 +119116,11 @@ mtd
 jPs
 bJR
 jPs
-loe
+nmK
 cuX
 nPF
 nPF
-pYq
+ksB
 jPs
 sMv
 bJR
@@ -119079,11 +119143,11 @@ sMv
 sMv
 bJR
 sMv
-pYq
+ksB
 til
 nPF
 nPF
-pYq
+ksB
 jPs
 jPs
 bJR
@@ -119106,7 +119170,7 @@ bJR
 sMv
 jPs
 jPs
-pYq
+ksB
 nPF
 iZe
 nPF
@@ -119309,11 +119373,11 @@ mtd
 vOS
 hnP
 guv
-uby
+uhi
 iZe
 til
 nPF
-pYq
+ksB
 gif
 rws
 vOS
@@ -119336,11 +119400,11 @@ vOS
 vOS
 hnP
 guv
-pYq
+ksB
 nPF
 iVX
 fqT
-pYq
+ksB
 gif
 rws
 vOS
@@ -119363,14 +119427,14 @@ vOS
 vOS
 hnP
 guv
-uby
-pYq
+uhi
+ksB
 nPF
-pYq
+ksB
 til
 nPF
-pYq
-pYq
+ksB
+ksB
 gif
 iFP
 lrz
@@ -119566,11 +119630,11 @@ uWm
 uWm
 ylo
 guv
-pYq
+ksB
 nPF
 iVX
 nPF
-uby
+uhi
 gif
 wps
 uWm
@@ -119593,11 +119657,11 @@ uWm
 uWm
 ylo
 guv
-uby
+uhi
 iVX
 til
 iZe
-pYq
+ksB
 gif
 wps
 uWm
@@ -119620,7 +119684,7 @@ uWm
 uWm
 ylo
 guv
-pYq
+ksB
 nPF
 iZe
 nPF
@@ -119823,11 +119887,11 @@ aJX
 aJX
 aJX
 ltI
-pYq
+ksB
 nPF
 cuX
 nPF
-pYq
+ksB
 pIt
 aJX
 aJX
@@ -119850,11 +119914,11 @@ aJX
 aJX
 aJX
 ltI
-pYq
+ksB
 nPF
 iZe
 nPF
-pYq
+ksB
 pIt
 aJX
 aJX
@@ -119877,7 +119941,7 @@ aJX
 aJX
 aJX
 nXG
-pYq
+ksB
 nPF
 iVX
 nPF
@@ -120137,10 +120201,10 @@ guv
 gzA
 nPF
 til
-pYq
+ksB
 til
 nPF
-pYq
+ksB
 med
 vfg
 iFP
@@ -120394,7 +120458,7 @@ gfW
 mjQ
 gzA
 oTD
-pYq
+ksB
 oTD
 bep
 med

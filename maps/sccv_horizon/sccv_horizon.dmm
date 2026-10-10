@@ -16952,6 +16952,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/service/custodial)
+"cih" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "cim" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -20028,6 +20034,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/repoffice/consular_two)
+"cCl" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/unsimulated/floor/wood,
+/area/antag/actor)
 "cCo" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -21392,6 +21404,9 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "cLz" = (
@@ -22596,11 +22611,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/service/custodial/disposals/deck_1)
 "cSI" = (
-/obj/effect/floor_decal/industrial/arrow/red{
-	dir = 8
-	},
-/obj/item/deck/tarot/adhomai,
-/turf/unsimulated/floor/dark_monotile,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "cSO" = (
 /obj/structure/table/reinforced/steel,
@@ -35758,9 +35770,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew/fitness/gym)
 "eBU" = (
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
+/obj/structure/machinery/light/small,
 /obj/effect/floor_decal/corner/grey/full,
 /turf/unsimulated/floor/dark,
 /area/antag/actor)
@@ -55910,7 +55920,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/light/small{
-	dir = 4
+	dir = 1
 	},
 /turf/unsimulated/floor/dark,
 /area/antag/actor)
@@ -57541,9 +57551,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/intrepid)
 "huL" = (
-/obj/structure/machinery/light/small{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/vending/actor,
 /turf/unsimulated/floor/linoleum,
@@ -61307,7 +61314,20 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/item/clothes_dyer,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "hUv" = (
@@ -64136,11 +64156,14 @@
 /obj/item/clothing/suit/armor/cuirass,
 /obj/item/material/sword/longsword,
 /obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/machinery/light/small{
 	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/machinery/door/window/brigdoor/westright{
+	req_access = list(150)
 	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
@@ -71064,11 +71087,10 @@
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "jhR" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/unsimulated/floor/dark,
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "jhT" = (
 /obj/structure/machinery/recharger{
@@ -93890,6 +93912,9 @@
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
 	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
 /turf/unsimulated/floor/dark,
 /area/antag/actor)
 "mcZ" = (
@@ -100515,8 +100540,12 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
 "mVV" = (
-/obj/structure/curtain/open/bed,
-/obj/effect/floor_decal/industrial/arrow/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "mVW" = (
@@ -112528,12 +112557,10 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "ozR" = (
-/obj/structure/machinery/light/small{
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/vending/actor,
-/turf/unsimulated/floor/linoleum,
+/turf/unsimulated/floor/wood,
 /area/antag/actor)
 "ozS" = (
 /obj/structure/machinery/bluespacerelay,
@@ -140052,6 +140079,9 @@
 /obj/item/clothing/wrists/watch/tajara/female{
 	pixel_x = -7
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "rZw" = (
@@ -141557,11 +141587,11 @@
 /obj/item/ammo_casing/musket,
 /obj/item/ammo_casing/musket,
 /obj/item/ammo_casing/musket,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/machinery/light/small{
 	dir = 4
+	},
+/obj/structure/machinery/door/window/brigdoor/westright{
+	req_access = list(150)
 	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
@@ -145073,6 +145103,7 @@
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
 	},
+/obj/structure/machinery/light/small,
 /turf/unsimulated/floor/dark,
 /area/antag/actor)
 "sET" = (
@@ -164770,7 +164801,23 @@
 /area/horizon/maintenance/deck_2/service/port)
 "vff" = (
 /obj/structure/table/rack,
-/obj/item/clothes_dyer,
+/obj/item/storage/firstaid/large/combat{
+	pixel_y = 9
+	},
+/obj/item/storage/firstaid/large/stab{
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/box/gloves/tajara{
+	pixel_x = 4
+	},
+/obj/item/storage/box/masks{
+	pixel_x = -5
+	},
+/obj/item/storage/belt/medical/paramedic/full,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "vfg" = (
@@ -169102,7 +169149,10 @@
 /obj/item/nullrod/rredouane,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 1
+	},
+/obj/structure/machinery/door/window/brigdoor/westright{
+	req_access = list(150)
 	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
@@ -186573,7 +186623,10 @@
 /obj/item/material/sword/amohdan_sword,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 1
+	},
+/obj/structure/machinery/door/window/brigdoor/westright{
+	req_access = list(150)
 	},
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
@@ -436830,8 +436883,8 @@ eSV
 eSV
 mIw
 vff
-uBO
-uBO
+ozR
+cih
 mIw
 ncv
 eYZ
@@ -437088,7 +437141,7 @@ eSV
 mIw
 hUq
 uBO
-uBO
+cSI
 mIw
 ulW
 xux
@@ -437345,7 +437398,7 @@ ruH
 mIw
 rZu
 uBO
-uBO
+cSI
 mIw
 ulW
 xux
@@ -437601,8 +437654,8 @@ ruH
 ruH
 mIw
 cLw
-uBO
-uBO
+jhR
+cCl
 mIw
 tFJ
 arj
@@ -438371,17 +438424,17 @@ chm
 ruH
 chm
 mIw
-ozR
-bRI
-iFD
-cSI
-jxk
+huL
 jxk
 jxk
 iFD
+jxk
+jxk
 iFD
 iFD
 iFD
+jxk
+jxk
 rME
 mIw
 nvp
@@ -438639,7 +438692,7 @@ vqn
 vqn
 iOy
 iFD
-jhR
+rME
 mVV
 csd
 wgF
@@ -438896,7 +438949,7 @@ qEl
 jfZ
 bRI
 iFD
-jhR
+rME
 mVV
 psY
 oVN
@@ -439924,7 +439977,7 @@ mja
 fPK
 bRI
 iFD
-jhR
+rME
 mVV
 gxH
 oVN
@@ -440181,7 +440234,7 @@ wVz
 wVz
 fse
 iFD
-jhR
+rME
 mVV
 csd
 wgF
@@ -440429,16 +440482,16 @@ chm
 mIw
 huL
 bRI
+afT
+afT
+afT
 iFD
 iFD
 iFD
 afT
 afT
-iFD
-iFD
 afT
 afT
-rME
 mIw
 plP
 bhs
