@@ -15,7 +15,7 @@
  * * encode - Toggling this determines if input is filtered via html_encode. Setting this to FALSE gives raw input.
  * * timeout - The timeout of the textbox, after which the modal will close and qdel itself. Set to zero for no timeout.
  */
-/proc/tgui_input_text(mob/user, message = "", title = "Text Input", default, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0, ui_state = GLOB.always_state)
+/proc/tgui_input_text(mob/user, message = "", title = "Text Input", default, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0, ui_state = GLOB.always_state, list/preview_context, preview_limited = FALSE, preview_width = 700, preview_height = 600)
 	if (!user)
 		user = usr
 	if (!istype(user))
@@ -28,18 +28,20 @@
 		return
 
 	// Client does NOT have tgui_input on: Returns regular input
-	if(!user.client.prefs.tgui_inputs)
+	if(!user.client.prefs.tgui_inputs && !preview_context)
+		var/result
 		if(encode)
 			if(multiline)
-				return stripped_multiline_input(user, message, title, default, max_length)
+				result = stripped_multiline_input(user, message, title, default, max_length)
 			else
-				return stripped_input(user, message, title, default, max_length)
+				result = stripped_input(user, message, title, default, max_length)
 		else
 			if(multiline)
-				return input(user, message, title, default) as message|null
+				result = input(user, message, title, default) as message|null
 			else
-				return input(user, message, title, default) as text|null
-	var/datum/tgui_input_text/text_input = new(user, message, title, default, max_length, multiline, encode, timeout, ui_state)
+				result = input(user, message, title, default) as text|null
+		return result
+	var/datum/tgui_input_text/text_input = new(user, message, title, default, max_length, multiline, encode, timeout, ui_state, preview_context, preview_limited, preview_width, preview_height)
 	text_input.ui_interact(user)
 	text_input.wait()
 	if (text_input)
@@ -73,10 +75,15 @@
 	var/timeout
 	/// The title of the TGUI window
 	var/title
+	/// Snapshot used by TGUI to render papercode locally.
+	var/list/preview_context
+	var/preview_limited
+	var/preview_width
+	var/preview_height
 	/// The TGUI UI state that will be returned in ui_state(). Default: always_state
 	var/datum/ui_state/state
 
-/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout, ui_state)
+/datum/tgui_input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout, ui_state, list/preview_context, preview_limited, preview_width, preview_height)
 	src.default = default
 	src.encode = encode
 	src.max_length = max_length
@@ -84,6 +91,10 @@
 	src.multiline = multiline
 	src.title = title
 	src.state = ui_state
+	src.preview_context = preview_context
+	src.preview_limited = preview_limited
+	src.preview_width = preview_width
+	src.preview_height = preview_height
 	if (timeout)
 		src.timeout = timeout
 		start_time = world.time
@@ -92,6 +103,7 @@
 /datum/tgui_input_text/Destroy(force)
 	SStgui.close_uis(src)
 	state = null
+	preview_context = null
 	return ..()
 
 /**
@@ -127,6 +139,11 @@
 	data["multiline"] = multiline
 	data["placeholder"] = default // Default is a reserved keyword
 	data["title"] = title
+	data["paper_preview"] = !!preview_context
+	data["preview_context"] = preview_context
+	data["preview_limited"] = preview_limited
+	data["preview_width"] = preview_width
+	data["preview_height"] = preview_height
 	return data
 
 /datum/tgui_input_text/ui_data(mob/user)

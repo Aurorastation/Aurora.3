@@ -52,9 +52,9 @@
 /datum/category_item/player_setup_item/general/background/ui_data(var/mob/user)
 	var/list/records = list()
 	if(!jobban_isbanned(user, "Records"))
-		records += list(list("name" = "Medical", "preview" = html_decode(TextPreview(pref.med_record, 40)), "edit_action" = "set_medical_records", "clear_value" = "medical"))
-		records += list(list("name" = "Employment", "preview" = html_decode(TextPreview(pref.gen_record, 40)), "edit_action" = "set_general_records", "clear_value" = "general"))
-		records += list(list("name" = "Security", "preview" = html_decode(TextPreview(pref.sec_record, 40)), "edit_action" = "set_security_records", "clear_value" = "security"))
+		records += list(list("name" = "Medical", "preview" = html_decode(TextPreview(pref.med_record, 40)), "type" = "medical"))
+		records += list(list("name" = "Employment", "preview" = html_decode(TextPreview(pref.gen_record, 40)), "type" = "general"))
+		records += list(list("name" = "Security", "preview" = html_decode(TextPreview(pref.sec_record, 40)), "type" = "security"))
 	return list(
 		"kind" = "background",
 		"name" = name,
@@ -64,22 +64,36 @@
 	)
 
 /datum/category_item/player_setup_item/general/background/OnTopic(var/href,var/list/href_list, var/mob/user)
-	if(href_list["set_medical_records"])
-		var/new_medical = sanitize(input(user,"Enter medical information here.","Character Preference", html_decode(pref.med_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!isnull(new_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
-			pref.med_record = new_medical
-		return TOPIC_REFRESH
+	if(href_list["edit_record"])
+		if(jobban_isbanned(user, "Records") || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		var/record_type = href_list["edit_record"]
+		var/record_name
+		var/current_value
+		switch(record_type)
+			if("medical")
+				record_name = "Medical"
+				current_value = pref.med_record
+			if("general")
+				record_name = "Employment"
+				current_value = pref.gen_record
+			if("security")
+				record_name = "Security"
+				current_value = pref.sec_record
+			else
+				return TOPIC_NOACTION
 
-	else if(href_list["set_general_records"])
-		var/new_general = sanitize(input(user,"Enter employment information here.","Character Preference", html_decode(pref.gen_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!isnull(new_general) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
-			pref.gen_record = new_general
-		return TOPIC_REFRESH
-
-	else if(href_list["set_security_records"])
-		var/sec_medical = sanitize(input(user,"Enter security information here.","Character Preference", html_decode(pref.sec_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!isnull(sec_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
-			pref.sec_record = sec_medical
+		var/new_value = tgui_input_text(user, "Write the character's [lowertext(record_name)] record.", "[record_name] Records", html_decode(current_value), max_length = MAX_PAPER_MESSAGE_LEN - 1, multiline = TRUE, encode = FALSE, preview_context = get_pencode_preview_context(FALSE, TRUE, TRUE, TRUE, MAX_PAPER_MESSAGE_LEN), preview_width = 864, preview_height = 720)
+		if(isnull(new_value) || jobban_isbanned(user, "Records") || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		new_value = sanitize(new_value, MAX_PAPER_MESSAGE_LEN, extra = FALSE) || ""
+		switch(record_type)
+			if("medical")
+				pref.med_record = new_value
+			if("general")
+				pref.gen_record = new_value
+			if("security")
+				pref.sec_record = new_value
 		return TOPIC_REFRESH
 
 	else if(href_list["clear"])

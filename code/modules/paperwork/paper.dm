@@ -521,6 +521,79 @@
 			// Refer to paper/proc/show_content to edit the spans here.
 			. = replacetext(., written_lang_regex.match, "<span class='[L.written_style] [reader_understands ? "understood" : "scramble"]'>[L.short && reader_understands ? "([L.short]) [content]" : content]</span>")
 
+/// Finds the implement that would be used if this user wrote on the paper now.
+/obj/item/paper/proc/get_writing_implement(mob/user)
+	var/obj/item/implement = user.get_active_hand()
+
+	if(!implement && istype(loc, /obj/item/portable_typewriter))
+		var/obj/item/portable_typewriter/located_typewriter = loc
+		implement = located_typewriter.pen
+
+	if(istype(implement, /obj/item/portable_typewriter))
+		var/obj/item/portable_typewriter/held_typewriter = implement
+		implement = held_typewriter.pen
+
+	if(!implement || implement.tool_behaviour != TOOL_PEN)
+		implement = user.get_inactive_hand()
+
+	if(implement && implement.tool_behaviour == TOOL_PEN)
+		return implement
+
+	if(user.back && istype(user.back, /obj/item/rig))
+		var/obj/item/rig/rig = user.back
+		var/obj/item/rig_module/device/pen/module = locate(/obj/item/rig_module/device/pen) in rig.installed_modules
+		if(!rig.offline && module)
+			return module.device
+
+	if(istype(loc, /obj/item/clipboard))
+		var/obj/item/clipboard/clipboard = loc
+		return clipboard.haspen
+
+/// Snapshots the current writing context for TGUI's local papercode preview.
+/obj/item/paper/proc/get_writing_preview_context(mob/user)
+	var/list/context = get_pencode_preview_context(FALSE, TRUE, TRUE, TRUE, free_space)
+	context["background_color"] = color || COLOR_WHITE
+	var/obj/item/implement = get_writing_implement(user)
+	if(!implement)
+		return context
+	var/obj/item/pen/writing_pen = implement
+
+	var/is_crayon = istype(implement, /obj/item/pen/crayon)
+	var/is_typewriter = istype(implement, /obj/item/pen/typewriter)
+	var/is_fountain = FALSE
+	if(istype(implement, /obj/item/pen/fountain) || istype(implement, /obj/item/pen/augment))
+		var/obj/item/pen/fountain_pen = implement
+		is_fountain = fountain_pen.cursive
+
+	context["signature"] = get_signature(writing_pen, user)
+	context["signature_font"] = get_signfont(writing_pen, user)
+	context["font_color"] = writing_pen.colour
+	if(is_crayon)
+		context["font_face"] = crayonfont
+		context["font_style"] = "bold"
+		context["disabled_tags"] = list("*", "hr", "small", "list", "table", "row", "cell", "logo_scc", "logo_scc_small", "logo_nt", "logo_nt_small", "logo_zh", "logo_zh_small", "logo_idris", "logo_idris_small", "logo_eridani", "logo_eridani_small", "logo_zavod", "logo_zavod_small", "logo_hp", "logo_hp_small", "logo_be", "logo_golden", "logo_pvpolice", "logo_pvpolice_small", "logo_outereyes", "logo_outereyes_small", "twinsuns", "twinsuns_small", "raskara_sigil", "raskara_sigil_small", "barcode")
+	else if(is_fountain)
+		context["font_face"] = fountainfont
+		context["font_style"] = "italic"
+	else if(is_typewriter)
+		context["font_face"] = typewriterfont
+		context["font_style"] = "italic"
+		context["disabled_tags"] = list("*", "hr", "small", "list", "table", "row", "cell", "barcode")
+	else
+		context["font_face"] = deffont
+
+	var/list/languages = list()
+	for(var/key in GLOB.language_keys)
+		var/datum/language/language = GLOB.language_keys[key]
+		if(language?.written_style && user.say_understands(null, language))
+			languages += list(list(
+				"key" = key,
+				"short" = language.short,
+				"style" = language.written_style
+			))
+	context["languages"] = languages
+	return context
+
 /obj/item/paper/Topic(href, href_list)
 	..()
 	if(!usr || (usr.stat || usr.restrained()))
@@ -534,43 +607,20 @@
 			to_chat(usr, SPAN_INFO("There isn't enough space left on \the [src] to write anything."))
 			return
 
-		var/t =  sanitize(input("Enter what you want to write:", "Write", null, null) as message, free_space, extra = 0)
+		var/t = sanitize(tgui_input_text(usr, "Enter what you want to write:", "Write", max_length = free_space, multiline = TRUE, encode = FALSE, preview_context = get_writing_preview_context(usr)), free_space, extra = FALSE)
 
 		if(!t)
 			return
 
-		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
-
-		if(!i && istype(loc, /obj/item/portable_typewriter))
-			var/obj/item/portable_typewriter/T = loc
-			if(T.pen)
-				i = T.pen
-
-		if(i && istype(i, /obj/item/portable_typewriter) || !i && istype(loc, /obj/item/portable_typewriter))
-			var/obj/item/portable_typewriter/T = i
-			if(T.pen)
-				i = T.pen
-
-		if(!i || !i.tool_behaviour == TOOL_PEN)
-			i = usr.get_inactive_hand()
+		var/obj/item/i = get_writing_implement(usr)
+		if(!i)
+			return
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
 		var/istypewriter = FALSE
-		if(!i.tool_behaviour == TOOL_PEN)
-			if(usr.back && istype(usr.back,/obj/item/rig))
-				var/obj/item/rig/r = usr.back
-				var/obj/item/rig_module/device/pen/m = locate(/obj/item/rig_module/device/pen) in r.installed_modules
-				if(!r.offline && m)
-					i = m.device
-				else
-					return
-			if(istype(src.loc, /obj/item/clipboard))
-				c = src.loc
-				if(c.haspen)
-					i = c.haspen
-			else
-				return
+		if(istype(src.loc, /obj/item/clipboard))
+			c = src.loc
 
 		if(istype(i, /obj/item/pen/crayon))
 			iscrayon = TRUE
