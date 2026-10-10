@@ -1,0 +1,4 @@
+author: notagonk
+delete-after: True
+changes:
+  - rscadd: "Adds some skrell hover-furniture to the Cargo ordering catalogue."

@@ -165,4 +165,3 @@
 	name = "Zo'ra Hive Logistics"
 	description = "The logistics branch of the Zo'ra hive, one of the main Vaurca hive societies."
 	tag_line = "The Unstoppable."
-
