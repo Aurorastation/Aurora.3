@@ -18,6 +18,10 @@
 	anchored = 1
 	maxhealth = OBJECT_HEALTH_VERY_LOW
 	armor = list(MELEE = ARMOR_MELEE_SMALL, BULLET = ARMOR_BALLISTIC_MINOR)
+	/// Stable identity assigned to mapped Horizon cabinets for associating persistent papers.
+	var/tmp/persistent_storage_id
+	/// Papers deliberately placed in the persistent storage tab.
+	var/tmp/list/long_term_contents = list()
 
 	var/static/list/accepted_items = list(
 		/obj/item/paper,
@@ -49,21 +53,32 @@
 /obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unecessary map issues, but please don't name stuff like this in the future -Pete
 	icon_state = "tallcabinet"
 
-/obj/structure/filingcabinet/Initialize()
+/obj/structure/filingcabinet/Initialize(mapload)
 	. = ..()
+	if(mapload && SSpersistence.map_supports_persistence && is_station_level(z))
+		persistent_storage_id = "[x],[y],[z],[type]"
+		for(var/obj/item/paper/paper in SSpersistence.object_track_register)
+			if(paper.persistent_filing_cabinet_id == persistent_storage_id)
+				paper.forceMove(src)
+				long_term_contents += paper
 	for(var/obj/item/I in loc)
 		if(is_type_in_list(I, accepted_items))
 			I.forceMove(src)
 
 /obj/structure/filingcabinet/attackby(obj/item/attacking_item, mob/user)
 	if(is_type_in_list(attacking_item, accepted_items))
+		if(istype(attacking_item, /obj/item/paper))
+			var/obj/item/paper/paper = attacking_item
+			paper.persistent_filing_cabinet_id = null
+			SSpersistence.objectsDeregisterTrack(paper)
+			long_term_contents -= paper
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 		user.drop_from_inventory(attacking_item, src)
 		flick("[initial(icon_state)]-open", src)
 		playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
 		sleep(40)
 		icon_state = initial(icon_state)
-		updateUsrDialog()
+		SStgui.update_uis(src)
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
@@ -82,31 +97,87 @@
 	. = ..()
 
 /obj/structure/filingcabinet/attack_hand(mob/user as mob)
-	if(contents.len <= 0)
-		to_chat(user, SPAN_NOTICE("\The [src] is empty."))
+	user.set_machine(src)
+	ui_interact(user)
+
+/obj/structure/filingcabinet/do_simple_ranged_interaction(mob/user)
+	ui_interact(user)
+
+/obj/structure/filingcabinet/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "FilingCabinet", name)
+		ui.open()
+
+/obj/structure/filingcabinet/ui_data(mob/user)
+	var/list/data = list()
+	var/list/general = list()
+	var/list/long_term = list()
+
+	for(var/obj/item/item in long_term_contents.Copy())
+		if(QDELETED(item) || item.loc != src)
+			long_term_contents -= item
+
+	for(var/obj/item/item in contents)
+		var/list/item_data = list(
+			"name" = item.name,
+			"ref" = REF(item),
+			"can_archive" = istype(item, /obj/item/paper)
+		)
+		if(item in long_term_contents)
+			long_term += list(item_data)
+		else
+			general += list(item_data)
+
+	data["general"] = general
+	data["long_term"] = long_term
+	data["supports_persistence"] = !!persistent_storage_id
+	return data
+
+/obj/structure/filingcabinet/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	if(!Adjacent(usr))
 		return
 
-	user.set_machine(src)
-	var/dat = "<center><table>"
-	for(var/obj/item/P in src)
-		dat += "<tr><td><a href='byond://?src=[REF(src)];retrieve=[REF(P)]'>[P.name]</a></td></tr>"
-	dat += "</table></center>"
-	user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
+	var/obj/item/item = locate(params["ref"])
+	if(!istype(item) || item.loc != src)
+		return
 
-/obj/structure/filingcabinet/Topic(href, href_list)
-	if(href_list["retrieve"])
-		usr << browse("", "window=filingcabinet") // Close the menu)
-
-		//var/retrieveindex = text2num(href_list["retrieve"])
-		var/obj/item/P = locate(href_list["retrieve"])//contents[retrieveindex]
-		if(istype(P) && (P.loc == src) && src.Adjacent(usr))
-			usr.put_in_hands(P)
-			updateUsrDialog()
-			flick("[initial(icon_state)]-open",src)
+	switch(action)
+		if("retrieve")
+			if(item in long_term_contents)
+				var/obj/item/paper/retrieved_paper = item
+				retrieved_paper.persistent_filing_cabinet_id = null
+				SSpersistence.objectsDeregisterTrack(retrieved_paper)
+				long_term_contents -= retrieved_paper
+			usr.put_in_hands(item)
+			flick("[initial(icon_state)]-open", src)
 			playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
-			spawn(0)
-				sleep(20)
-				icon_state = initial(icon_state)
+			addtimer(CALLBACK(src, PROC_REF(reset_icon_state)), 2 SECONDS)
+			return TRUE
+
+		if("archive")
+			if(!persistent_storage_id || !istype(item, /obj/item/paper) || (item in long_term_contents))
+				return
+			var/obj/item/paper/archived_paper = item
+			archived_paper.persistent_filing_cabinet_id = persistent_storage_id
+			long_term_contents += archived_paper
+			SSpersistence.objectsRegisterTrack(archived_paper, ckey(usr.key))
+			return TRUE
+
+		if("unarchive")
+			if(!(item in long_term_contents))
+				return
+			var/obj/item/paper/unarchived_paper = item
+			unarchived_paper.persistent_filing_cabinet_id = null
+			SSpersistence.objectsDeregisterTrack(unarchived_paper)
+			long_term_contents -= unarchived_paper
+			return TRUE
+
+/obj/structure/filingcabinet/proc/reset_icon_state()
+	icon_state = initial(icon_state)
 
 
 /*

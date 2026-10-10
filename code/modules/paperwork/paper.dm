@@ -65,6 +65,8 @@
 
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
+	/// Stable ID of the filing cabinet whose long-term storage contains this paper.
+	var/tmp/persistent_filing_cabinet_id
 
 	persistent_objects_expiration_time_days = 180
 
@@ -848,17 +850,21 @@
 	var/list/content = list()
 	content["title"] = name
 	content["text"] = info
+	if(persistent_filing_cabinet_id)
+		content["filing_cabinet_id"] = persistent_filing_cabinet_id
 	return content
 
 /obj/item/paper/persistent_objects_apply_content(content, x, y, z)
 	set_content(content["title"], content["text"], adddefaultfont = FALSE)
+	persistent_filing_cabinet_id = content["filing_cabinet_id"]
 	src.x = x
 	src.y = y
 	src.z = z
-	for(var/obj/object in loc) // Pin to noticeboard
-		if(istype(object, /obj/structure/noticeboard))
-			var/obj/structure/noticeboard/notice_board = object
-			notice_board.add_papers_from_turf()
+	if(!persistent_filing_cabinet_id)
+		for(var/obj/object in loc) // Pin to noticeboard
+			if(istype(object, /obj/structure/noticeboard))
+				var/obj/structure/noticeboard/notice_board = object
+				notice_board.add_papers_from_turf()
 
 /*
 * Sticky notes
@@ -897,6 +903,7 @@
 /obj/item/paper/stickynotes/persistent_objects_apply_content(content, x, y, z)
 	src.name = content["title"]
 	src.info = content["text"]
+	src.persistent_filing_cabinet_id = content["filing_cabinet_id"]
 	src.color = content["color"]
 	src.pixel_x = content["pixel_x"]
 	src.pixel_y = content["pixel_y"]
