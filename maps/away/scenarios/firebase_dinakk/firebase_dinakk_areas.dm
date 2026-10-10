@@ -46,6 +46,7 @@
 // Unsorted Building Insides
 /area/firebase_dinakk/inside
 	name = "Firebase Din'akk - Base Type"
+	requires_power = FALSE
 
 /area/firebase_dinakk/inside/checkpoint
 	name = "Firebase Din'akk - Checkpoint"
