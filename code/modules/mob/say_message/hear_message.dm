@@ -65,6 +65,53 @@
 		else
 			return format_envelope_spoken(msg, clarity, muffled)
 
+/// Returns compass and vertical indicators for a spoken source outside the listener's view.
+/mob/proc/get_speech_direction_indicator(datum/say_message/msg)
+	if(!isliving(src) || !length(msg.offscreen_listeners) || !(src in msg.offscreen_listeners))
+		return ""
+
+	var/mob/speaker = msg.speaker
+	if(!speaker || speaker == src)
+		return ""
+
+	var/turf/listener_turf = get_turf(src)
+	var/turf/speaker_turf = get_turf(speaker)
+	if(!listener_turf || !speaker_turf || listener_turf == speaker_turf)
+		return ""
+
+	var/horizontal_direction = 0
+	if(speaker_turf.y > listener_turf.y)
+		horizontal_direction |= NORTH
+	else if(speaker_turf.y < listener_turf.y)
+		horizontal_direction |= SOUTH
+	if(speaker_turf.x > listener_turf.x)
+		horizontal_direction |= EAST
+	else if(speaker_turf.x < listener_turf.x)
+		horizontal_direction |= WEST
+
+	switch(horizontal_direction)
+		if(NORTH)
+			. = " ↑"
+		if(SOUTH)
+			. = " ↓"
+		if(EAST)
+			. = " →"
+		if(WEST)
+			. = " ←"
+		if(NORTHWEST)
+			. = " ↖"
+		if(NORTHEAST)
+			. = " ↗"
+		if(SOUTHWEST)
+			. = " ↙"
+		if(SOUTHEAST)
+			. = " ↘"
+
+	if(speaker_turf.z > listener_turf.z)
+		. += " ↑"
+	else if(speaker_turf.z < listener_turf.z)
+		. += " ↓"
+
 /// Wraps a say envelope around the message body.
 /mob/proc/format_envelope_spoken(datum/say_message/msg, clarity = CLARITY_CLEAR, muffled = FALSE)
 	var/list/rendered = msg.render_body(src, clarity)
@@ -100,7 +147,8 @@
 	var/leading = emote_led ? "" : "[msg.verb], "
 	var/font_open = msg.font_size ? "<font size='[msg.font_size]'>" : ""
 	var/font_close = msg.font_size ? "</font>" : ""
-	return "[track][accent_icon ? accent_icon + " " : ""][font_open]<span class='game say'><span class='name'>[speaker_name]</span>[msg.alt_name] [leading]<span class='message'>[body]</span></span>[font_close]"
+	var/direction_indicator = get_speech_direction_indicator(msg)
+	return "[track][accent_icon ? accent_icon + " " : ""][font_open]<span class='game say'><span class='name'>[speaker_name][direction_indicator]</span>[msg.alt_name] [leading]<span class='message'>[body]</span></span>[font_close]"
 
 /// Wraps a radio envelope around the message body.
 /mob/proc/format_envelope_radio(datum/say_message/msg, clarity = CLARITY_CLEAR)
