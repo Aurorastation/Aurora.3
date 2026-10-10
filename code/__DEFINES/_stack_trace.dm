@@ -18,11 +18,11 @@
 /// If running in unit tests, assert that an expression is true.
 /// If assertion fails, print the stack trace and fail tests.
 /// If not tests, does nothing.
-#define dbg_assert(assertion, reason...) \
+#define dbg_assert(assertion, reason) \
 	do { \
 		if (!(assertion)) { \
-			var/_dbg_reason = (__VA_ARGS__ ? ("; " + (__VA_ARGS__)) : ""); \
-			stack_trace("Assertion failed: " + #assertion + "[_dbg_reason]"); \
+			var/_dbg_reason = (reason); \
+			stack_trace("Assertion failed: " + #assertion + (_dbg_reason ? ": [_dbg_reason]" : "")); \
 		} \
 	} while (0)
 
