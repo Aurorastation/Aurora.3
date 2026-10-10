@@ -23,6 +23,7 @@
 
 /area/firebase_dinakk/outside/firebase_dinakk
 	name = "Firebase Din'akk"
+	is_outside = OUTSIDE_YES
 	color = "#2e2e2e"
 	area_blurb = "tbd."
 
