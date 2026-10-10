@@ -86,3 +86,59 @@
   border-left: 2px solid var(--highlight-background-color, #ffdd44);
   padding-left: 0.5em;
 }
+
+// Both versions share the same grid cell, reserving the larger width before
+// deciphering starts so replacing a word never reflows the chat line.
+.language-decipher {
+  display: inline-grid;
+  position: relative;
+  vertical-align: baseline;
+
+  &-initial,
+  &-solution {
+    grid-area: 1 / 1;
+  }
+}
+
+.language-decipher-initial {
+  animation: language-decipher-hide 0s linear var(--decipher-delay) forwards;
+}
+
+.language-decipher-scramble {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+  white-space: nowrap;
+  animation: language-decipher-scramble-visibility var(--decipher-duration)
+    linear var(--decipher-delay) forwards;
+}
+
+.language-decipher-solution {
+  visibility: hidden;
+  animation: language-decipher-show 0s linear
+    calc(var(--decipher-delay) + var(--decipher-duration)) forwards;
+}
+
+@keyframes language-decipher-scramble-visibility {
+  0%,
+  99.999% {
+    visibility: visible;
+  }
+
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes language-decipher-hide {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes language-decipher-show {
+  to {
+    visibility: visible;
+  }
+}
