@@ -72,11 +72,11 @@
 */
 
 // Bitmasks for door switches.
-#define OPEN   0x1
-#define IDSCAN 0x2
-#define BOLTS  0x4
-#define SHOCK  0x8
-#define SAFE   0x10
+#define AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_OPEN   0x1
+#define AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_IDSCAN 0x2
+#define AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_BOLTS  0x4
+#define AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_SHOCK  0x8
+#define AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_SAFE   0x10
 
 /obj/structure/machinery/button/remote/airlock
 	name = "remote door-control"
@@ -94,7 +94,7 @@
 /obj/structure/machinery/button/remote/airlock/trigger()
 	for(var/obj/structure/machinery/door/airlock/D in SSmachinery.machinery)
 		if(D.id_tag == src.id)
-			if(specialfunctions & OPEN)
+			if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_OPEN)
 				if (D.density)
 					D.open()
 					return
@@ -102,22 +102,22 @@
 					D.close()
 					return
 			if(desiredstate == 1)
-				if(specialfunctions & IDSCAN)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_IDSCAN)
 					D.set_idscan(0)
-				if(specialfunctions & BOLTS)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_BOLTS)
 					D.lock()
-				if(specialfunctions & SHOCK)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_SHOCK)
 					D.electrify(-1)
-				if(specialfunctions & SAFE)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_SAFE)
 					D.set_safeties(0)
 			else
-				if(specialfunctions & IDSCAN)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_IDSCAN)
 					D.set_idscan(1)
-				if(specialfunctions & BOLTS)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_BOLTS)
 					D.unlock()
-				if(specialfunctions & SHOCK)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_SHOCK)
 					D.electrify(0)
-				if(specialfunctions & SAFE)
+				if(specialfunctions & AIRLOCK_BUTTON_SPECIALFUNCTIONS_BITMASK_SAFE)
 					D.set_safeties(1)
 
 /obj/structure/machinery/button/remote/airlock/screamer
@@ -127,12 +127,6 @@
 /obj/structure/machinery/button/remote/airlock/screamer/trigger()
 	. = ..()
 	GLOB.global_announcer.autosay(message, capitalize_first_letters(name), channel)
-
-#undef OPEN
-#undef IDSCAN
-#undef BOLTS
-#undef SHOCK
-#undef SAFE
 
 /*
 	Blast door remote control
