@@ -175,7 +175,8 @@
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	maneuvers = list(
-		/singleton/maneuver/leap/industrial
+		/singleton/maneuver/leap/industrial,
+		/singleton/maneuver/kick
 	)
 
 	heat_level_1 = 800
@@ -639,7 +640,8 @@
 		/mob/living/carbon/human/proc/check_tag
 		)
 	maneuvers = list(
-		/singleton/maneuver/leap/zenghu
+		/singleton/maneuver/leap/zenghu,
+		/singleton/maneuver/kick
 	)
 
 	machine_ui_theme = "zenghu"
