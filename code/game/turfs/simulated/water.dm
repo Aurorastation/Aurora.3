@@ -95,6 +95,8 @@
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!(SSATOMS_IS_PROBABLY_DONE))
 		return
+	if(has_lattice())
+		return ..()
 	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
 	START_PROCESSING(SSprocessing, src)
@@ -111,6 +113,8 @@
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
+	if(has_lattice())
+		return ..()
 	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
 	if(istype(AM, /obj) && numobjects)
@@ -126,8 +130,9 @@
 /turf/simulated/floor/beach/water/process()
 	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
-	for(var/mob/living/L in src)
-		wash(L)
+	if(!has_lattice())
+		for(var/mob/living/L in src)
+			wash(L)
 	if(!numobjects)
 		STOP_PROCESSING(SSprocessing, src)
 
