@@ -40,6 +40,7 @@
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom && user.Adjacent(attached_atom))
 		attack_hand(user)
+		return TRUE
 
 /obj/item/sticker/attackby(obj/item/attacking_item, mob/user)
 	if(!attached)

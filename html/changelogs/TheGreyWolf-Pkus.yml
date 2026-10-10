@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "P'kus parts are now orderable in operations. They still need assembly by a machinist to function."

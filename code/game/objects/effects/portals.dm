@@ -89,6 +89,13 @@
 	if(does_teleport)
 		teleport(user)
 
+/obj/effect/portal/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	if(does_teleport)
+		if(teleport(hitting_projectile))
+			return BULLET_ACT_FORCE_PIERCE
+		return BULLET_ACT_BLOCK
+	return ..()
+
 /obj/effect/portal/proc/teleport(atom/movable/movable)
 	if(!does_teleport) // just to be safe
 		return
@@ -119,6 +126,7 @@
 	if(!has_teleported)
 		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."))
 		qdel(src)
+	return has_teleported
 
 /**
  * Sets the target of the teleporter
