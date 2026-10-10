@@ -41,8 +41,8 @@
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/firebase_dinakk
-	name = "Din'akk Crash Site"
-	desc = "The identified site of an SCC shuttle crash. No notable signs of population or structural build-up."
+	name = "Adhomai - Firebase Din'akk"
+	desc = "An isolated outpost found deep within the Din'akk Mountains."
 	icon_state = /obj/effect/overmap/visitable/sector/exoplanet/adhomai::icon_state
 	color = /obj/effect/overmap/visitable/sector/exoplanet/adhomai::color
 

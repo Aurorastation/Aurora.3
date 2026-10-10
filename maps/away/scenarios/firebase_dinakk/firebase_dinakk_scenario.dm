@@ -9,7 +9,7 @@
 	scenario_announcements = /singleton/scenario_announcements/firebase_dinakk
 
 	roles = list(
-		/singleton/role/generic_bandit
+		/singleton/role/generic_crew
 	)
 	default_outfit = /obj/outfit/admin/generic/firebase_dinakk_bandit/generic
 	actor_accesses = list(
