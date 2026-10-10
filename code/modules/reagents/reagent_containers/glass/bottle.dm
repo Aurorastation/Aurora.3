@@ -301,24 +301,24 @@
 
 /obj/item/reagent_containers/glass/bottle/hclacid
 	name = "hydrochloric acid bottle"
-	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	desc = "A small bottle of highly corrosive mineral acid."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/acid/hydrochloric = 60)
 
 /obj/item/reagent_containers/glass/bottle/impedrezene
 	name = "impedrezene bottle"
-	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	desc = "A small bottle of a potent narcotic. Inhibits higher brain function."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/drugs/impedrezene = 60)
 
 /obj/item/reagent_containers/glass/bottle/mindbreaker
 	name = "mindbreaker toxin bottle"
-	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	desc = "A small bottle of a potent narcotic. Causes disturbing hallucinations."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/drugs/mindbreaker = 60)
 
 /obj/item/reagent_containers/glass/bottle/raskara_dust
 	name = "raskara dust bottle"
-	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	desc = "A small bottle of potent narcotic. Known for it's relaxing poperties that cause trance-like states when inhaled."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/drugs/raskara_dust = 60)

@@ -28,7 +28,7 @@
 /area/firebase_dinakk/outside/firebase_dinakk/parade)
 "abr" = (
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/table/rack/folding_table,
+/obj/structure/lattice/ceiling,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "acM" = (
@@ -997,16 +997,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"cBP" = (
-/obj/effect/tent{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/effect/tent{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "cCo" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -1168,7 +1158,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/brigdoor/eastleft{
-	req_access = list(/datum/access/firebase_dinakk_checkpoint::id)
+	req_access = list(/datum/access/firebase_dinakk_checkpoint)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
@@ -2401,13 +2391,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/firebase_dinakk/inside/checkpoint)
-"gzQ" = (
-/obj/effect/tent{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "gBI" = (
 /obj/structure/machinery/door/blast/shutters/open{
 	dir = 2
@@ -2460,16 +2443,6 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/firebase_dinakk/inside/barracks/hydro)
-"gPi" = (
-/obj/effect/tent{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/effect/tent{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "gQY" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/engineer_maintenance/electric/wall,
@@ -2479,11 +2452,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/firebase_dinakk/inside/barracks/lavatory)
-"gRl" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/effect/tent,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "gRS" = (
 /obj/structure/machinery/door/urban/metal_alt{
 	req_one_access = list(/datum/access/firebase_dinakk_basement)
@@ -2966,6 +2934,7 @@
 /obj/structure/platform/column{
 	dir = 8
 	},
+/obj/structure/lattice/ceiling,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "iAS" = (
@@ -3419,14 +3388,6 @@
 /obj/effect/decal/exterior_stairs/half/left,
 /turf/simulated/floor/exoplanet/sidewalk/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
-"jYH" = (
-/obj/effect/tent{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/table/rack/folding_table,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "jYI" = (
 /obj/effect/map_effect/perma_light/exoplanet,
 /obj/effect/decal/road_marking,
@@ -3998,13 +3959,6 @@
 	},
 /turf/simulated/floor/exoplanet/roofing_tiles,
 /area/firebase_dinakk/inside/basement/helipad)
-"ltT" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/effect/tent{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "lup" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
@@ -4998,7 +4952,6 @@
 /obj/structure/platform/column{
 	dir = 8
 	},
-/obj/structure/urban_grate,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "oqt" = (
@@ -5254,14 +5207,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood/walnut,
 /area/firebase_dinakk/inside/presidium/commander_quarters)
-"oSF" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/effect/tent{
-	dir = 1
-	},
-/obj/structure/table/rack/folding_table,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "oTD" = (
 /obj/structure/barricade/metal{
 	dir = 4
@@ -5650,7 +5595,7 @@
 /area/firebase_dinakk/inside/presidium/briefing)
 "pYI" = (
 /obj/effect/landmark/minimap_poi{
-	name = "Clearing"
+	name = "Firebase Din'akk"
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/dinakk/outside)
@@ -6069,6 +6014,10 @@
 /area/firebase_dinakk/inside/presidium/commander_office)
 "riW" = (
 /obj/abstract/weather_marker/firebase_dinakk,
+/obj/effect/landmark/minimap_poi{
+	name = "Firebase Din'akk"
+	},
+/obj/effect/overmap/visitable/sector/firebase_dinakk,
 /turf/simulated/floor/exoplanet/sidewalk/detail/concrete/dark,
 /area/firebase_dinakk/outside/firebase_dinakk)
 "rlp" = (
@@ -6316,14 +6265,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/firebase_dinakk/inside/basement/vault)
-"scs" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/effect/tent{
-	dir = 4
-	},
-/obj/effect/tent,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "scw" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -7126,14 +7067,6 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/firebase_dinakk/outside/firebase_dinakk/landing_pad)
-"uyU" = (
-/obj/effect/tent{
-	dir = 8
-	},
-/obj/effect/tent,
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
-/area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "uAf" = (
 /turf/simulated/wall/r_wall,
 /area/firebase_dinakk/inside/basement/helipad)
@@ -7273,12 +7206,7 @@
 /turf/simulated/floor/exoplanet/plating,
 /area/firebase_dinakk/inside/barracks/kitchen)
 "uMx" = (
-/obj/effect/tent,
-/obj/effect/tent{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/exoplanet/mineral/cave/adhomai,
+/turf/simulated/wall/concrete,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "uMz" = (
 /obj/structure/bed/stool/chair/folding{
@@ -7459,6 +7387,7 @@
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 1
 	},
+/obj/structure/lattice/ceiling,
 /turf/simulated/floor/exoplanet/mineral/cave/adhomai,
 /area/firebase_dinakk/outside/firebase_dinakk/artillery/tent)
 "vnM" = (
@@ -103482,12 +103411,12 @@ huk
 emP
 dTm
 lUQ
-cBP
-gzQ
-gzQ
-gzQ
-gzQ
-uyU
+uMx
+pEI
+uMx
+uMx
+pEI
+uMx
 ejt
 ejt
 baQ
@@ -103739,7 +103668,7 @@ tgo
 atv
 emP
 lUQ
-ltT
+pEI
 syo
 vHh
 vnz
@@ -103996,7 +103925,7 @@ rGd
 dwH
 emP
 lUQ
-ltT
+pEI
 cgi
 onz
 izW
@@ -104253,12 +104182,12 @@ rGd
 dwH
 emP
 lUQ
-ltT
-pEI
-pEI
-pEI
-pEI
-scs
+uMx
+abr
+abr
+abr
+abr
+uMx
 ejt
 ejt
 srM
@@ -104510,12 +104439,12 @@ eCw
 dwH
 emP
 lUQ
-oSF
+uMx
 pEI
 pEI
+abr
 pEI
-gRl
-ejt
+pEI
 ejt
 ejt
 ejt
@@ -104767,12 +104696,12 @@ eCw
 dwH
 reG
 ayp
-oSF
+pEI
 pEI
 blb
+abr
 pEI
 pEI
-ejt
 ejt
 ejt
 uPp
@@ -105024,12 +104953,12 @@ eCw
 amu
 wcO
 bxY
-oSF
+pEI
 pEI
 pEI
 abr
-pEI
-ejt
+uMx
+uMx
 ejt
 ejt
 dwi
@@ -105281,10 +105210,10 @@ eCw
 amu
 emP
 lUQ
-gPi
+uMx
 pEI
 pEI
-jYH
+uMx
 uMx
 ejt
 ejt
