@@ -17,7 +17,7 @@
 
 // ------------------ generic bandit
 /obj/outfit/admin/generic/firebase_dinakk_bandit/generic
-	name = "Firebase Din'akk Bandit = Generic Bandit"
+	name = "Firebase Din'akk Bandit - Generic Bandit"
 	uniform = list(
 		/obj/item/clothing/under/dressshirt/tanktop,
 		/obj/item/clothing/under/dressshirt/longsleeve_s,
