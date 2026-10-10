@@ -15,7 +15,6 @@
 	name = "Din'akk Valley"
 	is_outside = OUTSIDE_YES
 	requires_power = FALSE
-	area_blurb = "tbd."
 
 /area/dinakk/outside/mountains
 	name = "Din'akk Mountains"
@@ -24,7 +23,6 @@
 /area/firebase_dinakk/outside/firebase_dinakk
 	name = "Firebase Din'akk"
 	color = "#2e2e2e"
-	area_blurb = "tbd."
 
 /area/firebase_dinakk/outside/firebase_dinakk/artillery
 	name = "Firebase Din'akk, Outdoors - Field Gun Emplacement"
