@@ -484,6 +484,40 @@
 	protection_percent = 10
 	can_hover = FALSE
 	key_type = /obj/item/key/bike/snow
+	/// The cargo sled currently hitched to this snowmobile. Snowmobiles can only pull one sled.
+	var/obj/vehicle/train/cargo/trolley/sled/towed_sled
+
+/obj/vehicle/bike/snow/Destroy()
+	if(towed_sled)
+		towed_sled.unattach()
+	return ..()
+
+/obj/vehicle/bike/snow/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag a cargo sled onto the snowmobile to hitch it. Use a wrench on the sled to unhitch it."
+
+/obj/vehicle/bike/snow/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(towed_sled)
+		. += SPAN_NOTICE("It is towing \the [towed_sled].")
+
+/obj/vehicle/bike/snow/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(istype(dropped, /obj/vehicle/train/cargo/trolley/sled))
+		if(use_check_and_message(user))
+			return
+		var/obj/vehicle/train/cargo/trolley/sled/sled = dropped
+		sled.attach_to_snowmobile(src, user)
+		return
+	return ..()
+
+/obj/vehicle/bike/snow/Move(var/turf/destination)
+	if(towed_sled && destination == get_turf(towed_sled))
+		return FALSE
+
+	var/turf/old_loc = get_turf(src)
+	. = ..()
+	if(. && towed_sled && !towed_sled.Move(old_loc))
+		towed_sled.unattach()
 
 /obj/vehicle/bike/snow/no_key
 	spawns_with_key = FALSE
