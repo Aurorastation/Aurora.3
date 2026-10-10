@@ -152,25 +152,25 @@
 	for(var/d in GLOB.cardinals)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
-			if(!LinkBlockedWithAccess(src, T, ID))
+			if(!LegacyLinkBlockedWithAccess(src, T, ID))
 				L.Add(T)
 	return L
 
 
 // Returns true if a link between A and B is blocked
 // Movement through doors allowed if ID has access
-/proc/LinkBlockedWithAccess(turf/A, turf/B, obj/item/card/id/ID)
+/proc/LegacyLinkBlockedWithAccess(turf/A, turf/B, obj/item/card/id/ID)
 
 	if(A == null || B == null) return 1
 	var/adir = get_dir(A,B)
 	var/rdir = get_dir(B,A)
 	if((adir & (NORTH|SOUTH)) && (adir & (EAST|WEST)))	//	diagonal
 		var/iStep = get_step(A,adir&(NORTH|SOUTH))
-		if(!LinkBlockedWithAccess(A,iStep, ID) && !LinkBlockedWithAccess(iStep,B,ID))
+		if(!LegacyLinkBlockedWithAccess(A,iStep, ID) && !LegacyLinkBlockedWithAccess(iStep,B,ID))
 			return 0
 
 		var/pStep = get_step(A,adir&(EAST|WEST))
-		if(!LinkBlockedWithAccess(A,pStep,ID) && !LinkBlockedWithAccess(pStep,B,ID))
+		if(!LegacyLinkBlockedWithAccess(A,pStep,ID) && !LegacyLinkBlockedWithAccess(pStep,B,ID))
 			return 0
 		return 1
 

@@ -1,5 +1,51 @@
+/datum/ai_holder/simple_animal/retaliate/goat
+
+/datum/ai_holder/simple_animal/retaliate/goat/on_attacked(atom/attacker)
+	. = ..()
+	if(holder.stat == CONSCIOUS)
+		holder.visible_message(SPAN_WARNING("[holder] gets an evil-looking gleam in their eye."))
+
+/datum/ai_holder/simple_animal/retaliate/goat/handle_special_strategical()
+	var/mob/living/simple_animal/hostile/retaliate/goat/goat = holder
+	if(!target && !length(attackers) && prob(1))
+		var/mob/living/new_target = locate() in oview(world.view, goat)
+		if(new_target && can_attack(new_target))
+			goat.visible_message(SPAN_WARNING("[goat] gets an evil-looking gleam in their eye."))
+			add_attacker(new_target)
+			give_target(new_target, TRUE)
+			return
+
+	if((target || length(attackers)) && prob(10))
+		attackers.Cut()
+		remove_target(FALSE)
+		goat.visible_message(SPAN_NOTICE("[goat] calms down."))
+		return
+
+	if(!goat.pulledby && !(stance in AI_STANCES_COMBAT))
+		var/obj/effect/plant/food = locate() in oview(5, goat)
+		if(food)
+			goat.AIMove(get_step_towards(goat, food))
+
+/datum/ai_holder/simple_animal/passive/chick
+	var/amount_grown = 0
+
+/datum/ai_holder/simple_animal/passive/chick/handle_special_strategical()
+	var/mob/living/simple_animal/chick/chick = holder
+	amount_grown += rand(1, 2)
+	if(amount_grown >= 100)
+		new /mob/living/simple_animal/chicken(chick.loc)
+		qdel(chick)
+
+/datum/ai_holder/simple_animal/passive/chicken
+
+/datum/ai_holder/simple_animal/passive/chicken/handle_special_strategical()
+	var/mob/living/simple_animal/chicken/chicken = holder
+	if(chicken.eggsleft > 0 && chicken.chicken_count < MAX_CHICKENS && prob(3))
+		chicken.AILayEgg()
+
 //goat
 /mob/living/simple_animal/hostile/retaliate/goat
+	ai_holder_type = /datum/ai_holder/simple_animal/retaliate/goat
 	name = "goat"
 	desc = "Not known for their pleasant disposition."
 	icon = 'icons/mob/npc/livestock.dmi'
@@ -42,30 +88,6 @@
 		if(locate(/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible) in loc)
 			var/obj/structure/machinery/portable_atmospherics/hydroponics/soil/invisible/SP = locate() in loc
 			qdel(SP)
-
-/mob/living/simple_animal/hostile/retaliate/goat/think()
-	..()
-	//chance to go crazy and start wacking stuff
-	if(!enemies.len && prob(1))
-		var/mob/living/L = locate() in oview(world.view, src)
-		if(L)
-			handle_attack_by(L)
-
-	if(enemies.len && prob(10))
-		enemies = list()
-		LoseTarget()
-		src.visible_message(SPAN_NOTICE("[src] calms down."))
-
-	if(!pulledby)
-		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
-		if(food)
-			var/step = get_step_to(src, food, 0)
-			Move(step)
-
-/mob/living/simple_animal/hostile/retaliate/goat/handle_attack_by(mob/M)
-	..()
-	if(stat == CONSCIOUS)
-		visible_message(SPAN_WARNING("[src] gets an evil-looking gleam in their eye."))
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	. = ..()
@@ -147,6 +169,7 @@
 	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
 
 /mob/living/simple_animal/chick
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/chick
 	name = "\improper chick"
 	desc = "Adorable! They make such a racket though."
 	icon = 'icons/mob/npc/livestock.dmi'
@@ -182,21 +205,12 @@
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 
-/mob/living/simple_animal/chick/Life(seconds_per_tick, times_fired)
-	. =..()
-	if(!.)
-		return
-	if(!stat)
-		amount_grown += rand(1,2)
-		if(amount_grown >= 100)
-			new /mob/living/simple_animal/chicken(src.loc)
-			qdel(src)
-
 /mob/living/simple_animal/chick/death()
 	..()
 	desc = "How could you do this? You monster!"
 
 /mob/living/simple_animal/chicken
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/chicken
 	name = "chicken"
 	desc = "Hopefully the eggs are good this season."
 	icon = 'icons/mob/npc/livestock.dmi'
@@ -271,17 +285,13 @@
 	else
 		..()
 
-/mob/living/simple_animal/chicken/Life(seconds_per_tick, times_fired)
-	. =..()
-	if(!.)
-		return
-	if(!stat && prob(3) && eggsleft > 0 && chicken_count < MAX_CHICKENS)
-		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
-		eggsleft--
-		var/obj/item/reagent_containers/food/snacks/egg/E = new(get_turf(src))
-		E.fertilize()
-		E.pixel_x = rand(-6,6)
-		E.pixel_y = rand(-6,6)
+/mob/living/simple_animal/chicken/proc/AILayEgg()
+	visible_message("[src] [pick("lays an egg.", "squats down and croons.", "begins making a huge racket.", "begins clucking raucously.")]")
+	eggsleft--
+	var/obj/item/reagent_containers/food/snacks/egg/egg = new(get_turf(src))
+	egg.fertilize()
+	egg.pixel_x = rand(-6, 6)
+	egg.pixel_y = rand(-6, 6)
 
 // Penguins
 
@@ -322,4 +332,3 @@
 /mob/living/simple_animal/penguin/emperor
 	name = "emperor penguin"
 	desc = "Emperor of all he surveys."
-
