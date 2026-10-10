@@ -1,31 +1,6 @@
-/*
- *	Generic Clothing Vendor
- *	Actor Vendor
- **/
 
-/obj/structure/machinery/vending/actor
-	name = "\improper Actor Vendor"
-	desc = "Has all your odyssey actor items, to let you effectively do your odysseying and actoring."
-	vend_id = "actor"
-	icon_state = "generic"
-	icon_vend = "generic-vend"
-	light_mask = "generic-lightmask"
-	products = list(
-		/obj/item/radio/headset/ship/odyssey = 12,
-		/obj/item/portable_map_reader/odyssey = 12,
-		/obj/item/card/id/syndicate = 12,
-		/obj/item/storage/box/syndie_kit/chameleon = 12,
-	)
-	light_color = COLOR_GUNMETAL
-	random_itemcount = FALSE
-
-/*
-Generic clothing vendor used in antagonist areas. For now, this almost entirely contains generic items. Prioritises recolourable items.
-Intended to take some pressure off admins asked regularly to spawn in clothing by allowing players to spawn and colour their clothes themselves.
-Only contains very few origin-specific items, as otherwise the list would get so long it'd be entirely incomprehensible.
-If you want to expand this to more than primarily generic items, I recommend designing a UI that supports switching between categories.
-*/
-/obj/structure/machinery/vending/generic_clothing
+/// Generic clothing vendor.
+/obj/structure/machinery/vending/wardrobe/generic
 	name = "\improper Generic Clothing Vendor"
 	desc = "Contains a large number of generic clothing items. Comes with hand-held dyers to dye its contents however the user wishes."
 	vend_id = "generic_clothing"
