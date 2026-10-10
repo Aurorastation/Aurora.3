@@ -41,6 +41,9 @@
 		to_chat(usr, SPAN_WARNING("\The [src] cannot be placed in this area."))
 		return
 
+	if(try_merge_maintenance_panel_frame(src, loc, ndir, user))
+		return
+
 	if(gotwallitem(loc, ndir))
 		to_chat(usr, SPAN_WARNING("There's already an item on this wall!"))
 		return
