@@ -64,12 +64,6 @@
 
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/wizrobe/fake
-	name = "wizard robe"
-	desc = "A rather dull, blue robe meant to mimick real wizard robes."
-	icon_state = "wizard-fake"
-	item_state = "wizrobe"
-
 //black robes
 
 /obj/item/clothing/head/wizard/black
