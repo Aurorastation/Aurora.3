@@ -464,8 +464,9 @@
 /obj/item/clothing/gloves/black/forensic
 	name = "forensic gloves"
 	desc = "Specially made gloves for investigative personnel. The luminescent threads woven into the material stand out under scrutiny."
+	icon = 'icons/obj/item/clothing/gloves/forensic_gloves.dmi'
 	icon_state = "forensic"
-	item_state = "forensicgloves"
+	item_state = "forensic"
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/single
