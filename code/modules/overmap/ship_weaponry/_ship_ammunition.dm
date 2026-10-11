@@ -177,13 +177,13 @@
 /obj/item/ship_ammunition/touch_map_edge(var/new_z)
 	if(isprojectile(loc))
 		transfer_to_overmap(new_z)
-		origin = GLOB.map_sectors["[new_z]"]
+		origin = get_map_sector(new_z)
 		return TRUE
 	else
 		. = ..()
 
 /obj/item/ship_ammunition/proc/transfer_to_overmap(var/new_z)
-	var/obj/effect/overmap/start_object = GLOB.map_sectors["[new_z]"]
+	var/obj/effect/overmap/start_object = get_map_sector(new_z)
 	if(!start_object)
 		return FALSE
 

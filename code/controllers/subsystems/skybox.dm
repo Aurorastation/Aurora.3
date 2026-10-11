@@ -41,7 +41,7 @@ SUBSYSTEM_DEF(skybox)
 	if(!skybox_cache["[z]"])
 		skybox_cache["[z]"] = generate_skybox(z)
 		if(SSatlas.current_map.use_overmap)
-			var/obj/effect/overmap/visitable/O = GLOB.map_sectors["[z]"]
+			var/obj/effect/overmap/visitable/O = get_map_sector(z)
 			if(istype(O))
 				for(var/zlevel in O.map_z)
 					skybox_cache["[zlevel]"] = skybox_cache["[z]"]
@@ -61,7 +61,7 @@ SUBSYSTEM_DEF(skybox)
 	res.overlays += base
 
 	if(SSatlas.current_map.use_overmap && use_overmap_details)
-		var/obj/effect/overmap/visitable/O = GLOB.map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/O = get_map_sector(z)
 		if(istype(O))
 			var/image/overmap = image(skybox_icon)
 			overmap.overlays += O.generate_skybox()

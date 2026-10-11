@@ -49,7 +49,7 @@
 		if(is_area_consistent)
 			itemtype = pick_area_consistent(spawnlist, get_area(src), src.type)
 		else if(is_map_template_consistent)
-			var/datum/map_template/template = GLOB.map_templates["[z]"]
+			var/datum/map_template/template = get_map_template(z)
 			itemtype = pick_maptemplate_consistent(spawnlist, template, src.type)
 		else
 			itemtype = pickweight(spawnlist)
