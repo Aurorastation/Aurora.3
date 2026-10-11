@@ -42,13 +42,6 @@
 	icon_state = "redwizard"
 	item_state = "redwizrobe"
 
-/obj/item/clothing/suit/wizrobe/magusred
-	name = "magus robe"
-	desc = "A set of armored robes that seem to radiate a dark power"
-	icon_state = "magusred"
-	item_state = "magusred"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
-
 /obj/item/clothing/suit/wizrobe/psypurple
 	name = "purple robes"
 	desc = "Heavy, royal purple robes threaded with psychic amplifiers and weird, bulbous lenses. Do not machine wash."
