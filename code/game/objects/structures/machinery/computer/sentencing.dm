@@ -399,8 +399,8 @@
 		to_chat(user, SPAN_ALERT("[error]"))
 		return
 
-	print_incident_overview(incident.renderGuilty(user, 0))
-	var/obj/item/card/id/card = incident.card.resolve()
+	var/obj/item/card/id/card = incident.card?.resolve()
+	print_incident_overview(incident.renderGuilty(user, 0, card?.registered_name))
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
 		ping( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes!\"" )
 	else
@@ -417,38 +417,14 @@
 	if(!istype(user))
 		return
 
-	if(incident.fine <= 0)
-		buzz("\The [src] buzzes, \"No fine has been entered!\"")
+	var/obj/item/card/id/card = incident.card?.resolve()
+	var/list/result = incident.processFine(user, "Sentencing Console", card?.registered_name)
+	if(result["error"])
+		var/error = result["error"]
+		buzz("\The [src] buzzes, \"[error]\"")
 		return
 
-	//Lets check if there is a felony amongst the crimes
-	for(var/datum/law/L in incident.charges)
-		if(L.felony)
-			buzz("\The [src] buzzes, \"The crimes are too severe to apply a fine!\"")
-		if(!L.can_fine())
-			buzz("\The [src] buzzes, \"It is not possible to fine for [L.name]\"")
-			return
-
-	//Try to resole the security account first
-	var/datum/money_account/security_account = SSeconomy.get_department_account("Security")
-	if(!security_account)
-		buzz("\The [src] buzzes, \"Could not get security account!\"")
-		return
-
-	var/obj/item/card/id/card = incident.card.resolve()
-	//Let´s get the account of the suspect and verify they have enough money
-	var/datum/money_account/suspect_account = SSeconomy.get_account(card.associated_account_number)
-	if(!suspect_account)
-		buzz("\The [src] buzzes, \"Could not get suspect account!\"")
-		return
-
-	if(suspect_account.money < incident.fine)
-		buzz("\The [src] buzzes, \"There is not enough money in the account to pay the fine!\"")
-		return
-
-	SSeconomy.charge_to_account(suspect_account.account_number,security_account.owner_name,"Incident: [incident.UID]","Sentencing Console",-incident.fine)
-	SSeconomy.charge_to_account(security_account.account_number,suspect_account.owner_name,"Incident: [incident.UID]Fine","Sentencing Console",incident.fine)
-	print_incident_overview(incident.renderGuilty(user,1))
+	print_incident_overview(result["report"])
 
 	ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")
 
