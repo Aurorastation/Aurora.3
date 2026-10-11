@@ -988,6 +988,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 	/obj/structure/machinery/power/apc,
 	/obj/structure/machinery/alarm,
+	/obj/structure/machinery/maintenance_panel,
 	/obj/item/radio/intercom,
 	/obj/structure/extinguisher_cabinet,
 	/obj/structure/reagent_dispensers/peppertank,
