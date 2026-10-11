@@ -11,9 +11,9 @@
 		var/mob/living/simple_animal/construct/C = user
 		var/construct_class
 		if(GLOB.narsie_cometh)
-			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Harvester")
+			construct_class = tgui_alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", list("Juggernaut", "Wraith", "Harvester"))
 		else
-			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Artificer")
+			construct_class = tgui_alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", list("Juggernaut", "Wraith", "Artificer"))
 
 		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armored,
 												"Wraith"     = /mob/living/simple_animal/construct/wraith,

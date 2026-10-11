@@ -264,7 +264,7 @@
 
 /obj/item/card/id/attack_self(mob/user as mob)
 	if(dna_hash == ID_CARD_UNSET && ishuman(user))
-		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
+		var/response = tgui_alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", list("Yes", "No"))
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
 			if(H.gloves)
@@ -305,7 +305,7 @@
 		var/mob/living/carbon/human/target_human = target_mob
 
 		if(dna_hash == ID_CARD_UNSET && ishuman(user))
-			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_human]'s now?", "Biometric Imprinting", "Yes", "No")
+			var/response = tgui_alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_human]'s now?", "Biometric Imprinting", list("Yes", "No"))
 			if (response == "Yes")
 				if(!user.Adjacent(target_human) || user.restrained() || user.lying || user.stat)
 					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_human] to scan their biometric data."))
@@ -774,7 +774,7 @@
 
 /obj/item/card/id/bluespace/attack_self(mob/user)
 	if(registered_name == user.real_name)
-		switch(alert("Would you like edit the ID label, or show it?", "Show or Edit?", "Edit", "Show"))
+		switch(tgui_alert(usr, "Would you like edit the ID label, or show it?", "Show or Edit?", list("Edit", "Show")))
 			if("Edit")
 				var/new_label = sanitize(input(user, "Enter the new label.", "Set Label") as text|null, 12)
 				if(new_label)

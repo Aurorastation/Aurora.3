@@ -41,7 +41,7 @@
 /obj/item/spell/illusion/on_use_cast(mob/user)
 	. = ..()
 	if(illusion)
-		var/choice = alert(user, "Would you like to have \the [illusion] speak, or do an emote?", "Illusion", "Speak","Emote","Cancel")
+		var/choice = tgui_alert(user, "Would you like to have \the [illusion] speak, or do an emote?", "Illusion", list("Speak", "Emote", "Cancel"))
 		switch(choice)
 			if("Cancel")
 				return

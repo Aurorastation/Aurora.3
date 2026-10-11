@@ -57,7 +57,7 @@
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		var/imprintID = alert(user,"Do you wish to imprint your name on \the [src.name]?","Imprint id","Yes", "No")
+		var/imprintID = tgui_alert(user, "Do you wish to imprint your name on \the [src.name]?", "Imprint id", list("Yes", "No"))
 		if(imprintID == "Yes")
 			to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
 			set_name(user.real_name)

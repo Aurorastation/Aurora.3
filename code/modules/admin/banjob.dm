@@ -625,7 +625,7 @@ GLOBAL_PROTECT(jobban_keylist)
 		if (ckey != usr.ckey)										//we can jobban ourselves
 			var/datum/admins/other_holder = admin_datums[ckey]
 			if(other_holder && (other_holder.rights & R_BAN))		//they can ban too. So we can't ban them
-				alert("You cannot perform this action. You must be of a higher administrative rank!")
+				tgui_alert(usr, "You cannot perform this action. You must be of a higher administrative rank!")
 				return 0
 
 	//get jobs for department if specified, otherwise just returnt he one job in a list.
@@ -723,7 +723,7 @@ GLOBAL_PROTECT(jobban_keylist)
 
 	//Banning comes first
 	if (notbannedlist.len) //at least 1 unbanned job exists in joblist so we have stuff to ban.
-		switch (alert("Temporary Ban?",,"Yes","No", "Cancel"))
+		switch (tgui_alert(usr, "Temporary Ban?", , list("Yes", "No", "Cancel")))
 			if ("Yes")
 				if (!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
 					to_chat(usr, SPAN_WARNING("You Cannot issue temporary job-bans!"))
@@ -809,7 +809,7 @@ GLOBAL_PROTECT(jobban_keylist)
 			var/reason = jobban_isbanned(ckey, R)
 			if (!reason)
 				continue //skip if it isn't jobbanned anyway
-			switch (alert("Job: '[R]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))
+			switch (tgui_alert(usr, "Job: '[R]' Reason: '[reason]' Un-jobban?", "Please Confirm", list("Yes", "No")))
 				if ("Yes")
 					ban_unban_log_save("[key_name(usr)] unjobbanned [ckey] from [R]")
 					log_admin("[key_name(usr)] unbanned [ckey] from [R]")

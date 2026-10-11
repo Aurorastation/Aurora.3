@@ -187,7 +187,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		update_query.Execute()
 		qdel(update_query)
 
-		if (href_list["linkingaction"] == "accept" && alert("To complete the process, you have to visit the website. Do you want to do so now?",,"Yes","No") == "Yes")
+		if (href_list["linkingaction"] == "accept" && tgui_alert(usr, "To complete the process, you have to visit the website. Do you want to do so now?", , list("Yes", "No")) == "Yes")
 			process_webint_link("interface/user/link")
 
 		to_chat(src, feedback_message)
@@ -221,7 +221,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 			if ("github")
 				if (!GLOB.config.githuburl)
 					to_chat(src, SPAN_DANGER("GitHub URL not set in the config. Unable to open the site."))
-				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
+				else if (tgui_alert(usr, "This will open the GitHub page in your browser. Are you sure?", , list("Yes", "No")) == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[GLOB.config.githuburl]pull/[href_list["pr"]]"
 						send_link(src, pr_link)
@@ -358,7 +358,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		return null
 
 	if(!(GLOB.config.guests_allowed || GLOB.config.external_auth) && IsGuestKey(key))
-		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
+		tgui_alert(src, "This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.", "Guest", list("OK"))
 		del(src)
 		return
 
