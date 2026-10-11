@@ -506,6 +506,8 @@
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
+	icon_state = "black"
+	item_state = "black"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
