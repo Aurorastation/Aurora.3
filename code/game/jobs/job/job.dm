@@ -156,8 +156,39 @@
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,10) + rand(5, 10)) * econ_status * economic_modifier * species_modifier + (rand(0,99) / 100)
-	var/datum/money_account/account = SSeconomy.create_and_assign_account(H, null, money_amount, public_account)
+	var/starting_funds = H.client ? H.client.prefs.starting_funds : STARTING_FUNDS_BANK_ACCOUNT
+	if(starting_funds == STARTING_FUNDS_CHARGE_CARD && !((H.client?.prefs.economic_status) in list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF)))
+		starting_funds = STARTING_FUNDS_BANK_ACCOUNT
+	var/physical_money_amount
+	switch(starting_funds)
+		if(STARTING_FUNDS_CASH)
+			physical_money_amount = round(min(money_amount / 2, STARTING_FUNDS_CASH_CAP), 0.01)
+		if(STARTING_FUNDS_CHARGE_CARD)
+			physical_money_amount = round(min(money_amount / 2, STARTING_FUNDS_CHARGE_CARD_CAP), 0.01)
+	var/account_balance = money_amount
+	if(!isnull(physical_money_amount))
+		account_balance -= physical_money_amount
+	var/datum/money_account/account = SSeconomy.create_and_assign_account(H, null, account_balance, public_account)
 	to_chat(H, SPAN_BOLD(SPAN_NOTICE("Your account number is: [account.account_number], your account pin is: [account.remote_access_pin]")))
+
+	return physical_money_amount
+
+/datum/job/proc/equip_starting_funds(var/mob/living/carbon/human/H, var/money_amount)
+	var/obj/item/spacecash/physical_funds
+	switch(H.client?.prefs.starting_funds)
+		if(STARTING_FUNDS_CASH)
+			var/obj/item/spacecash/bundle/cash_bundle = new(H)
+			cash_bundle.worth = money_amount
+			cash_bundle.update_icon()
+			physical_funds = cash_bundle
+		if(STARTING_FUNDS_CHARGE_CARD)
+			var/obj/item/spacecash/ewallet/charge_card = new(H)
+			charge_card.worth = money_amount
+			charge_card.owner_name = H.real_name
+			physical_funds = charge_card
+
+	if(physical_funds)
+		H.equip_or_collect(physical_funds, slot_in_backpack)
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, datum/preferences/prefs, var/alt_title, var/faction_override)
