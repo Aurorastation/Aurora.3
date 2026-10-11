@@ -205,6 +205,8 @@
 	copy_to(mannequin)
 
 	if(!equip_preview_mob)
+		apply_quirks(mannequin)
+		mannequin.update_icon()
 		return
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
@@ -233,11 +235,12 @@
 		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT)
 			SSjobs.EquipAugments(mannequin, src)
 
-		if (!SSATOMS_IS_PROBABLY_DONE)
-			SSatoms.CreateAtoms(list(mannequin))
-			mannequin.regenerate_icons()
-		else
-			mannequin.update_icon()
+	apply_quirks(mannequin)
+	if (!SSATOMS_IS_PROBABLY_DONE)
+		SSatoms.CreateAtoms(list(mannequin))
+		mannequin.regenerate_icons()
+	else
+		mannequin.update_icon()
 
 /datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
 	var/datum/job/chosenJob

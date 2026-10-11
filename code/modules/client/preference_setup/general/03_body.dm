@@ -34,7 +34,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	S["eyes_green"]        >> pref.g_eyes
 	S["eyes_blue"]         >> pref.b_eyes
 	S["b_type"]            >> pref.b_type
-	S["disabilities"]      >> pref.disabilities
 	S["organ_data"]        >> pref.organ_data
 	S["rlimb_data"]        >> pref.rlimb_data
 	S["body_markings"]     >> pref.body_markings
@@ -61,7 +60,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	S["eyes_green"]        << pref.g_eyes
 	S["eyes_blue"]         << pref.b_eyes
 	S["b_type"]            << pref.b_type
-	S["disabilities"]      << pref.disabilities
 	S["organ_data"]        << pref.organ_data
 	S["rlimb_data"]        << pref.rlimb_data
 	S["body_markings"]     << pref.body_markings
@@ -82,7 +80,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 				"gradient_style" = "g_style",
 				"eyes_colour",
 				"b_type",
-				"disabilities",
 				"organs_data" = "organ_data",
 				"organs_robotic" = "rlimb_data",
 				"body_markings",
@@ -109,7 +106,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			"gradient_style",
 			"eyes_colour",
 			"b_type",
-			"disabilities",
 			"organs_data",
 			"organs_robotic",
 			"body_markings",
@@ -132,7 +128,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		"gradient_style"= pref.g_style,
 		"eyes_colour"   = rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes),
 		"b_type"        = pref.b_type,
-		"disabilities"  = json_encode(pref.disabilities),
 		"organs_data"   = list2params(pref.organ_data),
 		"organs_robotic"= list2params(pref.rlimb_data),
 		"body_markings" = json_encode(pref.body_markings),
@@ -181,13 +176,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			catch (var/exception/e)
 				LOG_DEBUG("BODY MARKINGS: Caught [e]. Initial value: [before]")
 				pref.body_markings = list()
-		if (istext(pref.disabilities))
-			var/before = pref.disabilities
-			try
-				pref.disabilities = json_decode(pref.disabilities)
-			catch (var/exception/e)
-				LOG_DEBUG("DISABILITIES: Caught [e]. Initial value: [before]")
-				pref.disabilities = list()
 
 	var/datum/species/mob_species = GLOB.all_species[pref.species]
 
@@ -216,8 +204,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		pref.rlimb_data = list()
 	if (!pref.body_markings || !islist(pref.body_markings))
 		pref.body_markings = list()
-	if (!pref.disabilities || !islist(pref.disabilities))
-		pref.disabilities = list()
 
 	if(!pref.bgstate || !(pref.bgstate in list_values(pref.bgstate_options)))
 		pref.bgstate = "plain_black"
@@ -337,7 +323,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		"name" = name,
 		"ref" = REF(src),
 		"fields" = fields,
-		"disabilities" = pref.disabilities,
 		"has_internal_organs" = length(mob_species.alterable_internal_organs),
 		"internal_organs" = internal_organs,
 		"prostheses" = prostheses,
@@ -969,19 +954,6 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 		pref.rlimb_data.Cut()
 		recheck_markings_and_facial_hair()
 
-		return TOPIC_REFRESH_UPDATE_PREVIEW
-
-	else if(href_list["trait_add"])
-		var/list/available_disabilities = pref.disabilities ^ GLOB.chargen_disabilities_list
-
-		var/new_trait = tgui_input_list(user, "Choose a disability.", "Character Preference", available_disabilities)
-		if(new_trait && CanUseTopic(user))
-			pref.disabilities += new_trait
-		return TOPIC_REFRESH_UPDATE_PREVIEW
-
-	else if(href_list["trait_remove"])
-		var/M = href_list["trait_remove"]
-		pref.disabilities -= M
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["cycle_bg"])
