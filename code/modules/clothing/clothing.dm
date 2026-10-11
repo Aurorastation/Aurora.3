@@ -1317,7 +1317,7 @@
 		M.update_inv_w_uniform()
 		playsound(M, SFX_RUSTLE, 15, TRUE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
 
-/obj/item/clothing/under/proc/set_sensors(mob/user as mob)
+/obj/item/clothing/under/proc/set_sensors(mob/user as mob, mob/living/carbon/human/strip_target)
 	var/mob/M = user
 	if (isobserver(M) || user.incapacitated())
 		return
@@ -1329,6 +1329,10 @@
 		return 0
 
 	var/switchMode = tgui_input_list(user, "Select a sensor mode.", "Suit Sensor Mode", SUIT_SENSOR_MODES)
+	if(!(switchMode in SUIT_SENSOR_MODES) || QDELETED(src) || user.incapacitated() || has_sensor != SUIT_HAS_SENSORS)
+		return
+	if(strip_target && (!strip_target.can_strip(user) || strip_target.w_uniform != src || strip_target.is_strip_slot_obscured(slot_w_uniform)))
+		return
 	if(get_dist(user, src) > 1)
 		to_chat(user, "You have moved too far away.")
 		return
