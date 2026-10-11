@@ -1,13 +1,3 @@
-/obj/item/clothing/head/centhat
-	name = "\improper CentComm. hat"
-	icon_state = "centcom"
-	item_state_slots = list(
-		slot_l_hand_str = "centhat",
-		slot_r_hand_str = "centhat"
-		)
-	desc = "It's good to be emperor."
-	siemens_coefficient = 0.9
-
 /obj/item/clothing/head/pin
 	name = "hair pin"
 	desc = "A nice hair pin."

@@ -501,7 +501,6 @@ var/list/worths = list(
 					/obj/item/clothing/head/culthood = 15,
 					/obj/item/clothing/head/caphat/hop = 10,
 					/obj/item/clothing/head/caphat = 20,
-					/obj/item/clothing/head/centhat = 60,
 					/obj/item/clothing/head/pin/flower = 5,
 					/obj/item/clothing/head/powdered_wig = 8,
 					/obj/item/clothing/head/justice = 3,
