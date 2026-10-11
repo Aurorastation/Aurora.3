@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a small chance for lit cigarettes within one tile to ignite oxygen leaking from an IV drip's poisitive pressure mask. This ignites both the patient and the smoker. Respect the no smoking signs."
