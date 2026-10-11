@@ -2,7 +2,43 @@
 // Abstract Class
 //
 
+/datum/ai_holder/simple_animal/hostile/mimic
+
+/datum/ai_holder/simple_animal/hostile/mimic/on_target_acquired(atom/new_target, atom/old_target)
+	holder.AIAudibleEmote("growls at [new_target]")
+
+/datum/ai_holder/simple_animal/hostile/mimic/crate
+
+/datum/ai_holder/simple_animal/hostile/mimic/crate/on_target_acquired(atom/new_target, atom/old_target)
+	. = ..()
+	var/mob/living/simple_animal/hostile/mimic/crate/crate = holder
+	crate.trigger()
+
+/datum/ai_holder/simple_animal/hostile/mimic/crate/on_target_lost(atom/old_target)
+	var/mob/living/simple_animal/hostile/mimic/crate/crate = holder
+	crate.icon_state = initial(crate.icon_state)
+
+/datum/ai_holder/simple_animal/hostile/mimic/crate/post_melee_attack(atom/the_target)
+	. = ..()
+	var/mob/living/simple_animal/hostile/mimic/crate/crate = holder
+	crate.icon_state = initial(crate.icon_state)
+	if(isliving(the_target) && prob(15))
+		var/mob/living/living_target = the_target
+		living_target.Weaken(2)
+		living_target.visible_message(SPAN_DANGER("\the [crate] knocks down \the [living_target]!"))
+
+/datum/ai_holder/simple_animal/hostile/mimic/copy
+
+/datum/ai_holder/simple_animal/hostile/mimic/copy/post_melee_attack(atom/the_target)
+	. = ..()
+	var/mob/living/simple_animal/hostile/mimic/copy/copy_mimic = holder
+	if(copy_mimic.knockdown_people && isliving(the_target) && prob(15))
+		var/mob/living/living_target = the_target
+		living_target.Weaken(1)
+		living_target.visible_message(SPAN_DANGER("\the [copy_mimic] knocks down \the [living_target]!"))
+
 /mob/living/simple_animal/hostile/mimic
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/mimic
 	name = "crate"
 	desc = "A rectangular steel crate."
 	icon = 'icons/obj/containers/crate.dmi'
@@ -40,11 +76,6 @@
 	tameable = FALSE
 	sample_data = null
 
-/mob/living/simple_animal/hostile/mimic/FindTarget()
-	. = ..()
-	if(.)
-		audible_emote("growls at [.]")
-
 /mob/living/simple_animal/hostile/mimic/death()
 	..()
 	qdel(src)
@@ -56,6 +87,7 @@
 
 // Aggro when you try to open them. Will also pickup loot when spawns and drop it when dies.
 /mob/living/simple_animal/hostile/mimic/crate
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/mimic/crate
 
 	attacktext = "bites"
 
@@ -75,22 +107,6 @@
 /mob/living/simple_animal/hostile/mimic/crate/get_targets()
 	return ..(attempt_open ? world.view : 1)
 
-/mob/living/simple_animal/hostile/mimic/crate/FindTarget()
-	. = ..()
-	if(.)
-		trigger()
-
-/mob/living/simple_animal/hostile/mimic/crate/AttackingTarget()
-	. = ..()
-	if(.)
-		icon_state = initial(icon_state)
-
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(15))
-			L.Weaken(2)
-			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
-
 /mob/living/simple_animal/hostile/mimic/crate/proc/trigger()
 	if(!attempt_open)
 		visible_message("<b>[src]</b> starts to move!")
@@ -99,14 +115,6 @@
 /mob/living/simple_animal/hostile/mimic/crate/adjustBruteLoss(var/damage)
 	trigger()
 	..(damage)
-
-/mob/living/simple_animal/hostile/mimic/crate/LoseTarget()
-	..()
-	icon_state = initial(icon_state)
-
-/mob/living/simple_animal/hostile/mimic/crate/LostTarget()
-	..()
-	icon_state = initial(icon_state)
 
 /mob/living/simple_animal/hostile/mimic/crate/death()
 
@@ -123,6 +131,7 @@
 GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/cable, /obj/structure/window, /obj/projectile/animate))
 
 /mob/living/simple_animal/hostile/mimic/copy
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/mimic/copy
 
 	health = 100
 	maxhealth = 100
@@ -175,12 +184,3 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 /mob/living/simple_animal/hostile/mimic/copy/DestroySurroundings()
 	if(destroy_objects)
 		..()
-
-/mob/living/simple_animal/hostile/mimic/copy/AttackingTarget()
-	. =..()
-	if(knockdown_people)
-		var/mob/living/L = .
-		if(istype(L))
-			if(prob(15))
-				L.Weaken(1)
-				L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))

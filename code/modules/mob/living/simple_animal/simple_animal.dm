@@ -77,8 +77,6 @@
 	var/wanders_diagonally = FALSE
 	/// When set to TRUE this stops the animal from moving when someone is pulling it
 	var/stop_automated_movement_when_pulled = TRUE
-	/// Thing we're moving towards
-	var/atom/movement_target = null
 	var/turns_since_scan = 0
 
 	//Interaction
@@ -216,6 +214,8 @@
 	 */
 	var/list/sample_data = list("Cellular biochemistry indicitive of typical metabolc activity", "Tissue sample contains average muscle content", "No distinctive genetic markers identified")
 
+	ai_holder_type = /datum/ai_holder/simple_animal/passive
+
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
 	bite_factor = mob_size * 0.3
@@ -223,6 +223,8 @@
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
+	if(ai_holder_type)
+		ai_holder = new ai_holder_type(src)
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxhealth
@@ -250,17 +252,12 @@
 		death()
 
 /mob/living/simple_animal/Destroy()
+	QDEL_NULL(ai_holder)
 	CutOverlays(blood_overlay)
 	QDEL_NULL(blood_overlay)
-	lostMovementTarget()
 	QDEL_NULL(udder)
 
 	. = ..()
-
-/mob/living/simple_animal/proc/lostMovementTarget()
-	if(movement_target)
-		UnregisterSignal(movement_target, COMSIG_QDELETING)
-		movement_target = null
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	// this is a janky way to prevent mobs wandering into chasms, but allows them to be thrown into it by someone else if the mob is dead
@@ -384,6 +381,9 @@
 
 /mob/living/simple_animal/think()
 	..()
+
+	if(ai_holder)
+		return
 
 	if(stop_thinking)
 		return
@@ -560,7 +560,7 @@
 	custom_emote(AUDIBLE_MESSAGE, act_desc, can_ghosts_hear)
 
 /mob/living/simple_animal/proc/handle_attack_by(var/mob/M)
-	return
+	ai_holder?.react_to_attack(M)
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
@@ -756,20 +756,6 @@
 
 	return tally + GLOB.config.animal_delay
 
-/mob/living/simple_animal/cat/proc/handle_movement_target()
-	//if our target is neither inside a turf or inside a human(???), stop
-	if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
-		lostMovementTarget()
-		stop_automated_movement = 0
-	//if we have no target or our current one is out of sight/too far away
-	if( !movement_target || !(movement_target.loc in oview(src, 4)) )
-		lostMovementTarget()
-		stop_automated_movement = 0
-
-	if(movement_target)
-		stop_automated_movement = 1
-		GLOB.move_manager.move_to(src, movement_target, 0, seek_move_delay)
-
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
 
@@ -784,7 +770,9 @@
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	GLOB.move_manager.stop_looping(src)
-	lostMovementTarget()
+	ai_holder?.give_up_movement()
+	if(has_AI())
+		ai_holder.clear_target()
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_MOB_DEATH)
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
@@ -956,7 +944,7 @@
 		canmove = 0
 		wander = 0
 		GLOB.move_manager.stop_looping(src)
-		lostMovementTarget()
+		ai_holder?.give_up_movement()
 		update_icon()
 
 /// Wakes the mob up from sleeping

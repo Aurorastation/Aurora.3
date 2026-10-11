@@ -1,28 +1,5 @@
 ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate)
-	var/list/enemies = list()
-
-/mob/living/simple_animal/hostile/retaliate/Destroy()
-	enemies = null
-	return ..()
-
-/mob/living/simple_animal/hostile/retaliate/get_targets()
-	if(!length(enemies))
-		return list()
-	var/list/see = ..()
-	see &= enemies // Remove all entries that aren't in enemies
-	return see
-
-/mob/living/simple_animal/hostile/retaliate/handle_attack_by(mob/M)
-	//For some ungodly reason, this can get called after Destroy(), so to avoid exceptions we have to
-	//check if the lists weren't nulled already
-	if(islist(enemies))
-		enemies |= M
-	if(islist(targets))
-		targets |= M
-
-	for(var/mob/living/simple_animal/hostile/retaliate/H in view(world.view, get_turf(src)))
-		if(islist(H.enemies) && H.faction == faction)
-			H.enemies |= M
+	ai_holder_type = /datum/ai_holder/simple_animal/retaliate
 
 /mob/living/simple_animal/proc/name_species()
 	set name = "Name Alien Species"

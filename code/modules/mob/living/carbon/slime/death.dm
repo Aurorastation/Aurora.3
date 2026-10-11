@@ -4,11 +4,11 @@
 
 	if(victim)
 		step_away(src, victim)
-		victim = null
+		Feedstop()
 
 	if(!gibbed && is_adult)
 		var/mob/living/carbon/slime/M = new /mob/living/carbon/slime(loc, colour)
-		M.rabid = TRUE
+		M.set_slime_rabid(TRUE)
 		M.friends = friends.Copy()
 		M.mutation_chance = clamp(mutation_chance + rand(-3, 3), 0, 100)
 		step_away(M, src)
@@ -16,7 +16,7 @@
 		maxhealth = 150
 		revive()
 		if(!client)
-			rabid = TRUE
+			set_slime_rabid(TRUE)
 		number = rand(1, 1000)
 		name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
 		real_name = name
