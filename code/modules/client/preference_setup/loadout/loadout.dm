@@ -302,7 +302,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
 		if(!tweak || !istype(gear) || !(tweak in gear.gear_tweaks))
 			return TOPIC_NOACTION
-		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak), null, gear.path)
+		var/metadata = tweak.get_metadata(user, get_tweak_metadata(gear, tweak), null, gear.path, get_gear_metadata(gear))
 		if(!metadata || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		set_tweak_metadata(gear, tweak, metadata)
