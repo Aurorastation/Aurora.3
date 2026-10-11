@@ -23,6 +23,7 @@
 
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
+	icon = 'icons/obj/item/clothing/gloves/black_leather_gloves.dmi'
 	icon_state = "black_leather"
 	item_state = "black_leather"
 	species_restricted = null
