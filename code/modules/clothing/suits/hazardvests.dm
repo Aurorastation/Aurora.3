@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/hazardvest
 	name = "hazard vest"
 	desc = "A high-visibility vest used in work zones."
-	icon = 'icons/mob/clothing/suit/hazardvest.dmi'
+	icon = 'icons/obj/item/clothing/suit/hazardvest.dmi'
 	icon_state = "hazard"
 	item_state = "hazard"
 	contained_sprite = TRUE
