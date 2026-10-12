@@ -1,0 +1,6 @@
+author: Fenodyree
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes chemicals dealing damage equal to their maximum metabolic rate, instead of their real dose. Reduces acid spray and pepperspray damage by at least 10x."
