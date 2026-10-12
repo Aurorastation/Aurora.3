@@ -511,8 +511,10 @@ BLIND     // can't see anything
 	src.flipped = !src.flipped
 	if(src.flipped)
 		src.icon_state = "[icon_state]_r"
+		src.item_state = "[item_state]_r"
 	else
 		src.icon_state = initial(icon_state)
+		src.item_state = initial(item_state)
 	to_chat(usr, "You change \the [src] to cover the [src.flipped ? "left" : "right"] eye.")
 	update_clothing_icon()
 	update_icon()
