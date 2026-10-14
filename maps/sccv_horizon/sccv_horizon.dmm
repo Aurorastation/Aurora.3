@@ -23425,7 +23425,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "das" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor/monotile,
 /area/antag/loner)
 "daB" = (
@@ -23757,7 +23757,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow/full,
-/obj/structure/machinery/vending/wardrobe/engi_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/engi,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/locker_room)
@@ -28267,7 +28267,7 @@
 /turf/simulated/floor/lino,
 /area/horizon/service/cafeteria)
 "dEu" = (
-/obj/structure/machinery/vending/wardrobe/bar_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/bar,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/full,
@@ -34057,7 +34057,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/cargo_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/cargo,
 /turf/simulated/floor/tiled,
 /area/horizon/operations/break_room)
 "eru" = (
@@ -52609,7 +52609,7 @@
 /area/centcom/ferry)
 "gQy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/hydro_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/hydro,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/lower)
 "gQD" = (
@@ -56107,7 +56107,7 @@
 	pixel_y = 9;
 	dir = 4
 	},
-/obj/structure/machinery/vending/wardrobe/science_wardrobe{
+/obj/structure/machinery/vending/wardrobe/horizon/science{
 	pixel_y = 24;
 	density = 0
 	},
@@ -57146,7 +57146,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor,
 /area/antag/jockey)
@@ -68931,7 +68931,7 @@
 "iVW" = (
 /obj/effect/floor_decal/corner/purple/full,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/jani_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/jani,
 /obj/item/radio/intercom/west,
 /turf/simulated/floor/tiled,
 /area/horizon/service/custodial)
@@ -85292,7 +85292,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/telesci)
 "kYU" = (
-/obj/structure/machinery/vending/wardrobe/atmos_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/atmos,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmos Locker Room 1";
@@ -86775,7 +86775,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/machinery/vending/wardrobe/robo_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/robo,
 /turf/simulated/floor/tiled/white,
 /area/horizon/operations/machinist/surgicalbay)
 "liX" = (
@@ -91123,7 +91123,7 @@
 	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "lLR" = (
@@ -93292,7 +93292,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "mbD" = (
@@ -109005,7 +109005,7 @@
 /area/horizon/engineering/atmos/turbine)
 "ofj" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/wardrobe/chef_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/chef,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "ofm" = (
@@ -115466,7 +115466,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos)
 "oVN" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor/linoleum,
 /area/antag/actor)
 "oVP" = (
@@ -123679,7 +123679,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/sec_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/sec,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "pZM" = (
@@ -127265,7 +127265,7 @@
 /area/horizon/service/bar)
 "qyk" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/wardrobe/chap_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/chap,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/chapel/office)
 "qym" = (
@@ -147573,7 +147573,7 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/structure/machinery/vending/wardrobe/chem_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/chem,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/camera/network/medbay{
 	c_tag = "Medical - Chemistry Lab Alpha";
@@ -167801,7 +167801,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor/freezer,
 /area/antag/mercenary)
 "vFS" = (
@@ -167829,7 +167829,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/machinery/vending/wardrobe/medi_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/medi,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/washroom)
@@ -173589,7 +173589,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
 "wqI" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor,
 /area/antag/ninja)
 "wqJ" = (
